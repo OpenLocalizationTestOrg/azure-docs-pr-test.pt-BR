@@ -21,21 +21,21 @@ ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/11/2017
 ---
-## <a name="create-an-application-express"></a>Criar um aplicativo (Expresso)
-Agora você precisa registrar seu aplicativo no *Portal de Registro de Aplicativos da Microsoft*:
-1. Registre o aplicativo por meio do [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure)
-2.  Insira um nome para o aplicativo e seu email
-3.  Verifique se a opção Instalação Guiada está marcada
-4.  Siga as instruções para obter a ID do aplicativo e colá-lo no código
+## <a name="create-an-application-express"></a><span data-ttu-id="ce5af-103">Criar um aplicativo (Expresso)</span><span class="sxs-lookup"><span data-stu-id="ce5af-103">Create an application (Express)</span></span>
+<span data-ttu-id="ce5af-104">Agora você precisa registrar seu aplicativo no *Portal de Registro de Aplicativos da Microsoft*:</span><span class="sxs-lookup"><span data-stu-id="ce5af-104">Now you need to register your application in the *Microsoft Application Registration Portal*:</span></span>
+1. <span data-ttu-id="ce5af-105">Registre o aplicativo por meio do [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure)</span><span class="sxs-lookup"><span data-stu-id="ce5af-105">Register your application via the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure)</span></span>
+2.  <span data-ttu-id="ce5af-106">Insira um nome para o aplicativo e seu email</span><span class="sxs-lookup"><span data-stu-id="ce5af-106">Enter a name for your application and your email</span></span>
+3.  <span data-ttu-id="ce5af-107">Verifique se a opção Instalação Guiada está marcada</span><span class="sxs-lookup"><span data-stu-id="ce5af-107">Make sure the option for Guided Setup is checked</span></span>
+4.  <span data-ttu-id="ce5af-108">Siga as instruções para obter a ID do aplicativo e colá-lo no código</span><span class="sxs-lookup"><span data-stu-id="ce5af-108">Follow the instructions to obtain the application ID and paste it into your code</span></span>
 
-### <a name="add-your-application-registration-information-to-your-solution-advanced"></a>Adicionar as informações de registro do aplicativo à sua solução (Avançado)
-Agora você precisa registrar seu aplicativo no *Portal de Registro de Aplicativos da Microsoft*:
-1. Acesse o [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app) para registrar um aplicativo
-2. Insira um nome para o aplicativo e seu email 
-3. Verifique se a opção Instalação Guiada está desmarcada
-4. Clique em `Add Platform` e, em seguida, selecione `Native Application` e clique em Salvar
-5.  Abra `MainActivity` (em `app` > `java` > *`{host}.{namespace}`*)
-6.  Substitua *[Inserir a ID do aplicativo aqui]* na linha que começa com `final static String CLIENT_ID` pela ID do aplicativo que você acabou de registrar:
+### <a name="add-your-application-registration-information-to-your-solution-advanced"></a><span data-ttu-id="ce5af-109">Adicionar as informações de registro do aplicativo à sua solução (Avançado)</span><span class="sxs-lookup"><span data-stu-id="ce5af-109">Add your application registration information to your solution (Advanced)</span></span>
+<span data-ttu-id="ce5af-110">Agora você precisa registrar seu aplicativo no *Portal de Registro de Aplicativos da Microsoft*:</span><span class="sxs-lookup"><span data-stu-id="ce5af-110">Now you need to register your application in the *Microsoft Application Registration Portal*:</span></span>
+1. <span data-ttu-id="ce5af-111">Acesse o [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app) para registrar um aplicativo</span><span class="sxs-lookup"><span data-stu-id="ce5af-111">Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application</span></span>
+2. <span data-ttu-id="ce5af-112">Insira um nome para o aplicativo e seu email</span><span class="sxs-lookup"><span data-stu-id="ce5af-112">Enter a name for your application and your email</span></span> 
+3. <span data-ttu-id="ce5af-113">Verifique se a opção Instalação Guiada está desmarcada</span><span class="sxs-lookup"><span data-stu-id="ce5af-113">Make sure the option for Guided Setup is unchecked</span></span>
+4. <span data-ttu-id="ce5af-114">Clique em `Add Platform` e, em seguida, selecione `Native Application` e clique em Salvar</span><span class="sxs-lookup"><span data-stu-id="ce5af-114">Click `Add Platform`, then select `Native Application` and hit Save</span></span>
+5.  <span data-ttu-id="ce5af-115">Abra `MainActivity` (em `app` > `java` > *`{host}.{namespace}`*)</span><span class="sxs-lookup"><span data-stu-id="ce5af-115">Open `MainActivity` (under `app` > `java` > *`{host}.{namespace}`*)</span></span>
+6.  <span data-ttu-id="ce5af-116">Substitua *[Inserir a ID do aplicativo aqui]* na linha que começa com `final static String CLIENT_ID` pela ID do aplicativo que você acabou de registrar:</span><span class="sxs-lookup"><span data-stu-id="ce5af-116">Replace the *[Enter the application Id here]* in the line starting with `final static String CLIENT_ID` with the application ID you just registered:</span></span>
 
 ```java
 final static String CLIENT_ID = "[Enter the application Id here]";
@@ -43,7 +43,7 @@ final static String CLIENT_ID = "[Enter the application Id here]";
 <!-- Workaround for Docs conversion bug -->
 <ol start="7">
 <li>
-Abra `AndroidManifest.xml` (em `app` > `manifests`) Adicione a atividade a seguir ao nó `manifest\application`. Isso registra um `BrowserTabActivity` para permitir que o sistema operacional continue executando o aplicativo depois de concluir a autenticação:
+<span data-ttu-id="ce5af-117">Abra `AndroidManifest.xml` (em `app` > `manifests`) Adicione a atividade a seguir ao nó `manifest\application`.</span><span class="sxs-lookup"><span data-stu-id="ce5af-117">Open `AndroidManifest.xml` (under `app` > `manifests`) Add the following activity to `manifest\application` node.</span></span> <span data-ttu-id="ce5af-118">Isso registra um `BrowserTabActivity` para permitir que o sistema operacional continue executando o aplicativo depois de concluir a autenticação:</span><span class="sxs-lookup"><span data-stu-id="ce5af-118">This registers a `BrowserTabActivity` to allow the OS to resume your application after completing the authentication:</span></span>
 </li>
 </ol>
 
@@ -66,6 +66,6 @@ Abra `AndroidManifest.xml` (em `app` > `manifests`) Adicione a atividade a segui
 <!-- Workaround for Docs conversion bug -->
 <ol start="8">
 <li>
-Em `BrowserTabActivity`, substitua `[Enter the application Id here]` pela ID do aplicativo.
+<span data-ttu-id="ce5af-119">Em `BrowserTabActivity`, substitua `[Enter the application Id here]` pela ID do aplicativo.</span><span class="sxs-lookup"><span data-stu-id="ce5af-119">In the `BrowserTabActivity`, replace `[Enter the application Id here]` with the application ID.</span></span>
 </li>
 </ol>

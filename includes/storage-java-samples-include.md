@@ -1,10 +1,10 @@
-## <a name="java-sample-code-repositories"></a>Repositórios de código de exemplo Java
+## <a name="java-sample-code-repositories"></a><span data-ttu-id="29580-101">Repositórios de código de exemplo Java</span><span class="sxs-lookup"><span data-stu-id="29580-101">Java sample code repositories</span></span>
 
-Veja uma lista de todos os nossos repositórios de exemplo para a Biblioteca de cliente Java do Armazenamento do Azure.
+<span data-ttu-id="29580-102">Veja uma lista de todos os nossos repositórios de exemplo para a Biblioteca de cliente Java do Armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="29580-102">Here is a list of all our sample repositories for the Azure Storage Java client library.</span></span>
 
-* [Guia de Introdução ao armazenamento - Gerenciar conta de armazenamento em Java](https://azure.microsoft.com/resources/samples/storage-java-manage-storage-accounts/)
-* [Introdução ao Serviço Blob do Azure em Java](https://azure.microsoft.com/resources/samples/storage-blob-java-getting-started/)
-* [Introdução ao Serviço Arquivo do Azure em Java](https://azure.microsoft.com/resources/samples/storage-file-java-getting-started/)
-* [Introdução ao Serviço Fila do Azure em Java](https://azure.microsoft.com/resources/samples/storage-queue-java-getting-started/)
-* [Introdução ao Serviço Tabela do Azure em Java](https://azure.microsoft.com/resources/samples/storage-table-java-getting-started/)
-* [Amostras da Biblioteca do Cliente Java de Armazenamento](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage)
+* [<span data-ttu-id="29580-103">Guia de Introdução ao armazenamento - Gerenciar conta de armazenamento em Java</span><span class="sxs-lookup"><span data-stu-id="29580-103">Getting Started with Storage - Manage Storage Account in Java</span></span>](https://azure.microsoft.com/resources/samples/storage-java-manage-storage-accounts/)
+* [<span data-ttu-id="29580-104">Introdução ao Serviço Blob do Azure em Java</span><span class="sxs-lookup"><span data-stu-id="29580-104">Getting Started with Azure Blob Service in Java</span></span>](https://azure.microsoft.com/resources/samples/storage-blob-java-getting-started/)
+* [<span data-ttu-id="29580-105">Introdução ao Serviço Arquivo do Azure em Java</span><span class="sxs-lookup"><span data-stu-id="29580-105">Getting Started with Azure File Service in Java</span></span>](https://azure.microsoft.com/resources/samples/storage-file-java-getting-started/)
+* [<span data-ttu-id="29580-106">Introdução ao Serviço Fila do Azure em Java</span><span class="sxs-lookup"><span data-stu-id="29580-106">Getting Started with Azure Queue Service in Java</span></span>](https://azure.microsoft.com/resources/samples/storage-queue-java-getting-started/)
+* [<span data-ttu-id="29580-107">Introdução ao Serviço Tabela do Azure em Java</span><span class="sxs-lookup"><span data-stu-id="29580-107">Getting Started with Azure Table Service in Java</span></span>](https://azure.microsoft.com/resources/samples/storage-table-java-getting-started/)
+* [<span data-ttu-id="29580-108">Amostras da Biblioteca do Cliente Java de Armazenamento</span><span class="sxs-lookup"><span data-stu-id="29580-108">Storage Java Client Library Samples</span></span>](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage)

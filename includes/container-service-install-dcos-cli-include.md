@@ -22,11 +22,11 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 07/11/2017
 ---
 > [!NOTE]
-> Isso é para trabalhar com clusters ACS baseados no DC/OS. Não é necessário fazer isso para clusters ACS baseados no Swarm.
+> <span data-ttu-id="fd94b-104">Isso é para trabalhar com clusters ACS baseados no DC/OS.</span><span class="sxs-lookup"><span data-stu-id="fd94b-104">This is for working with DC/OS-based ACS clusters.</span></span> <span data-ttu-id="fd94b-105">Não é necessário fazer isso para clusters ACS baseados no Swarm.</span><span class="sxs-lookup"><span data-stu-id="fd94b-105">There is no need to do this for Swarm-based ACS clusters.</span></span>
 > 
 > 
 
-Primeiro, [conectar-se ao cluster ACS baseado no DC/OS](../articles/container-service/container-service-connect.md). Depois de fazer isso, você poderá instalar a CLI do DC/OS em seu computador cliente com os comandos abaixo:
+<span data-ttu-id="fd94b-106">Primeiro, [conectar-se ao cluster ACS baseado no DC/OS](../articles/container-service/container-service-connect.md).</span><span class="sxs-lookup"><span data-stu-id="fd94b-106">First, [connect to your DC/OS-based ACS cluster](../articles/container-service/container-service-connect.md).</span></span> <span data-ttu-id="fd94b-107">Depois de fazer isso, você poderá instalar a CLI do DC/OS em seu computador cliente com os comandos abaixo:</span><span class="sxs-lookup"><span data-stu-id="fd94b-107">Once you have done this, you can install the DC/OS CLI on your client machine with the commands below:</span></span>
 
 ```bash
 sudo pip install virtualenv
@@ -36,17 +36,17 @@ chmod +x install-optout-dcos-cli.sh
 ./install-optout-dcos-cli.sh . http://localhost --add-path yes
 ```
 
-Se estiver usando uma versão antiga do Python, talvez você observe algumas “InsecurePlatformWarnings”. Você pode ignorá-los com segurança.
+<span data-ttu-id="fd94b-108">Se estiver usando uma versão antiga do Python, talvez você observe algumas “InsecurePlatformWarnings”.</span><span class="sxs-lookup"><span data-stu-id="fd94b-108">If you are using an old version of Python, you may notice some "InsecurePlatformWarnings".</span></span> <span data-ttu-id="fd94b-109">Você pode ignorá-los com segurança.</span><span class="sxs-lookup"><span data-stu-id="fd94b-109">You can safely ignore these.</span></span>
 
-Para começar a usar sem reiniciar o shell, execute:
+<span data-ttu-id="fd94b-110">Para começar a usar sem reiniciar o shell, execute:</span><span class="sxs-lookup"><span data-stu-id="fd94b-110">In order to get started without restarting your shell, run:</span></span>
 
 ```bash
 source ~/.bashrc
 ```
 
-Esta etapa não será necessária quando você iniciar novos shells.
+<span data-ttu-id="fd94b-111">Esta etapa não será necessária quando você iniciar novos shells.</span><span class="sxs-lookup"><span data-stu-id="fd94b-111">This step will not be necessary when you start new shells.</span></span>
 
-Agora você pode confirmar se a CLI está instalada:
+<span data-ttu-id="fd94b-112">Agora você pode confirmar se a CLI está instalada:</span><span class="sxs-lookup"><span data-stu-id="fd94b-112">Now you can confirm that the CLI is installed:</span></span>
 
 ```bash
 dcos --help

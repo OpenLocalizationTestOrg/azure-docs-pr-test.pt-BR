@@ -1,17 +1,17 @@
-### <a name="step-1-navigate-to-the-virtual-network-gateway"></a>Etapa 1 – Navegar para o gateway de rede virtual
+### <a name="step-1-navigate-to-the-virtual-network-gateway"></a><span data-ttu-id="925b5-101">Etapa 1 – Navegar para o gateway de rede virtual</span><span class="sxs-lookup"><span data-stu-id="925b5-101">Step 1: Navigate to the virtual network gateway</span></span>
 
-1. No [portal do Azure](https://portal.azure.com), navegue até **Todos os recursos**. 
-2. Para abrir a folha do gateway de rede virtual, navegue até o gateway de rede virtual que você deseja excluir e clique nele.
+1. <span data-ttu-id="925b5-102">No [portal do Azure](https://portal.azure.com), navegue até **Todos os recursos**.</span><span class="sxs-lookup"><span data-stu-id="925b5-102">In the [Azure portal](https://portal.azure.com), navigate to **All resources**.</span></span> 
+2. <span data-ttu-id="925b5-103">Para abrir a folha do gateway de rede virtual, navegue até o gateway de rede virtual que você deseja excluir e clique nele.</span><span class="sxs-lookup"><span data-stu-id="925b5-103">To open the virtual network gateway blade, navigate to the virtual network gateway that you want to delete and click it.</span></span>
 
-### <a name="step-2-delete-connections"></a>Etapa 2: Excluir conexões
+### <a name="step-2-delete-connections"></a><span data-ttu-id="925b5-104">Etapa 2: Excluir conexões</span><span class="sxs-lookup"><span data-stu-id="925b5-104">Step 2: Delete connections</span></span>
 
-1. Na folha do gateway de rede virtual, clique em **Conexões** para exibir todas as conexões com o gateway.
-2. Clique em **'...'** na linha do nome da conexão e selecione **Excluir** na lista suspensa.
-3. Clique em **Sim** para confirmar que você deseja excluir a conexão. Se tiver várias conexões, exclua cada uma delas.
+1. <span data-ttu-id="925b5-105">Na folha do gateway de rede virtual, clique em **Conexões** para exibir todas as conexões com o gateway.</span><span class="sxs-lookup"><span data-stu-id="925b5-105">On the blade for your virtual network gateway, click **Connections** to view all connections to the gateway.</span></span>
+2. <span data-ttu-id="925b5-106">Clique em **'...'**</span><span class="sxs-lookup"><span data-stu-id="925b5-106">Click the **'...'**</span></span> <span data-ttu-id="925b5-107">na linha do nome da conexão e selecione **Excluir** na lista suspensa.</span><span class="sxs-lookup"><span data-stu-id="925b5-107">on the row of the name of the connection, then select **Delete** from the dropdown.</span></span>
+3. <span data-ttu-id="925b5-108">Clique em **Sim** para confirmar que você deseja excluir a conexão.</span><span class="sxs-lookup"><span data-stu-id="925b5-108">Click **Yes** to confirm that you want to delete the connection.</span></span> <span data-ttu-id="925b5-109">Se tiver várias conexões, exclua cada uma delas.</span><span class="sxs-lookup"><span data-stu-id="925b5-109">If you have multiple connections, delete each connection.</span></span>
 
-### <a name="step-3-delete-the-virtual-network-gateway"></a>Etapa 3: Excluir o gateway de rede virtual
+### <a name="step-3-delete-the-virtual-network-gateway"></a><span data-ttu-id="925b5-110">Etapa 3: Excluir o gateway de rede virtual</span><span class="sxs-lookup"><span data-stu-id="925b5-110">Step 3: Delete the virtual network gateway</span></span>
 
-Tenha em mente que se você tiver uma configuração de P2S nessa VNet além da configuração de S2S, a exclusão do gateway de rede virtual desconectará automaticamente todos os clientes de P2S sem aviso.
+<span data-ttu-id="925b5-111">Tenha em mente que se você tiver uma configuração de P2S nessa VNet além da configuração de S2S, a exclusão do gateway de rede virtual desconectará automaticamente todos os clientes de P2S sem aviso.</span><span class="sxs-lookup"><span data-stu-id="925b5-111">Be aware that if you have a P2S configuration to this VNet in addition to your S2S configuration, deleting the virtual network gateway will automatically disconnect all P2S clients without warning.</span></span>
 
-1. Na folha do gateway de rede virtual, clique em **Visão geral**.
-2. Na folha **Visão geral**, clique em **Excluir** para excluir o gateway.
+1. <span data-ttu-id="925b5-112">Na folha do gateway de rede virtual, clique em **Visão geral**.</span><span class="sxs-lookup"><span data-stu-id="925b5-112">On the virtual network gateway blade, click **Overview**.</span></span>
+2. <span data-ttu-id="925b5-113">Na folha **Visão geral**, clique em **Excluir** para excluir o gateway.</span><span class="sxs-lookup"><span data-stu-id="925b5-113">On the **Overview** blade, click **Delete** to delete the gateway.</span></span>

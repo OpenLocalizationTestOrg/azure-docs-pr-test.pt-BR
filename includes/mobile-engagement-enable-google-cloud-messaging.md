@@ -1,14 +1,14 @@
 
-### <a name="create-a-google-firebase-project-with-api-key"></a>Criar um projeto do Google Firebase com a chave de API
+### <a name="create-a-google-firebase-project-with-api-key"></a><span data-ttu-id="60b42-101">Criar um projeto do Google Firebase com a chave de API</span><span class="sxs-lookup"><span data-stu-id="60b42-101">Create a Google Firebase project with API key</span></span>
 > [!NOTE]
-> Para concluir o procedimento, você deve ter uma conta do Google com um endereço de email verificado. Para criar uma nova conta do Google, vá para <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+> <span data-ttu-id="60b42-102">Para concluir o procedimento, você deve ter uma conta do Google com um endereço de email verificado.</span><span class="sxs-lookup"><span data-stu-id="60b42-102">To complete this procedure, you must have a Google account that has a verified email address.</span></span> <span data-ttu-id="60b42-103">Para criar uma nova conta do Google, vá para <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.</span><span class="sxs-lookup"><span data-stu-id="60b42-103">To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.</span></span>
 > 
 > 
 
-1. Navegue até o [Console do Firebase](https://console.firebase.google.com/) e entre com suas credenciais de conta do Google.
-2. Clique n botão **Criar novo projeto** para criar um novo projeto. Como alternativa, você também pode clicar em **Importar Projeto do Google** para importar um projeto existente. 
-3. Se você tiver optado por criar um novo projeto, forneça um **Nome de projeto** e escolha um **País/Região**.
-4. Na página do projeto, clique na roda de engrenagem de **Configurações** na parte superior esquerda. No menu, clique em **Configurações do projeto**.  
-5. Clique na guia **Mensagens de Nuvem** na parte superior. 
-6. Anote a **Chave do Servidor** e a **ID do Remetente** que você usará posteriormente no *Arquivo de Manifesto do Android*.  
+1. <span data-ttu-id="60b42-104">Navegue até o [Console do Firebase](https://console.firebase.google.com/) e entre com suas credenciais de conta do Google.</span><span class="sxs-lookup"><span data-stu-id="60b42-104">Navigate to the [Firebase Console](https://console.firebase.google.com/) and sign-in with your Google account credentials.</span></span>
+2. <span data-ttu-id="60b42-105">Clique n botão **Criar novo projeto** para criar um novo projeto.</span><span class="sxs-lookup"><span data-stu-id="60b42-105">Click on **Create new Project** button to create a new project.</span></span> <span data-ttu-id="60b42-106">Como alternativa, você também pode clicar em **Importar Projeto do Google** para importar um projeto existente.</span><span class="sxs-lookup"><span data-stu-id="60b42-106">Alternatively, you can also click on **Import Google Project** to import and existing project.</span></span> 
+3. <span data-ttu-id="60b42-107">Se você tiver optado por criar um novo projeto, forneça um **Nome de projeto** e escolha um **País/Região**.</span><span class="sxs-lookup"><span data-stu-id="60b42-107">If you opted for creating a new project then provide a **Project name** and choose a **Country/Region**.</span></span>
+4. <span data-ttu-id="60b42-108">Na página do projeto, clique na roda de engrenagem de **Configurações** na parte superior esquerda.</span><span class="sxs-lookup"><span data-stu-id="60b42-108">On your project page, click the **Settings** cog wheel at the top left.</span></span> <span data-ttu-id="60b42-109">No menu, clique em **Configurações do projeto**.</span><span class="sxs-lookup"><span data-stu-id="60b42-109">In the menu, click on **Project settings**.</span></span>  
+5. <span data-ttu-id="60b42-110">Clique na guia **Mensagens de Nuvem** na parte superior.</span><span class="sxs-lookup"><span data-stu-id="60b42-110">Click on the **Cloud Messaging** tab at the top.</span></span> 
+6. <span data-ttu-id="60b42-111">Anote a **Chave do Servidor** e a **ID do Remetente** que você usará posteriormente no *Arquivo de Manifesto do Android*.</span><span class="sxs-lookup"><span data-stu-id="60b42-111">Make a note of the **Server Key** and the **Sender ID** that you will use later in the *Android Manifest file*.</span></span>  
 

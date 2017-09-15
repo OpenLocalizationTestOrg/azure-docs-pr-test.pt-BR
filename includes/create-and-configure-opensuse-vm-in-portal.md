@@ -1,52 +1,52 @@
-1. Entre no [portal clássico do Azure](http://manage.windowsazure.com).  
-2. Na barra de comandos na parte inferior da janela, clique em **Novo**.
-3. Em **Computação**, clique em **Máquina Virtual** e em **Da Galeria**.
+1. <span data-ttu-id="ac599-101">Entre no [portal clássico do Azure](http://manage.windowsazure.com).</span><span class="sxs-lookup"><span data-stu-id="ac599-101">Sign in to the [Azure classic portal](http://manage.windowsazure.com).</span></span>  
+2. <span data-ttu-id="ac599-102">Na barra de comandos na parte inferior da janela, clique em **Novo**.</span><span class="sxs-lookup"><span data-stu-id="ac599-102">On the command bar at the bottom of the window, click **New**.</span></span>
+3. <span data-ttu-id="ac599-103">Em **Computação**, clique em **Máquina Virtual** e em **Da Galeria**.</span><span class="sxs-lookup"><span data-stu-id="ac599-103">Under **Compute**, click **Virtual Machine**, and then click **From Gallery**.</span></span>
    
     ![Criar uma Nova Máquina Virtual][Image1]
-4. No grupo **SUSE** , selecione uma imagem de máquina virtual OpenSUSE e clique na seta para continuar.
-5. Na primeira página **Configuração da máquina virtual** :
+4. <span data-ttu-id="ac599-105">No grupo **SUSE** , selecione uma imagem de máquina virtual OpenSUSE e clique na seta para continuar.</span><span class="sxs-lookup"><span data-stu-id="ac599-105">Under the **SUSE** group, select an OpenSUSE virtual machine image, and then click the arrow to continue.</span></span>
+5. <span data-ttu-id="ac599-106">Na primeira página **Configuração da máquina virtual** :</span><span class="sxs-lookup"><span data-stu-id="ac599-106">On the first **Virtual machine configuration** page:</span></span>
    
-   * Digite um **Nome da máquina virtual**, como "testlinuxvm". O nome deve conter entre 3 e 15 caracteres, pode conter apenas letras, números e hifens e precisa começar com uma letra e terminar com uma letra ou número.
-   * Verifique a **Camada** e escolha um **Tamanho**. A camada determina os tamanhos que você pode escolher. O tamanho afeta o custo de utilização e as opções de configuração, por exemplo, quantos discos de dados é possível anexar. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-   * Digite um **Novo Nome de Usuário** ou aceite o padrão, **azureuser**. Esse nome é adicionado ao arquivo da lista Sudoers.
-   * Decide que tipo de **Autenticação** usar. Para obter diretrizes gerais de senha, consulte [Senhas fortes](http://msdn.microsoft.com/library/ms161962.aspx).
-6. Na próxima página **Configuração da máquina virtual** :
+   * <span data-ttu-id="ac599-107">Digite um **Nome da máquina virtual**, como "testlinuxvm".</span><span class="sxs-lookup"><span data-stu-id="ac599-107">Type a **Virtual Machine Name**, such as "testlinuxvm".</span></span> <span data-ttu-id="ac599-108">O nome deve conter entre 3 e 15 caracteres, pode conter apenas letras, números e hifens e precisa começar com uma letra e terminar com uma letra ou número.</span><span class="sxs-lookup"><span data-stu-id="ac599-108">The name must contain between 3 and 15 characters, can contain only letters, numbers, and hyphens, and must start with a letter and end with either a letter or number.</span></span>
+   * <span data-ttu-id="ac599-109">Verifique a **Camada** e escolha um **Tamanho**.</span><span class="sxs-lookup"><span data-stu-id="ac599-109">Verify the **Tier** and pick a **Size**.</span></span> <span data-ttu-id="ac599-110">A camada determina os tamanhos que você pode escolher.</span><span class="sxs-lookup"><span data-stu-id="ac599-110">The tier determines the sizes you can choose from.</span></span> <span data-ttu-id="ac599-111">O tamanho afeta o custo de utilização e as opções de configuração, por exemplo, quantos discos de dados é possível anexar.</span><span class="sxs-lookup"><span data-stu-id="ac599-111">The size affects the cost of using it, as well as configuration options such as how many data disks you can attach.</span></span> <span data-ttu-id="ac599-112">Para obter detalhes, consulte [Tamanhos das máquinas virtuais](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="ac599-112">For details, see [Sizes for virtual machines](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span></span>
+   * <span data-ttu-id="ac599-113">Digite um **Novo Nome de Usuário** ou aceite o padrão, **azureuser**.</span><span class="sxs-lookup"><span data-stu-id="ac599-113">Type a **New User Name**, or accept the default, **azureuser**.</span></span> <span data-ttu-id="ac599-114">Esse nome é adicionado ao arquivo da lista Sudoers.</span><span class="sxs-lookup"><span data-stu-id="ac599-114">This name is added to the Sudoers list file.</span></span>
+   * <span data-ttu-id="ac599-115">Decide que tipo de **Autenticação** usar.</span><span class="sxs-lookup"><span data-stu-id="ac599-115">Decide which type of **Authentication** to use.</span></span> <span data-ttu-id="ac599-116">Para obter diretrizes gerais de senha, consulte [Senhas fortes](http://msdn.microsoft.com/library/ms161962.aspx).</span><span class="sxs-lookup"><span data-stu-id="ac599-116">For general password guidelines, see [Strong passwords](http://msdn.microsoft.com/library/ms161962.aspx).</span></span>
+6. <span data-ttu-id="ac599-117">Na próxima página **Configuração da máquina virtual** :</span><span class="sxs-lookup"><span data-stu-id="ac599-117">On the next **Virtual machine configuration** page:</span></span>
    
-   * Use o padrão **Criar um novo serviço de nuvem**.
-   * Na caixa **Nome DNS** , digite um nome DNS exclusivo para usar como parte do endereço, como “testlinuxvm”.
-   * Na caixa **Região/Grupo de Afinidade/Rede Virtual** , selecione uma região onde essa imagem virtual será hospedada.
-   * Em **Pontos de extremidade**, mantenha o ponto de extremidade do SSH. Agora, você pode adicionar outros, ou adicionar, alterar ou excluí-los após a criação da máquina virtual.
+   * <span data-ttu-id="ac599-118">Use o padrão **Criar um novo serviço de nuvem**.</span><span class="sxs-lookup"><span data-stu-id="ac599-118">Use the default **Create a new cloud service**.</span></span>
+   * <span data-ttu-id="ac599-119">Na caixa **Nome DNS** , digite um nome DNS exclusivo para usar como parte do endereço, como “testlinuxvm”.</span><span class="sxs-lookup"><span data-stu-id="ac599-119">In the **DNS Name** box, type a unique DNS name to use as part of the address, such as "testlinuxvm".</span></span>
+   * <span data-ttu-id="ac599-120">Na caixa **Região/Grupo de Afinidade/Rede Virtual** , selecione uma região onde essa imagem virtual será hospedada.</span><span class="sxs-lookup"><span data-stu-id="ac599-120">In the **Region/Affinity Group/Virtual Network** box, select a region where this virtual image will be hosted.</span></span>
+   * <span data-ttu-id="ac599-121">Em **Pontos de extremidade**, mantenha o ponto de extremidade do SSH.</span><span class="sxs-lookup"><span data-stu-id="ac599-121">Under **Endpoints**, keep the SSH endpoint.</span></span> <span data-ttu-id="ac599-122">Agora, você pode adicionar outros, ou adicionar, alterar ou excluí-los após a criação da máquina virtual.</span><span class="sxs-lookup"><span data-stu-id="ac599-122">You can add others now, or add, change, or delete them after the virtual machine is created.</span></span>
      
      > [!NOTE]
-     > Se você desejar que uma máquina virtual use uma rede virtual, **deverá** especificar a rede virtual ao criar a máquina virtual. Você não pode adicionar uma máquina virtual a uma rede virtual após a criação da máquina virtual. Para saber mais, confira [Visão geral da rede virtual](../articles/virtual-network/virtual-networks-overview.md).
+     > <span data-ttu-id="ac599-123">Se você desejar que uma máquina virtual use uma rede virtual, **deverá** especificar a rede virtual ao criar a máquina virtual.</span><span class="sxs-lookup"><span data-stu-id="ac599-123">If you want a virtual machine to use a virtual network, you **must** specify the virtual network when you create the virtual machine.</span></span> <span data-ttu-id="ac599-124">Você não pode adicionar uma máquina virtual a uma rede virtual após a criação da máquina virtual.</span><span class="sxs-lookup"><span data-stu-id="ac599-124">You can't add a virtual machine to a virtual network after you create the virtual machine.</span></span> <span data-ttu-id="ac599-125">Para saber mais, confira [Visão geral da rede virtual](../articles/virtual-network/virtual-networks-overview.md).</span><span class="sxs-lookup"><span data-stu-id="ac599-125">For more information, see [Virtual Network Overview](../articles/virtual-network/virtual-networks-overview.md).</span></span>
      > 
      > 
-7. Na última página de **Configuração da máquina virtual** , mantenha as configurações padrão e, em seguida, clique na marca de seleção para concluir.
+7. <span data-ttu-id="ac599-126">Na última página de **Configuração da máquina virtual** , mantenha as configurações padrão e, em seguida, clique na marca de seleção para concluir.</span><span class="sxs-lookup"><span data-stu-id="ac599-126">On the last **Virtual machine configuration** page, keep the default settings and then click the check mark to finish.</span></span>
 
-O portal relaciona a nova máquina virtual sob **Máquinas Virtuais**. Embora o status será indicado como **(Provisionando)**, a máquina virtual está sendo configurada. Quando o status indicar **Executando**, você poderá passar para a próxima etapa.
+<span data-ttu-id="ac599-127">O portal relaciona a nova máquina virtual sob **Máquinas Virtuais**.</span><span class="sxs-lookup"><span data-stu-id="ac599-127">The portal lists the new virtual machine under **Virtual Machines**.</span></span> <span data-ttu-id="ac599-128">Embora o status será indicado como **(Provisionando)**, a máquina virtual está sendo configurada.</span><span class="sxs-lookup"><span data-stu-id="ac599-128">While the status is reported as **(Provisioning)**, the virtual machine is being set up.</span></span> <span data-ttu-id="ac599-129">Quando o status indicar **Executando**, você poderá passar para a próxima etapa.</span><span class="sxs-lookup"><span data-stu-id="ac599-129">When the status is reported as **Running**, you can move on to the next step.</span></span>
 
-## <a name="connect-to-the-virtual-machine"></a>Conectar-se à máquina virtual
-Você usará SSH ou PuTTY para se conectar à máquina virtual, dependendo do sistema operacional no computador do qual você se conectará:
+## <a name="connect-to-the-virtual-machine"></a><span data-ttu-id="ac599-130">Conectar-se à máquina virtual</span><span class="sxs-lookup"><span data-stu-id="ac599-130">Connect to the Virtual Machine</span></span>
+<span data-ttu-id="ac599-131">Você usará SSH ou PuTTY para se conectar à máquina virtual, dependendo do sistema operacional no computador do qual você se conectará:</span><span class="sxs-lookup"><span data-stu-id="ac599-131">You'll use SSH or PuTTY to connect to the virtual machine, depending on the operating system on the computer you'll connect from:</span></span>
 
-* Em um computador executando o Linux, use SSH. No prompt de comando, digite:
+* <span data-ttu-id="ac599-132">Em um computador executando o Linux, use SSH.</span><span class="sxs-lookup"><span data-stu-id="ac599-132">From a computer running Linux, use SSH.</span></span> <span data-ttu-id="ac599-133">No prompt de comando, digite:</span><span class="sxs-lookup"><span data-stu-id="ac599-133">At the command prompt, type:</span></span>
   
     `$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
   
-    Digite a senha do usuário.
-* Em um computador executando o Windows, use PuTTY. Se ele não estiver instalado, baixe-o na [Página de Download do PuTTY][PuTTYDownload].
+    <span data-ttu-id="ac599-134">Digite a senha do usuário.</span><span class="sxs-lookup"><span data-stu-id="ac599-134">Type the user's password.</span></span>
+* <span data-ttu-id="ac599-135">Em um computador executando o Windows, use PuTTY.</span><span class="sxs-lookup"><span data-stu-id="ac599-135">From a computer running Windows, use PuTTY.</span></span> <span data-ttu-id="ac599-136">Se ele não estiver instalado, baixe-o na [Página de Download do PuTTY][PuTTYDownload].</span><span class="sxs-lookup"><span data-stu-id="ac599-136">If you don't have it installed, download it from the [PuTTY Download Page][PuTTYDownload].</span></span>
   
-    Salve **putty.exe** em um diretório no computador. Abra um prompt de comando, navegue até essa pasta e execute **putty.exe**.
+    <span data-ttu-id="ac599-137">Salve **putty.exe** em um diretório no computador.</span><span class="sxs-lookup"><span data-stu-id="ac599-137">Save **putty.exe** to a directory on your computer.</span></span> <span data-ttu-id="ac599-138">Abra um prompt de comando, navegue até essa pasta e execute **putty.exe**.</span><span class="sxs-lookup"><span data-stu-id="ac599-138">Open a command prompt, navigate to that folder, and run **putty.exe**.</span></span>
   
-    Digite o nome do host, como "testlinuxvm.cloudapp.net” e digite "22" para a **Porta**.
+    <span data-ttu-id="ac599-139">Digite o nome do host, como "testlinuxvm.cloudapp.net” e digite "22" para a **Porta**.</span><span class="sxs-lookup"><span data-stu-id="ac599-139">Type the host name, such as "testlinuxvm.cloudapp.net", and type "22" for the **Port**.</span></span>
   
     ![Tela PuTTY][Image6]  
 
-## <a name="update-the-virtual-machine-optional"></a>Atualizar a máquina virtual (opcional)
-1. Depois de se conectar à máquina virtual, você poderá, opcionalmente, instalar atualizações e correções do sistema. Para executar a atualização, digite:
+## <a name="update-the-virtual-machine-optional"></a><span data-ttu-id="ac599-141">Atualizar a máquina virtual (opcional)</span><span class="sxs-lookup"><span data-stu-id="ac599-141">Update the Virtual Machine (optional)</span></span>
+1. <span data-ttu-id="ac599-142">Depois de se conectar à máquina virtual, você poderá, opcionalmente, instalar atualizações e correções do sistema.</span><span class="sxs-lookup"><span data-stu-id="ac599-142">After you're connected to the virtual machine, you can optionally install system updates and patches.</span></span> <span data-ttu-id="ac599-143">Para executar a atualização, digite:</span><span class="sxs-lookup"><span data-stu-id="ac599-143">To run the update, type:</span></span>
    
     `$ sudo zypper update`
-2. Selecione **Software**, em seguida, **Atualização online** para listar as atualizações disponíveis. Selecione **Aceitar** para iniciar a instalação e aplique todas as novas correções disponíveis (exceto as opcionais).
-3. Após a instalação ser concluída, selecione **Concluir**.  O sistema agora está atualizado.
+2. <span data-ttu-id="ac599-144">Selecione **Software**, em seguida, **Atualização online** para listar as atualizações disponíveis.</span><span class="sxs-lookup"><span data-stu-id="ac599-144">Select **Software**, then **Online Update** to list available updates.</span></span> <span data-ttu-id="ac599-145">Selecione **Aceitar** para iniciar a instalação e aplique todas as novas correções disponíveis (exceto as opcionais).</span><span class="sxs-lookup"><span data-stu-id="ac599-145">Select **Accept** to start the installation and apply all new available patches (except the optional ones).</span></span>
+3. <span data-ttu-id="ac599-146">Após a instalação ser concluída, selecione **Concluir**.</span><span class="sxs-lookup"><span data-stu-id="ac599-146">After installation is done, select **Finish**.</span></span>  <span data-ttu-id="ac599-147">O sistema agora está atualizado.</span><span class="sxs-lookup"><span data-stu-id="ac599-147">Your system is now up to date.</span></span>
 
 [PuTTYDownload]: http://www.puttyssh.org/download.html
 

@@ -1,9 +1,9 @@
-Este artigo supõe que
+<span data-ttu-id="42b4b-101">Este artigo supõe que</span><span class="sxs-lookup"><span data-stu-id="42b4b-101">This article assumes that</span></span>
 
-1. A **VPN Site a Site** ou um **via expressa** já tiver sido estabelecida a conexão entre sua rede local e de rede Virtual do Azure.
-2. Sua conta de usuário tem permissões para criar uma nova máquina virtual na assinatura do Azure que as máquinas virtuais foram failover em.
-3. Sua assinatura tem um mínimo de 4 núcleos disponíveis para criar uma nova máquina virtual do servidor em processo.
-4. Você tem o **senha do servidor de configuração** disponíveis.
+1. <span data-ttu-id="42b4b-102">A **VPN Site a Site** ou um **via expressa** já tiver sido estabelecida a conexão entre sua rede local e de rede Virtual do Azure.</span><span class="sxs-lookup"><span data-stu-id="42b4b-102">A **Site to Site VPN** or an **Express Route** connection between your on-premises network and the Azure Virtual Network has already been established.</span></span>
+2. <span data-ttu-id="42b4b-103">Sua conta de usuário tem permissões para criar uma nova máquina virtual na assinatura do Azure que as máquinas virtuais foram failover em.</span><span class="sxs-lookup"><span data-stu-id="42b4b-103">Your user account has permissions to create a new virtual machine in the Azure Subscription that the virtual machines have been failed over into.</span></span>
+3. <span data-ttu-id="42b4b-104">Sua assinatura tem um mínimo de 4 núcleos disponíveis para criar uma nova máquina virtual do servidor em processo.</span><span class="sxs-lookup"><span data-stu-id="42b4b-104">Your subscription has a minimum of 4 Cores available to spin up a new Process Server virtual machine.</span></span>
+4. <span data-ttu-id="42b4b-105">Você tem o **senha do servidor de configuração** disponíveis.</span><span class="sxs-lookup"><span data-stu-id="42b4b-105">You have the **Configuration Server Passphrase** available.</span></span>
 
 > [!TIP]
-> Certifique-se de que você seja capaz de conectar-se a porta 443 do servidor de configuração (em execução local) de rede Virtual do Azure que as máquinas virtuais foram failover em.
+> <span data-ttu-id="42b4b-106">Certifique-se de que você seja capaz de conectar-se a porta 443 do servidor de configuração (em execução local) de rede Virtual do Azure que as máquinas virtuais foram failover em.</span><span class="sxs-lookup"><span data-stu-id="42b4b-106">Ensure that you are able to connect port 443 of the Configuration Server (running on-premises) from the Azure Virtual Network that the virtual machines have been failed over into.</span></span>

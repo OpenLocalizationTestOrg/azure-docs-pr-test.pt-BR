@@ -1,14 +1,14 @@
-### <a name="prerequisites"></a>Pré-requisitos
-* Uma conta [SMTP](https://wikipedia.org/wiki/Simple_Mail_Transfer_Protocol)  
+### <a name="prerequisites"></a><span data-ttu-id="a8fb5-101">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="a8fb5-101">Prerequisites</span></span>
+* <span data-ttu-id="a8fb5-102">Uma conta [SMTP](https://wikipedia.org/wiki/Simple_Mail_Transfer_Protocol)</span><span class="sxs-lookup"><span data-stu-id="a8fb5-102">A [SMTP](https://wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) account</span></span>  
 
-Antes de usar a conta SMTP em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta SMTP. Felizmente, você pode fazer isso facilmente dentro do seu aplicativo lógico no Portal do Azure.  
+<span data-ttu-id="a8fb5-103">Antes de usar a conta SMTP em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta SMTP. Felizmente, você pode fazer isso facilmente dentro do seu aplicativo lógico no Portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="a8fb5-103">Before you can use your SMTP account in a logic app, you must authorize the logic app to connect to your SMTP account.Fortunately, you can do this easily from within your logic app on the Azure Portal.</span></span>  
 
-Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta SMTP:  
+<span data-ttu-id="a8fb5-104">Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta SMTP:</span><span class="sxs-lookup"><span data-stu-id="a8fb5-104">Here are the steps to authorize your logic app to connect to your SMTP account:</span></span>  
 
-1. Para criar uma conexão com o SMTP, no designer do aplicativo lógico, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa, em seguida, digite *SMTP* na caixa de pesquisa. Selecione o gatilho ou ação que gostaria de usar:   
+1. <span data-ttu-id="a8fb5-105">Para criar uma conexão com o SMTP, no designer do aplicativo lógico, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa, em seguida, digite *SMTP* na caixa de pesquisa.</span><span class="sxs-lookup"><span data-stu-id="a8fb5-105">To create a connection to SMTP, in the logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *SMTP* in the search box.</span></span> <span data-ttu-id="a8fb5-106">Selecione o gatilho ou ação que gostaria de usar: </span><span class="sxs-lookup"><span data-stu-id="a8fb5-106">Select the trigger or action you'll like to use:</span></span>  
    ![](./media/connectors-create-api-smtp/smtp-1.png)  
-2. Se você não tiver criado nenhuma conexão com o SMTP antes, suas credenciais do SMTP serão solicitadas. Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar aos dados da sua conta SMTP e usá-los:  
+2. <span data-ttu-id="a8fb5-107">Se você não tiver criado nenhuma conexão com o SMTP antes, suas credenciais do SMTP serão solicitadas.</span><span class="sxs-lookup"><span data-stu-id="a8fb5-107">If you haven't created any connections to SMTP before, you'll get prompted to provide your SMTP credentials.</span></span> <span data-ttu-id="a8fb5-108">Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar aos dados da sua conta SMTP e usá-los:</span><span class="sxs-lookup"><span data-stu-id="a8fb5-108">These credentials will be used to authorize your logic app to connect to, and access your SMTP account's data:</span></span>  
    ![](./media/connectors-create-api-smtp/smtp-2.png)  
-3. Observe que a conexão foi criada e agora você pode continuar com as outras etapas em seu aplicativo lógico:  
+3. <span data-ttu-id="a8fb5-109">Observe que a conexão foi criada e agora você pode continuar com as outras etapas em seu aplicativo lógico:</span><span class="sxs-lookup"><span data-stu-id="a8fb5-109">Notice the connection has been created and you are now free to proceed with the other steps in your logic app:</span></span>  
    ![](./media/connectors-create-api-smtp/smtp-3.png)  
 

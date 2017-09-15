@@ -1,19 +1,19 @@
-### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>Criar um ponto de extremidade TCP para a máquina virtual
-Para acessar o SQL Server da Internet, a máquina virtual deve ter um ponto de extremidade para escutar comunicação TCP de entrada. Essa etapa de configuração do Azure, direciona o tráfego da porta TCP de entrada para uma porta TCP que está acessível para a máquina virtual.
+### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a><span data-ttu-id="66dab-101">Criar um ponto de extremidade TCP para a máquina virtual</span><span class="sxs-lookup"><span data-stu-id="66dab-101">Create a TCP endpoint for the virtual machine</span></span>
+<span data-ttu-id="66dab-102">Para acessar o SQL Server da Internet, a máquina virtual deve ter um ponto de extremidade para escutar comunicação TCP de entrada.</span><span class="sxs-lookup"><span data-stu-id="66dab-102">In order to access SQL Server from the internet, the virtual machine must have an endpoint to listen for incoming TCP communication.</span></span> <span data-ttu-id="66dab-103">Essa etapa de configuração do Azure, direciona o tráfego da porta TCP de entrada para uma porta TCP que está acessível para a máquina virtual.</span><span class="sxs-lookup"><span data-stu-id="66dab-103">This Azure configuration step, directs incoming TCP port traffic to a TCP port that is accessible to the virtual machine.</span></span>
 
 > [!NOTE]
-> Se estiver se conectando dentro do mesmo serviço de nuvem ou rede virtual, você não precisa criar um ponto de extremidade acessível publicamente. Nesse caso, você pode continuar para a próxima etapa. Para obter mais informações, consulte [Cenários de conexão](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
+> <span data-ttu-id="66dab-104">Se estiver se conectando dentro do mesmo serviço de nuvem ou rede virtual, você não precisa criar um ponto de extremidade acessível publicamente.</span><span class="sxs-lookup"><span data-stu-id="66dab-104">If you are connecting within the same cloud service or virtual network, you do not have to create a publically accessible endpoint.</span></span> <span data-ttu-id="66dab-105">Nesse caso, você pode continuar para a próxima etapa.</span><span class="sxs-lookup"><span data-stu-id="66dab-105">In that case, you could continue to the next step.</span></span> <span data-ttu-id="66dab-106">Para obter mais informações, consulte [Cenários de conexão](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).</span><span class="sxs-lookup"><span data-stu-id="66dab-106">For more information, see [Connection Scenarios](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).</span></span>
 > 
 > 
 
-1. No Portal do Azure, selecione **Máquinas virtuais (clássico)**.
-2. Em seguida, selecione a máquina virtual do SQL Server.
-3. Selecione **Pontos de Extremidade** e clique no botão **Adicionar** na parte superior da folha de Pontos de extremidade.
+1. <span data-ttu-id="66dab-107">No Portal do Azure, selecione **Máquinas virtuais (clássico)**.</span><span class="sxs-lookup"><span data-stu-id="66dab-107">On the Azure Portal, select **Virtual machines (classic)**.</span></span>
+2. <span data-ttu-id="66dab-108">Em seguida, selecione a máquina virtual do SQL Server.</span><span class="sxs-lookup"><span data-stu-id="66dab-108">Then select you SQL Server virtual machine.</span></span>
+3. <span data-ttu-id="66dab-109">Selecione **Pontos de Extremidade** e clique no botão **Adicionar** na parte superior da folha de Pontos de extremidade.</span><span class="sxs-lookup"><span data-stu-id="66dab-109">Select **Endpoints**, and then click the **Add** button at the top of the Endpoints blade.</span></span>
    
     ![Etapas do Portal para Criação de Pontos de Extremidade](./media/virtual-machines-sql-server-connection-steps/portal-endpoint-creation.png)
-4. Na folha **Adicionar Ponto de Extremidade**, forneça um **Nome**, como SQLEndpoint.
-5. Selecione**TCP** como o **Protocolo**.
-6. Para **Porta pública**, especifique um número de porta, como **57500**.
-7. Para **Porta privada**, especifique a porta de escuta do SQL Server, cujo valor padrão é **1433**.
-8. Clique em **OK** para criar o ponto de extremidade.
+4. <span data-ttu-id="66dab-111">Na folha **Adicionar Ponto de Extremidade**, forneça um **Nome**, como SQLEndpoint.</span><span class="sxs-lookup"><span data-stu-id="66dab-111">On the **Add Endpoint** blade, provide a **Name** such as SQLEndpoint.</span></span>
+5. <span data-ttu-id="66dab-112">Selecione**TCP** como o **Protocolo**.</span><span class="sxs-lookup"><span data-stu-id="66dab-112">Select **TCP** for the **Protocol**.</span></span>
+6. <span data-ttu-id="66dab-113">Para **Porta pública**, especifique um número de porta, como **57500**.</span><span class="sxs-lookup"><span data-stu-id="66dab-113">For **Public port**, specify a port number such as **57500**.</span></span>
+7. <span data-ttu-id="66dab-114">Para **Porta privada**, especifique a porta de escuta do SQL Server, cujo valor padrão é **1433**.</span><span class="sxs-lookup"><span data-stu-id="66dab-114">For **Private port**, specify SQL Server's listening port, which defaults to **1433**.</span></span>
+8. <span data-ttu-id="66dab-115">Clique em **OK** para criar o ponto de extremidade.</span><span class="sxs-lookup"><span data-stu-id="66dab-115">Click **Ok** to create the endpoint.</span></span>
 

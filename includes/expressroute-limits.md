@@ -1,27 +1,27 @@
-#### <a name="expressroute-limits"></a>Limites da Rota Expressa
-Os limites a seguir se aplicam aos recursos da Rota Expressa por assinatura.
+#### <a name="expressroute-limits"></a><span data-ttu-id="22a14-101">Limites da Rota Expressa</span><span class="sxs-lookup"><span data-stu-id="22a14-101">ExpressRoute Limits</span></span>
+<span data-ttu-id="22a14-102">Os limites a seguir se aplicam aos recursos da Rota Expressa por assinatura.</span><span class="sxs-lookup"><span data-stu-id="22a14-102">The following limits apply to ExpressRoute resources per subscription.</span></span>
 
-| Recurso | Limite padrão |
+| <span data-ttu-id="22a14-103">Recurso</span><span class="sxs-lookup"><span data-stu-id="22a14-103">Resource</span></span> | <span data-ttu-id="22a14-104">Limite padrão</span><span class="sxs-lookup"><span data-stu-id="22a14-104">Default Limit</span></span> |
 | --- | --- |
-| Circuitos da Rota Expressa por assinatura |10 |
-| Circuitos da Rota Expressa por região por assinatura para ARM |10 |
-| Número máximo de rotas para emparelhamento privado do Azure com o padrão da Rota Expressa |4.000 |
-| Número máximo de rotas para emparelhamento privado do Azure com o complemento Premium da Rota Expressa |10.000 |
-| Número máximo de rotas para emparelhamento público do Azure com o padrão da Rota Expressa |200 |
-| Número máximo de rotas para emparelhamento público do Azure com o complemento Premium da Rota Expressa |200 |
-| Número máximo de rotas para emparelhamento do Microsoft Azure com o padrão da Rota Expressa |200 |
-| Número máximo de rotas para emparelhamento do Microsoft Azure com o complemento Premium da Rota Expressa |200 |
-| Número de links de rede virtual permitido por circuito da Rota Expressa |consulte a tabela abaixo |
+| <span data-ttu-id="22a14-105">Circuitos da Rota Expressa por assinatura</span><span class="sxs-lookup"><span data-stu-id="22a14-105">ExpressRoute circuits per subscription</span></span> |<span data-ttu-id="22a14-106">10</span><span class="sxs-lookup"><span data-stu-id="22a14-106">10</span></span> |
+| <span data-ttu-id="22a14-107">Circuitos da Rota Expressa por região por assinatura para ARM</span><span class="sxs-lookup"><span data-stu-id="22a14-107">ExpressRoute circuits per region per subscription for ARM</span></span> |<span data-ttu-id="22a14-108">10</span><span class="sxs-lookup"><span data-stu-id="22a14-108">10</span></span> |
+| <span data-ttu-id="22a14-109">Número máximo de rotas para emparelhamento privado do Azure com o padrão da Rota Expressa</span><span class="sxs-lookup"><span data-stu-id="22a14-109">Maximum number of routes for Azure private peering with ExpressRoute standard</span></span> |<span data-ttu-id="22a14-110">4.000</span><span class="sxs-lookup"><span data-stu-id="22a14-110">4,000</span></span> |
+| <span data-ttu-id="22a14-111">Número máximo de rotas para emparelhamento privado do Azure com o complemento Premium da Rota Expressa</span><span class="sxs-lookup"><span data-stu-id="22a14-111">Maximum number of routes for Azure private peering with ExpressRoute premium add-on</span></span> |<span data-ttu-id="22a14-112">10.000</span><span class="sxs-lookup"><span data-stu-id="22a14-112">10,000</span></span> |
+| <span data-ttu-id="22a14-113">Número máximo de rotas para emparelhamento público do Azure com o padrão da Rota Expressa</span><span class="sxs-lookup"><span data-stu-id="22a14-113">Maximum number of routes for Azure public peering with ExpressRoute standard</span></span> |<span data-ttu-id="22a14-114">200</span><span class="sxs-lookup"><span data-stu-id="22a14-114">200</span></span> |
+| <span data-ttu-id="22a14-115">Número máximo de rotas para emparelhamento público do Azure com o complemento Premium da Rota Expressa</span><span class="sxs-lookup"><span data-stu-id="22a14-115">Maximum number of routes for Azure public peering with ExpressRoute premium add-on</span></span> |<span data-ttu-id="22a14-116">200</span><span class="sxs-lookup"><span data-stu-id="22a14-116">200</span></span> |
+| <span data-ttu-id="22a14-117">Número máximo de rotas para emparelhamento do Microsoft Azure com o padrão da Rota Expressa</span><span class="sxs-lookup"><span data-stu-id="22a14-117">Maximum number of routes for Azure Microsoft peering with ExpressRoute standard</span></span> |<span data-ttu-id="22a14-118">200</span><span class="sxs-lookup"><span data-stu-id="22a14-118">200</span></span> |
+| <span data-ttu-id="22a14-119">Número máximo de rotas para emparelhamento do Microsoft Azure com o complemento Premium da Rota Expressa</span><span class="sxs-lookup"><span data-stu-id="22a14-119">Maximum number of routes for Azure Microsoft peering with ExpressRoute premium add-on</span></span> |<span data-ttu-id="22a14-120">200</span><span class="sxs-lookup"><span data-stu-id="22a14-120">200</span></span> |
+| <span data-ttu-id="22a14-121">Número de links de rede virtual permitido por circuito da Rota Expressa</span><span class="sxs-lookup"><span data-stu-id="22a14-121">Number of virtual network links allowed per ExpressRoute circuit</span></span> |<span data-ttu-id="22a14-122">consulte a tabela abaixo</span><span class="sxs-lookup"><span data-stu-id="22a14-122">see table below</span></span> |
 
-#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Número de Redes Virtuais por circuito da Rota Expressa
-| **Tamanho do circuito** | **Número de links da Rede Virtual para padrão** | **Número de Links da Rede Virtual com complemento Premium** |
+#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a><span data-ttu-id="22a14-123">Número de Redes Virtuais por circuito da Rota Expressa</span><span class="sxs-lookup"><span data-stu-id="22a14-123">Number of Virtual Networks per ExpressRoute circuit</span></span>
+| <span data-ttu-id="22a14-124">**Tamanho do circuito**</span><span class="sxs-lookup"><span data-stu-id="22a14-124">**Circuit Size**</span></span> | <span data-ttu-id="22a14-125">**Número de links da Rede Virtual para padrão**</span><span class="sxs-lookup"><span data-stu-id="22a14-125">**Number of VNet links for standard**</span></span> | <span data-ttu-id="22a14-126">**Número de Links da Rede Virtual com complemento Premium**</span><span class="sxs-lookup"><span data-stu-id="22a14-126">**Number of VNet Links with Premium add-on**</span></span> |
 | --- | --- | --- |
-| 50 Mbps |10 |20 |
-| 100 Mbps |10 |25 |
-| 200 Mbps |10 |25 |
-| 500 Mbps |10 |40 |
-| 1 Gbps |10 |50 |
-| 2 Gbps |10 |60 |
-| 5 Gbps |10 |75 |
-| 10 Gbps |10 |100 |
+| <span data-ttu-id="22a14-127">50 Mbps</span><span class="sxs-lookup"><span data-stu-id="22a14-127">50 Mbps</span></span> |<span data-ttu-id="22a14-128">10</span><span class="sxs-lookup"><span data-stu-id="22a14-128">10</span></span> |<span data-ttu-id="22a14-129">20</span><span class="sxs-lookup"><span data-stu-id="22a14-129">20</span></span> |
+| <span data-ttu-id="22a14-130">100 Mbps</span><span class="sxs-lookup"><span data-stu-id="22a14-130">100 Mbps</span></span> |<span data-ttu-id="22a14-131">10</span><span class="sxs-lookup"><span data-stu-id="22a14-131">10</span></span> |<span data-ttu-id="22a14-132">25</span><span class="sxs-lookup"><span data-stu-id="22a14-132">25</span></span> |
+| <span data-ttu-id="22a14-133">200 Mbps</span><span class="sxs-lookup"><span data-stu-id="22a14-133">200 Mbps</span></span> |<span data-ttu-id="22a14-134">10</span><span class="sxs-lookup"><span data-stu-id="22a14-134">10</span></span> |<span data-ttu-id="22a14-135">25</span><span class="sxs-lookup"><span data-stu-id="22a14-135">25</span></span> |
+| <span data-ttu-id="22a14-136">500 Mbps</span><span class="sxs-lookup"><span data-stu-id="22a14-136">500 Mbps</span></span> |<span data-ttu-id="22a14-137">10</span><span class="sxs-lookup"><span data-stu-id="22a14-137">10</span></span> |<span data-ttu-id="22a14-138">40</span><span class="sxs-lookup"><span data-stu-id="22a14-138">40</span></span> |
+| <span data-ttu-id="22a14-139">1 Gbps</span><span class="sxs-lookup"><span data-stu-id="22a14-139">1 Gbps</span></span> |<span data-ttu-id="22a14-140">10</span><span class="sxs-lookup"><span data-stu-id="22a14-140">10</span></span> |<span data-ttu-id="22a14-141">50</span><span class="sxs-lookup"><span data-stu-id="22a14-141">50</span></span> |
+| <span data-ttu-id="22a14-142">2 Gbps</span><span class="sxs-lookup"><span data-stu-id="22a14-142">2 Gbps</span></span> |<span data-ttu-id="22a14-143">10</span><span class="sxs-lookup"><span data-stu-id="22a14-143">10</span></span> |<span data-ttu-id="22a14-144">60</span><span class="sxs-lookup"><span data-stu-id="22a14-144">60</span></span> |
+| <span data-ttu-id="22a14-145">5 Gbps</span><span class="sxs-lookup"><span data-stu-id="22a14-145">5 Gbps</span></span> |<span data-ttu-id="22a14-146">10</span><span class="sxs-lookup"><span data-stu-id="22a14-146">10</span></span> |<span data-ttu-id="22a14-147">75</span><span class="sxs-lookup"><span data-stu-id="22a14-147">75</span></span> |
+| <span data-ttu-id="22a14-148">10 Gbps</span><span class="sxs-lookup"><span data-stu-id="22a14-148">10 Gbps</span></span> |<span data-ttu-id="22a14-149">10</span><span class="sxs-lookup"><span data-stu-id="22a14-149">10</span></span> |<span data-ttu-id="22a14-150">100</span><span class="sxs-lookup"><span data-stu-id="22a14-150">100</span></span> |
 

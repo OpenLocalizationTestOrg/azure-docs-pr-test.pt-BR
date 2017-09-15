@@ -1,12 +1,12 @@
-## <a name="vpn-gateway"></a>Gateway de VPN
-Um recurso de gateway de VPN permite que você crie uma conexão segura entre seu data center local e o Azure. Um recurso de gateway de VPN pode ser configurado de três maneiras diferentes:
+## <a name="vpn-gateway"></a><span data-ttu-id="6d075-101">Gateway de VPN</span><span class="sxs-lookup"><span data-stu-id="6d075-101">VPN Gateway</span></span>
+<span data-ttu-id="6d075-102">Um recurso de gateway de VPN permite que você crie uma conexão segura entre seu data center local e o Azure.</span><span class="sxs-lookup"><span data-stu-id="6d075-102">A VPN gateway resource enables you to create a secure connection between their on-premises data center and Azure.</span></span> <span data-ttu-id="6d075-103">Um recurso de gateway de VPN pode ser configurado de três maneiras diferentes:</span><span class="sxs-lookup"><span data-stu-id="6d075-103">A VPN gateway resource can be configured in three different ways:</span></span>
 
-* **Ponto a Site** – você pode acessar com segurança os recursos do Azure hospedados em uma VNET com um cliente VPN, em qualquer computador. 
-* **Conexão multissite** – você pode conectar-se com segurança por meio de seus data centers locais para recursos em execução em uma VNET. 
-* **VNET para VNET** – você pode conectar-se com segurança entre VNETS do Azure na mesma região ou em regiões diferentes, para criar cargas de trabalho com redundância geográfica.
+* <span data-ttu-id="6d075-104">**Ponto a Site** – você pode acessar com segurança os recursos do Azure hospedados em uma VNET com um cliente VPN, em qualquer computador.</span><span class="sxs-lookup"><span data-stu-id="6d075-104">**Point to Site** – you can securely access your Azure resources hosted in a VNET by using a VPN client from any computer.</span></span> 
+* <span data-ttu-id="6d075-105">**Conexão multissite** – você pode conectar-se com segurança por meio de seus data centers locais para recursos em execução em uma VNET.</span><span class="sxs-lookup"><span data-stu-id="6d075-105">**Multi-site connection** – you can securely connect from your on-premises data centers to resources running in a VNET.</span></span> 
+* <span data-ttu-id="6d075-106">**VNET para VNET** – você pode conectar-se com segurança entre VNETS do Azure na mesma região ou em regiões diferentes, para criar cargas de trabalho com redundância geográfica.</span><span class="sxs-lookup"><span data-stu-id="6d075-106">**VNET to VNET** – you can securely connect across Azure VNETS within the same region, or across regions to build workloads with geo-redundancy.</span></span>
 
-Propriedades principais de um gateway de VPN incluem:
+<span data-ttu-id="6d075-107">Propriedades principais de um gateway de VPN incluem:</span><span class="sxs-lookup"><span data-stu-id="6d075-107">Key properties of a VPN gateway include:</span></span>
 
-* **Tipo de gateway** - gateway roteado dinamicamente ou estaticamente. 
-* **Prefixo do Pool de endereços do cliente de VPN** – endereços IP a serem atribuídos a clientes conectando-se em configuração de ponto a site.
+* <span data-ttu-id="6d075-108">**Tipo de gateway** - gateway roteado dinamicamente ou estaticamente.</span><span class="sxs-lookup"><span data-stu-id="6d075-108">**Gateway type** - dynamically routed or a static routed gateway.</span></span> 
+* <span data-ttu-id="6d075-109">**Prefixo do Pool de endereços do cliente de VPN** – endereços IP a serem atribuídos a clientes conectando-se em configuração de ponto a site.</span><span class="sxs-lookup"><span data-stu-id="6d075-109">**VPN Client Address Pool Prefix** – IP addresses to be assigned to clients connecting in a point to site configuration.</span></span>
 

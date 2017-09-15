@@ -1,4 +1,4 @@
-Os principais problemas a seguir podem ajudar a resolver a sua questão. Para iniciar a solução de problemas, revise estas etapas:
+<span data-ttu-id="e7a49-101">Os principais problemas a seguir podem ajudar a resolver a sua questão.</span><span class="sxs-lookup"><span data-stu-id="e7a49-101">The following top issues may help resolve your issue.</span></span> <span data-ttu-id="e7a49-102">Para iniciar a solução de problemas, revise estas etapas:</span><span class="sxs-lookup"><span data-stu-id="e7a49-102">To start troubleshooting, review these steps:</span></span>
 
-- [O cluster não dá suporte ao tamanho de VM solicitado](../articles/virtual-machines/linux/troubleshoot-deploy-vm.md#the-cluster-cannot-support-the-requested-vm-size)
-- [O cluster não tem recursos livres](../articles/virtual-machines/linux/troubleshoot-deploy-vm.md#the-cluster-does-not-have-free-resources)
+- [<span data-ttu-id="e7a49-103">O cluster não dá suporte ao tamanho de VM solicitado</span><span class="sxs-lookup"><span data-stu-id="e7a49-103">The cluster cannot support the requested VM size</span></span>](../articles/virtual-machines/linux/troubleshoot-deploy-vm.md#the-cluster-cannot-support-the-requested-vm-size)
+- [<span data-ttu-id="e7a49-104">O cluster não tem recursos livres</span><span class="sxs-lookup"><span data-stu-id="e7a49-104">The cluster does not have free resources</span></span>](../articles/virtual-machines/linux/troubleshoot-deploy-vm.md#the-cluster-does-not-have-free-resources)

@@ -1,25 +1,25 @@
-#### <a name="to-install-mpio-on-the-host"></a>Para instalar o MPIO no host
-1. Abra o Gerenciador de Servidores no host do Windows Server. Por padrão, o Gerenciador de Servidores começa quando um membro do grupo Administradores faz logon em um computador que está executando o Windows Server 2012 R2 ou o Windows Server 2012. Se o Gerenciador do Servidor ainda não estiver aberto, clique em **Iniciar > Gerenciador do Servidor**.
+#### <a name="to-install-mpio-on-the-host"></a><span data-ttu-id="0b448-101">Para instalar o MPIO no host</span><span class="sxs-lookup"><span data-stu-id="0b448-101">To install MPIO on the host</span></span>
+1. <span data-ttu-id="0b448-102">Abra o Gerenciador de Servidores no host do Windows Server.</span><span class="sxs-lookup"><span data-stu-id="0b448-102">Open Server Manager on your Windows Server host.</span></span> <span data-ttu-id="0b448-103">Por padrão, o Gerenciador de Servidores começa quando um membro do grupo Administradores faz logon em um computador que está executando o Windows Server 2012 R2 ou o Windows Server 2012.</span><span class="sxs-lookup"><span data-stu-id="0b448-103">By default, Server Manager starts when a member of the Administrators group logs on to a computer that is running Windows Server 2012 R2 or Windows Server 2012.</span></span> <span data-ttu-id="0b448-104">Se o Gerenciador do Servidor ainda não estiver aberto, clique em **Iniciar > Gerenciador do Servidor**.</span><span class="sxs-lookup"><span data-stu-id="0b448-104">If the Server Manager is not already open, click **Start > Server Manager**.</span></span>
    
     ![Gerenciador de Servidores](./media/storsimple-install-mpio-windows-server/IC740997.png)
-2. Clique em **Gerenciador de Servidores > Painel de Controle > Adicionar funções e recursos**. Isso inicia o assistente **Adicionar Funções e Recursos** .
+2. <span data-ttu-id="0b448-106">Clique em **Gerenciador de Servidores > Painel de Controle > Adicionar funções e recursos**.</span><span class="sxs-lookup"><span data-stu-id="0b448-106">Click **Server Manager > Dashboard > Add roles and features**.</span></span> <span data-ttu-id="0b448-107">Isso inicia o assistente **Adicionar Funções e Recursos** .</span><span class="sxs-lookup"><span data-stu-id="0b448-107">This starts the **Add Roles and Features** wizard.</span></span>
    
     ![Adicionar Assistente de Funções e Recursos 1](./media/storsimple-install-mpio-windows-server/IC740998.png)
-3. No assistente **Adicionar Funções e Recursos** , faça o seguinte:
+3. <span data-ttu-id="0b448-109">No assistente **Adicionar Funções e Recursos** , faça o seguinte:</span><span class="sxs-lookup"><span data-stu-id="0b448-109">In the **Add Roles and Features** wizard, do the following:</span></span>
    
-   * Na página **Antes de Começar**, clique em **Avançar**.
-   * Na página **Selecionar tipo de instalação**, aceite a configuração padrão da instalação **Baseada em função ou recurso**. Clique em **Avançar**.
+   * <span data-ttu-id="0b448-110">Na página **Antes de Começar**, clique em **Avançar**.</span><span class="sxs-lookup"><span data-stu-id="0b448-110">On the **Before you begin** page, click **Next**.</span></span>
+   * <span data-ttu-id="0b448-111">Na página **Selecionar tipo de instalação**, aceite a configuração padrão da instalação **Baseada em função ou recurso**.</span><span class="sxs-lookup"><span data-stu-id="0b448-111">On the **Select installation type** page, accept the default setting of **Role-based or feature-based** installation.</span></span> <span data-ttu-id="0b448-112">Clique em **Avançar**.</span><span class="sxs-lookup"><span data-stu-id="0b448-112">Click **Next**.</span></span>
      
        ![Adicionar Assistente de Funções e Recursos 2](./media/storsimple-install-mpio-windows-server/IC740999.png)
-   * Na página **Selecionar servidor de destino**, escolha **Selecionar um servidor no pool de servidores**. O servidor host deve ser descoberto automaticamente. Clique em **Avançar**.
-   * Na página **Selecionar funções do servidor**, clique em **Avançar**.
-   * Na página **Selecionar recursos**, selecione **Multipath I/O** e clique em **Avançar**.
+   * <span data-ttu-id="0b448-114">Na página **Selecionar servidor de destino**, escolha **Selecionar um servidor no pool de servidores**.</span><span class="sxs-lookup"><span data-stu-id="0b448-114">On the **Select destination server** page, choose **Select a server from the server pool**.</span></span> <span data-ttu-id="0b448-115">O servidor host deve ser descoberto automaticamente.</span><span class="sxs-lookup"><span data-stu-id="0b448-115">Your host server should be discovered automatically.</span></span> <span data-ttu-id="0b448-116">Clique em **Avançar**.</span><span class="sxs-lookup"><span data-stu-id="0b448-116">Click **Next**.</span></span>
+   * <span data-ttu-id="0b448-117">Na página **Selecionar funções do servidor**, clique em **Avançar**.</span><span class="sxs-lookup"><span data-stu-id="0b448-117">On the **Select server roles** page, click **Next**.</span></span>
+   * <span data-ttu-id="0b448-118">Na página **Selecionar recursos**, selecione **Multipath I/O** e clique em **Avançar**.</span><span class="sxs-lookup"><span data-stu-id="0b448-118">On the **Select features** page, select **Multipath I/O**, and click **Next**.</span></span>
      
        ![Adicionar Assistente de Funções e Recursos 5](./media/storsimple-install-mpio-windows-server/IC741000.png)
-   * Na página **Confirmar seleções da instalação**, confirme a seleção e selecione **Reiniciar o servidor de destino automaticamente se necessário**, conforme mostrado abaixo. Clique em **Instalar**.
+   * <span data-ttu-id="0b448-120">Na página **Confirmar seleções da instalação**, confirme a seleção e selecione **Reiniciar o servidor de destino automaticamente se necessário**, conforme mostrado abaixo.</span><span class="sxs-lookup"><span data-stu-id="0b448-120">On the **Confirm installation selections** page, confirm the selection and then select **Restart the destination server automatically if required**, as shown below.</span></span> <span data-ttu-id="0b448-121">Clique em **Instalar**.</span><span class="sxs-lookup"><span data-stu-id="0b448-121">Click **Install**.</span></span>
      
        ![Adicionar Assistente de Funções e Recursos 8](./media/storsimple-install-mpio-windows-server/IC741001.png)
-   * Quando a instalação for concluída, você será notificado. Clique em **Fechar** para fechar o assistente.
+   * <span data-ttu-id="0b448-123">Quando a instalação for concluída, você será notificado.</span><span class="sxs-lookup"><span data-stu-id="0b448-123">You will be notified when the installation is complete.</span></span> <span data-ttu-id="0b448-124">Clique em **Fechar** para fechar o assistente.</span><span class="sxs-lookup"><span data-stu-id="0b448-124">Click **Close** to close the wizard.</span></span>
      
        ![Adicionar Assistente de Funções e Recursos 9](./media/storsimple-install-mpio-windows-server/IC741002.png)
 

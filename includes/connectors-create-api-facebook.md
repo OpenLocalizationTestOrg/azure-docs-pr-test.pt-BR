@@ -1,16 +1,16 @@
-### <a name="prerequisites"></a>Pré-requisitos
-* Uma conta do [Facebook](https://www.facebook.com/) 
+### <a name="prerequisites"></a><span data-ttu-id="38912-101">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="38912-101">Prerequisites</span></span>
+* <span data-ttu-id="38912-102">Uma conta do [Facebook](https://www.facebook.com/)</span><span class="sxs-lookup"><span data-stu-id="38912-102">A [Facebook](https://www.facebook.com/) account</span></span> 
 
-Antes de usar sua conta do Facebook em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do Facebook. Felizmente, você pode fazer isso de forma fácil usando seu aplicativo lógico no Portal do Azure. 
+<span data-ttu-id="38912-103">Antes de usar sua conta do Facebook em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do Facebook.</span><span class="sxs-lookup"><span data-stu-id="38912-103">Before you can use your Facebook account in a Logic app, you must authorize the Logic app to connect to your Facebook account.</span></span> <span data-ttu-id="38912-104">Felizmente, você pode fazer isso de forma fácil usando seu aplicativo lógico no Portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="38912-104">Fortunately, you can do this easily from within your Logic app on the Azure Portal.</span></span> 
 
-Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta do Facebook:
+<span data-ttu-id="38912-105">Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta do Facebook:</span><span class="sxs-lookup"><span data-stu-id="38912-105">Here are the steps to authorize your Logic app to connect to your Facebook account:</span></span>
 
-1. Para criar uma conexão com o Facebook, no designer do aplicativo lógico, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa, em seguida, digite *Facebook* na caixa de pesquisa. Selecione o gatilho ou ação que gostaria de usar:   
-   ![etapa 1 do Facebook](./media/connectors-create-api-facebook/facebook-1.png)
-2. Se você não tiver criado quaisquer conexões Facebook antes, será solicitado a fornecer suas credenciais do Facebook. Essas credenciais serão usadas para autorizar seu Aplicativo lógico a se conectar e acessar os dados da sua conta do Facebook:  
+1. <span data-ttu-id="38912-106">Para criar uma conexão com o Facebook, no designer do aplicativo lógico, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa, em seguida, digite *Facebook* na caixa de pesquisa.</span><span class="sxs-lookup"><span data-stu-id="38912-106">To create a connection to Facebook, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Facebook* in the search box.</span></span> <span data-ttu-id="38912-107">Selecione o gatilho ou ação que gostaria de usar: </span><span class="sxs-lookup"><span data-stu-id="38912-107">Select the trigger or action you'll like to use:</span></span>  
+   <span data-ttu-id="38912-108">![etapa 1 do Facebook](./media/connectors-create-api-facebook/facebook-1.png)</span><span class="sxs-lookup"><span data-stu-id="38912-108">![facebook step 1](./media/connectors-create-api-facebook/facebook-1.png)</span></span>
+2. <span data-ttu-id="38912-109">Se você não tiver criado quaisquer conexões Facebook antes, será solicitado a fornecer suas credenciais do Facebook.</span><span class="sxs-lookup"><span data-stu-id="38912-109">If you haven't created any connections to Facebook before, you'll get prompted to provide your Facebook credentials.</span></span> <span data-ttu-id="38912-110">Essas credenciais serão usadas para autorizar seu Aplicativo lógico a se conectar e acessar os dados da sua conta do Facebook:</span><span class="sxs-lookup"><span data-stu-id="38912-110">These credentials will be used to authorize your Logic app to connect to, and access your Facebook account's data:</span></span>  
    ![Etapa 2 do Facebook](./media/connectors-create-api-facebook/facebook-2.png)
-3. Forneça seu nome de usuário do Facebook e a senha para autorizar seu aplicativo lógico:  
+3. <span data-ttu-id="38912-112">Forneça seu nome de usuário do Facebook e a senha para autorizar seu aplicativo lógico:</span><span class="sxs-lookup"><span data-stu-id="38912-112">Provide your Facebook user name and password to authorize your Logic app:</span></span>  
    ![Etapa 3 do Facebook](./media/connectors-create-api-facebook/facebook-3.png)   
-4. Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico:   
+4. <span data-ttu-id="38912-114">Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico: </span><span class="sxs-lookup"><span data-stu-id="38912-114">Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:</span></span>  
    ![Etapa 4 do Facebook](./media/connectors-create-api-facebook/facebook-4.png)   
 

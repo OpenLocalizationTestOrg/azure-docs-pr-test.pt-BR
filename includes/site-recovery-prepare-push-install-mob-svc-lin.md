@@ -1,22 +1,22 @@
-### <a name="prepare-for-a-push-installation-on-a-linux-server"></a>Preparação para uma instalação por push em um servidor Linux
+### <a name="prepare-for-a-push-installation-on-a-linux-server"></a><span data-ttu-id="92dea-101">Preparação para uma instalação por push em um servidor Linux</span><span class="sxs-lookup"><span data-stu-id="92dea-101">Prepare for a push installation on a Linux server</span></span>
 
-1. Verifique se há conectividade de rede entre o computador Linux e o servidor de processo.
-2. Crie uma conta que o servidor de processo possa usar para acessar o computador. A conta deve ser de um usuário **raiz** no servidor Linux de origem. (Use essa conta somente para a instalação por push e atualizações.)
-3. Verifique se o arquivo /etc/hosts no servidor Linux de origem contém entradas que mapeiam o nome do host local para os endereços IP associados a todos os adaptadores de rede.
-4. Instale os pacotes openssh, openssh-server e openssl mais recentes no computador que você deseja replicar.
-5. Verifique se o Secure Shell (SSH) está habilitado e em execução na porta 22.
-6. Habilite a autenticação de subsistema e senha SFTP no arquivo sshd_config:
-  1.  Conecte-se como **raiz**.
-  2.  No arquivo /etc/ssh/sshd_config, localize a linha que começa com **PasswordAuthentication**.
-  3.  Remova a marca de comentário da linha e altere o valor para **yes**.
-  4.  Localize a linha que começa com **Subsystem** e remova a marca de comentário existente nessa linha.
+1. <span data-ttu-id="92dea-102">Verifique se há conectividade de rede entre o computador Linux e o servidor de processo.</span><span class="sxs-lookup"><span data-stu-id="92dea-102">Ensure that there’s network connectivity between the Linux computer and the process server.</span></span>
+2. <span data-ttu-id="92dea-103">Crie uma conta que o servidor de processo possa usar para acessar o computador.</span><span class="sxs-lookup"><span data-stu-id="92dea-103">Create an account that the process server can use to access the computer.</span></span> <span data-ttu-id="92dea-104">A conta deve ser de um usuário **raiz** no servidor Linux de origem.</span><span class="sxs-lookup"><span data-stu-id="92dea-104">The account should be a **root** user on the source Linux server.</span></span> <span data-ttu-id="92dea-105">(Use essa conta somente para a instalação por push e atualizações.)</span><span class="sxs-lookup"><span data-stu-id="92dea-105">(Use this account only for the push installation and for updates.)</span></span>
+3. <span data-ttu-id="92dea-106">Verifique se o arquivo /etc/hosts no servidor Linux de origem contém entradas que mapeiam o nome do host local para os endereços IP associados a todos os adaptadores de rede.</span><span class="sxs-lookup"><span data-stu-id="92dea-106">Check that the /etc/hosts file on the source Linux server has entries that map the local hostname to IP addresses associated with all network adapters.</span></span>
+4. <span data-ttu-id="92dea-107">Instale os pacotes openssh, openssh-server e openssl mais recentes no computador que você deseja replicar.</span><span class="sxs-lookup"><span data-stu-id="92dea-107">Install the latest openssh, openssh-server, and openssl packages on the computer that you want to replicate.</span></span>
+5. <span data-ttu-id="92dea-108">Verifique se o Secure Shell (SSH) está habilitado e em execução na porta 22.</span><span class="sxs-lookup"><span data-stu-id="92dea-108">Ensure that Secure Shell (SSH) is enabled and running on port 22.</span></span>
+6. <span data-ttu-id="92dea-109">Habilite a autenticação de subsistema e senha SFTP no arquivo sshd_config:</span><span class="sxs-lookup"><span data-stu-id="92dea-109">Enable SFTP subsystem and password authentication in the sshd_config file:</span></span>
+  1.  <span data-ttu-id="92dea-110">Conecte-se como **raiz**.</span><span class="sxs-lookup"><span data-stu-id="92dea-110">Sign in as **root**.</span></span>
+  2.  <span data-ttu-id="92dea-111">No arquivo /etc/ssh/sshd_config, localize a linha que começa com **PasswordAuthentication**.</span><span class="sxs-lookup"><span data-stu-id="92dea-111">In the file /etc/ssh/sshd_config file, find the line that begins with **PasswordAuthentication**.</span></span>
+  3.  <span data-ttu-id="92dea-112">Remova a marca de comentário da linha e altere o valor para **yes**.</span><span class="sxs-lookup"><span data-stu-id="92dea-112">Uncomment the line and change the value to **yes**.</span></span>
+  4.  <span data-ttu-id="92dea-113">Localize a linha que começa com **Subsystem** e remova a marca de comentário existente nessa linha.</span><span class="sxs-lookup"><span data-stu-id="92dea-113">Find the line that begins with **Subsystem** and uncomment the line.</span></span>
 
      ![Linux](./media/site-recovery-prepare-push-install-mob-svc-lin/mobility2.png)
-  5. Reinicie o serviço **sshd**.
+  5. <span data-ttu-id="92dea-115">Reinicie o serviço **sshd**.</span><span class="sxs-lookup"><span data-stu-id="92dea-115">Restart the **sshd** service.</span></span>
 
-7. Adicione a conta criada em CSPSConfigtool.
-    1.  Conecte-se ao servidor de configuração.
-    2.  Abra **cspsconfigtool.exe**. (Ele está disponível como atalho na área de trabalho e na pasta %ProgramData%\home\svsystems\bin)
-    3.  Na guia **Gerenciar Contas**, clique em **Adicionar Conta**.
-    4.  Adicione a conta que você criou. 
-    5.  Insira as credenciais usadas quando você habilitar a replicação de um computador.
+7. <span data-ttu-id="92dea-116">Adicione a conta criada em CSPSConfigtool.</span><span class="sxs-lookup"><span data-stu-id="92dea-116">Add the account that you created in CSPSConfigtool.</span></span>
+    1.  <span data-ttu-id="92dea-117">Conecte-se ao servidor de configuração.</span><span class="sxs-lookup"><span data-stu-id="92dea-117">Sign in to your configuration server.</span></span>
+    2.  <span data-ttu-id="92dea-118">Abra **cspsconfigtool.exe**.</span><span class="sxs-lookup"><span data-stu-id="92dea-118">Open **cspsconfigtool.exe**.</span></span> <span data-ttu-id="92dea-119">(Ele está disponível como atalho na área de trabalho e na pasta %ProgramData%\home\svsystems\bin)</span><span class="sxs-lookup"><span data-stu-id="92dea-119">(It's available as a shortcut on the desktop and in the %ProgramData%\home\svsystems\bin folder.)</span></span>
+    3.  <span data-ttu-id="92dea-120">Na guia **Gerenciar Contas**, clique em **Adicionar Conta**.</span><span class="sxs-lookup"><span data-stu-id="92dea-120">On the **Manage Accounts** tab, click **Add Account**.</span></span>
+    4.  <span data-ttu-id="92dea-121">Adicione a conta que você criou.</span><span class="sxs-lookup"><span data-stu-id="92dea-121">Add the account you created.</span></span> 
+    5.  <span data-ttu-id="92dea-122">Insira as credenciais usadas quando você habilitar a replicação de um computador.</span><span class="sxs-lookup"><span data-stu-id="92dea-122">Enter the credentials you use when you enable replication for a computer.</span></span>

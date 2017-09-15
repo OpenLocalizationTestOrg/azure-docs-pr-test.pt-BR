@@ -1,32 +1,32 @@
-### <a name="gwipnoconnection"></a> Para modificar o endereço IP do gateway de rede local - sem conexão de gateway
+### <span data-ttu-id="0207f-101"><a name="gwipnoconnection"></a> Para modificar o endereço IP do gateway de rede local - sem conexão de gateway</span><span class="sxs-lookup"><span data-stu-id="0207f-101"><a name="gwipnoconnection"></a> To modify the local network gateway IP address - no gateway connection</span></span>
 
-Use o exemplo para modificar um gateway de rede local que não tenha uma conexão de gateway. Ao modificar esse valor, você também pode modificar os prefixos do endereço ao mesmo tempo.
+<span data-ttu-id="0207f-102">Use o exemplo para modificar um gateway de rede local que não tenha uma conexão de gateway.</span><span class="sxs-lookup"><span data-stu-id="0207f-102">Use the example to modify a local network gateway that does not have a gateway connection.</span></span> <span data-ttu-id="0207f-103">Ao modificar esse valor, você também pode modificar os prefixos do endereço ao mesmo tempo.</span><span class="sxs-lookup"><span data-stu-id="0207f-103">When modifying this value, you can also modify the address prefixes at the same time.</span></span>
 
-1. No recurso Gateway de Rede Local, na seção **Configurações**, clique em **Configuração**.
-2. Na caixa **Endereço IP**, modifique o endereço IP.
-3. Clique em **Salvar** para salvar as configurações.
+1. <span data-ttu-id="0207f-104">No recurso Gateway de Rede Local, na seção **Configurações**, clique em **Configuração**.</span><span class="sxs-lookup"><span data-stu-id="0207f-104">On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.</span></span>
+2. <span data-ttu-id="0207f-105">Na caixa **Endereço IP**, modifique o endereço IP.</span><span class="sxs-lookup"><span data-stu-id="0207f-105">In the **IP address** box, modify the IP address.</span></span>
+3. <span data-ttu-id="0207f-106">Clique em **Salvar** para salvar as configurações.</span><span class="sxs-lookup"><span data-stu-id="0207f-106">Click **Save** to save the settings.</span></span>
 
-### <a name="gwipwithconnection"></a>Para modificar o endereço IP do gateway de rede local- conexão de gateway existente
+### <span data-ttu-id="0207f-107"><a name="gwipwithconnection"></a>Para modificar o endereço IP do gateway de rede local- conexão de gateway existente</span><span class="sxs-lookup"><span data-stu-id="0207f-107"><a name="gwipwithconnection"></a>To modify the local network gateway gateway IP address - existing gateway connection</span></span>
 
-Para modificar um gateway de rede local com uma conexão, você precisa primeiro remover a conexão. Após a conexão ser removida, você pode modificar o endereço IP do gateway e recriar uma nova conexão. Você também pode modificar os prefixos do endereço ao mesmo tempo. Isso resulta em algum tempo de inatividade para a conexão VPN. Ao modificar o endereço IP de gateway, você não precisa excluir o gateway de VPN. Você precisa apenas remover a conexão.
+<span data-ttu-id="0207f-108">Para modificar um gateway de rede local com uma conexão, você precisa primeiro remover a conexão.</span><span class="sxs-lookup"><span data-stu-id="0207f-108">To modify a local network gateway that has a connection, you need to first remove the connection.</span></span> <span data-ttu-id="0207f-109">Após a conexão ser removida, você pode modificar o endereço IP do gateway e recriar uma nova conexão.</span><span class="sxs-lookup"><span data-stu-id="0207f-109">After the connection is removed, you can modify the gateway IP address and recreate a new connection.</span></span> <span data-ttu-id="0207f-110">Você também pode modificar os prefixos do endereço ao mesmo tempo.</span><span class="sxs-lookup"><span data-stu-id="0207f-110">You can also modify the address prefixes at the same time.</span></span> <span data-ttu-id="0207f-111">Isso resulta em algum tempo de inatividade para a conexão VPN.</span><span class="sxs-lookup"><span data-stu-id="0207f-111">This results in some downtime for your VPN connection.</span></span> <span data-ttu-id="0207f-112">Ao modificar o endereço IP de gateway, você não precisa excluir o gateway de VPN.</span><span class="sxs-lookup"><span data-stu-id="0207f-112">When modifying the gateway IP address, you don't need to delete the VPN gateway.</span></span> <span data-ttu-id="0207f-113">Você precisa apenas remover a conexão.</span><span class="sxs-lookup"><span data-stu-id="0207f-113">You only need to remove the connection.</span></span>
  
-#### <a name="1-remove-the-connection"></a>1. Remova a conexão.
+#### <a name="1-remove-the-connection"></a><span data-ttu-id="0207f-114">1. Remova a conexão.</span><span class="sxs-lookup"><span data-stu-id="0207f-114">1. Remove the connection.</span></span>
 
-1. No recurso de Gateway de Rede Local, na seção **Configurações**, clique em **Conexões**.
-2. Clique em **...** na linha para a conexão e então clique em **Excluir**.
-3. Para salvar suas configurações, clique em **Salvar** .
+1. <span data-ttu-id="0207f-115">No recurso de Gateway de Rede Local, na seção **Configurações**, clique em **Conexões**.</span><span class="sxs-lookup"><span data-stu-id="0207f-115">On the Local Network Gateway resource, in the **Settings** section, click **Connections**.</span></span>
+2. <span data-ttu-id="0207f-116">Clique em **...** na linha para a conexão e então clique em **Excluir**.</span><span class="sxs-lookup"><span data-stu-id="0207f-116">Click the **...** on the line for the connection, then click **Delete**.</span></span>
+3. <span data-ttu-id="0207f-117">Para salvar suas configurações, clique em **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="0207f-117">Click **Save** to save your settings.</span></span>
 
-#### <a name="2-modify-the-ip-address"></a>2. Modifique o endereço IP.
+#### <a name="2-modify-the-ip-address"></a><span data-ttu-id="0207f-118">2. Modifique o endereço IP.</span><span class="sxs-lookup"><span data-stu-id="0207f-118">2. Modify the IP address.</span></span>
 
-Você também pode modificar os prefixos do endereço ao mesmo tempo.
+<span data-ttu-id="0207f-119">Você também pode modificar os prefixos do endereço ao mesmo tempo.</span><span class="sxs-lookup"><span data-stu-id="0207f-119">You can also modify the address prefixes at the same time.</span></span>
 
-1. Na caixa **Endereço IP**, modifique o endereço IP.
-2. Clique em **Salvar** para salvar as configurações.
+1. <span data-ttu-id="0207f-120">Na caixa **Endereço IP**, modifique o endereço IP.</span><span class="sxs-lookup"><span data-stu-id="0207f-120">In the **IP address** box, modify the IP address.</span></span>
+2. <span data-ttu-id="0207f-121">Clique em **Salvar** para salvar as configurações.</span><span class="sxs-lookup"><span data-stu-id="0207f-121">Click **Save** to save the settings.</span></span>
 
-#### <a name="3-recreate-the-connection"></a>3. Recrie a conexão.
+#### <a name="3-recreate-the-connection"></a><span data-ttu-id="0207f-122">3. Recrie a conexão.</span><span class="sxs-lookup"><span data-stu-id="0207f-122">3. Recreate the connection.</span></span>
 
-1. Navegue até o Gateway de Rede Virtual para sua rede virtual. (Não o Gateway de Rede Local).
-2. No Gateway de Rede Virtual, na seção **Configurações**, clique em **Conexões**.
-3. Clique em **+ Adicionar** para abrir a folha **Adicionar conexão**.
-4. Recrie sua conexão.
-5. Clique em **OK** para criar a conexão.
+1. <span data-ttu-id="0207f-123">Navegue até o Gateway de Rede Virtual para sua rede virtual.</span><span class="sxs-lookup"><span data-stu-id="0207f-123">Navigate to the Virtual Network Gateway for your VNet.</span></span> <span data-ttu-id="0207f-124">(Não o Gateway de Rede Local).</span><span class="sxs-lookup"><span data-stu-id="0207f-124">(Not the Local Network Gateway.)</span></span>
+2. <span data-ttu-id="0207f-125">No Gateway de Rede Virtual, na seção **Configurações**, clique em **Conexões**.</span><span class="sxs-lookup"><span data-stu-id="0207f-125">On the Virtual Network Gateway, in the **Settings** section, click **Connections**.</span></span>
+3. <span data-ttu-id="0207f-126">Clique em **+ Adicionar** para abrir a folha **Adicionar conexão**.</span><span class="sxs-lookup"><span data-stu-id="0207f-126">Click the **+ Add** to open the **Add connection** blade.</span></span>
+4. <span data-ttu-id="0207f-127">Recrie sua conexão.</span><span class="sxs-lookup"><span data-stu-id="0207f-127">Recreate your connection.</span></span>
+5. <span data-ttu-id="0207f-128">Clique em **OK** para criar a conexão.</span><span class="sxs-lookup"><span data-stu-id="0207f-128">Click **OK** to create the connection.</span></span>

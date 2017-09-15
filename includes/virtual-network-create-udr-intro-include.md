@@ -1,9 +1,9 @@
-Embora o uso de rotas do sistema facilite o tráfego automaticamente para a sua implantação, há casos em que você deseja controlar o roteamento de pacotes por meio de um dispositivo virtual. Você pode fazer isso criando rotas definidas pelo usuário que especificam o próximo salto para os pacotes que fluem para uma sub-rede específica indo, então, para o dispositivo virtual e habilitar o encaminhamento de IP para a VM em execução como o dispositivo virtual.
+<span data-ttu-id="06205-101">Embora o uso de rotas do sistema facilite o tráfego automaticamente para a sua implantação, há casos em que você deseja controlar o roteamento de pacotes por meio de um dispositivo virtual.</span><span class="sxs-lookup"><span data-stu-id="06205-101">Although the use of system routes facilitates traffic automatically for your deployment, there are cases in which you want to control the routing of packets through a virtual appliance.</span></span> <span data-ttu-id="06205-102">Você pode fazer isso criando rotas definidas pelo usuário que especificam o próximo salto para os pacotes que fluem para uma sub-rede específica indo, então, para o dispositivo virtual e habilitar o encaminhamento de IP para a VM em execução como o dispositivo virtual.</span><span class="sxs-lookup"><span data-stu-id="06205-102">You can do so by creating user defined routes that specify the next hop for packets flowing to a specific subnet to go to your virtual appliance instead, and enabling IP forwarding for the VM running as the virtual appliance.</span></span>
 
-Alguns dos casos nos quais os dispositivos virtuais podem ser usados incluem:
+<span data-ttu-id="06205-103">Alguns dos casos nos quais os dispositivos virtuais podem ser usados incluem:</span><span class="sxs-lookup"><span data-stu-id="06205-103">Some of the cases where virtual appliances can be used include:</span></span>
 
-* Monitorando o tráfego com um sistema de detecção de intrusões (IDS)
-* Controlando o tráfego com um firewall
+* <span data-ttu-id="06205-104">Monitorando o tráfego com um sistema de detecção de intrusões (IDS)</span><span class="sxs-lookup"><span data-stu-id="06205-104">Monitoring traffic with an intrusion detection system (IDS)</span></span>
+* <span data-ttu-id="06205-105">Controlando o tráfego com um firewall</span><span class="sxs-lookup"><span data-stu-id="06205-105">Controlling traffic with a firewall</span></span>
 
-Para saber mais sobre UDR, visite [Rotas definidas pelo usuário e encaminhamento de IP](../articles/virtual-network/virtual-networks-udr-overview.md).
+<span data-ttu-id="06205-106">Para saber mais sobre UDR, visite [Rotas definidas pelo usuário e encaminhamento de IP](../articles/virtual-network/virtual-networks-udr-overview.md).</span><span class="sxs-lookup"><span data-stu-id="06205-106">For more information about UDR and IP forwarding, visit [User Defined Routes and IP Forwarding](../articles/virtual-network/virtual-networks-udr-overview.md).</span></span>
 

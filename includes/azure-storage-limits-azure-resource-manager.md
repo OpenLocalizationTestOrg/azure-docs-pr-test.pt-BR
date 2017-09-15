@@ -1,8 +1,8 @@
-Os limites a seguir se aplicam somente ao usar o Gerenciador de Recursos do Azure e os Grupos de Recursos do Azure.
+<span data-ttu-id="307e0-101">Os limites a seguir se aplicam somente ao usar o Gerenciador de Recursos do Azure e os Grupos de Recursos do Azure.</span><span class="sxs-lookup"><span data-stu-id="307e0-101">The following limits apply when using the Azure Resource Manager and Azure Resource Groups only.</span></span>
 
-| Recurso | Limite padrão |
+| <span data-ttu-id="307e0-102">Recurso</span><span class="sxs-lookup"><span data-stu-id="307e0-102">Resource</span></span> | <span data-ttu-id="307e0-103">Limite padrão</span><span class="sxs-lookup"><span data-stu-id="307e0-103">Default Limit</span></span> |
 | --- | --- |
-| Operações de gerenciamento de conta de armazenamento (leitura) |800 a cada 5 minutos |
-| Operações de gerenciamento de conta de armazenamento (gravação) |200 por hora |
-| Operações de gerenciamento de conta de armazenamento (lista) |100 a cada 5 minutos |
+| <span data-ttu-id="307e0-104">Operações de gerenciamento de conta de armazenamento (leitura)</span><span class="sxs-lookup"><span data-stu-id="307e0-104">Storage account management operations (read)</span></span> |<span data-ttu-id="307e0-105">800 a cada 5 minutos</span><span class="sxs-lookup"><span data-stu-id="307e0-105">800 per 5 minutes</span></span> |
+| <span data-ttu-id="307e0-106">Operações de gerenciamento de conta de armazenamento (gravação)</span><span class="sxs-lookup"><span data-stu-id="307e0-106">Storage account management operations (write)</span></span> |<span data-ttu-id="307e0-107">200 por hora</span><span class="sxs-lookup"><span data-stu-id="307e0-107">200 per hour</span></span> |
+| <span data-ttu-id="307e0-108">Operações de gerenciamento de conta de armazenamento (lista)</span><span class="sxs-lookup"><span data-stu-id="307e0-108">Storage account management operations (list)</span></span> |<span data-ttu-id="307e0-109">100 a cada 5 minutos</span><span class="sxs-lookup"><span data-stu-id="307e0-109">100 per 5 minutes</span></span> |
 

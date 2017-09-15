@@ -1,28 +1,28 @@
-## <a name="defining-a-backup-policy"></a>Definindo uma política de backup
-Uma política de backup define uma matriz de quando os instantâneos de dados são obtidos e por quanto tempo esses instantâneos são mantidos. Ao definir uma política para fazer backup de uma VM, você pode disparar um trabalho de backup *uma vez por dia*. Quando você cria uma nova política, ela é aplicada ao cofre. A interface da política de backup fica assim:
+## <a name="defining-a-backup-policy"></a><span data-ttu-id="35aa1-101">Definindo uma política de backup</span><span class="sxs-lookup"><span data-stu-id="35aa1-101">Defining a backup policy</span></span>
+<span data-ttu-id="35aa1-102">Uma política de backup define uma matriz de quando os instantâneos de dados são obtidos e por quanto tempo esses instantâneos são mantidos.</span><span class="sxs-lookup"><span data-stu-id="35aa1-102">A backup policy defines a matrix of when the data snapshots are taken, and how long those snapshots are retained.</span></span> <span data-ttu-id="35aa1-103">Ao definir uma política para fazer backup de uma VM, você pode disparar um trabalho de backup *uma vez por dia*.</span><span class="sxs-lookup"><span data-stu-id="35aa1-103">When defining a policy for backing up a VM, you can trigger a backup job *once a day*.</span></span> <span data-ttu-id="35aa1-104">Quando você cria uma nova política, ela é aplicada ao cofre.</span><span class="sxs-lookup"><span data-stu-id="35aa1-104">When you create a new policy, it is applied to the vault.</span></span> <span data-ttu-id="35aa1-105">A interface da política de backup fica assim:</span><span class="sxs-lookup"><span data-stu-id="35aa1-105">The backup policy interface looks like this:</span></span>
 
 ![Política do backup](./media/backup-create-policy-for-vms/backup-policy.png)
 
-Para criar uma política:
+<span data-ttu-id="35aa1-107">Para criar uma política:</span><span class="sxs-lookup"><span data-stu-id="35aa1-107">To create a policy:</span></span>
 
-1. Insira um nome para **Nome da política**.
-2. Podem ser feitos instantâneos dos dados em intervalos Diários ou Semanais. Use o menu suspenso **Frequência do Backup** para escolher se os instantâneos de dados são feitos Diariamente ou Semanalmente.
+1. <span data-ttu-id="35aa1-108">Insira um nome para **Nome da política**.</span><span class="sxs-lookup"><span data-stu-id="35aa1-108">Enter a name for the **Policy name**.</span></span>
+2. <span data-ttu-id="35aa1-109">Podem ser feitos instantâneos dos dados em intervalos Diários ou Semanais.</span><span class="sxs-lookup"><span data-stu-id="35aa1-109">Snapshots of your data can be taken at Daily or Weekly intervals.</span></span> <span data-ttu-id="35aa1-110">Use o menu suspenso **Frequência do Backup** para escolher se os instantâneos de dados são feitos Diariamente ou Semanalmente.</span><span class="sxs-lookup"><span data-stu-id="35aa1-110">Use the **Backup Frequency** drop-down menu to choose whether data snapshots are taken Daily or Weekly.</span></span>
    
-   * Se você escolher um intervalo Diário, use o controle destacado para selecionar a hora do dia para o instantâneo. Para alterar a hora, cancele a seleção da hora e selecione a nova hora.
+   * <span data-ttu-id="35aa1-111">Se você escolher um intervalo Diário, use o controle destacado para selecionar a hora do dia para o instantâneo.</span><span class="sxs-lookup"><span data-stu-id="35aa1-111">If you choose a Daily interval, use the highlighted control to select the time of the day for the snapshot.</span></span> <span data-ttu-id="35aa1-112">Para alterar a hora, cancele a seleção da hora e selecione a nova hora.</span><span class="sxs-lookup"><span data-stu-id="35aa1-112">To change the hour, de-select the hour, and select the new hour.</span></span>
      
      ![Política de backup diário](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
-   * Se você escolher um intervalo Semanal, use os controles destacados para selecionar o(s) dia(s) da semana e a hora do dia para fazer o instantâneo. No menu do dia, selecione um ou vários dias. No menu de hora, selecione uma hora. Para alterar a hora, cancele a seleção da hora escolhida e selecione a nova hora.
+   * <span data-ttu-id="35aa1-114">Se você escolher um intervalo Semanal, use os controles destacados para selecionar o(s) dia(s) da semana e a hora do dia para fazer o instantâneo.</span><span class="sxs-lookup"><span data-stu-id="35aa1-114">If you choose a Weekly interval, use the highlighted controls to select the day(s) of the week, and the time of day to take the snapshot.</span></span> <span data-ttu-id="35aa1-115">No menu do dia, selecione um ou vários dias.</span><span class="sxs-lookup"><span data-stu-id="35aa1-115">In the day menu, select one or multiple days.</span></span> <span data-ttu-id="35aa1-116">No menu de hora, selecione uma hora.</span><span class="sxs-lookup"><span data-stu-id="35aa1-116">In the hour menu, select one hour.</span></span> <span data-ttu-id="35aa1-117">Para alterar a hora, cancele a seleção da hora escolhida e selecione a nova hora.</span><span class="sxs-lookup"><span data-stu-id="35aa1-117">To change the hour, de-select the selected hour, and select the new hour.</span></span>
      
      ![Política de backup semanal](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
-3. Por padrão, todas as opções de **Intervalo de Retenção** estão selecionadas. Desmarque qualquer limite do intervalo de retenção que você não deseja usar. Em seguida, especifique os intervalos a serem usados.
+3. <span data-ttu-id="35aa1-119">Por padrão, todas as opções de **Intervalo de Retenção** estão selecionadas.</span><span class="sxs-lookup"><span data-stu-id="35aa1-119">By default, all **Retention Range** options are selected.</span></span> <span data-ttu-id="35aa1-120">Desmarque qualquer limite do intervalo de retenção que você não deseja usar.</span><span class="sxs-lookup"><span data-stu-id="35aa1-120">Uncheck any retention range limit you do not want to use.</span></span> <span data-ttu-id="35aa1-121">Em seguida, especifique os intervalos a serem usados.</span><span class="sxs-lookup"><span data-stu-id="35aa1-121">Then, specify the interval(s) to use.</span></span>
    
-    Os intervalos de retenção Mensal e Anual permitem que você especifique os instantâneos com base em um incremento diário ou semanal.
+    <span data-ttu-id="35aa1-122">Os intervalos de retenção Mensal e Anual permitem que você especifique os instantâneos com base em um incremento diário ou semanal.</span><span class="sxs-lookup"><span data-stu-id="35aa1-122">Monthly and Yearly retention ranges allow you to specify the snapshots based on a weekly or daily increment.</span></span>
    
    > [!NOTE]
-   > Ao proteger uma VM, um trabalho de backup é executado uma vez por dia. O tempo durante o qual o backup é executado é o mesmo para cada intervalo de retenção.
+   > <span data-ttu-id="35aa1-123">Ao proteger uma VM, um trabalho de backup é executado uma vez por dia.</span><span class="sxs-lookup"><span data-stu-id="35aa1-123">When protecting a VM, a backup job runs once a day.</span></span> <span data-ttu-id="35aa1-124">O tempo durante o qual o backup é executado é o mesmo para cada intervalo de retenção.</span><span class="sxs-lookup"><span data-stu-id="35aa1-124">The time when the backup runs is the same for each retention range.</span></span>
    > 
    > 
-4. Depois de definir todas as opções para a política, na parte inferior da folha, clique em **Salvar**.
+4. <span data-ttu-id="35aa1-125">Depois de definir todas as opções para a política, na parte inferior da folha, clique em **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="35aa1-125">After setting all options for the policy, at the top of the blade click **Save**.</span></span>
    
-    A nova política será aplicada imediatamente no cofre.
+    <span data-ttu-id="35aa1-126">A nova política será aplicada imediatamente no cofre.</span><span class="sxs-lookup"><span data-stu-id="35aa1-126">The new policy is immediately applied to the vault.</span></span>
 

@@ -1,14 +1,14 @@
-## <a name="scenario"></a>Cenário
-Para ilustrar melhor como criar UDRs, este documento usará o cenário abaixo.
+## <a name="scenario"></a><span data-ttu-id="76037-101">Cenário</span><span class="sxs-lookup"><span data-stu-id="76037-101">Scenario</span></span>
+<span data-ttu-id="76037-102">Para ilustrar melhor como criar UDRs, este documento usará o cenário abaixo.</span><span class="sxs-lookup"><span data-stu-id="76037-102">To better illustrate how to create UDRs, this document will use the scenario below.</span></span>
 
 ![DESCRIÇÃO DA IMAGEM](./media/virtual-network-create-udr-scenario-include/figure1.png)
 
-Neste cenário, você criará um UDR para a *Sub-rede de front-end* e outro UDR para a *Sub-rede de back-end*, como descrito abaixo: 
+<span data-ttu-id="76037-104">Neste cenário, você criará um UDR para a *Sub-rede de front-end* e outro UDR para a *Sub-rede de back-end*, como descrito abaixo:</span><span class="sxs-lookup"><span data-stu-id="76037-104">In this scenario you will create one UDR for the *Front end subnet* and another UDR for the *Back end subnet* , as described below:</span></span> 
 
-* **UDR-FrontEnd**. O UDR de front-end será aplicado à sub-rede *FrontEnd* e contém uma rota:    
-  * **RouteToBackend**. Essa rota enviará todo o tráfego à sub-rede de back-end para a máquina virtual **FW1** .
-* **UDR-BackEnd**. O UDR de back-end será aplicado à sub-rede *BackEnd* e contém uma rota:    
-  * **RouteToFrontend**. Essa rota enviará todo o tráfego à sub-rede de front-end para a máquina virtual **FW1** .
+* <span data-ttu-id="76037-105">**UDR-FrontEnd**.</span><span class="sxs-lookup"><span data-stu-id="76037-105">**UDR-FrontEnd**.</span></span> <span data-ttu-id="76037-106">O UDR de front-end será aplicado à sub-rede *FrontEnd* e contém uma rota:</span><span class="sxs-lookup"><span data-stu-id="76037-106">The front end UDR will be applied to the *FrontEnd* subnet, and contain one route:</span></span>    
+  * <span data-ttu-id="76037-107">**RouteToBackend**.</span><span class="sxs-lookup"><span data-stu-id="76037-107">**RouteToBackend**.</span></span> <span data-ttu-id="76037-108">Essa rota enviará todo o tráfego à sub-rede de back-end para a máquina virtual **FW1** .</span><span class="sxs-lookup"><span data-stu-id="76037-108">This route will send all traffic to the back end subnet to the **FW1** virtual machine.</span></span>
+* <span data-ttu-id="76037-109">**UDR-BackEnd**.</span><span class="sxs-lookup"><span data-stu-id="76037-109">**UDR-BackEnd**.</span></span> <span data-ttu-id="76037-110">O UDR de back-end será aplicado à sub-rede *BackEnd* e contém uma rota:</span><span class="sxs-lookup"><span data-stu-id="76037-110">The back end UDR will be applied to the *BackEnd* subnet, and contain one route:</span></span>    
+  * <span data-ttu-id="76037-111">**RouteToFrontend**.</span><span class="sxs-lookup"><span data-stu-id="76037-111">**RouteToFrontend**.</span></span> <span data-ttu-id="76037-112">Essa rota enviará todo o tráfego à sub-rede de front-end para a máquina virtual **FW1** .</span><span class="sxs-lookup"><span data-stu-id="76037-112">This route will send all traffic to the front end subnet to the **FW1** virtual machine.</span></span>
 
-A combinação dessas rotas garantirá que todo o tráfego destinado de uma sub-rede a outra será roteado para a máquina virtual **FW1** , que está sendo usada como um dispositivo virtual. Você também precisa ativar o encaminhamento IP para essa VM para garantir que ela possa receber o tráfego destinado a outras VMs.
+<span data-ttu-id="76037-113">A combinação dessas rotas garantirá que todo o tráfego destinado de uma sub-rede a outra será roteado para a máquina virtual **FW1** , que está sendo usada como um dispositivo virtual.</span><span class="sxs-lookup"><span data-stu-id="76037-113">The combination of these routes will ensure that all traffic destined from one subnet to another will be routed to the **FW1** virtual machine, which is being used as a virtual appliance.</span></span> <span data-ttu-id="76037-114">Você também precisa ativar o encaminhamento IP para essa VM para garantir que ela possa receber o tráfego destinado a outras VMs.</span><span class="sxs-lookup"><span data-stu-id="76037-114">You also need to turn on IP forwarding for that VM, to ensure it can receive traffic destined to other VMs.</span></span>
 

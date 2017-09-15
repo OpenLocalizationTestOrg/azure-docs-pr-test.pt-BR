@@ -21,25 +21,25 @@ ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/11/2017
 ---
-## <a name="set-up-your-project"></a>Configurar o seu projeto
+## <a name="set-up-your-project"></a><span data-ttu-id="f2e56-103">Configurar o seu projeto</span><span class="sxs-lookup"><span data-stu-id="f2e56-103">Set up your project</span></span>
 
-Esta seção mostra as etapas para instalar e configurar o pipeline de autenticação por meio do middleware OWIN em um projeto do ASP.NET usando o OpenID Connect. 
+<span data-ttu-id="f2e56-104">Esta seção mostra as etapas para instalar e configurar o pipeline de autenticação por meio do middleware OWIN em um projeto do ASP.NET usando o OpenID Connect.</span><span class="sxs-lookup"><span data-stu-id="f2e56-104">This section shows the steps to install and configure the authentication pipeline via OWIN middleware on an ASP.NET project using OpenID Connect.</span></span> 
 
-> Prefere baixar este projeto do Visual Studio de exemplo? [Baixe um projeto](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) e vá para a [Etapa de configuração](#create-an-application-express) para configurar o exemplo de código antes de executá-lo.
+> <span data-ttu-id="f2e56-105">Prefere baixar este projeto do Visual Studio de exemplo?</span><span class="sxs-lookup"><span data-stu-id="f2e56-105">Prefer to download this sample's Visual Studio project instead?</span></span> <span data-ttu-id="f2e56-106">[Baixe um projeto](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) e vá para a [Etapa de configuração](#create-an-application-express) para configurar o exemplo de código antes de executá-lo.</span><span class="sxs-lookup"><span data-stu-id="f2e56-106">[Download a project](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) and skip to the [Configuration step](#create-an-application-express) to configure the code sample before executing.</span></span>
 
 <!--start-collapse-->
-> ### <a name="create-your-aspnet-project"></a>Criar seu projeto do ASP.NET
+> ### <a name="create-your-aspnet-project"></a><span data-ttu-id="f2e56-107">Criar seu projeto do ASP.NET</span><span class="sxs-lookup"><span data-stu-id="f2e56-107">Create your ASP.NET project</span></span>
 
-> 1. No Visual Studio: `File` > `New` > `Project`<br/>
-> 2. Em *Visual C#\Web*, selecione `ASP.NET Web Application (.NET Framework)`.
-> 3. Nomeie o aplicativo e clique em *OK*
-> 4. Selecione `Empty` e marque a caixa de seleção para adicionar referências `MVC`
+> 1. <span data-ttu-id="f2e56-108">No Visual Studio: `File` > `New` > `Project`</span><span class="sxs-lookup"><span data-stu-id="f2e56-108">In Visual Studio: `File` > `New` > `Project`</span></span><br/>
+> 2. <span data-ttu-id="f2e56-109">Em *Visual C#\Web*, selecione `ASP.NET Web Application (.NET Framework)`.</span><span class="sxs-lookup"><span data-stu-id="f2e56-109">Under *Visual C#\Web*, select `ASP.NET Web Application (.NET Framework)`.</span></span>
+> 3. <span data-ttu-id="f2e56-110">Nomeie o aplicativo e clique em *OK*</span><span class="sxs-lookup"><span data-stu-id="f2e56-110">Name your application and click *OK*</span></span>
+> 4. <span data-ttu-id="f2e56-111">Selecione `Empty` e marque a caixa de seleção para adicionar referências `MVC`</span><span class="sxs-lookup"><span data-stu-id="f2e56-111">Select `Empty` and select the checkbox to add `MVC` references</span></span>
 <!--end-collapse-->
 
-## <a name="add-authentication-components"></a>Adicionar componentes de autenticação
+## <a name="add-authentication-components"></a><span data-ttu-id="f2e56-112">Adicionar componentes de autenticação</span><span class="sxs-lookup"><span data-stu-id="f2e56-112">Add authentication components</span></span>
 
-1. No Visual Studio: `Tools` > `Nuget Package Manager` > `Package Manager Console`
-2. Adicione *Pacotes NuGet do middleware OWIN* digitando o seguinte na janela do Console do Gerenciador de Pacotes:
+1. <span data-ttu-id="f2e56-113">No Visual Studio: `Tools` > `Nuget Package Manager` > `Package Manager Console`</span><span class="sxs-lookup"><span data-stu-id="f2e56-113">In Visual Studio: `Tools` > `Nuget Package Manager` > `Package Manager Console`</span></span>
+2. <span data-ttu-id="f2e56-114">Adicione *Pacotes NuGet do middleware OWIN* digitando o seguinte na janela do Console do Gerenciador de Pacotes:</span><span class="sxs-lookup"><span data-stu-id="f2e56-114">Add *OWIN middleware NuGet packages* by typing the following in the Package Manager Console window:</span></span>
 
 ```powershell
 Install-Package Microsoft.Owin.Security.OpenIdConnect
@@ -48,22 +48,22 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
 <!--start-collapse-->
-> ### <a name="about-these-libraries"></a>Sobre estas bibliotecas
+> ### <a name="about-these-libraries"></a><span data-ttu-id="f2e56-115">Sobre estas bibliotecas</span><span class="sxs-lookup"><span data-stu-id="f2e56-115">About these libraries</span></span>
 
->As bibliotecas acima possibilitam o SSO (logon único) usando o OpenID Connect por meio da autenticação baseada em cookie. Depois que a autenticação for concluída e o token que representa o usuário for enviado ao aplicativo, o middleware OWIN criará um cookie de sessão. Em seguida, o navegador usará esse cookie nas próximas solicitações, de forma que o usuário não precise digitar sua senha novamente e nenhuma verificação adicional será necessária.
+><span data-ttu-id="f2e56-116">As bibliotecas acima possibilitam o SSO (logon único) usando o OpenID Connect por meio da autenticação baseada em cookie.</span><span class="sxs-lookup"><span data-stu-id="f2e56-116">The libraries above enable single sign-on (SSO) using OpenID Connect via cookie-based authentication.</span></span> <span data-ttu-id="f2e56-117">Depois que a autenticação for concluída e o token que representa o usuário for enviado ao aplicativo, o middleware OWIN criará um cookie de sessão.</span><span class="sxs-lookup"><span data-stu-id="f2e56-117">After authentication is completed and the token representing the user is sent to your application, OWIN middleware creates a session cookie.</span></span> <span data-ttu-id="f2e56-118">Em seguida, o navegador usará esse cookie nas próximas solicitações, de forma que o usuário não precise digitar sua senha novamente e nenhuma verificação adicional será necessária.</span><span class="sxs-lookup"><span data-stu-id="f2e56-118">The browser then uses this cookie on subsequent requests so the user doesn't need to retype their password, and no additional verification is needed.</span></span>
 <!--end-collapse-->
 
-## <a name="configure-the-authentication-pipeline"></a>Configurar o pipeline de autenticação
-As etapas abaixo são usadas para criar uma Classe de Inicialização do middleware OWIN para configurar a autenticação do OpenID Connect. Essa classe será executada automaticamente quando o processo do IIS for iniciado.
+## <a name="configure-the-authentication-pipeline"></a><span data-ttu-id="f2e56-119">Configurar o pipeline de autenticação</span><span class="sxs-lookup"><span data-stu-id="f2e56-119">Configure the authentication pipeline</span></span>
+<span data-ttu-id="f2e56-120">As etapas abaixo são usadas para criar uma Classe de Inicialização do middleware OWIN para configurar a autenticação do OpenID Connect.</span><span class="sxs-lookup"><span data-stu-id="f2e56-120">The steps below are used to create an OWIN middleware Startup Class to configure OpenID Connect authentication.</span></span> <span data-ttu-id="f2e56-121">Essa classe será executada automaticamente quando o processo do IIS for iniciado.</span><span class="sxs-lookup"><span data-stu-id="f2e56-121">This class will be executed automatically when your IIS process starts.</span></span>
 
-> Se o projeto não tiver um arquivo `Startup.cs` na pasta raiz:<br/>
-> 1. Clique com o botão direito do mouse na pasta raiz do projeto: > `Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Nomeie-o `Startup.cs`
+> <span data-ttu-id="f2e56-122">Se o projeto não tiver um arquivo `Startup.cs` na pasta raiz:</span><span class="sxs-lookup"><span data-stu-id="f2e56-122">If your project doesn't have a `Startup.cs` file in the root folder:</span></span><br/>
+> 1. <span data-ttu-id="f2e56-123">Clique com o botão direito do mouse na pasta raiz do projeto: > `Add` > `New Item...` > `OWIN Startup class`</span><span class="sxs-lookup"><span data-stu-id="f2e56-123">Right click on the project's root folder: >    `Add` > `New Item...` > `OWIN Startup class`</span></span><br/>
+> 2. <span data-ttu-id="f2e56-124">Nomeie-o `Startup.cs`</span><span class="sxs-lookup"><span data-stu-id="f2e56-124">Name it `Startup.cs`</span></span>
 
-> Verifique se a classe selecionada é uma Classe de Inicialização OWIN e não uma classe C# padrão. Confirme isso verificando se você consegue ver `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` acima do namespace.
+> <span data-ttu-id="f2e56-125">Verifique se a classe selecionada é uma Classe de Inicialização OWIN e não uma classe C# padrão.</span><span class="sxs-lookup"><span data-stu-id="f2e56-125">Make sure the class selected is an OWIN Startup Class and not a standard C# class.</span></span> <span data-ttu-id="f2e56-126">Confirme isso verificando se você consegue ver `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` acima do namespace.</span><span class="sxs-lookup"><span data-stu-id="f2e56-126">Confirm this by checking if you see `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` above the namespace.</span></span>
 
 
-1. Adicione as referências *OWIN* e *Microsoft.IdentityModel* a `Startup.cs`:
+1. <span data-ttu-id="f2e56-127">Adicione as referências *OWIN* e *Microsoft.IdentityModel* a `Startup.cs`:</span><span class="sxs-lookup"><span data-stu-id="f2e56-127">Add *OWIN* and *Microsoft.IdentityModel* references to `Startup.cs`:</span></span>
 
 ```csharp
 using Microsoft.Owin;
@@ -77,7 +77,7 @@ using Microsoft.Owin.Security.Notifications;
 <!-- Workaround for Docs conversion bug -->
 <ol start="2">
 <li>
-Substitua a Classe de inicialização pelo seguinte código:
+<span data-ttu-id="f2e56-128">Substitua a Classe de inicialização pelo seguinte código:</span><span class="sxs-lookup"><span data-stu-id="f2e56-128">Replace Startup class with the code below:</span></span>
 </li>
 </ol>
 
@@ -145,8 +145,8 @@ public class Startup
 
 ```
 <!--start-collapse-->
-> ### <a name="more-information"></a>Mais informações
+> ### <a name="more-information"></a><span data-ttu-id="f2e56-129">Mais informações</span><span class="sxs-lookup"><span data-stu-id="f2e56-129">More Information</span></span>
 
-> Os parâmetros fornecidos em *OpenIDConnectAuthenticationOptions* servem como coordenadas para seu aplicativo se comunicar com o Azure AD. Como o middleware OpenID Connect usa cookies em segundo plano, você também precisa configurar a autenticação de cookie, conforme o código acima mostra. O valor *ValidateIssuer* informa OpenIdConnect para não restringir o acesso a uma organização específica.
+> <span data-ttu-id="f2e56-130">Os parâmetros fornecidos em *OpenIDConnectAuthenticationOptions* servem como coordenadas para seu aplicativo se comunicar com o Azure AD.</span><span class="sxs-lookup"><span data-stu-id="f2e56-130">The parameters you provide in *OpenIDConnectAuthenticationOptions* serve as coordinates for the application to communicate with Azure AD.</span></span> <span data-ttu-id="f2e56-131">Como o middleware OpenID Connect usa cookies em segundo plano, você também precisa configurar a autenticação de cookie, conforme o código acima mostra.</span><span class="sxs-lookup"><span data-stu-id="f2e56-131">Because the OpenID Connect middleware uses cookies in the background, you also need to set up cookie authentication as the code above shows.</span></span> <span data-ttu-id="f2e56-132">O valor *ValidateIssuer* informa OpenIdConnect para não restringir o acesso a uma organização específica.</span><span class="sxs-lookup"><span data-stu-id="f2e56-132">The *ValidateIssuer* value tells OpenIdConnect to not restrict access to one specific organization.</span></span>
 <!--end-collapse-->
 

@@ -1,21 +1,21 @@
 
-#### <a name="to-configure-remote-management-on-cloud-appliance"></a>Para configurar o gerenciamento remoto no dispositivo de nuvem
+#### <a name="to-configure-remote-management-on-cloud-appliance"></a><span data-ttu-id="6430b-101">Para configurar o gerenciamento remoto no dispositivo de nuvem</span><span class="sxs-lookup"><span data-stu-id="6430b-101">To configure remote management on cloud appliance</span></span>
 
-1. Em seu serviço StorSimple Device Manager, clique em **Dispositivos**. Selecione e clique em seu dispositivo de nuvem na lista de dispositivos conectados ao serviço.
-    ![Seleção de dispositivo de nuvem StorSimple](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage1.png)
+1. <span data-ttu-id="6430b-102">Em seu serviço StorSimple Device Manager, clique em **Dispositivos**.</span><span class="sxs-lookup"><span data-stu-id="6430b-102">In your StorSimple Device Manager service, click **Devices**.</span></span> <span data-ttu-id="6430b-103">Selecione e clique em seu dispositivo de nuvem na lista de dispositivos conectados ao serviço.</span><span class="sxs-lookup"><span data-stu-id="6430b-103">Select and click your cloud appliance from the list of devices connected to the service.</span></span>
+    <span data-ttu-id="6430b-104">![Seleção de dispositivo de nuvem StorSimple](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage1.png)</span><span class="sxs-lookup"><span data-stu-id="6430b-104">![StorSimple select cloud appliance](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage1.png)</span></span>
 
-2. Acesse **Configurações > Segurança** para abrir a folha **Configurações de segurança**.
+2. <span data-ttu-id="6430b-105">Acesse **Configurações > Segurança** para abrir a folha **Configurações de segurança**.</span><span class="sxs-lookup"><span data-stu-id="6430b-105">Go to **Settings > Security** to open the **Security settings** blade.</span></span>
 
      ![Configurações de segurança do StorSimple](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage2.png)
 
-3. Vá até a seção **Gerenciamento Remoto**. Clique na caixa **Gerenciamento remoto**.
-     ![Gerenciamento remoto do StorSimple](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage3.png)
+3. <span data-ttu-id="6430b-107">Vá até a seção **Gerenciamento Remoto**.</span><span class="sxs-lookup"><span data-stu-id="6430b-107">Go to the **Remote Management** section.</span></span> <span data-ttu-id="6430b-108">Clique na caixa **Gerenciamento remoto**.</span><span class="sxs-lookup"><span data-stu-id="6430b-108">Click **Remote management** box.</span></span>
+     <span data-ttu-id="6430b-109">![Gerenciamento remoto do StorSimple](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage3.png)</span><span class="sxs-lookup"><span data-stu-id="6430b-109">![StorSimple remote manangement](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage3.png)</span></span>
 
-4. Na folha **Gerenciamento remoto**:
+4. <span data-ttu-id="6430b-110">Na folha **Gerenciamento remoto**:</span><span class="sxs-lookup"><span data-stu-id="6430b-110">In the **Remote management** blade:</span></span>
 
-    1. Habilite **Habilitar administração remota**.
-    2. O padrão é conectar-se por HTTPS. Escolha se conectar usando HTTP. A conexão por HTTP só será aceitável em redes confiáveis. Certifique-se de que HTTP esteja habilitado.
-    3. Na barra de comandos na parte superior da folha, clique em **... Clique em**  e depois em **Baixar certificado** para baixar um certificado de gerenciamento remoto. Especifique um local no qual o arquivo será salvo. Esse certificado deve ser instalado na máquina cliente ou host que você usa para se conectar ao dispositivo de nuvem.
+    1. <span data-ttu-id="6430b-111">Habilite **Habilitar administração remota**.</span><span class="sxs-lookup"><span data-stu-id="6430b-111">Ensure **Enable remote administration** is enabled.</span></span>
+    2. <span data-ttu-id="6430b-112">O padrão é conectar-se por HTTPS.</span><span class="sxs-lookup"><span data-stu-id="6430b-112">The default is to connect over HTTPS.</span></span> <span data-ttu-id="6430b-113">Escolha se conectar usando HTTP.</span><span class="sxs-lookup"><span data-stu-id="6430b-113">You can choose to connect using HTTP.</span></span> <span data-ttu-id="6430b-114">A conexão por HTTP só será aceitável em redes confiáveis.</span><span class="sxs-lookup"><span data-stu-id="6430b-114">Connecting over HTTP is acceptable only on trusted networks.</span></span> <span data-ttu-id="6430b-115">Certifique-se de que HTTP esteja habilitado.</span><span class="sxs-lookup"><span data-stu-id="6430b-115">Ensure that HTTP is enabled.</span></span>
+    3. <span data-ttu-id="6430b-116">Na barra de comandos na parte superior da folha, clique em **... Clique em**  e depois em **Baixar certificado** para baixar um certificado de gerenciamento remoto.</span><span class="sxs-lookup"><span data-stu-id="6430b-116">From the command bar at the top of blade, click **... More** and then click **Download certificate** to download a remote management certificate.</span></span> <span data-ttu-id="6430b-117">Especifique um local no qual o arquivo será salvo.</span><span class="sxs-lookup"><span data-stu-id="6430b-117">You can specify a location in which to save this file.</span></span> <span data-ttu-id="6430b-118">Esse certificado deve ser instalado na máquina cliente ou host que você usa para se conectar ao dispositivo de nuvem.</span><span class="sxs-lookup"><span data-stu-id="6430b-118">This certificate should be installed on the client or host machine that you use to connect to the cloud appliance.</span></span>
 
         ![Folha Gerenciamento remoto](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage4.png)
-5. Clique em **Salvar** e, quando receber a solicitação, confirme as alterações.
+5. <span data-ttu-id="6430b-120">Clique em **Salvar** e, quando receber a solicitação, confirme as alterações.</span><span class="sxs-lookup"><span data-stu-id="6430b-120">Click **Save** and when prompted, confirm the changes.</span></span>
