@@ -1,0 +1,40 @@
+---
+title: Build de linha de comando do Azure| Microsoft Docs
+description: "Compilação de linha de comando do Azure"
+services: visual-studio-online
+documentationcenter: na
+author: kraigb
+manager: ghogen
+editor: 
+ms.assetid: 94b35d0d-0d35-48b6-b48b-3641377867fd
+ms.service: multiple
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/05/2017
+ms.author: kraigb
+ms.openlocfilehash: 5fe910e2757dd5ec783538e23e7f52e2f5725b39
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
+---
+# <a name="building-azure-projects-from-the-command-line"></a><span data-ttu-id="4e15e-103">Criação de projetos do Azure na linha de comando</span><span class="sxs-lookup"><span data-stu-id="4e15e-103">Building Azure projects from the command line</span></span>
+<span data-ttu-id="4e15e-104">Ao usar o Microsoft Build Engine (MSBuild), você pode criar produtos nos ambientes de laboratório de criação em que o Visual Studio não está instalado.</span><span class="sxs-lookup"><span data-stu-id="4e15e-104">Using the Microsoft Build Engine (MSBuild), you can build products in build-lab environments where Visual Studio is not installed.</span></span> <span data-ttu-id="4e15e-105">O MSBuild usa um formato XML para arquivos de projeto extensíveis e com suporte total da Microsoft.</span><span class="sxs-lookup"><span data-stu-id="4e15e-105">MSBuild uses an XML format for project files that's extensible and fully supported by Microsoft.</span></span> <span data-ttu-id="4e15e-106">Usando o formato de arquivo MSBuild, é possível descrever quais itens devem ser criados para uma ou mais plataformas e configurações.</span><span class="sxs-lookup"><span data-stu-id="4e15e-106">Using the MSBuild file format, you can describe what items must be built for one or more platforms and configurations.</span></span>
+
+<span data-ttu-id="4e15e-107">Você também pode executar o MSBuild na linha de comando, e este tópico descreve essa abordagem.</span><span class="sxs-lookup"><span data-stu-id="4e15e-107">You can also run MSBuild at the command line, and this topic describes that approach.</span></span> <span data-ttu-id="4e15e-108">Ao configurar propriedades na linha de comando, você pode criar configurações específicas de um projeto.</span><span class="sxs-lookup"><span data-stu-id="4e15e-108">By setting properties on the command line, you can build specific configurations of a project.</span></span> <span data-ttu-id="4e15e-109">Da mesma forma, também é possível definir os destinos que o comando MSBuild cria.</span><span class="sxs-lookup"><span data-stu-id="4e15e-109">Similarly, you can also define the targets that MSBuild builds.</span></span> <span data-ttu-id="4e15e-110">Para saber mais sobre parâmetros de linha de comando e o MSBuild, confira [Referência de linha de comando MSBuild](https://msdn.microsoft.com/library/ms164311.aspx).</span><span class="sxs-lookup"><span data-stu-id="4e15e-110">For more information about command-line parameters and MSBuild, see [MSBuild Command-Line Reference](https://msdn.microsoft.com/library/ms164311.aspx).</span></span>
+
+## <a name="msbuild-parameters"></a><span data-ttu-id="4e15e-111">Parâmetros do MSBuild</span><span class="sxs-lookup"><span data-stu-id="4e15e-111">MSBuild parameters</span></span>
+<span data-ttu-id="4e15e-112">A maneira mais simples de criar um pacote é executar o MSBuild com a opção `/t:Publish` .</span><span class="sxs-lookup"><span data-stu-id="4e15e-112">The simplest way to create a package is to run MSBuild with the `/t:Publish` option.</span></span> <span data-ttu-id="4e15e-113">Por padrão, este comando cria um diretório em relação à pasta raiz do projeto, como `<ProjectDirectory>\bin\Configuration\app.publish\`.</span><span class="sxs-lookup"><span data-stu-id="4e15e-113">By default, this command creates a directory in relation to the root folder for the project, such as `<ProjectDirectory>\bin\Configuration\app.publish\`.</span></span> <span data-ttu-id="4e15e-114">Quando você cria um projeto do Azure, dois arquivos são gerados: o arquivo de pacote em si e o arquivo de configuração que o acompanha:</span><span class="sxs-lookup"><span data-stu-id="4e15e-114">When you build an Azure project, two files are generated: the package file itself and the accompanying configuration file:</span></span>
+
+* <span data-ttu-id="4e15e-115">Arquivo de pacote (`project.cspkg`)</span><span class="sxs-lookup"><span data-stu-id="4e15e-115">Package File (`project.cspkg`)</span></span>
+* <span data-ttu-id="4e15e-116">Arquivo de configuração (`ServiceConfiguration.TargetProfile.cscfg`)</span><span class="sxs-lookup"><span data-stu-id="4e15e-116">Configuration File (`ServiceConfiguration.TargetProfile.cscfg`)</span></span>
+
+<span data-ttu-id="4e15e-117">Por padrão, cada projeto do Azure inclui um arquivo de configuração de serviço para criações locais (depuração) e outro para criações na nuvem (preparo ou produção).</span><span class="sxs-lookup"><span data-stu-id="4e15e-117">By default, each Azure project includes one service-configuration file for local (debugging) builds and another for cloud (staging or production) builds.</span></span> <span data-ttu-id="4e15e-118">No entanto, você pode adicionar ou remover arquivos de configuração de serviço conforme necessário.</span><span class="sxs-lookup"><span data-stu-id="4e15e-118">However, you can add or remove service-configuration files as needed.</span></span> <span data-ttu-id="4e15e-119">Ao compilar um pacote no Visual Studio, você define o arquivo de configuração de serviço a ser incluído com o pacote.</span><span class="sxs-lookup"><span data-stu-id="4e15e-119">When you build a package within Visual Studio, you are asked which service-configuration file to include alongside the package.</span></span> <span data-ttu-id="4e15e-120">Quando você compila um pacote usando o MSBuild, o arquivo de configuração de serviço local é incluído por padrão.</span><span class="sxs-lookup"><span data-stu-id="4e15e-120">When you build a package by using MSBuild, the local service-configuration file is included by default.</span></span> <span data-ttu-id="4e15e-121">Para incluir um arquivo de configuração de serviço diferente, defina a propriedade `TargetProfile` do comando MSBuild (`MSBuild /t:Publish /p:TargetProfile=ProfileName`).</span><span class="sxs-lookup"><span data-stu-id="4e15e-121">To include a different service-configuration file, set the `TargetProfile` property of the MSBuild command (`MSBuild /t:Publish /p:TargetProfile=ProfileName`).</span></span>
+
+<span data-ttu-id="4e15e-122">Se você quiser usar um diretório alternativo para o pacote armazenado e arquivos de configuração, defina o caminho usando a opção `/p:PublishDir=Directory\`, incluindo o separador de barra invertida à direita.</span><span class="sxs-lookup"><span data-stu-id="4e15e-122">If you want to use an alternate directory for the stored package and configuration files, set the path by using the `/p:PublishDir=Directory\` option, including the trailing backslash separator.</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="4e15e-123">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="4e15e-123">Next steps</span></span>
+<span data-ttu-id="4e15e-124">Depois que o pacote é compilado, você pode implantá-lo no Azure.</span><span class="sxs-lookup"><span data-stu-id="4e15e-124">After the package is built, you can deploy it to Azure.</span></span> <span data-ttu-id="4e15e-125">Para ver um tutorial que demonstra como automatizar esse processo, confira [Fornecimento contínuo de serviços de nuvem no Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).</span><span class="sxs-lookup"><span data-stu-id="4e15e-125">For a tutorial that demonstrates how to automate that process, see [Continuous Delivery for Cloud Services in Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).</span></span>
+

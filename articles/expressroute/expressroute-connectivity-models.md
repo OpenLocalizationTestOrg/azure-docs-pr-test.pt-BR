@@ -1,0 +1,47 @@
+---
+title: "Modelos de conectividade do ExpressRoute: conectar-se ao Microsoft Azure por meio de provedores de serviços de rede, trocas e provedores de Ethernet | Microsoft Docs"
+description: "Este artigo descreve os diferentes modos de conectividade entre a rede e serviços Microsoft Azure, Office 365 e Dynamics 365 do cliente. Os clientes podem usar provedores de MPLS, trocas de nuvem e provedores de Ethernet."
+documentationcenter: na
+services: expressroute
+author: cherylmc
+manager: timlt
+editor: 
+ms.assetid: 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 02/09/2017
+ms.author: cherylmc
+ms.openlocfilehash: 00f97da2189491103c461b49ac82feb92d8f4b9b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
+---
+# <a name="expressroute-connectivity-models"></a><span data-ttu-id="705e2-104">Modelos de conectividade do ExpressRoute</span><span class="sxs-lookup"><span data-stu-id="705e2-104">ExpressRoute connectivity models</span></span>
+<span data-ttu-id="705e2-105">Você pode criar uma conexão entre sua rede local e a nuvem da Microsoft de três maneiras diferentes, [Colocalização do CloudExchange](#CloudExchange), [Conexão de Ethernet Ponto a Ponto](#Ethernet) e [Conexão Qualquer para Qualquer (IPVPN)](#IPVPN).</span><span class="sxs-lookup"><span data-stu-id="705e2-105">You can create a connection between your on-premises network and the Microsoft cloud in three different ways, [CloudExchange Co-location](#CloudExchange), [Point-to-point Ethernet Connection](#Ethernet), and [Any-to-any (IPVPN) Connection](#IPVPN).</span></span> <span data-ttu-id="705e2-106">Os provedores de conectividade podem oferecer um ou mais modelos de conectividade.</span><span class="sxs-lookup"><span data-stu-id="705e2-106">Connectivity providers can offer one or more connectivity models.</span></span> <span data-ttu-id="705e2-107">Converse com seu provedor de conectividade a fim de escolher o modelo mais adequado a você.</span><span class="sxs-lookup"><span data-stu-id="705e2-107">You can work with your connectivity provider to pick the model that works best for you.</span></span>
+<br><br>
+
+![Diagrama de modelo de conectividade do ExpressRoute](./media/expressroute-connectivity-models/expressroute-connectivity-models-diagram.png)
+
+## <span data-ttu-id="705e2-109"><a name="CloudExchange"></a>Colocalizada em uma troca de nuvem</span><span class="sxs-lookup"><span data-stu-id="705e2-109"><a name="CloudExchange"></a>Co-located at a cloud exchange</span></span>
+<span data-ttu-id="705e2-110">Se você estiver colocalizado em uma instalação que possua uma troca de nuvem, poderá solicitar conexões cruzadas virtuais para a nuvem da Microsoft por meio da troca Ethernet do provedor da colocalização.</span><span class="sxs-lookup"><span data-stu-id="705e2-110">If you are co-located in a facility with a cloud exchange, you can order virtual cross-connections to the Microsoft cloud through the co-location provider’s Ethernet exchange.</span></span> <span data-ttu-id="705e2-111">Os provedores da colocalização podem oferecer conexões cruzadas de Camada 2 ou conexões cruzadas gerenciadas de Camada 3 entre sua infraestrutura na instalação de colocalização e a nuvem da Microsoft.</span><span class="sxs-lookup"><span data-stu-id="705e2-111">Co-location providers can offer either Layer 2 cross-connections, or managed Layer 3 cross-connections between your infrastructure in the co-location facility and the Microsoft cloud.</span></span>
+
+## <span data-ttu-id="705e2-112"><a name="Ethernet"></a>Conexões Ethernet ponto a ponto</span><span class="sxs-lookup"><span data-stu-id="705e2-112"><a name="Ethernet"></a>Point-to-point Ethernet connections</span></span>
+<span data-ttu-id="705e2-113">Você pode conectar seus data centers/escritórios locais à nuvem da Microsoft por meio de links de Ethernet ponto a ponto.</span><span class="sxs-lookup"><span data-stu-id="705e2-113">You can connect your on-premises datacenters/offices to the Microsoft cloud through point-to-point Ethernet links.</span></span> <span data-ttu-id="705e2-114">Os provedores de Ethernet ponto a ponto podem oferecer conexões de Camada 2 ou conexões gerenciadas de Camada 3 entre seu site e a nuvem da Microsoft.</span><span class="sxs-lookup"><span data-stu-id="705e2-114">Point-to-point Ethernet providers can offer Layer 2 connections, or managed Layer 3 connections between your site and the Microsoft cloud.</span></span>
+
+## <span data-ttu-id="705e2-115"><a name="IPVPN"></a>Redes Qualquer para Qualquer (IPVPN)</span><span class="sxs-lookup"><span data-stu-id="705e2-115"><a name="IPVPN"></a>Any-to-any (IPVPN) networks</span></span>
+<span data-ttu-id="705e2-116">É possível integrar sua WAN à nuvem da Microsoft.</span><span class="sxs-lookup"><span data-stu-id="705e2-116">You can integrate your WAN with the Microsoft cloud.</span></span> <span data-ttu-id="705e2-117">Os Provedores de IPVPN (normalmente, VPN MPLS) oferecem conectividade “qualquer para qualquer” entre suas filiais e datacenters.</span><span class="sxs-lookup"><span data-stu-id="705e2-117">IPVPN providers (typically MPLS VPN) offer any-to-any connectivity between your branch offices and datacenters.</span></span> <span data-ttu-id="705e2-118">A nuvem da Microsoft pode ser interconectada à sua WAN para que ela fique exatamente igual a qualquer outra filial.</span><span class="sxs-lookup"><span data-stu-id="705e2-118">The Microsoft cloud can be interconnected to your WAN to make it look just like any other branch office.</span></span> <span data-ttu-id="705e2-119">Normalmente, os provedores de rede WAN oferecem conectividade gerenciada de Camada 3.</span><span class="sxs-lookup"><span data-stu-id="705e2-119">WAN providers typically offer managed Layer 3 connectivity.</span></span> <span data-ttu-id="705e2-120">Os recursos do ExpressRoute são idênticos em todos os modelos de conectividade mencionados acima.</span><span class="sxs-lookup"><span data-stu-id="705e2-120">ExpressRoute capabilities and features are all identical across all of the above connectivity models.</span></span> 
+
+## <a name="next-steps"></a><span data-ttu-id="705e2-121">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="705e2-121">Next steps</span></span>
+* <span data-ttu-id="705e2-122">Saiba mais sobre conexões e domínios de roteamento do ExpressRoute.</span><span class="sxs-lookup"><span data-stu-id="705e2-122">Learn about ExpressRoute connections and routing domains.</span></span> <span data-ttu-id="705e2-123">Consulte [Circuitos e domínios de roteamento do ExpressRoute](expressroute-circuit-peerings.md).</span><span class="sxs-lookup"><span data-stu-id="705e2-123">See [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).</span></span>
+* <span data-ttu-id="705e2-124">Saiba mais sobre recursos do ExpressRoute.</span><span class="sxs-lookup"><span data-stu-id="705e2-124">Learn about ExpressRoute features.</span></span> <span data-ttu-id="705e2-125">Veja a [Visão geral técnica do ExpressRoute](expressroute-introduction.md)</span><span class="sxs-lookup"><span data-stu-id="705e2-125">See the [ExpressRoute Technical Overview](expressroute-introduction.md)</span></span>
+* <span data-ttu-id="705e2-126">Encontrar um provedor de serviços.</span><span class="sxs-lookup"><span data-stu-id="705e2-126">Find a service provider.</span></span> <span data-ttu-id="705e2-127">Consulte [Parceiros e locais de emparelhamento do ExpressRoute](expressroute-locations.md).</span><span class="sxs-lookup"><span data-stu-id="705e2-127">See [ExpressRoute partners and peering locations](expressroute-locations.md).</span></span>
+* <span data-ttu-id="705e2-128">Verifique se todos os pré-requisitos foram atendidos.</span><span class="sxs-lookup"><span data-stu-id="705e2-128">Ensure that all prerequisites are met.</span></span> <span data-ttu-id="705e2-129">Consulte [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md).</span><span class="sxs-lookup"><span data-stu-id="705e2-129">See [ExpressRoute prerequisites](expressroute-prerequisites.md).</span></span>
+* <span data-ttu-id="705e2-130">Consulte os requisitos para [Roteamento](expressroute-routing.md), [NAT](expressroute-nat.md) e [QoS](expressroute-qos.md).</span><span class="sxs-lookup"><span data-stu-id="705e2-130">Refer to the requirements for [Routing](expressroute-routing.md), [NAT](expressroute-nat.md), and [QoS](expressroute-qos.md).</span></span>
+* <span data-ttu-id="705e2-131">Configurar sua conexão do ExpressRoute.</span><span class="sxs-lookup"><span data-stu-id="705e2-131">Configure your ExpressRoute connection.</span></span>
+  * [<span data-ttu-id="705e2-132">Criar um circuito do ExpressRoute</span><span class="sxs-lookup"><span data-stu-id="705e2-132">Create an ExpressRoute circuit</span></span>](expressroute-howto-circuit-portal-resource-manager.md)
+  * [<span data-ttu-id="705e2-133">Configurar o roteamento</span><span class="sxs-lookup"><span data-stu-id="705e2-133">Configure routing</span></span>](expressroute-howto-routing-portal-resource-manager.md)
+  * [<span data-ttu-id="705e2-134">Vincular uma Rede Virtual a um circuito do ExpressRoute</span><span class="sxs-lookup"><span data-stu-id="705e2-134">Link a VNet to an ExpressRoute circuit</span></span>](expressroute-howto-linkvnet-portal-resource-manager.md)
