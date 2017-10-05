@@ -1,0 +1,71 @@
+---
+title: Exemplos do Cache Redis do Azure | Microsoft Docs
+description: Saiba como usar o Cache Redis do Azure
+services: redis-cache
+documentationcenter: 
+author: steved0x
+manager: douge
+editor: 
+ms.assetid: 1f8d210c-ee09-4fe2-b63f-1e69246a27d8
+ms.service: cache
+ms.workload: tbd
+ms.tgt_pltfrm: cache-redis
+ms.devlang: multiple
+ms.topic: article
+ms.date: 01/23/2017
+ms.author: sdanie
+ms.openlocfilehash: 7841fcf0b5f4dcb409abf8bfb804c2e03dad6d3a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
+---
+# <a name="azure-redis-cache-samples"></a><span data-ttu-id="9b583-103">Exemplos do Cache Redis do Azure</span><span class="sxs-lookup"><span data-stu-id="9b583-103">Azure Redis Cache samples</span></span>
+<span data-ttu-id="9b583-104">Este tópico fornece uma lista de exemplos do Cache Redis do Azure que abrangem cenários como conexão a um cache, leitura e gravação de dados para e de um cache e uso dos provedores do Cache Redis do ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="9b583-104">This topic provides a list of Azure Redis Cache samples, covering scenarios such as connecting to a cache, reading and writing data to and from a cache, and using the ASP.NET Redis Cache providers.</span></span> <span data-ttu-id="9b583-105">Alguns dos exemplos são projetos para download, e outros fornecem orientação passo a passo e incluem trechos de código, mas não se vinculam a um projeto baixável.</span><span class="sxs-lookup"><span data-stu-id="9b583-105">Some of the samples are downloadable projects, and some provide step-by-step guidance and include code snippets but do not link to a downloadable project.</span></span>
+
+## <a name="hello-world-samples"></a><span data-ttu-id="9b583-106">Exemplos Hello world</span><span class="sxs-lookup"><span data-stu-id="9b583-106">Hello world samples</span></span>
+<span data-ttu-id="9b583-107">Os exemplos nesta seção mostram as noções básicas da conexão a uma instância do Cache Redis do Azure e da leitura e gravação de dados no cache usando diversas linguagens e clientes Redis.</span><span class="sxs-lookup"><span data-stu-id="9b583-107">The samples in this section show the basics of connecting to an Azure Redis Cache instance and reading and writing data to the cache using a variety of languages and Redis clients.</span></span>
+
+<span data-ttu-id="9b583-108">O exemplo [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) mostra como executar várias operações de cache usando o cliente .NET [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis).</span><span class="sxs-lookup"><span data-stu-id="9b583-108">The [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample shows how to perform various cache operations using the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) .NET client.</span></span>
+
+<span data-ttu-id="9b583-109">Este exemplo mostra como:</span><span class="sxs-lookup"><span data-stu-id="9b583-109">This sample shows how to:</span></span>
+
+* <span data-ttu-id="9b583-110">Usar várias opções de conexão</span><span class="sxs-lookup"><span data-stu-id="9b583-110">Use various connection options</span></span>
+* <span data-ttu-id="9b583-111">Ler e gravar objetos em cache usando operações síncronas e assíncronas</span><span class="sxs-lookup"><span data-stu-id="9b583-111">Read and write objects to and from the cache using synchronous and asynchronous operations</span></span>
+* <span data-ttu-id="9b583-112">Usar comandos MGET/MSET do Redis para retornar valores de chaves especificadas</span><span class="sxs-lookup"><span data-stu-id="9b583-112">Use Redis MGET/MSET commands to return values of specified keys</span></span>
+* <span data-ttu-id="9b583-113">Executar operações transacionais do Redis</span><span class="sxs-lookup"><span data-stu-id="9b583-113">Perform Redis transactional operations</span></span>
+* <span data-ttu-id="9b583-114">Trabalhar com listas do Redis e conjuntos classificados</span><span class="sxs-lookup"><span data-stu-id="9b583-114">Work with Redis lists and sorted sets</span></span>
+* <span data-ttu-id="9b583-115">Armazenar objetos .NET usando serializadores JsonConvert</span><span class="sxs-lookup"><span data-stu-id="9b583-115">Store .NET objects using JsonConvert serializers</span></span>
+* <span data-ttu-id="9b583-116">Usar conjuntos do Redis para implementar a marcação</span><span class="sxs-lookup"><span data-stu-id="9b583-116">Use Redis sets to implement tagging</span></span>
+* <span data-ttu-id="9b583-117">Trabalhar com o Cluster Redis</span><span class="sxs-lookup"><span data-stu-id="9b583-117">Work with Redis Cluster</span></span>
+
+<span data-ttu-id="9b583-118">Para obter mais informações, consulte a documentação do [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) no github e para ver mais cenários de uso, consulte os testes da unidade [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests).</span><span class="sxs-lookup"><span data-stu-id="9b583-118">For more information, see the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) documentation on github, and for more usage scenarios see the [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests) unit tests.</span></span>
+
+<span data-ttu-id="9b583-119">[Como usar o Cache Redis do Azure com Python](cache-python-get-started.md) mostra como começar com o Cache Redis do Azure usando Python e o cliente [redis-py](https://github.com/andymccurdy/redis-py).</span><span class="sxs-lookup"><span data-stu-id="9b583-119">[How to use Azure Redis Cache with Python](cache-python-get-started.md) shows how to get started with Azure Redis Cache using Python and the [redis-py](https://github.com/andymccurdy/redis-py) client.</span></span>
+
+<span data-ttu-id="9b583-120">[Trabalhar com objetos .NET no cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) mostra uma maneira de serializar objetos .NET para que você possa gravá-los para e lê-los de uma instância do Cache Redis do Azure.</span><span class="sxs-lookup"><span data-stu-id="9b583-120">[Work with .NET objects in the cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) shows you one way to serialize .NET objects so you can write them to and read them from an Azure Redis Cache instance.</span></span> 
+
+## <a name="use-redis-cache-as-a-scale-out-backplane-for-aspnet-signalr"></a><span data-ttu-id="9b583-121">Usar o Cache Redis como um backplane de expansão para ASP.NET SignalR</span><span class="sxs-lookup"><span data-stu-id="9b583-121">Use Redis Cache as a Scale out Backplane for ASP.NET SignalR</span></span>
+<span data-ttu-id="9b583-122">O exemplo [Usar o Cache Redis como um Backplane para escalar horizontalmente para ASP.NET SignalR](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) demonstra como você pode usar o Cache Redis do Azure como um backplane SignalR.</span><span class="sxs-lookup"><span data-stu-id="9b583-122">The [Use Redis Cache as a Scale out Backplane for ASP.NET SignalR](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) sample demonstrates how you can use Azure Redis Cache as a SignalR backplane.</span></span> <span data-ttu-id="9b583-123">Para obter mais informações sobre o backplane, consulte [SignalR Scaleout com Redis](http://www.asp.net/signalr/overview/performance/scaleout-with-redis).</span><span class="sxs-lookup"><span data-stu-id="9b583-123">For more information about backplane, see [SignalR Scaleout with Redis](http://www.asp.net/signalr/overview/performance/scaleout-with-redis).</span></span>
+
+## <a name="redis-cache-customer-query-sample"></a><span data-ttu-id="9b583-124">Exemplo de consulta de cliente do Cache Redis</span><span class="sxs-lookup"><span data-stu-id="9b583-124">Redis Cache customer query sample</span></span>
+<span data-ttu-id="9b583-125">Esse exemplo demonstra a comparação de desempenho entre o acesso a dados de um cache e o acesso a dados do armazenamento de persistência.</span><span class="sxs-lookup"><span data-stu-id="9b583-125">This sample demonstrates compares performance between accessing data from a cache and accessing data from persistence storage.</span></span> <span data-ttu-id="9b583-126">Esse exemplo tem dois projetos.</span><span class="sxs-lookup"><span data-stu-id="9b583-126">This sample has two projects.</span></span>
+
+* [<span data-ttu-id="9b583-127">Demonstração de como o Cache Redis pode melhorar o desempenho armazenando dados em cache</span><span class="sxs-lookup"><span data-stu-id="9b583-127">Demo how Redis Cache can improve performance by Caching data</span></span>](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
+* [<span data-ttu-id="9b583-128">Propagar o banco de dados e o cache para a demonstração</span><span class="sxs-lookup"><span data-stu-id="9b583-128">Seed the Database and Cache for the demo</span></span>](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
+
+## <a name="aspnet-session-state-and-output-caching"></a><span data-ttu-id="9b583-129">Estado de sessão do ASP.NET e cache de saída</span><span class="sxs-lookup"><span data-stu-id="9b583-129">ASP.NET Session State and Output Caching</span></span>
+<span data-ttu-id="9b583-130">O exemplo [Usar o Cache Redis do Azure para armazenar SessionState e OutputCache do ASP.NET](https://github.com/rustd/RedisSamples/tree/master/SessionState_OutputCaching) demonstra como usar o Cache Redis do Azure para armazenar a Sessão do ASP.NET e o Cache de Saída usando os provedores SessionState e OutputCache para Redis.</span><span class="sxs-lookup"><span data-stu-id="9b583-130">The [Use Azure Redis Cache to store ASP.NET SessionState and OutputCache](https://github.com/rustd/RedisSamples/tree/master/SessionState_OutputCaching) sample demonstrates how you to use Azure Redis Cache to store ASP.NET Session and Output Cache using the SessionState and OutputCache providers for Redis.</span></span>
+
+## <a name="manage-azure-redis-cache-with-maml"></a><span data-ttu-id="9b583-131">Gerenciar o Cache Redis do Azure com MAML</span><span class="sxs-lookup"><span data-stu-id="9b583-131">Manage Azure Redis Cache with MAML</span></span>
+<span data-ttu-id="9b583-132">O exemplo [Gerenciar o Cache Redis do Azure usando Bibliotecas de Gerenciamento do Azure](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) demonstra como você pode usar Bibliotecas de Gerenciamento do Azure para gerenciar - (criar/atualizar/excluir) o cache.</span><span class="sxs-lookup"><span data-stu-id="9b583-132">The [Manage Azure Redis Cache using Azure Management Libraries](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) sample demonstrates how can you use Azure Management Libraries to manage - (Create/ Update/ delete) your Cache.</span></span> 
+
+## <a name="custom-monitoring-sample"></a><span data-ttu-id="9b583-133">Exemplo de monitoramento personalizado</span><span class="sxs-lookup"><span data-stu-id="9b583-133">Custom monitoring sample</span></span>
+<span data-ttu-id="9b583-134">O exemplo [Acessar dados de monitoramento do Cache Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) demonstra como você pode acessar os dados de monitoramento do Cache Redis do Azure fora do Portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="9b583-134">The [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) sample demonstrates how you can access monitoring data for your Azure Redis Cache outside of the Azure Portal.</span></span>
+
+## <a name="a-twitter-style-clone-written-using-php-and-redis"></a><span data-ttu-id="9b583-135">Um clone no estilo do Twitter escrito usando PHP e Redis</span><span class="sxs-lookup"><span data-stu-id="9b583-135">A Twitter-style clone written using PHP and Redis</span></span>
+<span data-ttu-id="9b583-136">O exemplo [Retwis](https://github.com/SyntaxC4-MSFT/retwis) é o Redis Hello World.</span><span class="sxs-lookup"><span data-stu-id="9b583-136">The [Retwis](https://github.com/SyntaxC4-MSFT/retwis) sample is the Redis Hello World.</span></span> <span data-ttu-id="9b583-137">É um clone de rede social mínimo no estilo do Twitter escrito usando Redis e PHP usando o cliente [Predis](https://github.com/nrk/predis) .</span><span class="sxs-lookup"><span data-stu-id="9b583-137">It is a minimal Twitter-style social network clone written using Redis and PHP using the [Predis](https://github.com/nrk/predis) client.</span></span> <span data-ttu-id="9b583-138">O código-fonte é projetado para ser muito simples e, ao mesmo tempo, mostrar diferentes estruturas de dados do Redis.</span><span class="sxs-lookup"><span data-stu-id="9b583-138">The source code is designed to be very simple and at the same time to show different Redis data structures.</span></span>
+
+## <a name="bandwidth-monitor"></a><span data-ttu-id="9b583-139">Monitor de largura de banda</span><span class="sxs-lookup"><span data-stu-id="9b583-139">Bandwidth monitor</span></span>
+<span data-ttu-id="9b583-140">O exemplo de [Monitor de largura de banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) permite que você monitore a largura de banda usada no cliente.</span><span class="sxs-lookup"><span data-stu-id="9b583-140">The [Bandwidth monitor](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) sample allows you to monitor the bandwidth used on the client.</span></span> <span data-ttu-id="9b583-141">Para medir a largura de banda, execute o exemplo no computador cliente de cache, faça chamadas ao cache e observe a largura de banda relatada pelo exemplo de monitor de largura de banda.</span><span class="sxs-lookup"><span data-stu-id="9b583-141">To measure the bandwidth, run the sample on the cache client machine, make calls to the cache, and observe the bandwidth reported by the bandwidth monitor sample.</span></span>
+
