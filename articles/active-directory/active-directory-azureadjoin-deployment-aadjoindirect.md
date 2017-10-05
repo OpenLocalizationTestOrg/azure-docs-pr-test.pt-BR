@@ -1,0 +1,84 @@
+---
+title: "Cenários de uso e considerações de implantação para a Junção do Azure AD| Microsoft Docs"
+description: "Explica como os administradores podem configurar a Junção do AD do Azure para seus usuários finais (funcionários, estudantes, outros usuários). Ele também discute os diferentes cenários reais para usar a Junção do AD do Azure"
+services: active-directory
+documentationcenter: 
+author: femila
+manager: femila
+editor: 
+tags: azure-classic-portal
+ms.assetid: 81d4461e-21c8-4fdd-9076-0e4991979f62
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/16/2017
+ms.author: markvi
+ms.openlocfilehash: fd0aab1a14bbd324e734e5efe8fe101e8a8dfefa
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
+---
+# <a name="usage-scenarios-and-deployment-considerations-for-azure-ad-join"></a><span data-ttu-id="1a174-104">Cenários de uso e considerações de implantação para a Junção do Azure AD</span><span class="sxs-lookup"><span data-stu-id="1a174-104">Usage scenarios and deployment considerations for Azure AD Join</span></span>
+## <a name="usage-scenarios-for-azure-ad-join"></a><span data-ttu-id="1a174-105">Cenários de uso da Junção do Azure AD</span><span class="sxs-lookup"><span data-stu-id="1a174-105">Usage scenarios for Azure AD Join</span></span>
+### <a name="scenario-1-businesses-largely-in-the-cloud"></a><span data-ttu-id="1a174-106">Cenário 1: empresas baseadas principalmente na nuvem</span><span class="sxs-lookup"><span data-stu-id="1a174-106">Scenario 1: Businesses largely in the cloud</span></span>
+<span data-ttu-id="1a174-107">A Junção do Azure Active Directory (Junção do Azure AD) pode trazer benefícios se você operar e gerenciar identidades para seus negócios na nuvem ou se for migrar para a nuvem em breve.</span><span class="sxs-lookup"><span data-stu-id="1a174-107">Azure Active Directory Join (Azure AD Join) can benefit you if you currently operate and manage identities for your business in the cloud or are moving to the cloud soon.</span></span> <span data-ttu-id="1a174-108">Você pode usar uma conta que já criou no Azure AD para entrar no Windows 10.</span><span class="sxs-lookup"><span data-stu-id="1a174-108">You can use an account that you have created in Azure AD to sign in to Windows 10.</span></span> <span data-ttu-id="1a174-109">Por meio de uma [experiência de FRX (experiência de primeira execução)](active-directory-azureadjoin-user-frx.md) ou unindo o Azure AD por meio do [menu de configurações](active-directory-azureadjoin-user-upgrade.md), seus usuários podem unir suas máquinas ao Azure AD.</span><span class="sxs-lookup"><span data-stu-id="1a174-109">Through [the first run experience (FRX) process](active-directory-azureadjoin-user-frx.md), or by joining Azure AD from [the settings menu](active-directory-azureadjoin-user-upgrade.md), your users can join their machines to Azure AD.</span></span>  <span data-ttu-id="1a174-110">Agora seus usuários podem aproveitar as vantagens do SSO (logon único) a recursos de nuvem como o Office 365, no navegador ou em aplicativos do Office.</span><span class="sxs-lookup"><span data-stu-id="1a174-110">Your users can also enjoy single sign-on (SSO) access to  cloud resources like Office 365, either in their browsers or in Office applications.</span></span>
+
+### <a name="scenario-2-educational-institutions"></a><span data-ttu-id="1a174-111">Cenário 2: instituições de ensino</span><span class="sxs-lookup"><span data-stu-id="1a174-111">Scenario 2: Educational institutions</span></span>
+<span data-ttu-id="1a174-112">Instituições de ensino normalmente têm dois tipos de usuário: professores e alunos.</span><span class="sxs-lookup"><span data-stu-id="1a174-112">Educational institutions usually have two user types: faculty and students.</span></span> <span data-ttu-id="1a174-113">Os professores são considerados integrantes de longo prazo da organização.</span><span class="sxs-lookup"><span data-stu-id="1a174-113">Faculty members are considered longer-term members of the organization.</span></span> <span data-ttu-id="1a174-114">É recomendável criar contas locais para eles.</span><span class="sxs-lookup"><span data-stu-id="1a174-114">Creating on-premises accounts for them is desirable.</span></span> <span data-ttu-id="1a174-115">Os alunos, contudo, são membros temporários da organização e suas contas podem ser gerenciadas no Azure AD.</span><span class="sxs-lookup"><span data-stu-id="1a174-115">But students are shorter-term members of the organization and  their accounts can be managed in Azure AD.</span></span> <span data-ttu-id="1a174-116">Isso significa que a escala do diretório pode ser enviada para a nuvem em vez de ser armazenada localmente.</span><span class="sxs-lookup"><span data-stu-id="1a174-116">This means that directory scale can be pushed to the cloud instead of being stored on-premises.</span></span> <span data-ttu-id="1a174-117">Isso também significa que os alunos poderão se conectar no Windows com sua conta do Azure AD e obter acesso aos recursos do Office 365 em aplicativos do Office.</span><span class="sxs-lookup"><span data-stu-id="1a174-117">It also means that students  will be able to sign in to Windows with their Azure AD accounts and get access to Office 365 resources in Office applications.</span></span>
+
+### <a name="scenario-3-retail-businesses"></a><span data-ttu-id="1a174-118">Cenário 3: empresas de varejo</span><span class="sxs-lookup"><span data-stu-id="1a174-118">Scenario 3: Retail businesses</span></span>
+<span data-ttu-id="1a174-119">Lojas varejistas geralmente têm funcionários temporários e de longo prazo.</span><span class="sxs-lookup"><span data-stu-id="1a174-119">Retail businesses have seasonal workers and long-term employees.</span></span> <span data-ttu-id="1a174-120">Geralmente criamos contas locais e computadores unidos ao domínio para funcionários em tempo integral de longo prazo.</span><span class="sxs-lookup"><span data-stu-id="1a174-120">You typically create on-premises accounts and use domain-joined machines for longer-term full-time employees.</span></span> <span data-ttu-id="1a174-121">Os funcionários temporários, contudo, são membros da organização temporariamente e, portanto, é recomendável gerenciar suas contas de maneira que seja possível mover as licenças de usuário mais facilmente.</span><span class="sxs-lookup"><span data-stu-id="1a174-121">But seasonal workers are shorter-term members of the organization, and it's desirable to manage their accounts where user licenses can be more easily moved around.</span></span> <span data-ttu-id="1a174-122">Ao criar essas contas de usuário na nuvem com licenças do Office 365, elas recebem os benefícios de entrar em aplicativos do Windows e do Office com uma conta do Azure AD, mantendo ainda uma maior flexibilidade das licenças quando eles deixam a empresa.</span><span class="sxs-lookup"><span data-stu-id="1a174-122">When you create their user accounts in the cloud with Office 365 licenses, these users get the benefits of signing in to Windows and Office applications with an Azure AD account, while you maintain more flexibility with their licenses after they leave.</span></span>
+
+### <a name="scenario-4-additional-scenarios"></a><span data-ttu-id="1a174-123">Cenário 4: outros cenários</span><span class="sxs-lookup"><span data-stu-id="1a174-123">Scenario 4: Additional scenarios</span></span>
+<span data-ttu-id="1a174-124">Além dos benefícios discutidos acima, você pode aproveitar as vantagens de ter usuários com dispositivos unidos ao Azure AD devido à experiência simplificada de junção, o gerenciamento eficiente de dispositivos no Azure AD, o registro automático de gerenciamento de dispositivo móvel e o logon único no Azure AD e em recursos locais.</span><span class="sxs-lookup"><span data-stu-id="1a174-124">Along with the benefits discussed earlier, you  benefit from having your users join their devices to Azure AD because of a simplified joining experience, efficient device management, automatic mobile device management enrollment, and single sign-on to Azure AD and on-premises resources.</span></span>  
+
+## <a name="deployment-considerations-for-azure-ad-join"></a><span data-ttu-id="1a174-125">Considerações de implantação para a Junção do Azure AD</span><span class="sxs-lookup"><span data-stu-id="1a174-125">Deployment considerations for Azure AD Join</span></span>
+### <a name="enable-your-users-to-join-a-company-owned-device-directly-to-azure-ad"></a><span data-ttu-id="1a174-126">Permitir que seus usuários unam um dispositivo da empresa diretamente ao Azure AD</span><span class="sxs-lookup"><span data-stu-id="1a174-126">Enable your users to join a company-owned device directly to Azure AD</span></span>
+<span data-ttu-id="1a174-127">As empresas podem fornecer contas somente de nuvem para organizações e empresas parceiras.</span><span class="sxs-lookup"><span data-stu-id="1a174-127">Enterprises can provide cloud-only accounts to partner companies and organizations.</span></span> <span data-ttu-id="1a174-128">Esses parceiros podem acessar facilmente os aplicativos da empresa e os recursos com o logon único.</span><span class="sxs-lookup"><span data-stu-id="1a174-128">These partners can then easily access company apps and resources with single sign-on.</span></span> <span data-ttu-id="1a174-129">Esse cenário se aplica a usuários que acessam recursos primariamente na nuvem, tais como o Office 365 ou aplicativos SaaS que contam com o Azure AD para autenticação.</span><span class="sxs-lookup"><span data-stu-id="1a174-129">This scenario is applicable to users who access resources primarily in the cloud, such as Office 365 or SaaS apps that rely on Azure AD for authentication.</span></span>
+
+### <a name="prerequisites"></a><span data-ttu-id="1a174-130">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="1a174-130">Prerequisites</span></span>
+<span data-ttu-id="1a174-131">**No nível corporativo (administrador)**</span><span class="sxs-lookup"><span data-stu-id="1a174-131">**At the enterprise level (administrator)**</span></span>
+
+* <span data-ttu-id="1a174-132">Assinatura do Azure com o Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="1a174-132">Azure subscription with Azure Active Directory</span></span>  
+
+<span data-ttu-id="1a174-133">**No nível do usuário**</span><span class="sxs-lookup"><span data-stu-id="1a174-133">**At the user level**</span></span>
+
+* <span data-ttu-id="1a174-134">Windows 10 (Professional e Enterprise Editions)</span><span class="sxs-lookup"><span data-stu-id="1a174-134">Windows 10 (Professional and Enterprise editions)</span></span>
+
+### <a name="administrator-tasks"></a><span data-ttu-id="1a174-135">Tarefas do administrador</span><span class="sxs-lookup"><span data-stu-id="1a174-135">Administrator tasks</span></span>
+* [<span data-ttu-id="1a174-136">Configure o registro de dispositivos</span><span class="sxs-lookup"><span data-stu-id="1a174-136">Set up device registration</span></span>](active-directory-azureadjoin-setup.md)
+
+### <a name="user-tasks"></a><span data-ttu-id="1a174-137">Tarefas do usuário</span><span class="sxs-lookup"><span data-stu-id="1a174-137">User tasks</span></span>
+* [<span data-ttu-id="1a174-138">Configurar um novo dispositivo Windows 10 com o Azure AD durante a instalação</span><span class="sxs-lookup"><span data-stu-id="1a174-138">Set up a new Windows 10 device with Azure AD during setup</span></span>](active-directory-azureadjoin-user-frx.md)
+* [<span data-ttu-id="1a174-139">Configurar um dispositivo Windows 10 com o Azure AD no menu de Configurações</span><span class="sxs-lookup"><span data-stu-id="1a174-139">Set up a Windows 10 device with Azure AD from the settings menu</span></span>](active-directory-azureadjoin-user-upgrade.md)
+* [<span data-ttu-id="1a174-140">Unir um dispositivo Windows 10 pessoal à sua organização</span><span class="sxs-lookup"><span data-stu-id="1a174-140">Join a personal Windows 10 device to your organization</span></span>](active-directory-azureadjoin-personal-device.md)
+
+## <a name="enable-byod-in-your-organization-for-windows-10"></a><span data-ttu-id="1a174-141">Habilitar o BYOD na sua organização para o Windows 10</span><span class="sxs-lookup"><span data-stu-id="1a174-141">Enable BYOD in your organization for Windows 10</span></span>
+<span data-ttu-id="1a174-142">Você pode preparar seus funcionários e usuários para usarem seus dispositivos Windows pessoais (BYOD) para acessar aplicativos e recursos da empresa.</span><span class="sxs-lookup"><span data-stu-id="1a174-142">You can set up your users and employees to use their personal Windows devices (BYOD) to access company apps and resources.</span></span> <span data-ttu-id="1a174-143">Os usuários podem adicionar suas contas do Azure AD (contas corporativas ou de estudante) a um dispositivo Windows pessoal para acessar os recursos de maneira segura e compatível.</span><span class="sxs-lookup"><span data-stu-id="1a174-143">Your users can add their Azure AD accounts (work or school accounts) to a personal Windows device to access resources in a secure and compliant fashion.</span></span>
+
+### <a name="prerequisites"></a><span data-ttu-id="1a174-144">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="1a174-144">Prerequisites</span></span>
+<span data-ttu-id="1a174-145">**No nível corporativo (administrador)**</span><span class="sxs-lookup"><span data-stu-id="1a174-145">**At the enterprise level (administrator)**</span></span>
+
+* <span data-ttu-id="1a174-146">Assinatura do Azure AD</span><span class="sxs-lookup"><span data-stu-id="1a174-146">Azure AD subscription</span></span>
+
+<span data-ttu-id="1a174-147">**No nível do usuário**</span><span class="sxs-lookup"><span data-stu-id="1a174-147">**At the user level**</span></span>
+
+* <span data-ttu-id="1a174-148">Windows 10 (Professional e Enterprise Editions)</span><span class="sxs-lookup"><span data-stu-id="1a174-148">Windows 10 (Professional and Enterprise editions)</span></span>
+
+### <a name="administrator-tasks"></a><span data-ttu-id="1a174-149">Tarefas do administrador</span><span class="sxs-lookup"><span data-stu-id="1a174-149">Administrator tasks</span></span>
+* [<span data-ttu-id="1a174-150">Configure o registro de dispositivos</span><span class="sxs-lookup"><span data-stu-id="1a174-150">Set up device registration</span></span>](active-directory-azureadjoin-setup.md)
+
+### <a name="user-tasks"></a><span data-ttu-id="1a174-151">Tarefas do usuário</span><span class="sxs-lookup"><span data-stu-id="1a174-151">User tasks</span></span>
+* [<span data-ttu-id="1a174-152">Unir um dispositivo Windows 10 pessoal à sua organização</span><span class="sxs-lookup"><span data-stu-id="1a174-152">Join a personal Windows 10 device to your organization</span></span>](active-directory-azureadjoin-personal-device.md)
+
+## <a name="additional-information"></a><span data-ttu-id="1a174-153">Informações adicionais</span><span class="sxs-lookup"><span data-stu-id="1a174-153">Additional information</span></span>
+* [<span data-ttu-id="1a174-154">Windows 10 para a empresa: maneiras de usar dispositivos para o trabalho</span><span class="sxs-lookup"><span data-stu-id="1a174-154">Windows 10 for the enterprise: Ways to use devices for work</span></span>](active-directory-azureadjoin-windows10-devices-overview.md)
+* [<span data-ttu-id="1a174-155">Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="1a174-155">Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join</span></span>](active-directory-azureadjoin-user-upgrade.md)
+* [<span data-ttu-id="1a174-156">Autenticando identidades sem senhas com o Microsoft Passport</span><span class="sxs-lookup"><span data-stu-id="1a174-156">Authenticating identities without passwords through Microsoft Passport</span></span>](active-directory-azureadjoin-passport.md)
+* [<span data-ttu-id="1a174-157">Saiba mais sobre cenários de uso da Junção do Azure AD</span><span class="sxs-lookup"><span data-stu-id="1a174-157">Learn about usage scenarios for Azure AD Join</span></span>](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [<span data-ttu-id="1a174-158">Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10</span><span class="sxs-lookup"><span data-stu-id="1a174-158">Connect domain-joined devices to Azure AD for Windows 10 experiences</span></span>](active-directory-azureadjoin-devices-group-policy.md)
+* [<span data-ttu-id="1a174-159">Configurar a Junção do Azure AD</span><span class="sxs-lookup"><span data-stu-id="1a174-159">Set up Azure AD Join</span></span>](active-directory-azureadjoin-setup.md)
+

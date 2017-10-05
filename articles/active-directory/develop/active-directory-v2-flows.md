@@ -1,0 +1,123 @@
+---
+title: Tipos de aplicativo para o ponto de extremidade v2.0 do Azure Active Directory | Microsoft Docs
+description: "Os tipos de aplicativos e cenários com suporte no ponto de extremidade v2.0 do Azure Active Directory."
+services: active-directory
+documentationcenter: 
+author: dstrockis
+manager: mbaldwin
+editor: 
+ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/01/2017
+ms.author: dastrock
+ms.custom: aaddev
+ms.openlocfilehash: 9d59e7f0e8f326c40be86e199d7712f6c565cc13
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
+---
+# <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a><span data-ttu-id="b74b6-103">Tipos de aplicativo para o ponto de extremidade v2.0 do Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="b74b6-103">App types for the Azure Active Directory v2.0 endpoint</span></span>
+<span data-ttu-id="b74b6-104">O ponto de extremidade v2.0 do Azure AD (Azure Active Directory) oferece suporte à autenticação para diversas arquiteturas de aplicativos modernos, que se baseiam nos protocolos padrão da indústria [OAuth 2.0 ou OpenID Connect](active-directory-v2-protocols.md).</span><span class="sxs-lookup"><span data-stu-id="b74b6-104">The Azure Active Directory (Azure AD) v2.0 endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md).</span></span> <span data-ttu-id="b74b6-105">Este artigo descreve os tipos de aplicativos que você pode criar usando o Azure AD v2.0, independentemente de seu idioma ou plataforma.</span><span class="sxs-lookup"><span data-stu-id="b74b6-105">This article describes the types of apps that you can build by using Azure AD v2.0, regardless of your preferred language or platform.</span></span> <span data-ttu-id="b74b6-106">As informações neste artigo foram projetadas para ajudá-lo a entender os cenários de alto nível antes que você [comece a trabalhar com o código](active-directory-appmodel-v2-overview.md#getting-started).</span><span class="sxs-lookup"><span data-stu-id="b74b6-106">The information in this article is designed to help you understand high-level scenarios before you [start working with the code](active-directory-appmodel-v2-overview.md#getting-started).</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="b74b6-107">O ponto de extremidade v2.0 não dá suporte a todos os cenários e recursos do Azure Active Directory.</span><span class="sxs-lookup"><span data-stu-id="b74b6-107">The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features.</span></span> <span data-ttu-id="b74b6-108">Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).</span><span class="sxs-lookup"><span data-stu-id="b74b6-108">To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).</span></span>
+> 
+> 
+
+## <a name="the-basics"></a><span data-ttu-id="b74b6-109">Noções básicas</span><span class="sxs-lookup"><span data-stu-id="b74b6-109">The basics</span></span>
+<span data-ttu-id="b74b6-110">Você deve registrar cada aplicativo que usa o ponto de extremidade v2.0 no [Portal de Registro de Aplicativo da Microsoft](https://apps.dev.microsoft.com).</span><span class="sxs-lookup"><span data-stu-id="b74b6-110">You must register each app that uses the v2.0 endpoint in the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com).</span></span> <span data-ttu-id="b74b6-111">O processo de registro do aplicativo coleta e atribui estes valores para seu aplicativo:</span><span class="sxs-lookup"><span data-stu-id="b74b6-111">The app registration process collects and assigns these values for your app:</span></span>
+
+* <span data-ttu-id="b74b6-112">Uma **ID de Aplicativo** que identifica exclusivamente o aplicativo</span><span class="sxs-lookup"><span data-stu-id="b74b6-112">An **Application ID** that uniquely identifies your app</span></span>
+* <span data-ttu-id="b74b6-113">Um **URI de Redirecionamento** que pode ser usado para direcionar as respostas novamente ao aplicativo</span><span class="sxs-lookup"><span data-stu-id="b74b6-113">A **Redirect URI** that you can use to direct responses back to your app</span></span>
+* <span data-ttu-id="b74b6-114">Alguns outros valores específicos de cenário</span><span class="sxs-lookup"><span data-stu-id="b74b6-114">A few other scenario-specific values</span></span>
+
+<span data-ttu-id="b74b6-115">Para obter detalhes, saiba como [registrar um aplicativo](active-directory-v2-app-registration.md).</span><span class="sxs-lookup"><span data-stu-id="b74b6-115">For details, learn how to [register an app](active-directory-v2-app-registration.md).</span></span>
+
+<span data-ttu-id="b74b6-116">Depois de registrado, o aplicativo se comunica com o Azure AD enviando solicitações ao ponto de extremidade v2.0 do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="b74b6-116">After the app is registered, the app communicates with Azure AD by sending requests to the Azure AD v2.0 endpoint.</span></span> <span data-ttu-id="b74b6-117">Fornecemos as estruturas e as bibliotecas de software livre que lidam com os detalhes dessas solicitações.</span><span class="sxs-lookup"><span data-stu-id="b74b6-117">We provide open-source frameworks and libraries that handle the details of these requests.</span></span> <span data-ttu-id="b74b6-118">Você também tem a opção de implementar a lógica de autenticação ao criar solicitações para esses pontos de extremidade:</span><span class="sxs-lookup"><span data-stu-id="b74b6-118">You also have the option to implement the authentication logic yourself by creating requests to these endpoints:</span></span>
+
+```
+https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+https://login.microsoftonline.com/common/oauth2/v2.0/token
+```
+<!-- TODO: Need a page for libraries to link to -->
+
+## <a name="web-apps"></a><span data-ttu-id="b74b6-119">Aplicativos Web</span><span class="sxs-lookup"><span data-stu-id="b74b6-119">Web apps</span></span>
+<span data-ttu-id="b74b6-120">Para os aplicativos Web (.NET, PHP, Java, Ruby, Python, Node) que o usuário acessa por meio de um navegador, você pode usar o [OpenID Connect](active-directory-v2-protocols.md) para entrada do usuário.</span><span class="sxs-lookup"><span data-stu-id="b74b6-120">For web apps (.NET, PHP, Java, Ruby, Python, Node) that the user accesses through a browser, you can use [OpenID Connect](active-directory-v2-protocols.md) for user sign-in.</span></span> <span data-ttu-id="b74b6-121">No OpenID Connect, o aplicativo Web recebe um token de ID.</span><span class="sxs-lookup"><span data-stu-id="b74b6-121">In OpenID Connect, the web app receives an ID token.</span></span> <span data-ttu-id="b74b6-122">Um token de ID é um token de segurança que verifica a identidade do usuário e fornece informações sobre o usuário na forma de declarações:</span><span class="sxs-lookup"><span data-stu-id="b74b6-122">An ID token is a security token that verifies the user's identity and provides information about the user in the form of claims:</span></span>
+
+```
+// Partial raw ID token
+eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
+
+// Partial content of a decoded ID token
+{
+    "name": "John Smith",
+    "email": "john.smith@gmail.com",
+    "oid": "d9674823-dffc-4e3f-a6eb-62fe4bd48a58"
+    ...
+}
+```
+
+<span data-ttu-id="b74b6-123">É possível aprender sobre todos os tipos de tokens e declarações disponíveis para um aplicativo na [referência de tokens v2.0](active-directory-v2-tokens.md).</span><span class="sxs-lookup"><span data-stu-id="b74b6-123">You can learn about all the types of tokens and claims that are available to an app in the [v2.0 tokens reference](active-directory-v2-tokens.md).</span></span>
+
+<span data-ttu-id="b74b6-124">Em aplicativos de servidor Web, o fluxo de autenticação de entrada usa estas etapas de alto nível:</span><span class="sxs-lookup"><span data-stu-id="b74b6-124">In web server apps, the sign-in authentication flow takes these high-level steps:</span></span>
+
+![Fluxo de autenticação do aplicativo Web](../../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
+
+<span data-ttu-id="b74b6-126">Você pode verificar a identidade do usuário ao validar o token de ID com uma chave pública de assinatura que é recebida do ponto de extremidade v2.0.</span><span class="sxs-lookup"><span data-stu-id="b74b6-126">You can ensure the user's identity by validating the ID token with a public signing key that is received from the v2.0 endpoint.</span></span> <span data-ttu-id="b74b6-127">Um cookie de sessão é definido e pode ser usado para identificar o usuário nas solicitações de página subsequentes.</span><span class="sxs-lookup"><span data-stu-id="b74b6-127">A session cookie is set, which can be used to identify the user on subsequent page requests.</span></span>
+
+<span data-ttu-id="b74b6-128">Para ver esse cenário em ação, experimente um destes exemplos de código de entrada de aplicativo Web em nossa seção [Introdução](active-directory-appmodel-v2-overview.md#getting-started) da v.2.0.</span><span class="sxs-lookup"><span data-stu-id="b74b6-128">To see this scenario in action, try one of the web app sign-in code samples in our v2.0 [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.</span></span>
+
+<span data-ttu-id="b74b6-129">Além de entrada simples, um aplicativo de servidor Web talvez precise acessar outro serviço Web como uma API REST.</span><span class="sxs-lookup"><span data-stu-id="b74b6-129">In addition to simple sign-in, a web server app might need to access another web service, such as a REST API.</span></span> <span data-ttu-id="b74b6-130">Nesse caso, o aplicativo de servidor Web participa de um fluxo do OpenID Connect e do OAuth 2.0 combinados, usando o [fluxo do código de autorização do OAuth 2.0](active-directory-v2-protocols.md).</span><span class="sxs-lookup"><span data-stu-id="b74b6-130">In this case, the web server app engages in a combined OpenID Connect and OAuth 2.0 flow, by using the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md).</span></span> <span data-ttu-id="b74b6-131">Para saber mais sobre esse cenário, leia sobre a [Introdução aos aplicativos Web e APIs Web](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).</span><span class="sxs-lookup"><span data-stu-id="b74b6-131">For more information about this scenario, read about [getting started with web apps and Web APIs](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).</span></span>
+
+## <a name="web-apis"></a><span data-ttu-id="b74b6-132">APIs da Web</span><span class="sxs-lookup"><span data-stu-id="b74b6-132">Web APIs</span></span>
+<span data-ttu-id="b74b6-133">É possível usar o ponto de extremidade v2.0 para proteger serviços Web, como a API Web RESTful do seu aplicativo.</span><span class="sxs-lookup"><span data-stu-id="b74b6-133">You can use the v2.0 endpoint to secure web services, such as your app's RESTful Web API.</span></span> <span data-ttu-id="b74b6-134">Em vez de tokens de ID e de cookies de sessão, uma API Web usa um token de acesso OAuth 2.0 para proteger seus dados e para autenticar solicitações de entrada.</span><span class="sxs-lookup"><span data-stu-id="b74b6-134">Instead of ID tokens and session cookies, a Web API uses an OAuth 2.0 access token to secure its data and to authenticate incoming requests.</span></span> <span data-ttu-id="b74b6-135">O chamador de uma API da Web acrescenta um token de acesso no cabeçalho de autorização de uma solicitação HTTP, como esta:</span><span class="sxs-lookup"><span data-stu-id="b74b6-135">The caller of a Web API appends an access token in the authorization header of an HTTP request, like this:</span></span>
+
+```
+GET /api/items HTTP/1.1
+Host: www.mywebapi.com
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6...
+Accept: application/json
+...
+```
+
+<span data-ttu-id="b74b6-136">A API Web usa o token de acesso para verificar a identidade do chamador da API e para extrair informações sobre o chamador a partir de declarações que são codificadas no token de acesso.</span><span class="sxs-lookup"><span data-stu-id="b74b6-136">The Web API uses the access token to verify the API caller's identity and to extract information about the caller from claims that are encoded in the access token.</span></span> <span data-ttu-id="b74b6-137">Para saber mais sobre todos os tipos de tokens e declarações que estão disponíveis para um aplicativo, veja a [referência de tokens v2.0](active-directory-v2-tokens.md).</span><span class="sxs-lookup"><span data-stu-id="b74b6-137">To learn about all the types of tokens and claims that are available to an app, see the [v2.0 tokens reference](active-directory-v2-tokens.md).</span></span>
+
+<span data-ttu-id="b74b6-138">Uma API Web pode oferecer aos usuários o poder de aceitar/recusar uma funcionalidade ou dados específicos ao expor permissões, também conhecidas como [escopos](active-directory-v2-scopes.md).</span><span class="sxs-lookup"><span data-stu-id="b74b6-138">A Web API can give users the power to opt in or opt out of specific functionality or data by exposing permissions, also known as [scopes](active-directory-v2-scopes.md).</span></span> <span data-ttu-id="b74b6-139">Para um aplicativo de chamada obter permissão para um escopo, o usuário deve concordar com o escopo durante um fluxo.</span><span class="sxs-lookup"><span data-stu-id="b74b6-139">For a calling app to acquire permission to a scope, the user must consent to the scope during a flow.</span></span> <span data-ttu-id="b74b6-140">O ponto de extremidade v2.0 solicita a permissão do usuário e registra as permissões em todos os tokens de acesso recebidos pela API Web.</span><span class="sxs-lookup"><span data-stu-id="b74b6-140">The v2.0 endpoint asks the user for permission, and then records permissions in all access tokens that the Web API receives.</span></span> <span data-ttu-id="b74b6-141">A API Web valida os tokens de acesso que recebe em cada chamada e executa verificações de autorização.</span><span class="sxs-lookup"><span data-stu-id="b74b6-141">The Web API validates the access tokens it receives on each call and performs authorization checks.</span></span>
+
+<span data-ttu-id="b74b6-142">Uma API da Web pode receber tokens de acesso de todos os tipos de aplicativos, incluindo aplicativos de servidor Web, aplicativos móveis e de desktop, aplicativos de página única, daemons do lado do servidor e até outras APIs da Web.</span><span class="sxs-lookup"><span data-stu-id="b74b6-142">A Web API can receive access tokens from all types of apps, including web server apps, desktop and mobile apps, single-page apps, server-side daemons, and even other Web APIs.</span></span> <span data-ttu-id="b74b6-143">O fluxo de alto nível para uma API Web tem esta aparência:</span><span class="sxs-lookup"><span data-stu-id="b74b6-143">The high-level flow for a Web API looks like this:</span></span>
+
+![Fluxo de autenticação da API Web](../../media/active-directory-v2-flows/convergence_scenarios_webapi.png)
+
+<span data-ttu-id="b74b6-145">Para saber como proteger uma API Web com tokens de acesso do OAuth2, confira os exemplos de código da API Web em nossa seção [Introdução](active-directory-appmodel-v2-overview.md#getting-started).</span><span class="sxs-lookup"><span data-stu-id="b74b6-145">To learn how to secure a Web API by using OAuth2 access tokens, check out the Web API code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.</span></span>
+
+<span data-ttu-id="b74b6-146">Em muitos casos, APIs Web também precisam fazer solicitações de saída para outras APIs Web downstream protegidas pelo Azure Active Directory.</span><span class="sxs-lookup"><span data-stu-id="b74b6-146">In many cases, web APIs also need to make outbound requests to other downstream web APIs secured by Azure Active Directory.</span></span>  <span data-ttu-id="b74b6-147">Para fazer isso, as APIs Web podem utilizar o fluxo **On Behalf Of** do Azure AD, que permite que a API Web troque um token de acesso de entrada por outro token de acesso a ser usado em solicitações de saída.</span><span class="sxs-lookup"><span data-stu-id="b74b6-147">To do so, web APIs can take advantage of Azure AD's **On Behalf Of** flow, which allows the web API to exchange an incoming access token for another access token to be used in outbound requests.</span></span>  <span data-ttu-id="b74b6-148">O fluxo On Behalf Of do ponto de extremidade v2.0 é descrito em [detalhes aqui](active-directory-v2-protocols-oauth-on-behalf-of.md).</span><span class="sxs-lookup"><span data-stu-id="b74b6-148">The v2.0 endpoint's On Behalf Of flow is described in [detail here](active-directory-v2-protocols-oauth-on-behalf-of.md).</span></span>
+
+## <a name="mobile-and-native-apps"></a><span data-ttu-id="b74b6-149">Aplicativos móveis e nativos</span><span class="sxs-lookup"><span data-stu-id="b74b6-149">Mobile and native apps</span></span>
+<span data-ttu-id="b74b6-150">Os aplicativos instalados no dispositivo, como os aplicativos móveis e de desktop, geralmente precisam acessar serviços de back-end ou APIs da Web que armazenam dados e executam funções em nome de um usuário.</span><span class="sxs-lookup"><span data-stu-id="b74b6-150">Device-installed apps, such as mobile and desktop apps, often need to access back-end services or Web APIs that store data and perform functions on behalf of a user.</span></span> <span data-ttu-id="b74b6-151">Esses aplicativos podem adicionar credenciais e autorização a serviços de back-end usando o [fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols-oauth-code.md).</span><span class="sxs-lookup"><span data-stu-id="b74b6-151">These apps can add sign-in and authorization to back-end services by using the [OAuth 2.0 authorization code flow](active-directory-v2-protocols-oauth-code.md).</span></span>
+
+<span data-ttu-id="b74b6-152">Nesse fluxo, o aplicativo recebe um código de autorização do ponto de extremidade v2.0, quando o usuário faz logon.</span><span class="sxs-lookup"><span data-stu-id="b74b6-152">In this flow, the app receives an authorization code from the v2.0 endpoint when the user signs in.</span></span> <span data-ttu-id="b74b6-153">O código de autorização representa a permissão do aplicativo para chamar serviços de back-end em nome do usuário conectado.</span><span class="sxs-lookup"><span data-stu-id="b74b6-153">The authorization code represents the app's permission to call back-end services on behalf of the user who is signed in.</span></span> <span data-ttu-id="b74b6-154">O aplicativo pode trocar o código de autorização em segundo plano por um token de acesso e um token de atualização do OAuth 2.0.</span><span class="sxs-lookup"><span data-stu-id="b74b6-154">The app can exchange the authorization code in the background for an OAuth 2.0 access token and a refresh token.</span></span> <span data-ttu-id="b74b6-155">O aplicativo pode usar o token de acesso para se autenticar em APIs da Web em solicitações HTTP, e usar o token de atualização para obter novos tokens de acesso quando os antigos expirarem.</span><span class="sxs-lookup"><span data-stu-id="b74b6-155">The app can use the access token to authenticate to Web APIs in HTTP requests, and use the refresh token to get new access tokens when older access tokens expire.</span></span>
+
+![Fluxo de autenticação do aplicativo nativo](../../media/active-directory-v2-flows/convergence_scenarios_native.png)
+
+## <a name="single-page-apps-javascript"></a><span data-ttu-id="b74b6-157">Aplicativos de página única (JavaScript)</span><span class="sxs-lookup"><span data-stu-id="b74b6-157">Single-page apps (JavaScript)</span></span>
+<span data-ttu-id="b74b6-158">Muitos aplicativos modernos têm um aplicativo de página única front-end que é escrito principalmente em JavaScript.</span><span class="sxs-lookup"><span data-stu-id="b74b6-158">Many modern apps have a single-page app front end that primarily is written in JavaScript.</span></span> <span data-ttu-id="b74b6-159">Geralmente, ele é escrito usando uma estrutura como AngularJS, Ember.js ou Durandal.js.</span><span class="sxs-lookup"><span data-stu-id="b74b6-159">Often, it's written by using a framework like AngularJS, Ember.js, or Durandal.js.</span></span> <span data-ttu-id="b74b6-160">O ponto de extremidade v2.0 do Azure AD dá suporte a esses aplicativos usando o [fluxo implícito do OAuth 2.0](active-directory-v2-protocols-implicit.md).</span><span class="sxs-lookup"><span data-stu-id="b74b6-160">The Azure AD v2.0 endpoint supports these apps by using the [OAuth 2.0 implicit flow](active-directory-v2-protocols-implicit.md).</span></span>
+
+<span data-ttu-id="b74b6-161">Nesse fluxo, o aplicativo recebe tokens diretamente do ponto de extremidade de autorização v2.0, sem executar qualquer troca entre servidores de back-end.</span><span class="sxs-lookup"><span data-stu-id="b74b6-161">In this flow, the app receives tokens directly from the v2.0 authorize endpoint, without any server-to-server exchanges.</span></span> <span data-ttu-id="b74b6-162">Todo o manuseio de lógica de autenticação e de sessão ocorra inteiramente no cliente JavaScript, sem redirecionamentos adicionais de página.</span><span class="sxs-lookup"><span data-stu-id="b74b6-162">All authentication logic and session handling takes place entirely in the JavaScript client, without extra page redirects.</span></span>
+
+![Fluxo de autenticação implícita](../../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
+
+<span data-ttu-id="b74b6-164">Para ver esse cenário em ação, experimente um destes exemplos de código de aplicativo de página única em nossa seção de [Introdução](active-directory-appmodel-v2-overview.md#getting-started).</span><span class="sxs-lookup"><span data-stu-id="b74b6-164">To see this scenario in action, try one of the single-page app code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.</span></span>
+
+## <a name="daemons-and-server-side-apps"></a><span data-ttu-id="b74b6-165">Daemons e aplicativos do lado do servidor</span><span class="sxs-lookup"><span data-stu-id="b74b6-165">Daemons and server-side apps</span></span>
+<span data-ttu-id="b74b6-166">Os aplicativos com processos de longa duração ou que operem sem interação com um usuário também precisam de uma maneira de acessar recursos protegidos, como APIs Web.</span><span class="sxs-lookup"><span data-stu-id="b74b6-166">Apps that have long-running processes or that operate without interaction with a user also need a way to access secured resources, such as Web APIs.</span></span> <span data-ttu-id="b74b6-167">Esses aplicativos podem se autenticar e obter tokens usando a identidade do aplicativo (em vez de a identidade delegada de um usuário) com o fluxo de credenciais do cliente OAuth 2.0.</span><span class="sxs-lookup"><span data-stu-id="b74b6-167">These apps can authenticate and get tokens by using the app's identity, rather than a user's delegated identity, with the OAuth 2.0 client credentials flow.</span></span>
+
+<span data-ttu-id="b74b6-168">Nesse fluxo, o aplicativo interage diretamente com o ponto de extremidade do `/token` para obter pontos de extremidade:</span><span class="sxs-lookup"><span data-stu-id="b74b6-168">In this flow, the app interacts directly with the `/token` endpoint to obtain endpoints:</span></span>
+
+![Fluxo de autenticação de aplicativo de daemon](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
+
+<span data-ttu-id="b74b6-170">Para criar um aplicativo daemon, consulte o a documentação sobre credenciais do cliente em nossa seção [Introdução](active-directory-appmodel-v2-overview.md#getting-started) seção ou experimente um [aplicativo de exemplo .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).</span><span class="sxs-lookup"><span data-stu-id="b74b6-170">To build a daemon app, see the client credentials documentation in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section, or try a [.NET sample app](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).</span></span>

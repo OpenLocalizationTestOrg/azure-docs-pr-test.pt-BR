@@ -1,0 +1,61 @@
+---
+title: "Solução de Problemas do Hybrid Runbook Workers da Automação do Azure | Microsoft Docs"
+description: "Descreve os sintomas, causas e solução dos problemas mais comuns do Hybrid Runbook Worker na Automação do Azure."
+services: automation
+documentationcenter: 
+author: mgoedtel
+manager: jwhit
+editor: tysonn
+ms.assetid: 02c6606e-8924-4328-a196-45630c2255e9
+ms.service: automation
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 07/25/2017
+ms.author: magoedte
+ms.openlocfilehash: 9d1ceda5a072f494651a751a25a8ccf66e4c72ef
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
+---
+# <a name="troubleshooting-tips-for-hybrid-runbook-worker"></a><span data-ttu-id="13ec9-103">Dicas de solução de problemas para o Hybrid Runbook Worker</span><span class="sxs-lookup"><span data-stu-id="13ec9-103">Troubleshooting tips for Hybrid Runbook Worker</span></span>
+
+<span data-ttu-id="13ec9-104">Este artigo fornece ajuda para solucionar erros que podem ser encontrados no Hybrid Runbook Worker da Automação do Azure e sugere possíveis soluções para resolvê-los.</span><span class="sxs-lookup"><span data-stu-id="13ec9-104">This article provides help troubleshooting errors you might experience with Automation Hybrid Runbook Workers and suggests possible solutions to resolve them.</span></span>
+
+## <a name="a-runbook-job-terminates-with-a-status-of-suspended"></a><span data-ttu-id="13ec9-105">Um trabalho de runbook termina com o status suspenso</span><span class="sxs-lookup"><span data-stu-id="13ec9-105">A runbook job terminates with a status of Suspended</span></span>
+
+<span data-ttu-id="13ec9-106">Seu runbook foi suspenso logo depois de tentar executá-lo três vezes.</span><span class="sxs-lookup"><span data-stu-id="13ec9-106">Your runbook is suspended shortly after attempting to execute it three times.</span></span> <span data-ttu-id="13ec9-107">Existem condições que podem impedir o runbook de ser concluído com êxito e a mensagem de erro relacionada não inclui informações adicionais indicando o motivo.</span><span class="sxs-lookup"><span data-stu-id="13ec9-107">There are conditions which may interrupt the runbook from completing successfully and the related error message does not include any additional information indicating why.</span></span> <span data-ttu-id="13ec9-108">Este artigo fornece etapas de solução de problemas relacionados a falhas de execução de runbook do Hybrid Runbook Worker.</span><span class="sxs-lookup"><span data-stu-id="13ec9-108">This article provides troubleshooting steps for issues related to the Hybrid Runbook Worker runbook execution failures.</span></span>
+
+<span data-ttu-id="13ec9-109">Se o problema do Azure não for resolvido neste artigo, visite os fóruns do Azure no [MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/).</span><span class="sxs-lookup"><span data-stu-id="13ec9-109">If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and the Stack Overflow](https://azure.microsoft.com/support/forums/).</span></span> <span data-ttu-id="13ec9-110">Você pode postar seu problema nesses fóruns ou usando [@AzureSupport no Twitter](https://twitter.com/AzureSupport).</span><span class="sxs-lookup"><span data-stu-id="13ec9-110">You can post your issue on these forums or to [@AzureSupport on Twitter](https://twitter.com/AzureSupport).</span></span> <span data-ttu-id="13ec9-111">Além disso, você pode registrar uma solicitação de suporte do Azure selecionando **Obter suporte** no site de [suporte do Azure](https://azure.microsoft.com/support/options/) .</span><span class="sxs-lookup"><span data-stu-id="13ec9-111">Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.</span></span>
+
+### <a name="symptom"></a><span data-ttu-id="13ec9-112">Sintoma</span><span class="sxs-lookup"><span data-stu-id="13ec9-112">Symptom</span></span>
+<span data-ttu-id="13ec9-113">Falha na execução de runbook e o erro retornado é "a ação do trabalho 'Activate' não pode ser executada porque o processo foi interrompido inesperadamente.</span><span class="sxs-lookup"><span data-stu-id="13ec9-113">Runbook execution fails and the error returned is, "The job action 'Activate' cannot be run, because the process stopped unexpectedly.</span></span> <span data-ttu-id="13ec9-114">A ação do trabalho foi tentada 3 vezes."</span><span class="sxs-lookup"><span data-stu-id="13ec9-114">The job action was attempted 3 times."</span></span>
+
+<span data-ttu-id="13ec9-115">Há várias causas possíveis para o erro:</span><span class="sxs-lookup"><span data-stu-id="13ec9-115">There are several possible causes for the error:</span></span> 
+
+1. <span data-ttu-id="13ec9-116">O Hybrid Worker está usando um proxy ou firewall</span><span class="sxs-lookup"><span data-stu-id="13ec9-116">The hybrid worker is behind a proxy or firewall</span></span>
+2. <span data-ttu-id="13ec9-117">O computador em que o Hybrid Worker está em execução não tem [requisitos de hardware](automation-offering-get-started.md#hybrid-runbook-worker) mínimos</span><span class="sxs-lookup"><span data-stu-id="13ec9-117">The computer the hybrid worker is running on has less than the minimum [hardware  requirements](automation-offering-get-started.md#hybrid-runbook-worker)</span></span>  
+3. <span data-ttu-id="13ec9-118">Os runbooks não podem ser autenticados com recursos locais</span><span class="sxs-lookup"><span data-stu-id="13ec9-118">The runbooks cannot authenticate with local resources</span></span>
+
+#### <a name="cause-1-hybrid-runbook-worker-is-behind-proxy-or-firewall"></a><span data-ttu-id="13ec9-119">Causa 1: o Hybrid Runbook Worker está protegido por proxy ou firewall</span><span class="sxs-lookup"><span data-stu-id="13ec9-119">Cause 1: Hybrid Runbook Worker is behind proxy or firewall</span></span>
+<span data-ttu-id="13ec9-120">O computador em que o Hybrid Runbook Worker está em execução está protegido por um servidor proxy ou firewall e o acesso de rede de saída não pode ser permitido ou configurado corretamente.</span><span class="sxs-lookup"><span data-stu-id="13ec9-120">The computer the Hybrid Runbook Worker is running on is behind a firewall or proxy server and outbound network access may not be permitted or configured correctly.</span></span>
+
+#### <a name="solution"></a><span data-ttu-id="13ec9-121">Solução</span><span class="sxs-lookup"><span data-stu-id="13ec9-121">Solution</span></span>
+<span data-ttu-id="13ec9-122">Verifique se o computador tem acesso de saída para *.azure automation.net na porta 443.</span><span class="sxs-lookup"><span data-stu-id="13ec9-122">Verify the computer has outbound access to *.azure-automation.net on port 443.</span></span> 
+
+#### <a name="cause-2-computer-has-less-than-minimum-hardware-requirements"></a><span data-ttu-id="13ec9-123">Causa 2: o computador tem requisitos de hardware inferiores aos mínimos</span><span class="sxs-lookup"><span data-stu-id="13ec9-123">Cause 2: Computer has less than minimum hardware requirements</span></span>
+<span data-ttu-id="13ec9-124">Os computadores que executam o Hybrid Runbook Worker devem atender aos requisitos mínimos de hardware antes de serem designados para hospedar esse recurso.</span><span class="sxs-lookup"><span data-stu-id="13ec9-124">Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before designating it to host this feature.</span></span> <span data-ttu-id="13ec9-125">Caso contrário, dependendo da utilização de recursos de outros processos em segundo plano e da contenção provocada por runbooks durante a execução, o computador ficará sobrecarregados e causará atrasos de trabalho de runbook ou tempos limite.</span><span class="sxs-lookup"><span data-stu-id="13ec9-125">Otherwise, depending on the resource utilization of other background processes and contention caused by runbooks during execution, the computer will become over utilized and cause runbook job delays or timeouts.</span></span> 
+
+#### <a name="solution"></a><span data-ttu-id="13ec9-126">Solução</span><span class="sxs-lookup"><span data-stu-id="13ec9-126">Solution</span></span>
+<span data-ttu-id="13ec9-127">Confirme se o computador designado para executar o recurso Hybrid Runbook Worker atende aos requisitos mínimos de hardware.</span><span class="sxs-lookup"><span data-stu-id="13ec9-127">First confirm the computer designated to run the Hybrid Runbook Worker feature meets the minimum hardware requirements.</span></span>  <span data-ttu-id="13ec9-128">Se isso acontecer, monitore a utilização de CPU e memória para determinar qualquer correlação entre o desempenho de processos do Hybrid Runbook Worker e o Windows.</span><span class="sxs-lookup"><span data-stu-id="13ec9-128">If it does, monitor CPU and memory utilization to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows.</span></span>  <span data-ttu-id="13ec9-129">Se não houver memória ou pressão da CPU, isso pode indicar a necessidade de atualizar ou adicionar mais processadores ou aumentar a memória para eliminar o afunilamento de recursos e resolver o erro.</span><span class="sxs-lookup"><span data-stu-id="13ec9-129">If there is memory or CPU pressure, this may indicate the need to upgrade or add additional processors, or increase memory to address the resource bottleneck and resolve the error.</span></span> <span data-ttu-id="13ec9-130">Como alternativa, selecione um recurso de computação diferente que consiga dar suporte aos requisitos mínimos e ajuste a escala quando a demanda da carga de trabalho indicar que um aumento é necessário.</span><span class="sxs-lookup"><span data-stu-id="13ec9-130">Alternatively, select a different compute resource that can support the minimum requirements and scale when workload demands indicate an increase is necessary.</span></span>         
+
+#### <a name="cause-3-runbooks-cannot-authenticate-with-local-resources"></a><span data-ttu-id="13ec9-131">Causa 3: os runbooks não podem ser autenticados com recursos locais</span><span class="sxs-lookup"><span data-stu-id="13ec9-131">Cause 3: Runbooks cannot authenticate with local resources</span></span>
+
+#### <a name="solution"></a><span data-ttu-id="13ec9-132">Solução</span><span class="sxs-lookup"><span data-stu-id="13ec9-132">Solution</span></span>
+<span data-ttu-id="13ec9-133">Verifique o log de eventos do **Microsoft SMA** para ver um evento correspondente com descrição *Processo Win32 Encerrado com o código [4294967295]*.</span><span class="sxs-lookup"><span data-stu-id="13ec9-133">Check the **Microsoft-SMA** event log for a corresponding event with description *Win32 Process Exited with code [4294967295]*.</span></span>  <span data-ttu-id="13ec9-134">A causa desse erro é que você ainda não configurou a autenticação em seus runbooks ou especificou as credenciais Executar como para o grupo do Hybrid Worker.</span><span class="sxs-lookup"><span data-stu-id="13ec9-134">The cause of this error is you haven't configured authentication in your runbooks or specified the Run As credentials for the Hybrid worker group.</span></span>  <span data-ttu-id="13ec9-135">Examine as [permissões de Runbook](automation-hrw-run-runbooks.md#runbook-permissions) para confirmar que você configurou corretamente a autenticação para seus runbooks.</span><span class="sxs-lookup"><span data-stu-id="13ec9-135">Please review [Runbook permissions](automation-hrw-run-runbooks.md#runbook-permissions) to confirm you have correctly configured authentication for your runbooks.</span></span>  
+
+## <a name="next-steps"></a><span data-ttu-id="13ec9-136">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="13ec9-136">Next steps</span></span>
+
+<span data-ttu-id="13ec9-137">Para ajudar a solucionar outros problemas de Automação, veja [Solucionar de problemas comuns da Automação do Azure](automation-troubleshooting-automation-errors.md)</span><span class="sxs-lookup"><span data-stu-id="13ec9-137">For help troubleshooting other issues in Automation, see [Troubleshooting common Azure Automation issues](automation-troubleshooting-automation-errors.md)</span></span> 

@@ -1,0 +1,93 @@
+---
+title: Diretrizes de ajuste de desempenho para Hive do Azure Data Lake Store | Microsoft Docs
+description: Diretrizes de ajuste de desempenho para Hive do Azure Data Lake Store
+services: data-lake-store
+documentationcenter: 
+author: stewu
+manager: amitkul
+editor: stewu
+ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
+ms.service: data-lake-store
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 12/19/2016
+ms.author: stewu
+ms.openlocfilehash: e10bf8f7cbae2b81d22823ff74fe652c6bcb2da3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
+---
+# <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a><span data-ttu-id="46ad8-103">Diretrizes de ajuste do desempenho para Hive no HDInsight e Azure Data Lake Store</span><span class="sxs-lookup"><span data-stu-id="46ad8-103">Performance tuning guidance for Hive on HDInsight and Azure Data Lake Store</span></span>
+
+<span data-ttu-id="46ad8-104">As configurações padrão foram definidas para fornecer bom desempenho em muitos casos de uso diferentes.</span><span class="sxs-lookup"><span data-stu-id="46ad8-104">The default settings have been set to provide good performance across many different use cases.</span></span>  <span data-ttu-id="46ad8-105">Em consultas que usam muita E/S, o Hive pode ser ajustado para obter melhor desempenho com o ADLS.</span><span class="sxs-lookup"><span data-stu-id="46ad8-105">For I/O intensive queries, Hive can be tuned to get better performance with ADLS.</span></span>  
+
+## <a name="prerequisites"></a><span data-ttu-id="46ad8-106">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="46ad8-106">Prerequisites</span></span>
+
+* <span data-ttu-id="46ad8-107">**Uma assinatura do Azure**.</span><span class="sxs-lookup"><span data-stu-id="46ad8-107">**An Azure subscription**.</span></span> <span data-ttu-id="46ad8-108">Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="46ad8-108">See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+* <span data-ttu-id="46ad8-109">**Uma conta do repositório Azure Data Lake**.</span><span class="sxs-lookup"><span data-stu-id="46ad8-109">**An Azure Data Lake Store account**.</span></span> <span data-ttu-id="46ad8-110">Para obter instruções sobre como criar uma, consulte [Introdução ao repositório Azure Data Lake](data-lake-store-get-started-portal.md)</span><span class="sxs-lookup"><span data-stu-id="46ad8-110">For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)</span></span>
+* <span data-ttu-id="46ad8-111">**Cluster HDInsight do Azure** com acesso a uma conta do Repositório Data Lake.</span><span class="sxs-lookup"><span data-stu-id="46ad8-111">**Azure HDInsight cluster** with access to a Data Lake Store account.</span></span> <span data-ttu-id="46ad8-112">Confira [Criar um cluster HDInsight com o Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md).</span><span class="sxs-lookup"><span data-stu-id="46ad8-112">See [Create an HDInsight cluster with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md).</span></span> <span data-ttu-id="46ad8-113">Certifique-se de habilitar a área de trabalho remota para o cluster.</span><span class="sxs-lookup"><span data-stu-id="46ad8-113">Make sure you enable Remote Desktop for the cluster.</span></span>
+* <span data-ttu-id="46ad8-114">**Execução do Hive no HDInsight**.</span><span class="sxs-lookup"><span data-stu-id="46ad8-114">**Running Hive on HDInsight**.</span></span>  <span data-ttu-id="46ad8-115">Para saber mais sobre como executar trabalhos do Hive no HDInsight, confira [Usar o Hive no HDInsight] (https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-use-hive)</span><span class="sxs-lookup"><span data-stu-id="46ad8-115">To learn about running Hive jobs on HDInsight, see [Use Hive on HDInsight] (https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-use-hive)</span></span>
+* <span data-ttu-id="46ad8-116">**Diretrizes de ajuste de desempenho no ADLS**.</span><span class="sxs-lookup"><span data-stu-id="46ad8-116">**Performance tuning guidelines on ADLS**.</span></span>  <span data-ttu-id="46ad8-117">Para ver os conceitos gerais de desempenho, confira [Diretrizes de ajuste de desempenho do Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance)</span><span class="sxs-lookup"><span data-stu-id="46ad8-117">For general performance concepts, see [Data Lake Store Performance Tuning Guidance](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance)</span></span>
+
+## <a name="parameters"></a><span data-ttu-id="46ad8-118">parâmetros</span><span class="sxs-lookup"><span data-stu-id="46ad8-118">Parameters</span></span>
+
+<span data-ttu-id="46ad8-119">Veja a seguir as configurações mais importantes a serem ajustadas para obter desempenho aprimorado do ADLS:</span><span class="sxs-lookup"><span data-stu-id="46ad8-119">Here are the most important settings to tune for improved ADLS performance:</span></span>
+
+* <span data-ttu-id="46ad8-120">**hive.tez.container.size** – a quantidade de memória usada por cada uma das tarefas</span><span class="sxs-lookup"><span data-stu-id="46ad8-120">**hive.tez.container.size** – the amount of memory used by each tasks</span></span>
+
+* <span data-ttu-id="46ad8-121">**tez.grouping.min-size** – tamanho mínimo de cada mapeador</span><span class="sxs-lookup"><span data-stu-id="46ad8-121">**tez.grouping.min-size** – minimum size of each mapper</span></span>
+
+* <span data-ttu-id="46ad8-122">**tez.grouping.max-size** – tamanho máximo de cada mapeador</span><span class="sxs-lookup"><span data-stu-id="46ad8-122">**tez.grouping.max-size** – maximum size of each mapper</span></span>
+
+* <span data-ttu-id="46ad8-123">**hive.exec.reducer.bytes.per.reducer** – tamanho de cada redutor</span><span class="sxs-lookup"><span data-stu-id="46ad8-123">**hive.exec.reducer.bytes.per.reducer** – size of each reducer</span></span>
+
+<span data-ttu-id="46ad8-124">**hive.tez.container.size** — o tamanho do contêiner determina quanto de memória está disponível para cada tarefa.</span><span class="sxs-lookup"><span data-stu-id="46ad8-124">**hive.tez.container.size** - The container size determines how much memory is available for each task.</span></span>  <span data-ttu-id="46ad8-125">Essa é a entrada principal para controlar a simultaneidade no Hive.</span><span class="sxs-lookup"><span data-stu-id="46ad8-125">This is the main input for controlling the concurrency in Hive.</span></span>  
+
+<span data-ttu-id="46ad8-126">**tez.grouping.min-size** – esse parâmetro permite definir o tamanho mínimo de cada mapeador.</span><span class="sxs-lookup"><span data-stu-id="46ad8-126">**tez.grouping.min-size** – This parameter allows you to set the minimum size of each mapper.</span></span>  <span data-ttu-id="46ad8-127">Se o número de mapeadores que o Tez escolher for menor que o valor desse parâmetro, o Tez usará o valor definido aqui.</span><span class="sxs-lookup"><span data-stu-id="46ad8-127">If the number of mappers that Tez chooses is smaller than the value of this parameter, then Tez will use the value set here.</span></span>  
+
+<span data-ttu-id="46ad8-128">**tez.grouping.max-size** – o parâmetro permite definir o tamanho máximo de cada mapeador.</span><span class="sxs-lookup"><span data-stu-id="46ad8-128">**tez.grouping.max-size** – The parameter allows you to set the maximum size of each mapper.</span></span>  <span data-ttu-id="46ad8-129">Se o número de mapeadores que o Tez escolher for maior que o valor desse parâmetro, o Tez usará o valor definido aqui.</span><span class="sxs-lookup"><span data-stu-id="46ad8-129">If the number of mappers that Tez chooses is larger than the value of this parameter, then Tez will use the value set here.</span></span>  
+
+<span data-ttu-id="46ad8-130">**hive.exec.reducer.bytes.per.reducer** – esse parâmetro define o tamanho de cada redutor.</span><span class="sxs-lookup"><span data-stu-id="46ad8-130">**hive.exec.reducer.bytes.per.reducer** – This parameter sets the size of each reducer.</span></span>  <span data-ttu-id="46ad8-131">Por padrão, o tamanho de cada redutor é de 256 MB.</span><span class="sxs-lookup"><span data-stu-id="46ad8-131">By default, each reducer is 256MB.</span></span>  
+
+## <a name="guidance"></a><span data-ttu-id="46ad8-132">Diretrizes</span><span class="sxs-lookup"><span data-stu-id="46ad8-132">Guidance</span></span>
+
+<span data-ttu-id="46ad8-133">**Definir hive.exec.reducer.bytes.per.reducer** – o valor padrão funciona bem quando os dados são descompactados.</span><span class="sxs-lookup"><span data-stu-id="46ad8-133">**Set hive.exec.reducer.bytes.per.reducer** – The default value works well when the data is uncompressed.</span></span>  <span data-ttu-id="46ad8-134">Para dados compactados, você deve reduzir o tamanho do redutor.</span><span class="sxs-lookup"><span data-stu-id="46ad8-134">For data that is compressed, you should reduce the size of the reducer.</span></span>  
+
+<span data-ttu-id="46ad8-135">**Definir hive.tez.container.size** – em cada nó, a memória é especificada por yarn.nodemanager.resource.memory-mb e deve ser corretamente definida no cluster HDI por padrão.</span><span class="sxs-lookup"><span data-stu-id="46ad8-135">**Set hive.tez.container.size** – In each node, memory is specified by yarn.nodemanager.resource.memory-mb and should be correctly set on HDI cluster by default.</span></span>  <span data-ttu-id="46ad8-136">Para obter informações adicionais sobre como definir a memória adequada no YARN, confira esta [postagem](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).</span><span class="sxs-lookup"><span data-stu-id="46ad8-136">For additional information on setting the appropriate memory in YARN, see this [post](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).</span></span>
+
+<span data-ttu-id="46ad8-137">As cargas de trabalho que usam muita E/S podem se beneficiar de mais paralelismo reduzindo o tamanho do contêiner do Tez.</span><span class="sxs-lookup"><span data-stu-id="46ad8-137">I/O intensive workloads can benefit from more parallelism by decreasing the Tez container size.</span></span> <span data-ttu-id="46ad8-138">Isso proporciona ao usuário mais contêineres, o que aumenta a simultaneidade.</span><span class="sxs-lookup"><span data-stu-id="46ad8-138">This gives the user more containers which increases concurrency.</span></span>  <span data-ttu-id="46ad8-139">No entanto, algumas consultas do Hive exigem uma quantidade significativa de memória (por exemplo, MapJoin).</span><span class="sxs-lookup"><span data-stu-id="46ad8-139">However, some Hive queries require a significant amount of memory (e.g. MapJoin).</span></span>  <span data-ttu-id="46ad8-140">Se a tarefa não tiver memória suficiente, você receberá uma exceção de falta de memória durante o tempo de execução.</span><span class="sxs-lookup"><span data-stu-id="46ad8-140">If the task does not have enough memory, you will get an out of memory exception during runtime.</span></span>  <span data-ttu-id="46ad8-141">Se você receber sem exceções de falta de memória, será preciso aumentá-la.</span><span class="sxs-lookup"><span data-stu-id="46ad8-141">If you receive out of memory exceptions, then you should increase the memory.</span></span>   
+
+<span data-ttu-id="46ad8-142">O número simultâneo de tarefas em execução ou de paralelismo será limitado pela memória YARN total.</span><span class="sxs-lookup"><span data-stu-id="46ad8-142">The concurrent number of tasks running or parallelism will be bounded by the total YARN memory.</span></span>  <span data-ttu-id="46ad8-143">O número de contêineres YARN ditará quantas tarefas simultâneas podem ser executadas.</span><span class="sxs-lookup"><span data-stu-id="46ad8-143">The number of YARN containers will dictate how many concurrent tasks can run.</span></span>  <span data-ttu-id="46ad8-144">Para localizar a memória YARN por nó, você pode ir para o Ambari.</span><span class="sxs-lookup"><span data-stu-id="46ad8-144">To find the YARN memory per node, you can go to Ambari.</span></span>  <span data-ttu-id="46ad8-145">Navegue até YARN e exiba a guia Configurações.</span><span class="sxs-lookup"><span data-stu-id="46ad8-145">Navigate to YARN and view the Configs tab.</span></span>  <span data-ttu-id="46ad8-146">A memória YARN é exibida nessa janela.</span><span class="sxs-lookup"><span data-stu-id="46ad8-146">The YARN memory is displayed in this window.</span></span>  
+
+        Total YARN memory = nodes * YARN memory per node
+        # of YARN containers = Total YARN memory / Tez container size
+<span data-ttu-id="46ad8-147">A chave para melhorar o desempenho usando o ADLS é aumentar a simultaneidade tanto quanto possível.</span><span class="sxs-lookup"><span data-stu-id="46ad8-147">The key to improving performance using ADLS is to increase the concurrency as much as possible.</span></span>  <span data-ttu-id="46ad8-148">O Tez calcula automaticamente o número de tarefas que devem ser criadas, de modo que você não precisa defini-lo.</span><span class="sxs-lookup"><span data-stu-id="46ad8-148">Tez automatically calculates the number of tasks that should be created so you do not need to set it.</span></span>   
+
+## <a name="example-calculation"></a><span data-ttu-id="46ad8-149">Exemplo de cálculo</span><span class="sxs-lookup"><span data-stu-id="46ad8-149">Example Calculation</span></span>
+
+<span data-ttu-id="46ad8-150">Digamos que você tenha um cluster D14 de 8 nós.</span><span class="sxs-lookup"><span data-stu-id="46ad8-150">Let’s say you have an 8 node D14 cluster.</span></span>  
+
+    Total YARN memory = nodes * YARN memory per node
+    Total YARN memory = 8 nodes * 96GB = 768GB
+    # of YARN containers = 768GB / 3072MB = 256
+
+## <a name="limitations"></a><span data-ttu-id="46ad8-151">Limitações</span><span class="sxs-lookup"><span data-stu-id="46ad8-151">Limitations</span></span>
+<span data-ttu-id="46ad8-152">**Limitação do ADLS**</span><span class="sxs-lookup"><span data-stu-id="46ad8-152">**ADLS throttling**</span></span> 
+
+<span data-ttu-id="46ad8-153">Se os limites de largura de banda fornecidos pelo ADLS fossem atingidos, você começaria a verificar as falhas de tarefa.</span><span class="sxs-lookup"><span data-stu-id="46ad8-153">UIf you hit the limits of bandwidth provided by ADLS, you would start to see task failures.</span></span> <span data-ttu-id="46ad8-154">Isso poderia ser identificado observando os erros de limitação nos logs de tarefa.</span><span class="sxs-lookup"><span data-stu-id="46ad8-154">This could be identified by observing throttling errors in task logs.</span></span>  <span data-ttu-id="46ad8-155">Você pode reduzir o paralelismo aumentando o tamanho do contêiner Tez.</span><span class="sxs-lookup"><span data-stu-id="46ad8-155">You can decrease the parallelism by increasing Tez container size.</span></span>  <span data-ttu-id="46ad8-156">Se precisar de mais simultaneidade para seu trabalho, entre em contato conosco.</span><span class="sxs-lookup"><span data-stu-id="46ad8-156">If you need more concurrency for your job, please contact us.</span></span>   
+
+<span data-ttu-id="46ad8-157">Para verificar se há problemas de limitação, você precisa habilitar o log de depuração no lado do cliente.</span><span class="sxs-lookup"><span data-stu-id="46ad8-157">To check if you are getting throttled, you need to enable the debug logging on the client side.</span></span> <span data-ttu-id="46ad8-158">Veja como fazer isso:</span><span class="sxs-lookup"><span data-stu-id="46ad8-158">Here’s how you can do that:</span></span>
+
+1. <span data-ttu-id="46ad8-159">Coloque a propriedade a seguir nas propriedades de log4j na configuração do Hive.</span><span class="sxs-lookup"><span data-stu-id="46ad8-159">Put the following property in the log4j properties in Hive config.</span></span> <span data-ttu-id="46ad8-160">Isso pode ser feito no modo de exibição do Ambari: log4j.logger.com.microsoft.azure.datalake.store=DEBUG Reinicie todos os nós/serviços para que a configuração entre em vigor.</span><span class="sxs-lookup"><span data-stu-id="46ad8-160">This can be done from Ambari view: log4j.logger.com.microsoft.azure.datalake.store=DEBUG Restart all the nodes/service for the config to take effect.</span></span>
+
+2. <span data-ttu-id="46ad8-161">Se o problema for de limitação, você verá o código de erro HTTP 429 no arquivo de log do Hive.</span><span class="sxs-lookup"><span data-stu-id="46ad8-161">If you are getting throttled, you’ll see the HTTP 429 error code in the hive log file.</span></span> <span data-ttu-id="46ad8-162">O arquivo de log do Hive está em /tmp/&lt;usuário&gt;/hive.log</span><span class="sxs-lookup"><span data-stu-id="46ad8-162">The hive log file is in /tmp/&lt;user&gt;/hive.log</span></span>
+
+## <a name="further-information-on-hive-tuning"></a><span data-ttu-id="46ad8-163">Mais informações sobre o ajuste do Hive</span><span class="sxs-lookup"><span data-stu-id="46ad8-163">Further information on Hive tuning</span></span>
+
+<span data-ttu-id="46ad8-164">Veja a seguir alguns blogs que ajudarão a ajustar as consultas do Hive:</span><span class="sxs-lookup"><span data-stu-id="46ad8-164">Here are a few blogs that will help tune your Hive queries:</span></span>
+* [<span data-ttu-id="46ad8-165">Otimizar consultas do Hive para Hadoop no HDInsight</span><span class="sxs-lookup"><span data-stu-id="46ad8-165">Optimize Hive queries for Hadoop in HDInsight</span></span>](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
+* [<span data-ttu-id="46ad8-166">Solução de problemas de desempenho em consultas do Hive</span><span class="sxs-lookup"><span data-stu-id="46ad8-166">Troubleshooting Hive query performance</span></span>](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
+* [<span data-ttu-id="46ad8-167">Debate sobre como otimizar o Hive no HDInsight</span><span class="sxs-lookup"><span data-stu-id="46ad8-167">Ignite talk on optimize Hive on HDInsight</span></span>](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)

@@ -1,0 +1,118 @@
+---
+title: 'Azure AD: redefinir sua senha | Microsoft Docs'
+description: "Usar a redefinição de senha de autoatendimento para recuperar o acesso à conta de usuário corporativa ou de estudante"
+services: active-directory
+keywords: 
+documentationcenter: 
+author: MicrosoftGuyJFlo
+manager: femila
+ms.reviewer: gahug
+ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/17/2017
+ms.author: joflore
+ms.custom: end-user
+ms.openlocfilehash: dcd590708bf937b99bb74e4d164d3451bffb46e1
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
+---
+# <a name="help-i-forgot-my-azure-ad-password"></a><span data-ttu-id="b4a65-103">Preciso de ajuda, esqueci minha senha do Azure AD</span><span class="sxs-lookup"><span data-stu-id="b4a65-103">Help, I forgot my Azure AD password</span></span>
+
+<span data-ttu-id="b4a65-104">Se você esquecer sua senha, nunca recebeu uma da sua equipe de TI, teve sua conta bloqueada, ou deseja alterar a senha, podemos ajudar.</span><span class="sxs-lookup"><span data-stu-id="b4a65-104">If you forgot your password, never received one from your IT staff, been locked out of your account, or want to change it, we can help.</span></span> <span data-ttu-id="b4a65-105">Se você souber a senha e somente precisar alterá-la, continue até a seção [Alterar minha senha](#change-my-password) abaixo.</span><span class="sxs-lookup"><span data-stu-id="b4a65-105">If you know your password and just need to change it continue down to the section [Change my password](#change-my-password) below.</span></span>
+
+   > [!NOTE]
+   > <span data-ttu-id="b4a65-106">Se você estiver tentando retornar a sua conta pessoal, como Xbox, hotmail.com ou outlook.com, tente as [sugestões encontradas neste artigo](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)</span><span class="sxs-lookup"><span data-stu-id="b4a65-106">If you are trying to get back into your personal account like Xbox, hotmail.com, or outlook.com try the [suggestions found in this article](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)</span></span>
+   >
+
+## <a name="reset-or-unlock-my-password-for-a-work-or-school-account"></a><span data-ttu-id="b4a65-107">Redefinir ou desbloquear minha senha para uma conta corporativa ou de estudante</span><span class="sxs-lookup"><span data-stu-id="b4a65-107">Reset or unlock my password for a work or school account</span></span>
+
+<span data-ttu-id="b4a65-108">Caso não consiga acessar sua conta por causa de um dos seguintes:</span><span class="sxs-lookup"><span data-stu-id="b4a65-108">If you unable to access your account because of one of the following:</span></span>
+
+* <span data-ttu-id="b4a65-109">Sua senha não está funcionando e você deseja restaurá-la.</span><span class="sxs-lookup"><span data-stu-id="b4a65-109">Your password is not working and you would like to reset it.</span></span>
+* <span data-ttu-id="b4a65-110">Você sabe sua senha, mas a conta está bloqueada e você deseja desbloqueá-la.</span><span class="sxs-lookup"><span data-stu-id="b4a65-110">You know your password but your account is locked out and you would like to unlock your account.</span></span>
+
+<span data-ttu-id="b4a65-111">Siga as etapas abaixo para acessar a redefinição de senha de autoatendimento do Azure AD ou SSPR como gostamos de chamá-lo e volte para sua conta.</span><span class="sxs-lookup"><span data-stu-id="b4a65-111">Follow the steps that follow to access Azure AD self-service password reset, SSPR as we like to call it, and get back into your account.</span></span>
+
+1. <span data-ttu-id="b4a65-112">Em qualquer página de entrada de conta corporativa ou de estudante, clique no link **Não consegue acessar sua conta?** e, e seguida, clique em **Conta corporativa ou de estudante** ou vá diretamente para a [página de redefinição de senha](https://passwordreset.microsoftonline.com/).</span><span class="sxs-lookup"><span data-stu-id="b4a65-112">From any work or school sign-in page, click the **Can't access your account?** link then click **Work or school account** or go directly to the [password reset page](https://passwordreset.microsoftonline.com/).</span></span>
+
+    <span data-ttu-id="b4a65-113">![Não é possível acessar sua conta?][Login]</span><span class="sxs-lookup"><span data-stu-id="b4a65-113">![Can't access your account?][Login]</span></span>
+
+2. <span data-ttu-id="b4a65-114">Insira sua **ID de usuário** corporativo ou de estudante, para provar que você não é um robô inserindo os caracteres que você vê na tela, depois clique em **Avançar**.</span><span class="sxs-lookup"><span data-stu-id="b4a65-114">Enter your work or school **User ID**, prove you aren't a robot by entering the characters you see on the screen, then click **Next**.</span></span>
+
+   > [!NOTE]
+   > <span data-ttu-id="b4a65-115">Se sua equipe de TI não tiver habilitado essa funcionalidade, um link "entre em contato com seu administrador" será exibido para que sua equipe de TI possa ajudar, por email ou por um portal da Web próprio.</span><span class="sxs-lookup"><span data-stu-id="b4a65-115">If your IT staff has not enabled this functionality, a "contact your administrator" link appears so your IT staff can help, via email or a web portal of their own.</span></span>
+   > 
+   > <span data-ttu-id="b4a65-116">Se você precisar desbloquear sua conta, neste momento escolha a opção "Sei minha senha, mas ainda não consigo entrar".</span><span class="sxs-lookup"><span data-stu-id="b4a65-116">If you need to unlock your account, at this point choose the option "I know my password, but still can't sign in".</span></span>
+   > 
+
+3. <span data-ttu-id="b4a65-117">Dependendo de como a equipe de TI configurou o SSPR, você poderá ver uma ou mais das seguintes opções.</span><span class="sxs-lookup"><span data-stu-id="b4a65-117">Depending on how your IT staff has configured SSPR you see one or more of the following.</span></span> <span data-ttu-id="b4a65-118">Você ou sua equipe de TI preencheu algumas dessas informações antes de usar o artigo [Registro de redefinição de senha de autoatendimento](active-directory-passwords-reset-register.md).</span><span class="sxs-lookup"><span data-stu-id="b4a65-118">Either you or your IT staff have populated some of this information before using the article [Register for self-service password reset](active-directory-passwords-reset-register.md).</span></span>
+
+   * <span data-ttu-id="b4a65-119">**Enviar por email para o meu email alternativo**</span><span class="sxs-lookup"><span data-stu-id="b4a65-119">**Email my alternate email**</span></span>
+   * <span data-ttu-id="b4a65-120">**Enviar mensagem de texto para o meu celular**</span><span class="sxs-lookup"><span data-stu-id="b4a65-120">**Text my mobile phone**</span></span>
+   * <span data-ttu-id="b4a65-121">**Ligar para o meu celular**</span><span class="sxs-lookup"><span data-stu-id="b4a65-121">**Call my mobile phone**</span></span>
+   * <span data-ttu-id="b4a65-122">**Ligar para o meu telefone comercial**</span><span class="sxs-lookup"><span data-stu-id="b4a65-122">**Call my office phone**</span></span>
+   * <span data-ttu-id="b4a65-123">**Responder minhas perguntas de segurança**</span><span class="sxs-lookup"><span data-stu-id="b4a65-123">**Answer my security questions**</span></span>
+
+   <span data-ttu-id="b4a65-124">Escolha uma opção, forneça as respostas corretas e clique em **Avançar**.</span><span class="sxs-lookup"><span data-stu-id="b4a65-124">Choose an option, provide the correct responses, and click **Next**.</span></span>
+
+   <span data-ttu-id="b4a65-125">![Verificar os dados de autenticação][Verification]</span><span class="sxs-lookup"><span data-stu-id="b4a65-125">![Verify your authentication data][Verification]</span></span>
+
+4. <span data-ttu-id="b4a65-126">A sua equipe de TI pode precisar de outras verificações e pode ser que você tenha que repetir a etapa 3 com uma opção diferente.</span><span class="sxs-lookup"><span data-stu-id="b4a65-126">Your IT staff may need more verification and you may have to repeat step 3 again with a different choice.</span></span>
+5. <span data-ttu-id="b4a65-127">Na página **Escolher uma nova senha**, insira uma nova senha, confirme sua senha e clique em **Concluir**.</span><span class="sxs-lookup"><span data-stu-id="b4a65-127">On the **Choose a new password** page, enter a new password, confirm your password, and then click **Finish**.</span></span> <span data-ttu-id="b4a65-128">Sugerimos que sua senha tenha de 8 a 16 caracteres com letras maiúsculas e minúsculas, números e caracteres especiais.</span><span class="sxs-lookup"><span data-stu-id="b4a65-128">We suggest your password be 8-16 characters with uppercase and lowercase characters, numbers, and special characters.</span></span>
+6. <span data-ttu-id="b4a65-129">Quando você vir **A sua senha foi redefinida.**, você poderá entrar com sua nova senha.</span><span class="sxs-lookup"><span data-stu-id="b4a65-129">When you see, **Your password has been reset**, you can sign in with your new password.</span></span>
+
+    <span data-ttu-id="b4a65-130">![A senha do usuário foi redefinida][Complete]</span><span class="sxs-lookup"><span data-stu-id="b4a65-130">![Your password has been reset][Complete]</span></span>
+
+<span data-ttu-id="b4a65-131">Agora você deve ser capaz de acessar sua conta, caso contrário, entre em contato com a equipe de TI da sua organização para obter ajuda adicional.</span><span class="sxs-lookup"><span data-stu-id="b4a65-131">You should now be able to access your account, if not you should contact your organization's IT staff for further help.</span></span>
+
+<span data-ttu-id="b4a65-132">Você pode receber um email de confirmação que vem de uma conta como "Microsoft em nome da \<sua organização>".</span><span class="sxs-lookup"><span data-stu-id="b4a65-132">You may receive a confirmation email that comes from an account like "Microsoft on behalf of \<your organization>".</span></span> <span data-ttu-id="b4a65-133">Se você receber um email como este e você não tiver feito uma redefinição de senha de autoatendimento para recuperar o acesso à sua conta, entre em contato com a equipe de TI da sua organização.</span><span class="sxs-lookup"><span data-stu-id="b4a65-133">If you get an email like this, and you did not use self-service password reset to regain access to your account, contact your organization's IT staff.</span></span>
+
+## <a name="change-my-password"></a><span data-ttu-id="b4a65-134">Alterar minha senha</span><span class="sxs-lookup"><span data-stu-id="b4a65-134">Change my password</span></span>
+
+<span data-ttu-id="b4a65-135">Se você souber a senha e precisar alterá-la, siga as etapas a seguir para alterar a sua senha.</span><span class="sxs-lookup"><span data-stu-id="b4a65-135">If you know your password already and want to change it, use the steps that follow to change your password.</span></span>
+
+### <a name="change-your-password-from-the-office-365-portal"></a><span data-ttu-id="b4a65-136">Alterar sua senha no portal do Office 365</span><span class="sxs-lookup"><span data-stu-id="b4a65-136">Change your password from the Office 365 portal</span></span>
+
+<span data-ttu-id="b4a65-137">Use este método se você normalmente acessa seus aplicativos usando o portal do Office</span><span class="sxs-lookup"><span data-stu-id="b4a65-137">Use this method if you normally access your applications using the Office portal</span></span>
+
+1. <span data-ttu-id="b4a65-138">Entre na sua [conta do Office 365](https://www.office.com) usando sua senha existente</span><span class="sxs-lookup"><span data-stu-id="b4a65-138">Sign into your [Office 365 account](https://www.office.com) using your existing password</span></span>
+2. <span data-ttu-id="b4a65-139">Clique em seu perfil no lado superior direito e clique em **Exibir conta**</span><span class="sxs-lookup"><span data-stu-id="b4a65-139">Click on your profile on the upper right side, and click **View account**</span></span>
+3. <span data-ttu-id="b4a65-140">Clique em **Segurança e privacidade** > **Senha**</span><span class="sxs-lookup"><span data-stu-id="b4a65-140">Click **Security & privacy** > **Password**</span></span>
+4. <span data-ttu-id="b4a65-141">Insira sua senha antiga, defina e confirme sua nova senha e clique em **Enviar**</span><span class="sxs-lookup"><span data-stu-id="b4a65-141">Enter your old password, set and confirm your new password, and then click **Submit**</span></span>
+
+### <a name="change-your-password-from-the-azure-access-panel"></a><span data-ttu-id="b4a65-142">Alterar a sua senha no Painel de Acesso do Azure</span><span class="sxs-lookup"><span data-stu-id="b4a65-142">Change your password from the Azure Access Panel</span></span>
+
+<span data-ttu-id="b4a65-143">Use este método se você normalmente acessa seus aplicativos usando o Portal de Acesso do Azure</span><span class="sxs-lookup"><span data-stu-id="b4a65-143">Use this method if you normally access your applications from the Azure Access Portal</span></span>
+
+1. <span data-ttu-id="b4a65-144">Entre no [Portal de acesso do Azure](https://myapps.microsoft.com/) usando sua senha existente</span><span class="sxs-lookup"><span data-stu-id="b4a65-144">Sign in to the [Azure Access Portal](https://myapps.microsoft.com/) using your existing password</span></span>
+2. <span data-ttu-id="b4a65-145">Clique em seu perfil no canto superior direito e clique em **Perfil**</span><span class="sxs-lookup"><span data-stu-id="b4a65-145">Click on your profile on the upper right side, then click **Profile**</span></span>
+3. <span data-ttu-id="b4a65-146">Clique em **Alterar Senha**</span><span class="sxs-lookup"><span data-stu-id="b4a65-146">Click **Change password**</span></span>
+4. <span data-ttu-id="b4a65-147">Insira sua senha antiga, defina e confirme sua nova senha e clique em **Enviar**</span><span class="sxs-lookup"><span data-stu-id="b4a65-147">Enter your old password, set and confirm your new password, and then click **Submit**</span></span>
+
+## <a name="common-problems-and-their-solutions"></a><span data-ttu-id="b4a65-148">problemas comuns e suas soluções</span><span class="sxs-lookup"><span data-stu-id="b4a65-148">Common problems and their solutions</span></span>
+
+ <span data-ttu-id="b4a65-149">Aqui estão alguns casos de erro comuns e suas soluções:</span><span class="sxs-lookup"><span data-stu-id="b4a65-149">Here are some common error cases and their solutions:</span></span>
+
+| <span data-ttu-id="b4a65-150">Caso de erro</span><span class="sxs-lookup"><span data-stu-id="b4a65-150">Error Case</span></span>| <span data-ttu-id="b4a65-151">Que erro você vê?</span><span class="sxs-lookup"><span data-stu-id="b4a65-151">What error do you see?</span></span>| <span data-ttu-id="b4a65-152">Solução</span><span class="sxs-lookup"><span data-stu-id="b4a65-152">Solution</span></span> |
+| --- | --- | --- |
+| <span data-ttu-id="b4a65-153">Uma página “Contate seu administrador” é exibida após a inserção da minha ID de usuário</span><span class="sxs-lookup"><span data-stu-id="b4a65-153">I get a "please contact your administrator" page after entering my user ID</span></span> | <span data-ttu-id="b4a65-154">Entre em contato com o seu administrador</span><span class="sxs-lookup"><span data-stu-id="b4a65-154">Please contact your administrator</span></span> <br> <br> <span data-ttu-id="b4a65-155">Detectamos que a senha da sua conta de usuário não é gerenciada pela Microsoft.</span><span class="sxs-lookup"><span data-stu-id="b4a65-155">We've detected that your user account password is not managed by Microsoft.</span></span> <span data-ttu-id="b4a65-156">Portanto, não podemos redefinir sua senha automaticamente.</span><span class="sxs-lookup"><span data-stu-id="b4a65-156">As a result, we are unable to automatically reset your password.</span></span> <br> <br> <span data-ttu-id="b4a65-157">Você precisa entrar em contato com sua equipe de TI para receber mais assistência.</span><span class="sxs-lookup"><span data-stu-id="b4a65-157">You need to contact your IT staff for any further assistance.</span></span> | <span data-ttu-id="b4a65-158">Você está vendo esta mensagem porque a equipe de TI gerencia sua senha no ambiente local e não permite que você redefina sua senha usando o link Não consegue acessar sua conta?</span><span class="sxs-lookup"><span data-stu-id="b4a65-158">You are seeing this message because your IT staff manages your password in your on-premises environment and does not allow you to reset your password from the Can't access your account link.</span></span> <br> <br> <span data-ttu-id="b4a65-159">Para redefinir sua senha, contate a equipe de TI diretamente para obter ajuda e informe que deseja redefinir sua senha, para que ela possa habilitar o recurso para você.</span><span class="sxs-lookup"><span data-stu-id="b4a65-159">To reset your password,  contact your IT staff directly for help, and let them know you want to reset your password so they can enable this feature for you.</span></span>|
+| <span data-ttu-id="b4a65-160">Recebo uma mensagem de erro "sua conta não está habilitada para redefinição de senha" depois de inserir a ID de usuário</span><span class="sxs-lookup"><span data-stu-id="b4a65-160">I get a "your account is not enabled for password reset" error after entering my user ID</span></span> | <span data-ttu-id="b4a65-161">Sua conta não está habilitada para redefinição de senha</span><span class="sxs-lookup"><span data-stu-id="b4a65-161">Your account is not enabled for password reset</span></span> <br> <br> <span data-ttu-id="b4a65-162">A equipe de TI não configurou sua conta para usar esse serviço.</span><span class="sxs-lookup"><span data-stu-id="b4a65-162">We're sorry, but your IT staff has not set up your account for use with this service.</span></span> <br> <br> <span data-ttu-id="b4a65-163">Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você.</span><span class="sxs-lookup"><span data-stu-id="b4a65-163">If you'd like, we can contact an administrator in your organization to reset your password for you.</span></span> | <span data-ttu-id="b4a65-164">Você está vendo esta mensagem porque a equipe de TI não habilitou a redefinição de senha usando o link Não consegue acessar sua conta? para sua organização ou não licenciou o uso por você.</span><span class="sxs-lookup"><span data-stu-id="b4a65-164">You are seeing this message because your IT staff has not enabled password reset for your organization from the Can't access your account link, or hasn't licensed you to use the feature.</span></span> <br> <br> <span data-ttu-id="b4a65-165">Para redefinir sua senha, clique no link “Contate um administrador” para enviar um email à equipe de TI da empresa e informe que deseja redefinir sua senha para que ela possa habilitar o recurso para você.</span><span class="sxs-lookup"><span data-stu-id="b4a65-165">To reset your password, click the contact an administrator link to send an email to your company's IT staff, and let them know you want to reset your password so they can enable this feature for you.</span></span> |
+| <span data-ttu-id="b4a65-166">Recebo uma mensagem de erro "não foi possível verificar sua conta" depois de inserir a ID de usuário</span><span class="sxs-lookup"><span data-stu-id="b4a65-166">I get a "we could not verify your account" error after entering my user ID</span></span> | <span data-ttu-id="b4a65-167">Não foi possível verificar sua conta</span><span class="sxs-lookup"><span data-stu-id="b4a65-167">We could not verify your account</span></span> <br> <br> <span data-ttu-id="b4a65-168">Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você.</span><span class="sxs-lookup"><span data-stu-id="b4a65-168">If you'd like, we can contact an administrator in your organization to reset your password for you.</span></span> | <span data-ttu-id="b4a65-169">Você está vendo esta mensagem porque a redefinição de senha está habilitada, mas você não se registrou para usar o serviço.</span><span class="sxs-lookup"><span data-stu-id="b4a65-169">You are seeing this message because you are enabled for password reset, but you have not registered to use the service.</span></span> <span data-ttu-id="b4a65-170">Para se registrar para redefinição de senha, vá para http://aka.ms/ssprsetup depois que você tiver recuperado o acesso à sua conta.</span><span class="sxs-lookup"><span data-stu-id="b4a65-170">To register for password reset, go to http://aka.ms/ssprsetup after you have regained access to your account.</span></span> <br> <br> <span data-ttu-id="b4a65-171">A fim de redefinir sua senha, clique no link contate um administrador para enviar um email à equipe de TI da empresa.</span><span class="sxs-lookup"><span data-stu-id="b4a65-171">To reset your password, click the contact an administrator link to send an email to your company's IT staff.</span></span> |
+
+## <a name="next-steps"></a><span data-ttu-id="b4a65-172">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="b4a65-172">Next steps</span></span>
+
+* [<span data-ttu-id="b4a65-173">Como registrar para usar a redefinição de senha de autoatendimento </span><span class="sxs-lookup"><span data-stu-id="b4a65-173">How to register to use self-service password reset</span></span>](active-directory-passwords-reset-register.md)
+* [<span data-ttu-id="b4a65-174">Página de registro de redefinição de senha</span><span class="sxs-lookup"><span data-stu-id="b4a65-174">Password reset registration page</span></span>](http://aka.ms/ssprsetup)
+* [<span data-ttu-id="b4a65-175">Portal de redefinição de senha:</span><span class="sxs-lookup"><span data-stu-id="b4a65-175">Password reset portal</span></span>](https://passwordreset.microsoftonline.com/)
+* [<span data-ttu-id="b4a65-176">Você não consegue acessar a sua conta da Microsoft</span><span class="sxs-lookup"><span data-stu-id="b4a65-176">Can't sign in to your Microsoft account</span></span>](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
+
+<span data-ttu-id="b4a65-177">[Login]: ./media/active-directory-passwords-update-your-own-password/reset-1-login.png "Página de logon Não consegue acessar sua conta?"</span><span class="sxs-lookup"><span data-stu-id="b4a65-177">[Login]: ./media/active-directory-passwords-update-your-own-password/reset-1-login.png "Login page Can't access your account?"</span></span>
+<span data-ttu-id="b4a65-178">[Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Verificar os dados de autenticação"</span><span class="sxs-lookup"><span data-stu-id="b4a65-178">[Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Verify your authentication data"</span></span>
+<span data-ttu-id="b4a65-179">[Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "Alterar sua senha"</span><span class="sxs-lookup"><span data-stu-id="b4a65-179">[Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "Change your password"</span></span>
+<span data-ttu-id="b4a65-180">[Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "A senha do usuário foi redefinida"</span><span class="sxs-lookup"><span data-stu-id="b4a65-180">[Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "Password has been reset"</span></span>
