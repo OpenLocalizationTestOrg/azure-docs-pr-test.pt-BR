@@ -1,0 +1,59 @@
+---
+title: "Azure Active Directory Identity Protection - como desbloquear usuários | Microsoft Docs"
+description: "Saiba como desbloquear usuários que foram bloqueados por uma política do Azure Active Directory Identity Protection."
+services: active-directory
+keywords: "azure active directory identity protection, desbloquear usuário"
+documentationcenter: 
+author: MarkusVi
+manager: femila
+ms.assetid: a953d425-a3ef-41f8-a55d-0202c3f250a7
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/05/2017
+ms.author: markvi
+ms.reviewer: nigu
+ms.openlocfilehash: ce6b2805e7281dff7752a73ada86be11d7e01fc3
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
+---
+# <a name="azure-active-directory-identity-protection---how-to-unblock-users"></a><span data-ttu-id="0710e-104">Azure Active Directory Identity Protection - como desbloquear usuários</span><span class="sxs-lookup"><span data-stu-id="0710e-104">Azure Active Directory Identity Protection - How to unblock users</span></span>
+<span data-ttu-id="0710e-105">Com o Azure Active Directory Identity Protection, você pode configurar políticas para bloquear os usuários se as condições configuradas forem satisfeitas.</span><span class="sxs-lookup"><span data-stu-id="0710e-105">With Azure Active Directory Identity Protection, you can configure policies to block users if the configured conditions are satisfied.</span></span> <span data-ttu-id="0710e-106">Normalmente, um usuário bloqueado entra em contato com o suporte técnico para ser desbloqueado.</span><span class="sxs-lookup"><span data-stu-id="0710e-106">Typically, a blocked user contacts help desk to become unblocked.</span></span> <span data-ttu-id="0710e-107">Este tópico explica as etapas que você pode executar para desbloquear um usuário bloqueado.</span><span class="sxs-lookup"><span data-stu-id="0710e-107">This topics explains the steps you can perform to unblock a blocked user.</span></span>
+
+## <a name="determine-the-reason-for-blocking"></a><span data-ttu-id="0710e-108">Determinar o motivo do bloqueio</span><span class="sxs-lookup"><span data-stu-id="0710e-108">Determine the reason for blocking</span></span>
+<span data-ttu-id="0710e-109">Como uma primeira etapa para desbloquear um usuário, você precisa determinar o tipo de política que bloqueou o usuário porque as próximas etapas dependerão dela.</span><span class="sxs-lookup"><span data-stu-id="0710e-109">As a first step to unblock a user, you need to determine the type of policy that has blocked the user because your next steps are depending on it.</span></span>
+<span data-ttu-id="0710e-110">Com o Azure Active Directory Identity Protection, um usuário pode ser bloqueado ou por uma política de risco de entrada ou por uma política de risco de usuário.</span><span class="sxs-lookup"><span data-stu-id="0710e-110">With Azure Active Directory Identity Protection, a user can be either blocked by a sign-in risk policy or a user risk policy.</span></span>
+
+<span data-ttu-id="0710e-111">Você pode obter o tipo de política que bloqueou um usuário do título na caixa de diálogo apresentado ao usuário durante uma tentativa de entrada:</span><span class="sxs-lookup"><span data-stu-id="0710e-111">You can get the type of policy that has blocked a user from the heading in the dialog that was presented to the user during a sign-in attempt:</span></span>
+
+| <span data-ttu-id="0710e-112">Política</span><span class="sxs-lookup"><span data-stu-id="0710e-112">Policy</span></span> | <span data-ttu-id="0710e-113">Diálogo do usuário</span><span class="sxs-lookup"><span data-stu-id="0710e-113">User dialog</span></span> |
+| --- | --- |
+| <span data-ttu-id="0710e-114">Risco de entrada</span><span class="sxs-lookup"><span data-stu-id="0710e-114">Sign-in risk</span></span> |![Entrada bloqueada](./media/active-directory-identityprotection-unblock-howto/02.png) |
+| <span data-ttu-id="0710e-116">Risco do usuário</span><span class="sxs-lookup"><span data-stu-id="0710e-116">User risk</span></span> |![Conta bloqueada](./media/active-directory-identityprotection-unblock-howto/104.png) |
+
+<span data-ttu-id="0710e-118">Um usuário bloqueado por:</span><span class="sxs-lookup"><span data-stu-id="0710e-118">A user that is blocked by:</span></span>
+
+* <span data-ttu-id="0710e-119">Uma política de risco de entrada também é conhecida como entrada suspeita</span><span class="sxs-lookup"><span data-stu-id="0710e-119">A sign-in risk policy is also known as suspicious sign-in</span></span>
+* <span data-ttu-id="0710e-120">Uma política de risco de usuário também é conhecida como uma conta em risco</span><span class="sxs-lookup"><span data-stu-id="0710e-120">A user risk policy is also known as an account at risk</span></span>
+
+## <a name="unblocking-suspicious-sign-ins"></a><span data-ttu-id="0710e-121">Desbloqueio de entradas suspeitas</span><span class="sxs-lookup"><span data-stu-id="0710e-121">Unblocking suspicious sign-ins</span></span>
+<span data-ttu-id="0710e-122">Para desbloquear uma entrada suspeita, você tem as seguintes opções:</span><span class="sxs-lookup"><span data-stu-id="0710e-122">To unblock a suspicious sign-in, you have the following options:</span></span>
+
+1. <span data-ttu-id="0710e-123">**Entrada de um local ou dispositivo familiar** - uma razão comum para entradas suspeitas bloqueadas são as tentativas de entrada de locais ou de dispositivos desconhecidos.</span><span class="sxs-lookup"><span data-stu-id="0710e-123">**Sign-in from a familiar location or device** - A common reason for blocked suspicious sign-ins are sign-in attempts from unfamiliar locations or devices.</span></span> <span data-ttu-id="0710e-124">Os usuários podem determinar rapidamente se esse é o motivo do bloqueio, tentando entrar de um dispositivo ou local familiar.</span><span class="sxs-lookup"><span data-stu-id="0710e-124">Your users can quickly determine whether this is the blocking reason by trying to sign-in from a familiar location or device.</span></span>
+2. <span data-ttu-id="0710e-125">**Exclusão da política** - se você acha que a configuração atual de sua política de entrada está causando problemas para usuários específicos, pode excluir os usuários dela.</span><span class="sxs-lookup"><span data-stu-id="0710e-125">**Exclude from policy** - If you think that the current configuration of your sign-in policy is causing issues for specific users, you can exclude the users from it.</span></span> <span data-ttu-id="0710e-126">Consulte [Azure Active Directory Identity Protection](active-directory-identityprotection.md) para obter mais detalhes.</span><span class="sxs-lookup"><span data-stu-id="0710e-126">See [Azure Active Directory Identity Protection](active-directory-identityprotection.md) for more details.</span></span>
+3. <span data-ttu-id="0710e-127">**Desabilitar política** - se você achar que sua configuração de política está causando problemas para todos os usuários, poderá desabilitar a política.</span><span class="sxs-lookup"><span data-stu-id="0710e-127">**Disable policy** - If you think that your policy configuration is causing issues for all your users, you can disable the policy.</span></span> <span data-ttu-id="0710e-128">Consulte [Azure Active Directory Identity Protection](active-directory-identityprotection.md) para obter mais detalhes.</span><span class="sxs-lookup"><span data-stu-id="0710e-128">See [Azure Active Directory Identity Protection](active-directory-identityprotection.md) for more details.</span></span>
+
+## <a name="unblocking-accounts-at-risk"></a><span data-ttu-id="0710e-129">Desbloqueio de contas em risco</span><span class="sxs-lookup"><span data-stu-id="0710e-129">Unblocking accounts at risk</span></span>
+<span data-ttu-id="0710e-130">Para desbloquear uma conta em risco, você tem as seguintes opções:</span><span class="sxs-lookup"><span data-stu-id="0710e-130">To unblock an account at risk, you have the following options:</span></span>
+
+1. <span data-ttu-id="0710e-131">**Redefinir senha** - você pode redefinir a senha do usuário.</span><span class="sxs-lookup"><span data-stu-id="0710e-131">**Reset password** - You can reset the user's password.</span></span> <span data-ttu-id="0710e-132">Veja [redefinição manual de senha segura](active-directory-identityprotection.md#manual-secure-password-reset) para obter mais detalhes.</span><span class="sxs-lookup"><span data-stu-id="0710e-132">See [manual secure password reset](active-directory-identityprotection.md#manual-secure-password-reset) for more details.</span></span>
+2. <span data-ttu-id="0710e-133">**Descartar todos os eventos de risco** - a política de risco de usuário bloqueará um usuário se o nível de risco de usuário configurado para o bloqueio de acesso tiver sido atingido.</span><span class="sxs-lookup"><span data-stu-id="0710e-133">**Dismiss all risk events** - The user risk policy blocks a user if the configured user risk level for blocking access has been reached.</span></span> <span data-ttu-id="0710e-134">Você pode reduzir o nível de risco de um usuário ao fechar manualmente os eventos de risco relatados.</span><span class="sxs-lookup"><span data-stu-id="0710e-134">You can reduce a user's risk level by manually closing reported risk events.</span></span> <span data-ttu-id="0710e-135">Para obter mais detalhes, veja [fechando eventos de risco manualmente](active-directory-identityprotection.md#closing-risk-events-manually).</span><span class="sxs-lookup"><span data-stu-id="0710e-135">For more details, see [closing risk events manually](active-directory-identityprotection.md#closing-risk-events-manually).</span></span>
+3. <span data-ttu-id="0710e-136">**Exclusão da política** - se você acha que a configuração atual de sua política de entrada está causando problemas para usuários específicos, pode excluir os usuários dela.</span><span class="sxs-lookup"><span data-stu-id="0710e-136">**Exclude from policy** - If you think that the current configuration of your sign-in policy is causing issues for specific users, you can exclude the users from it.</span></span> <span data-ttu-id="0710e-137">Consulte [Azure Active Directory Identity Protection](active-directory-identityprotection.md) para obter mais detalhes.</span><span class="sxs-lookup"><span data-stu-id="0710e-137">See [Azure Active Directory Identity Protection](active-directory-identityprotection.md) for more details.</span></span>
+4. <span data-ttu-id="0710e-138">**Desabilitar política** - se você achar que sua configuração de política está causando problemas para todos os usuários, poderá desabilitar a política.</span><span class="sxs-lookup"><span data-stu-id="0710e-138">**Disable policy** - If you think that your policy configuration is causing issues for all your users, you can disable the policy.</span></span> <span data-ttu-id="0710e-139">Consulte [Azure Active Directory Identity Protection](active-directory-identityprotection.md) para obter mais detalhes.</span><span class="sxs-lookup"><span data-stu-id="0710e-139">See [Azure Active Directory Identity Protection](active-directory-identityprotection.md) for more details.</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="0710e-140">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="0710e-140">Next steps</span></span>
+ <span data-ttu-id="0710e-141">Você deseja saber mais sobre o Azure AD Identity Protection?</span><span class="sxs-lookup"><span data-stu-id="0710e-141">Do you want to know more about Azure AD Identity Protection?</span></span> <span data-ttu-id="0710e-142">Confira [Azure Active Directory Identity Protection](active-directory-identityprotection.md).</span><span class="sxs-lookup"><span data-stu-id="0710e-142">Check out [Azure Active Directory Identity Protection](active-directory-identityprotection.md).</span></span>

@@ -1,0 +1,69 @@
+---
+title: "Migrar: Utilitário de Migração do Data Warehouse | Microsoft Docs"
+description: Migrar para o SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: NA
+author: sqlmojo
+manager: jhubbard
+editor: 
+ms.assetid: 4d7ad981-ef31-4513-b337-50bdc4709c09
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.custom: migrate
+ms.date: 10/31/2016
+ms.author: joeyong;barbkess
+ms.openlocfilehash: 2466e823c448ada4dc7bc5769b1b7f10bbb5dc7d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
+---
+# <a name="data-warehouse-migration-utility-preview"></a><span data-ttu-id="38631-103">Utilitário de Migração do Data Warehouse (visualização)</span><span class="sxs-lookup"><span data-stu-id="38631-103">Data Warehouse Migration Utility (Preview)</span></span>
+> [!div class="op_single_selector"]
+> * <span data-ttu-id="38631-104">[Baixar o Utilitário de Migração][Download Migration Utility]</span><span class="sxs-lookup"><span data-stu-id="38631-104">[Download Migration Utility][Download Migration Utility]</span></span>
+> 
+> 
+
+<span data-ttu-id="38631-105">O Utilitário de Migração do Data Warehouse é uma ferramenta criada para migrar o esquema e os dados do SQL Server e do Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure.</span><span class="sxs-lookup"><span data-stu-id="38631-105">The Data Warehouse Migration Utility is a tool designed to migrate schema and data from SQL Server and Azure SQL Database to Azure SQL Data Warehouse.</span></span> <span data-ttu-id="38631-106">Durante a migração do esquema, a ferramenta mapeia automaticamente o esquema correspondente da origem para o destino.</span><span class="sxs-lookup"><span data-stu-id="38631-106">During schema migration, the tool automatically maps the corresponding schema from source to destination.</span></span> <span data-ttu-id="38631-107">Depois de migrar o esquema, as ferramentas fornecem a opção de mover os dados com scripts gerados automaticamente.</span><span class="sxs-lookup"><span data-stu-id="38631-107">After the schema has been migrated, the tools provides the option to move data with automatically generated scripts.</span></span>
+
+<span data-ttu-id="38631-108">Além do esquema e da migração de dados, essa ferramenta fornece a opção de gerar relatórios de compatibilidade que resumem as incompatibilidades entre as instâncias de origem e destino que impediriam uma migração simplificada.</span><span class="sxs-lookup"><span data-stu-id="38631-108">In addition to schema and data migration, this tool gives you the option to generate compatibility reports which summarize incompatibilities between the target and source instances which would prevent streamlined migration.</span></span>
+
+## <a name="get-started"></a><span data-ttu-id="38631-109">Introdução</span><span class="sxs-lookup"><span data-stu-id="38631-109">Get started</span></span>
+<span data-ttu-id="38631-110">Como um pré-requisito para a instalação, você precisará do utilitário de linha de comando BCP para executar scripts de migração e do Office para exibir o relatório de compatibilidade.</span><span class="sxs-lookup"><span data-stu-id="38631-110">As a prerequisite for installation, you will need the BCP command-line utility to run migration scripts and Office to view the compatibility report.</span></span> <span data-ttu-id="38631-111">Depois de iniciar o arquivo executável baixado, você deverá aceitar o Contrato de Licença de Usuário Final padrão antes de instalar a ferramenta.</span><span class="sxs-lookup"><span data-stu-id="38631-111">After launching the executable that is downloaded you will be prompted to accept a standard EULA before the tool will be installed.</span></span>
+
+<span data-ttu-id="38631-112">Além disso, para executar o Utilitário de Migração, você precisará das seguintes permissões no banco de dados que pretende migrar: CRIAR BANCO DE DADOS, ALTERAR QUALQUER BANCO DE DADOS ou EXIBIR QUALQUER DEFINIÇÃO.</span><span class="sxs-lookup"><span data-stu-id="38631-112">In addition, to run the Migration Utiliy, you will need the one following permissions on the database that you are looking to migrate: CREATE DATABASE, ALTER ANY DATABASE or VIEW ANY DEFINITION.</span></span>
+
+### <a name="launching-the-tool-and-connecting"></a><span data-ttu-id="38631-113">Iniciando a ferramenta e conectando</span><span class="sxs-lookup"><span data-stu-id="38631-113">Launching the tool and connecting</span></span>
+<span data-ttu-id="38631-114">Inicie a ferramenta clicando no ícone da área de trabalho que aparece após a instalação.</span><span class="sxs-lookup"><span data-stu-id="38631-114">Launch the tool by clicking on the desktop icon which appears post install.</span></span> <span data-ttu-id="38631-115">Ao abrir a ferramenta, você verá uma página de conexão inicial, na qual você poderá escolher a origem e o destino da ferramenta de migração.</span><span class="sxs-lookup"><span data-stu-id="38631-115">Upon opening the tool, you will be prompted with an initial connection page where you can choose your source and destination for the migration tool.</span></span> <span data-ttu-id="38631-116">No momento, há suporte para o SQL Server e o Banco de Dados SQL do Azure como origens e para o SQL Data Warehouse como um destino.</span><span class="sxs-lookup"><span data-stu-id="38631-116">At this time, we support SQL Server and Azure SQL Database as sources and SQL Data Warehouse as a destination.</span></span> <span data-ttu-id="38631-117">Depois de selecionar essa opção, você será solicitado a se conectar ao seu servidor de origem, preenchendo o nome do servidor, autenticando e clicando em “Conectar”.</span><span class="sxs-lookup"><span data-stu-id="38631-117">After selecting this you will be asked to connect to your source server by filling in server name and authenticating and then clicking ‘Connect’.</span></span>
+
+<span data-ttu-id="38631-118">Após a autenticação, a ferramenta mostrará uma lista de bancos de dados que estão presentes no servidor ao qual você se conectou.</span><span class="sxs-lookup"><span data-stu-id="38631-118">After authenticating, the tool will show a list of databases that are present in the server which you are connected to.</span></span> <span data-ttu-id="38631-119">Você pode começar a migração selecionando um banco de dados que deseja migrar e depois clicando em “Migrar selecionado”.</span><span class="sxs-lookup"><span data-stu-id="38631-119">You can begin the migration by selecting a database that you would like to migrate and then clicking on ‘Migrate selected’.</span></span>
+
+## <a name="migration-report"></a><span data-ttu-id="38631-120">Relatório de migração</span><span class="sxs-lookup"><span data-stu-id="38631-120">Migration report</span></span>
+<span data-ttu-id="38631-121">Selecionar a opção “Verificar a Compatibilidade do Banco de Dados” na ferramenta gerará um relatório que resume todas as incompatibilidades nos objetos do banco de dados que você solicitou a migração.</span><span class="sxs-lookup"><span data-stu-id="38631-121">Selecting ‘Check Database Compatibility’ in the tool will generate a report summarizing all object incompatibilities in the database you requested to migrate.</span></span> <span data-ttu-id="38631-122">Uma lista mais abrangente de algumas das funcionalidades do SQL Server que não estão presentes no SQL Data Warehouse pode ser encontrada em nosso [documentação de migração][migration documentation].</span><span class="sxs-lookup"><span data-stu-id="38631-122">A broader list of some of the SQL Server functionality that is not present in SQL Data Warehouse can be found in our [migration documentation][migration documentation].</span></span> <span data-ttu-id="38631-123">Depois de gerar o relatório, você poderá salvar e abri-lo no Excel.</span><span class="sxs-lookup"><span data-stu-id="38631-123">After the report is generated you will be able to save and open the report in Excel.</span></span>
+
+<span data-ttu-id="38631-124">Vale lembrar que, ao gerar o esquema de migração, a maioria dos problemas identificados como “Objeto” será ajustada para permitir a migração imediata desses dados.</span><span class="sxs-lookup"><span data-stu-id="38631-124">Please note that when generating the migration schema, most issues identified as ‘Object’ will be adjusted in order to allow immediate migration of that data.</span></span> <span data-ttu-id="38631-125">Reveja as alterações para garantir que você não deseje fazer ajustes adicionais antes de aplicar o esquema.</span><span class="sxs-lookup"><span data-stu-id="38631-125">Please review the changes to ensure you do not want to make additional adjustments before applying the schema.</span></span>
+
+## <a name="migrate-schema"></a><span data-ttu-id="38631-126">Migrar o esquema</span><span class="sxs-lookup"><span data-stu-id="38631-126">Migrate schema</span></span>
+<span data-ttu-id="38631-127">Depois de se conectar, a seleção de “Migrar esquema” gerará um script de migração de esquema para as tabelas selecionadas.</span><span class="sxs-lookup"><span data-stu-id="38631-127">After connecting, selecting ‘Migrate Schema’ will generate a schema migration script for the selected tables.</span></span> <span data-ttu-id="38631-128">Esse script compatibiliza a estrutura da tabela, mapeia os tipos de dados incompatíveis para formulários mais compatíveis e cria o esquema e as credenciais de segurança, caso isso seja indicado pelo usuário nas configurações de migração.</span><span class="sxs-lookup"><span data-stu-id="38631-128">This script ports the structure of the table, maps incompatible data types to more compatible forms, and creates security credentials and schema if this is indicated by the user in the migration settings.</span></span> <span data-ttu-id="38631-129">Este código pode ser executado na instância do SQL Data Warehouse de destino, salvo em um arquivo, copiado para a área de transferência ou até mesmo editado em linha antes de realizar outras ações.</span><span class="sxs-lookup"><span data-stu-id="38631-129">This code can be run against the targeted SQL Data Warehouse instance, saved to a file, copied to your clipboard, or even edited in-line before taking further action.</span></span>  
+
+<span data-ttu-id="38631-130">Como mencionamos acima, ao fazer a migração, o esquema analisa as alterações de migração feitas pela ferramenta para garantir um entendimento completo sobre elas.</span><span class="sxs-lookup"><span data-stu-id="38631-130">As noted above, when migrating schema review the migration changes that the tool has made in order to ensure that that you fully understand them.</span></span>  
+
+## <a name="migrate-data"></a><span data-ttu-id="38631-131">Migrar dados</span><span class="sxs-lookup"><span data-stu-id="38631-131">Migrate data</span></span>
+<span data-ttu-id="38631-132">Ao clicar na opção “Migrar dados”, é possível gerar scripts BCP que moverão os dados primeiro para arquivos simples no servidor e depois diretamente para o SQL Data Warehouse.</span><span class="sxs-lookup"><span data-stu-id="38631-132">By clicking the ‘Migrate Data’ option you can generate BCP scripts that will move your data first to flat files on your server, and then directly into your SQL Data Warehouse.</span></span> <span data-ttu-id="38631-133">Recomendamos esse processo para mudança de pequenas quantidades de dados e, como novas tentativas não são internas, falhas poderão ocorrer se houver uma perda da conexão de rede.</span><span class="sxs-lookup"><span data-stu-id="38631-133">We recommend this process for moving small amounts of data and, as retries are not built-in and failures may occur if there is a loss of the network connection.</span></span> <span data-ttu-id="38631-134">Para executá-lo, você precisará ter o utilitário de linha de comando BCP instalado e o esquema para os dados já deve ter sido criado.</span><span class="sxs-lookup"><span data-stu-id="38631-134">In order to run this, you will need to have the BCP command-line utility installed and the schema for the data must already have been created.</span></span>
+
+<span data-ttu-id="38631-135">Depois de preencher os parâmetros acima, basta clicar em “Executar migração” para que um conjunto de dois pacotes seja gerado no local especificado.</span><span class="sxs-lookup"><span data-stu-id="38631-135">After you have filled out the parameters above you simply need to click run migration and a set of two packages will be generated to your specified location.</span></span> <span data-ttu-id="38631-136">Execute o arquivo de exportação para exportar os dados da origem de migração para arquivos simples, e execute o arquivo de importação para importar os dados para o SQL Data Warehouse.</span><span class="sxs-lookup"><span data-stu-id="38631-136">Run the export file in order to export data from your migration source into flat files, and run the import file in order to import your data into SQL Data Warehouse.</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="38631-137">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="38631-137">Next steps</span></span>
+<span data-ttu-id="38631-138">Agora que você já migrou alguns dados, confira como [desenvolvê-los][develop].</span><span class="sxs-lookup"><span data-stu-id="38631-138">Now that you've migrated some data, check out how to [develop][develop].</span></span>
+
+<!--Image references-->
+
+<!--Article references-->
+[migration documentation]: sql-data-warehouse-overview-migrate.md
+[develop]: sql-data-warehouse-overview-develop.md
+
+<!--Other Web references--> 
+[Download Migration Utility]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
