@@ -1,6 +1,6 @@
 ---
-title: "Rever a arquitetura para replicação do Hyper-V (sem o System Center VMM) no Azure com o Azure Site Recovery | Microsoft Docs"
-description: "Este artigo fornece uma visão geral dos componentes e da arquitetura usada ao replicar VMs Hyper-V locais (sem VMM) para o Azure com o serviço Azure Site Recovery."
+title: "arquitetura de saudação aaaReview para tooAzure de replicação (sem o System Center VMM) do Hyper-V com o Azure Site Recovery | Microsoft Docs"
+description: "Este artigo fornece uma visão geral dos componentes e arquitetura usada ao replicar tooAzure de VMs Hyper-V (sem VMM) local com o serviço do Azure Site Recovery hello."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,76 +14,76 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/22/2017
 ms.author: raynew
-ms.openlocfilehash: d57cbc5b205cfb020070d567097f3bb648ce5300
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ec148e87ab2fa17485001ee447ad9f9bf795840e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="step-1-review-the-architecture-for-hyper-v-replication-to-azure"></a>Etapa 1: rever a arquitetura para replicação do Hyper-V no Azure
+# <a name="step-1-review-hello-architecture-for-hyper-v-replication-tooazure"></a>Etapa 1: Revisar arquitetura Olá para tooAzure de replicação do Hyper-V
 
 
-Este artigo descreve os componentes e processos envolvidos ao replicar máquinas virtuais do Hyper-V locais (que não são gerenciadas pelo System Center VMM) para o Azure usando o serviço [Azure Site Recovery](site-recovery-overview.md).
+Este artigo descreve os componentes de saudação e processos envolvidos ao replicar máquinas virtuais Hyper-V (que não são gerenciados pelo System Center VMM), local tooAzure usando Olá [do Azure Site Recovery](site-recovery-overview.md) serviço.
 
-Poste comentários na parte inferior deste artigo ou no [Fórum de Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Lançar os comentários na parte inferior deste artigo ou de saudação do hello [Fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 
 ## <a name="architectural-components"></a>Componentes de arquitetura
 
-Há vários componentes envolvidos ao replicar máquinas virtuais do Hyper-V para o Azure sem VMM.
+Há vários componentes envolvidos ao replicar tooAzure de VMs Hyper-V sem o VMM.
 
 **Componente** | **Localidade** | **Detalhes**
 --- | --- | ---
-**As tabelas** | No Azure, você precisa de uma conta do Microsoft Azure, uma conta de armazenamento do Azure e uma rede do Azure. | Os dados replicados são armazenados na conta de armazenamento, e VMs do Azure são criadas com os dados replicados quando ocorre failover do site local.<br/><br/> As VMs do Azure se conectam à rede virtual do Azure quando são criadas.
-**Hyper-V** | Hosts e clusters Hyper-V são reunidos em sites do Hyper-V. O Provedor do Azure Site Recovery e o agente dos Serviços de Recuperação são instalados em cada host Hyper-V. | O Provedor coordena a replicação com o Site Recovery pela internet. O agente dos Serviços de Recuperação trata da replicação de dados.<br/><br/> As comunicações do provedor e do agente são protegidas e criptografadas. Os dados replicados no armazenamento do Azure também são criptografados.
-**VMs Hyper-V** | Você precisa de uma ou mais VMs em execução no servidor de host Hyper-V. | Nada precisa ser explicitamente instalado em VMs.
+**As tabelas** | No Azure, você precisa de uma conta do Microsoft Azure, uma conta de armazenamento do Azure e uma rede do Azure. | Dados replicados são armazenados na conta de armazenamento hello e VMs do Azure são criadas com dados replicado de saudação quando ocorrer failover do seu site local.<br/><br/> Olá VMs do Azure conectar toohello rede virtual do Azure quando eles são criados.
+**Hyper-V** | Hosts e clusters Hyper-V são reunidos em sites do Hyper-V. Olá provedor Azure Site Recovery e serviços de recuperação é instalado em cada host Hyper-V. | Olá provedor coordena a replicação com o Site Recovery pela Olá internet. Agente de serviços de recuperação de saudação lida com a replicação de dados.<br/><br/> Comunicações de saudação provedor e agente de saudação são seguro e criptografado. Os dados replicados no armazenamento do Azure também são criptografados.
+**VMs Hyper-V** | Você precisa de uma ou mais VMs em execução no servidor de host Hyper-V. | Não é necessário nada tooexplicitly instalado nas VMs.
 
-Saiba mais sobre os pré-requisitos de implantação e os requisitos para cada um desses componentes na [matriz de suporte](site-recovery-support-matrix-to-azure.md).
+Saiba mais sobre os pré-requisitos de implantação de saudação e requisitos para cada um desses componentes de saudação [matriz de suporte](site-recovery-support-matrix-to-azure.md).
 
-**Figura 1: Replicação de site do Hyper-V para o Azure**
+**Figura 1: Replicação de tooAzure do site de Hyper-V**
 
 ![Componentes](./media/hyper-v-site-walkthrough-architecture/arch-onprem-azure-hypervsite.png)
 
 
 ## <a name="replication-process"></a>Processo de replicação
 
-**Figura 2: replicação processos de recuperação e replicação do Hyper-V para o Azure**
+**Figura 2: Processo de replicação e a recuperação para tooAzure de replicação do Hyper-V**
 
 ![fluxo de trabalho](./media/hyper-v-site-walkthrough-architecture/arch-hyperv-azure-workflow.png)
 
 ### <a name="enable-protection"></a>Habilitar proteção
 
-1. Depois de habilitar a proteção para uma máquina virtual do Hyper-V, no portal do Azure ou no local, a opção **Habilitar proteção** é iniciada.
-2. O trabalho verifica se o computador está em conformidade com os pré-requisitos antes de invocar [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) para configurar a replicação com as configurações definidas por você.
-3. O trabalho é iniciado com a replicação inicial, invocando o método [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), para inicializar uma replicação completa de VM e enviar os discos virtuais da VM no Azure.
-4. Você pode monitorar o trabalho na guia **Trabalhos** .
+1. Depois de habilitar a proteção para uma VM Hyper-V, em Olá portal do Azure ou no local, Olá **Habilitar proteção** inicia.
+2. Olá trabalho verifica máquina hello está em conformidade com os pré-requisitos, antes de chamar hello [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), tooset a replicação com configurações de saudação configurado.
+3. trabalho Olá inicia a replicação inicial invocando Olá [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) método tooinitialize uma replicação completa de VM e tooAzure de discos virtuais da VM de saudação do envio.
+4. Você pode monitorar o trabalho Olá Olá **trabalhos** guia.
  
-### <a name="replicate-the-initial-data"></a>Replicar os dados iniciais
+### <a name="replicate-hello-initial-data"></a>Replicar dados de saudação inicial
 
 1. Um [Instantâneo da VM do Hyper-V](https://technet.microsoft.com/library/dd560637.aspx) é tirado quando a replicação inicial é disparada.
-2. Discos rígidos virtuais são replicadas individualmente até que eles sejam copiados para o Azure. Ele pode demorar um pouco, dependendo do tamanho da VM e largura de banda de rede. Para otimizar o uso da rede, veja [Como gerenciar o uso de largura de banda de rede da proteção local do Azure](https://support.microsoft.com/kb/3056159).
-3. Se houver alterações no disco durante a replicação inicial, o Controlador de Replicação de Réplica do Hyper-V mostrará essas alterações em Logs de Replicação do Hyper-V (.hrl). Esses arquivos estão localizados na mesma pasta dos discos. Cada disco tem um arquivo .hrl associado que será enviado ao armazenamento secundário.
-4. O instantâneo e os arquivos de log consomem recursos de disco durante a replicação inicial.
-5. Quando a replicação inicial termina, o instantâneo de VM é excluído. As alterações de disco delta no log são sincronizadas e mescladas para o disco pai.
+2. Discos rígidos virtuais são replicadas uma até que são todos os tooAzure copiado. Ele pode demorar um pouco, dependendo da saudação tamanho da VM e largura de banda de rede. toooptimize o uso da rede, consulte [como toomanage local tooAzure uso de largura de banda de rede de proteção](https://support.microsoft.com/kb/3056159).
+3. Se ocorrerem alterações de disco enquanto a replicação inicial está em andamento, Olá rastreador de replicação de réplica do Hyper-V rastreia as alterações como Logs de replicação do Hyper-V (. hrl). Esses arquivos estão localizados em Olá mesma pasta que os discos de saudação. Cada disco tem um arquivo. hrl associado que será enviado toosecondary armazenamento.
+4. arquivos de log e de instantâneo de saudação consumam recursos de disco enquanto a replicação inicial está em andamento.
+5. Quando a replicação inicial Olá for concluído, o instantâneo de VM Olá é excluído. As alterações de disco delta no log de saudação são sincronizados e mesclada toohello pai disco.
 
 
 ### <a name="finalize-protection"></a>Finalizar proteção
 
-1. Após a conclusão da replicação inicial, o trabalho **Finalizar proteção na máquina virtual** definirá outras configurações de rede e pós-replicação para que a máquina virtual fique protegida.
-2. Se você estiver replicando no Azure, talvez seja necessário ajustar as configurações para a máquina virtual de modo que ela fique pronta para o failover. Aqui você já pode executar um failover de teste para verificar se tudo está funcionando conforme o esperado.
+1. Após a replicação inicial hello, hello **finalizar proteção na máquina virtual de saudação** trabalho configura rede e outras configurações depois da replicação, para que a máquina virtual hello está protegida.
+2. Se você estiver replicando tooAzure, você pode precisar de configurações de Olá tootweak para a máquina virtual de saudação para que ele está pronto para failover. Neste ponto, você pode executar um toocheck de failover de teste que tudo está funcionando conforme o esperado.
 
-### <a name="replicate-the-delta"></a>Replicar o delta
+### <a name="replicate-hello-delta"></a>Replicação delta Olá
 
-1. Após a replicação inicial, a sincronização delta se inicia, de acordo com as configurações de replicação.
-2. O Controlador de Replicação de Réplica do Hyper-V rastreia as alterações em um disco rígido virtual como arquivos. hrl. Cada disco configurado para a replicação tem um arquivo .hrl associado. Esses logs são enviados para a conta de armazenamento do cliente após a conclusão da replicação inicial. Quando um log está em trânsito para o Azure, as alterações no disco primário são rastreadas em outro arquivo de log no mesmo diretório.
-3. Durante a replicação inicial e delta, você pode monitorar a VM na exibição da VM. [Saiba mais](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machines).  
+1. Após a replicação inicial hello, sincronização delta começa, de acordo com as configurações de replicação.
+2. Olá rastreador de replicação de réplica do Hyper-V controla Olá alterações tooa do disco rígido virtual como arquivos. hrl. Cada disco configurado para a replicação tem um arquivo .hrl associado. Esse log é enviado a conta de armazenamento do cliente toohello após a conclusão da replicação inicial. Quando um log está em trânsito tooAzure, as alterações de saudação no disco principal Olá são rastreadas em outro arquivo de log, em Olá mesmo diretório.
+3. Durante a replicação inicial e delta, você pode monitorar Olá VM em Olá exibição VM. [Saiba mais](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machines).  
 
 ### <a name="synchronize-replication"></a>Sincronizar a replicação
 
-1. Se a replicação delta falhar, e uma replicação completa for dispendiosa em termos de largura de banda ou tempo, a VM fica marcada para ressincronização. Por exemplo, se os arquivos .hrl alcançarem 50% do tamanho do disco, a VM será marcada para ressincronização.
-2.  A ressincronização minimiza a quantidade de dados enviados, calculando as somas de verificação das máquinas virtuais de origem e de destino e enviando apenas os dados de delta. A ressincronização usa um algoritmo de agrupamento de bloco fixo em que os arquivos de origem e destino são divididos em partes fixas. As somas de verificação para cada bloco são geradas e comparadas para determinar quais blocos da origem precisam ser aplicados ao destino.
-3. Após a conclusão da ressincronização, a replicação delta normal deverá ser retomada. Por padrão a ressincronização está agendada para execução automática fora do expediente, mas você pode ressincronizar uma máquina virtual manualmente. Por exemplo, se ocorrer uma interrupção da rede ou outra interrupção qualquer, você poderá retomar a ressincronização. Para fazer isso, selecione a máquina virtual no portal > **Ressincronizar**.
+1. Se a replicação delta falhar, e uma replicação completa for dispendiosa em termos de largura de banda ou tempo, a VM fica marcada para ressincronização. Por exemplo, se hello. hrl arquivos cheguem ao 50% do tamanho do disco hello, em seguida, hello VM será marcada para ressincronização.
+2.  A ressincronização minimiza a quantidade de saudação dos dados enviados Calculando somas de verificação de máquinas de virtuais de origem e destino hello e enviar somente dados de delta hello. A ressincronização usa um algoritmo de agrupamento de bloco fixo em que os arquivos de origem e destino são divididos em partes fixas. Somas de verificação para cada bloco são geradas e, em seguida, em comparação com toodetermine que bloqueia o hello origem necessidade toobe toohello aplicada destino.
+3. Após a conclusão da ressincronização, a replicação delta normal deverá ser retomada. Por padrão, a ressincronização é agendado toorun automaticamente fora do expediente, mas você pode ressincronizar uma máquina virtual manualmente. Por exemplo, se ocorrer uma interrupção da rede ou outra interrupção qualquer, você poderá retomar a ressincronização. toodo isso, selecione Olá VM no portal de hello > **ressincronizar**.
 
     ![Ressincronização manual](./media/hyper-v-site-walkthrough-architecture/image4.png)
 
@@ -94,22 +94,22 @@ Se um erro de replicação ocorrer, haverá uma repetição interna. Ela pode se
 
 **Categoria** | **Detalhes**
 --- | ---
-**Erros não recuperáveis** | Nenhuma nova tentativa é feita. O status da VM será **Crítico** e há necessidade de intervenção do administrador. Exemplos desses erros incluem: cadeia VHD quebrada; Estado inválido para a VM de réplica; Erros de autenticação de rede: erros de autorização; A VM não encontrou erros (para servidores do Hyper-V autônomo)
-**Erros recuperáveis** | Novas tentativas ocorrem a cada intervalo da replicação usando de modo exponencial a retirada, o que aumenta o intervalo de repetição desde o início da primeira tentativa por 1, 2, 4, 8 e 10 minutos. Se o erro persistir, repita a operação a cada 30 minutos. Os exemplos incluem: erros da rede; erros de pouco espaço em disco; condições de memória insuficiente |
+**Erros não recuperáveis** | Nenhuma nova tentativa é feita. O status da VM será **Crítico** e há necessidade de intervenção do administrador. Exemplos desses erros: dividido cadeia VHD; Estado inválido para a réplica Olá VM; Erros de autenticação de rede: erros de autorização. VM não encontrou erros (para servidores do Hyper-V autônomo)
+**Erros recuperáveis** | Novas tentativas ocorrem a cada intervalo de replicação, usando uma retirada exponencial que aumenta o intervalo de repetição de saudação do início de saudação da primeira tentativa hello, 1, 2, 4, 8 e 10 minutos. Se o erro persistir, repita a operação a cada 30 minutos. Os exemplos incluem: erros da rede; erros de pouco espaço em disco; condições de memória insuficiente |
 
 
 
 ## <a name="failover-and-failback-process"></a>Processo de failover e failback
 
-1. Você pode executar um [failover](site-recovery-failover.md) planejado ou não planejado de VMs Hyper-V locais para o Azure. Se você executar um failover planejado, as VMs de origem serão desligadas para evitar a perda de dados.
-2. Você pode fazer o failover de um único computador ou criar [planos de recuperação](site-recovery-create-recovery-plans.md) para orquestrar o failover de vários computadores.
-4. Após executar o failover, você deve ser capaz de ver as VMs de réplica criadas no Azure. Você pode atribuir um endereço IP público à VM, se necessário.
-5. Você confirma então o failover para começar a acessar a carga de trabalho por meio da VM do Azure de réplica.
-6. Quando o site primário local estiver disponível novamente, você poderá executar o [failback](site-recovery-failback-from-azure-to-hyper-v.md). Você dispara um failover planejado do Azure para o site primário. Para um failover planejado, você pode selecionar failback para a mesma VM ou um local alternativo e sincronizar alterações entre o Azure e o local, para garantir que não haja perda de dados. Quando as VMs são criadas no local, você confirma o failover.
+1. Você pode executar um planejado ou não planejado [failover](site-recovery-failover.md) de tooAzure de VMs Hyper-V local. Se você executar um failover planejado, máquinas virtuais de origem são encerrados tooensure sem perda de dados.
+2. Você pode fazer o failover de um único computador ou criar [planos de recuperação](site-recovery-create-recovery-plans.md) tooorchestrate failover de várias máquinas.
+4. Depois de executar failover hello, deve ser capaz de toosee Olá criado VMs de réplica no Azure. Você pode atribuir um toohello de endereço IP público VM se necessário.
+5. Em seguida, confirmar Olá failover toostart acessando a carga de trabalho de saudação da réplica Olá VM do Azure.
+6. Quando o site primário local estiver disponível novamente, você poderá executar o [failback](site-recovery-failback-from-azure-to-hyper-v.md). Disparar um failover planejado de um site primário toohello do Azure. Para um failover planejado, que você pode selecione toofailback toohello mesmo VM ou tooan um local alternativo e sincronizar alterações entre o Azure e no local, tooensure sem perda de dados. Quando as VMs são criadas no local, você confirmar failover de saudação.
 
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Vá para a [Etapa 2: examinar os pré-requisitos de implantação](hyper-v-site-walkthrough-prerequisites.md)
+Vá muito[etapa 2: examinar os pré-requisitos de implantação de saudação](hyper-v-site-walkthrough-prerequisites.md)

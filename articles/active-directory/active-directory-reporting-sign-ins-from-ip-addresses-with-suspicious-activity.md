@@ -1,5 +1,5 @@
 ---
-title: "Entradas de endereços IP com atividade suspeita"
+title: "aaaSign endereços de conexões a partir de IP com atividade suspeita"
 description: "Um relatório que inclui tentativas de entrada realizadas de endereços IP em que atividades suspeitas foram observadas."
 services: active-directory
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah; kenhoff
-ms.openlocfilehash: d4168f2a674a90237ff5fa1c51518a711a1c2897
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3b959269eb792083af0a0795d319d9712cb4c5ab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Entradas de endereços IP com atividade suspeita
-Este relatório mostra entradas de endereços IP em que foram detectadas atividades suspeitas. Nesse caso, atividades suspeitas são definidas como uma proporção anormalmente alta de entradas com falha em comparação às entradas bem-sucedidas, o que pode indicar que um endereço IP está sendo usado para fins mal-intencionados.
+Este relatório mostra entradas de endereços IP em que foram detectadas atividades suspeitas. Nesse caso, a atividade suspeita é definido toobe uma taxa anormalmente alta de falha entradas toosuccessful entradas, que podem indicar que um endereço IP está sendo usado para fins mal-intencionados.
 
 ![Entradas de endereços IP com atividade suspeita](./media/active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity/signInsFromIPAddressesWithSuspiciousActivity.PNG)
 

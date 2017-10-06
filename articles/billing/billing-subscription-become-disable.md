@@ -1,6 +1,6 @@
 ---
-title: Reativar assinatura do Azure desabilitada | Microsoft Docs
-description: "Descreve quando você pode ter uma assinatura do Azure desabilitada e como reativá-la."
+title: aaaReactivate desabilitado assinatura do Azure | Microsoft Docs
+description: "Descreve quando você pode ter uma assinatura do Azure desabilitada e tooreactivate-lo."
 keywords: assinatura do azure desabilitada
 services: 
 documentationcenter: 
@@ -16,51 +16,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: genli
-ms.openlocfilehash: 0603786292cf29c2eff60bbc90a72c9cd1ea2860
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2c9712304dd25431a7b66a33a2c5816f1547cfee
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Por que minha assinatura do Azure está desabilitada e como posso reativá-la?
-Você pode ter sua assinatura do Azure desabilitada porque atingiu o limite de gastos, tem uma conta vencida, atingiu seu limite do cartão de crédito ou porque a assinatura foi cancelada pelo administrador da conta. Confira o problema que se aplica a você e siga as etapas neste artigo para reativar sua assinatura.
+Pode ter sua assinatura do Azure desabilitada porque você atingiu seu limite de gastos, ter uma fatura atrasada, atingiu seu limite de cartão de crédito, ou porque a assinatura Olá foi cancelada pelo administrador da conta hello. Consulte o problema se aplica a tooyou e siga as etapas de saudação este tooget artigo reativada sua assinatura.
 
 ## <a name="you-reached-your-spending-limit"></a>Você atingiu o limite de gastos
-Quando seu uso superar as quantias mensais incluídas em sua assinatura, desabilitaremos o serviço durante o restante daquele mês de cobrança. O serviço está desabilitado para proteger você de incorrer em encargos pelo uso além do valor incluído em sua assinatura. Você pode remover o limite de gastos e [configurar alertas de cobranças em suas assinaturas do Microsoft Azure](billing-set-up-alerts.md) para ajudá-lo a monitorar e gerenciar atividades de cobrança de suas contas do Azure.
+Quando seu uso exceder os valores mensais hello, incluídos com a sua assinatura, Desabilitaremos o serviço para o restante de saudação do mês de cobrança. O serviço é desabilitado tooprotect você acidentalmente incorrer em encargos pelo uso além do hello quantidade incluída com sua assinatura. Você pode remover o limite de gastos de saudação e [configurar alertas para suas assinaturas do Microsoft Azure de cobrança](billing-set-up-alerts.md) toohelp monitorar e gerenciar a atividade de cobrança para suas contas do Azure.
 
-Para remover o limite de gastos,
+tooremove seu limite de gastos,
 
-1. Faça logon no [Centro de Contas do Azure](https://account.windowsazure.com/Home/Index).
+1. Faça logon no toohello [Centro de contas Azure](https://account.windowsazure.com/Home/Index).
 2. Clique em **Assinaturas**.
 3. Selecione uma assinatura.
-4. Clique em **A assinatura alcançou o Limite de Gastos e foi desabilitada para evitar encargos**.
+4. Clique em **assinatura atingida Olá limite de gastos e foi desabilitado tooprevent encargos**.
 
-    Se você não vê essa opção, clique em **Remover limite de gastos** na área **Status** da assinatura.
-5. Selecione uma das seguintes opções:
+    Se você não vir essa opção, clique em **remover limite de gastos** na assinatura Olá **Status** área.
+5. Selecione uma saudação as opções a seguir:
 
 | Opção | Efeito |
 | --- | --- |
-| Remover o limite de gastos indefinidamente |Remove o limite de gastos até você habilitá-lo novamente. |
-| Remover limite de gastos para o período de cobrança atual |Remove o limite de gastos, mas o limite de gastos é reiniciado no período de faturamento seguinte. |
+| Remover o limite de gastos indefinidamente |Remove Olá limite de gastos até que você ativá-la novamente. |
+| Remover limite de gastos para Olá atual período de cobrança |Remove Olá limite de gastos mas Olá gastos reinicializações de limite para Olá próximo período de cobrança. |
 
-Se você tiver uma assinatura de Avaliação Gratuita e remover os limites de gastos, sua assinatura se converterá em pré-paga no final da avaliação gratuita.
+Se você tiver uma assinatura de avaliação gratuita e você remover Olá os limites de gastos, sua assinatura converte tooPay-como-você-Go final Olá de avaliação gratuita de saudação.
 
 ## <a name="your-bill-is-past-due"></a>Sua fatura está atrasada
-Pague o saldo pendente na íntegra. Confira o artigo [Por que você recebeu uma notificação informando que sua assinatura do Azure tem um saldo devido?](billing-azure-subscription-past-due-balance.md#how-to-resolve-the-issue)
+Pague o saldo pendente na íntegra. Consulte o artigo Olá [por que você recebeu uma notificação que sua assinatura do Azure tem um passado saldo devido?](billing-azure-subscription-past-due-balance.md#how-to-resolve-the-issue)
 
-## <a name="the-bill-exceeds-your-credit-card-limit"></a>A fatura excede o limite de cartão de crédito
-Para resolver esse problema, [mude para outro cartão de crédito](billing-how-to-change-credit-card.md). Ou se você está representando uma empresa, pode [mudar para o pagamento por fatura](https://azure.microsoft.com/pricing/invoicing/).
+## <a name="hello-bill-exceeds-your-credit-card-limit"></a>fatura Olá excede o limite de cartão de crédito
+tooresolve esse problema, [cartão de crédito diferente do switch tooa](billing-how-to-change-credit-card.md). Ou se você está representando um negócio, você poderá [alternar toopay fatura](https://azure.microsoft.com/pricing/invoicing/).
 
-## <a name="the-subscription-was-canceled-by-the-account-administrator"></a>A assinatura foi cancelada pelo Administrador da Conta
-Se você for o administrador da conta, reative sua assinatura pré-paga seguindo as etapas abaixo:
+## <a name="hello-subscription-was-canceled-by-hello-account-administrator"></a>Olá assinatura foi cancelada por Olá administrador da conta
+Se você for administrador de conta hello, reative a assinatura pré-paga usando Olá etapas a seguir:
 
-1. Faça logon no [Centro de Contas do Azure](https://account.windowsazure.com/Home/Index).
-2. Escolha a assinatura cancelada.
+1. Faça logon no toohello [Centro de contas Azure](https://account.windowsazure.com/Home/Index).
+2. Olá selecione cancelado a assinatura.
 3. Clique em **Reativar**.
 
-![Captura de tela que mostra Reativar links no painel à direita.](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
+![Captura de tela que mostra reativar links no painel direito da saudação.](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
 
-Para outros tipos de assinatura, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para reativar sua assinatura.
+Para outros tipos de assinatura, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) toohave reativada sua assinatura.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
-Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+Se você ainda precisar de Ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) tooget seu problema resolvido rapidamente.

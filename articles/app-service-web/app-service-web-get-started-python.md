@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo Web Python no Azure | Microsoft Docs
+title: aaaCreate um aplicativo web do Python no Azure | Microsoft Docs
 description: "Implante seu primeiro Olá, Mundo em Python no aplicativo Web do Serviço de Aplicativo do Azure em minutos."
 services: app-service\web
 documentationcenter: 
@@ -15,22 +15,22 @@ ms.topic: quickstart
 ms.date: 03/17/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 119f9770097c010cc360e0e204d06a307a268814
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 42178d490d8aa8eaf93710667aad598794c62c8f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Criar um aplicativo Web do Python no Azure
 
-Os [aplicativos Web do Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches.  Este início rápido orienta como desenvolver e implantar um aplicativo Python nos Aplicativos Web do Azure. Crie o aplicativo Web usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e use o Git para implantar o código Python de exemplo para o aplicativo Web.
+Os [aplicativos Web do Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches.  Este guia de início rápido orienta como toodevelop e implantar um aplicativo de Python tooAzure aplicativos Web. Criar Olá web app usando Olá [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), e você usar o aplicativo de web toohello de código Python de exemplo toodeploy de Git.
 
 ![Aplicativo de exemplo em execução no Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-Você pode seguir as etapas abaixo usando um computador Mac, Windows ou Linux. A conclusão das etapas demora cerca de cinco minutos assim que os pré-requisitos são instalados.
+Você pode seguir estas etapas hello usando um computador Mac, Windows ou Linux. Depois que a instalação dos pré-requisitos Olá, são necessárias cerca de cinco minutos toocomplete Olá etapas.
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial:
+toocomplete este tutorial:
 
 1. [Instalar o Git](https://git-scm.com/)
 1. [Instalar o Python](https://www.python.org/downloads/)
@@ -39,47 +39,47 @@ Para concluir este tutorial:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se você escolher tooinstall e usa o hello CLI localmente, este tópico requer que você está executando a versão do CLI do Azure Olá 2.0 ou posterior. Executar `az --version` toofind versão de saudação. Se você precisar tooinstall ou atualização, consulte [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## <a name="download-the-sample"></a>Baixar o exemplo
+## <a name="download-hello-sample"></a>Baixe o exemplo hello
 
-Em uma janela de terminal, execute o comando a seguir para clonar o repositório de aplicativo de exemplo para o computador local.
+Em uma janela de terminal, execute Olá comando tooclone Olá aplicativo repositório tooyour local máquina de exemplo a seguir.
 
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
 
-Você pode usar essa janela de terminal para executar todos os comandos neste guia de início rápido.
+Use essa janela do terminal toorun todos os comandos de saudação neste guia de início rápido.
 
-Altere para o diretório que contém o código de exemplo.
+Altere o diretório de toohello que contém o código de exemplo hello.
 
 ```bash
 cd Python-docs-hello-world
 ```
 
-## <a name="run-the-app-locally"></a>Executar o aplicativo localmente
+## <a name="run-hello-app-locally"></a>Executar o aplicativo hello localmente
 
-Instale os pacotes necessários usando `pip`.
+Instalar pacotes de saudação necessária usando `pip`.
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Execute o aplicativo localmente abrindo uma janela do terminal e usando a linha de comando `Python` do exemplo para iniciar o servidor interno da Web Python.
+Executar o aplicativo hello localmente abrindo uma janela do terminal e usando Olá `Python` servidor de web do comando toolaunch Olá interno Python.
 
 ```bash
 python main.py
 ```
 
-Abra um navegador da Web e navegue até o aplicativo de exemplo em http://localhost:5000.
+Abra um navegador da web e navegue toohello o aplicativo de exemplo em http://localhost:5000/.
 
-Você poderá ver a mensagem **Hello World** no aplicativo de exemplo exibido na página.
+Você pode ver Olá **Hello World** mensagem do aplicativo de exemplo hello exibida na página de saudação.
 
 ![Aplicativo de exemplo em execução local](media/app-service-web-get-started-python/localhost-hello-world-in-browser.png)
 
-Na janela do terminal, pressione **Ctrl+C** para sair do servidor Web.
+Na janela de terminal, pressione **Ctrl + C** servidor de web tooexit hello.
 
-[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
+[!INCLUDE [Log in tooAzure](../../includes/login-to-azure.md)] 
 
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
@@ -93,24 +93,24 @@ Na janela do terminal, pressione **Ctrl+C** para sair do servidor Web.
 
 Você criou um novo aplicativo Web vazio no Azure.
 
-## <a name="configure-to-use-python"></a>Configurar para usar o Python
+## <a name="configure-toouse-python"></a>Configurar toouse Python
 
-Use o comando [az webapp config set](/cli/azure/webapp/config#set) para configurar o uso da versão do Python `3.4` pelo aplicativo Web.
+Saudação de uso [az webapp config conjunto](/cli/azure/webapp/config#set) versão do Python comando tooconfigure Olá web aplicativo toouse `3.4`.
 
 ```azurecli-interactive
 az webapp config set --python-version 3.4 --name <app_name> --resource-group myResourceGroup
 ```
 
 
-A definição da versão do Python dessa maneira usa um contêiner padrão fornecido pela plataforma. Para usar seu próprio contêiner, veja a referência de CLI para o comando [az webapp config container set](/cli/azure/webapp/config/container#set).
+Definindo a versão do Python Olá dessa maneira usa um contêiner padrão fornecido pela plataforma de saudação. toouse seu próprio contêiner, consulte Olá referência CLI para Olá [az webapp config contêiner conjunto](/cli/azure/webapp/config/container#set) comando.
 
 [!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+[!INCLUDE [Push tooAzure](../../includes/app-service-web-git-push-to-azure.md)] 
 
 ```bash
 Counting objects: 18, done.
-Delta compression using up to 4 threads.
+Delta compression using up too4 threads.
 Compressing objects: 100% (16/16), done.
 Writing objects: 100% (18/18), 4.31 KiB | 0 bytes/s, done.
 Total 18 (delta 4), reused 0 (delta 0)
@@ -146,56 +146,56 @@ remote:         1 file(s) copied.
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+toohttps://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-## <a name="browse-to-the-app"></a>Navegar até o aplicativo
+## <a name="browse-toohello-app"></a>Procurar toohello aplicativo
 
-Navegue até o aplicativo implantado usando o navegador da Web.
+Procure o aplicativo toohello implantado usando o navegador da web.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-O código de exemplo em Python está em execução em um aplicativo Web do Serviço de Aplicativo do Azure.
+Olá, código de exemplo do Python está em execução em um aplicativo da web do serviço de aplicativo do Azure.
 
 ![Aplicativo de exemplo em execução no Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-**Parabéns!** Você implantou seu primeiro aplicativo Python no Serviço de Aplicativo.
+**Parabéns!** Você implantou seu primeiro tooApp de aplicativo Python serviço.
 
-## <a name="update-and-redeploy-the-code"></a>Atualizar e reimplantar o código
+## <a name="update-and-redeploy-hello-code"></a>Atualize e reimplante o código de saudação
 
-Usando um editor de texto local, abra o arquivo `main.py` no aplicativo do Python e faça uma pequena alteração no texto próximo à instrução `return`:
+Usando um editor de texto local, abra Olá `main.py` arquivo no aplicativo de Python hello e faça toohello de Avançar texto uma pequena alteração toohello `return` instrução:
 
 ```python
 return 'Hello, Azure!'
 ```
 
-Confirme suas alterações no Git e, em seguida, envie as alterações de código por push para o Azure.
+Confirmar as alterações no Git e, em seguida, enviar por push Olá tooAzure de alterações de código.
 
 ```bash
 git commit -am "updated output"
 git push azure master
 ```
 
-Depois que a implantação for concluída, troque para a janela do navegador aberta na etapa [Navegar até o aplicativo](#browse-to-the-app) e atualize a página.
+Depois que a implantação for concluída, alternar toohello voltar a janela do navegador é aberto no hello [procurar toohello aplicativo](#browse-to-the-app) etapa e a página de atualização de saudação.
 
 ![Aplicativo de exemplo atualizado em execução no Azure](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
 ## <a name="manage-your-new-azure-web-app"></a>Gerenciar seu novo aplicativo Web do Azure
 
-Vá para o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerenciar o aplicativo Web que você criou.
+Vá toohello <a href="https://portal.azure.com" target="_blank">portal do Azure</a> toomanage Olá web aplicativo que você criou.
 
-No menu à esquerda, clique em **Serviços de Aplicativos** e então clique no nome do seu aplicativo Web do Azure.
+No menu à esquerda do hello, clique em **serviços de aplicativos**e, em seguida, clique em nome de saudação do seu aplicativo web do Azure.
 
-![Navegação do portal para o aplicativo Web do Azure](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
+![Aplicativo de web de tooAzure de navegação do Portal](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
 A página Visão Geral do seu aplicativo Web é exibida. Aqui você pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir. 
 
 ![Folha Serviço de Aplicativo no portal do Azure](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
-O menu à esquerda fornece páginas diferentes para configurar seu aplicativo. 
+menu esquerdo Olá fornece diferentes páginas para configurar seu aplicativo. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

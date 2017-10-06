@@ -1,5 +1,5 @@
 ---
-title: "Visão geral do SDK para iOS do Azure Mobile Engagement | Microsoft Docs"
+title: "aaaAzure iOS Mobile Engagement visão geral do SDK | Microsoft Docs"
 description: "Atualizações e procedimentos mais recentes para o SDK do iOS para Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,44 +14,44 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.openlocfilehash: 6acd343782a3ee07750e27ec3022ff81cedfadee
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 38f0da2f84df9c62f8fbca233bfda8b9936fdc0f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="ios-sdk-for-azure-mobile-engagement"></a>SDK do iOS para o Azure Mobile Engagement
-Comece aqui obter todos os detalhes sobre como integrar o Azure Mobile Engagement em um aplicativo iOS. Se você gostaria de experimentá-lo primeiro, faça nosso [tutorial de 15 minutos](mobile-engagement-ios-get-started.md).
+Iniciar aqui tooget todos os detalhes de saudação em como toointegrate do Azure Mobile Engagement em um aplicativo iOS. Se você quiser toogive ele tentar primeiro, verifique se você fazer nossa [tutorial de 15 minutos](mobile-engagement-ios-get-started.md).
 
-Clique para ver o [Conteúdo do SDK](mobile-engagement-ios-sdk-content.md)
+Clique em toosee Olá [conteúdo do SDK](mobile-engagement-ios-sdk-content.md)
 
 ## <a name="integration-procedures"></a>Procedimentos de integração
-1. Comece aqui: [Como integrar o Mobile Engagement em seu aplicativo iOS](mobile-engagement-ios-integrate-engagement.md)
-2. Para Notificações: [Como integrar o Reach (Notificações) em seu aplicativo iOS](mobile-engagement-ios-integrate-engagement-reach.md)
-3. Implementação do plano de marcação: [Como usar a API de marcação avançada do Mobile Engagement em seu aplicativo iOS](mobile-engagement-ios-use-engagement-api.md)
+1. Comece aqui: [como toointegrate Mobile Engagement em seu aplicativo iOS](mobile-engagement-ios-integrate-engagement.md)
+2. Para notificações: [como toointegrate alcance (notificações) em seu aplicativo iOS](mobile-engagement-ios-integrate-engagement-reach.md)
+3. Marca o plano de implementação: [como toouse Olá avançado Mobile Engagement marcação API em seu aplicativo iOS](mobile-engagement-ios-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Notas de versão
 ### <a name="410-07172017"></a>4.1.0 (07/17/2017)
 * Corrigidas as notificações apagadas na tela de fundo.
 * Corrigidos os avisos no XCode 9 sobre as APIs não chamadas na fila principal.
 * Corrigida uma perda de memória em pesquisas Reach.
-* Removido o suporte para iOS 6.X. Desta versão em diante, o destino da implantação do seu aplicativo deverá ser pelo menos o iOS 7.
+* Removido o suporte para iOS 6.X. A partir do destino de implantação de saudação essa versão do seu aplicativo deve ter pelo menos o iOS 7.
 
-Para a versão anterior, consulte as [notas de versão completas](mobile-engagement-ios-release-notes.md)
+Para a versão anterior, consulte Olá [concluir notas de versão](mobile-engagement-ios-release-notes.md)
 
 ## <a name="upgrade-procedures"></a>Procedimentos de atualização
-Se você já tiver integrado uma versão anterior do Engagement no seu aplicativo, você deve considerar os seguintes pontos ao atualizar o SDK.
+Se você já tiver integrado uma versão mais antiga do contrato em seu aplicativo, você tem Olá tooconsider pontos a seguir ao atualizar Olá SDK.
 
-Talvez você precise seguir vários procedimentos se perdeu várias versões do SDK consulte os [Procedimentos de atualização](mobile-engagement-ios-upgrade-procedure.md)completos.
+Você pode ter toofollow vários procedimentos se perdeu várias versões do hello SDK consulte Olá completa [procedimentos de atualização](mobile-engagement-ios-upgrade-procedure.md).
 
-Para cada nova versão do SDK, você deve primeiro substituir (remover e importar novamente no xcode) as pastas EngagementSDK e EngagementReach.
+Para cada nova versão do SDK do hello primeiro você deve substituir (remover e importar novamente no xcode) Olá pastas EngagementSDK e EngagementReach.
 
-### <a name="from-300-to-400"></a>De 3.0.0 a 4.0.0
+### <a name="from-300-too400"></a>De 3.0.0 too4.0.0
 ### <a name="xcode-8"></a>XCode 8
-O XCode 8 é obrigatório desde a versão 4.0.0 do SDK.
+8 XCode é obrigatório a partir da versão 4.0.0 de saudação SDK.
 
 > [!NOTE]
-> Se você realmente depende do XCode 7, pode usar o [SDK do iOS Engagement v3.2.4](https://aka.ms/r6oouh). Há um bug conhecido no módulo de alcance nesta versão anterior durante a execução em dispositivos como iOS 10: as notificações de sistema não são acionadas. Para corrigir isso, você terá que implementar a API desaprovada `application:didReceiveRemoteNotification:` no representante do aplicativo da seguinte maneira:
+> Se você realmente depende XCode 7, você pode usar o hello [iOS SDK Engagement v3.2.4](https://aka.ms/r6oouh). Há um bug conhecido no módulo de alcance Olá desta versão anterior durante a execução em dispositivos iOS 10: notificações do sistema não são acionadas. toofix isso você terá tooimplement Olá preterido API `application:didReceiveRemoteNotification:` em seu aplicativo delegar da seguinte maneira:
 >
 >
 
@@ -62,22 +62,22 @@ O XCode 8 é obrigatório desde a versão 4.0.0 do SDK.
     }
 
 > [!IMPORTANT]
-> **Não recomendamos essa solução alternativa** pois esse comportamento pode alterar qualquer atualização da versão futura iOS (até mesmo pequenas) porque esta API do iOS foi preterida. Você deve mudar para o XCode 8 assim que possível.
+> **Não recomendamos essa solução alternativa** pois esse comportamento pode alterar qualquer atualização da versão futura iOS (até mesmo pequenas) porque esta API do iOS foi preterida. Você deve alternar tooXCode 8 assim que possível.
 >
 >
 
 #### <a name="usernotifications-framework"></a>Estrutura UserNotifications
-Você precisa adicionar a estrutura `UserNotifications` em suas fases de build.
+Você precisa Olá tooadd `UserNotifications` framework em fases de compilação.
 
-no Explorador de projeto, abra o painel de projeto e selecione o destino correto. Em seguida, abra a guia **"Compilar fases"** e, no menu **"Link binário com bibliotecas"**, adicione a estrutura `UserNotifications.framework` – defina o link como `Optional`
+no Explorador de projeto hello, abra o painel de projeto e selecione o destino correto hello. Em seguida, abra Olá **"Fases de compilação"** guia e em Olá **"Binário com bibliotecas de vínculo"** menu, adicionar framework `UserNotifications.framework` -definir Olá link como`Optional`
 
 #### <a name="application-push-capability"></a>Capacidade de envio por push do aplicativo
-O XCode 8 pode redefinir a capacidade de envio por push do aplicativo. Verifique isso novamente na guia `capability` do destino selecionado.
+8 XCode pode redefinir seu aplicativo push capacidade,. Verifique novamente em Olá `capability` guia de destino selecionado.
 
-#### <a name="add-the-new-ios-10-notification-registration-code"></a>Adicionar o novo código de registro de notificação do iOS 10
-O trecho de código anterior para registrar o aplicativo para as notificações ainda funciona, mas está usando as APIs desaprovadas durante a execução no iOS 10.
+#### <a name="add-hello-new-ios-10-notification-registration-code"></a>Adicione código de registro do hello novo iOS notificação 10
+Olá antigos código trecho tooregister Olá aplicativo toonotifications ainda funciona, mas está usando preterido APIs durante a execução no iOS 10.
 
-Importe a estrutura `User Notification` :
+Saudação de importação `User Notification` framework:
 
         #import <UserNotifications/UserNotifications.h>
 
@@ -114,11 +114,11 @@ por:
 
 *Se o aplicativo nem uma das bibliotecas de terceiros implementar um `UNUserNotificationCenterDelegate`, ignore esta parte.*
 
-Um delegado `UNUserNotificationCenter` é usado pelo SDK para monitorar o ciclo de vida das notificações do Engagement em dispositivos que executam o iOS 10 ou superior. O SDK tem sua própria implementação do protocolo `UNUserNotificationCenterDelegate`, mas pode haver apenas um delegado `UNUserNotificationCenter` por aplicativo. Qualquer outro delegado adicionado ao objeto `UNUserNotificationCenter` entrará em conflito com o do Engagement. Se o SDK detectar seu delegado ou qualquer delegado de terceiros, ele não usará sua própria implementação, para lhe dar uma chance para resolver os conflitos. Você precisará adicionar a lógica do Engagement ao seu próprio delegado para resolver os conflitos.
+Um `UNUserNotificationCenter` delegado é usado pelo ciclo de vida de Olá Olá SDK toomonitor de notificações de compromisso em dispositivos que executam o iOS 10 ou superior. Olá SDK tem sua própria implementação de saudação `UNUserNotificationCenterDelegate` de protocolo, mas pode haver apenas um `UNUserNotificationCenter` delegar por aplicativo. Qualquer outro representante adicionado toohello `UNUserNotificationCenter` objeto está em conflito com hello contrato um. Se Olá SDK detectar delegado do seu ou qualquer outra parte, em seguida, ele não usará sua própria implementação toogive você tooresolve uma chance Olá conflitos. Você terá tooadd Olá contrato lógica tooyour possui delegado em ordem tooresolve conflitos de saudação.
 
-Há duas maneiras de fazer isso.
+Há dois tooachieve de maneiras isso.
 
-Proposta 1: apenas encaminhando as chamadas do delegado para o SDK:
+Proposta 1, encaminhando o delegado chama toohello SDK:
 
     #import <UIKit/UIKit.h>
     #import "EngagementAgent.h"
@@ -145,7 +145,7 @@ Proposta 1: apenas encaminhando as chamadas do delegado para o SDK:
     }
     @end
 
-Ou proposta 2: herdando da classe `AEUserNotificationHandler`
+Ou proposta 2, herdando de saudação `AEUserNotificationHandler` classe
 
     #import "AEUserNotificationHandler.h"
     #import "EngagementAgent.h"
@@ -172,10 +172,10 @@ Ou proposta 2: herdando da classe `AEUserNotificationHandler`
     @end
 
 > [!NOTE]
-> Você pode determinar se uma notificação vem do Engagement ou não passando seu dicionário `userInfo` para o método da classe `isEngagementPushPayload:` do Agent.
+> Você pode determinar se uma notificação de contrato ou não passando seus `userInfo` toohello dicionário agente `isEngagementPushPayload:` método de classe.
 
-Verifique se o delegado do objeto `UNUserNotificationCenter` é definido como seu delegado no método `application:willFinishLaunchingWithOptions:` ou `application:didFinishLaunchingWithOptions:` do delegado do aplicativo.
-Por exemplo, se você implementou a proposta 1 acima:
+Certifique-se de que Olá `UNUserNotificationCenter` representante do objeto é definido tooyour delegado em qualquer Olá `application:willFinishLaunchingWithOptions:` ou hello `application:didFinishLaunchingWithOptions:` método do seu representante de aplicativo.
+Por exemplo, se você tiver implementado Olá acima proposta 1:
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         // Any other code

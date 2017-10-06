@@ -1,6 +1,6 @@
 ---
-title: "Implantar seu aplicativo no Serviço de Aplicativo do Azure usando FTP/S | Microsoft Docs"
-description: "Saiba como implantar seu aplicativo no Serviço de Aplicativo do Azure usando FTP ou FTPS."
+title: "aaaDeploy tooAzure seu aplicativo do serviço de aplicativo usando o FTP/S | Microsoft Docs"
+description: "Saiba como toodeploy tooAzure seu aplicativo do serviço de aplicativo usando FTP ou FTPS."
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -14,51 +14,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: cephalin;dariac
-ms.openlocfilehash: 9078abbc4ed7eff6975201443992f7bbb84bf57c
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 318ae79d4fae269f853ea5c3ce28353b0864131e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implantar seu aplicativo no Serviço de Aplicativo do Azure usando FTP/S
+# <a name="deploy-your-app-tooazure-app-service-using-ftps"></a>Implantar seu tooAzure de aplicativo do serviço de aplicativo usando o FTP/S
 
-Este artigo mostra como usar o FTP ou FTPS para implantar seu aplicativo web, back-end do aplicativo móvel ou aplicativo de API [o serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+Este artigo mostra como toouse FTP ou FTPS toodeploy seu aplicativo web, o back-end do aplicativo móvel ou o aplicativo de API muito[do serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-O ponto de extremidade FTP/S para seu aplicativo já está ativo. Nenhuma configuração é necessária para habilitar a implantação de FTP/S.
+ponto de extremidade FTP/S de saudação para seu aplicativo já está ativo. Nenhuma configuração é necessária tooenable implantação de FTP/S.
 
 > [!IMPORTANT]
-> Estamos sempre tomando medidas para melhorar a segurança da Plataforma Microsoft Azure. Como parte desse esforço contínuo, um upgrade dos Aplicativos Web está planejado para as regiões Central e Nordeste da Alemanha. Nesse período, o uso do protocolo FTP de texto sem formatação para implantação será desabilitado. Nossa recomendação para os clientes é alternar para FTPS nas implantações. Não esperamos qualquer interrupção no serviço durante esse upgrade, que está planejado para 5/9. Agradecemos sua compreensão.
+> Estamos continuamente realizando as etapas tooimprove segurança da plataforma Microsoft Azure. Como parte desse esforço contínuo, um upgrade dos Aplicativos Web está planejado para as regiões Central e Nordeste da Alemanha. Durante esse aplicativos Web serão desativar uso de saudação do protocolo de texto sem formatação FTP para implantações. Clientes de tooour nossa recomendação é tooFTPS tooswitch para implantações. Não esperamos que qualquer serviço de tooyour de interrupção durante esta atualização que está planejada para 9/5. Agradecemos sua compreensão.
 
 <a name="step1"></a>
 ## <a name="step-1-set-deployment-credentials"></a>Etapa 1: Definir credenciais de implantação
 
-Para acessar o servidor FTP para o seu aplicativo, você primeiro precisa de credenciais de implantação. 
+servidor de saudação FTP tooaccess para seu aplicativo, primeiro é necessário credenciais de implantação. 
 
-Para definir ou redefinir suas credenciais de implantação, consulte [credenciais de implantação do serviço de aplicativo do Azure](app-service-deployment-credentials.md). Este tutorial demonstra o uso de credenciais de nível de usuário.
+tooset ou redefinir suas credenciais de implantação, consulte [credenciais de implantação de serviço de aplicativo do Azure](app-service-deployment-credentials.md). Este tutorial demonstra o uso de saudação de credenciais de nível de usuário.
 
 ## <a name="step-2-get-ftp-connection-information"></a>Etapa 2: Obter informações de conexão de FTP
 
-1. No [portal do Azure](https://portal.azure.com), abra a [folha de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources) de seu aplicativo.
-2. Selecione **visão geral** no menu à esquerda, em seguida, observe os valores de **usuário FTP/implantação**, **nome do Host FTP**, e **nome de Host FTPS**. 
+1. Em Olá [portal do Azure](https://portal.azure.com), abra o aplicativo [folha de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources).
+2. Selecione **visão geral** no menu da esquerda hello, observe os valores hello para **usuário de FTP/implantação**, **nome de Host do FTP**, e **FTPS nome de Host**. 
 
     ![Informações de conexão de FTP](./media/web-sites-deploy/FTP-Connection-Info.PNG)
 
     > [!NOTE]
-    > O valor de usuário **FTP/Usuário de Implantação** como exibido pelo Portal do Azure, incluindo o nome do aplicativo a fim de fornecer contexto adequado ao servidor FTP.
-    > Você pode encontrar as mesmas informações quando você seleciona **propriedades** no menu à esquerda. 
+    > Olá **usuário de FTP/implantação** valor usuário conforme exibido pelo Portal do Azure incluindo o nome do aplicativo hello em contexto apropriado do tooprovide de ordem para o servidor FTP de Olá Olá.
+    > Você pode encontrar hello as mesmas informações quando você seleciona **propriedades** no menu esquerdo hello. 
     >
-    > Além disso, a senha de implantação nunca é mostrada. Se você esquecer sua senha de implantação, vá até [etapa 1](#step1) e redefinir a senha de implantação.
+    > Além disso, a senha de implantação Olá nunca é mostrada. Se você esquecer sua senha de implantação, volte muito[etapa 1](#step1) e redefinir a senha de implantação.
     >
     >
 
-## <a name="step-3-deploy-files-to-azure"></a>Etapa 3: Implantar arquivos para o Azure
+## <a name="step-3-deploy-files-tooazure"></a>Etapa 3: Implantar arquivos tooAzure
 
-1. De seu cliente FTP ([Visual Studio](https://www.visualstudio.com/vs/community/), [FileZilla](https://filezilla-project.org/download.php?type=client) etc), use as informações de conexão coletadas para conectar-se ao seu aplicativo.
-3. Copie seus arquivos e a respectiva estrutura de diretórios para o diretório [**/site/wwwroot** ](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) no Azure (ou o diretório **/site/wwwroot/App_Data/Jobs/** para Trabalhos Web).
-4. Navegue até a URL do aplicativo para verificar se ele está sendo executado corretamente. 
+1. Seu cliente FTP ([Visual Studio](https://www.visualstudio.com/vs/community/), [FileZilla](https://filezilla-project.org/download.php?type=client), etc), use informações de conexão Olá coletadas tooconnect tooyour aplicativo.
+3. Copie os arquivos e sua toohello de estrutura de diretório do respectivos [ **/site/wwwroot** diretório](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) no Azure (ou hello **/site/wwwroot/App_Data/trabalhos/** diretório para WebJobs).
+4. Aplicativo de saudação do aplicativo do procurar tooyour URL tooverify está sendo executado corretamente. 
 
 > [!NOTE] 
-> Ao contrário de [implantações com base em Git](app-service-deploy-local-git.md), implantação de FTP não oferece suporte as automações de implantação a seguir: 
+> Ao contrário de [implantações com base no Git](app-service-deploy-local-git.md), implantação de FTP não dá suporte a saudação automações de implantação a seguir: 
 >
 > - restauração de dependência (como automações NuGet, NPM, PIP e criador)
 > - compilação de binários do .NET
@@ -70,7 +70,7 @@ Para definir ou redefinir suas credenciais de implantação, consulte [credencia
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para cenários mais avançados de implantação, tente [implantação no Azure com Git](app-service-deploy-local-git.md). Implantação baseada em Git no Azure permite o controle de versão, restauração do pacote, MSBuild e muito mais.
+Para cenários de implantação mais avançados, tente [Implantando tooAzure com Git](app-service-deploy-local-git.md). Implantação baseada em Git tooAzure habilita o controle de versão, a restauração do pacote, MSBuild e muito mais.
 
 ## <a name="more-resources"></a>Mais Recursos
 

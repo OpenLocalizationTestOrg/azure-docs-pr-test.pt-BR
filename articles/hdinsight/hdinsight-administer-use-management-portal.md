@@ -1,6 +1,6 @@
 ---
-title: Gerenciar clusters Hadoop baseados no Windows no HDInsight usando o Portal do Azure | Microsoft Docs
-description: "Saiba como administrar o serviço do HDInsight. Crie um cluster HDInsight, abra o console interativo do JavaScript e abra o console de comando Hadoop."
+title: "clusters de Hadoop baseado em Windows aaaManage HDInsight usando Olá portal do Azure | Microsoft Docs"
+description: "Saiba como tooadminister HDInsight Service. Crie um cluster HDInsight, console interativo de JavaScript Olá aberto e console de comando do Hadoop Olá aberto."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -16,89 +16,89 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: f69fa4f838b22ccbb25186c08cac9744bb31c6d1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a237726b0e37a08005ce22e96581739e93edb050
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters Hadoop baseados no Windows no HDInsight usando o Portal do Azure
+# <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-hello-azure-portal"></a>Gerenciar clusters baseados no Windows Hadoop em HDInsight usando Olá portal do Azure
 
-Ao usar o [Portal do Azure][azure-portal], você pode criar clusters Hadoop baseados no Windows no Azure HDInsight, alterar a senha de usuário do Hadoop e habilitar o RDP (Protocolo de Área de Trabalho Remota) para que você possa acessar o console de comando do Hadoop no cluster.
+Usando Olá [portal do Azure][azure-portal], você pode criar clusters baseados no Windows Hadoop no HDInsight do Azure, altere a senha do usuário Hadoop e habilitar o protocolo de área de trabalho remota (RDP) para que você possa acessar Olá Hadoop console de comando em cluster hello.
 
-As informações neste artigo aplicam-se apenas aos clusters HDInsight baseados no Windows. Para obter informações sobre como gerenciar clusters baseados no Linux, confira [Gerenciar clusters Hadoop no HDInsight usando o Portal do Azure](hdinsight-administer-use-portal-linux.md).
+informações de saudação neste artigo só se aplica a clusters de HDInsight baseados em tooWindow. Para obter informações sobre como gerenciar clusters baseados em Linux, consulte [clusters gerenciar Hadoop em HDInsight usando Olá portal do Azure](hdinsight-administer-use-portal-linux.md).
 
 > [!IMPORTANT]
-> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux é Olá sistema operacional somente de usado no HDInsight versão 3.4 ou posterior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar este artigo, você deve ter o seguinte:
+Antes de começar este artigo, você deve ter o seguinte hello:
 
-* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Conta de armazenamento do Azure** - um cluster do HDInsight usa um contêiner de Armazenamento de Blob do Azure como o sistema de arquivos padrão. Para obter mais informações sobre como o Armazenamento de Blob do Azure fornece uma experiência perfeita com os clusters HDInsight, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md). Para obter detalhes sobre como criar uma conta do Armazenamento do Azure, consulte [Como criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md).
+* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Conta de armazenamento do Azure** -HDInsight um cluster usa um contêiner de armazenamento de BLOBs do Azure como sistema de arquivos padrão de saudação. Para obter mais informações sobre como o Armazenamento de Blob do Azure fornece uma experiência perfeita com os clusters HDInsight, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md). Para obter detalhes sobre como criar uma conta de armazenamento do Azure, consulte [como uma conta de armazenamento do tooCreate](../storage/common/storage-create-storage-account.md).
 
-## <a name="open-the-portal"></a>Abra o Portal
-1. Entre em [https://portal.azure.com](https://portal.azure.com).
-2. Depois de abrir o portal, você poderá:
+## <a name="open-hello-portal"></a>Olá abrir Portal
+1. Entrar muito[https://portal.azure.com](https://portal.azure.com).
+2. Depois de abrir o portal hello, você pode:
 
-   * Clique em **Novo** no menu esquerdo para criar um novo cluster:
+   * Clique em **novo** de saudação menu esquerdo toocreate um novo cluster:
 
        ![novo botão do cluster HDInsight](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
-   * Clique em **Clusters HDInsight** no menu esquerdo.
+   * Clique em **Clusters HDInsight** no menu esquerdo hello.
 
        ![Botão do cluster HDInsight do Portal do Azure](./media/hdinsight-administer-use-management-portal/azure-portal-hdinsight-button.png)
 
-     Se **HDInsight** não aparecer no menu esquerdo, clique em **Procurar**.
+     Se **HDInsight** não aparecer no menu esquerdo hello, clique em **procurar**.
 
      ![Botão Procurar cluster do Portal do Azure](./media/hdinsight-administer-use-management-portal/azure-portal-browse-button.png)
 
 ## <a name="create-clusters"></a>Criar clusters
-Para obter as instruções de criação usando o Portal, veja [Criar clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+Para instruções de criação de saudação usando Olá Portal, consulte [HDInsight criar clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
-O HDInsight trabalha com uma ampla variedade de componentes do Hadoop. Para obter a lista dos componentes que foram verificados e com suporte, consulte [Qual versão do Hadoop está no HDInsight do Azure](hdinsight-component-versioning.md). Você pode personalizar o HDInsight usando uma das seguintes opções:
+O HDInsight trabalha com uma ampla variedade de componentes do Hadoop. Para Olá a lista de componentes de saudação que foram verificadas e suporte, consulte [é qual versão do Hadoop no HDInsight do Azure](hdinsight-component-versioning.md). Você pode personalizar o HDInsight usando uma saudação as opções a seguir:
 
-* Use a ação de Script para executar scripts personalizados que possam personalizar um cluster para alterar a configuração de cluster ou instalar componentes personalizados como Giraph ou Solr. Para obter mais informações, consulte [Personalizar cluster HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md).
-* Use os parâmetros de personalização do cluster no SDK do .NET do HDInsight ou no PowerShell do Azure durante a criação do cluster. Essas alterações de configuração são preservadas durante o tempo de vida do cluster e não são afetadas pelas novas imagens do nó do cluster que a plataforma do Azure refaz periodicamente para manutenção. Para mais informações sobre como usar os parâmetros de personalização do cluster, consulte [Criar clusters do HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-* Alguns componentes nativos do Java, como Mahout e Cascading, podem ser executados no cluster como arquivos JAR. Esses arquivos JAR podem ser distribuídos para o armazenamento de Blob do Azure e enviados aos clusters HDInsight por meio de mecanismos de envio de trabalho do Hadoop. Para obter mais informações, consulte [Enviar trabalhos do Hadoop de forma programática](hdinsight-submit-hadoop-jobs-programmatically.md).
+* Use Script ação toorun scripts personalizados que podem personalizar um cluster tooeither alterar a configuração de cluster ou instalar componentes personalizados, como Giraph ou Solr. Para obter mais informações, consulte [Personalizar cluster HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md).
+* Use parâmetros de personalização de cluster Olá Olá HDInsight .NET SDK ou do PowerShell do Azure durante a criação do cluster. Essas alterações de configuração, em seguida, são preservadas por tempo de vida de saudação do cluster hello e não são afetadas por reimages de nó de cluster que periodicamente realiza a plataforma Windows Azure para manutenção. Para obter mais informações sobre como usar parâmetros de personalização de cluster hello, consulte [HDInsight criar clusters](hdinsight-hadoop-provision-linux-clusters.md).
+* Alguns componentes de Java nativo, como Mahout e em cascata, podem ser executados no cluster hello como arquivos JAR. Esses arquivos JAR podem ser distribuída tooAzure armazenamento de Blob e enviada tooHDInsight clusters por meio de mecanismos de envio de trabalho do Hadoop. Para obter mais informações, consulte [Enviar trabalhos do Hadoop de forma programática](hdinsight-submit-hadoop-jobs-programmatically.md).
 
   > [!NOTE]
-  > Se você tiver problemas para implantar arquivos JAR nos clusters do HDInsight ou ao chamar arquivos JAR nesses clusters, entre em contato com o [Suporte da Microsoft](https://azure.microsoft.com/support/options/).
+  > Se você tiver problemas de implantação de clusters de tooHDInsight arquivos JAR ou chamar arquivos JAR em clusters de HDInsight, entre em contato com [Microsoft Support](https://azure.microsoft.com/support/options/).
   >
-  > O Cascading não tem suporte do HDInsight e não é qualificado para o Suporte da Microsoft. Para obter as listas dos componentes suportados, confira [Novidades nas versões de cluster fornecidas pelo HDInsight](hdinsight-component-versioning.md).
+  > O Cascading não tem suporte do HDInsight e não é qualificado para o Suporte da Microsoft. Para listas de componentes com suporte, consulte [Novidades nas versões de cluster Olá fornecidas pelo HDInsight](hdinsight-component-versioning.md).
   >
   >
 
-Não há suporte para a instalação de software personalizado no cluster usando uma conexão de área de trabalho remota. Evite armazenar arquivos nas unidades de nó de cabeçalho, pois eles serão perdidos se você precisar recriar os clusters. É recomendável armazenar os arquivos no armazenamento de Blob do Azure. O armazenamento de Blob é persistente.
+Não há suporte para a instalação de software personalizadas no cluster hello usando a Conexão de área de trabalho remota. Evite armazenar arquivos em unidades de saudação do nó principal do hello, como eles serão perdidos se você precisar toore-criar clusters de saudação. É recomendável armazenar os arquivos no armazenamento de Blob do Azure. O armazenamento de Blob é persistente.
 
 ## <a name="list-and-show-clusters"></a>Listar e mostrar clusters
-1. Entre em [https://portal.azure.com](https://portal.azure.com).
-2. Clique em **Clusters HDInsight** no menu esquerdo.
-3. Clique no nome do cluster. Se a lista de clusters for longa, você poderá usar o filtro na parte superior da página.
-4. Clique duas vezes em um cluster da lista para exibir os detalhes.
+1. Entrar muito[https://portal.azure.com](https://portal.azure.com).
+2. Clique em **Clusters HDInsight** no menu esquerdo hello.
+3. Clique no nome do cluster de saudação. Se a lista de clusters Olá for longa, você pode usar o filtro na parte superior de saudação da página de saudação.
+4. Clique duas vezes em um cluster de detalhes da saudação Olá lista tooshow.
 
     **Menu e fundamentos**:
 
     ![Fundamentos do cluster HDInsight do portal do Azure](./media/hdinsight-administer-use-management-portal/hdinsight-essentials.png)
 
-   * Para personalizar o menu, clique com o botão direito do mouse em qualquer parte do menu e, então, clique em **Personalizar**.
-   * **Configurações** e **Todas as Configurações**: exibem a folha **Configurações** do cluster, que permite acessar informações de configuração detalhadas do cluster.
-   * **Painel**, **Painel do Cluster** e **URL: são maneiras de acessar o painel do cluster, que é o Ambari Web para clusters baseados em Linux. -**Secure Shell**: mostra as instruções para se conectar ao cluster usando uma conexão Secure Shell (SSH).
-   * **Cluster em Escala**: permite alterar o número de nós de trabalho deste cluster.
-   * **Excluir**: exclui o cluster.
+   * menu de Olá toocustomize, clique em qualquer lugar no menu hello e, em seguida, clique em **personalizar**.
+   * **Configurações de** e **todas as configurações**: Olá exibe **configurações** folha para cluster hello, que permite que você tooaccess informações detalhadas de configuração de cluster de saudação.
+   * **Painel**, **painel Cluster** e **URL: essas são todas as maneiras tooaccess Olá painel do cluster, que é o Ambari Web para clusters baseados em Linux. -**Seguro Shell * *: Mostra o cluster do hello instruções tooconnect toohello usando conexão Secure Shell (SSH).
+   * **Dimensionar o Cluster**: permite que você toochange número de saudação de nós de trabalho para este cluster.
+   * **Excluir**: cluster de saudação de exclusões.
    * **Início Rápido**: exibe informações que o ajudarão a começar a usar o HDInsight.
-   * **Usuários: permite definir permissões para o *gerenciamento do portal* deste cluster para outros usuários em sua assinatura do Azure.
+   * * * Os usuários: Permite a você permissões de tooset para *management portal* deste cluster para outros usuários na sua assinatura do Azure.
 
      > [!IMPORTANT]
-     > Isso afeta *apenas* o acesso e as permissões para esse cluster no Portal do Azure e não afeta quem pode se conectar ao cluster HDInsight ou enviar trabalhos a ele.
+     > Isso *somente* afeta o acesso e permissões cluster toothis no hello portal do Azure, e não tem efeito sobre quem pode se conectar a cluster do HDInsight tooor enviar trabalhos toohello.
      >
      >
-   * **Marcas**: as marcas permitem estabelecer pares de chave/valor para definir uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada **projeto**e usar um valor comum para todos os serviços associados a um projeto específico.
-   * **Ambari Views**: links para o Ambari Web.
+   * **Marcas**: as marcas permitem que você tooset chave/valor pares toodefine uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada **projeto**e usar um valor comum para todos os serviços associados a um projeto específico.
+   * **Modos de exibição do Ambari**: Links tooAmbari da Web.
 
      > [!IMPORTANT]
-     > Para gerenciar os serviços fornecidos pelo cluster HDInsight, você deve usar o Ambari Web ou a API REST do Ambari. Para saber mais sobre como usar o Ambari, consulte [Gerenciar clusters HDInsight usando o Ambari](hdinsight-hadoop-manage-ambari.md).
+     > Serviços de saudação toomanage fornecido pela Olá cluster HDInsight, você deve usar o Ambari Web ou Olá Ambari REST API. Para saber mais sobre como usar o Ambari, consulte [Gerenciar clusters HDInsight usando o Ambari](hdinsight-hadoop-manage-ambari.md).
      >
      >
 
@@ -109,13 +109,13 @@ Não há suporte para a instalação de software personalizado no cluster usando
 
     ![Uso do cluster HDInsight do Portal do Azure](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
 
-   * **Propriedades**: exiba as propriedades do cluster.
+   * **Propriedades**: exibir as propriedades do cluster hello.
    * **Identidade do AAD do Cluster**:
-   * **Chaves de Armazenamento do Azure**: exiba a conta de armazenamento padrão e a chave dela. A conta de armazenamento é configurada durante o processo de criação do cluster.
-   * **Logon do Cluster**: altere o nome de usuário e a senha do HTTP de cluster.
-   * **Metastores Externos**: exiba os Hive e Oozie metastores. Os metastores só podem ser configurados durante o processo de criação do cluster.
-   * **Dimensionar o Cluster**: aumente e diminua o número de nós de trabalho do cluster.
-   * **Área de Trabalho Remota**: habilite e desabilite o acesso da área de trabalho remota (RDP) e configure o nome de usuário da RDP.  O nome de usuário da RDP deve ser diferente do nome de usuário de HTTP.
+   * **Chaves de armazenamento do Azure**: exibir a conta de armazenamento padrão hello e sua chave. conta de armazenamento Olá é a configuração durante o processo de criação de cluster hello.
+   * **Logon de cluster**: alterar o nome de usuário de cluster HTTP hello e a senha.
+   * **Os Metastores externos**: Exibir hello os metastores Hive e Oozie. Olá metastores só pode ser configurados durante o processo de criação de cluster hello.
+   * **Dimensionar o Cluster**: aumentar e diminuir Olá número de nós de trabalho do cluster.
+   * **Área de trabalho remota**: habilitar e desabilitar o acesso de área de trabalho remota (RDP) e configurar o nome de usuário RDP hello.  nome de usuário RDP Olá deve ser diferente do nome de usuário HTTP hello.
    * **Parceiro de Registro**:
 
      > [!NOTE]
@@ -124,12 +124,12 @@ Não há suporte para a instalação de software personalizado no cluster usando
      >
 6. Clique em **Propriedades**:
 
-    A seção das propriedades lista o seguinte:
+    seção de propriedades de saudação lista a seguir hello:
 
    * **Nome do host**: nome do cluster.
    * **URL do Cluster**.
    * **Status**: incluindo Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, ClusterCustomization
-   * **Região**: local do Azure. Para ter acesso à lista de locais do Azure com suporte, consulte a caixa de listagem suspensa **Região** em [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+   * **Região**: local do Azure. Para obter uma lista dos locais do Azure com suporte, consulte Olá **região** caixa de listagem suspensa em [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
    * **Dados criados**.
    * **Sistema operacional**: **Windows** ou **Linux**.
    * **Tipo**: Hadoop, HBase, Storm, Spark.
@@ -137,102 +137,102 @@ Não há suporte para a instalação de software personalizado no cluster usando
    * **Assinatura**: nome da assinatura.
    * <seg>
   **ID da assinatura**.</seg>
-   * **Fonte de dados primária**. A conta de armazenamento de Blob do Azure usada como o sistema de arquivos Hadoop padrão.
+   * **Fonte de dados primária**. Olá conta de armazenamento de BLOBs do Azure usado como padrão de saudação sistema de arquivos Hadoop.
    * **Faixa de preço dos nós de trabalho**.
    * **Faixa de preço do nó de cabeça**.
 
 ## <a name="delete-clusters"></a>Excluir clusters
-Excluir um cluster não excluirá a conta de armazenamento padrão, nem nenhuma conta de armazenamento vinculada. Você pode recriar o cluster usando as mesmas contas de armazenamento e as mesmas metastores.
+Excluir um cluster não excluirá a conta de armazenamento padrão de saudação ou contas de armazenamento vinculado. Você pode recriar o cluster de saudação usando Olá mesmas contas de armazenamento e Olá metastores mesmo.
 
-1. Conecte-se no [Portal][azure-portal].
-2. Clique em **Procurar Tudo** no menu esquerdo, clique em **Clusters HDInsight**, clique no nome do cluster.
-3. Clique em **Excluir** no menu superior e siga as instruções.
+1. Entrar toohello [Portal][azure-portal].
+2. Clique em **procurar todos os** menu Olá esquerdo, clique em **Clusters HDInsight**, clique no nome do cluster.
+3. Clique em **excluir** do menu superior hello e, em seguida, siga as instruções do hello.
 
 Consulte também [Pausar/desligar clusters](#pauseshut-down-clusters).
 
 ## <a name="scale-clusters"></a>Dimensionar clusters
-O recurso de dimensionamento de clusters permite que você altere o número de nós de trabalhador usados por um cluster em execução no Azure HDInsight sem precisar recriar o cluster.
+dimensionando o recurso de cluster de saudação permite toochange número de saudação de nós de trabalho usado por um cluster que está em execução no Azure HDInsight sem ter que toore-criar o cluster de saudação.
 
 > [!NOTE]
-> Somente clusters HDInsight versão 3.1.3 ou superior são compatíveis. Se não tiver certeza quanto à versão de seu cluster, você poderá verificar a página Propriedades.  Confira [Listar e mostrar clusters](#list-and-show-clusters).
+> Somente clusters HDInsight versão 3.1.3 ou superior são compatíveis. Se você não tiver certeza da versão de saudação do cluster, você pode verificar a página de propriedades de saudação.  Confira [Listar e mostrar clusters](#list-and-show-clusters).
 >
 >
 
-O impacto da alteração do número de nós de dados em cada tipo de cluster com suporte do HDInsight:
+impacto de saudação do alterando o número de saudação de nós de dados para cada tipo de cluster HDInsight com suporte:
 
 * O Hadoop
 
-    Você pode aumentar continuamente o número de nós de trabalhador em um cluster Hadoop em execução sem afetar os trabalhos pendentes ou em execução. Novos trabalhos também podem ser enviados enquanto a operação está em andamento. Falhas em uma operação de dimensionamento são normalmente manipuladas para que o cluster sempre seja deixado em um estado funcional.
+    Você perfeitamente pode aumentar o número de saudação de nós de trabalho em um cluster de Hadoop que está sendo executado sem afetar todos os trabalhos pendentes ou em execução. Novos trabalhos também podem ser enviados enquanto Olá operação está em andamento. Falhas em uma operação de dimensionamento são controladas normalmente para que hello cluster seja sempre deixado em um estado funcional.
 
-    Quando um cluster Hadoop é reduzido verticalmente pela diminuição do número de nós de dados, alguns dos serviços no cluster são reiniciados. Isso faz com que todos os trabalhos em execução e pendentes falhem após a conclusão da operação de dimensionamento. Você pode, no entanto, reenviar os trabalhos quando a operação for concluída.
+    Quando um cluster Hadoop é reduzido, reduzindo o número de saudação de nós de dados, alguns dos serviços de saudação em cluster Olá são reiniciados. Isso faz com que todas as e pendentes toofail trabalhos na conclusão de saudação do hello a operação de dimensionamento. No entanto, você pode, reenviar trabalhos Olá após a conclusão da operação de saudação.
 * HBase
 
-    Você pode adicionar ou remover diretamente nós do cluster HBase enquanto ele é executado. Servidores Regionais são equilibrados automaticamente em alguns minutos após o término da operação de dimensionamento. No entanto, você pode equilibrar manualmente os servidores regionais fazendo logon no nó de cabeçalho do cluster e executando os seguintes comandos em uma janela de prompt de comando:
+    Sem problemas, você pode adicionar ou remover o cluster de HBase tooyour nós enquanto ele está em execução. Servidores regionais são balanceados automaticamente dentro de alguns minutos após o término da operação de dimensionamento de saudação. No entanto, você pode equilibrar manualmente servidores regionais Olá fazendo logon no nó principal de saudação do cluster e em execução hello comandos a seguir em uma janela de prompt de comando:
 
         >pushd %HBASE_HOME%\bin
         >hbase shell
         >balancer
 
-    Para obter mais informações sobre como usar o shell do HBase, confira []
+    Para obter mais informações sobre como usar o shell do HBase hello, consulte]
 * Storm
 
-    Você pode adicionar ou remover nós de dados continuamente para seu cluster Strom enquanto ele é executado. Mas, após a conclusão bem-sucedida da operação de dimensionamento, você precisará redistribuir a topologia.
+    Sem problemas, você pode adicionar ou remover o cluster de profusão de tooyour de nós de dados enquanto ele está em execução. Mas, após a conclusão bem-sucedida da operação de dimensionamento de saudação, você precisará de topologia de saudação toorebalance.
 
     A redistribuição pode ser feita de duas maneiras:
 
   * Interface da Web Storm
   * Ferramenta CLI (interface de linha de comando)
 
-    Consulte a [documentação do Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) para obter mais detalhes.
+    Consulte toohello [documentação do Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) para obter mais detalhes.
 
-    A IU da Web do Storm está disponível no cluster HDInsight:
+    Interface da web Hello Storm está disponível no cluster do HDInsight hello:
 
     ![HDInsight storm dimensionar novo balanceamento](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
-    Aqui está um exemplo de como usar o comando CLI para reequilibrar a topologia do Storm:
+    Aqui está um exemplo como toouse Olá CLI comando topologia de profusão de saudação toorebalance:
 
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
+        ## Reconfigure hello topology "mytopology" toouse 5 worker processes,
+        ## hello spout "blue-spout" toouse 3 executors, and
+        ## hello bolt "yellow-bolt" toouse 10 executors
         $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
-**Para dimensionar clusters**
+**clusters de tooscale**
 
-1. Conecte-se no [Portal][azure-portal].
-2. Clique em **Procurar Tudo** no menu esquerdo, clique em **Clusters HDInsight**, clique no nome do cluster.
-3. Clique em **Configurações** no menu superior e clique em **Dimensionar o Cluster**.
-4. Insira o **Número de Nós de Trabalho**. O limite no número de nós do cluster varia entre as assinaturas do Azure. Contate o suporte de cobrança para aumentar o limite.  As informações de custo refletirão as alterações feitas no número de nós.
+1. Entrar toohello [Portal][azure-portal].
+2. Clique em **procurar todos os** menu Olá esquerdo, clique em **Clusters HDInsight**, clique no nome do cluster.
+3. Clique em **configurações** no menu superior hello e clique **Cluster de escala**.
+4. Insira o **Número de Nós de Trabalho**. limite de Olá no número de saudação do nó de cluster varia entre as assinaturas do Azure. Você pode contatar o limite de saudação de tooincrease suporte de cobrança.  informações de custo Olá refletirá Olá alterações toohello número de nós.
 
     ![HDInsight Hadoop HBase Storm Spark scale](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
 
 ## <a name="pauseshut-down-clusters"></a>Pausar/desligar clusters
-A maioria dos trabalhos do Hadoop é composta por trabalhos em lotes que só são executados ocasionalmente. Para a maioria dos clusters do Hadoop, há grandes períodos de tempo em que o cluster não está sendo usado para processamento. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você poderá excluir, com segurança, um cluster quando ele não estiver em uso.
-Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso.
+A maioria dos trabalhos do Hadoop é composta por trabalhos em lotes que só são executados ocasionalmente. Para a maioria dos clusters de Hadoop, há grandes períodos de tempo cluster Olá não está sendo usado para processamento. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você poderá excluir, com segurança, um cluster quando ele não estiver em uso.
+Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como encargos Olá para cluster Olá são muitas vezes mais do que encargos Olá para armazenamento, faz sentido, financeiramente falando toodelete clusters quando eles não estiverem em uso.
 
-Há várias maneiras de programar o processo:
+Há muitas maneiras que você pode programar o processo de saudação:
 
 * Use o Azure Data Factory. Consulte [Serviços Vinculados ao Azure HDInsight](../data-factory/data-factory-compute-linked-services.md) e [Transformar e analisar usando o Azure Data Factory](../data-factory/data-factory-data-transformation-activities.md) para saber mais sobre os serviços sob demanda e autodefinidos vinculados ao HDInsight.
 * Use o Azure PowerShell.  Consulte [Analisar dados de atraso de voo](hdinsight-analyze-flight-delay-data.md).
 * Use a CLI do Azure. Consulte [Gerenciar clusters HDInsight usando a CLI do Azure](hdinsight-administer-use-command-line.md)
 * Use o SDK .NET do HDInsight. Consulte [Enviar trabalhos do Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md).
 
-Para saber mais sobre preços, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Para excluir um cluster do Portal, veja [Excluir clusters](#delete-clusters)
+Para Olá informações sobre preços, consulte [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). toodelete um cluster do hello Portal, consulte [excluir clusters](#delete-clusters)
 
 ## <a name="change-cluster-username"></a>Alterar nome de usuário do cluster
-Um cluster HDInsight pode ter duas contas de usuário. A conta de usuário do cluster HDInsight é criada durante o processo de criação. Você também pode criar uma conta de usuário RDP para acessar o cluster via RDP. Consulte [Habilitar área de trabalho remota](#connect-to-hdinsight-clusters-by-using-rdp).
+Um cluster HDInsight pode ter duas contas de usuário. saudação de conta de usuário de cluster do HDInsight é criada durante o processo de criação de saudação. Você também pode criar uma conta de usuário RDP para acessar o cluster Olá via RDP. Consulte [Habilitar área de trabalho remota](#connect-to-hdinsight-clusters-by-using-rdp).
 
-**Para alterar o nome de usuário e a senha do cluster HDInsight**
+**senha e nome de usuário do cluster toochange Olá HDInsight**
 
-1. Conecte-se no [Portal][azure-portal].
-2. Clique em **Procurar Tudo** no menu esquerdo, clique em **Clusters HDInsight**, clique no nome do cluster.
-3. Clique em **Configurações** no menu superior e clique em **Logon do Cluster**.
-4. Se **Logon do cluster** tiver sido habilitado, você deverá clicar em **Desabilitar** e clicar em **Habilitar** antes de poder alterar o nome de usuário e a senha.
-5. Altere o **Nome de Logon do Cluster** e/ou a **Senha de Logon do Cluster** e clique em **Salvar**.
+1. Entrar toohello [Portal][azure-portal].
+2. Clique em **procurar todos os** menu Olá esquerdo, clique em **Clusters HDInsight**, clique no nome do cluster.
+3. Clique em **configurações** no menu superior hello e clique **logon de Cluster**.
+4. Se **logon de Cluster** foi habilitado, você deve clicar em **desabilitar**e, em seguida, clique em **habilitar** antes de poder alterar Olá username e password.
+5. Saudação de alteração **nome de logon de Cluster** e/ou Olá **senha de logon de Cluster**e, em seguida, clique em **salvar**.
 
     ![HDInsight change cluster user username password http user](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
 
 ## <a name="grantrevoke-access"></a>Conceder/revogar acesso
-Os clusters HDInsight têm os seguintes serviços Web HTTP (todos esses serviços têm pontos de extremidade RESTful):
+Clusters HDInsight tem Olá serviços da web HTTP (todos esses serviços têm pontos de extremidade RESTful) a seguir:
 
 * ODBC
 * JDBC
@@ -240,51 +240,51 @@ Os clusters HDInsight têm os seguintes serviços Web HTTP (todos esses serviço
 * Oozie
 * Templeton
 
-Por padrão, esses serviços são concedidos para acesso. Você pode revogar/conceder o acesso no portal do Azure.
+Por padrão, esses serviços são concedidos para acesso. Você pode revogar/conceder o acesso de saudação do hello portal do Azure.
 
 > [!NOTE]
-> Ao conceder/revogar o acesso, você redefinirá o nome de usuário de cluster e a senha.
+> Revogando concedendo/acesso hello, redefinirá senha e nome de usuário de cluster hello.
 >
 >
 
-**Para conceder/revogar acesso aos serviços Web HTTP**
+**acesso de serviços da web HTTP toogrant/revoke**
 
-1. Conecte-se no [Portal][azure-portal].
-2. Clique em **Procurar Tudo** no menu esquerdo, clique em **Clusters HDInsight**, clique no nome do cluster.
-3. Clique em **Configurações** no menu superior e clique em **Logon do Cluster**.
-4. Se **Logon do cluster** tiver sido habilitado, você deverá clicar em **Desabilitar** e clicar em **Habilitar** antes de poder alterar o nome de usuário e a senha.
-5. Para **Nome de Usuário de Logon no Cluster** e **Senha de Logon no Cluster**, insira o novo nome de usuário e a senha (respectivamente) para o cluster.
+1. Entrar toohello [Portal][azure-portal].
+2. Clique em **procurar todos os** menu Olá esquerdo, clique em **Clusters HDInsight**, clique no nome do cluster.
+3. Clique em **configurações** no menu superior hello e clique **logon de Cluster**.
+4. Se **logon de Cluster** foi habilitado, você deve clicar em **desabilitar**e, em seguida, clique em **habilitar** antes de poder alterar Olá username e password.
+5. Para **nome de usuário de logon de Cluster** e **senha de logon de Cluster**, digite Olá novo nome de usuário e senha (respectivamente) para o cluster de saudação.
 6. Clique em **SALVAR**.
 
     ![HDInsight grand remove http web service access](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
 
-## <a name="find-the-default-storage-account"></a>Encontrar a conta de armazenamento padrão
-Cada cluster HDInsight tem uma conta de armazenamento padrão. A conta de armazenamento padrão e as chaves para um cluster são exibidos em **Configurações**/**Propriedades**/**Chaves de Armazenamento do Azure**. Consulte [Listar e mostrar clusters](#list-and-show-clusters).
+## <a name="find-hello-default-storage-account"></a>Localizar a conta de armazenamento saudação padrão
+Cada cluster HDInsight tem uma conta de armazenamento padrão. Olá conta de armazenamento padrão e as chaves para um cluster é exibido em **configurações**/**propriedades**/**as chaves de armazenamento do Azure**. Confira [Listar e mostrar clusters](#list-and-show-clusters).
 
-## <a name="find-the-resource-group"></a>Encontrar o grupo de recursos
-No modo Azure Resource Manager, cada cluster HDInsight é criado com um grupo de recursos do Azure. O grupo de recursos do Azure ao qual um cluster pertence aparece em:
+## <a name="find-hello-resource-group"></a>Localizar o grupo de recursos de saudação
+No modo do Azure Resource Manager hello, cada cluster HDInsight é criada com um grupo de recursos do Azure. grupo de recursos do Azure de saudação que um cluster pertence tooappears em:
 
-* A lista de clusters tem uma coluna **Grupo de Recursos** .
+* Olá cluster lista tem um **grupo de recursos** coluna.
 * Bloco **Fundamentos** do cluster.  
 
 Consulte [Listar e mostrar clusters](#list-and-show-clusters).
 
 ## <a name="open-hdinsight-query-console"></a>Abrir o console de Consulta do HDInsight
-O console de Consulta do HDInsight inclui os seguintes recursos:
+Olá console de consulta de HDInsight inclui Olá recursos a seguir:
 
-* **Editor Hive**: uma interface GUI da Web para enviar trabalhos do Hive.  Consulte [Executar consultas do Hive usando o Console de Consulta](hdinsight-hadoop-use-hive-query-console.md).
+* **Editor Hive**: uma interface GUI da Web para enviar trabalhos do Hive.  Consulte [Hive executar consultas usando Olá Console de consulta](hdinsight-hadoop-use-hive-query-console.md).
 
     ![Editor de hive do portal do HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
 * **Histórico de trabalhos**: monitore trabalhos do Hadoop.  
 
     ![histórico de trabalhos do portal do HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-    Clique em **Nome da Consulta** para mostrar os detalhes, incluindo propriedades do trabalho, **Consulta de Trabalho** e **Saída do Trabalho. Você também pode baixar a consulta e a saída para sua estação de trabalho.
-* **Navegador de Arquivos**: procure a conta de armazenamento padrão e as contas de armazenamento vinculadas.
+    Clique em **nome de consulta** tooshow detalhes de saudação incluindo propriedades do trabalho, **consulta de trabalho**, e * * saída de trabalho. Você também pode baixar consulta hello e Olá saída tooyour estação de trabalho.
+* **Navegador de arquivo**: procurar a conta de armazenamento padrão hello e Olá contas de armazenamento vinculada.
 
     ![Pesquisa do navegador de arquivos do portal do HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)
 
-    Na captura de tela, o tipo **<Account>** indica que o item é uma conta de armazenamento do Azure.  Clique no nome da conta para procurar arquivos.
+    Na captura de tela hello, Olá  **<Account>**  tipo indica o item de saudação é uma conta de armazenamento do Azure.  Clique em Olá conta nome toobrowse Olá arquivos.
 * **IU do Hadoop**.
 
     ![Interface do usuário do Hadoop do portal do HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)
@@ -295,69 +295,69 @@ O console de Consulta do HDInsight inclui os seguintes recursos:
     ![Interface do usuário do YARN do portal do HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-yarn-ui.png)
 
 ## <a name="run-hive-queries"></a>Execute consultas Hive
-Para executar trabalhos do Hive no Portal, clique em **Editor do Hive** no console da Consulta do HDInsight. Consulte [Abrir o console de consulta do HDInsight](#open-hdinsight-query-console).
+trabalhos de Hive tooran de saudação Portal, clique em **Editor Hive** na Olá consulta HDInsight console. Consulte [Abrir o console de consulta do HDInsight](#open-hdinsight-query-console).
 
 ## <a name="monitor-jobs"></a>Monitorar trabalhos
-Para monitorar trabalhos no Portal, clique em **Histórico de Trabalhos** no console da Consulta do HDInsight. Consulte [Abrir o console de consulta do HDInsight](#open-hdinsight-query-console).
+trabalhos de toomonitor de saudação Portal, clique em **histórico de trabalho** na Olá consulta HDInsight console. Consulte [Abrir o console de consulta do HDInsight](#open-hdinsight-query-console).
 
 ## <a name="browse-files"></a>Procurar arquivos
-Para procurar arquivos armazenados na conta de armazenamento padrão e as contas de armazenamento vinculadas, clique em **Navegador de Arquivos** no console de Consulta do HDInsight. Consulte [Abrir o console de consulta do HDInsight](#open-hdinsight-query-console).
+arquivos toobrowse e armazenados na conta de armazenamento padrão Olá Olá contas de armazenamento vinculada, clique em **navegador de arquivo** na Olá consulta HDInsight console. Consulte [Abrir o console de consulta do HDInsight](#open-hdinsight-query-console).
 
-Você também pode usar o utilitário **Procurar no sistema de arquivos** da **interface do usuário do Hadoop** no console do HDInsight.  Consulte [Abrir o console de consulta do HDInsight](#open-hdinsight-query-console).
+Você também pode usar o hello **procurar o sistema de arquivos Olá** utility do hello **Hadoop UI** no console do HDInsight hello.  Consulte [Abrir o console de consulta do HDInsight](#open-hdinsight-query-console).
 
 ## <a name="monitor-cluster-usage"></a>Monitorar o uso do cluster
-A seção **Uso** da folha do cluster do HDInsight exibe informações sobre o número de núcleos disponíveis para sua assinatura para uso com o HDInsight, bem como o número de núcleos alocados para esse cluster e como eles são alocados para os nós presentes no cluster. Consulte [Listar e mostrar clusters](#list-and-show-clusters).
+Olá **uso** seção da folha de cluster do HDInsight Olá exibe informações sobre o número de saudação de uma assinatura de núcleos tooyour disponíveis para uso com o HDInsight, bem como o número de saudação de núcleos alocados toothis cluster e como eles são alocada para nós Olá neste cluster. Confira [Listar e mostrar clusters](#list-and-show-clusters).
 
 > [!IMPORTANT]
-> Para monitorar os serviços fornecidos pelo cluster HDInsight, você deve usar o Ambari Web ou a API REST do Ambari. Para saber mais sobre como usar o Ambari, consulte [Gerenciar clusters HDInsight usando o Ambari](hdinsight-hadoop-manage-ambari.md)
+> Serviços de saudação toomonitor fornecido pela Olá cluster HDInsight, você deve usar o Ambari Web ou Olá Ambari REST API. Para saber mais sobre como usar o Ambari, consulte [Gerenciar clusters HDInsight usando o Ambari](hdinsight-hadoop-manage-ambari.md)
 >
 >
 
 ## <a name="open-hadoop-ui"></a>Abrir a IU do Hadoop
-Para monitorar o cluster, procure no sistema de arquivos e verifique os logs, clique em **IU do Hadoop** no console de Consulta do HDInsight. Consulte [Abrir o console de consulta do HDInsight](#open-hdinsight-query-console).
+cluster de saudação toomonitor, sistema de arquivos de saudação procurar e verifique os logs, clique em **Hadoop UI** na Olá consulta HDInsight console. Consulte [Abrir o console de consulta do HDInsight](#open-hdinsight-query-console).
 
 ## <a name="open-yarn-ui"></a>Abrir a IU do Yarn
-Para usar a interface do usuário do Yarn, clique em **Interface do usuário do Yarn** no console de Consulta do HDInsight. Consulte [Abrir o console de consulta do HDInsight](#open-hdinsight-query-console).
+toouse interface de usuário do Yarn, clique em **Yarn UI** na Olá consulta HDInsight console. Consulte [Abrir o console de consulta do HDInsight](#open-hdinsight-query-console).
 
-## <a name="connect-to-clusters-using-rdp"></a>Conectar-se aos clusters usando o RDP
-As credenciais do cluster que você forneceu em sua criação concedem acesso aos serviços do cluster, mas não ao próprio cluster através da área de trabalho remota. Você pode ativar o acesso de Área de Trabalho Remota ao provisionar um cluster ou depois que um cluster for provisionado. Para obter instruções sobre como habilitar a Área de Trabalho Remota na criação, consulte [Criar cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+## <a name="connect-tooclusters-using-rdp"></a>Conecte-se tooclusters usando o RDP
+as credenciais de saudação para cluster Olá que você forneceu na sua criação, conceda acesso toohello serviços em cluster hello, mas não toohello próprio cluster por meio da área de trabalho remota. Você pode ativar o acesso de Área de Trabalho Remota ao provisionar um cluster ou depois que um cluster for provisionado. Para obter instruções sobre como habilitar a área de trabalho remota no momento da criação Olá, consulte [cluster HDInsight criar](hdinsight-hadoop-provision-linux-clusters.md).
 
-**Para habilitar a área de trabalho remota**
+**tooenable área de trabalho remota**
 
-1. Conecte-se no [Portal][azure-portal].
-2. Clique em **Procurar Tudo** no menu esquerdo, clique em **Clusters HDInsight**, clique no nome do cluster.
-3. Clique em **Configurações** no menu superior e clique em **Área de Trabalho Remota**.
+1. Entrar toohello [Portal][azure-portal].
+2. Clique em **procurar todos os** menu Olá esquerdo, clique em **Clusters HDInsight**, clique no nome do cluster.
+3. Clique em **configurações** no menu superior hello e clique **área de trabalho remota**.
 4. Insira **Expira em**, **Nome de Usuário de Área de Trabalho Remota** e **Senha de Área de Trabalho Remota** e clique em **Habilitar**.
 
     ![Habilitar/desabilitar configuração de área de trabalho remota do HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
 
-    Os valores padrão para Expira em é uma semana.
+    valores padrão de saudação para expira em é uma semana.
 
    > [!NOTE]
-   > Você também pode usar o SDK do .NET HDInsight para habilitar a área de trabalho remota em um cluster. Use o **EnableRdp** método no objeto de cliente HDInsight da seguinte maneira: **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Da mesma forma, para desabilitar a área de trabalho remota no cluster, você pode usar **client.DisableRdp(clustername, location)**. Para obter mais informações sobre esses métodos, consulte [Referência do SDK do .NET HDInsight](http://go.microsoft.com/fwlink/?LinkId=529017). Isso é aplicável apenas a clusters do HDInsight em execução no Windows.
+   > Você também pode usar o hello HDInsight .NET SDK tooenable área de trabalho remota em um cluster. Saudação de uso **EnableRdp** método no objeto de cliente Olá HDInsight no hello maneira a seguir: **cliente. EnableRdp (clustername, local, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Da mesma forma, toodisable área de trabalho remota no cluster hello, você pode usar **cliente. DisableRdp (clustername, local)**. Para obter mais informações sobre esses métodos, consulte [Referência do SDK do .NET HDInsight](http://go.microsoft.com/fwlink/?LinkId=529017). Isso é aplicável apenas a clusters do HDInsight em execução no Windows.
    >
    >
 
-**Para conectar-se ao cluster usando o RDP**
+**tooconnect tooa cluster usando o RDP**
 
-1. Conecte-se no [Portal][azure-portal].
-2. Clique em **Procurar Tudo** no menu esquerdo, clique em **Clusters HDInsight**, clique no nome do cluster.
-3. Clique em **Configurações** no menu superior e clique em **Área de Trabalho Remota**.
-4. Clique em **Conectar** e siga as instruções. Se Conectar estiver desabilitado, você deverá habilitá-lo primeiro. Use o nome do usuário e a senha da Área de Trabalho Remota.  Não é possível usar as credenciais de usuário do Cluster.
+1. Entrar toohello [Portal][azure-portal].
+2. Clique em **procurar todos os** menu Olá esquerdo, clique em **Clusters HDInsight**, clique no nome do cluster.
+3. Clique em **configurações** no menu superior hello e clique **área de trabalho remota**.
+4. Clique em **conectar** e siga as instruções de saudação. Se Conectar estiver desabilitado, você deverá habilitá-lo primeiro. Certifique-se usando a área de trabalho remota Olá de usuário e senha.  Você não pode usar as credenciais de usuário de Cluster hello.
 
 ## <a name="open-hadoop-command-line"></a>Abrir a linha de comando do Hadoop
-Para conectar-se ao cluster usando a área de trabalho remota e usar a linha de comando do Hadoop, você deve primeiro habilitar o acesso à área de trabalho remota para o cluster conforme descrito na seção anterior.
+cluster de toohello tooconnect usando a área de trabalho remota e de linha de comando do Hadoop de saudação de uso, você precisa primeiro ativar cluster de toohello de acesso de área de trabalho remota conforme descrito na seção anterior hello.
 
-**Para abrir a linha de comando do Hadoop**
+**tooopen uma linha de comando do Hadoop**
 
-1. Conecte-se ao cluster usando a Área de Trabalho Remota.
-2. Na área de trabalho, clique duas vezes em **Linha de Comando do Hadoop**.
+1. Conecte-se toohello cluster usando a área de trabalho remota.
+2. Na área de trabalho hello, clique duas vezes em **linha de comando do Hadoop**.
 
     ![HDI.HadoopCommandLine][image-hadoopcommandline]
 
     Para obter mais informações sobre os comandos Hadoop, consulte [Referência de comandos Hadoop](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
-Na captura de tela anterior, o nome da pasta tem o número de versão do Hadoop incorporado. O número da versão pode ser alterado com base na versão dos componentes do Hadoop instalados no cluster. Você pode usar variáveis de ambiente do Hadoop para referir-se a essas pastas. Por exemplo:
+Captura de tela anterior Olá, nome da pasta Olá tem número de versão do Hadoop Olá inserido. número de versão de Hello pode versão alterados Olá com base em componentes de Hadoop de saudação instalado no cluster de saudação. Você pode usar pastas do Hadoop ambiente variáveis toorefer toothose. Por exemplo:
 
     cd %hadoop_home%
     cd %hive_home%
@@ -367,7 +367,7 @@ Na captura de tela anterior, o nome da pasta tem o número de versão do Hadoop 
     cd %hcatalog_home%
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você aprendeu como criar um cluster HDInsight usando o Portal e como abrir a ferramenta de linha de comando do Hadoop. Para saber mais, consulte os seguintes artigos:
+Neste artigo, você aprendeu como toocreate um cluster HDInsight usando Olá Portal e como tooopen Olá a ferramenta de linha de comando do Hadoop. toolearn mais, consulte Olá artigos a seguir:
 
 * [Administrar o HDInsight usando o PowerShell do Azure](hdinsight-administer-use-powershell.md)
 * [Administrar o HDInsight usando a CLI do Azure](hdinsight-administer-use-command-line.md)

@@ -1,6 +1,6 @@
 ---
-title: "Preparar os hosts Hyper-V (sem o System Center VMM) para replicação para o Azure | Microsoft Docs"
-description: "Descreve como preparar os hosts Hyper-V para replicação para o Azure usando o Azure Site Recovery"
+title: "aaaPrepare Hyper-V hospeda (sem o System Center VMM) para a replicação tooAzure | Microsoft Docs"
+description: "Descreve como tooprepare Hyper-V hospeda para tooAzure de replicação usando o Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.openlocfilehash: f9bcaa8e55be6e8fddaf88ebc3f18f5dbb2811e4
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 714b229d5efbd66a9844bd09e36ac3f69919a6bb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="step-6-prepare-hyper-v-hosts-for-replication-to-azure"></a>Etapa 6: Preparar os hosts Hyper-V para replicação para o Azure
+# <a name="step-6-prepare-hyper-v-hosts-for-replication-tooazure"></a>Etapa 6: Preparar hosts Hyper-V para replicação tooAzure
 
-Use as instruções deste artigo para preparar os hosts Hyper-V locais para interagir com o Azure Site Recovery.
+Use instruções Olá tooprepare este artigo toointeract de hosts do Hyper-V com o Azure Site Recovery no local.
 
-Depois de ler este artigo, poste comentários no final ou faça perguntas técnicas no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Depois de ler este artigo, postar os comentários na parte inferior da saudação ou questões técnicas Olá [Fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="prepare-hosts"></a>Preparar os hosts
 
-- Verifique se os hosts do Hyper-V satisfazem os [pré-requisitos](site-recovery-prereq.md#disaster-recovery-of-hyper-v-vms-to-azure-no-vmm).
-- Verifique se os hosts podem acessar as URLs necessárias:
+- Verifique se os hosts Hyper-V de saudação atendem Olá [pré-requisitos](site-recovery-prereq.md#disaster-recovery-of-hyper-v-vms-to-azure-no-vmm).
+- Certifique-se de que os hosts de saudação podem acessar Olá necessário URLs:
 
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-- Se tiver regras de firewall baseadas no endereço IP, verifique se elas permitem a comunicação com o Azure.
-- Permita os [Intervalos de IP do Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e a porta HTTPS (443).
-- Permita os intervalos de endereços IP para a região do Azure da sua assinatura e para o Oeste dos EUA (usados para Controle de Acesso e Gerenciamento de Identidade).
+- Se você tiver regras de firewall baseado em endereço IP, certifique-se de que permitem comunicação tooAzure.
+- Permitir Olá [intervalos de IP de Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653)e hello porta HTTPS (443).
+- Permitir que os intervalos de endereços IP para Olá região do Azure de sua assinatura e Oeste dos EUA (usado para gerenciamento de identidade e controle de acesso).
 
-Durante a implantação do Site Recovery, você adiciona hosts Hyper-V que contêm VMs que você deseja replicar para um site do Hyper-V. O Provedor do Site Recovery e o agente dos Serviços de Recuperação são instalados em cada host. O site do Hyper-V é registrado no cofre dos Serviços de Recuperação.
+Durante a implantação da recuperação de Site, você deve adicionar hosts Hyper-V que contêm máquinas virtuais que você deseja tooreplicate tooa Hyper-V site. Olá provedor de recuperação de Site e o agente de serviços de recuperação são instalados em cada host. site Olá Hyper-V é registrado no cofre de serviços de recuperação de saudação.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Vá para a [Etapa 7: Criar um cofre](hyper-v-site-walkthrough-create-vault.md)
+Vá muito[etapa 7: criar um cofre](hyper-v-site-walkthrough-create-vault.md)
 

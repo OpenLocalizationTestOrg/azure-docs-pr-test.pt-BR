@@ -1,6 +1,6 @@
 ---
-title: Gerenciar Azure Key Vault usando CLI | Microsoft Docs
-description: Use este tutorial para automatizar tarefas comuns no Key Vault usando a CLI 2.0
+title: Cofre de chave do Azure usando a CLI do aaaManage | Microsoft Docs
+description: "Use este tutorial tooautomate as tarefas comuns no cofre de chaves usando Olá 2.0 do CLI"
 services: key-vault
 documentationcenter: 
 author: amitbapat
@@ -14,73 +14,73 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ambapat
-ms.openlocfilehash: 5da9f5eceda71ac85259193e0f183c72813e1679
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 76855c0ea09b6b307159468382a6a63627205556
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-key-vault-using-cli-20"></a>Gerenciar o Key Vault usando a CLI 2.0
-O Cofre da Chave do Azure está disponível na maioria das regiões. Para obter mais informações, consulte a [Página de preços do Cofre da Chave](https://azure.microsoft.com/pricing/details/key-vault/).
+O Cofre da Chave do Azure está disponível na maioria das regiões. Para obter mais informações, consulte Olá [página de preços do Cofre de chaves](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="introduction"></a>Introdução
-Use este tutorial para ajudá-lo a começar a usar o Cofre da Chave do Azure para criar um contêiner de proteção avançado (um cofre) no Azure, para armazenar e gerenciar chaves de criptografia e segredos no Azure. Ele mostra o passo a passo do processo de uso da interface de linha de comando de plataforma cruzada do Azure para criar um cofre que contém uma chave ou senha que você pode usar com um aplicativo do Azure. Em seguida, ele mostra como um aplicativo pode usar essa chave ou senha.
+Use este tutorial toohelp você obter Introdução ao Azure Key Vault toocreate um contêiner protegido (um cofre) no Azure, toostore e gerenciar chaves de criptografia e segredos no Azure. Orienta você pelo processo de saudação do uso de Interface de linha de comando de plataforma cruzada do Azure toocreate um cofre que contém uma chave ou a senha que você pode usar com um aplicativo do Azure. Em seguida, ele mostra como um aplicativo pode usar essa chave ou senha.
 
-**Tempo estimado para conclusão:** 20 minutos
+**Estimado tempo toocomplete:** 20 minutos
 
 > [!NOTE]
-> Este tutorial não inclui instruções sobre como escrever o aplicativo do Azure incluído em uma das etapas, que mostra como autorizar um aplicativo a usar uma chave ou um segredo do cofre da chave.
+> Este tutorial não inclui instruções sobre como toowrite Olá aplicativo do Azure que uma das etapas de saudação inclui, que mostra como tooauthorize toouse um aplicativo uma chave ou segredo na chave Olá cofre.
 >
-> Este tutorial usa a última CLI 2.0 do Azure.
+> Este tutorial usa Olá 2.0 mais recentes de CLI do Azure.
 >
 >
 
 Para obter informações gerais sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](key-vault-whatis.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para concluir este tutorial, você precisará do seguinte:
+toocomplete neste tutorial, você deve ter Olá a seguir:
 
-* Uma assinatura do Microsoft Azure. Se não tiver uma assinatura, você pode se inscrever para uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial).
-* Interface de Linha de Comando versão 2.0 ou posterior. Para instalar a última versão e conectá-la à sua assinatura do Azure, consulte [Instalar e configurar a Interface de Linha de Comando 2.0 de plataforma cruzada do Azure](/cli/azure/install-azure-cli).
-* Um aplicativo que será configurado para usar a chave ou senha que você criará neste tutorial. Um aplicativo de exemplo está disponível no [Centro de Download da Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Para obter instruções, consulte o arquivo Leiame.
+* TooMicrosoft uma assinatura do Azure. Se não tiver uma assinatura, você pode se inscrever para uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial).
+* Interface de Linha de Comando versão 2.0 ou posterior. tooinstall Olá a versão mais recente e conecte-se tooyour assinatura do Azure, consulte [instalar e configurar Olá 2.0 de Interface de linha de comando de plataforma cruzada do Azure](/cli/azure/install-azure-cli).
+* Um aplicativo que será a chave de saudação toouse configurado ou a senha criados por você neste tutorial. Um aplicativo de exemplo está disponível no hello [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=45343). Para obter instruções, consulte Olá que acompanha o arquivo Leiame.
 
 ## <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Obtendo ajuda com a interface de linha de comando de plataforma cruzada do Azure
-Este tutorial pressupõe que você esteja familiarizado com a interface de linha de comando (Bash, Terminal, Prompt de Comando)
+Este tutorial presume que você esteja familiarizado com a interface de linha de comando da saudação (Bash, Terminal, prompt de comando)
 
-O parâmetro --help ou -h pode ser usado para exibir a ajuda de comandos específicos. Como alternativa, o formato azure help [comando] [opções] também pode ser usado para retornar as mesmas informações. Por exemplo, todos os seguintes comandos retornam as mesmas informações:
+Hello – ajuda -h parâmetro ou pode ser usado tooview ajuda para comandos específicos. Como alternativa, hello azure help [comando] [Opções] formato também pode ser usado tooreturn Olá mesmas informações. Por exemplo, a seguir Olá comandos retornam todas as mesmas informações de hello:
 
 ```
 az account set --help
 az account set -h
 ```
 
-Em caso de dúvida sobre os parâmetros necessários para um comando, consulte a ajuda usando --help, -h ou az help [comando].
+Em caso de dúvida sobre parâmetros Olá necessários por um comando, consulte usando toohelp – ajuda, -h ou az help [comando].
 
-Você pode ler também os tutoriais a seguir para se familiarizar com o Gerenciador de Recursos do Azure na interface de linha de comando da plataforma cruzada do Azure:
+Você também pode ler Olá tutoriais tooget familiarizado com o Azure Resource Manager na Interface de linha de comando de plataforma cruzada do Azure a seguir:
 
 * [Instalar a CLI do Azure.](/cli/azure/install-azure-cli)
 * [Introdução à CLI do Azure 2.0](/cli/azure/get-started-with-azure-cli)
 
-## <a name="connect-to-your-subscriptions"></a>Conectar-se às suas assinaturas
-Para fazer logon usando uma conta institucional, use o seguinte comando:
+## <a name="connect-tooyour-subscriptions"></a>Conecte-se tooyour assinaturas
+toolog usando uma conta organizacional, use Olá comando a seguir:
 
 ```
 az login -u username@domain.com -p password
 ```
 
-ou se deseja fazer logon digitando interativamente
+ou se você quiser toolog no digitando interativamente
 
 ```
 az login
 ```
 
-Se você tiver várias assinaturas e quiser especificar uma a ser usada para o Cofre da Chave do Azure, digite o seguinte para ver as assinaturas da sua conta:
+Se você tiver várias assinaturas e desejar toospecify um um toouse específico para o Cofre de chaves do Azure, digite Olá assinaturas de saudação toosee para sua conta a seguir:
 
 ```
 az account list
 ```
 
-Depois, para especificar a assinatura a ser usada, digite:
+Toouse de assinatura do hello de toospecify, em seguida,, tipo:
 
 ```
 az account set --subscription <subscription name or ID>
@@ -95,131 +95,131 @@ Ao usar o Gerenciador de Recursos do Azure, todos os recursos relacionados são 
 az group create -n 'ContosoResourceGroup' -l 'East Asia'
 ```
 
-O primeiro parâmetro é o nome do grupo de recursos e o segundo parâmetro é o local. Para o local, use o comando `az account list-locations` para identificar como especificar um local alternativo ao deste exemplo. Se precisar de mais informações, digite: `az account list-locations -h`.
+Olá primeiro parâmetro é o nome do grupo de recursos e Olá segundo parâmetro é o local de saudação. Para local, use o comando Olá `az account list-locations` tooidentify como toospecify toohello um local alternativo uma neste exemplo. Se precisar de mais informações, digite: `az account list-locations -h`.
 
-## <a name="register-the-key-vault-resource-provider"></a>Registrar o provedor de recursos do Cofre de Chaves
+## <a name="register-hello-key-vault-resource-provider"></a>Registrar o provedor de recursos do Cofre de chaves Olá
 Verifique se o provedor de recursos do Cofre de Chaves está registrado em sua assinatura:
 
 ```
 az provider register -n Microsoft.KeyVault
 ```
 
-Isso só precisa ser feito uma vez por assinatura.
+Isso só precisa toobe feito uma vez por assinatura.
 
 ## <a name="create-a-key-vault"></a>Criar um cofre de chave
-Use o comando `az keyvault create` para criar um cofre de chave. Esse script tem três parâmetros obrigatórios: um nome do grupo de recursos, um nome do cofre da chave e a localização geográfica.
+Saudação de uso `az keyvault create` comando toocreate um cofre de chaves. Esse script tem três parâmetros obrigatórios: um nome de grupo de recursos, um nome de Cofre de chaves e localização geográfica hello.
 
-Por exemplo, se você usar o nome de cofre ContosoKeyVault, o nome do grupo de recursos ContosoResourceGroup e o local Ásia Oriental, digite:
+Por exemplo, se você usar o nome do cofre Olá de ContosoKeyVault, nome do grupo de recursos de saudação do ContosoResourceGroup e o local de saudação do Leste Asiático, digite:
 ```
 az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --location 'East Asia'
 ```
 
-A saída do comando mostra as propriedades do cofre da chave que você acabou de criar. As duas propriedades mais importantes são:
+saída de Hello desse comando mostra as propriedades do Cofre de chaves de saudação que você acabou de criar. Olá duas propriedades de mais importantes são:
 
-* **name**: no exemplo, é ContosoKeyVault. Você usará esse nome para outros comandos do Key Vault.
-* **vaultUri**: no exemplo, isso é https://contosokeyvault.vault.azure.net. Aplicativos que usam seu cofre via API REST devem usar esse URI.
+* **nome**: no exemplo hello, isso é ContosoKeyVault. Você usará esse nome para outros comandos do Key Vault.
+* **vaultUri**: no exemplo hello, isso é https://contosokeyvault.vault.azure.net. Aplicativos que usam seu cofre via API REST devem usar esse URI.
 
-Sua conta do Azure agora está autorizada a executar qualquer operação neste cofre de chave. Até o momento, ninguém mais está.
+Sua conta do Azure é agora tooperform autorizado todas as operações nesta chave de cofre. Até o momento, ninguém mais está.
 
-## <a name="add-a-key-or-secret-to-the-key-vault"></a>Adicionar uma chave ou segredo ao cofre da chave
-Se você quiser que o Cofre da Chave do Azure crie uma chave protegida por software para você, use o comando `az key create` e digite o seguinte:
+## <a name="add-a-key-or-secret-toohello-key-vault"></a>Adicionar uma chave ou segredo toohello Cofre de chaves
+Se você quiser Azure Key Vault toocreate uma chave protegida por software para você, use Olá `az key create` de comando e digite Olá a seguir:
 ```
 az keyvault key create --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' --protection software
 ```
-No entanto, se você tiver uma chave existente em um arquivo PEM salvo como arquivo local em um arquivo chamado softkey.pem que você deseja carregar no Cofre da Chave do Azure, digite o seguinte para importar a chave do arquivo PEM, o qual protege a chave pelo software no serviço de Cofre da Chave:
+No entanto, se você tiver uma chave existente em um arquivo. PEM salvo como arquivo local em um arquivo chamado softkey.pem que você deseja tooupload tooAzure Cofre de chaves, digite Olá seguir tooimport chave de saudação de saudação. Arquivo PEM, que protege a chave de saudação pelo software no hello serviço de Cofre de chaves:
 ```
 az keyvault key import --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' --pem-file './softkey.pem' --pem-password 'PaSSWORD' --protection software
 ```
-Agora você pode fazer referência à chave que criada ou carregada no Cofre da Chave do Azure, usando o URI. Use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** para sempre obter a versão atual e use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** para obter esta versão específica.
+Agora você pode referenciar chave Olá que foi criada ou carregada tooAzure Cofre de chaves, usando seu URI. Use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** tooalways obter a versão atual do hello e usar **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/ cgacf4f763ar42ffb0a1gca546aygd87** tooget essa versão específica.
 
-Para adicionar um segredo ao cofre, que é uma senha chamada SQLPassword e que tem o valor Pa$$w0rd no Cofre da Chave do Azure, digite o seguinte:
+tooadd um cofre toohello secreta, que é uma senha chamada SQLPassword e que tem o valor de saudação do Pa$ $w0rd tooAzure Cofre de chaves, Olá tipo a seguir:
 ```
 az keyvault secret set --vault-name 'ContosoKeyVault' --name 'SQLPassword' --value 'Pa$$w0rd'
 ```
-Agora, você pode fazer referência a essa senha que foi adicionada ao Cofre da Chave do Azure usando seu URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** para sempre obter a versão atual e use **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** para obter esta versão específica.
+Agora você pode referenciar essa senha que você adicionou tooAzure Cofre de chaves, usando seu URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** tooalways obter a versão atual do hello e usar **https://ContosoVault.vault.azure.net/secrets/SQLPassword/ 90018dbb96a84117a0d2847ef8e7189d** tooget essa versão específica.
 
-Vamos exibir a chave ou o segredo que você acabou de criar:
+Vejamos chave hello ou chave secreta que você acabou de criar:
 
-* Para exibir a chave, digite: `az keyvault key list --vault-name 'ContosoKeyVault'`
-* Para exibir o segredo, digite: `az keyvault secret list --vault-name 'ContosoKeyVault'`
+* tooview sua chave, tipo:`az keyvault key list --vault-name 'ContosoKeyVault'`
+* tooview seu segredo, tipo:`az keyvault secret list --vault-name 'ContosoKeyVault'`
 
 ## <a name="register-an-application-with-azure-active-directory"></a>Registrar um aplicativo com o Active Directory do Azure
-Esta etapa geralmente seria feita por um desenvolvedor, em um computador separado. Ela não é específica ao Cofre da Chave do Azure, mas é incluída aqui para que as informações fiquem completas.
+Esta etapa geralmente seria feita por um desenvolvedor, em um computador separado. Ele não é específico tooAzure Cofre de chaves, mas é incluído aqui, para fins de integridade.
 
 > [!IMPORTANT]
-> Para concluir o tutorial, sua conta, o cofre e o aplicativo que você registrará nesta etapa devem todos estar no mesmo diretório do Azure.
+> tutorial de saudação toocomplete, sua conta, cofre hello e aplicativo hello que registrar-se nesta etapa devem ser no hello mesmo diretório do Azure.
 >
 >
 
-Aplicativos que usam um cofre de chave devem ser autenticados usando um token do Active Directory do Azure. Para fazer isso, o proprietário do aplicativo deve primeiro registrar o aplicativo no seu Active Directory do Azure. No final do registro, o proprietário do aplicativo obtém os seguintes valores:
+Aplicativos que usam um cofre de chave devem ser autenticados usando um token do Active Directory do Azure. toodo, Olá proprietário do aplicativo hello deve primeiro registrar aplicativo hello no seu Active Directory do Azure. No final de saudação do registro, o proprietário do aplicativo hello obtém Olá valores a seguir:
 
-* Uma **ID do Aplicativo** (também conhecida como ID do Cliente) e a **chave de autenticação** (também conhecida como segredo compartilhado). O aplicativo deve apresentar esses dois valores ao Active Directory do Azure para obter um token. Como o aplicativo é configurado para fazer isso depende do aplicativo. Para o aplicativo de exemplo do Cofre da Chave, o proprietário do aplicativo define esses valores no arquivo app.config.
+* Um **ID do aplicativo** (também conhecido como uma ID de cliente) e **chave de autenticação** (também conhecido como segredo compartilhado Olá). aplicativo Hello deve apresentar ambos tooAzure esses valores do Active Directory, tooget um token. Como o aplicativo hello está configurado toodo que isso depende do aplicativo hello. Para Olá aplicativo de exemplo do Cofre de chaves, o proprietário do aplicativo hello define esses valores no arquivo App. config de saudação.
 
-Para registrar seu aplicativo com o Active Directory do Azure:
+aplicativo de hello tooregister no Active Directory do Azure:
 
-1. Entre no Portal do Azure.
-2. À esquerda, clique em **Azure Active Directory** e selecione o diretório no qual você registrará o aplicativo. <br> <br> 
+1. Entrar toohello portal do Azure.
+2. Olá esquerda, clique em **Active Directory do Azure**e, em seguida, selecione o diretório de saudação na qual você registrará o seu aplicativo. <br> <br> 
 
 > [!Note] 
-> Você deve selecionar o mesmo diretório que contém a assinatura do Azure com a qual você criou o cofre de chaves. Se você não souber qual é o diretório, clique em **Configurações**, identifique a assinatura com a qual você criou o cofre de chave e anote o nome do diretório exibido na última coluna.
+> Você deve selecionar Olá Olá mesmo diretório que contém a assinatura do Azure com o qual você criou seu Cofre de chaves. Se você não souber qual diretório isto é, clique em **configurações**, identificar Olá assinatura com a qual você criou seu Cofre de chaves e nome de saudação de observação do diretório Olá exibido na última coluna de saudação.
 
-3. Clique em **APLICATIVOS**. Se nenhum aplicativo tiver sido adicionado ao seu diretório, essa página mostrará somente o link **Adicionar um Aplicativo** . Clique no link ou em **ADICIONAR** na barra de comandos.
-4. No assistente **ADICIONAR APLICATIVO** na página **O que você deseja fazer?**, clique em **Adicionar um aplicativo que minha organização está desenvolvendo**.
-5. Na página **Conte-nos sobre seu aplicativo**, especifique um nome para seu aplicativo e selecione **APLICATIVO WEB E/OU API WEB** (o padrão). Clique no ícone Avançar.
-6. Na página **Propriedades do aplicativo**, especifique a **URL DE LOGON** e o **URI DA ID DO aplicativo** para seu aplicativo Web. Se seu aplicativo não tiver esses valores, você pode inventá-los para esta etapa (por exemplo, você poderia especificar http://test1.contoso.com para as duas caixas). Não importa se os sites existem, o importante é que o URI de ID de cada aplicativo é diferente para todos os aplicativos no diretório. O diretório usa essa cadeia de caracteres para identificar seu aplicativo.
-7. Clique no ícone Concluído para salvar suas alterações no assistente.
-8. Na página de Início Rápido, clique em **CONFIGURAR**.
-9. Role até a seção **chaves**, selecione a duração, em seguida, clique em **SALVAR**. A página é atualizada e passa a mostrar um valor de chave. Você deve configurar seu aplicativo com esse valor de chave e o valor da **ID DO CLIENTE** . (As instruções para esta configuração são específicas do aplicativo).
-10. Copie o valor da ID do cliente desta página, que você usará na próxima etapa para definir as permissões no cofre.
+3. Clique em **APLICATIVOS**. Se nenhum aplicativo adicionou tooyour diretório, essa página mostrará apenas Olá **adicionar um aplicativo** link. Clique em link hello, ou como alternativa, você pode clicar em Olá **adicionar** na barra de comandos de saudação.
+4. Em Olá **Adicionar aplicativo** assistente, em Olá **o que fazer você deseja toodo?** , clique em **adicionar um aplicativo que minha organização esteja desenvolvendo**.
+5. Em Olá **Conte-nos sobre seu aplicativo** página, especifique um nome para seu aplicativo e selecione **aplicativo de WEB e/ou API WEB** (Olá padrão). Clique em próximo ícone de saudação.
+6. Em Olá **propriedades do aplicativo** especifique Olá **URL de logon** e **URI da ID do aplicativo** para seu aplicativo da web. Se seu aplicativo não tiver esses valores, você pode inventá-los para esta etapa (por exemplo, você poderia especificar http://test1.contoso.com para as duas caixas). Não importa se existirem a esses sites; o importante é que aplicativo hello URI de ID para cada aplicativo é diferente para cada aplicativo em seu diretório. diretório de saudação usa tooidentify essa cadeia de caracteres em seu aplicativo.
+7. Clique em Olá ícone completa toosave suas alterações no Assistente de saudação.
+8. Na página início rápido hello, clique em **configurar**.
+9. Role toohello **chaves** seção, selecione a duração de saudação e, em seguida, clique em **salvar**. página de saudação é atualizada e agora mostra um valor de chave. Você deve configurar seu aplicativo com esse valor de chave e hello **ID do cliente** valor. (As instruções para esta configuração são específicas do aplicativo).
+10. Copie valor de ID de cliente Olá nessa página, que você usará Olá próxima etapa tooset permissões em seu cofre.
 
-## <a name="authorize-the-application-to-use-the-key-or-secret"></a>Autorizar o aplicativo a usar a chave ou o segredo
-Para autorizar o aplicativo a acessar a chave ou o segredo no cofre, use o comando `az keyvault set-policy`.
+## <a name="authorize-hello-application-toouse-hello-key-or-secret"></a>Autorizar Olá aplicativo toouse Olá chave ou segredo
+tooauthorize Olá aplicativo tooaccess Olá chave ou segredo no cofre hello, use Olá `az keyvault set-policy` comando.
 
-Por exemplo, se o nome do cofre for ContosoKeyVault e o aplicativo que você quer autorizar tiver a ID de cliente 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, e você quiser autorizar o aplicativo a descriptografar e assinar com chaves em seu cofre. Em seguida, execute o seguinte:
+Por exemplo, se o nome do cofre for ContosoKeyVault e hello aplicativo deseja tooauthorize tem uma ID de cliente de 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, e você deseja tooauthorize Olá aplicativo toodecrypt e entre com as chaves em seu cofre, execute Olá a seguir:
 ```
 az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --key-permissions decrypt sign
 ```
 
-Se você deseja autorizar que o mesmo aplicativo leia segredos em seu cofre, execute o seguinte:
+Se você quiser tooauthorize esse mesmo segredos de tooread do aplicativo em seu cofre, execute o seguinte de saudação:
 ```
 az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
-## <a name="if-you-want-to-use-a-hardware-security-module-hsm"></a>Se quiser usar um HSM (módulo de segurança de hardware)
-Para garantia extra, você pode importar ou gerar chaves em HSMs (módulos de segurança de hardware) que nunca deixam os limites do HSM. Os HSMs têm certificação FIPS 140-2 Nível 2. Se esse requisito não se aplicar a você, ignore esta seção e vá para [Excluir o cofre de chave e chaves e segredos associados](#delete-the-key-vault-and-associated-keys-and-secrets).
+## <a name="if-you-want-toouse-a-hardware-security-module-hsm"></a>Se você quiser toouse um módulo de segurança de hardware (HSM)
+Para garantia extra, você pode importar ou gerar chaves em módulos de segurança de hardware (HSM) que nunca deixam o limite do HSM hello. Olá HSMs são FIPS 140-2 nível 2 validado. Se esse requisito não se aplica a tooyou, ignore esta seção e vá muito[excluir Cofre de chaves hello e chaves associadas e segredos](#delete-the-key-vault-and-associated-keys-and-secrets).
 
-Para criar essas chaves protegidas por HSM, você deve ter uma assinatura de cofre que dê suporte a chaves protegidas por HSM.
+toocreate essas chaves protegidas por HSM, você deve ter uma assinatura do cofre que dá suporte a chaves protegidas por HSM.
 
-Ao criar o keyvault, adicione o parâmetro "SKU":
+Quando você cria keyvault Olá, adicione um parâmetro de 'sku' hello:
 
 ```
 az keyvault create --name 'ContosoKeyVaultHSM' --resource-group 'ContosoResourceGroup' --location 'East Asia' --sku 'Premium'
 ```
-Você pode adicionar chaves protegidas por software (conforme mostrado anteriormente) e por HSM a este cofre. Para criar uma chave protegida por HSM, defina o parâmetro de Destino como “HSM”:
+Você pode adicionar chaves protegidas por software (conforme mostrado anteriormente) e o Cofre de chaves protegidas por HSM toothis. toocreate uma chave protegida por HSM, too'HSM de parâmetro de destino do conjunto de saudação ':
 
 ```
 az keyvault key create --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --protection 'hsm'
 ```
 
-Você pode usar o comando a seguir para importar uma chave de um arquivo PEM para seu computador. Esse comando importa a chave para os HSMs no serviço de Cofre da Chave:
+Você pode usar o hello após o comando tooimport uma chave de um arquivo. PEM em seu computador. Este comando importa chave Olá para HSMs em Olá serviço de Cofre de chaves:
 
 ```
 az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --protection 'hsm' --pem-password 'PaSSWORD'
 ```
-O próximo comando importa um pacote de BYOK ("traga sua própria chave"). Isso permite gerar sua chave no HSM local e transferi-la para os HSMs no serviço de Cofre da Chave, sem que a chave deixe os limites do HSM:
+comando Avançar Olá importa um "Traga sua própria chave" pacote (BYOK). Isso permite que você gerar sua chave em seu HSM local e transferi-la tooHSMs no hello serviço de Cofre de chaves sem chave Olá deixando o limite do HSM hello:
 
 ```
 az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --byok-file './ITByok.byok' --protection 'hsm'
 ```
-Para obter instruções mais detalhadas sobre como gerar esse pacote de BYOK, consulte [Como usar Chaves Protegidas por HSM com o Cofre da Chave do Azure](key-vault-hsm-protected-keys.md).
+Para obter mais instruções sobre como toogenerate esse pacote BYOK, consulte [como toouse HSM-Protected chaves com Cofre de chaves do Azure](key-vault-hsm-protected-keys.md).
 
-## <a name="delete-the-key-vault-and-associated-keys-and-secrets"></a>Excluir o cofre de chave e chaves e segredos associados
-Se você não precisar mais do cofre de chaves e da chave ou do segredo contido nela, poderá excluir o cofre de chaves usando o comando `az keyvault delete`:
+## <a name="delete-hello-key-vault-and-associated-keys-and-secrets"></a>Excluir o Cofre de chaves hello e chaves associadas e segredos
+Se você não precisar mais Cofre de chaves hello e chave de saudação ou segredo que ele contém, você pode excluir o Cofre de chaves hello usando Olá `az keyvault delete` comando:
 
 ```
 az keyvault delete --name 'ContosoKeyVault'
 ```
 
-Ou você pode excluir um grupo de recursos do Azure inteiro, que inclui o cofre de chave e quaisquer outros recursos incluídos nesse grupo:
+Ou, você pode excluir um grupo de recursos do Azure inteiro, que inclui o Cofre de chaves de saudação e outros recursos incluídos no grupo:
 
 ```
 az group delete --name 'ContosoResourceGroup'
@@ -232,7 +232,7 @@ Este comando lista uma exibição em tabela de todas as chaves e propriedades se
 
 az keyvault key list --vault-name 'ContosoKeyVault'
 
-Este comando exibe uma lista completa de propriedades para a chave especificada:
+Este comando exibe uma lista completa das propriedades de chave especificado hello:
 
 az keyvault key show --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey'
 
@@ -240,11 +240,11 @@ Este comando lista uma exibição em tabela de todos os nomes de segredos e prop
 
 az keyvault secret list --vault-name 'ContosoKeyVault'
 
-Aqui está um exemplo de como remover uma chave específica:
+Aqui está um exemplo de como tooremove uma chave específica:
 
 az keyvault key delete --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey'
 
-Aqui está um exemplo de como remover um segredo específica:
+Aqui está um exemplo de como tooremove um segredo específico:
 
 az keyvault secret delete --vault-name 'ContosoKeyVault' --name 'SQLPassword'
 
@@ -252,4 +252,4 @@ az keyvault secret delete --vault-name 'ContosoKeyVault' --name 'SQLPassword'
 ## <a name="next-steps"></a>Próximas etapas
 Para obter a referência completa da CLI do Azure de comandos do cofre de chaves, consulte [referência da CLI do Key Vault](/cli/azure/keyvault)
 
-Para referências de programação, consulte [Guia do desenvolvedor do Cofre da Chave do Azure](key-vault-developers-guide.md).
+Para referências de programação, consulte [Olá guia do desenvolvedor do Azure Key Vault](key-vault-developers-guide.md).

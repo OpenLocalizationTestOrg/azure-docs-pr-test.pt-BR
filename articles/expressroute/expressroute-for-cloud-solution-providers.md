@@ -1,6 +1,6 @@
 ---
-title: "ExpressRoute do Azure para Provedores de Soluções na Nuvem | Microsoft Docs"
-description: "Este artigo fornece informações para Provedor de Soluções na Nuvem que desejam incorporar serviços do Azure e o ExpressRoute a suas ofertas."
+title: "aaaAzure rota expressa para fornecedores de soluções de nuvem | Microsoft Docs"
+description: "Este artigo fornece informações para provedores de serviços de nuvem que tooincorporate desejados do Azure services e rota expressa em suas ofertas."
 documentationcenter: na
 services: expressroute
 author: richcar
@@ -14,127 +14,127 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: 26c9420c9b8ba1aff6b016c01b8ed51853c91506
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 062ecbb5e461e4384b01c4ac478cab696b7ed398
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute para Provedores de Soluções na Nuvem (CSP)
-A Microsoft fornece serviços de Hyper-escala para revendedores e distribuidores tradicionais (CSP) poderem provisionar rapidamente novos serviços e soluções para seus clientes sem a necessidade de investir no desenvolvimento desses novos serviços. Para permitir que o Provedor de Soluções na Nuvem (CSP) tenha a capacidade de gerenciar esses novos serviços diretamente, a Microsoft oferece programas e APIs que permitem que o CSP gerencie recursos do Microsoft Azure em nome de seus clientes. Um desses recursos é o ExpressRoute. o ExpressRoute permite que o CSP conecte os recursos do cliente aos serviços do Azure. o ExpressRoute é um link de comunicações privado de alta velocidade para serviços do Azure. 
+A Microsoft fornece serviços de Hyper-escala para revendedores tradicionais e provisionar de toorapidly capaz de toobe distribuidores (CSP) novos serviços e soluções para seus clientes sem Olá necessário tooinvest esses novos serviços de desenvolvimento. tooallow Olá provedor de solução de nuvem (CSP) Olá capacidade toodirectly gerenciar esses novos serviços, a Microsoft oferece programas e APIs que permitem Olá CSP toomanage recursos do Microsoft Azure em nome de seus clientes. Um desses recursos é o ExpressRoute. Rota expressa permite Olá CSP tooconnect cliente recursos tooAzure serviços existentes. O ExpressRoute é um tooservices de link de comunicação privada de alta velocidade no Azure. 
 
-A Rota Expressa é composta de um par de circuitos para alta disponibilidade conectados a uma única assinatura de cliente e não pode ser compartilhada por vários clientes. Cada circuito deve ser encerrado em um roteador diferente para manter a alta disponibilidade.
+ExpresRoute é composta de um par de circuitos para alta disponibilidade que são anexados tooa assinatura (s) de cliente e não pode ser compartilhado por vários clientes. Cada circuito deve terminar em um roteador diferente toomaintain Olá altamente disponível.
 
 > [!NOTE]
 > Existem limites de largura de banda e de conexão no ExpressRoute, o que significa que as implementações grandes/complexas exigirão vários circuitos de ExpressRoute para um único cliente.
 > 
 > 
 
-O Microsoft Azure fornece um número crescente de serviços que você pode oferecer aos seus clientes.  Para tirar melhor proveito desses serviços exigirão o uso de conexões de ExpressRoute para acesso de baixa latência e de alta velocidade ao ambiente do Microsoft Azure.
+O Microsoft Azure fornece um número crescente de serviços que você pode oferecer aos clientes de tooyour.  toobest tirar proveito desses serviços requerem o uso de saudação rota expressa conexões tooprovide alta velocidade baixa latência acesso toohello ambiente Microsoft Azure.
 
 ## <a name="microsoft-azure-management"></a>Gerenciamento do Microsoft Azure
-A Microsoft fornece CSPs com APIs para gerenciar as assinaturas de cliente do Azure, permitindo a integração programática com seus próprios sistemas de gerenciamento de serviço. Os recursos de gerenciamento com suporte podem ser encontrados [aqui](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
+A Microsoft fornece CSPs com APIs toomanage assinaturas de cliente do Azure Olá permitindo programática integração com seus próprios sistemas de gerenciamento de serviço. Os recursos de gerenciamento com suporte podem ser encontrados [aqui](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
 
 ## <a name="microsoft-azure-resource-management"></a>Gerenciamento de recursos do Microsoft Azure
-Dependendo do contrato que você tenha com o cliente, isso determinará como a assinatura será gerenciada. O CSP pode gerenciar diretamente a criação e a manutenção de recursos ou o cliente pode manter o controle da assinatura do Microsoft Azure e criar recursos necessário do Azure. Se o cliente gerenciar a criação de recursos na sua assinatura do Microsoft Azure, ele usará um destes dois modelos: o modelo “Connect-Through” ou o modelo “Direct-To”. Esses modelos serão descritos em detalhes nas seções a seguir.  
+Dependendo da saudação contrato com o cliente determinará como assinatura hello será gerenciada. Olá CSP diretamente pode gerenciar a criação de saudação e manutenção de recursos ou cliente Olá pode manter o controle da saudação assinatura do Microsoft Azure e criar hello recursos do Azure que precisam. Se o cliente gerencia a criação de recursos em sua assinatura do Microsoft Azure Olá eles usarão um dos dois modelos: modelo de "Conectar-se por meio" ou "Direto para" modelo. Esses modelos são descritos detalhadamente nas seções a seguir de saudação.  
 
 ### <a name="connect-through-model"></a>Modelo Connect-Through
-![texto alt](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
+![texto alternativo](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
-No modelo Connect-Through, o CSP cria uma conexão direta entre seu datacenter e a assinatura do Azure do seu cliente. A conexão direta é feita usando o ExpressRoute, conectando a sua rede ao Azure. Em seguida, seu cliente se conecta à sua rede. Esse cenário requer que o cliente passe pela rede CSP para acessar os serviços do Azure. 
+Olá conectar pelo modelo, Olá CSP cria uma conexão direta entre o datacenter e assinatura do Azure do seu cliente. conexão direta Olá é feita usando o ExpressRoute, conectar-se a sua rede com o Azure. Em seguida, o cliente se conecta a rede tooyour. Esse cenário requer o que cliente Olá transmite Olá CSP rede tooaccess serviços do Azure. 
 
-Se seu cliente tiver outras assinaturas do Azure não gerenciadas por você, deverá a conexão pública com a Internet ou sua própria conexão privada para se conectar aos serviços provisionadas sob a assinatura não CSP. 
+Se o cliente tem outras assinaturas do Azure não gerenciadas pelo Olá você, elas usariam Olá Internet pública ou seus próprios serviços de toothose tooconnect conexão privada provisionados na assinatura do CSP não hello. 
 
-Para que o CSP gerencie serviços do Azure, supõe-se que o CSP tenha um armazenamento de identidades do cliente previamente estabelecido que, então, seria replicado para o Azure Active Directory para o gerenciamento de suas assinaturas do CSP por meio de AOBO (Administrar em Nome de). Os fatores determinantes para este cenário incluem o local onde um determinado parceiro ou provedor de serviços tem um relacionamento estabelecido com o cliente, se o cliente está consumindo serviços de provedor no momento ou se o parceiro tem um desejo fornecer uma combinação de soluções hospedadas no provedor e hospedadas no Azure para fornecer flexibilidade e para enfrentar os desafios do cliente que não podem ser atendidos somente pelo CSP. Esse modelo é ilustrado na **Figura**abaixo.
+Para gerenciar os serviços do Azure de CSP, presume-se que Olá CSP possui uma identidade de cliente estabelecida anteriormente armazenar que, em seguida, será replicado para o Azure Active Directory para o gerenciamento de sua assinatura do CSP por meio de Administrate-On-Behalf-Of (AOBO). Fatores determinantes para este cenário incluem onde um determinado parceiro ou o provedor de serviços tem uma relação estabelecida com o cliente hello, cliente hello está consumindo serviços provedor atualmente ou parceiro Olá tem um tooprovide desejo uma combinação de provedor hospedado e hospedado do Azure soluções tooprovide flexibilidade e endereço desafios dos clientes que não podem ser atendidos pelo CSP sozinho. Esse modelo é ilustrado na **Figura**abaixo.
 
-![texto alt](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
+![texto alternativo](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
-### <a name="connect-to-model"></a>Modelo Connect-To
-![texto alt](./media/expressroute-for-cloud-solution-providers/connect-to.png)
+### <a name="connect-toomodel"></a>Conecte-se toomodel
+![texto alternativo](./media/expressroute-for-cloud-solution-providers/connect-to.png)
 
-No modelo Connect-To, o provedor de serviço cria uma conexão direta entre o datacenter do cliente e a assinatura do Azure provisionada pelo CSP usando o ExpressRoute na rede do cliente.
+Olá toomodel conectar, provedor de serviços de saudação cria uma conexão direta entre o datacenter do seu cliente e CSP hello provisionado assinatura do Azure usando o ExpressRoute saudação do cliente (cliente) rede.
 
 > [!NOTE]
-> Para o ExpressRoute, o cliente precisaria criar e manter o circuito do ExpressRoute.  
+> Para o ExpressRoute cliente Olá seria necessário toocreate e manter o circuito de rota expressa hello.  
 > 
 > 
 
-Esse cenário de conectividade requer que o cliente se conecte diretamente por meio de uma rede de cliente para acessar a assinatura do Azure gerenciada pelo CSP usando uma conexão de rede direta criada, pertencente e gerenciada no todo ou em parte pelo cliente. Presume-se que atualmente o provedor não tenha um armazenamento de identidades de cliente estabelecida para esses clientes, e que o provedor auxiliaria o cliente na replicação do armazenamento de identidades atual para o Azure Active Directory para o gerenciamento da assinatura por meio de AOBO. Os fatores determinantes para este cenário incluem o local onde um determinado parceiro ou provedor de serviços tem um relacionamento estabelecido com o cliente, se o cliente está consumindo serviços de provedor no momento ou se o parceiro tem um desejo fornecer serviços baseados somente em soluções hospedadas no Azure sem a necessidade de um datacenter ou de infraestrutura do provedor existente.
+Esse cenário de conectividade requer que cliente Olá se conecta diretamente por meio de uma rede de cliente tooaccess gerenciados CSP assinatura do Azure, usando uma conexão de rede direta que é criado, propriedade e gerenciado todo ou em parte pelo cliente hello. Esses clientes supõe-se que provedor Olá atualmente não tem um repositório de identidades de cliente estabelecido e provedor Olá ajudariam cliente Olá na replicação de seu repositório de identidade atual para o Azure Active Directory para o gerenciamento de seus assinatura por meio de AOBO. Fatores determinantes para este cenário incluem onde um determinado parceiro ou o provedor de serviços tem uma relação estabelecida com o cliente hello, cliente hello está consumindo serviços provedor atualmente ou parceiro Olá tem desejo tooprovide services que serão baseadas somente nas Soluções hospedado no Azure sem Olá necessário para um datacenter do provedor existente ou infraestrutura.
 
-![texto alt](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
+![texto alternativo](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
 
-A escolha entre essas duas opções se baseia nas necessidades do cliente e em sua necessidade atual para fornecer os serviços do Azure. Os detalhes desses modelos e dos padrões de design do controle de acesso baseado em função, de rede e de identidade serão abordados em detalhes nos links a seguir:
+Olá escolha entre essas duas opções são com base nas necessidades do cliente e as atuais necessário tooprovide Azure services. detalhes de saudação desses modelos e Olá associado o controle de acesso baseado em função, rede, e padrões de design de identidade são abordados em detalhes no hello links a seguir:
 
 * **RBAC (Controle de Acesso Baseado em Função)** – o RBAC baseia-se no Azure Active Directory.  Para saber mais sobre o RBAC do Azure, entre [aqui](../active-directory/role-based-access-control-configure.md).
-* **Rede** – aborda vários tópicos da rede no Microsoft Azure.
-* **AAD (Azure Active Directory)** – o AAD fornece gerenciamento de identidades para o Microsoft Azure e para aplicativos SaaS de terceiros. Para saber mais sobre o AD do Azure, entre [aqui](https://azure.microsoft.com/documentation/services/active-directory/).  
+* **Rede** – abrange Olá vários tópicos de rede no Microsoft Azure.
+* **Azure Active Directory (AAD)** – AAD fornece gerenciamento de identidade Olá Microsoft Azure e 3º aplicativos SaaS de terceiros. Para saber mais sobre o AD do Azure, entre [aqui](https://azure.microsoft.com/documentation/services/active-directory/).  
 
 ## <a name="network-speeds"></a>Velocidades de rede
-o ExpressRoute dá suporte a velocidades de rede de 50 Mb/s a 10Gb/s. Isso permite que os clientes comprem a quantidade de largura de banda de rede necessária para seu ambiente exclusivo.
+Rota expressa suporta velocidades de rede de 50 Mb/s too10Gb/s. Isso permite que os clientes toopurchase quantidade de saudação de largura de banda de rede necessária para seu ambiente exclusivo.
 
 > [!NOTE]
-> A largura de banda de rede pode ser aumentada, conforme necessário, sem a interrupção das comunicações, mas para reduzir a velocidade da rede, é necessária a divisão do circuito e sua recriação na velocidade de rede menor.  
+> Largura de banda de rede pode ser aumentada, conforme necessário, sem interromper as comunicações, mas velocidade da rede tooreduce Olá requer subdividir circuito hello e recriá-la a velocidade de rede mais baixa hello.  
 > 
 > 
 
-O ExpressRoute oferece suporte à conexão de várias Redes Virtuais a um único circuito de ExpressRoute para a melhor utilização das conexões de alta velocidade. Um único circuito de ExpressRoute pode ser compartilhado entre várias assinaturas do Azure pertencentes ao mesmo cliente.
+Rota expressa dá suporte à conexão Olá de vários vNets tooa único circuito ExpressRoute para uma melhor utilização de conexões de alta velocidade hello. Um circuito ExpressRoute único pode ser compartilhado entre várias assinaturas do Azure pertencentes a saudação mesmo cliente.
 
 ## <a name="configuring-expressroute"></a>Configuração do ExpressRoute
-O ExpressRoute pode ser configurado para oferecer suporte a três tipos de tráfego ([domínios de roteamento](#ExpressRoute-routing-domains)) em um único circuito de ExpressRoute. Esse tráfego é dividido em emparelhamento da Microsoft, emparelhamento público e emparelhamento privado do Azure. Você pode escolher o envio de um ou de todos os tipos de tráfego em um único circuito de ExpressRoute ou usar vários circuitos de ExpressRoute, dependendo do tamanho do circuito de ExpressRoute e do isolamento exigidos pelo cliente. A postura de segurança do cliente pode não permitir o tráfego público e o tráfego privado no mesmo circuito.
+Rota expressa pode ser configurado toosupport três tipos de tráfego ([domínios de roteamento](#ExpressRoute-routing-domains)) em um único circuito ExpressRoute. Esse tráfego é dividido em emparelhamento da Microsoft, emparelhamento público e emparelhamento privado do Azure. Você pode escolher um ou todos os tipos de tráfego toobe enviados por um único circuito ExpressRoute ou usar vários circuitos de rota expressa, dependendo do tamanho de saudação do circuito de rota expressa hello e isolamento exigidos pelo cliente. postura de segurança de saudação do cliente pode não permitir pública tráfego e tráfego privada tootraverse sobre Olá mesmo circuito.
 
 ### <a name="connect-through-model"></a>Modelo Connect-Through
-Em uma configuração Connect-Through, você será responsável por todas as bases de rede conectadas a seus recursos de datacenter de clientes para as assinaturas hospedadas no Azure. Cada um dos seus clientes que quiser usar recursos do Azure terá sua própria conexão de ExpressRoute, que será gerenciada por você. Você usará os mesmos métodos que o cliente usaria para adquirir o circuito de ExpressRoute. Em seguida, você seguirá as mesmas etapas descritas no artigo [Fluxos de trabalho do ExpressRoute](expressroute-workflows.md) para o provisionamento de circuitos e os estados de circuito. Em seguida, você irá configurar as rotas BGP (Border Gateway Protocol) para controlar o tráfego que flui entre a rede local e a Rede Virtual do Azure.
+Em uma saudação de conectar-se a configuração, você será responsável por todas Olá rede bases tooconnect suas assinaturas toohello de recursos de datacenter de clientes hospedadas no Azure. Cada um dos seus clientes que deseja toouse recursos do Azure será necessário sua própria conexão de rota expressa, que será gerenciado pelo Olá você. Olá você usará Olá mesmo cliente de saudação métodos usaria o circuito de rota expressa tooprocure hello. Olá você seguirá Olá mesmas etapas descritas no artigo Olá [fluxos de trabalho de rota expressa](expressroute-workflows.md) para provisionamento e estados de circuito. Olá, em seguida, você irá configurar Olá Border Gateway Protocol (BGP) rotas toocontrol Olá tráfego que flui entre a rede de local de saudação e rede virtual do Azure.
 
-### <a name="connect-to-model"></a>Modelo Connect-To
-Em uma configuração Connect-To, ou seu cliente já tem uma conexão existente com o Azure ou iniciará uma conexão com o provedor de serviços de Internet ao vincular o ExpressRoute do próprio datacenter do seu cliente diretamente ao Azure, em vez de ao seu datacenter. Para iniciar o processo de provisionamento, o cliente seguirá as etapas como descrito no modelo Connect-Through, acima. Depois que o circuito tiver sido estabelecido, seu cliente precisará configurar os roteadores locais para que eles possam acessar sua rede e as Redes Virtuais do Azure.
+### <a name="connect-toomodel"></a>Conecte-se toomodel
+Em tooconfiguration uma conexão, o seu cliente é o já a tenha um tooAzure de conexão existente ou iniciará um conexão toohello provedor vinculação rota expressa do datacenter do cliente tooAzure diretamente, em vez de seu datacenter. processo de provisionamento toobegin hello, seu cliente será siga as etapas de Olá conforme descrito em Olá conectar pelo modelo, acima. Após o estabelecimento de circuito Olá o cliente precisará tooconfigure Olá local roteadores toobe tooaccess capaz de sua rede e o vNets do Azure.
 
-Você pode auxiliar na configuração da conexão e na configuração das rotas para permitir que os recursos do seu datacenter também se comuniquem com os recursos do cliente em seu datacenter, ou com os recursos hospedados no Azure.
+Você pode ajudar a configurar a conexão de saudação e configurar Olá rotas tooallow recursos de saudação de seu toocommunicate datacenter(s) recursos de cliente de saudação em seu data center ou com recursos de saudação hospedados no Azure.
 
 ## <a name="expressroute-routing-domains"></a>Domínios de roteamento do ExpressRoute
-o ExpressRoute oferece três domínios de roteamento: público, privado e emparelhamento da Microsoft. Cada um dos domínios de roteamento é configurado com roteadores idênticos na configuração ativo-ativo para obtenção de alta disponibilidade. Para obter mais detalhes sobre os domínios de roteamento do ExpressRoute, entre [aqui](expressroute-circuit-peerings.md).
+o ExpressRoute oferece três domínios de roteamento: público, privado e emparelhamento da Microsoft. Cada um dos domínios de roteamento Olá são configurados com roteadores idênticos na configuração ativa-ativa para alta disponibilidade. Para obter mais detalhes sobre os domínios de roteamento do ExpressRoute, entre [aqui](expressroute-circuit-peerings.md).
 
-Você pode definir filtros de rotas personalizados para permitir apenas as rotas necessárias. Para saber mais ou para ver como fazer essas alterações, confira o artigo: [Criar e modificar o roteamento de um circuito de ExpressRoute usando o PowerShell](expressroute-howto-routing-classic.md) para obter mais detalhes sobre os filtros de roteamento.
+Você pode definir as rotas personalizadas filtros tooallow somente Olá route(s) deseja tooallow ou necessário. Para obter mais informações ou toosee como toomake essas alterações consulte artigo: [criar e modificar o roteamento para um circuito de rota expressa usando o PowerShell](expressroute-howto-routing-classic.md) para obter mais detalhes sobre os filtros de roteamentos.
 
 > [!NOTE]
-> Para o emparelhamento da Microsoft e público, a conectividade deve passar por um endereço IP público de propriedade do cliente ou do CSP e deve aderir a todas as regras definidas. Para saber mais, veja a página [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md) .  
+> Para emparelhamento público e Microsoft conectividade deve ser Embora um endereço IP público propriedade Prezado cliente ou de CSP e deve seguir as regras tooall definido. Para obter mais informações, consulte Olá [pré-requisitos do ExpressRoute](expressroute-prerequisites.md) página.  
 > 
 > 
 
 ## <a name="routing"></a>Roteamento
-o ExpressRoute se conecta às redes do Azure por meio do Gateway de Rede Virtual do Azure. Os gateways de rede fornecem roteamento para as redes virtuais do Azure.
+Rota expressa conecta toohello Azure redes por meio de saudação Gateway de rede Virtual do Azure. Os gateways de rede fornecem roteamento para as redes virtuais do Azure.
 
-A criação de redes virtuais do Azure também cria uma tabela de roteamento padrão para a Rede Virtual direcionar o tráfego de/para sub-redes da Rede Virtual. Se a tabela de rotas padrão for insuficiente para a solução, você poderá criar rotas personalizadas para o tráfego de saída para dispositivos personalizados ou para bloquear rotas para sub-redes ou redes externas específicas.
+Criar redes virtuais do Azure também cria uma tabela de roteamento padrão para o tráfego de toodirect Olá vNet de sub-redes Olá Olá vNet. Se a tabela de rota padrão Olá é insuficiente para solução de saudação personalizada rotas podem ser criadas como dispositivos de toocustom de tráfego de saída tooroute ou tooblock roteia toospecific sub-redes ou redes externas.
 
 ### <a name="default-routing"></a>Roteamento padrão
-A tabela de rotas padrão inclui as seguintes rotas:
+tabela de rota padrão Olá inclui Olá rotas a seguir:
 
 * Roteamento em uma sub-rede
-* Sub-rede para sub-rede na rede virtual
-* Para a Internet
+* Sub-redes na rede virtual Olá
+* toohello da Internet
 * Rede virtual para rede virtual usando o gateway de VPN
 * Rede virtual para rede local usando um gateway de VPN ou de ExpressRoute
 
 ![texto alt](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
 ### <a name="user-defined-routing-udr"></a>Roteamento definido pelo usuário (UDR)
-As rotas definidas pelo usuário permitem o controle do tráfego de saída da sub-rede atribuída para outras sub-redes na rede virtual ou em um dos outros gateways predefinidos (ExpressRoute, Internet ou VPN). A tabela padrão de roteamento do sistema pode ser substituída por uma tabela de roteamento definida pelo usuário que substitua a tabela de roteamento padrão com rotas personalizadas. Com o roteamento definido pelo usuário, os clientes podem criar rotas específicas para dispositivos como firewalls ou dispositivos de detecção de intrusão, além de bloquear o acesso a sub-redes específicas da sub-rede que hospeda a rota definida pelo usuário. Para obter uma visão geral das Rotas Definidas pelo Usuário, entre [aqui](../virtual-network/virtual-networks-udr-overview.md). 
+Rotas definidas pelo usuário permitem que o controle de saudação do tráfego de saída de hello atribuídos sub-rede tooother sub-redes na rede virtual hello ou em um dos Olá outros gateways predefinidos (rota expressa; internet ou VPN). tabela de roteamento de sistema do saudação padrão pode ser substituída por uma tabela de roteamento definido pelo usuário que substitui a tabela de roteamento saudação padrão com as rotas personalizadas. Com o roteamento de definida pelo usuário, os clientes podem criar tooappliances rotas específicas, como firewalls ou dispositivos de detecção de intrusão ou bloquear acesso toospecific sub-redes da sub-rede Olá rota definida pelo usuário de saudação de hospedagem. Para obter uma visão geral das Rotas Definidas pelo Usuário, entre [aqui](../virtual-network/virtual-networks-udr-overview.md). 
 
 ## <a name="security"></a>Segurança
-Dependendo do modelo em uso, Connect-To ou Connect-Through, seu cliente definirá as políticas de segurança na Rede Virtual ou fornecer os requisitos da política de segurança ao CSP para que ele defina nas Redes Virtuais. Os critérios de segurança a seguir podem ser definidos:
+Dependendo de qual modelo está em uso, conectar tooor Connect-por meio do seu cliente define políticas de segurança de saudação em suas redes ou fornece requisitos de política de segurança Olá toohello CSP toodefine tootheir vNets. Olá critérios de segurança a seguir pode ser definido:
 
-1. **Isolamento do cliente** — a plataforma do Azure fornece isolamento de cliente ao armazenar a ID do Cliente e as informações da Rede Virtual em um banco de dados seguro, que é usado para encapsular o tráfego de cada cliente em um túnel GRE.
-2. **NSG (Grupo de Segurança de Rede)** definem o tráfego de entrada e de saída permitido para as sub-redes em Redes Virtuais no Azure. Por padrão, o NSG contém regras de Bloqueio para bloquear o tráfego da Internet para a Rede Virtual e as regras de Permissão para o tráfego em uma Rede Virtual. Para saber mais sobre os Grupos de Segurança de Rede, entre [aqui](https://azure.microsoft.com/blog/network-security-groups/).
-3. **Criação de túneis à força** — essa é uma opção para redirecionar o tráfego limitado à Internet originado no Azure na conexão de ExpressRoute para o datacenter local. Para saber mais sobre a criação de túneis à força, entre [aqui](expressroute-routing.md#advertising-default-routes).  
-4. **Criptografia** — mesmo se os circuitos de ExpressRoute estiverem dedicados a um cliente específico, há a possibilidade de que o provedor de rede possa ser violado, permitindo que um invasor examine o tráfego de pacotes. Para reduzir essa possibilidade, um cliente ou um CSP pode criptografar o tráfego pela conexão ao definir políticas de modo de túnel IPSec para todo o tráfego que fluir entre os recursos locais e os recursos do Azure (consulte o modo de túnel IPSec opcional para o Cliente 1 na Figura 5: Segurança do ExpressRoute, acima). A segunda opção seria usar um dispositivo de firewall em cada ponto de extremidade do circuito do ExpressRoute. Isso exigirá a instalação de VMs/dispositivos de firewall de terceiros adicionais em ambas as extremidades para criptografar o tráfego no circuito de ExpressRoute.
+1. **Isolamento de cliente** — hello plataforma Windows Azure fornece isolamento de cliente, armazenando informações de ID de cliente e de rede virtual em um banco de dados seguro, o que é usado tooencapsulate tráfego do cliente em um túnel GRE.
+2. **Grupo de segurança (NSG) de rede** regras são para definir o tráfego é permitido dentro e fora de sub-redes de saudação em vNets no Azure. Por padrão, a saudação NSG contêm bloquear o tráfego de tooblock de regras de saudação Internet toohello vNet e regras de permissão para o tráfego em uma rede virtual. Para saber mais sobre os Grupos de Segurança de Rede, entre [aqui](https://azure.microsoft.com/blog/network-security-groups/).
+3. **Túneis à força** — este é um tooredirect opção internet associado tráfego originado no Azure toobe redirecionada pela Olá toohello de conexão de rota expressa no data center local. Para saber mais sobre a criação de túneis à força, entre [aqui](expressroute-routing.md#advertising-default-routes).  
+4. **Criptografia** — mesmo que circuitos do ExpressRoute Olá tooa dedicados específicos do cliente, há possibilidade de Olá Olá provedor de rede foi violada, permitindo que um invasor tooexamine tráfego de pacote. tooaddress que essa possibilidade, um cliente ou CSP pode criptografar o tráfego pela Olá conexão definindo políticas de modo de túnel IPSec para todo o tráfego fluindo entre hello em recursos locais e recursos do Azure (consulte toohello opcional do modo de túnel IPSec para 1 cliente na Figura 5: segurança de rota expressa, acima). opção de segundo Olá seria toouse um dispositivo de firewall em cada ponto de extremidade de saudação do hello circuito de rota expressa. Isso exigirá adicional parte 3 de VMs/dispositivos toobe instalado no tráfego de saudação de tooencrypt ambas extremidades sobre circuito de rota expressa Olá do firewall.
 
-![texto alt](./media/expressroute-for-cloud-solution-providers/expressroute-security.png)  
+![texto alternativo](./media/expressroute-for-cloud-solution-providers/expressroute-security.png)  
 
 ## <a name="next-steps"></a>Próximas etapas
-O serviço Provedor de Soluções de Nuvem oferece uma maneira de aumentar seu valor para seus clientes sem a necessidade de comprar recursos e uma infraestrutura caros, mantendo sua posição como o provedor terceirizado principal. A integração direta com o Microsoft Azure pode ser feita por meio da API do CSP, permitindo que você integre o gerenciamento do Microsoft Azure às suas estruturas de gerenciamento existentes.  
+Olá serviço de provedor de soluções de nuvem fornece um tooincrease de forma precisam de seus clientes de tooyour valor sem Olá para caras compras de infraestrutura e capacidade, mantendo sua posição como provedor de terceirização primário hello. Integração perfeita com o Microsoft Azure pode ser feita por meio de saudação CSP API, permitindo que você gerenciamento toointegrate do Microsoft Azure em suas estruturas de gerenciamento existente.  
 
-Encontre mais informações nestes links:
+Informações adicionais podem ser encontradas no hello links a seguir:
 
 [Programa Provedor de Soluções na Nuvem da Microsoft](https://partner.microsoft.com/en-US/Solutions/cloud-reseller-overview).  
-[Prepare-se para a transação como um Provedor de Soluções da Nuvem](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
+[Obter pronto tootransact como um provedor de soluções de nuvem](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
 [Recursos do Provedor de Soluções da Nuvem da Microsoft](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources).
 

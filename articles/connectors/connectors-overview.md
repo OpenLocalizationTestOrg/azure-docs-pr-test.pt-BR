@@ -1,5 +1,5 @@
 ---
-title: "Visão geral dos Conectores dos Aplicativos Lógicos | Microsoft Docs"
+title: "aaaOverview de lógica de conectores de aplicativos | Microsoft Docs"
 description: "Visão geral de conectores que podem ser usados em um aplicativo lógico"
 services: 
 documentationcenter: 
@@ -15,45 +15,45 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
-ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dc4cac4c0dfaa2f9fd218ffc04414fa8e52a91d3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-connectors-in-a-logic-app"></a>Usando conectores em um aplicativo lógico
-Os conectores fornecem acesso rápido a eventos, dados e ações entre serviços, protocolos e plataformas.  A lista completa de conectores compatíveis com Aplicativos Lógicos pode [ser encontrada aqui](apis-list.md).  Os conectores podem ser usados como um gatilho ou uma ação em um aplicativo lógico, podendo exigir uma *conexão* configurada a ser usada (por exemplo: autorizar uma conta do Twitter a acessar ou publicar em seu nome).
+Conectores fornecem acesso rápido tooevents, dados e ações em serviços, protocolos e plataformas.  lista completa de saudação de conectores que oferece suporte a aplicativos lógicos pode [ser encontradas aqui](apis-list.md).  Conectores pode ser usados como um disparador ou uma ação em um aplicativo lógico e pode exigir um configurado *conexão* toouse (por exemplo: Autorizar um Twitter conta tooaccess ou post em seu nome).
 
 ## <a name="basics"></a>Noções básicas
-Os conectores são serviços hospedados que você pode acessar como parte de um aplicativo lógico para integração a outros serviços, como Dynamics, Azure, Salesforce [e mais](apis-list.md).  Eles são implantados e gerenciados pela Microsoft para que você possa criar fluxos de trabalho de integração prestando atenção à escala, produtividade e segurança.  Você pode adicionar um conector a um aplicativo lógico pesquisando e escolhendo um gatilho ou uma ação de conector em **Mostrar APIs gerenciadas pela Microsoft**.
+Você pode acessar como parte de um toointegrate de aplicativo lógica com outros serviços como Dynamics, Azure, a equipe de vendas, os serviços hospedados, os conectores são [e mais](apis-list.md).  Eles são implantados e gerenciados pela Microsoft para que você possa criar fluxos de trabalho de integração prestando atenção à escala, produtividade e segurança.  Você pode adicionar um aplicativo do conector tooa lógica procurando e selecionando uma ação do conector ou do gatilho em **APIs gerenciadas do Microsoft Mostrar**.
 
 ![Menu de ação para a seleção de gatilho][1]
 
-Cada gatilho ou ação de conector terá seu conjunto de propriedades a ser configurado.  É possível clicar nos botões de informação para saber mais sobre a ação ou consultar a respectiva documentação [para saber mais](apis-list.md).
+Cada ação de conector ou gatilho terá seu conjunto de propriedades tooconfigure.  Você pode clicar em Olá informações botões toolearn mais informações sobre a ação ou sua documentação de referência [toolearn mais](apis-list.md).
 
-Se desejar fazer a integração a um serviço ou uma API que ainda não seja um conector, você também poderá estender aplicativos lógicos por meio de um [conector personalizado](../logic-apps/logic-apps-create-api-app.md) ou apenas chamar diretamente o serviço por um protocolo como HTTP.
+Se você quiser toointegrate com um serviço ou a API que não é ainda um conector, você também pode estender a lógica de aplicativos por meio de um [conector personalizado](../logic-apps/logic-apps-create-api-app.md) ou simplesmente chamar diretamente toohello serviço por meio de um protocolo HTTP.
 
 ## <a name="triggers"></a>Gatilhos
-Alguns conectores têm um gatilho, o que significa que um evento nesse conector acionará um aplicativo lógico e transmitirá todos os dados como parte do gatilho.  Um gatilho é sempre a primeira etapa em um aplicativo lógico.  Gatilhos populares incluem operações como:
+Alguns conectores têm um gatilho, o que significa que um evento desse conector será acionar um lógica de aplicativo e passar em todos os dados como parte do disparador hello.  Um gatilho é sempre a primeira etapa Olá em um aplicativo de lógica.  Gatilhos populares incluem operações como:
 
 * Recorrência — execução de hora em hora
 * Quando uma solicitação HTTP é recebida
-* Quando um item é adicionado a uma fila
+* Quando um item é adicionado a fila de tooa
 * Quando um email é recebido
 
-Alguns gatilhos serão acionados no instante em que um evento ocorre por meio de uma notificação ao aplicativo lógico, já outros precisarão de um intervalo de recorrência configurado com a frequência que o aplicativo lógico verificará o serviço para um avento (no máximo a cada 15 segundos).  
+Alguns gatilhos acionarão Olá instantânea um evento ocorre por meio de um aplicativo de lógica de toohello de notificação e outros precisará de um intervalo de recorrência configurado na frequência hello aplicativo lógico verificará serviço Olá para um evento (para cima tooevery 15 segundos).  
 
-Depois que um evento for recebido, a execução do aplicativo lógico será disparada e as ações no fluxo de trabalho serão iniciadas.  Você também poderá acessar todos os dados do gatilho em todo o fluxo de trabalho (por exemplo, o gatilho 'Em um novo tweet' passará o tweet para a execução).
+Depois que um evento é recebido, Olá lógica aplicativo executar será acionado e ações Olá no fluxo de trabalho Olá serão iniciado.  Você também será capaz de tooaccess todos os dados de saudação disparam ao longo do fluxo de trabalho de saudação (para Olá exemplo 'em um tweet novo' gatilho passará Olá tweet em Olá executar).
 
 ## <a name="actions"></a>Ações
-A maioria dos conectores tem uma ou várias ações que podem ser executadas como parte do fluxo de trabalho.  As ações são as etapas que ocorrem após a execução ter sido disparada de um gatilho.  Para adicionar uma ação, clique no botão **Nova Etapa** e procure o conector que deseja usar.  Uma vez selecionado (e após configuração das [conexões](#connections) que podem ser necessárias), você verá o cartão de ação que pode configurar.  É possível escolher dados de etapas anteriores clicando em qualquer um dos tokens de saídas ou inserir qualquer outra configuração, conforme a necessidade.
+A maioria dos conectores têm uma ou várias ações que podem ser executadas como parte do fluxo de trabalho de saudação.  As ações são as etapas que ocorrem após a execução de saudação foi disparado de um disparador.  uma ação de tooadd clique Olá **nova etapa** botão e procure Olá conector que você deseja toouse.  Uma vez selecionado (e, depois de configurar qualquer [conexões](#connections) que podem ser necessárias) você verá o cartão de ação de saudação, você pode configurar.  Você pode selecionar dados de etapas anteriores clicando em qualquer um dos tokens de saudação para saídas ou insira em qualquer outra configuração conforme necessário.
 
 ![Configurando uma ação de conector][2]
 
-## <a name="connections"></a>conexões
-A maioria dos conectores exige a configuração de uma *conexão* para que você possa usar o conector.  Uma *conexão* é qualquer configuração de logon ou conexão necessária para acessar o conector.  Para os conectores que usam OAuth, criar uma conexão significa entrar no serviço (como o Office 365, Salesforce ou GitHub) em que seu token de acesso pode ser criptografado e armazenado com segurança em um repositório secreto do Azure.  Outros conectores (como FTP e SQL) exigem uma conexão que contenha configuração, como endereço do servidor, nome de usuário e senha.  Esses detalhes de configuração de conexão também são criptografados e armazenados com segurança.  As conexões poderão acessar o serviço pelo tempo que o serviço permitir.  Para conexões OAuth do Azure Active Directory (como o Office 365 e Dynamics), podemos continuar atualizando o token de acesso indefinidamente.  Outros serviços podem estabelecer limites quanto ao tempo pelo qual podemos usar um token sem que ele seja atualizado.  De modo geral, determinadas ações, como mudar uma senha, invalidarão todos os tokens de acesso.  
+## <a name="connections"></a>Conexões
+A maioria dos conectores exigem tooconfigure um *conexão* antes de usar o conector de saudação.  Um *conexão* é qualquer logon ou a configuração de conexão necessária tooaccess conector de saudação.  Para os conectores que usar o OAuth, crie uma conexão significa entrar no serviço de saudação (como o Office 365, a equipe de vendas ou GitHub) onde o token de acesso pode ser criptografado e armazenado com segurança em um repositório de segredo do Azure.  Outros conectores (como FTP e SQL) exigem uma conexão que contenha configuração, como endereço do servidor, nome de usuário e senha.  Esses detalhes de configuração de conexão também são criptografados e armazenados com segurança.  Conexões serão tooaccess capaz de serviço Olá para desde que o serviço Olá permite.  Para conexões do Azure Active Directory OAuth (como o Office 365 e Dynamics) podem continuar token de acesso de saudação toorefresh indefinidamente.  Outros serviços podem estabelecer limites quanto ao tempo pelo qual podemos usar um token sem que ele seja atualizado.  De modo geral, determinadas ações, como mudar uma senha, invalidarão todos os tokens de acesso.  
 
-As conexões podem ser exibidas e gerenciadas no Azure clicando em **Procurar** e selecionando **Conexões de API**.  No recurso Conexões de API, você pode exibir, editar, atualizar ou autorizar novamente todas as conexões que criou.
+As conexões podem ser exibidas e gerenciadas no Azure clicando em **Procurar** e selecionando **Conexões de API**.  Olá recursos de conexões de API, você pode exibir, editar, atualizar ou autorizar novamente quaisquer conexões que você criou.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Criar seu primeiro aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)

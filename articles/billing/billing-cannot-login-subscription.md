@@ -1,6 +1,6 @@
 ---
-title: "Não é possível entrar na assinatura do Azure | Microsoft Docs"
-description: Descreve como solucionar alguns problemas comuns de logon na assinatura do Azure.
+title: entrada aaaCan't tooAzure assinatura | Microsoft Docs
+description: Descreve como tootroubleshoot alguns logon comum de assinatura do Azure emite.
 services: 
 documentationcenter: 
 author: genlin
@@ -15,35 +15,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: genli
-ms.openlocfilehash: 4f67be9b59ab42e10c4cd755998795a72b711da6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 00a4d04be18567a803032bb836fc6f1ac9cc5ffe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="i-cant-sign-in-to-manage-my-azure-subscription"></a>Não consigo entrar para gerenciar minha assinatura do Azure
-Este artigo explica alguns dos métodos mais comuns para resolver problemas de logon.
+# <a name="i-cant-sign-in-toomanage-my-azure-subscription"></a>Não consigo entrar toomanage minha assinatura do Azure
+Este artigo o orienta por meio de alguns dos problemas de logon de tooresolve de métodos mais comuns de saudação.
 
-## <a name="page-hangs-in-the-loading-status"></a>A página para de responder no status de carregamento
-Se a página do navegador da Internet parar, experimente cada uma das etapas a seguir até chegar ao [portal do Azure](https://portal.azure.com).
+## <a name="page-hangs-in-hello-loading-status"></a>Trava de página no hello Carregando status
+Se seu trava de página do navegador da internet, tente cada uma das seguintes Olá etapas até que você pode obter toohello [portal do Azure](https://portal.azure.com).
 
-* Atualize a página.
+* Atualize a página de saudação.
 * Use um navegador de Internet diferente.
-* Se você estiver usando o Microsoft Internet Explorer, navegue até o portal do Azure usando o modo de Navegação InPrivate. 
+* Se você estiver usando o Microsoft Internet Explorer, navegue toohello portal do Azure usando o modo de Navegação InPrivate hello. 
   
   R. Clique em **Ferramentas** ![botão ferramentas](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Segurança** > **Navegação InPrivate**.
   
-  B. Navegue até o [portal do Azure](https://portal.azure.com)e entre no portal.
+  B. Procurar toohello [portal do Azure](https://portal.azure.com)e, em seguida, entre no portal de toohello.
 
 ## <a name="you-are-automatically-signed-in-as-a-different-user"></a>Você está automaticamente conectado como um usuário diferente
 Esse problema poderá ocorrer se você estiver usando mais de uma conta de usuário em um navegador da Internet.
 
-Para resolver o problema, tente usar um dos seguintes métodos:
+problema de saudação tooresolve, tente um dos métodos a seguir de saudação:
 
-* Limpe o cache e exclua cookies da Internet. No Internet Explorer, clique em **Ferramentas** ![botão ferramentas](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Opções da Internet** > **Excluir**. Verifique se as caixas de seleção dos arquivos temporários, dos cookies, das senha e do histórico de navegação estão marcadas e clique em Excluir.
-* Redefina as configurações do Internet Explorer para reverter todas as configurações pessoais que você tenha feito. Clique em **Ferramentas** ![botão ferramentas](./media/billing-cannot-login-subscription/Toolsbutton.png)> **Opções da Internet** > **Avançado** > selecione a caixa **Excluir configurações pessoais** > **Redefinir**.
-* Navegue até o portal do Azure no modo de Navegação InPrivate. Clique em **Ferramentas** ![botão ferramentas](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Segurança** > **Navegação InPrivate**.
+* Limpar cache hello e exclui os cookies de Internet. No Internet Explorer, clique em **Ferramentas** ![botão ferramentas](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Opções da Internet** > **Excluir**. Certifique-se de que Olá caixas de seleção para arquivos temporários, cookies, senha e histórico de navegação são selecionadas e, em seguida, clique em Excluir.
+* Redefina toorevert de configurações do Internet Explorer Olá quaisquer informações pessoais que você fez. Clique em **ferramentas** ![botão ferramentas](./media/billing-cannot-login-subscription/Toolsbutton.png)> **opções da Internet** > **avançado** > Olá selecione **Excluir configurações pessoais** caixa > **redefinir**.
+* Procure toohello portal do Azure no modo de Navegação InPrivate. Clique em **Ferramentas** ![botão ferramentas](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Segurança** > **Navegação InPrivate**.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
-Se ainda tiver dúvidas, [entre em contato com o suporte](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para resolver seu problema rapidamente. 
+Se você ainda precisar de Ajuda, [entre em contato com o suporte](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) tooget seu problema resolvido rapidamente. 
 

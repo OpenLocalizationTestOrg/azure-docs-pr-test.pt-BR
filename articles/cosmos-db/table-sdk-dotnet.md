@@ -1,6 +1,6 @@
 ---
-title: Recursos e SDK .NET da API de Tabela do Azure CosmosDB | Microsoft Docs
-description: "Saiba tudo sobre a API de Tabela do Azure CosmosDB, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão."
+title: aaaAzure CosmosDB tabela API .NET SDK & recursos | Microsoft Docs
+description: "Saiba tudo sobre Olá API de tabela do Azure CosmosDB incluindo datas de lançamento, datas de desativação e as alterações feitas entre cada versão."
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 7d641d4089f8bce86633b7c476f10617bc642e2b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5217f53274874489d3f10ed1ccae3330fdf91678
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET de Tabela do Azure CosmosDB: download e notas de versão
 
@@ -27,8 +27,8 @@ ms.lasthandoff: 07/11/2017
 |---|---|
 |**Baixe o SDK**|[NuGet](https://aka.ms/acdbtablenuget)|
 |**Documentação da API**|[Documentação de referência de API .NET](https://aka.ms/acdbtableapiref)|
-|**Início rápido**|[Azure CosmosDB: Compilar um aplicativo com o .NET e a API de Tabela](https://aka.ms/acdbtnetqs)|
-|**Tutorial**|[Azure CosmosDB: Criar um contêiner com a API do Graph](tutorial-develop-graph-dotnet.md)|
+|**Início rápido**|[Cosmos do Azure DB: Criar um aplicativo com o .NET e Olá API de tabela](https://aka.ms/acdbtnetqs)|
+|**Tutorial**|[Azure CosmosDB: Criar um contêiner com hello API do Graph](tutorial-develop-graph-dotnet.md)|
 |**Framework atualmente com suporte**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
 ## <a name="release-notes"></a>Notas de versão
@@ -36,12 +36,12 @@ ms.lasthandoff: 07/11/2017
 * Versão prévia inicial.
 
 ## <a name="release--retirement-dates"></a>Datas de lançamento e desativação
-A Microsoft fornecerá uma notificação pelo menos **12 meses** antes de desativar um SDK, a fim de realizar uma transição tranquila para uma versão mais recente/com suporte.
+A Microsoft fornecerá notificação pelo menos **12 meses** antes de desativar um SDK na versão mais recente/suporte ordem toosmooth Olá transição tooa.
 
-Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SDK atual. Portanto, recomendamos que você atualize sempre que possível para a versão do SDK mais recente. 
+Novos recursos e funcionalidade e as otimizações são adicionadas apenas toohello atual SDK, como tal, é recomendável que você sempre atualize toohello mais recente versão do SDK mais cedo possível. 
 
-Qualquer solicitação feita ao BD Cosmos do Azure usando um SDK obsoleto será rejeitada pelo serviço.
+Qualquer solicitação tooAzure Cosmos de banco de dados usando um SDK obsoleto será rejeitado pelo serviço de saudação.
 
 
 ## <a name="see-also"></a>Consulte também
-Para saber mais sobre a API de Tabela do Azure CosmosDB, consulte [Introdução ao Azure Cosmos DB: API de Tabela](table-introduction.md). 
+toolearn mais sobre Olá API de tabela do banco de dados do Cosmos do Azure, consulte [tooAzure Introdução Cosmos DB: API de tabela](table-introduction.md). 

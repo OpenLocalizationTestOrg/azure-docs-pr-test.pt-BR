@@ -1,6 +1,6 @@
 ---
-title: Como usar o API do Engagement no Windows Universal
-description: Como usar o API do Engagement no Windows Universal
+title: "saudação de tooUse aaaHow contrato de API no Windows Universal"
+description: "Como tooUse Olá contrato de API no Windows Universal"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,40 +14,40 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 75fc134a5535e6113331470cf61df9c06eb8e2ab
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0256b839c28e4ef6c530106408d744038fa711ac
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-the-engagement-api-on-windows-universal"></a>Como usar o API do Engagement no Windows Universal
-Este documento é um complemento para o documento [Como integrar o Engagement no Windows Universal](mobile-engagement-windows-store-integrate-engagement.md): ele fornece detalhes aprofundados sobre como usar a API do Engagement para relatar as estatísticas do aplicativo.
+# <a name="how-toouse-hello-engagement-api-on-windows-universal"></a>Como tooUse Olá contrato de API no Windows Universal
+Este é um documento de toohello complemento [como tooIntegrate contrato no Windows Universal](mobile-engagement-windows-store-integrate-engagement.md): fornece encontrar detalhes sobre como toouse Olá contrato API tooreport suas estatísticas do aplicativo.
 
-Tenha em mente que caso queira o Engagement apenas para relatar as sessões, atividades, falhas e informações técnicas do seu aplicativo, então a maneira mais simples é fazer todas as suas subclasses `Page` herdarem da classe `EngagementPage`.
+Tenha em mente que se você desejar contrato tooreport somente sessões, atividades, falhas e obter informações técnicas do seu aplicativo, em seguida, hello forma mais simples é toomake todos os seus `Page` subclasses herdam Olá `EngagementPage` classe.
 
-Se você quiser fazer mais, por exemplo, se você precisar reportar eventos, erros e trabalhos específicos do aplicativo ou se você tiver que relatar as atividades do seu aplicativo de maneira diferente de um implementado nas classes `EngagementPage`, você precisará usar a API do Engagement.
+Se você quiser toodo mais, por exemplo, se você precisar de trabalhos, erros e eventos específicos do aplicativo tooreport, ou se você tiver tooreport atividades do seu aplicativo de maneira diferente de Olá um implementado em Olá `EngagementPage` classes, e em seguida, você precisa toouse Olá Contrato de API.
 
-A API do Engagement é fornecida pela classe `EngagementAgent` . Você pode obter acesso a esses métodos por meio de `EngagementAgent.Instance`.
+Olá contrato de API é fornecida pelo Olá `EngagementAgent` classe. Você pode acessar os métodos de toothose por meio de `EngagementAgent.Instance`.
 
-Mesmo se o módulo de agente não foi inicializado, cada chamada para a API é adiada e será executada novamente quando o agente está disponível.
+Mesmo que o módulo de saudação do agente não foi inicializado, cada API toohello de chamada é adiada e será executado novamente quando o agente hello está disponível.
 
 ## <a name="engagement-concepts"></a>Conceitos de Engagement
-As seguintes partes refinam os [Conceitos de Mobile Engagement](mobile-engagement-concepts.md) usuais para a plataforma Windows Universal.
+seguintes partes Hello refinar Olá comuns [Mobile Engagement conceitos](mobile-engagement-concepts.md) para plataforma Universal do Windows hello.
 
 ### <a name="session-and-activity"></a>`Session` e `Activity`
-Uma *atividade* geralmente está associada a uma página de aplicativo. Isso significa que a *atividade* iniciará quando a página for exibida e será interrompida quando a página for fechada: esse é o caso quando o SDK do Engagement é integrado usando a classe `EngagementPage`.
+Um *atividade* geralmente está associado com uma página de aplicativo hello, que é toosay hello *atividade* inicia quando a página Olá é exibida e é interrompido quando Olá página é fechada: esse é o caso de Olá quando hello SDK do contrato é integrado usando Olá `EngagementPage` classe.
 
-Mas as *atividades* também podem ser controladas manualmente usando a API do Engagement. Isso permite dividir uma determinada página em várias partes secundárias para obter mais detalhes sobre o uso desta página (por exemplo para saber com que frequência e por quanto tempo as caixas de diálogo são usadas dentro dessa página).
+Mas *atividades* também podem ser controladas manualmente usando Olá contrato de API. Isso permite que você toosplit uma determinada página em várias sub partes tooget mais detalhes sobre o uso de saudação desta página (por exemplo tooknow frequência e quanto tempo as caixas de diálogo são usadas dentro desta página).
 
 ## <a name="reporting-activities"></a>Relatório de atividades
 ### <a name="user-starts-a-new-activity"></a>O usuário inicia uma nova atividade
 #### <a name="reference"></a>Referência
             void StartActivity(string name, Dictionary<object, object> extras = null)
 
-É necessário chamar `StartActivity()` sempre que houver alterações de atividade do usuário. A primeira chamada para essa função inicia uma nova sessão de usuário.
+Você precisa toocall `StartActivity()` alterações de cada atividade de usuário de saudação do tempo. Olá primeira chamada toothis função inicia uma nova sessão de usuário.
 
 > [!IMPORTANT]
-> O SDK chama automaticamente o método EndActivity quando o aplicativo é fechado. Portanto, é ALTAMENTE recomendado chamar o método StartActivity sempre que a atividade do usuário for alterada e NUNCA chamar o método EndActivity, visto que chamar esse método força o encerramento da sessão atual.
+> Olá SDK automaticamente chama o método de EndActivity de saudação quando o aplicativo hello está fechado. Portanto, é altamente recomendável método de StartActivity toocall hello sempre hello atividade de usuário Olá alterações e término da chamada tooNEVER Olá método EndActivity, desde chamar esse método força Olá toobe de sessão atual.
 > 
 > 
 
@@ -58,7 +58,7 @@ Mas as *atividades* também podem ser controladas manualmente usando a API do En
 #### <a name="reference"></a>Referência
             void EndActivity()
 
-Isso encerra a atividade e a sessão. Você não deve chamar esse método, a menos que você realmente sabe o que está fazendo.
+Isso encerra a atividade de saudação e a sessão de saudação. Você não deve chamar esse método, a menos que você realmente sabe o que está fazendo.
 
 #### <a name="example"></a>Exemplo
             EngagementAgent.Instance.EndActivity();
@@ -68,12 +68,12 @@ Isso encerra a atividade e a sessão. Você não deve chamar esse método, a men
 #### <a name="reference"></a>Referência
             void StartJob(string name, Dictionary<object, object> extras = null)
 
-Você pode usar o trabalho para acompanhar determinadas tarefa por um período de tempo.
+Você pode usar o hello tootrack alguns tarefas em um período de tempo.
 
 #### <a name="example"></a>Exemplo
             // An upload begins...
 
-            // Set the extras
+            // Set hello extras
             var extras = new Dictionary<object, object>();
             extras.Add("title", "avatar");
             extras.Add("type", "image");
@@ -84,11 +84,11 @@ Você pode usar o trabalho para acompanhar determinadas tarefa por um período d
 #### <a name="reference"></a>Referência
             void EndJob(string name)
 
-Assim que uma tarefa controlada por um trabalho foi finalizada, você deve chamar o método EndJob para esse trabalho, fornecendo o nome do trabalho.
+Assim que uma tarefa controlada por um trabalho foi encerrada, você deve chamar o método de EndJob de saudação para esse trabalho, fornecendo o nome do trabalho hello.
 
 #### <a name="example"></a>Exemplo
-            // In the previous section, we started an upload tracking with a job
-            // Then, the upload ends
+            // In hello previous section, we started an upload tracking with a job
+            // Then, hello upload ends
 
             EngagementAgent.Instance.EndJob("uploadData");
 
@@ -103,7 +103,7 @@ Há três tipos de eventos :
 #### <a name="reference"></a>Referência
             void SendEvent(string name, Dictionary<object, object> extras = null)
 
-Eventos autônomos podem ocorrer fora do contexto de uma sessão.
+Autônomo eventos podem ocorrer fora do contexto de saudação de uma sessão.
 
 #### <a name="example"></a>Exemplo
             EngagementAgent.Instance.SendEvent("event", extra);
@@ -112,7 +112,7 @@ Eventos autônomos podem ocorrer fora do contexto de uma sessão.
 #### <a name="reference"></a>Referência
             void SendSessionEvent(string name, Dictionary<object, object> extras = null)
 
-Eventos de sessão são geralmente usados para relatar as ações executadas por um usuário durante a sessão.
+Eventos de sessão são ações que Olá tooreport usados normalmente executadas por um usuário durante a sessão.
 
 #### <a name="example"></a>Exemplo
 **Sem dados :**
@@ -133,7 +133,7 @@ Eventos de sessão são geralmente usados para relatar as ações executadas por
 #### <a name="reference"></a>Referência
             void SendJobEvent(string eventName, string jobName, Dictionary<object, object> extras = null)
 
-Eventos de trabalho são geralmente usados para relatar as ações executadas por um usuário durante um trabalho.
+Eventos de trabalho são ações que Olá tooreport usados normalmente executadas por um usuário durante um trabalho.
 
 #### <a name="example"></a>Exemplo
             EngagementAgent.Instance.SendJobEvent("eventName", "jobName", extras);
@@ -149,7 +149,7 @@ Há três tipos de erros:
 #### <a name="reference"></a>Referência
             void SendError(string name, Dictionary<object, object> extras = null)
 
-Ao contrário dos erros de sessão, os erros autônomos podem ocorrer fora do contexto de uma sessão.
+Erros de toosession contrary, podem ocorrer erros autônomo fora do contexto de saudação de uma sessão.
 
 #### <a name="example"></a>Exemplo
             EngagementAgent.Instance.SendError("errorName", extras);
@@ -158,7 +158,7 @@ Ao contrário dos erros de sessão, os erros autônomos podem ocorrer fora do co
 #### <a name="reference"></a>Referência
             void SendSessionError(string name, Dictionary<object, object> extras = null)
 
-Erros de sessão são geralmente usados para relatar os erros que afetam o usuário durante a sessão.
+Erros de sessão são erros de saudação do tooreport geralmente usados afetar o usuário Olá durante a sessão.
 
 #### <a name="example"></a>Exemplo
             EngagementAgent.Instance.SendSessionError("errorName", extra);
@@ -167,13 +167,13 @@ Erros de sessão são geralmente usados para relatar os erros que afetam o usuá
 #### <a name="reference"></a>Referência
             void SendJobError(string errorName, string jobName, Dictionary<object, object> extras = null)
 
-Os erros podem estar relacionados a um trabalho em execução, em vez de serem relacionados a sessão do usuário atual.
+Os erros podem ser relacionada tooa executando o trabalho em vez de ser relacionados toohello sessão do usuário atual.
 
 #### <a name="example"></a>Exemplo
             EngagementAgent.Instance.SendJobError("errorName", "jobname", extra);
 
 ## <a name="reporting-crashes"></a>Relatórios de falhas
-O agente fornece dois métodos para lidar com falhas.
+Agente de saudação fornece dois toodeal de métodos com falhas.
 
 ### <a name="send-an-exception"></a>Enviar uma exceção
 #### <a name="reference"></a>Referência
@@ -184,26 +184,26 @@ Você pode enviar uma exceção a qualquer momento chamando :
 
             EngagementAgent.Instance.SendCrash(aCatchedException);
 
-Você também pode usar um parâmetro opcional para encerrar a sessão do engagement ao mesmo tempo que envia a falha. Para fazer isso, chame :
+Você também pode usar uma sessão de contrato de saudação do parâmetro opcional tooterminate em Olá mesmo tempo que o envio de falhas de saudação. Portanto, chame toodo:
 
             EngagementAgent.Instance.SendCrash(new Exception("example"), terminateSession: true);
 
-Se você fizer isso, os trabalhos e a sessão serão fechados apenas após o envio da falha.
+Se você fizer isso, trabalhos e sessão Olá serão fechados imediatamente após enviar falha de saudação.
 
 ### <a name="send-an-unhandled-exception"></a>Enviar uma exceção sem tratamento
 #### <a name="reference"></a>Referência
             void SendCrash(Exception e)
 
-O Engagement também fornece um método para enviar as exceções sem tratamento se você tiver **DESABILITADO** o relatório de **falha** automático do Engagement. Isso é especialmente útil quando usado dentro do manipulador de eventos do aplicativo UnhandledException.
+Contrato também fornece um exceções toosend sem tratamento de método se você tiver **desabilitado** contrato automático **falha** reporting. Isso é especialmente útil quando usado dentro do manipulador de eventos do hello aplicativo UnhandledException.
 
-Esse método **SEMPRE** encerrará a sessão e os trabalhos do engagement depois de ser chamado.
+Esse método será **sempre** encerrar a sessão de contrato hello e trabalhos após a chamada.
 
 #### <a name="example"></a>Exemplo
-Você pode usá-lo para implementar seu próprio manipulador UnhandledExceptionEventArgs. Por exemplo, adicione o método `Current_UnhandledException` do arquivo `App.xaml.cs` :
+Você pode usá-lo tooimplement seu próprio manipulador de UnhandledExceptionEventArgs. Por exemplo, adicionar Olá `Current_UnhandledException` método hello `App.xaml.cs` arquivo:
 
             // In your App.xaml.cs file
 
-            // Code to execute on Unhandled Exceptions
+            // Code tooexecute on Unhandled Exceptions
             void Current_UnhandledException(object sender, UnhandledExceptionEventArgs e)
             {
                EngagementAgent.Instance.SendCrash(e.Exception,false);
@@ -216,12 +216,12 @@ Em App.xaml.cs em "Public App(){}" adicione:
 ## <a name="device-id"></a>Id do dispositivo
             String EngagementAgent.Instance.GetDeviceId()
 
-Você pode obter a id do dispositivo do engagement chamando esse método.
+Você pode obter o id do dispositivo Olá engagement por chamar esse método.
 
 ## <a name="extras-parameters"></a>Parâmetros adicionais
-Dados arbitrários podem ser anexados a um evento, um erro, uma atividade ou um trabalho. Esses dados podem ser estruturados usando um dicionário. Chaves e valores podem ser de qualquer tipo.
+Dados arbitrários podem ser anexados tooan evento, um erro, uma atividade ou um trabalho. Esses dados podem ser estruturados usando um dicionário. Chaves e valores podem ser de qualquer tipo.
 
-Dados adicionais são serializados para que se desejar inserir seu próprio tipo em adicionais, você precisará adicionar um contrato de dados para esse tipo.
+Dados extras são serializados para que tooinsert seu próprio tipo de extras você ter se tooadd um contrato de dados para este tipo.
 
 ### <a name="example"></a>Exemplo
 Criamos uma nova classe "Person".
@@ -257,7 +257,7 @@ Criamos uma nova classe "Person".
               }
             }
 
-Depois, adicionaremos uma instância `Person` para um arquivo extra.
+Em seguida, adicionaremos um `Person` tooan de instância extra.
 
             Person person = new Person("Engagement Haddock", 51);
             var extras = new Dictionary<object, object>();
@@ -266,28 +266,28 @@ Depois, adicionaremos uma instância `Person` para um arquivo extra.
             EngagementAgent.Instance.SendEvent("Event", extras);
 
 > [!WARNING]
-> Se você colocar outros tipos de objetos, verifique se o método ToString () é implementado para retornar uma cadeia de caracteres legível humana.
+> Se você colocar outros tipos de objetos, verifique se que o método ToString () é implementado tooreturn uma cadeia de caracteres legível humana.
 > 
 > 
 
-### <a name="limits"></a>Limites
+### <a name="limits"></a>limites
 #### <a name="keys"></a>simétricas
-Cada chave no objeto deve corresponder à seguinte expressão regular:
+Cada chave no objeto de saudação deve corresponder Olá expressão regular a seguir:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
 Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (\_).
 
 #### <a name="size"></a>Tamanho
-Os arquivos extras estão limitados a **1024** caracteres por chamada.
+Extras são muito limitadas**1024** caracteres por chamada.
 
 ## <a name="reporting-application-information"></a>Relatório de informações de aplicativo
 ### <a name="reference"></a>Referência
             void SendAppInfo(Dictionary<object, object> appInfos)
 
-Você pode relatar manualmente informações (ou quaisquer outras informações específicas do aplicativo) de controle usando a função SendAppInfo().
+Manualmente, você pode relatar informações (ou quaisquer outras informações específicas do aplicativo) usando a função de SendAppInfo() hello de controle.
 
-Observe que essas informações podem ser enviadas de forma incremental: somente o valor mais recente de uma determinada chave será mantido para um dispositivo específico. Como extras de eventos, use um Dicionário\<object, object\> para anexar dados.
+Observe que esses dados podem ser enviados de forma incremental: somente Olá valor mais recente para uma determinada chave será mantido para um determinado dispositivo. Como o evento extras, usar um dicionário\<objeto, objeto\> tooattach dados.
 
 ### <a name="example"></a>Exemplo
             Dictionary<object, object> appInfo = new Dictionary<object, object>()
@@ -300,23 +300,23 @@ Observe que essas informações podem ser enviadas de forma incremental: somente
 
 ### <a name="limits"></a>Limites
 #### <a name="keys"></a>simétricas
-Cada chave no objeto deve corresponder à seguinte expressão regular:
+Cada chave no objeto de saudação deve corresponder Olá expressão regular a seguir:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
 Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (\_).
 
 #### <a name="size"></a>Tamanho
-As informações do aplicativo estão limitadas a **1024** caracteres por chamada.
+Informações do aplicativo são muito limitadas**1024** caracteres por chamada.
 
-No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
+Em Olá o exemplo anterior, Olá JSON enviado toohello server é 44 caracteres:
 
             {"birthdate":"1983-12-07","gender":"female"}
 
 ## <a name="logging"></a>Registro em log
 ### <a name="enable-logging"></a>Habilitar registro em log
-O SDK pode ser configurado para gerar logs de teste no console do IDE.
-Esses logs não são ativados por padrão. Para personalizar esse recurso, atualize a propriedade `EngagementAgent.Instance.TestLogEnabled` para um dos valores disponíveis na enumeração `EngagementTestLogLevel`, por exemplo:
+Olá SDK pode ser configurado tooproduce logs de teste no console do IDE hello.
+Esses logs não são ativados por padrão. toocustomize, propriedade de saudação update `EngagementAgent.Instance.TestLogEnabled` tooone do valor de saudação disponível de saudação `EngagementTestLogLevel` enumeração, por exemplo:
 
             EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init();

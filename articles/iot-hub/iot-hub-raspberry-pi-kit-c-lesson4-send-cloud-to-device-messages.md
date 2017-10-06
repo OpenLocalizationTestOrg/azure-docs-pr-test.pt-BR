@@ -1,12 +1,12 @@
 ---
-title: "Conectar Raspberry Pi (C) ao IoT do Azure – Lição 4: nuvem para o dispositivo | Microsoft Docs"
-description: "Um aplicativo de exemplo é executado em seu Pi e monitora mensagens de entrada de seu Hub IoT. Uma nova tarefa gulp envia mensagens para seu Pi de seu Hub IoT para piscar o LED."
+title: "Connect Raspberry PI (C) tooAzure IoT – lição 4: dispositivos de nuvem | Microsoft Docs"
+description: "Um aplicativo de exemplo é executado em seu Pi e monitora mensagens de entrada de seu Hub IoT. Uma nova tarefa gulp envia mensagens tooPi do seu Olá de tooblink de hub IoT LED."
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: nuvem para o dispositivo, mensagem da nuvem
+keywords: nuvem toodevice, mensagem de nuvem
 ROBOTS: NOINDEX
 redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started
 ms.assetid: fcbc0dd0-cae3-47b0-8e58-240e4f406f75
@@ -17,75 +17,75 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 86c7be931319d9995c2a7311267c7e7c03c3c1b8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5596bf3a83c21f2bd54b2f83e2a8fdad7a608b94
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="run-a-sample-application-to-receive-cloud-to-device-messages"></a>Executar um aplicativo de exemplo para receber mensagens da nuvem para o dispositivo
-Neste artigo, implante um aplicativo de exemplo no Raspberry Pi 3. O aplicativo de exemplo monitora mensagens recebidas do hub IoT. Você também executa uma tarefa gulp no computador para enviar mensagens para o Pi do hub IoT. Quando o aplicativo de exemplo recebe uma a mensagem, ele pisca o LED. Se você tiver problemas, procure as soluções na [página de solução de problemas](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
+# <a name="run-a-sample-application-tooreceive-cloud-to-device-messages"></a>Executar um tooreceive do aplicativo de exemplo mensagens de nuvem para dispositivo
+Neste artigo, implante um aplicativo de exemplo no Raspberry Pi 3. aplicativo de exemplo Hello monitora mensagens de entrada de seu hub IoT. Você também executar uma tarefa de vez em seu tooPi de mensagens do computador toosend do seu hub IoT. Quando o aplicativo de exemplo hello recebe mensagens de saudação, pisca Olá LED. Se você tiver problemas, procure por soluções em Olá [página de solução de problemas](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
 ## <a name="what-you-will-do"></a>O que você fará
-* Conectar o aplicativo de exemplo ao hub IoT.
-* Implantar e executar o aplicativo de exemplo.
-* Enviar mensagens do hub IoT para o Pi para piscar o LED.
+* Conecte-se o hub IoT do hello exemplo aplicativo tooyour.
+* Implante e execute o aplicativo de exemplo hello.
+* Envie mensagens de seu saudação do IoT hub tooPi tooblink LED.
 
 ## <a name="what-you-will-learn"></a>O que você aprenderá
 Neste artigo, você aprenderá:
-* Como monitorar mensagens recebidas do hub IoT.
-* Como enviar mensagens de nuvem para dispositivo do hub IoT para o Pi.
+* Como toomonitor de mensagens de entrada do seu hub IoT.
+* Como toosend de nuvem para dispositivo mensagens de seu tooPi de hub IoT.
 
 ## <a name="what-you-need"></a>O que você precisa
-* Raspberry Pi 3, configuração para uso. Para saber como configurar o Pi, consulte [Configurar seu dispositivo](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md).
-* Um hub IoT criado em sua assinatura do Azure. Para saber como criar seu Hub IoT, consulte [Criar seu Hub IoT e registrar o Raspberry Pi 3](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md).
+* Raspberry Pi 3, configuração para uso. toolearn como tooset o Pi, consulte [configurar seu dispositivo](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md).
+* Um hub IoT criado em sua assinatura do Azure. toolearn como toocreate seu hub IoT, consulte [criar o hub IoT e registrar framboesa Pi 3](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md).
 
-## <a name="connect-the-sample-application-to-your-iot-hub"></a>Conectar o aplicativo de exemplo ao Hub IoT
-1. Verifique se você está na pasta de repositório `iot-hub-c-raspberrypi-getting-started`. Abra o aplicativo de exemplo no Visual Studio Code, executando os seguintes comandos:
+## <a name="connect-hello-sample-application-tooyour-iot-hub"></a>Conecte Olá exemplo aplicativo tooyour IoT hub
+1. Certifique-se de que você está na pasta do repositório de saudação `iot-hub-c-raspberrypi-getting-started`. Abra o aplicativo de exemplo hello no código do Visual Studio executando Olá comandos a seguir:
 
    ```bash
    cd Lesson4
    code .
    ```
 
-   Observe o arquivo `app.c` na subpasta `app`. O arquivo `app.c` é o arquivo de origem principal que contém o código para monitorar mensagens recebidas do Hub IoT. A função `blinkLED` pisca o LED.
+   Saudação de aviso `app.c` arquivo hello `app` subpasta. Olá `app.c` é arquivo de origem da chave de saudação que contém Olá código toomonitor mensagens de entrada de hub IoT de saudação. Olá `blinkLED` função pisca Olá LED.
 
-   ![Estrutura do repositório no aplicativo de exemplo](media/iot-hub-raspberry-pi-lessons/lesson4/repo_structure_c.png)
-2. Inicialize o arquivo de configuração executando os seguintes comandos:
+   ![Estrutura do repositório no aplicativo de exemplo hello](media/iot-hub-raspberry-pi-lessons/lesson4/repo_structure_c.png)
+2. Inicialize o arquivo de configuração de saudação executando Olá comandos a seguir:
 
    ```bash
    npm install
    gulp init
    ```
 
-   Se você concluiu as etapas em [Criar uma conta de armazenamento e aplicativo de funções do Azure](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md) neste computador, todas as configurações serão herdadas, portanto você pode pular para a etapa da tarefa de implantar e executar o aplicativo de exemplo. Se você concluiu as etapas em [Criar uma conta de armazenamento e aplicativo de função do Azure](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md) em um computador diferente, será necessário substituir os espaços reservados no arquivo `config-raspberrypi.json`. O arquivo `config-raspberrypi.json` está na subpasta da pasta base.
+   Se você concluiu as etapas de saudação em [criar uma conta de armazenamento e o aplicativo de função do Azure](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md) neste computador, todas as configurações de saudação são herdadas, para que você possa ignorar toostep toohello tarefas de implantação e execução de aplicativo de exemplo hello. Se você concluiu as etapas de saudação em [criar uma conta de armazenamento e o aplicativo de função do Azure](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md) em um computador diferente, você precisa espaços reservados Olá tooreplace Olá `config-raspberrypi.json` arquivo. Olá `config-raspberrypi.json` arquivo está na subpasta de saudação da sua pasta base.
 
-   ![Conteúdo do arquivo config-raspberrypi.json](media/iot-hub-raspberry-pi-lessons/lesson4/config_raspberrypi.png)
+   ![Conteúdo do arquivo de configuração raspberrypi.json Olá](media/iot-hub-raspberry-pi-lessons/lesson4/config_raspberrypi.png)
 
-* Substitua **[nome de host ou endereço IP do dispositivo]** pelo nome de host ou o endereço IP do Pi obtido executando o comando `devdisco list --eth`.
-* Substitua **[cadeia de conexão do dispositivo IoT]** pela cadeia de conexão do dispositivo que você obtém executando o comando `az iot device show-connection-string --hub-name {my hub name} --device-id {device id} -g iot-sample {resource group name}`.
-* Substitua **[cadeia de conexão do hub IoT]** pela cadeia de conexão do hub IoT que você obtém executando o comando `az iot hub show-connection-string --name {my hub name} -g iot-sample {resource group name}`.
+* Substituir **[nome de host do dispositivo ou endereço IP]** com nome ou endereço IP host do Pi que você obtém executando Olá `devdisco list --eth` comando.
+* Substituir **[cadeia de conexão de dispositivo IoT]** com cadeia de conexão do dispositivo Olá obter executando Olá `az iot device show-connection-string --hub-name {my hub name} --device-id {device id} -g iot-sample {resource group name}` comando.
+* Substituir **[cadeia de conexão de hub IoT]** com hello cadeia de conexão de hub IoT que você obtém executando Olá `az iot hub show-connection-string --name {my hub name} -g iot-sample {resource group name}` comando.
 
 > [!NOTE]
 > Execute **gulp install-tools** e também, se você ainda não fez isso na Lição 1.
 
-## <a name="deploy-and-run-the-sample-application"></a>Implantar e executar o aplicativo de exemplo
-Implante e execute o aplicativo de exemplo no Pi executando os seguintes comandos:
+## <a name="deploy-and-run-hello-sample-application"></a>Implantar e executar o aplicativo de exemplo hello
+Implantar e executar o aplicativo de exemplo hello em Pi executando Olá comandos a seguir:
 
 ```
 gulp deploy && gulp run
 ```
 
-O comando gulp executa a tarefa install-tools primeiro. Em seguida, ele implanta o aplicativo de exemplo para o Pi. Por fim, ele executa o aplicativo no Pi e uma tarefa separada no computador host para enviar 20 mensagens de piscar para o Pi do Hub IoT.
+execução do comando gulp Olá Olá instalar ferramentas tarefa primeiro. Em seguida, implanta Olá tooPi de aplicativo de exemplo. Finalmente, ele é executado aplicativo hello Pi e uma tarefa separada em seu host do computador toosend 20 intermitência mensagens tooPi do seu hub IoT.
 
-Após a execução, o aplicativo de exemplo começa a escutar as mensagens do Hub IoT. Enquanto isso, a tarefa gulp envia várias mensagens de "piscar" do Hub IoT para o Pi. Para cada mensagem de piscar recebida, o aplicativo de exemplo chama a função `blinkLED` para piscar o LED.
+Depois que o aplicativo de exemplo hello é executado, ele inicia a escuta toomessages do seu hub IoT. Enquanto isso, a tarefa de gulp de saudação envia várias mensagens de "intermitência" de seu tooPi de hub IoT. Para cada mensagem de intermitência que recebe de Pi, o aplicativo de exemplo hello chama Olá `blinkLED` Olá tooblink de função LED.
 
-Você deve ver o LED piscar a cada dois segundos, uma vez que a tarefa gulp está enviando 20 mensagens do Hub IoT ao Pi. A última é uma mensagem de “parar” que interrompe a execução do aplicativo.
+Você deve ver intermitência de LED Olá cada dois segundos como Olá gulp tarefa envia 20 mensagens de seu tooPi de hub IoT. Hello última um é uma mensagem "stop" que interrompe a execução do aplicativo hello.
 
 ![Exemplo de aplicativo com o comando gulp e mensagens de piscar](media/iot-hub-raspberry-pi-lessons/lesson4/gulp_blink_c.png)
 
 ## <a name="summary"></a>Resumo
-Você enviou com êxito mensagens do Hub IoT para o Pi para piscar o LED. A próxima tarefa é opcional: alterar o comportamento de liga e desliga do LED.
+Você enviou com êxito as mensagens de seu saudação do IoT hub tooPi tooblink LED. Olá próxima tarefa é opcional: altere Olá ativa e desativa o comportamento de saudação LED.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Alterar o comportamento de ligar e desligar do LED](iot-hub-raspberry-pi-kit-c-lesson4-change-led-behavior.md)
+[Alterar Olá ativa e desativa o comportamento de saudação LED](iot-hub-raspberry-pi-kit-c-lesson4-change-led-behavior.md)

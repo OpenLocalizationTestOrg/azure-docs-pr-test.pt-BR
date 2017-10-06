@@ -1,6 +1,6 @@
 ---
-title: "Inscrever-se no Azure como uma organização"
-description: "Saiba como você pode usar uma conta corporativa ou de estudante para aproveitar as contas de usuário existentes, as políticas, as configurações ou implantações de servidor local que você já tem e melhorar a eficiência entre a infraestrutura de identidade local da sua organização e o Azure AD."
+title: "aaaSign para o Azure como uma organização"
+description: "Saiba como você pode usar um trabalho ou escola conta tooleverage Olá contas de usuário existentes, políticas, configurações ou implantações de servidor de local, você já tiver e melhorar a eficiência entre a infraestrutura de identidade local da sua organização e o Azure AD."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: curtand
-ms.openlocfilehash: 07ad266ad87028996c4a7b3e4365c11b019f8529
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 89db37b2370b3805691278d6223a26450ef4514b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sign-up-for-azure-as-an-organization"></a>Inscrever-se no Azure como uma organização
-Até recentemente, era possível se inscrever para uma nova assinatura do Microsoft Azure usando apenas a sua Conta da Microsoft (Windows Live ID). Agora, o Azure oferece suporte aos dois seguintes métodos de conta para inscrição:
+Até recentemente, era possível se inscrever para uma nova assinatura do Microsoft Azure usando apenas a sua Conta da Microsoft (Windows Live ID). Azure agora oferece suporte ao uso de qualquer um dos seguintes Olá dois conta métodos toosign backup:
 
-* **Contas da Microsoft** (criadas por você para uso pessoal) - fornecem acesso a todos os produtos e serviços de nuvem da Microsoft voltados ao cliente, por exemplo, Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE ou Office 365. A inscrição para uma caixa de correio do Outlook.com cria automaticamente uma conta da Microsoft. Após a criação de uma conta da Microsoft, ela pode ser usada para acessar serviços em nuvem Microsoft relacionados ao consumidor ou do Azure. [Saiba mais](http://www.microsoft.com/account/default.aspx)
-* **Contas corporativas ou acadêmicas** (emitidas por um administrador para uso comercial/acadêmico): fornecem acesso a todos os serviços de nuvem da Microsoft no nível de pequena, média e grande empresa, como o Azure, o Microsoft Intune ou o Office 365. Quando você se inscreve para um desses serviços como uma organização, um diretório com base em nuvem é provisionado automaticamente no Active Directory do Azure para representar sua organização. [Saiba mais](active-directory-administer.md)
+* **Contas da Microsoft** (criado por você para uso pessoal) - fornecer acesso tooall orientados ao consumidor produtos da Microsoft e serviços de nuvem, como o Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE ou Office 365. A inscrição para uma caixa de correio do Outlook.com cria automaticamente uma conta da Microsoft. Depois que uma conta da Microsoft é criada, pode ser usado tooaccess serviços de nuvem de Microsoft relacionados ao consumidor ou do Azure. [Saiba mais](http://www.microsoft.com/account/default.aspx)
+* **Trabalho ou escola contas** (emitida por um administrador para uso comercial/acadêmicas) - fornecer acesso tooall pequenas, médias e grandes empresas corporativos serviços em nuvem Microsoft, como Office 365, Microsoft Intune ou do Azure. Quando você se inscrever tooone desses serviços, como uma organização, um diretório baseado em nuvem é automaticamente provisionado no Active Directory do Azure toorepresent sua organização. [Saiba mais](active-directory-administer.md)
   
-    Depois que esse diretório tiver sido criado, um administrador pode criar usuários e atribuir licenças a eles com base em quais assinaturas de serviço de nuvem que precisam de acesso, como o Azure.
+    Depois que esse diretório foi criado, um administrador pode criar usuários e atribuir licenças toothem com base em quais assinaturas do serviço de nuvem que precisam de acesso, como o Azure.
 
-Deseja inscrever-se no Azure como uma organização? [**Inscreva-se agora**](https://azure.microsoft.com/pricing/purchase-options/)
+Deseja toosign para o Azure como uma organização? [**Inscreva-se agora**](https://azure.microsoft.com/pricing/purchase-options/)
 
 **Recursos adicionais**
 
 * [Blog do Microsoft Azure](https://azure.microsoft.com/blog/)
 * [O que é o AD do Azure?](active-directory-whatis.md)
-* [Usar sua infraestrutura de identidade local na nuvem](active-directory-aadconnect.md)
+* [Usar sua infraestrutura de identidade local na nuvem Olá](active-directory-aadconnect.md)
 

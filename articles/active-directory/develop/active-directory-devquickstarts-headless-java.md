@@ -1,6 +1,6 @@
 ---
-title: "Introdução à linha de comando Java do Azure AD | Microsoft Docs"
-description: "Como criar um aplicativo de linha de comando Java que conecta os usuários para acessar uma API."
+title: "aaaAzure linha de comando do AD Java Introdução | Microsoft Docs"
+description: "Como toobuild um Java comando aplicativo de linha que conecta os usuários tooaccess uma API."
 services: active-directory
 documentationcenter: java
 author: navyasric
@@ -15,51 +15,51 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 91e4a7b2ac454465d5cce4948a4d5f0b542d2b55
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9ba1d1e794928a39ca1f091bd0e6eba57ce3d6aa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>Usando um aplicativo de linha de comando Java para acessar uma API com o AD do Azure
+# <a name="using-java-command-line-app-tooaccess-an-api-with-azure-ad"></a>Usando o aplicativo de linha de comando do Java tooAccess uma API com o Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-O AD do Azure torna simples e direto terceirizar o gerenciamento da identidade de seu aplicativo Web, fornecendo uma única entrada e uma única saída com apenas algumas linhas de código.  Em aplicativos Web do Java, você pode conseguir isso usando a implementação da Microsoft do ADAL4J voltado para a comunidade.
+O AD do Azure torna simple e direto toooutsource gerenciamento de identidade do seu aplicativo web, fornecendo a única entrada e saída com apenas algumas linhas de código.  Em aplicativos da web de Java, você pode fazer isso usando a implementação da Microsoft da saudação ADAL4J dirigida pela comunidade.
 
   Aqui usaremos o ADAL4J para:
 
-* Conectar o usuário ao aplicativo usando o Azure AD como o provedor de identidade.
-* Exibir algumas informações sobre o usuário.
-* Desconectar o usuário do aplicativo.
+* Entrada hello usuário no aplicativo hello usando o Azure AD como provedor de identidade hello.
+* Exiba algumas informações sobre o usuário hello.
+* Entrada hello usuário fora do aplicativo hello.
 
-Para isso, você precisará:
+Em ordem toodo isso, você precisará:
 
 1. Registrar um aplicativo com o Active Directory do Azure
-2. Configure seu aplicativo para usar a biblioteca ADAL4J.
-3. Use a biblioteca ADAL4J para emitir solicitações de entrada e saída ao AD do Azure.
-4. Imprimir dados sobre o usuário.
+2. Configure a biblioteca do aplicativo toouse Olá ADAL4J.
+3. Use hello ADAL4J biblioteca tooissue entrar e solicitações de saída tooAzure AD.
+4. Imprima dados sobre o usuário hello.
 
-Para começar, [baixe o esqueleto do aplicativo](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip) ou [baixe o exemplo concluído](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip).  Você também precisará de um locatário do AD do Azure no qual registrar seu aplicativo.  Se você ainda não tiver um locatário, [saiba como obter um](active-directory-howto-tenant.md).
+tooget iniciado, [baixar o esqueleto do aplicativo hello](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip) ou [baixar exemplo hello concluída](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip).  Você também precisará de um locatário Azure AD no qual tooregister seu aplicativo.  Se você não tiver uma, [Saiba como tooget uma](active-directory-howto-tenant.md).
 
 ## <a name="1--register-an-application-with-azure-ad"></a>1.  Registrar um aplicativo com o AD do Azure
-Para habilitar seu aplicativo a autenticar usuários, primeiro você precisará registrar um novo aplicativo em seu locatário.
+tooenable usuários de tooauthenticate seu aplicativo, você precisará primeiro tooregister um novo aplicativo no seu locatário.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Na barra superior, clique na sua conta e, na lista **Diretório**, escolha o locatário do Active Directory em que você deseja registrar seu aplicativo.
-3. Clique em **Mais Serviços** no painel de navegação à esquerda e escolha **Azure Active Directory**.
+1. Entrar toohello [portal do Azure](https://portal.azure.com).
+2. Na barra superior do hello, clique em sua conta e em Olá **diretório** , escolha um locatário do Active Directory Olá onde você deseja tooregister seu aplicativo.
+3. Clique em **mais serviços** Olá navegação à esquerda e escolha **Active Directory do Azure**.
 4. Clique em **Registros do Aplicativo** e escolha **Adicionar**.
-5. Siga os prompts e crie um novo **Aplicativo Web e/ou WebAPI**.
-  * O **nome** do aplicativo descreverá seu aplicativo para os usuários finais
-  * A **URL de logon** é a URL base do seu aplicativo.  O padrão do esqueleto é `http://localhost:8080/adal4jsample/`.
-6. Depois de concluir o registro, o AAD atribuirá a seu aplicativo uma ID do Aplicativo única.  Você precisará desse valor nas próximas seções, portanto, copie-o da guia do aplicativo.
-7. Na página **Configurações** -> **Propriedades** do aplicativo, atualize o URI da ID do Aplicativo. O **URI da ID do aplicativo** é um identificador exclusivo para seu aplicativo.  A convenção é usar `https://<tenant-domain>/<app-name>`, por exemplo, `http://localhost:8080/adal4jsample/`.
+5. Siga os prompts de saudação e criar um novo **aplicativo Web e/ou WebAPI**.
+  * Olá **nome** da saudação aplicativo descrevem os usuários tooend de aplicativos
+  * Olá **URL de logon** é Olá a URL base do seu aplicativo.  padrão do esqueleto Olá é `http://localhost:8080/adal4jsample/`.
+6. Depois de concluir o registro, o AAD atribuirá a seu aplicativo uma ID do Aplicativo única.  Você precisará desse valor nas seções de Avançar hello, portanto copiá-lo do guia do aplicativo hello.
+7. De saudação **configurações** -> **propriedades** página para seu aplicativo, Olá URI da ID do aplicativo de atualização. Olá **URI da ID do aplicativo** é um identificador exclusivo para seu aplicativo.  convenção de saudação é toouse `https://<tenant-domain>/<app-name>`, por exemplo, `http://localhost:8080/adal4jsample/`.
 
-Quando estiver no portal de seu aplicativo, crie uma **Chave** na página **Configurações** para seu aplicativo e copie-a.  Você precisará dele em breve.
+Uma vez no portal de saudação para seu aplicativo, crie um **chave** de saudação **configurações** página para seu aplicativo e copie-o para baixo.  Você precisará dele em breve.
 
-## <a name="2-set-up-your-app-to-use-adal4j-library-and-prerequisites-using-maven"></a>2. Configurar seu aplicativo para usar a biblioteca ADAL4J e pré-requisitos para o uso do Maven
-Aqui, configuraremos o ADAL4J para usar o protocolo de autenticação OpenID Connect.  O ADAL4J será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
+## <a name="2-set-up-your-app-toouse-adal4j-library-and-prerequisites-using-maven"></a>2. Configurar a biblioteca do app toouse ADAL4J e os pré-requisitos usando Maven
+Aqui, configuraremos o protocolo de autenticação ADAL4J toouse Olá OpenID Connect.  ADAL4J ser usado tooissue solicitações de entrada e saídas, gerenciar a sessão do usuário Olá e obter informações sobre o usuário hello, entre outras coisas.
 
-* No diretório raiz do projeto, abra/crie `pom.xml`, localize o `// TODO: provide dependencies for Maven` e substitua-o pelo seguinte:
+* No diretório raiz de saudação do projeto, abrir/criar `pom.xml` e localize Olá `// TODO: provide dependencies for Maven` e substitua pelo seguinte hello:
 
 ```Java
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -181,10 +181,10 @@ Aqui, configuraremos o ADAL4J para usar o protocolo de autenticação OpenID Con
 
 
 
-## <a name="3-create-the-java-publicclient-file"></a>3. Criar o arquivo PublicClient Java
-Conforme indicado acima, usaremos a Graph API para obter dados sobre o usuário conectado. Para que isso seja fácil, devemos criar um arquivo para representar um **Objeto de Diretório** e um arquivo individual para representar o **Usuário**, para que o padrão OO do Java possa ser usado.
+## <a name="3-create-hello-java-publicclient-file"></a>3. Criar arquivo de Java PublicClient Olá
+Como indicado acima, vamos usar Olá dados de tooget da API do Graph sobre Olá usuário conectado no. Para este toobe fácil para nós, que deve ser criado ambos um toorepresent arquivo um **objeto de diretório** e hello de toorepresent um arquivo individual **usuário** para que hello OO padrão do Java pode ser usado.
 
-* Crie um arquivo chamado `DirectoryObject.java` , que usaremos para armazenar os dados básicos sobre qualquer DirectoryObject (fique a vontade para usá-lo posteriormente para qualquer outra Consulta de Gráfico que você possa fazer). Você pode recortar/colar isso abaixo:
+* Crie um arquivo chamado `DirectoryObject.java` que usaremos toostore de dados básicos sobre qualquer DirectoryObject (você pode se sentir livre toouse isso mais tarde para as consultas de gráfico que você pode fazer). Você pode recortar/colar isso abaixo:
 
 ```Java
 import java.io.BufferedReader;
@@ -248,24 +248,24 @@ public class PublicClient {
 ```
 
 
-## <a name="compile-and-run-the-sample"></a>Compilar e executar o exemplo
-Volte para seu diretório raiz e execute o comando a seguir para compilar o exemplo que você acabou de montar usando o `maven`. Isso usará o arquivo `pom.xml` que você escreveu para as dependências de arquivo.
+## <a name="compile-and-run-hello-sample"></a>Compilar e executar o exemplo hello
+Altere-o diretório raiz de tooyour e execute Olá seguindo o exemplo de saudação do comando toobuild colocar apenas usando `maven`. Isso usará Olá `pom.xml` gravou para dependências de arquivo.
 
 `$ mvn package`
 
-Agora você deve ter um arquivo `adal4jsample.war` em seu diretório do `/targets`. Você pode implantá-lo em seu contêiner do Tomcat e visitar a URL 
+Agora você deve ter um arquivo `adal4jsample.war` em seu diretório do `/targets`. Você pode implantar que em seu contêiner Tomcat e visite a URL de saudação 
 
 `http://localhost:8080/adal4jsample/`
 
 > [!NOTE]
-> É muito fácil de implantar um WAR com os servidores do Tomcat mais recentes. Basta navegar até `http://localhost:8080/manager/` e seguir as instruções sobre como carregar o arquivo ``adal4jsample.war`. Ele será implantado automático com o ponto de extremidade correto.
+> É muito fácil toodeploy um WAR com servidores Tomcat mais recentes de saudação. Simplesmente navegar muito`http://localhost:8080/manager/` e siga as instruções de saudação carregar o ' adal4jsample.war' arquivo. Ele será deployment automático para você com o ponto de extremidade correto hello.
 > 
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-Parabéns! Agora você tem um aplicativo Java com a capacidade de autenticar usuários, chamar APIs da Web com segurança usando OAuth 2.0 e obter informações básicas sobre o usuário.  Se você ainda não fez isso, agora é o momento de preencher seu locatário com alguns usuários.
+Parabéns! Você agora tem um aplicativo Java que tem Olá capacidade tooauthenticate usuários de trabalho, com segurança chamar APIs da Web usando o OAuth 2.0 e obter informações básicas sobre o usuário Olá.  Se você ainda não fez isso, agora é Olá tempo toopopulate seu locatário com alguns usuários.
 
-Para referência, o exemplo concluído (sem os valores de configuração) [é fornecido como um .zip aqui](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip), ou você pode cloná-lo do GitHub:
+Para referência, Olá concluída exemplo (sem os valores de configuração) [é fornecido como. zip aqui](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip), ou você pode cloná-lo do GitHub:
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 

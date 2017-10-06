@@ -1,6 +1,6 @@
 ---
-title: "Pré-requisitos para acessar a API de relatório do Azure AD. | Microsoft Docs"
-description: "Aprenda sobre os pré-requisitos para acessar a API de relatório do Azure AD"
+title: "Olá AD do Azure aaaPrerequisites tooaccess reporting API. | Microsoft Docs"
+description: "Saiba sobre a API de relatório do hello pré-requisitos tooaccess Olá AD do Azure"
 services: active-directory
 documentationcenter: 
 author: dhanyahk
@@ -14,154 +14,154 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
-ms.openlocfilehash: 6e409fc56b77f37dac7f37382e664c577666ad4d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e9d7ceaedb07d18fbd75b70d68b5cfbebc756c36
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Pré-requisitos para acessar a API de relatório do Azure AD
-As [APIs de relatório do Azure AD](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) fornecem acesso programático aos dados através de um conjunto de APIs baseadas em REST. Você pode chamar essas APIs de várias ferramentas e linguagens de programação.
+# <a name="prerequisites-tooaccess-hello-azure-ad-reporting-api"></a>API de relatório pré-requisitos tooaccess Olá AD do Azure
+Olá [reporting APIs do AD do Azure](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) fornece acesso programático toohello dados por meio de um conjunto de APIs com base em REST. Você pode chamar essas APIs de várias ferramentas e linguagens de programação.
 
-A API de relatório usa [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) para autorizar o acesso às APIs da Web. 
+Olá reporting API usa [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) APIs da web do toohello tooauthorize acesso. 
 
-Para preparar seu acesso à API de relatório, faça o seguinte:
+tooprepare seu toohello acesso API de relatório, você deve:
 
 1. Crie um aplicativo em seu locatário do Azure AD 
-2. Conceda as permissões apropriadas do aplicativo para acessar os dados do Azure AD
+2. Grant Olá aplicativo as permissões apropriadas tooaccess Olá dados do Azure AD
 3. Reúna as definições de configuração de seu diretório
 
 Para dúvidas, problemas ou comentários, entre em contato com a [Ajuda de relatório do AAD](mailto:aadreportinghelp@microsoft.com).
 
 ## <a name="create-an-azure-ad-application"></a>Criar um aplicativo Azure AD
-Para configurar seu diretório a fim de acessar a API de relatório do Azure AD, você deve entrar Portal Clássico do Azure com uma conta de administrador de assinatura do Azure que também é membro da função de diretório de Administrador Global em seu locatário do Azure AD.
+tooconfigure seu diretório tooaccess Olá AD do Azure reporting API, você deve entrar no toohello portal clássico do Azure com uma conta de administrador de assinatura do Azure que também é um membro da função de diretório Olá Administrador Global em seu locatário do AD do Azure.
 
 > [!IMPORTANT]
-> Aplicativos em execução com credenciais com privilégios de "admin" como esse podem ser muito poderosos, portanto certifique-se de proteger as credenciais de ID/segredo do aplicativo.
+> Aplicativos em execução sob as credenciais com privilégios de "admin" como isso podem ser muito poderosos, portanto as credenciais de ID/segredo do aplicativo de saudação de tookeep-se de que seja seguro.
 > 
 > 
 
-1. No [portal clássico do Azure](https://manage.windowsazure.com), no painel de navegação à esquerda, clique em **Active Directory**.
+1. Em Olá [portal clássico do Azure](https://manage.windowsazure.com), em Olá painel de navegação esquerdo, clique em **do Active Directory**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/01.png) 
-2. Na lista de **diretórios ativos** , selecione o diretório.
-3. No menu superior, clique em **Aplicativos**.
+2. De saudação **do active directory** , selecione seu diretório.
+3. No menu de saudação na parte superior de saudação, clique em **aplicativos**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/02.png) 
-4. Na barra de ferramentas inferior, clique em **Adicionar**.
+4. Na barra inferior de saudação, clique em **adicionar**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/03.png) 
-5. Na caixa de diálogo **O que você deseja fazer?**, clique em **Adicionar um aplicativo que minha organização esteja desenvolvendo**. 
+5. Em Olá **o que fazer você deseja toodo?** caixa de diálogo, clique em **adicionar um aplicativo que minha organização esteja desenvolvendo**. 
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/04.png) 
-6. Na página de diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas: 
+6. Em Olá **Conte-nos sobre seu aplicativo** caixa de diálogo, executar Olá etapas a seguir: 
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/05.png) 
    
-    a. Na caixa de texto **Nome** , digite um nome (por exemplo: Aplicativo de API de Relatório).
+    a. Em Olá **nome** caixa de texto, digite um nome (por exemplo: aplicativo de API de relatório).
    
     b. Selecione **Aplicativo Web e/ou API Web**.
    
     c. Clique em **Avançar**.
-7. Na caixa de diálogo **Propriedades de aplicativo** , execute as seguintes etapas: 
+7. Em Olá **propriedades do aplicativo** caixa de diálogo, executar Olá etapas a seguir: 
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/06.png) 
    
-    a. Na caixa de texto **URL de Entrada**, digite `https://localhost`.
+    a. Em Olá **URL de logon** caixa de texto, tipo `https://localhost`.
    
-    b. Na caixa de texto **URI da ID do Aplicativo**, digite ```https://localhost/ReportingApiApp```.
+    b. Em Olá **URI da ID do aplicativo** caixa de texto, tipo ```https://localhost/ReportingApiApp```.
    
     c. Clique em **Concluído**.
 
-## <a name="grant-your-application-permission-to-use-the-api"></a>Conceda permissão ao aplicativo para usar a API
-1. No [portal clássico do Azure](https://manage.windowsazure.com/), no painel de navegação à esquerda, clique em **Active Directory**.
+## <a name="grant-your-application-permission-toouse-hello-api"></a>Conceder a saudação de toouse de permissão do aplicativo API
+1. Em Olá [portal clássico do Azure](https://manage.windowsazure.com/), em Olá painel de navegação esquerdo, clique em **do Active Directory**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/01.png) 
-2. Na lista de **diretórios ativos** , selecione o diretório.
-3. No menu superior, clique em **Aplicativos**.
+2. De saudação **do active directory** , selecione seu diretório.
+3. No menu de saudação na parte superior de saudação, clique em **aplicativos**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/02.png)
-4. Na lista de aplicativos, selecione o aplicativo recém-criado.
+4. Na lista de aplicativos hello, selecione seu aplicativo recém-criado.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/07.png)
-5. No menu na parte superior, clique em **Configurar**.
+5. No menu de saudação na parte superior de saudação, clique em **configurar**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/08.png)
-6. Na seção **Permissões para outros aplicativos**, para o recurso **Azure Active Directory**, clique na lista suspensa **Permissões de Aplicativo** e selecione **Ler dados de diretório**.
+6. Em hello **permissões tooother aplicativos** seção para hello **Active Directory do Azure** recursos, clique em hello **permissões de aplicativo** lista suspensa e, em seguida, Selecione **ler dados do diretório**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/09.png)
-7. Na barra inferior, clique em **Salvar**.
+7. Na barra inferior de saudação, clique em **salvar**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/10.png)
 
 ## <a name="gather-configuration-settings-from-your-directory"></a>Reúna as definições de configuração de seu diretório
-Esta seção mostra como obter as seguintes configurações de seu diretório:
+Esta seção mostra como Olá tooget seguir as configurações de seu diretório:
 
 * Nome de domínio
 * ID do cliente
 * Segredo do cliente
 
-Você precisa desses valores ao configurar chamadas para a API de relatórios. 
+Você precisa esses valores quando configurar chamadas toohello reporting API. 
 
 ### <a name="get-your-domain-name"></a>Obter seu nome de domínio
-1. No [portal clássico do Azure](https://manage.windowsazure.com), no painel de navegação à esquerda, clique em **Active Directory**.
+1. Em Olá [portal clássico do Azure](https://manage.windowsazure.com), em Olá painel de navegação esquerdo, clique em **do Active Directory**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/01.png) 
-2. Na lista de **diretórios ativos** , selecione o diretório.
-3. No menu na parte superior, clique em **Domínios**.
+2. De saudação **do active directory** , selecione seu diretório.
+3. No menu de saudação na parte superior de saudação, clique em **domínios**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/11.png) 
-4. Na coluna **Nome de Domínio** copie seu nome de domínio no campo.
+4. Em Olá **nome de domínio** coluna, copie o seu nome de domínio.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/12.png) 
 
-### <a name="get-the-applications-client-id"></a>Obter a ID do cliente do aplicativo
-1. No [portal clássico do Azure](https://manage.windowsazure.com), no painel de navegação à esquerda, clique em **Active Directory**.
+### <a name="get-hello-applications-client-id"></a>Obter ID do cliente do aplicativo hello
+1. Em Olá [portal clássico do Azure](https://manage.windowsazure.com), em Olá painel de navegação esquerdo, clique em **do Active Directory**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/01.png) 
-2. Na lista de **diretórios ativos** , selecione o diretório.
-3. No menu superior, clique em **Aplicativos**.
+2. De saudação **do active directory** , selecione seu diretório.
+3. No menu de saudação na parte superior de saudação, clique em **aplicativos**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/02.png) 
-4. Na lista de aplicativos, selecione o aplicativo recém-criado.
+4. Na lista de aplicativos hello, selecione seu aplicativo recém-criado.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/07.png)
-5. No menu na parte superior, clique em **Configurar**.
+5. No menu de saudação na parte superior de saudação, clique em **configurar**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/08.png)
 6. Copie a **ID do Cliente**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/13.png)
 
-### <a name="get-the-applications-client-secret"></a>Obter o segredo do cliente do aplicativo
-Para obter o segredo do cliente do aplicativo, você precisa criar uma nova chave e salvar seu valor ao salvar a nova chave, pois não é possível recuperar este valor posteriormente.
+### <a name="get-hello-applications-client-secret"></a>Obter o segredo do cliente do aplicativo hello
+tooget cliente do aplicativo segredo, você precisa toocreate uma nova chave e salve seu valor ao salvar a nova chave de saudação porque ele não é possível tooretrieve este valor posteriormente mais.
 
-1. No [portal clássico do Azure](https://manage.windowsazure.com), no painel de navegação à esquerda, clique em **Active Directory**.
+1. Em Olá [portal clássico do Azure](https://manage.windowsazure.com), em Olá painel de navegação esquerdo, clique em **do Active Directory**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/01.png) 
-2. Na lista de **diretórios ativos** , selecione o diretório.
-3. No menu superior, clique em **Aplicativos**.
+2. De saudação **do active directory** , selecione seu diretório.
+3. No menu de saudação na parte superior de saudação, clique em **aplicativos**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/02.png) 
-4. Na lista de aplicativos, selecione o aplicativo recém-criado.
+4. Na lista de aplicativos hello, selecione seu aplicativo recém-criado.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/07.png)
-5. No menu na parte superior, clique em **Configurar**.
+5. No menu de saudação na parte superior de saudação, clique em **configurar**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/08.png)
-6. Na seção **Chaves** , execute as seguintes etapas: 
+6. Em Olá **chaves** , execute Olá etapas a seguir: 
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/14.png)
    
-    a. Na lista duração, selecione uma duração
+    a. Na lista de duração hello, selecione uma duração
    
-    b. Na barra inferior, clique em **Salvar**.
+    b. Na barra inferior de saudação, clique em **salvar**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/10.png)
    
-    c. Copie o valor da chave.
+    c. Copie o valor da chave hello.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Você gostaria de acessar os dados da API de relatório do Azure AD de uma maneira programática? Confira [Introdução à API de Relatório do Azure Active Directory](active-directory-reporting-api-getting-started.md).
-* Se você quiser saber mais sobre os relatórios do Azure Active Directory, confira o [Guia de relatórios do Azure Active Directory](active-directory-reporting-guide.md).  
+* Seria você como tooaccess Olá dados de saudação do AD do Azure API de relatório de modo programático? Check-out [Introdução à saudação do Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md).
+* Se você quiser toofind mais informações sobre os relatórios do Active Directory do Azure, consulte Olá [do Azure Active Directory Reporting guia](active-directory-reporting-guide.md).  
 

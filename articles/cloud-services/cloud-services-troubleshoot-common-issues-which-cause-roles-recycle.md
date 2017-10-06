@@ -1,6 +1,6 @@
 ---
-title: "Causas comuns da reciclagem de funções do Serviço de Nuvem | Microsoft Docs"
-description: "Uma função de serviço de nuvem que é reciclada repentinamente pode causar um tempo de inatividade significativo. Veja alguns problemas comuns que causam a reciclagem de funções, que podem ajudar a reduzir o tempo de inatividade."
+title: "faz com que o aaaCommon de reciclagem de funções de serviço de nuvem | Microsoft Docs"
+description: "Uma função de serviço de nuvem que é reciclada repentinamente pode causar um tempo de inatividade significativo. Aqui estão alguns problemas comuns que causam funções toobe reciclado, o que pode ajudar a reduzir o tempo de inatividade."
 services: cloud-services
 documentationcenter: 
 author: simonxjx
@@ -15,50 +15,50 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/26/2017
 ms.author: v-six
-ms.openlocfilehash: e55009c72b977ee4a30f6c71043bde483849f78f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8fa152b33d2b22a8a02f834d4bc38519b4272f7b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="common-issues-that-cause-roles-to-recycle"></a>Problemas comuns que causam a reciclagem de funções
-Este artigo discute algumas das causas comuns dos problemas de implantação e fornece dicas de solução de problemas para ajudá-lo a resolvê-los. Uma indicação de que existe um problema com um aplicativo é quando há uma falha na inicialização da instância de função ou se ela alterna entre os estados inicializando, ocupado e parando.
+# <a name="common-issues-that-cause-roles-toorecycle"></a>Problemas comuns que causam toorecycle funções
+Este artigo aborda algumas das causas comuns de saudação de problemas de implantação e fornece dicas de solução de problemas toohelp resolver esses problemas. Uma indicação de que existe um problema com um aplicativo é quando a instância de função hello falha toostart ou circula entre os estados inicializando, ocupado e parando de saudação.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="missing-runtime-dependencies"></a>Dependências de tempo de execução ausentes
-Se uma função em seu aplicativo depender de um assembly que não faça parte do .NET Framework ou da biblioteca gerenciada pelo Azure, você deverá incluir explicitamente esse assembly no pacote de aplicativos. Tenha em mente que outras estruturas da Microsoft não estão disponíveis no Azure por padrão. Se a sua função depender de uma estrutura desse tipo, você deverá adicionar esses assemblies ao pacote de aplicativos.
+Se uma função em seu aplicativo depende de qualquer assembly que não faz parte da saudação biblioteca gerenciada do .NET Framework ou saudação do Azure, você deve incluir explicitamente esse assembly no pacote de aplicativo hello. Tenha em mente que outras estruturas da Microsoft não estão disponíveis no Azure por padrão. Se sua função depender de tal estrutura, você deve adicionar o pacote de aplicativo de toohello desses assemblies.
 
-Antes de compilar e empacotar seu aplicativo, verifique o seguinte:
+Antes que você compile e empacote seu aplicativo, verifique se a seguir hello:
 
-* Se estiver usando o Visual Studio, verifique se a propriedade de **Copy Local** está definida como **True** para cada assembly referenciado em seu projeto que não faça parte do SDK do Azure ou do .NET Framework.
-* Verifique se o arquivo web.config não faz referência a nenhum assembly não usado no elemento compilation.
-* A **Ação de Compilação** de cada arquivo .cshtml é definida como **Conteúdo**. Isso garante que os arquivos sejam exibidos corretamente no pacote e habilita outros arquivos referenciados a aparecerem nele.
+* Se usando o Visual studio, verifique se Olá **Copy Local** propriedade for definida muito**True** para cada assembly referenciada no seu projeto que não faz parte de saudação do SDK do Azure ou Olá do .NET Framework.
+* Verifique se o arquivo Web. config de saudação não faz referência aos assemblies não usados no elemento de compilação de saudação.
+* Olá **ação de compilação** de cada. cshtml arquivo está definido muito**conteúdo**. Isso garante que os arquivos de saudação sejam exibidos corretamente no pacote de saudação e permite tooappear outros arquivos referenciados no pacote de saudação.
 
 ## <a name="assembly-targets-wrong-platform"></a>Plataforma incorreta de destinos de assembly
 O Azure é um ambiente de 64 bits. Portanto, os assemblies do .NET compilados para um destino de 32 bits não funcionarão no Azure.
 
 ## <a name="role-throws-unhandled-exceptions-while-initializing-or-stopping"></a>A função gera exceções sem tratamento durante a inicialização ou interrupção
-Todas as exceções geradas pelos métodos da classe [RoleEntryPoint], que inclui os métodos [OnStart], [OnStop] e [Execute], são exceções sem tratamento. Se ocorrer uma exceção sem tratamento em um desses métodos, a função será reciclada. Se a função estiver sendo reciclada repetidamente, ela poderá gerar uma exceção sem tratamento a cada tentativa de inicialização.
+Todas as exceções que são geradas pelos métodos de saudação da saudação [RoleEntryPoint] classe, que inclui a saudação [OnStart], [OnStop], e [executar]os métodos são exceções sem tratamento. Se uma exceção não tratada ocorrer em um desses métodos, a função hello reciclará. Se a função hello estiver Reciclando repetidamente, ela poderá lançar uma exceção sem tratamento toda vez que ele tenta toostart.
 
 ## <a name="role-returns-from-run-method"></a>A função é retornada do método Run
-O método [Execute] se destina a ser executado por tempo indeterminado. Se o seu código substituir o método [Execute] , ele deverá ser suspenso por tempo indeterminado. Se o método [Execute] for retornado, a função será reciclada.
+Olá [executar] método é pretendido toorun indefinidamente. Se seu código substituir Olá [executar] método, ele deverá ser suspendo indefinidamente. Se hello [executar] método retorna, Olá função se reciclar.
 
 ## <a name="incorrect-diagnosticsconnectionstring-setting"></a>Configuração incorreta de DiagnosticsConnectionString
-Se o aplicativo usar o Diagnóstico do Azure, o arquivo de configuração de serviço deverá especificar a definição de configuração `DiagnosticsConnectionString` . Essa configuração deve especificar uma conexão HTTPS à sua conta de armazenamento no Azure.
+Se o aplicativo usa o diagnóstico do Azure, o arquivo de configuração do serviço deve especificar Olá `DiagnosticsConnectionString` configuração. Essa configuração deve especificar uma conta de armazenamento do tooyour de conexão HTTPS no Azure.
 
-Para garantir que a configuração `DiagnosticsConnectionString` esteja correta antes de implantar seu pacote de aplicativos no Azure, verifique o seguinte:  
+tooensure que seu `DiagnosticsConnectionString` configuração está correta antes de implantar seu tooAzure do pacote de aplicativo, verifique se a seguinte hello:  
 
-* A configuração `DiagnosticsConnectionString` aponta para uma conta de armazenamento válida no Azure.  
-  Por padrão, essa configuração aponta para a conta de armazenamento emulada, portanto você deve alterar explicitamente essa configuração antes de implantar o pacote de aplicativos. Se você não alterar essa configuração, uma exceção será gerada quando a instância de função tentar iniciar o monitor de diagnóstico. Isso poderá fazer com que a instância de função seja reciclada por tempo indeterminado.
-* A cadeia de conexão é especificada no [formato](../storage/common/storage-configure-connection-string.md)a seguir. (O protocolo deve ser especificado como HTTPS). Substitua *MyAccountName* pelo nome da sua conta de armazenamento e *MyAccountKey* pela sua chave de acesso:    
+* Olá `DiagnosticsConnectionString` definindo pontos de conta de armazenamento válida tooa no Azure.  
+  Por padrão, essa configuração aponta toohello emulado conta de armazenamento, portanto você precisa alterar explicitamente essa configuração antes de implantar seu pacote de aplicativo. Se você não alterar essa configuração, uma exceção é lançada quando a instância de função hello tentativas de monitor de diagnóstico toostart hello. Isso pode causar toorecycle de instância de função hello indefinidamente.
+* Olá cadeia de caracteres de conexão é especificada no seguinte Olá [formato](../storage/common/storage-configure-connection-string.md). (protocolo de saudação deve ser especificado como HTTPS). Substituir *MyAccountName* com o nome de saudação da sua conta de armazenamento e *MyAccountKey* com sua chave de acesso:    
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
-  Se estiver desenvolvendo seu aplicativo com as Ferramentas do Azure para o Microsoft Visual Studio, você poderá usar as páginas de propriedade para definir esse valor.
+  Se você estiver desenvolvendo seu aplicativo usando ferramentas do Azure para Microsoft Visual Studio, você pode usar tooset de páginas de propriedade Olá esse valor.
 
 ## <a name="exported-certificate-does-not-include-private-key"></a>O certificado exportado não inclui a chave privada
-Para executar uma função web por meio do SSL, você deve garantir que seu certificado de gerenciamento exportado inclui a chave privada. Se você usar o *Gerenciador de Certificados do Windows* para exportar o certificado, selecione **Sim** para a opção **Exportar a chave privada**. O certificado deve ser exportado no formato PFX, que é o único formato atualmente com suporte.
+toorun uma função web no SSL, você deve garantir que seu certificado de gerenciamento exportado inclui a chave privada hello. Se você usar o hello *Gerenciador de certificados do Windows* tooexport certificado do hello, ser tooselect se **Sim** para Olá **chave privada de saudação de exportação** opção. certificado Olá deve ser exportado em formato PFX hello, o que é Olá formato só tem suportado no momento.
 
 ## <a name="next-steps"></a>Próximas etapas
 Confira mais [artigos sobre solução de problemas](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) para serviços de nuvem.
@@ -68,4 +68,4 @@ Veja mais cenários de reciclagem da função na [Série de blogs de Kevin Willi
 [RoleEntryPoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx
 [OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
-[Execute]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
+[executar]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx

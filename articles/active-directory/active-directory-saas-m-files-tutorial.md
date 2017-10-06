@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory com o M-Files | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o M-Files."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e milhões de arquivos."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,134 +13,134 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 0f2682cf7cd3e11a5a7156938fbe9d4c7f541312
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e1d268da53312b1d2c12e29d66b1a5b66d0cdcce
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Tutorial: integração do Azure Active Directory com o M-Files
 
-Neste tutorial, você aprenderá a integrar o M-Files ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como toointegrate milhões de arquivos com o Azure Active Directory (AD do Azure).
 
-A integração do M-Files ao Azure AD oferece os seguintes benefícios:
+Integrando milhões de arquivos com o AD do Azure fornece Olá benefícios a seguir:
 
-- No Azure AD, você pode controlar quem tem acesso ao M-Files
-- Você pode permitir que os usuários entrem automaticamente no M-Files (Logon único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um única localização: o Portal do Azure
+- Você pode controlar no AD do Azure que tenha acesso tooM arquivos
+- Você pode habilitar seus usuários tooautomatically get conectado tooM-arquivos (logon único) com suas contas do AD do Azure
+- Você pode gerenciar suas contas em um local central - Olá portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com o M-Files, você precisará dos seguintes itens:
+tooconfigure integração do AD do Azure com milhões de arquivos, você precisa Olá itens a seguir:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura habilitada para logon único do M-Files
 
 > [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
 
-1. Adicionando o M-Files da galeria
+1. Adicionando arquivos M da Galeria de saudação
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-m-files-from-the-gallery"></a>Adicionando o M-Files da galeria
-Para configurar a integração do M-Files ao Azure AD, você precisará adicionar o M-Files da galeria à sua lista de aplicativos SaaS gerenciados.
+## <a name="adding-m-files-from-hello-gallery"></a>Adicionando arquivos M da Galeria de saudação
+integração de saudação tooconfigure arquivos-M no AD do Azure, você precisa tooadd milhões de arquivos da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
 
-**Para adicionar o M-Files da galeria, execute as seguintes etapas:**
+**tooadd milhões de arquivos da Galeria de hello, execute Olá etapas a seguir:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
 
     ![Aplicativos][3]
 
-4. Na caixa de pesquisa, digite **M-Files**.
+4. Na caixa de pesquisa hello, digite **M arquivos**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-m-files-tutorial/tutorial_m-files_search.png)
 
-5. No painel de resultados, selecione **M-Files** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+5. No painel de resultados de saudação, selecione **M arquivos**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-m-files-tutorial/tutorial_m-files_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o M-Files, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do M-Files é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do M-Files.
+Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá em milhões de arquivos é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação em milhões de arquivos precisa toobe estabelecida.
 
-No M-Files, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+Nos arquivos de M, atribuir o valor de saudação do hello **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
 
-Para configurar e testar o logon único do Azure AD com o M-Files, você precisa concluir os seguintes blocos de construção:
+tooconfigure e teste de logon único do AD do Azure com milhões de arquivos, é necessário Olá toocomplete blocos de construção a seguir:
 
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** - para permitir que seus usuários usem esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criando um usuário de teste do M-Files](#creating-a-m-files-test-user)**: para ter um equivalente de Brenda Fernandes no M-Files que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
+3. **[Criar um usuário de teste de milhões de arquivos](#creating-a-m-files-test-user)**  -toohave um equivalente do Britta Simon em milhões de arquivos que é vinculado toohello AD do Azure representação do usuário.
+4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
+5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único em seu aplicativo M-Files.
+Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único em seu aplicativo de milhões de arquivos.
 
-**Para configurar o logon único do Azure AD com o M-Files, execute as seguintes etapas:**
+**tooconfigure AD do Azure-logon único com milhões de arquivos, execute Olá etapas a seguir:**
 
-1. No portal do Azure, na página de integração de aplicativos do **M-Files**, clique em **Logon único**.
+1. Em Olá portal do Azure, Olá **M arquivos** página de integração de aplicativos, clique em **o logon único**.
 
     ![Configurar Logon Único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
  
     ![Configurar Logon Único](./media/active-directory-saas-m-files-tutorial/tutorial_m-files_samlbase.png)
 
-3. Na seção **URLs e Domínio do M-Files**, execute as seguintes etapas:
+3. Em Olá **domínio milhões de arquivos e URLs** , execute Olá etapas a seguir:
 
     ![Configurar Logon Único](./media/active-directory-saas-m-files-tutorial/tutorial_m-files_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenantname>.cloudvault.m-files.com/authentication/MFiles.AuthenticationProviders.Core/sso`
+    a. Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<tenantname>.cloudvault.m-files.com/authentication/MFiles.AuthenticationProviders.Core/sso`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<tenantname>.cloudvault.m-files.com`
+    b. Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<tenantname>.cloudvault.m-files.com`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente M-Files](mailto:support@m-files.com) para obter esses valores. 
+    > Esses valores não são reais. Atualizar esses valores com hello real URL de logon e o identificador. Entre em contato com [equipe de suporte de milhões de arquivos cliente](mailto:support@m-files.com) tooget esses valores. 
  
-4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+4. Em Olá **o certificado de autenticação SAML** seção, clique em **Metadata XML** e, em seguida, salve o arquivo de metadados de saudação em seu computador.
 
-    ![Configurar o logon único](./media/active-directory-saas-m-files-tutorial/tutorial_m-files_certificate.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-m-files-tutorial/tutorial_m-files_certificate.png) 
 
 5. Clique no botão **Salvar** .
 
     ![Configurar Logon Único](./media/active-directory-saas-m-files-tutorial/tutorial_general_400.png)
 
-6. Para que o SSO seja configurado para o aplicativo, entre em contato com a [equipe de suporte do M-Files](mailto:support@m-files.com) e forneça os metadados baixados.
+6. tooget SSO configurado para o seu aplicativo, entre em contato com [equipe de suporte a milhões de arquivos](mailto:support@m-files.com) e fornecê-los Olá baixado de metadados.
    
     >[!NOTE]
-    >Siga as próximas etapas se quiser configurar o SSO para o aplicativo da área de trabalho do M-Files. Nenhuma etapa adicional é necessária se você quer apenas configurar o SSO para versão Web do M-Files.  
+    >Siga Olá próximas etapas, se você quiser tooconfigure SSO para que o aplicativo de área de trabalho do arquivo M. Não há etapas adicionais serão necessárias se você quiser apenas tooconfigure SSO para a versão da web de milhões de arquivos.  
 
-7. Siga as próximas etapas para configurar o aplicativo da área de trabalho do M-Files a fim de habilitar o SSO com o Azure AD. Para baixar o M-Files, vá para a página [Baixar M-Files](https://www.m-files.com/en/download-latest-version).
+7. Siga Olá próxima etapas tooconfigure Olá M arquivo aplicativo de desktop tooenable SSO com o Azure AD. toodownload milhões de arquivos, vá muito[baixar arquivos de M](https://www.m-files.com/en/download-latest-version) página.
 
-8. Abra a janela **Configurações da área de trabalho do M-Files**. Em seguida, clique em **Adicionar**.
+8. Olá abrir **configurações de área de trabalho de arquivos-M** janela. Em seguida, clique em **Adicionar**.
    
     ![Configurar Logon Único](./media/active-directory-saas-m-files-tutorial/tutorial_m_files_10.png)
 
-9. Na janela **Propriedades de Conexão do Cofre de Documentos**, execute as seguintes etapas:
+9. Em Olá **propriedades de Conexão do documento cofre** janela, executar Olá etapas a seguir:
    
     ![Configurar Logon Único](./media/active-directory-saas-m-files-tutorial/tutorial_m_files_11.png)  
 
-    No tipo de seção Servidor, os valores são os seguintes:  
+    Em Olá tipo de seção do servidor, Olá valores da seguinte maneira:  
 
     a. Para **Nome**, digite `<tenant-name>.cloudvault.m-files.com`. 
  
@@ -148,68 +148,68 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     c. Para **Protocolo**, selecione **HTTPS**. 
 
-    d. No campo **Autenticação**, selecione **Usuário específico do Windows**. Em seguida, você verá uma página de entrada. Insira suas credenciais do Azure AD. 
+    d. Em Olá **autenticação** campo, selecione **usuário específicos do Windows**. Em seguida, você verá uma página de entrada. Insira suas credenciais do Azure AD. 
 
-    e. Para o **Cofre no Servidor**, selecione o cofre correspondente no servidor.
+    e. Para Olá **cofre no servidor**, selecione Olá cofre correspondente no servidor.
  
     f. Clique em **OK**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
 
 ![Criar um usuário do AD do Azure][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
 
-1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-m-files-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-m-files-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-m-files-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-m-files-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
 
-    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-m-files-test-user"></a>Criar um usuário de teste do M-Files
 
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no M-Files. Trabalhe com a [equipe de suporte do M-Files](mailto:support@m-files.com) para adicionar os usuários no M-Files.
+Olá o objetivo desta seção é toocreate um usuário chamado Britta Simon em milhões de arquivos. Trabalhar com [equipe de suporte a milhões de arquivos](mailto:support@m-files.com) tooadd usuários Olá Olá milhões de arquivos.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
 
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure ao conceder acesso ao M-Files.
+Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooM-Files.
 
 ![Atribuir usuário][200] 
 
-**Para atribuir Brenda Fernandes ao M-Files, execute as seguintes etapas:**
+**tooassign Britta Simon tooM arquivos, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **M-Files**.
+2. Na lista de aplicativos hello, selecione **M arquivos**.
 
     ![Configurar Logon Único](./media/active-directory-saas-m-files-tutorial/tutorial_m-files_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -217,7 +217,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -225,13 +225,13 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-O objetivo desta seção é testar sua configuração de SSO do Azure AD usando o Painel de Acesso.
+Olá o objetivo desta seção é tootest Olá a sua configuração de SSO do AD do Azure usando o painel de acesso.
 
-Ao clicar no bloco M-Files no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo M-Files.
+Quando você clica em Olá milhões de arquivos lado a lado no painel de acesso de saudação, você deverá obter o aplicativo automaticamente assinado em tooyour milhões de arquivos.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

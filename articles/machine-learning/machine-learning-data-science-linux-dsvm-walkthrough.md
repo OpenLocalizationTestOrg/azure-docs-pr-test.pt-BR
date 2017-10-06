@@ -1,6 +1,6 @@
 ---
-title: "Ciência de dados na Máquina Virtual da Ciência de Dados do Linux | Microsoft Docs"
-description: "Como executar várias tarefas comuns da ciência de dados com a VM da Ciência de Dados do Linux."
+title: "ciência aaaData em Olá máquina de Virtual de ciência de dados do Linux | Microsoft Docs"
+description: "Como tooperform ciência de dados comum várias tarefas com hello VM de ciência de dados do Linux."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,98 +14,98 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev;paulsh
-ms.openlocfilehash: 6da9a8e3f9f8ac851c2a8deb861ac1d0b3ec5874
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 78764825f2e834fa4ddb7fdc2f59418dbe736e1d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="data-science-on-the-linux-data-science-virtual-machine"></a>Ciência de dados na Máquina Virtual da Ciência de Dados do Linux
-Este passo a passo mostra como executar várias tarefas comuns da ciência de dados com a VM da Ciência de Dados do Linux. A Máquina Virtual da Ciência de Dados do Linux (DSVM) é uma imagem da máquina virtual disponível no Azure pré-instalada com uma coleção de ferramentas usadas comumente para a análise de dados e o aprendizado de máquina. Os principais componentes do software são detalhados no tópico [Provisionar a Máquina Virtual da Ciência de Dados do Linux](machine-learning-data-science-linux-dsvm-intro.md) . A imagem da VM facilita começar a fazer a ciência de dados em minutos, sem precisar instalar e configurar cada uma das ferramentas individualmente. Você pode dimensionar facilmente a VM, se necessário, e parar quando não estiver em uso. Portanto, esse recurso é elástico e econômico.
+# <a name="data-science-on-hello-linux-data-science-virtual-machine"></a>Ciência de dados em Olá máquina de Virtual de ciência de dados do Linux
+Este passo a passo mostra como tooperform ciência de dados comum várias tarefas com hello VM de ciência de dados do Linux. saudação de máquina Virtual de ciência de dados de Linux (DSVM) é uma imagem de máquina virtual disponível no Azure que é instalado com uma coleção de ferramentas usadas para análise de dados e aprendizado de máquina. componentes de software chave Olá são discriminados em Olá [Olá provisionar máquina de Virtual de ciência de dados do Linux](machine-learning-data-science-linux-dsvm-intro.md) tópico. Olá imagem VM torna fácil tooget iniciado fazendo ciência de dados em minutos, sem ter que tooinstall e configurar cada uma das ferramentas de saudação individualmente. Você pode facilmente aumentar Olá VM, se necessário e interrompê-lo quando não estiver em uso. Portanto, esse recurso é elástico e econômico.
 
-As tarefas da ciência de dados demonstradas neste passo a passo seguem as etapas descritas no [Processo da Ciência de Dados de Equipe](https://azure.microsoft.com/documentation/learning-paths/data-science-process/). Esse processo fornece uma abordagem sistemática para a ciência de dados que permite às equipes de cientistas de dados colaborarem de maneira eficiente no ciclo de vida da criação de aplicativos inteligentes. O processo da ciência de dados também fornece uma estrutura iterativa para a ciência de dados que pode ser seguida por uma pessoa.
+Hello, demonstradas neste passo a passo de tarefas de ciência de dados siga etapas de saudação descritas em Olá [processo de ciência de dados de equipe](https://azure.microsoft.com/documentation/learning-paths/data-science-process/). Esse processo fornece uma ciência toodata abordagem sistemática que permite às equipes de tooeffectively colaborar Olá ciclo de vida de criação de aplicativos inteligentes os cientistas de dados. o processo de ciência de dados Olá também fornece uma estrutura iterativa para ciência de dados que pode ser seguida por um indivíduo.
 
-Analisamos o conjunto de dados [baseado em spam](https://archive.ics.uci.edu/ml/datasets/spambase) neste passo a passo. Este é um conjunto de emails marcados como spam ou ham (ou seja, não são spam) e também contém algumas estatísticas sobre o conteúdo dos emails. As estatísticas incluídas serão analisadas na próxima seção, exceto uma.
+Analisamos Olá [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) conjunto de dados neste passo a passo. Este é um conjunto de endereços de email que são marcados como spam ou ham (ou seja, eles não são spam), e também contém algumas estatísticas sobre conteúdo Olá Olá emails. estatísticas de saudação incluídas são discutidas em Olá lado mas uma seção.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de criar uma Máquina Virtual da Ciência de Dados do Linux, você deve ter o seguinte:
+Antes de usar uma máquina Virtual de ciência de dados de Linux, você deve ter o seguinte hello:
 
 * Uma **assinatura do Azure**. Se você não tiver uma, consulte [Criar sua conta gratuita do Azure hoje](https://azure.microsoft.com/free/).
-* Uma [**VM da ciência de dados do Linux**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Para obter informações sobre como provisionar essa VM, consulte [Provisionar a Máquina Virtual da Ciência de Dados do Linux](machine-learning-data-science-linux-dsvm-intro.md).
+* Uma [**VM da ciência de dados do Linux**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Para obter informações sobre o provisionamento essa VM, consulte [Olá provisionar máquina de Virtual de ciência de dados do Linux](machine-learning-data-science-linux-dsvm-intro.md).
 * [X2Go](http://wiki.x2go.org/doku.php) instalado em seu computador e aberto em uma sessão XFCE. Para obter informações sobre como instalar e configurar um **cliente X2Go**, confira [Instalando e configurando o cliente X2Go](machine-learning-data-science-linux-dsvm-intro.md#installing-and-configuring-x2go-client). 
-* Uma **conta do AzureML**. Se você ainda não tiver, inscreva-se para ter uma nova na [home page do AzureML](https://studio.azureml.net/). Há uma camada de uso gratuita para ajudá-lo a começar.
+* Uma **conta do AzureML**. Se você ainda não tiver uma, inscreva-se para uma nova no hello [home page do AzureML](https://studio.azureml.net/). Há um toohelp de nível de uso livre começar.
 
-## <a name="download-the-spambase-dataset"></a>Baixar o conjunto de dados baseado em spam
-O conjunto de dados [baseado em spam](https://archive.ics.uci.edu/ml/datasets/spambase) é um conjunto de dados relativamente pequeno que contém somente 4.601 exemplos. Esse é um tamanho conveniente usado ao demonstrar alguns dos principais recursos da VM da Ciência de Dados, quando ela mantém os requisitos de recursos modestos.
+## <a name="download-hello-spambase-dataset"></a>Baixar o conjunto de dados do hello spambase
+Olá [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) conjunto de dados é um conjunto de dados que contém somente 4601 exemplos relativamente pequeno. Este é um tamanho conveniente toouse quando demonstrando que alguns dos recursos chave Olá Olá VM de ciência de dados que mantém os requisitos de recursos de saudação modesto.
 
 > [!NOTE]
-> Este passo a passo foi criado em Máquina Virtual da Ciência de Dados do Linux de tamanho D2 v2. Esse tamanho da DSVM é capaz de lidar com os procedimentos neste passo a passo.
+> Este passo a passo foi criado em Máquina Virtual da Ciência de Dados do Linux de tamanho D2 v2. Esse tamanho DSVM é capaz de manipular procedimentos Olá neste passo a passo.
 >
 >
 
-Se você precisar de mais espaço de armazenamento, poderá criar discos adicionais e anexá-los à sua VM. Esses discos usam o armazenamento persistente do Azure para que seus dados sejam preservados mesmo quando o servidor é provisionado novamente devido ao redimensionamento ou é desligado. Para adicionar um disco e anexá-lo à sua VM, siga as instruções em [Adicionar um disco a uma VM do Linux](../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Essas etapas usam a Interface de Linha de Comando do Azure (Azure CLI), que já está instalada na DSVM. Então, esses procedimentos podem ser feitos inteiramente na própria VM. Outra opção para aumentar o armazenamento é usar os [arquivos do Azure](../storage/files/storage-how-to-use-files-linux.md).
+Se você precisar de mais espaço de armazenamento, você pode criar discos adicionais e anexá-los tooyour VM. Esses discos usam armazenamento persistente do Azure, para que seus dados são preservados mesmo quando o servidor de saudação for reprovisionada vencimento tooresizing ou está desligado. tooadd um disco e anexá-lo tooyour VM, siga as instruções de saudação em [adicionar um disco tooa VM Linux](../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Essas etapas usam hello Azure de linha de comando CLI (Interface do Azure), que já está instalado no hello DSVM. Para esses procedimentos podem ser feitos inteiramente do hello própria máquina virtual. Outra opção de armazenamento de tooincrease é toouse [arquivos do Azure](../storage/files/storage-how-to-use-files-linux.md).
 
-Para baixar os dados, abra uma janela do terminal e execute este comando:
+dados de saudação toodownload, abra uma janela do terminal e execute este comando:
 
     wget http://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
 
-O arquivo baixado não tem uma linha de cabeçalho, portamos, iremos criar outro arquivo com um cabeçalho. Execute este comando para criar um arquivo com os devidos cabeçalhos:
+o arquivo baixado Olá não tem uma linha de cabeçalho, vamos criar outro arquivo que tem um cabeçalho. Execute este comando toocreate um arquivo com cabeçalhos apropriados Olá:
 
     echo 'word_freq_make, word_freq_address, word_freq_all, word_freq_3d,word_freq_our, word_freq_over, word_freq_remove, word_freq_internet,word_freq_order, word_freq_mail, word_freq_receive, word_freq_will,word_freq_people, word_freq_report, word_freq_addresses, word_freq_free,word_freq_business, word_freq_email, word_freq_you, word_freq_credit,word_freq_your, word_freq_font, word_freq_000, word_freq_money,word_freq_hp, word_freq_hpl, word_freq_george, word_freq_650, word_freq_lab,word_freq_labs, word_freq_telnet, word_freq_857, word_freq_data,word_freq_415, word_freq_85, word_freq_technology, word_freq_1999,word_freq_parts, word_freq_pm, word_freq_direct, word_freq_cs, word_freq_meeting,word_freq_original, word_freq_project, word_freq_re, word_freq_edu,word_freq_table, word_freq_conference, char_freq_semicolon, char_freq_leftParen,char_freq_leftBracket, char_freq_exclamation, char_freq_dollar, char_freq_pound, capital_run_length_average,capital_run_length_longest, capital_run_length_total, spam' > headers
 
-Então, concatene os dois arquivos com o comando:
+Em seguida, concatene dois arquivos Olá junto com o comando hello:
 
     cat spambase.data >> headers
     mv headers spambaseHeaders.data
 
-O conjunto de dados tem vários tipos de estatísticas em cada email:
+Olá dataset tem vários tipos de estatísticas sobre cada email:
 
-* Colunas como ***word\_freq\_WORD*** indicam a porcentagem de palavras no email que correspondem a *WORD*. Por exemplo, se *word\_freq\_make* for 1, 1% de todas as palavras no email foi *make*.
-* Colunas como ***char\_freq\_CHAR*** indicam a porcentagem de todos os caracteres no email que foram *CHAR*.
-* ***capital\_run\_length\_longest*** é o maior comprimento de uma sequência de letras maiúsculas.
-* ***capital\_run\_length\_average*** é a duração média de todas as sequências de letras maiúsculas.
-* ***capital\_run\_length\_total*** é o comprimento total de todas as sequências de letras maiúsculas.
-* ***spam*** indica se o email foi considerado spam ou não (1 = spam, 0 = não spam).
+* Colunas como ***word\_freq\_WORD*** indicar porcentagem Olá de palavras no email de saudação que correspondem *WORD*. Por exemplo, se *word\_freq\_fazer* for 1, 1% de todas as palavras no email Olá foram *fazer*.
+* Colunas como ***char\_freq\_CHAR*** indicar porcentagem Olá de todos os caracteres no email Olá foram *CHAR*.
+* ***capital\_executar\_comprimento\_mais longa*** é Olá o período mais longo de uma sequência de letras maiusculas.
+* ***capital\_executar\_comprimento\_médio*** é Olá médio de todas as sequências de letras maiusculas.
+* ***capital\_executar\_comprimento\_total*** é Olá o comprimento total de todas as sequências de letras maiusculas.
+* ***spam*** indica se o email de saudação foi considerado spam ou não (1 = spam, 0 = não spam).
 
-## <a name="explore-the-dataset-with-microsoft-r-open"></a>Explorar o conjunto de dados com o Microsoft R Open
-Vamos examinar os dados e fazer um aprendizado de máquina básico com R. A VM da Ciência de Dados vem com o [Microsoft R Open](https://mran.revolutionanalytics.com/open/) pré-instalado. As bibliotecas matemáticas multithread nesta versão do R oferecem melhor desempenho que diversas versões de thread único. O Microsoft R Open também fornece a capacidade de reprodução usando um instantâneo do repositório de pacotes CRAN.
+## <a name="explore-hello-dataset-with-microsoft-r-open"></a>Explorar Olá conjunto de dados com o Microsoft R Open
+Vamos examinar dados hello e faça o aprendizado de máquina básica com r. Olá VM de ciência de dados vem com [Microsoft R Open](https://mran.revolutionanalytics.com/open/) pré-instalado. Hello bibliotecas matemáticas multithread nesta versão do R oferecem melhor desempenho de várias versões de thread único. Microsoft R Open também fornece reprodução usando um instantâneo do repositório de pacotes CRAN hello.
 
-Para obter cópias dos exemplos de código usados neste passo a passo, clone o repositório **Azure-Machine-Learning-Data-Science** usando o git, que é pré-instalado na VM. Na linha de comando do git, execute:
+exemplos usados neste passo a passo, Olá clone de código de tooget cópias de saudação **Azure-Machine-aprendizado--ciência de dados** repositório usando o git, que é instalado em Olá VM. Na linha de comando git hello, execute:
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
-Abra uma janela de terminal e inicie uma nova sessão de R com o console interativo de R.
+Abra uma janela do terminal e iniciar uma nova sessão de R com um console interativo Olá R.
 
 > [!NOTE]
-> Você também pode usar o RStudio para os procedimentos a seguir. Para instalar o RStudio, execute este comando em um terminal: `./Desktop/DSVM\ tools/installRStudio.sh`
+> Você também pode usar o RStudio para Olá procedimentos a seguir. tooinstall RStudio, execute este comando em um terminal:`./Desktop/DSVM\ tools/installRStudio.sh`
 >
 >
 
-Para importar os dados e configurar o ambiente, execute:
+dados de saudação tooimport e configure o ambiente hello, execute:
 
     data <- read.csv("spambaseHeaders.data")
     set.seed(123)
 
-Para ver as estatísticas de resumo sobre cada coluna:
+toosee estatísticas de resumo sobre cada coluna:
 
     summary(data)
 
-Para obter uma exibição diferente dos dados:
+Para obter uma exibição diferente dos dados saudação:
 
     str(data)
 
-Isso mostra o tipo de cada variável e os primeiros valores no conjunto de dados.
+Isso mostra Olá tipo de cada variável e primeiro Olá alguns valores no conjunto de dados de saudação.
 
-A coluna *spam* foi lida como um número inteiro, mas é realmente uma variável categórica (ou fator). Para definir seu tipo:
+Olá *spam* coluna foi lido como um número inteiro, mas é realmente um categóricos variável (ou fator). tooset seu tipo:
 
     data$spam <- as.factor(data$spam)
 
-Para fazer algumas análises exploratórias, use o pacote [ggplot2](http://ggplot2.org/) , uma biblioteca de gráficos popular para R já está instalada na VM. Observe, dos dados de resumo exibidos anteriormente, temos as estatísticas de resumo sobre a frequência do caractere de ponto de exclamação. Iremos plotar as frequências aqui com os seguintes comandos:
+toodo algumas análises EXPLORATÓRIAS, use Olá [ggplot2](http://ggplot2.org/) do pacote, uma biblioteca de gráfica popular para R Olá VM já está instalado. Observe que, de dados resumidos Olá exibida anteriormente, que temos as estatísticas de resumo sobre a frequência de saudação do caractere de ponto de exclamação hello. Vamos plotar as frequências aqui com hello comandos a seguir:
 
     library(ggplot2)
     ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
 
-Como a barra zero está distorcendo a plotagem, iremos nos livrar dela:
+Desde que a barra de saudação zero é inclinação plotagem Olá, vamos eliminá-lo:
 
     email_with_exclamation = data[data$char_freq_exclamation > 0, ]
     ggplot(email_with_exclamation) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
@@ -123,48 +123,48 @@ Em seguida, divida por ham vs. spam:
     ggtitle("Distribution of spam \nby frequency of !") +
     labs(fill="spam", y="Density")
 
-Esses exemplos devem permitir fazer plotagens semelhante das outras colunas para explorar os dados contidos nelas.
+Estes exemplos devem permitir que você plotagens semelhante de toomake da saudação tooexplore outras colunas Olá dados neles contidos.
 
 ## <a name="train-and-test-an-ml-model"></a>Treinar e testar um modelo de AM
-Agora, iremos treinar alguns modelos de aprendizado de máquina para classificar os emails no conjunto de dados como contendo span ou ham. Treinamos um modelo da árvore de decisão e um modelo de floresta aleatória nesta seção, então, testamos sua precisão das previsões.
+Agora vamos treinar um par de aprendizado de máquina modelos de emails de saudação tooclassify no conjunto de dados hello como contendo um span ou ham. Treinamos um modelo da árvore de decisão e um modelo de floresta aleatória nesta seção, então, testamos sua precisão das previsões.
 
 > [!NOTE]
-> O pacote rpart (particionamento recursivo e árvores de regressão) usado no código a seguir já está instalado na VM da Ciência de Dados.
+> pacote de rpart (particionamento recursivo e árvores de regressão) de saudação usado em Olá código a seguir já está instalado em Olá VM de ciência de dados.
 >
 >
 
-Primeiro, dividiremos o conjunto de dados em conjuntos de treinamento e teste:
+Primeiro, vamos dividir o conjunto de dados de saudação em conjuntos de treinamento e teste:
 
     rnd <- runif(dim(data)[1])
     trainSet = subset(data, rnd <= 0.7)
     testSet = subset(data, rnd > 0.7)
 
-Em seguida, crie uma árvore de decisão para classificar os emails.
+E, em seguida, crie uma saudação de tooclassify de árvore de decisão emails.
 
     require(rpart)
     model.rpart <- rpart(spam ~ ., method = "class", data = trainSet)
     plot(model.rpart)
     text(model.rpart)
 
-Aqui está o resultado:
+Este é o resultado de saudação:
 
 ![1](./media/machine-learning-data-science-linux-dsvm-walkthrough/decision-tree.png)
 
-Para determinar a execução no conjunto de treinamento, use o seguinte código:
+toodetermine como ele executa no treinamento de saudação definido, use Olá código a seguir:
 
     trainSetPred <- predict(model.rpart, newdata = trainSet, type = "class")
     t <- table(`Actual Class` = trainSet$spam, `Predicted Class` = trainSetPred)
     accuracy <- sum(diag(t))/sum(t)
     accuracy
 
-Para determinar a execução no conjunto de teste:
+toodetermine como ele executa no conjunto de teste de saudação:
 
     testSetPred <- predict(model.rpart, newdata = testSet, type = "class")
     t <- table(`Actual Class` = testSet$spam, `Predicted Class` = testSetPred)
     accuracy <- sum(diag(t))/sum(t)
     accuracy
 
-Também tentaremos um modelo de floresta aleatória. As florestas aleatórias treinam uma infinidade de árvores de decisão e geram uma classe que é o modo das classificações a partir de todas as árvores de decisão individuais. Fornecem uma abordagem do aprendizado de máquina mais potente à medida que corrigem a tendência de um modelo de árvore de decisão de sobreajustar um conjunto de dados de treinamento.
+Também tentaremos um modelo de floresta aleatória. Florestas aleatórias treinar uma infinidade de árvores de decisão e de saída de uma classe que é o modo de saudação do classificações Olá todas Olá individuais de árvores de decisão. Eles fornecem uma abordagem de aprendizado conforme eles corrigir para tendência de saudação de um toooverfit de modelo de árvore de decisão um conjunto de dados de treinamento de máquina mais eficiente.
 
     require(randomForest)
     trainVars <- setdiff(colnames(data), 'spam')
@@ -179,31 +179,30 @@ Também tentaremos um modelo de floresta aleatória. As florestas aleatórias tr
     accuracy
 
 
-## <a name="deploy-a-model-to-azure-ml"></a>Implantar um modelo para o AzureML
+## <a name="deploy-a-model-tooazure-ml"></a>Implantar um modelo tooAzure ML
+[O estúdio de aprendizado de máquina do Azure](https://studio.azureml.net/) (AzureML) é um serviço de nuvem que torna fácil toobuild e implanta modelos de análise de previsão. Um dos recursos interessantes de saudação do AzureML é seu toopublish capacidade qualquer R funcionar como um serviço web. Olá pacote AzureML R faz toodo fácil implantação diretamente do nosso sessão R Olá DSVM.
 
-            [Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML) é um serviço de nuvem que facilita criar e implantar modelos de análise preditiva. Um dos recursos interessantes do AzureML é sua capacidade de publicar qualquer função R como um serviço da Web. O pacote AzureML R facilita a implantação correta a partir de nossa sessão R na DSVM.
+toodeploy o código de árvore de decisão de Olá da seção anterior Olá, é necessário toosign em tooAzure estúdio de aprendizado de máquina. É necessário o ID do espaço de trabalho e um toosign de token de autorização no. toofind esses valores e inicializar Olá AzureML variáveis com eles:
 
-Para implantar o código da árvore de decisão da seção anterior, você precisa entrar no Azure Machine Learning Studio. Você precisa de sua ID do espaço de trabalho e de um token de autorização para entrar. Para localizar esses valores e inicializar as variáveis do AzureML com eles:
+Selecione **configurações** no menu esquerdo hello. Observe a **ID do ESPAÇO DE TRABALHO**. ![2](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-id.png)
 
-Selecione **Configurações** no menu à esquerda. Observe a **ID do ESPAÇO DE TRABALHO**. ![2](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-id.png)
+Selecione **Tokens de autorização** de menu sobrecarga hello e anote seu **primário Token de autorização**.![ 3](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-token.png)
 
-Selecione **Tokens de Autorização** no menu de sobrecarga e observe o **Token de Autorização Primário**.![3](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-token.png)
-
-Carregue o pacote **AzureML** e defina os valores das variáveis com seu token e ID do espaço de trabalho na sessão R da DSVM:
+Saudação de carga **AzureML** do pacote e, em seguida, definir valores de variáveis de saudação com sua ID de token e o espaço de trabalho em sua sessão de R em Olá DSVM:
 
     require(AzureML)
     wsAuth = "<authorization-token>"
     wsID = "<workspace-id>"
 
 
-Iremos simplificar o modelo para tornar esta demonstração mais fácil de implementar. Selecione as três variáveis na árvore de decisão mais próximas da raiz e compile uma nova árvore usando apenas essas três variáveis:
+Vamos simplificar Olá modelo toomake este tooimplement mais fácil de demonstração. Escolha Olá três variáveis em Olá decisão mais próximo toohello raiz da árvore e criar uma nova árvore usando apenas as três variáveis:
 
     colNames <- c("char_freq_dollar", "word_freq_remove", "word_freq_hp", "spam")
     smallTrainSet <- trainSet[, colNames]
     smallTestSet <- testSet[, colNames]
     model.rpart <- rpart(spam ~ ., method = "class", data = smallTrainSet)
 
-Precisamos de uma função de previsão que usa os recursos como uma entrada e retorna os valores previstos:
+Precisamos de uma função de previsão que usa recursos hello como entrada e retorna Olá valores previstos:
 
     predictSpam <- function(char_freq_dollar, word_freq_remove, word_freq_hp) {
         predictDF <- predict(model.rpart, data.frame("char_freq_dollar" = char_freq_dollar,
@@ -211,7 +210,7 @@ Precisamos de uma função de previsão que usa os recursos como uma entrada e r
         return(colnames(predictDF)[apply(predictDF, 1, which.max)])
     }
 
-Publique a função predictSpam para o AzureML usando a função **publishWebService** :
+Publicar Olá predictSpam função tooAzureML usando Olá **publishWebService** função:
 
     spamWebService <- publishWebService("predictSpam",
         "spamWebService",
@@ -219,19 +218,19 @@ Publique a função predictSpam para o AzureML usando a função **publishWebSer
         list("spam"="int"),
         wsID, wsAuth)
 
-Essa função usa a **predictSpam**, cria um serviço Web denominado **spamWebService** com entradas e saídas definidas e retorna informações sobre o novo ponto de extremidade.
+Essa função usa Olá **predictSpam** funcionar, cria um serviço web denominado **spamWebService** com definido entradas e saídas e retorna informações sobre o novo ponto de extremidade de saudação.
 
-Exiba os detalhes do serviço Web publicado, incluindo seu ponto de extremidade de API e acesse as chaves com o comando:
+Exibir detalhes da saudação publicado serviço da web, incluindo suas chaves de acesso e o ponto de extremidade de API com o comando hello:
 
     spamWebService[[2]]
 
-Para experimentar nas primeiras 10 linhas do conjunto de teste:
+tootry-out em Olá primeiras 10 linhas do conjunto de teste de saudação:
 
     consumeDataframe(spamWebService$endpoints[[1]]$PrimaryKey, spamWebService$endpoints[[1]]$ApiLocation, smallTestSet[1:10, 1:3])
 
 
 ## <a name="use-other-tools-available"></a>Usar outras ferramentas disponíveis
-As seções restantes mostram como usar algumas das ferramentas instaladas na VM da Ciência de Dados do Linux. Aqui está a lista das ferramentas analisadas:
+seções restantes Olá mostram como toouse algumas ferramentas Olá instaladas em Olá VM de ciência de dados do Linux. Aqui está a lista de saudação de ferramentas abordadas:
 
 * XGBoost
 * Python
@@ -260,14 +259,14 @@ As seções restantes mostram como usar algumas das ferramentas instaladas na VM
 O XGBoost também pode chamar a partir do python ou de uma linha de comando.
 
 ## <a name="python"></a>Python
-Para o desenvolvimento com o Python, as distribuições do Anaconda Python 2.7 e 3.5 foram instaladas na DSVM.
+Para o desenvolvimento com Python, distribuições de Python Anaconda Olá 2.7 e 3.5 foram instaladas em Olá DSVM.
 
 > [!NOTE]
-> A distribuição Anaconda inclui o [Condas](http://conda.pydata.org/docs/index.html), que pode ser usado para criar ambientes personalizados para o Python com versões diferentes e/ou pacotes instalados.
+> Olá distribuição Anaconda inclui [Condas](http://conda.pydata.org/docs/index.html), que pode ser usado toocreate ambientes personalizados para Python com versões diferentes e/ou pacotes instalados.
 >
 >
 
-Iremos transmitir o conjunto de dados baseado em spam e classificar os emails com máquinas do vetor de suporte no scikit-learn:
+Vamos leitura em algumas Olá spambase dataset e classificar emails Olá com máquinas de vetor de suporte em scikit-Saiba mais:
 
     import pandas
     from sklearn import svm    
@@ -277,20 +276,20 @@ Iremos transmitir o conjunto de dados baseado em spam e classificar os emails co
     clf = svm.SVC()
     clf.fit(X, y)
 
-Para fazer previsões:
+previsões de toomake:
 
     clf.predict(X.ix[0:20, :])
 
-Para mostrar como publicar um ponto de extremidade do AzureML, criaremos um modelo mais simples das três variáveis como fizemos quando publicamos o modelo R anteriormente.
+tooshow como toopublish um ponto de extremidade AzureML, vamos criar um modelo mais simples Olá três variáveis como fizemos quando publicamos modelo Olá R anteriormente.
 
     X = data.ix[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
     y = data.ix[:, 57]
     clf = svm.SVC()
     clf.fit(X, y)
 
-Para publicar o modelo para o AzureML:
+toopublish Olá modelo tooAzureML:
 
-    # Publish the model.
+    # Publish hello model.
     workspace_id = "<workspace-id>"
     workspace_token = "<workspace-token>"
     from azureml import services
@@ -301,11 +300,11 @@ Para publicar o modelo para o AzureML:
         inputArray = [char_freq_dollar, word_freq_remove, word_freq_hp]
         return clf.predict(inputArray)
 
-    # Get some info about the resulting model.
+    # Get some info about hello resulting model.
     predictSpam.service.url
     predictSpam.service.api_key
 
-    # Call the model
+    # Call hello model
     predictSpam.service(1, 1, 1)
 
 > [!NOTE]
@@ -314,67 +313,67 @@ Para publicar o modelo para o AzureML:
 >
 
 ## <a name="jupyterhub"></a>Jupyterhub
-A distribuição Anaconda na DSVM vem com um bloco de anotações do Jupyter, um ambiente de plataforma cruzada para compartilhar o Python, R ou o código Julia e a análise. O notebook Jupyter é acessado com o JupyterHub. Você entra usando seu nome de usuário local do Linux e a senha em ***https://\<nome DNS da VM ou Endereço IP\>:8000/***. Todos os arquivos de configuração para o JupyterHub são encontrados no diretório **/etc/jupyterhub**.
+distribuição da Anaconda Olá no hello DSVM vem com um bloco de anotações do Jupyter, um ambiente de plataforma cruzada tooshare Python, R ou Julia código e análise. anotações do Jupyter Olá é acessada por meio de JupyterHub. Você entra usando seu nome de usuário local do Linux e a senha em ***https://\<nome DNS da VM ou Endereço IP\>:8000/***. Todos os arquivos de configuração para o JupyterHub são encontrados no diretório **/etc/jupyterhub**.
 
-Vários blocos de anotações de exemplo já estão instalados na VM:
+Vários blocos de anotações de exemplo já estão instalados no hello VM:
 
-* Consulte o [IntroToJupyterPython.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroToJupyterPython.ipynb) para ver um bloco de anotações do Python de exemplo.
+* Consulte Olá [IntroToJupyterPython.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroToJupyterPython.ipynb) para um bloco de anotações do Python de exemplo.
 * Consulte o [IntroTutorialinR](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroTutorialinR.ipynb) para obter um bloco de anotações do **R** de exemplo.
-* Consulte o [IrisClassifierPyMLWebService](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IrisClassifierPyMLWebService.ipynb) para obter outro bloco de anotações do **Python** de exemplo.
+* Consulte Olá [IrisClassifierPyMLWebService](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IrisClassifierPyMLWebService.ipynb) para obter outro exemplo **Python** notebook.
 
 > [!NOTE]
-> O idioma Julia também está disponível na linha de comando na VM da Ciência de Dados do Linux.
+> Olá idioma Julia também está disponível na linha de comando Olá Olá VM de ciência de dados do Linux.
 >
 >
 
 ## <a name="rattle"></a>Rattle
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (a Ferramenta Analítica do R Fácil de Aprender) é uma ferramenta gráfica do R para a mineração de dados. Ela tem uma interface simples que facilita carregar, explorar e transformar os dados, compilar e avaliar os modelos.  O artigo [Rattle: Uma GUI da Mineração de Dados para o R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) fornece um passo a passo que demonstre seus recursos.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (Olá ferramenta analíticos R tooLearn facilmente) é uma ferramenta gráfica de R para mineração de dados. Ele tem uma interface intuitiva que torna mais fácil tooload, explorar e transformar dados e criar e avaliar modelos.  artigo Olá [Rattle: A Data Mining GUI para R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) fornece um passo a passo que demonstre seus recursos.
 
-Instale e inicie o Rattle com os seguintes comandos:
+Instale e inicie chocalho com hello comandos a seguir:
 
     if(!require("rattle")) install.packages("rattle")
     require(rattle)
     rattle()
 
 > [!NOTE]
-> A instalação não é necessária na DSVM. Mas o Rattle pode solicitar que você instale pacotes adicionais ao ser carregado.
+> Instalação não é necessária em Olá DSVM. Mas chocalho pode solicitar pacotes adicionais tooinstall ao ser carregado.
 >
 >
 
-O Rattle usa uma interface baseada em guias. A maioria das guias corresponde às etapas no [Processo da Ciência de Dados](https://azure.microsoft.com/documentation/learning-paths/data-science-process/), como carregar os dados ou explorá-los. O processo da ciência de dados flui da esquerda para a direita nas guias. Mas a última guia contém um log dos comandos do R executados pelo Rattle.
+O Rattle usa uma interface baseada em guias. A maioria das guias Olá corresponde toosteps em Olá [processo de ciência de dados](https://azure.microsoft.com/documentation/learning-paths/data-science-process/), como o carregamento de dados ou explorá-la. processo de ciência de dados Olá flui da esquerda tooright pelas guias de saudação. Mas a guia última Olá contém um log de comandos Olá R executando chocalho.
 
-Para carregar e configurar o conjunto de dados:
+tooload e configurar o conjunto de dados hello:
 
-* Para carregar o arquivo, selecione a guia **Dados** , em seguida,
-* Escolha o seletor ao lado do **Nome de arquivo** e escolha **spambaseHeaders.data**.
-* Para carregar o arquivo. selecione **Executar** na linha superior de botões. Você deve ver um resumo de cada coluna, incluindo o tipo de dados identificado, se é uma entrada, um destino ou outro tipo de variável, e o número de valores exclusivos.
-* O Rattle identifica corretamente a coluna de **spam** como o destino. Selecione a coluna de spam e defina o **Tipo de Dados de Destino** para **Categórico**.
+* arquivo de saudação tooload, selecione Olá **dados** guia, em seguida,
+* Escolha o seletor de saudação Avançar muito**Filename** e escolha **spambaseHeaders.data**.
+* arquivo de saudação tooload. Selecione **Execute** linha superior de saudação de botões. Você deve ver um resumo de cada coluna, incluindo seu tipo de dados identificado, se ele é uma entrada, um destino ou outro tipo de variável e o número de saudação de valores exclusivos.
+* Chocalho identificar corretamente Olá **spam** coluna como destino de saudação. Coluna de spam selecione hello, em seguida, Olá conjunto **tipo de dados de destino** muito**Categoric**.
 
-Para explorar os dados:
+dados de saudação tooexplore:
 
-* Selecione a guia **Explorar** .
-* Clique em **Resumo** e em **Executar** para ver algumas informações sobre os tipos de variáveis e algumas estatísticas resumidas.
-* Para exibir os outros tipos de estatísticas sobre cada variável, selecione outras opções, como **Descrever** ou **Básico**.
+* Selecione Olá **explorar** guia.
+* Clique em **resumo**, em seguida, **Execute**, toosee algumas informações sobre os tipos de variáveis hello e algumas estatísticas de resumo.
+* tooview outros tipos de estatísticas sobre cada variável, selecione outras opções como **descrever** ou **Noções básicas de**.
 
-A guia **Explorar** também permite gerar várias plotagens criteriosas. Para plotar um histograma dos dados:
+Olá **explorar** guia também permite que você toogenerate muitos criteriosos plota. tooplot um histograma dos dados saudação:
 
 * Selecione **Distribuições**.
 * Verifique o **Histograma** quanto a **word_freq_remove** e **word_freq_you**.
-* Selecione **Executar**. Você deverá ver duas plotagens de densidade em uma janela de gráfico, na qual fica claro que a palavra "you" aparece com muito mais frequência nos emails que "remove".
+* Selecione **Executar**. Você deverá ver que dois densidade plota em uma janela de gráfico único, onde ele está criptografado palavra hello "você" é exibido com mais frequência nos emails de "remover".
 
-As plotagens de correlação também são interessantes. Para criar uma:
+gráficos de correlação Olá também são interessantes. toocreate um:
 
-* Escolha **Correlação** como o **Tipo** e
+* Escolha **correlação** como Olá **tipo**, em seguida,
 * Selecione **Executar**.
-* O Rattle avisa que ele recomenda um máximo de 40 variáveis. Selecione **Sim** para exibir a plotagem.
+* O Rattle avisa que ele recomenda um máximo de 40 variáveis. Selecione **Sim** tooview plotagem de saudação.
 
-Há algumas correlações interessantes que surgem: "tecnologia" é muito correlacionado a "HP" e "laboratórios", por exemplo. Também está muito correlacionado a "650", porque o código de área dos doadores do conjunto de dados é 650.
+Há alguns correlações interessantes que surgirem: "tecnologia" é fortemente correlacionada muito "HP" e "laboratórios", por exemplo. Ele é também fortemente correlacionado muito "650", como código de área de saudação de doadores de conjunto de dados de saudação é 650.
 
-Os valores numéricos para as correlações entre as palavras estão disponíveis na janela Explorar. É interessante observar, por exemplo, que "tecnologia" está negativamente correlacionado a "seu" e "dinheiro".
+valores numéricos Olá correlações Olá entre palavras estão disponíveis na janela de explorar hello. É interessante toonote, por exemplo, se "tecnologia" negativamente correlacionada com "a" e "money".
 
-O Rattle pode transformar o conjunto de dados para lidar com alguns problemas comuns. Por exemplo, ele permite que você redimensione os recursos, atribua os valores ausentes, lide com os valores atípicos e remova as variáveis ou observações sem dados. O Rattle também pode identificar regras de associação entre as observações e/ou variáveis. Essas guias estão fora do escopo deste passo a passo de introdução.
+Chocalho pode transformar Olá dataset toohandle alguns problemas comuns. Por exemplo, ele permite que você toorescale recursos, imputar valores ausentes, manipular exceções e remova variáveis ou observações com dados ausentes. O Rattle também pode identificar regras de associação entre as observações e/ou variáveis. Essas guias estão fora do escopo deste passo a passo de introdução.
 
-O Rattle também pode executar a análise de cluster. Iremos excluir alguns recursos para facilitar a leitura da saída. Na guia **Dados**, escolha **Ignorar** ao lado de cada uma das variáveis, exceto esses 10 itens:
+O Rattle também pode executar a análise de cluster. Vamos excluir alguns recursos toomake Olá saída mais fácil tooread. Em Olá **dados** guia, escolha **ignorar** tooeach próximo de variáveis de saudação exceto esses dez itens:
 
 * word_freq_hp
 * word_freq_technology
@@ -387,38 +386,38 @@ O Rattle também pode executar a análise de cluster. Iremos excluir alguns recu
 * word_freq_business
 * spam
 
-Em seguida, vá para a guia **Cluster**, escolha **KMeans** e defina o *Número de clusters* para 4. Então, **Executar**. Os resultados são exibidos na janela de saída. Um cluster tem alta frequência de "george" e "hp", e provavelmente é um email corporativo legítimo.
+Vá toohello **Cluster** guia, escolha **KMeans**e conjunto hello *número de clusters* too4. Então, **Executar**. Olá resultados são exibidos na janela de saída de hello. Um cluster tem alta frequência de "george" e "hp", e provavelmente é um email corporativo legítimo.
 
-Para compilar um modelo de aprendizado de máquina da árvore de decisão simples:
+toobuild um modelo de aprendizado de máquina de árvore de decisão simples:
 
-* Selecione a guia **Modelo** ,
-* Escolha **Árvore** como o **Tipo**.
-* Selecione **Executar** para exibir a árvore em formato de texto na janela de saída.
-* Selecione o botão **Desenhar** para exibir uma versão gráfica. Isto é bastante semelhante à árvore obtida anteriormente usando *rpart*.
+* Selecione Olá **modelo** guia
+* Escolha **árvore** como Olá **tipo**.
+* Selecione **Execute** toodisplay árvore de saudação em formato de texto de saudação de janela de saída.
+* Selecione Olá **desenhar** botão tooview uma versão de gráfica. Isso é bastante semelhante árvore toohello são obtidos anteriormente usando *rpart*.
 
-Um dos recursos interessantes do Rattle é sua capacidade de executar vários métodos de aprendizado de máquina e avaliá-los rapidamente. Este é o procedimento:
+Um dos recursos interessantes de saudação do chocalho é toorun sua capacidade de aprendizado de máquina vários métodos e avaliá-los rapidamente. Aqui está o procedimento hello:
 
-* Escolha **Todos** para o **Tipo**.
+* Escolha **todos os** para Olá **tipo**.
 * Selecione **Executar**.
-* Depois de concluir, você pode clicar em qualquer **Tipo**, como **SVM**, e exibir os resultados.
-* Você também pode comparar o desempenho dos modelos no conjunto de validação usando a guia **Avaliar** . Por exemplo, a seleção **Matriz do Erro** mostra a matriz de confusão, erro geral e erro de classe média para cada modelo no conjunto de validação.
+* Depois de concluir a você pode clicar em qualquer único **tipo**, como **SVM**e exibir resultados de saudação.
+* Você também pode comparar o desempenho de saudação dos modelos de saudação na validação de saudação definido usando Olá **avaliar** guia. Por exemplo, Olá **erro matriz** seleção mostra matriz de confusão hello, erro geral e erro de média de classe para cada modelo no conjunto de validação de saudação.
 * Você também pode plotar as curvas ROC, executar a análise de sensibilidade e fazer outros tipos de avaliações do modelo.
 
-Após terminar de compilar os modelos, selecione a guia **Log** para exibir o código do R executado pelo Rattle durante a sessão. Você pode selecionar o botão **Exportar** para salvá-lo.
+Quando você terminar de criar modelos, selecione Olá **Log** guia tooview código de saudação R executando chocalho durante a sessão. Você pode selecionar Olá **exportar** botão toosave-lo.
 
 > [!NOTE]
-> Há um bug na versão atual do Rattle. Para modificar o script ou usá-lo para repetir as etapas posteriormente, você deve inserir um caractere # na frente de *Exportar este log... * no texto do log.
+> Há um bug na versão atual do Rattle. toomodify Olá script ou usá-lo toorepeat suas etapas mais tarde, você deve inserir um caractere # na frente do * exportar este log... * no texto de saudação do log de saudação.
 >
 >
 
 ## <a name="postgresql--squirrel-sql"></a>PostgreSQL e Squirrel SQL
-A DSVM vem com o PostgreSQL instalado. O PostgreSQL é um banco de dados relacional sofisticado de fonte aberta. Esta seção mostra como carregar nosso conjunto de dados de spam no PostgreSQL e consultá-lo.
+Olá DSVM vem com PostgreSQL instalado. O PostgreSQL é um banco de dados relacional sofisticado de fonte aberta. Esta seção mostra como tooload nosso conjunto de dados de spam em PostgreSQL e, em seguida, consultá-los.
 
-Antes de carregar os dados, você precisa permitir a autenticação de senha a partir do host local. Em um prompt de comando:
+Antes de carregar dados Olá, é necessário tooallow de autenticação de senha de saudação localhost. Em um prompt de comando:
 
     sudo gedit /var/lib/pgsql/data/pg_hba.conf
 
-Na parte inferior do arquivo de configuração, há várias linhas que detalham as conexões permitidas:
+Inferior Olá Olá do arquivo de configuração são várias linhas que detalham Olá conexões permitida:
 
     # "local" is for Unix domain socket connections only
     local   all             all                                     trust
@@ -427,31 +426,31 @@ Na parte inferior do arquivo de configuração, há várias linhas que detalham 
     # IPv6 local connections:
     host    all             all             ::1/128                 ident
 
-Altere a linha "conexões locais IPv4" para usar md5 em vez de ident, para que possamos fazer logon usando um nome de usuário e senha:
+Alterar hello "IPv4 conexões locais" linha toouse md5 em vez de ident, para que possa se conectar usando um nome de usuário e senha:
 
     # IPv4 local connections:
     host    all             all             127.0.0.1/32            md5
 
-E reinicie o serviço postgres:
+E reiniciar o serviço de postgres hello:
 
     sudo systemctl restart postgresql
 
-Para iniciar o psql, um terminal interativo do PostgreSQL, como o usuário postgres interno, execute o seguinte comando em um prompt:
+toolaunch psql, um terminal interativo para PostgreSQL, como usuário de postgres internos Olá, execute Olá comando a seguir em um prompt:
 
     sudo -u postgres psql
 
-Crie uma nova conta de usuário, usando o mesmo nome de usuário da conta do Linux com a qual você está conectado no momento, e atribua uma senha:
+Criar uma nova conta de usuário, usando Olá o mesmo nome de usuário como Olá conta Linux que você está conectado no momento como e atribua a ele uma senha:
 
     CREATE USER <username> WITH CREATEDB;
     CREATE DATABASE <username>;
     ALTER USER <username> password '<password>';
     \quit
 
-Então, faça logon no psql como seu usuário:
+Faça logon toopsql como usuário:
 
     psql
 
-E importe os dados para um novo banco de dados:
+E importar dados de saudação para um novo banco de dados:
 
     CREATE DATABASE spam;
     \c spam
@@ -459,54 +458,54 @@ E importe os dados para um novo banco de dados:
     \copy data FROM /home/<username>/spambase.data DELIMITER ',' CSV;
     \quit
 
-Agora, iremos explorar os dados e executar algumas consultas usando o **Squirrel SQL**, uma ferramenta gráfica que permite interagir com os bancos de dados por meio de um driver JDBC.
+Agora, vamos explorar dados hello e execute algumas consultas usando **SQL esquilo**, uma ferramenta gráfica que permite interagir com bancos de dados por meio de um driver JDBC.
 
-Para começar, inicie o Squirrel SQL no menu Aplicativos. Para configurar o driver:
+tooget iniciado, inicie o SQL esquilo no menu de aplicativos de saudação. tooset driver hello:
 
 * Selecione **Windows** e **Exibir Drivers**.
 * Clique com o botão direito do mouse em **PostgreSQL** e selecione **Modificar Driver**.
 * Selecione **Caminho de classe Extra** e **Adicionar**.
-* Digite ***/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar*** para o **Nome de Arquivo** e
+* Digite ***/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar*** para Olá **nome de arquivo** e
 * Selecione **Abrir**.
 * Escolha Listar Drivers e selecione **org.postgresql.Driver** no **Nome da Classe** e **OK**.
 
-Para configurar a conexão com o servidor local:
+tooset o servidor local do toohello Olá conexão:
 
 * Selecione **Windows** e **Exibir Aliases.**
-* Escolha o botão **+** para criar um novo alias.
-* Nomeie-o como *Banco de dados de spam* e escolha **PostgreSQL** na lista suspensa **Driver**.
-* Define a URL como *jdbc:postgresql://localhost/spam*.
+* Escolha Olá  **+**  toomake botão um novo alias.
+* Nomeie- *banco de dados de Spam*, escolha **PostgreSQL** em Olá **Driver** lista suspensa.
+* Definir a URL de saudação muito*jdbc:postgresql://localhost/spam*.
 * Insira seu *nome de usuário* e *senha*.
 * Clique em **OK**.
-* Para abrir a janela **Conexão**, clique duas vezes no alias do ***Banco de dados de spam***.
+* Olá tooopen **Conexão** janela, clique duas vezes em Olá ***banco de dados de Spam*** alias.
 * Selecione **Conectar**.
 
-Para executar algumas consultas:
+toorun algumas consultas:
 
-* Selecione a guia **SQL** .
-* Insira uma consulta simples, como `SELECT * from data;` , na caixa de texto da consulta na parte superior da guia SQL.
-* Pressione **Ctrl-Enter** para executá-la. Por padrão, o Squirrel SQL retorna as primeiras 100 linhas de sua consulta.
+* Selecione Olá **SQL** guia.
+* Insira uma consulta simples como `SELECT * from data;` na caixa de texto de consulta de saudação na parte superior de saudação do guia SQL hello.
+* Pressione **Ctrl-Enter** toorun-lo. Por padrão SQL esquilo retorna Olá primeiras 100 linhas de sua consulta.
 
-Há muito mais consultas que você pode executar para explorar esses dados. Por exemplo, como a frequência da palavra *make* difere entre o spam e o ham?
+Há muitas consultas mais que você pode executar tooexplore esses dados. Por exemplo, como faz Olá frequência da palavra hello *fazer* diferem spam ham?
 
     SELECT avg(word_freq_make), spam from data group by spam;
 
-Ou quais são as características de email que geralmente contêm *3º*?
+Ou quais são as características de saudação do email que normalmente contêm *3d*?
 
     SELECT * from data order by word_freq_3d desc;
 
-A maioria dos emails com uma alta ocorrência de *3º* aparentemente é spam, portanto, pode ser um recurso útil para compilar um modelo de previsão para classificar os emails.
+A maioria dos emails que têm uma ocorrência alta *3d* aparentemente são spam, poderia ser um recurso útil para a criação de uma saudação do modelo de previsão tooclassify emails.
 
-Se você quiser executar o aprendizado de máquina com os dados armazenados em um banco de dados PostgreSQL, considere usar o [MADlib](http://madlib.incubator.apache.org/).
+Se você quisesse tooperform aprendizado de máquina com dados armazenados em um banco de dados PostgreSQL, considere o uso de [MADlib](http://madlib.incubator.apache.org/).
 
 ## <a name="sql-server-data-warehouse"></a>SQL Server Data Warehouse
 O SQL Data Warehouse do Azure é um banco de dados baseado em nuvem e expansível com capacidade de processar volumes imensos de dados, relacionais e não relacionais. Para obter mais informações, consulte [O que é Azure SQL Data Warehouse?](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
-Para conectar o data warehouse e criar a tabela, execute o seguinte comando em um prompt de comando:
+tooconnect toohello data warehouse e cria tabela hello, comando a seguir Olá execução de um prompt de comando:
 
     sqlcmd -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -I
 
-Em seguida, no prompt do sqlcmd:
+No prompt de sqlcmd hello:
 
     CREATE TABLE spam (word_freq_make real, word_freq_address real, word_freq_all real, word_freq_3d real,word_freq_our real, word_freq_over real, word_freq_remove real, word_freq_internet real,word_freq_order real, word_freq_mail real, word_freq_receive real, word_freq_will real,word_freq_people real, word_freq_report real, word_freq_addresses real, word_freq_free real,word_freq_business real, word_freq_email real, word_freq_you real, word_freq_credit real,word_freq_your real, word_freq_font real, word_freq_000 real, word_freq_money real,word_freq_hp real, word_freq_hpl real, word_freq_george real, word_freq_650 real, word_freq_lab real,word_freq_labs real, word_freq_telnet real, word_freq_857 real, word_freq_data real,word_freq_415 real, word_freq_85 real, word_freq_technology real, word_freq_1999 real,word_freq_parts real, word_freq_pm real, word_freq_direct real, word_freq_cs real, word_freq_meeting real,word_freq_original real, word_freq_project real, word_freq_re real, word_freq_edu real,word_freq_table real, word_freq_conference real, char_freq_semicolon real, char_freq_leftParen real,char_freq_leftBracket real, char_freq_exclamation real, char_freq_dollar real, char_freq_pound real, capital_run_length_average real, capital_run_length_longest real, capital_run_length_total real, spam integer) WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
     GO
@@ -516,7 +515,7 @@ Copie os dados com o bcp:
     bcp spam in spambaseHeaders.data -q -c -t  ',' -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -F 1 -r "\r\n"
 
 > [!NOTE]
-> As terminações de linha no arquivo baixado estão no estilo Windows, mas o bcp espera o estilo UNIX, portanto, precisamos informar isso ao bcp com o sinalizador -r.
+> terminações de linha de saudação no arquivo baixado Olá são estilo do Windows, mas bcp espera estilo UNIX, por isso, precisamos bcp tootell que com hello sinalizador - r.
 >
 >
 
@@ -525,9 +524,9 @@ E consulte com o sqlcmd:
     select top 10 spam, char_freq_dollar from spam;
     GO
 
-Você também pode consultar com o Squirrel SQL. Siga as etapas semelhantes para o PostgreSQL, usando o Driver JDBC do Microsoft MSSQL Server, que pode ser encontrado em ***/usr/share/java/jdbcdrivers/sqljdbc42.jar***.
+Você também pode consultar com o Squirrel SQL. Siga as etapas semelhantes para PostgreSQL, usando Olá Microsoft MSSQL Server JDBC Driver, que pode ser encontrado em ***/usr/share/java/jdbcdrivers/sqljdbc42.jar***.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter uma visão geral dos tópicos que explicam as tarefas que compõem o processo de Ciência de dados no Azure, confira [Processo de Ciência de Dados de Equipe](http://aka.ms/datascienceprocess).
+Para obter uma visão geral dos tópicos que orientam você pelas tarefas de saudação que compõem o processo de ciência de dados Olá no Azure, consulte [processo de ciência de dados de equipe](http://aka.ms/datascienceprocess).
 
-Para obter uma descrição de outras orientações de ponta a ponta que demonstram as etapas no Processo da Ciência de Dados de Equipe para cenários específicos, consulte [Explicações Passo a Passo do Processo da Ciência de Dados de Equipe](data-science-process-walkthroughs.md). As orientações também mostram como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente.
+Para obter uma descrição de outras orientações de ponta a ponta que demonstram etapas Olá Olá processo de ciência de dados de equipe para cenários específicos, consulte [explicações passo a passo do processo de ciência de dados de equipe](data-science-process-walkthroughs.md). Olá explicações passo a passo também ilustra como toocombine de nuvem e ferramentas no local e serviços em um fluxo de trabalho ou pipeline toocreate um aplicativo inteligente.

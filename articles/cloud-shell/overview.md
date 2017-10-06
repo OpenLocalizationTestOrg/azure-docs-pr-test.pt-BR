@@ -1,6 +1,6 @@
 ---
-title: "Visão geral do Azure Cloud Shell (versão prévia) | Microsoft Docs"
-description: "Visão geral do Azure Cloud Shell."
+title: "Visão geral do Shell de nuvem (visualização) aaaAzure | Microsoft Docs"
+description: "Visão geral do hello Shell de nuvem do Azure."
 services: 
 documentationcenter: 
 author: jluk
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: juluk
-ms.openlocfilehash: 7165633cd354eeea2e3619f839338e6af1524e56
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 45c6c85b167a90947a333f44a9186e2c01b4fa7b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Visão geral do Azure Cloud Shell (versão prévia)
 O Azure Cloud Shell é um shell interativo e acessível pelo navegador para o gerenciamento de recursos do Azure.
@@ -27,24 +27,24 @@ O Azure Cloud Shell é um shell interativo e acessível pelo navegador para o ge
 
 ## <a name="features"></a>Recursos
 ### <a name="browser-based-shell-experience"></a>Experiência de shell baseada no navegador
-O Cloud Shell permite o acesso a uma experiência de linha de comando baseada em navegador, que foi criada tendo em mente as tarefas de gerenciamento do Azure. Utilize o Cloud Shell para trabalhar de forma independente de um computador local, de uma maneira que somente a nuvem pode proporcionar.
+Nuvem Shell permite tooa baseado em navegador de linha de comando experiência de acesso criada com tarefas de gerenciamento do Azure em mente. Aproveite o Shell de nuvem toowork ilimitado de um computador local, de forma que somente a nuvem de saudação pode fornecer.
 
 ### <a name="pre-configured-azure-workstation"></a>Estação de trabalho pré-configurada do Azure
 O Cloud Shell vem pré-instalado com ferramentas de linha de comando populares e suporte para idiomas, para que você possa trabalhar mais rapidamente.
 
-[Exiba a lista completa de ferramentas para o Azure Cloud Shell aqui.](features.md#tools)
+[Olá completo de ferramentas lista Exibir para o Shell de nuvem do Azure aqui.](features.md#tools)
 
 ### <a name="automatic-authentication"></a>Autenticação automática
-O Cloud Shell é autenticado de forma segura e automática a cada sessão para ter acesso instantâneo a seus recursos por meio da CLI do Azure 2.0.
+Shell de nuvem com segurança autentica automaticamente em cada sessão para recursos do acesso instantâneo tooyour por meio de saudação 2.0 do CLI do Azure.
 
 ### <a name="connect-your-azure-file-storage"></a>Conectar o armazenamento de arquivos do Azure
-As máquinas do Cloud Shell são temporárias e, consequentemente, exigem que um compartilhamento de arquivos do Azure seja montado como `clouddrive` para manter seu diretório $Home.
-Na primeira inicialização, o Cloud Shell solicita a criação de um grupo de recursos, uma conta de armazenamento e um compartilhamento de arquivos em seu nome. Essa é uma etapa única e será anexada automaticamente para todas as sessões. 
+Máquinas de Shell de nuvem são temporárias e assim exigem um toobe de compartilhamento de arquivos do Azure montado como `clouddrive` toopersist seu diretório $Home.
+Na primeira inicialização Shell nuvem solicita toocreate que um grupo de recursos, conta de armazenamento e compartilhamento de arquivos em seu nome. Essa é uma etapa única e será anexada automaticamente para todas as sessões. 
 
 #### <a name="create-new-storage"></a>Criar novo armazenamento
 ![](media/basic-storage.png)
 
-Uma conta de LRS (armazenamento com redundância local) pode ser criada em seu nome com um Compartilhamento de Arquivos do Azure que contém uma imagem de disco de 5 GB padrão. O compartilhamento de arquivos é montado como `clouddrive` para interação de compartilhamento de arquivos com a imagem do disco sendo usada para sincronizar e manter seu diretório $Home. Custos de armazenamento regulares se aplicam.
+Uma conta de LRS (armazenamento com redundância local) pode ser criada em seu nome com um Compartilhamento de Arquivos do Azure que contém uma imagem de disco de 5 GB padrão. compartilhamento de arquivo Hello monta como `clouddrive` para arquivo compartilhar interação com a imagem de disco de saudação que está sendo usado toosync e manter seu diretório $Home. Custos de armazenamento regulares se aplicam.
 
 Três recursos serão criados em seu nome:
 1. Um Grupo de Recursos chamado: `cloud-shell-storage-<region>`
@@ -57,7 +57,7 @@ Três recursos serão criados em seu nome:
 #### <a name="use-existing-resources"></a>Usar recursos existentes
 ![](media/advanced-storage.png)
 
-É fornecida também uma opção avançada para permitir que você associe os recursos existentes ao Cloud Shell. Quando o prompt de configuração de armazenamento for apresentado, clique em “Mostrar configurações avançadas” para selecionar as opções adicionais. As listas suspensas são filtradas para sua região do Cloud Shell atribuída e para contas de armazenamento com redundância local/global.
+Uma opção avançada também é fornecida permitindo que você tooassociate existente recursos tooCloud Shell. Quando for apresentado com o prompt de configuração de armazenamento hello, clique em opções adicionais de tooselect "Show advanced settings". As listas suspensas são filtradas para sua região do Cloud Shell atribuída e para contas de armazenamento com redundância local/global.
 
 [Saiba mais sobre o armazenamento do Cloud Shell, atualização de compartilhamentos de arquivos e upload/download de arquivos.] (persisting-shell-storage.md)
 
@@ -71,19 +71,19 @@ Três recursos serão criados em seu nome:
 [Saiba mais sobre todos os recursos do Cloud Shell.](features.md)
 
 ## <a name="examples"></a>Exemplos
-* Criar ou editar scripts para automatizar o gerenciamento do Azure
+* Criar ou editar scripts tooautomate gerenciamento do Azure
 * Gerenciar recursos simultaneamente por meio do portal do Azure e da CLI do Azure 2.0
 * Testar a CLI do Azure 2.0
 
-[Teste todos esses exemplos no início rápido do Cloud Shell.](quickstart.md)
+[Experimente todos esses exemplos no início rápido da nuvem Shell hello.](quickstart.md)
 
 ## <a name="pricing"></a>Preços
-O computador que hospeda o Cloud Shell é gratuito,, com o pré-requisito de um compartilhamento de arquivos do Azure montado para persistir seu diretório $Home. Custos de armazenamento regulares se aplicam.
+máquina Olá Shell da nuvem de hospedagem é gratuita, com um pré-requisito de um arquivo do Azure montado compartilhar toopersist seu diretório $Home. Custos de armazenamento regulares se aplicam.
 
 ## <a name="supported-browsers"></a>Navegadores com suporte
-O Cloud Shell é recomendado para Chrome, Edge e Safari. Embora tenha suporte para Chrome, Firefox, Safari, IE e Edge, o Cloud Shell está sujeito a configurações específicas do navegador.
+O Cloud Shell é recomendado para Chrome, Edge e Safari. Embora haja suporte para o Shell de nuvem para Chrome, Firefox, Safari, IE e borda, o Shell de nuvem é configurações do navegador toospecific assunto.
 
 ## <a name="troubleshooting"></a>Solucionar problemas
-1. Ao usar uma assinatura do Azure Active Directory, não consigo criar armazenamento devido ao erro “Error: 400 DisallowedOperation”. Para resolver isso, use uma assinatura do Azure capaz de criar recursos de armazenamento. Assinaturas do AD não são capazes de criar recursos do Azure.
+1. Ao usar uma assinatura do Azure Active Directory, não é possível criar armazenamento vencimento tooError: DisallowedOperation 400. tooresolve isso, use uma assinatura do Azure capaz de criar recursos de armazenamento. Assinaturas AD é toocreate não é possível recursos do Azure.
 
 Para ver as limitações conhecidas específicas, visite [Limitações do Cloud Shell](limitations.md).

@@ -1,5 +1,5 @@
 ---
-title: Requisitos de NAT para circuitos da ExpressRoute | Microsoft Docs
+title: requisitos de aaaNAT para circuitos ExpressRoute | Microsoft Docs
 description: "Esta página fornece os requisitos detalhados para a configuração e o gerenciamento de NAT para circuitos do ExpressRoute."
 documentationcenter: na
 services: expressroute
@@ -14,64 +14,64 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: cherylmc
-ms.openlocfilehash: d3de566ff2825ef0c41d88d4a86157dc23d9f46b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 09a0e841235de3f6b85e32172d7f99f20b5baf54
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="expressroute-nat-requirements"></a>Requisitos de NAT do ExpressRoute
-Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, você precisará configurar e gerenciar NATs. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de NAT como um serviço gerenciado. Verifique se seu provedor de conectividade oferece esse serviço. Caso contrário, você deverá atender aos requisitos descritos abaixo. 
+tooconnect tooMicrosoft serviços de nuvem usando o ExpressRoute, você precisa tooset backup e gerenciar NATs. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de NAT como um serviço gerenciado. Verifique com seu toosee do provedor de conectividade se eles oferecem um serviço. Caso contrário, é preciso cumprir os requisitos de toohello descritos abaixo. 
 
-Consulte a página [Circuitos e domínios de roteamento do ExpressRoute](expressroute-circuit-peerings.md) para obter uma visão geral dos vários domínios de roteamento. Para atender aos requisitos de endereço IP público para o emparelhamento público do Azure e da Microsoft, recomendamos a configuração de NAT entre sua rede e a Microsoft. Esta seção fornece uma descrição detalhada da infraestrutura NAT que precisa ser configurada.
+Saudação de revisão [ExpressRoute circuitos e domínios de roteamento](expressroute-circuit-peerings.md) página tooget uma visão geral da saudação vários domínios de roteamentos. toomeet Olá públicos requisitos de endereço IP para o público do Azure e emparelhamento da Microsoft, recomendamos que você configure o NAT entre sua rede e a Microsoft. Esta seção fornece uma descrição detalhada da infraestrutura NAT Olá que precisar tooset backup.
 
 ## <a name="nat-requirements-for-azure-public-peering"></a>Requisitos de NAT para o emparelhamento público do Azure
-O caminho do emparelhamento público do Azure permite que você se conecte a todos os serviços hospedados no Azure por meio de seus endereços IP públicos. Isso inclui os serviços listados nas [Perguntas Frequentes sobre a Rota Expressa](expressroute-faqs.md) e quaisquer serviços hospedados por ISVs no Microsoft Azure. 
+Olá caminho de emparelhamento público do Azure permite que você tooconnect tooall serviços hospedados no Azure em seus endereços IP públicos. Isso inclui serviços listados na Olá [ExpessRoute perguntas frequentes sobre](expressroute-faqs.md) e todos os serviços hospedados por ISVs no Microsoft Azure. 
 
 > [!IMPORTANT]
-> A conectividade com os serviços do Microsoft Azure no emparelhamento público é sempre iniciada de sua rede para a rede da Microsoft. Portanto, as sessões não podem ser iniciadas dos serviços do Microsoft Azure para sua rede por ExpressRoute. Se você tentar, os pacotes enviados aos IPs indicados usarão a Internet em vez do ExpressRoute.
+> Serviços de conectividade tooMicrosoft Azure público emparelhamento é iniciada sempre da rede na rede da Microsoft hello. Portanto, não não possível iniciar sessões da rede do Microsoft Azure services tooyour através do ExpressRoute. Se você tentar, toothese pacotes enviados anunciado IPs usará Olá internet em vez de rota expressa.
 > 
 
-O tráfego destinado ao Microsoft Azure no emparelhamento público deve estar no modo SNAT para endereços IPv4 públicos válidos antes que eles entrem na rede da Microsoft. A figura abaixo fornece uma imagem de alto nível de como a NAT deve ser configurada para atender ao requisito acima.
+O tráfego destinado tooMicrosoft do Azure no emparelhamento público deve ser toovalid SNATed de endereços IPv4 públicos antes que eles entrem na rede do Microsoft hello. Figura Olá a seguir fornece uma imagem de alto nível de como Olá NAT pode ser configurado toomeet Olá acima requisito.
 
 ![](./media/expressroute-nat/expressroute-nat-azure-public.png) 
 
 ### <a name="nat-ip-pool-and-route-advertisements"></a>Pool de IP de NAT e anúncios de rota
-Você deve garantir que o tráfego esteja entrando no caminho de emparelhamento público do Azure com o endereço IPv4 público válido. A Microsoft deve ser capaz de validar a propriedade do pool de endereços NAT IPv4 com base em um registro regional de roteamento da Internet (RIR) ou em um registro de roteamento da Internet (IRR). Uma verificação será executada com base no número de AS emparelhados e nos endereços IP usados para NAT. Consulte a página [Requisitos de roteamento do ExpressRoute](expressroute-routing.md) para obter informações sobre registros de roteamento.
+Certifique-se de que o tráfego está inserindo Olá caminho de emparelhamento público do Azure com um endereço IPv4 público válido. Microsoft deve ser capaz de toovalidate propriedade Olá Olá pool de endereços IPv4 NAT em relação a um registro regional de roteamento da Internet (RIR) ou um registro de roteamento de Internet (IRR). Uma verificação será executada com base em hello como número sendo emparelhada com e Olá endereços IP usados para Olá NAT. Consulte toohello [requisitos de roteamento de rota expressa](expressroute-routing.md) página para obter informações sobre roteamento de registros.
 
-Não há restrições com relação ao tamanho do prefixo IP de NAT anunciado por meio desse emparelhamento. Você deve monitorar o pool de NAT e não ficar sem sessões NAT.
+Não existem restrições no tamanho da saudação do prefixo IP de NAT Olá anunciado por esse emparelhamento. Você deve monitorar o pool NAT hello e certifique-se de que você não tem necessidade de sessões NAT.
 
 > [!IMPORTANT]
-> O pool de IPs de NAT anunciado à Microsoft não deve ser anunciado na Internet. Isso interromperá a conectividade com outros serviços da Microsoft.
+> Olá pool NAT IP anunciado tooMicrosoft não deve ser anunciado toohello da Internet. Isso interromperá a conectividade tooother da Microsoft.
 > 
 > 
 
 ## <a name="nat-requirements-for-microsoft-peering"></a>Requisitos de NAT para emparelhamento da Microsoft
-O caminho de emparelhamento da Microsoft permite que você se conecte a serviços de nuvem da Microsoft que não têm suporte por meio do caminho de emparelhamento público do Azure. A lista de serviços inclui serviços do Office 365, como o Exchange Online, o SharePoint Online, o Skype for Business e o Dynamics 365. A Microsoft espera dar suporte à conectividade bidirecional no emparelhamento da Microsoft. O tráfego destinado aos serviços de nuvem da Microsoft deve estar no modo SNAT para endereços IPv4 públicos válidos antes de entrar na rede da Microsoft. O tráfego destinado à sua rede proveniente dos serviços de nuvem da Microsoft deve estar no modo SNAT na borda da Internet para evitar um [roteamento assimétrico](expressroute-asymmetric-routing.md). A figura abaixo fornece uma imagem de alto nível de como o NAT deve ser configurado para emparelhamento da Microsoft.
+caminho de emparelhamento de Microsoft Hello permite a conexão tooMicrosoft serviços de nuvem que não são suportados por meio de saudação caminho de emparelhamento público do Azure. lista de saudação de serviços inclui serviços do Office 365, como o Exchange Online, SharePoint Online, Skype for Business e Dynamics 365. A Microsoft espera conectividade bidirecional toosupport Olá emparelhamento da Microsoft. O tráfego destinado tooMicrosoft os serviços de nuvem devem ser toovalid SNATed de endereços IPv4 públicos antes que eles entrem na rede do Microsoft hello. O tráfego destinado tooyour rede dos serviços de nuvem da Microsoft deve ser SNATed em seu tooprevent de borda de Internet [roteamento assimétrico](expressroute-asymmetric-routing.md). Figura de saudação abaixo fornece uma visão de alto nível da como Olá NAT deve ser configurados para emparelhamento da Microsoft.
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
-### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Tráfego com origem em sua rede e destinado à Microsoft
-* Você deve garantir que o tráfego esteja entrando no caminho de emparelhamento da Microsoft com um endereço IPv4 público válido. A Microsoft deve ser capaz de validar a propriedade do pool de endereços NAT IPv4 com base no registro regional de roteamento da Internet (RIR) ou em um registro de roteamento da Internet (IRR). Uma verificação será executada com base no número de AS emparelhados e nos endereços IP usados para NAT. Consulte a página [Requisitos de roteamento do ExpressRoute](expressroute-routing.md) para obter informações sobre registros de roteamento.
-* Os endereços IP usados para a configuração do emparelhamento público do Azure e de outros circuitos de ExpressRoute não devem ser anunciados à Microsoft por meio da sessão BGP. Não há restrições com relação ao tamanho do prefixo IP NAT anunciado por meio desse emparelhamento.
+### <a name="traffic-originating-from-your-network-destined-toomicrosoft"></a>Tráfego originado em sua rede destinado tooMicrosoft
+* Certifique-se de que o tráfego está inserindo o caminho de emparelhamento Microsoft hello com um endereço IPv4 público válido. Microsoft deve ser capaz de toovalidate proprietário Olá Olá pool de endereços IPv4 NAT contra Olá registro regional de roteamento da internet (RIR) ou um registro de roteamento de internet (IRR). Uma verificação será executada com base em hello como número sendo emparelhada com e Olá endereços IP usados para Olá NAT. Consulte toohello [requisitos de roteamento de rota expressa](expressroute-routing.md) página para obter informações sobre roteamento de registros.
+* Endereços IP usados para Olá configuração de emparelhamento pública do Azure e outros circuitos do ExpressRoute não devem ser anunciado tooMicrosoft por meio da sessão BGP de saudação. Não há nenhuma restrição de comprimento de saudação do prefixo IP de NAT de Olá anunciado por esse emparelhamento.
   
   > [!IMPORTANT]
-  > O pool de IPs de NAT anunciado à Microsoft não deve ser anunciado na Internet. Isso interromperá a conectividade com outros serviços da Microsoft.
+  > Olá pool NAT IP anunciado tooMicrosoft não deve ser anunciado toohello da Internet. Isso interromperá a conectividade tooother da Microsoft.
   > 
   > 
 
-### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Tráfego com origem na Microsoft e destinado à sua rede
-* Certas situações exigem que a Microsoft inicie a conectividade com os pontos de extremidade do serviço hospedados em sua rede. Um exemplo típico dessa situação seria a conectividade com servidores ADFS hospedados em sua rede desde o Office 365. Nesses casos, você deve vazar os prefixos apropriados de sua rede para o emparelhamento da Microsoft. 
-* Você deve colocar tráfego da Microsoft no modo SNAT na borda da Internet para pontos de extremidade de serviço dentro de sua rede para evitar um [roteamento assimétrico](expressroute-asymmetric-routing.md). Solicitações **e respostas** com um destino IP que correspondam a uma rota recebida por meio do ExpressRoute serão sempre enviadas por meio do ExpressaRoute. O roteamento assimétrico existe se a solicitação é recebida através da Internet com a resposta enviada por meio do ExpressRoute. Colocar o tráfego de entrada da Microsoft no modo SNAT na borda da Internet força o tráfego de resposta de volta para a borda da Internet, resolvendo o problema.
+### <a name="traffic-originating-from-microsoft-destined-tooyour-network"></a>Tráfego originado de rede destinado tooyour da Microsoft
+* Alguns cenários exigem Microsoft tooinitiate conectividade tooservice pontos de extremidade hospedados dentro de sua rede. Um exemplo típico de cenário Olá seria servidores tooADFS de conectividade hospedados em sua rede do Office 365. Nesses casos, você deve deixar vazar prefixos apropriados da sua rede no emparelhamento da Microsoft hello. 
+* Você deve tráfego do Microsoft SNAT no hello borda de Internet para pontos de extremidade de serviço dentro de sua rede tooprevent [roteamento assimétrico](expressroute-asymmetric-routing.md). Solicitações **e respostas** com um destino IP que correspondam a uma rota recebida por meio do ExpressRoute serão sempre enviadas por meio do ExpressaRoute. Roteamento assimétrico existe se Olá solicitação é recebida por meio de saudação da Internet com hello resposta enviada através de rota expressa. SNATing Olá Microsoft tráfego de entrada em Olá borda Internet força toohello borda de Internet, resolvendo o problema de saudação do back de tráfego de resposta.
 
 ![Roteamento assimétrico com o ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Consulte os requisitos para o [Roteamento](expressroute-routing.md) e [QoS](expressroute-qos.md).
+* Consulte os requisitos de toohello para [roteamento](expressroute-routing.md) e [QoS](expressroute-qos.md).
 * Para obter informações sobre o fluxo de trabalho, consulte [Fluxos de trabalho de provisionamento e estados do circuito do ExpressRoute](expressroute-workflows.md).
 * Configurar sua conexão do ExpressRoute.
   
   * [Criar um circuito do ExpressRoute](expressroute-howto-circuit-classic.md)
   * [Configurar o roteamento](expressroute-howto-routing-classic.md)
-  * [Vincular uma rede virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-classic.md)
+  * [Vincular um circuito de rota expressa do tooan de rede virtual](expressroute-howto-linkvnet-classic.md)
 

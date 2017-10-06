@@ -1,6 +1,6 @@
 ---
-title: "Documentação do Azure Data Lake Analytics - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba mais sobre a análise de big data com o Data Lake Analytics. Os tutoriais mostram como executar as análises em lote, em tempo real e interativas, e como escrever consultas U-SQL."
+title: "aaaAzure documentação de análise Data Lake - tutoriais, referência de API | Microsoft Docs"
+description: "Saiba mais sobre a análise de big data com o Data Lake Analytics. Tutoriais mostram como toorun em lote, em tempo real e análise interativa e como consultas toowrite U-SQL."
 services: data-lake-analytics
 author: saveenr
 manager: saveenr
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 050965185c0c4b2d6880b74592e640be85678c06
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 515ad4c2a9023e970f1da05785bf3583d37cfccf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="data-lake-analytics-documentation"></a>Documentação do Data Lake Analytics
 
-Saiba como usar Data Lake Analytics para executar trabalhos de análise de big data dimensionados para grandes conjuntos de dados. Os tutoriais e outras documentações mostram como criar e gerenciar trabalhos de análise em lote, em tempo real e interativa, e como consultar usando a linguagem U-SQL.
+Saiba como toouse análise de dados grande toorun análise Data Lake trabalhos que conjuntos de dados de toomassive de escala. A documentação e tutoriais mostram como toocreate e gerenciar em lotes, em tempo real e trabalhos de análise interativa e como usar tooquery Olá linguagem U-SQL.
 
 <ul class="panelContent cardsFTitle">
     <li>

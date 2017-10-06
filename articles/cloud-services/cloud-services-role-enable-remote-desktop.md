@@ -1,6 +1,6 @@
 ---
-title: "Habilitar Área de Trabalho Remota em um Serviço de Nuvem do Azure | Microsoft Docs"
-description: "Como configurar seu aplicativo de serviço de nuvem do Azure para permitir conexões de área de trabalho remota"
+title: "aaaEnable área de trabalho remota em um serviço de nuvem do Azure | Microsoft Docs"
+description: "Como tooconfigure do azure nuvem conexões de área de trabalho remota de tooallow aplicativo de serviço"
 services: cloud-services
 documentationcenter: 
 author: thraka
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 413e72e9a39fcde84f56bfc61a6bc72dbadf1c97
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: b3c0180bf5ad29cb77e5303ccbd6f9ccc44b7b0a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Habilitar a conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure
 
@@ -28,66 +28,66 @@ ms.lasthandoff: 08/18/2017
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
-Você pode habilitar uma conexão de Área de Trabalho Remota em sua função durante o desenvolvimento, incluindo os módulos de Área de Trabalho Remota em sua definição de serviço, ou você pode optar por habilitar a Área de Trabalho Remota por meio da Extensão de Área de Trabalho Remota. A abordagem preferida é usar a extensão de Área de Trabalho Remota, pois você poderá habilitar a Área de Trabalho Remota mesmo depois que o aplicativo for implantado, sem precisar reimplantar o aplicativo.
+Você pode habilitar uma conexão de área de trabalho remota na sua função durante o desenvolvimento, incluindo módulos de área de trabalho remota de saudação em sua definição de serviço ou você pode escolher tooenable área de trabalho remota por meio de saudação extensão de área de trabalho remota. Olá abordagem preferencial é toouse Olá área de trabalho remota extensão como você pode habilitar área de trabalho remota, mesmo após a implantação do aplicativo hello sem ter que tooredeploy seu aplicativo.
 
-## <a name="configure-remote-desktop-from-the-azure-classic-portal"></a>Configurar a Área de Trabalho Remota do portal clássico do Azure
-O portal clássico do Azure usa a abordagem da Extensão da Área de Trabalho Remota para que você possa habilitar a Área de Trabalho Remota, mesmo depois da implantação do aplicativo. A página **Configurar** do seu Serviço de Nuvem permite habilitar a Área de Trabalho Remota, alterar a conta do administrador local usada para conexão às máquinas virtuais, o certificado usado na autenticação e definir a data de validade.
+## <a name="configure-remote-desktop-from-hello-azure-classic-portal"></a>Configurar área de trabalho remota a partir do hello portal clássico do Azure
+Olá portal clássico do Azure usa o método de extensão da área de trabalho remota de saudação para que você possa habilitar a área de trabalho remota mesmo após a implantação do aplicativo hello. Olá **configurar** página para seu serviço de nuvem permite que você tooenable área de trabalho remota, Olá alterar conta do administrador local usado tooconnect toohello VMs, certificado Olá usado na autenticação e defina Olá Data de expiração.
 
-1. Clique em **Serviços de Nuvem**, no nome do serviço de nuvem e depois em **Configurar**.
-2. Clique no botão **Remover** na parte inferior.
+1. Clique em **serviços de nuvem**, clique em nome de Olá Olá do serviço de nuvem e, em seguida, clique em **configurar**.
+2. Clique em Olá **remoto** botão na parte inferior da saudação.
 
     ![Serviços de nuvem remotos](./media/cloud-services-role-enable-remote-desktop/CloudServices_Remote.png)
 
    > [!WARNING]
-   > Todas as instâncias de função serão reiniciadas quando você ativa área de trabalho remota pela primeira vez e clica em OK (marca de seleção). Para evitar a reinicialização, o certificado usado para criptografar a senha deve estar instalado na função. Para evitar uma reinicialização, [carregue um certificado para o serviço de nuvem](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) e retorne a esta caixa de diálogo.
+   > Todas as instâncias de função serão reiniciadas quando você ativa área de trabalho remota pela primeira vez e clica em OK (marca de seleção). tooprevent uma reinicialização, a senha de Olá Olá certificado tooencrypt usado deve ser instalado na função hello. tooprevent uma reinicialização, [carregar um certificado para o serviço de nuvem Olá](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) e, em seguida, retornar toothis caixa de diálogo.
 
-3. Em **Funções**, selecione a função que você deseja atualizar ou selecione **Tudo** para todas as funções.
-4. Faça algumas das seguintes alterações:
+3. Em **funções**, selecione função hello desejado tooupdate ou selecione **todos os** para todas as funções.
+4. Faça uma saudação as seguintes alterações:
 
-   * Para habilitar a área de trabalho remota, marque a caixa de seleção de **Habilitar Área de Trabalho Remota** . Para desabilitar a área de trabalho remota, desmarque a caixa de seleção.
-   * Crie uma conta para usar nas conexões de área de trabalho remota para as instâncias de função.
-   * Atualize a senha da conta existente.
-   * Selecione um certificado carregado para usar para autenticação (carregue o certificado usando **Carregar** na página **Certificados**) ou crie um novo certificado.
-   * Altere a data de validade para a configuração da área de trabalho remota.
+   * tooenable área de trabalho remota, selecione Olá **habilitar área de trabalho remota** caixa de seleção. toodisable área de trabalho remota, caixa de seleção Limpar hello.
+   * Crie uma conta toouse em conexões de área de trabalho remota toohello instâncias de função.
+   * Atualize a senha de saudação conta existente do hello.
+   * Selecione um toouse certificado carregado para autenticação (carregamento Olá certificado usando **carregar** em Olá **certificados** página) ou criar um novo certificado.
+   * Alterar a data de vencimento de saudação para configuração da área de trabalho remota de saudação.
 
 5. Ao concluir as atualizações da configuração, clique em **OK** (marca de seleção).
 
 ## <a name="remote-into-role-instances"></a>Remoto em instâncias de função
-Depois que a Área de Trabalho Remota estiver habilitada nas funções, você poderá conectar-se remotamente a uma instância de função por meio de várias ferramentas.
+Depois que a área de trabalho remota está habilitada em funções hello poderá remoto para uma instância de função por meio de várias ferramentas.
 
-Para conectar-se a uma instância de função do portal clássico do Azure:
+instância de função tooconnect tooa de saudação portal clássico do Azure:
 
-1. Clique em **Instâncias** para abrir a página **Instâncias**.
+1. Clique em **instâncias** tooopen Olá **instâncias** página.
 2. Selecione uma instância de função com a área de trabalho remota configurada.
-3. Clique em **Conectar**e siga as instruções para abrir a área de trabalho.
-4. Clique em **Abrir** e em **Conectar** para iniciar a conexão de Área de Trabalho Remota.
+3. Clique em **conectar**e siga a área de trabalho da saudação tooopen Olá instruções.
+4. Clique em **abrir** e **conectar** toostart Olá conexão de área de trabalho remota.
 
-### <a name="use-visual-studio-to-remote-into-a-role-instance"></a>Use o Visual Studio para conectar-se remotamente a uma instância de função
+### <a name="use-visual-studio-tooremote-into-a-role-instance"></a>Use o Visual Studio tooremote em uma instância de função
 No Visual Studio, Gerenciador de Servidores:
 
-1. Expanda o nó **Azure** > **Serviços de Nuvem** > **[nome do serviço de nuvem]**.
+1. Expanda Olá **Azure** > **serviços de nuvem** > **[nome do serviço de nuvem]** nó.
 2. Expanda **Preparo** ou **Produção**.
-3. Expanda a função individual.
-4. Clique em uma das instâncias de função, clique em **Conectar-se usando a Área de Trabalho Remota...**e insira o nome de usuário e senha.
+3. Expanda a função individual hello.
+4. Uma das instâncias de função hello, clique **conectar usando a área de trabalho remota...** e, em seguida, digite Olá nome de usuário e senha.
 
 ![Área de trabalho remota do Gerenciador de Servidores](./media/cloud-services-role-enable-remote-desktop/ServerExplorer_RemoteDesktop.png)
 
-### <a name="use-powershell-to-get-the-rdp-file"></a>Use o PowerShell para obter o arquivo RDP
-Você pode usar o cmdlet [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) para recuperar o arquivo RDP. Em seguida, você pode usar o arquivo RDP com a conexão de área de trabalho remota para acessar o serviço de nuvem.
+### <a name="use-powershell-tooget-hello-rdp-file"></a>Use o arquivo RDP do PowerShell tooget Olá
+Você pode usar o hello [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) arquivo RDP do cmdlet tooretrieve hello. Você pode usar o arquivo RDP de saudação com serviço de nuvem de saudação de tooaccess de Conexão de área de trabalho remota.
 
-### <a name="programmatically-download-the-rdp-file-through-the-service-management-rest-api"></a>Baixar programaticamente o arquivo RDP por meio da API REST do gerenciamento de serviços
-Você pode usar a operação REST [Baixar arquivo RDP](https://msdn.microsoft.com/library/jj157183.aspx) para baixar o arquivo RDP.
+### <a name="programmatically-download-hello-rdp-file-through-hello-service-management-rest-api"></a>Baixar o arquivo RDP de Olá por meio de saudação API de REST de gerenciamento de serviços programaticamente
+Você pode usar o hello [Download RDP File](https://msdn.microsoft.com/library/jj157183.aspx) arquivo RDP do REST operação toodownload hello.
 
-## <a name="to-configure-remote-desktop-in-the-service-definition-file"></a>Para configurar a Área de Trabalho Remota no novo arquivo de definição de serviço
-Esse método permite habilitar a Área de Trabalho Remota para o aplicativo durante o desenvolvimento. Essa abordagem requer que senhas criptografadas sejam armazenadas em seu arquivo de configuração de serviço e todas as atualizações na configuração de Área de Trabalho Remota exigiriam uma reimplantação do aplicativo. Se você quiser evitar essas desvantagens, use a abordagem com base em extensão da Área de Trabalho Remota descrita acima.  
+## <a name="tooconfigure-remote-desktop-in-hello-service-definition-file"></a>tooconfigure área de trabalho remota no arquivo de definição de serviço Olá
+Esse método permite que você tooenable área de trabalho remota para o aplicativo hello durante o desenvolvimento. Essa abordagem requer senhas criptografadas armazenados em sua configuração de serviço de arquivo e qualquer configuração de área de trabalho remota do toohello atualizações exigem uma reimplantação do aplicativo hello. Se você quiser tooavoid essas desvantagens, você deve usar a extensão de área de trabalho remota Olá baseado abordagem descrita acima.  
 
-Você pode usar o Visual Studio para [habilitar uma conexão de Área de Trabalho Remota](../vs-azure-tools-remote-desktop-roles.md) usando a abordagem de arquivo de definição de serviço.  
-As etapas a seguir descrevem as alterações necessárias para os arquivos de modelo de serviço habilitarem a Área de Trabalho Remota. O Visual Studio fará automaticamente essas alterações durante a publicação.
+Você pode usar o Visual Studio muito[habilitar uma conexão de área de trabalho remota](../vs-azure-tools-remote-desktop-roles.md) usando a abordagem de arquivo de definição de serviço hello.  
+Olá etapas a seguir descrevem Olá alterações necessárias toohello serviço modelo arquivos tooenable área de trabalho remota. O Visual Studio fará automaticamente essas alterações durante a publicação.
 
-### <a name="set-up-the-connection-in-the-service-model"></a>Configurar a conexão no modelo de serviço
-Use o elemento **Imports** para importar o módulo **RemoteAccess** e o módulo **RemoteForwarder** para o arquivo [ServiceDefinition.csdef](cloud-services-model-and-package.md#csdef).
+### <a name="set-up-hello-connection-in-hello-service-model"></a>Configurar conexão Olá no modelo de serviço Olá
+Saudação de uso **Imports** saudação do elemento tooimport **RemoteAccess** módulo e hello **RemoteForwarder** módulo toohello [servicedefinition. Csdef](cloud-services-model-and-package.md#csdef) arquivo.
 
-O arquivo de definição de serviço deve ser semelhante ao exemplo a seguir com o elemento `<Imports>` adicionado.
+Olá arquivo de definição de serviço deve ser semelhante toohello seguinte exemplo com hello `<Imports>` elemento adicionado.
 
 ```xml
 <ServiceDefinition name="<name-of-cloud-service>" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2013-03.2.0">
@@ -110,7 +110,7 @@ O arquivo de definição de serviço deve ser semelhante ao exemplo a seguir com
     </WebRole>
 </ServiceDefinition>
 ```
-O arquivo [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) deve ser semelhante ao exemplo a seguir, observe os elementos `<ConfigurationSettings>` e `<Certificates>`. O certificado especificado deve ser [carregado no serviço de nuvem](cloud-services-how-to-create-deploy.md#how-to-upload-a-certificate-for-a-cloud-service).
+Olá [ServiceConfiguration](cloud-services-model-and-package.md#cscfg) arquivo deve ser semelhante toohello exemplo a seguir, observe Olá `<ConfigurationSettings>` e `<Certificates>` elementos. Olá certificado especificado deve ser [carregado o serviço de nuvem toohello](cloud-services-how-to-create-deploy.md#how-to-upload-a-certificate-for-a-cloud-service).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -133,5 +133,5 @@ O arquivo [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg
 
 
 ## <a name="additional-resources"></a>Recursos adicionais
-[Como configurar os Serviços de Nuvem](cloud-services-how-to-configure.md)
-[Perguntas frequentes sobre os serviços de nuvem — Área de Trabalho Remota](cloud-services-faq.md)
+[Como tooConfigure serviços de nuvem](cloud-services-how-to-configure.md)
+[serviços em nuvem perguntas Frequentes – área de trabalho remota](cloud-services-faq.md)

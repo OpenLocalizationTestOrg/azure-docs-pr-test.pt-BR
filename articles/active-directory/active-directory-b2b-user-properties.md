@@ -1,5 +1,5 @@
 ---
-title: "Propriedades de um usuário de colaboração B2B do Azure Active Directory | Microsoft Docs"
+title: "aaaProperties de um usuário de colaboração B2B do Azure Active Directory | Microsoft Docs"
 description: "As propriedades do usuário de colaboração B2B do Azure Active Directory podem ser configuradas"
 services: active-directory
 documentationcenter: 
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
 ms.author: sasubram
-ms.openlocfilehash: 6e49cb202ed03bf50fb9ca34d34924cda434829c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 78709f64430ed4c14eadf4dc257f175c24698c5e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um usuário de colaboração B2B do Azure Active Directory
 
-Um usuário de colaboração entre empresas (B2B) do Azure Active Directory (AD do Azure) é um usuário com UserType = Convidado. Normalmente, esse usuário convidado representa uma organização parceira e, por padrão, tem privilégios limitados no diretório que convida.
+Um usuário de colaboração entre empresas (B2B) do Azure Active Directory (AD do Azure) é um usuário com UserType = Convidado. Este usuário convidado normalmente é de uma organização de parceiro e limitou os privilégios em hello para enviar o convite de diretório, por padrão.
 
-Dependendo das necessidades da organização que convida, um usuário de colaboração B2B do AD do Azure pode estar em um dos seguintes estados de conta:
+Dependendo da saudação convidar as necessidades da organização, um usuário de colaboração B2B do Azure AD pode ser em uma saudação conta estados a seguir:
 
-- Estado 1: hospedado em uma instância externa do AD do Azure, representado como um usuário convidado na organização que convida. Nesse caso, o usuário B2B entra usando uma conta do Azure AD que pertence ao locatário convidado. Se a organização do parceiro não usar o Azure AD, o usuário convidado no Azure AD ainda será criado. Os requisitos são o resgate do convite e a verificação do endereço de email pelo Azure AD. Essa disposição também é chamada de locação JIT (just-in-time) ou, às vezes, de locação "viral".
+- Estado 1: Hospedada em uma instância externa do AD do Azure e representado como um usuário convidado em Olá convidar organização. Nesse caso, Olá B2B usuário entrar usando uma conta do AD do Azure que pertence o locatário toohello convidado. Se a organização do parceiro de saudação não usa o AD do Azure, o usuário convidado saudação do AD do Azure ainda é criado. requisitos de saudação são que eles resgatar seu convite e AD do Azure verifica seu endereço de email. Essa disposição também é chamada de locação JIT (just-in-time) ou, às vezes, de locação "viral".
 
-- Estado 2: hospedado na conta da Microsoft e representado como um usuário convidado na organização host. Nesse caso, o usuário convidado entra com uma conta da Microsoft. A identidade social do usuário convidado (google.com ou semelhante), que não é uma conta da Microsoft, é criada como uma conta da Microsoft durante o resgate da oferta.
+- Estado 2: Hospedada em uma conta da Microsoft e representado como um usuário convidado na organização do host de saudação. Nesse caso, o usuário convidado de saudação entra com uma conta da Microsoft. Olá convidado social a identidade de usuário (google.com ou semelhante), que não é uma conta da Microsoft, é criado como uma conta da Microsoft durante o resgate de oferta.
 
-- Estado 3: hospedado no Active Directory local da organização host e sincronizado com o AD do Azure da organização host. Durante esta versão, você deve usar o PowerShell para alterar manualmente o UserType desses usuários na nuvem.
+- Estado 3: Hospedada no local Active Directory da organização do host Olá e sincronizados com o Azure da organização do host Olá AD. Durante esta versão, você deve usar o PowerShell toomanually alteração Olá UserType desses usuários na nuvem de saudação.
 
-- Estado 4: hospedado na organização do Azure AD com UserType = Convidado e com credenciais que gerenciam a organização host.
+- Estado 4: Adaptadores de rede na Azure do organização do host AD com UserType = convidado e credenciais Olá host organização gerencia.
 
-  ![Exibição das iniciais do emissor do convite](media/active-directory-b2b-user-properties/redemption-diagram.png)
+  ![Exibindo iniciais do emissor do convite Olá](media/active-directory-b2b-user-properties/redemption-diagram.png)
 
 
 Agora, vamos ver a aparência de um usuário de colaboração B2B do AD do Azure no Estado 1 no Azure AD.
@@ -48,45 +48,45 @@ Agora, vamos ver a aparência de um usuário de colaboração B2B do AD do Azure
 
 ![Depois do resgate de oferta](media/active-directory-b2b-user-properties/after-redemption.png)
 
-## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>As principais propriedades do usuário de colaboração B2B do AD do Azure
+## <a name="key-properties-of-hello-azure-ad-b2b-collaboration-user"></a>Propriedades de chave de usuário de colaboração de saudação do Azure AD B2B
 ### <a name="usertype"></a>UserType
-Essa propriedade indica a relação entre o usuário e o locatário do host. Essa propriedade pode assumir dois valores:
-- Membro: este valor indica um funcionário da organização host e um usuário na folha de pagamento da organização. Por exemplo, provavelmente esse usuário poderá acessar somente os sites internos. Esse usuário não seria considerado um colaborador externo.
+Essa propriedade indica a relação de saudação de aluguel de host Olá usuário toohello. Essa propriedade pode assumir dois valores:
+- Membro: Este valor indica um funcionário da empresa de host hello e um usuário na folha de pagamento da organização hello. Por exemplo, este usuário espera toohave acessar somente toointernal sites. Esse usuário não seria considerado um colaborador externo.
 
-- Convidado: esse valor indica um usuário que não é considerado interno à empresa, como um colaborador externo, parceiro, cliente ou usuário semelhante. Um usuário como esse não deve receber um memorando interno do CEO, ou benefícios da empresa, por exemplo.
+- Convidado: Este valor indica um usuário que não é considerado empresa toohello interno, como um parceiro externo, parceiro, cliente ou usuário semelhante. Esse usuário não ser esperado tooreceive memorando interno do CEO ou receber benefícios da empresa, por exemplo.
 
   > [!NOTE]
-  > O UserType não tem nenhuma relação com o tipo de acesso do usuário, nem com a função do diretório do usuário e assim por diante. Essa propriedade só indica a relação do usuário com a organização host, e permite que a organização aplique as políticas que dependem desse atributo.
+  > Olá UserType não tem nenhuma relação toohow Olá usuário se autentica no, a função de diretório de saudação do usuário Olá e assim por diante. Essa propriedade simplesmente indica Olá relação toohello host organização e permite que a organização Olá tooenforce políticas que dependem desta propriedade.
 
 ### <a name="source"></a>Fonte
-Essa propriedade indica o tipo de acesso do usuário.
+Essa propriedade indica como o usuário Olá entrar.
 
 - Usuário convidado: esse usuário foi convidado, mas ainda não resgatou seu convite.
 
-- Active Directory externo: esse usuário está hospedado em uma organização externa e é autenticado com uma conta do AD do Azure que pertence a outra organização. Esse tipo de acesso corresponde ao Estado 1.
+- Externa do Active Directory: Este usuário está hospedado em uma organização externa e autentica por meio de uma conta do AD do Azure que pertence a toohello outra organização. Esse tipo de entrada corresponde tooState 1.
 
-- Conta da Microsoft: este usuário está hospedado em uma conta da Microsoft e é autenticado usando uma conta da Microsoft. Esse tipo de acesso corresponde ao Estado 2.
+- Conta da Microsoft: este usuário está hospedado em uma conta da Microsoft e é autenticado usando uma conta da Microsoft. Esse tipo de entrada corresponde tooState 2.
 
-- Active Directory do Windows Server: este usuário faz logon no Active Directory local que pertence a esta organização. Esse tipo de acesso corresponde ao Estado 3.
+- Windows Server Active Directory: Este usuário está conectado do Active Directory do local que pertence a organização toothis. Esse tipo de entrada corresponde tooState 3.
 
-- Azure Active Directory: este usuário é autenticado usando uma conta do Azure AD que pertence a esta organização. Esse tipo de acesso corresponde ao Estado 4.
+- Active Directory do Azure: Esse usuário é autenticado usando uma conta do AD do Azure que pertence a organização toothis. Esse tipo de entrada corresponde tooState 4.
   > [!NOTE]
   > A origem e o UserType são propriedades independentes. O valor de origem não envolve um valor específico para o UserType.
 
 ## <a name="can-azure-ad-b2b-users-be-added-as-members-instead-of-guests"></a>Os usuários B2B do AD do Azure podem ser adicionados como membros em vez de convidados?
-Normalmente, um usuário B2B do Azure AD e o usuário convidado são sinônimos. Portanto, um usuário de colaboração B2B do AD do Azure é adicionado por padrão como um usuário com UserType = Convidado. No entanto, em alguns casos, a organização parceira é membra de uma organização maior a qual a organização host também pertence. Se esse for o caso, talvez a organização host queira tratar os usuários na organização parceira como membros e não convidados. Use as APIs do gerenciador de convites B2B do AD do Azure para adicionar ou convidar um usuário da organização parceira para a organização host como um membro.
+Normalmente, um usuário B2B do Azure AD e o usuário convidado são sinônimos. Portanto, um usuário de colaboração B2B do AD do Azure é adicionado por padrão como um usuário com UserType = Convidado. No entanto, em alguns casos, a organização do parceiro de saudação é que um membro de uma organização de host Olá maior organização toowhich também pertence. Nesse caso, a organização de host Olá seja tootreat usuários na organização do parceiro de saudação como membros em vez de convidados. Use Olá APIs do Azure AD B2B convite Manager tooadd ou convidar um usuário da organização do hello parceiro organização toohello host como um membro.
 
-## <a name="filter-for-guest-users-in-the-directory"></a>Filtragem de usuários convidados no diretório
+## <a name="filter-for-guest-users-in-hello-directory"></a>Filtro para usuários convidados no diretório Olá
 
 ![Como filtrar usuários convidados](media/active-directory-b2b-user-properties/filter-guest-users.png)
 
 ## <a name="convert-usertype"></a>Converter UserType
-Atualmente, os usuários podem usar o PowerShell para converter o UserType de membro para convidado e vice-versa. No entanto, a propriedade do UserType deve representar a relação do usuário com a organização. Portanto, o valor dessa propriedade só pode ser alterado se a relação entre o usuário e a organização mudar. Se o relacionamento do usuário mudar, questões como alteração do nome UPN também devem ser abordadas? O usuário poderá acessar os mesmos recursos? Uma caixa de correio deve ser atribuída? Portanto, não recomendamos alterar o UserType no PowerShell como uma atividade atômica. Além disso, caso essa propriedade se torne imutável usando o PowerShell, é melhor não assumir uma dependência desse valor.
+Atualmente, é possível que os usuários tooconvert UserType do membro tooGuest e vice-versa usando o PowerShell. No entanto, Olá propriedade UserType deve toorepresent Olá relação toohello organização. Portanto, o valor dessa propriedade Olá deve alterar somente se a relação de saudação de organização de toohello saudação do usuário altera. Se a relação de saudação do usuário Olá mudar, deve, como se Olá UPN (UPN) deve ser alterada, abordados? Usuário Olá continue toohave acesso toohello mesmos recursos? Uma caixa de correio deve ser atribuída? Portanto, é recomendável não alterar Olá UserType usando o PowerShell como uma atividade atômica. Além disso, caso essa propriedade se torne imutável usando o PowerShell, é melhor não assumir uma dependência desse valor.
 
 ## <a name="remove-guest-user-limitations"></a>Como remover limitações do usuário convidado
-Em alguns casos, talvez você queira dar privilégios mais altos aos usuários convidados. Você pode adicionar um usuário convidado a qualquer função e até mesmo remover as restrições do usuário convidado padrão no diretório a fim de fornecer os mesmos privilégios como membros.
+Pode haver casos em que você deseja toogive seus privilégios mais altos de usuários do convidado. Você pode adicionar uma função de tooany de usuário convidado e até mesmo remover restrições ao usuário convidado saudação padrão em Olá diretório toogive uma saudação do usuário mesmo privilégios como membros.
 
-É possível desativar as limitações do usuário convidado padrão para que um usuário convidado no diretório da empresa receba as mesmas permissões que um membro.
+É possível tooturn off limitações de usuário de convidado saudação padrão para que um usuário convidado no diretório de empresa Olá receber Olá as mesmas permissões que um usuário do membro.
 
 ![Como remover limitações do usuário convidado](media/active-directory-b2b-user-properties/remove-guest-limitations.png)
 
@@ -95,7 +95,7 @@ Em alguns casos, talvez você queira dar privilégios mais altos aos usuários c
 Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 
 * [O que é a colaboração B2B do AD do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Como adicionar um usuário de colaboração B2B a uma função](active-directory-b2b-add-guest-to-role.md)
+* [Adicionando uma função de tooa de usuário de colaboração B2B](active-directory-b2b-add-guest-to-role.md)
 * [Delegação de convites de colaboração B2B](active-directory-b2b-delegate-invitations.md)
 * [Auditoria e relatórios de um usuário de colaboração B2B](active-directory-b2b-auditing-and-reporting.md)
 * [Grupos dinâmicos e colaboração B2B](active-directory-b2b-dynamic-groups.md)

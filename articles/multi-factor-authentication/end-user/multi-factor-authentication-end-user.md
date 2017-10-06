@@ -1,6 +1,6 @@
 ---
-title: "Introdução à verificação em duas etapas | Microsoft Docs"
-description: "Esta é a página do Azure Multi-Factor Authentication que ajudará os usuários finais a seguir adiante com o Azure Multi-Factor Authentication."
+title: aaaGet iniciado com a verificacao | Microsoft Docs
+description: "Isso é página de autenticação do Azure multi-Factor Olá ajudará os usuários finais com obtendo-se com o Azure multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -15,36 +15,36 @@ ms.date: 06/15/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: end-user
-ms.openlocfilehash: 6527e624ce9c911b201881ffd409c57b2f065ef3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 35cc05480f52ea5a22cf3e509ace6012e9aabf8e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>O que o Azure Multi-Factor Authentication significa para mim?
-Então, você recebeu um email de alguém de TI ou do seu chefe informando que incluíram uma verificação de segurança adicional à sua conta.  E o que isso significa?
+Portanto, recebeu um email de alguém de IT ou seu chefe informando que eles adicionou a conta de tooyour de verificação de segurança adicional.  E o que isso significa?
 
-Não se preocupe. Sua organização deseja apenas adotar etapas extras para garantir que você é quem diz ser ao entrar. Essa verificação é feita usando uma combinação do seu nome de usuário, senha e um telefone.  
+Não tooworry. Sua organização deseja simplesmente tootake tooensure etapas adicionais que você é quem diz ser ao entrar. Essa verificação é feita usando uma combinação do seu nome de usuário, senha e um telefone.  
 
-Sendo assim, a primeira coisa que você precisa fazer é concluir o processo de registro.  Porém, antes de iniciarmos esse processo, há algumas decisões a serem tomadas.
+Para a primeira coisa que Olá precisar toodo é o processo de registro Olá concluída.  Mas antes vamos começar o processo existe são toodecide de algumas coisas.
 
 * **Telefone comercial ou telefone celular** : escolha entre usar o telefone comercial ou o celular.
-* **Ligação telefônica, texto ou aplicativo móvel no celular**: se estiver usando um celular, escolha entre receber uma chamada, um texto ou usar o aplicativo móvel.
-* **Aplicativo móvel com um código de notificação ou verificação** : se estiver usando o aplicativo móvel, escolha entre receber uma notificação a qual responder ou um código de verificação.
+* **Aplicativo móvel, texto ou chamada de telefone celular** - se usando um telefone celular, escolha entre receber uma chamada, um texto, ou usando o aplicativo móvel hello.
+* **Aplicativo móvel com um código de verificação ou de notificação** - se usando a saudação de aplicativo móvel, escolha entre o recebimento de uma notificação que você responder tooor um código de verificação.
 
 > [!NOTE]
-> Seu departamento de TI pode desabilitar uma ou mais dessas opções.  Nesse caso, essas opções não estarão disponíveis durante o processo de registro.  
+> Seu departamento de TI pode desabilitar uma ou mais dessas opções.  Nesse caso, essas opções não estarão disponíveis durante o processo de registro de saudação.  
 
-Agora que você decidiu sobre seu método de verificação, é hora de fazer o registro. Use o link [Experiência de Configuração](multi-factor-authentication-end-user-first-time.md) para começar com um passo a passo sobre o processo de registro.
+Agora que você decidir sobre o método de verificação, é tooregister de tempo. Saudação de uso [experiência de instalação](multi-factor-authentication-end-user-first-time.md) link tooget iniciada com uma passo a passo no processo de registro de saudação.
 
-## <a name="how-to-get-going-with-two-step-verification"></a>Como começar com a verificação em duas etapas
-Selecione um desses tópicos para começar.
+## <a name="how-tooget-going-with-two-step-verification"></a>Como tooget sobre a verificação em duas etapas
+Selecione uma das tooget tópicos de Introdução.
 
 | Tópico | Descrição |
 |:--- |:--- |
-| [Experiência de Configuração](multi-factor-authentication-end-user-first-time.md) |Descreve o processo de configurar o Multi-Factor Authentication pela primeira vez. |
-| [Experiência de conexão](multi-factor-authentication-end-user-signin.md) |Mostra o que você pode esperar quando se conectar usando vários métodos, como telefone ou aplicativo. |
+| [Experiência de Configuração](multi-factor-authentication-end-user-first-time.md) |Descreve o processo de saudação de configurar a autenticação multifator para Olá a primeira vez. |
+| [Experiência de conexão](multi-factor-authentication-end-user-signin.md) |Mostra o que você pode esperar da assinatura usando Olá vários métodos, como o telefone ou o aplicativo. |
 | [Alterando suas configurações](multi-factor-authentication-end-user-manage-settings.md) |Mostra como você pode alterar suas configurações, como número de telefone ou método de registro preferido. |
 | [Ajuda com senhas de aplicativo](multi-factor-authentication-end-user-app-passwords.md) |Encontre informações sobre como criar e usar senhas de aplicativo. |
-| [Usar o aplicativo móvel](microsoft-authenticator-app-how-to.md) |O aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Use o aplicativo móvel Olá](microsoft-authenticator-app-how-to.md) |Olá Microsoft Authenticator aplicativo está disponível para [do Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 

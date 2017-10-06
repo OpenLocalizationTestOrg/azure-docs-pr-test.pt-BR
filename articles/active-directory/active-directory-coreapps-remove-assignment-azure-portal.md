@@ -1,6 +1,6 @@
 ---
-title: "Remover uma atribuição de usuário ou grupo de um aplicativo empresarial no Azure Active Directory | Microsoft Docs"
-description: "Como remover a atribuição de acesso de um usuário ou grupo de um aplicativo empresarial no Azure Active Directory"
+title: "aaaRemove uma atribuição de usuário ou grupo de um aplicativo de empresa no Active Directory do Azure | Microsoft Docs"
+description: "Como tooremove Olá acessar atribuição de um usuário ou grupo de um aplicativo de empresa no Active Directory do Azure"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
-ms.openlocfilehash: 02f122acfb53c2107e2b0af66c6195aa127a2c77
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c067ecf59b4dedfe8f848357ca8bd545bdc610eb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Remover a atribuição de um usuário ou grupo de um aplicativo empresarial no Azure Active Directory
-É fácil impedir que um usuário ou grupo receba acesso a um de seus aplicativos empresariais no Azure AD (Azure Active Directory). Você deve ter as permissões apropriadas para gerenciar o aplicativo empresarial, além de ser um administrador global do diretório.
+É fácil tooremove um usuário ou um grupo sejam atribuídos acesso tooone de seus aplicativos de empresa no Active Directory do Azure (AD do Azure). Você deve ter Olá permissões apropriadas toomanage Olá enterprise aplicativo e deve ser o administrador global para o diretório de saudação.
 
 ## <a name="how-do-i-remove-a-user-or-group-assignment"></a>Como removo a atribuição de um usuário ou grupo?
-1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
-2. Escolha **Mais serviços**, insira **Azure Active Directory** na caixa de texto e selecione **Enter**.
-3. Na folha **Azure Active Directory – *nomedodiretório*** (ou seja, a folha do Azure AD para o diretório que você está gerenciando), escolha **Aplicativos empresariais**.
+1. Entrar toohello [portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global para o diretório de saudação.
+2. Selecione **mais serviços**, digite **Active Directory do Azure** Olá caixa de texto e, em seguida, selecione **Enter**.
+3. Em Olá **do Active Directory do Azure - *directoryname***  folha (ou seja, Olá AD do Azure folha para diretório de saudação que você está gerenciando), selecione **aplicativos empresariais**.
 
     ![Abrir aplicativos empresariais](./media/active-directory-coreapps-remove-assignment-user-azure-portal/open-enterprise-apps.png)
-4. Na folha **Aplicativos empresariais**, escolha **Todos os aplicativos**. Você verá uma lista dos aplicativos que pode gerenciar.
-5. Na folha **Aplicativos empresariais – Todos os aplicativos** , escolha um aplicativo.
-6. Na folha ***appname*** (ou seja, a folha com o nome do aplicativo selecionado no título), selecione **Usuários e Grupos**.
+4. Em Olá **aplicativos empresariais** folha, selecione **todos os aplicativos**. Você verá uma lista de aplicativos de saudação, que você pode gerenciar.
+5. Em Olá **aplicativos corporativos - todos os aplicativos** folha, selecione um aplicativo.
+6. Em Olá ***appname*** folha (ou seja, Olá folha com nome Olá Olá o aplicativo selecionado no título de saudação), selecione **usuários e grupos**.
 
     ![Seleção de usuários ou de grupos](./media/active-directory-coreapps-remove-assignment-user-azure-portal/remove-app-users.png)
-7. Na folha ***appname*** **- Atribuição de Usuário e Grupo**, selecione um dos usuários ou grupos, em seguida, selecione o comando **Remover**. Confirme sua decisão na solicitação.
+7. Em Olá ***appname*** **-atribuição de grupo de & usuário** folha, selecione uma das mais usuários ou grupos e, em seguida, selecione Olá **remover** comando. Confirme sua decisão no prompt de saudação.
 
-    ![Seleção do comando Remover](./media/active-directory-coreapps-remove-assignment-user-azure-portal/remove-users.png)
+    ![Selecionando o comando de Remove Olá](./media/active-directory-coreapps-remove-assignment-user-azure-portal/remove-users.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Ver todos os meus grupos](active-directory-groups-view-azure-portal.md)
-* [Atribuir um usuário ou um grupo a um aplicativo empresarial](active-directory-coreapps-assign-user-azure-portal.md)
+* [Atribuir um aplicativo de enterprise tooan usuário ou grupo](active-directory-coreapps-assign-user-azure-portal.md)
 * [Desabilitar as entradas de usuário em um aplicativo empresarial](active-directory-coreapps-disable-app-azure-portal.md)
-* [Alterar o nome ou logotipo de um aplicativo empresarial](active-directory-coreapps-change-app-logo-user-azure-portal.md)
+* [Alterar nome de saudação ou logotipo de um aplicativo corporativo](active-directory-coreapps-change-app-logo-user-azure-portal.md)

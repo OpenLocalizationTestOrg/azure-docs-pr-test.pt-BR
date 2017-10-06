@@ -1,6 +1,6 @@
 ---
-title: "Operações de Sondagem de Longa Execução | Microsoft Docs"
-description: "Este tópico mostra como sondar as operações de longa execução."
+title: "Operações de execução longa de aaaPolling | Microsoft Docs"
+description: "Este tópico mostra como toopoll operações de execução longa."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 7123a2d44d3b7c332afe30fb0fcea88ca29e313a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f8315a5ddbe484d794c3e2164e47dd9e70521671
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Fornecendo mídia sob demanda com os Serviços de Mídia do Azure
 
 ## <a name="overview"></a>Visão geral
 
-Os Serviços de Mídia do Microsoft Azure oferecem APIs que enviam solicitações aos Serviços de Mídia para iniciar operações (por exemplo: criar, iniciar, interromper ou excluir um canal). Essas operações são de execução longa.
+Serviços de mídia do Microsoft Azure oferece APIs que enviam solicitações de operações de toostart tooMedia serviços (por exemplo: criar, iniciar, interromper ou excluir um canal). Essas operações são de execução longa.
 
-O SDK .NET de Serviços de Mídia fornece APIs que enviam a solicitação e aguardam a conclusão da operação (internamente, as APIs realizam a sondagem do andamento da operação em intervalos). Por exemplo, quando você chama o channel.Start(), o método retorna depois que o canal é iniciado. Você também pode usar a versão assíncrona: await channel.StartAsync() (para obter informações sobre o padrão assíncrono baseado em tarefa, consulte [TAP](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). "Métodos de sondagem" é como são chamadas as APIs que enviam uma solicitação de operação e então sondam o status até que a operação seja concluída. Esses métodos (especialmente a versão assíncrona) são recomendados para aplicativos cliente sofisticados e/ou serviços com monitoração de estado.
+Olá Media Services .NET SDK fornece APIs que enviar solicitação hello e aguarde Olá toocomplete de operação (internamente, Olá APIs estão sondando o andamento da operação em alguns intervalos). Por exemplo, quando você chama o canal. Start (), o método hello retorna depois do início do canal de saudação. Você também pode usar a versão assíncrona Olá: await canal. StartAsync() (para obter informações sobre o padrão assíncrono baseado em tarefa, consulte [toque](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). APIs que enviam uma solicitação de operação e então sondam status Olá até Olá operação ser concluída são chamadas de "métodos de sondagem". Esses métodos (especialmente versão assíncrona Olá) são recomendados para aplicativos cliente avançados e/ou serviços com monitoração de estado.
 
-Existem cenários em que um aplicativo não pode esperar uma solicitação http de execução longa e desejar sondar o andamento da operação manualmente. Um exemplo típico seria um navegador interagindo com um serviço Web sem monitoração de estado: quando o navegador solicita a criação de um canal, o serviço Web inicia uma operação de execução longa e retorna a ID da operação para o navegador. O navegador pode pedir ao serviço Web para obter o status da operação com base na ID. O SDK .NET dos Serviços de Mídia fornece APIs úteis para esse cenário. Essas APIs são chamadas de "métodos sem sondagem".
-Os "métodos sem sondagem" têm o padrão de nomenclatura a seguir: Send*OperationName*Operation (por exemplo, SendCreateOperation). Os métodos Send*OperationName*Operation retornam o objeto **IOperation** ; o objeto retornado contém informações que podem ser usadas para controlar a operação. Os métodos Send*OperationName*OperationAsync retornam **Task<IOperation>**.
+Há cenários em que um aplicativo não puder aguardar uma solicitação http em tempo de execução e deseja toopoll de andamento da operação Olá manualmente. Um exemplo típico seria um navegador interagindo com um serviço web sem monitoração de estado: quando o navegador Olá solicitações toocreate um canal, serviço web de saudação inicia uma operação de longa duração e retorna Olá navegador de toohello de ID de operação. navegador de saudação pode então solicitar Olá web serviço tooget Olá status da operação com base na ID de saudação. Olá Media Services .NET SDK fornece APIs que são úteis para esse cenário. Essas APIs são chamadas de "métodos sem sondagem".
+Olá, "métodos sem sondagem" têm saudação padrão de nomenclatura a seguir: enviar*OperationName*operação (por exemplo, SendCreateOperation). Enviar*OperationName*métodos de operação retornam Olá **IOperation** objeto; hello, objeto retornado contém informações que podem ser usados tootrack Olá operação. Olá enviar*OperationName*OperationAsync métodos retornam **tarefa<IOperation>**.
 
-Atualmente, as classes a seguir dão suporte a métodos sem sondagem: **Channel**, **StreamingEndpoint** e **Program**.
+Atualmente, Olá métodos sem sondagem de classes de suporte a seguir: **Channel**, **StreamingEndpoint**, e **programa**.
 
-Para monitorar o status da operação, use o método **GetOperation** na classe **OperationBaseCollection**. Use os seguintes intervalos para verificar o status da operação: para as operações **Channel** e **StreamingEndpoint**, use 30 segundos; para operações **Program**, use 10 segundos.
+toopoll para o status da operação hello, use Olá **GetOperation** método hello **OperationBaseCollection** classe. Use Olá status da operação de saudação toocheck intervalos a seguir: para **Channel** e **StreamingEndpoint** operações, use 30 segundos; para **programa** operações, use 10 segundos.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md).
+Configurar seu ambiente de desenvolvimento e preencher o arquivo App. config de saudação com informações de conexão, conforme descrito em [desenvolvimento de serviços de mídia com o .NET](media-services-dotnet-how-to-use.md).
 
 ## <a name="example"></a>Exemplo
 
-O exemplo a seguir define uma classe chamada **ChannelOperations**. Essa definição de classe pode ser um ponto de partida para a definição de classe de serviço Web. Para simplificar, os exemplos a seguir usam as versões de métodos não assíncronas.
+Olá, exemplo a seguir define uma classe chamada **ChannelOperations**. Essa definição de classe pode ser um ponto de partida para a definição de classe de serviço Web. Para simplificar, hello exemplos a seguir usam versões assíncronas não Olá métodos.
 
-O exemplo também mostra como o cliente pode usar essa classe.
+exemplo Hello também mostra como o cliente Olá pode usar essa classe.
 
 ### <a name="channeloperations-class-definition"></a>Definição da classe ChannelOperations
 
@@ -54,12 +54,12 @@ O exemplo também mostra como o cliente pode usar essa classe.
     using System.Net;
 
     /// <summary> 
-    /// The ChannelOperations class only implements 
-    /// the Channel’s creation operation. 
+    /// hello ChannelOperations class only implements 
+    /// hello Channel’s creation operation. 
     /// </summary> 
     public class ChannelOperations
     {
-        // Read values from the App.config file.
+        // Read values from hello App.config file.
         private static readonly string _AADTenantDomain =
             ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
@@ -77,12 +77,12 @@ O exemplo também mostra como o cliente pode usar essa classe.
         }
 
         /// <summary>  
-        /// Initiates the creation of a new channel.  
+        /// Initiates hello creation of a new channel.  
         /// </summary>  
-        /// <param name="channelName">Name to be given to the new channel</param>  
+        /// <param name="channelName">Name toobe given toohello new channel</param>  
         /// <returns>  
-        /// Operation Id for the long running operation being executed by Media Services. 
-        /// Use this operation Id to poll for the channel creation status. 
+        /// Operation Id for hello long running operation being executed by Media Services. 
+        /// Use this operation Id toopoll for hello channel creation status. 
         /// </returns> 
         public string StartChannelCreation(string channelName)
         {
@@ -99,14 +99,14 @@ O exemplo também mostra como o cliente pode usar essa classe.
         }
 
         /// <summary> 
-        /// Checks if the operation has been completed. 
-        /// If the operation succeeded, the created channel Id is returned in the out parameter.
+        /// Checks if hello operation has been completed. 
+        /// If hello operation succeeded, hello created channel Id is returned in hello out parameter.
         /// </summary> 
-        /// <param name="operationId">The operation Id.</param> 
+        /// <param name="operationId">hello operation Id.</param> 
         /// <param name="channel">
-        /// If the operation succeeded, 
-        /// the created channel Id is returned in the out parameter.</param>
-        /// <returns>Returns false if the operation is still in progress; otherwise, true.</returns> 
+        /// If hello operation succeeded, 
+        /// hello created channel Id is returned in hello out parameter.</param>
+        /// <returns>Returns false if hello operation is still in progress; otherwise, true.</returns> 
         public bool IsCompleted(string operationId, out string channelId)
         {
             IOperation operation = _context.Operations.GetOperation(operationId);
@@ -117,9 +117,9 @@ O exemplo também mostra como o cliente pode usar essa classe.
             switch (operation.State)
             {
                 case OperationState.Failed:
-                    // Handle the failure. 
+                    // Handle hello failure. 
                     // For example, throw an exception. 
-                    // Use the following information in the exception: operationId, operation.ErrorMessage.
+                    // Use hello following information in hello exception: operationId, operation.ErrorMessage.
                     break;
                 case OperationState.Succeeded:
                     completed = true;
@@ -180,7 +180,7 @@ O exemplo também mostra como o cliente pode usar essa classe.
         }
     }
 
-### <a name="the-client-code"></a>O código do cliente
+### <a name="hello-client-code"></a>código de saudação do cliente
     ChannelOperations channelOperations = new ChannelOperations();
     string opId = channelOperations.StartChannelCreation("MyChannel001");
 
@@ -193,7 +193,7 @@ O exemplo também mostra como o cliente pode usar essa classe.
         isCompleted = channelOperations.IsCompleted(opId, out channelId);
     }
 
-    // If we got here, we should have the newly created channel id.
+    // If we got here, we should have hello newly created channel id.
     Console.WriteLine(channelId);
 
 

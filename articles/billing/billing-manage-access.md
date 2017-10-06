@@ -1,5 +1,5 @@
 ---
-title: "Gerenciar o acesso a cobrança usando funções do Azure | Documentos do Microsoft"
+title: "aaaManage tooAzure de acesso usando funções de cobrança | Microsoft Docs"
 description: 
 services: 
 documentationcenter: 
@@ -15,67 +15,67 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: vikdesai
-ms.openlocfilehash: c70904097f139bc2178feed83f1cf1274f3c738d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 5937fac5ffa5ca204eb03a1dcbc5e800b3d5eb74
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Gerenciar o acesso a informações de cobrança do Azure usando o controle de acesso baseado em função
+# <a name="manage-access-toobilling-information-for-azure-using-role-based-access-control"></a>Gerenciar informações de toobilling de acesso do Azure usando o controle de acesso baseado em função
 
-Você pode conceder acesso a informações de cobrança do Azure para membros da equipe atribuindo uma das seguintes funções de usuário para sua assinatura: Conta de Administrador, Administrador de serviço, Coadministrador, Proprietário, Colaborador, Leitor e Leitor de cobrança. Elas podem ter acesso a informações de cobrança no [portal do Azure](https://portal.azure.com/), e eles podem usar o [APIs de cobrança](billing-usage-rate-card-overview.md) para obter programaticamente os detalhes de uso e notas fiscais (uma vez decidido). Para obter mais informações sobre quem pode conceder funções e o que as funções podem fazer, consulte [funções no Azure RBAC](../active-directory/role-based-access-built-in-roles.md).
+Você pode conceder acesso para o Azure toomembers de informações de cobrança da sua equipe, atribuindo uma saudação assinatura de tooyour de funções de usuário a seguir: conta de administrador, administrador de serviço, coadministrador, proprietário, colaborador, leitor e leitor de cobrança. Eles teriam acesso toobilling informações Olá [portal do Azure](https://portal.azure.com/), e eles podem usar o hello [cobrança APIs](billing-usage-rate-card-overview.md) tooprogrammatically obter faturas (uma vez incluído-entrada) e detalhes de uso. Para obter mais informações sobre quem pode conceder funções e o que as funções podem fazer, consulte [funções no Azure RBAC](../active-directory/role-based-access-built-in-roles.md).
 
-## <a name="opt-in"></a>Permitindo que usuários adicionais acessem notas fiscais
+## <a name="opt-in"></a>Permitir que usuários adicionais tooaccess faturas
 
-O Administrador da Conta deve aceitar usando o [portal do Azure](https://portal.azure.com/) permitir acesso às notas fiscais para outros usuários e por meio da API.
+Olá administrador da conta deve aceitar usando Olá [portal do Azure](https://portal.azure.com/) permitir acesso tooinvoices para outros usuários e por meio da API.
 
-1. Como Administrador da Conta, selecione sua assinatura da [folha Assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no Portal do Azure.
+1. Olá administrador da conta, selecione sua assinatura do hello [folha assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal do Azure.
 
-1. Selecione **Faturas** e **Acesso às notas fiscais**.
+1. Selecione **faturas** e **acessar tooinvoices**.
 
-    ![Captura de tela mostrando como delegar acesso a faturas](./media/billing-manage-access/AA-optin.png)
+    ![Captura de tela mostra como toodelegate acessar tooinvoices](./media/billing-manage-access/AA-optin.png)
 
-1. **Ative** o acesso e, depois, salve as alterações para permitir que os usuários com funções que estão no escopo da assinatura baixem a fatura.
+1. Ativar **em** acesso Olá seguido por salvar as alterações do hello, tooallow usuários na assinatura funções com escopo toodownload fatura.
 
-    ![Captura de tela mostrando o comando liga/delsiga para delegar acesso a faturas](./media/billing-manage-access/AA-optinAllow.png)
+    ![Captura de tela mostra-off toodelegate tooinvoice de acesso](./media/billing-manage-access/AA-optinAllow.png)
 
-Aceitar permite que o Administrador de serviço, coadministrador, proprietário, colaborador, leitor e o leitor de cobrança da assinatura para fazer o download de notas fiscais PDF no portal do Azure. No entanto, faturas anteriores a dezembro de 2016 ficam disponíveis apenas para o Administrador de Conta por enquanto.
+Aceitar permite administrador de serviço, coadministrador, proprietário, colaborador, leitor e de cobrança leitor Olá assinatura toodownload PDF as notas fiscais em Olá portal do Azure. No entanto, faturas anteriores dezembro de 2016 são toohello disponível somente o administrador da conta agora.
 
-O Administrador de Conta também pode configurar para que as faturas sejam enviadas por e-mail. Para obter mais informações, consulte [Obter sua fatura no e-mail](billing-download-azure-invoice-daily-usage-date.md).
+Olá administrador da conta também pode configurar toohave faturas enviadas por email. mais, consulte toolearn [obter sua fatura no email](billing-download-azure-invoice-daily-usage-date.md).
 
-## <a name="adding-users-to-the-billing-reader-role"></a>Adicionar usuários à função de Leitor de cobrança
+## <a name="adding-users-toohello-billing-reader-role"></a>Adicionando a função de leitor de cobrança de toohello usuários
 
-A função de Leitor de cobrança tem acesso Somente leitura a informações de cobrança de assinatura no portal do Azure e nenhum acesso a serviços como VMs e contas de armazenamento. Atribua a função de Leitor de Cobrança para alguém que precisa acessar as informações de cobrança da assinatura, mas não a capacidade de gerenciar os serviços do Azure. Essa função é apropriada para os usuários em uma organização que executam apenas gerenciamento de custos e financeiro de assinaturas do Azure.
+a função de leitor de cobrança Olá tem informações de cobrança toosubscription acesso somente leitura no portal do Azure e nenhum tooservices de acesso, como máquinas virtuais e contas de armazenamento. Atribuir Olá toosomeone de função de leitor de cobrança que precisa acessar as informações de cobrança de assinatura toohello mas não Olá toomanage de capacidade do Azure services. Essa função é apropriada para os usuários em uma organização que executam apenas gerenciamento de custos e financeiro de assinaturas do Azure.
 
-1. Selecione sua assinatura na [folha de Assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal do Azure.
+1. Selecione sua assinatura do hello [folha assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal do Azure.
 
 1. Selecione **Controle de acesso (IAM)** e, em seguida, clique em **Adicionar**.
 
-    ![A captura de tela mostra IAM na folha da assinatura](./media/billing-manage-access/select-iam.PNG)
+    ![Captura de tela mostra IAM na folha da assinatura de saudação](./media/billing-manage-access/select-iam.PNG)
 
-1. Escolha **Leitor de cobrança** na página **Selecionar uma função**.
+1. Escolha **cobrança leitor** em Olá **selecionar uma função** página.
 
-    ![A captura de tela mostra a o Leitor de Cobrança no modo de exibição pop-up](./media/billing-manage-access/select-roles.PNG)
+    ![Captura de tela mostra o leitor de cobrança no modo de exibição de pop-up Olá](./media/billing-manage-access/select-roles.PNG)
 
-1. Digite o e-mail para o usuário que deseja convidar e, em seguida, clique em **OK** para enviar o convite.
+1. Digite o email Olá para usuário Olá você deseja tooinvite e clique **Okey** toosend convite de saudação.
 
-    ![A captura de tela que mostra inserir o e-mail para convidar alguém](./media/billing-manage-access/add-user.PNG)
+    ![Captura de tela que mostra tooenter email tooinvite alguém](./media/billing-manage-access/add-user.PNG)
 
-1. Siga as instruções no e-mail de convite para fazer logon como um Leitor de Cobrança.
+1. Siga as instruções em toolog de email de convite de saudação em como um leitor de cobrança.
 
-    ![A captura de tela que mostra o que o Leitor de Cobrança pode ver no portal do Azure](./media/billing-manage-access/billing-reader-view.png)
+    ![Captura de tela que mostra o que Olá leitor de cobrança pode ver no portal do Azure](./media/billing-manage-access/billing-reader-view.png)
 
 > [!NOTE]
-> O recurso de Leitor de Cobrança está na visualização e ainda não da suporte às assinaturas enterprise (EA) ou nuvens não globais.
+> recurso de cobrança leitor Hello está em visualização e ainda não suporta as assinaturas do enterprise (EA) ou não global nuvens.
 
-## <a name="adding-users-to-other-roles"></a>Adicionar usuários a outras funções
+## <a name="adding-users-tooother-roles"></a>Adicionando usuários tooother funções
 
-Outras funções, como o Proprietário ou Colaborador, os usuários podem acessar as informações de cobrança não apenas, mas também os serviços do Azure. Para gerenciar essas funções, consulte [Adicionar ou alterar as funções de administrador do Azure que gerenciam a assinatura ou serviços](billing-add-change-azure-subscription-administrator.md).
+Outras funções, como o Proprietário ou Colaborador, os usuários podem acessar as informações de cobrança não apenas, mas também os serviços do Azure. Essas funções, consulte o toomanage [adicionar ou alterar funções de administrador do Azure que gerenciam a assinatura de saudação ou serviços](billing-add-change-azure-subscription-administrator.md).
 
-## <a name="who-can-access-the-account-centerhttpsaccountwindowsazurecom"></a>Quem pode acessar o [Centro de contas](https://account.windowsazure.com)?
+## <a name="who-can-access-hello-account-centerhttpsaccountwindowsazurecom"></a>Quem pode acessar Olá [Centro de contas](https://account.windowsazure.com)?
 
-Somente o Administrador da Conta pode acessar o Centro de Contas do Azure. O Administrador da conta é o proprietário legal da assinatura. Por padrão, a pessoa que assinou ou comprou a assinatura do Azure é o Administrador da Conta, a menos que [a propriedade de assinatura foi transferida](billing-subscription-transfer.md) para outra pessoa. O Administrador da Conta pode criar assinaturas, cancelar inscrições, alterar o endereço de cobrança para uma assinatura e gerenciar políticas de acesso para a assinatura.
+Olá administrador da conta pode fazer logon no Centro de contas toohello. Olá administrador da conta é proprietário legal Olá assinatura hello. Por padrão, Olá pessoa inscreveu ou comprou Olá assinatura do Azure é Olá administrador da conta, a menos que Olá [a propriedade de assinatura foi transferida](billing-subscription-transfer.md) toosomebody else. Olá administrador da conta pode criar assinaturas, cancelar assinaturas, alterar o endereço para cobrança Olá para uma assinatura e gerenciar políticas de acesso para a assinatura de saudação.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 
-Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+Se você ainda tiver mais perguntas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) tooget seu problema resolvido rapidamente.

@@ -1,5 +1,5 @@
 ---
-title: "Configurar uma máquina virtual SQL Server como um servidor do IPython Notebook | Microsoft Docs"
+title: "aaaSet uma máquina de virtual do SQL Server como um servidor de bloco de anotações do IPython | Microsoft Docs"
 description: "Configurar uma Máquina Virtual de Ciência de Dados com o SQL Server e o IPython Server."
 services: machine-learning
 documentationcenter: 
@@ -14,68 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: xibingao;bradsev
-ms.openlocfilehash: 8a151a6a15d4d000a774e3ec4e38bfa0e58ca33b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ee83d1d5de671d9817c1bc1abd6b4f9c256dde8f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="set-up-an-azure-sql-server-virtual-machine-as-an-ipython-notebook-server-for-advanced-analytics"></a>Configurar uma máquina virtual SQL Server do Azure como um servidor do IPython Notebook para análises avançadas
-Este tópico mostra como provisionar e configurar uma máquina virtual do SQL Server para ser usada como parte de um ambiente de ciência de dados baseado em nuvem. A máquina virtual do Windows está configurada com ferramentas de suporte, como o IPython Notebook, o Gerenciador de Armazenamento do Azure e o AzCopy, bem como outros utilitários que são úteis para projetos de ciência de dados. O Azure Storage Explorer e o AzCopy, por exemplo, fornecem maneiras convenientes para carregar dados no armazenamento de blob do Azure em seu computador local ou baixá-lo em seu computador local por meio do armazenamento de blob.
+Este tópico mostra como tooprovision e configurar um toobe de máquina virtual do SQL Server usado como parte de um ambiente de ciência de dados com base em nuvem. máquina de virtual do Windows Hello está configurada com ferramentas como bloco de anotações do IPython, o Azure Storage Explorer e o AzCopy, bem como outros utilitários que são úteis para projetos de ciência de dados de suporte. Azure Storage Explorer e AzCopy, por exemplo, fornecem maneiras convenientes armazenamento de blob de tooAzure tooupload dados do seu computador local ou toodownload-tooyour o computador local do armazenamento de blob.
 
-A galeria de Máquinas Virtuais do Azure inclui várias imagens que contêm o Microsoft SQL Server. Selecione uma imagem de VM do SQL Server que seja adequada para as suas necessidades de dados. As imagens recomendadas são:
+Galeria de máquina virtual do Azure Olá inclui várias imagens que contêm o Microsoft SQL Server. Selecione uma imagem de VM do SQL Server que seja adequada para as suas necessidades de dados. As imagens recomendadas são:
 
-* SQL Server 2012 SP2 Enterprise para dados de pequeno a médio porte
-* SQL Server 2012 SP2 Enterprise otimizado para cargas de trabalho de DataWarehousing para dados de grande a muito grande porte
+* SQL Server 2012 SP2 Enterprise toomedium pequeno para tamanhos de dados
+* SQL Server 2012 SP2 Enterprise otimizado para cargas de trabalho DataWarehousing toovery grande grande para tamanhos de dados
   
   > [!NOTE]
-  > A imagem do SQL Server 2012 SP2 Enterprise **não inclui um disco de dados**. Você precisará adicionar e/ou anexar um ou mais discos rígidos virtuais para armazenar seus dados. Quando você cria uma máquina virtual do Azure, ela tem um disco para o sistema operacional mapeado para a unidade C e um disco temporário mapeado para a unidade D. Não utilize a unidade D para armazenar dados. Como seu nome quer dizer, ele oferece armazenamento apenas temporariamente. Não oferece redundância nem backup porque eles não residem no armazenamento do Azure.
+  > A imagem do SQL Server 2012 SP2 Enterprise **não inclui um disco de dados**. Você será necessário tooadd e/ou anexar toostore de discos rígidos virtuais de um ou mais de seus dados. Quando você cria uma máquina virtual do Azure, ele tem um disco Olá unidade do sistema operacional mapeado toohello C e uma unidade de disco temporário mapeado toohello D. Não use os dados Olá D toostore da unidade. Como Olá nome sugere, ele fornece armazenamento temporário apenas. Não oferece redundância nem backup porque eles não residem no armazenamento do Azure.
   > 
   > 
 
-## <a name="Provision"></a>Conectar-se ao Portal Clássico do Azure e fornecer uma máquina virtual do SQL Server
-1. Faça logon no [Portal Clássico do Azure](http://manage.windowsazure.com/) usando sua conta.
+## <a name="Provision"></a>Conecte-se toohello Portal clássico do Azure e provisionar uma máquina de virtual do SQL Server
+1. Faça logon no toohello [portal clássico do Azure](http://manage.windowsazure.com/) usando sua conta.
    Se você não tiver uma conta do Azure, visite [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-2. No Portal Clássico do Azure, na parte inferior esquerda da página da Web, clique em **+ NOVO**, clique em **COMPUTAÇÃO**, em **MÁQUINA VIRTUAL** e, em seguida, em **DA GALERIA**.
-3. Na página **Criar uma Máquina Virtual** , selecione uma imagem de máquina virtual que contenha o SQL Server com base nas suas necessidades de dados e clique na seta de avanço na parte inferior à direita da página. Para obter as informações mais atualizadas sobre as imagens do SQL Server com suporte no Azure, confira o tópico [Introdução ao SQL Server em Máquinas Virtuais do Azure](http://go.microsoft.com/fwlink/p/?LinkId=294720) no conjunto de documentação [SQL Server em Máquinas Virtuais do Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719).
+2. No portal clássico do Azure hello, no hello inferior esquerdo da página da web de saudação, clique em **+ novo**, clique em **de computação**, clique em **máquina VIRTUAL**e, em seguida, clique em **FROM GALERIA**.
+3. Em Olá **criar uma máquina Virtual** página, selecione uma imagem de máquina virtual que contém o SQL Server com base em suas necessidades de dados e clique Olá próxima seta no canto inferior direito da página de saudação. Para obter informações mais atualizadas sobre Olá Olá com suporte a imagens do SQL Server no Azure, consulte [guia de Introdução ao SQL Server em máquinas virtuais Azure](http://go.microsoft.com/fwlink/p/?LinkId=294720) tópico Olá [do SQL Server em máquinas virtuais Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719) conjunto de documentação.
    
    ![Selecionar uma VM do SQL Server][1]
-4. Na primeira página **Configuração de Máquina Virtual** , forneça as seguintes informações:
+4. Em Olá primeiro **configuração de máquina Virtual** , forneça as seguintes informações:
    
    * Forneça um **NOME DE MÁQUINA VIRTUAL**.
-   * Na caixa **NOVO NOME DE USUÁRIO** , digite um nome de usuário exclusivo para a conta de administrador local da VM.
-   * Na caixa **NOVA SENHA** , digite uma senha forte. Para obter mais informações, consulte [Senhas fortes (a página pode estar em inglês)](http://msdn.microsoft.com/library/ms161962.aspx).
-   * Na caixa **CONFIRMAR SENHA** , digite a senha novamente.
-   * Selecione o **Tamanho** apropriado na lista suspensa.
+   * Em Olá **novo nome de usuário** caixa, digite o nome de usuário exclusivo para Olá conta de administrador local da VM.
+   * Em Olá **nova senha** , digite uma senha forte. Para obter mais informações, consulte [Senhas fortes (a página pode estar em inglês)](http://msdn.microsoft.com/library/ms161962.aspx).
+   * Em Olá **Confirmar senha** caixa, digite novamente a senha de saudação.
+   * Selecione Olá apropriado **tamanho** de saudação lista suspensa.
      
      > [!NOTE]
-     > O tamanho da máquina virtual é especificado durante o provisionamento: A2 é o menor tamanho recomendado para cargas de trabalho de produção. O tamanho mínimo recomendado para uma máquina virtual é A3 ao usar o SQL Server Enterprise Edition. Selecione A3 ou maior ao usar o SQL Server Enterprise Edition. Selecione A4 ao usar o SQL Server 2012 ou 2014 Enterprise otimizado para imagens de cargas de trabalho transacionais.
-     > Selecione A7 ao usar o SQL Server 2012 ou 2014 Enterprise otimizado para imagens de cargas de trabalho do Data Warehouse. O tamanho selecionado limita o número de discos de dados que você pode configurar. Para obter informações mais atualizadas sobre tamanhos de máquina virtual disponíveis e o número de discos de dados que você pode anexar a uma máquina virtual, consulte [Tamanhos de Máquina Virtual para o Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Para obter informações sobre preços, consulte [Preços de Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
+     > tamanho de saudação da máquina virtual de saudação é especificado durante o provisionamento: A2 é recomendado para cargas de trabalho de produção de hello ao menor tamanho. O tamanho mínimo recomendado para uma máquina virtual é A3 ao usar o SQL Server Enterprise Edition. Selecione A3 ou maior ao usar o SQL Server Enterprise Edition. Selecione A4 ao usar o SQL Server 2012 ou 2014 Enterprise otimizado para imagens de cargas de trabalho transacionais.
+     > Selecione A7 ao usar o SQL Server 2012 ou 2014 Enterprise otimizado para imagens de cargas de trabalho do Data Warehouse. tamanho de saudação selecionado limita o número de discos de dados, que você pode configurar. Para obter informações mais atualizadas sobre tamanhos de máquina virtual disponíveis e o número de saudação de discos de dados que você pode anexar a máquina virtual de tooa, consulte [tamanhos de máquina Virtual para o Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Para obter informações sobre preços, consulte [Preços de Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
      > 
      > 
    
-   Clique na seta de avanço na parte inferior à direita para continuar.
+   Clique em seta próximo Olá Olá inferior direita toocontinue.
    
    ![Configuração da VM][2]
-5. Na segunda página **Configuração da máquina virtual** , configure recursos para rede, armazenamento e disponibilidade:
+5. Em Olá segundo **configuração de máquina Virtual** página, configure os recursos de rede, armazenamento e disponibilidade:
    
-   * Na caixa **Serviço de Nuvem**, selecione **Criar um novo serviço de nuvem**.
-   * Na caixa **Nome DNS do Serviço de Nuvem**, forneça a primeira parte de um nome DNS de sua escolha, para que ele complete um nome no formato **TESTNAME.cloudapp.net**
-   * Na caixa **Região/Grupo de Afinidade/Rede Virtual** , selecione uma região onde essa imagem virtual será hospedada.
-   * Na **Conta de Armazenamento**, selecione uma conta de armazenamento existente ou selecione uma gerada automaticamente.
-   * Na caixa **CONJUNTO DE DISPONIBILIDADE**, selecione **(nenhum)**.
-   * Leia e aceite as informações de preços.
-6. Na seção **PONTOS DE EXTREMIDADE**, clique na lista suspensa vazia em **NAME** e selecione **MSSQL** digite o número da porta da instância do mecanismo de banco de dados (**1433** para a instância padrão).
+   * Em Olá **serviço de nuvem** caixa, escolha **criar um novo serviço de nuvem**.
+   * Em Olá **nome de DNS do serviço de nuvem** caixa, forneça a primeira parte de um nome DNS de sua escolha, Olá para que ele constitua um nome no formato **TESTNAME.cloudapp.net**
+   * Em Olá **AFINIDADE região/grupo/rede VIRTUAL** , selecione uma região onde esta imagem virtual será hospedada.
+   * Em Olá **conta de armazenamento**, selecione uma conta de armazenamento existente ou selecione um gerado automaticamente.
+   * Em Olá **conjunto de disponibilidade** selecione **(nenhum)**.
+   * Leia e aceite Olá informações sobre preços.
+6. Em Olá **pontos de EXTREMIDADE** seção, clique no menu suspenso vazio de saudação em **nome**e selecione **MSSQL** , em seguida, digite o número de porta de saudação da instância do mecanismo de banco de dados (desaudação**1433** para a instância padrão de saudação).
 7. A sua VM do SQL Server também pode funcionar como um IPython Notebook Server, que será configurado em uma etapa posterior.
-   Adicione um novo ponto de extremidade para especificar a porta a ser usada para o IPython Notebook Server. Insira um nome na coluna **NAME**, selecione um número da porta de sua preferência para a porta pública e 9999 para a porta privada.
+   Adicione um novo ponto de extremidade toospecify Olá porta toouse para o servidor de bloco de anotações do IPython. Insira um nome no hello **nome** coluna, selecione um número de porta de sua escolha para a porta pública hello e 9999 para a porta privada hello.
    
-   Clique na seta de avanço na parte inferior à direita para continuar.
+   Clique em seta próximo Olá Olá inferior direita toocontinue.
    
    ![Selecionar portas MSSQL e IPython][3]
-8. Aceite a opção padrão **Instalar o Agente de VM** marcada e clique na marca de seleção no canto inferior direito do assistente para concluir o processo de provisionamento da VM.
+8. Aceite o padrão de saudação **instalar o VM agent** opção marcada e clique em marca de seleção de Olá Olá no hello inferior direita da saudação toocomplete de assistente Olá processo de provisionamento de VM.
    
    `![Opções finais de VM][4]
-9. Aguarde enquanto o Azure prepara sua máquina virtual. Espere que o status de máquina virtual prossiga por:
+9. Aguarde enquanto o Azure prepara sua máquina virtual. Espera Olá tooproceed de status de máquina virtual por meio de:
    
    * Iniciando (Provisionamento)
    * Parada
@@ -83,66 +83,66 @@ A galeria de Máquinas Virtuais do Azure inclui várias imagens que contêm o Mi
    * Executando (Provisionamento)
    * Executando
 
-## <a name="RemoteDesktop"></a>Abrir a máquina virtual usando a Área de Trabalho Remota e concluir a instalação
-1. Quando o provisionamento for concluído, clique no nome da sua máquina virtual para ir para a página PAINEL. Na parte inferior da página, clique em **Conectar**.
-2. Escolha abrir o arquivo .rpd usando o programa Área de Trabalho Remota do Windows (`%windir%\system32\mstsc.exe`).
-3. Na caixa de diálogo **Segurança do Windows** , forneça a senha da conta do administrador local que você especificou em uma etapa anterior.
-   (Pode ser solicitado que você verifique as credenciais da máquina virtual.)
-4. Na primeira vez que você fizer logon nessa máquina virtual, talvez seja necessário concluir vários processos, incluindo a configuração da sua área de trabalho, atualizações do Windows e a conclusão das tarefas da configuração inicial do Windows (sysprep). Depois que o sysprep do Windows é concluído, a configuração do SQL Server conclui as tarefas de configuração. Essas tarefas podem causar um atraso de alguns minutos enquanto são concluídas. `SELECT @@SERVERNAME` pode não retornar o nome correto até a conclusão da instalação do SQL Server, e o SQL Server Management Studio pode não estar visível na página inicial.
+## <a name="RemoteDesktop"></a>Abrir máquina virtual de saudação usando a área de trabalho remota e concluir a instalação
+1. Quando o provisionamento for concluído, clique no nome de saudação sua máquina virtual toogo toohello da página de painel. Final Olá Olá página, clique em **conectar**.
+2. Escolha tooopen Olá rpd arquivo usando o programa de área de trabalho remota do Windows hello (`%windir%\system32\mstsc.exe`).
+3. Em Olá **a segurança do Windows** caixa de diálogo caixa, forneça a senha de saudação para a conta de administrador local que você especificou em uma etapa anterior.
+   (Você pode ser solicitado tooverify credenciais de saudação da máquina virtual de hello.)
+4. Olá primeira vez que você faça logon na máquina virtual de toothis, vários processos talvez seja necessário toocomplete, inclusive a configuração de área de trabalho, as atualizações do Windows e conclusão de tarefas de configuração inicial do Windows hello (sysprep). Depois que o sysprep do Windows é concluído, a configuração do SQL Server conclui as tarefas de configuração. Essas tarefas podem causar um atraso de alguns minutos enquanto são concluídas. `SELECT @@SERVERNAME`não pode retornar o nome correto da saudação até a conclusão da instalação do SQL Server e SQL Server Management Studio não pode ser visable na página inicial do hello.
 
-Quando você está conectado à máquina virtual com a Área de Trabalho Remota do Windows, a máquina virtual funciona de maneira muito semelhante à qualquer outro computador. Conecte-se à instância padrão do SQL Server com o SQL Server Management Studio (em execução na máquina virtual) da maneira normal.
+Quando você estiver conectado toohello máquina virtual Windows de área de trabalho remota, Olá máquina virtual funciona assim como qualquer outro computador. Conecte-se a instância de padrão de toohello do SQL Server com o SQL Server Management Studio (em execução na máquina virtual de saudação) em Olá maneira normal.
 
 ## <a name="InstallIPython"></a>Instalar o IPython Notebook e outras ferramentas de suporte
-Para configurar a nova VM do SQL Server para servir como um servidor do IPython Notebook e instalar as ferramentas de suporte adicionais, como AzCopy, Azure Storage Explorer, pacotes de Python de ciência de dados úteis e outros, um script de personalização especial é fornecido para você. Para instalar:
+tooconfigure seu novo tooserve de VM do SQL Server como um servidor de bloco de anotações do IPython e suporte adicional a instalação das ferramentas de tal AzCopy, Azure Storage Explorer, pacotes do Python de ciência de dados úteis e outros, um script de personalização especial é fornecido tooyou. tooinstall:
 
-1. Clique com o botão direito do mouse no ícone **Iniciar do Windows** e clique em **Prompt de comando (Admin)**
-2. Copie os seguintes comandos e cole no prompt de comando.
+1. Saudação de atalho **inicial do Windows** ícone e clique em **Prompt de comando (Admin)**
+2. Copie Olá comandos a seguir e cole no prompt de comando hello.
   
         set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
         @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
-3. Quando solicitado, digite uma senha de sua escolha para o servidor do IPython Notebook.
-4. O script de personalização automatiza vários procedimentos de pós-instalação, que incluem:
+3. Quando solicitado, insira uma senha de sua escolha para Olá server do bloco de anotações do IPython.
+4. script de personalização de saudação automatiza vários procedimentos de pós-instalação, que incluem:
     * Instalação e configuração do servidor do IPython Notebook
-    * Abertura de portas TCP no firewall do Windows para os pontos de extremidade criados anteriormente:
+    * A abertura de portas TCP no firewall do Windows hello para pontos de extremidade Olá criado anteriormente:
     * Para conectividade remota do SQL Server
     * Para a conectividade remota do servidor IPython Notebook
     * Busca de scripts Python Notebooks e SQL de amostra
     * Baixar e instalar pacotes úteis de Python para ciência dados
     * Baixar e instalar ferramentas do Azure como o AzCopy e o Azure Storage Explorer   
     <br>
-5. Você pode acessar e executar o IPython Notebook em qualquer navegador local ou remoto usando uma URL no formato `https://<virtual_machine_DNS_name>:<port>`, em que a porta é a porta pública do IPython que você selecionou ao provisionar a máquina virtual.
-6. O servidor do IPython Notebook é executado como um serviço em segundo plano e será reiniciado automaticamente quando você reiniciar a máquina virtual.
+5. Você pode acessar e executar o bloco de anotações do IPython em qualquer navegador local ou remoto usando uma URL do formulário de saudação `https://<virtual_machine_DNS_name>:<port>`, onde a porta é Olá IPython pública selecionado durante o provisionamento de máquina virtual de saudação.
+6. Servidor do bloco de anotações do IPython está sendo executado como um serviço em segundo plano e será reiniciado automaticamente quando você reiniciar a máquina virtual de saudação.
 
 ## <a name="Optional"></a>Anexe um disco de dados conforme necessário
-Se a sua imagem de VM não incluir discos de dados, ou seja, discos que não sejam a unidade C (disco do sistema operacional) e a unidade D (disco temporário), você precisa adicionar um ou mais discos de dados para armazenar dados. A imagem VM para SQL Server 2012 SP2 Enterprise Optimized for DataWarehousing Workloads vem pré-configurada com discos adicionais para arquivos de log e de dados do SQL Server.
+Se a imagem VM não inclui discos de dados, ou seja, os discos que não seja a unidade C (disco do sistema operacional) e a unidade D (disco temporário), você precisa tooadd um ou mais dados discos toostore seus dados. imagem VM Olá para SQL Server 2012 SP2 Enterprise otimizado para cargas de trabalho DataWarehousing vem pré-configurada com discos adicionais para arquivos de log e de dados do SQL Server.
 
 > [!NOTE]
-> Não utilize a unidade D para armazenar dados. Como seu nome quer dizer, ele oferece armazenamento apenas temporariamente. Não oferece redundância nem backup porque eles não residem no armazenamento do Azure.
+> Não use os dados Olá D toostore da unidade. Como Olá nome sugere, ele fornece armazenamento temporário apenas. Não oferece redundância nem backup porque eles não residem no armazenamento do Azure.
 > 
 > 
 
-Para anexar discos de dados adicionais, execute as etapas descritas em [Como anexar um disco de dados a uma Máquina Virtual do Windows](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), que vai orientá-lo para:
+tooattach discos de dados adicionais, execute as etapas de saudação descritas em [como tooAttach tooa um disco de dados Máquina Virtual do Windows](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), que guiará você por meio de:
 
-1. Anexar discos vazios à máquina virtual fornecida em etapas anteriores
-2. Inicialização dos novos discos na máquina virtual
+1. Anexar discos vazios toohello VM provisionado nas etapas anteriores
+2. Inicialização dos discos de novo Olá na máquina virtual de saudação
 
-## <a name="SSMS"></a>Conectar-se ao SQL Server Management Studio e habilitar a autenticação de modo misto
-O Mecanismo de Banco de Dados do SQL Server não pode usar a Autenticação do Windows sem um ambiente de domínio. Para conectar-se ao Mecanismo de Banco de Dados de outro computador, configure o SQL Server para a autenticação de modo misto. A autenticação de modo misto permite a Autenticação do SQL Server e a Autenticação do Windows. O modo de autenticação do SQL é necessário para receber dados diretamente de seus bancos de dados de VM do SQL Server no [Machine Learning Studio do Microsoft Azure](https://studio.azureml.net) usando o módulo Importar Dados.
+## <a name="SSMS"></a>Conecte-se tooSQL Server Management Studio e habilitar a autenticação de modo misto
+Olá mecanismo de banco de dados do SQL Server não pode usar a autenticação do Windows sem um ambiente de domínio. tooconnect toohello o mecanismo de banco de dados de outro computador, configurar o SQL Server para a autenticação de modo misto. A autenticação de modo misto permite a Autenticação do SQL Server e a Autenticação do Windows. Modo de autenticação do SQL é necessária nos dados de tooingest ordem diretamente de seus bancos de dados na VM do SQL Server a [estúdio de aprendizado de máquina do Azure](https://studio.azureml.net) usando o módulo de importação de dados de saudação.
 
-1. Enquanto estiver conectado à máquina virtual usando a Área de Trabalho Remota, use o painel **Pesquisar** do Windows e digite **SQL Server Management Studio** (SMSS). Clique para iniciar o SQL Server Management Studio (SSMS). Convém adicionar um atalho para o SSMS em sua área de trabalho para uso futuro.
+1. Enquanto a máquina virtual de toohello conectado usando a área de trabalho remota, use o Windows hello **pesquisa** painel e o tipo **SQL Server Management Studio** (SMSS). Clique em toostart Olá SQL Server Management Studio (SSMS). Talvez você queira tooadd tooSSMS um atalho na área de trabalho para uso futuro.
    
    ![Iniciar o SSMS][5]
    
-   Na primeira vez que você abrir o Management Studio ele deve criar o ambiente do Management Studio dos usuários. Isso pode demorar alguns instantes.
-2. Ao abrir, o Management Studio apresenta a caixa de diálogo **Conectar ao Servidor** . Na caixa **Nome do servidor** , digite o nome da máquina virtual para conectar-se ao Mecanismo de Banco de Dados com o Object Explorer.
-   (Em vez do nome da máquina virtual, também é possível usar **(local)** ou um único ponto como o **Nome do Servidor**. Selecione **Autenticação do Windows** e mantenha ***seu\_nome\_de VM*\\seu\_administrador\_local** na caixa **nome de usuário**. Clique em **Conectar**.
+   Olá primeira vez que você abra o Management Studio, é necessário criar o ambiente do hello usuários Management Studio. Isso pode demorar alguns instantes.
+2. Ao abrir, Management Studio apresenta Olá **conectar tooServer** caixa de diálogo. Em Olá **nome do servidor** caixa, digite o nome de saudação do hello máquina virtual tooconnect toohello mecanismo de banco de dados com hello Pesquisador de objetos.
+   (Em vez do nome da máquina virtual Olá você também pode usar **(local)** ou um único ponto como Olá **nome do servidor**. Selecione **autenticação do Windows**e deixe  ***sua\_VM\_nome*\\sua\_local\_administrador**  em Olá **nome de usuário** caixa. Clique em **Conectar**.
    
-   ![Conectar ao Servidor][6]
+   ![Conecte-se tooServer][6]
    
    <br>
    
    > [!TIP]
-   > Você pode alterar o modo de autenticação do SQL Server usando uma alteração de chave do Registro do Windows ou usando o SQL Server Management Studio. Para alterar o modo de autenticação usando a alteração da chave do Registro, inicie uma **Nova consulta** e execute o seguinte script:
+   > Você pode alterar o modo de autenticação do SQL Server hello usando uma alteração de chave de registro do Windows ou Olá SQL Server Management Studio. modo de autenticação de toochange usando a alteração de chave do registro do hello, iniciar um **nova consulta** e execute Olá script a seguir:
    > 
    > 
    
@@ -152,24 +152,24 @@ O Mecanismo de Banco de Dados do SQL Server não pode usar a Autenticação do W
        EXEC xp_instance_regwrite N'HKEY_LOCAL_MACHINE', N'Software\Microsoft\MSSQLServer\MSSQLServer', N'LoginMode', REG_DWORD, 2
        go
 
-    Para alterar o modo de autenticação usando o SQL Server Management Studio:
+    modo de autenticação de saudação toochange usando o SQL Server management Studio:
 
-1. No **SQL Server Management Studio Object Explorer**, clique com o botão direito do mouse no nome da instância do SQL Server (o nome da máquina virtual) e clique em **Propriedades**.
+1. Em **Pesquisador de objetos do SQL Server Management Studio**, clique no nome da instância de saudação do SQL Server (nome da máquina virtual Olá) e, em seguida, clique em **propriedades**.
    
    ![Propriedades do servidor][7]
-2. Na página **Segurança**, em **Autenticação do servidor**, selecione **Modo de Autenticação do SQL Server e do Windows** e clique em **OK**.
+2. Em Olá **segurança** página em **autenticação de servidor**, selecione **modo de autenticação do Windows e SQL Server**e, em seguida, clique em **Okey** .
    
    ![Selecionar modo de autenticação][8]
-3. Na caixa de diálogo do **SQL Server Management Studio**, clique em **OK** para confirmar a necessidade de reiniciar o SQL Server.
+3. Em Olá **SQL Server Management Studio** caixa de diálogo, clique em **Okey** confirmar toorestart requisito de saudação do SQL Server.
 4. No **Object Explorer**, clique com o botão direito do mouse no seu servidor e clique em **Reiniciar**. (Se o SQL Server Agent estiver em execução, ele também deverá ser reinicializado.)
    
    ![Reiniciar][9]
-5. Na caixa de diálogo do **SQL Server Management Studio**, clique em **Sim** para concordar que você quer reiniciar o SQL Server.
+5. Em Olá **SQL Server Management Studio** caixa de diálogo, clique em **Sim** concordar que você deseja toorestart do SQL Server.
 
 ## <a name="Logins"></a>Criar logons de autenticação do SQL Server
-Para conectar-se ao Mecanismo de Banco de Dados de outro computador, você deve criar pelo menos um logon de autenticação do SQL Server.  
+tooconnect toohello do mecanismo de banco de dados de outro computador, você deve criar pelo menos um logon de autenticação do SQL Server.  
 
-Você pode criar novos logons do SQL Server programaticamente ou usando o SQL Server Management Studio. Para criar um novo usuário sysadmin com autenticação do SQL de forma programática, inicie uma **Nova consulta** e execute o script a seguir. Substitua <novo nome do usuário\> e <nova senha\> pelo *nome de usuário* e pela *senha* de sua escolha. 
+Você pode criar novos logons do SQL Server programaticamente ou usando Olá SQL Server Management Studio. toocreate um novo usuário de administrador do sistema com a autenticação do SQL por meio de programação, iniciar um **nova consulta** e execute Olá script a seguir. Substitua <novo nome do usuário\> e <nova senha\> pelo *nome de usuário* e pela *senha* de sua escolha. 
 
     USE master
     go
@@ -181,85 +181,83 @@ Você pode criar novos logons do SQL Server programaticamente ou usando o SQL Se
     EXEC sp_addsrvrolemember @loginame = N'<new user name>', @rolename = N'sysadmin';
 
 
-Ajuste a política de senha conforme necessário (o código de amostra desativa a expiração de senha e a verificação de política). Para obter mais informações sobre logons do SQL Server, consulte [Criar um logon (a página pode estar em inglês)](http://msdn.microsoft.com/library/aa337562.aspx).  
+Ajuste a política de senha Olá conforme necessário (código de exemplo hello desativa a expiração da política de senha e de verificação). Para obter mais informações sobre logons do SQL Server, consulte [Criar um logon (a página pode estar em inglês)](http://msdn.microsoft.com/library/aa337562.aspx).  
 
-Para criar novos logons do SQL Server usando o SQL Server Management Studio:
+toocreate novos logons de SQL Server usando Olá SQL Server Management Studio:
 
-1. No **Pesquisador de Objetos do SQL Server Management Studio**, expanda a pasta da instância do servidor na qual você deseja criar o novo logon.
-2. Clique com o botão direito do mouse na pasta **Segurança**, aponte para **Novo** e selecione **Logon...**.
+1. Em **Pesquisador de objetos do SQL Server Management Studio**, expanda a pasta Olá Olá da instância do servidor no qual você deseja que o novo logon do toocreate hello.
+2. Saudação de atalho **segurança** pasta, ponto muito**novo**e selecione **logon...** .
    
    ![Novo Logon][10]
-3. Na caixa de diálogo **Logon - Novo**, na página **Geral**, digite o nome do novo usuário na caixa **Nome de logon**.
+3. Em Olá **logon - novo** caixa de diálogo Olá **geral** página, insira o nome de saudação do novo usuário de saudação em Olá **nome de logon** caixa.
 4. Selecione **Autenticação do SQL Server**.
-5. Na caixa **Senha** , digite uma senha para o novo usuário. Insira novamente essa senha na caixa **Confirmar Senha** .
-6. Para impor as opções de complexidade e imposição da política de senha, selecione **Impor Política de Senha** (recomendado). Essa é uma opção padrão quando a autenticação do SQL Server está selecionada.
-7. Para impor as opções de expiração da política de senha, selecione **Impor Expiração de Senha** (recomendado). A opção Impor a Política de Senha deve estar selecionada para ativar essa caixa de seleção. Essa é uma opção padrão quando a autenticação do SQL Server está selecionada.
-8. Para forçar o usuário a criar uma nova senha após a primeira vez que o logon é usado, selecione **O usuário deve alterar a senha no próximo logon** (recomendado se esse logon for para mais alguém usar. Se o logon for para seu próprio uso, não selecione essa opção.) A opção Impor a Expiração de Senha deve estar selecionada para ativar essa caixa de seleção. Essa é uma opção padrão quando a autenticação do SQL Server está selecionada.
-9. Na lista **Banco de Dados Padrão** , selecione um banco de dados padrão para o logon. **mestre** é o padrão para essa opção. Se você ainda não tiver criado um usuário de banco de dados, mantenha essa definição como **mestre**.
-10. Na lista **Idioma padrão**, mantenha **padrão** como o valor.
+5. Em Olá **senha** caixa, digite uma senha para Olá novo usuário. Digite essa senha novamente em Olá **Confirmar senha** caixa.
+6. tooenforce opções de política de senha para complexidade e execução, selecione **impor política de senha** (recomendado). Essa é uma opção padrão quando a autenticação do SQL Server está selecionada.
+7. tooenforce opções de política de senha para expiração, selecione **impor expiração de senha** (recomendado). Impor política de senha deve ser selecionada tooenable essa caixa de seleção. Essa é uma opção padrão quando a autenticação do SQL Server está selecionada.
+8. tooforce Olá usuário toocreate uma nova senha após Olá primeiro o logon for usada, selecione **usuário deve alterar a senha no próximo logon** (recomendado se esse logon é para outra pessoa toouse. Se o logon de saudação é para seu próprio uso, não selecione essa opção.) Impor expiração de senha deve ser selecionada tooenable essa caixa de seleção. Essa é uma opção padrão quando a autenticação do SQL Server está selecionada.
+9. De saudação **banco de dados padrão** , selecione um banco de dados padrão para logon de saudação. **mestre** é saudação padrão para essa opção. Se você ainda não tiver criado um banco de dados de usuário, deixe essa definição muito**mestre**.
+10. Em Olá **idioma padrão** lista, deixe **padrão** como valor de saudação.
     
     ![Propriedades de Logon][11]
-11. Se esse for o primeiro logon que você está criando, talvez você queira designá-lo como um administrador do SQL Server. Em caso afirmativo, na página **Funções de Servidor**, marque **sysadmin**.
+11. Se esse for o primeiro logon de saudação que você está criando, convém designar esse logon como um administrador do SQL Server. Em caso afirmativo, na página **Funções de Servidor**, marque **sysadmin**.
     
     > [!IMPORTANT]
-    > Os membros da função de servidor fixa sysadmin tem controle total sobre o Mecanismo de Banco de Dados. Por motivos de segurança, você deve restringir cuidadosamente a associação nessa função.
+    > Os membros da função de servidor fixa de sysadmin de Olá tem total controle sobre Olá mecanismo de banco de dados. Por motivos de segurança, você deve restringir cuidadosamente a associação nessa função.
     > 
     > 
     
     ![sysadmin][12]
 12. Clique em OK.
 
-## <a name="DNS"></a>Determinar o nome DNS da máquina virtual
-Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computador, você deve saber o nome DNS (Sistema de Nome de Domínio) da máquina virtual.
+## <a name="DNS"></a>Determinar nome DNS de saudação da máquina virtual de saudação
+tooconnect toohello do mecanismo de banco de dados do SQL Server de outro computador, você deve saber Olá sistema de nome de domínio (DNS) nome da máquina virtual de saudação.
 
-(Esse é o nome que a Internet usa para identificar a máquina virtual. Você pode usar o endereço IP, mas o endereço IP pode ser alterado quando o Azure mover os recursos para redundância ou manutenção. O nome DNS será estável porque pode ser redirecionado para um novo endereço IP.)
+(Isso é Olá nome hello internet usa tooidentify Olá máquina virtual. Você pode usar o endereço IP hello, mas o endereço IP hello pode mudar quando o Azure move recursos de redundância ou manutenção. nome DNS de saudação será estável porque ele pode ser redirecionado tooa novo endereço IP.)
 
-1. No Portal Clássico do Azure (ou na etapa anterior), selecione **MÁQUINAS VIRTUAIS**.
-2. Na página **INSTÂNCIAS DA MÁQUINA VIRTUAL**, na coluna **NOME DNS**, localize e copie o nome DNS para a máquina virtual que aparece precedido por **http://**. (A interface do usuário pode não exibir o nome completo, mas você pode clicar com o botão direito do mouse nele e selecionar Copiar.)
+1. Olá Portal clássico do Azure (ou da etapa anterior Olá), selecione **máquinas virtuais**.
+2. Em Olá **INSTÂNCIAS de máquina VIRTUAL** página Olá **nome DNS** coluna, localizar e copiar nome DNS de Olá Olá máquina virtual aparece precedido por **http://**. (interface do usuário Olá poderá não exibir nome inteiro hello, mas com o botão direito nele e selecione Copiar.)
 
-## <a name="cde"></a>Conectar-se ao Mecanismo de Banco de Dados de outro computador
-1. Em um computador conectado à Internet, abra o SQL Server Management Studio.
-2. Na caixa de diálogo **Conectar ao Servidor** ou **Conectar ao Mecanismo de Banco de Dados**, na caixa **Nome do servidor**, digite o nome DNS da máquina virtual (determinado na tarefa anterior) e um número de porta pública de ponto de extremidade no formato *NomeDNS, númerodaporta*, como **tutorialtestVM.cloudapp.net,57500**.
-3. Na caixa **Autenticação**, selecione **Autenticação do SQL Server**.
-4. Na caixa **Logon** , digite o nome de um logon que você criou em uma tarefa anterior.
-5. Na caixa **Senha** , digite a senha do logon que você criou em uma tarefa anterior.
+## <a name="cde"></a>Conectar toohello mecanismo de banco de dados de outro computador
+1. Em um computador conectado toohello internet, abra o SQL Server Management Studio.
+2. Em Olá **conectar tooServer** ou **conectar tooDatabase mecanismo** caixa de diálogo Olá **nome do servidor** , digite o nome DNS de saudação da máquina virtual (determinada na Olá tarefa anterior) e um número de porta do ponto de extremidade público no formato de saudação do *DNSName, portnumber* como **tutorialtestVM.cloudapp.net,57500**.
+3. Em Olá **autenticação** selecione **autenticação do SQL Server**.
+4. Em Olá **Login** caixa, digite o nome de saudação de um logon que você criou em uma tarefa anterior.
+5. Em Olá **senha** caixa, digite a senha de saudação do logon de saudação que você cria em uma tarefa anterior.
 6. Clique em **Conectar**.
 
-## 
-            <a name="amlconnect">
-            </a>Conectar-se ao mecanismo de banco de dados de Azure Machine Learning
-Nos estágios posteriores do Processo de Ciência de Dados de Equipe, você usará o [Azure Machine Learning Studio](https://studio.azureml.net) para criar e implantar modelos de aprendizado de máquina. Para incluir dados dos bancos de dados da VM do SQL Server diretamente no Azure Machine Learning para treinamento ou pontuação, use o módulo **Importar Dados** em um novo experimento do [Azure Machine Learning Studio](https://studio.azureml.net). Esse tópico é abordado mais detalhadamente por meio dos links de guia do Processo de Ciência de Dados de Equipe. Para obter uma introdução, consulte [O que é o Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
+## <a name="amlconnect"></a>Conecte-se toohello mecanismo de banco de dados de aprendizado de máquina do Azure
+Etapas posteriores de saudação processo de ciência de dados de equipe, você usará Olá [estúdio de aprendizado de máquina do Azure](https://studio.azureml.net) toobuild e implantar modelos de aprendizado de máquina. dados de tooingest de seus bancos de dados da VM do SQL Server diretamente no aprendizado de máquina do Azure para treinamento ou pontuação, usar Olá **importar dados** módulo em uma nova [estúdio de aprendizado de máquina do Azure](https://studio.azureml.net) experiências. Este tópico é abordado em mais detalhes por meio de saudação links de guia do processo de ciência de dados de equipe. Para obter uma introdução, consulte [O que é o Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
 
-1. No painel **Propriedades** do [módulo Importar Dados](https://msdn.microsoft.com/library/azure/dn905997.aspx), selecione **Banco de Dados SQL do Azure** na lista suspensa **Fonte de Dados**.
-2. Na caixa de texto **Nome do servidor de banco de dados**, digite `tcp:<DNS name of your virtual machine>,1433`
-3. Insira o nome de usuário do SQL na caixa de texto **Nome da conta de usuário do servidor** .
-4. Digite a senha do usuário do SQL na caixa de texto **Senha da conta de usuário do servidor** .
+1. Em Olá **propriedades** painel da saudação [módulo de importação de dados](https://msdn.microsoft.com/library/azure/dn905997.aspx), selecione **banco de dados do SQL Azure** de saudação **fonte de dados** lista suspensa.
+2. Em Olá **nome do servidor de banco de dados** texto, digite`tcp:<DNS name of your virtual machine>,1433`
+3. Insira o nome de usuário do SQL de saudação em Olá **nome de conta de usuário do servidor** caixa de texto.
+4. Insira a senha do usuário do sql Olá no hello **senha de conta de usuário do servidor** caixa de texto.
    
    ![Importar Dados no Azure Machine Learning][13]
 
 ## <a name="shutdown"></a>Desligar e desalocar a máquina virtual quando ela não estiver em uso
-A cobrança das máquinas virtuais do Azure ocorre na forma **pague somente pelo que usa**. Para garantir que você não esteja sendo cobrado quando não estiver usando sua máquina virtual, ela deverá estar no estado **Parado (Desalocado)** .
+A cobrança das máquinas virtuais do Azure ocorre na forma **pague somente pelo que usa**. tooensure que não estão sendo cobrado quando não estiver usando sua máquina virtual, ele tem toobe em Olá **parado (desalocado)** estado.
 
 > [!NOTE]
-> Ao desligar a máquina virtual de dentro (usando as opções de energia do Windows), a VM é interrompida, mas permanece alocada. Para garantir que você não está sendo cobrado, sempre pare as máquinas virtuais no [Portal Clássico do Azure](http://manage.windowsazure.com/). Você também pode interromper a VM por meio do Powershell chamando ShutdownRoleOperation com "PostShutdownAction" igual a "StoppedDeallocated".
+> Desligar a máquina virtual de saudação do dentro (usando as opções de energia do Windows), hello VM for interrompida, mas permanece alocada. tooensure você não estiver sendo cobrado, sempre irá parar máquinas virtuais de saudação [Portal clássico do Azure](http://manage.windowsazure.com/). Você também pode interromper Olá VM por meio do Powershell chamando muito ShutdownRoleOperation com "PostShutdownAction" igual "StoppedDeallocated".
 > 
 > 
 
-Desligar e desalocar a máquina virtual:
+tooshutdown e desalocar máquina virtual de saudação:
 
-1. Faça logon no [Portal Clássico do Azure](http://manage.windowsazure.com/) usando sua conta.  
-2. Selecione **MÁQUINAS VIRTUAIS** na barra de navegação à esquerda.
-3. Na lista de máquinas virtuais, clique no nome da máquina virtual e acesse a página **PAINEL** .
-4. Na parte inferior da página, clique em **DESLIGAR**.
+1. Faça logon no toohello [Portal clássico do Azure](http://manage.windowsazure.com/) usando sua conta.  
+2. Selecione **máquinas virtuais** saudação à esquerda na barra de navegação.
+3. Na lista de saudação de máquinas virtuais, clique no nome da saudação de sua máquina virtual, vá toohello **painel** página.
+4. Final Olá Olá página, clique em **desligamento**.
 
 ![Desligamento da VM][15]
 
-A máquina virtual será desalocada, mas não excluída. Você pode reiniciar a máquina virtual a qualquer momento no Portal Clássico do Azure.
+máquina virtual de saudação será desalocada mas não excluída. Você pode reiniciar a máquina virtual a qualquer momento de saudação Portal clássico do Azure.
 
-## <a name="your-azure-sql-server-vm-is-ready-to-use-whats-next"></a>A sua VM SQL Server do Azure está pronta para uso: o que vem a seguir?
-Agora, a sua máquina virtual está pronta para ser usada em seus exercícios de ciência de dados. A máquina virtual também está pronta para uso como um servidor do IPython Notebook para a exploração e o processamento de dados, bem como para outras tarefas em conjunto com o Azure Machine Learning e o TDSP (Processo de Ciência de Dados de Equipe).
+## <a name="your-azure-sql-server-vm-is-ready-toouse-whats-next"></a>A VM do Azure SQL Server está pronto toouse: próximas etapas?
+Sua máquina virtual agora está pronto toouse seu exercícios de ciência de dados. máquina virtual de saudação também está pronta para uso como um servidor de bloco de anotações do IPython para exploração hello e processamento de dados e outras tarefas em conjunto com o aprendizado de máquina do Azure e hello processo de ciência de dados da equipe (TDSP).
 
-As próximas etapas no processo de ciência de dados são mapeadas no [Processo de Ciência de Dados de Equipe](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e podem incluir etapas que movem dados para o HDInsight, que os processam e que obtêm amostras deles como parte da preparação para o aprendizado com base nos dados com o Azure Machine Learning.
+Olá próximas etapas no processo de ciência de dados Olá estão mapeadas em Olá [processo de ciência de dados de equipe](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e podem incluir etapas que movem dados para HDInsight, o processo e de exemplo-lo na preparação para aprender com dados saudação com a máquina do Azure Aprendizado.
 
 [1]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/selectsqlvmimg.png
 [2]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/4vm-config.png

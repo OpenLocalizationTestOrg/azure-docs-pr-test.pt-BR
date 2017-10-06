@@ -1,6 +1,6 @@
 ---
-title: Cancelar sua assinatura do Azure | Microsoft Docs
-description: "Descreve como cancelar sua assinatura do Azure, como a assinatura de Avaliação Gratuita"
+title: aaaCancel sua assinatura do Azure | Microsoft Docs
+description: "Descreve como toocancel sua assinatura do Azure, como assinatura de avaliação gratuita de saudação"
 services: 
 documentationcenter: 
 author: genlin
@@ -15,68 +15,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: genli
-ms.openlocfilehash: c415fada30aa0b0bd9b9d1e416bc37ef30653f68
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 198d6ab3de143c071a572db899037f8de85a8cb4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Cancelar sua assinatura do Azure
 
-É possível cancelar sua assinatura do Azure como o [Administrador da Conta](billing-subscription-transfer.md#whoisaa). Depois de cancelar a assinatura, seu acesso aos recursos e serviços do Azure será encerrado.
+Você pode cancelar sua assinatura do Azure como Olá [conta de administrador](billing-subscription-transfer.md#whoisaa). Depois que você cancelar assinatura hello, termina seu acesso tooAzure serviços e recursos.
 
 Antes de cancelar sua assinatura:
 
 * Faça backup dos dados. Por exemplo, se você estiver colocando dados no armazenamento do Azure ou SQL, baixe uma cópia. Se você tiver uma máquina virtual, salve uma imagem dela localmente.
-* Finalize seus serviços. Vá para a [página de recursos no portal de gerenciamento](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources), e **Pare** quaisquer máquinas virtuais, aplicativos ou outros serviços em execução.
-* Considere migrar seus dados. Consulte [Mover recursos para um novo grupo de recursos ou uma nova assinatura](../azure-resource-manager/resource-group-move-resources.md).
+* Finalize seus serviços. Vá toohello [página de recursos no portal de gerenciamento Olá](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources), e **parar** qualquer executando máquinas virtuais, aplicativos ou outros serviços.
+* Considere migrar seus dados. Consulte [Mover grupo de recursos toonew de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md).
 
-Se você cancelar um [plano de Suporte do Azure](https://azure.microsoft.com/support/plans/) pago, ainda será cobrado mensalmente no restante do termo de 6 meses.
+Se você cancelar um paga [plano de suporte do Azure](https://azure.microsoft.com/support/plans/), você ainda será cobrado mensal para o restante de saudação do termo de 6 meses de saudação.
 
-## <a name="cancel-subscription-using-the-azure-portal"></a>Cancelar uma assinatura usando o portal do Azure
+## <a name="cancel-subscription-using-hello-azure-portal"></a>Cancelar a assinatura usando Olá portal do Azure
 
-1. Selecione sua assinatura na [página Assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Selecione sua assinatura do hello [página assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-1. Selecione a assinatura que você deseja cancelar e clique em **Cancelar assinatura**.
+1. Selecione Olá assinatura que você deseja toocancel e clique em **Cancelar assinatura**.
 
-    ![Captura de tela que mostra o botão Cancelar](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
+    ![Captura de tela que mostra o botão Cancelar Olá](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
 
 1. Siga os prompts e conclua o cancelamento.
 
-## <a name="cancel-subscription-using-the-azure-account-center"></a>Cancelar uma assinatura usando o Centro de Contas do Azure
+## <a name="cancel-subscription-using-hello-azure-account-center"></a>Cancelar a assinatura usando o Centro de contas do Azure Olá
 
-1. Entre no [Centro de Contas do Azure](https://account.windowsazure.com/subscriptions) como o Administrador da Conta.
+1. Entrar toohello [Centro de contas Azure](https://account.windowsazure.com/subscriptions) como Olá administrador da conta.
 
-1. Em **Clicar em uma assinatura para exibir os detalhes e uso**, selecione a assinatura que você deseja cancelar.
+1. Em **clique em uma assinatura tooview detalhes e o uso**, selecione Olá assinatura que você deseja toocancel.
 
     ![Captura de tela que mostra uma assinatura de exemplo selecionada](./media/billing-how-to-cancel-azure-subscription/Selectsub.png)
 
-1. No lado direito da página, selecione **Cancelar assinatura**.
+1. Selecione Olá direita da página hello, **Cancelar assinatura**.
 
-    ![Captura de tela que mostra o botão Cancelar assinatura](./media/billing-how-to-cancel-azure-subscription/cancelsub.png)
+    ![Captura de tela que mostra o botão Olá Cancelar assinatura](./media/billing-how-to-cancel-azure-subscription/cancelsub.png)
 
 1. Selecione **Sim, cancelar minha assinatura**.
 
-    ![Captura de tela que mostra a caixa de diálogo Cancelar](./media/billing-how-to-cancel-azure-subscription/cancelbox.png)
+    ![Captura de tela que mostra a caixa de diálogo Olá Cancelar](./media/billing-how-to-cancel-azure-subscription/cancelbox.png)
 
-1. Clique em  ![Botão Verificar símbolo](./media/billing-how-to-cancel-azure-subscription/checkbutton.png) para fechar a janela de diálogo e retornar à página da assinatura.
+1. Clique em  ![Botão Verificar símbolo](./media/billing-how-to-cancel-azure-subscription/checkbutton.png) tooclose Olá diálogo janela e retornar tooyour página de assinatura.
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>O que acontecerá depois que eu cancelar minha assinatura?
 
-Após o cancelamento, a cobrança será interrompida imediatamente. No entanto, pode levar até 10 minutos para que o cancelamento seja mostrado no portal.
+Após o cancelamento, a cobrança será interrompida imediatamente. No entanto, pode demorar até minutos too10 para Olá cancelamento Mostrar no portal de saudação.
 
 Depois disso, os serviços são desabilitados. Isso significa que as máquinas virtuais são desalocadas, os endereços IP temporários são liberados e o armazenamento é somente leitura.
 
-A menos que você esteja usando uma Avaliação Gratuita ou tenha créditos disponíveis, você será cobrado por todos os encargos de uso pendentes gerados entre o último ciclo de cobrança e a data de cancelamento. Você recebe sua última fatura ao final do ciclo de cobrança.
+A menos que você esteja em uma avaliação gratuita ou tem créditos disponíveis, você está cobrado por quaisquer encargos de uso pendentes gerados entre o último ciclo de cobrança e a data de cancelamento de saudação. Você obtém sua última fatura final Olá Olá ciclo de cobrança.
 
-Depois de cancelar sua assinatura, aguardaremos 90 dias antes de excluir permanentemente seus dados, caso você precise acessá-los ou mude de ideia. Você não é cobrado pela retenção dos dados. Para saber mais, consulte a [Central de Confiabilidade da Microsoft – Como gerenciamos seus dados](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+Depois que você cancelar sua assinatura, podemos esperar 90 dias antes de excluir permanentemente os seus dados caso você precise tooaccess-la ou mudar de ideia. Não cobraremos você para a retenção de dados de saudação. mais, consulte toolearn [Microsoft Trust Center - forma de gerenciar seus dados](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
 ## <a name="reactivate-subscription"></a>Reativar a assinatura
 
-Se você cancelou sua assinatura Pré-paga acidentalmente, poderá [reativá-la no Centro de Contas](billing-subscription-become-disable.md).
+Se você cancelar sua assinatura paga pelo uso acidentalmente, você poderá [reativá-la no Centro de contas de saudação](billing-subscription-become-disable.md).
 
-Caso sua assinatura não seja Pré-paga, contate o suporte em até 90 dias após o cancelamento para reativar a assinatura.
+Se sua assinatura não é pago pelo uso, contate o suporte dentro de 90 dias de cancelamento tooreactivate sua assinatura.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 
-Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+Se você ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) tooget seu problema resolvido rapidamente.

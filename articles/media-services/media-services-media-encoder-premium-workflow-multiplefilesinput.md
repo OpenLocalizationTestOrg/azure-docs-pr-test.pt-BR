@@ -1,6 +1,6 @@
 ---
-title: "Vários arquivos de entrada e propriedades de componente com o Codificador Premium - Azure | Microsoft Docs"
-description: "Este tópico explica como usar setRuntimeProperties para usar vários arquivos de entrada e transmitir dados personalizados para o processador de mídia do Fluxo de Trabalho Premium do Codificador de Mídia."
+title: aaaMultiple entrada arquivos e propriedades do componente com o codificador Premium - Azure | Microsoft Docs
+description: "Este tópico explica como a toouse setRuntimeProperties toouse entrada de vários arquivos e passar o processador de mídia de fluxo de trabalho Premium de codificador de mídia de toohello dados personalizados."
 services: media-services
 documentationcenter: 
 author: xpouyat
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: df1ee5089a0af6ffce1431b658843fcb34a66ce5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e14d10fbf9669e0b88e5ba1c519f1ba5e0bafdd4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Usando vários arquivos de entrada e propriedades do componente com o Codificador Premium
 ## <a name="overview"></a>Visão geral
-Há situações em que talvez você precise personalizar as propriedades do componente, especificar o conteúdo XML da Lista de Clipes ou enviar vários arquivos de entrada ao enviar uma tarefa com o processador de mídia **Fluxo de trabalho Premium de codificação de mídia** . Alguns exemplos incluem:
+Há cenários nos quais propriedades do componente toocustomize, talvez seja necessário especificar o conteúdo XML de lista do clipe ou enviar vários arquivos de entrada quando você enviar uma tarefa com hello **o fluxo de trabalho do Media Encoder Premium** processador de mídia. Alguns exemplos incluem:
 
-* Sobreposição de texto em vídeo e definição do valor do texto (por exemplo, a data atual) no tempo de execução de cada vídeo de entrada.
-* Personalização do XML da Lista de Clipes (para especificar um ou vários arquivos de origem, com ou sem corte etc.).
-* Sobreposição de uma imagem de logotipo no vídeo de entrada durante a codificação do vídeo.
+* Sobreposição de texto em vídeo e definir o valor de texto de saudação (por exemplo, a saudação data atual) em tempo de execução para cada vídeo de entrada.
+* Personalizando Olá Clip lista XML (toospecify da fonte de um ou vários arquivos, com ou sem cortar, etc.).
+* Sobreposição de uma imagem de logotipo no vídeo de entrada hello enquanto Olá vídeo é codificado.
 * Vários idiomas de áudio codificação.
 
-Para permitir que o **Fluxo de Trabalho Premium do Codificador de Mídia** reconheça que você está alterando algumas propriedades no fluxo de trabalho ao criar a tarefa ou enviar vários arquivos de entrada, é necessário usar uma cadeia de caracteres de configuração que contenha **setRuntimeProperties** e/ou **transcodeSource**. Este tópico explica como usá-los.
+Olá toolet **o fluxo de trabalho do Media Encoder Premium** saber que você está alterando algumas propriedades no fluxo de trabalho hello quando você cria tarefa hello ou enviar vários arquivos de entrada, se você tiver toouse uma cadeia de caracteres de configuração que contém  **setRuntimeProperties** e/ou **transcodeSource**. Este tópico explica como toouse-los.
 
 ## <a name="configuration-string-syntax"></a>Sintaxe da cadeia de caracteres de configuração
-A cadeia de caracteres de configuração a ser definida na tarefa de codificação usa um documento XML com esta aparência:
+Olá configuração cadeia de caracteres tooset em Olá codificação tarefa usa um documento XML que tem esta aparência:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -45,7 +45,7 @@ A cadeia de caracteres de configuração a ser definida na tarefa de codificaç�
 </transcodeRequest>
 ```
 
-Veja a seguir o código C# que lê a configuração XML em um arquivo, o atualiza com o nome de arquivo de vídeo correto e a transfere para a tarefa em um trabalho:
+a seguir Hello é código Olá c# que lê a configuração Olá XML de um arquivo, atualize-o com hello filename correto de vídeo e transmite toohello tarefas em um trabalho:
 
 ```c#
 string premiumConfiguration = ReadAllText(@"D:\home\site\wwwroot\Presets\SetRuntime.xml").Replace("VideoFileName", myVideoFileName);
@@ -53,33 +53,33 @@ string premiumConfiguration = ReadAllText(@"D:\home\site\wwwroot\Presets\SetRunt
 // Declare a new job.
 IJob job = _context.Jobs.Create("Premium Workflow encoding job");
 
-// Get a media processor reference, and pass to it the name of the 
-// processor to use for the specific task.
+// Get a media processor reference, and pass tooit hello name of hello 
+// processor toouse for hello specific task.
 IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Premium Workflow");
 
-// Create a task with the encoding details, using a string preset.
+// Create a task with hello encoding details, using a string preset.
 ITask task = job.Tasks.AddNew("Premium Workflow encoding task",
                               processor,
                               premiumConfiguration,
                               TaskOptions.None);
 
-// Specify the input assets
+// Specify hello input assets
 task.InputAssets.Add(workflow); // workflow asset
 task.InputAssets.Add(video); // video asset with multiple files
 
-// Add an output asset to contain the results of the job. 
+// Add an output asset toocontain hello results of hello job. 
 // This output is specified as AssetCreationOptions.None, which 
-// means the output asset is not encrypted. 
+// means hello output asset is not encrypted. 
 task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 ```
 
 ## <a name="customizing-component-properties"></a>Personalizando as propriedades do componente
 ### <a name="property-with-a-simple-value"></a>Propriedade com um valor simples
-Em alguns casos, é útil personalizar uma propriedade do componente junto com o arquivo de fluxo de trabalho que será executado pelo Fluxo de Trabalho Premium do Codificador de Mídia.
+Em alguns casos, é útil toocustomize uma propriedade do componente junto com o arquivo de fluxo de trabalho de saudação que será toobe executada pelo fluxo de trabalho Premium de codificador de mídia.
 
-Suponha que você tenha criado um fluxo de trabalho que sobrepõe texto em vídeos, e que o texto (por exemplo, a data atual) deva ser definido em tempo de execução. É possível fazer isso enviando o texto a ser definido como o novo valor da propriedade de texto do componente de sobreposição por meio da tarefa de codificação. Você pode usar esse mecanismo para alterar outras propriedades de um componente no fluxo de trabalho (por exemplo, a posição ou a cor da sobreposição, a taxa de bits do codificador AVC etc.).
+Suponha que você criou um fluxo de trabalho texto sobreposições em seus vídeos e texto de saudação (por exemplo, a saudação data atual) deve toobe conjunto em tempo de execução. Você pode fazer isso enviando Olá texto toobe defina como o novo valor para a propriedade de texto de saudação do componente de sobreposição de saudação de saudação do hello tarefas de codificação. Você pode usar esse mecanismo toochange outras propriedades de um componente no fluxo de trabalho de saudação (como Olá posição ou cor da sobreposição de hello, taxa de bits de saudação do codificador Olá AVC, etc.).
 
-**setRuntimeProperties** é usado para substituir uma propriedade nos componentes do fluxo de trabalho.
+**setRuntimeProperties** é uma propriedade em componentes de saudação do fluxo de trabalho de saudação de toooverride usado.
 
 Exemplo:
 
@@ -89,13 +89,13 @@ Exemplo:
     <setRuntimeProperties>
       <property propertyPath="Media File Input/filename" value="MyInputVideo.mp4" />
       <property propertyPath="/primarySourceFile" value="MyInputVideo.mp4" />
-      <property propertyPath="Optional Text Overlay/Text To Image Converter/text" value="Today is Friday the 13th of May, 2016"/>
+      <property propertyPath="Optional Text Overlay/Text tooImage Converter/text" value="Today is Friday hello 13th of May, 2016"/>
   </setRuntimeProperties>
 </transcodeRequest>
 ```
 
 ### <a name="property-with-an-xml-value"></a>Propriedade com um valor XML
-Para definir uma propriedade que espere um valor XML, encapsule-a usando `<![CDATA[ and ]]>`.
+encapsular tooset uma propriedade que espera um valor XML, usando `<![CDATA[ and ]]>`.
 
 Exemplo:
 
@@ -129,47 +129,47 @@ Exemplo:
 ```
 
 > [!NOTE]
-> Lembre-se de não colocar um retorno de carro logo após `<![CDATA[`.
+> Certifique-se de não tooput um carro logo após retornar `<![CDATA[`.
 
 ### <a name="propertypath-value"></a>Valor de propertyPath
-Nos exemplos anteriores, propertyPath era “/Entrada de Arquivo de Mídia/nomearquivo”, “/inactiveTimeout” ou “clipListXml”.
-Em geral, esse é o nome do componente que, por sua vez, é o nome da propriedade. O caminho pode ter mais ou menos níveis, como "/primarySourceFile" (pois a propriedade está na raiz do fluxo de trabalho) ou "/Processamento de Vídeo/Sobreposição Gráfica/Opacidade" (pois a Sobreposição está em um grupo).    
+Nos exemplos anteriores do hello, Olá propertyPath foi "/ arquivo de mídia de entrada/filename" ou "/ inactiveTimeout" ou "clipListXml".
+Isso é, em geral, nome de saudação do componente de saudação e nome de saudação da propriedade hello. Olá caminho pode ter mais ou menos níveis, como "/ primarySourceFile" (porque é propriedade de saudação na raiz de saudação do fluxo de trabalho Olá) ou "/ vídeo/opacidade de sobreposição processamento/gráfico" (porque Olá sobreposição está em um grupo).    
 
-Para verificar o caminho e o nome da propriedade, use o botão de ação ao lado de cada propriedade. Você pode clicar nesse botão de ação e escolher **Editar**. Isso mostrará o nome da propriedade e, logo acima dele, o namespace.
+toocheck Olá caminho e nome da propriedade, use Olá ação botão imediatamente ao lado de cada propriedade. Você pode clicar nesse botão de ação e escolher **Editar**. Isso mostrará você Olá real de nome da propriedade hello e imediatamente acima dela, Olá namespace.
 
 ![Ação/Editar](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture6_actionedit.png)
 
 ![Propriedade](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture7_viewproperty.png)
 
 ## <a name="multiple-input-files"></a>Vários arquivos de entrada
-Cada tarefa enviada para o **Fluxo de Trabalho Premium do Codificador de Mídia** exige dois ativos:
+Cada tarefa que você enviar toohello **o fluxo de trabalho do Media Encoder Premium** requer dois ativos:
 
-* O primeiro é um *Ativo de Fluxo de Trabalho* que contém um arquivo de fluxo de trabalho. Você pode criar arquivos de fluxo de trabalho usando o [Designer de Fluxo de Trabalho](media-services-workflow-designer.md).
-* O segundo é um *Ativo de Mídia* que contém o(s) arquivo(s) de mídia que você deseja codificar.
+* Olá primeiro um é um *fluxo de trabalho ativo* que contém um arquivo de fluxo de trabalho. Você pode criar arquivos de fluxo de trabalho usando Olá [Designer de fluxo de trabalho](media-services-workflow-designer.md).
+* Olá segundo é um *ativo de mídia* que contém Olá arquivos de mídia que você deseja tooencode.
 
-Ao enviar vários arquivos de mídia para o codificador **Fluxo de Trabalho Premium do Codificador de Mídia** , as seguintes restrições se aplicam:
+Quando você estiver enviando várias toohello de arquivos de mídia **o fluxo de trabalho do Media Encoder Premium** aplica do codificador, Olá restrições a seguir:
 
-* Todos os arquivos de mídia devem estar no mesmo *Ativo de Mídia*. Não há suporte para o uso de vários Ativos de Mídia.
-* Você deve definir o arquivo primário neste Ativo de Mídia (de preferência, esse é o arquivo de vídeo principal que o codificador deverá processar).
-* É necessário transmitir os dados de configuração que incluem o elemento **setRuntimeProperties** e/ou **transcodeSource** para o processador.
-  * **setRuntimeProperties** é usado para substituir a propriedade de nome do arquivo ou outra propriedade nos componentes do fluxo de trabalho.
-  * **transcodeSource** é usado para especificar o conteúdo XML da Lista de Clipes.
+* Olá de todas as mídias Olá arquivos devem estar no mesmo *ativo de mídia*. Não há suporte para o uso de vários Ativos de Mídia.
+* Você deve definir o arquivo primário Olá nesse ativo de mídia (Idealmente, isso é hello principal arquivo de vídeo que Olá codificador é solicitado tooprocess).
+* É necessário toopass dados de configuração que inclui a saudação **setRuntimeProperties** e/ou **transcodeSource** processador do elemento toohello.
+  * **setRuntimeProperties** é propriedade de nome de arquivo hello toooverride usado ou outra propriedade em componentes de saudação do fluxo de trabalho de saudação.
+  * **transcodeSource** é usado toospecify hello conteúdo XML de lista do clipe.
 
-Conexões no fluxo de trabalho:
+Conexões no fluxo de trabalho hello:
 
-* Se você usar um ou vários componentes de Entrada do Arquivo de Mídia e pretende usar **setRuntimeProperties** para especificar o nome do arquivo, não conecte o pino do componente do arquivo primário a eles. Verifique se não há nenhuma conexão entre o objeto do arquivo primário e a(s) Entrada(s) do Arquivo de Mídia.
-* Se você preferir usar o XML da Lista de Clipes e um componente da Fonte de Mídia, poderá conectar os dois juntos.
+* Se você usar um ou vários componentes de entrada de arquivo de mídia e planejar toouse **setRuntimeProperties** toospecify Olá nome de arquivo, em seguida, não conecte Olá toothem de pin de componente de arquivo primário. Certifique-se de que não há nenhuma conexão entre o objeto de arquivo primário hello e hello entradas do arquivo de mídia.
+* Se você preferir toouse Clip lista XML e um componente de origem de mídia, em seguida, você pode conectar os dois juntos.
 
-![Nenhuma conexão do Arquivo de Fonte Primária à Entrada do Arquivo de Mídia](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture0_nopin.png)
+![Nenhuma conexão de arquivo de origem primário tooMedia arquivo de entrada](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture0_nopin.png)
 
-*Não haverá conexão do arquivo primário com o(s) componente(s) de Entrada do Arquivo de Mídia se você usar setRuntimeProperties para definir a propriedade de nome do arquivo.*
+*Não há nenhuma conexão de arquivo primário de saudação tooMedia componente (s) de entrada do arquivo se você usar a propriedade de nome de arquivo setRuntimeProperties tooset hello.*
 
-![Conexão do XML da Lista de Clipes à Fonte da Lista de Clipes](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture1_pincliplist.png)
+![Conexão do XML de lista de clipe tooClip fonte da lista](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture1_pincliplist.png)
 
-*É possível conectar o XML da Lista de Clipes à Fonte de Mídia e usar transcodeSource.*
+*Você pode conectar-se o XML de lista de clipe tooMedia fonte e usar transcodeSource.*
 
 ### <a name="clip-list-xml-customization"></a>Personalização do XML da Lista de Clipes
-É possível especificar o XML da Lista de Clipes no fluxo de trabalho, em tempo de execução, usando **transcodeSource** no XML da cadeia de caracteres de configuração. Isso exige que o marcador do XML da Lista de Clipes esteja conectado ao componente de Fonte de Mídia no fluxo de trabalho.
+Você pode especificar Olá Clip lista XML no fluxo de trabalho de saudação em tempo de execução usando **transcodeSource** na configuração de saudação de cadeia de caracteres XML. Isso requer Olá Clip lista XML pin toobe conectado toohello componente de origem de mídia no fluxo de trabalho de saudação.
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>
@@ -197,7 +197,7 @@ Conexões no fluxo de trabalho:
   </transcodeRequest>
 ```
 
-Se você deseja especificar /primarySourceFile para usar essa propriedade, para nomear os arquivos de saída usando 'Expressões', é recomendável transmitir o XML da Lista de Clipes como uma propriedade, *após* a propriedade /primarySourceFile, para evitar que a Lista de Clipes seja substituída pela configuração de /primarySourceFile.
+Se você deseja toospecify /primarySourceFile toouse esta saída de hello propriedade tooname arquivos usando 'Expressões', é recomendável passar Olá Clip lista XML como uma propriedade *depois* propriedade /primarySourceFile a saudação, tooavoid Lista de clipe ter Olá ser substituído definindo /primarySourceFile hello.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -267,14 +267,14 @@ Com outro corte preciso de quadro:
   </transcodeRequest>
 ```
 
-## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Exemplo 1: Sobrepor imagem sobre o vídeo
+## <a name="example-1--overlay-an-image-on-top-of-hello-video"></a>Exemplo 1: Sobreposição de uma imagem na parte superior Olá vídeo
 
 ### <a name="presentation"></a>Apresentação
-Considere um exemplo no qual você deseja sobrepor uma imagem de logotipo no vídeo de entrada durante a codificação do vídeo. Neste exemplo, o vídeo de entrada chamado "Microsoft_HoloLens_Possibilities_816p24.mp4" e o logotipo é chamado "PNG". Você deve executar as seguintes etapas:
+Considere um exemplo no qual você deseja toooverlay uma imagem de logotipo no vídeo de entrada hello enquanto Olá vídeo é codificado. Neste exemplo, o vídeo de entrada hello será denominado "Microsoft_HoloLens_Possibilities_816p24.mp4" e o logotipo de saudação é "logo.png". Você deve executar Olá etapas a seguir:
 
-* Criar um Ativo de Fluxo de Trabalho com o arquivo de fluxo de trabalho (veja o exemplo a seguir).
-* Criar um Ativo de Mídia, que contém dois arquivos: MyInputVideo.mp4 como o arquivo primário e MyLogo.png.
-* Enviar uma tarefa para o processador de mídia Fluxo de Trabalho Premium do Codificador de Mídia com os ativos de entrada indicados acima e especificar a cadeia de caracteres de configuração a seguir.
+* Criar um ativo de fluxo de trabalho com o arquivo de fluxo de trabalho da saudação (consulte Olá exemplo a seguir).
+* Criar um ativo de mídia, que contém dois arquivos: MyInputVideo.mp4 como Olá arquivo primário e MyLogo.png.
+* Enviar um toohello tarefa mídia de fluxo de trabalho Premium de codificador de mídia ativos de entrada do processador com hello acima e especificar Olá cadeia de caracteres de configuração a seguir.
 
 Configuração:
 
@@ -289,17 +289,17 @@ Configuração:
   </transcodeRequest>
 ```
 
-No exemplo acima, o nome do arquivo de vídeo é enviado ao componente de Entrada do Arquivo de Mídia e à propriedade primarySourceFile. O nome do arquivo de logotipo é enviado para outra Entrada do Arquivo de Mídia que está conectada ao componente de sobreposição de gráfico.
+No exemplo hello acima, o nome de Olá Olá do arquivo de vídeo seja enviado toohello entrada do arquivo de mídia componente e Olá primarySourceFile propriedade. nome de Olá Olá do arquivo de logotipo é enviado tooanother entrada de arquivo de mídia que é conectado toohello sobreposição gráfico componente.
 
 > [!NOTE]
-> O nome do arquivo de vídeo é enviado à propriedade primarySourceFile. A razão disso é para que essa propriedade seja usada no fluxo de trabalho na criação do nome do arquivo de saída correto usando Expressões, por exemplo.
+> nome do arquivo de vídeo de saudação é enviada toohello primarySourceFile propriedade. Olá razão para isso é toouse essa propriedade no fluxo de trabalho Olá para a criação de nome de arquivo de saída correta hello usando expressões, por exemplo.
 
 ### <a name="step-by-step-workflow-creation"></a>Criação de fluxo de trabalho passo a passo
-Estas são as etapas para criar um fluxo de trabalho que usa dois arquivos como entrada: um vídeo e uma imagem. Isto fará a sobreposição da imagem na parte superior do vídeo.
+Aqui está Olá etapas toocreate um fluxo de trabalho que usa dois arquivos como entrada: um vídeo e uma imagem. Ele irá sobrepor imagem Olá sobre Olá vídeo.
 
 Abra o **Designer de Fluxo de Trabalho** e selecione **Arquivo** > **Novo Espaço de Trabalho** > **Transcodificar Esquema**.
 
-O novo fluxo de trabalho mostra três elementos:
+novo fluxo de trabalho de saudação mostra três elementos:
 
 * Arquivo de Origem Principal
 * XML da Lista de Clipes
@@ -309,23 +309,23 @@ O novo fluxo de trabalho mostra três elementos:
 
 *Novo fluxo de trabalho de codificação*
 
-Para aceitar o arquivo de mídia de entrada, comece adicionando um componente de Entrada do Arquivo de Mídia. Para adicionar um componente ao fluxo de trabalho, procure-o na caixa de pesquisa do Repositório e arraste a entrada desejada até o painel do designer.
+No arquivo de mídia de entrada do pedido tooaccept hello, comece a adicionar um componente de entrada de arquivo de mídia. tooadd um fluxo de trabalho toohello de componente, procure-a na caixa de pesquisa de repositório hello e arrastar entrada hello desejado no painel de designer do hello.
 
-Em seguida, adicione o arquivo de vídeo que será usado para criar o fluxo de trabalho. Para fazer isso, clique no painel da tela de fundo do Designer de Fluxo de Trabalho e procure a propriedade do Arquivo de Origem Primário no painel de propriedades do lado direito. Clique no ícone de pasta e selecione o arquivo de vídeo apropriado.
+Em seguida, adicione Olá toobe de arquivo de vídeo usada para criar o fluxo de trabalho. toodo assim, clique em Painel de plano de fundo Olá no Designer de fluxo de trabalho e procure a propriedade de arquivo de origem primário Olá no painel de propriedade direito hello. Clique Olá ícone da pasta e selecione o arquivo de vídeo apropriado hello.
 
 ![Fonte de Arquivo Primário](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture10_primaryfile.png)
 
 *Fonte de Arquivo Primário*
 
-Em seguida, especifique o arquivo de vídeo no componente de Entrada do Arquivo de Mídia.   
+Em seguida, especifique o arquivo de vídeo Olá no componente de entrada de arquivo de mídia hello.   
 
 ![Fonte de Entrada do Arquivo de Mídia](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture11_mediafileinput.png)
 
 *Fonte de Entrada do Arquivo de Mídia*
 
-Assim que isso for feito, o componente Entrada do Arquivo de Mídia inspecionará o arquivo e preencherá seus pinos de saída para refletir o arquivo inspecionado por ele.
+Assim que isso for feito, o componente de entrada de arquivo de mídia Olá inspecionar o arquivo hello e preencher sua saída pins tooreflect Olá arquivo que ele inspecionado.
 
-A próxima etapa é adicionar um “Atualizador de Tipo de Dados de Vídeo” para especificar o espaço de cores de Rec.709. Adicione um "Conversor de Formato de Vídeo" definido como tipo de Layout de Dados/Layout = Planar Configurável. Isso converterá a transmissão de vídeo em um formato que pode ser usado como uma fonte do componente de sobreposição.
+Olá próxima etapa é tooadd tooRec.709 de espaço de cor um "Atualizador de tipo de dados de vídeo" toospecify hello. Adicionar um "vídeo formato conversor" que é definir o tipo de Layout/Layout tooData = configurável Planar. Isso converterá o formato de tooa de fluxo de vídeo Olá que pode ser executado como uma origem de componente de sobreposição de saudação.
 
 ![Atualizador de tipo de dados e conversor de formato de vídeo](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter.png)
 
@@ -335,34 +335,34 @@ A próxima etapa é adicionar um “Atualizador de Tipo de Dados de Vídeo” pa
 
 *O Tipo de layout é Planar Configurável*
 
-Em seguida, adicione um componente de Sobreposição de Vídeo e conecte o marcador de vídeo (descompactado) ao marcador de vídeo (descompactado) da entrada do arquivo de mídia.
+Em seguida, adicione um componente de sobreposição de vídeo e conecte Olá pin de vídeo (descompactado) toohello (descompactado) vídeo pin de entrada de arquivo de mídia hello.
 
-Adicione outra Entrada do Arquivo de Mídia (para carregar o arquivo de logotipo), clique nesse componente e renomeie-o para "Logotipo de Entrada do Arquivo de Mídia" e escolha uma imagem (um arquivo .png, por exemplo) na propriedade do arquivo. Conecte o marcador da imagem Descompactada ao marcador da imagem Descompactada da sobreposição.
+Adicionar outra entrada de arquivo de mídia (arquivo de logotipo do tooload Olá), clique neste componente e renomeá-lo muito "Logotipo de entrada de arquivo de mídia" e selecione uma imagem (um arquivo. png por exemplo) na propriedade do arquivo hello. Conecte-se Olá imagem descompactada pinos toohello imagem descompactada pinos da sobreposição de saudação.
 
 ![Fonte de arquivo de imagem e componente de sobreposição](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture13_overlay.png)
 
 *Fonte de arquivo de imagem e componente de sobreposição*
 
-Se quiser modificar a posição do logotipo no vídeo (por exemplo, talvez você queira posicioná-lo a 10% do canto superior esquerdo do vídeo), desmarque a caixa de seleção "Entrada Manual". É possível fazer isso porque você está usando uma Entrada do Arquivo de Mídia para fornecer o arquivo de logotipo ao componente de sobreposição.
+Se você deseja toomodify Olá posição do logotipo Olá no vídeo de saudação (por exemplo, você talvez queira tooposition-lo em 10 por cento da parte superior da saudação canto esquerdo do vídeo Olá), desmarque caixa de seleção "Entrada Manual" hello. Você pode fazer isso porque você está usando um entrada de arquivo de mídia tooprovide Olá logotipo arquivo toohello sobreposição componente.
 
 ![Posição da sobreposição](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture14_overlay_position.png)
 
 *Posição da sobreposição*
 
-Para codificar a transmissão de vídeo para H.264, adicione os componentes do Codificador de Vídeo AVC e do codificador AAC à superfície do designer. Conecte os marcadores.
-Configure o codificador AAC e escolha Conversão de Formato de Áudio/Predefinição: 2.0 (L, R).
+tooencode Olá tooH.264 do fluxo de vídeo, adicione hello AVC codificador de vídeo e a superfície do designer de toohello AAC codificador componentes. Conecte-se os pins hello.
+Configure o codificador AAC hello e selecione conversão de formato de áudio/predefinição: 2.0 (L, R).
 
 ![Codificadores de Áudio e Vídeo](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture15_encoders.png)
 
 *Codificadores de Áudio e Vídeo*
 
-Agora, adicione os componentes **Multiplexador ISO Mpeg-4** e **Saída de Arquivo** e conecte os pinos, conforme mostrado.
+Agora adicione Olá **ISO Mpeg-4 multiplexador** e **arquivo de saída** componentes e conecte-se pins hello, conforme mostrado.
 
 ![Multiplexador MP4 e saída de arquivo](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture16_mp4output.png)
 
 *Multiplexador MP4 e saída de arquivo*
 
-É necessário definir o nome do arquivo de saída. Clique no componente **Saída de Arquivo** e edite a expressão do arquivo:
+Você precisará tooset Olá nome para o arquivo de saída hello. Clique em Olá **arquivo de saída** componente e Editar expressão Olá para o arquivo hello:
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_withoverlay.mp4
 
@@ -370,33 +370,33 @@ Agora, adicione os componentes **Multiplexador ISO Mpeg-4** e **Saída de Arquiv
 
 *Nome de saída do arquivo*
 
-Você pode executar o fluxo de trabalho localmente para verificar se ele é executado corretamente.
+Você pode executar o fluxo de trabalho Olá localmente toocheck que está sendo executado corretamente.
 
 Após a conclusão, você poderá executá-lo nos Serviços de Mídia do Azure.
 
-Primeiro, prepare um ativo nos Serviços de Mídia do Azure com dois arquivos: o arquivo de vídeo e o logotipo. Você pode fazer isso usando a API REST ou o .NET. Também é possível fazer isso usando o portal do Azure ou o AMSE ( [Gerenciador dos Serviços de Mídia do Azure](https://github.com/Azure/Azure-Media-Services-Explorer) ).
+Primeiro, preparar um ativo no Azure Media Services com dois arquivos: o arquivo de vídeo hello e logotipo hello. Você pode fazer isso usando a API Olá .NET ou REST. Você também pode fazer isso usando o portal do Azure de saudação ou [Gerenciador de serviços de mídia do Azure](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE).
 
-Este tutorial mostra como gerenciar ativos com o AMSE. Há duas maneiras de adicionar arquivos a um ativo:
+Este tutorial mostra como ativos de toomanage com AMSE. Há dois ativo tooan tooadd arquivos de formas:
 
-* Crie uma pasta local, copie os dois arquivos nela e arraste e solte a pasta na guia **Ativo** .
-* Carregue o arquivo de vídeo como um ativo, exiba as informações do ativo, vá para a guia Arquivos e carregue um arquivo adicional (logotipo).
+* Criar uma pasta local, copiar Olá dois arquivos e arrastar e soltar Olá pasta toohello **ativo** guia.
+* Carregar o arquivo de vídeo hello como um ativo, exibir informações sobre os ativos hello, acesse a guia arquivos de toohello e carregar um arquivo adicional (logotipo).
 
 > [!NOTE]
-> Lembre-se de definir um arquivo primário no ativo (o arquivo de vídeo principal).
+> Verifique se tooset um arquivo primário no ativo hello (Olá principal arquivo de vídeo).
 
 ![Arquivos de ativo no AMSE](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture18_assetinamse.png)
 
 *Arquivos de ativo no AMSE*
 
-Selecione o ativo e escolha codificá-lo com o Codificador Premium. Carregue o fluxo de trabalho e selecione-o.
+Selecione Olá ativo e escolha tooencode com o codificador Premium. Carregar o fluxo de trabalho hello e selecioná-lo.
 
-Clique no botão para transmitir dados ao processador e adicione o seguinte XML para definir as propriedades de tempo de execução:
+Clique em processador de toohello Olá botão toopass dados e, em seguida, adicione Olá propriedades de tempo de execução XML tooset Olá a seguir:
 
 ![Codificador Premium no AMSE](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture19_amsepremium.png)
 
 *Codificador Premium no AMSE*
 
-Em seguida, cole os dados de XML a seguir. Você precisa especificar o nome do arquivo de vídeo para a Entrada do Arquivo de Mídia e para primarySourceFile. Especifique o nome do arquivo para o logotipo também.
+Em seguida, cole Olá dados XML a seguir. Você precisa toospecify nome de Olá Olá do arquivo de vídeo para Olá entrada de arquivo de mídia e primarySourceFile. Especifique o nome de saudação do nome de arquivo de saudação do logotipo Olá muito.
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>
@@ -413,37 +413,37 @@ Em seguida, cole os dados de XML a seguir. Você precisa especificar o nome do a
 
 *setRuntimeProperties*
 
-Se você usar o SDK do .NET para criar e executar a tarefa, esses dados XML deverão ser transmitidos como a cadeia de caracteres de configuração.
+Se você usar Olá .NET SDK toocreate e executa tarefas de hello, esses dados XML tem toobe passado como cadeia de caracteres de configuração de saudação.
 
 ```c#
 public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string configuration, TaskOptions options);
 ```
 
-Após a conclusão do trabalho, o arquivo MP4 no ativo de saída exibirá a sobreposição!
+Após a conclusão do trabalho hello, arquivo hello MP4 Olá saída ativo exibe sobreposição Olá!
 
-![Sobreposição no vídeo](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture21_resultoverlay.png)
+![Sobreposição de vídeo de saudação](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture21_resultoverlay.png)
 
-*Sobreposição no vídeo*
+*Sobreposição de vídeo de saudação*
 
-Você pode baixar o fluxo de trabalho de exemplo no [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
+Você pode baixar o fluxo de trabalho de exemplo de saudação do [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
 
 ## <a name="example-2--multiple-audio-language-encoding"></a>Exemplo 2: Codificação de vários idiomas de áudio
 
 Um exemplo de fluxo de trabalho de codificação de vários idiomas de áudio está disponível em [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
 
-Esta pasta contém um fluxo de trabalho de exemplo que pode ser usado para codificar um arquivo MXF para um ativo de arquivos MP4 múltiplas com várias faixas de áudio.
+Esta pasta contém um fluxo de trabalho de exemplo que pode ser usado tooencode um ativo de arquivos MXF arquivos tooa várias MP4 com várias faixas de áudio.
 
-Esse fluxo de trabalho assume que o arquivo MXF contém uma faixa de áudio; as faixas de áudio adicionais devem ser passadas como arquivos separados de áudios (WAV ou... MP4).
+Este fluxo de trabalho supõe que esse arquivo MXF Olá contém uma faixa de áudio; faixas de áudio adicionais Olá devem ser passadas como arquivos de áudio separados (WAV ou MP4...).
 
-Para codificar, siga estas etapas:
+tooencode, siga estas etapas:
 
-* Crie um ativo dos serviços de mídia com o arquivo MXF e os arquivos de áudio (arquivos de áudio de 0 a 18).
-* Certifique-se de que o arquivo MXF é definido como um arquivo primário.
-* Crie um trabalho e uma tarefa usando o processador do codificador de fluxo de trabalho Premium. Use o fluxo de trabalho fornecido (MultiMP4-1080p-19audio-v1.workflow).
-* Passar os dados setruntime.xml para a tarefa (se você usar o Gerenciador de serviços de mídia do Azure, use o botão "passar dados xml para o fluxo de trabalho").
-  * Atualize os dados XML para especificar as marcas de idiomas e nomes de arquivo correto.
-  * O fluxo de trabalho tem componentes de áudio denominado 1 áudio para áudio 18.
-  * RFC5646 há suporte para a marca de idioma.
+* Crie um ativo de serviços de mídia com hello e Olá MXF arquivos de áudio (0 too18 arquivos de áudio).
+* Verifique se o que arquivo hello MXF é definido como um arquivo primário.
+* Crie um trabalho e uma tarefa usando o processador de codificador de fluxo de trabalho Premium Olá. Use o fluxo de trabalho de saudação fornecido (MultiMP4-1080p-19audio-v1.workflow).
+* Passe a tarefa de toohello Olá setruntime.xml dados (se você usar o Gerenciador de serviços de mídia do Azure, use hello "passar o fluxo de trabalho de toohello de dados xml" botão).
+  * Atualize Olá dados toospecify Olá arquivo correto nomes e linguagens de marcas XML.
+  * fluxo de trabalho Olá tem componentes de áudio denominados 1 áudio tooAudio 18.
+  * RFC5646 há suporte para a marca de idioma hello.
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>
@@ -462,11 +462,11 @@ Para codificar, siga estas etapas:
 </transcodeRequest>
 ```
 
-* O ativo codificado conterá várias faixas de áudio de idiomas e essas faixas devem ser selecionáveis no Azure Media Player.
+* ativo Olá codificado conterá várias faixas de áudio de linguagem e essas faixas devem ser selecionáveis no Azure Media Player.
 
 ## <a name="see-also"></a>Consulte também
 * [Apresentando a codificação Premium nos Serviços de Mídia do Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-* [How to use Premium Encoding in Azure Media Services (Como usar a codificação Premium nos Serviços de Mídia do Azure)](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+* [Como toouse Premium de codificação no Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Encoding on-demand content with Azure Media Services (Codificação do conteúdo sob demanda com os Serviços de Mídia do Azure)](media-services-encode-asset.md#media-encoder-premium-workflow)
 * [Codecs e formatos de fluxo de trabalho do Media Encoder Premium](media-services-premium-workflow-encoder-formats.md)
 * [Exemplos de arquivos de fluxo de trabalho](https://github.com/AzureMediaServicesSamples/Encoding-Presets/tree/master/VoD/MediaEncoderPremiumWorkfows)

@@ -1,6 +1,6 @@
 ---
-title: "APIs Enterprise de cobrança do Azure – cobranças do Marketplace| Microsoft Docs"
-description: "Saiba mais sobre as APIs de Relatório que permitem a clientes Enterprise do Azure efetuar pull dos dados de consumo de modo programático."
+title: "aaaAzure cobrança Enterprise APIs - encargos do Marketplace | Microsoft Docs"
+description: "Saiba mais sobre Olá APIs de relatórios que permitem que os dados de consumo do Azure Enterprise clientes toopull programaticamente."
 services: 
 documentationcenter: 
 author: aedwin
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 5539623f7ae35e14b6dafe6fdf9efe4bcaba4fd3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: cdf2836b52df06a4bf5ed71a476fe33662c5363c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reporting-apis-for-enterprise-customers---marketplace-store-charge"></a>APIs de Relatórios para clientes Enterprise – Custos de Armazenamento do Marketplace
 
-A API Encargo de Repositório do Marketplace retorna o detalhamento dos encargos do marketplace com base no uso por dia para o Período de Cobrança especificado ou as datas de início e término (taxas avulsas não estão incluídas).
+Olá API de custos de armazenamento do Marketplace retorna Olá baseada no uso marketplace encargos divisão por dia para Olá especificado o período de cobrança ou datas de início e término (taxas de uma vez não estão incluídas).
 
 ##<a name="request"></a>Solicitação 
-As propriedades de cabeçalho comuns que precisam ser adicionadas são especificadas [aqui](billing-enterprise-api.md). Se um período de cobrança não for especificado, os dados do período de cobrança atual serão retornados. Os intervalos de tempo personalizados podem ser especificados com os parâmetros das datas de início e término no formato aaaa-MM-dd, o intervalo de tempo compatível máximo é de 36 meses.  
+Propriedades de cabeçalho comuns que precisam toobe adicionado são especificadas [aqui](billing-enterprise-api.md). Se não for especificado um período de cobrança, em seguida, dados de cobrança atual Olá período são retornados. Intervalos de tempo personalizado podem ser especificados com o início do hello e terminar parâmetros de data que estão no tempo de saudação formato AAAA-MM-dd, Olá máximo com suporte intervalo é de 36 meses.  
 
 |Método | URI da solicitação|
 |-|-|
@@ -35,7 +35,7 @@ As propriedades de cabeçalho comuns que precisam ser adicionadas são especific
 |GET|https://consumption.azure.com/v2/enrollments/{númerodaInscrição}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10|
 
 > [!Note]
-> Para usar a versão de visualização da API, substitua a v2 pela v1 na URL anterior.
+> versão de visualização de saudação toouse da API, substitua v2 v1 no hello acima URL.
 >
 
 ## <a name="response"></a>Resposta
@@ -76,29 +76,29 @@ As propriedades de cabeçalho comuns que precisam ser adicionadas são especific
 
 |Nome da Propriedade| Tipo| Descrição
 |-|-|-|
-|ID|string|ID exclusiva para o item de cobrança do marketplace|
-|subscriptionGuid|Guid|A Guid da assinatura|
-|subscriptionName|string|O nome da assinatura|
-|meterId|string|ID para o medidor emitido|
-|usageStartDate|DateTime|Hora de início para o registro de uso|
-|usageEndDate|DateTime|Hora de término para o registro de uso|
-|offerName|string|O nome da oferta|
-|resourceGroup|string|O grupo de recursos|
+|ID|string|Id exclusiva para o item de cobrança do marketplace Olá|
+|subscriptionGuid|Guid|Olá Guid de assinatura|
+|subscriptionName|string|Olá, nome da assinatura|
+|meterId|string|ID de saudação emitido medidor|
+|usageStartDate|Datetime|Hora de início para o registro de uso de saudação|
+|usageEndDate|Datetime|Hora de término para o registro de uso de saudação|
+|offerName|string|nome da oferta Olá|
+|resourceGroup|string|Grupo de recursos de saudação|
 |instanceId|string|ID da instância|
 |additionalInfo|string|Cadeia de caracteres JSON de informações adicionais|
 |marcas|string|Cadeia de caracteres JSON da marca|
-|orderNumber|string|O número da ordem|
-|unitOfMeasure|string|Unidade de medida para o medidor|
-|costCenter|string|O centro de custo|
-|accountId|int|A ID da conta|
-|accountName|string |O nome da conta|
-|accountOwnerId|string|A ID do proprietário da conta|
-|departmentId|int|A ID do departamento|
-|departmentName|string|O nome do departamento|
-|publisherName|string|O nome do editor|
-|planName|string|O nome do plano|
+|orderNumber|string|número de ordem de saudação|
+|unitOfMeasure|string|Unidade de medida para o medidor Olá|
+|costCenter|string|Centro de custo de saudação|
+|accountId|int|conta de saudação Id|
+|accountName|string |Olá, nome da conta|
+|accountOwnerId|string|Olá Id de proprietário de conta|
+|departmentId|int|departamento de saudação Id|
+|departmentName|string|nome do departamento de saudação|
+|publisherName|string|nome do publicador Olá|
+|planName|string|nome do plano de saudação|
 |consumedQuantity|decimal|Quantidade consumida durante esse período|
-|resourceRate|decimal|Preço unitário do medidor|
+|resourceRate|decimal|Preço unitário medidor Olá|
 |extendedCost|decimal|Cobrança estimada com base na quantidade consumida e no custo estendido|
 <br/>
 ## <a name="see-also"></a>Consulte também

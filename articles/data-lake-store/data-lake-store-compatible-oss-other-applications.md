@@ -1,5 +1,5 @@
 ---
-title: "Aplicativos de Big Data compatíveis com o Data Lake Store | Microsoft Docs"
+title: "aplicativos de dados aaaBig compatíveis com o repositório Data Lake | Microsoft Docs"
 description: "Lista de aplicativos de software livre que funcionam com o Repositório Azure Data Lake"
 services: data-lake-store
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: nitinme
-ms.openlocfilehash: 0570e86c16ff3bc647040c202ab46df535bb2ba1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ad4afd6437412c596c77d6b001478b82ddccf276
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="open-source-big-data-applications-that-work-with-azure-data-lake-store"></a>Aplicativos de Big Data de software livre que funcionam com o Repositório Azure Data Lake
-Este artigo lista os aplicativos de Big Data de software livre que funcionam com o Repositório Azure Data Lake. Para os aplicativos na tabela abaixo, há suporte apenas para as versões disponíveis com a distribuição listada. Para obter informações sobre quais versões desses aplicativos estão disponíveis com o HDInsight, veja [Controle de versão de componente do HDInsight](../hdinsight/hdinsight-component-versioning.md).
+Este artigo lista os aplicativos de dados grandes de código-fonte aberto Olá que funcionam com o repositório Azure Data Lake. Para aplicativos de saudação na tabela Olá abaixo, Olá somente versões disponíveis com a distribuição de saudação listada têm suporte. Para obter informações sobre quais versões desses aplicativos estão disponíveis com o HDInsight, veja [Controle de versão de componente do HDInsight](../hdinsight/hdinsight-component-versioning.md).
 
 | Software livre | Distribuição |
 | --- | --- |

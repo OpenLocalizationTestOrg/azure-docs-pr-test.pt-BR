@@ -1,6 +1,6 @@
 ---
-title: "Rastrear o fluxo em um Aplicativo de Serviços de Nuvem com o Diagnóstico do Azure | Microsoft Docs"
-description: "Adicione mensagens de rastreamento a um aplicativo do Azure para ajudar a depurar, medir o desempenho, monitorar, realizar a análise de tráfego e muito mais."
+title: "aaaTrace Olá fluxo em um aplicativo de serviços de nuvem com o diagnóstico do Azure | Microsoft Docs"
+description: "Adicione a depuração do aplicativo do Azure toohelp do rastreamento mensagens tooan, medir o desempenho, monitoramento, análise de tráfego e muito mais."
 services: cloud-services
 documentationcenter: .net
 author: rboucher
@@ -14,32 +14,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
 ms.author: robb
-ms.openlocfilehash: 35b4a4270846c54a1ca760e803ef7adba60cf03b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d2ed7b5997ae1d298115b4ce593bb5051a9a0c75
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Rastrear o fluxo de um aplicativo de Serviços de Nuvem com o Diagnóstico do Azure
-O rastreamento é uma maneira de você monitorar a execução de seu aplicativo enquanto ele é executado. Você pode usar as classes [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx), [System.Diagnostics.Debug](https://msdn.microsoft.com/library/system.diagnostics.debug.aspx) e [System.Diagnostics.TraceSource](https://msdn.microsoft.com/library/system.diagnostics.tracesource.aspx) para registrar informações sobre erros e execução do aplicativo em logs, arquivos de texto ou outros dispositivos para análise posterior. Para obter mais informações sobre rastreamento, consulte [Rastreamento e instrumentação de aplicativos](https://msdn.microsoft.com/library/zs6s4h68.aspx).
+# <a name="trace-hello-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Fluxo de saudação do rastreamento de um aplicativo de serviços de nuvem com o diagnóstico do Azure
+O rastreamento é uma maneira de você toomonitor Olá execução de seu aplicativo enquanto ele está em execução. Você pode usar o hello [Trace](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx), [Debug](https://msdn.microsoft.com/library/system.diagnostics.debug.aspx), e [System.Diagnostics.TraceSource](https://msdn.microsoft.com/library/system.diagnostics.tracesource.aspx) classes toorecord informações sobre erros e execução do aplicativo em logs, arquivos de texto ou outros dispositivos para análise posterior. Para obter mais informações sobre rastreamento, consulte [Rastreamento e instrumentação de aplicativos](https://msdn.microsoft.com/library/zs6s4h68.aspx).
 
 ## <a name="use-trace-statements-and-trace-switches"></a>Usar instruções e opções de rastreamento
-Implemente o rastreamento em seu aplicativo de Serviços de Nuvem adicionando [DiagnosticMonitorTraceListener](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.diagnostics.diagnosticmonitortracelistener.aspx) à configuração do aplicativo e fazendo chamadas a System.Diagnostics.Trace ou System.Diagnostics.Debug no código do aplicativo. Use o arquivo de configuração *app.config* para funções de trabalho e *web.config* para funções Web. Quando você cria um novo serviço hospedado usando um modelo do Visual Studio, o Diagnóstico do Azure é adicionado automaticamente ao projeto e DiagnosticMonitorTraceListener é adicionado ao arquivo de configuração apropriado para as funções que você adiciona.
+Rastreamento de implementar em seu aplicativo de serviços de nuvem adicionando Olá [DiagnosticMonitorTraceListener](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.diagnostics.diagnosticmonitortracelistener.aspx) toohello configuração de aplicativo e fazer chamadas tooSystem.Diagnostics.Trace ou debug no seu código do aplicativo. Usar arquivo de configuração de saudação *App. config* para funções de trabalho e hello *Web. config* para funções da web. Quando você cria um novo serviço hospedado usando um modelo do Visual Studio, o diagnóstico do Azure é adicionado automaticamente toohello projeto e Olá DiagnosticMonitorTraceListener é adicionado toohello o arquivo de configuração apropriado para as funções hello que você adicionar.
 
-Para obter informações sobre como incluir instruções de rastreamento, consulte [Como: adicionar instruções de rastreamento ao código do aplicativo](https://msdn.microsoft.com/library/zd83saa2.aspx).
+Para obter informações sobre a inserção de instruções de rastreamento, consulte [como: adicionar instruções de rastreamento tooApplication código](https://msdn.microsoft.com/library/zd83saa2.aspx).
 
-Incluindo [Opções de Rastreamento](https://msdn.microsoft.com/library/3at424ac.aspx) em seu código, você pode controlar se o rastreamento ocorre e qual a sua extensão. Isso permite monitorar o status do aplicativo em um ambiente de produção. Isso é particularmente importante em um aplicativo de negócios que usa vários componentes executados em vários computadores. Para obter mais informações, consulte [Como: configurar opções de rastreamento](https://msdn.microsoft.com/library/t06xyy08.aspx).
+Incluindo [Opções de Rastreamento](https://msdn.microsoft.com/library/3at424ac.aspx) em seu código, você pode controlar se o rastreamento ocorre e qual a sua extensão. Isso lhe permite monitorar o status de saudação do seu aplicativo em um ambiente de produção. Isso é particularmente importante em um aplicativo de negócios que usa vários componentes executados em vários computadores. Para obter mais informações, consulte [Como: configurar opções de rastreamento](https://msdn.microsoft.com/library/t06xyy08.aspx).
 
-## <a name="configure-the-trace-listener-in-an-azure-application"></a>Configurar o ouvinte de rastreamento em um aplicativo do Azure
-Rastreamento, depuração e TraceSource exigem que você configure "ouvintes" para coletar e registrar as mensagens que são enviadas. Os ouvintes coletam, armazenam e roteiam mensagens de rastreamento. Eles direcionam a saída de rastreamento para um destino apropriado, como um log, uma janela ou um arquivo de texto. O Diagnóstico do Azure usa a classe [DiagnosticMonitorTraceListener](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.diagnostics.diagnosticmonitortracelistener.aspx) .
+## <a name="configure-hello-trace-listener-in-an-azure-application"></a>Configurar o ouvinte de rastreamento de saudação em um aplicativo do Azure
+Rastreamento, depuração e TraceSource, exigem que você configure "ouvintes" toocollect e mensagens de saudação do registro que são enviadas. Os ouvintes coletam, armazenam e roteiam mensagens de rastreamento. Eles direcionam Olá rastreamento saída tooan destino apropriado, como um log, uma janela ou um arquivo de texto. Diagnóstico do Azure usa Olá [DiagnosticMonitorTraceListener](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.diagnostics.diagnosticmonitortracelistener.aspx) classe.
 
-Antes de concluir o procedimento a seguir, você deve inicializar o monitor de diagnóstico do Azure. Para fazer isso, consulte [Habilitando o diagnóstico no Microsoft Azure](cloud-services-dotnet-diagnostics.md).
+Antes de concluir Olá procedimento a seguir, você deverá inicializar Olá monitor de diagnóstico do Azure. toodo isso, consulte [habilitando o diagnóstico no Microsoft Azure](cloud-services-dotnet-diagnostics.md).
 
-Observe que, se você usar os modelos fornecidos pelo Visual Studio, a configuração do ouvinte será adicionada automaticamente para você.
+Observe que se você usar modelos de saudação que são fornecidos pelo Visual Studio, configuração de saudação do ouvinte de saudação é adicionada automaticamente para você.
 
 ### <a name="add-a-trace-listener"></a>Adicionar um ouvinte de rastreamento
-1. Abra o arquivo web.config ou app.config para sua função.
-2. Adicione o seguinte código ao arquivo. Altere o atributo Version para usar o número de versão do assembly que está sendo referenciado. A versão do assembly não é alterada, necessariamente, com cada versão do SDK do Azure, a menos que existam atualizações a ele.
+1. Abra o arquivo Web. config ou App. config Olá para sua função.
+2. Adicione Olá arquivo toohello de código a seguir. Altere Olá atributo toouse Olá versão número de versão do assembly hello que fazem referência. versão do assembly Hello não altera necessariamente com cada versão do SDK do Azure, a menos que há atualizações tooit.
    
     ```
     <system.diagnostics>
@@ -58,21 +58,21 @@ Observe que, se você usar os modelos fornecidos pelo Visual Studio, a configura
     </system.diagnostics>
     ```
    > [!IMPORTANT]
-   > Verifique se você tem uma referência de projeto ao assembly Microsoft.WindowsAzure.Diagnostics. Atualize o número de versão no xml acima para que ele corresponda à versão do assembly referenciado Microsoft.WindowsAzure.Diagnostics.
+   > Verifique se que você tem uma referência de projeto toohello Microsoft.WindowsAzure.Diagnostics assembly. Número de versão de hello atualização no xml de saudação acima toomatch versão Olá Olá referenciado Microsoft.WindowsAzure.Diagnostics assembly.
    > 
    > 
-3. Salve o arquivo de configuração.
+3. Salve o arquivo de configuração de saudação.
 
 Para obter mais informações sobre ouvintes, veja [Ouvintes de rastreamento](https://msdn.microsoft.com/library/4y5y10s7.aspx).
 
-Depois de concluir as etapas para adicionar o ouvinte, você pode adicionar instruções de rastreamento ao código.
+Depois de concluir o ouvinte de Olá Olá etapas tooadd, você pode adicionar código de tooyour de instruções de rastreamento.
 
-### <a name="to-add-trace-statement-to-your-code"></a>Para adicionar a instrução de rastreamento ao código
-1. Abra um arquivo de origem para o aplicativo. Por exemplo, o arquivo <RoleName>.cs para a função de trabalho ou função Web.
-2. Adicione a seguinte instrução using se ainda não tiver sido adicionada:
+### <a name="tooadd-trace-statement-tooyour-code"></a>código de tooyour de instrução de rastreamento tooadd
+1. Abra um arquivo de origem para o aplicativo. Por exemplo, Olá <RoleName>arquivo. cs para a função de trabalho de saudação ou função web.
+2. Adicione o seguinte Olá usando a instrução se ele já não tiver sido adicionado:
     ```
         using System.Diagnostics;
     ```
-3. Adicione instruções Trace em que você deseja capturar informações sobre o estado do aplicativo. Você pode usar diversos métodos para formatar a saída da instrução Trace. Para obter mais informações, veja [Como adicionar instruções de rastreamento ao código do aplicativo](https://msdn.microsoft.com/library/zd83saa2.aspx).
-4. Salve o arquivo de origem.
+3. Adicione instruções de rastreamento onde você deseja toocapture informações sobre o estado de saudação do seu aplicativo. Você pode usar uma variedade de métodos tooformat Olá saída Olá demonstrativo de rastreamento. Para obter mais informações, consulte [como: adicionar instruções de rastreamento tooApplication código](https://msdn.microsoft.com/library/zd83saa2.aspx).
+4. Salve o arquivo de origem de saudação.
 

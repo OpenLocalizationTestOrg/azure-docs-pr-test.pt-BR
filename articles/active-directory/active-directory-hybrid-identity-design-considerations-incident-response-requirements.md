@@ -1,6 +1,6 @@
 ---
-title: "Considerações de design de identidade híbrida do Azure Active Directory - determinar os requisitos de resposta a incidentes | Microsoft Docs"
-description: "Determine recursos de monitoramento e emissão de relatórios que podem ser aproveitados pelo departamento de TI para realizar ações de identificação e redução de ameaças potenciais."
+title: "aaaAzure considerações de design do Active Directory híbrida identidade - determinar requisitos de incidente rResponse | Microsoft Docs"
+description: "Determinar os recursos de monitoramento e relatórios para solução de identidade híbrida de saudação que podem ser aproveitadas por IT tootake ações tooidentify e reduzir um possíveis ameaças"
 documentationcenter: 
 services: active-directory
 author: billmath
@@ -14,49 +14,49 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 536071ec61d093af243bfd42faa6bb404172fb8e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7084096f318ef461e8331fb6edde1b77d4108466
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Determinar requisitos de resposta a incidentes para sua solução de identidade híbrida
-As organizações de médio ou grande porte provavelmente terão uma [resposta a incidentes de segurança](https://technet.microsoft.com/library/cc700825.aspx) para ajudar o departamento de TI a tomar as ações devidas de acordo com o nível do incidente. O sistema de gerenciamento de identidade é um componente importante do processo de resposta a incidentes, pois ele pode ser usado para ajudar a identificar quem executou uma ação específica em relação ao destino. A solução de identidade híbrida deve ser capaz de fornecer recursos de monitoramento e emissão de relatórios que podem ser aproveitados pelo departamento de TI para realizar ações de identificação e redução de ameaças potenciais. Um plano de resposta a incidentes comum terá as seguintes fases como parte do plano:
+As organizações de médio ou grandes provavelmente terá um [resposta de incidente de segurança](https://technet.microsoft.com/library/cc700825.aspx) no lugar toohelp IT tomar as ações devidas toohello nível de incidente. sistema de gerenciamento de identidade Olá é um componente importante no processo de resposta a incidentes Olá porque ele pode ser usado toohelp identificar quem executou uma ação específica em relação a destino hello. solução de identidade híbrida Olá deve ser capaz de tooprovide monitoramento e relatórios de recursos que podem ser aproveitados por IT tootake ações tooidentify e reduzir as ameaças potenciais. Em um plano de resposta a incidentes típico terá Olá fases a seguir como parte do plano de saudação:
 
 1. Avaliação inicial.
 2. Comunicação do incidente.
 3. Controle de danos e redução de riscos.
 4. Identificação do que foi comprometido e a gravidade.
 5. Preservação de provas.
-6. Notificação às partes relevantes.
+6. Partes de tooappropriate de notificação.
 7. Recuperação do sistema.
 8. Documentação.
 9. Avaliação de danos e custos.
 10. Revisão do processo e do plano.
 
-Durante a identificação do que foi comprometido e da severidade, será necessário identificar os sistemas que foram comprometidos, os arquivos que foram acessados e determinar a confidencialidade desses arquivos. O sistema de identidade híbrida deve ser capaz de atender a esses requisitos para ajudá-lo a identificar o usuário que fez as alterações. 
+Durante a identificação de saudação do que era o comprometimento e fase de severidade, será necessário tooidentify Olá sistemas que foram comprometidos, arquivos que foram acessados e determinam a confidencialidade Olá desses arquivos. O sistema de identidade híbrida deve ser capaz de toofulfill tooassist esses requisitos identificar o usuário de saudação que fez essas alterações. 
 
 ## <a name="monitoring-and-reporting"></a>Monitoramento e emissão de relatórios
-Muitas vezes, esse sistema de identidade também pode ajudar na fase de avaliação inicial, principalmente se o sistema tem recursos de auditoria e de emissão de relatórios interno. Durante a avaliação inicial, o administrador de TI deve ser capaz de identificar uma atividade suspeita ou o sistema deve ser capaz de acioná-la automaticamente baseado em uma tarefa pré-configurada. Várias atividades podem indicar um possível ataque, mas, em outros casos, um sistema mal configurado pode levar a um número de falsos positivos em um sistema de detecção de intrusão. 
+Sistema de identidade Olá muitas vezes também pode ajudar na fase de avaliação inicial, principalmente se o sistema Olá foi construído na auditoria e recursos de relatórios. Durante a avaliação inicial do hello, administrador de TI deve ser capaz de tooidentify uma atividade suspeita ou sistema Olá deve ser capaz de tootrigger automaticamente com base em uma tarefa previamente configurada. Muitas atividades podem indicar um possível ataque, no entanto, em outros casos, um sistema mal configurado pode causar tooa o número de falsos positivos em um sistema de detecção de intrusões. 
 
-O sistema de gerenciamento de identidade deve ajudar os administradores de TI a identificar e relatar as atividades suspeitas. Normalmente, esses requisitos técnicos podem ser atendidos monitorando-se todos os sistemas e tendo um recurso de relatório que possa realçar possíveis ameaças. Use as perguntas a seguir para ajudá-lo a desenvolver a sua solução de identidade híbrida levando em conta os requisitos de resposta a incidentes:
+sistema de gerenciamento de identidade Olá deve auxiliar tooidentify de administradores IT e relatar as atividades suspeitas. Normalmente, esses requisitos técnicos podem ser atendidos monitorando-se todos os sistemas e tendo um recurso de relatório que possa realçar possíveis ameaças. Usar perguntas de saudação abaixo toohelp você projetar sua solução de identidade híbrida levando em requisitos de resposta a incidentes de consideração:
 
 * Sua empresa tem uma resposta a incidentes de segurança em vigor?
-  * Se sim, o sistema de gerenciamento de identidade atual é usado como parte do processo?
-* Sua empresa precisa identificar tentativas de logon de usuários suspeitas em diferentes dispositivos?
-* Sua empresa precisa detectar as credenciais do usuário potencialmente comprometido?
-* Sua empresa precisa auditar o acesso e a ação do usuário?
-* Sua empresa precisa saber quando um usuário redefine sua senha?
+  * Em caso afirmativo, é hello sistema de gerenciamento de identidade atual usado como parte do processo de Olá?
+* Sua empresa precisa tooidentify suspeitas em tentativas de logon de usuários em diferentes dispositivos?
+* Sua empresa precisa toodetect potencial comprometido credenciais do usuário?
+* Sua empresa precisa de acesso e a ação do usuário tooaudit?
+* Sua empresa precisa tooknow quando um usuário redefine sua senha?
 
 ## <a name="policy-enforcement"></a>Aplicação de políticas
-Durante o controle de danos e a fase de redução de riscos, é importante reduzir os efeitos reais e possíveis de um ataque rapidamente. Essa ação que você tomará agora pode fazer a diferença entre ataques de pequenas e grandes proporções. A resposta exata dependerá de sua organização e da natureza do ataque enfrentado. Se a avaliação inicial concluiu que uma conta foi comprometida, você precisará aplicar políticas para bloquear essa conta. Isso é apenas um exemplo em que o sistema de gerenciamento de identidade será utilizado. Use as perguntas a seguir para ajudá-lo a desenvolver a sua solução de identidade híbrida levando em conta como as políticas serão impostas na reação de um incidente em andamento:
+Durante o controle de danos e a fase de redução de risco, é importante tooquickly reduzir os efeitos reais e potenciais Olá um ataque. Essa ação que você terá agora pode fazer diferença de Olá entre a menor e maior. resposta exata Olá dependerá de sua organização e da natureza de saudação do ataque Olá que você enfrenta. Se a avaliação inicial Olá concluiu que uma conta foi comprometida, você precisará tooenforce política tooblock essa conta. Isso é apenas um exemplo em que o sistema de gerenciamento de identidade Olá será utilizado. Use perguntas de saudação abaixo toohelp que projetar sua solução de identidade híbrida enquanto levando em consideração como as políticas serão impostas tooreact tooan em andamento incidente:
 
-* Sua empresa tem políticas in-loco para impedir que os usuários acessem a rede se necessário?
-  * Em caso afirmativo, a solução atual integra o sistema de gerenciamento de identidade híbrida que vocês adotam?
-* Sua empresa precisará garantir acesso condicional a usuários que estiverem em quarentena? 
+* Sua empresa tem políticas tooblock os usuários da rede de saudação de acesso se necessário?
+  * Em caso afirmativo, Olá atual solução integrada ao sistema de gerenciamento de identidade Olá híbrida que você está indo tooadopt?
+* Sua empresa precisa de acesso condicional tooenforce para usuários que estão em quarentena? 
 
 > [!NOTE]
-> Faça anotações de cada resposta e entenda o raciocínio por trás de resposta. [Definir a estratégia de proteção de dados](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) abordará as opções disponíveis e vantagens/desvantagens de cada opção.  Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
+> Verifique se anotações tootake de cada resposta e entender Olá lógica por trás da resposta de saudação. [Definir a estratégia de proteção de dados](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) irá Olá opções disponíveis e as vantagens/desvantagens de cada opção.  Ao responder essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
 > 
 > 
 

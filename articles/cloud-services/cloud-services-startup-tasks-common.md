@@ -1,6 +1,6 @@
 ---
-title: "Tarefas de inicialização comuns para Serviços de Nuvem | Microsoft Docs"
-description: "Oferece alguns exemplos de tarefas de inicialização comuns que talvez você queira executar na função Web ou função de trabalho de seus serviços de nuvem."
+title: "aaaCommon tarefas de inicialização para serviços de nuvem | Microsoft Docs"
+description: "Fornece alguns exemplos comuns de tarefas de inicialização, convém tooperform em sua função de web de serviços de nuvem ou uma função de trabalho."
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: cee23da5b089b02bfc0ef10afd60f0f2272585b1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c80fac4079439410dfc3795e4bce0fbc07dbbfab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tarefas de inicialização comuns do Serviço de Nuvem
-Este artigo oferece alguns exemplos de tarefas de inicialização comuns que talvez você queira executar no serviço de nuvem. Você pode usar as tarefas de inicialização para executar operações antes do início de uma função. As operações que talvez você queira executar incluem a instalação de um componente, o registro de componentes COM, a configuração de chaves do registro ou o início de um processo de longa duração. 
+Este artigo fornece alguns exemplos comuns de tarefas de inicialização seja tooperform em seu serviço de nuvem. Você pode usar operações de tooperform de tarefas de inicialização antes do início de uma função. Operações que convém tooperform incluem instalação de um componente, registrando componentes COM, chaves do registro de configuração ou iniciar um processo de execução longa. 
 
-Confira [este artigo](cloud-services-startup-tasks.md) para entender o funcionamento das tarefas de inicialização e, especificamente, como criar as entradas que definem uma tarefa de inicialização.
+Consulte [neste artigo](cloud-services-startup-tasks.md) toounderstand como funcionam as tarefas de inicialização e, especificamente como toocreate Olá entradas que definem uma tarefa de inicialização.
 
 > [!NOTE]
-> As tarefas de inicialização não são aplicáveis às Máquinas Virtuais, apenas às funções Web e de Trabalho do Serviço de Nuvem.
+> Tarefas de inicialização não são aplicáveis tooVirtual máquinas, apenas tooCloud serviço Web e funções de trabalho.
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>Definir variáveis de ambiente antes de iniciar uma função
-Se você precisar de variáveis de ambiente definidas para uma tarefa específica, use o elemento [Environment] dentro do elemento [Task].
+Se você precisar de variáveis de ambiente definidas para uma tarefa específica, use Olá [ambiente] elemento dentro Olá [tarefa] elemento.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -47,7 +47,7 @@ Se você precisar de variáveis de ambiente definidas para uma tarefa específic
 </ServiceDefinition>
 ```
 
-As variáveis também podem usar um [valor válido do Azure XPath](cloud-services-role-config-xpath.md) para fazer referência a algo sobre a implantação. Em vez de usar o atributo `value` , defina um elemento filho [RoleInstanceValue] .
+As variáveis também podem usar um [valor válido do Azure XPath](cloud-services-role-config-xpath.md) tooreference algo sobre implantação de saudação. Em vez de usar o hello `value` de atributo, defina um [RoleInstanceValue] elemento filho.
 
 ```xml
 <Variable name="PathToStartupStorage">
@@ -57,22 +57,22 @@ As variáveis também podem usar um [valor válido do Azure XPath](cloud-service
 
 
 ## <a name="configure-iis-startup-with-appcmdexe"></a>Configurar a inicialização do IIS com AppCmd.exe
-A ferramenta de linha de comando [AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) pode ser usada para gerenciar as configurações do IIS na inicialização no Azure. *AppCmd.exe* oferece acesso de linha de comando conveniente às definições de configuração para uso nas tarefas de inicialização no Azure. Com *AppCmd.exe*, as configurações do site podem ser adicionadas, modificadas ou removidas para aplicativos e sites.
+Olá [AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) ferramenta de linha de comando pode ser usado toomanage configurações do IIS na inicialização no Azure. *AppCmd.exe* fornece acesso conveniente de linha de comando tooconfiguration configurações para uso nas tarefas de inicialização no Azure. Com *AppCmd.exe*, as configurações do site podem ser adicionadas, modificadas ou removidas para aplicativos e sites.
 
-No entanto, há algumas coisas que merecem atenção no uso de *AppCmd.exe* como uma tarefa de inicialização:
+No entanto, há alguns toowatch de coisas out para usar Olá *AppCmd.exe* como uma tarefa de inicialização:
 
 * As tarefas de inicialização podem ser executadas mais de uma vez entre as reinicializações. Por exemplo, quando uma função é reciclada.
-* Se uma ação *AppCmd.exe* for executada mais de uma vez, poderá gerar um erro. Por exemplo, a tentativa de adicionar uma seção a *Web.config* duas vezes pode gerar um erro.
+* Se uma ação *AppCmd.exe* for executada mais de uma vez, poderá gerar um erro. Por exemplo, a tentativa de uma seção de tooadd muito*Web. config* duas vezes pode gerar um erro.
 * As tarefas de inicialização falharão caso retornem um código de saída diferente de zero ou **errorlevel**. Por exemplo, quando *AppCmd.exe* gera um erro.
 
-É uma prática recomendada verificar **errorlevel** depois de chamar *AppCmd.exe*, o que é fácil se você encapsula a chamada a *AppCmd.exe* com um arquivo *.cmd*. Se você detectar uma resposta **errorlevel** conhecida, poderá ignorá-la ou passá-la novamente.
+Saudação de toocheck uma boa prática é **errorlevel** depois de chamar *AppCmd.exe*, que é fácil toodo se encapsular chamada hello muito*AppCmd.exe* com um *. cmd*  arquivo. Se você detectar uma resposta **errorlevel** conhecida, poderá ignorá-la ou passá-la novamente.
 
-O errorlevel retornado por *AppCmd.exe* é listado no arquivo winerror.h e também pode ser visto no [MSDN](https://msdn.microsoft.com/library/windows/desktop/ms681382.aspx).
+Olá errorlevel retornado por *AppCmd.exe* são listados no arquivo de Winerror hello e também podem ser vistas na [MSDN](https://msdn.microsoft.com/library/windows/desktop/ms681382.aspx).
 
-### <a name="example-of-managing-the-error-level"></a>Exemplo de gerenciamento de nível de erro
-Este exemplo adiciona uma seção e uma entrada de compactação para JSON para o arquivo *Web.config* , com tratamento de erros e registro em log.
+### <a name="example-of-managing-hello-error-level"></a>Exemplo de gerenciamento de nível de erro Olá
+Este exemplo adiciona uma seção e uma entrada de compactação para JSON toohello *Web. config* arquivo com tratamento de erros e registro em log.
 
-As seções relevantes do arquivo [Servicedefinition] são mostradas aqui, o que inclui a definição do atributo [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) como `elevated` para dar a *AppCmd.exe* permissões suficientes para alterar as configurações no arquivo *Web.config*:
+Olá seções relevantes do hello [servicedefinition. Csdef] arquivo são mostradas aqui, que incluem a definição de saudação [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) atributo muito`elevated` toogive *AppCmd.exe*  suficientes permissões toochange Olá configurações Olá *Web. config* arquivo:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -85,21 +85,21 @@ As seções relevantes do arquivo [Servicedefinition] são mostradas aqui, o que
 </ServiceDefinition>
 ```
 
-O arquivo em lotes *Startup.cmd* usa *AppCmd.exe* para adicionar uma seção e uma entrada de compactação para JSON ao arquivo *Web.config*. O **errorlevel** esperado de 183 é definido como zero usando o programa de linha de comando VERIFY.EXE. Os errorlevels inesperados são registrados em StartupErrorLog.txt.
+Olá *Startup.cmd* em lotes de arquivos usa *AppCmd.exe* tooadd uma seção e uma entrada de compactação para JSON toohello *Web. config* arquivo. Olá esperado **errorlevel** de 183 é definido toozero usando Olá verificar. Programa de linha de comando do EXE. Os errorlevels inesperados são tooStartupErrorLog.txt conectado.
 
 ```cmd
-REM   *** Add a compression section to the Web.config file. ***
+REM   *** Add a compression section toohello Web.config file. ***
 %windir%\system32\inetsrv\appcmd set config /section:urlCompression /doDynamicCompression:True /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 
-REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. This error is expected if this
+REM   ERRORLEVEL 183 occurs when trying tooadd a section that already exists. This error is expected if this
 REM   batch file were executed twice. This can occur and must be accounted for in a Azure startup
-REM   task. To handle this situation, set the ERRORLEVEL to zero by using the Verify command. The Verify
-REM   command will safely set the ERRORLEVEL to zero.
+REM   task. toohandle this situation, set hello ERRORLEVEL toozero by using hello Verify command. hello Verify
+REM   command will safely set hello ERRORLEVEL toozero.
 IF %ERRORLEVEL% EQU 183 DO VERIFY > NUL
 
-REM   If the ERRORLEVEL is not zero at this point, some other error occurred.
+REM   If hello ERRORLEVEL is not zero at this point, some other error occurred.
 IF %ERRORLEVEL% NEQ 0 (
-    ECHO Error adding a compression section to the Web.config file. >> "%TEMP%\StartupLog.txt" 2>&1
+    ECHO Error adding a compression section toohello Web.config file. >> "%TEMP%\StartupLog.txt" 2>&1
     GOTO ErrorExit
 )
 
@@ -107,7 +107,7 @@ REM   *** Add compression for json. ***
 %windir%\system32\inetsrv\appcmd set config  -section:system.webServer/httpCompression /+"dynamicTypes.[mimeType='application/json; charset=utf-8',enabled='True']" /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 IF %ERRORLEVEL% EQU 183 VERIFY > NUL
 IF %ERRORLEVEL% NEQ 0 (
-    ECHO Error adding the JSON compression type to the Web.config file. >> "%TEMP%\StartupLog.txt" 2>&1
+    ECHO Error adding hello JSON compression type toohello Web.config file. >> "%TEMP%\StartupLog.txt" 2>&1
     GOTO ErrorExit
 )
 
@@ -116,7 +116,7 @@ EXIT /b 0
 
 REM   *** Log error and exit ***
 :ErrorExit
-REM   Report the date, time, and ERRORLEVEL of the error.
+REM   Report hello date, time, and ERRORLEVEL of hello error.
 DATE /T >> "%TEMP%\StartupLog.txt" 2>&1
 TIME /T >> "%TEMP%\StartupLog.txt" 2>&1
 ECHO An error occurred during startup. ERRORLEVEL = %ERRORLEVEL% >> "%TEMP%\StartupLog.txt" 2>&1
@@ -124,13 +124,13 @@ EXIT %ERRORLEVEL%
 ```
 
 ## <a name="add-firewall-rules"></a>Adicionar regras de firewall
-No Azure, há efetivamente dois firewalls. O primeiro firewall controla conexões entre a máquina virtual e o mundo externo. Esse firewall é controlado pelo elemento [EndPoints] no arquivo [Servicedefinition].
+No Azure, há efetivamente dois firewalls. Olá primeiro firewall controla conexões entre máquina virtual de saudação e Olá fora do mundo. Esse firewall é controlado pelo Olá [pontos de extremidade] elemento Olá [servicedefinition. Csdef] arquivo.
 
-O segundo firewall controla conexões entre a máquina virtual e os processos dessa máquina virtual. Esse firewall pode ser controlada pela ferramenta de linha de comando `netsh advfirewall firewall`.
+Olá segundo firewall controla conexões entre máquinas virtuais de saudação e processos de saudação dentro dessa máquina virtual. Esse firewall pode ser controlado por Olá `netsh advfirewall firewall` ferramenta de linha de comando.
 
-O Azure cria regras de firewall para processos iniciados em suas funções. Por exemplo, quando você inicia um serviço ou um programa, o Azure cria automaticamente as regras de firewall necessárias para permitir que o serviço ser comunique com a Internet. No entanto, se você criar um serviço que é iniciado por um processo fora de sua função (como um serviço COM+ ou uma tarefa agendada do Windows), precisará criar manualmente uma regra de firewall para permitir o acesso a esse serviço. Essas regras de firewall podem ser criadas usando uma tarefa de inicialização.
+O Azure cria regras de firewall para Olá processos iniciados em suas funções. Por exemplo, quando você inicia um programa ou serviço, Azure cria automaticamente Olá tooallow de regras de firewall necessárias toocommunicate esse serviço com hello da Internet. No entanto, se você criar um serviço que é iniciado por um processo fora de sua função (como um serviço COM+ ou uma tarefa agendada do Windows), é necessário toomanually criar um serviço de toothat firewall regra tooallow acesso. Essas regras de firewall podem ser criadas usando uma tarefa de inicialização.
 
-Uma tarefa de inicialização que cria uma regra de firewall deve ter um [executionContext][Task]  **elevado**. Adicione a seguinte tarefa de inicialização ao arquivo [Servicedefinition] .
+Uma tarefa de inicialização que cria uma regra de firewall deve ter um [executionContext][tarefa]  **elevado**. Adicionar Olá toohello da tarefa de inicialização a seguir [servicedefinition. Csdef] arquivo.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -143,7 +143,7 @@ Uma tarefa de inicialização que cria uma regra de firewall deve ter um [execut
 </ServiceDefinition>
 ```
 
-Para adicionar a regra de firewall, você deverá usar os comandos `netsh advfirewall firewall` adequados no arquivo em lotes de inicialização. Neste exemplo, a tarefa de inicialização exige segurança e criptografia para a porta TCP 80.
+regra de firewall de saudação tooadd, você deve usar o hello apropriado `netsh advfirewall firewall` comandos no arquivo em lotes de inicialização. Neste exemplo, a tarefa de inicialização Olá requer segurança e criptografia para a porta TCP 80.
 
 ```cmd
 REM   Add a firewall rule in a startup task.
@@ -151,16 +151,16 @@ REM   Add a firewall rule in a startup task.
 REM   Add an inbound rule requiring security and encryption for TCP port 80 traffic.
 netsh advfirewall firewall add rule name="Require Encryption for Inbound TCP/80" protocol=TCP dir=in localport=80 security=authdynenc action=allow >> "%TEMP%\StartupLog.txt" 2>&1
 
-REM   If an error occurred, return the errorlevel.
+REM   If an error occurred, return hello errorlevel.
 EXIT /B %errorlevel%
 ```
 
 ## <a name="block-a-specific-ip-address"></a>Bloquear um endereço IP específico
-Você pode restringir um acesso de função Web do Azure para um conjunto de endereços IP especificados, modificando o IIS arquivo **Web.config**. Você também precisa usar um arquivo de comando que desbloqueie a seção **ipSecurity** do arquivo **applicationHost.config**.
+Você pode restringir um conjunto de tooa de acesso de função web do Azure de endereços IP especificados alterando o IIS **Web. config** arquivo. Você também precisa toouse um arquivo de comando que desbloqueie Olá **ipSecurity** seção Olá **applicationHost. config** arquivo.
 
-Para desbloquear a seção **ipSecurity** do arquivo **applicationHost. config**, crie um arquivo de comando que é executado no início da função. Crie uma pasta no nível raiz da sua função Web chamada **startup** e, nessa pasta, crie um arquivo em lotes chamado **startup.cmd**. Adicione esse arquivo ao projeto do Visual Studio e defina as propriedades como **Copiar Sempre** para garantir que ele seja incluído no pacote.
+toodo desbloquear Olá **ipSecurity** seção Olá **applicationHost. config** de arquivo, crie um arquivo de comando que é executado no início da função. Crie uma pasta no nível de raiz de saudação de sua função web chamada **inicialização** e, dentro dessa pasta, crie um arquivo em lotes chamado **startup.cmd**. Adicionar este projeto do Visual Studio tooyour arquivo e definir propriedades de saudação muito**copiar sempre** tooensure que ele está incluído no pacote.
 
-Adicione a seguinte tarefa de inicialização ao arquivo [Servicedefinition] .
+Adicionar Olá toohello da tarefa de inicialização a seguir [servicedefinition. Csdef] arquivo.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -173,7 +173,7 @@ Adicione a seguinte tarefa de inicialização ao arquivo [Servicedefinition] .
 </ServiceDefinition>
 ```
 
-Adicione este comando ao arquivo **startup.cmd** :
+Adicionar este comando toohello **startup.cmd** arquivo:
 
 ```cmd
 @echo off
@@ -183,18 +183,18 @@ powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP
 %windir%\system32\inetsrv\AppCmd.exe unlock config -section:system.webServer/security/ipSecurity
 ```
 
-Essa tarefa faz com que o arquivo em lotes **startup.cmd** seja executado sempre que a função Web for inicializada, garantindo que a seção **ipSecurity** necessária seja desbloqueada.
+Esta tarefa faz com que Olá **startup.cmd** toobe arquivo seja executado sempre que a função da web de saudação é inicializada, garantindo que Olá necessárias do lote **ipSecurity** seção está desbloqueada.
 
-Por fim, modifique a [seção system.webServer](http://www.iis.net/configreference/system.webserver/security/ipsecurity#005) do arquivo **web.config** da sua função Web para adicionar uma lista de endereços IP com acesso concedido, como mostrado neste exemplo:
+Finalmente, modifique Olá [seção System. webServer](http://www.iis.net/configreference/system.webserver/security/ipsecurity#005) da sua função web **Web. config** arquivo tooadd uma lista de endereços IP que têm acesso, conforme mostrado no exemplo a seguir de saudação:
 
-Esta configuração de exemplo **permite** que todos os IPs acessem o servidor, exceto os dois definidos
+Essa configuração de exemplo **permite** tooaccess de todos os IPs Olá servidor exceto Olá dois definido
 
 ```xml
 <system.webServer>
     <security>
     <!--Unlisted IP addresses are granted access-->
     <ipSecurity>
-        <!--The following IP addresses are denied access-->
+        <!--hello following IP addresses are denied access-->
         <add allowed="false" ipAddress="192.168.100.1" subnetMask="255.255.0.0" />
         <add allowed="false" ipAddress="192.168.100.2" subnetMask="255.255.0.0" />
     </ipSecurity>
@@ -202,14 +202,14 @@ Esta configuração de exemplo **permite** que todos os IPs acessem o servidor, 
 </system.webServer>
 ```
 
-Esta configuração de exemplo **nega** que todos os IPs acessem o servidor, exceto os dois definidos.
+Essa configuração de exemplo **nega** todos os IPs acessem servidor hello, exceto Olá dois definido.
 
 ```xml
 <system.webServer>
     <security>
     <!--Unlisted IP addresses are denied access-->
     <ipSecurity allowUnlisted="false">
-        <!--The following IP addresses are granted access-->
+        <!--hello following IP addresses are granted access-->
         <add allowed="true" ipAddress="192.168.100.1" subnetMask="255.255.0.0" />
         <add allowed="true" ipAddress="192.168.100.2" subnetMask="255.255.0.0" />
     </ipSecurity>
@@ -218,42 +218,42 @@ Esta configuração de exemplo **nega** que todos os IPs acessem o servidor, exc
 ```
 
 ## <a name="create-a-powershell-startup-task"></a>Criar uma tarefa de inicialização do PowerShell
-Os scripts do Windows PowerShell não podem ser chamados diretamente do arquivo [Servicedefinition] , mas podem ser chamados de um arquivo em lotes de inicialização.
+Scripts do Windows PowerShell não podem ser chamados diretamente no hello [servicedefinition. Csdef] arquivo, mas pode ser chamado de dentro de um arquivo em lotes de inicialização.
 
-O PowerShell (por padrão) não executa scripts não assinados. A menos que você assine seu script, precisará configurar o PowerShell para executar scripts não assinados. Para executar scripts não assinados, **ExecutionPolicy** deve ser definido como **Irrestrito**. A configuração **ExecutionPolicy** que você usa baseia-se na versão do Windows PowerShell.
+O PowerShell (por padrão) não executa scripts não assinados. A menos que você assinar o script, você precisa tooconfigure PowerShell toorun de scripts não assinados. toorun scripts não assinados, hello **ExecutionPolicy** deve ser definido muito**irrestrito**. Olá **ExecutionPolicy** configuração que você usa é baseada na versão de saudação do Windows PowerShell.
 
 ```cmd
-REM   Run an unsigned PowerShell script and log the output
+REM   Run an unsigned PowerShell script and log hello output
 PowerShell -ExecutionPolicy Unrestricted .\startup.ps1 >> "%TEMP%\StartupLog.txt" 2>&1
 
-REM   If an error occurred, return the errorlevel.
+REM   If an error occurred, return hello errorlevel.
 EXIT /B %errorlevel%
 ```
 
-Se você estiver usando um SO Convidado que esteja executando o PowerShell 2.0 ou 1.0, poderá impor a execução da versão 2. Se ela não estiver disponível, use a versão 1.
+Se você estiver usando um sistema operacional convidado que for executar o PowerShell 2.0 ou 1.0, você pode forçar a toorun versão 2 e se não estiver disponível, use a versão 1.
 
 ```cmd
-REM   Attempt to set the execution policy by using PowerShell version 2.0 syntax.
+REM   Attempt tooset hello execution policy by using PowerShell version 2.0 syntax.
 PowerShell -Version 2.0 -ExecutionPolicy Unrestricted .\startup.ps1 >> "%TEMP%\StartupLog.txt" 2>&1
 
-REM   If PowerShell version 2.0 isn't available. Set the execution policy by using the PowerShell
+REM   If PowerShell version 2.0 isn't available. Set hello execution policy by using hello PowerShell
 IF %ERRORLEVEL% EQU -393216 (
    PowerShell -Command "Set-ExecutionPolicy Unrestricted" >> "%TEMP%\StartupLog.txt" 2>&1
    PowerShell .\startup.ps1 >> "%TEMP%\StartupLog.txt" 2>&1
 )
 
-REM   If an error occurred, return the errorlevel.
+REM   If an error occurred, return hello errorlevel.
 EXIT /B %errorlevel%
 ```
 
 ## <a name="create-files-in-local-storage-from-a-startup-task"></a>Criar arquivos no armazenamento local de uma tarefa de inicialização
-Você pode usar um recurso de armazenamento local para armazenar os arquivos criados pela tarefa de inicialização que será acessada posteriormente por seu aplicativo.
+Você pode usar um toostore de recursos de armazenamento local arquivos criados por sua tarefa de inicialização que é acessada posteriormente por seu aplicativo.
 
-Para criar o recurso de armazenamento local, adicione uma seção [LocalResources] ao arquivo [Servicedefinition] e adicione o elemento filho [LocalStorage]. Dê ao recurso de armazenamento local um nome exclusivo e um tamanho adequado para sua tarefa de inicialização.
+toocreate Olá o recurso de armazenamento local, adicione uma [LocalResources] seção toohello [servicedefinition. Csdef] de arquivo e, em seguida, adicione Olá [LocalStorage] elemento filho. Fornecer recursos de armazenamento local de saudação um nome exclusivo e um tamanho apropriado para sua tarefa de inicialização.
 
-Para usar um recurso de armazenamento local em sua tarefa de inicialização, será necessário criar uma variável de ambiente para fazer referência ao local do recurso de armazenamento local. Em seguida, a tarefa de Inicialização e o aplicativo podem ler e gravar arquivos no recurso de armazenamento local.
+toouse um recurso de armazenamento local em sua tarefa de inicialização, é necessário toocreate um local de recursos do ambiente variável tooreference Olá armazenamento local. Olá, em seguida, a tarefa de inicialização e aplicativo hello são tooread capaz de gravar o recurso de armazenamento local de toohello de arquivos.
 
-As seções relevantes do arquivo **ServiceDefinition.csdef** são mostradas aqui:
+Olá seções relevantes do hello **servicedefinition. Csdef** arquivo são mostradas aqui:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -277,22 +277,22 @@ As seções relevantes do arquivo **ServiceDefinition.csdef** são mostradas aqu
 </ServiceDefinition>
 ```
 
-Como um exemplo, esse arquivo em lotes **Startup.cmd** usa a variável de ambiente **PathToStartupStorage** para criar o arquivo **MyTest.txt** no armazenamento local.
+Por exemplo, isso **Startup.cmd** arquivo em lotes usa Olá **PathToStartupStorage** arquivo hello do ambiente variável toocreate **MyTest.txt** no armazenamento local de saudação local.
 
 ```cmd
 REM   Create a simple text file.
 
-ECHO This text will go into the MyTest.txt file which will be in the    >  "%PathToStartupStorage%\MyTest.txt"
-ECHO path pointed to by the PathToStartupStorage environment variable.  >> "%PathToStartupStorage%\MyTest.txt"
-ECHO The contents of the PathToStartupStorage environment variable is   >> "%PathToStartupStorage%\MyTest.txt"
+ECHO This text will go into hello MyTest.txt file which will be in hello    >  "%PathToStartupStorage%\MyTest.txt"
+ECHO path pointed tooby hello PathToStartupStorage environment variable.  >> "%PathToStartupStorage%\MyTest.txt"
+ECHO hello contents of hello PathToStartupStorage environment variable is   >> "%PathToStartupStorage%\MyTest.txt"
 ECHO "%PathToStartupStorage%".                                          >> "%PathToStartupStorage%\MyTest.txt"
 
-REM   Exit the batch file with ERRORLEVEL 0.
+REM   Exit hello batch file with ERRORLEVEL 0.
 
 EXIT /b 0
 ```
 
-Você pode acessar a pasta de armazenamento local do SDK do Azure usando o método [GetLocalResource](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx).
+Você pode acessar a pasta de armazenamento local de saudação do SDK do Azure usando Olá [GetLocalResource](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) método.
 
 ```csharp
 string localStoragePath = Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource("StartupLocalStorage").RootPath;
@@ -300,12 +300,12 @@ string localStoragePath = Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.
 string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStoragePath, "MyTestFile.txt"));
 ```
 
-## <a name="run-in-the-emulator-or-cloud"></a>Executar no emulador ou na nuvem
-Você pode fazer com que sua tarefa de inicialização execute etapas diferentes quando estiver funcionando na nuvem em comparação a quando estiver no emulador de computação. Por exemplo, convém usar uma cópia atualizada dos dados SQL somente durante a execução no emulador. Ou você talvez queira fazer alguma otimização de desempenho para a nuvem que não seja necessária na execução no emulador.
+## <a name="run-in-hello-emulator-or-cloud"></a>Executar no emulador de saudação ou nuvem
+Você pode ter sua tarefa de inicialização executar etapas diferentes ao operar em Olá nuvem quando comparada toowhen é no emulador de computação hello. Por exemplo, convém toouse uma cópia atualizada dos dados do SQL somente quando em execução no emulador de saudação. Ou talvez você queira toodo algumas otimizações de desempenho para a nuvem de saudação que você não precisa toodo quando em execução no emulador de saudação.
 
-Essa capacidade de executar ações diferentes no emulador de computação e na nuvem pode ser obtida criando uma variável de ambiente no arquivo [Servicedefinition]. Você testa então essa variável de ambiente para um valor em sua tarefa de inicialização.
+Este tooperform capacidade diferente ações em Olá emulador de computação e Olá nuvem pode ser realizada por meio da criação de uma variável de ambiente no hello [servicedefinition. Csdef] arquivo. Você testa então essa variável de ambiente para um valor em sua tarefa de inicialização.
 
-Para criar a variável de ambiente, adicione o elemento [Variable]/[RoleInstanceValue] e crie um valor XPath de `/RoleEnvironment/Deployment/@emulated`. O valor da variável de ambiente **%ComputeEmulatorRunning%** é `true` na execução no emulador de computação e `false` na execução na nuvem.
+variável de ambiente toocreate Olá adicionar Olá [variável]/[RoleInstanceValue] elemento e crie um valor de XPath do `/RoleEnvironment/Deployment/@emulated`. Olá valor Olá **ComputeEmulatorRunning %** variável de ambiente é `true` quando em execução no emulador de computação Olá, e `false` quando em execução na nuvem hello.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -327,23 +327,23 @@ Para criar a variável de ambiente, adicione o elemento [Variable]/[RoleInstance
 </ServiceDefinition>
 ```
 
-Agora a tarefa pode verificar a variável de ambiente **%ComputeEmulatorRunning%** para executar ações diferentes com base na função estar em execução na nuvem ou no emulador. A seguir, um script de shell .cmd que verifica essa variável de ambiente.
+tarefa Olá agora pode verificar Olá **ComputeEmulatorRunning %** ações diferentes de tooperform variável de ambiente com base em se a função hello está sendo executado no hello nuvem ou Olá emulador. A seguir, um script de shell .cmd que verifica essa variável de ambiente.
 
 ```cmd
-REM   Check if this task is running on the compute emulator.
+REM   Check if this task is running on hello compute emulator.
 
 IF "%ComputeEmulatorRunning%" == "true" (
-    REM   This task is running on the compute emulator. Perform tasks that must be run only in the compute emulator.
+    REM   This task is running on hello compute emulator. Perform tasks that must be run only in hello compute emulator.
 ) ELSE (
-    REM   This task is running on the cloud. Perform tasks that must be run only in the cloud.
+    REM   This task is running on hello cloud. Perform tasks that must be run only in hello cloud.
 )
 ```
 
 
 ## <a name="detect-that-your-task-has-already-run"></a>Detectar se a tarefa já foi executada
-A função pode ser reciclada sem uma reinicialização, fazendo com que suas tarefas de inicialização sejam executadas novamente. Não há um sinalizador para indicar se uma tarefa já foi executada na VM de host. Talvez você tenha algumas tarefas onde não importará se elas forem executadas várias vezes. No entanto, você poderá encontrar uma situação em que precisará impedir que uma tarefa seja executada mais de uma vez.
+função Hello pode reciclar sem uma reinicialização, causando o toorun de tarefas de inicialização novamente. Não há nenhum tooindicate de sinalizador que uma tarefa já executada em Olá hospeda a VM. Talvez você tenha algumas tarefas onde não importará se elas forem executadas várias vezes. No entanto, você pode executar em uma situação em que você precisa tooprevent uma tarefa de execução mais de uma vez.
 
-A maneira mais simples de detectar se uma tarefa já foi executada é criar um arquivo na pasta **%TEMP%** quando a tarefa for bem-sucedida e procurá-lo no início da tarefa. A seguir, um script de shell cmd de exemplo que faz isso para você.
+toodetect forma mais simples Olá que uma tarefa já foi executado é toocreate um arquivo em Olá **% TEMP %** pasta quando a tarefa de saudação é bem-sucedida e examinar para ele Olá iniciam tarefa hello. A seguir, um script de shell cmd de exemplo que faz isso para você.
 
 ```cmd
 REM   If Task1_Success.txt exists, then Application 1 is already installed.
@@ -357,13 +357,13 @@ ECHO Running XYZ >> "%TEMP%\StartupLog.txt" 2>&1
 "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 
 IF %ERRORLEVEL% EQU 0 (
-  REM   The application installed without error. Create a file to indicate that the task
-  REM   does not need to be run again.
+  REM   hello application installed without error. Create a file tooindicate that hello task
+  REM   does not need toobe run again.
 
-  ECHO This line will create a file to indicate that Application 1 installed correctly. > "%RoleRoot%\Task1_Success.txt"
+  ECHO This line will create a file tooindicate that Application 1 installed correctly. > "%RoleRoot%\Task1_Success.txt"
 
 ) ELSE (
-  REM   An error occurred. Log the error and exit with the error code.
+  REM   An error occurred. Log hello error and exit with hello error code.
 
   DATE /T >> "%TEMP%\StartupLog.txt" 2>&1
   TIME /T >> "%TEMP%\StartupLog.txt" 2>&1
@@ -382,15 +382,15 @@ EXIT /B 0
 A seguir, algumas práticas recomendadas que você deve seguir ao configurar a tarefa para sua função Web ou de trabalho.
 
 ### <a name="always-log-startup-activities"></a>Sempre registrar em log as atividades de inicialização
-O Visual Studio não fornece um depurador para percorrer arquivos em lotes e, portanto, será bom ter tantos dados sobre a operação de arquivos em lotes quanto possível. O registro em log da saída de arquivos em lotes, **stdout** e **stderr**, pode fornecer informações importantes ao tentar depurar e corrigir arquivos em lotes. Para registrar em log **stdout** e **stderr** para o arquivo StartupLog.txt no diretório apontado pela variável de ambiente **%TEMP%**, adicione o texto `>>  "%TEMP%\\StartupLog.txt" 2>&1` ao final de linhas específicas que deseja registrar em log. Por exemplo, para executar setup.exe no diretório **%PathToApp1Install%** :
+Visual Studio não fornece toostep um depurador por meio de arquivos em lotes, portanto é bom tooget todos os dados na operação de saudação dos arquivos em lotes possível. Log de saída de hello dos arquivos em lotes, ambos **stdout** e **stderr**, pode fornecer informações importantes durante a tentativa de toodebug e corrigir arquivos em lotes. toolog ambas as **stdout** e **stderr** toohello um arquivo StartupLog.txt no Olá Olá de tooby apontada diretório **% TEMP %** variável de ambiente, adicione o texto de saudação `>>  "%TEMP%\\StartupLog.txt" 2>&1`toohello final de específicos linhas que você deseja toolog. Por exemplo, tooexecute setup.exe em Olá **% PathToApp1Install %** diretório:
 
     "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 
-Para simplificar o xml, você pode criar um arquivo wrapper *cmd* que chama todas as tarefas de inicialização, juntamente com o registro em log, e garante que cada tarefa filho compartilhe as mesmas variáveis de ambiente.
+toosimplify o xml, você pode criar um wrapper *cmd* arquivo que chama todos sua inicialização tarefas juntamente com o registro em log e garante Olá de compartilhamentos cada tarefa filho mesmas variáveis de ambiente.
 
-Porém, talvez você ache incômodo usar `>> "%TEMP%\StartupLog.txt" 2>&1` ao fim de cada tarefa de inicialização. Você pode impor o log de tarefas criando um invólucro que manipula o registro em log para você. Este wrapper chama o arquivo de lote real que você deseja executar. Nenhuma saída do arquivo de lote de destino será redirecionada para o arquivo *startuplog*.
+Você pode descobrir que embora irritantes toouse `>> "%TEMP%\StartupLog.txt" 2>&1` no final de saudação de cada tarefa de inicialização. Você pode impor o log de tarefas criando um invólucro que manipula o registro em log para você. Esse wrapper chama o arquivo de lote real Olá desejado toorun. Nenhuma saída do arquivo de lote de destino Olá será redirecionado toohello *Startuplog.txt* arquivo.
 
-O exemplo a seguir mostra como redirecionar todas as saídas de um arquivo em lotes de inicialização. Neste exemplo, o arquivo ServerDefinition.csdef cria uma tarefa de inicialização que chama *logwrap.cmd*. *logwrap.cmd* chama *Startup2.cmd*, redirecionando toda a saída para **%TEMP%\\StartupLog.txt**.
+saudação de exemplo a seguir mostra como tooredirect todas as saídas de um arquivo em lotes de inicialização. Neste exemplo, o arquivo de Serverdefinition Olá cria uma tarefa de inicialização que chama *logwrap.cmd*. *logwrap.cmd* chamadas *Startup2.cmd*, redirecionando a saída de todos os demais**% TEMP %\\StartupLog.txt**.
 
 ServiceDefinition.cmd:
 
@@ -405,15 +405,15 @@ ServiceDefinition.cmd:
 ```cmd
 @ECHO OFF
 
-REM   logwrap.cmd calls passed in batch file, redirecting all output to the StartupLog.txt log file.
+REM   logwrap.cmd calls passed in batch file, redirecting all output toohello StartupLog.txt log file.
 
 ECHO [%date% %time%] == START logwrap.cmd ============================================== >> "%TEMP%\StartupLog.txt" 2>&1
 ECHO [%date% %time%] Running %1 >> "%TEMP%\StartupLog.txt" 2>&1
 
-REM   Call the child command batch file, redirecting all output to the StartupLog.txt log file.
+REM   Call hello child command batch file, redirecting all output toohello StartupLog.txt log file.
 START /B /WAIT %1 >> "%TEMP%\StartupLog.txt" 2>&1
 
-REM   Log the completion of child command.
+REM   Log hello completion of child command.
 ECHO [%date% %time%] Done >> "%TEMP%\StartupLog.txt" 2>&1
 
 IF %ERRORLEVEL% EQU 0 (
@@ -425,8 +425,8 @@ IF %ERRORLEVEL% EQU 0 (
 
 ) ELSE (
 
-   REM   Log the error.
-   ECHO [%date% %time%] An error occurred. The ERRORLEVEL = %ERRORLEVEL%.  >> "%TEMP%\StartupLog.txt" 2>&1
+   REM   Log hello error.
+   ECHO [%date% %time%] An error occurred. hello ERRORLEVEL = %ERRORLEVEL%.  >> "%TEMP%\StartupLog.txt" 2>&1
    ECHO [%date% %time%] == END logwrap.cmd ================================================ >> "%TEMP%\StartupLog.txt" 2>&1
    ECHO.  >> "%TEMP%\StartupLog.txt" 2>&1
    EXIT /B %ERRORLEVEL%
@@ -439,11 +439,11 @@ IF %ERRORLEVEL% EQU 0 (
 ```cmd
 @ECHO OFF
 
-REM   This is the batch file where the startup steps should be performed. Because of the
+REM   This is hello batch file where hello startup steps should be performed. Because of the
 REM   way Startup2.cmd was called, all commands and their outputs will be stored in the
-REM   StartupLog.txt file in the directory pointed to by the TEMP environment variable.
+REM   StartupLog.txt file in hello directory pointed tooby hello TEMP environment variable.
 
-REM   If an error occurs, the following command will pass the ERRORLEVEL back to the
+REM   If an error occurs, hello following command will pass hello ERRORLEVEL back toothe
 REM   calling batch file.
 
 ECHO [%date% %time%] Some log information about this task
@@ -452,7 +452,7 @@ ECHO [%date% %time%] Some more log information about this task
 EXIT %ERRORLEVEL%
 ```
 
-Exemplo de saída no arquivo **Startuplog**:
+Exemplo de saída em Olá **StartupLog.txt** arquivo:
 
 ```txt
 [Mon 10/17/2016 20:24:46.75] == START logwrap.cmd ============================================== 
@@ -464,53 +464,53 @@ Exemplo de saída no arquivo **Startuplog**:
 ```
 
 > [!TIP]
-> O arquivo **Startuplog** está localizado na pasta *C:\Resources\temp\\{role identifier}\RoleTemp*.
+> Olá **StartupLog.txt** arquivo está localizado em Olá *C:\Resources\temp\\\RoleTemp {identificador de função}* pasta.
 > 
 > 
 
 ### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>Definir executionContext adequadamente para tarefas de inicialização
-Definir privilégios adequadamente para a tarefa de inicialização. Às vezes, as tarefas de inicialização devem ser executadas com privilégios elevados, mesmo que a função seja executada com privilégios normais.
+Definir privilégios corretamente para a tarefa de inicialização de saudação. Às vezes, as tarefas de inicialização devem executar com privilégios elevados, mesmo que a função hello é executado com privilégios normais.
 
-A ferramenta de linha de comando [executionContext][Task] define o nível de privilégio da tarefa de inicialização. A utilização de `executionContext="limited"` significa que a tarefa de inicialização tem o mesmo nível de privilégio que a função. A utilização de `executionContext="elevated"` significa que a tarefa de inicialização tem privilégios de administrador, o que permite que a tarefa de inicialização execute tarefas de administrador sem conceder privilégios de administrador à sua função.
+Olá [executionContext][tarefa] atributo define o nível de privilégio de saudação da tarefa de inicialização de saudação. Usando `executionContext="limited"` significa tem de tarefa de inicialização Olá Olá mesmo nível de privilégio como função hello. Usando `executionContext="elevated"` significa a tarefa de inicialização Olá tem privilégios de administrador, que permite inicialização Olá tarefa tooperform tarefas de administrador sem conceder função tooyour de privilégios de administrador.
 
-Um exemplo de uma tarefa de inicialização que exija privilégios elevados é uma tarefa de inicialização que usa **AppCmd.exe** para configurar o IIS. **AppCmd.exe** requer `executionContext="elevated"`.
+Um exemplo de uma tarefa de inicialização que exige privilégios elevados é uma tarefa de inicialização que usa **AppCmd.exe** tooconfigure IIS. **AppCmd.exe** requer `executionContext="elevated"`.
 
-### <a name="use-the-appropriate-tasktype"></a>Usar o taskType adequado
-A ferramenta de linha de comando [taskType][Task] determina a maneira como a tarefa de inicialização é executada. Há três valores: **simples**, **segundo plano** e **primeiro plano**. As tarefas em primeiro e segundo plano são iniciadas de forma assíncrona e as tarefas simples são executadas de forma síncrona, uma de cada vez.
+### <a name="use-hello-appropriate-tasktype"></a>Use o taskType apropriado Olá
+Olá [taskType][tarefa] atributo determina a tarefa de inicialização de Olá Olá maneira é executada. Há três valores: **simples**, **segundo plano** e **primeiro plano**. Olá tarefas primeiro e segundo plano são iniciadas assincronamente, e, em seguida, tarefas simples Olá são executadas de forma síncrona um de cada vez.
 
-Com as tarefas de inicialização **simples**, você pode definir a ordem na qual as tarefas são executadas pela ordem na qual as tarefas são listadas no arquivo ServiceDefinition.csdef. Se uma tarefa **simples** terminar com um código de saída diferente de zero, o procedimento de inicialização será interrompido e a função não será iniciada.
+Com **simples** tarefas de inicialização, em que você pode definir a ordem hello, no qual executar tarefas de saudação pela ordem Olá no qual Olá tarefas estão listadas no arquivo servicedefinition. Csdef de saudação. Se um **simples** tarefa termina com diferente de zero código de saída, em seguida, Olá paradas do procedimento de inicialização e função hello não iniciar.
 
-A diferença entre as tarefas de inicialização em **segundo plano** e em **primeiro plano** é que as tarefas de inicialização em **primeiro plano** mantêm a função em execução até a tarefa em **primeiro plano** ser encerrada. Isso também significa que, se a tarefa em **primeiro plano** congelar ou falhar, a função não será reciclada até a tarefa em **primeiro plano** ser forçada a fechar. Por esse motivo, as tarefas em **segundo plano** são recomendadas para tarefas de inicialização assíncronas, a menos que você precise desse recurso da tarefa em **primeiro plano**.
+Olá diferença entre **em segundo plano** tarefas de inicialização e **primeiro plano** é que as tarefas de inicialização **primeiro plano** tarefas manter a execução da função de Olá até Olá  **primeiro plano** terminar. Isso também significa que se hello **primeiro plano** tarefa congelar ou falhas, a função hello não será reciclada até Olá **primeiro plano** tarefa é forçada fechado. Por esse motivo, **em segundo plano** tarefas são recomendadas para tarefas de inicialização assíncronas, a menos que você precise do recurso de saudação **primeiro plano** tarefa.
 
 ### <a name="end-batch-files-with-exit-b-0"></a>Encerrar arquivos em lotes com EXIT /B 0
-A função só será iniciada se o **errorlevel** de cada uma de suas tarefas de inicialização simples for zero. Nem todos os programas definem o **errorlevel** (código de saída) corretamente e, portanto, o arquivo em lotes deverá terminar com um `EXIT /B 0` se tudo tiver sido executado corretamente.
+Olá função começará somente se hello **errorlevel** de cada um dos seu inicialização simple tarefa é zero. Nem todos os programas definem Olá **errorlevel** (código de saída) corretamente, portanto o arquivo de lote Olá deve terminar com um `EXIT /B 0` se tudo foi executado corretamente.
 
-Um `EXIT /B 0` ausente no final de um arquivo em lotes de inicialização é uma causa comum de funções que não são iniciadas.
+A ausência de um `EXIT /B 0` em Olá final de um arquivo em lotes de inicialização é uma causa comum de funções que não são iniciados.
 
 > [!NOTE]
-> Observei que arquivos em lotes aninhados às vezes travarm ao usar o parâmetro `/B`. Convém verificar se esse problema de suspensão não acontece se outro arquivo em lotes chama o arquivo em lotes atual, como quando você usa o [wrapper de log](#always-log-startup-activities). Você pode omitir o parâmetro `/B` nesse caso.
+> Eu já ter notado que lote aninhado arquivos de suspensão, às vezes, ao usar o hello `/B` parâmetro. Talvez você queira toomake-se de que esse problema de suspensão não ocorre se o outro arquivo em lotes chama o arquivo em lotes atual, como se você usar o hello [wrapper de log](#always-log-startup-activities). Você pode omitir Olá `/B` parâmetro nesse caso.
 > 
 > 
 
-### <a name="expect-startup-tasks-to-run-more-than-once"></a>Esperar que tarefas de inicialização sejam executadas mais de uma vez
-Nem todas as reciclagens de função incluem uma reinicialização, mas todas as reciclagens incluem a execução de todas as tarefas de inicialização. Isso significa que deve ser possível executar as tarefas de inicialização várias vezes entre as reinicializações sem problemas. Isso é discutido na [seção anterior](#detect-that-your-task-has-already-run).
+### <a name="expect-startup-tasks-toorun-more-than-once"></a>Esperar toorun de tarefas de inicialização mais de uma vez
+Nem todas as reciclagens de função incluem uma reinicialização, mas todas as reciclagens incluem a execução de todas as tarefas de inicialização. Isso significa que as tarefas de inicialização devem ser capaz de toorun várias vezes entre reinicializações sem problemas. Isso é discutido em Olá [anterior seção](#detect-that-your-task-has-already-run).
 
-### <a name="use-local-storage-to-store-files-that-must-be-accessed-in-the-role"></a>Usar o armazenamento local para armazenar arquivos que devem ser acessados na função
-Se você quiser copiar ou criar um arquivo enquanto sua tarefa de inicialização estiver acessível para sua função, esse arquivo deverá ser colocado no armazenamento local. Confira a [seção anterior](#create-files-in-local-storage-from-a-startup-task).
+### <a name="use-local-storage-toostore-files-that-must-be-accessed-in-hello-role"></a>Usar arquivos de toostore de armazenamento local que devem ser acessados na função hello
+Se você deseja toocopy ou cria um arquivo durante sua tarefa de inicialização que é acessível tooyour função, esse arquivo deve ser colocado no armazenamento local. Consulte Olá [anterior seção](#create-files-in-local-storage-from-a-startup-task).
 
 ## <a name="next-steps"></a>Próximas etapas
-Examine o [modelo de serviço e o pacote da nuvem](cloud-services-model-and-package.md)
+Examine a nuvem Olá [modelo e o pacote de serviço](cloud-services-model-and-package.md)
 
 Saiba mais sobre o funcionamento de [Tarefas](cloud-services-startup-tasks.md) .
 
 [Crie e implante](cloud-services-how-to-create-deploy-portal.md) seu pacote de serviço de nuvem.
 
-[Servicedefinition]: cloud-services-model-and-package.md#csdef
-[Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
+[servicedefinition. Csdef]: cloud-services-model-and-package.md#csdef
+[tarefa]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
-[Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[ambiente]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
+[variável]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 [EndPoints]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints

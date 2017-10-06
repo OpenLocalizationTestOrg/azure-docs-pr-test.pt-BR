@@ -1,6 +1,6 @@
 ---
-title: "Gerenciar um aplicativo Web no Serviço de Aplicativo do Azure"
-description: "Links para recursos para gerenciar um aplicativo Web no Serviço de Aplicativo do Azure."
+title: "aaaManage um aplicativo web no serviço de aplicativo do Azure"
+description: "Links tooresources para gerenciar um aplicativo web no serviço de aplicativo do Azure."
 services: app-service\web
 documentationcenter: 
 author: erikre
@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: rachelap
-ms.openlocfilehash: 9e19618a1b24bbdf3163ddfc3423c5c932dcd7af
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: daf69245e66068b0e97e3ae1c3fb5fce45605b91
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-a-web-app-in-azure-app-service"></a>Gerenciar um aplicativo Web no Serviço de Aplicativo do Azure
-Este tópico contém links para recursos para gerenciar um aplicativo Web no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). O gerenciamento inclui todas as tarefas que mantém seu aplicativo Web em execução perfeitamente. 
+Este tópico contém links tooresources para gerenciar um aplicativo web no [do serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). O gerenciamento inclui todas as tarefas de saudação que manter seu aplicativo web funcionando sem problemas. 
 
-Durante o ciclo de vida de um aplicativo Web, você realizará diferentes tarefas de gerenciamento, a medida em que você move da implantação inicial à operação normal, manutenção e atualizações.
+Em tempo de vida de saudação de um aplicativo web, você executará diversas tarefas de gerenciamento, quando você vai de atualizações, manutenção e operação de toonormal implantação inicial.
 
-Muitas tarefas de gerenciamento de aplicativo Web podem ser realizadas no Portal do Azure.
+Muitas tarefas de gerenciamento de aplicativo da web podem ser executadas em Olá Portal do Azure.
 
-## <a name="before-you-deploy-your-web-app-to-production"></a>Antes de implantar seu aplicativo Web para produção
+## <a name="before-you-deploy-your-web-app-tooproduction"></a>Antes de implantar seu tooproduction de aplicativo web
 ### <a name="choose-a-tier"></a>Escolha uma faixa
-O Serviço de Aplicativo do Azure é oferecido em cinco níveis: Gratuito, Compartilhado, Básico, Padrão e Premium. Para obter informações sobre os recursos e preços para cada faixa, consulte [Detalhes dos preços](https://azure.microsoft.com/pricing/details/app-service/). 
+O Serviço de Aplicativo do Azure é oferecido em cinco níveis: Gratuito, Compartilhado, Básico, Padrão e Premium. Para obter informações sobre os recursos de saudação e preços para cada camada, consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/app-service/). 
 
-* [planos de Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) lhe permitem agrupar vários aplicativos Web na mesma camada.
+* [Planos de serviço de aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) permitem agrupar vários aplicativos web em Olá mesma camada.
 * Você sempre pode [alternar as camadas](web-sites-scale.md) após criar seu aplicativo Web.
 
 ### <a name="configuration"></a>Configuração
-Use o [Portal do Azure](https://portal.azure.com/) para definir várias opções de configuração. Para obter detalhes, consulte [Configurar aplicativos Web no Serviço de Aplicativo do Azure](web-sites-configure.md). Aqui está uma lista de verificação rápida:
+Saudação de uso [Portal do Azure](https://portal.azure.com/) tooset várias opções de configuração. Para obter detalhes, consulte [Configurar aplicativos Web no Serviço de Aplicativo do Azure](web-sites-configure.md). Aqui está uma lista de verificação rápida:
 
 * Selecione **versões de tempo de execução** para .NET, PHP, Java ou Python, se necessário.
-* Habilite **WebSockets** se seu aplicativo Web usa o protocolo WebSocket. (Isto inclui aplicativos que usam o [ASP.NET SignalR](http://www.asp.net/signalr) ou [socket.io](web-sites-nodejs-chat-app-socketio.md).)
+* Habilitar **WebSockets** se seu aplicativo web usa o protocolo WebSocket de saudação. (Isto inclui aplicativos que usam o [ASP.NET SignalR](http://www.asp.net/signalr) ou [socket.io](web-sites-nodejs-chat-app-socketio.md).)
 * Você está executando trabalhos web contínuos? Se estiver, habilite **Sempre ativo**.
-* Defina o **documento padrão**, como index.html.
+* Saudação de conjunto **documento padrão**, como index. HTML.
 
-Além desta definições de configurações básicas, talvez você queira configurar o seguinte:
+Adição toothese configurações básicas, convém a seguir Olá tooconfigure:
 
-* **Secure Socket Layer (SSL)** . Para usar a SSL com um nome de domínio personalizado, você deve solicitar um certificado SSL e configurar seu aplicativo Web para usá-lo. Consulte [Habilitar HTTPS para um aplicativo Web no Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-ssl.md).
+* **Secure Socket Layer (SSL)** . toouse SSL com um nome de domínio personalizado, você deve obter um SSL de certificados e configurar seu toouse de aplicativo web-lo. Consulte [Habilitar HTTPS para um aplicativo Web no Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-ssl.md).
 * **Nome de domínio personalizado.** Seu aplicativo Web tem automaticamente um subdomínio em azurewebsites.net. Você pode associar um nome de domínio personalizado, por exemplo, contoso.com. Consulte [Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-domain.md).
 
 Configuração específica de idioma:
@@ -53,20 +53,20 @@ Configuração específica de idioma:
 * **Python**: [configurando o Python com Aplicativos Web do Serviço de Aplicativo do Azure](web-sites-python-configure.md)
 
 ## <a name="while-your-web-app-is-running"></a>Enquanto seu aplicativo Web está em execução
-Enquanto seu aplicativo Web estiver em execução, verifique se ele está disponível e dimensionado para atender o tráfego do usuário. Você talvez precise solucionar erros.
+Enquanto seu aplicativo web é executado, você deseja toomake se ele está disponível e que ele é dimensionado toomeet tráfego do usuário. Talvez também seja necessário tootroubleshoot erros.
 
 ### <a name="monitoring"></a>Monitoramento
-* Usando o Portal do Azure, você pode [Adicionar métricas de desempenho](web-sites-monitor.md) como uso de CPU e o número de solicitações do cliente.
-* [Dimensione seu aplicativo Web](web-sites-scale.md) em resposta ao tráfego. Dependendo da sua faixa, você pode reduzir o número de VMs e/ou o tamanho das instâncias da VM. Nas camadas Padrão e Premium, você também pode configurar o dimensionamento automático, para que seu aplicativo Web seja dimensionado automaticamente, em uma agenda fixa ou em resposta à carga.  
+* Por meio de Olá Portal do Azure, você pode [adicionar métricas de desempenho](web-sites-monitor.md) como uso de CPU e o número de solicitações de cliente.
+* [Dimensionar seu aplicativo web](web-sites-scale.md) em tootraffic de resposta. Dependendo de sua camada, você pode dimensionar o número de saudação de máquinas virtuais e/ou tamanho Olá Olá de instâncias de VM. Saudação padrão e as camadas Premium, você também pode configurar dimensionamento automático, para que seu aplicativo web é dimensionado automaticamente, em uma cronograma fixo ou em tooload de resposta.  
 
 ### <a name="backups"></a>Backups
 * Defina [backups automáticos](web-sites-backup.md) de seu aplicativo Web. Saiba mais sobre backups [neste vídeo](https://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
-* Saiba sobre as opções para a [recuperação de banco de dados](../sql-database/sql-database-business-continuity.md) no Banco de dados SQL do Azure.
+* Saiba mais sobre opções de saudação para [recuperação de banco de dados](../sql-database/sql-database-business-continuity.md) no banco de dados do SQL Azure.
 
 ### <a name="troubleshooting"></a>Solucionar problemas
-* Se algo der errado, você pode [solucionar no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug), usando os logs de diagnóstico e depuração ao vivo na nuvem. 
-* Fora do Visual Studio, há várias maneiras de coletar os logs de diagnóstico. Consulte [Habilitar o registro de log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](web-sites-enable-diagnostic-log.md).
-* Para aplicativos Node.js, consulte [Como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure](web-sites-nodejs-debug.md).
+* Se algo der errado, você pode [solucionar problemas no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug), usando logs de diagnóstico e de depuração na nuvem Olá dinâmica. 
+* Fora do Visual Studio, existem vários logs de diagnóstico toocollect maneiras. Consulte [Habilitar o registro de log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](web-sites-enable-diagnostic-log.md).
+* Para aplicativos do Node.js, consulte [como toodebug um Node. js web app no serviço de aplicativo do Azure](web-sites-nodejs-debug.md).
 
 ### <a name="restoring-data"></a>Restaurando dados
 * [Restaure](web-sites-restore.md) um aplicativo Web no qual foi realizado o backup anteriormente.
@@ -74,12 +74,12 @@ Enquanto seu aplicativo Web estiver em execução, verifique se ele está dispon
 ## <a name="when-you-update-your-web-app"></a>Ao atualizar seu aplicativo Web
 Se você não habilitou os backups automáticos, você pode criar um [backup manual](web-sites-backup.md).
 
-Considere o uso de uma [implantação em estágios](web-sites-staged-publishing.md). Esta opção permite que você publique atualizações para uma implantação em estágios que executam lado a lado com a sua implantação de produção. 
+Considere o uso de uma [implantação em estágios](web-sites-staged-publishing.md). Essa opção permite que você publique atualizações tooa preparação de implantação que executa lado a lado com a implantação de produção. 
 
 
 <!-- Anchors. -->
 
-[Before you deploy your site to production]: #before-you-deploy-your-site-to-production
+[Before you deploy your site tooproduction]: #before-you-deploy-your-site-to-production
 [While your website is running]: #while-your-website-is-running
 [When you update your website]: #when-you-update-your-website
 

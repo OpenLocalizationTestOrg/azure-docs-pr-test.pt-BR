@@ -1,6 +1,6 @@
 ---
-title: Monitorar o desempenho do aplicativo Web Java no Linux - Azure | Microsoft Docs
-description: Monitoramento estendido do desempenho de aplicativo do seu site Java com o plug-in CollectD para Application Insights.
+title: aaaMonitor o desempenho do aplicativo web Java no Linux - Azure | Microsoft Docs
+description: Estendido aplicativo monitoramento de desempenho do seu site de Java com hello CollectD plug-in do Application Insights.
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -13,39 +13,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: bwren
-ms.openlocfilehash: 4ea917b068e0242bfb88d7357eca032607a43a3f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f783e8607a83b2b43f67d3a2fc20f100aa2f75ec
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: métricas de desempenho do Linux no Application Insights
 
 
-Para explorar as métricas de desempenho do sistema Linux no [Application Insights](app-insights-overview.md), instale [collectd](http://collectd.org/) com seu plug-in do Application Insights. Essa solução de software livre reúne várias estatísticas de sistema e de rede.
+métricas de desempenho do sistema tooexplore Linux em [Application Insights](app-insights-overview.md), instalar [collectd](http://collectd.org/), junto com o plug-in Application Insights. Essa solução de software livre reúne várias estatísticas de sistema e de rede.
 
-Normalmente, você usará o collectd se já tiver [instrumentado seu serviço Web Java com o Application Insights][java]. Isso oferece a você mais dados para ajudá-lo a aprimorar o desempenho do aplicativo ou para diagnosticar problemas. 
+Normalmente, você usará o collectd se já tiver [instrumentado seu serviço Web Java com o Application Insights][java]. Isso lhe dá mais toohelp de dados você tooenhance desempenho do seu aplicativo ou diagnosticar problemas. 
 
 ![Exemplo de gráficos](./media/app-insights-java-collectd/sample.png)
 
 ## <a name="get-your-instrumentation-key"></a>Obter a chave de instrumentação
-No [Portal do Microsoft Azure](https://portal.azure.com), abra o recurso [Application Insights](app-insights-overview.md) onde você quer que os dados sejam exibidos. (Ou [crie um novo recurso](app-insights-create-new-resource.md).)
+Em Olá [portal do Microsoft Azure](https://portal.azure.com), abra Olá [Application Insights](app-insights-overview.md) recursos onde você deseja Olá tooappear de dados. (Ou [crie um novo recurso](app-insights-create-new-resource.md).)
 
-Faça uma cópia da chave de instrumentação que identifica o recurso.
+Faça uma cópia da chave de instrumentação hello, que identifica o recurso de saudação.
 
-![Procure tudo, abra seu recurso e, no menu suspenso Essentials, selecione e copie a Chave de Instrumentação](./media/app-insights-java-collectd/02-props.png)
+![Procurar tudo, abra o recurso e, em seguida, em Olá Essentials lista suspensa, selecione e copie Olá chave de instrumentação](./media/app-insights-java-collectd/02-props.png)
 
-## <a name="install-collectd-and-the-plug-in"></a>Instalar o plug-in e collectd
+## <a name="install-collectd-and-hello-plug-in"></a>Instalar collectd e hello plug-in
 Em seus computadores com o servidor Linux:
 
 1. Instale [collectd](http://collectd.org/) versão 5.4.0 ou posterior.
-2. Baixe o [plug-in do gravador collectd do Application Insights](https://aka.ms/aijavasdk). Observe o número de versão.
-3. Copie o plug-in JAR em `/usr/share/collectd/java`.
+2. Baixar Olá [plug-in do Application Insights collectd gravador](https://aka.ms/aijavasdk). Observe o número de versão de saudação.
+3. Copie o plug-in Olá JAR em `/usr/share/collectd/java`.
 4. Edite `/etc/collectd/collectd.conf`:
-   * Verifique se [o plug-in do Java](https://collectd.org/wiki/index.php/Plugin:Java) está habilitado.
-   * Atualize o JVMArg para java.class.path de modo a incluir o JAR a seguir. Atualize o número de versão para corresponder àquela que você baixou:
+   * Certifique-se de que [Olá Java plug-in](https://collectd.org/wiki/index.php/Plugin:Java) está habilitado.
+   * Atualize hello JVMArg para Olá java.class.path tooinclude Olá JAR a seguir. Atualize Olá versão número toomatch Olá que você baixou:
    * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
-   * Adicione esse trecho usando a chave de instrumentação do seu recurso:
+   * Adicione este trecho de código, usando Olá chave de instrumentação do recurso:
 
 ```XML
 
@@ -90,47 +90,47 @@ Veja o exemplo de parte de um arquivo de configuração:
 
 Configure outros [plug-ins collectd](https://collectd.org/wiki/index.php/Table_of_Plugins), que possam coletar vários dados de diferentes fontes.
 
-Reinicie o collectd, de acordo com seu [manual](https://collectd.org/wiki/index.php/First_steps).
+Reiniciar collectd de acordo com o tooits [manual](https://collectd.org/wiki/index.php/First_steps).
 
-## <a name="view-the-data-in-application-insights"></a>Exibir os dados no Application Insights
-No recurso Application Insights, abra o [Metrics Explorer e adicione gráficos][metrics], selecionando as métricas que deseja ver na categoria Personalizado.
+## <a name="view-hello-data-in-application-insights"></a>Exibir dados de saudação no Application Insights
+Em seu recurso Application Insights, abra [Metrics Explorer e adicione gráficos][metrics], selecionar métricas Olá deseja toosee de categoria personalizada de saudação.
 
 ![](./media/app-insights-java-collectd/result.png)
 
-Por padrão, as métricas são agregadas em todos os computadores host dos quais as métricas foram coletadas. Para exibir as métricas por host, na folha Detalhes do gráfico, ative Agrupamento e escolha Agrupar por CollectD-Host.
+Por padrão, as métricas de saudação são agregadas em todas as máquinas de host do qual métricas Olá foram coletadas. métricas de saudação tooview por host, na folha de detalhes do gráfico hello, ativar o agrupamento e escolha toogroup pelo Host CollectD.
 
-## <a name="to-exclude-upload-of-specific-statistics"></a>Excluir o carregamento de estatísticas específicas
-Por padrão, o plug-in do Application Insights envia todos os dados coletados por todos os plug-ins collect ‘read’ habilitados. 
+## <a name="tooexclude-upload-of-specific-statistics"></a>carregamento de tooexclude de estatísticas específicos
+Por padrão, o plug-in do Application Insights Olá envia todos os dados de saudação coletados por todos os collectd de saudação habilitada 'leitura' Plug-ins. 
 
-Para excluir dados de plug-ins ou fontes de dados específicos:
+tooexclude dados de fontes de dados ou plug-ins específicos:
 
-* Edite o arquivo de configuração. 
+* Edite o arquivo de configuração de saudação. 
 * Em `<Plugin ApplicationInsightsWriter>`, adicione linhas diretivas como esta:
 
 | Diretiva | Efeito |
 | --- | --- |
-| `Exclude disk` |Excluir todos os dados coletados pelo plug-in `disk` |
-| `Exclude disk:read,write` |Exclua as fontes denominadas `read` e `write` do plug-in `disk`. |
+| `Exclude disk` |Excluir todos os dados coletados pelo Olá `disk` plug-in |
+| `Exclude disk:read,write` |Excluir fontes de saudação denominados `read` e `write` de saudação `disk` plug-in. |
 
 Diretivas separadas por uma nova linha.
 
 ## <a name="problems"></a>Problemas?
-*Não vejo dados no portal*
+*Não vejo dados no portal de saudação*
 
-* Abra [Pesquisar][diagnostic] para ver se os eventos brutos aparecem. Às vezes, eles levam mais tempo para aparecer no Metrics Explorer.
-* Talvez você precise [definir exceções de firewall para dados de saída](app-insights-ip-addresses.md)
-* Habilite o rastreamento no plug-in do Application Insights. Adicione esta linha em `<Plugin ApplicationInsightsWriter>`:
+* Abra [pesquisa] [ diagnostic] toosee se eventos brutos Olá chegaram. Às vezes, eles têm mais tooappear no metrics explorer.
+* Talvez seja necessário muito[definir exceções de firewall para dados de saída](app-insights-ip-addresses.md)
+* Habilite o rastreamento no plug-in Application Insights de saudação. Adicione esta linha em `<Plugin ApplicationInsightsWriter>`:
   * `SDKLogger true`
-* Abra um terminal e inicie collectd no modo detalhado para ver todos os problemas que ele está reportando:
+* Abrir um terminal e iniciar collectd em modo detalhado, toosee quaisquer problemas que ele estiver se comunicando:
   * `sudo collectd -f`
 
 ## <a name="known-issue"></a>Problema conhecido
 
-O plug-in de Gravação do Application Insights é incompatível com determinados plugins de Leitura. Alguns plugins às vezes enviam "NaN" onde o plug-in do Application Insights espera um número de ponto flutuante.
+plug-in Olá de gravação de informações do aplicativo é incompatível com determinados plug-ins de leitura. Alguns plug-ins, às vezes, enviam "NaN", onde o plug-in do Application Insights Olá espera um número de ponto flutuante.
 
-Sintoma: o log coletado mostra erros que incluem "AI: ... SyntaxError: token N" inexperado.
+Sintoma: o log de collectd Olá mostra erros que incluem "AI:... SyntaxError: token N" inexperado.
 
-Solução alternativa: exclua dados coletados pelo problema de plugins de Gravação. 
+Solução alternativa: Exclua dados coletados pelo plug-ins de gravação de problema hello. 
 
 <!--Link references-->
 

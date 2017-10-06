@@ -1,6 +1,6 @@
 ---
-title: "Provisionar novos locatários em um aplicativo multilocatário que usa o Banco de Dados SQL do Azure | Microsoft Docs"
-description: "Saiba como provisionar e catalogar novos locatários no aplicativo SaaS Wingtip"
+title: "aaaProvision novos locatários em um aplicativo multilocatário que usa o banco de dados do SQL Azure | Microsoft Docs"
+description: "Saiba como tooprovision e catálogo novo locatários no hello aplicativo SaaS Wingtip"
 keywords: tutorial do banco de dados SQL
 services: sql-database
 documentationcenter: 
@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 8fa4c4f95386a92c8c818eef1a5b4de5a086fe07
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: eb26f523305650c2124e36707d187dfcdad06fcc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>Provisionar novos locatários e registrá-los no catálogo
+# <a name="provision-new-tenants-and-register-them-in-hello-catalog"></a>Provisionar novos locatários e registrá-los no catálogo de saudação
 
-Neste tutorial, você aprenderá sobre os padrões de provisionamento e catálogo de SaaS, e como eles são implementados no aplicativo SaaS Wingtip. Você vai criar e inicializar novos bancos de dados de locatário e os registrará no catálogo de locatários do aplicativo. O catálogo é um banco de dados que mantém o mapeamento entre os vários locatários do aplicativo SaaS e seus dados. O catálogo desempenha uma função importante no direcionamento das solicitações de aplicativo para o banco de dados correto.  
+Neste tutorial, você aprenderá sobre provisionar hello e padrões de SaaS do catálogo e como eles são implementados no hello aplicativo SaaS Wingtip. Criar e inicializar novos bancos de dados de locatário e registrá-los no catálogo de locatário do aplicativo hello. Catálogo de saudação é um banco de dados que mantém o mapeamento de saudação entre vários locatários do aplicativo de SaaS hello e seus dados. Catálogo de saudação desempenha um papel importante direcionando aplicativo solicitações toohello banco de dados correto.  
 
 Neste tutorial, você aprenderá como:
 
@@ -34,115 +34,115 @@ Neste tutorial, você aprenderá como:
 > * Provisionar um lote de locatários adicionais
 
 
-Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
+toocomplete neste tutorial, verifique Olá se os pré-requisitos a seguir são concluídas:
 
-* O aplicativo SaaS Wingtip é implantado. Para implantar em menos de cinco minutos, confira [Implantar e explorar o aplicativo de SaaS do Wingtip](sql-database-saas-tutorial.md)
+* Olá Wingtip SaaS aplicativo é implantado. toodeploy em menos de cinco minutos, consulte [implantar e explorar o aplicativo de SaaS Wingtip hello](sql-database-saas-tutorial.md)
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
-## <a name="introduction-to-the-saas-catalog-pattern"></a>Introdução ao padrão de catálogo de SaaS
+## <a name="introduction-toohello-saas-catalog-pattern"></a>Introdução toohello padrão do catálogo de SaaS
 
-Em um aplicativo de SaaS multilocatário com suporte de banco de dados, é importante saber o local em que estão armazenadas as informações de cada locatário. No padrão de catálogo de SaaS, um banco de dados de catálogo é usado para manter o mapeamento entre cada locatário e o local onde seus dados estão armazenados. O aplicativo SaaS Wingtip usa uma arquitetura de locatário único por banco de dados, mas o padrão básico de armazenamento do mapeamento de locatário para banco de dados em um catálogo aplica-se tanto ao uso de um banco de dados multilocatário quanto ao de locatário único.
+Em um aplicativo de SaaS do backup de banco de dados multilocatário, é importante tooknow armazenamento de informações para cada locatário. No padrão de catálogo de SaaS hello, um banco de dados do catálogo é usado toohold Olá mapeamento entre cada locatário e onde seus dados estão armazenados. Olá Wingtip SaaS aplicativo usa um único locatário por arquitetura de banco de dados, mas o padrão básico de saudação do armazenamento de mapeamento de locatário no banco de dados em um catálogo aplica se um banco de dados multilocatário ou único locatário é usado.
 
-Cada locatário recebe uma chave que o identifica no catálogo, e que é mapeada até o local do banco de dados apropriado. No aplicativo SaaS Wingtip, a chave é formada por um hash do nome do locatário. Isso permite que a parte do nome do locatário da URL do aplicativo seja usada para construir a chave. Outros esquemas de chave de locatário podem ser usados.  
+Cada locatário é atribuído a uma chave que identifica-los no catálogo de saudação e que é mapeado toohello local do banco de dados apropriado hello. No aplicativo de SaaS Wingtip hello, chave Olá é formado de um hash do nome do locatário hello. Isso permite que a parte de nome de locatário Olá de toobe de URL do aplicativo hello usado como chave de saudação tooconstruct. Outros esquemas de chave de locatário podem ser usados.  
 
-O catálogo permite que o nome ou local do banco de dados seja alterado com impacto mínimo sobre o aplicativo.  Em um modelo de banco de dados multilocatário, isso também acomoda a 'movimentação' de um locatário entre bancos de dados.  O catálogo também pode ser usado para indicar se um locatário ou banco de dados está offline para manutenção ou outras ações. Isso é explorado no [tutorial de restauração de locatário único](sql-database-saas-tutorial-restore-single-tenant.md).
+Catálogo de Olá permite que o nome de saudação ou local do hello toobe de banco de dados alterado com impacto mínimo sobre o aplicativo hello.  Em um modelo de banco de dados multilocatário, isso também acomoda a 'movimentação' de um locatário entre bancos de dados.  Catálogo de saudação também pode ser usado tooindicate se um locatário ou banco de dados fica offline para manutenção ou outras ações. Isso é explorado Olá [restauração do tutorial de locatário único](sql-database-saas-tutorial-restore-single-tenant.md).
 
-Além disso, o catálogo, que é, na verdade, um banco de dados de gerenciamento de um aplicativo SaaS, pode armazenar metadados adicionais de locatário ou de banco de dados, como a camada ou edição de um banco de dados, versão do esquema, plano de serviço ou SLAs oferecidos aos locatários, e outras informações que permitem o gerenciamento de aplicativos, atendimento ao cliente ou processos de devOps.  
+Além disso, o catálogo hello, que é na verdade um banco de dados de gerenciamento para um aplicativo SaaS, pode armazenar metadados adicionais de locatário ou o banco de dados, como Olá camada ou edição de um banco de dados, versão do esquema, o plano de serviço ou os SLAs oferecidos tootenants e outras informações que permite o gerenciamento de aplicativos, suporte ao cliente ou processos de devops.  
 
-Além do aplicativo SaaS, o catálogo pode habilitar as ferramentas de banco de dados.  No exemplo de SaaS Wingtip, o catálogo é usado para permitir consultas entre locatários, exploradas no [tutorial de análise ad hoc](sql-database-saas-tutorial-adhoc-analytics.md). O gerenciamento de trabalhos entre bancos de dados é explorado nos tutoriais [gerenciamento de esquema](sql-database-saas-tutorial-schema-management.md) e [análise de locatários](sql-database-saas-tutorial-tenant-analytics.md). 
+Além da saudação aplicativo SaaS, catálogo Olá pode habilitar as ferramentas de banco de dados.  No exemplo de SaaS Wingtip hello, catálogo Olá é consulta de entre locatários de tooenable usadas, explorada Olá [tutorial análise ad hoc](sql-database-saas-tutorial-adhoc-analytics.md). Gerenciamento de trabalhos de bancos de dados é explorado em Olá [gerenciamento esquema](sql-database-saas-tutorial-schema-management.md) e [locatário análise](sql-database-saas-tutorial-tenant-analytics.md) tutoriais. 
 
-No aplicativo SaaS Wingtip, o catálogo é implementado usando os recursos de Gerenciamento de Fragmentos na [EDCL (Biblioteca de Cliente do Banco de Dados Elástico)](sql-database-elastic-database-client-library.md). O EDCL permite que um aplicativo crie, gerencie e use um mapa de fragmentos com backup no banco de dados. Um mapa de fragmentos contém uma lista de fragmentos (bancos de dados) e o mapeamento entre chaves (locatários) e bancos de dados.  As funções de EDCL podem ser usadas em aplicativos ou scripts do PowerShell durante o provisionamento de locatários, a fim de criar as entradas no mapa de fragmentos, e em aplicativos para conexão eficiente ao banco de dados correto. O EDCL armazena informações de conexão em cache para minimizar o tráfego ao banco de dados de catálogo e acelerar o aplicativo.  
+No aplicativo de SaaS Wingtip hello, catálogo Olá é implementado usando recursos de gerenciamento de fragmento de saudação do hello [biblioteca de cliente de banco de dados Elástico (EDCL)](sql-database-elastic-database-client-library.md). Olá EDCL permite que um aplicativo toocreate, gerenciar e usar um mapa do fragmento baseado no banco de dados. Um mapa do fragmento contém uma lista de fragmentos (bancos de dados) e o mapeamento de saudação entre chaves (locatários) e bancos de dados.  Funções EDCL podem ser usadas em aplicativos ou scripts do PowerShell durante provisionamento entradas de saudação toocreate no mapa de fragmento de saudação do locatário e de aplicativos tooefficiently conecte toohello banco de dados correto. EDCL armazena em cache conexão informações toominimize Olá tráfego toohello catálogo banco de dados e acelerar o aplicativo hello.  
 
 > [!IMPORTANT]
-> Os dados de mapeamento estão acessíveis no banco de dados de catálogo, mas *não os edite*! Edite os dados de mapeamento somente com o uso de APIs da Biblioteca de Cliente do Banco de Dados Elástico. Manipular diretamente os dados de mapeamento gera o risco de corrupção do catálogo e não há suporte para isso.
+> dados de mapeamento de saudação estão acessíveis no banco de dados de catálogo hello, mas *não editá-lo*! Edite os dados de mapeamento somente com o uso de APIs da Biblioteca de Cliente do Banco de Dados Elástico. Dados de mapeamento de saudação riscos saudação à corrupção do catálogo e não há suporte para a manipulação direta.
 
 
-## <a name="introduction-to-the-saas-provisioning-pattern"></a>Introdução ao padrão de Provisionamento de SaaS
+## <a name="introduction-toohello-saas-provisioning-pattern"></a>Padrão de provisionamento de SaaS toohello de Introdução
 
-Ao integrar um novo locatário em um aplicativo SaaS que usa um modelo de banco de dados de locatário único, é necessário provisionar um novo banco de dados de locatário.  Ele deve ser criado no local e na camada de serviço apropriados, inicializado com o esquema e os dados de referência apropriados e, em seguida, registrado no catálogo sob a chave de locatário apropriada.  
+Ao integrar um novo locatário em um aplicativo SaaS que usa um modelo de banco de dados de locatário único, é necessário provisionar um novo banco de dados de locatário.  Ele deve ser criado no local apropriado do hello e camada de serviço, inicializado com dados de referência e o esquema apropriado e, em seguida registrados no catálogo de Olá sob a chave de locatário apropriado de saudação.  
 
-Abordagens diferentes podem ser usadas no provisionamento de banco de dados, o que pode incluir a execução de scripts SQL, a implantação de um bacpac ou a cópia de um banco de dados de modelo 'final'.  
+Abordagens diferentes podem ser usado toodatabase provisionamento, que pode incluir a execução de scripts SQL, implantando um bacpac ou copiando um banco de dados de modelo 'dourada'.  
 
-A abordagem de provisionamento usada deve ser compreendida em sua estratégia geral de gerenciamento de esquema, que deve garantir que novos bancos de dados sejam provisionados com o esquema mais recente.  Isso é explorado no [tutorial de gerenciamento de esquema](sql-database-saas-tutorial-schema-management.md).  
+Olá provisionamento abordagem usada deve ser compreendida em sua estratégia de gerenciamento geral do esquema, que deve garantir que os novos bancos de dados são provisionados com esquema mais recente hello.  Isso é explorado Olá [tutorial de gerenciamento de esquema](sql-database-saas-tutorial-schema-management.md).  
 
-Os aplicativo SaaS Wingtip provisiona novos locatários copiando um banco de dados final chamado basetenantdb, implantado no servidor de catálogo.  O provisionamento pode ser integrado ao aplicativo como parte de uma experiência de inscrição, e/ou com suporte offline por meio do uso de scripts. Este tutorial explorará o provisionamento usando o PowerShell. Os scripts de provisionamento copiam basetenantdb para criar um novo banco de dados de locatário em um pool elástico e, depois, o inicializam com informações específicas do locatário e o registram no mapa de fragmentos do catálogo.  No aplicativo de exemplo, os bancos de dados recebem nomes com base no nome do locatário, mas isso não é uma parte crítica do padrão, o uso do catálogo permite que qualquer nome seja atribuído ao banco de dados.+ 
+Olá Wingtip SaaS aplicativo provisionar novos locatários copiando um banco de dados dourado denominado basetenantdb, implantado no servidor de catálogo hello.  Provisionamento pode ser integrado a aplicativo hello como parte de um processo de inscrição, e/ou suporte offline usando scripts. Este tutorial explorará o provisionamento usando o PowerShell. scripts de provisionamento de saudação copiar Olá basetenantdb toocreate um novo banco de dados de locatário em um pool Elástico, em seguida, inicialização-lo com informações específicas do locatário e registrá-lo no mapa de fragmento de catálogo hello.  No aplicativo de exemplo hello, bancos de dados são fornecidos nomes com base no nome do locatário hello, mas isso não é uma parte crítica do padrão de hello – uso de saudação do catálogo de saudação permite que qualquer banco de dados do nome toobe atribuído toohello. + 
 
 
-## <a name="get-the-wingtip-application-scripts"></a>Obter os scripts do aplicativo Wingtip
+## <a name="get-hello-wingtip-application-scripts"></a>Obter scripts de aplicativo hello Wingtip
 
-Os scripts de SaaS do Wingtip e o código-fonte do aplicativo estão disponíveis no repositório GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Etapas para baixar os scripts do SaaS Wingtip](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
+Hello Wingtip SaaS scripts e código fonte do aplicativo estão disponíveis no hello [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) repositório github. [As etapas de scripts de SaaS Wingtip Olá toodownload](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>Passo a passo detalhado para provisionar e catalogar
 
-Para entender como o aplicativo Wingtip implementa o novo provisionamento de locatário, adicione um ponto de interrupção e percorra o fluxo de trabalho durante o provisionamento de um locatário:
+como toounderstand Olá Wingtip aplicativo implementa o novo locatário de provisionamento, adicione um ponto de interrupção e percorrer o fluxo de trabalho Olá durante o provisionamento de um locatário:
 
-1. Abra ...\\Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ e defina estes parâmetros:
-   * **$TenantName** = o nome do novo local do evento (por exemplo, *Bushwillow Blues*).
-   * **$VenueType** = um dos tipos predefinidos de local: *blues*, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer.
-   * **$DemoScenario** = **1**, defina como **1** para *Provisionar um único locatário*.
+1. Abrir... \\Módulos de aprendizado\\ProvisionAndCatalog\\_ProvisionAndCatalog.ps1 demonstração_ e saudação do conjunto de parâmetros a seguir:
+   * **$TenantName** = nome de saudação do local novo hello (por exemplo, *Bushwillow azuis*).
+   * **$VenueType** = um dos tipos de local predefinido Olá: *azuis*, classicalmusic, dança, jazz, judo, motorracing, com várias finalidades, opera, rockmusic, futebol.
+   * **$DemoScenario** = **1**, defina muito**1** muito*provisionar um único locatário*.
 
-1. Adicione um ponto de interrupção, colocando o cursor em qualquer local na linha 48, que diz: *New-Tenant `* e pressione **F9**.
+1. Adicionar um ponto de interrupção colocando o cursor em qualquer lugar na linha hello 48, linha que diz: *novo locatário '*e pressione **F9**.
 
    ![ponto de interrupção](media/sql-database-saas-tutorial-provision-and-catalog/breakpoint.png)
 
-1. Para executar o script, pressione **F5**.
+1. Pressione de script hello toorun **F5**.
 
-1. Depois que a execução do script for interrompida no ponto de interrupção, pressione **F11** para entrar no código.
+1. Após a execução do script hello for interrompida no ponto de interrupção hello, pressione **F11** toostep em código hello.
 
    ![ponto de interrupção](media/sql-database-saas-tutorial-provision-and-catalog/debug.png)
 
 
 
-Rastreie a execução do script usando as opções de menu **Depurar** – **F10** e **F11** para passar por cima ou intervir nas funções chamadas. Para saber mais sobre como depurar scripts do PowerShell, confira [Dicas sobre como trabalhar e depurar scripts do PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+Rastreamento de execução do script hello com hello **depurar** opções de menu - **F10** e **F11** toostep pela ou em Olá chamadas de funções. Para saber mais sobre como depurar scripts do PowerShell, confira [Dicas sobre como trabalhar e depurar scripts do PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 
-As etapas a seguir não devem ser explicitamente seguidas porque são uma explicação do fluxo de trabalho pelo qual você passará ao depurar o script:
+a seguir Olá não é as etapas a seguir tooexplicitly, mas uma explicação de fluxo de trabalho Olá que percorrer durante a depuração de script hello:
 
-1. **Importar o módulo SubscriptionManagement.psm1** que contém funções para entrar no Azure e selecionar a assinatura do Azure com a qual você está trabalhando.
-1. **Importar o módulo CatalogAndDatabaseManagement.psm1** que fornece um catálogo e uma abstração em nível de locatário em relação às funções de [Gerenciamento de Fragmentos](sql-database-elastic-scale-shard-map-management.md). Este é um módulo importante que encapsula a maior parte do padrão do catálogo e vale a pena explorar.
-1. **Obter detalhes de configuração**. Intervenha em Get-Configuration (com F11) e veja como a configuração do aplicativo é especificada. Os nomes de recursos e outros valores específicos do aplicativo são definidos aqui, mas não altere nenhum desses valores até que você esteja familiarizado com os scripts.
-1. **Obter o objeto de catálogo**. Intervenha em Get-Catalog que compõe e retorna um objeto de catálogo usado no script de nível superior.  Essa função usa funções de Gerenciamento de Fragmentos importadas do **AzureShardManagement.psm1**. O objeto de catálogo é composto pelo seguinte:
-   * O $catalogServerFullyQualifiedName é criado usando o tronco padrão além do seu nome de Usuário: _catalog-\<usuário\>.database.windows.net_.
-   * O $catalogDatabaseName é recuperado da configuração: *tenantcatalog*.
-   * O objeto $shardMapManager é inicializado no banco de dados do catálogo.
-   * O objeto $shardMap é inicializado por meio do mapa do fragmentos do *tenantcatalog* no banco de dados de catálogo.
-   Um objeto de catálogo é composto e retornado e usado no script de nível superior.
-1. **Calcular a nova chave de locatário**. Uma função de hash é usada para criar a chave de locatário com base no nome do locatário.
-1. **Verificar se a chave de locatário já existe**. O catálogo é verificado para garantir que a chave está disponível.
-1. **O banco de dados do locatário é provisionado com New-TenantDatabase.** Use **F11** para intervir e ver como o banco de dados é provisionado usando um [modelo do Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).
+1. **Saudação de importação SubscriptionManagement.psm1** módulo que contém funções para entrar tooAzure e selecionando Olá assinatura do Azure que você está trabalhando.
+1. **Saudação de importação CatalogAndDatabaseManagement.psm1** módulo que fornece um catálogo e o nível de locatário abstração sobre Olá [gerenciamento de fragmento](sql-database-elastic-scale-shard-map-management.md) funções. Este é um módulo importante que encapsula a maior parte do padrão de catálogo hello e vale a pena explorar.
+1. **Obter detalhes de configuração**. Intervir Get-configuração (F11) e ver como a configuração de aplicativo hello é especificada. Nomes de recursos e outros valores específicos de aplicativo definidos aqui, mas não altere qualquer um desses valores até que você esteja familiarizado com os scripts de saudação.
+1. **Obter o objeto de catálogo Olá**. Etapa para Get-catálogo que compõe e retorna um objeto de catálogo que é usado no script de nível mais alto de saudação.  Essa função usa funções de Gerenciamento de Fragmentos importadas do **AzureShardManagement.psm1**. o objeto de catálogo Olá é composto de seguir hello:
+   * $catalogServerFullyQualifiedName é construído usando stem padrão hello mais seu nome de usuário: _catálogo -\<usuário\>. t_.
+   * $catalogDatabaseName é recuperado do config Olá: *tenantcatalog*.
+   * objeto $shardMapManager foi inicializado de banco de dados de catálogo hello.
+   * objeto $shardMap é inicializado de saudação *tenantcatalog* mapa do fragmento no banco de dados de catálogo hello.
+   Um objeto de catálogo é composto e retornado e usado no script de nível mais alto de saudação.
+1. **Calcular a nova chave de locatário Olá**. Uma função de hash é chave de locatário usado toocreate Olá do nome do locatário hello.
+1. **Verifique se já existe uma chave de locatário Olá**. Catálogo de saudação é verificado tooensure Olá chave está disponível.
+1. **banco de dados de locatário Hello está provisionado com New-TenantDatabase.** Use **F11** toostep no e ver como é o banco de dados de saudação provisionados usando um [modelo do Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).
 
-O nome do banco de dados é construído com base no nome do locatário para deixar claro qual fragmento pertence a qual locatário. (Outras estratégias para nomenclatura de banco de dados podem ser usadas com facilidade.)+ Um modelo do Resource Manager é usado para criar um banco de dados de locatário com a cópia de um banco de dados final (baseTenantDB) no servidor de catálogo. Uma abordagem alternativa seria criar um banco de dados vazio e, em seguida, inicializá-lo com a importação de um bacpac, ou executar um script de inicialização de um local bem conhecido.  
+nome do banco de dados de saudação é construído com hello locatário nome toomake claro qual fragmento pertence toowhich locatário. (Outras estratégias de nomeação do banco de dados facilmente usadas.) + Um modelo do Gerenciador de recursos é usado toocreate um banco de dados de locatário copiando um banco de dados ouro (baseTenantDB) no servidor de catálogo hello. Uma abordagem alternativa pode ser toocreate um banco de dados vazio e inicializá-lo com a importação de um bacpac ou tooexecute um script de inicialização de um local conhecido.  
 
-O modelo do Resource Manager está na pasta ...\Módulos de Aprendizado\Comum\: *tenantdatabasecopytemplate.json*
+modelo do Gerenciador de recursos de saudação está na pasta do hello ...\Learning Modules\Common\: *tenantdatabasecopytemplate.json*
 
-Depois que o banco de dados do locatário é criado, ele é, em seguida, **inicializado com o nome do local (locatário) e o tipo de local**. Outra inicialização também poderia ser feita aqui.
+Após a criação do banco de dados de locatário hello, em seguida, é ainda mais **inicializada com o nome de local (Locatário) de saudação e o tipo de local de saudação**. Outra inicialização também poderia ser feita aqui.
 
-O **banco de dados de locatário é registrado no catálogo** com *Add-TenantDatabaseToCatalog* usando a chave do locatário. Use **F11** para ver os detalhes:
+Olá **banco de dados de locatário é registrado no catálogo de saudação** com *TenantDatabaseToCatalog adicionar* usando a chave de locatário hello. Use **F11** toostep detalhes hello:
 
-* O banco de dados de catálogo é adicionado ao mapa de fragmentos (a lista de bancos de dados conhecidos).
-* O mapeamento que vincula o valor da chave ao fragmento é criado.
-* Metadados adicionais (o nome do local) sobre o locatário são adicionados à tabela Locatários no catálogo.  A tabela Locatários não faz parte do esquema ShardManagement e não é instalada pelo EDCL.  Esta tabela ilustra como o banco de dados Catálogo pode ser estendido para dar suporte a dados específicos de aplicativos adicionais.   
+* banco de dados de catálogo Olá é adicionado mapa do fragmento toohello (lista de saudação de bancos de dados conhecidos).
+* Olá mapeamento desse fragmento de toohello links Olá valor da chave é criada.
+* Dados adicionais meta (nome do local do evento Olá) sobre o locatário Olá são adicionados toohello tabela de locatários no catálogo de saudação.  tabela de locatários Olá não faz parte do esquema de ShardManagement hello e não é instalada por Olá EDCL.  Esta tabela ilustra como banco de dados de catálogo Olá pode ser estendido dados do toosupport adicionais específicos do aplicativo.   
 
 
-Depois que o provisionamento for concluído, a execução retornará ao script original *Demo-ProvisionAndCatalog*, que abre a página **Eventos** do novo locatário no navegador:
+Após a conclusão do provisionamento, execução retorna toohello original *demonstração ProvisionAndCatalog* script, o que abre Olá **eventos** página para o novo locatário Olá no navegador de saudação:
 
    ![events](media/sql-database-saas-tutorial-provision-and-catalog/new-tenant.png)
 
 
 ## <a name="provision-a-batch-of-tenants"></a>Provisionar um lote de locatários
 
-Este exercício provisiona um lote com 17 locatários. É recomendável provisionar esse lote de locatários antes de iniciar os outros tutoriais de SaaS do Wingtip, de forma que haja mais do que apenas alguns bancos de dados com os quais trabalhar.
+Este exercício provisiona um lote com 17 locatários. É recomendável que você provisionar este lote de locatários antes de iniciar outros tutoriais Wingtip SaaS, portanto, há mais do que apenas alguns toowork de bancos de dados com.
 
-1. Abra ...\\Módulos de Aprendizado\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1* no *ISE do PowerShell* e altere o parâmetro *$DemoScenario* para 3:
-   * **$DemoScenario** = **3**, altere para **3** para *Provisionar um lote de locatários*.
-1. Pressione **F5** e execute o script.
+1. Abrir... \\Módulos de aprendizado\\ProvisionAndCatalog\\*demonstração ProvisionAndCatalog.ps1* em Olá *PowerShell ISE* e alterar Olá *$ DemoScenario* too3 de parâmetro:
+   * **$DemoScenario** = **3**, alterar muito**3** muito*provisionar um lote de locatários*.
+1. Pressione **F5** e execute o script hello.
 
-O script implanta um lote de locatários adicionais. Ele usa um [modelo do Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md) que controla o lote e, em seguida, delega o provisionamento de cada banco de dados a um modelo vinculado. O uso de modelos dessa maneira permite que Azure Resource Manager seja o agente do processo de provisionamento do seu script. Os modelos provisionam bancos de dados em paralelo nos locais em que isso for possível e lidam com repetições, se necessário, otimizando o processo geral. O script é idempotente; portanto, se ele falhar ou parar por qualquer motivo, execute-o novamente.
+script Hello implanta um lote de locatários adicionais. Ele usa um [modelo do Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md) que controla o lote hello e, em seguida, delega o provisionamento de cada modelo vinculado de tooa do banco de dados. Usando modelos dessa maneira permite que o Azure Resource Manager toobroker Olá processo para o seu script de provisionamento. Modelos de provisionar bancos de dados em paralelo, onde ele pode e manipula as repetições se necessário, otimizando Olá processo geral. Olá script é idempotente assim se ele falha, ou para por qualquer motivo, execute-o novamente.
 
-### <a name="verify-the-batch-of-tenants-successfully-deployed"></a>Verificar se o lote de locatários foi implantado com êxito
+### <a name="verify-hello-batch-of-tenants-successfully-deployed"></a>Verifique se o lote de saudação de locatários foi implantado com êxito
 
-* Abra o servidor *tenants1* navegando até sua lista de servidores no [Portal do Azure](https://portal.azure.com), clique em **Bancos de Dados SQL** e verifique se o lote de 17 bancos de dados adicionais está na lista:
+* Olá abrir *tenants1* servidor navegando tooyour lista de servidores no hello [portal do Azure](https://portal.azure.com), clique em **bancos de dados SQL**e verifique se o lote de saudação de 17 bancos de dados adicionais são agora na lista de saudação:
 
    ![lista de banco de dados](media/sql-database-saas-tutorial-provision-and-catalog/database-list.png)
 
@@ -152,9 +152,9 @@ O script implanta um lote de locatários adicionais. Ele usa um [modelo do Azure
 
 Outros padrões de provisionamento não mencionados nesse tutorial incluem:
 
-**Pré-provisionamento de bancos de dados.** O padrão de pré-provisionamento explora o fato de que os bancos de dados de um pool elástico não adicionam custo extra. A cobrança é pelo pool elástico, não pelos bancos de dados e os bancos de dados ociosos não consomem nenhum recurso. Ao pré-provisionar bancos de dados em um pool e alocá-los quando necessário, o tempo de integração do locatário poderá ser reduzido consideravelmente. O número de bancos de dados pré-provisionados pode ser ajustado conforme necessário para manter um buffer adequado para a taxa de provisionamento esperada.
+**Pré-provisionamento de bancos de dados.** Olá previamente provisionamento padrão explora o fato de saudação que bancos de dados em um pool Elástico não adicionam custo extra. A cobrança é para o pool Elástico hello, Olá não bancos de dados e bancos de dados ociosos não consomem nenhum recurso. Ao pré-provisionar bancos de dados em um pool e alocá-los quando necessário, o tempo de integração do locatário poderá ser reduzido consideravelmente. Olá número de bancos de dados previamente provisionado foi ajustado conforme necessário tookeep um buffer adequado para Olá antecipado de provisionamento taxa.
 
-**Provisionamento automático.** No padrão de provisionamento automático, um serviço de provisionamento dedicado é usado para provisionar servidores, pools e bancos de dados automaticamente, conforme necessário – incluindo o pré-provisionamento de bancos de dados em pools elásticos, se desejado. E se os bancos de dados forem encerrados e excluídos, as lacunas nos pools elásticos poderão ser preenchidas pelo serviço de provisionamento conforme desejado. Esse serviço poderá ser simples ou complexo – por exemplo, manipulação do provisionamento em várias áreas geográficas e poderá configurar a replicação geográfica automaticamente, caso essa estratégia esteja sendo usada para a recuperação de desastre. Com o padrão de provisionamento automático, um script ou aplicativo cliente poderia enviar uma solicitação de provisionamento para uma fila para ser processada pelo serviço de provisionamento e, em seguida, pesquisaria o serviço para determinar a conclusão. Se o pré-provisionamento fosse usado, as solicitações seriam manipuladas rapidamente com o serviço gerenciando o provisionamento de um banco de dados de substituição em execução em segundo plano.
+**Provisionamento automático.** No padrão de provisionamento automático Olá, um serviço de provisionamento dedicado é usado tooprovision servidores, pools e bancos de dados automaticamente conforme necessário – incluindo bancos de dados previamente provisionamento em pools Elásticos se desejado. E se os bancos de dados são contratados eliminação e excluídos, intervalos de pools Elásticos podem ser preenchidos pelo Olá provisionamento de serviço conforme desejado. Esse serviço poderá ser simples ou complexo – por exemplo, manipulação do provisionamento em várias áreas geográficas e poderá configurar a replicação geográfica automaticamente, caso essa estratégia esteja sendo usada para a recuperação de desastre. Com padrão de provisionamento automático Olá, um script ou aplicativo cliente pode enviar um provisionamento toobe de fila de tooa solicitação processada pelo Olá provisionar um serviço e, em seguida, seria sondar a conclusão do hello serviço toodetermine. Se for usado o provisionamento prévio, solicitações seriam manipuladas rapidamente com o serviço de saudação Gerenciando o provisionamento de um banco de dados de substituição em execução no plano de fundo de saudação.
 
 
 
@@ -166,12 +166,12 @@ Neste tutorial, você aprendeu a:
 
 > * Provisionar um novo único locatário
 > * Provisionar um lote de locatários adicionais
-> * Intervir nos detalhes do provisionamento de locatários e do registro deles no catálogo
+> * Entrar em detalhes de saudação do provisionamento de locatários e registrando-os no catálogo de saudação
 
-Experimente o [Tutorial de monitoramento de desempenho](sql-database-saas-tutorial-performance-monitoring.md).
+Tente Olá [tutorial de monitoramento de desempenho](sql-database-saas-tutorial-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Tutoriais adicionais que aproveitam o aplicativo de SaaS do Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
+* Adicionais [tutoriais que se baseiam na Olá aplicativo SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Biblioteca de cliente do banco de dados elástico](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library)
-* [Como depurar scripts no ISE do Windows PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+* [Como tooDebug Scripts no ISE do Windows PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)

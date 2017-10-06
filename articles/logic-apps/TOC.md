@@ -7,7 +7,7 @@
 ## [Criar seu primeiro aplicativo lógico](logic-apps-create-a-logic-app.md)
 ## [Modelos para aplicativos lógicos](logic-apps-use-logic-app-templates.md)
 ## [Criar aplicativos lógicos a partir de modelos](logic-apps-arm-provision.md)
-## [Mover aplicativos MABS para aplicativos lógicos](logic-apps-move-from-mabs.md)
+## [Mover aplicativos de MABS toologic de aplicativos](logic-apps-move-from-mabs.md)
 
 # Como
 ## Compilação
@@ -46,7 +46,7 @@
 ### [Integração empresarial EDIFACT](logic-apps-enterprise-integration-edifact.md)
 ### [Codificação de EDIFACT](logic-apps-enterprise-integration-edifact-encode.md)
 ### [Decodificação de EDIFACT](logic-apps-enterprise-integration-edifact-decode.md)
-### [Como tratar documentos EDIFACT tendo o segmento UNH2.5](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
+### [Como toohandle EDIFACT documentos com um segmento UNH2.5](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 ### [Integração empresarial X12](logic-apps-enterprise-integration-x12.md)
 ### [Codificação de X12](logic-apps-enterprise-integration-x12-encode.md)
 ### [Decodificação de X12](logic-apps-enterprise-integration-x12-decode.md)
@@ -54,7 +54,7 @@
 ### [Erros e soluções](logic-apps-enterprise-integration-b2b-list-errors-solutions.md)
 
 ## Acesso a dados locais
-### [Conectar a dados locais](logic-apps-gateway-connection.md)
+### [Conecte-se a dados locais tooon](logic-apps-gateway-connection.md)
 ### [Instalar o gateway de dados](logic-apps-gateway-install.md)
 
 ## Automatizar e implantar

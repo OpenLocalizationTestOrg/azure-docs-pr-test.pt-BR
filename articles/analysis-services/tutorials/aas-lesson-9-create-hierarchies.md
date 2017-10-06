@@ -1,65 +1,47 @@
 ---
-title: "Lição 9 do tutorial do Azure Analysis Services: criar hierarquias | Microsoft Docs"
-description: 
-services: analysis-services
-documentationcenter: 
-author: minewiskan
-manager: erikre
-editor: 
-tags: 
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 05/26/2017
-ms.author: owend
-ms.openlocfilehash: d628dc621335acf231342a6d9186079de16e85f4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+título: aaa "lição do tutorial do Azure Analysis Services 9: criar hierarquias | Descrição de Microsoft Docs": serviços: documentationcenter do analysis services: ' autor: manager minewiskan: erikre editor: ' marcas: '
+
+MS. AssetID: MS. Service: MS. devlang do analysis services: NA MS. Topic: get-started-article tgt_pltfrm: NA Workload: MS. Date na: 26/05/2017 Author: owend
 ---
 # <a name="lesson-9-create-hierarchies"></a>Lição 9: criar hierarquias
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-Nesta lição, você cria hierarquias. As hierarquias são grupos de colunas organizados em níveis. Por exemplo, uma hierarquia de Geografia pode ter subníveis para País, Estado, Região e Cidade. As hierarquias podem aparecer separadas de outras colunas em uma lista de campos de aplicativo cliente de relatório, facilitando sua navegação e inclusão em um relatório pelos usuários do cliente. Para saber mais, confira [Hierarquias](https://docs.microsoft.com/sql/analysis-services/tabular-models/hierarchies-ssas-tabular)
+Nesta lição, você cria hierarquias. As hierarquias são grupos de colunas organizados em níveis. Por exemplo, uma hierarquia de Geografia pode ter subníveis para País, Estado, Região e Cidade. Hierarquias podem parecer separadas de outras colunas em uma lista de campos de aplicativo cliente relatório, tornando mais fácil para o cliente toonavigate usuários e incluir em um relatório. toolearn mais, consulte [hierarquias](https://docs.microsoft.com/sql/analysis-services/tabular-models/hierarchies-ssas-tabular)
   
-Para criar hierarquias, use o designer de modelo em *Exibição de Diagrama*. Não há suporte para criar e gerenciar hierarquias na Exibição de Dados.  
+hierarquias toocreate, use o designer de modelo Olá no *exibição de diagrama*. Não há suporte para criar e gerenciar hierarquias na Exibição de Dados.  
   
-Tempo estimado para conclusão desta lição: **20 minutos**  
+Estimado tempo toocomplete nesta lição: **20 minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
-Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 8: criar perspectivas](../tutorials/aas-lesson-8-create-perspectives.md).  
+Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar tarefas de saudação nesta lição, você deverá ter completado lição anterior Olá: [lição 8: criar perspectivas](../tutorials/aas-lesson-8-create-perspectives.md).  
   
 ## <a name="create-hierarchies"></a>Criar hierarquias  
   
-#### <a name="to-create-a-category-hierarchy-in-the-dimproduct-table"></a>Para criar uma hierarquia Categoria na tabela DimProduct  
+#### <a name="toocreate-a-category-hierarchy-in-hello-dimproduct-table"></a>uma hierarquia de categoria na tabela DimProduct de saudação do toocreate  
   
-1.  No designer de modelo (exibição de diagrama), clique com o botão direito do mouse na tabela **DimProduct** > **Criar Hierarquia**. Uma nova hierarquia aparece na parte inferior da janela da tabela. Renomeie a hierarquia como **Categoria**.  
+1.  No designer de modelo da saudação (modo de exibição de diagrama), clique com botão direito Olá **DimProduct** tabela > **criar hierarquia**. Uma nova hierarquia aparece na parte inferior da saudação da janela de tabela de saudação. Renomear hierarquia Olá **categoria**.  
   
-2.  Clique e arraste a coluna **ProductCategoryName** para a nova hierarquia **Categoria**.  
+2.  Clique e arraste Olá **ProductCategoryName** toohello de coluna nova **categoria** hierarquia.  
   
-3.  Na hierarquia **Categoria**, clique com o botão direito do mouse em **ProductCategoryName** > **Renomear** e, em seguida, digite **Categoria**.  
+3.  Em Olá **categoria** hierarquia, Olá atalho **ProductCategoryName** > **Renomear**e, em seguida, digite **categoria**.  
   
     > [!NOTE]  
-    > Renomear uma coluna em uma hierarquia não renomeia essa coluna na tabela. Uma coluna em uma hierarquia é apenas uma representação da coluna na tabela.  
+    > Renomear uma coluna em uma hierarquia não renomeia essa coluna na tabela de saudação. Uma coluna em uma hierarquia é apenas uma representação de coluna Olá na tabela de saudação.  
   
-4.  Clique e arraste a coluna **ProductSubcategoryName** para a hierarquia **Categoria**. Renomeie-a como **Subcategoria**. 
+4.  Clique e arraste Olá **ProductSubcategoryName** coluna toohello **categoria** hierarquia. Renomeie-a como **Subcategoria**. 
   
-5.  Clique com o botão direito do mouse na coluna **ModelName** > **Adicionar à hierarquia** e, em seguida, selecione **Categoria**. Renomeie-a como **Modelo**.
+5.  Saudação de atalho **ModelName** coluna > **adicionar toohierarchy**e, em seguida, selecione **categoria**. Renomeie-a como **Modelo**.
 
-6.  Finalmente, adicione **EnglishProductName** à hierarquia Categoria. Renomeie-a como **Produto**.  
+6.  Finalmente, adicione **EnglishProductName** toohello a hierarquia de categoria. Renomeie-a como **Produto**.  
 
     ![aas-lesson9-category](../tutorials/media/aas-lesson9-category.png)
   
-#### <a name="to-create-hierarchies-in-the-dimdate-table"></a>Para criar hierarquias na tabela DimDate  
+#### <a name="toocreate-hierarchies-in-hello-dimdate-table"></a>hierarquias de toocreate na tabela DimDate de saudação  
   
-1.  Na tabela **DimDate**, crie uma hierarquia chamada **Calendar**.  
+1.  Em Olá **DimDate** de tabela, crie uma hierarquia chamada **calendário**.  
   
-3.  Adicione as seguintes colunas em ordem:
+3.  Adicione Olá colunas na ordem a seguir:
 
     *  CalendarYear
     *  CalendarSemester
@@ -67,7 +49,7 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
     *  MonthCalendar
     *  DayNumberOfMonth
     
-4.  Na tabela **DimDate**, crie uma hierarquia **Fiscal**. Adicione as seguintes colunas em ordem:  
+4.  Em Olá **DimDate** de tabela, crie um **Fiscal** hierarquia. Inclua Olá colunas na ordem a seguir:  
   
     *  FiscalYear
     *  FiscalSemester
@@ -75,7 +57,7 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
     *  MonthCalendar
     *  DayNumberOfMonth
   
-5.  Finalmente, na tabela **DimDate**, crie uma hierarquia **ProductionCalendar**. Adicione as seguintes colunas em ordem:  
+5.  Por fim, na Olá **DimDate** de tabela, crie um **ProductionCalendar** hierarquia. Inclua Olá colunas na ordem a seguir:  
     *  CalendarYear
     *  WeekNumberOfYear
     *  DayNumberOfWeek

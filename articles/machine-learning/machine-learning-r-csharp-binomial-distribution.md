@@ -1,5 +1,5 @@
 ---
-title: "(preterido) Pacote de distribuição binomial — Azure | Microsoft Docs"
+title: "AAA(deprecated) distribuição Binomial Suite - Azure | Microsoft Docs"
 description: "(preterido) Pacote de distribuição binomial"
 services: machine-learning
 documentationcenter: 
@@ -16,67 +16,67 @@ ms.date: 01/06/2017
 ms.author: ireiter
 ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-redirect_document_id: TRUE
-ms.openlocfilehash: 6f0a6d06e7401c8360a92a707a0552f41ff3657c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: 6f94436cd19abeb518d179f340c8d4f43fcf4520
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deprecated-binomial-distribution-suite"></a>(preterido) Pacote de distribuição binomial
 
 > [!NOTE]
-> O Microsoft DataMarket está sendo desativado e essa API foi preterida. 
+> Olá Microsoft DataMarket está sendo desativado e esta API foi preterida. 
 > 
-> Você pode encontrar muitos testes de exemplo úteis e APIs na [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com). Para saber mais sobre a Galeria, confira [Compartilhar e descobrir soluções na Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+> Você pode encontrar várias APIs e experiências de exemplo útil no hello [Cortana Intelligence galeria](http://gallery.cortanaintelligence.com). Para obter mais informações sobre Olá galeria, consulte [compartilhamento e descobrir recursos na Olá Cortana Intelligence galeria](machine-learning-gallery-how-to-use-contribute-publish.md).
 
-O Pacote de Distribuição Binomial é um conjunto de serviços Web de exemplo ([Gerador Binomial](https://datamarket.azure.com/dataset/aml_labs/bdg5), [Calculadora de probabilidade](https://datamarket.azure.com/dataset/aml_labs/bdp4), [Calculadora de Quantil](https://datamarket.azure.com/dataset/aml_labs/bdq5)) que ajuda a gerar e lidar com distribuições binomiais. Os serviços permitem gerar uma sequência de distribuição binomial de qualquer tamanho, calcular quantidades a partir de uma determinada probabilidade e calcular probabilidade a partir de um determinado quantil. Cada um dos serviços emite saídas diferentes com base no serviço selecionado (consulte a descrição abaixo). O Pacote de Distribuição Binomial baseia-se nas funções R qbinom, rbinom e pbinom, que são incluídas no pacote de estatísticas de R. 
+Olá Suite distribuição Binomial é um conjunto de serviços da web de exemplo ([Binomial gerador](https://datamarket.azure.com/dataset/aml_labs/bdg5), [probabilidade Calculadora](https://datamarket.azure.com/dataset/aml_labs/bdp4), [quantil Calculadora](https://datamarket.azure.com/dataset/aml_labs/bdq5)) que ajudam a gerar e Lidando com distribuições binomial. Olá serviços permitem gerar uma sequência de distribuição binomial de qualquer tamanho, calculando quantis de dado probabilidade e a probabilidade de cálculo de um determinado quantil. Cada um dos serviços de saudação emite saídas diferentes com base no serviço de saudação selecionado (consulte a descrição abaixo). Olá distribuição Binomial Suite baseia-se em Olá R funções qbinom, rbinom e pbinom, que são incluídos no pacote de estatísticas de R hello. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-> Esses serviços Web podem ser consumidos por usuários – potencialmente de forma direta no marketplace, por meio de um aplicativo móvel, um site ou até mesmo em um computador local, por exemplo. Mas a finalidade do serviço Web é também servir como um exemplo de como o Azure Machine Learning pode ser usado para criar serviços Web sobre o código R. Com apenas algumas linhas de código R e cliques de botão dentro do Azure Machine Learning Studio, um experimento pode ser criado com código R e publicado como um serviço Web. O serviço Web pode ser publicado no Azure Marketplace e consumido por dispositivos e usuários em todo o mundo – não é necessária nenhuma configuração de infraestrutura feita pelo autor do serviço Web.
+> Esses serviços da web podem ser consumidos por usuários – potencialmente diretamente no marketplace hello, por meio de um aplicativo móvel, por meio de um site, ou até mesmo em um computador local, por exemplo. Mas finalidade de saudação do serviço web de saudação também é tooserve como um exemplo de como o aprendizado de máquina do Azure pode ser usado toocreate os serviços da web sobre o código R. Com apenas algumas linhas de código R e cliques de botão dentro do Azure Machine Learning Studio, um experimento pode ser criado com código R e publicado como um serviço Web. serviço web de saudação pode ser publicado toohello Azure Marketplace e consumido por usuários e dispositivos em Olá, mundo – nenhuma configuração de infraestrutura pelo autor de saudação do serviço web de saudação é necessária.
 > 
 > 
 
 ## <a name="consumption-of-web-service"></a>Consumo do serviço Web
-O pacote de Distribuição Binomial inclui os três serviços a seguir.
+Olá distribuição Binomial Suite inclui Olá 3 serviços a seguir.
 
 ### <a name="binomial-distribution-quantile-calculator"></a>Calculadora de quantil de distribuição binomial
-Esse serviço aceita quatro argumentos de uma distribuição normal e calcula o quantil associado.
-Os argumentos de entrada são:
+Este serviço aceita 4 argumentos de uma distribuição normal e calcula o quantil Olá associado.
+argumentos de entrada Hello são:
 
 * p - uma única probabilidade agregada de várias tentativas.  
-* tamanho – o número de tentativas.
-* prob – a probabilidade de sucesso em uma tentativa.
-* Lado – L para o lado inferior da distribuição, U para o lado superior da distribuição. 
+* tamanho - número de saudação de tentativas.
+* PROB - probabilidade de saudação de sucesso em uma versão de avaliação.
+* Lado - L para o lado inferior de saudação da distribuição hello, U para o lado superior de saudação da distribuição de saudação. 
 
-A saída do serviço é o quantil calculado associado à probabilidade determinada.
+saída de saudação do serviço de saudação é quantil Olá calculado que está associado a saudação considerando a probabilidade.
 
 ### <a name="binomial-distribution-probability-calculator"></a>Calculadora de probabilidade de distribuição binomial
-Esse serviço aceita quatro argumentos de uma distribuição binominal e calcula a probabilidade associada.
-Os argumentos de entrada são:
+Este serviço aceita 4 argumentos de uma distribuição binomial e calcula a probabilidade de saudação associada.
+argumentos de entrada Hello são:
 
 * q - um único quantil de um evento com distribuição binomial. 
-* tamanho – o número de tentativas.
-* prob – a probabilidade de sucesso em uma tentativa.
-* lado – L para o lado inferior da distribuição, U para o lado superior da distribuição ou E, que é igual a um único número de sucessos.
+* tamanho - número de saudação de tentativas.
+* PROB - probabilidade de saudação de sucesso em uma versão de avaliação.
+* lado - L para o lado inferior de saudação da distribuição hello, U lado superior Olá distribuição Olá da ou E que seja igual tooa único número de sucessos.
 
-A saída do serviço é a probabilidade calculada associada ao quantil determinado.
+saída de saudação do serviço de saudação é a probabilidade de Olá calculado que está associada a saudação fornecida quantil.
 
 ### <a name="binomial-distribution-generator"></a>Gerador de distribuição binomial
-Este serviço aceita três argumentos de uma distribuição binomial e gera uma sequência aleatória de números distribuídos binomialmente. Os argumentos a seguir devem ser fornecidos a ele na solicitação:
+Este serviço aceita três argumentos de uma distribuição binomial e gera uma sequência aleatória de números distribuídos binomialmente. Olá argumentos a seguir devem ser fornecidos tooit na solicitação de saudação:
 
 * n - número de observações. 
 * tamanho – número de tentativas.
 * prob – probabilidade de sucesso.
 
-A saída do serviço é uma sequência de tamanho n com uma distribuição binomial com base no tamanho e em argumentos prob.
+saída de saudação do serviço de saudação é uma sequência de comprimento de n com uma distribuição binomial com base nos argumentos de tamanho e prob hello.
 
-> Esse serviço, conforme hospedado no Azure Marketplace é um serviço OData; ele pode ser chamado por meio de métodos POST ou GET. 
+> Esse serviço, como hospedado em hello Azure Marketplace é um serviço OData; Esses podem ser chamados por meio de métodos POST ou GET. 
 > 
 > 
 
-Há várias maneiras de consumir o serviço de forma automática (os aplicativos de exemplo são: [Gerador](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionGenerator.aspx), [Calculadora de probabilidade](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionProbabilityCalculator.aspx), [Calculadora de quantil](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionQuantileCalculator)). 
+Há várias maneiras de consumo de serviço de saudação de forma automática (aplicativos de exemplo estão aqui: [gerador](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionGenerator.aspx), [probabilidade Calculadora](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionProbabilityCalculator.aspx), [quantil Calculadora](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionQuantileCalculator)). 
 
 ### <a name="starting-c-code-for-web-service-consumption"></a>Iniciando o código C# para consumo de serviço Web:
 ### <a name="binomial-distribution-quantile-calculator"></a>Calculadora de quantil de distribuição binomial
@@ -174,7 +174,7 @@ Há várias maneiras de consumir o serviço de forma automática (os aplicativos
 
 
 ## <a name="creation-of-web-service"></a>Criação de serviço Web
-> Este serviço Web foi criado usando o Azure Machine Learning. Para obter uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de testes e [publicação de serviços Web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do teste que criou o serviço Web e o exemplo de código para cada um dos módulos dentro do teste.
+> Este serviço Web foi criado usando o Azure Machine Learning. Para obter uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de testes e [publicação de serviços Web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do experimento Olá que criou o código de exemplo e o serviço da web hello para cada um dos módulos Olá experimento hello.
 > 
 > 
 
@@ -184,7 +184,7 @@ Há várias maneiras de consumir o serviço de forma automática (os aplicativos
 #### <a name="module-1"></a>Módulo 1:
     #data schema with example data (replaced with data from web service)
     data.set=data.frame(p=0.1,size=10,prob=.5,side='L');
-    maml.mapOutputPort("data.set"); #send data to output port
+    maml.mapOutputPort("data.set"); #send data toooutput port
 #### <a name="module-2"></a>Módulo 2:
     dataset1 <- maml.mapInputPort(1) # class: data.frame
     param = dataset1
@@ -220,7 +220,7 @@ Há várias maneiras de consumir o serviço de forma automática (os aplicativos
 
     output = as.data.frame(quantile)
 
-    # Select data.frame to be sent to the output Dataset port
+    # Select data.frame toobe sent toohello output Dataset port
     maml.mapOutputPort("output");
 
 
@@ -230,7 +230,7 @@ Há várias maneiras de consumir o serviço de forma automática (os aplicativos
 #### <a name="module-1"></a>Módulo 1:
     #data schema with example data (replaced with data from web service)
     data.set=data.frame(q=5,size=10,prob=.5,side='L');
-    maml.mapOutputPort("data.set"); #send data to output port
+    maml.mapOutputPort("data.set"); #send data toooutput port
 
 
 #### <a name="module-2"></a>Módulo 2:
@@ -256,7 +256,7 @@ Há várias maneiras de consumir o serviço de forma automática (os aplicativos
 
     output = as.data.frame(prob)
 
-    # Select data.frame to be sent to the output Dataset port
+    # Select data.frame toobe sent toohello output Dataset port
     maml.mapOutputPort("output");
 
 ### <a name="binomial-distribution-generator"></a>Gerador de distribuição binomial
@@ -265,7 +265,7 @@ Há várias maneiras de consumir o serviço de forma automática (os aplicativos
 #### <a name="module-1"></a>Módulo 1:
     #data schema with example data (replaced with data from web service)
     data.set=data.frame(n=50,size=10,p=.5);
-    maml.mapOutputPort("data.set"); #send data to output port
+    maml.mapOutputPort("data.set"); #send data toooutput port
 
 #### <a name="module-2"></a>Módulo 2:
     dataset1 <- maml.mapInputPort(1) # class: data.frame
@@ -274,14 +274,14 @@ Há várias maneiras de consumir o serviço de forma automática (os aplicativos
 
     output = as.data.frame(t(dist))
 
-    # Select data.frame to be sent to the output Dataset port
+    # Select data.frame toobe sent toohello output Dataset port
     maml.mapOutputPort("output");
 
 ## <a name="limitations"></a>Limitações
-Estes são exemplos muito simples de Distribuição Binomial. Como se pode ver no exemplo de código acima, pouca captura de erro é implantada.
+Estes são exemplos muito simples em torno de distribuição binomial de saudação. Como pode ser visto no código de exemplo hello acima, capturando pouco de erro é implementado.
 
 ## <a name="faq"></a>Perguntas frequentes
-Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publicação no Azure Marketplace, consulte [aqui](machine-learning-marketplace-faq.md).
+Para perguntas frequentes sobre o consumo do serviço web de saudação ou publicação toohello Azure Marketplace, consulte [aqui](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_1.png
 

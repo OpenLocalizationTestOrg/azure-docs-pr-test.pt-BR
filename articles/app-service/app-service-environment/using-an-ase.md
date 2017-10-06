@@ -1,6 +1,6 @@
 ---
-title: "Usar um ambiente do Serviço de Aplicativo do Azure"
-description: "Como criar, publicar e dimensionar aplicativos em um ambiente do Serviço de Aplicativo do Azure"
+title: "aaaUse um ambiente de serviço de aplicativo do Azure"
+description: "Como toocreate, publicar e dimensionar os aplicativos em um ambiente de serviço de aplicativo do Azure"
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 279951d40b7780120d0b94e183f06e00ccece016
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 30c89e384efc07c560254856c0ca7d4eb4b1f010
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-an-app-service-environment"></a>Usar um ambiente do Serviço de Aplicativo #
 
@@ -25,46 +25,46 @@ ms.lasthandoff: 08/29/2017
 
 O Ambiente do Serviço de Aplicativo do Azure é uma implantação do Serviço de Aplicativo do Azure em uma sub-rede em uma rede virtual do Azure do cliente. Ele consiste em:
 
-- **Front-ends**: os front-ends são onde terminam o HTTP/HTTPS em um ambiente de serviço de aplicativo (ASE).
-- **Funções de Trabalho**: são os recursos que hospedam os aplicativos.
-- **Banco de Dados**: contém informações que definem o ambiente.
-- **Armazenamento**: o armazenamento é usado para hospedar os aplicativos publicados pelo cliente.
+- **Front-ends**: front-ends Olá são onde HTTP/HTTPS termina em um ambiente de serviço de aplicativo (ASE).
+- **Os operadores**: trabalhadores Olá são recursos Olá hospedam seus aplicativos.
+- **Banco de dados**: banco de dados de saudação contém informações que definem o ambiente de saudação.
+- **Armazenamento**: armazenamento de saudação é usado toohost Olá publicado de cliente aplicativos.
 
 > [!NOTE]
-> Há duas versões do Ambiente do Serviço de Aplicativo: ASEv1 e ASEv2. No ASEv1, é necessário gerenciar os recursos antes de usá-los. Para saber como configurar e gerenciar o ASEv1, veja [Configurar um ambiente do Serviço de Aplicativo v1][ConfigureASEv1]. O restante deste artigo concentra-se em ASEv2.
+> Há duas versões do Ambiente do Serviço de Aplicativo: ASEv1 e ASEv2. ASEv1, você deve gerenciar recursos Olá antes que você pode usá-los. toolearn como tooconfigure e gerenciar ASEv1, consulte [configurar um v1 do ambiente de serviço de aplicativo][ConfigureASEv1]. restante Olá deste artigo se concentra em ASEv2.
 >
 >
 
-Implante um ASE (ASEv1 e ASEv2) com um VIP externo ou interno para o acesso ao aplicativo. A implantação com um VIP externo é geralmente chamada de ASE externo. A versão interna é chamada de ILB ASE, porque ele usa um balanceador de carga interno (ILB). Para saber mais sobre o ASE ILB, veja [Criar e usar um ASE ILB][MakeILBASE].
+Implante um ASE (ASEv1 e ASEv2) com um VIP externo ou interno para o acesso ao aplicativo. implantação de saudação com um VIP externo é geralmente chamada de uma ASE externo. versão interna Olá é chamado hello ASE ILB porque ele usa um balanceador de carga interno (ILB). toolearn mais sobre Olá ASE ILB, consulte [criar e usar uma ASE ILB][MakeILBASE].
 
 ## <a name="create-a-web-app-in-an-ase"></a>Criar um aplicativo Web em um ASE ##
 
-Para criar um aplicativo Web em um ASE, use o mesmo processo que quando você o cria normalmente, mas com algumas pequenas diferenças. Quando você cria um novo plano do Serviço de Aplicativos:
+toocreate um aplicativo web em uma ASE, você use Olá mesmo processo ao criá-lo normalmente, mas com algumas pequenas diferenças. Quando você cria um novo plano do Serviço de Aplicativos:
 
-- Em vez de escolher uma localização geográfica na qual implantar o aplicativo, escolha um ASE como a localização.
+- Em vez de escolher uma localização geográfica na qual toodeploy seu aplicativo, você pode escolher uma ASE como seu local.
 - Todos os planos do Serviço de Aplicativo criados em um ASE devem estar em um tipo de preço Isolado.
 
-Se você não tiver um ASE, crie um seguindo as instruções em [Criar um ambiente do Serviço de Aplicativo][MakeExternalASE].
+Se você não tiver uma ASE, você pode criar um, seguindo as instruções de saudação do [criar um ambiente de serviço de aplicativo][MakeExternalASE].
 
-Para criar um aplicativo Web em um ASE:
+toocreate um aplicativo web em uma ASE:
 
 1. Selecione **Novo** > **Web + Móvel** > **Aplicativo Web**.
 
-2. Insira um nome para o aplicativo Web. Se você já selecionou um plano do Serviço de Aplicativo em um ASE, o nome de domínio do aplicativo reflete o nome de domínio do ASE.
+2. Insira um nome para o aplicativo web de saudação. Se você já selecionou um plano de serviço de aplicativo em uma ASE, nome de domínio Olá para o aplicativo hello reflete o nome de domínio de saudação do hello ASE.
 
     ![Seleção de nome de aplicativo Web][1]
 
 3. Selecione uma assinatura.
 
-4. Insira um nome para um novo grupo de recursos ou selecione **Usar existente** e escolha um na lista suspensa.
+4. Insira um nome para um novo grupo de recursos ou selecionar **usar existente** e selecione uma opção na lista suspensa de saudação.
 
 5. Selecione um plano do Serviço de Aplicativo existente no ASE ou crie um novo com as seguintes etapas:
 
     a. Selecione **Criar Novo**.
 
-    b. Insira o nome do plano do Serviço de Aplicativo.
+    b. Insira o nome de saudação para seu plano de serviço de aplicativo.
 
-    c. Selecione o ASE na lista suspensa **Localização**.
+    c. Selecione seu ASE em Olá **local** lista suspensa.
 
     d. Selecione o tipo de preço **Isolado**. Selecione **Selecionar**.
 
@@ -76,81 +76,81 @@ Para criar um aplicativo Web em um ASE:
 
 ## <a name="how-scale-works"></a>Como funciona a escala ##
 
-Cada aplicativo do Serviço de Aplicativo é executado em um plano do Serviço de Aplicativo. O modelo de contêiner é os ambientes mantêm os planos do Serviço de Aplicativo e os planos do Serviço de Aplicativo mantêm os aplicativos. Ao dimensionar um aplicativo, você dimensiona o plano do Serviço de Aplicativo e, portanto, dimensiona todos os aplicativos do mesmo plano.
+Cada aplicativo do Serviço de Aplicativo é executado em um plano do Serviço de Aplicativo. modelo de contêiner de saudação é ambientes manter planos de serviço de aplicativo e planos de serviço de aplicativo mantenha aplicativos. Quando você dimensionar um aplicativo, dimensionar Olá plano de serviço de aplicativo e, portanto, ampliar todos os aplicativos Olá Olá mesmo plano.
 
-No ASEv2, quando você dimensiona um plano do Serviço de Aplicativo, a infraestrutura necessária é adicionada automaticamente. Há um atraso de tempo nas operações de escala, conforme a infraestrutura é adicionada. No ASEv1, a infraestrutura necessária precisa ser adicionada antes de criar ou escalar horizontalmente o plano do Serviço de Aplicativo. 
+Em ASEv2, quando você dimensionar um plano de serviço de aplicativo, infraestrutura Olá necessário é adicionada automaticamente. Há um atraso tooscale operações enquanto infraestrutura Olá é adicionada. ASEv1, infraestrutura Olá necessário deve ser adicionada antes de criar ou expandir seu plano de serviço de aplicativo. 
 
-No Serviço de Aplicativo multilocatário, geralmente, o dimensionamento é imediato, porque um pool de recursos está imediatamente disponível para dar suporte. Em um ASE, não há nenhum buffer desse tipo e os recursos são alocados conforme a necessidade.
+No serviço de aplicativo de multilocatário hello, dimensionamento é geralmente imediato porque um pool de recursos está prontamente disponível toosupport-lo. Em um ASE, não há nenhum buffer desse tipo e os recursos são alocados conforme a necessidade.
 
-Em um ASE, é possível escalar verticalmente até 100 instâncias. Essas 100 instâncias podem estar todas em um único plano do Serviço de Aplicativo ou ser distribuídas entre vários planos do Serviço de Aplicativo.
+Em uma ASE, você pode dimensionar too100 instâncias. Essas 100 instâncias podem estar todas em um único plano do Serviço de Aplicativo ou ser distribuídas entre vários planos do Serviço de Aplicativo.
 
 ## <a name="ip-addresses"></a>Endereços IP ##
 
-O Serviço de Aplicativo tem a capacidade de alocar um endereço IP dedicado a um aplicativo. Essa funcionalidade está disponível depois que você configura um SSL baseado em IP, conforme descrito em [Associar um certificado SSL personalizado existente aos aplicativos Web do Azure][ConfigureSSL]. No entanto, em um ASE, há uma exceção notável. Não é possível adicionar outros endereços IP a serem usados para um SSL baseado em IP em um ILB ASE.
+Serviço de aplicativo tem Olá capacidade tooallocate um aplicativo de tooan de endereço IP dedicado. Esse recurso está disponível depois de configurar um SSL baseado em IP, conforme descrito em [associar um personalizado SSL certificado tooAzure aplicativos web existentes][ConfigureSSL]. No entanto, em um ASE, há uma exceção notável. Não é possível adicionar IP adicionais endereços toobe usado para um SSL baseado em IP em uma ASE ILB.
 
-No ASEv1, você precisa alocar os endereços IP como recursos antes de poder usá-los. No ASEv2, use-o em seu aplicativo assim como faria no Serviço de Aplicativo multilocatário. Sempre há um endereço extra no ASEv2, com até 30 endereços IP. Sempre que você usar um, outro será adicionado, de forma que sempre haja um endereço imediatamente disponível para uso. Um atraso de tempo é necessário para alocar outro endereço IP, o que impede a adição de endereços IP em sucessão rápida.
+Em ASEv1, você precisa endereços IP hello tooallocate como recursos antes de você pode usá-los. Em ASEv2, você usá-los de seu aplicativo exatamente como você faria no multilocatário de saudação do serviço de aplicativo. Sempre há um endereço de reposição na ASEv2 too30 endereços de IP. Sempre que você usar um, outro será adicionado, de forma que sempre haja um endereço imediatamente disponível para uso. Um tempo de atraso é necessário tooallocate outro endereço IP, o que impede a adição de IP endereços em sucessão rápida.
 
 ## <a name="front-end-scaling"></a>Dimensionamento de front-end ##
 
-No ASEv2, ao escalar horizontalmente os planos do Serviço de Aplicativo, as funções de trabalho são adicionadas automaticamente para dar suporte a eles. Cada ASE é criado com dois front-ends. Além disso, o front-ends automaticamente dimensionam a uma taxa de um front-end para cada 15 instâncias nos planos do Serviço de Aplicativo. Por exemplo, se você tiver 15 instâncias, terá três front-ends. Se você dimensionar para 30 instâncias, terá quatro front-ends e assim por diante.
+ASEv2, quando você expandir seus planos de serviço de aplicativo, os operadores são automaticamente adicionados toosupport-los. Cada ASE é criado com dois front-ends. Além disso, front-ends Olá dimensionar automaticamente a uma taxa de um front-end para todas as instâncias de 15 nos planos de serviço de aplicativo. Por exemplo, se você tiver 15 instâncias, terá três front-ends. Se você expandir too30 instâncias, você tem quatro front-ends e assim por diante.
 
-Esse número de front-ends deve ser mais do que o suficiente para a maioria dos cenários. No entanto, você pode dimensionar a uma taxa mais rápida. Você pode diminuir a taxa para um front-end para cada cinco instâncias. Há um custo para alterar a taxa. Para saber mais, veja [Preços do Serviço de Aplicativo do Azure][Pricing].
+Esse número de front-ends deve ser mais do que o suficiente para a maioria dos cenários. No entanto, você pode dimensionar a uma taxa mais rápida. Você pode alterar a taxa de saudação tooas baixa como um front-end para cada cinco instâncias. Há um custo para alterar a taxa de saudação. Para saber mais, veja [Preços do Serviço de Aplicativo do Azure][Pricing].
 
-Os recursos do front-end são o ponto de extremidade HTTP/HTTPS do ASE. Com a configuração de front-end padrão, o uso de memória por front-end é consistentemente cerca de 60%. Cargas de trabalho de cliente não são executadas em um front-end. O fator chave para um front-end com relação à escala é a CPU, que é controlada principalmente pelo tráfego HTTPS.
+Recursos do front-end estão ponto de extremidade HTTP/HTTPS de saudação para Olá ASE. Com a configuração de front-end do saudação padrão, o uso de memória por front-end é consistentemente em torno 60 por cento. Cargas de trabalho de cliente não são executadas em um front-end. Olá fator chave para um front-end com respeito tooscale é Olá CPU, o que acontece principalmente por tráfego HTTPS.
 
 ## <a name="app-access"></a>Acesso ao aplicativo ##
 
-Em um ASE externo, o domínio que é usado quando você cria aplicativos é diferente do Serviço de Aplicativo multilocatário. Isso inclui o nome do ASE. Para saber mais sobre como criar um ASE Externo, veja [Criar um ambiente do Serviço de Aplicativo][MakeExternalASE]. O nome de domínio em um ASE Externo é semelhante a *.&lt;asename&gt;.p.azurewebsites.net*. Por exemplo, se o ASE for chamado _external-ase_ e você hospedar um aplicativo chamado _contoso_ nesse ASE, você o acessaria nas seguintes URLs:
+Em uma ASE externo, o domínio de saudação que é usado quando você cria aplicativos é diferente de multilocatário de saudação do serviço de aplicativo. Ele inclui o nome de saudação do hello ASE. Para obter mais informações sobre como toocreate uma ASE externas, consulte [criar um ambiente de serviço de aplicativo][MakeExternalASE]. nome de domínio de saudação em uma ASE externo aparência *.&lt; asename&gt;. p.azurewebsites.net*. Por exemplo, se seu ASE é denominado _externo ase_ e hospedar um aplicativo chamado _contoso_ em que ASE alcançá-lo no hello seguintes URLs:
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
 
-A URL contoso.scm.external-ase.p.azurewebsites.net é usada para acessar o console do Kudu ou para publicar o aplicativo usando a implantação da Web. Para obter informações sobre o console do Kudu, consulte [Console do Kudu para o Serviço de Aplicativo do Azure][Kudu]. O console do Kudu fornece uma interface do usuário da Web para depuração, upload de arquivos, edição de arquivos e muito mais.
+Olá URL contoso.scm.external-ase.p.azurewebsites.net é console de Kudu Olá tooaccess usados ou para publicação implantar seu aplicativo por meio da web. Para obter informações sobre o console de Kudu hello, consulte [console Kudu para o serviço de aplicativo do Azure][Kudu]. console de Kudu Olá oferece uma interface da web para depuração, carregando os arquivos, edição de arquivos e muito mais.
 
-Em um ASE ILB, você determina o domínio no momento da implantação. Para saber mais sobre como criar um ASE ILB, veja [Criar e usar um ASE ILB][MakeILBASE]. Se você especificar o nome de domínio _ilb-ase.info_, os aplicativos nesse ASE usarão esse domínio durante a criação do aplicativo. Para o aplicativo chamado _contoso_, as URLs são:
+Em uma ASE ILB, você pode determinar domínio Olá no momento da implantação. Para obter mais informações sobre como toocreate um ILB ASE, consulte [criar e usar uma ASE ILB][MakeILBASE]. Se você especificar o nome de domínio Olá _ilb ase.info_, Olá aplicativos ASE usam esse domínio durante a criação do aplicativo. Para o aplicativo hello chamado _contoso_, Olá URLs são:
 
 - contoso.ilb-ase.info
 - contoso.scm.ilb-ase.info
 
 ## <a name="publishing"></a>Publicação ##
 
-Assim como ocorre com o Serviço de Aplicativo multilocatário, em um ASE, é possível publicar com:
+Assim como acontece com multilocatário de saudação do serviço de aplicativo, em uma ASE, você pode publicar com:
 
 - Implantação da Web.
 - FTP.
 - Integração contínua.
-- Operação de arrastar e soltar no console do Kudu.
+- Arrastar e soltar no console do Kudu hello.
 - Um IDE como o Visual Studio, Eclipse ou IntelliJ IDEA.
 
-Com um ASE externo, todas essas opções de publicação comportam-se da mesma maneira. Para saber mais, veja [Implantação no Serviço de Aplicativo do Azure][AppDeploy]. 
+Com uma ASE externo, essas opções de publicação se comportam Olá mesmo. Para saber mais, veja [Implantação no Serviço de Aplicativo do Azure][AppDeploy]. 
 
-A principal diferença na publicação é em relação a um ASE ILB. Com um ASE ILB, os pontos de extremidade de publicação estão disponíveis apenas por meio do ILB. O ILB está em um IP privado na sub-rede do ASE, na rede virtual. Se você não tiver acesso à rede ao ILB, não poderá publicar nenhum aplicativo nesse ASE. Conforme observado em [Criar e usar um ASE ILB][MakeILBASE], você precisa configurar o DNS para os aplicativos no sistema. Isso inclui o ponto de extremidade SCM. Se eles não estiverem definidos corretamente, você não poderá publicar. Os IDEs também precisam ter acesso à rede ao ILB para publicar diretamente nele.
+a principal diferença Olá com a publicação é com respeito tooan ASE ILB. Com uma ASE ILB, pontos de extremidade de publicação do hello estão disponíveis somente através de saudação ILB. Olá ILB está em um IP particular na sub-rede do ASE Olá na rede virtual hello. Se você não tiver acesso de rede toohello ILB, não é possível publicar todos os aplicativos em que ASE. Conforme observado na [criar e usar uma ASE ILB][MakeILBASE], você precisa tooconfigure DNS para aplicativos de saudação no sistema de saudação. Isso inclui ponto de extremidade SCM hello. Se eles não estiverem definidos corretamente, você não poderá publicar. Seu IDEs também precisa toohello de acesso de rede toohave ILB em ordem toopublish tooit diretamente.
 
-Sistemas de CI baseados na Internet, como GitHub e Visual Studio Team Services, não funcionam com um ASE ILB, porque o ponto de extremidade de publicação não é acessível pela Internet. Em vez disso, você precisa usar um sistema de CI que usa um modelo pull, como o Dropbox.
+Sistemas de CI baseado na Internet, como GitHub e o Visual Studio Team Services, não funcionam com uma ASE ILB porque o ponto de extremidade de publicação do hello não está acessível pela Internet. Em vez disso, você precisa toouse um sistema de CI que usa um modelo de pull, como o Dropbox.
 
-Os pontos de extremidade de publicação para aplicativos em um ASE ILB usam o domínio com o qual o ASE ILB foi criado. Você pode ver isso no perfil de publicação do aplicativo e na folha do portal do aplicativo (em **Visão Geral** > **Informações Básicas** e também em **Propriedades**). 
+pontos de extremidade de publicação de saudação para aplicativos em uma ASE ILB usam domínio Olá que Olá com que ASE ILB foi criado. Você pode ver no perfil de publicação do aplicativo hello e na folha de saudação do aplicativo portal (em **visão geral** > **Essentials** e também em **propriedades**). 
 
 ## <a name="pricing"></a>Preços ##
 
-O SKU de preço chamado **Isolado** foi criado para uso apenas com ASEv2. Todos os planos do Serviço de Aplicativo que são hospedados no ASEv2 estão no SKU de preços Isolado. As taxas de plano do Serviço de Aplicativo Isolado podem variar por região. 
+Olá preços SKU chamado **isolado** foi criado para uso apenas com ASEv2. Todos os planos de serviço de aplicativo que são hospedados em ASEv2 hello isolado preços SKU. As taxas de plano do Serviço de Aplicativo Isolado podem variar por região. 
 
-Além do preço dos planos do Serviço de Aplicativo, há um valor fixo para o ASE em si. O valor fixo não muda com o tamanho do seu ASE e paga pela infraestrutura de ASE a uma taxa de dimensionamento padrão de 1 front-end adicional para cada 15 instâncias do plano do Serviço de Aplicativo.  
+Além de planos de preços toohello para o serviço de aplicativo, há uma taxa de simples para ASE em si. Olá taxa simples não são alterados com tamanho de saudação do seu ASE e paga a infraestrutura de saudação ASE um padrão de dimensionamento de taxa de 1 adicionais front-end para todas as instâncias do plano do serviço de aplicativo 15.  
 
-Se a taxa de escala padrão de 1 front-end para cada 15 instâncias do plano do Serviço de Aplicativo não for rápida o suficiente, você poderá ajustar a taxa na qual front-ends são adicionados ou o tamanho dos front-ends.  Quando você ajustar a taxa ou o tamanho, pagará pelos núcleos de front-end que não seriam adicionados por padrão.  
+Se a taxa de escala de padrão de saudação de front-1 end para todas as instâncias do plano do serviço de aplicativo 15 não for rápida o suficiente, você pode ajustar a taxa Olá no qual o front-ends são adicionados ou Olá tamanho de saudação front-ends.  Quando você ajustar a taxa de saudação ou tamanho, você paga núcleos de front-end de saudação que não seriam adicionados por padrão.  
 
-Por exemplo, se você ajustar a taxa de escala para 10, um front-end será adicionado para cada 10 instâncias nos planos do Serviço de Aplicativo. O valor fixo abrange uma taxa de escala de um front-end para cada 15 instâncias. Com uma taxa escala de 10, você pode pagar uma taxa para o terceiro front-end adicionado para as 10 instâncias de plano de Serviço de Aplicativo. Você não precisará pagar por ele quando você chegar a 15 instâncias porque ele terá sido adicionado automaticamente.
+Por exemplo, se você ajustar Olá too10 de taxa de escala, é adicionado um front-end para cada 10 instâncias nos planos de serviço de aplicativo. taxas de saudação abrange uma taxa de escala de um front-end para todas as instâncias de 15. Com uma taxa de escala de 10, você pode pagar uma taxa para Olá terceiro front-end que foi adicionado para Olá 10 instâncias do plano de serviço de aplicativo. Toopay para que ele não é necessário quando você chegar 15 instâncias porque ele foi adicionado automaticamente.
 
-Se você ajustar o tamanho dos front-ends para dois núcleos, mas não ajustar a taxa, você pagará pelos núcleos extras.  Um ASE é criado com dois front-ends, então, até mesmo abaixo do limite de dimensionamento automático você pagaria por dois núcleos adicionais se aumentasse o tamanho para front-ends com dois núcleos.
+Se você Olá tamanho de núcleos de too2 front-ends Olá ajustado, mas não ajustar a taxa de saudação e pagar para Olá núcleos extras.  Uma ASE é criada com 2 front-ends, até mesmo abaixo do limite dimensionamento automático Olá que pago para 2 núcleos adicionais se você tiver aumentado Olá tamanho too2 core front-ends.
 
 Para saber mais, veja [Preços do Serviço de Aplicativo do Azure][Pricing].
 
 ## <a name="delete-an-ase"></a>Excluir um ASE ##
 
-Para excluir um ASE: 
+toodelete uma ASE: 
 
-1. Use **Excluir** na parte superior da folha **Ambiente de Serviço de Aplicativo**. 
+1. Use **excluir** na parte superior de saudação do hello **ambiente de serviço de aplicativo** folha. 
 
-2. Insira o nome do seu ASE para confirmar que deseja excluí-lo. Quando você exclui um ASE, exclui todo o conteúdo dentro dele também. 
+2. Insira nome de saudação do seu tooconfirm ASE que você deseja toodelete-lo. Quando você exclui uma ASE, excluir todo o conteúdo de saudação nele também. 
 
     ![Exclusão de ASE][3]
 

@@ -1,6 +1,6 @@
 ---
-title: "Gatilhos de aplicativo de API do Serviço de Aplicativo | Microsoft Docs"
-description: "Como implementar gatilhos em um aplicativo de API no Serviço de Aplicativo do Azure"
+title: "gatilhos de aplicativo de API do serviço de aaaApp | Microsoft Docs"
+description: "Como tooimplement dispara no App API no serviço de aplicativo do Azure"
 services: logic-apps
 documentationcenter: .net
 author: guangyang
@@ -14,53 +14,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2016
 ms.author: rachelap
-ms.openlocfilehash: 3ddfb142e7f1a47e2a8564387da785acf36fa61f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2d6b6a942a23c0a93987e9c48b69ecc739bfd814
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-app-service-api-app-triggers"></a>Gatilhos de aplicativo de API do Serviço de Aplicativo do Azure
 > [!NOTE]
-> Esta versão do artigo se aplica à versão do esquema 2014-12-01-preview de aplicativos de API.
+> Nesta versão do artigo Olá aplica-se a versão do esquema tooAPI aplicativos 2014-12-01-preview.
 >
 >
 
 ## <a name="overview"></a>Visão geral
-Este artigo explica como implementar gatilhos de aplicativo de API e consumi-los por meio de um aplicativo lógico.
+Este artigo explica como o aplicativo tooimplement API dispara e consumi-los em um aplicativo lógico.
 
-Todos os trechos de código mostrados neste tópico foram copiados do [exemplo de código do aplicativo de API do FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
+Todos os trechos de código Olá neste tópico são copiados do hello [exemplo de código do aplicativo de API FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
 
-Observe que você precisará baixar o seguinte pacote do nuget para que o código neste artigo seja compilado e executado: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
+Observe que você precisará Olá toodownload pacote nuget para o código de saudação em toobuild este artigo a seguir e execute: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
 
 ## <a name="what-are-api-app-triggers"></a>O que são gatilhos de aplicativo de API?
-É um cenário comum para um aplicativo de API disparar um evento para que os clientes do aplicativo de API possam realizar a ação apropriada em resposta ao evento. O mecanismo baseado em API REST que oferece suporte a esse cenário é chamado de gatilho de aplicativo de API.
+É um cenário comum para um aplicativo de API toofire um evento para que os clientes do aplicativo de API de saudação podem tomar as devidas providências de saudação no evento de toohello de resposta. Olá mecanismo baseados na API de REST que dá suporte a esse cenário é chamado de um gatilho de aplicativo de API.
 
-Por exemplo, digamos que seu código de cliente está usando o [Aplicativo de API para conexão ao Twitter](../connectors/connectors-create-api-twitter.md) e seu código precisa executar uma ação com base em novos tweets que contêm palavras específicas. Nesse caso, você pode definir um gatilho de sondagem ou de envio por push para facilitar essa necessidade.
+Por exemplo, digamos que seu código de cliente está usando Olá [aplicativo de API do conector do Twitter](../connectors/connectors-create-api-twitter.md) e seu código precisa tooperform uma ação com base no novo tweets que contêm palavras específicas. Nesse caso, você pode configurar um toofacilitate de gatilho sondagem ou envio por push essa necessidade.
 
 ## <a name="poll-trigger-versus-push-trigger"></a>Gatilho de sondagem versus gatilho de envio
 Atualmente, há suporte para dois tipos de gatilhos:
 
-* Gatilho de sondagem - o cliente faz a sondagem no aplicativo de API buscando notificação de um determinado evento ter sido acionado
-* Disparador de envio - o cliente é notificado pelo aplicativo API quando um evento é acionado
+* Gatilho de sondagem - cliente sonda saudação do aplicativo de API para notificação de um evento ter sido disparado
+* Gatilho push - o cliente é notificado por aplicativo hello API quando um evento é acionado
 
 ### <a name="poll-trigger"></a>Gatilho de sondagem
-Um gatilho de sondagem é implementado como uma API REST regular e espera que seus clientes (por exemplo, um aplicativo lógico) consultem-no para obter notificações. Enquanto o cliente pode manter o estado, o gatilho de sondagem em si é sem estado.
+Um gatilho de sondagem é implementado como uma API REST regular e espera que seu toopoll clientes (como um aplicativo de lógica) na notificação de tooget de ordem. Enquanto o cliente Olá pode manter o estado, o gatilho de sondagem de Olá em si é sem monitoração de estado.
 
-As informações sobre os pacotes de solicitação e resposta a seguir ilustram alguns aspectos fundamentais do contrato de gatilho de sondagem.
+Olá informações sobre pacotes de solicitação e resposta de saudação a seguir ilustra alguns aspectos fundamentais de contrato de gatilho de sondagem hello:
 
 * Solicitação
   * Método HTTP: GET
-  * Parâmetros
-    * triggerState - esse parâmetro opcional permite que os clientes especifiquem seu estado para que o gatilho de sondagem possa decidir corretamente se deseja retornar ou não a notificação com base no estado especificado.
+  * parâmetros
+    * triggerState - este parâmetro opcional permite que os clientes toospecify seu estado para que Olá gatilho sondagem corretamente pode decidir se notificação tooreturn ou não com base em hello especificado estado.
     * Parâmetros específicos de API
 * Resposta
-  * Código de status **200** - a solicitação é válida e há uma notificação do gatilho. O conteúdo da notificação será o corpo da resposta. Um cabeçalho de "Tente novamente após" na resposta indica que os dados de notificação adicionais devem ser recuperados com uma chamada de solicitação subsequente.
-  * Código de status **202** - a solicitação é válida, mas não há uma nova notificação do gatilho.
-  * Código de status **4xx** - a solicitação não é válida. O cliente não deve tentar solicitar novamente.
-  * Código de status **5xx** - a solicitação resultou em um erro interno do servidor e/ou em um problema temporário. O cliente deve tentar solicitar novamente.
+  * Código de status **200** - solicitação é válida e se houver uma notificação de disparador hello. conteúdo de saudação da notificação de saudação será corpo da resposta hello. Um cabeçalho "Retry-After" em resposta Olá indica que os dados de notificação adicionais devem ser recuperados com uma chamada de solicitação subsequente.
+  * Código de status **202** - a solicitação é válida, mas não há nenhuma nova notificação de gatilho de saudação.
+  * Código de status **4xx** - a solicitação não é válida. cliente de saudação não deve tentar novamente a solicitação de saudação.
+  * Código de status **5xx** - a solicitação resultou em um erro interno do servidor e/ou em um problema temporário. cliente Olá deve tentar novamente a solicitação de saudação.
 
-O trecho de código a seguir é um exemplo de como implementar um gatilho de sondagem.
+saudação de trecho de código a seguir é um exemplo de como tooimplement uma sondagem disparar.
 
     // Implement a poll trigger.
     [HttpGet]
@@ -71,54 +71,54 @@ O trecho de código a seguir é um exemplo de como implementar um gatilho de son
         // Additional parameters
         string searchPattern = "*")
     {
-        // Check to see whether there is any file touched after the timestamp.
+        // Check toosee whether there is any file touched after hello timestamp.
         var lastTriggerTimeUtc = DateTime.Parse(triggerState).ToUniversalTime();
         var touchedFiles = Directory.EnumerateFiles(rootPath, searchPattern, SearchOption.AllDirectories)
             .Select(f => FileInfoWrapper.FromFileInfo(new FileInfo(f)))
             .Where(fi => fi.LastAccessTimeUtc > lastTriggerTimeUtc);
 
-        // If there are files touched after the timestamp, return their information.
+        // If there are files touched after hello timestamp, return their information.
         if (touchedFiles != null && touchedFiles.Count() != 0)
         {
-            // Extension method provided by the AppService service SDK.
+            // Extension method provided by hello AppService service SDK.
             return this.Request.EventTriggered(new { files = touchedFiles });
         }
-        // If there are no files touched after the timestamp, tell the caller to poll again after 1 mintue.
+        // If there are no files touched after hello timestamp, tell hello caller toopoll again after 1 mintue.
         else
         {
-            // Extension method provided by the AppService service SDK.
+            // Extension method provided by hello AppService service SDK.
             return this.Request.EventWaitPoll(new TimeSpan(0, 1, 0));
         }
     }
 
-Para testar esse gatilho de sondagem, siga estas etapas:
+tootest esta pesquisa disparar, siga estas etapas:
 
-1. Implante o Aplicativo de API com uma configuração de autenticação **Público (anônimo)**.
-2. Chame a operação **touch** para tocar em um arquivo. A imagem a seguir mostra um exemplo de solicitação via Postman.
+1. Implantar Olá API aplicativo com uma configuração de autenticação de **público anônimo**.
+2. Chamar hello **touch** operação tootouch um arquivo. Olá a imagem a seguir mostra um exemplo de solicitação por meio de carteiro.
    ![Operação de toque de chamada via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-3. Chame o gatilho de sondagem com o parâmetro **triggerState** definido como um carimbo de data/hora antes da etapa 2. A imagem a seguir mostra o exemplo de solicitação via Postman.
+3. Chamar o gatilho de sondagem de saudação com hello **triggerState** parâmetro definido tooStep anterior de carimbo de data / hora da tooa #2. Olá imagem a seguir mostra exemplo de solicitação Olá via carteiro.
    ![Gatilho de sondagem de chamada via Postman](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
 
 ### <a name="push-trigger"></a>Gatilho de push
-Um gatilho de push é implementado como uma API REST regular que envia notificações para clientes que se inscreveram para serem notificados quando eventos específicos forem disparados.
+Um disparador de envio é implementado como uma API REST regular que envia tooclients de notificações que se inscreveram toobe notificado quando eventos específicos.
 
-As informações a seguir sobre os pacotes de solicitação e resposta ilustram alguns aspectos fundamentais do contrato de gatilho de push:
+Olá informações sobre pacotes de solicitação e resposta de saudação a seguir ilustra alguns aspectos fundamentais de contrato de gatilho de push hello.
 
 * Solicitação
   * Método HTTP: PUT
-  * Parâmetros
-    * triggerId: requerida - cadeia de caracteres opaca (como uma GUID) que representa o registro de um gatilho de push.
-    * callbackUrl: requerida - URL do retorno de chamada a ser invocado quando o evento for acionado. A chamada é uma chamada simples do HTTP POST.
+  * parâmetros
+    * triggerId: necessária - opaco de cadeia de caracteres (como um GUID) que representa Olá o registro de um disparador de envio.
+    * callbackUrl: necessária - URL da saudação tooinvoke de retorno de chamada quando Olá evento é acionado. invocação de saudação é uma chamada POST HTTP simples.
     * Parâmetros específicos de API
 * Resposta
-  * Código de status **200** - solicitação para registrar o cliente bem-sucedida.
-  * Código de status **4xx** - a solicitação não é válida. O cliente não deve tentar solicitar novamente.
-  * Código de status **5xx** - a solicitação resultou em um erro interno do servidor e/ou em um problema temporário. O cliente deve tentar solicitar novamente.
+  * Código de status **200** -solicitação tooregister cliente com êxito.
+  * Código de status **4xx** - a solicitação não é válida. cliente de saudação não deve tentar novamente a solicitação de saudação.
+  * Código de status **5xx** - a solicitação resultou em um erro interno do servidor e/ou em um problema temporário. cliente Olá deve tentar novamente a solicitação de saudação.
 * Callback
   * Método HTTP: POST
   * Corpo da solicitação: conteúdo da notificação.
 
-O trecho de código a seguir é um exemplo de como implementar um gatilho de push:
+saudação de trecho de código a seguir é um exemplo de como disparar o tooimplement um envio por push:
 
     // Implement a push trigger.
     [HttpPut]
@@ -126,14 +126,14 @@ O trecho de código a seguir é um exemplo de como implementar um gatilho de pus
     public HttpResponseMessage TouchedFilesPushTrigger(
         // triggerId is an opaque string.
         string triggerId,
-        // A helper class provided by the AppService service SDK.
-        // Here it defines the input of the push trigger is a string and the output to the callback is a FileInfoWrapper object.
+        // A helper class provided by hello AppService service SDK.
+        // Here it defines hello input of hello push trigger is a string and hello output toohello callback is a FileInfoWrapper object.
         [FromBody]TriggerInput<string, FileInfoWrapper> triggerInput)
     {
-        // Register the trigger to some trigger store.
+        // Register hello trigger toosome trigger store.
         triggerStore.RegisterTrigger(triggerId, rootPath, triggerInput);
 
-        // Extension method provided by the AppService service SDK indicating the registration is completed.
+        // Extension method provided by hello AppService service SDK indicating hello registration is completed.
         return this.Request.PushTriggerRegistered(triggerInput.GetCallback());
     }
 
@@ -165,53 +165,53 @@ O trecho de código a seguir é um exemplo de como implementar um gatilho de pus
         public void RegisterTrigger(string triggerId, string rootPath,
             TriggerInput<string, FileInfoWrapper> triggerInput)
         {
-            // Use FileSystemWatcher to listen to file change event.
+            // Use FileSystemWatcher toolisten toofile change event.
             var filter = string.IsNullOrEmpty(triggerInput.inputs) ? "*" : triggerInput.inputs;
             var watcher = new FileSystemWatcher(rootPath, filter);
             watcher.IncludeSubdirectories = true;
             watcher.EnableRaisingEvents = true;
             watcher.NotifyFilter = NotifyFilters.LastAccess;
 
-            // When some file is changed, fire the push trigger.
+            // When some file is changed, fire hello push trigger.
             watcher.Changed +=
                 (sender, e) => watcher_Changed(sender, e,
                     Runtime.FromAppSettings(),
                     triggerInput.GetCallback());
 
-            // Assoicate the FileSystemWatcher object with the triggerId.
+            // Assoicate hello FileSystemWatcher object with hello triggerId.
             _store[triggerId] = watcher;
 
         }
 
-        // Fire the assoicated push trigger when some file is changed.
+        // Fire hello assoicated push trigger when some file is changed.
         void watcher_Changed(object sender, FileSystemEventArgs e,
-            // AppService runtime object needed to invoke the callback.
+            // AppService runtime object needed tooinvoke hello callback.
             Runtime runtime,
-            // The callback to invoke.
+            // hello callback tooinvoke.
             ClientTriggerCallback<FileInfoWrapper> callback)
         {
-            // Helper method provided by AppService service SDK to invoke a push trigger callback.
+            // Helper method provided by AppService service SDK tooinvoke a push trigger callback.
             callback.InvokeAsync(runtime, FileInfoWrapper.FromFileInfo(new FileInfo(e.FullPath)));
         }
     }
 
-Para testar esse gatilho de sondagem, siga estas etapas:
+tootest esta pesquisa disparar, siga estas etapas:
 
-1. Implante o Aplicativo de API com uma configuração de autenticação **Público (anônimo)**.
-2. Navegue até [http://requestb.in/](http://requestb.in/) para criar um RequestBin que servirá como sua URL de retorno de chamada.
-3. Chame o gatilho de envio com uma GUID como **triggerId** e a URL RequestBin como **callbackUrl**.
+1. Implantar Olá API aplicativo com uma configuração de autenticação de **público anônimo**.
+2. Procurar muito[http://requestb.in/](http://requestb.in/) toocreate um RequestBin que servirá como a URL de retorno de chamada.
+3. Chame o disparador de envio de saudação com um GUID como **triggerId** e Olá RequestBin URL como **callbackUrl**.
    ![Gatilho de push de chamada via Postman](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
-4. Chame a operação **touch** para tocar em um arquivo. A imagem a seguir mostra um exemplo de solicitação via Postman.
+4. Chamar hello **touch** operação tootouch um arquivo. Olá a imagem a seguir mostra um exemplo de solicitação por meio de carteiro.
    ![Operação de toque de chamada via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-5. Verifique o RequestBin para confirmar que o retorno de chamada do gatilho de push é invocado com a saída da propriedade.
+5. Seleção Olá RequestBin tooconfirm que Olá disparador de envio de retorno de chamada é invocado com a saída de propriedade.
    ![Gatilho de sondagem de chamada via Postman](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
 
 ### <a name="describe-triggers-in-api-definition"></a>Descrever gatilhos na definição de API
-Depois de implementar os gatilhos e implantar seu aplicativo de API no Azure, navegue até a folha **definição API** no portal de visualização do Azure e você verá que os gatilhos são reconhecidos automaticamente na interface do usuário, que é orientada pela definição de API Swagger 2.0 do aplicativo de API.
+Após implementar gatilhos hello e implantar seu tooAzure do aplicativo de API, navegue toohello **de definição de API** folha no portal de visualização do Azure hello e você verá que gatilhos são reconhecidos automaticamente no hello da interface do usuário, que é controlada por Olá definição Swagger 2.0 API do aplicativo hello API.
 
 ![Folha Definição de API](./media/app-service-api-dotnet-triggers/apidefinitionblade.PNG)
 
-Se você clicar no botão **Baixar Swagger** e abrir o arquivo JSON, você verá resultados semelhantes ao seguinte:
+Se você clicar em Olá **baixar Swagger** botão e arquivo JSON de saudação aberta, você verá resultados toohello semelhante a seguir:
 
     "/api/files/poll/TouchedFiles": {
       "get": {
@@ -228,20 +228,20 @@ Se você clicar no botão **Baixar Swagger** e abrir o arquivo JSON, você verá
       }
     }
 
-A propriedade de extensão **x-ms-schedular-trigger** é como os gatilhos são descritos na definição de API, e é adicionada automaticamente pelo gateway de aplicativo de API quando você solicita a definição de API por meio do gateway se a solicitação corresponde a um dos critérios a seguir. (Você pode também adicionar essa propriedade manualmente.)
+Olá a propriedade de extensão **x-ms-da programação-o gatilho** é como os gatilhos são descritos na definição de API e é adicionada automaticamente pelo gateway de aplicativo hello API quando você solicitar definição Olá API por meio do gateway de saudação se Olá solicitação tooone de Olá critérios a seguir. (Você pode também adicionar essa propriedade manualmente.)
 
 * Gatilho de sondagem
-  * Se o método HTTP é **GET**.
-  * Se a propriedade **operationId** contém a cadeia de caracteres **trigger**.
-  * Se a propriedade **parameters** inclui um parâmetro com uma propriedade **name** definida como **triggerState**.
+  * Se for Olá método HTTP **obter**.
+  * Se hello **operationId** propriedade contém a cadeia de caracteres hello **gatilho**.
+  * Se hello **parâmetros** propriedade inclui um parâmetro com um **nome** propriedade definida muito**triggerState**.
 * Gatilho de push
-  * Se o método HTTP é **PUT**.
-  * Se a propriedade **operationId** contém a cadeia de caracteres **trigger**.
-  * Se a propriedade **parameters** inclui um parâmetro com uma propriedade **name** definida como **triggerId**.
+  * Se for Olá método HTTP **colocar**.
+  * Se hello **operationId** propriedade contém a cadeia de caracteres hello **gatilho**.
+  * Se hello **parâmetros** propriedade inclui um parâmetro com um **nome** propriedade definida muito**triggerId**.
 
 ## <a name="use-api-app-triggers-in-logic-apps"></a>Usar gatilhos de aplicativo de API em aplicativos lógicos
-### <a name="list-and-configure-api-app-triggers-in-the-logic-apps-designer"></a>Listar e configurar gatilhos de aplicativo de API no designer de aplicativos lógicos
-Se você criar um aplicativo lógico no mesmo grupo de recursos que o aplicativo de API, você poderá adicioná-la à tela do designer simplesmente clicando nele. As imagens a seguir ilustram isso:
+### <a name="list-and-configure-api-app-triggers-in-hello-logic-apps-designer"></a>Listar e configurar os gatilhos de aplicativo de API no designer de aplicativos de lógica de saudação
+Se você criar um aplicativo de lógica em Olá Olá de mesmo grupo de recursos do aplicativo de API, você será capaz de tooadd-tela do designer toohello simplesmente clicando nele. Olá imagens a seguir ilustra isso:
 
 ![Gatilhos no Designer de Aplicativos Lógicos](./media/app-service-api-dotnet-triggers/triggersinlogicappdesigner.PNG)
 
@@ -250,15 +250,15 @@ Se você criar um aplicativo lógico no mesmo grupo de recursos que o aplicativo
 ![Configurar o Gatilho de Push no Designer de Aplicativos Lógicos](./media/app-service-api-dotnet-triggers/configurepushtriggerinlogicappdesigner.PNG)
 
 ## <a name="optimize-api-app-triggers-for-logic-apps"></a>Otimizar gatilhos de aplicativo de API para aplicativos lógicos
-Depois de adicionar gatilhos a um aplicativo de API, há algumas coisas que você pode fazer para melhorar a experiência ao usar o aplicativo de API em um aplicativo lógico.
+Depois de adicionar gatilhos tooan API do aplicativo, há algumas coisas que você pode fazer a experiência de saudação tooimprove ao usar o aplicativo hello API em um aplicativo de lógica.
 
-Por exemplo, o parâmetro **triggerState** para gatilhos sondagem deve ser definido como a expressão a seguir no aplicativo lógico. Essa expressão deve avaliar a última chamada do gatilho pelo aplicativo lógico e retornar esse valor.  
+Por exemplo, Olá **triggerState** parâmetro gatilhos de sondagem deve ser definido como toohello expressão no aplicativo do hello lógica a seguir. Essa expressão deve avaliar a última chamada de saudação do gatilho de saudação do aplicativo de lógica de saudação e retornará o valor.  
 
     @coalesce(triggers()?.outputs?.body?['triggerState'], '')
 
-OBSERVAÇÃO: Para obter uma explicação das funções usadas na expressão acima, consulte a documentação sobre [Linguagem de definição de fluxo de trabalho de aplicativos lógicos](https://msdn.microsoft.com/library/azure/dn948512.aspx).
+Observação: Para obter uma explicação das funções hello usado na expressão de saudação acima, consulte documentação toohello em [lógica de linguagem de definição de fluxo de trabalho de aplicativo](https://msdn.microsoft.com/library/azure/dn948512.aspx).
 
-Os usuários de aplicativos lógicos precisariam fornecer a expressão acima para o parâmetro **triggerState** ao usar o gatilho. É possível fazer com que esse valor seja predefinido pelo designer do aplicativo lógico por meio da propriedade de extensão **x-ms-scheduler-recommendation**.  A propriedade de extensão **x-ms-visibility** pode ser definida com o um valor *internal* para que o parâmetro em si não seja exibido no designer.  O trecho de código a seguir ilustra isso.
+Os usuários do aplicativo lógica precisará expressão de saudação tooprovide acima para Olá **triggerState** parâmetro ao usar o gatilho de saudação. É possível toohave esse valor predefinido pelo designer de aplicativo hello lógica por meio da propriedade de extensão Olá **x-ms-Agendador-recomendação**.  Olá **x-ms-visibilidade** propriedade de extensão pode ser definida como valor tooa *interno* para que o parâmetro hello em si não é exibido no designer de saudação.  saudação de trecho de código a seguir ilustra que.
 
     "/api/Messages/poll": {
       "get": {
@@ -278,11 +278,11 @@ Os usuários de aplicativos lógicos precisariam fornecer a expressão acima par
       }
     }
 
-Para gatilhos de envio, o parâmetro **triggerId** deve identificar o aplicativo lógico de modo único. Uma prática recomendada é definir essa propriedade como o nome do fluxo de trabalho, usando a seguinte expressão:
+Gatilhos de envio, Olá **triggerId** parâmetro deve identificar exclusivamente o aplicativo de lógica de saudação. Uma prática recomendada é tooset o nome da propriedade toohello de fluxo de trabalho hello usando Olá a expressão a seguir:
 
     @workflow().name
 
-Usando as propriedades de extensão **x-ms-scheduler-recommendation** e **x-ms-visibility** em sua definição de API, o aplicativo de API pode transmitir ao designer de aplicativos lógicos uma instrução para definir automaticamente essa expressão para o usuário.
+Usando Olá **x-ms-Agendador-recomendação** e **x-ms-visibilidade** propriedades de extensão em sua definição de API, Olá aplicativo de API podem transmitir toohello lógica aplicativo designer tooautomatically definir isso expressão de usuário hello.
 
         "parameters":[  
           {  
@@ -296,11 +296,11 @@ Usando as propriedades de extensão **x-ms-scheduler-recommendation** e **x-ms-v
 
 
 ### <a name="add-extension-properties-in-api-defintion"></a>Adicionar propriedades de extensão na definição de API
-Informações adicionais de metadados – como as propriedades de extensão **x-ms-scheduler-recommendation** e **x-ms-visibility** -podem ser adicionadas à definição de API de dois modos: estáticos ou dinâmicos.
+Informações de metadados adicionais - como propriedades de extensão Olá **x-ms-Agendador-recomendação** e **x-ms-visibilidade** -podem ser adicionados na definição Olá API em uma das duas maneiras: estática ou dinâmica.
 
-Para metadados estáticos, você pode editar diretamente o arquivo */metadata/apiDefinition.swagger.json* em seu projeto e adicionar as propriedades manualmente.
+Para obter metadados estático, você pode editar diretamente o hello */metadata/apiDefinition.swagger.json* arquivo em seu projeto e adicionar propriedades de saudação manualmente.
 
-Para aplicativos de API usando metadados dinâmicos, você pode editar o arquivo SwaggerConfig.cs para adicionar um filtro de operação que possa adicionar essas extensões.
+Para aplicativos de API usando metadados dinâmico, você pode editar Olá SwaggerConfig.cs arquivo tooadd um filtro de operação que pode adicionar essas extensões.
 
     GlobalConfiguration.Configuration
         .EnableSwagger(c =>
@@ -311,9 +311,9 @@ Para aplicativos de API usando metadados dinâmicos, você pode editar o arquivo
             }
 
 
-Este é um exemplo de como essa classe pode ser implementada para facilitar o cenário de metadados dinâmicos.
+a seguir Olá é um exemplo de como essa classe pode ser o cenário de metadados dinâmico Olá toofacilitate implementado.
 
-    // Add extension properties on the triggerState parameter
+    // Add extension properties on hello triggerState parameter
     public class TriggerStateFilter : IOperationFilter
     {
 
@@ -331,8 +331,8 @@ Este é um exemplo de como essa classe pode ser implementada para facilitar o ce
                     }
 
                     // add 2 vendor extensions
-                    // x-ms-visibility: set to 'internal' to signify this is an internal field
-                    // x-ms-scheduler-recommendation: set to a value that logic app can use
+                    // x-ms-visibility: set too'internal' toosignify this is an internal field
+                    // x-ms-scheduler-recommendation: set tooa value that logic app can use
                     triggerStateParam.vendorExtensions.Add("x-ms-visibility", "internal");
                     triggerStateParam.vendorExtensions.Add("x-ms-scheduler-recommendation",
                                                            "@coalesce(triggers()?.outputs?.body?['triggerState'], '')");

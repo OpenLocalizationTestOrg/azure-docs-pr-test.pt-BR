@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory B2C: autoatendimento de redefinição de senha | Microsoft Docs"
-description: "Um tópico que demonstra como configurar a redefinição de senha por autoatendimento para seus consumidores no Azure Active Directory B2C"
+description: "Um tópico demonstra como a redefinição de tooset a senha de autoatendimento para seus consumidores no Azure Active Directory B2C"
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
@@ -14,35 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.openlocfilehash: 0508868e3b00c5771cc26038a3dd71fde6625a84
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ff87eea42259b610702da73af35d0a38eb7dd33d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-b2c-set-up-self-service-password-reset-for-your-consumers"></a>Azure Active Directory B2C: configurar a redefinição de senha por autoatendimento para seus consumidores
-Com o recurso de redefinição de senha por autoatendimento, seus consumidores (que tenham se registrado com contas locais) poderão redefinir as respectivas senhas por conta própria. Isso reduz significativamente a sobrecarga da equipe de suporte, principalmente se milhões de consumidores usarem seu aplicativo regularmente. Atualmente, só há suporte para usar um endereço de email verificado como um método de recuperação. Vamos incluir mais métodos de recuperação (número de telefone verificado, perguntas de segurança, etc.) futuramente.
+Olá com o recurso de redefinição de senha de autoatendimento, seus consumidores (que se inscreveram para contas locais) podem redefinir suas senhas em seus próprios. Isso reduz significativamente carga Olá em sua equipe de suporte, especialmente se seu aplicativo tiver milhões de consumidores usá-lo regularmente. Atualmente, só há suporte para usar um endereço de email verificado como um método de recuperação. Vamos adicionar métodos de recuperação adicionais (número de telefone verificado, perguntas de segurança, etc.) em um futuro hello.
 
 > [!NOTE]
-> Este artigo se aplica ao autoatendimento de redefinição de senha usado no contexto de uma política de entrada. Se precisar de políticas de redefinição de senha totalmente personalizáveis invocadas por meio de seu aplicativo, veja [este artigo](active-directory-b2c-reference-policies.md#create-a-password-reset-policy).
+> Este artigo se aplica a senha de serviço tooself usada no contexto de saudação de uma política de redefinição. Se precisar de políticas de redefinição de senha totalmente personalizáveis invocadas por meio de seu aplicativo, veja [este artigo](active-directory-b2c-reference-policies.md#create-a-password-reset-policy).
 > 
 > 
 
-Por padrão, o diretório não terá a redefinição de senha por autoatendimento ativada. Use as etapas a seguir para ativá-la:
+Por padrão, o diretório não terá a redefinição de senha por autoatendimento ativada. Use Olá seguindo as etapas tooturn-lo em:
 
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com/) como o Administrador da Assinatura. Essa é a mesma conta corporativa, de estudante ou da Microsoft que você usou para criar o diretório.
-2. Navegue até a extensão do Active Directory na barra de navegação do lado esquerdo.
-3. Localize o diretório na guia **Diretório** e clique nele.
-4. Clique na guia **Configurar** .
-5. Role para baixo até a seção **Política de redefinição de senha do usuário** e alterne a opção **Usuários habilitados para redefinição de senha** para **SIM**. Observe que a opção **Endereço de Email Alternativo** está marcada; deixe-a como está.
+1. Entrar toohello [portal clássico do Azure](https://manage.windowsazure.com/) como Olá administrador da assinatura. Isso é hello mesmo trabalho ou conta escolar ou Olá a mesma conta da Microsoft que você usou toocreate seu diretório.
+2. Navegue a extensão do Active Directory toohello na barra de navegação Olá no lado esquerdo da saudação.
+3. Localizar seu diretório de saudação **diretório** guia e clique nele.
+4. Clique em Olá **configurar** guia.
+5. Role para baixo toohello **política de redefinição de senha do usuário** seção e alternar Olá **usuários habilitados para redefinição de senha** opção muito**Sim**. Observe que Olá **endereço de Email alternativo** opção estiver marcada; deixe-o como está.
    
     ![Redefinição de senha de autoatendimento](./media/active-directory-b2c-reference-sspr/sspr.png)
-6. Na parte inferior da página, clique em **Salvar** . Pronto!
+6. Clique em **salvar** final Olá Olá página. Pronto!
 
-Para testar, use o recurso "Executar agora" em qualquer política de entrada que tenha contas locais como um provedor de identidade. Na página de entrada da conta local (na qual você insere um endereço de email e a senha ou um nome de usuário e a senha), clique em **Não consegue acessar sua conta?** para verificar a experiência do consumidor.
+tootest, o recurso de "Executar agora" hello use em qualquer política de entrada que tem as contas locais como um provedor de identidade. Na saudação conta local entrar página (em que você inserir um endereço de email e senha, ou um nome de usuário e senha), clique em **não é possível acessar sua conta?** experiência do consumidor Olá tooverify.
 
 > [!NOTE]
-> As páginas do autoatendimento de redefinição de senha podem ser personalizadas usando o [recurso de identidade visual da empresa](../active-directory/active-directory-add-company-branding.md).
+> Olá páginas de redefinição de senha de autoatendimento podem ser personalizadas usando Olá [marca do recurso da empresa](../active-directory/active-directory-add-company-branding.md).
 > 
 > 
 

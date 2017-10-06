@@ -1,6 +1,6 @@
 ---
-title: "Migrar um aplicativo Web corporativo para o Serviço de Aplicativo do Azure"
-description: "Mostra como usar o Assistente de migração de aplicativos Web para migrar rapidamente sites existentes do IIS para aplicativos Web do Serviço de Aplicativo do Azure"
+title: "aaaMigrate um tooAzure de aplicativo web do enterprise do serviço de aplicativo"
+description: "Mostra como tooquickly Assistente de migração de aplicativos Web toouse migrar tooAzure de sites da Web IIS existente aplicativos de Web do serviço de aplicativo"
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -15,118 +15,118 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: 18d6a8da38b42dcf5c1500f7fc26638aea26a809
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7d66c5b799f0eefe85cbd9ba596ee0a05167f295
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="migrate-an-enterprise-web-app-to-azure-app-service"></a>Migrar um aplicativo Web corporativo para o Serviço de Aplicativo do Azure
-Você pode migrar facilmente seus sites existentes executados no IIS (Serviço de Informação de Internet) 6 ou posterior para [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714). 
+# <a name="migrate-an-enterprise-web-app-tooazure-app-service"></a>Migrar um tooAzure de aplicativo web do enterprise do serviço de aplicativo
+Você pode facilmente migrar seus sites existentes que são executados no Internet Information Service (IIS) 6 ou posterior muito[aplicativos de Web do serviço de aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714). 
 
 > [!IMPORTANT]
-> O Windows Server 2003 chegou ao fim do suporte em 14 de julho de 2015. Se atualmente você estiver hospedando sites em um servidor IIS que é o Windows Server 2003, o uso de Aplicativos Web é um modo de baixo risco, baixo custo e baixo atrito para manter seus sites online, e o Assistente de migração de aplicativos Web pode ajudar a automatizar o processo de migração para você. 
+> O Windows Server 2003 chegou ao fim do suporte em 14 de julho de 2015. Se você estiver hospedando os sites em um servidor IIS que é o Windows Server 2003, os aplicativos Web é uma maneira de baixo risco, baixo custo e baixo fricção tookeep seus sites online e Assistente de migração de aplicativos da Web podem ajudar a automatizar o processo de migração de saudação para você. 
 > 
 > 
 
-[Assistente de migração de aplicativos Web](https://www.movemetothecloud.net/) pode analisar a instalação do seu servidor IIS, identificar quais sites podem ser migrados para o Serviço de Aplicativo, realçar quaisquer elementos que não possam ser migrados ou aos quais a plataforma não dá suporte e, em seguida, migrar seus sites e bancos de dados associados para o Azure.
+[Assistente de migração de aplicativos de Web](https://www.movemetothecloud.net/) pode analisar a instalação do servidor IIS, identifique quais sites podem ser migrado tooApp serviço, realçar os elementos que não podem ser migrados ou não têm suporte na plataforma hello e, em seguida, migrar seus sites e tooAzure de bancos de dados associados.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="elements-verified-during-compatibility-analysis"></a>Elementos verificados durante a análise de compatibilidade
-O Assistente de migração cria um relatório de prontidão para identificar quaisquer potenciais causas de preocupação ou problemas de bloqueio que podem impedir uma migração bem-sucedida do IIS local para aplicativos Web do Serviço de Aplicativo do Azure. Alguns dos principais itens aos quais você deve se atentar:
+Olá, o Assistente de migração cria um tooidentify de relatório de prontidão possíveis causas preocupação ou problemas de bloqueio que podem impedir uma migração bem-sucedida de local IIS tooAzure aplicativos de Web do serviço de aplicativo. Alguns Olá principais itens toobe atento são:
 
-* Associações de porta – aplicativos Web somente dão suporte à porta 80 para HTTP e à porta 443 para tráfego HTTPS. Configurações de porta diferentes serão ignoradas e o tráfego será roteado para 80 ou 443. 
+* Associações de porta – aplicativos Web somente dão suporte à porta 80 para HTTP e à porta 443 para tráfego HTTPS. Configurações de porta diferente serão ignoradas e o tráfego será roteado too80 ou 443. 
 * Autenticação – os aplicativos Web dão suporte à Autenticação Anônima por padrão e à Autenticação de Formulários onde especificado por um aplicativo. A autenticação do Windows pode ser usada somente com a integração com o Active Directory do Azure e o ADFS. Não há suporte no momento para nenhuma outra forma de autenticação - por exemplo, Autenticação Básica. 
-* Cache de Assembly Global (GAC) – os aplicativos Web não dão suporte ao GAC. Se seu aplicativo faz referência a conjuntos que você normalmente implanta no GAC, você precisará implantar na pasta bin do aplicativo em aplicativos Web. 
+* Cache de Assembly Global (GAC) – Olá GAC não tem suporte em aplicativos da Web. Se seu aplicativo faz referência a assemblies que você normalmente implanta toohello GAC, você precisará pasta bin do toodeploy toohello aplicativo em aplicativos da Web. 
 * Modo de compatibilidade IIS5 – não há suporte para esse modo nos aplicativos Web. 
-* Pools de aplicativos – em aplicativos Web, cada site e seus aplicativos filho são executados no mesmo pool de aplicativos. Se o site tiver vários aplicativos filho utilizando vários pools de aplicativos, consolide-os em um único pool de aplicativos com as mesmas configurações ou migre cada aplicativo em um aplicativo Web separado.
-* Componentes COM – aplicativos Web não permitem o registro de componentes COM na plataforma. Se seus sites ou aplicativos utilizarem componentes COM, você deve reescrevê-los em código gerenciado e implantá-los em seu site ou aplicativo.
-* Extensões ISAPI — Aplicativos Web podem dar suporte ao uso de Extensões ISAPI. Você precisa fazer o seguinte:
+* Pools de aplicativos – em aplicativos da Web, cada site e seus aplicativos filho executados no hello mesmo pool de aplicativos. Se o site tiver vários aplicativos filho utilizando vários pools de aplicativos, consolidá-los tooa único pool de aplicativos com as mesmas configurações ou migrar cada aplicativo do aplicativo tooa web separado.
+* Componentes COM – os aplicativos Web não permitir o registro de saudação de componentes COM na plataforma de saudação. Se seus sites ou aplicativos fazer uso de todos os componentes COM, você deve reescrevê-los no código gerenciado e implantá-las com hello site ou aplicativo.
+* Extensões ISAPI – aplicativos da Web pode dar suporte a uso de saudação de extensões ISAPI. Você precisa toodo Olá seguinte:
   
-  * implantar as DLLs com seu aplicativo Web 
-  * registrar as DLLs usando [Web.config](http://www.iis.net/configreference/system.webserver/isapifilters)
-  * colocar um arquivo applicationHost.xdt na raiz do site com o conteúdo descrito na seção deste artigo ["Permitir extensões ISAPI a serem carregadas"](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples) 
+  * implantar Olá DLLs com seu aplicativo web 
+  * registrar DLLs hello usando [Web. config](http://www.iis.net/configreference/system.webserver/isapifilters)
+  * Coloque um arquivo de applicationHost.xdt na raiz do site Olá com conteúdo Olá descrito em "Permitir toobe de extensões ISAPI arbitrart carregados" [deste artigo](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples) 
     
   
     
-    Para obter mais exemplos de como usar transformações de documentos XML com o seu site, consulte [Transformar seu Site do Microsoft Azure](http://blogs.msdn.com/b/waws/archive/2014/06/17/transform-your-microsoft-azure-web-site.aspx).
+    Para obter mais exemplos de como toouse transformações de documentos XML com o seu site, consulte [transformar seu Site do Microsoft Azure](http://blogs.msdn.com/b/waws/archive/2014/06/17/transform-your-microsoft-azure-web-site.aspx).
 * Outros componentes, como SharePoint, extensões de servidor do FrontPage (FPSE), FTP, certificados SSL não serão migrados.
 
-## <a name="how-to-use-the-web-apps-migration-assistant"></a>Como usar o Assistente de migração de aplicativos Web
-Esta seção percorre um exemplo para migrar alguns sites que usam um banco de dados do SQL Server e estão em execução em um computador Windows Server 2003 R2 (IIS 6.0) local:
+## <a name="how-toouse-hello-web-apps-migration-assistant"></a>Como toouse Olá Assistente de migração de aplicativos Web
+Esta seção percorre um exemplo tootoomigrate alguns sites que usam um banco de dados do SQL Server e em execução em uma máquina local, Windows Server 2003 R2 (IIS 6.0):
 
-1. No servidor IIS ou em seu computador cliente, navegue até [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/) 
+1. No hello IIS servidor ou computador cliente Navegue muito[https://www.movemetothecloud.net/](https://www.movemetothecloud.net/) 
    
    ![](./media/web-sites-migration-from-iis-server/migration-tool-homepage.png)
-2. Instalar o Assistente de migração de aplicativos Web, clicando no botão **Servidor IIS dedicado** . Mais opções serão disponibilizadas futuramente. 
-3. Clique no botão **Instalar Ferramenta** para instalar o Assistente de migração de aplicativos Web em seu computador.
+2. Instalar o Assistente de migração de aplicativos da Web, basta clicar em hello **servidor dedicado do IIS** botão. Mais opções de será opções Olá futuro próximo. 
+3. Clique em Olá **instalar ferramenta** botão tooinstall Assistente de migração de aplicativos da Web em seu computador.
    
    ![](./media/web-sites-migration-from-iis-server/install-page.png)
    
    > [!NOTE]
-   > Você também pode clicar em **Download para instalação offline** para baixar um arquivo ZIP para instalação em servidores não conectados à Internet. Ou, você pode clicar em **Carregar um relatório de preparação de migração existente**, que é uma opção avançada para trabalhar com um migração de preparação para o relatório existente que você gerou anteriormente (explicado posteriormente).
+   > Você também pode clicar em **Download para instalar offline** toodownload um ZIP do arquivo de instalação em servidores não conectado toohello internet. Ou, você pode clicar em **carregar um relatório de preparação de migração existente**, que é toowork uma opção avançada com um migração preparação relatório existente que você gerou anteriormente (explicado posteriormente).
    > 
    > 
-4. Na tela **Instalação do aplicativo**, clique em **Instalar** para instalar em seu computador. Ele também instalará dependências correspondentes, como a implantação da Web, DacFX e IIS, se necessário. 
+4. Em Olá **de instalação do aplicativo** tela, clique em **instalar** tooinstall em seu computador. Ele também instalará dependências correspondentes, como a implantação da Web, DacFX e IIS, se necessário. 
    
    ![](./media/web-sites-migration-from-iis-server/install-progress.png)
    
    Uma vez instalado, o Assistente de migração de aplicativos Web inicia automaticamente.
-5. Escolha **Migrar sites e bancos de dados de um servidor remoto para o Azure**. Insira as credenciais administrativas para o servidor remoto e clique em **Continuar**. 
+5. Escolha **migrar sites e bancos de dados de um servidor remoto tooAzure**. Insira as credenciais administrativas de saudação para o servidor remoto hello e clique em **continuar**. 
    
    ![](./media/web-sites-migration-from-iis-server/migrate-from-remote.png)
    
-   Você certamente pode optar por migrar do servidor local. A opção remota é útil quando você deseja migrar sites de um servidor IIS de produção.
+   Obviamente, você pode escolher toomigrate do servidor de local de saudação. opção remote Olá é útil quando você deseja toomigrate sites de um servidor do IIS de produção.
    
-   Agora a ferramenta de migração inspecionará a configuração do seu servidor IIS, como sites, aplicativos, pools de aplicativos e dependências para identificar sites candidatos para a migração. 
-6. A captura de tela abaixo mostra três sites – **site padrão**, **TimeTracker** e **CommerceNet4**. Todos eles têm um banco de dados associado que desejamos migrar. Selecione todos os sites que você gostaria de avaliar e, em seguida, clique em **Avançar**.
+   Neste momento a ferramenta de migração de saudação inspecionará Olá a configuração do servidor do IIS, como Sites, aplicativos, Pools de aplicativos e dependências tooidentify sites de candidato para a migração. 
+6. saudação de captura de tela abaixo mostra os três sites – **Default Web Site**, **TimeTracker**, e **CommerceNet4**. Todos eles têm um banco de dados associado que desejamos toomigrate. Selecione todos os sites de saudação deseja tooassess e, em seguida, clique em **próximo**.
    
    ![](./media/web-sites-migration-from-iis-server/select-migration-candidates.png)
-7. Clique em **Carregar** para carregar o relatório de preparação. Se clicar em **Salvar arquivo localmente**, você poderá executar a ferramenta de migração novamente mais tarde e carregar o relatório de prontidão salvo como observado anteriormente.
+7. Clique em **carregar** relatório de preparação de saudação tooupload. Se você clicar em **salvar o arquivo localmente**, você pode executar a ferramenta de migração de saudação novamente mais tarde e carregamento Olá salvou o relatório de preparação conforme observado anteriormente.
    
    ![](./media/web-sites-migration-from-iis-server/upload-readiness-report.png)
    
-   Depois que você carregar o relatório de preparação, o Azure executa análise de preparação e mostra os resultados. Leia os detalhes de avaliação para cada site e certifique-se de que você compreenda ou que tenha resolvido todos os problemas antes de continuar. 
+   Depois que você carregar o relatório de preparação de saudação, o Azure executa análise de preparação e mostra Olá resultados. Ler os detalhes da avaliação de saudação para cada site e certifique-se de que você entende ou ter resolvido todos os problemas antes de continuar. 
    
    ![](./media/web-sites-migration-from-iis-server/readiness-assessment.png)
-8. Clique em **Começar a migração** para iniciar a migração. Você será redirecionado para o Azure para fazer logon em sua conta. É importante que você faça logon com uma conta que tenha uma assinatura ativa do Azure. Se não tiver uma conta do Azure, é possível se inscrever para obter uma avaliação gratuita [aqui](https://azure.microsoft.com/pricing/free-trial/?WT.srch=1&WT.mc_ID=SEM_). 
-9. Selecione a conta de locatário, a assinatura do Azure e a região a usar para seus bancos de dados e aplicativos Web do Azure migrados; então, clique em **Iniciar Migração**. Você pode selecionar os sites para migrar posteriormente.
+8. Clique em **começar a migração** toostart migração de saudação. Agora, você será redirecionado tooAzure toolog em sua conta. É importante que você faça logon com uma conta que tenha uma assinatura ativa do Azure. Se não tiver uma conta do Azure, é possível se inscrever para obter uma avaliação gratuita [aqui](https://azure.microsoft.com/pricing/free-trial/?WT.srch=1&WT.mc_ID=SEM_). 
+9. Selecionar conta de locatário hello, assinatura do Azure e toouse de região para seus aplicativos web do Azure migrados e bancos de dados e, em seguida, clique em **Iniciar migração**. Você pode selecionar Olá sites toomigrate mais tarde.
    
    ![](./media/web-sites-migration-from-iis-server/choose-tenant-account.png)
-10. Na próxima tela, você pode fazer alterações nas configurações de migração padrão, como:
+10. Na próxima tela de saudação você pode fazer alterações toohello configurações de migração padrão, como:
     
     * usar um banco de dados SQL Azure existente ou criar um novo banco de dados SQL do Azure e configurar suas credenciais
-    * Selecione os sites para migrar
-    * defina nomes para os aplicativos Web do Azure e seus bancos de dados SQL vinculados
-    * personalize as configurações globais e configurações no nível do site
+    * Selecione Olá sites toomigrate
+    * definir nomes para aplicativos da web do Azure de saudação e seus bancos de dados SQL vinculados
+    * Personalizar as configurações globais do hello e configurações no nível do site
     
-    A captura de tela abaixo mostra todos os sites selecionados para migração com as configurações padrão.
+    saudação de captura de tela abaixo mostra todos os sites de saudação selecionados para migração com as configurações padrão de saudação.
     
     ![](./media/web-sites-migration-from-iis-server/migration-settings.png)
     
     > [!NOTE]
-    > A caixa de seleção **Habilitar o Azure Active Directory** em configurações personalizadas integra o aplicativo Web do Azure ao [Azure Active Directory](../active-directory/active-directory-whatis.md) (o **Diretório padrão**). Para obter mais informações sobre a sincronização do Azure Active Directory com o Active Directory local, consulte [Integração de diretórios](http://msdn.microsoft.com/library/jj573653).
+    > Olá **ativar o Azure Active Directory** caixa de seleção em configurações personalizadas integra Olá aplicativo de web do Azure com [Active Directory do Azure](../active-directory/active-directory-whatis.md) (Olá **diretório padrão**). Para obter mais informações sobre a sincronização do Azure Active Directory com o Active Directory local, consulte [Integração de diretórios](http://msdn.microsoft.com/library/jj573653).
     > 
     > 
-11. Após fazer as alterações desejadas, clique em **Criar** para iniciar o processo de migração. A ferramenta de migração criará o banco de dados SQL do Azure e o aplicativo Web do Azure e, em seguida, publicará o conteúdo do site e os bancos de dados. O andamento da migração é mostrado com clareza na ferramenta de migração e você verá, no final, uma tela de resumo que detalha os sites migrados, se eles foram ou não bem-sucedidos e que vincula aos aplicativos Web do Azure recém-criados. 
+11. Depois de fazer todas as alterações de saudação desejada, clique em **criar** toostart processo de migração de saudação. ferramenta de migração de saudação criar aplicativo web e banco de dados SQL do Azure e o Azure hello e, em seguida, publicar bancos de dados e conteúdo do site hello. andamento da migração Olá é claramente mostrado na ferramenta de migração de saudação e você verá uma tela de resumo no final de hello, os sites de saudação detalhes migrados, se elas foram bem-sucedidas, links toohello recém-criado do Azure aplicativos da web. 
     
-    Se ocorrer algum erro durante a migração, a ferramenta de migração claramente indicará a falha e reverterá as alterações. Você também poderá enviar o relatório de erros diretamente à equipe de engenharia, clicando no botão **Enviar relatório de erros** , com a pilha de chamadas de falhas capturadas e criar o corpo da mensagem. 
+    Se nenhum erro ocorre durante a migração, Olá será da ferramenta de migração claramente indica Olá falha e reversão Olá as alterações. Também será capaz de toosend relatório de erros de hello diretamente a equipe de engenharia toohello clicando Olá **enviar relatório de erros** botão, a pilha de chamadas Olá falha capturada e criar o corpo da mensagem. 
     
     ![](./media/web-sites-migration-from-iis-server/migration-error-report.png)
     
-    Se a migração tiver êxito e não resultar em erros, você também pode clicar no botão **Enviar Comentários** para fornecer comentários diretamente. 
-12. Clique nos links para os aplicativos Web do Azure e verifique se a migração foi bem-sucedida.
-13. Agora você pode gerenciar os aplicativos Web migrados no Serviço de Aplicativo do Azure. Para fazer isso, faça logon no [Portal do Azure](https://portal.azure.com).
-14. No Portal do Azure, abra a folha Aplicativos Web para ver seus sites migrados (mostrados como aplicativos Web), clique em qualquer um para começar a gerenciar o aplicativo Web, como a configuração de publicação contínua, criação de backups, dimensionamento automático e monitoramento de uso ou de desempenho.
+    Se migrar terá êxito sem erros, você também pode clicar Olá **fornecer Feedback** botão tooprovide quaisquer comentários diretamente. 
+12. Clique em aplicativos web do Azure do hello links toohello e verificar que a migração de saudação foi bem-sucedida.
+13. Agora você pode gerenciar Olá migrados aplicativos web no serviço de aplicativo do Azure. toodo isso, faça logon no hello [Portal do Azure](https://portal.azure.com).
+14. No Portal do Azure do hello, abra toosee de folha de aplicativos Web hello seus sites migrados (mostrados como os aplicativos web) e clique em qualquer um deles toostart Olá web app, como configurar contínuo de publicação, criação de backups, o dimensionamento automático e monitorar o uso de gerenciamento ou desempenho.
     
     ![](./media/web-sites-migration-from-iis-server/TimeTrackerMigrated.png)
 
 > [!NOTE]
-> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você quiser tooget iniciado com o serviço de aplicativo do Azure antes de se inscrever para uma conta do Azure, vá muito[tente do serviço de aplicativo](https://azure.microsoft.com/try/app-service/), onde você pode criar imediatamente um aplicativo web de curta duração starter no serviço de aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
 ## <a name="whats-changed"></a>O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para um guia toohello alteração de sites tooApp serviço consulte: [do serviço de aplicativo do Azure e seu impacto sobre os serviços do Azure existente](http://go.microsoft.com/fwlink/?LinkId=529714)
 

@@ -1,6 +1,6 @@
 ---
-title: Conectar computadores Linux ao OMS (Operations Management Suite) | Microsoft Docs
-description: Este artigo descreve como conectar computadores Linux hospedados no Azure, em outra nuvem ou localmente ao OMS usando o Agente do OMS para Linux.
+title: aaaConnect tooOperations seus computadores Linux Management Suite (OMS) | Microsoft Docs
+description: "Este artigo descreve como tooconnect Linux hospedado no Azure, outros nuvem ou local tooOMS usando Olá agente do OMS para Linux."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -14,31 +14,31 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/21/2017
 ms.author: magoedte
-ms.openlocfilehash: 1c05f68235aafd0fa098a3b0edaba1258df09380
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: cb4fc671d0678f9fadc689c6ba7d719213aa61b5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-your-linux-computers-to-operations-management-suite-oms"></a>Conectar computadores Linux ao OMS (Operations Management Suite) 
+# <a name="connect-your-linux-computers-toooperations-management-suite-oms"></a>Conecte-se a sua tooOperations de computadores Linux Management Suite (OMS) 
 
-Com o OMS (Microsoft Operations Management Suite), você pode coletar e agir sobre os dados gerados em computadores Linux e soluções de contêiner como o Docker, residindo em seu data center local como servidores físicos ou máquinas virtuais, máquinas virtuais em um serviço hospedado em nuvem como AWS (Amazon Web Services) ou Microsoft Azure. Você também pode usar soluções de gerenciamento disponíveis no OMS, como Controle de Alterações, para identificar alterações de configuração e Gerenciamento de Atualizações para gerenciar atualizações de software para gerenciar proativamente o ciclo de vida das VMs Linux. 
+Com o OMS (Microsoft Operations Management Suite), você pode coletar e agir sobre os dados gerados em computadores Linux e soluções de contêiner como o Docker, residindo em seu data center local como servidores físicos ou máquinas virtuais, máquinas virtuais em um serviço hospedado em nuvem como AWS (Amazon Web Services) ou Microsoft Azure. Você também pode usar soluções de gerenciamento disponíveis no OMS, como controle de alterações, alterações de configuração de tooidentify, e tooproactively de atualizações de software do gerenciamento de atualizações toomanage gerenciar o ciclo de vida Olá suas VMs do Linux. 
 
-O Agente do OMS para Linux se comunica na saída com o serviço OMS na porta TCP 443. Caso o computador se conecte a um firewall ou servidor proxy para se comunicar pela Internet, examine [Configurando o agente para uso com um servidor proxy HTTP ou Gateway do OMS](#configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway) para entender quais alterações de configuração precisarão ser aplicadas.  Se você estiver monitorando o computador com o System Center 2016 – Operations Manager ou Operations Manager 2012 R2, ele poderá ser multihomed com o serviço OMS para coletar dados e encaminhe para o serviço e ainda ser monitorado pelo Operations Manager.  Os computadores Linux monitorados por um grupo de gerenciamento do Operations Manager integrado ao OMS não recebem a configuração de fontes de dados e encaminham os dados coletados pelo grupo de gerenciamento.  O agente do OMS não pode ser configurado para se reportar a mais de um espaço de trabalho.  
+Olá agente do OMS para Linux se comunica saída com hello serviço OMS usando a porta TCP 443 e se Olá computador se conecta a toocommunicate de servidor proxy ou firewall tooa sobre Olá Internet, consulte [Configurando o agente de saudação para uso com um proxy HTTP servidor ou Gateway do OMS](#configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway) toounderstand alterações de configuração precisará toobe aplicado.  Se você estiver monitorando o computador de saudação com o System Center 2016 - Operations Manager ou do Operations Manager 2012 R2, pode ser multihomed com o serviço de encaminhamento toohello e os dados de toocollect de serviço do OMS hello e ainda ser monitorado pelo Operations Manager.  Computadores Linux monitorados por um grupo de gerenciamento do Operations Manager está integrado com o OMS não receber a configuração de fontes de dados e encaminhar coletados dados por meio do grupo de gerenciamento de saudação.  agente do OMS Olá não pode ser configurado tooreport toomore que um espaço de trabalho.  
 
-Se suas políticas de segurança não permitem que computadores em sua rede se conectem à Internet, o agente pode ser configurado para se conectar ao Gateway do OMS para receber informações de configuração e enviar os dados coletados dependendo da solução habilitada. Para obter mais informações e etapas sobre como configurar o Agente do OMS para Linux para se comunicar através de um Gateway do OMS ao serviço OMS, consulte [Conectar computadores ao OMS usando o Gateway do OMS](log-analytics-oms-gateway.md).  
+Se suas políticas de segurança de TI não permitir que os computadores em sua toohello tooconnect de rede da Internet, agente Olá pode ser configurado tooconnect toohello OMS Gateway tooreceive configuração informações e enviar os dados coletados dependendo da solução Olá que tiver habilitado. Para obter mais informações e etapas sobre como tooconfigure toocommunicate seu agente Linux do OMS por meio de um serviço OMS do Gateway do OMS toohello, consulte [conectar computadores tooOMS usando Olá OMS Gateway](log-analytics-oms-gateway.md).  
 
-O diagrama a seguir ilustra a conexão entre os computadores Linux gerenciados por agente e o OMS, incluindo a direção e as portas.
+Olá diagrama a seguir ilustra conexão Olá entre computadores Linux gerenciado por agente de saudação e o OMS, incluindo portas e direção hello.
 
 ![diagrama Comunicação do agente direto com o OMS](./media/log-analytics-agent-linux/log-analytics-agent-linux-communication.png)
 
 ## <a name="system-requirements"></a>Requisitos do sistema
-Antes de começar, examine os detalhes a seguir para verificar se você atende aos pré-requisitos.
+Antes de começar, examine Olá tooverify detalhes que você atenda aos pré-requisitos Olá a seguir.
 
 ### <a name="supported-linux-operating-systems"></a>Sistemas operacionais Linux com suporte
-As seguintes distribuições Linux têm suporte oficialmente.  No entanto, o Agente do OMS para Linux também pode ser executado em outras distribuições não listadas.
+Olá distribuições do Linux a seguir têm suporte oficialmente.  No entanto, a saudação do agente do OMS para Linux também pode ser executado em outras distribuições não listadas.
 
-* Amazon Linux 2012.09 a 2015.09 (x86/x64)
+* Amazon Linux 2012.09 too2015.09 (x86/x64)
 * CentOS Linux 5, 6 e 7 (x86/x64)
 * Oracle Linux 5, 6 e 7 (x86/x64)
 * Red Hat Enterprise Linux Server 5, 6 e 7 (x86/x64)
@@ -47,7 +47,7 @@ As seguintes distribuições Linux têm suporte oficialmente.  No entanto, o Age
 * SUSE Linux Enterprise Server 11 e 12 (x86/x64)
 
 ### <a name="network"></a>Rede
-As informações abaixo listam as informações de configuração de proxy e firewall necessárias para que o agente do Linux se comunique com o OMS. O tráfego é de saída da rede para o serviço OMS. 
+informações de saudação abaixo proxy de saudação da lista e as informações de configuração de firewall necessárias para Olá toocommunicate de agente do Linux com o OMS. O tráfego é de saída do seu serviço OMS do toohello de rede. 
 
 |Recurso de agente| Portas |  
 |------|---------|  
@@ -67,14 +67,14 @@ Python-ctypes | |
 PAM | Módulos de autenticação conectáveis | 
 
 > [!NOTE]
->  Rsyslog ou syslog-ng são necessários para coletar mensagens de syslog. O daemon syslog padrão na versão 5 do Red Hat Enterprise Linux, CentOS e na versão Oracle Linux (sysklog) não tem suporte para a coleta de eventos de syslog. Para coletar dados de syslog nessa versão dessas distribuições, o daemon rsyslog deve ser instalado e configurado para substituir sysklog. 
+>  O rsyslog ou syslog-ng é necessário toocollect mensagens de syslog. Não há suporte para o daemon do syslog saudação padrão na versão 5 do Red Hat Enterprise Linux, CentOS e Oracle Linux (sysklog) para coleta de eventos de syslog. toocollect dados de syslog dessa versão de distribuições, Olá rsyslog daemon deve ser instalado e configurado tooreplace sysklog, 
 
-O agente inclui vários pacotes. O arquivo de versão contém os seguintes pacotes, disponíveis por meio da execução do pacote do shell com `--extract`:
+Agente de saudação inclui vários pacotes. versão de arquivo Hello contém Olá pacotes, disponíveis com o pacote de shell Olá em execução com a seguir `--extract`:
 
 **Pacote** | **Versão** | **Descrição**
 ----------- | ----------- | --------------
-omsagent | 1.4.0 | O Agente do Operations Management Suite para Linux
-omsconfig | 1.1.1 | Agente de configuração para o Agente do OMS
+omsagent | 1.4.0 | Olá agente do Operations Management Suite para Linux
+omsconfig | 1.1.1 | Agente de configuração para Olá agente do OMS
 omi | 1.2.0 | OMI (Open Management Infrastructure) – um servidor CIM leve
 scx | 1.6.3 | Provedores de CIM OMI para métricas de desempenho do sistema operacional
 apache-cimprov | 1.0.1 | Provedor de monitoramento de desempenho do Servidor HTTP Apache para OMI. Instalado se o Servidor HTTP Apache for detectado.
@@ -82,56 +82,56 @@ mysql-cimprov | 1.0.1 | Provedor de monitoramento de desempenho do Servidor MySQ
 docker-cimprov | 1.0.0 | Provedor do Docker para OMI. Instalado se o Docker for detectado.
 
 ### <a name="compatibility-with-system-center-operations-manager"></a>Compatibilidade com o System Center Operations Manager
-O Agente do OMS para Linux compartilha arquivos binários de agente com o agente do System Center Operations Manager. Se você instalar o Agente do OMS para Linux em um sistema atualmente gerenciado pelo Operations Manager, atualiza os pacotes OMI e SCX no computador para uma versão mais recente. Nesta versão, o OMS e o System Center 2016 – agentes do Operations Manager/Operations Manager 2012 R2 para Linux são compatíveis. 
+Olá agente do OMS para Linux compartilha binários de agente com o agente do System Center Operations Manager hello. Se você instalar Olá agente do OMS para Linux em um sistema gerenciado atualmente pelo Operations Manager, ele Olá pacotes OMI e SCX na versão mais recente do hello computador tooa. Esta versão, a saudação do OMS e o System Center 2016 - agentes do Operations Manager/Operations Manager 2012 R2 para Linux são compatíveis. 
 
 > [!NOTE]
-> O System Center 2012 SP1 e versões anteriores atualmente não são compatíveis com o Agente do OMS para Linux ou não têm suporte.<br>
-> Se o Agente do OMS para Linux for instalado em um computador que não é monitorado pelo Operations Manager no momento e você desejar monitorar o computador com o Operations Manager, será necessário modificar a [configuração do OMI](#enable-the-oms-agent-for-linux-to-report-to-system-center-operations-manager) antes de descobrir o computador. **Esta etapa não *será* necessária se o agente do Operations Manager for instalado antes do Agente do OMS para Linux.**
+> System Center 2012 SP1 e versões anteriores atualmente não são compatíveis ou não tem suporte com hello agente do OMS para Linux.<br>
+> Se Olá agente do OMS para Linux for instalado tooa computador que atualmente não é monitorado pelo Operations Manager e desejar, em seguida, o computador de saudação toomonitor com o Operations Manager, você deve modificar Olá [configuração do OMI](#enable-the-oms-agent-for-linux-to-report-to-system-center-operations-manager) anterior computador de saudação toodiscovering. **Esta etapa é *não* necessário se o agente do Operations Manager de saudação for instalado antes de saudação do agente do OMS para Linux.**
 
 ### <a name="system-configuration-changes"></a>Alterações de configuração do sistema
-Após a instalação dos pacotes do Agente do OMS para Linux, serão aplicadas as seguintes alterações de configuração adicionais em todo o sistema. Esses artefatos serão removidos quando o pacote omsagent for desinstalado.
+Depois de instalar o hello agente do OMS para Linux pacotes, hello seguintes alterações de configuração de todo o sistema adicionais são aplicadas. Esses artefatos são removidos quando o pacote do hello omsagent é desinstalado.
 
-* Um usuário sem privilégios chamado: `omsagent` é criado. O daemon omsagent é executado como essa conta.
-* Um arquivo "include" sudoers é criado em /etc/sudoers.d/omsagent. Isso autoriza o omsagent a reiniciar os daemons syslog e omsagent. Se o sudo incluir diretivas sem suporte na versão instalada do sudo, essas entradas serão gravadas em /etc/sudoers.
-* A configuração de syslog é modificada para encaminhar um subconjunto de eventos para o agente. Para saber mais, confira a seção **Configuração da Coleta de Dados** abaixo
+* Um usuário sem privilégios chamado: `omsagent` é criado. Essa é a conta Olá Olá execuções de daemon omsagent como.
+* Um arquivo "include" sudoers é criado em /etc/sudoers.d/omsagent. Isso autoriza o omsagent toorestart Olá syslog e omsagent daemons. Se as diretivas de "inclusão" do sudo não tiverem suporte na versão Olá instalada do sudo, essas entradas são gravadas muito/etc/sudoers.
+* configuração de syslog Olá é modificado tooforward um subconjunto do agente de toohello de eventos. Para obter mais informações, consulte Olá **configurar coleta de dados** seção abaixo
 
 ### <a name="upgrade-from-a-previous-release"></a>Atualizar de uma versão anterior
-A atualização de versões anteriores à 1.0.0-47 tem suporte nesta versão. Executar a instalação com o comando `--upgrade` atualizará todos os componentes do agente para a versão mais recente.
+A atualização de versões anteriores à 1.0.0-47 tem suporte nesta versão. Executando a instalação Olá com hello `--upgrade` comando atualiza todos os componentes da versão mais recente do toohello Olá agente.
 
-## <a name="installing-the-agent"></a>Instalando o agente
+## <a name="installing-hello-agent"></a>Instalando agente Olá
 
-Esta seção descreve como instalar o agente do OMS para Linux usando um pacote, que contém pacotes Debian e RPM para cada um dos componentes do agente.  Ele pode ser instalado diretamente ou extraído para recuperar os pacotes individuais.  
+Esta seção descreve como tooinstall Olá agente do OMS para Linux usando um bunndle, que contém Debian e RPM pacotes para cada um dos componentes do agente hello.  Ele pode ser instalado diretamente ou extraído pacotes individuais do tooretrieve hello.  
 
-Primeiro, você precisa da ID e chave de seu espaço de trabalho do OMS, que podem ser encontradas alternando para o [Portal Clássico do OMS](https://mms.microsoft.com).  Na página **Visão geral**, no menu superior, selecione **Configurações** e, em seguida, navegue até **Fontes Conectadas\Servidores Linux**.  Você verá o valor à direita da **ID do Espaço de Trabalho** e **Chave Primária**.  Copie e cole os dois em seu editor favorito.    
+Primeiro é necessário a ID do espaço de trabalho do OMS e a chave, o que você pode encontrar alternando toohello [portal clássico do OMS](https://mms.microsoft.com).  Em Olá **visão geral** página do menu superior, selecione Olá **configurações**e, em seguida, navegue muito**conectado Sources\Linux servidores**.  Consulte o direito de toohello Olá valor de **ID do espaço de trabalho** e **chave primária**.  Copie e cole os dois em seu editor favorito.    
 
-1. Baixe o versão mais recente [agente do OMS para Linux (x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x64.sh) ou [agente do OMS para Linux x86](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x86.sh) do GitHub.  
-2. Transfira o pacote apropriado (x86 ou x64) para seu computador Linux usando scp/sftp.
-3. Instale o pacote usando o argumento `--install` ou `--upgrade`. 
+1. Saudação de download mais recente [agente do OMS para Linux (x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x64.sh) ou [agente do OMS para Linux x86](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x86.sh) do GitHub.  
+2. Transferência de saudação pacote apropriado (x86 ou x64) tooyour computador Linux usando o scp/sftp.
+3. Instalar o pacote de saudação usando Olá `--install` ou `--upgrade` argumento. 
 
     > [!NOTE]
-    > Se houver qualquer pacote existente instalado, como quando o agente do System Center Operations Manager para Linux já está instalado, use o argumento `--upgrade`. Para se conectar ao Operations Management Suite durante a instalação, forneça os parâmetros `-w <WorkspaceID>` e `-s <Shared Key>`.
+    > Se houver pacotes estiverem instalados, como quando o agente do System Center Operations Manager Olá para Linux já está instalado, use Olá `--upgrade` argumento. tooconnect tooOperations Management Suite durante a instalação, forneça Olá `-w <WorkspaceID>` e `-s <Shared Key>` parâmetros.
 
 
-#### <a name="to-install-and-onboard-directly"></a>Para instalar e integrar diretamente
+#### <a name="tooinstall-and-onboard-directly"></a>tooinstall e integrar diretamente
 ```
 sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <shared key>
 ```
 
-#### <a name="to-upgrade-the-agent-package"></a>Para atualizar o pacote do agente
+#### <a name="tooupgrade-hello-agent-package"></a>pacote do agente Olá tooupgrade
 ```
 sudo sh ./omsagent-<version>.universal.x64.sh --upgrade
 ```
 
-#### <a name="to-install-and-onboard-to-a-workspace-in-us-government-cloud"></a>Para instalar e integrar para um espaço de trabalho no Nuvem do Governo dos EUA
+#### <a name="tooinstall-and-onboard-tooa-workspace-in-us-government-cloud"></a>tooinstall e tooa integrada de espaço de trabalho na nuvem de governo dos EUA
 ```
 sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
 ```
 
-## <a name="configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway"></a>Configurando o agente para uso com um servidor proxy HTTP ou Gateway do OMS
-O Agente do OMS para Linux dá suporte para a comunicação por meio de um servidor proxy HTTP, HTTPS ou Gateway do OMS para o serviço OMS.  Há suporte para a autenticação anônima e básica (nome de usuário/senha).  
+## <a name="configuring-hello-agent-for-use-with-an-http-proxy-server-or-oms-gateway"></a>Configurando o agente Olá para uso com um servidor proxy HTTP ou o Gateway do OMS
+Olá agente do OMS para Linux dá suporte à comunicação por meio de um servidor proxy HTTP ou HTTPS ou serviço do OMS Gateway toohello OMS.  Há suporte para a autenticação anônima e básica (nome de usuário/senha).  
 
 ### <a name="proxy-configuration"></a>Configuração de Proxy
-O valor de configuração de proxy tem a seguinte sintaxe:
+valor de configuração de proxy Olá tem Olá sintaxe a seguir:
 
 `[protocol://][user:password@]proxyhost[:port]`
 
@@ -140,22 +140,22 @@ Propriedade|Descrição
 Protocolo|http ou https
 usuário|Nome de usuário opcional para autenticação de proxy
 Senha|Senha opcional para autenticação de proxy
-proxyhost|Endereço ou FQDN do servidor proxy/Gateway do OMS
-porta|Número da porta opcional para o servidor proxy/OMS do Gateway
+proxyhost|Endereço ou FQDN do servidor do proxy de saudação/OMS Gateway
+porta|Número da porta opcional para Olá proxy server/OMS Gateway
 
 Por exemplo: `http://user01:password@proxy01.contoso.com:8080`
 
-O servidor proxy pode ser especificado durante a instalação ou modificando o arquivo de configuração proxy.conf após a instalação.   
+servidor de proxy Olá pode ser especificado durante a instalação ou modificando o arquivo de configuração do hello proxy.conf após a instalação.   
 
 ### <a name="specify-proxy-configuration-during-installation"></a>Especificar a configuração de proxy durante a instalação
-O argumento `-p` ou `--proxy` para o pacote de instalação omsagent especifica a configuração de proxy a ser usada. 
+Olá `-p` ou `--proxy` argumento para o pacote de instalação omsagent Olá Especifica Olá toouse de configuração de proxy. 
 
 ```
 sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -p http://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
 ```
 
-### <a name="define-the-proxy-configuration-in-a-file"></a>Definir a configuração de proxy em um arquivo
-A configuração de proxy pode ser definida nos arquivos `/etc/opt/microsoft/omsagent/proxy.conf` e `/etc/opt/microsoft/omsagent/conf/proxy.conf `. Os arquivos podem ser criados ou editados diretamente, mas as permissões devem ser atualizadas para conceder ao usuário omiuser as permissões de leitura nos arquivos. Por exemplo:
+### <a name="define-hello-proxy-configuration-in-a-file"></a>Definir a configuração de proxy de saudação em um arquivo
+configuração de proxy Olá pode ser definida em arquivos Olá `/etc/opt/microsoft/omsagent/proxy.conf` e `/etc/opt/microsoft/omsagent/conf/proxy.conf `. arquivos de saudação podem ser criados ou editados diretamente, mas suas permissões devem ser atualizada toogrant Olá omiuser leitura do usuário permissão nos arquivos de saudação. Por exemplo:
 ```
 proxyconf="https://proxyuser:proxypassword@proxyserver01:8080"
 sudo echo $proxyconf >>/etc/opt/microsoft/omsagent/proxy.conf
@@ -164,48 +164,48 @@ sudo chmod 600 /etc/opt/microsoft/omsagent/proxy.conf /etc/opt/microsoft/omsagen
 sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
 ```
 
-### <a name="removing-the-proxy-configuration"></a>Removendo a configuração de proxy
-Para remover uma configuração de proxy definida anteriormente e reverter para a conectividade direta, remova o arquivo proxy.conf:
+### <a name="removing-hello-proxy-configuration"></a>Removendo a configuração de proxy de saudação
+tooremove uma configuração de proxy definida anteriormente e reverter toodirect conectividade, remova Olá proxy.conf arquivo:
 ```
 sudo rm /etc/opt/microsoft/omsagent/proxy.conf /etc/opt/microsoft/omsagent/conf/proxy.conf
 sudo /opt/microsoft/omsagent/bin/service_control restart 
 ```
 
 ## <a name="onboarding-with-operations-management-suite"></a>Integração com o Operations Management Suite
-Se uma ID e chave do espaço de trabalho não foram fornecidas durante a instalação do pacote, o agente deve ser subsequentemente registrado com o Operations Manager Suite.
+Se uma ID do espaço de trabalho e a chave não foram fornecidas durante a instalação do pacote de saudação, agente Olá deve ser registrado posteriormente com o Operations Management Suite.
 
-### <a name="onboarding-using-the-command-line"></a>Integração usando a linha de comando
-Execute o comando omsadmin.sh fornecendo a ID e a chave do espaço de trabalho. Este comando deve ser executado como raiz (com elevação sudo):
+### <a name="onboarding-using-hello-command-line"></a>Integração usando a linha de comando Olá
+Execute Olá omsadmin.sh comando fornecendo o id do espaço de trabalho de saudação e a chave para seu espaço de trabalho. Este comando deve ser executado como raiz (com elevação sudo):
 ```
 cd /opt/microsoft/omsagent/bin
 sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
 ```
 
 ### <a name="onboarding-using-a-file"></a>Integração usando um arquivo
-1.  Crie o arquivo `/etc/omsagent-onboard.conf`. O arquivo deve ser legível e gravável para a raiz.
+1.  Criar arquivo hello `/etc/omsagent-onboard.conf`. arquivo Hello deve ser legível e gravável para a raiz.
 `sudo vi /etc/omsagent-onboard.conf`
-2.  Insira as seguintes linhas no arquivo com a ID e a Chave Compartilhada do Espaço de Trabalho:
+2.  Inserir saudação linhas no arquivo hello com a ID do espaço de trabalho e a chave compartilhada a seguir:
 
         WORKSPACE_ID=<WorkspaceID>  
         SHARED_KEY=<Shared Key>  
    
-3.  Execute o comando a seguir para integrar ao OMS: `sudo /opt/microsoft/omsagent/bin/omsadmin.sh`
-4.  O arquivo é excluído na integração bem-sucedida.
+3.  Execute Olá tooOMS de tooOnboard de comando a seguir:`sudo /opt/microsoft/omsagent/bin/omsadmin.sh`
+4.  Olá arquivo será excluído na integração bem-sucedida.
 
-## <a name="enable-the-oms-agent-for-linux-to-report-to-system-center-operations-manager"></a>Habilitar o Agente do OMS para Linux para reportar para o System Center Operations Manager
-Execute as seguintes etapas para configurar o Agente do OMS para Linux para reportar para um grupo de gerenciamento do System Center Operations Manager.  
+## <a name="enable-hello-oms-agent-for-linux-tooreport-toosystem-center-operations-manager"></a>Habilitar hello agente do OMS para Linux tooreport tooSystem Center Operations Manager
+Execute Olá seguindo as etapas tooconfigure Olá agente do OMS para o grupo de gerenciamento do Linux tooreport tooa System Center Operations Manager.  
 
-1. Edite o arquivo `/etc/opt/omi/conf/omiserver.conf`
-2. Verifique se a linha que começa com **httpsport=** define a porta 1270. Como: `httpsport=1270`
-3. Reinicie o servidor OMI: `sudo /opt/omi/bin/service_control restart`
+1. Editar arquivo hello.`/etc/opt/omi/conf/omiserver.conf`
+2. Certifique-se de que Olá linha a partir **httpsport =** define Olá porta 1270. Como: `httpsport=1270`
+3. Reinicie o servidor OMI de saudação:`sudo /opt/omi/bin/service_control restart`
 
 ## <a name="agent-logs"></a>Logs do Agente
-Os logs do Agente do OMS para Linux podem ser encontrados em: `/var/opt/microsoft/omsagent/<workspace id>/log/` Os logs do programa omsconfig (configuração do agente) pode ser encontrado em: `/var/opt/microsoft/omsconfig/log/` Os Logs dos componentes OMI e SCX (que fornecem dados de métrica de desempenho) podem ser encontrados em: `/var/opt/omi/log/ and /var/opt/microsoft/scx/log`
+Olá logs para Olá agente do OMS para Linux pode ser encontrada em: `/var/opt/microsoft/omsagent/<workspace id>/log/` Olá logs para o programa omsconfig (configuração do agente) de saudação pode ser encontrado em: `/var/opt/microsoft/omsconfig/log/` Logs para Olá componentes OMI e SCX (que fornecem dados de métrica de desempenho) podem ser encontrados em:`/var/opt/omi/log/ and /var/opt/microsoft/scx/log`
 
 ### <a name="log-rotation-configuration"></a>Configuração de rotação de log##
-A configuração de rotação de log para omsagent pode ser encontrada em: `/etc/logrotate.d/omsagent-<workspace id>`
+configuração de rotação de log Olá para omsagent pode ser encontrada em:`/etc/logrotate.d/omsagent-<workspace id>`
 
-As configurações padrão são: 
+as configurações padrão de saudação são: 
 ```
 /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log {
     rotate 5
@@ -217,8 +217,8 @@ As configurações padrão são:
 }
 ```
 
-## <a name="uninstalling-the-oms-agent-for-linux"></a>Desinstalar o Agente do OMS para Linux
-Os pacotes de agente podem ser desinstalados por meio da execução do arquivo bundle.sh com o argumento `--purge`, que remove completamente o agente e a configuração do computador.   
+## <a name="uninstalling-hello-oms-agent-for-linux"></a>Saudação de desinstalação do agente do OMS para Linux
+Olá pacotes de agente podem ser desinstalados por execução Olá arquivo. sh com hello `--purge` argumento, que remove completamente agente hello e sua configuração do computador hello.   
 
 ```
 > sudo rpm -e omsconfig
@@ -228,18 +228,18 @@ Os pacotes de agente podem ser desinstalados por meio da execução do arquivo b
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 
-### <a name="issue-unable-to-connect-through-proxy-to-oms"></a>Problema: não é possível se conectar por meio do proxy ao OMS
+### <a name="issue-unable-tooconnect-through-proxy-toooms"></a>Problema: O tooconnect não é possível por meio do proxy tooOMS
 
 #### <a name="probable-causes"></a>Causas prováveis
-* O proxy especificado durante a integração estava incorreto
-* Os Pontos de Extremidade do Serviço OMS não estão na lista de permissões do seu datacenter 
+* proxy de saudação especificado durante a integração estava incorreto
+* pontos de extremidade de serviço de OMS Olá não são whitelistested em seu data center 
 
 #### <a name="resolutions"></a>Resoluções
-1. Reintegre ao Serviço OMS com o Agente do OMS para Linux usando o seguinte comando com a opção `-v` habilitada. Isso permite a saída detalhada do agente que está se conectando por meio do proxy ao Serviço OMS. 
+1. Reonboard toohello serviço OMS com hello agente do OMS para Linux usando Olá após o comando com a opção de saudação `-v` habilitado. Isso permite que a saída detalhada do agente de saudação se conectam por meio do proxy de saudação toohello serviço OMS. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
-2. Consulte a seção [Configurando o agente para uso com um servidor proxy HTTP (#configuring the-agent-for-use-with-a-http-proxy-server)] para verificar se você configurou adequadamente o agente para se comunicar pelo servidor proxy.    
-* Verifique uma segunda vez se os seguintes pontos de extremidade do Serviço OMS estão na lista de permissões:
+2. Examine a seção de saudação [agente de saudação configurando para uso com um proxy HTTP server(#configuring the-agent-for-use-with-a-http-proxy-server) tooverify você configurou corretamente Olá toocommunicate agent por meio de um servidor proxy.    
+* Verifique que Olá seguintes pontos de extremidade de serviço do OMS estão na lista de permissões:
 
     |Recurso de agente| Portas |  
     |------|---------|  
@@ -248,7 +248,7 @@ Os pacotes de agente podem ser desinstalados por meio da execução do arquivo b
     |ods.systemcenteradvisor.com | Porta 443|   
     |*.blob.core.windows.net/ | Porta 443|   
 
-### <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Problema: você recebe um erro 403 quando tentar integrar
+### <a name="issue-you-receive-a-403-error-when-trying-tooonboard"></a>Problema: Você recebe um erro 403 durante a tentativa de tooonboard
 
 #### <a name="probable-causes"></a>Causas prováveis
 * A data e a hora estão incorretas no servidor Linux 
@@ -256,26 +256,26 @@ Os pacotes de agente podem ser desinstalados por meio da execução do arquivo b
 
 #### <a name="resolution"></a>Resolução
 
-1. Verifique a hora no servidor Linux com o comando date. Se a hora for +/-15 minutos da hora atual, a integração falhará. Para corrigir esse problema, atualize a data e/ou o fuso horário do servidor Linux. 
-2. Verifique se você instalou a última versão do Agente do OMS para Linux.  A versão mais recente agora notifica se a distorção de horário está causando a falha de integração.
-3. Reintegre usando a ID do Espaço de Trabalho e a Chave do Espaço de Trabalho corretas seguindo as instruções de instalação descritas anteriormente neste tópico.
+1. Verificar o tempo de saudação em seu servidor Linux com data de comando hello. Se houver tempo Olá + /-15 minutos da hora atual, integração falhará. toocorrect desta atualização Olá data e/ou o fuso horário do servidor Linux. 
+2. Verifique se que você instalou a versão mais recente Olá de saudação do agente do OMS para Linux.  versão mais recente do Hello agora notifica se a diferença de horário está causando a falha de integração de saudação.
+3. Reonboard usando a ID do espaço de trabalho correto e a chave de espaço de trabalho seguindo instruções de instalação Olá neste tópico.
 
-### <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Problema: Você vê um erro 404 e 500 no arquivo de log logo após a integração
+### <a name="issue-you-see-a-500-and-404-error-in-hello-log-file-right-after-onboarding"></a>Problema: Você verá um erro de 500 e 404 no arquivo de log Olá logo após a integração
 Esse é um problema conhecido que ocorre durante o primeiro upload de dados do Linux em um espaço de trabalho do OMS. Isso não afeta os dados sendo enviados ou a experiência do serviço.
 
-### <a name="issue--you-are-not-seeing-any-data-in-the-oms-portal"></a>Problema: Você não está vendo nenhum dado no portal do OMS
+### <a name="issue--you-are-not-seeing-any-data-in-hello-oms-portal"></a>Problema: Você não visualizar todos os dados no portal do OMS Olá
 
 #### <a name="probable-causes"></a>Causas prováveis
 
-- Falha na integração com o Serviço OMS
-- A conexão com o Serviço OMS está bloqueada
+- Falha de serviço do OMS toohello de integração
+- Conexão toohello serviço OMS está bloqueado
 - Os dados do Agente do OMS para Linux têm o backup realizado
 
 #### <a name="resolutions"></a>Resoluções
-1. Verifique se a integração do Serviço OMS foi bem-sucedida verificando se os seguintes arquivos existem: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
-2. Reintegração usando as instruções de linha de comando do `omsadmin.sh`
-3. Se estiver usando um proxy, consulte as etapas de resolução de proxy fornecidas anteriormente.
-4. Em alguns casos, quando o Agente do OMS para Linux não pode se comunicar com o Serviço OMS, os dados no agente são enfileirados até todo o tamanho do buffer, que é 50 MB. O Agente do OMS para Linux deve ser reiniciado executando o seguinte comando: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
+1. Verifique se integração Olá serviço OMS foi bem-sucedida verificando se hello seguinte arquivo existir:`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
+2. Reonboard usando Olá `omsadmin.sh` instruções de linha de comando
+3. Se usar um proxy, consulte toohello etapas de resolução de proxy fornecidas anteriormente.
+4. Em alguns casos, quando Olá agente do OMS para Linux não pode se comunicar com hello serviço OMS, dados de agente Olá estão tamanho de buffer cheio toohello em fila, que é 50 MB. Olá agente do OMS para Linux deve ser reiniciado executando o comando a seguir de saudação: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
 
     >[!NOTE]
     >Esse problema foi corrigido nas versões 1.1.0-28 e posteriores do Agente.

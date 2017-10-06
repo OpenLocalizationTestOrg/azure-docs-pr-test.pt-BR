@@ -1,6 +1,6 @@
 ---
-title: "Prever uma resposta com um modelo simples de regressão – Azure Machine Learning | Microsoft Docs"
-description: "Como criar um modelo simples de regressão para prever um preço no vídeo 4, Ciência de dados para iniciantes. Inclui uma regressão linear com os dados de destino."
+title: "aaaPredict uma resposta com um modelo de regressão simples - aprendizado de máquina do Azure | Microsoft Docs"
+description: "Como toocreate uma regressão simple modelo toopredict um preço na ciência de dados para iniciantes 4 de vídeo. Inclui uma regressão linear com os dados de destino."
 keywords: "criar um modelo, modelo simples, previsão de preço, modelo simples de regressão"
 services: machine-learning
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2017
 ms.author: cgronlun
-ms.openlocfilehash: 24df1823af2610a5111118f47e4cadbcfcc0eff1
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: d4270c2237c33b7e898b78a08b292bc9d62e49ef
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prever uma resposta com um modelo simples
 ## <a name="video-4-data-science-for-beginners-series"></a>Vídeo 4: Série de ciência de dados para iniciantes
-Aprenda como criar um modelo simples de regressão para prever o preço de um diamante no vídeo 4, Ciência de dados para iniciantes. Vamos desenhar um modelo de regressão com dados de destino.
+Saiba como toocreate uma toopredict do modelo de regressão simples Olá preço de um losango na ciência de dados para iniciantes 4 de vídeo. Vamos desenhar um modelo de regressão com dados de destino.
 
-Para aproveitar ao máximo da série, assista a todos os vídeos. [Acessar a lista de vídeos](#other-videos-in-this-series)
+Olá tooget máximo série hello, assista a todos eles. [Acesse a lista de toohello de vídeos](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
@@ -33,23 +33,23 @@ Para aproveitar ao máximo da série, assista a todos os vídeos. [Acessar a lis
 >
 
 ## <a name="other-videos-in-this-series"></a>Outros vídeos nesta série
-*Ciência de dados para iniciantes* é uma breve introdução à ciência de dados em cinco vídeos curtos.
+*Ciência de dados para iniciantes* é uma breve introdução toodata ciência cinco vídeos curtos.
 
-* Vídeo 1: [As cinco perguntas que a ciência de dados responde](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 s)*
+* Vídeo 1: [Olá 5 perguntas respostas de ciência de dados](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 seg)*
 * Vídeo 2: [Seus dados estão prontos para a ciência de dados?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 s)*
 * Video 3: [Faça uma pergunta que você possa responder com dados](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 s)*
 * Vídeo 4: Preveja uma resposta com um modelo simples
-* Vídeo 5: [Copie o trabalho de outras pessoas para fazer a ciência de dados](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 s)*
+* Vídeo 5: [copiar ciência de dados de outras pessoas trabalho toodo](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 minutos 18 segundos)*
 
 ## <a name="transcript-predict-an-answer-with-a-simple-model"></a>Transcrição: Preveja uma resposta com um modelo simples
-Bem-vindos ao quarto vídeo da série "Ciência de dados para iniciantes". Neste vídeo, vamos criar um modelo simples e fazer uma previsão.
+Bem-vindo toohello quarto vídeo de saudação série "Dados ciência para iniciantes". Neste vídeo, vamos criar um modelo simples e fazer uma previsão.
 
 Um *modelo* é uma história simplificada sobre nossos dados. Mostrarei o que quero dizer.
 
 ## <a name="collect-relevant-accurate-connected-enough-data"></a>Colete dados relevantes, precisos, conectados e suficientes
-Vamos supor que eu queira comprar um diamante. Eu tenho um anel que pertencia a minha avó com um espaço para um diamante de 1,35 quilate, e eu quero ter uma ideia de quanto esse diamante custará. Levo um bloco de notas e uma caneta até a loja de joias e anoto o preço e o quilate de todos os diamantes em exposição. Começando com o primeiro diamante: ele tem 1,01 quilate e custa $7.366.
+Digamos que desejo tooshop para um losango. Tenho um anel que pertencia toomy avó com uma configuração para um losango circunflexo 1,35 e desejo tooget uma ideia do quanto custará. Posso obter um bloco de notas e caneta no repositório de joias hello e, anote o preço de saudação de todos os losangos Olá no caso de Olá e o quanto eles pesam em carats. Iniciando com losango primeiro Olá - do-1.01 carats e US $7,366.
 
-Agora eu faço isso para os outros diamantes na loja.
+Agora percorrer e faça isso para Olá todos os outros losangos no repositório de saudação.
 
 ![Colunas de dados de diamante](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/diamond-data.png)
 
@@ -57,80 +57,79 @@ Observe que a nossa lista tem duas colunas. Cada coluna tem um atributo diferent
 
 Na verdade, criamos um pequeno conjunto de dados aqui; uma tabela. Observe que isso atende aos nossos critérios de qualidade:
 
-* Os dados são **relevantes** — o peso está definitivamente relacionado ao preço
-* Eles são **precisos** — verificamos os preços que anotamos mais de uma vez
+* Olá dados **relevantes** -peso é tooprice definitivamente relacionado
+* Ele tem **precisas** -nós com verificação dupla preços Olá escrevemos para baixo
 * Eles estão **conectados** — não há espaço em branco em qualquer uma dessas colunas
-* E, como veremos, eles têm uma quantidade **suficiente** de dados para responder à nossa pergunta
+* E, como veremos, ele tem **suficiente** dados tooanswer nossa pergunta
 
 ## <a name="ask-a-sharp-question"></a>Faça uma pergunta inteligente
-Agora, faremos nosso pergunta de uma forma direta: "Quanto custará para comprar um diamante de 1,35 quilate?"
+Agora podemos será digite nossa pergunta de forma curva: "quantos será custo toobuy um losango circunflexo 1,35?"
 
-Nossa lista não tem um diamante de 1,35 quilate, então teremos que usar o restante de dados para obter uma resposta para a pergunta.
+Nossa lista não tem um losango 1,35 circunflexo, portanto teremos restante Olá toouse tooget nossos dados uma pergunta de toohello de resposta.
 
-## <a name="plot-the-existing-data"></a>Plotar os dados existentes
-A primeira coisa que faremos é desenhar uma linha horizontal de números, chamada de eixo, para colocar os pesos no gráfico. A faixa dos pesos vai de 0 a 2, portanto, vamos desenhar uma linha que cubra essa faixa e colocar marcações a cada meio quilate.
+## <a name="plot-hello-existing-data"></a>Plotar dados existentes Olá
+primeira coisa Olá que faremos é desenhar uma linha horizontal de número, chamada de um eixo, pesos de saudação toochart. intervalo de saudação de pesos de saudação é too2 0, portanto vamos desenhar uma linha que abrange que variam e colocar tiques para cada semestre intercalação.
 
-Em seguida, desenharemos um eixo vertical para registrar o preço e o conectaremos ao eixo horizontal de peso. Isso será em unidades de dólares. Agora temos um conjunto de eixos coordenados.
+Em seguida vamos desenhar um preço de saudação do eixo vertical toorecord e conectá-lo toohello eixo de peso horizontal. Isso será em unidades de dólares. Agora temos um conjunto de eixos coordenados.
 
 ![Eixos de peso e preço](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/weight-and-price-axes.png)
 
-Agora, vamos pegar esses dados e transformá-los em uma *dispersão*. Essa é uma excelente maneira de visualizar conjuntos de dados numéricos.
+Estamos tootake contínuo esses dados agora e transformá-la em um *dispersão*. Esta é uma ótima maneira toovisualize numéricos conjuntos de dados.
 
-Para o primeiro ponto de dados, desenhamos uma linha vertical no quilate 1,01. Em seguida, desenhamos uma linha horizontal em $7.366. No local onde elas se encontram, desenhamos um ponto. Isso representa nosso primeiro diamante.
+Saudação do primeiro ponto de dados, é possível identificar uma linha vertical no carats 1.01. Em seguida, desenhamos uma linha horizontal em $7.366. No local onde elas se encontram, desenhamos um ponto. Isso representa nosso primeiro diamante.
 
-Agora fazemos isso para cada diamante nesta lista. Quando terminarmos, este será o resultado: um monte de pontos, um para cada diamante.
+Agora percorrer cada losango nessa lista e Olá a mesma coisa. Quando terminarmos, este será o resultado: um monte de pontos, um para cada diamante.
 
 ![dispersão](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/scatter-plot.png)
 
-## <a name="draw-the-model-through-the-data-points"></a>Desenhar o modelo usando os pontos de dados
-Agora, se você os pontos e semicerrar os olhos, a coleção parecerá uma linha espessa e difusa. Podemos usar nosso marcador para desenhar uma linha reta através deles.
+## <a name="draw-hello-model-through-hello-data-points"></a>Desenhar modelo Olá por meio de pontos de dados Olá
+Agora se você observar squint e pontos de hello, coleção Olá parece uma linha fat, difusa. Podemos usar nosso marcador para desenhar uma linha reta através deles.
 
-Desenhando uma linha, criamos um *modelo*. Pense nisso como pegar o mundo real e fazer uma versão simples em desenho dele. Agora, o desenho está incorreto, a linha não passa por todos os pontos de dados. Mas, é uma simplificação útil.
+Desenhando uma linha, criamos um *modelo*. Pense nisso como colocar Olá, mundo real e fazer uma versão simplificada personagem de desenho dele. Agora personagem de desenho hello está errada - linha hello não passar por todos os pontos de dados de saudação. Mas, é uma simplificação útil.
 
 ![Linha da regressão linear](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/linear-regression-line.png)
 
-O fato de que todos os pontos não passam exatamente pela linha não tem qualquer problema. Cientistas de dados explicam isso dizendo que há o modelo (essa é a linha) e cada ponto tem algum *ruído* ou *variação* associado a ele. Há a relação perfeita subjacente, e há o mundo real que adiciona ruído e incerteza.
+fato Olá todos os pontos de saudação não passam exatamente por linha hello é Okey. Os cientistas de dados explicam isso dizendo que há Olá modelo - linha hello - e, em seguida, cada ponto tem algumas *ruído* ou *variação* associados a ele. Há Olá subjacente relação perfeita, e, em seguida, há Olá mundo real, interessa que adiciona ruído e incerteza.
 
-Como estamos tentando responder à pergunta *quanto custa?*, isso é chamado de *regressão*. E, como estamos usando uma linha reta, é uma *regressão linear*.
+Porque estamos tentando pergunta de saudação tooanswer *quanto?* isso é chamado de um *regressão*. E, como estamos usando uma linha reta, é uma *regressão linear*.
 
-## <a name="use-the-model-to-find-the-answer"></a>Usar o modelo para encontrar a resposta
+## <a name="use-hello-model-toofind-hello-answer"></a>Use a resposta de Olá Olá modelo toofind
 Agora, temos um modelo e fazemos a nossa pergunta: quanto custará um diamante de 1,35 quilate?
 
-Para responder à nossa pergunta, nós identificamos visualmente o 1,35 quilate e desenhamos uma linha vertical. Onde ela cruzar a linha do modelo, identificamos visualmente uma linha horizontal no eixo de dólar. Ela atinge diretamente 10.000. Pronto! Essa é a resposta: um diamante de 1,35 quilate custa aproximadamente $10.000.
+tooanswer nossa pergunta, podemos identificar carats 1,35 e desenhar uma linha vertical. Em que ele cruze a linha de modelo hello, podemos identificar um eixo de dólar toohello linha horizontal. Ela atinge diretamente 10.000. Pronto! Que é a resposta de saudação: um losango circunflexo 1,35 custa cerca de US $10.000.
 
-![Encontrar a resposta no modelo](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
+![Encontrar a resposta de saudação no modelo de saudação](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>Criar um intervalo de confiança
-É natural se preocupar com a precisão dessa previsão. É muito útil saber se o preço do diamante de 1,35 quilate será muito próximo de $10.000, mais barato ou mais caro. Para descobrir isso, vamos desenhar um envelope ao redor da linha de regressão que inclua a maioria dos pontos. Esse envelope é chamado de nosso *intervalo de confiança*: estamos bem confiantes de que os preços se enquadram nesse envelope, pois, no passado, a maioria deles se enquadrou. Podemos desenhar outras duas linhas horizontais a partir das quais a linha de 1,35 quilate cruza a parte superior e inferior do envelope.
+É natural toowonder a precisão é desta previsão. É útil tooknow se losango de intercalação 1,35 Olá será muito próxima muito US $10.000 ou muito maior ou menor. toofigure esse limite, vamos desenhar um envelope em torno da linha de regressão de saudação que inclui a maioria dos pontos de saudação. Este envelope é chamado nosso *intervalo de confiança*: estamos muito certo de que os preços se enquadra este envelope, porque em Olá anterior a maioria delas tem. Podemos desenhar duas linhas horizontais mais de onde a linha de intercalação 1,35 de Olá cruza superior hello e inferior de saudação do envelope.
 
 ![intervalo de confiança](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
-Agora podemos dizer algo sobre o intervalo de confiança: podemos dizer com segurança que o preço de um diamante de 1,35 quilate é de aproximadamente $10.000, mas pode ser $8.000 e pode ser $12.000.
+Agora podemos dizer algo sobre nosso intervalo de confiança: podemos dizer com confiança preço Olá um losango circunflexo 1,35 é aproximadamente US $10.000 -, mas pode ser tão baixo quanto $8.000 e pode ser de até US $12.000.
 
 ## <a name="were-done-with-no-math-or-computers"></a>Pronto, sem matemática ou computadores
-Fizemos o que os cientistas de dados são pagos para fazer, e fizemos isso apenas desenhando:
+Fizemos os cientistas de dados que receberá toodo e fizemos apenas desenhando:
 
 * Fizemos uma pergunta que pudemos responder com dados
 * Criamos um *modelo* usando a *regressão linear*
 * Fizemos uma *previsão*, completa com um *intervalo de confiança*
 
-E não usamos matemática ou computadores para isso.
+E não usamos matemática ou computadores toodo-lo.
 
 Agora, se tivéssemos mais informações, como...
 
-* o design do diamante
-* variações de cor (quão próximo do branco o diamante é)
-* o número de inclusões no diamante
+* Olá recorta de losango Olá
+* variações de cor (como fechar losango Olá é toobeing branco)
+* número de saudação de inclusões no losango Olá
 
-…teríamos mais colunas. Nesse caso, a matemática se torna útil. Se você tiver mais de duas colunas, é difícil desenhar pontos no papel. A matemática permite o encaixe perfeito dessa linha ou desse plano aos seus dados.
+…teríamos mais colunas. Nesse caso, a matemática se torna útil. Se você tiver mais de duas colunas, é toodraw rígido pontos em papel. matemática Olá permite que você ajusta o plano tooyour dados ou linha muito bem.
 
 Além disso, se em vez de apenas um punhado de diamantes, tivéssemos dois mil ou dois milhões, esse trabalho seria muito mais otimizado com um computador.
 
-Hoje, falamos sobre como fazer a regressão linear e fizemos uma previsão usando dados.
+Hoje, falamos sobre como regressão linear toodo e é feita uma previsão usando os dados.
 
-Confira outros vídeos da série "Ciência de dados para iniciantes" no Microsoft Azure Machine Learning.
+Ser toocheck se out Olá outros vídeos em "Dados ciência para iniciantes", de aprendizado de máquina do Microsoft Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Teste um primeiro experimento da ciência de dados com o Machine Learning Studio](machine-learning-create-experiment.md)
-* 
-            [Obtenha uma introdução ao Machine Learning no Microsoft Azure](machine-learning-what-is-machine-learning.md)
+* [Obter uma introdução tooMachine aprendizado no Microsoft Azure](machine-learning-what-is-machine-learning.md)

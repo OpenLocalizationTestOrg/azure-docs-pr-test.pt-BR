@@ -1,6 +1,6 @@
 ---
-title: "Solucionar problemas de um objeto que não está sincronizando com o Azure AD | Microsoft Docs"
-description: "Solucione problemas de um objeto que não está sincronizando com o Azure AD."
+title: "aaaTroubleshoot um objeto que não está sincronizando tooAzure AD | Microsoft Docs"
+description: "Solucionar problemas de por que um objeto não está sincronizando tooAzure AD."
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -14,133 +14,133 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 491a920ceeaac62dd37b1def3f02234056aebfb0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 81e0a0793a1d5ec76cfcaec6e974726d7854f58e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Solucionar problemas de um objeto que não está sincronizando com o Azure AD
+# <a name="troubleshoot-an-object-that-is-not-synchronizing-tooazure-ad"></a>Solucionar problemas de um objeto que não está sincronizando tooAzure AD
 
-Se um objeto não está sincronizando com o Azure AD como esperado, isso pode ser devido a vários motivos. Se você recebeu uma mensagem de erro do Azure AD ou está vendo o erro no Azure AD Connect Health, leia [Solucionar problemas de erros de exportação](active-directory-aadconnect-troubleshoot-sync-errors.md). Mas se estiver solucionando um problema em que o objeto não está no Azure AD, este tópico será ideal para você. Ele descreve como encontrar erros na sincronização do Azure AD Connect do componente local.
+Se um objeto não está sincronizando como esperado tooAzure AD, ele pode ser devido a vários motivos. Se você recebeu uma mensagem de erro do AD do Azure ou consulte o erro Olá no Azure AD Connect Health, em seguida, ler [solucionar problemas de erros de exportação](active-directory-aadconnect-troubleshoot-sync-errors.md) em vez disso. Mas se você estiver solucionando um problema em que o objeto de Olá não está no AD do Azure, em seguida, este tópico é para você. Descreve como sincronizar a toofind erros no componente de local de saudação do Azure AD Connect.
 
-Para encontrar os erros, você observará alguns lugares diferentes na seguinte ordem:
+erros de saudação toofind, você vai toolook em alguns locais diferentes da saudação ordem a seguir:
 
-1. Os [logs de operação](#operations), para encontrar erros identificados pelo mecanismo de sincronização durante a importação e sincronização.
-2. O [espaço conector](#connector-space-object-properties), para encontrar objetos ausentes e erros de sincronização.
-3. O [metaverso](#metaverse-object-properties), para encontrar problemas relacionados a dados.
+1. Olá [logs de operação](#operations) para localizar os erros identificados pelo mecanismo de sincronização de saudação durante a importação e sincronização.
+2. Olá [espaço conector](#connector-space-object-properties) para localizar objetos ausentes e erros de sincronização.
+3. Olá [metaverso](#metaverse-object-properties) para localizar problemas relacionados a dados.
 
 Inicie o [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) antes de começar estas etapas.
 
 ## <a name="operations"></a>Operações
-A guia de operações no Synchronization Service Manager é o local em que você deve iniciar a solução de problemas. A guia Operações mostra os resultados das operações mais recentes.  
+Guia de operações Olá Olá Synchronization Service Manager é onde você deve iniciar a solução de problemas. Guia de operações de saudação mostra os resultados de saudação de operações mais recentes hello.  
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/operations.png)  
 
-A metade superior mostra todas as execuções em ordem crônica. Por padrão, as operações de log mantêm informações sobre os últimos sete dias, mas essa configuração pode ser alterada com o [agendador](active-directory-aadconnectsync-feature-scheduler.md). Você deseja procurar qualquer execução que não mostre um status bem-sucedido. É possível alterar a classificação clicando nos cabeçalhos.
+metade superior Olá mostra todas as execuções em ordem crônicos. Por padrão, o log de operações Olá mantém informações sobre Olá últimos sete dias, mas essa configuração pode ser alterada com hello [Agendador](active-directory-aadconnectsync-feature-scheduler.md). Você deseja toolook para qualquer execução que não mostra um status de êxito. Você pode alterar Olá classificação clicando em cabeçalhos de saudação.
 
-A coluna **Status** traz as informações mais importantes e mostra o problema mais grave de uma execução. Aqui está um resumo rápido dos status mais comuns em ordem de prioridade para investigação (em que * indica várias cadeias de caracteres de erro possíveis).
+Olá **Status** coluna informações mais importantes hello e mostra Olá problema mais sério para uma execução. Aqui está um resumo de status mais comuns de saudação em ordem de prioridade tooinvestigate (onde * indicar várias cadeias de caracteres de erro possível).
 
 | Status | Comentário |
 | --- | --- |
-| stopped-* |Não foi possível concluir a execução. Por exemplo, se o sistema remoto está inoperante e não pode ser contatado. |
-| stopped-error-limit |Há mais de 5.000 erros. A execução foi interrompida automaticamente devido ao grande número de erros. |
-| completed-\*-errors |A execução foi concluída, mas há erros (menos de 5.000) que devem ser investigados. |
-| completed-\*-warnings |A execução foi concluída, mas alguns dados não estão no estado esperado. Se houver erros, geralmente, essa mensagem indicará apenas um sintoma. Até que tenha resolvido os erros, você não deverá investigar os avisos. |
+| stopped-* |não foi possível concluir a saudação executar. Por exemplo, se hello sistema remoto está inoperante e não pode ser contatado. |
+| stopped-error-limit |Há mais de 5.000 erros. Olá executar automaticamente foi interrompido devido a toohello grande número de erros. |
+| completed-\*-errors |Olá execução foi concluída, mas há erros (menos de 5.000) que devem ser investigados. |
+| completed-\*-warnings |Olá executar concluída, mas alguns dados não estão em estado de saudação esperado. Se houver erros, geralmente, essa mensagem indicará apenas um sintoma. Até que tenha resolvido os erros, você não deverá investigar os avisos. |
 | sucesso |Nenhum problema. |
 
-Quando você seleciona uma linha, a parte inferior é atualizada para mostrar os detalhes dessa execução. À extrema esquerda da parte inferior, talvez você veja uma lista indicando **Etapa nº**. Essa lista só será exibida se você tiver vários domínios na floresta, em que cada domínio é representado por uma etapa. O nome de domínio pode ser encontrado sob o título **Partição**. Em **Estatísticas de Sincronização**, é possível encontrar mais informações sobre o número de alterações que foram processadas. É possível clicar nos links para obter uma lista dos objetos alterados. Se você tiver objetos com erros, eles aparecerão em **erros de sincronização**.
+Quando você seleciona uma linha, inferior Olá atualiza tooshow detalhes de saudação do que executar. toohello à extrema esquerda da parte inferior da saudação, talvez seja necessário dizer uma lista **etapa #**. Essa lista só será exibida se você tiver vários domínios na floresta, em que cada domínio é representado por uma etapa. o nome de domínio Olá pode ser encontrado sob o título de saudação **partição**. Em **estatísticas de sincronização**, você pode encontrar mais informações sobre o número de saudação de alterações que foram processadas. Você pode clicar em Olá links tooget uma lista de objetos de saudação alterado. Se você tiver objetos com erros, eles aparecerão em **erros de sincronização**.
 
 ### <a name="troubleshoot-errors-in-operations-tab"></a>Solucionar problemas de erros na guia Operações
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/errorsync.png)  
-Quando houver erros, o objeto com erro e o próprio erro serão exibidos como links que fornecerão mais informações.
+Quando você encontrar erros, ambos objeto Olá no erro e o próprio erro Olá são links que fornecem mais informações.
 
-Comece clicando na cadeia de caracteres de erro (**sync-rule-error-function-triggered** na imagem). Primeiro, você vê uma visão geral do objeto. Para ver o erro real, clique no botão **Rastreamento de Pilha**. Esse rastreamento fornece informações de nível de depuração sobre o erro.
+Iniciar clicando em cadeia de caracteres de erro hello (**disparado por sincronização-regra-erro-função** na imagem de saudação). Primeiro, você tem uma visão geral do objeto hello. toosee Olá erro real, clique botão Olá **rastreamento de pilha**. Este rastreamento fornece informações de nível de depuração para o erro de saudação.
 
-Clique com o botão direito do mouse na caixa **informações da pilha de chamadas**, escolha **selecionar tudo** e **copiar**. Em seguida, é possível copiar a pilha e examinar o erro em seu editor favorito, como o Bloco de Notas.
+Clique em Olá **informações de pilha de chamadas** caixa, escolha **Selecionar tudo**, e **cópia**. Você pode copiar pilha hello e examine o erro de saudação em seu editor favorito, como o bloco de notas.
 
-* Se o erro for proveniente de **SyncRulesEngine**, as informações da pilha de chamadas primeiro terão uma lista de todos os atributos no objeto. Role para baixo até ver o cabeçalho **InnerException =>**.  
+* Se o erro de saudação do **SyncRulesEngine**, e informações de pilha de chamada hello primeiro tem uma lista de todos os atributos no objeto de saudação. Role para baixo até ver título Olá **InnerException = >**.  
   ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/errorinnerexception.png)  
-  A linha posterior mostra o erro. Na figura acima, o erro é proveniente de uma Regra de Sincronização personalizada criada pela Fabrikam.
+  linha de saudação depois mostra Olá erro. Na Figura Olá acima, erro de saudação é de um Fabrikam de regra de sincronização personalizado criado.
 
-Se o erro em si não fornecer informações suficientes, será o momento de examinar os próprios dados. É possível clicar no link com o identificador de objeto e continuar solucionando problemas do [objeto importado do espaço conector](#cs-import).
+Se o erro de saudação em si não fornecem informações suficientes, é toolook de tempo em dados de saudação em si. Clique Olá link com o identificador de objeto hello e continuar com a solução Olá [objeto importado de espaço do conector](#cs-import).
 
 ## <a name="connector-space-object-properties"></a>Propriedades do objeto do espaço conector
-Se você não encontrar nenhum erro na guia [operações](#operations), a próxima etapa será seguir o objeto do espaço conector do Active Directory, para o metaverso e para o Azure AD. Nesse caminho, você deverá encontrar onde está o problema.
+Se você não tem qualquer erro encontrado no hello [operações](#operations) guia, Olá próxima etapa é o objeto de espaço do conector toofollow saudação do Active Directory, toohello metaverso e tooAzure AD. Nesse caminho, você deve encontrar onde está o problema de saudação.
 
-### <a name="search-for-an-object-in-the-cs"></a>Pesquisar um objeto no CS
+### <a name="search-for-an-object-in-hello-cs"></a>Procurar um objeto no hello CS
 
-No **Synchronization Service Manager**, clique em **Conectores**, selecione o Active Directory Connector e **Pesquisar Espaço Conector**.
+Em **Synchronization Service Manager**, clique em **conectores**, selecione Olá conector do Active Directory, e **espaço do conector de pesquisa**.
 
-Em **Escopo**, selecione **RDN** (quando desejar pesquisar o atributo CN) ou **DN ou âncora** (quando desejar pesquisar o atributo distinguishedName). Insira um valor e clique em **Pesquisar**.  
+Em **escopo**, selecione **RDN** (quando você quiser toosearch no atributo CN Olá) ou **DN ou âncora** (quando você quiser toosearch no atributo de distinguishedName Olá). Insira um valor e clique em **Pesquisar**.  
 ![Pesquisa do Espaço Conector](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearch.png)  
 
-Se você não encontrar o objeto que está procurando, talvez ele tenha sido filtrado com a [filtragem baseada em domínio](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) ou a [filtragem baseada em UO](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering). Leia o tópico [Configurar a filtragem](active-directory-aadconnectsync-configure-filtering.md) para verificar se a filtragem está configurada como esperado.
+Se você não encontrar o objeto Olá você está procurando, em seguida, ele pode ter sido filtrado com [filtragem baseada em domínio](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) ou [filtragem baseada em unidade Organizacional](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering). Saudação de leitura [configurar a filtragem de](active-directory-aadconnectsync-configure-filtering.md) tooverify tópico que Olá filtragem está configurado como esperado.
 
-Outra pesquisa útil é selecionar o Conector do Azure AD, em **Escopo**, selecionar **Importação Pendente** e marcar a caixa de seleção **Adicionar**. Essa pesquisa fornece todos os objetos sincronizados no Azure AD que não podem ser associados a um objeto local.  
+Outra pesquisa útil é tooselect Olá conector AD do Azure, na **escopo** selecione **importação pendente**e selecione hello **adicionar** caixa de seleção. Essa pesquisa fornece todos os objetos sincronizados no Azure AD que não podem ser associados a um objeto local.  
 ![Órfão de pesquisa do Espaço Conector](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
-Esses objetos foram criados por outro mecanismo de sincronização ou por um mecanismo de sincronização com outra configuração de filtragem. Essa exibição é uma lista de objetos **órfãos** que não são mais gerenciados. Examine essa lista e considere a remoção desses objetos usando os cmdlets do [PowerShell do Azure AD](http://aka.ms/aadposh).
+Esses objetos foram criados por outro mecanismo de sincronização ou por um mecanismo de sincronização com outra configuração de filtragem. Essa exibição é uma lista de objetos **órfãos** que não são mais gerenciados. Examine esta lista e Considere remover esses objetos usando Olá [PowerShell do Azure AD](http://aka.ms/aadposh) cmdlets.
 
 ### <a name="cs-import"></a>Importação do CS
-Quando você abre um objeto CS, há várias guias na parte superior. A guia **Importação** exibe os dados preparados após uma importação.  
+Quando você abre um objeto do cs, há várias guias na parte superior da saudação. Olá **importar** guia mostra dados de saudação preparado após uma importação.  
 ![Objeto do CS](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/csobject.png)    
-O **Valor Antigo** mostra o que está atualmente armazenado no Connect e o **Novo Valor**, o que foi recebido do sistema de origem e ainda não foi aplicado. Se houver um erro no objeto, as alterações não serão processadas.
+Olá **valor antigo** mostra o que é armazenado em conectar e Olá **novo valor** que foi recebido do sistema de origem hello e ainda não foram aplicado. Se houver um erro no objeto hello, as alterações não são processadas.
 
 **Erro**  
 ![Objeto do CS](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssyncerror.png)  
-A guia **Erro de Sincronização** só estará visível se houver um problema com o objeto. Para obter mais informações, consulte [Solucionar problemas de erros de sincronização](#troubleshoot-errors-in-operations-tab).
+Olá **erro de sincronização** guia só é visível se houver um problema com o objeto de saudação. Para obter mais informações, consulte [Solucionar problemas de erros de sincronização](#troubleshoot-errors-in-operations-tab).
 
 ### <a name="cs-lineage"></a>Linhagem do CS
-A guia de linhagem mostra como o objeto do espaço conector está relacionado ao objeto de metaverso. Você pode ver quando o Conector realizou a última importação de uma alteração do sistema conectado e quais regras foram aplicadas para popular dados no metaverso.  
+Guia de linhagem Olá mostra como o objeto de espaço do conector de saudação é objeto do metaverso toohello relacionados. Você pode ver quando Olá conector última importado de uma alteração de Olá sistema conectado e quais dados toopopulate regras aplicadas Olá metaverso.  
 ![Linhagem do CS](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cslineage.png)  
-Na coluna **Ação**, você pode ver que há uma regra de sincronização de **Entrada** com a ação **Provisionar**. Isso indica que, desde que esse objeto do espaço do conector esteja presente, o objeto do metaverso permanece. Se, em vez disso, a lista de regras de sincronização mostrar uma regra de sincronização com direção de **Saída** e **Provisionar**, isso indicará que o objeto será excluído quando o objeto de metaverso for excluído.  
+Em Olá **ação** coluna, você pode ver houver **entrada** regra de sincronização com ação Olá **provisionar**. Que indica que desde que este objeto de espaço do conector estiver presente, o objeto de metaverso Olá permaneça. Se Olá de lista de regras de sincronização em vez disso, mostra uma regra de sincronização com direção **saída** e **provisionar**, ele indica que esse objeto é excluído quando o objeto do metaverso Olá é excluído.  
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cslineageout.png)  
-Você também pode ver na coluna **PasswordSync** que o espaço conector de entrada pode contribuir com alterações para a senha, uma vez que uma regra de sincronização tem o valor **True**. Essa senha é então enviada ao Azure AD por meio da regra de saída.
+Você também pode ver no hello **PasswordSync** coluna Olá espaço do conector de entrada pode contribuir senha de toohello alterações como uma regra de sincronização tem valor Olá **True**. Essa senha é enviada tooAzure AD por meio de regras de saída hello.
 
-Na guia de linhagem, é possível acessar o metaverso clicando em [Propriedades de Objeto do Metaverso](#mv-attributes).
+Na guia de linhagem Olá, é possível obter toohello metaverso clicando [propriedades de objeto do metaverso](#mv-attributes).
 
-Na parte inferior de todas as guias, há dois botões: **Visualização** e **Log**.
+Na parte inferior da saudação de todas as guias são dois botões: **visualização** e **Log**.
 
 ### <a name="preview"></a>Visualização
-A página de visualização é usada para sincronizar um único objeto. Isso será útil se você estiver solucionando problemas de algumas regras de sincronização personalizadas e desejar ver o efeito de uma alteração em um único objeto. É possível selecionar entre **Sincronização completa** e **Sincronização delta**. Também é possível selecionar entre **Gerar Visualização**, que mantém apenas a alteração na memória e **Confirmar Visualização**, que atualiza o metaverso e prepara todas as alterações para os espaços conectores de destino.  
+página de visualização de saudação é usado toosynchronize um único objeto. É útil se você estiver solucionando problemas de algumas regras de sincronização personalizadas e deseja toosee Olá efeito uma alteração em um único objeto. É possível selecionar entre **Sincronização completa** e **Sincronização delta**. Você também pode selecionar entre **gerar visualização**, que mantém apenas Olá alteração na memória, e **visualização confirmar**, qual atualizado Olá metaverso e estágios todos os espaços de conector tootarget é alterado.  
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/preview.png)  
-É possível inspecionar o objeto e qual regra é aplicada a um fluxo de atributos específico.  
+Você pode inspecionar o objeto hello e qual regra é aplicada para um fluxo de atributo específico.  
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)
 
 ### <a name="log"></a>Registro
-A página de Registro é usada para verificar o status de sincronização da senha e o histórico. Para obter mais informações, consulte [Solucionar problemas de sincronização de senha](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
+página de registro de saudação é histórico e status de sincronização de senha de saudação toosee usado. Para obter mais informações, consulte [Solucionar problemas de sincronização de senha](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
 
 ## <a name="metaverse-object-properties"></a>Propriedades do objeto do metaverso
-Em geral, é melhor começar a pesquisa no [espaço conector](#connector-space) de origem do Active Directory. Mas também é possível começar a pesquisa no metaverso.
+É geralmente melhor toostart pesquisa de origem de saudação do Active Directory [espaço conector](#connector-space). Mas você também pode iniciar a pesquisa de metaverso hello.
 
-### <a name="search-for-an-object-in-the-mv"></a>Pesquisar um objeto no MV
-No **Synchronization Service Manager**, clique em **Pesquisa de Metaverso**. Crie uma consulta que você sabe que encontrará o usuário. É possível pesquisar atributos comuns, como accountName (sAMAccountName) e userPrincipalName. Para obter mais informações, consulte [Pesquisa de metaverso](active-directory-aadconnectsync-service-manager-ui-mvsearch.md).
+### <a name="search-for-an-object-in-hello-mv"></a>Pesquisa de um objeto no hello MV
+No **Synchronization Service Manager**, clique em **Pesquisa de Metaverso**. Crie uma consulta que você sabe que localiza Olá usuário. É possível pesquisar atributos comuns, como accountName (sAMAccountName) e userPrincipalName. Para obter mais informações, consulte [Pesquisa de metaverso](active-directory-aadconnectsync-service-manager-ui-mvsearch.md).
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvsearch.png)  
 
-Na janela **Resultados da Pesquisa**, clique no objeto.
+Em Olá **resultados da pesquisa** janela, clique em objeto hello.
 
-Se você não encontrou o objeto, isso indica que ele ainda não chegou ao metaverso. Continue pesquisando o objeto no [espaço conector](#connector-space-object-properties) do Active Directory. Pode haver um erro de sincronização que está impedindo a chegada do objeto ao metaverso ou pode haver um filtro aplicado.
+Se não encontrar o objeto de Olá, em seguida, ele ainda não alcançou Olá metaverso. Continue toosearch para objeto Olá Olá do Active Directory [espaço conector](#connector-space-object-properties). Pode haver um erro de sincronização que está bloqueando o objeto de saudação do metaverso próximos de toohello ou pode haver um filtro aplicado.
 
 ### <a name="mv-attributes"></a>Atributos do MV
-Na guia Atributos, é possível ver os valores e qual Conector os forneceu.  
+Na guia de atributos hello, você pode ver os valores hello e quais conector a contribuição.  
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvobject.png)  
 
-Se um objeto não está sincronizando, observe os seguintes atributos no metaverso:
-- O atributo **cloudFiltered** está presente e está definido como **true**? Nesse caso, ele foi filtrado de acordo com as etapas descritas em [filtragem baseada em atributo](active-directory-aadconnectsync-configure-filtering.md#attribute-based-filtering).
-- O atributo **sourceAnchor** está presente? Caso contrário, você tem uma topologia de floresta de conta-recurso? Se um objeto for identificado como uma caixa de correio vinculada (o atributo **msExchRecipientTypeDetails** tem o valor 2), sourceAnchor será uma contribuição da floresta com uma conta do Active Directory habilitada. Verifique se a conta mestra foi importada e sincronizada corretamente. A conta mestra deve estar listada nos [conectores](#mv-connectors) do objeto.
+Se um objeto não está sincronizando, então, ser Olá seguintes atributos no metaverso hello:
+- Atributo Olá **cloudFiltered** apresentar e defina muito**true**? Se ele é, foram filtrado de acordo com o toohello etapas [filtragem baseada em atributo](active-directory-aadconnectsync-configure-filtering.md#attribute-based-filtering).
+- Atributo Olá **sourceAnchor** presente? Caso contrário, você tem uma topologia de floresta de conta-recurso? Se um objeto é identificado como uma caixa de correio vinculada (atributo Olá **msExchRecipientTypeDetails** tem Olá valor 2), e em seguida, Olá sourceAnchor vem por floresta Olá com uma conta do Active Directory habilitada. Certifique-se de conta principal Olá foi importada e sincronizada corretamente. conta principal Olá deve estar listada em Olá [conectores](#mv-connectors) para objeto hello.
 
 ### <a name="mv-connectors"></a>Conectores do MV
-A guia Conectores mostra todos os espaços conectores que contêm uma representação do objeto.  
+Guia de conectores Olá mostra todos os espaços de conector que têm uma representação de objeto hello.  
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvconnectors.png)  
 É necessário ter um conector para:
 
-- Cada floresta do Active Directory em que o usuário está representado. Essa representação pode incluir os objetos foreignSecurityPrincipals e Contact.
+- Cada usuário de saudação de floresta do Active Directory é representado no. Essa representação pode incluir os objetos foreignSecurityPrincipals e Contact.
 - Um conector no Azure AD.
 
-Se você não tiver o conector do Azure AD, leia [Atributos do MV](#MV-attributes) para verificar os critérios de provisionamento no Azure AD.
+Se você não tiver Olá conector tooAzure AD, em seguida, ler [atributos de MV](#MV-attributes) tooverify critérios de saudação do que está sendo provisionado tooAzure AD.
 
-Essa guia também permite navegar até o [objeto do espaço conector](#connector-space-object-properties). Selecione uma linha e clique em **Propriedades**.
+Este guia também permite que você toonavigate toohello [o objeto de espaço do conector](#connector-space-object-properties). Selecione uma linha e clique em **Propriedades**.
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
+Saiba mais sobre Olá [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) configuração.
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).

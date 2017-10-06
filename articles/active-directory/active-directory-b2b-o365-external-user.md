@@ -1,5 +1,5 @@
 ---
-title: "Compartilhamento externo do Office 365 e colaboração B2B do Azure Active Directory | Microsoft Docs"
+title: "aaaOffice 365 compartilhamento externo e colaboração B2B do Azure Active Directory | Microsoft Docs"
 description: "referência ao mapeamento de declarações para colaboração B2B do Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/24/2017
 ms.author: sasubram
-ms.openlocfilehash: cad0ce8f745f3d6ca14436fd714b08c60de0e459
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 60452b27b328453eda729bd839c982b479cb6f1b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Compartilhamento externo do Office 365 e colaboração B2B do Azure Active Directory
 
-O compartilhamento externo no Office 365 (OneDrive, SharePoint Online, Unified Groups etc.) e a colaboração B2B do Azure AD (Azure Active Directory) são tecnicamente a mesma coisa. Todo compartilhamento externo, (com exceção do OneDrive/SharePoint Online), incluindo convidados em Grupos do Office 365, já usa as APIs de convite de colaboração B2B do Azure AD para compartilhamento.
+Externa de compartilhamento no Office 365 (OneDrive, o SharePoint Online, grupos unificados, etc.) e o Azure Active Directory (AD do Azure) B2B colaboração são tecnicamente Olá mesmo significado. Compartilhamento externo todos (exceto OneDrive/SharePoint Online), inclusive convidados em grupos do Office 365, já usa o convite de colaboração de saudação do Azure AD B2B APIs para o compartilhamento.
 
-O OneDrive/SharePoint Online tem um gerenciador de convite separado. Suporte para compartilhamento externo no OneDrive/SharePoint Online iniciado antes de o Azure AD ter desenvolvido o suporte. Ao longo do tempo, o compartilhamento externo do OneDrive/SharePoint Online acumulou vários recursos e muitos milhões de usuários que usam o padrão de compartilhamento interno do produto. No entanto, há algumas diferenças sutis entre o funcionamento do compartilhamento externo do OneDrive/SharePoint Online e a colaboração do Azure AD B2B:
+O OneDrive/SharePoint Online tem um gerenciador de convite separado. Suporte para compartilhamento externo no OneDrive/SharePoint Online iniciado antes de o Azure AD ter desenvolvido o suporte. Ao longo do tempo, o compartilhamento externo OneDrive/SharePoint Online tem acumulada vários recursos e muitos milhões de usuários que usam o produto de saudação do interno padrão de compartilhamento. No entanto, há algumas diferenças sutis entre o funcionamento do compartilhamento externo do OneDrive/SharePoint Online e a colaboração do Azure AD B2B:
 
-- O OneDrive/SharePoint Online adiciona usuários ao diretório depois que os usuários tiverem resgatado seus convites. Portanto, antes de resgate, você não vê o usuário no Portal do Azure AD. Se outro site convidar um usuário durante esse período, um novo convite será gerado. No entanto, quando você usa a colaboração B2B do Azure AD, os usuários são adicionados imediatamente no convite para que eles apareçam em todos os lugares.
+- OneDrive/SharePoint Online adiciona diretório de toohello usuários depois que os usuários têm resgatado seus convites. Portanto, antes de resgate, você não vir o usuário Olá no portal do AD do Azure. Se outro site convida um usuário no hello enquanto isso, é gerado um novo convite. No entanto, quando você usa a colaboração B2B do Azure AD, os usuários são adicionados imediatamente no convite para que eles apareçam em todos os lugares.
 
-- A experiência de resgate no OneDrive/SharePoint Online tem uma aparência diferente da experiência na colaboração B2B do Azure AD. Depois que um usuário resgata um convite, as experiências são parecidas.
+- Olá resgate experiência no OneDrive/SharePoint Online é diferente da saudação experiência em colaboração B2B do Azure AD. Depois que um usuário resgata um convite, Olá experiências parecem.
 
 - A colaboração B2B do Azure AD convidou usuários que possam ser escolhidos das caixas de diálogo de compartilhamento do OneDrive/SharePoint Online. Os usuários convidados do OneDrive/SharePoint Online também aparecem no Azure AD após o resgate do convite.
 
-- Para gerenciar o compartilhamento externo no OneDrive/SharePoint Online junto com a colaboração B2B do Azure AD, defina a configuração do compartilhamento externo do OneDrive/SharePoint Online como **Permitir apenas o compartilhamento com usuários externos que já estão no diretório**. Os usuários podem acessar sites compartilhados externamente e escolher colaboradores externos adicionados pelo administrador. O administrador pode adicionar os colaboradores externos por meio de APIs de convite de colaboração B2B.
+- toomanage externo de compartilhamento no OneDrive/SharePoint Online com colaboração B2B do Azure AD, definir Olá OneDrive/SharePoint Online externo de compartilhamento de configuração muito**apenas permitir compartilhamento com usuários externos já no diretório Olá**. Os usuários podem acessar sites tooexternally compartilhado e escolha de parceiros externos que Olá administrador tenha adicionado. Olá administrador pode adicionar parceiros externos de saudação por meio de saudação convite de colaboração B2B APIs.
 
-![As configurações de compartilhamento externo do OneDrive/SharePoint Online](media/active-directory-b2b-o365-external-user/odsp-sharing-setting.png)
+![Olá externo de configuração de compartilhamento OneDrive/SharePoint Online](media/active-directory-b2b-o365-external-user/odsp-sharing-setting.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -43,7 +43,7 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 
 * [O que é a colaboração B2B do AD do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Propriedades de usuário de colaboração B2B](active-directory-b2b-user-properties.md)
-* [Como adicionar um usuário de colaboração B2B a uma função](active-directory-b2b-add-guest-to-role.md)
+* [Adicionando uma função de tooa de usuário de colaboração B2B](active-directory-b2b-add-guest-to-role.md)
 * [Delegação de convites de colaboração B2B](active-directory-b2b-delegate-invitations.md)
 * [Grupos dinâmicos e colaboração B2B](active-directory-b2b-dynamic-groups.md)
 * [Código de colaboração B2B e exemplos do PowerShell](active-directory-b2b-code-samples.md)

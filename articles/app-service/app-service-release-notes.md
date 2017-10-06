@@ -1,5 +1,5 @@
 ---
-title: "Notas de versão SDK do Azure para .NET 2.5.1"
+title: "Notas de versão aaaAzure SDK para .NET 2.5.1"
 description: "Notas de versão SDK do Azure para .NET 2.5.1"
 services: app-service
 documentationcenter: .net,nodejs,java
@@ -14,52 +14,52 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/10/2016
 ms.author: juliako
-ms.openlocfilehash: dc7b51cd0d015770b1100e895da633e8bde4b8da
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5ee7688617c966baa409045881c172bbbc55ff63
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>Notas de versão SDK do Azure para .NET 2.5.1
-Este documento contém as notas de versão do SDK do Azure para a versão do .NET 2.5.1. 
+Este documento contém notas de versão de saudação do hello Azure SDK para .NET 2.5.1 de versão. 
 
 ## <a name="azure-sdk-for-net-251-release-notes"></a>Notas de versão SDK do Azure para .NET 2.5.1
-Estes são os novos recursos e atualizações no SDK do Azure para .NET 2.5.1.
+Olá seguem novos recursos e atualizações no hello Azure SDK para .NET 2.5.1.
 
-* Novos recursos\cenários relacionados a **Extensões de Ferramentas da Web**. 
+* Novos recursos/cenários relacionados muito**extensões de ferramentas do Web**. 
   
-  * Sites do Azure foi renomeado para Serviço de Aplicativo do Azure. Para obter mais informações, consulte [Serviço de Aplicativo do Azure e Serviços do Azure existentes](../app-service-web/app-service-changes-existing-services.md).
-  * Suporte a Aplicativos de API do Azure (visualização) foi adicionado para que os clientes possam publicar projetos do ASP.NET como aplicativos de API e, em seguida, usar o gesto Adicionar > Cliente de Aplicativos de API do Azure em projetos C# para gerar código com base na estrutura do Aplicativo de API implantado. 
-  * O nó Sites no Gerenciador de Servidores foi preterido em prol do nó do Serviço de Aplicativo do Azure, que contém suporte para agrupamento de Aplicativos de API do Azure, Aplicativos Móveis e Aplicativos Web com base em grupo de recursos.
-  * Suporte a Aplicativos Móveis do Azure (visualização) foi adicionado para que os clientes possam criar novos projetos de Aplicativos Móveis, adicionar controladores de Aplicativos Móveis, publicar os projetos e depurar aplicativos remotamente.
-  * O gesto Adicionar > Cliente de Aplicativo de API do Azure agora dá suporte a arquivos locais Swagger JSON, para que os desenvolvedores de API Web possam usar NuGets de terceiros, como Swashbuckle, para gerar Swagger ou criá-lo manualmente. Dessa forma, os desenvolvedores de cliente podem usar os recursos de geração de código para consumir qualquer ponto de extremidade Swagger em projetos C#. 
-  * Caixas de diálogos de publicação de Aplicativo Web e Aplicativo de API foram aprimoradas para dar suporte ao conceito de Portal do Azure do agrupamento de recursos e seleção/criação de Grupos de Recursos do Azure e Planos de Serviço de Aplicativo são representadas na nova caixa de diálogo de provisionamento do Aplicativo Web e Aplicativo de API. 
-  * Nós do Gerenciador de Servidores do Aplicativo de API do Azure fornecem links para o link profundo de Aplicativos de API no Portal do Azure, bem como outros recursos, como Streaming de Log e Depuração Remota.
+  * Sites do Azure foi renomeado tooAzure do serviço de aplicativo. Para obter mais informações, consulte [Serviço de Aplicativo do Azure e Serviços do Azure existentes](../app-service-web/app-service-changes-existing-services.md).
+  * Foi adicionado suporte a aplicativos de API (visualização) do Azure para que os clientes podem publicar projetos do ASP.NET como aplicativos de API e, em seguida, usar Olá Adicionar > gesto de cliente de aplicativo de API do Azure em projetos toogenerate código c# com base na estrutura de saudação do hello implantado API App. 
+  * nó de sites Olá no Gerenciador de servidores foi preterido no lugar do nó de serviço de aplicativo do Azure hello, que contém suporte para agrupamento de aplicativos de API do Azure, aplicativos móveis e aplicativos Web com base em grupo de recursos.
+  * Foi adicionado suporte de aplicativos móveis (visualização) do Azure para que os clientes podem criar novos projetos de aplicativos móveis, adicionar controladores de aplicativos móveis, publicar projetos hello e depurar remotamente os aplicativos.
+  * Adicionar > gesto de cliente de aplicativo de API do Azure agora dá suporte a arquivos JSON Swagger locais, para que os desenvolvedores de API da Web podem usar NuGets de terceiros como Swashbuckle toogenerate Swagger ou criá-lo manualmente. Dessa forma, os desenvolvedores de cliente podem usar tooconsume de recursos de geração de código Olá qualquer ponto de extremidade de Swagger em projetos c#. 
+  * Aplicativo Web e API App caixas de diálogo de publicação foram conceito de Portal do Azure Olá toosupport aprimorado do recurso de agrupamento e seleção de/criação de grupos de recursos do Azure e planos de serviço de aplicativo são representados em Olá Web App e API App provisionamento caixa de diálogo Nova. 
+  * Nós do Gerenciador de servidores de aplicativo de API do Azure fornecem links toohello que aplicativos de API profunda link no hello Portal do Azure, bem como outros recursos, como Log de Streaming e depuração remota.
     
     Para problemas conhecidos e limitações atuais no SDK do Azure .NET 2.5.1 [esta](app-service-release-notes.md#known_issues_2_5_1) seção abaixo.
-* Novo recursos\cenários relacionados a **Ferramentas do HDInsight** no Visual Studio estão habilitados nesta versão. 
+* Novos recursos/cenários relacionados muito**ferramentas HDInsight** no Visual Studio estão habilitados nesta versão. 
   
-  * Validação local de scripts do hive. Clique no botão de script Validar na barra de ferramentas para ver se há erros no script. 
+  * Validação local de scripts do hive. Clique botão de script de validação de Olá no toosee da barra de ferramentas de saudação se há erros no script. 
   * Depuração de trabalhos de Hive aprimorada. Você pode depurar trabalhos de Hive acessando os logs de Yarn no Visual Studio. Se seu aplicativo tiver problemas de desempenho, investigar os logs YARN fornecerá informações úteis.
-  * (Visualização pública) Preenchimento automático de palavra-chave e suporte IntelliSense para Hive. Para ajudar a criar scripts do Hive, as ferramentas HDInsight para Visual Studio adicionaram suporte para preenchimento automático de palavra-chave e IntelliSense para Hive.
-  * Suporte para Storm. Agora você pode usar as ferramentas HDInsight para Visual Studio para desenvolver topologias do Storm/Spouts/Bolts em C#. Você pode enviar a topologia desenvolvida para um cluster Storm e ver o status da topologia/bolt/spout. Você pode usar logs do sistema e logs de cliente para solucionar Bolts/Spouts/topologias Storm. Você também pode usar os ativos JAVA existentes no Storm no HDInsight.
+  * (Visualização pública) Preenchimento automático de palavra-chave e suporte IntelliSense para Hive. toohelp criar scripts de Hive, ferramentas de HDInsight para Visual Studio adicionou preenchimento automático de palavra-chave e suporte ao IntelliSense para o Hive.
+  * Suporte para Storm. Agora você pode usar as ferramentas do HDInsight para Visual Studio toodevelop Storm topologias/Spouts/parafusos em c#. Você pode enviar hello desenvolvido cluster de Storm tooa topologia e ver o status de topologia/brilhante/spout hello. Você pode usar os logs de sistema e cliente registra tootroubleshoot seu Storm parafusos/topologias/Spouts. Você também pode usar os ativos JAVA existentes no Storm no HDInsight.
     
     Para obter mais informações, consulte [Introdução ao uso das ferramentas do HDInsight Hadoop para Visual Studio](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 ## <a id="known_issues_2_5_1"></a>Limitações e problemas conhecidos do SDK do Azure para .NET 2.5.1
-* O recurso de Aplicativos de API do Azure está visível como um destino de implantação para Aplicativos Móveis. Aplicativos Web devem ser o único destino para Aplicativos Móveis até uma versão subsequente. 
-* Provisionamento de Aplicativo de API do Azure pode resultar em êxito, mas falha intermitente em atualizar o andamento na janela de Atividade do Serviço de Aplicativo do Azure. A solução alternativa é verificar o status do novo Aplicativo de API do Azure no Portal do Azure. 
-* A experiência Arquivo > Novo Projeto > Aplicativo de API > F5 resulta em um erro de HTTP porque não há nenhum default/index.html. A solução alternativa é navegar manualmente para a URL /api/values. 
+* O recurso de Aplicativos de API do Azure está visível como um destino de implantação para Aplicativos Móveis. Os aplicativos Web deve ser o destino de saudação apenas para aplicativos móveis até uma versão subsequente. 
+* Azure App API de provisionamento pode resultar em êxito mas intermitentemente falha tooupdate Olá progresso na janela de atividade de serviço de aplicativo do Azure hello. Solução alternativa é o status de toocheck da API do Azure novo aplicativo hello em Olá Portal do Azure. 
+* A experiência Arquivo > Novo Projeto > Aplicativo de API > F5 resulta em um erro de HTTP porque não há nenhum default/index.html. Solução alternativa é toomanually procurar toohello/api/valores URL. 
 * Intermitentemente, ícones do Gerenciador de Servidores são exibidos na forma bidimensional. Reiniciar o VS resolve esse problema. 
-* Se uma exceção for é lançada durante o provisionamento de Aplicativo Web ou Aplicativo de API (como erros de cota excedida ou nome duplicado de gateway de Aplicativo de API do Azure), os erros mostram algum texto JSON bruto. 
+* Se uma exceção for lançada durante o provisionamento de aplicativo Web ou API App (como erros de cota excedida ou o nome duplicado de gateway de aplicativo de API do Azure), erros de saudação mostram algum texto JSON bruto. 
 * Problemas intermitentes de criação do projeto quando o Application Insights é verificado na hora da criação do projeto.
-* Ocasionalmente, o código de Cliente de Aplicativo de API do Azure gerado está s em namespaces, e eles precisam ser incluídos manualmente (ou importado automaticamente por meio de dicas do Visual Studio) para que o código seja compilado. 
-* Projetos de Aplicativo Móvel devem ser publicados em aplicativos Web, mas você deve escolher um site criado como Aplicativo móvel no Portal do Azure, já que projetos de Aplicativo Móvel exigem um banco de dados. 
-* A página inicial para aplicativos móveis usa o termo "serviço móvel", em vez de "aplicativos móveis" 
-* A criação do projeto de Aplicativo Móvel pode levar até um minuto para ser criada. 
-* Durante o provisionamento do Aplicativo de API (em alguns casos), um erro é retornado da API do Azure refletindo que as permissões não puderam ser definidas corretamente, enquanto o Aplicativo de API foi configurado corretamente e está pronto para uso. Você pode definir manualmente as permissões usando o Portal do Azure.
+* Ocasionalmente, código de cliente de aplicativo de API do Azure Olá gerado está faltando namespaces, eles precisam toobe manualmente incluído (ou importados automaticamente por meio do Visual Studio indicações) para toocompile de código. 
+* Projetos de aplicativo móvel devem ser publicado tooweb aplicativos, mas você deve escolher um site criado como um aplicativo móvel no hello Portal do Azure, como projetos de aplicativo móvel exigem um banco de dados. 
+* página inicial de saudação para aplicativos móveis usa o termo hello "serviço móvel" em vez de "aplicativos móveis" 
+* Criação do projeto de aplicativo móvel pode exigir até tooa toocreate de minuto. 
+* Durante a API App provisionamento (em alguns casos), um erro é retornada pelo refletir o API do Azure Olá que permissões Olá não podem ser configuradas corretamente, durante a saudação API App foi provisionado corretamente e está pronto para uso. Você pode definir manualmente as permissões usando Olá Portal do Azure.
 * Não há suporte para o Application Insights em modelos do Aplicativo de API e Aplicativos Móveis.
 * Projetos de Aplicativo de API não podem ser usados em conjunto com os projetos de Serviço de Nuvem.
 * Modelos de projeto de Aplicativo de API só estão disponíveis em C#.
-* Consumo do Aplicativo de API através do menu de contexto "Adicionar Cliente do Aplicativo de API do Azure" só têm suporte em C#.
+* Consumo da API App por meio do menu de contexto de "Adicionar cliente de aplicativo de API do Azure" hello só tem suporte em c#.
 

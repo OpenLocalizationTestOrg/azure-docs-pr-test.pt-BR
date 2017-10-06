@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao licenciamento no Azure Active Directory | Microsoft Docs"
-description: "Como o licenciamento do Azure Active Directory funciona, como começar a trabalhar com as práticas recomendadas"
+title: aaaGet iniciado com licenciamento no Active Directory do Azure | Microsoft Docs
+description: "Como Active Directory do Azure funciona o licenciamento, como tooget iniciado com as práticas recomendadas"
 services: active-directory
 keywords: Licenciamento do AD do Azure
 documentationcenter: 
@@ -17,11 +17,11 @@ ms.date: 07/26/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 6fa7cbbc452861870136482aa320d268e78fe3d9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 268dab806b8b959790341d630a0355c6a43871d0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="license-yourself-and-your-users-in-azure-active-directory"></a>Licenciar a si mesmo e seus usuários no Azure Active Directory
 
@@ -41,71 +41,71 @@ O Azure AD (Azure Active Directory) é uma solução e plataforma de identidade 
   - AD Basic do Azure
   - Autenticação Multifator do Azure
 
-Como muitos serviços online da Microsoft, a maioria das versões pagas do AD do Azure é fornecida por meio de direitos de usuário, como é no Office 365, Microsoft Intune e AD do Azure. Nesses casos, a compra do serviço é representada por uma ou mais assinaturas e cada assinatura inclui algumas licenças adquiridas na pré-compra em seu locatário. Os direitos por usuário são obtidos ao:
+Como muitos serviços online da Microsoft, a maioria das versões pagas do AD do Azure é fornecida por meio de direitos de usuário, como é no Office 365, Microsoft Intune e AD do Azure. Nesses casos, compra do serviço de saudação é representada por uma ou mais assinaturas, e cada assinatura inclui algumas licenças prepurchased em seu locatário. Os direitos por usuário são obtidos ao:
 
 * Atribuir uma licença. 
-* Criar um vínculo entre o usuário e o produto.
-* Habilitar os componentes de serviço para o usuário.
-* Consumir uma das licenças pré-pagas.
+* Criar um vínculo entre o usuário hello e produto hello.
+* Habilitar Olá componentes de serviço para usuário hello.
+* Consumindo uma saudação pago licenças.
 
 [Experimente o Azure AD Premium agora.](https://portal.office.com/Signup/Signup.aspx?OfferId=01824d11-5ad8-447f-8523-666b0848b381&ali=1#0)
 
 Para obter uma visão geral ampla dos recursos de serviço do Azure AD, confira [O que é o Azure AD?](active-directory-whatis.md). Para obter mais informações, veja nossa [página de Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/active-directory/v1_0/).
 
 > [!NOTE]
-> As assinaturas pré-pagas do Azure permitem a criação de recursos do Azure para, então, mapeá-los para seu método de pagamento. Não há contagens de licença associadas à assinatura. Ao conceder uma permissão de usuário para operar os recursos mapeados Azure na assinatura, eles serão associados à assinatura e podem gerenciar os recursos de assinatura.
+> Assinatura paga pelo uso do Azure permite a criação de recursos do Azure e mapeá-los tooyour de pagamento. Não há nenhum contagens de licença associadas à assinatura hello. Quando você concede que uma toooperate de permissão de usuário nos recursos do Azure mapeada toohello assinatura, eles estão associados a assinatura de saudação e podem gerenciar os recursos de assinatura.
 
 ## <a name="how-does-azure-active-directory-licensing-work"></a>Como funciona a licença do Azure Active Directory?
 
-Os serviços do Azure AD baseados em licença funcionam ao ativar uma assinatura no locatário de serviço do Azure AD. Depois que a assinatura estiver ativa, as funcionalidades de serviço poderão ser gerenciadas por administradores do Azure AD e usadas por usuários licenciados.
+Os serviços do Azure AD baseados em licença funcionam ao ativar uma assinatura no locatário de serviço do Azure AD. Após Olá assinatura estiver ativa, recursos de serviço de saudação são gerenciados por administradores do AD do Azure e usados por usuários licenciados.
 
 ### <a name="manage-subscription-information"></a>Gerenciamento de informações da assinatura
 
-Quando você comprar o Enterprise Mobility + Security, Azure AD Premium ou Azure AD Basic, seu locatário será atualizado com a assinatura, incluindo período de validade e licenças pré-pagas. As informações da assinatura, incluindo o número de licenças atribuídas ou disponíveis, estão disponíveis no Portal do Azure: em **Azure Active Directory**, abra o bloco **Licenças** para o diretório específico. A folha **Licenças** também é o melhor lugar para gerenciar suas atribuições de licença.
+Quando você comprar o Enterprise Mobility + Security, Azure AD Premium ou Azure AD Basic, seu locatário será atualizado com assinatura hello, incluindo o período de validade e pago licenças. As informações de assinatura, incluindo o número de saudação de licenças atribuídas ou disponíveis, estão disponíveis por meio do portal do Azure de saudação: em **Active Directory do Azure**, abra Olá **licenças** bloco Olá diretório específico. Olá **licenças** folha também é Olá melhor toomanage de local de suas atribuições de licença.
 
-Cada assinatura consiste em um ou mais planos de serviço, como o Azure AD, Autenticação Multifator, Intune, Exchange Online ou SharePoint Online.  O gerenciamento de licença do Azure AD *não* requer gerenciamento de nível de plano de serviço. O Office 365 é diferente porque depende desse modo de configuração avançada para gerenciar o acesso aos serviços incluídos. O Azure AD depende da configuração de serviço para habilitar recursos e gerenciar permissões individuais.
+Cada assinatura consiste em um ou mais planos de serviço, como o Azure AD, Autenticação Multifator, Intune, Exchange Online ou SharePoint Online.  O gerenciamento de licença do Azure AD *não* requer gerenciamento de nível de plano de serviço. O Office 365 é diferente porque ele se baseia nos serviços de tooincluded configuração avançada modo toomanage acesso. AD do Azure se baseia em recursos de tooenable de configuração em funcionamento e gerenciar permissões individuais.
 
 > [!IMPORTANT]
-> As assinaturas do Azure AD Premium, Azure AD Basic e Enterprise Mobility + Security restringem-se aos seus diretórios/locatários provisionados. As assinaturas não podem ser divididas entre diretórios nem usadas para dar direitos a usuários em outros diretórios. É possível mover uma assinatura entre diretórios, mas requer o envio de um tíquete de suporte ou cancelamento e nova compra para compras diretas.
+> O Azure AD Premium, Azure AD Basic e mobilidade corporativa + assinaturas de segurança são tootheir confinado provisionado/locatário do diretório. As assinaturas não podem ser divididas entre diretórios ou usuários tooentitle usada em outros diretórios. É possível mover uma assinatura entre diretórios, mas requer o envio de um tíquete de suporte ou cancelamento e nova compra para compras diretas.
 >
-> Quando o Azure AD ou o Enterprise Mobility + Security for comprado por meio de uma assinatura de Licenciamento por Volume, quando o contrato incluir outros serviços Online da Microsoft (por exemplo, o Office 365), a ativação acontecerá automaticamente. 
+> Quando o AD do Azure ou Enterprise Mobility + Security adquiridas por meio de uma assinatura de licenciamento por Volume, e quando o contrato de saudação inclui outros serviços Online da Microsoft (por exemplo, Office 365), a ativação ocorre automaticamente. 
 
 ### <a name="assign-licenses"></a>Atribuir licenças
 
-Embora a aquisição de uma assinatura seja tudo o que você precisa para configurar funcionalidades pagas, você ainda deve distribuir licenças para recursos pagos do Azure AD aos usuários. Qualquer usuário que deve ter acesso ou é gerenciado por meio de um recurso pago do Azure AD deve ter uma licença atribuída. Uma atribuição de licença é um mapeamento entre um usuário e um serviço comprado, como o Azure AD Premium, Básico ou o Enterprise Mobility + Security.
+Embora a obtenção de uma assinatura é que tudo o que você precisa tooconfigure paga recursos, você deve distribuir ainda licenças do AD do Azure paga toousers de recursos. Qualquer usuário que deve ter tooor de acesso que é gerenciado por meio do AD do Azure paga o recurso deve ser atribuído uma licença. Uma atribuição de licença é um mapeamento entre um usuário e um serviço comprado, como o Azure AD Premium, Básico ou o Enterprise Mobility + Security.
 
 
 O gerenciamento de usuários, em seu diretório, que devem ter uma licença pode ser obtido ao: 
 
-* Atribuir licenças aos grupos no [Portal do Azure](active-directory-licensing-whatis-azure-portal.md).
-* Atribuir licenças diretamente aos usuários por meio do portal, do PowerShell ou de APIs. 
+* Atribuir licenças toogroups em Olá [portal do Azure](active-directory-licensing-whatis-azure-portal.md).
+* Atribuir licenças diretamente toousers por meio do portal de hello, PowerShell ou APIs. 
 
-Ao atribuir licenças a um grupo, uma licença é atribuída a todos os membros do grupo. Se usuários forem adicionados ou removidos do grupo, a licença apropriada será atribuída ou removida. A atribuição de grupo pode usar qualquer gerenciamento de grupo disponível e é consistente com a atribuição baseada em grupo a aplicativos.
+Durante a atribuição de grupo de tooa de licenças, todos os membros do grupo são atribuídos a uma licença. Se os usuários são adicionados ou removidos do grupo Olá, licença adequada Olá é atribuída ou removida. Atribuição de grupo pode utilizar qualquer tooyou disponíveis de gerenciamento de grupo e é consistente com a atribuição baseada em grupo tooapplications.
 
-Você pode usar [atribuição de licença baseada em grupo](active-directory-licensing-whatis-azure-portal.md) para configurar as regras, como o seguinte:
+Você pode usar [atribuição de licença baseada em grupo](active-directory-licensing-whatis-azure-portal.md) tooset as regras, como a seguir hello:
 * Todos os usuários em seu diretório obtêm automaticamente uma licença
-* Todos com o cargo apropriado obtêm uma licença
-* Você pode delegar a decisão de outros gerenciadores na organização (ao usar [grupos de autoatendimento](active-directory-accessmanagement-self-service-group-management.md))
+* Todos com o título do trabalho apropriado Olá obtém uma licença
+* Você pode delegar gerenciadores de tooother decisão Olá na organização da saudação (usando [grupos de autoatendimento](active-directory-accessmanagement-self-service-group-management.md))
 
-Para obter uma discussão detalhada sobre a atribuição de licenças para grupos, incluindo cenários avançados e cenários de licenciamento do Office 365, consulte [Atribuir licenças a usuários por associação de grupo no Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md).
+Para obter uma discussão detalhada da toogroups de atribuição de licença, incluindo avançados de cenários e Office 365 licenciamento cenários, consulte [atribuir licenças toousers pela associação de grupo no Active Directory do Azure](active-directory-licensing-group-assignment-azure-portal.md).
 
 ## <a name="get-started-with-azure-ad-licensing"></a>Introdução ao licenciamento do Azure AD
 
 É fácil começar a usar o Azure AD. Você sempre pode criar seu diretório como parte de uma inscrição para uma [avaliação gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/).
 
-As práticas recomendadas a seguir podem ajudar a garantir que seu locatário esteja alinhado com outros serviços da Microsoft que você pode estar consumindo e com seus objetivos para o serviço:
+Olá práticas recomendadas a seguir podem ajudar a garantir que seu locatário está alinhado com outros serviços da Microsoft que você talvez esteja consumindo e suas metas de serviço hello:
 
-- Caso já esteja usando algum dos serviços organizacionais da Microsoft, você já tem um locatário do Azure AD. É útil usar o mesmo locatário para outros serviços, para que o gerenciamento de identidade principal, incluindo provisionamento e SSO (logon único) híbrido, possa ser utilizado nos serviços. Com o logon único, os usuários se beneficiam de funcionalidades avançadas entre serviços. Dessa forma, se você decidir comprar um serviço pago do Azure AD para a sua força de trabalho, recomendamos que você use o mesmo locatário novamente.
+- Se você já estiver usando qualquer um dos serviços de saudação organizacionais da Microsoft, você já tem um locatário do AD do Azure. É útil toouse Olá que mesmo locatário para outros serviços para que o gerenciamento de identidade de núcleo, incluindo o provisionamento e híbrida-logon único (SSO), pode ser usado em serviços de saudação. Com o logon único, os usuários se beneficiar de recursos avançados de saudação em serviços de saudação. Portanto, se você decidir toobuy um serviço pago do AD do Azure para sua força de trabalho, é recomendável que você use Olá mesmo locatário novamente.
 
-- É recomendável que você use um novo locatário no Portal do Azure se você estiver planejando:
+- É recomendável que você use um novo locatário no portal do Azure de saudação se você estiver planejando:
   - Usar o Azure AD para um conjunto diferente de usuários (como parceiros ou clientes).
   - Avaliar os serviços do Azure AD isoladamente de seu serviço de produção.
   - Configurar um ambiente de área restrita para seus serviços.
 
-  O novo diretório é criado com sua conta como um usuário externo com permissões de administrador global. Ao entrar no Portal do Azure com essa conta, você poderá ver esse locatário e acessar todas as tarefas de administração.
+  Olá novo diretório é criado com sua conta como um usuário externo com permissões de administrador global. Quando você entrar no toohello portal do Azure com essa conta, você pode ver este locatário e acessar todas as tarefas de administração.
 
 > [!NOTE]
-> O Azure AD dá suporte a "usuários convidados", que são contas de usuário em um locatário do Azure AD criadas usando uma conta da Microsoft ou uma identidade do Azure AD de outro locatário. No momento, o portal de administração do Office 365 não oferece suporte para esses usuários. Os usuários convidados com contas da Microsoft não podem acessar o portal de administração do Office 365, enquanto os usuários convidados de outros locatários do Azure AD são ignorados. No último caso, apenas a conta local do usuário, no locatário do Azure AD ou do Office 365 no qual o usuário foi originalmente criado, está acessível.
+> O Azure AD dá suporte a "usuários convidados", que são contas de usuário em um locatário do Azure AD criadas usando uma conta da Microsoft ou uma identidade do Azure AD de outro locatário. portal de administração do Office 365 de saudação atualmente não dá suporte para esses usuários. Usuários convidados com contas da Microsoft não estão tooaccess capaz de portal de administração de saudação Office 365, enquanto usuários convidados de outros locatários do AD do Azure são ignorados. No último caso de Olá, Olá apenas a conta local do usuário no AD do Azure de saudação ou Locatário do Office 365 em que o usuário Olá foi criado originalmente, está acessível.
 
 ### <a name="select-one-or-more-license-trials"></a>Selecione uma ou mais avaliações de licença
 
@@ -113,38 +113,38 @@ As práticas recomendadas a seguir podem ajudar a garantir que seu locatário es
 
 ![Selecione uma versão de avaliação de licença](media/active-directory-licensing-get-started-azure-portal/select-a-license-trial.png)
 
-As licenças de avaliação agora estão disponíveis na folha **Licenças**.
+Licenças de avaliação estão disponíveis em Olá **licenças** folha.
 
-### <a name="assign-licenses-to-users-and-groups"></a>Atribuir licenças a usuários e grupos
+### <a name="assign-licenses-toousers-and-groups"></a>Atribuir grupos e toousers de licenças
 
-Depois que a assinatura estiver ativa, você deverá atribuir uma licença a si mesmo. Em seguida, atualize o navegador para garantir que esteja vendo todos os recursos. A próxima etapa é atribuir licenças aos usuários que precisam de acesso a recursos pagos do Azure AD. Conforme descrito em [Atribuir licenças](#assign-licenses), uma maneira fácil de atribuir licenças é identificar o grupo que representa o público-alvo desejado e atribuir a licença a ele. Dessa forma, os usuários adicionados ou removidos do grupo durante seu ciclo de vida são atribuídos ou removidos da licença, respectivamente.
+Após Olá assinatura estiver ativa, você deve atribuir uma licença tooyourself. Em seguida, atualize Olá tooensure de navegador que você está vendo todos os recursos de saudação. Olá próxima etapa é tooassign usuários de toohello de licenças que precisam de recursos do access toopaid AD do Azure. Conforme descrito em [atribuir licenças](#assign-licenses), uma maneira fácil de licenças tooassign é tooidentify Olá representando Olá desejado público e atribuir Olá tooit de licença. Dessa forma, os usuários que são adicionados ou removidos do grupo de saudação durante seu ciclo de vida são atribuídos ou removidos da licença hello, respectivamente.
 
 > [!NOTE]
-> Alguns serviços da Microsoft não estão disponíveis em todos os locais. Para que uma licença possa ser atribuída a um usuário, o administrador deve especificar a propriedade **Local de uso** para o usuário. É possível definir essa propriedade em **Usuário** &gt; **Perfil** &gt; **Configurações** no Portal do Azure. Ao usar a atribuição de licença de grupo, qualquer usuário, cujo local de uso não está especificado, herda o local do diretório.
+> Alguns serviços da Microsoft não estão disponíveis em todos os locais. Usuário tooa possa ser atribuídos uma licença, o administrador de saudação deve especificar Olá **local de uso** propriedade para o usuário hello. Você pode definir essa propriedade em **usuário** &gt; **perfil** &gt; **configurações** no hello portal do Azure. Ao usar a atribuição de grupo de licenças, qualquer usuário cujo uso local não for especificado herda local de saudação do diretório de saudação.
 
-Para atribuir uma licença, no **Azure Active Directory** &gt; **Licenças** &gt; **Todos os Produtos**, selecione um ou mais produtos e selecione **Atribuir** na barra de comandos.
+tooassign uma licença, em **Active Directory do Azure** &gt; **licenças** &gt; **todos os produtos**, selecione um ou mais produtos e, em seguida, selecione **Atribuir** na barra de comandos de saudação.
 
-![Selecione uma licença para atribuir](media/active-directory-licensing-get-started-azure-portal/select-license-to-assign.png)
+![Selecione um tooassign de licença](media/active-directory-licensing-get-started-azure-portal/select-license-to-assign.png)
 
-Você pode usar a folha **Usuários e grupos** para escolher vários usuários ou grupos ou desabilitar os planos de serviço no produto. Use a caixa de pesquisa na parte superior para pesquisar nomes de usuário e grupo.
+Você pode usar o hello **usuários e grupos** toochoose folha planos de vários usuários ou grupos ou serviço toodisable produto hello. Use caixa de pesquisa Olá toosearch superior para nomes de usuário e grupo.
 
 ![Selecione um usuário ou grupo para atribuição de licença](media/active-directory-licensing-get-started-azure-portal/select-user-for-license-assignment.png)
 
-Ao atribuir uma licença para o grupo, pode levar algum tempo para que todos os usuários herdem a licença, dependendo do número de usuários no grupo. É possível verificar o status de processamento na folha **Grupo**, no bloco **Licença**.
+Quando você estiver atribuindo um grupo de licenças tooa, pode levar algum tempo até que todos os usuários herdam licença hello, dependendo do número de saudação de usuários no grupo de saudação. Você pode verificar o status de processamento Olá Olá **grupo** folha sob Olá **licenças** lado a lado.
 
 ![Status de atribuição de licença](media/active-directory-licensing-get-started-azure-portal/license-assignment-status.png)
 
 Erros de atribuição podem ocorrer durante a atribuição de licença do Azure AD, mas são relativamente raros ao gerenciar os produtos do Azure AD e do Enterprise Mobility + Security. Os possíveis erros de atribuição estão limitados a:
-- Conflito de atribuição: quando um usuário recebeu anteriormente uma licença que é incompatível com a licença atual. Nesse caso, a atribuição da nova licença exigirá a remoção da atual.
-- Licenças disponíveis excedidas: quando o número de usuários em grupos atribuídos excede as licenças disponíveis, o status de atribuição do usuário reflete uma falha ao atribuir devido à falta de licenças.
+- Conflito de atribuição: quando um usuário foi anteriormente atribuído uma licença que é incompatível com a licença atual hello. Nesse caso, a atribuição de licença nova Olá requer a remoção de saudação atual.
+- Excedido licenças disponíveis: quando o número de saudação de usuários em grupos atribuídos excede licenças disponíveis Olá, status de atribuição do usuário reflete tooassign uma falha devido toomissing licenças.
 
 #### <a name="azure-ad-b2b-collaboration-licensing"></a>Licenciamento da colaboração B2B do Azure AD
 
-A colaboração B2B permite chamar usuários convidados no seu locatário do Azure AD para fornecer acesso aos serviços do Azure AD e a qualquer recurso do Azure que você disponibilizar.  
+Colaboração B2B permite tooinvite convidados em seus serviços de tooAzure AD de acesso do AD do Azure locatário tooprovide e todos os recursos do Azure você disponibilizar.  
 
-Não há nenhum custo para convidar usuários B2B e atribuí-los a um aplicativo no Azure AD. Até 10 aplicativos por usuário convidado e 3 relatórios básicos também são gratuitos para usuários de colaboração B2B. Se o usuário convidado tiver as licenças apropriadas atribuídas no locatário do Azure AD do parceiro, ele será licenciado também na sua.
+Não há nenhuma taxa para convidar usuários B2B e atribuindo-lhes tooan aplicativo no AD do Azure. Backup too10 aplicativos por convidado 3 relatórios básicos e o usuário também são gratuitos para usuários de colaboração B2B. Se o usuário convidado tem as licenças apropriadas atribuídas no locatário do AD do Azure do parceiro Olá, eles serão ser licenciados também nas suas.
 
-Não é obrigatório, mas se você desejar fornecer acesso a recursos pagos do Azure AD, os usuários convidados B2B deverão ser licenciados com licenças adequadas do Azure AD. Um locatário que está convidando com uma licença paga do Azure AD pode atribuir direitos de usuário de colaboração B2B a outros cinco usuários convidados adicionais para o locatário. Para obter informações e cenários, consulte [Diretrizes de licenciamento de colaboração B2B](active-directory-b2b-licensing.md).
+Não é obrigatório, mas se você deseja que os recursos do tooprovide acesso toopaid AD do Azure, os usuários de convidado B2B devem ser licenciados com adequado licenças do AD do Azure. Um locatário convidar com paga a licença do AD do Azure pode atribuir direitos de usuário de colaboração B2B tooan adicionais cinco usuários de convidado convidados toohello locatário. Para obter informações e cenários, consulte [Diretrizes de licenciamento de colaboração B2B](active-directory-b2b-licensing.md).
 
 ### <a name="view-assigned-licenses"></a>Exibir licenças atribuídas
 
@@ -152,31 +152,31 @@ Não é obrigatório, mas se você desejar fornecer acesso a recursos pagos do A
 
 ![Exibir resumo da licença](media/active-directory-licensing-get-started-azure-portal/view-license-summary.png)
 
-Uma lista detalhada de usuários e grupos atribuídos está disponível ao selecionar um produto específico. A lista de **Usuários licenciados** mostra todos os usuários atualmente consumindo uma licença e se a licença foi atribuída diretamente ao usuário ou se ela é herdada de um grupo.
+Uma lista detalhada de usuários e grupos atribuídos está disponível ao selecionar um produto específico. Olá **usuários licenciados** lista mostra todos os usuários atualmente consumindo uma licença e se o hello licença foi atribuída diretamente toohello usuário ou se ela é herdada de um grupo.
 
 ![Exibir detalhes da licença](media/active-directory-licensing-get-started-azure-portal/view-license-detail.png)
 
-Da mesma forma, a lista de **Grupos Licenciados** mostra todos os grupos aos quais as licenças foram atribuídas. Selecione um usuário ou grupo para abrir a folha **Licenças**, que mostra todas as licenças atribuídas àquele objeto.
+Da mesma forma, Olá **licenciado grupos** lista mostra todos os grupos de licenças toowhich foram atribuídas. Selecione uma saudação de usuário ou grupo tooopen **licenças** folha, que mostra todas as licenças atribuídas toothat objeto.
 
 ### <a name="remove-a-license"></a>Remover uma licença
 
-Para remover uma licença, vá até o usuário ou grupo e abra o bloco **Licenças**. Selecione a licença e clique em **Remover**.
+tooremove uma licença, vá toohello usuário ou grupo e abra Olá **licenças** lado a lado. Selecione Olá licença e, em seguida, clique em **remover**.
 
 ![Remover uma licença](media/active-directory-licensing-get-started-azure-portal/remove-license.png)
 
-As licenças herdadas pelo usuário de um grupo não podem ser removidas diretamente. Em vez disso, remova o usuário do grupo do qual eles estão herdando a licença.
+Herdado por usuário Olá de um grupo de licenças não podem ser removidas diretamente. Em vez disso, remova usuário de saudação do grupo de saudação do qual eles são herdadas licença hello.
 
 ### <a name="extend-trials"></a>Estender avaliações
 
-As extensões de avaliação para clientes estão disponíveis como entrada de autoatendimento no portal do Office 365. Um administrador de cliente pode ir até o portal do Office (o acesso depende de permissões para o portal do Office) e selecionar a avaliação do Azure AD Premium. Clicar a **Estender avaliação** link inicia o processo de extensão. Um cartão de crédito é necessário, mas ele não é cobrado.
+Extensões de avaliação para clientes que estão disponíveis como autoatendimento inscrição por meio do portal Olá Office 365. Um administrador do cliente pode acessar o portal do Office toohello (acesso depende das permissões para o portal do Office Olá) e selecione a avaliação do Azure AD Premium Olá. Olá clicando em **Estender avaliação** link inicia o processo de extensão de saudação. Um cartão de crédito é necessário, mas ele não é cobrado.
 
-![Estender uma avaliação no portal do Azure](media/active-directory-licensing-get-started-azure-portal/extend-trial-beginning.png)
+![Estender a avaliação de saudação portal do Azure](media/active-directory-licensing-get-started-azure-portal/extend-trial-beginning.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre cenários avançados de gerenciamento de licença por meio de grupos, leia o artigo [Atribuindo licenças a um grupo](active-directory-licensing-group-assignment-azure-portal.md).
+Saiba mais sobre toolearn avançado cenários para o gerenciamento de licenças por meio de grupos, leia o artigo de saudação [grupo de tooa atribuindo licenças](active-directory-licensing-group-assignment-azure-portal.md).
 
-Aqui estão informações sobre como configurar e usar outros recursos pagos do Azure AD:
+Aqui está a obter informações sobre como tooconfigure e usar outros recursos pagos do AD do Azure:
 
 * [Redefinição de senha de autoatendimento](active-directory-manage-passwords.md)
 * [Gerenciamento de grupo de autoatendimento](active-directory-accessmanagement-self-service-group-management.md)

@@ -1,5 +1,5 @@
 ---
-title: "(preterido) Regressão Linear Multivariada - Azure | Microsoft Docs"
+title: "AAA(deprecated) Multivariada de regressão Linear - Azure | Microsoft Docs"
 description: "(preterido) Regressão Linear Multivariada"
 services: machine-learning
 documentationcenter: 
@@ -16,42 +16,42 @@ ms.date: 01/06/2017
 ms.author: jaymathe
 ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-redirect_document_id: TRUE
-ms.openlocfilehash: 65a8005139e920cd19593e954fc1bf836354bdf3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: 0ff7221cd06c0ef059b0c5bf327016588174dcfe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deprecated-multivariate-linear-regression"></a>(preterido) Regressão Linear Multivariada
 
 > [!NOTE]
-> O Microsoft DataMarket está sendo desativado e essa API foi preterida. 
+> Olá Microsoft DataMarket está sendo desativado e esta API foi preterida. 
 > 
-> Você pode encontrar muitos testes de exemplo úteis e APIs na [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com). Para saber mais sobre a Galeria, confira [Compartilhar e descobrir soluções na Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+> Você pode encontrar várias APIs e experiências de exemplo útil no hello [Cortana Intelligence galeria](http://gallery.cortanaintelligence.com). Para obter mais informações sobre Olá galeria, consulte [compartilhamento e descobrir recursos na Olá Cortana Intelligence galeria](machine-learning-gallery-how-to-use-contribute-publish.md).
 
-Suponha que você tenha um conjunto de dados e gostaria de prever rapidamente uma variável dependente (y) para cada indivíduo (i) com base em outras variáveis independentes. A regressão linear é uma técnica estatística popular usada para essas previsões. Aqui, a variável dependente y é considerada um valor contínuo.  
+Suponha que você tem um conjunto de dados e seria como tooquickly prever uma variável dependente (y) para cada indivíduo (i) com base em variáveis independentes. A regressão linear é uma técnica estatística popular usada para essas previsões. Aqui Olá variável dependente y é considerado toobe um valor contínuo.  
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Um cenário simples poderia ser um em que o pesquisador estivesse tentando prever o peso de um indivíduo (y) com base em sua altura (x). Um cenário mais avançado poderia ser um em que o Pesquisador tivesse informações adicionais para a pessoa (como peso, sexo, raça) e tentasse prever o peso dessa pessoa. Esse [serviço Web](https://datamarket.azure.com/dataset/aml_labs/multivariate_regression) se ajusta ao modelo de regressão linear para os dados e gera o valor previsto (y) para cada uma das observações nos dados.
+Um cenário simples pode ser onde Pesquisador hello está tentando toopredict peso de saudação de um indivíduo (y) com base em sua altura (x). Um cenário mais avançado pode ser onde o Pesquisador de saudação tem informações adicionais para Olá individual (como o peso, sexo, corrida) e tentativas toopredict peso Olá Olá individuais. Isso [serviço web](https://datamarket.azure.com/dataset/aml_labs/multivariate_regression) se ajusta Olá dados de toohello do modelo de regressão linear e saídas Olá valor previsto (y) para cada uma das observações Olá nos dados de saudação.
 
-> Este serviço Web poderia ser consumido por usuários – potencialmente por meio de um aplicativo móvel, de um site ou até mesmo em um computador local, por exemplo. Mas a finalidade do serviço Web é também servir como um exemplo de como o Azure Machine Learning pode ser usado para criar serviços Web sobre o código R. Com apenas algumas linhas de código R e cliques de botão dentro do Azure Machine Learning Studio, um experimento pode ser criado com código R e publicado como um serviço Web. O serviço Web pode ser publicado no Azure Marketplace e consumido por dispositivos e usuários em todo o mundo – sem qualquer infraestrutura configurada pelo autor do serviço Web.  
+> Este serviço Web poderia ser consumido por usuários – potencialmente por meio de um aplicativo móvel, de um site ou até mesmo em um computador local, por exemplo. Mas finalidade de saudação do serviço web de saudação também é tooserve como um exemplo de como o aprendizado de máquina do Azure pode ser usado toocreate os serviços da web sobre o código R. Com apenas algumas linhas de código R e cliques de botão dentro do Azure Machine Learning Studio, um experimento pode ser criado com código R e publicado como um serviço Web. serviço web de saudação pode ser publicado toohello Azure Marketplace e consumido por usuários e dispositivos em Olá, mundo com nenhuma configuração de infraestrutura pelo autor de saudação do serviço web de saudação.  
 > 
 > 
 
 ## <a name="consumption-of-web-service"></a>Consumo do serviço Web
-O serviço Web dá os valores previstos da variável dependente com base em variáveis independentes para todas as observações. O serviço Web espera que o usuário final insira seus dados como cadeias de caracteres em que as linhas são separadas por vírgula (,) e as colunas são separadas por ponto e vírgula (;). O serviço Web espera 1 linha por vez e espera que a primeira coluna seja a variável dependente. Um conjunto de dados de exemplo poderia ser assim:
+Essa saudação do web service oferece prevista valores de variável dependente de saudação com base em variáveis independentes de saudação para todas as observações de saudação. serviço web de saudação espera Olá tooinput dados como uma cadeia de caracteres em que linhas são separadas por vírgulas (,) e as colunas são separadas por ponto e vírgula (;). serviço web de saudação espera 1 linha por vez e espera Olá primeira coluna toobe Olá variável dependente. Um conjunto de dados de exemplo poderia ser assim:
 
 ![Dados de amostra][1]
 
-Observações sem uma variável dependente devem ser inseridas como "NA" para y. Os dados de entrada para o conjunto de dados acima seria o seguinte: “10;5;2,18;1;6,6;5.3;2.1,7;5;5,22;3;4,12;2;1,NA;3;4”. O resultado é o valor previsto para cada uma das linhas com base nas variáveis independentes. 
+Observações sem uma variável dependente devem ser inseridas como "NA" para y. Olá dados de entrada para Olá acima de conjunto de dados deve ser Olá a seguir cadeia de caracteres: "10; 5; 2,18; 1; 6,6; 5.3; 2.1,7; 5; 5,22; 3; 4,12; 2: 1, 4, 3; NA". saudação de saída é hello valor previsto para cada uma das linhas de saudação com base em variáveis independentes de saudação. 
 
-> Esse serviço, conforme hospedado no Azure Marketplace é um serviço OData; ele pode ser chamado por meio de métodos POST ou GET. 
+> Esse serviço, como hospedado em hello Azure Marketplace é um serviço OData; Esses podem ser chamados por meio de métodos POST ou GET. 
 > 
 > 
 
-Há várias maneiras de consumir o serviço de forma automática (os aplicativos de exemplo estão [aqui](http://microsoftazuremachinelearning.azurewebsites.net/MultipleLinearRegressionService.aspx)).
+Há várias maneiras de consumo de serviço de saudação de forma automática (um aplicativo de exemplo é [aqui](http://microsoftazuremachinelearning.azurewebsites.net/MultipleLinearRegressionService.aspx)).
 
 ### <a name="starting-c-code-for-web-service-consumption"></a>Iniciando o código C# para consumo de serviço Web:
     public class Input
@@ -84,11 +84,11 @@ Há várias maneiras de consumir o serviço de forma automática (os aplicativos
 
 
 ## <a name="creation-of-web-service"></a>Criação de serviço Web
-> Este serviço Web foi criado usando o Azure Machine Learning. Para obter uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de testes e [publicação de serviços Web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do teste que criou o serviço Web e o exemplo de código para cada um dos módulos dentro do teste.
+> Este serviço Web foi criado usando o Azure Machine Learning. Para obter uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de testes e [publicação de serviços Web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do experimento Olá que criou o código de exemplo e o serviço da web hello para cada um dos módulos Olá experimento hello.
 > 
 > 
 
-De dentro do Azure Machine Learning, um novo teste em branco foi criado e dois módulos [Executar Scripts R][execute-r-script] foram levados ao espaço de trabalho. Esse serviço Web executa um teste de Azure Machine Learning com script R subjacente. Há 2 partes para esse experimento: a definição de esquema e o modelo de treinamento + pontuação. O primeiro módulo define a estrutura esperada do conjunto de entrada, em que a primeira variável é a variável dependente e as variáveis restantes são independentes. O segundo módulo se encaixa em um modelo de regressão linear genérico para os dados de entrada.  
+De dentro de aprendizado de máquina do Azure, uma nova experiência em branco foi criada e dois [Executar Script R] [ execute-r-script] módulos foram recebidos no espaço de trabalho de saudação. Esse serviço Web executa um teste de Azure Machine Learning com script R subjacente. Há 2 partes toothis experimentar: definição de esquema e o modelo de treinamento + de pontuação. módulo primeiro Olá define a estrutura de saudação esperada de dataset entrada hello, onde Olá primeira variável é variável dependente de saudação e variáveis restantes Olá são independentes. segundo módulo de saudação se ajusta a um modelo de regressão linear genérico para dados de entrada hello.  
 
 ![Fluxo de teste][3]
 
@@ -114,10 +114,10 @@ De dentro do Azure Machine Learning, um novo teste em branco foi criado e dois m
     maml.mapOutputPort("out");  
 
 ## <a name="limitations"></a>Limitações
-Este é um exemplo muito simples de um serviço Web de regressão linear múltipla. Como pode ser visto no código de exemplo acima, nenhuma captura de erro é implementada e o serviço pressupõe que tudo é uma variável contínua (nenhum recurso categórico é permitido), uma vez que o serviço apenas produz valores números no momento da criação do serviço Web. Além disso, atualmente o serviço lida com um tamanho de dados limitado, devido à natureza da solicitação/resposta da chamada do serviço Web e ao fato de que o modelo é ajustado sempre que o serviço Web é chamado. 
+Este é um exemplo muito simples de um serviço Web de regressão linear múltipla. Como pode ser visto no código de exemplo hello acima, nenhum erro capturando é implementado e Olá serviço considera tudo o que é uma variável contínua (não há recursos categóricos permitidos), como Olá serviço apenas entradas valores numéricos na Olá Olá criação desta Web serviço. Além disso, o serviço Olá atualmente lida com tamanho de dados limitada, devido a natureza de solicitação/resposta toohello do serviço web de saudação do fato de chamada e Olá Olá modelo está sendo ajustar sempre que o serviço web de saudação é chamado. 
 
 ## <a name="faq"></a>Perguntas frequentes
-Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publicação no Azure Marketplace, consulte [aqui](machine-learning-marketplace-faq.md).
+Para perguntas frequentes sobre o consumo do serviço web de saudação ou publicação toohello Azure Marketplace, consulte [aqui](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img1.png
 [2]: ./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img2.png

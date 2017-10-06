@@ -14,21 +14,21 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: 6c073d70debfdc3560405955d65fa9ccaa7d8b1f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9b0c32086cebc171d91da2e7bfb48136723ccd4d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: entrar usando contas do Azure AD
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo mostra como habilitar a entrada para usuários de uma organização específica do Azure AD (Azure Active Directory) por meio do uso de [políticas personalizadas](active-directory-b2c-overview-custom.md).
+Este artigo mostra como tooenable entrar para usuários de uma organização específica do Azure Active Directory (AD do Azure) através do uso de saudação do [políticas personalizadas](active-directory-b2c-overview-custom.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua as etapas no artigo [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).
+Olá concluir as etapas em Olá [guia de Introdução com políticas personalizadas](active-directory-b2c-get-started-custom.md) artigo.
 
 As etapas incluem:
 
@@ -36,54 +36,54 @@ As etapas incluem:
 2. Criar um aplicativo Azure AD B2C.
 3. Registrar dois aplicativos do mecanismo de políticas.
 4. Configurar chaves.
-5. Configurar o pacote de início.
+5. Configurar o pacote de inicializador de saudação.
 
 ## <a name="create-an-azure-ad-app"></a>Criar um aplicativo Azure AD
 
-Para habilitar a entrada para usuários de uma organização específica do Azure AD, você precisa registrar um aplicativo no locatário organizacional do Azure AD.
+tooenable entrar para usuários de uma determinada organização do AD do Azure, você precisa tooregister um aplicativo no locatário Olá organizacional do AD do Azure.
 
 >[!NOTE]
-> Usamos "contoso.com" como o locatário do Azure AD da organização e "fabrikamb2c.onmicrosoft.com" como o locatário do Azure AD B2C nas instruções a seguir.
+> Podemos usar "contoso.com" para locatário Olá organizacional do AD do Azure e "fabrikamb2c.onmicrosoft.com" como locatário hello Azure AD B2C em Olá instruções a seguir.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
-1. Na barra superior, selecione sua conta. Na lista **Diretório**, escolha o locatário do Azure AD organizacional em que deseja registrar seu aplicativo (contoso.com).
-1. Selecione **Mais serviços** no painel esquerdo e pesquise por “Registros do aplicativo”.
+1. Entrar toohello [portal do Azure](https://portal.azure.com).
+1. Na barra superior do hello, selecione sua conta. De saudação **diretório** , escolha locatário Olá organizacional do AD do Azure onde deseja tooregister seu aplicativo (contoso.com).
+1. Selecione **mais serviços** no painel esquerdo do hello e procure "Registros de aplicativo".
 1. Selecione **Novo registro de aplicativo**.
 1. Insira um nome para seu aplicativo (por exemplo, `Azure AD B2C App`).
-1. Selecione **Aplicativo Web/API** como o tipo de aplicativo.
-1. Para a **URL de Logon**, insira a URL a seguir, em que `yourtenant` é substituído pelo nome do seu locatário do Azure AD B2C (`fabrikamb2c.onmicrosoft.com`):
+1. Selecione **aplicativo Web / API** para o tipo de aplicativo hello.
+1. Para **URL de logon**, digite Olá seguindo a URL, onde `yourtenant` é substituído pelo nome de saudação do seu locatário do Azure AD B2C (`fabrikamb2c.onmicrosoft.com`):
 
     ```
     https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
-1. Salve a ID do aplicativo.
-1. Selecione o aplicativo recém-criado.
-1. Na folha **Configurações**, selecione **Chaves**.
-1. Crie uma nova chave e salve-a. Você a usará nas etapas da próxima seção.
+1. Salvar o ID do aplicativo hello.
+1. Selecione o aplicativo hello recém-criado.
+1. Em Olá **configurações** folha, selecione **chaves**.
+1. Crie uma nova chave e salve-a. Você o usará em etapas Olá Olá próxima seção.
 
-## <a name="add-the-azure-ad-key-to-azure-ad-b2c"></a>Adicionar a chave do Azure AD ao Azure AD B2C
+## <a name="add-hello-azure-ad-key-tooazure-ad-b2c"></a>Adicionar tooAzure de chave de saudação do AD do Azure AD B2C
 
-Você precisa armazenar a chave do aplicativo de contoso.com em seu locatário do Azure AD B2C. Para fazer isso:
-1. Vá até seu locatário do Azure AD B2C e abra **Configurações B2C** > **Identity Experience Framework** > **Chaves de Política**.
+É necessário a chave de aplicativo toostore Olá contoso.com em seu locatário do Azure AD B2C. toodo isso:
+1. Go locatário tooyour B2C do Azure AD e selecione **B2C configurações** > **identidade experiência Framework** > **chaves política**.
 1. Selecione **+Adicionar**.
 1. Selecione ou insira estas opções:
    * Selecione **Manual**.
-   * Para o **Nome**, escolha um nome que corresponda ao nome do locatário do Azure AD (por exemplo, `ContosoAppSecret`).  O prefixo `B2C_1A_` será adicionado automaticamente ao nome da chave.
-   * Cole a chave do aplicativo na caixa de texto **Segredo**.
+   * Para o **Nome**, escolha um nome que corresponda ao nome do locatário do Azure AD (por exemplo, `ContosoAppSecret`).  prefixo de saudação `B2C_1A_` é adicionado automaticamente toohello nome da chave.
+   * Cole a chave de aplicativo hello **segredo** caixa.
    * Selecione **Assinatura**.
 1. Selecione **Criar**.
-1. Confirme que você criou a chave `B2C_1A_ContosoAppSecret`.
+1. Confirme que você criou a chave Olá `B2C_1A_ContosoAppSecret`.
 
 
 ## <a name="add-a-claims-provider-in-your-base-policy"></a>Adicionar um provedor de declarações à política base
 
-Se quiser que os usuários entrem usando o Azure AD, você precisará definir o Azure AD como um provedor de declarações. Em outras palavras, você precisa especificar um ponto de extremidade com o qual o Azure AD B2C se comunicará. O ponto de extremidade fornecerá um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado. 
+Se você quiser usuários toosign no usando o AD do Azure, você precisa toodefine AD do Azure como um provedor de declarações. Em outras palavras, você precisa toospecify um ponto de extremidade do Azure AD B2C se comunicará. ponto de extremidade Olá fornecem um conjunto de declarações que são usados pelo Azure AD B2C tooverify que um usuário específico autenticado. 
 
-Você pode definir o Azure AD como um provedor de declarações adicionando o Azure AD ao nó `<ClaimsProvider>` no arquivo de extensão de sua política:
+Você pode definir o AD do Azure como um provedor de declarações adicionando toohello do AD do Azure `<ClaimsProvider>` nó no arquivo de extensão de saudação da política:
 
-1. Abra o arquivo de extensão (TrustFrameworkExtensions.xml) no diretório de trabalho.
-1. Localize a seção `<ClaimsProviders>`. Caso ela não exista, adicione-a sob o nó raiz.
+1. Abra o arquivo de extensão da saudação (TrustFrameworkExtensions.xml) do seu diretório de trabalho.
+1. Localize Olá `<ClaimsProviders>` seção. Se não existir, adicione-o nó raiz de saudação.
 1. Adicione um novo nó `<ClaimsProvider>` da seguinte maneira:
 
     ```XML
@@ -128,94 +128,94 @@ Você pode definir o Azure AD como um provedor de declarações adicionando o Az
     </ClaimsProvider>
     ```
 
-1. Sob o nó `<ClaimsProvider>`, atualize o valor de `<Domain>` para um valor exclusivo que pode ser usado para distinguir de outros provedores de identidade.
-1. Sob o nó `<ClaimsProvider>`, atualize o valor de `<DisplayName>` para um nome amigável do provedor de declarações. Esse valor não é usado atualmente.
+1. Em Olá `<ClaimsProvider>` nó, o valor de saudação de atualização para `<Domain>` tooa valor exclusivo que pode ser usado toodistinguish-lo de outros provedores de identidade.
+1. Em Olá `<ClaimsProvider>` nó, o valor de saudação de atualização para `<DisplayName>` tooa nome amigável do hello provedor de declarações. Esse valor não é usado atualmente.
 
-### <a name="update-the-technical-profile"></a>Atualizar o perfil técnico
+### <a name="update-hello-technical-profile"></a>Atualizar perfil técnica Olá
 
-Para obter um token do ponto de extremidade do Azure AD, você precisa definir os protocolos que o Azure AD B2C deve usar para se comunicar com o Azure AD. Isso é feito no elemento `<TechnicalProfile>` do `<ClaimsProvider>`.
-1. Atualize a ID do nó `<TechnicalProfile>`. Essa ID é usada para se referir a esse perfil técnico em outras partes da política.
-1. Atualize o valor de `<DisplayName>`. Esse valor será exibido no botão de entrada em sua tela de entrada.
-1. Atualize o valor de `<Description>`.
-1. O Azure AD usa o protocolo OpenID Connect, portanto, verifique se o valor de `<Protocol>` é `"OpenIdConnect"`.
+tooget um token do ponto de extremidade do hello AD do Azure, você precisa de protocolos de saudação toodefine que o Azure AD B2C deve usar toocommunicate com o Azure AD. Isso é feito dentro Olá `<TechnicalProfile>` elemento `<ClaimsProvider>`.
+1. Atualizar a ID de saudação do hello `<TechnicalProfile>` nó. Essa ID é usada toorefer toothis perfil técnico de outras partes da política de saudação.
+1. Atualizar o valor Olá para `<DisplayName>`. Esse valor será exibido no botão logon Olá em sua tela de entrada.
+1. Atualizar o valor Olá para `<Description>`.
+1. AD do Azure usa o protocolo de saudação OpenID Connect, para garantir que esse valor Olá para `<Protocol>` é `"OpenIdConnect"`.
 
-Você precisa atualizar a seção `<Metadata>` no arquivo XML mencionado anteriormente para refletir as definições de configuração do locatário específico do Azure AD. No arquivo XML, atualize os valores de metadados da seguinte maneira:
+Você precisa Olá tooupdate `<Metadata>` seção no arquivo XML de saudação chamado definições de configuração do tooearlier tooreflect Olá para o determinado locatário do AD do Azure. No arquivo XML de hello, atualize valores de metadados de saudação da seguinte maneira:
 
-1. Defina `<Item Key="METADATA">` como `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, em que `yourAzureADtenant` é o nome do locatário do Azure AD (contoso.com).
-1. Abra o navegador e navegue para a URL `METADATA` que você acabou de atualizar.
-1. No navegador, procure o objeto “emissor” e copie seu valor. Ele deverá ter esta aparência: `https://sts.windows.net/{tenantId}/`.
-1. Cole o valor de `<Item Key="ProviderName">` no arquivo XML.
-1. Defina `<Item Key="client_id">` como a ID do aplicativo no registro de aplicativo.
-1. Defina `<Item Key="IdTokenAudience">` como a ID do aplicativo no registro de aplicativo.
-1. Verifique se `<Item Key="response_types">` está definido como `id_token`.
-1. Verifique se `<Item Key="UsePolicyInRedirectUri">` está definido como `false`.
+1. Definir `<Item Key="METADATA">` muito`https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, onde `yourAzureADtenant` é o nome do locatário do AD do Azure (contoso.com).
+1. Abra seu navegador e acesse toohello `METADATA` URL que você acabou de ser atualizado.
+1. No navegador hello, procure o objeto de 'emissor' hello e copie seu valor. Deve se parecer com o seguinte Olá: `https://sts.windows.net/{tenantId}/`.
+1. Cole o valor de saudação para `<Item Key="ProviderName">` no arquivo XML de saudação.
+1. Definir `<Item Key="client_id">` toohello ID do aplicativo de registro do aplicativo hello.
+1. Definir `<Item Key="IdTokenAudience">` toohello ID do aplicativo de registro do aplicativo hello.
+1. Certifique-se de que `<Item Key="response_types">` está definido muito`id_token`.
+1. Certifique-se de que `<Item Key="UsePolicyInRedirectUri">` está definido muito`false`.
 
-Você também precisa vincular o segredo do Azure AD que você registrou no locatário do Azure AD B2C às informações de `<ClaimsProvider>` do Azure AD:
+Você também precisa toolink segredo de saudação do AD do Azure que você registrou no seu toohello de locatário do Azure AD B2C do Azure AD `<ClaimsProvider>` informações:
 
-* Na seção `<CryptographicKeys>` do arquivo XML anterior, atualize o valor de `StorageReferenceId` para a ID de referência do segredo definido (por exemplo, `ContosoAppSecret`).
+* Em Olá `<CryptographicKeys>` seção Olá precede o arquivo XML, atualize o valor Olá para `StorageReferenceId` toohello ID de referência de segredo Olá definido (por exemplo, `ContosoAppSecret`).
 
-### <a name="upload-the-extension-file-for-verification"></a>Carregar o arquivo de extensão para verificação
+### <a name="upload-hello-extension-file-for-verification"></a>Carregue o arquivo de extensão de saudação para verificação
 
-A essa altura, você já terá configurado a política, de forma que o Azure AD B2C saiba como se comunicar com o diretório do Azure AD. Tente carregar o arquivo de extensão da política apenas para confirmar se ele não apresenta problemas até o momento. Para fazer isso:
+Agora, você configurou sua política de modo que o Azure AD B2C Saiba como toocommunicate com seu diretório do AD do Azure. Tente carregar o arquivo de extensão de saudação do seu tooconfirm apenas de política que ele não tem quaisquer problemas até o momento. toodo para:
 
-1. Abra a folha **Todas as Políticas** no locatário do Azure AD B2C.
-1. Marque a caixa **Substituir a política caso ela exista**.
-1. Carregue o arquivo de extensão (TrustFrameworkExtensions.xml) e verifique se ele não falhou na validação.
+1. Olá abrir **todas as políticas** folha em seu locatário do Azure AD B2C.
+1. Verificar Olá **substituir a política de saudação se ela existe** caixa.
+1. Carregar arquivo de extensão da saudação (TrustFrameworkExtensions.xml) e certifique-se de que ele não falha na validação de saudação.
 
-## <a name="register-the-azure-ad-claims-provider-to-a-user-journey"></a>Registrar o provedor de declarações do Azure AD em um percurso do usuário
+## <a name="register-hello-azure-ad-claims-provider-tooa-user-journey"></a>Registrar a jornada de usuário tooa do provedor de declarações de AD do Azure Olá
 
-Agora, você precisa adicionar o provedor de identidade do Azure AD a um dos percursos do usuário. Neste ponto, o provedor de identidade foi definido, mas não está disponível em nenhuma das telas de inscrição/entrada. Para disponibilizá-lo, criaremos uma duplicata de um modelo de percurso do usuário existente e, depois, o modificaremos para que ele também tenha o provedor de identidade do Azure AD:
+Agora, você precisa tooadd Olá AD do Azure identidade provedor tooone de jornadas seu usuário. Neste ponto, o provedor de identidade Olá foi configurado, mas não está disponível em qualquer uma das telas de entrada-o/entrada hello. toomake-las disponíveis, criaremos uma duplicata de uma jornada de usuário do modelo existente e, em seguida, modificá-lo para que ele também tem o provedor de identidade de saudação do AD do Azure:
 
-1. Abra o arquivo base da política (por exemplo, TrustFrameworkBase.xml).
-1. Localize o elemento `<UserJourneys>` e copie todo o nó `<UserJourney>`, que inclui `Id="SignUpOrSignIn"`.
-1. Abra o arquivo de extensão (por exemplo, TrustFrameworkExtensions.xml) e localize o elemento `<UserJourneys>`. Se o elemento não existir, adicione um.
-1. Cole todo o nó `<UserJourney>` copiado como um filho do elemento `<UserJourneys>`.
-1. Renomeie a ID do novo Percurso do Usuário (por exemplo, renomeie como `SignUpOrSignUsingContoso`).
+1. Abra o arquivo de base de saudação da política (por exemplo, TrustFrameworkBase.xml).
+1. Localize Olá `<UserJourneys>` Olá de elemento e copie todo `<UserJourney>` nó inclui `Id="SignUpOrSignIn"`.
+1. Abra o arquivo de extensão da saudação (por exemplo, TrustFrameworkExtensions.xml) e localize Olá `<UserJourneys>` elemento. Se o elemento de saudação não existir, adicione um.
+1. Saudação de colar toda `<UserJourney>` nó que você copiou como um filho do hello `<UserJourneys>` elemento.
+1. Renomear a ID de saudação do jornada de usuário nova hello (por exemplo, renomear como `SignUpOrSignUsingContoso`).
 
-### <a name="display-the-button"></a>Exibir o “botão”
+### <a name="display-hello-button"></a>Saudação de exibição "button"
 
-O elemento `<ClaimsProviderSelection>` é análogo a um botão de provedor de identidade em uma tela de inscrição/conexão. Se você adicionar um elemento `<ClaimsProviderSelection>` do Azure AD, um novo botão será exibido quando um usuário chegar à página. Para adicionar este elemento:
+Olá `<ClaimsProviderSelection>` elemento é análogo tooan botão de provedor de identidade em uma tela de entrada-o/entrar. Se você adicionar um `<ClaimsProviderSelection>` elemento do AD do Azure, um novo botão aparece quando um usuário chega na página de saudação. tooadd este elemento:
 
-1. Localize o nó `<OrchestrationStep>` que inclui `Order="1"` no Percurso do Usuário que você acabou de criar.
-1. Adicione o seguinte:
+1. Localize Olá `<OrchestrationStep>` nó inclui `Order="1"` em jornada saudação do usuário que você acabou de criar.
+1. Adicione Olá seguinte:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
     ```
 
-1. Defina `TargetClaimsExchangeId` com um valor apropriado. Recomendamos seguir a mesma convenção que os outros: *\[ClaimProviderName\]Exchange*.
+1. Definir `TargetClaimsExchangeId` valor apropriado tooan. É recomendável seguir Olá a mesma convenção de outras pessoas:  *\[ClaimProviderName\]Exchange*.
 
-### <a name="link-the-button-to-an-action"></a>Vincular o botão a uma ação
+### <a name="link-hello-button-tooan-action"></a>Ação de link de saudação botão tooan
 
-Agora que implementou um botão, você precisará vinculá-lo a uma ação. Nesse caso, a ação destina-se a que o Azure AD B2C se comunique com o Azure AD para receber um token. Vincule o botão a uma ação vinculando o perfil técnico ao provedor de declarações do Azure AD:
+Agora que você tem um botão em vigor, é necessário toolink-tooan ação. ação Hello, nesse caso, é para o Azure AD B2C toocommunicate com AD do Azure tooreceive um token. Ação de link Olá botão tooan vinculando perfil técnico Olá para o seu provedor de declarações do AD do Azure:
 
-1. Localize o `<OrchestrationStep>` que inclui `Order="2"` no nó `<UserJourney>`.
-1. Adicione o seguinte:
+1. Localize Olá `<OrchestrationStep>` que inclui `Order="2"` em Olá `<UserJourney>` nó.
+1. Adicione Olá seguinte:
 
     ```XML
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="ContosoProfile" />
     ```
 
-1. Atualize `Id` para o mesmo valor de `TargetClaimsExchangeId` na seção anterior.
-1. Atualize `TechnicalProfileReferenceId` como a ID do perfil técnico você criou anteriormente (ContosoProfile).
+1. Atualização `Id` toohello mesmo valor de `TargetClaimsExchangeId` em Olá anterior seção.
+1. Atualização `TechnicalProfileReferenceId` toohello ID da saudação técnica perfil que você criou anteriormente (ContosoProfile).
 
-### <a name="upload-the-updated-extension-file"></a>Carregar o arquivo de extensão atualizado
+### <a name="upload-hello-updated-extension-file"></a>Carregar arquivo de extensão atualizada Olá
 
-Agora você concluiu a modificação do arquivo de extensão. Salve-o. Em seguida, salve e carregue o arquivo e verifique se todas as validações são bem-sucedidas.
+Você concluiu a modificar arquivo de extensão de saudação. Salve-o. Em seguida, carregar o arquivo hello e certifique-se de que todas as validações de êxito.
 
-### <a name="update-the-rp-file"></a>Atualizar o arquivo RP
+### <a name="update-hello-rp-file"></a>Atualizar o arquivo do RP Olá
 
-Agora, você precisa atualizar o arquivo RP (terceira parte confiável) que iniciará o percurso do usuário que você acabou de criar:
+Você agora precisa tooupdate Olá terceira parte confiável (RP) arquivo irá iniciar a jornada saudação do usuário que você acabou de criar:
 
-1. Faça uma cópia de o SignUpOrSignIn.xml em diretório de trabalho e renomeie-o (por exemplo, como SignUpOrSignInWithAAD.xml).
-1. Abra o novo arquivo e atualize o atributo `PolicyId` de `<TrustFrameworkPolicy>` com um valor exclusivo (por exemplo, SignUpOrSignInWithAAD). <br> Esse será o nome da política (por exemplo, B2C\_1A\_SignUpOrSignInWithAAD).
-1. Modifique o atributo `ReferenceId` em `<DefaultUserJourney>` para que ele corresponda à ID do novo percurso do usuário criado (por exemplo, SignUpOrSignUsingContoso).
-1. Salve as alterações e carregue o arquivo.
+1. Faça uma cópia do SignUpOrSignIn.xml no diretório de trabalho e renomeá-lo (por exemplo, renomeá-lo de tooSignUpOrSignInWithAAD.xml).
+1. Olá novo Olá abrir arquivo e atualização `PolicyId` atributo `<TrustFrameworkPolicy>` com um valor exclusivo (por exemplo, SignUpOrSignInWithAAD). <br> Esse será o nome hello da política (por exemplo, B2C\_1A\_SignUpOrSignInWithAAD).
+1. Modificar Olá `ReferenceId` atributo `<DefaultUserJourney>` toomatch Olá ID de jornada de usuário nova Olá que você criou (SignUpOrSignUsingContoso).
+1. Salve suas alterações e carregar o arquivo hello.
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 
-Teste a política personalizada que você acabou de carregar abrindo sua folha e clicando em **Executar agora**. Para diagnosticar problemas, leia sobre [solução de problemas](active-directory-b2c-troubleshoot-custom.md).
+Testar política personalizada do hello carregado abrindo sua folha e clicando em **executar agora**. problemas de toodiagnose, leia sobre [de solução de problemas](active-directory-b2c-troubleshoot-custom.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Envie seus comentários para [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com).
+Fornecer comentários muito[AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com).

@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory com a SAP HANA Cloud Platform | Microsoft Docs"
-description: "Saiba como usar a SAP HANA Cloud Platform com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!"
+description: "Saiba como toouse plataforma de nuvem HANA SAP com o Active Directory do Azure tooenable única de logon, o provisionamento automatizado e muito mais!"
 services: active-directory
 author: jeevansd
 documentationcenter: na
@@ -13,138 +13,138 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/23/2017
 ms.author: jeedes
-ms.openlocfilehash: e03bc2410a8d57363c558f723b3bfd0e69b3f4c0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cc6610969b1c7b08f776e6969a5977fc75eb9ab4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana-cloud-platform"></a>Tutorial: Integração do Active Directory do Azure com a Plataforma de Nuvem HANA SAP
-O objetivo deste tutorial é mostrar a integração do Azure com a Plataforma de Nuvem HANA SAP.
+Olá objetivo deste tutorial é tooshow integração de saudação do Azure e plataforma de nuvem HANA SAP.
 
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+cenário de saudação descrito neste tutorial presume que você já tenha Olá itens a seguir:
 
 * Uma assinatura válida do Azure
 * Uma conta da Plataforma de Nuvem HANA SAP
 
-Depois de concluir este tutorial, os usuários do Azure AD que você atribuiu à SAP HANA Cloud Platform poderão fazer logon único no aplicativo usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Após concluir este tutorial, Olá usuários AD do Azure que você atribuiu tooSAP a plataforma de nuvem HANA toosingle capaz de entrada no aplicativo hello usando Olá [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md).
 
 >[!IMPORTANT]
->Você precisa implantar seu próprio aplicativo ou assinar um aplicativo em sua conta da Plataforma de Nuvem HANA SAP para testar o logon único. Neste tutorial, um aplicativo é implantado na conta.
+>Você precisa toodeploy seu próprio aplicativo ou assina o aplicativo tooan em sua plataforma de nuvem HANA SAP conta tootest único logon. Neste tutorial, um aplicativo é implantado na conta de saudação.
 > 
 > 
 
-O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
+cenário de saudação descrito neste tutorial consiste em Olá blocos de construção a seguir:
 
-1. Habilitando a integração de aplicativos para a Plataforma de Nuvem HANA SAP
+1. Habilitando Olá integração de aplicativos para a plataforma de nuvem HANA SAP
 2. Configuração do SSO (logon único)
-3. Atribuindo uma função a um usuário
+3. Atribuir um usuário de tooa de função
 4. Atribuindo usuários
 
 ![Cenário](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790795.png "Cenário")
 
-## <a name="enabling-the-application-integration-for-sap-hana-cloud-platform"></a>Habilitando a integração de aplicativos para a Plataforma de Nuvem HANA SAP
-O objetivo desta seção é descrever como habilitar a integração de aplicativos com a Plataforma de Nuvem HANA SAP.
+## <a name="enabling-hello-application-integration-for-sap-hana-cloud-platform"></a>Habilitando Olá integração de aplicativos para a plataforma de nuvem HANA SAP
+Olá objetivo desta seção é toooutline como tooenable Olá integração de plataforma de nuvem HANA SAP.
 
-**Para habilitar a integração de aplicativos com a Plataforma de Nuvem HANA SAP, execute as seguintes etapas:**
+**integração do aplicativo hello tooenable para a plataforma de nuvem HANA SAP, execute Olá etapas a seguir:**
 
-1. No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1. No hello Portal de gerenciamento do Azure, no painel de navegação esquerdo hello, clique em **do Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC700993.png "Active Directory")
-2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
-3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
+2. De saudação **diretório** lista, pasta de Olá select para o qual você deseja tooenable integração de diretório.
+3. Clique em exibição de aplicativos tooopen hello, no modo de exibição de diretório Olá, **aplicativos** no menu superior hello.
    
     ![Aplicativos](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC700994.png "Aplicativos")
-4. Clique em **Adicionar** na parte inferior da página.
+4. Clique em **adicionar** final Olá Olá página.
    
     ![Adicionar aplicativo](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC749321.png "Adicionar aplicativo")
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5. Em Olá **o que fazer você deseja toodo** caixa de diálogo, clique em **adicionar um aplicativo da Galeria Olá**.
    
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
-6. Na **caixa de pesquisa**, digite **Plataforma de Nuvem HANA SAP**.
+6. Em Olá **caixa de pesquisa**, tipo **plataforma de nuvem HANA SAP**.
    
     ![Galeria de Aplicativos](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790796.png "Galeria de Aplicativos")
-7. No painel de resultados, selecione **Plataforma de Nuvem HANA SAP** e clique em **Concluir** para adicionar o aplicativo.
+7. No painel de resultados de saudação, selecione **plataforma de nuvem HANA SAP**e, em seguida, clique em **concluir** aplicativo hello de tooadd.
    
     ![SAP Hana](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793929.png "SAP Hana")
    
 ## <a name="configure-single-sign-on"></a>Configurar o logon único
 
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem na Plataforma de Nuvem HANA SAP com sua conta do AD do Azure usando federação baseada no protocolo SAML.
+Olá objetivo desta seção é toooutline como tooenable usuários tooauthenticate tooSAP plataforma de nuvem HANA com suas contas no AD do Azure usando federação com base no protocolo SAML de saudação.
 
-Como parte deste procedimento, será necessário carregar um certificado codificado de base 64 no locatário da Plataforma de Nuvem HANA SAP.  
+Como parte desse procedimento, será necessário tooupload um locatário de plataforma de nuvem HANA SAP tooyour certificado codificado em base 64.  
 
-Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+Se você não estiver familiarizado com esse procedimento, consulte [como tooconvert um binário de certificado em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
-**Para configurar o logon único, execute as seguintes etapas:**
+**tooconfigure o logon único, execute Olá etapas a seguir:**
 
-1. No Portal Clássico do Azure, na página de integração de aplicativos do **SAP HANA Cloud Platform**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1. Em Olá portal clássico do Azure, em Olá **plataforma de nuvem HANA SAP** página de integração de aplicativos, clique em **configurar logon único** tooopen Olá **configurar logon único**caixa de diálogo.
    
     ![Configurar logon único](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "Configurar logon único")
-2. Na página **Como você deseja que os usuários façam logon na SAP HANA Cloud Platform**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
+2. Em Olá **como você gostaria usuários toosign em tooSAP plataforma de nuvem HANA** página, selecione **AD do Microsoft Azure Single Sign-On**e, em seguida, clique em **próximo**.
    
     ![Configurar Logon Único](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790797.png "Configurar Logon Único")
-3. Em uma janela diferente do navegador, inicie uma sessão no cockpit do SAP HANA Cloud Platform em https://account.\<host landscape\>.ondemand.com/cockpit (por exemplo: *https://account.hanatrial.ondemand.com/cockpit*).
-4. Clique na guia **Confiar** .
+3. Em uma janela de navegador web diferente, faça logon no toohello cockpit da plataforma de nuvem de HANA SAP em https://account. \<host paisagem\>.ondemand.com/cockpit (por exemplo: *https://account.hanatrial.ondemand.com/cockpit*).
+4. Clique em Olá **confiança** guia.
    
     ![Confiança](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790800.png "Confiança")
-5. Na seção de gerenciamento de confiança, execute as seguintes etapas:
+5. Na seção de gerenciamento de confiança, execute Olá etapas a seguir:
    
     ![Obter Metadados](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793930.png "Obter Metadados")
    
-   1. Clique na guia **Provedor de Serviços Local** .
-   2. Para baixar o arquivo de metadados da SAP HANA Cloud Platform, clique em **Obter Metadados**.
-6. No portal clássico do Azure Active, na página **Configurar URL do Aplicativo**, execute as etapas a seguir e clique em **Avançar**.
+   1. Clique em Olá **provedor de serviço Local** guia.
+   2. Olá toodownload arquivo de metadados da plataforma de nuvem HANA SAP, clique em **obter metadados de**.
+6. No hello Azure Active portal clássico, em Olá **configurar URL do aplicativo** página executar Olá etapas a seguir e, em seguida, clique em **próximo**.
    
     ![Configurar URL do Aplicativo](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790798.png "Configurar URL do Aplicativo")
    
-   1. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo **SAP HANA Cloud Platform**. Esta é a URL específica da conta de um recurso protegido em seu aplicativo Plataforma de Nuvem HANA SAP. A URL é baseada no seguinte padrão: *https://\<nomedoaplicativo\>\<nomedaconta\>.\<host landscape\>.ondemand.com/\<caminho\_para\_recurso\_protegido\>* (por exemplo: *https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*)
+   1. Em Olá **URL de logon** caixa de texto, digite a URL Olá usada pelo seu toosign usuários em sua **plataforma de nuvem HANA SAP** aplicativo. Isso é Olá URL de conta específica de um recurso protegido em seu aplicativo de plataforma de nuvem HANA SAP. Olá URL é baseada no saudação padrão a seguir: *https://\<applicationName\>\<accountName\>.\< host de paisagem\>.ondemand.com/\<caminho\_para\_protegido\_recurso\>*  (por exemplo: *https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*)
       
      >[!NOTE]
-     >Esta é a URL em seu aplicativo Plataforma de Nuvem HANA SAP que exige que o usuário seja autenticado.
+     >Esta é a URL Olá em seu aplicativo de plataforma de nuvem HANA SAP que exige Olá tooauthenticate de usuário.
      > 
 
-   2. Abra o arquivo de metadados da SAP HANA Cloud Platform baixado e localize a marca **ns3:AssertionConsumerService** .
-   3. Copie o valor do atributo **Location** e cole-o na caixa de texto **URL de Resposta da SAP HANA Cloud Platform**.
+   2. Abrir o arquivo de metadados de plataforma de nuvem HANA SAP Olá baixado e localize Olá **ns3: assertionconsumerservice** marca.
+   3. Copie o valor Olá Olá **local** de atributo e, em seguida, cole-Olá **URL de resposta de plataforma de nuvem do SAP HANA** caixa de texto.
 
-7. Na página **Configurar logon único na SAP HANA Cloud Platform**, para baixar os metadados, clique em **Baixar metadados** e salve o arquivo de certificado no computador.
+7. Em Olá **configurar logon único na plataforma de nuvem HANA SAP** página, toodownload seus metadados, clique em **baixar metadados**e, em seguida, salve o arquivo de saudação em seu computador.
    
     ![Configurar Logon Único](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790799.png "Configurar Logon Único")
-8. Na ferramenta Cockpit da SAP HANA Cloud Platform, na seção **Provedor de Serviços Local** , realize as seguintes etapas:
+8. Em Olá cockpit da plataforma de nuvem HANA SAP, em Olá **provedor de serviço Local** , execute Olá etapas a seguir:
    
     ![Gerenciamento de Confiança](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793931.png "Gerenciamento de Confiança")
    
   1. Clique em **Editar**.
   2. Para **Tipo de Configuração**, selecione **Personalizado**.
-  3. Para **Nome do Provedor Local**, deixe o valor padrão.
-  4. Para gerar um par de chaves **Chave de Assinatura** e um **Certificado de Assinatura**, clique em **Gerar Par de Chaves**.
+  3. Como **nome do provedor Local**, deixe o valor padrão de saudação.
+  4. toogenerate um **chave de assinatura** e um **certificado de assinatura de** par de chaves, clique em **gerar par de chaves**.
   5. Para **Propagação de Entidade**, selecione **Desabilitado**.
   6. Para **Forçar Autenticação**, selecione **Desabilitado**.
   7. Clique em **Salvar**.
 
-9. Clique na guia **Provedor de Identidade Confiável** e em **Adicionar Provedor de Identidade Confiável**.
+9. Clique em Olá **provedor de identidade confiável** guia e, em seguida, clique em **Adicionar provedor de identidade confiável**.
    
     ![Gerenciamento de Confiança](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790802.png "Gerenciamento de Confiança")
    
     >[!NOTE]
-    >Para gerenciar a lista de provedores de identidade confiáveis, será necessário ter escolhido o Tipo de configuração personalizado na seção Provedor de Serviço Local. Para o tipo de configuração Padrão, você terá uma confiança implícita e não editável para o Serviço de ID do SAP. Para Nenhum, não há configurações de confiança.
+    >lista de saudação toomanage de provedores de identidade confiável, você precisa toohave escolhida Olá tipo de configuração personalizada na Olá seção do provedor de serviço Local. Para tipo de configuração padrão, você tem uma toohello confiança implícita e não editável SAP ID de serviço. Para Nenhum, não há configurações de confiança.
     > 
     > 
 
-10. Clique na guia **Geral** e em **Procurar** para carregar o arquivo de metadados baixado.
+10. Clique em Olá **geral** guia e, em seguida, clique em **procurar** Olá tooupload baixou o arquivo de metadados.
     
     ![Gerenciamento de Confiança](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793932.png "Gerenciamento de Confiança")
     
     >[!NOTE]
-    >Depois de carregar o arquivo de metadados, os valores de **URL de Logon Único**, **URL de Logoff Único** e o **Certificado de Assinatura** serão automaticamente populados.
+    >Depois de carregar o arquivo de metadados de hello, Olá valores para **URL de logon único**, **URL de Logout único** e **certificado de assinatura** são preenchidas automaticamente.
     > 
     > 
 
-11. Clique na guia **Atributos** .
-12. Na guia **Atributos**, execute a seguinte etapa:
+11. Clique em Olá **atributos** guia.
+12. Em Olá **atributos** guia, execute Olá etapa a seguir:
     
     ![Atributos](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790804.png "Atributos") 
-  * Clique em **Adicionar Atributo Baseado em Declaração** e adicione os seguintes atributos baseados em declaração:
+  * Clique em **Adicionar atributo**e, em seguida, adicionar Olá seguintes atributos com base em asserção:
        
     | Atributo de Asserção | Atributo de Entidade |
     | --- | --- |
@@ -153,54 +153,54 @@ Se você não estiver familiarizado com esse procedimento, veja [Como converter 
     | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress |email 
    
      >[!NOTE]
-     >A configuração dos Atributos depende de como os aplicativos na HCP são desenvolvidos, isto é, quais atributos eles esperam ter na resposta do SAML e por qual nome (Atributo de Entidade) eles acessam esse atributo no código.
+     >configuração de Olá Olá atributos depende como Olá aplicativos na HCP são desenvolvidos, isto é, quais atributos eles esperam ter na resposta SAML de saudação e por qual nome (atributo de entidade) eles acessam esse atributo no código de saudação.
      > 
      >  
 
-    1.  O **Atributo Padrão** na captura de tela serve apenas para fins de ilustração. Ele não é necessário para que o cenário funcione.   
-    2.  Os nomes e valores do **Atributo de Entidade** mostrados na captura de tela dependerão de como o aplicativo foi desenvolvido. É possível que o seu aplicativo precise de mapeamentos diferentes.
+    1.  Olá **atributo padrão** em Olá captura de tela é apenas para fins de ilustração. Não é necessário o trabalho de cenário de saudação toomake.   
+    2.  Olá nomes e valores para **atributo de entidade** mostrado no hello captura de tela dependem de como o aplicativo hello é desenvolvido. É possível que o seu aplicativo precise de mapeamentos diferentes.
      
-13. No portal clássico do Azure, na página de diálogo **Configurar logon único na SAP HANA Cloud Platform**, selecione a confirmação de configuração de logon único e clique em **Concluir**.
+13. Em Olá portal clássico do Azure, em Olá **configurar logon único na plataforma de nuvem HANA SAP** página de caixa de diálogo, selecione a confirmação de configuração de logon único do hello e, em seguida, clique em **concluir**.
     
     ![Configurar Logon Único](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC796933.png "Configurar Logon Único")
 
 ###<a name="assertion-based-groups"></a>Grupos baseados em asserção
 Como uma etapa opcional, você pode configurar grupos com base na asserção para seu Provedor de Identidade do Azure Active Directory.
 
-Usar grupos na Plataforma de Nuvem HANA SAP permite que você atribua dinamicamente um ou mais usuários a uma ou mais funções em seus aplicativos da Plataforma de Nuvem HANA SAP, determinados pelos valores de atributos na asserção SAML 2.0. 
+Usar grupos na plataforma de nuvem HANA SAP permite atribuir toodynamically um ou mais tooone de usuários ou mais funções em seus aplicativos de plataforma de nuvem HANA SAP, determinados pelos valores de atributos em Olá SAML 2.0 asserção. 
 
-Por exemplo, se a declaração contém o atributo "*contract=temporary*", talvez seja conveniente que todos os usuários afetados sejam adicionados ao grupo "*TEMPORARY*". O grupo “*TEMPORARY*” pode conter uma ou mais funções de um ou mais aplicativos implantados em sua conta da SAP HANA Cloud Platform.
+Por exemplo, se hello asserção contém atributo hello "*contrato = temporário*", convém todos os usuários afetados toobe toohello adicionado grupo"*temporário*". grupo Hello "*temporário*" pode conter uma ou mais funções de um ou mais aplicativos implantados em sua conta da plataforma de nuvem HANA SAP.
  
-Use os grupos com base em asserção se desejar atribuir vários usuários simultaneamente a uma ou mais funções de aplicativos em sua conta da Plataforma de Nuvem SAP HANA. Se você quer atribuir apenas um único usuário ou alguns deles a funções específicas, recomendamos atribuí-los diretamente na guia "**Autorizações**" da ferramenta Cockpit da SAP HANA Cloud Platform.
+Use grupos com base na asserção quando desejar atribuir toosimultaneously muitos tooone de usuários ou mais funções de aplicativos em sua conta da plataforma de nuvem HANA SAP. Se você quiser tooassign apenas um único ou pequeno número de usuários toospecific funções, é recomendável atribuí-las diretamente no hello "**autorizações**" guia de cockpit da plataforma de nuvem HANA SAP de saudação.
 
-## <a name="assign-a-role-to-a-user"></a>Atribuir uma função a um usuário
-Para permitir que os usuários do AD do Azure façam logon na Plataforma de Nuvem HANA SAP, atribua funções a eles na Plataforma de Nuvem HANA SAP.
+## <a name="assign-a-role-tooa-user"></a>Atribuir um usuário de tooa de função
+Ordem tooenable AD do Azure usuários toolog na plataforma de nuvem HANA SAP, você deve atribuir funções no hello toothem de plataforma de nuvem HANA SAP.
 
-**Para atribuir uma função a um usuário, execute as seguintes etapas:**
+**tooassign um usuário de tooa de função, execute Olá etapas a seguir:**
 
-1. Faça logon em sua ferramenta cockpit da **SAP HANA Cloud Platform** .
-2. Realize o que é descrito a seguir:
+1. Faça logon no tooyour **plataforma de nuvem HANA SAP** cockpit.
+2. Execute o seguinte hello:
    
    ![Autorizações](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790805.png "Autorizações")
    
   1. Clique em **Autorização**.
-  2. Clique na guia **Usuários** .
-  3. Na caixa de texto **Usuário** , digite o endereço de email do usuário.
-  4. Clique em **Atribuir** para atribuir uma função ao usuário.
+  2. Clique em Olá **usuários** guia.
+  3. Em Olá **usuário** caixa de texto, o endereço de email do usuário do tipo hello.
+  4. Clique em **atribuir** tooassign Olá tooa chave de criptografia.
   5. Clique em **Salvar**.
 
 ## <a name="assign-users"></a>Atribuir usuários
-Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
+tootest sua configuração, você precisa toogrant usuários de saudação do AD do Azure que você deseja tooallow usando seu tooit de acesso do aplicativo, atribuindo a eles.
 
-**Para atribuir usuários à Plataforma de Nuvem SAP HANA, execute as seguintes etapas:**
+**tooassign usuários tooSAP plataforma de nuvem do HANA, execute Olá etapas a seguir:**
 
-1. No Portal clássico do Azure, crie uma conta de teste.
-2. Na página de integração de aplicativos da **SAP HANA Cloud Platform**, clique em **Atribuir usuários**.
+1. No hello portal clássico do Azure, crie uma conta de teste.
+2. Em Olá **plataforma de nuvem HANA SAP** página de integração de aplicativos, clique em **atribuir usuários**.
    
    ![Atribuir Usuários](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790806.png "Atribuir Usuários")
-3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
+3. Selecione seu usuário de teste, clique em **atribuir**e, em seguida, clique em **Sim** tooconfirm sua atribuição.
    
    ![Sim](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC767830.png "Sim")
 
-Se você quiser testar suas configurações de SSO, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Se você quiser tootest suas configurações de SSO, abra Olá painel de acesso. Para obter mais detalhes sobre Olá painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md).
 

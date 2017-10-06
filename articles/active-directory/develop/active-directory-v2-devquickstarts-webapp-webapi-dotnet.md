@@ -1,6 +1,6 @@
 ---
-title: "Introdução à API de chamada do aplicativo Web .NET v2.0 do Azure AD | Microsoft Docs"
-description: "Como criar um aplicativo Web do MVC .NET que chama serviços Web usando contas pessoais da Microsoft e contas corporativas ou de estudante para conexão."
+title: "aaaAzure AD v 2.0 .NET web aplicativo API chamada Introdução | Microsoft Docs"
+description: Como toobuild um aplicativo de Web do .NET MVC que chama web services usando o Microsoft pessoal contas e trabalho ou escola contas para entrar.
 services: active-directory
 documentationcenter: .net
 author: dstrockis
@@ -15,41 +15,41 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: dc3162ae8e6ce622139125c2e78fa45d2e90d534
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1a70791418bc2a7d1fdfbafb9b5126a033a32292
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="calling-a-web-api-from-a-net-web-app"></a>Chamar uma API Web em um aplicativo Web .NET
-Com o ponto de extremidade v2.0, você pode adicionar autenticação rapidamente a seus aplicativos Web e APIs Web com suporte a contas pessoais da Microsoft e contas corporativas ou de estudante.  Compilaremos aqui um aplicativo Web MVC que faz logon dos usuários usando o OpenID Connect, com alguma ajuda do middleware OWIN da Microsoft.  O aplicativo Web obterá tokens de acesso OAuth 2.0 para uma API Web protegida pelo OAuth 2.0 que permite criar, ler e excluir itens de uma determinado “Lista de Tarefas Pendentes” do usuário.
+Com o ponto de extremidade Olá v 2.0, você pode adicionar autenticação tooyour web aplicativos e APIs da web com suporte para ambas as contas Microsoft pessoais e contas corporativas ou de estudante rapidamente.  Compilaremos aqui um aplicativo Web MVC que faz logon dos usuários usando o OpenID Connect, com alguma ajuda do middleware OWIN da Microsoft.  Olá web aplicativo obter tokens de acesso OAuth 2.0 para uma web api protegida pelo OAuth 2.0 permite criar, ler e excluir em um determinado usuário "lista de tarefas".
 
-Este tutorial se concentrará principalmente em usar ADAL para adquirir e usar tokens de acesso em um aplicativo Web, descrito por completo [aqui](active-directory-v2-flows.md#web-apps).  Como pré-requisitos, talvez você queira aprender primeiro a [adicionar conexão básica a um aplicativo Web](active-directory-v2-devquickstarts-dotnet-web.md) ou a [proteger corretamente uma API Web](active-directory-v2-devquickstarts-dotnet-api.md).
+Este tutorial serão responsáveis por usando MSAL tooacquire e usar tokens de acesso em um aplicativo web, descrito por completo [aqui](active-directory-v2-flows.md#web-apps).  Como pré-requisitos, talvez você queira toofirst Saiba como muito[Adicionar aplicativo de web básico entrar tooa](active-directory-v2-devquickstarts-dotnet-web.md) ou como muito[proteger corretamente uma API da web](active-directory-v2-devquickstarts-dotnet-api.md).
 
 > [!NOTE]
-> Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0.  Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
+> Nem todos os recursos e cenários de Active Directory do Azure têm suporte pelo ponto de extremidade do hello v 2.0.  toodetermine se você deve usar o ponto de extremidade de v 2.0 hello, leia sobre [limitações v 2.0](active-directory-v2-limitations.md).
 > 
 > 
 
 ## <a name="download-sample-code"></a>Baixar código de exemplo
-O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet).  Para acompanhar, você pode [baixar o esqueleto do aplicativo como um .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/skeleton.zip) ou clonar o esqueleto:
+código de saudação para este tutorial é mantido [no GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet).  toofollow ao longo, você pode [baixar o esqueleto do aplicativo hello como. zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/skeleton.zip) ou esqueleto de saudação do clone:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-Como alternativa, você pode [baixar o aplicativo concluído como. zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip) ou clonar o aplicativo concluído:
+Como alternativa, você pode [baixar o aplicativo hello concluído como. zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip) ou aplicativo de saudação concluída do clone:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
 ## <a name="register-an-app"></a>Registrar um aplicativo
 Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md).  Não se esqueça de:
 
-* Copiar a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela logo.
-* Crie um **Segredo de Aplicativo** do tipo **Senha** e anote seu valor para uso posterior
-* Adicionar a plataforma **Web** para seu aplicativo.
-* Inserir o **URI de Redirecionamento**correto. O URI de redirecionamento indica ao Azure AD para onde as respostas de autenticação devem ser direcionadas — o padrão para este tutorial é `https://localhost:44326/`.
+* Cópia para baixo Olá **Id do aplicativo** atribuído tooyour aplicativo, você precisará dele em breve.
+* Criar um **segredo do aplicativo** de saudação **senha** tipo e copiar para seu valor para mais tarde
+* Adicionar Olá **Web** plataforma para seu aplicativo.
+* Digite hello correto **URI de redirecionamento**. uri de redirecionamento Hello indica tooAzure AD onde as respostas de autenticação deverá ser direcionadas - Olá padrão para este tutorial é `https://localhost:44326/`.
 
 ## <a name="install-owin"></a>Instalar a OWIN
-Agora adicione os pacotes NuGet do middleware OWIN ao projeto `TodoList-WebApp` usando o Console de Gerenciador de Pacotes.  O OWIN será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
+Adicionar Olá OWIN middleware NuGet pacotes toohello `TodoList-WebApp` projeto usando Olá Package Manager Console.  Olá OWIN middleware ser usado tooissue solicitações de entrada e saídas, gerenciar Olá sessão de usuário e obter informações sobre o usuário hello, entre outras coisas.
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OpenIdConnect -ProjectName TodoList-WebApp
@@ -57,16 +57,16 @@ PM> Install-Package Microsoft.Owin.Security.Cookies -ProjectName TodoList-WebApp
 PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoList-WebApp
 ```
 
-## <a name="sign-the-user-in"></a>Conectar o usuário
-Configuraremos aqui o middleware OWIN para usar o [protocolo de autenticação do OpenID Connect](active-directory-v2-protocols.md).  
+## <a name="sign-hello-user-in"></a>Usuário de saudação de logon no
+Configurar Olá Olá de toouse de middleware OWIN [protocolo de autenticação OpenID Connect](active-directory-v2-protocols.md).  
 
-* Abra o arquivo `web.config` na raiz do projeto `TodoList-WebApp` e insira os valores de configuração do aplicativo na seção `<appSettings>`.
-  * `ida:ClientId` é a **ID do Aplicativo** atribuída ao seu aplicativo no portal de registro.
-  * O `ida:ClientSecret` é o **Segredo de Aplicativo** criado no portal de registro.
-  * `ida:RedirectUri` é o **URI de Redirecionamento** inserido no portal.
-* Abra o arquivo `web.config` na raiz do projeto `TodoList-Service` e substitua `ida:Audience` pela mesma **Id de Aplicativo**, como acima.
-* Abra o arquivo `App_Start\Startup.Auth.cs` e adicione instruções `using` para as bibliotecas acima.
-* No mesmo arquivo, implemente o método `ConfigureAuth(...)` .  Os parâmetros que você fornece em `OpenIDConnectAuthenticationOptions` servirão como coordenadas para seu aplicativo para se comunicar com o AD do Azure.
+* Olá abrir `web.config` arquivo na raiz de saudação da saudação `TodoList-WebApp` do projeto e insira os valores de configuração do aplicativo no hello `<appSettings>` seção.
+  * Olá `ida:ClientId` é hello **Id do aplicativo** atribuído tooyour aplicativo no portal de registro de saudação.
+  * Olá `ida:ClientSecret` é hello **segredo do aplicativo** criado no portal de registro de saudação.
+  * Olá `ida:RedirectUri` é hello **Uri de redirecionamento** inserido no portal de saudação.
+* Olá abrir `web.config` arquivo na raiz de saudação da saudação `TodoList-Service` do projeto e substituir Olá `ida:Audience` com hello mesmo **Id do aplicativo** como acima.
+* Arquivo hello abrir `App_Start\Startup.Auth.cs` e adicione `using` instruções para bibliotecas de saudação acima.
+* No hello mesmo arquivo, implementar Olá `ConfigureAuth(...)` método.  Olá parâmetros que você fornece em `OpenIDConnectAuthenticationOptions` servirá como coordenadas para toocommunicate seu aplicativo com o Azure AD.
 
 ```C#
 public void ConfigureAuth(IAppBuilder app)
@@ -79,9 +79,9 @@ public void ConfigureAuth(IAppBuilder app)
         new OpenIdConnectAuthenticationOptions
         {
 
-                    // The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0
-                    // The `Scope` describes the permissions that your app will need.  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/
-                    // In a real application you could use issuer validation for additional checks, like making sure the user's organization has signed up for your app, for instance.
+                    // hello `Authority` represents hello v2.0 endpoint - https://login.microsoftonline.com/common/v2.0
+                    // hello `Scope` describes hello permissions that your app will need.  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/
+                    // In a real application you could use issuer validation for additional checks, like making sure hello user's organization has signed up for your app, for instance.
 
                     ClientId = clientId,
                     Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0 "),
@@ -93,7 +93,7 @@ public void ConfigureAuth(IAppBuilder app)
                         ValidateIssuer = false,
                     },
 
-                    // The `AuthorizationCodeReceived` notification is used to capture and redeem the authorization_code that the v2.0 endpoint returns to your app.
+                    // hello `AuthorizationCodeReceived` notification is used toocapture and redeem hello authorization_code that hello v2.0 endpoint returns tooyour app.
 
                     Notifications = new OpenIdConnectAuthenticationNotifications
                     {
@@ -106,15 +106,15 @@ public void ConfigureAuth(IAppBuilder app)
 // ...
 ```
 
-## <a name="use-msal-to-get-access-tokens"></a>Usar a MSAL para obter acesso a tokens
-Na notificação `AuthorizationCodeReceived`, queremos usar [OAuth 2.0 em conjunto com o OpenID Connect](active-directory-v2-protocols.md) para resgatar o authorization_code de um token de acesso para o Serviço Lista de Tarefas Pendentes.  A MSAL pode facilitar esse processo para você:
+## <a name="use-msal-tooget-access-tokens"></a>Usar tokens de acesso de tooget MSAL
+Em Olá `AuthorizationCodeReceived` notificação, queremos toouse [OAuth 2.0 em tandem com OpenID Connect](active-directory-v2-protocols.md) tooredeem Olá authorization_code para um toohello de token de acesso serviço da lista de tarefas pendentes.  A MSAL pode facilitar esse processo para você:
 
-* Primeiramente, instale a versão de visualização da MSAL:
+* Primeiro, instale a versão de visualização de saudação do MSAL:
 
 ```PM> Install-Package Microsoft.Identity.Client -ProjectName TodoList-WebApp -IncludePrerelease```
 
-* E adicione outra instrução `using` ao arquivo `App_Start\Startup.Auth.cs`da MSAL.
-* Agora, adicione um novo método, o manipulador de eventos `OnAuthorizationCodeReceived`.  Esse manipulador usará a MSAL para adquirir um token de acesso para a API Lista de Tarefas Pendentes e armazenará o token no cache do token da MSAL para depois:
+* E adicione outro `using` instrução toohello `App_Start\Startup.Auth.cs` arquivo para MSAL.
+* Agora adicione um novo método, hello `OnAuthorizationCodeReceived` manipulador de eventos.  Este manipulador usará MSAL tooacquire um toohello de token de acesso API da lista de tarefas e armazenará o token Olá no cache de token do MSAL para mais tarde:
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -124,25 +124,25 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
         string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenantID, string.Empty);
         ClientCredential cred = new ClientCredential(clientId, clientSecret);
 
-        // Here you ask for a token using the web app's clientId as the scope, since the web app and service share the same clientId.
+        // Here you ask for a token using hello web app's clientId as hello scope, since hello web app and service share hello same clientId.
         app = new ConfidentialClientApplication(Startup.clientId, redirectUri, cred, new NaiveSessionCache(userObjectId, notification.OwinContext.Environment["System.Web.HttpContextBase"] as HttpContextBase)) {};
         var authResult = await app.AcquireTokenByAuthorizationCodeAsync(new string[] { clientId }, notification.Code);
 }
 // ...
 ```
 
-* Em aplicativos Web, a MSAL tem um cache de token extensível que pode ser usado para armazenar tokens.  Este exemplo implementa o `NaiveSessionCache` , que usa o armazenamento de sessão http para tokens de cache.
+* Em aplicativos da web, MSAL tem um cache de token extensível que pode ser usado toostore tokens.  Este exemplo implementa Olá `NaiveSessionCache` que usa tokens de toocache de armazenamento de sessão http.
 
 <!-- TODO: Token Cache article -->
 
 
-## <a name="call-the-web-api"></a>Chamar a API Web
-Agora é hora de usar de fato o access_token que você acabou de adquirir na etapa 3.  Abra o arquivo `Controllers\TodoListController.cs` do aplicativo Web, que faz todas as solicitações CRUD à API da Lista de Tarefas Pendentes.
+## <a name="call-hello-web-api"></a>Saudação de chamada de API da Web
+Agora é hora tooactually usar access_token Olá que você copiou na etapa 3.  Do aplicativo da web aberto Olá `Controllers\TodoListController.cs` de arquivos, que faz com que todos os Olá CRUD solicitações toohello API da lista de tarefas pendentes.
 
-* Aqui, você pode usar a MSAL novamente para buscar access_tokens no cache da MSAL.  Primeiramente, adicione uma instrução `using` para MSAL a este arquivo.
+* Você pode usar MSAL novamente aqui access_tokens toofetch de Olá cache MSAL.  Primeiro, adicione um `using` instrução para MSAL toothis arquivo.
   
     `using Microsoft.Identity.Client;`
-* Na ação `Index`, use o método `AcquireTokenSilentAsync` da MSAL para obter um access_token que possa ser usado para ler dados no serviço Lista de Tarefas Pendentes:
+* Em Olá `Index` ação, use MSAL `AcquireTokenSilentAsync` método tooget um access_token que podem ser dados tooread usado da saudação serviço de lista de tarefas:
 
 ```C#
 // ...
@@ -151,52 +151,52 @@ string tenantID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.co
 string authority = String.Format(CultureInfo.InvariantCulture, Startup.aadInstance, tenantID, string.Empty);
 ClientCredential credential = new ClientCredential(Startup.clientId, Startup.clientSecret);
 
-// Here you ask for a token using the web app's clientId as the scope, since the web app and service share the same clientId.
+// Here you ask for a token using hello web app's clientId as hello scope, since hello web app and service share hello same clientId.
 app = new ConfidentialClientApplication(Startup.clientId, redirectUri, credential, new NaiveSessionCache(userObjectID, this.HttpContext)){};
 result = await app.AcquireTokenSilentAsync(new string[] { Startup.clientId });
 // ...
 ```
 
-* O exemplo adiciona o token resultante à solicitação HTTP GET, como o cabeçalho `Authorization`, que o serviço Lista de Tarefas Pendentes usa para autenticar a solicitação.
-* Se o serviço Lista de Tarefas Pendentes retornar uma resposta `401 Unauthorized`, access_tokens na MSAL se tornarão inválidos por algum motivo.  Nesse caso, você deve descartar todos os access_token do cache da MSAL e mostrar ao usuário uma mensagem que ele pode precisar para entrar novamente, que reiniciará o fluxo de aquisição de token.
+* Olá exemplo então adiciona solicitação de HTTP GET de token toohello resultante hello como Olá `Authorization` cabeçalho, qual serviço de lista de tarefas pendentes de saudação usa tooauthenticate solicitação de saudação.
+* Se Olá serviço de lista de tarefas retornará um `401 Unauthorized` resposta, Olá access_tokens em MSAL se tornam inválidos por alguma razão.  Nesse caso, você deve remover qualquer access_tokens de saudação cache MSAL e mostrar uma mensagem que talvez seja necessário toosign no novamente, que reiniciará o fluxo de aquisição de token de saudação do usuário de saudação.
 
 ```C#
 // ...
-// If the call failed with access denied, then drop the current access token from the cache,
-// and show the user an error indicating they might need to sign-in again.
+// If hello call failed with access denied, then drop hello current access token from hello cache,
+// and show hello user an error indicating they might need toosign-in again.
 if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
 {
         app.AppTokenCache.Clear(Startup.clientId);
 
-        return new RedirectResult("/Error?message=Error: " + response.ReasonPhrase + " You might need to sign in again.");
+        return new RedirectResult("/Error?message=Error: " + response.ReasonPhrase + " You might need toosign in again.");
 }
 // ...
 ```
 
-* Da mesma forma, se a MSAL não puder retornar um access_token por algum motivo, você deverá orientar o usuário a entrar novamente.  Isso é tão simples quanto capturar qualquer `MSALException`:
+* Da mesma forma, se MSAL for tooreturn não é possível um access_token por qualquer motivo, você deve instruir Olá usuário toosign em novamente.  Isso é tão simples quanto capturar qualquer `MSALException`:
 
 ```C#
 // ...
 catch (MsalException ee)
 {
-        // If MSAL could not get a token silently, show the user an error indicating they might need to sign in again.
-        return new RedirectResult("/Error?message=An Error Occurred Reading To Do List: " + ee.Message + " You might need to log out and log back in.");
+        // If MSAL could not get a token silently, show hello user an error indicating they might need toosign in again.
+        return new RedirectResult("/Error?message=An Error Occurred Reading tooDo List: " + ee.Message + " You might need toolog out and log back in.");
 }
 // ...
 ```
 
-* A mesma chamada `AcquireTokenSilentAsync` é implementada nas ações `Create` e `Delete`.  Em aplicativos Web, você pode usar esse método MSAL para obter access_tokens sempre que precisar deles em seu aplicativo.  A MSAL se encarregará da aquisição, do caching e da atualização de tokens.
+* Olá exato mesmo `AcquireTokenSilentAsync` chamada é implementd no hello `Create` e `Delete` ações.  Em aplicativos da web, você pode usar este access_tokens de tooget MSAL método sempre que você precisar deles em seu aplicativo.  A MSAL se encarregará da aquisição, do caching e da atualização de tokens.
 
-Por fim, compile e execute seu aplicativo!  Entre com uma conta da Microsoft ou uma Conta do AD do Azure e observe como a identidade do usuário é refletida na barra de navegação superior.  Adicione e exclua alguns itens na Lista de Tarefas do usuário para ver as chamadas à API protegidas pelo OAuth 2.0 em ação.  Agora você tem um aplicativo Web e uma API Web, ambos protegidos por protocolos padrão do setor, que podem autenticar usuários com as respectivas contas pessoais e corporativas/de estudante.
+Por fim, compile e execute seu aplicativo!  Entrar com uma Account da Microsoft ou uma conta do AD do Azure e observe como a identidade do usuário Olá é refletida na barra de navegação superior hello.  Adicionar e excluir alguns itens da lista de tarefas do usuário Olá chama toosee Olá que OAuth 2.0 protegidos API em ação.  Agora você tem um aplicativo Web e uma API Web, ambos protegidos por protocolos padrão do setor, que podem autenticar usuários com as respectivas contas pessoais e corporativas/de estudante.
 
-Para referência, o exemplo concluído (sem seus valores de configuração) [é fornecido aqui](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip).  
+Para referência, Olá concluída exemplo (sem os valores de configuração) [são fornecidas aqui](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip).  
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter recursos adicionais, consulte:
 
-* [Guia do desenvolvedor do v2.0 >>](active-directory-appmodel-v2-overview.md)
+* [Guia do desenvolvedor v 2.0 Olá >>](active-directory-appmodel-v2-overview.md)
 * [Marca “azure-active-directory” do StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="get-security-updates-for-our-products"></a>Obter atualizações de segurança para nossos produtos
-Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
+Recomendamos que você tooget as notificações quando os incidentes de segurança ocorrem visitando [essa página](https://technet.microsoft.com/security/dd252948) e assinando tooSecurity alertas de aviso.
 

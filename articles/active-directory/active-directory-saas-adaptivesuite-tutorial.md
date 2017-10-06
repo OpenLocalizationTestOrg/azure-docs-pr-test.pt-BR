@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory com o Adaptive Suite | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Adaptive Suite."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e o pacote adaptável."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,110 +13,110 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 5d7ba2f4c7d814e3aaa1bf804ddc5030380ccb2d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: af309c27ab74098c1e229c80adb11c96dc2774fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adaptive-suite"></a>Tutorial: Integração do Active Directory do Azure ao Adaptive Suite
 
-Neste tutorial, você aprenderá a integrar o Adaptive Suite ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como toointegrate pacote adaptável com o Azure Active Directory (AD do Azure).
 
-A integração do Adaptive Suite ao Azure AD oferece os seguintes benefícios:
+Pacote adaptável integrando o AD do Azure fornece Olá benefícios a seguir:
 
-- No Azure AD, é possível controlar quem tem acesso ao Adaptive Suite
-- Você pode habilitar seus usuários a fazer logon automaticamente no Adaptive Suite (logon único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um única localização: o Portal do Azure
+- Você pode controlar no AD do Azure que tenha acesso tooAdaptive Suite
+- Você pode habilitar seu usuários tooautomatically get conectado tooAdaptive Suite (logon único) com suas contas do AD do Azure
+- Você pode gerenciar suas contas em um local central - Olá portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com o Adaptive Suite, você precisa dos seguintes itens:
+tooconfigure integração do AD do Azure com o pacote adaptável, você precisa Olá itens a seguir:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura habilitada para logon único do Adaptive Suite
 
 > [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
 
-1. Adicionando o Adaptive Suite da galeria
+1. Adicionando pacote adaptável da Galeria de saudação
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-adaptive-suite-from-the-gallery"></a>Adicionando o Adaptive Suite da galeria
-Para configurar a integração do Adaptive Suite com o Azure AD, você precisa adicionar o Adaptive Suite por meio da galeria à sua lista de aplicativos SaaS gerenciados.
+## <a name="adding-adaptive-suite-from-hello-gallery"></a>Adicionando pacote adaptável da Galeria de saudação
+integração de saudação tooconfigure do pacote adaptável no AD do Azure, você precisa tooadd pacote adaptável de lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
 
-**Para adicionar o Adaptive Suite por meio da galeria, realize as seguintes etapas:**
+**tooadd pacote adaptável da Galeria hello, execute Olá etapas a seguir:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
 
     ![Aplicativos][3]
 
-4. Na caixa de pesquisa, digite **Adaptive Suite**.
+4. Na caixa de pesquisa hello, digite **pacote adaptável**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adaptivesuite-tutorial/tutorial_adaptivesuite_search.png)
 
-5. No painel de resultados, selecione **Adaptive Suite** e clique no botão **Adicionar** para adicionar o aplicativo.
+5. No painel de resultados de saudação, selecione **pacote adaptável**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adaptivesuite-tutorial/tutorial_adaptivesuite_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o Adaptive Suite, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Adaptive Suite é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Adaptive Suite.
+Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no pacote adaptável é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no pacote adaptável precisa toobe estabelecida.
 
-No Adaptive Suite, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+Pacote adaptável, atribuir valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
 
-Para configurar e testar o logon único do Azure AD com o Adaptive Suite, você precisa concluir os seguintes blocos de construção:
+tooconfigure e teste de logon único do AD do Azure com o pacote adaptável, você precisa Olá toocomplete blocos de construção a seguir:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criando um usuário de teste do Adaptive Suite](#creating-an-adaptive-suite-test-user)** – para ter um equivalente de Brenda Fernandes no Adaptive Suite que esteja vinculado à representação de usuário do Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
+3. **[Criar um usuário de teste do pacote adaptável](#creating-an-adaptive-suite-test-user)**  -toohave um equivalente do Britta Simon no pacote adaptável que é vinculado toohello AD do Azure representação do usuário.
+4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
+5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e configura o logon único no aplicativo Adaptive Suite.
+Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único em seu aplicativo de pacote adaptável.
 
-**Para configurar o logon único do Azure AD com o Adaptive Suite, realize as seguintes etapas:**
+**tooconfigure AD do Azure-logon único com o pacote adaptável, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, na página de integração do aplicativo **Adaptive Suite**, clique em **Logon único**.
+1. Em Olá portal do Azure, Olá **pacote adaptável** página de integração de aplicativos, clique em **o logon único**.
 
     ![Configurar Logon Único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
  
     ![Configurar Logon Único](./media/active-directory-saas-adaptivesuite-tutorial/tutorial_adaptivesuite_samlbase.png)
 
-3. Na seção **URLs e Domínio do Adaptive Suite**, execute as seguintes etapas:
+3. Em Olá **domínio adaptável de pacote e as URLs** , execute Olá etapas a seguir:
 
     ![Configurar Logon Único](./media/active-directory-saas-adaptivesuite-tutorial/tutorial_adaptivesuite_url.png)
 
-    Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
+    Em Olá **URL de resposta** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
     >[!NOTE]
-    > Você pode obter esse valor na página **Configurações de SSO do SAML** do Adaptive Suite.
+    > Você pode obter esse valor de saudação pacote adaptável **configurações de SSO do SAML** página.
     >  
 
-4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+4. Em Olá **o certificado de autenticação SAML** seção, clique em **certificado (Base64)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.
 
     ![Configurar Logon Único](./media/active-directory-saas-adaptivesuite-tutorial/tutorial_adaptivesuite_certificate.png) 
 
@@ -124,35 +124,35 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Configurar Logon Único](./media/active-directory-saas-adaptivesuite-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Adaptive Suite**, clique em **Configurar o Adaptive Suite** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+6. Em Olá **adaptável configuração do conjunto** seção, clique em **configurar pacote adaptável** tooopen **configurar o logon** janela. Saudação de cópia **ID da entidade SAML e Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**
 
     ![Configurar Logon Único](./media/active-directory-saas-adaptivesuite-tutorial/tutorial_adaptivesuite_configure.png) 
 
-7. Em outra janela do navegador da Web, faça logon em seu site de empresa Adaptive Suite como administrador.
+7. Em uma janela de navegador web diferente, faça logon no site da empresa tooyour pacote adaptável como um administrador.
 
-8. Vá para **Administrador**.
+8. Vá muito**Admin**.
    
     ![Admin](./media/active-directory-saas-adaptivesuite-tutorial/IC805644.png "Admin")
 
-9. Na seção **Usuários e Funções**, clique em **Gerenciar Configurações de SSO do SAML**.
+9. Em Olá **usuários e funções** seção, clique em **gerenciar configurações de SSO de SAML**.
    
     ![Gerenciar Configurações de SSO do SAML](./media/active-directory-saas-adaptivesuite-tutorial/IC805645.png "Gerenciar Configurações de SSO do SAML")
 
-10. Na página **Configurações de SSO do SAML** , realize as seguintes etapas:
+10. Em Olá **configurações de SSO do SAML** página, execute Olá etapas a seguir:
    
     ![Configurações de SSO do SAML](./media/active-directory-saas-adaptivesuite-tutorial/IC805646.png "Configurações de SSO do SAML")
 
-    a. Na caixa de texto **Nome do provedor de identidade** , digite um nome para a sua configuração.
+    a. Em Olá **nome do provedor de identidade** caixa de texto, digite um nome para a sua configuração.
     
-    b. Cole a **ID da Entidade SAML** copiada do Portal do Azure na caixa de texto **ID da entidade do provedor de identidade**.
+    b. Saudação de colar **ID da entidade SAML** valor copiado do portal do Azure para Olá **ID da entidade do provedor de identidade** caixa de texto.
   
-    c. Cole o valor da **URL de Entrada do Provedor de Identidade** copiado do Portal do Azure na caixa de texto **URL de SSO do Provedor de Identidade**.
+    c. Saudação de colar **Single Sign-On URL do serviço SAML** valor copiado do portal do Azure para Olá **URL do SSO do provedor de identidade** caixa de texto.
   
-    d. Cole o valor da **URL de Entrada do Provedor de Identidade** copiado do Portal do Azure na caixa de texto **URL de Logoff Personalizado**.
+    d. Saudação de colar **Single Sign-On URL do serviço SAML** valor copiado do portal do Azure para Olá **URL personalizada do logout** caixa de texto.
   
-    e. Para carregar seu certificado baixado, clique em **Escolher arquivo**.
+    e. tooupload seu certificado baixado, clique em **Escolher arquivo**.
   
-    f. Selecione as seguintes opções para:
+    f. Selecione o seguinte hello, para:
     * **ID de usuário do SAML**, selecione **Nome de usuário do Adaptive Insights do Usuário**.
     * **Local da ID de usuário do SAML**, selecione **ID de usuário em NameID da Entidade**.
     * **Formato de NameID do SAML**, selecione **Endereço de email**.
@@ -161,86 +161,86 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     g. Clique em **Salvar**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
 
 ![Criar um usuário do AD do Azure][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
 
-1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adaptivesuite-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adaptivesuite-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adaptivesuite-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adaptivesuite-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
 
-    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-an-adaptive-suite-test-user"></a>Criando de um usuário de teste do Adaptive Suite
 
-Para permitir que os usuários do Azure AD façam logon no Adaptive Suite, eles devem ser provisionados no Adaptive Suite.  
+tooenable AD do Azure usuários toolog em tooAdaptive Suite, eles devem ser provisionados no pacote adaptável.  
 
-* No caso do Adaptive Suite, o provisionamento é uma tarefa manual.
+* No caso de saudação do pacote adaptável, o provisionamento é uma tarefa manual.
 
-**Para configurar o provisionamento de usuários, execute as seguintes etapas:** 
+**tooconfigure provisionamento de usuário, execute Olá etapas a seguir:** 
 
-1. Faça logon em seu site de empresa do **Adaptive Suite** como administrador.
-2. Vá para **Administrador**.
+1. Faça logon no tooyour **pacote adaptável** site da empresa como um administrador.
+2. Vá muito**Admin**.
    
    ![Admin](./media/active-directory-saas-adaptivesuite-tutorial/IC805644.png "Admin")
-3. Na seção **Usuários e Funções**, clique em **Adicionar Usuário**.
+3. Em Olá **usuários e funções** seção, clique em **adicionar usuário**.
    
    ![Adicionar Usuário](./media/active-directory-saas-adaptivesuite-tutorial/IC805648.png "Adicionar Usuário")
-4. Na seção **Novo Usuário** , realize as seguintes etapas:
+4. Em Olá **novo usuário** , execute Olá etapas a seguir:
    
    ![Enviar](./media/active-directory-saas-adaptivesuite-tutorial/IC805649.png "Enviar")   
 
-   a. Digite o **Nome**, **Logon**, **Email** e **Senha** de um usuário válido do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.
+   a. Saudação de tipo **nome**, **Login**, **Email**, **senha** de um usuário válido do Active Directory do Azure que você deseja tooprovision em Olá relacionado caixas de texto.
   
    b. Selecione uma **Função**.
   
    c. Clique em **Enviar**.
 
 >[!NOTE]
->É possível usar qualquer outra ferramenta de criação da conta de usuário do Adaptive Suite ou as APIs fornecidas pelo Adaptive Suite para provisionar as contas de usuário do AAD.
+>Você pode usar qualquer ferramenta de criação outro pacote adaptável usuário conta ou APIs fornecidas pelo pacote adaptável tooprovision contas de usuário do AAD.
 >  
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
 
-Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Adaptive Suite.
+Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooAdaptive Suite.
 
 ![Atribuir usuário][200] 
 
-**Para atribuir Brenda Fernandes ao Adaptive Suite, realize as seguintes etapas:**
+**tooassign Britta Simon tooAdaptive Suite, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, escolha **Adaptive Suite**.
+2. Na lista de aplicativos hello, selecione **pacote adaptável**.
 
     ![Configurar Logon Único](./media/active-directory-saas-adaptivesuite-tutorial/tutorial_adaptivesuite_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -248,7 +248,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -256,14 +256,14 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-O objetivo desta seção é testar sua configuração de logon único do Microsoft Azure AD usando o Painel de Acesso.
+Olá o objetivo desta seção é tootest seu AD do Microsoft Azure Single Sign-On configuração usando Olá painel de acesso.
 
-Quando clica no bloco Adaptive Suite no Painel de Acesso, você deve ser conectado automaticamente ao seu aplicativo Adaptive Suite.
+Quando você clica em um bloco de pacote adaptável Olá Olá painel de acesso, você deve obter tooyour automaticamente conectado no aplicativo de pacote adaptável.
 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

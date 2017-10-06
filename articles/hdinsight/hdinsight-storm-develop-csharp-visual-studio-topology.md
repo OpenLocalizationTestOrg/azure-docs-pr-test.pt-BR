@@ -1,6 +1,6 @@
 ---
-title: "Topologias Apache Storm com Visual Studio e C# – Azure HDInsight | Microsoft Docs"
-description: Aprenda como criar topologias Storm em C#. Crie uma topologia de contagem de palavras simples no Visual Studio usando as ferramentas do Hadoop para Visual Studio.
+title: "topologias de profusão de aaaApache com Visual Studio e c# - HDInsight do Azure | Microsoft Docs"
+description: "Saiba como toocreate as topologias Storm em c#. Crie uma topologia de contagem de palavras simples no Visual Studio usando ferramentas Hadoop de saudação do Visual Studio."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,22 +16,22 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/02/2017
 ms.author: larryfr
-ms.openlocfilehash: 3ee89b6644ba395e0a6c28ecc2c082c2f7393ac8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b3fb01a4dda144fd7fb4141e624e31e667f93753
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desenvolver topologias C# para Apache Storm usando ferramentas do Data Lake para Visual Studio
+# <a name="develop-c-topologies-for-apache-storm-by-using-hello-data-lake-tools-for-visual-studio"></a>Desenvolver topologias c# para o Apache Storm usando ferramentas de Data Lake Olá para o Visual Studio
 
-Saiba como criar uma topologia Storm C# usando as ferramentas do Azure Data Lake (Hadoop) para Visual Studio. Este documento orienta o processo de criar um projeto do Storm no Visual Studio, testá-lo localmente e implantá-lo em um Apache Storm no cluster do Azure HDInsight.
+Saiba como toocreate uma topologia c# Storm usando hello Azure Data Lake (Hadoop) ferramentas para Visual Studio. Este documento orienta pelo processo de saudação de criar um projeto Storm no Visual Studio, testá-lo localmente e implantá-la tooan Apache Storm no cluster HDInsight do Azure.
 
-Você também aprende a criar topologias híbridas que usam componentes C# e Java.
+Você também aprenderá como topologias híbridas toocreate que usam componentes c# e Java.
 
 > [!NOTE]
-> Embora as etapas neste documento dependam de um ambiente de desenvolvimento do Windows com Visual Studio, o projeto compilado pode ser enviado a um cluster HDInsight baseado em Windows ou Linux. Somente os clusters baseados em Linux criados depois de 28 de outubro de 2016 são compatíveis com as topologias do SCP.NET.
+> Enquanto etapas Olá neste documento dependem de um ambiente de desenvolvimento do Windows com o Visual Studio, o projeto compilado Olá pode ser tooeither enviado um cluster Linux ou HDInsight baseados no Windows. Somente os clusters baseados em Linux criados depois de 28 de outubro de 2016 são compatíveis com as topologias do SCP.NET.
 
-Para usar uma topologia do C# com um cluster baseado em Linux, você deverá atualizar o pacote NuGet Microsoft.SCP.Net.SDK usado pelo seu projeto para a versão 0.10.0.6 ou posterior. A versão do pacote também deve coincidir com a versão principal do Storm instalada no HDInsight.
+topologia toouse c# com um cluster baseado em Linux, você deve atualizar Olá Microsoft.SCP.Net.SDK NuGet pacote usado pelo seu projeto tooversion 0.10.0.6 ou posterior. versão de saudação do pacote de saudação também deve corresponder a versão principal de saudação do Storm instalado no HDInsight.
 
 | Versão do HDInsight | Versão do Storm | Versão do SCP.NET | Versão Mono padrão |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
@@ -41,11 +41,11 @@ Para usar uma topologia do C# com um cluster baseado em Linux, você deverá atu
 | 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
 
 > [!IMPORTANT]
-> As topologias C# em clusters baseados em Linux devem usar o .NET 4.5 e o Mono para execução no cluster HDInsight. Verificar [compatibilidade Mono](http://www.mono-project.com/docs/about-mono/compatibility/) para possíveis incompatibilidades.
+> C# topologias em clusters baseados em Linux devem usar o .NET 4.5 e use toorun Mono no cluster do HDInsight hello. Verificar [compatibilidade Mono](http://www.mono-project.com/docs/about-mono/compatibility/) para possíveis incompatibilidades.
 
 ## <a name="install-visual-studio"></a>Instalar Visual Studio
 
-Você pode desenvolver topologias C# com SCP.NET, usando uma das seguintes versões do Visual Studio:
+Você pode desenvolver c# topologias com SCP.NET usando uma saudação seguintes versões do Visual Studio:
 
 * Visual Studio 2012 com [Atualização 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
@@ -57,19 +57,19 @@ Você pode desenvolver topologias C# com SCP.NET, usando uma das seguintes vers�
 
 ## <a name="install-data-lake-tools-for-visual-studio"></a>Instalar ferramentas do Data Lake para Visual Studio
 
-Para instalar as ferramentas do Data Lake para Visual Studio, siga as etapas em [Introdução ao uso das ferramentas do Data Lake para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+ferramentas de Data Lake tooinstall para Visual Studio, siga as etapas de saudação em [começar a usar as ferramentas de Data Lake para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 ## <a name="install-java"></a>Instalar o Java
 
-Quando você envia uma topologia Storm do Visual Studio, o SCP.NET gera um arquivo zip que contém a topologia e as respectivas dependências. O Java é usado para criar esses arquivos zip porque ele usa um formato que é mais compatível com clusters baseados em Linux.
+Quando você enviar uma topologia Storm do Visual Studio, SCP.NET gera um arquivo zip que contém as dependências e topologia de saudação. Java é usado toocreate esses arquivos, zip, porque ele usa um formato que é mais compatível com clusters baseados em Linux.
 
-1. Instale o JDK (Java Developer Kit) 7 ou posterior em seu ambiente de desenvolvimento. Você pode obter o Oracle JDK da [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html). Você também pode usar [outras distribuições do Java](http://openjdk.java.net/).
+1. Instale Olá Java Developer Kit (JDK) 7 ou posterior em seu ambiente de desenvolvimento. Você pode obter Olá Oracle JDK [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html). Você também pode usar [outras distribuições do Java](http://openjdk.java.net/).
 
-2. A variável de ambiente `JAVA_HOME` deve apontar para o diretório que contém o Java.
+2. Olá `JAVA_HOME` diretório de toohello de ponto de deve variável de ambiente que contém Java.
 
-3. A variável de ambiente `PATH` deve incluir o diretório `%JAVA_HOME%\bin`.
+3. Olá `PATH` variável de ambiente deve incluir Olá `%JAVA_HOME%\bin` directory.
 
-Você pode usar o seguinte aplicativo de console C# para verificar se Java e JDK estão instalados corretamente:
+Você pode usar o hello c# console aplicativo tooverify Java e hello JDK estão corretamente instalados a seguir:
 
 ```csharp
 using System;
@@ -105,34 +105,34 @@ namespace ConsoleApplication2
 
 ## <a name="storm-templates"></a>Modelos do Storm
 
-As ferramentas do Data Lake para o Visual Studio fornecem os seguintes modelos:
+ferramentas de Data Lake Olá para Visual Studio fornecem Olá modelos a seguir:
 
 | Tipo de projeto | Demonstra |
 | --- | --- |
 | Aplicativo Storm |Um projeto de topologia Storm vazio. |
-| Amostra de gravador do SQL Azure Storm |Como gravar em um Banco de Dados SQL do Azure. |
-| Amostra de leitor do Azure Cosmos DB do Storm |Como ler do Azure Cosmos DB. |
-| Amostra do gravador do Azure Cosmos DB do Storm |Como gravar no Azure Cosmos DB. |
-| Amostra de leitor de Hub de Eventos do Storm |Como ler dos Hubs de Eventos do Azure. |
-| Amostra do gravador de Hub de Eventos do Storm |Como gravar nos Hubs de Eventos do Azure. |
-| Amostra de leitor HBase do Storm |Como ler do HBase em clusters HDInsight. |
-| Amostra de gravador HBase do Storm |Como gravar no HBase em clusters HDInsight. |
-| Amostra híbrida do Storm |Como usar um componente Java. |
+| Amostra de gravador do SQL Azure Storm |Como toowrite tooAzure banco de dados SQL. |
+| Amostra de leitor do Azure Cosmos DB do Storm |Como tooread do banco de dados do Azure Cosmos. |
+| Amostra do gravador do Azure Cosmos DB do Storm |Como toowrite tooAzure Cosmos DB. |
+| Amostra de leitor de Hub de Eventos do Storm |Como tooread de Hubs de eventos do Azure. |
+| Amostra do gravador de Hub de Eventos do Storm |Como toowrite tooAzure Hubs de eventos. |
+| Amostra de leitor HBase do Storm |Como clusters de tooread do HBase em HDInsight. |
+| Amostra de gravador HBase do Storm |Como clusters de tooHBase toowrite no HDInsight. |
+| Amostra híbrida do Storm |Como toouse um componente de Java. |
 | Amostra do Storm |Uma topologia básica de contagem de palavras. |
 
 > [!WARNING]
-> Nem todos os modelos funcionarão com o HDInsight baseado em Linux. Pacotes NuGet usados pelos modelos podem não ser compatíveis com o Mono. Verifique o documento [Compatibilidade com o Mono](http://www.mono-project.com/docs/about-mono/compatibility/) e use o [Analisador de Portabilidade do .NET](hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) para identificar problemas em potencial.
+> Nem todos os modelos funcionarão com o HDInsight baseado em Linux. Pacotes NuGet usados pelos modelos de saudação podem não ser compatíveis com Mono. Verificar Olá [compatibilidade Mono](http://www.mono-project.com/docs/about-mono/compatibility/) de documento e usar o hello [.NET portabilidade analisador](hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) tooidentify possíveis problemas.
 
-Nas etapas neste documento, você usará o tipo de projeto de aplicativo Storm básico para criar uma topologia.
+Etapas Olá neste documento, você usa Olá básica Storm aplicativo projeto tipo toocreate uma topologia.
 
 ### <a name="hbase-templates-notes"></a>Notas de modelos de HBase
 
-Para se comunicar com um HBase no cluster HDInsight, os modelos de leitor e gravador do HBase não usam a API Java do HBase, mas sim a API REST do HBase.
+Olá HBase leitor e modelos de gravador usam Olá API REST do HBase, não Olá HBase API do Java, toocommunicate com um HBase no cluster HDInsight.
 
 ### <a name="eventhub-templates-notes"></a>Notas de modelos do EventHub
 
 > [!IMPORTANT]
-> O componente spout do EventHub baseado em Java incluído com o modelo de Leitor do EventHub pode não funcionar com o Storm no HDInsight versão 3.5 ou posterior. Uma versão atualizada deste componente está disponível em [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib).
+> Olá baseados em Java EventHub spout componente incluído com hello modelo EventHub leitor pode não funcionar com Storm no HDInsight versão 3.5 ou posterior. Uma versão atualizada deste componente está disponível em [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib).
 
 Para uma topologia de exemplo que usa esse componente e funciona com Storm no HDInsight 3.5, consulte [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
 
@@ -140,61 +140,61 @@ Para uma topologia de exemplo que usa esse componente e funciona com Storm no HD
 
 1. Abra o Visual Studio, selecione **Arquivo** > **Novo** e **Projeto**.
 
-2. Na janela **Novo Projeto**, expanda **Instalados** > **Modelos** e selecione **Azure Data Lake**. Na lista de modelos, selecione **Aplicativo Storm**. Na parte inferior da tela, insira **WordCount** como o nome do aplicativo.
+2. De saudação **novo projeto** janela, expanda **instalado** > **modelos**e selecione **Azure Data Lake**. Saudação de modelos, selecione lista **profusão de aplicativo**. Na parte inferior de saudação da tela hello, digite **WordCount** como nome de saudação do aplicativo hello.
 
     ![Captura de tela da janela Novo Projeto](./media/hdinsight-storm-develop-csharp-visual-studio-topology/new-project.png)
 
-3. Após você criar o projeto, você deverá ter os seguintes arquivos:
+3. Depois que você criou o projeto hello, você deve ter Olá seguintes arquivos:
 
-   * **Program.cs**: esse arquivo define a topologia para seu projeto. Uma topologia padrão consistindo em um spout e um bolt é criada por padrão.
+   * **Program.CS**: este arquivo define topologia Olá para o seu projeto. Uma topologia padrão consistindo em um spout e um bolt é criada por padrão.
 
    * **Spout.cs**: um spout de exemplo que emite números aleatórios.
 
-   * **Bolt.cs**: um bolt de exemplo que mantém uma contagem de números emitidos pelo spout.
+   * **Bolt.CS**: um raio de exemplo que mantém uma contagem de números emitidos pelo spout hello.
 
-     Quando você cria o projeto, o NuGet baixa a versão mais recente do [pacote SCP.NET](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/).
+     Quando você cria o projeto hello, downloads do NuGet hello mais recente [SCP.NET pacote](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/).
 
      [!INCLUDE [scp.net version important](../../includes/hdinsight-storm-scpdotnet-version.md)]
 
-### <a name="implement-the-spout"></a>Implementar o spout
+### <a name="implement-hello-spout"></a>Spout de saudação implementar
 
-1. Abra **Spout.cs**. Os spouts são usados para ler os dados em uma topologia de uma fonte externa. Os principais componentes de um spout são:
+1. Abra **Spout.cs**. Spouts são dados tooread usado em uma topologia de uma fonte externa. Olá principais componentes para uma spout são:
 
-   * **NextTuple**: chamado pelo Storm quando o spout pode emitir novas tuplas.
+   * **NextTuple**: chamado como uma tempestade quando spout Olá é permitido tooemit novas tuplas.
 
-   * **Ack** (apenas topologia transacional): lida com confirmações iniciadas por outros componentes na topologia, para cadeias de identificação enviadas do spout. Confirmar uma tupla informa ao spout que ele foi processado com êxito por componentes downstream.
+   * **ACK** (topologia transacional somente): trata confirmações iniciadas por outros componentes na topologia de saudação de tuplas enviadas do spout hello. Confirmar uma tupla avisa spout Olá que ele foi processado com êxito por componentes downstream.
 
-   * **Falha** : (apenas topologia transacional) - lida com tuplas que falham ao processar outros componentes na topologia. A implementação um método Fail permite emitir novamente a tupla para que ela possa ser processada novamente.
+   * **Falha** (topologia transacional somente): trata tuplas que são falha processamento de outros componentes na topologia de saudação. Implementando um método Fail permite toore-emitir tupla Olá para que possa ser processado novamente.
 
-2. Substitua o conteúdo da classe **Spout** pelo texto a seguir. Esse spout emite uma frase para a topologia aleatoriamente.
+2. Substitua o conteúdo de saudação do hello **Spout** classe com hello texto a seguir. Este spout aleatoriamente emite uma frase em topologia hello.
 
     ```csharp
     private Context ctx;
     private Random r = new Random();
     string[] sentences = new string[] {
-        "the cow jumped over the moon",
-        "an apple a day keeps the doctor away",
+        "hello cow jumped over hello moon",
+        "an apple a day keeps hello doctor away",
         "four score and seven years ago",
-        "snow white and the seven dwarfs",
+        "snow white and hello seven dwarfs",
         "i am at two with nature"
     };
 
     public Spout(Context ctx)
     {
-        // Set the instance context
+        // Set hello instance context
         this.ctx = ctx;
 
         Context.Logger.Info("Generator constructor called");
 
         // Declare Output schema
         Dictionary<string, List<Type>> outputSchema = new Dictionary<string, List<Type>>();
-        // The schema for the default output stream is
+        // hello schema for hello default output stream is
         // a tuple that contains a string field
         outputSchema.Add("default", new List<Type>() { typeof(string) });
         this.ctx.DeclareComponentSchema(new ComponentStreamSchema(null, outputSchema));
     }
 
-    // Get an instance of the spout
+    // Get an instance of hello spout
     public static Spout Get(Context ctx, Dictionary<string, Object> parms)
     {
         return new Spout(ctx);
@@ -203,7 +203,7 @@ Para uma topologia de exemplo que usa esse componente e funciona com Storm no HD
     public void NextTuple(Dictionary<string, Object> parms)
     {
         Context.Logger.Info("NextTuple enter");
-        // The sentence to be emitted
+        // hello sentence toobe emitted
         string sentence;
 
         // Get a random sentence
@@ -226,22 +226,22 @@ Para uma topologia de exemplo que usa esse componente e funciona com Storm no HD
     }
     ```
 
-### <a name="implement-the-bolts"></a>Implementar os bolts
+### <a name="implement-hello-bolts"></a>Implementar Olá parafusos
 
-1. Exclua o arquivo **Bolt.cs** existente do projeto.
+1. Excluir Olá **Bolt.cs** arquivo de projeto do hello.
 
-2. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Adicionar** > **Novo item**. Na lista, selecione **Storm Bolt** e digite **Splitter.cs** como o nome. Repita esse processo para criar um segundo bolt chamado **Counter.cs**.
+2. Em **Solution Explorer**, clique com botão direito hello e selecione **adicionar** > **novo item**. Olá, selecione lista **profusão de raio**e digite **Splitter.cs** como nome de saudação. Repita este toocreate processo chamada de uma segunda brilhante **Counter.cs**.
 
    * **Splitter.cs**: implementa um bolt que divide as frases em palavras individuais e emite um novo fluxo de palavras.
 
-   * **Counter.cs**: implementa um bolt que conta cada palavra e emite um novo fluxo de palavras e a contagem de cada palavra.
+   * **Counter.CS**: implementa um raio contagens de cada palavra e emite um novo fluxo de palavras e contagem de saudação para cada palavra.
 
      > [!NOTE]
-     > Esses bolts leem e gravam em fluxos, mas você também pode usar um bolt para se comunicar com um banco de dados ou serviço.
+     > Esses parafusos de leitura e gravação toostreams, mas você também pode usar um raio toocommunicate com fontes, como um banco de dados ou o serviço.
 
-3. Abra **Splitter.cs**. Ele tem apenas um método por padrão: **Execute**. O método Execute é chamado quando o bolt recebe uma tupla para processamento. Aqui, você pode ler e processar tuplas de entradas e emitir tuplas de saída.
+3. Abra **Splitter.cs**. Ele tem apenas um método por padrão: **Execute**. Olá método Execute é chamado quando o raio Olá recebe uma tupla para o processamento. Aqui, você pode ler e processar tuplas de entradas e emitir tuplas de saída.
 
-4. Substitua o conteúdo da classe **Splitter** com o seguinte código:
+4. Substitua o conteúdo de saudação do hello **divisor** classe com hello código a seguir:
 
     ```csharp
     private Context ctx;
@@ -254,15 +254,15 @@ Para uma topologia de exemplo que usa esse componente e funciona com Storm no HD
 
         // Declare Input and Output schemas
         Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
-        // Input contains a tuple with a string field (the sentence)
+        // Input contains a tuple with a string field (hello sentence)
         inputSchema.Add("default", new List<Type>() { typeof(string) });
         Dictionary<string, List<Type>> outputSchema = new Dictionary<string, List<Type>>();
-        // Outbound contains a tuple with a string field (the word)
+        // Outbound contains a tuple with a string field (hello word)
         outputSchema.Add("default", new List<Type>() { typeof(string) });
         this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, outputSchema));
     }
 
-    // Get a new instance of the bolt
+    // Get a new instance of hello bolt
     public static Splitter Get(Context ctx, Dictionary<string, Object> parms)
     {
         return new Splitter(ctx);
@@ -273,7 +273,7 @@ Para uma topologia de exemplo que usa esse componente e funciona com Storm no HD
     {
         Context.Logger.Info("Execute enter");
 
-        // Get the sentence from the tuple
+        // Get hello sentence from hello tuple
         string sentence = tuple.GetString(0);
         // Split at space characters
         foreach (string word in sentence.Split(' '))
@@ -287,7 +287,7 @@ Para uma topologia de exemplo que usa esse componente e funciona com Storm no HD
     }
     ```
 
-5. Abra **Counter.cs** e substitua o conteúdo da classe pelo seguinte:
+5. Abra **Counter.cs**e substitua o conteúdo de classe de saudação com os seguintes hello:
 
     ```csharp
     private Context ctx;
@@ -304,11 +304,11 @@ Para uma topologia de exemplo que usa esse componente e funciona com Storm no HD
 
         // Declare Input and Output schemas
         Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
-        // A tuple containing a string field - the word
+        // A tuple containing a string field - hello word
         inputSchema.Add("default", new List<Type>() { typeof(string) });
 
         Dictionary<string, List<Type>> outputSchema = new Dictionary<string, List<Type>>();
-        // A tuple containing a string and integer field - the word and the word count
+        // A tuple containing a string and integer field - hello word and hello word count
         outputSchema.Add("default", new List<Type>() { typeof(string), typeof(int) });
         this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, outputSchema));
     }
@@ -324,42 +324,42 @@ Para uma topologia de exemplo que usa esse componente e funciona com Storm no HD
     {
         Context.Logger.Info("Execute enter");
 
-        // Get the word from the tuple
+        // Get hello word from hello tuple
         string word = tuple.GetString(0);
-        // Do we already have an entry for the word in the dictionary?
+        // Do we already have an entry for hello word in hello dictionary?
         // If no, create one with a count of 0
         int count = counts.ContainsKey(word) ? counts[word] : 0;
-        // Increment the count
+        // Increment hello count
         count++;
-        // Update the count in the dictionary
+        // Update hello count in hello dictionary
         counts[word] = count;
 
         Context.Logger.Info("Emit: {0}, count: {1}", word, count);
-        // Emit the word and count information
+        // Emit hello word and count information
         this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new List<SCPTuple> { tuple }, new Values(word, count));
         Context.Logger.Info("Execute exit");
     }
     ```
 
-### <a name="define-the-topology"></a>Definir a topologia
+### <a name="define-hello-topology"></a>Definir a topologia de saudação
 
-Spouts e bolts são organizados em um gráfico, que define como os dados fluem entre componentes. Para essa topologia, o gráfico é o seguinte:
+Spouts e parafusos são organizados em um gráfico, que define como os dados de saudação fluem entre os componentes. Para esta topologia, o gráfico de saudação é da seguinte maneira:
 
 ![Diagrama de como os componentes são organizados](./media/hdinsight-storm-develop-csharp-visual-studio-topology/wordcount-topology.png)
 
-As frases são emitidas do spout e são distribuídas para instâncias do bolt Splitter. O bolt Splitter divide as frases em palavras, que são distribuídas para o bolt Contador.
+Sentenças são emitidas pelos spout hello e são distribuídas tooinstances de raio do divisor de saudação. raio de separador de saudação quebra sentenças Olá em palavras, que são distribuídas toohello raio de contador.
 
-Como a contagem de palavras é mantida localmente na instância Contador, queremos nos certificar de que palavras específicas sejam transmitidas para a mesma instância do bolt Contador. Cada instância controla palavras específicas. Uma vez que o bolt Splitter não mantém nenhum estado, não importa qual instância do Splitter recebe qual frase.
+Porque a contagem de palavras é mantida localmente na instância do contador hello, queremos toomake-se de que palavras específicas fluem toohello mesma instância do contador de raio. Cada instância controla palavras específicas. Como o raio do divisor Olá mantém sem estado, realmente não importa qual instância do divisor Olá recebe quais sentença.
 
-Abra **Program.cs**. O método importante é **GetTopologyBuilder**, que é usado para definir a topologia enviada ao Storm. Substitua o conteúdo de **GetTopologyBuilder** pelo seguinte código para implementar a topologia descrita anteriormente:
+Abra **Program.cs**. método importante Olá é **GetTopologyBuilder**, que é usado toodefine Olá topologia enviada tooStorm. Substitua o conteúdo de saudação do **GetTopologyBuilder** com hello topologia de saudação do código tooimplement descrita anteriormente a seguir:
 
 ```csharp
 // Create a new topology named 'WordCount'
 TopologyBuilder topologyBuilder = new TopologyBuilder("WordCount" + DateTime.Now.ToString("yyyyMMddHHmmss"));
 
-// Add the spout to the topology.
-// Name the component 'sentences'
-// Name the field that is emitted as 'sentence'
+// Add hello spout toohello topology.
+// Name hello component 'sentences'
+// Name hello field that is emitted as 'sentence'
 topologyBuilder.SetSpout(
     "sentences",
     Spout.Get,
@@ -368,12 +368,12 @@ topologyBuilder.SetSpout(
         {Constants.DEFAULT_STREAM_ID, new List<string>(){"sentence"}}
     },
     1);
-// Add the splitter bolt to the topology.
-// Name the component 'splitter'
-// Name the field that is emitted 'word'
-// Use suffleGrouping to distribute incoming tuples
-//   from the 'sentences' spout across instances
-//   of the splitter
+// Add hello splitter bolt toohello topology.
+// Name hello component 'splitter'
+// Name hello field that is emitted 'word'
+// Use suffleGrouping toodistribute incoming tuples
+//   from hello 'sentences' spout across instances
+//   of hello splitter
 topologyBuilder.SetBolt(
     "splitter",
     Splitter.Get,
@@ -383,15 +383,15 @@ topologyBuilder.SetBolt(
     },
     1).shuffleGrouping("sentences");
 
-// Add the counter bolt to the topology.
-// Name the component 'counter'
-// Name the fields that are emitted 'word' and 'count'
-// Use fieldsGrouping to ensure that tuples are routed
-//   to counter instances based on the contents of field
-//   position 0 (the word). This could also have been
+// Add hello counter bolt toohello topology.
+// Name hello component 'counter'
+// Name hello fields that are emitted 'word' and 'count'
+// Use fieldsGrouping tooensure that tuples are routed
+//   toocounter instances based on hello contents of field
+//   position 0 (hello word). This could also have been
 //   List<string>(){"word"}.
-//   This ensures that the word 'jumped', for example, will always
-//   go to the same instance
+//   This ensures that hello word 'jumped', for example, will always
+//   go toohello same instance
 topologyBuilder.SetBolt(
     "counter",
     Counter.Get,
@@ -410,52 +410,52 @@ topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()
 return topologyBuilder;
 ```
 
-## <a name="submit-the-topology"></a>Enviar a topologia
+## <a name="submit-hello-topology"></a>Enviar Olá topologia
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Enviar para o Storm no HDInsight**.
+1. Em **Solution Explorer**, clique com botão direito hello e selecione **enviar tooStorm no HDInsight**.
 
    > [!NOTE]
-   > Se solicitado, insira as credenciais de logon para sua assinatura do Azure. Se você tiver mais de uma assinatura, entre naquela que contém seu cluster Storm no HDInsight.
+   > Se solicitado, insira as credenciais de saudação para sua assinatura do Azure. Se você tiver mais de uma assinatura, entre toohello que contém seu Storm no cluster HDInsight.
 
-2. Selecione seu Storm no cluster HDInsight no menu suspenso **Cluster Storm** e selecione **Enviar**. Você pode monitorar se o envio obteve êxito ou não usando a janela **Saída** .
+2. Selecione seu Storm no cluster HDInsight Olá **Cluster Storm** lista suspensa e selecione **enviar**. Você pode monitorar se o envio de saudação foi bem-sucedida usando Olá **saída** janela.
 
-3. Depois que a topologia tiver sido enviada com êxito, as **Topologias Storm** para o cluster deverão aparecer. Selecione a topologia **WordCount** na lista para exibir informações sobre a topologia em execução.
+3. Quando a topologia de saudação foi enviada com êxito, Olá **Storm topologias** para cluster Olá deve aparecer. Selecione Olá **WordCount** topologia de saudação listar tooview informações sobre Olá executando topologia.
 
    > [!NOTE]
    > Você também pode exibir **topologias Storm** do **Gerenciador de Servidores**. Expanda **Azure** > **HDInsight**, clique com o botão direito do mouse em cluster do Storm no HDInsight e selecione **Exibir Topologias do Storm**.
 
-    Para exibir informações sobre os componentes na topologia, clique duas vezes no componente no diagrama.
+    informações de tooview sobre os componentes de saudação na topologia hello, clique duas vezes no componente Olá no diagrama de saudação.
 
-4. Na exibição **Resumo da Topologia**, selecione **Eliminar** para parar a topologia.
+4. De saudação **Resumo da topologia** exibir, clique em **Kill** toostop topologia de saudação.
 
    > [!NOTE]
-   > As topologias Storm continuarão em execução até serem paradas ou até que o cluster seja excluído.
+   > Topologias Storm continuam toorun até que eles são desativados ou Olá cluster é excluído.
 
 ## <a name="transactional-topology"></a>Topologia transacional
 
-A topologia anterior não é transacional. Os componentes na topologia não implementam a funcionalidade para reproduzir as mensagens. Para um exemplo de uma topologia transacional, crie um projeto e selecione **Amostra do Storm** como o tipo de projeto.
+topologia de saudação anterior não é transacional. componentes de saudação na topologia de saudação não implementam mensagens tooreplaying de funcionalidade. Para obter um exemplo de uma topologia de transacional, criar um projeto e selecione **profusão de exemplo** como o tipo de projeto hello.
 
-As topologias transacionais implementam o seguinte para suportar a reprodução de dados:
+Topologias transacionais implementam Olá toosupport reprodução de dados a seguir:
 
-* **Cache de metadados**: o spout deve armazenar metadados sobre os dados emitidos para que os dados possam ser recuperados e emitidos novamente caso ocorra uma falha. Como os dados emitidos pela amostra são pequenos, os dados brutos de cada tupla são armazenados em um dicionário para reprodução.
+* **Cache de metadados**: spout Olá deve armazenar metadados sobre dados Olá emitidos, para que os dados de saudação podem ser recuperados e emitidos novamente se ocorrer uma falha. Como dados de saudação emitidos pelo exemplo hello são pequenos, dados brutos de saudação para cada tupla são armazenados em um dicionário para reprodução.
 
-* **Ack**: cada bolt na topologia pode chamar `this.ctx.Ack(tuple)` para confirmar que processou uma tupla com êxito. Quando todos os bolts confirmarem a tupla, o método `Ack` do spout será chamado. O método `Ack` permite que o spout remova os dados armazenados em cache para reprodução.
+* **ACK**: cada raio na topologia Olá pode chamar `this.ctx.Ack(tuple)` tooacknowledge que ele processou com êxito uma tupla. Quando todos os parafusos controladas Olá tupla, Olá `Ack` método spout Olá é invocado. Olá `Ack` método permite que os dados de tooremove de spout Olá que foi armazenado em cache para reprodução.
 
-* **Falha**: cada bolt pode chamar `this.ctx.Fail(tuple)` para indicar que o processamento falhou para uma tupla. A falha é propagada para o método `Fail` do spout, onde a tupla pode ser reproduzida usando os metadados armazenados em cache.
+* **Falha**: cada raio pode chamar `this.ctx.Fail(tuple)` tooindicate que o processamento falhou para uma coleção de itens. Falha de saudação propaga toohello `Fail` método spout hello, onde pode ser reproduzida Olá tupla usando armazenado em cache de metadados.
 
-* **ID de Sequência**: ao emitir uma tupla, uma ID de sequência exclusiva poderá ser especificada. Esse valor identifica a tupla para o processamento da reprodução (Confirmação e Falha). Por exemplo, o spout do projeto **Amostra do Storm** usa o seguinte ao emitir dados:
+* **ID de Sequência**: ao emitir uma tupla, uma ID de sequência exclusiva poderá ser especificada. Esse valor identifica tupla Olá para processamento de reprodução (Ack e falhas). Por exemplo, Olá spout em Olá **profusão de exemplo** projeto usa a seguinte Olá ao emitir dados:
 
         this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new Values(sentence), lastSeqId);
 
-    Esse código emite uma tupla que contém uma frase para o fluxo padrão com o valor da ID de sequência contido em **lastSeqId**. Neste exemplo, **lastSeqId** é incrementado para todas as tuplas emitidas.
+    Esse código emite uma tupla que contém um fluxo de padrão de toohello frase, com valor de ID de sequência de saudação contido em **lastSeqId**. Neste exemplo, **lastSeqId** é incrementado para todas as tuplas emitidas.
 
-Conforme demonstrado no projeto **Amostra do Storm**, se um componente for transacional, ele poderá ser definido no tempo de execução com base na configuração.
+Conforme demonstrado no hello **profusão de exemplo** do projeto, se um componente é transacional pode ser definido em tempo de execução, com base na configuração.
 
 ## <a name="hybrid-topology-with-c-and-java"></a>Topologia híbrida com C# e Java
 
-Você também pode usar as ferramentas do Data Lake para Visual Studio para criar topologias híbridas, em que alguns componentes são C# e outros são Java.
+Você também pode usar ferramentas de Data Lake para topologias Visual Studio toocreate híbrida, em que alguns componentes são c# e outros são Java.
 
-Para um exemplo de topologia híbrida, crie um projeto e selecione **Amostra Híbrida do Storm**. Esse tipo de exemplo demonstra os seguintes conceitos:
+Para um exemplo de topologia híbrida, crie um projeto e selecione **Amostra Híbrida do Storm**. Esse tipo de exemplo demonstra Olá conceitos a seguir:
 
 * **Spout Java** e **bolt C#**: definidos em **HybridTopology_javaSpout_csharpBolt**.
 
@@ -466,62 +466,62 @@ Para um exemplo de topologia híbrida, crie um projeto e selecione **Amostra Hí
     * Uma versão transacional é definida em **HybridTopologyTx_csharpSpout_javaBolt**.
 
   > [!NOTE]
-  > Essa versão também demonstra como usar o código Clojure de um arquivo de texto como um componente Java.
+  > Esta versão também demonstra como toouse Clojure código de um arquivo de texto como um componente de Java.
 
 
-Para mudar a topologia que é usada quando o projeto é enviado, basta mover a instrução `[Active(true)]` para a topologia que você deseja usar antes de enviá-la para o cluster.
+topologia de saudação tooswitch que é usada quando o projeto de saudação é enviado, simplesmente mover Olá `[Active(true)]` instrução toohello topologia que toouse, antes de enviá-lo toohello cluster.
 
 > [!NOTE]
-> Todos os arquivos Java necessários são fornecidos como parte desse projeto na pasta **JavaDependency** .
+> Todos os arquivos de Java Olá necessárias são fornecidos como parte deste projeto em Olá **JavaDependency** pasta.
 
-Considere o seguinte ao criar e enviar uma topologia híbrida:
+Considere o seguinte hello quando você está criando e enviando uma topologia híbrida:
 
-* Você deve usar **JavaComponentConstructor** para criar uma instância da classe Java para um spout ou bolt.
+* Você deve usar **JavaComponentConstructor** toocreate uma instância da classe Java para um spout ou um raio de saudação.
 
-* Você deve usar **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** para serializar dados de entrada ou saída de componentes Java desde objetos Java até o JSON.
+* Você deve usar **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** tooJSON os objetos de dados de tooserialize ou de componentes de Java do Java.
 
-* Ao enviar a topologia para o servidor, você deve usar a opção **Configurações adicionais** para especificar **Caminhos de arquivo Java**. O caminho especificado deve ser o diretório que contém os arquivos JAR com suas classes Java.
+* Ao enviar o servidor de toohello Olá topologia, você deve usar o hello **configurações adicionais** Olá de toospecify opção **caminhos de arquivo Java**. caminho de saudação especificado deve ser o diretório de saudação que contém arquivos JAR Olá que contêm classes Java.
 
 ### <a name="azure-event-hubs"></a>Hubs de eventos do Azure
 
-A versão 0.9.4.203 do SCP.NET introduz uma classe e um método novos especificamente para trabalhar com o spout do Hub de Eventos (um spout Java que lê de Hubs de Eventos). Ao criar uma topologia que usa um spout de Hub de Eventos, use os seguintes métodos:
+A versão SCP.NET 0.9.4.203 introduz uma nova classe e o método especificamente para trabalhar com spout de Hub de eventos da saudação (um spout de Java que lê de Hubs de eventos). Quando você cria uma topologia que utiliza spout um Hub de eventos, use Olá métodos a seguir:
 
-* Classe **EventHubSpoutConfig**: cria um objeto que contém a configuração do componente spout.
+* **EventHubSpoutConfig** classe: cria um objeto que contém a configuração de saudação de componente de spout hello.
 
-* Método **TopologyBuilder.SetEventHubSpout**: adiciona o componente Spout do Hub de Eventos à topologia.
+* **TopologyBuilder.SetEventHubSpout** método: adiciona a topologia de toohello Olá Hub de eventos spout componente.
 
 > [!NOTE]
-> Você ainda deve usar o **CustomizedInteropJSONSerializer** para serializar os dados produzidos pelo spout.
+> Você ainda deve usar Olá **CustomizedInteropJSONSerializer** tooserialize dados produzidos por spout hello.
 
 ## <a id="configurationmanager"></a>Usar o ConfigurationManager
 
-Não use o **ConfigurationManager** para recuperar valores de configuração dos componentes bolt e spout. Isso pode causar uma exceção de ponteiro nulo. Em vez disso, a configuração do seu projeto é passada para a topologia Storm como um par de chave/valor no contexto da topologia. Cada componente que se baseia em valores de configuração deve recuperá-los no contexto durante a inicialização.
+Não use **ConfigurationManager** tooretrieve configuração valores de parafuso e spout componentes. Isso pode causar uma exceção de ponteiro nulo. Em vez disso, configuração de saudação para seu projeto é passada para topologia de profusão de saudação como um par de chave e valor no contexto de topologia de saudação. Cada componente que se baseia em valores de configuração deve recuperá-los do contexto de saudação durante a inicialização.
 
-O seguinte código demonstra como recuperar esses valores:
+Olá código a seguir demonstra como tooretrieve estes valores:
 
 ```csharp
 public class MyComponent : ISCPBolt
 {
-    // To hold configuration information loaded from context
+    // toohold configuration information loaded from context
     Configuration configuration;
     ...
     public MyComponent(Context ctx, Dictionary<string, Object> parms)
     {
-        // Save a copy of the context for this component instance
+        // Save a copy of hello context for this component instance
         this.ctx = ctx;
-        // If it exists, load the configuration for the component
+        // If it exists, load hello configuration for hello component
         if(parms.ContainsKey(Constants.USER_CONFIG))
         {
             this.configuration = parms[Constants.USER_CONFIG] as System.Configuration.Configuration;
         }
-        // Retrieve the value of "Foo" from configuration
+        // Retrieve hello value of "Foo" from configuration
         var foo = this.configuration.AppSettings.Settings["Foo"].Value;
     }
     ...
 }
 ```
 
-Se você usar um método `Get` para retornar uma instância do seu componente, será preciso garantir que ele passe os parâmetros `Context` e `Dictionary<string, Object>` ao construtor. O seguinte exemplo é um método `Get` básico que passa corretamente esses valores:
+Se você usar um `Get` método tooreturn uma instância do seu componente, você deve garantir que ele passa dois Olá `Context` e `Dictionary<string, Object>` construtor de toohello de parâmetros. Olá é um exemplo básico `Get` método corretamente passa esses valores:
 
 ```csharp
 public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
@@ -530,78 +530,78 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 }
 ```
 
-## <a name="how-to-update-scpnet"></a>Como atualizar o SCP.NET
+## <a name="how-tooupdate-scpnet"></a>Como tooupdate SCP.NET
 
-As versões recentes do SCP.NET oferecem suporte à atualização de pacote por meio do NuGet. Quando uma nova atualização estiver disponível, você receberá uma notificação de atualização. Para verificar manualmente se há uma atualização, execute estas etapas:
+As versões recentes do SCP.NET oferecem suporte à atualização de pacote por meio do NuGet. Quando uma nova atualização estiver disponível, você receberá uma notificação de atualização. seleção de toomanually para uma atualização, siga estas etapas:
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e escolha **Gerenciar Pacotes NuGet**.
+1. Em **Solution Explorer**, clique com botão direito hello e selecione **gerenciar pacotes NuGet**.
 
-2. No Gerenciador de pacotes, selecione **Atualizações**. Se uma atualização estiver disponível, ela será listada. Clique em **Atualização** referente ao pacote para instalá-la.
+2. No Gerenciador de pacotes de saudação, selecione **atualizações**. Se uma atualização estiver disponível, ela será listada. Clique em **atualização** para Olá pacote tooinstall-lo.
 
 > [!IMPORTANT]
-> Se o seu projeto foi criado com uma versão anterior do SCP.NET que não usou o NuGet, você deverá executar as seguintes etapas para atualizar para uma versão mais recente:
+> Se seu projeto foi criado com uma versão anterior do SCP.NET que não usou o NuGet, você deve executar Olá versão mais recente de tooa de tooupdate de etapas a seguir:
 >
-> 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e escolha **Gerenciar Pacotes NuGet**.
-> 2. Usando o campo **Pesquisa**, faça a pesquisa e adicione **Microsoft.SCP.Net.SDK** ao projeto.
+> 1. Em **Solution Explorer**, clique com botão direito hello e selecione **gerenciar pacotes NuGet**.
+> 2. Usando Olá **pesquisa** campo, pesquisar e, em seguida, adicionar, **Microsoft.SCP.Net.SDK** toohello projeto.
 
 ## <a name="troubleshoot-common-issues-with-topologies"></a>Solucionar problemas comuns com topologias
 
 ### <a name="null-pointer-exceptions"></a>Exceções de ponteiro nulo
 
-Ao usar uma topologia C# com um cluster HDInsight baseado em Linux, os componentes bolt e spout que usam o **ConfigurationManager** para ler configurações em tempo de execução podem retornar exceções de ponteiro nulo.
+Quando você estiver usando uma topologia c# com um cluster HDInsight baseados em Linux, parafuso e spout componentes que usam **ConfigurationManager** tooread definições de configuração em tempo de execução podem retornar exceções de ponteiro nulo.
 
-A configuração do seu projeto é passada para a topologia Storm como um par de chave/valor no contexto da topologia. Ele pode ser recuperado do objeto de dicionário que é passado para os seus componentes quando eles são inicializados.
+configuração Olá para seu projeto é passada para a topologia de profusão de saudação como um par de chave e valor no contexto de topologia de saudação. Ele pode ser recuperado do objeto de dicionário de saudação que é passado tooyour componentes quando eles são iniciados.
 
-Para obter mais informações, consulte a seção [ConfigurationManager](#configurationmanager) deste documento.
+Para obter mais informações, consulte Olá [ConfigurationManager](#configurationmanager) seção deste documento.
 
 ### <a name="systemtypeloadexception"></a>System.TypeLoadException
 
-Ao usar uma topologia C# com um cluster HDInsight baseado em Linux, você pode encontrar o seguinte erro:
+Quando você estiver usando uma topologia c# com um cluster HDInsight baseados em Linux, você pode encontrar hello erro a seguir:
 
     System.TypeLoadException: Failure has occurred while loading a type.
 
-Esse erro geralmente ocorre quando você usa um binário que não é compatível com a versão do .NET à qual o Mono dá suporte.
+Esse erro ocorre quando você usa um binário que não é compatível com a versão de saudação do .NET que oferece suporte a Mono.
 
 Para clusters HDInsight baseados em Linux, verifique se o projeto usa binários compilados para o .NET 4.5.
 
 ### <a name="test-a-topology-locally"></a>Testar uma topologia localmente
 
-Embora seja fácil implantar uma topologia em um cluster, em alguns casos poderá ser necessário testar uma topologia localmente. Use as seguintes etapas para executar e testar a topologia de exemplo nesse tutorial localmente em seu ambiente de desenvolvimento.
+Embora seja fácil toodeploy um cluster de tooa de topologia, em alguns casos, talvez seja necessário tootest uma topologia localmente. Use Olá toorun as etapas a seguir e testar a topologia de exemplo hello neste tutorial localmente no seu ambiente de desenvolvimento.
 
 > [!WARNING]
 > Testes locais funcionam somente para topologias básicas exclusivamente em C#. Você não pode usar o teste local para topologias híbridas ou topologias que usam vários fluxos.
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Propriedades**. Nas propriedades do projeto, altere **Tipo de saída** para **Aplicativo de Console**.
+1. Em **Solution Explorer**, clique com botão direito hello e selecione **propriedades**. Nas propriedades do projeto hello, alterar Olá **tipo de saída** muito**aplicativo de Console**.
 
     ![Captura de tela de propriedades do projeto, com Tipo de saída realçado](./media/hdinsight-storm-develop-csharp-visual-studio-topology/outputtype.png)
 
    > [!NOTE]
-   > Lembre-se de alterar o **Tipo de saída** de volta para **Biblioteca de Classes** antes de implantar a topologia em um cluster.
+   > Lembre-se de saudação toochange **tipo de saída** fazer muito**biblioteca de classes** antes de implantar o cluster de tooa topologia hello.
 
-2. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Adicionar** > **Novo Item**. Selecione **Classe** e insira **LocalTest.cs** como o nome de classe. Por fim, clique em **Adicionar**.
+2. Em **Solution Explorer**, clique com botão direito hello e, em seguida, selecione **adicionar** > **Novo Item**. Selecione **classe**e digite **LocalTest.cs** como o nome da classe hello. Por fim, clique em **Adicionar**.
 
-3. Abra **LocalTest.cs** e adicione a seguinte instrução **using** na parte superior:
+3. Abra **LocalTest.cs**e adicione o seguinte Olá **usando** instrução na parte superior da saudação:
 
     ```csharp
     using Microsoft.SCP;
     ```
 
-4. Use o seguinte código como o conteúdo da classe **LocalTest**:
+4. De código a seguir de saudação de uso como conteúdo de saudação do hello **LocalTest** classe:
 
     ```csharp
-    // Drives the topology components
+    // Drives hello topology components
     public void RunTestCase()
     {
         // An empty dictionary for use when creating components
         Dictionary<string, Object> emptyDictionary = new Dictionary<string, object>();
 
-        #region Test the spout
+        #region Test hello spout
         {
             Console.WriteLine("Starting spout");
-            // LocalContext is a local-mode context that can be used to initialize
-            // components in the development environment.
+            // LocalContext is a local-mode context that can be used tooinitialize
+            // components in hello development environment.
             LocalContext spoutCtx = LocalContext.Get();
-            // Get a new instance of the spout, using the local context
+            // Get a new instance of hello spout, using hello local context
             Spout sentences = Spout.Get(spoutCtx, emptyDictionary);
 
             // Emit 10 tuples
@@ -609,55 +609,55 @@ Embora seja fácil implantar uma topologia em um cluster, em alguns casos poder�
             {
                 sentences.NextTuple(emptyDictionary);
             }
-            // Use LocalContext to persist the data stream to file
+            // Use LocalContext toopersist hello data stream toofile
             spoutCtx.WriteMsgQueueToFile("sentences.txt");
             Console.WriteLine("Spout finished");
         }
         #endregion
 
-        #region Test the splitter bolt
+        #region Test hello splitter bolt
         {
             Console.WriteLine("Starting splitter bolt");
-            // LocalContext is a local-mode context that can be used to initialize
-            // components in the development environment.
+            // LocalContext is a local-mode context that can be used tooinitialize
+            // components in hello development environment.
             LocalContext splitterCtx = LocalContext.Get();
-            // Get a new instance of the bolt
+            // Get a new instance of hello bolt
             Splitter splitter = Splitter.Get(splitterCtx, emptyDictionary);
 
-            // Set the data stream to the data created by the spout
+            // Set hello data stream toohello data created by hello spout
             splitterCtx.ReadFromFileToMsgQueue("sentences.txt");
-            // Get a batch of tuples from the stream
+            // Get a batch of tuples from hello stream
             List<SCPTuple> batch = splitterCtx.RecvFromMsgQueue();
-            // Process each tuple in the batch
+            // Process each tuple in hello batch
             foreach (SCPTuple tuple in batch)
             {
                 splitter.Execute(tuple);
             }
-            // Use LocalContext to persist the data stream to file
+            // Use LocalContext toopersist hello data stream toofile
             splitterCtx.WriteMsgQueueToFile("splitter.txt");
             Console.WriteLine("Splitter bolt finished");
         }
         #endregion
 
-        #region Test the counter bolt
+        #region Test hello counter bolt
         {
             Console.WriteLine("Starting counter bolt");
-            // LocalContext is a local-mode context that can be used to initialize
-            // components in the development environment.
+            // LocalContext is a local-mode context that can be used tooinitialize
+            // components in hello development environment.
             LocalContext counterCtx = LocalContext.Get();
-            // Get a new instance of the bolt
+            // Get a new instance of hello bolt
             Counter counter = Counter.Get(counterCtx, emptyDictionary);
 
-            // Set the data stream to the data created by splitter bolt
+            // Set hello data stream toohello data created by splitter bolt
             counterCtx.ReadFromFileToMsgQueue("splitter.txt");
-            // Get a batch of tuples from the stream
+            // Get a batch of tuples from hello stream
             List<SCPTuple> batch = counterCtx.RecvFromMsgQueue();
-            // Process each tuple in the batch
+            // Process each tuple in hello batch
             foreach (SCPTuple tuple in batch)
             {
                 counter.Execute(tuple);
             }
-            // Use LocalContext to persist the data stream to file
+            // Use LocalContext toopersist hello data stream toofile
             counterCtx.WriteMsgQueueToFile("counter.txt");
             Console.WriteLine("Counter bolt finished");
         }
@@ -665,17 +665,17 @@ Embora seja fácil implantar uma topologia em um cluster, em alguns casos poder�
     }
     ```
 
-    Tome um momento para ler os comentários do código. Esse código usa **LocalContext** para executar os componentes no ambiente de desenvolvimento, persistindo o fluxo de dados entre componentes para arquivos de texto na unidade local.
+    Tirar um tooread momento por meio de comentários de código hello. Esse código usa **LocalContext** toorun componentes de saudação no ambiente de desenvolvimento hello e persistir TDS Olá entre arquivos de componentes de tootext na unidade local hello.
 
-1. Abra **Program.cs** e adicione o seguinte ao método **Main**:
+1. Abra **Program.cs**e adicione Olá após toohello **principal** método:
 
     ```csharp
     Console.WriteLine("Starting tests");
     System.Environment.SetEnvironmentVariable("microsoft.scp.logPrefix", "WordCount-LocalTest");
-    // Initialize the runtime
+    // Initialize hello runtime
     SCPRuntime.Initialize();
 
-    //If we are not running under the local context, throw an error
+    //If we are not running under hello local context, throw an error
     if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)
     {
         throw new Exception(string.Format("unexpected pluginType: {0}", Context.pluginType));
@@ -688,60 +688,60 @@ Embora seja fácil implantar uma topologia em um cluster, em alguns casos poder�
     Console.ReadKey();
     ```
 
-2. Salve as alterações e use **F5** ou selecione **Depurar** > **Iniciar Depuração** para iniciar o projeto. Uma janela de console deve aparecer e o status do log colocado como progresso dos testes. Quando **Testes concluídos** aparecer, pressione qualquer tecla para fechar a janela.
+2. Salvar alterações de saudação e, em seguida, clique em **F5** ou selecione **depurar** > **iniciar depuração** toostart projeto de saudação. Uma janela do console deve aparecer e registrar o status como progresso de testes de saudação. Quando **testes terminado** for exibida, pressione qualquer janela de saudação tooclose chave.
 
-3. Use **Windows Explorer** para localizar o diretório que contém seu projeto. Por exemplo: **C:\Users\<seu_nome_de_usuário>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. Nesse diretório, abra **Bin** e clique em **Depurar**. Você deve ver os arquivos de texto produzidos após a execução dos testes: sentences.txt, counter.txt e splitter.txt. Abra cada arquivo de texto e inspecione os dados.
+3. Use **Windows Explorer** diretório de saudação toolocate que contém seu projeto. Por exemplo: **C:\Users\<seu_nome_de_usuário>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. Nesse diretório, abra **Bin** e clique em **Depurar**. Você deve ver os arquivos de texto de saudação que foram produzidos quando Olá testes executados: sentences.txt, counter.txt e splitter.txt. Abra cada arquivo de texto e inspecionar dados hello.
 
    > [!NOTE]
-   > Os dados da cadeia de caracteres persistem como uma matriz de valores decimais nesses arquivos. Por exemplo, \[[97,103,111]] no arquivo **splitter.txt** é a palavra *and*.
+   > Os dados da cadeia de caracteres persistem como uma matriz de valores decimais nesses arquivos. Por exemplo, \[[97,103,111]] em Olá **splitter.txt** arquivo é palavra hello *e*.
 
 > [!NOTE]
-> Defina **Tipo de projeto** novamente como **Biblioteca de Classes** antes de implantar em um Storm no cluster HDInsight.
+> Ser Olá-se de tooset **tipo de projeto** fazer muito**biblioteca de classes** antes de implantar tooa Storm no cluster HDInsight.
 
 ### <a name="log-information"></a>Registrando informações no log
 
-É possível registrar em log com facilidade informações de seus componentes de topologia usando o `Context.Logger`. Por exemplo, o seguinte criará uma entrada do log de informações:
+É possível registrar em log com facilidade informações de seus componentes de topologia usando o `Context.Logger`. Por exemplo, o seguinte Olá cria uma entrada de log informativa:
 
 ```csharp
 Context.Logger.Info("Component started");
 ```
 
-As informações registradas em log podem ser exibidas no **Log do Serviço do Hadoop**, que é encontrado no **Gerenciador de Servidores**. Expanda a entrada para o seu Storm no cluster HDInsight e expanda **Log de Serviço do Hadoop**. Por fim, selecione o arquivo de log para exibir.
+Informações registradas podem ser exibidas de saudação **Log do serviço de Hadoop**, que se encontra no **Server Explorer**. Expanda a entrada de saudação para seu Storm no cluster HDInsight e, em seguida, expanda **Log do serviço de Hadoop**. Por fim, selecione Olá tooview de arquivo de log.
 
 > [!NOTE]
-> Os logs são armazenados na conta de Armazenamento do Azure usada pelo seu cluster. Para exibir os logs no Visual Studio, você deve entrar na assinatura do Azure proprietária da conta de armazenamento.
+> Olá logs são armazenados no hello conta de armazenamento do Azure que é usada pelo cluster. logs de saudação tooview no Visual Studio, você deve entrar no toohello assinatura do Azure que possui a conta de armazenamento hello.
 
 ### <a name="view-error-information"></a>Exibir informações de erro
 
-Para exibir erros ocorridos em uma topologia em execução, use as etapas a seguir:
+tooview erros que ocorreram em uma topologia em execução, use Olá etapas a seguir:
 
-1. No **Gerenciador de Servidores**, clique com o botão direito do mouse no Storm do cluster HDInsight e selecione **Exibir topologias Storm**.
+1. De **Server Explorer**, Olá Storm no cluster HDInsight e selecione **topologias profusão de exibição**.
 
-2. Para **Spout** e **Bolts**, a coluna **Último Erro** contém informações sobre o último erro ocorrido.
+2. Para Olá **Spout** e **Bolts**, Olá **último erro** coluna contém informações sobre o último erro de saudação.
 
-3. Selecione **ID do Spout** ou **ID do Bolt** para o componente com um erro listado. Na página de detalhes exibida, as informações adicionais do erro serão listadas na seção **Erros** na parte inferior da página.
+3. Selecione Olá **Spout Id** ou **raio Id** para o componente de saudação que tem um erro listado. Na página de detalhes de saudação que é exibido, adicional erro informações estão listadas no hello **erros** seção final Olá Olá página.
 
-4. Para obter mais informações, selecione uma **Porta** na seção **Executores** da página para ver o log de trabalho do Storm nos últimos minutos.
+4. tooobtain obter mais informações, selecionadas um **porta** de saudação **executores** seção da página hello, toosee Olá Storm trabalho log Olá últimos minutos.
 
 ### <a name="errors-submitting-topologies"></a>Erros durante o envio de topologias
 
-Se você encontrar erros ao enviar uma topologia ao HDInsight, poderá encontrar registros para os componentes do lado do servidor que lidam com o envio de topologia em seu cluster HDInsight. Para recuperar esses logs, use o seguinte comando em uma linha de comando:
+Se você encontrar erros ao enviar uma topologia tooHDInsight, você pode encontrar registros para componentes do servidor de saudação que manipulam o envio de topologia no seu cluster HDInsight. tooretrieve esses logs, use Olá comando a seguir em uma linha de comando:
 
     scp sshuser@clustername-ssh.azurehdinsight.net:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
 
-Substitua __sshuser__ pela conta de usuário SSH para o cluster. Substitua __clustername__ pelo nome do cluster HDInsight. Para saber mais sobre como usar o `scp` e o `ssh` com o HDInsight, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+Substituir __sshuser__ com hello SSH a conta de usuário para o cluster de saudação. Substituir __clustername__ com o nome de saudação do cluster do HDInsight hello. Para saber mais sobre como usar o `scp` e o `ssh` com o HDInsight, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Envios podem falhar por vários motivos:
 
-* O JDK não está instalado ou não está no caminho.
-* Dependências de Java necessárias não são incluídas no envio.
+* JDK não está instalado ou não está no caminho de saudação.
+* Dependências de Java necessárias não são incluídas no envio de saudação.
 * Dependências incompatíveis.
 * Nomes de topologia duplicados.
 
-Se o log `hdinsight-scpwebapi.out` contém um `FileNotFoundException`, isso pode ser causado pelas seguintes condições:
+Se hello `hdinsight-scpwebapi.out` log contém um `FileNotFoundException`, isso pode ser causado por Olá condições a seguir:
 
-* O JDK não está no caminho no ambiente de desenvolvimento. Verifique se o JDK está instalado no ambiente de desenvolvimento e que `%JAVA_HOME%/bin` está no caminho.
-* Uma dependência de Java está ausente. Verifique se você está incluindo todos os arquivos .jar necessários como parte do envio.
+* Olá JDK não está no caminho de saudação no ambiente de desenvolvimento de saudação. Verifique se esse Olá JDK está instalado no ambiente de desenvolvimento hello e que `%JAVA_HOME%/bin` está no caminho de saudação.
+* Uma dependência de Java está ausente. Verifique se que você está incluindo todos os arquivos JAR necessários como parte do envio de saudação.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -749,9 +749,9 @@ Para obter um exemplo de processamento de dados de Hubs de eventos, consulte [Pr
 
 Para obter um exemplo de uma topologia de C# que divide os dados de fluxo em vários fluxos, consulte [Exemplo de Storm C#](https://github.com/Blackmist/csharp-storm-example).
 
-Para descobrir mais informações sobre como criar topologias de C#, veja [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
+toodiscover obter mais informações sobre como criar c# topologias, consulte [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
 
-Para obter outras maneiras de trabalhar com o HDInsight e mais amostras do Storm no HDInsight, consulte o seguintes documentos:
+Para mais toowork maneiras com HDInsight e mais Storm em amostras de HDInsight, consulte Olá documentos a seguir:
 
 **Microsoft SCP.NET**
 

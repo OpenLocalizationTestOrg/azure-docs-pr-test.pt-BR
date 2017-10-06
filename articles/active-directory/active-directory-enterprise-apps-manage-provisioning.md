@@ -1,6 +1,6 @@
 ---
-title: "Gerenciamento de provisionamento de usuário para aplicativos empresariais no Azure Active Directory | Microsoft Docs"
-description: "Saiba como gerenciar o provisionamento de contas de usuário para aplicativos empresariais usando o Azure Active Directory"
+title: "provisionamento de gerenciamento para aplicativos de empresa no Active Directory do Azure de saudação do aaaUser | Microsoft Docs"
+description: "Saiba como usuário toomanage provisionamento de conta para aplicativos de empresa usando Olá Active Directory do Azure"
 services: active-directory
 documentationcenter: 
 author: asmalser
@@ -15,70 +15,70 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 220f938e5c890554cd596e2b14492782ed829a5d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: a613f844c8f51e04b92e62b488313a78ab85f7ec
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerenciamento de provisionamento de conta de usuário para aplicativos empresariais no Portal do Azure
-Este artigo descreve como usar o [Portal do Azure](https://portal.azure.com) para gerenciar o provisionamento de conta de usuário automático e o desprovisionamento para aplicativos que oferecem suporte a ele, especialmente aqueles que foram adicionados da categoria "em destaque" da [Galeria de aplicativos do Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Para saber mais sobre o provisionamento de contas de usuário automático e como ele funciona, confira [Automatizar o provisionamento e o desprovisionamento de usuário para aplicativos SaaS com o Azure Active Directory](active-directory-saas-app-provisioning.md).
+# <a name="managing-user-account-provisioning-for-enterprise-apps-in-hello-azure-portal"></a>Gerenciar a conta de usuário de provisionamento para aplicativos da empresa no hello portal do Azure
+Este artigo descreve como Olá toouse [portal do Azure](https://portal.azure.com) categoria de conta de usuário automático toomanage provisionamento e cancelamento de provisionamento para aplicativos que dão suporte a ele, especialmente aqueles que tenham sido adicionados de saudação "recursos" Olá [Galeria de aplicativos do Active Directory do Azure](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). toolearn mais sobre o provisionamento de conta de usuário automático e como ele funciona, consulte [tooSaaS automatizar o provisionamento de usuário e desprovisionamento aplicativos com o Active Directory do Azure](active-directory-saas-app-provisioning.md).
 
-## <a name="finding-your-apps-in-the-portal"></a>Localizar seus aplicativos no portal
-Todos os aplicativos configurados para logon único em um diretório por um administrador de diretório usando a [galeria de aplicativos do Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery) podem ser exibidos e gerenciados no [Portal do Azure](https://portal.azure.com). Os aplicativos podem ser encontrados na seção **Mais Serviços** &gt; **Aplicativos Empresariais** do Portal. Aplicativos empresariais são aplicativos que são implantados e usados dentro da sua organização.
+## <a name="finding-your-apps-in-hello-portal"></a>Localizando seus aplicativos no portal de saudação
+Todos os aplicativos que são configurados para logon único em um diretório, por um administrador de diretório usando Olá [Galeria de aplicativos do Active Directory do Azure](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), podem ser exibidas e gerenciadas no hello [portal do Azure](https://portal.azure.com). aplicativos Olá podem ser encontrados no hello **mais serviços** &gt; **aplicativos empresariais** seção do portal de saudação. Aplicativos empresariais são aplicativos que são implantados e usados dentro da sua organização.
 
 ![Folha de Aplicativos Empresariais][0]
 
-Selecionar o link **Todos os aplicativos** à esquerda mostra uma lista de todos os aplicativos que foram configurados, incluindo aplicativos adicionados da galeria. A seleção de um aplicativo carrega a folha de recursos do aplicativo, na qual os relatórios podem ser exibidos para que o aplicativo e várias configurações possam ser gerenciados.
+Olá selecionando **todos os aplicativos** link Olá esquerda mostra uma lista de todos os aplicativos que tiverem sido configurados, incluindo aplicativos que tinham sido adicionados da Galeria de saudação. Selecionar um aplicativo carrega a folha de recursos Olá para esse aplicativo, onde os relatórios podem ser exibidos para esse aplicativo e uma variedade de configurações que pode ser gerenciada.
 
-Configurações de provisionamento de conta de usuário podem ser gerenciadas selecionando **Provisionamento** à esquerda.
+Configurações de provisionamento de conta de usuário pode ser gerenciada selecionando **provisionamento** Olá esquerda.
 
 ![Folha de recursos do aplicativo][1]
 
 ## <a name="provisioning-modes"></a>Modos de provisionamento
-A folha **Provisionamento** começa com um menu **Modo**, que mostra quais modos de provisionamento têm suporte para um aplicativo empresarial e permite que eles sejam configurados. As opções disponíveis incluem:
+Olá **provisionamento** folha começa com um **modo** menu, que mostra quais modos de provisionamento têm suporte para um aplicativo corporativo e permite que eles toobe configurado. Olá as opções disponíveis incluem:
 
-* **Automático** - essa opção aparecerá se o Azure AD der suporte ao provisionamento automático baseado em API e/ou ao desprovisionamento de contas de usuário para esse aplicativo. Selecionar esse modo exibe uma interface que orienta os administradores a configurar o Azure AD para conectar-se à API de gerenciamento de usuário do aplicativo, criando mapeamentos de conta e fluxos de trabalho que definem como os dados da conta de usuário devem fluir entre o Azure AD e o aplicativo e gerenciar o serviço de provisionamento do Azure AD.
-* **Manual** - essa opção será mostrada se o Azure AD não der suporte ao provisionamento automático de contas de usuário para esse aplicativo. Essa opção significa que registros de conta de usuário armazenados no aplicativo devem ser gerenciados usando um processo externo, com base nos recursos de gerenciamento e provisionamento do usuário fornecidos pelo aplicativo (o que pode incluir o provisionamento de SAML Just-In-Time).
+* **Automático** -esta opção será exibida se o AD do Azure dá suporte ao provisionamento automático baseado em APIs e/ou cancelamento de provisionamento do aplicativo de toothis de contas de usuário. Selecionar este modo exibe uma interface que orienta os administradores por meio da configuração da API de gerenciamento de usuário do aplicativo do AD do Azure tooconnect toohello, Criando mapeamentos de conta e fluxos de trabalho que definem como os dados da conta de usuário devem fluir entre o Azure AD e aplicativo Hello e gerenciando Olá serviço de provisionamento de AD do Azure.
+* **Manual** -esta opção é mostrada se AD do Azure não suporta o provisionamento automático do aplicativo de toothis de contas de usuário. Esta opção significa que os registros de conta de usuário armazenados no aplicativo hello devem ser gerenciados usando um processo externo, com base nos produtos de recursos de gerenciamento e provisionamento de usuário Olá fornecidos por esse aplicativo (que pode incluir o provisionamento de SAML just-in-).
 
 ## <a name="configuring-automatic-user-account-provisioning"></a>Configurar o provisionamento de contas de usuário automático
-Selecionar a opção **Automático** exibe uma tela dividida em quatro seções:
+Olá selecionando **automáticas** opção exibe uma tela que é dividida em quatro seções:
 
 ### <a name="admin-credentials"></a>Credenciais de administrador
-É onde são inseridas as credenciais necessárias para o Azure AD conectar-se à API de gerenciamento de usuários do aplicativo. A entrada necessária varia dependendo do aplicativo. Para saber mais sobre os tipos de credencial e os requisitos para aplicativos específicos, confira o [tutorial de configuração para o aplicativo específico](active-directory-saas-app-provisioning.md#list-of-apps-that-support-automated-user-provisioning).
+Isso é onde as credenciais Olá necessárias para a API de gerenciamento de usuário do aplicativo do AD do Azure tooconnect toohello são inseridas. entrada Hello necessária varia dependendo do aplicativo hello. toolearn sobre tipos de credencial de saudação e os requisitos para aplicativos específicos, consulte Olá [tutorial de configuração para o aplicativo específico](active-directory-saas-app-provisioning.md#list-of-apps-that-support-automated-user-provisioning).
 
-Selecionar o botão **Testar Conexão** permite que você teste as credenciais fazendo com que o Azure AD tente se conectar ao aplicativo de provisionamento do aplicativo usando as credenciais fornecidas.
+Olá selecionando **Conexão de teste** botão permite que você as credenciais de saudação tootest fazendo com que o AD do Azure tente tooconnect toohello aplicativo de provisionamento do aplicativo usando as credenciais de saudação fornecida.
 
 ### <a name="mappings"></a>Mapeamentos
-É onde os administradores podem exibir e editar o fluxo de atributos de usuário entre o Azure AD e o aplicativo de destino, quando as contas de usuário são provisionadas ou atualizadas.
+Isso é onde os administradores podem exibir e editar o fluxo de atributos de usuário entre o Azure AD e o aplicativo de destino hello, quando as contas de usuário são provisionadas ou atualizadas.
 
-Há um conjunto predefinido de mapeamentos entre objetos de usuário do Azure AD e objetos de usuário de cada aplicativo SaaS. Alguns aplicativos gerenciam outros tipos de objetos, como grupos ou contatos. Selecionar um desses mapeamentos na tabela mostra o editor de mapeamento à direita, no qual eles podem ser visualizados e personalizados.
+Há um conjunto predefinido de mapeamentos entre objetos de usuário do Azure AD e objetos de usuário de cada aplicativo SaaS. Alguns aplicativos gerenciam outros tipos de objetos, como grupos ou contatos. Selecionando um desses mapeamentos na tabela Olá mostra o editor de mapeamento de saudação toohello direita, onde podem ser exibidas e personalizadas.
 
 ![Folha de recursos do aplicativo][2]
 
 As personalizações com suporte incluem:
 
-* Habilitar e desabilitar mapeamentos para objetos específicos, como o objeto de usuário do Azure AD para o objeto de usuário do aplicativo SaaS.
-* Editar os atributos de fluxo do objeto de usuário do Azure AD para o objeto de usuário do aplicativo. Para obter mais informações sobre mapeamento de atributos, confira [Noções básicas sobre tipos de mapeamento de atributos](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
-* Filtre as ações de provisionamento que o Azure AD executa no aplicativo de destino. Em vez de fazer com que o Azure AD sincronize totalmente objetos, você pode limitar as ações executadas. Por exemplo, selecionando apenas **Atualizar**, o Azure AD atualiza apenas contas de usuário existentes em um aplicativo e não cria novas. Selecionando apenas **Criar**, o Azure só cria novas contas de usuário, mas não atualiza as existentes. Esse recurso permite que os administradores criem mapeamentos diferentes para criar contas e atualizar os fluxos de trabalho.
+* Habilitando e desabilitando mapeamentos para objetos específicos, como o objeto de usuário de saudação do AD do Azure usuário objeto toohello SaaS do aplicativo.
+* Editar fluam de quais atributos de objeto de usuário do aplicativo da toohello do objeto de usuário da saudação do AD do Azure. Para obter mais informações sobre mapeamento de atributos, confira [Noções básicas sobre tipos de mapeamento de atributos](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
+* Saudação de filtro provisionamento ações que executa o AD do Azure em Olá direcionou um aplicativo. Em vez de ter o AD do Azure totalmente-sincronizar objetos, você pode limitar ações Olá executadas. Por exemplo, selecionando apenas **Atualizar**, o Azure AD atualiza apenas contas de usuário existentes em um aplicativo e não cria novas. Selecionando apenas **Criar**, o Azure só cria novas contas de usuário, mas não atualiza as existentes. Esse recurso permite que administradores toocreate diferentes mapeamentos de conta de fluxos de trabalho de criação e atualização.
 
 ### <a name="settings"></a>Configurações
-Esta seção permite que os administradores iniciem e parem o serviço de provisionamento do Azure AD para o aplicativo selecionado, bem como, opcionalmente, limpem o cache de provisionamento e reiniciem o serviço.
+Esta seção permite que administradores toostart e Olá parar o serviço de provisionamento do Azure AD para o aplicativo hello selecionado, bem como o provisionamento de hello, opcionalmente, desmarque cache e reinicie o serviço de saudação.
 
-Se o provisionamento estiver sendo habilitado pela primeira vez para um aplicativo, ative o serviço alterando o **Status de Provisionamento** para **Ativado**. Isso faz com que o serviço de provisionamento do Azure AD execute uma sincronização inicial, em que ele lê os usuários atribuídos na seção **Usuários e grupos**, consulta o aplicativo de destino para eles e, em seguida, executa as ações de provisionamento definidas na seção **Mapeamentos** do Azure AD. Durante esse processo, o serviço de provisionamento armazena dados em cache sobre quais contas de usuário ele está gerenciando, para que contas não gerenciadas nos aplicativos de destino que nunca estiveram em escopo para atribuição não sejam afetadas por operações de desprovisionamento. Após a sincronização inicial, o serviço de provisionamento sincroniza automaticamente objetos de usuário e grupo em um intervalo de dez minutos.
+Se o provisionamento está sendo habilitado para Olá primeira vez para um aplicativo, ativar o serviço de saudação alterando Olá **Status de provisionamento** muito**em**. Isso faz com que Olá AD do Azure provisionamento serviço tooperform uma sincronização inicial, onde ele lê a usuários de saudação atribuídos em Olá **usuários e grupos** seção, consultas de aplicativo de destino hello para eles e executa Olá provisionamento as ações definidas no AD do Azure de saudação **mapeamentos** seção. Durante esse processo, Olá serviço de configuração armazena em cache dados sobre quais contas de usuário que está gerenciando, para que contas não gerenciados em aplicativos de destino Olá nunca no escopo de atribuição não são afetadas por operações de cancelamento do provisionamento. Depois de saudação a sincronização inicial, Olá automaticamente o serviço de configuração sincroniza objetos de usuário e grupo em um intervalo de dez minutos.
 
-Alterar o **Status de Provisionamento** para **Desativado** simplesmente pausa o serviço de provisionamento. Nesse estado, o Azure não cria, atualiza nem remove objetos de usuário ou grupo no aplicativo. Alterar o estado para ativado faz com que o serviço continue de onde parou.
+Olá alteração **Status de provisionamento** muito**Off** simplesmente pausa Olá serviço de provisionamento. Nesse estado, Azure não criar, atualizar ou remover qualquer usuário ou objetos de grupo no aplicativo hello. Alterar Olá estado back tooon faz com que o hello serviço toopick onde parou.
 
-Marcar a caixa de seleção **Limpar o estado atual e reiniciar a sincronização** e salvar interrompe o serviço de provisionamento, despeja os dados de cache sobre quais contas o Azure AD está gerenciando, reinicia os serviços e executa novamente a sincronização inicial. Essa opção permite que os administradores iniciem novamente o processo de implantação de provisionamento.
+Olá selecionando **limpar o estado atual e reinicie a sincronização** caixa de seleção e salvando paradas Olá serviço de provisionamento, despejos Olá armazenado em cache dados sobre as contas do AD do Azure está gerenciando, reinicia os serviços hello e executa Olá sincronização inicial novamente. Essa opção permite que os administradores toostart Olá processo de implantação de provisionamento novamente.
 
 ### <a name="synchronization-details"></a>Detalhes da sincronização
-Esta seção fornece detalhes de adição sobre a operação de serviço do provisionamento, incluindo a primeira e a última vez que o serviço de provisionamento foi executado no aplicativo e quantos objetos de usuário e grupo estão sendo gerenciados.
+Esta seção fornece detalhes de adição sobre Olá Olá provisionamento de serviço, incluindo o serviço de provisionamento vezes e o sobrenome Olá Olá executou em aplicativo hello e quantos objetos de usuário e grupo que estão sendo gerenciados.
 
-São fornecidos links para o **Relatório de atividade de provisionamento**, que fornece um log de todos os usuários e grupos criados, atualizados e removidos entre o Azure AD e o aplicativo de destino e o **Relatório de erros de provisionamento**, que fornece mensagens de erro mais detalhadas para objetos de usuário e grupo que não puderam ser lidos, criados, atualizados ou removidos. 
+São fornecidos links toohello **relatório de atividade de provisionamento**, que fornece um log de todos os usuários e grupos criados, atualizado e removido entre o AD do Azure e o aplicativo de destino hello e toohello **erro de provisionamento relatório** que fornece mais detalhadas de mensagens de erro para o usuário e grupo de objetos que toobe com falha de leitura, criado, atualizado ou removido. 
 
 ##<a name="feedback"></a>Comentários
 
-Esperamos que você goste de sua experiência com o Azure AD. Continue a fazer seus comentários! Poste seus comentários e suas ideias para aprimoramento na seção **Portal de Administração** do nosso [fórum de comentários](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Estamos empolgados para criar algo novo e interessante diariamente e usar suas diretrizes para formar e definir o que devemos criar a seguir.
+Esperamos que você goste de sua experiência com o Azure AD. Mantenha comentários Olá vindo! Poste seus comentários e ideias para a melhoria nos Olá **Portal de administração** seção do nosso [Fórum de comentários](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Nos estiver contentes sobre a criação de novo e interessante diariamente e usar tooshape sua orientação e definir o que devemos construir a seguir.
 
 
 [0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-blade.PNG

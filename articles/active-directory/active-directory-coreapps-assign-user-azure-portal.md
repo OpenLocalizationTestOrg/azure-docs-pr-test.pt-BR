@@ -1,6 +1,6 @@
 ---
-title: "Atribuir um usuário ou grupo a um aplicativo empresarial no Azure Active Directory | Microsoft Docs"
-description: "Como selecionar um aplicativo empresarial par atribuir um usuário ou um grupo a ele no Azure Active Directory"
+title: "aaaAssign um aplicativo de enterprise tooan usuário ou grupo no Active Directory do Azure | Microsoft Docs"
+description: "Como tooselect um aplicativo de enterprise tooassign um tooit de usuário ou grupo no Active Directory do Azure"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
-ms.openlocfilehash: ee784704ada9238b5cd048f99aaa4cb192ec7d57
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 86c11f19892b9c947a5331677c17759178ed2806
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory
-É fácil atribuir um usuário ou um grupo aos aplicativos empresariais no Azure AD (Azure Active Directory). Você deve ter as permissões apropriadas para gerenciar o aplicativo empresarial, além de ser um administrador global do diretório.
+# <a name="assign-a-user-or-group-tooan-enterprise-app-in-azure-active-directory"></a>Atribuir um aplicativo de enterprise tooan usuário ou grupo no Active Directory do Azure
+É fácil tooassign um usuário ou um aplicativo do grupo tooyour enterprise no Azure Active Directory (AD do Azure). Você deve ter Olá permissões apropriadas toomanage Olá enterprise aplicativo e deve ser o administrador global para o diretório de saudação.
 
-## <a name="how-do-i-assign-user-access-to-an-enterprise-app"></a>Como atribuir acesso de usuário a um aplicativo empresarial?
-1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
-2. Selecione **Mais serviços**, insira Azure Active Directory na caixa de texto, em seguida, selecione **Enter**.
-3. Na folha **Azure Active Directory – *nomedodiretório*** (ou seja, a folha do Azure AD para o diretório que você está gerenciando), escolha **Aplicativos empresariais**.
+## <a name="how-do-i-assign-user-access-tooan-enterprise-app"></a>Como atribuir acesso de usuário tooan enterprise aplicativo?
+1. Entrar toohello [portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global para o diretório de saudação.
+2. Selecione **mais serviços**, insira o Active Directory do Azure na caixa de texto de saudação e, em seguida, selecione **Enter**.
+3. Em Olá **do Active Directory do Azure - *directoryname***  folha (ou seja, Olá AD do Azure folha para diretório de saudação que você está gerenciando), selecione **aplicativos empresariais**.
 
     ![Abrir aplicativos empresariais](./media/active-directory-coreapps-assign-user-azure-portal/open-enterprise-apps.png)
-4. Na folha **Aplicativos empresariais**, escolha **Todos os aplicativos**. Você verá uma lista dos aplicativos que pode gerenciar.
-5. Na folha **Aplicativos empresariais – Todos os aplicativos** , escolha um aplicativo.
-6. Na folha ***appname*** (ou seja, a folha com o nome do aplicativo selecionado no título), selecione **Usuários e Grupos**.
+4. Em Olá **aplicativos empresariais** folha, selecione **todos os aplicativos**. Você verá uma lista de aplicativos de saudação, que você pode gerenciar.
+5. Em Olá **aplicativos corporativos - todos os aplicativos** folha, selecione um aplicativo.
+6. Em Olá ***appname*** folha (ou seja, Olá folha com nome Olá Olá o aplicativo selecionado no título de saudação), selecione **usuários e grupos**.
 
-    ![Seleção do comando todos os aplicativos](./media/active-directory-coreapps-assign-user-azure-portal/select-app-users.png)
-7. Na folha ***appname*** **- Usuário e Atribuição de Grupos**, selecione o comando **Adicionar**.
-8. Na folha **Adicionar Atribuição**, selecione **Usuários e grupos**.
+    ![Selecionando Olá comando de todos os aplicativos](./media/active-directory-coreapps-assign-user-azure-portal/select-app-users.png)
+7. Em Olá ***appname*** **-atribuição de grupo de & usuário** folha, selecione Olá **adicionar** comando.
+8. Em Olá **Adicionar atribuição** folha, selecione **usuários e grupos**.
 
-    ![Atribuir um usuário ou um grupo ao aplicativo](./media/active-directory-coreapps-assign-user-azure-portal/assign-users.png)
-9. Na folha **Usuários e grupos**, selecione um ou mais usuários ou grupos na lista, em seguida, pressione o botão **Selecionar** na parte inferior da folha.
-10. Na folha **Adicionar Atribuição**, selecione **Função**. Então, na folha **Selecionar Função**, escolha uma função para aplicar nos usuários ou grupos selecionados, em seguida, selecione o botão **OK** na parte inferior da folha.
-11. Na folha **Adicionar Atribuição**, selecione o botão **Atribuir** na parte inferior da folha. Os usuários ou os grupos atribuídos terão as permissões definidas pela função selecionada para esse aplicativo empresarial.
+    ![Atribuir um aplicativo de usuário ou grupo toohello](./media/active-directory-coreapps-assign-user-azure-portal/assign-users.png)
+9. Em Olá **usuários e grupos** folha, selecione um ou mais usuários ou grupos de saudação e, em seguida, selecione Olá **selecione** botão na parte inferior da saudação da folha de saudação.
+10. Em Olá **Adicionar atribuição** folha, selecione **função**. Em seguida, na Olá **Selecionar função** folha, selecione um toohello de tooapply função usuários ou grupos selecionados e, em seguida, selecione Olá **Okey** botão na parte inferior da saudação da folha de saudação.
+11. Em Olá **Adicionar atribuição** folha, selecione Olá **atribuir** botão na parte inferior da saudação da folha de saudação. Olá atribuída a usuários ou grupos terão permissões de saudação definidas pela função selecionada de saudação para esse aplicativo corporativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Ver todos os meus grupos](active-directory-groups-view-azure-portal.md)
 * [Remover uma atribuição de usuário ou de grupo de um aplicativo empresarial](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Desabilitar as entradas de usuário em um aplicativo empresarial](active-directory-coreapps-disable-app-azure-portal.md)
-* [Alterar o nome ou logotipo de um aplicativo empresarial](active-directory-coreapps-change-app-logo-user-azure-portal.md)
+* [Alterar nome de saudação ou logotipo de um aplicativo corporativo](active-directory-coreapps-change-app-logo-user-azure-portal.md)

@@ -1,6 +1,6 @@
 ---
-title: "Criar um aplicativo Web do Azure básico no IntelliJ | Microsoft Docs"
-description: Este tutorial mostra como usar o Kit de Ferramentas do Azure para IntelliJ para criar um aplicativo Web Hello World para o Azure.
+title: "aaaCreate um aplicativo web do Azure básico em IntelliJ | Microsoft Docs"
+description: Este tutorial mostra como toouse hello Kit de ferramentas do Azure para IntelliJ toocreate um aplicativo de Web Hello World para Azure.
 services: app-service\web
 documentationcenter: java
 author: selvasingh
@@ -14,16 +14,16 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 20b2c3d86f5bde9302647f345aa99b030d78613a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4667497213cac3ddf754d164e614c809f338cce5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-basic-azure-web-app-in-intellij"></a>Criar um aplicativo Web do Azure básico no IntelliJ
-Este tutorial mostra como criar e implantar um aplicativo Hello World básico para o Azure como um aplicativo Web usando o [Kit de Ferramentas do Azure para IntelliJ]. Mostramos um exemplo básico de JSP para manter a simplicidade, mas, para a implantação do Azure, etapas semelhantes podem ser usadas para um servlet Java.
+Este tutorial mostra como toocreate e implantar um tooAzure de aplicativo Hello World básica como um aplicativo Web usando Olá [Kit de ferramentas do Azure para IntelliJ]. Mostramos um exemplo básico de JSP para manter a simplicidade, mas, para a implantação do Azure, etapas semelhantes podem ser usadas para um servlet Java.
 
-Após a conclusão deste tutorial, seu aplicativo será semelhante à ilustração a seguir quando exibido em um navegador da Web:
+Quando você concluiu este tutorial, o aplicativo ficará semelhante toohello ilustração a seguir quando você exibi-lo em um navegador da web:
 
 ![Página da Web de exemplo][01]
 
@@ -32,201 +32,201 @@ Após a conclusão deste tutorial, seu aplicativo será semelhante à ilustraç�
 * IntelliJ IDEA Ultimate Edition. Isso pode ser baixado de <https://www.jetbrains.com/idea/download/>.
 * Uma distribuição de um servidor Web ou de um servidor de aplicativo baseado em Java, como o [Apache Tomcat] ou o [Jetty].
 * Uma assinatura do Azure, que pode ser adquirida em <https://azure.microsoft.com/free/> ou <http://azure.microsoft.com/pricing/purchase-options/>.
-* O [Kit de Ferramentas do Azure para IntelliJ]. Para saber informações sobre a instalação do Kit de ferramentas do Azure para, veja [Instalando o Kit de ferramentas do Azure para IntelliJ].
+* Olá [Kit de ferramentas do Azure para IntelliJ]. Para obter informações sobre como instalar Olá Kit de ferramentas do Azure, consulte [Olá instalando o Kit de ferramentas do Azure para IntelliJ].
 
-## <a name="to-create-a-hello-world-application"></a>Para criar um aplicativo Hello World
+## <a name="toocreate-a-hello-world-application"></a>toocreate um aplicativo Hello World
 Primeiro, vamos começar com a criação de um projeto Java.
 
-1. Inicie o IntelliJ e clique no menu **Arquivo**, depois em **Novo** e em **Projeto**.
+1. Iniciar IntelliJ e clique em Olá **arquivo** menu, clique em **novo**e, em seguida, clique em **projeto**.
    
     ![Arquivo Novo Projeto][02]
-2. Na caixa de diálogo Novo Projeto, selecione **Java**, **Aplicativo Web** e clique em **Avançar** para adicionar um Project SDK.
+2. Na caixa de diálogo Novo projeto hello, selecione **Java**, em seguida, **aplicativo Web**e, em seguida, clique em **novo** tooadd um SDK de projeto.
    
     ![Caixa de diálogo Novo Projeto][03a]
    
-3. Na caixa de diálogo Selecionar o Diretório Base para o JDK, selecione a pasta onde o JDK está instalado e clique **OK**. Clique em **Avançar** na caixa de diálogo Novo Projeto para continuar.
+3. Em hello Selecionar diretório base para a caixa de diálogo do JDK, selecione Olá pasta onde o seu JDK está instalado e clique **Okey**. Clique em **próximo** em Olá toocontinue de caixa de diálogo de novo projeto.
    
     ![Especificar o diretório base do JDK][03b]
-4. Para a finalidade deste tutorial, nomeie o projeto como **Java-Web-App-On-Azure** e clique em **Concluir**.
+4. Para fins deste tutorial, nomeie o projeto de saudação **Java aplicativo Web no Azure**e, em seguida, clique em **concluir**.
    
     ![Caixa de diálogo Novo Projeto][04]
 5. Na exibição do Explorador de Projetos do IntelliJ, expanda **Java-Web-App-On-Azure**, expanda **Web** e clique duas vezes em **index.jsp**.
    
     ![Abrir Índice de Página][05c]
-6. Quando o arquivo index.jsp for aberto no IntelliJ, adicione o texto para exibir dinamicamente **Hello World!** dentro do elemento existente `<body>`. Seu conteúdo do `<body>` atualizado deve ser parecido com o exemplo a seguir:
+6. Quando o arquivo index.jsp for aberto no IntelliJ, adicionar na exibição do texto toodynamically **Olá, mundo!** dentro de saudação existente `<body>` elemento. Seu atualizada `<body>` conteúdo deve ser semelhante a saudação de exemplo a seguir:
    
     `<body><b><% out.println("Hello World!"); %></b></body>` 
 7. Salve o index.jsp.
 
-## <a name="to-deploy-your-application-to-an-azure-web-app-container"></a>Para implantar seu aplicativo em um contêiner de aplicativos Web do Azure
-Há várias maneiras pelas quais você pode implantar um aplicativo Web Java no Azure. Este tutorial descreve uma das mais simples: o aplicativo será implantado em um contêiner de aplicativos Web do Azure, e não há a necessidade de qualquer tipo de projeto especial nem de ferramentas adicionais. O JDK e o software do contêiner da Web serão fornecidos a você pelo Azure, portanto, não é necessário carregar seu próprio; tudo o que você precisa é de seu aplicativo Web Java. Como resultado, o processo de publicação de seu aplicativo demorará segundos, e não minutos.
+## <a name="toodeploy-your-application-tooan-azure-web-app-container"></a>toodeploy tooan seu aplicativo recipiente de aplicativo da Web do Azure
+Há várias maneiras pelas quais você pode implantar um tooAzure de aplicativo web Java. Este tutorial descreve uma saudação mais simples: o aplicativo será implantado tooan contêiner de aplicativo Web do Azure – nenhum tipo de projeto especial nem ferramentas adicionais são necessárias. Olá Olá JDK e o software da web que contêiner será fornecido para você pelo Azure, portanto não há nenhuma necessidade tooupload seu próprios; tudo o que você precisa é de seu aplicativo da Web de Java. Como resultado, o processo de publicação de saudação para seu aplicativo levará segundos, minutos não.
 
-Antes de publicar seu aplicativo, você precisa definir as configurações de módulo. Para fazer isso, execute as seguintes etapas:
+Antes de publicar seu aplicativo, é necessário primeiro tooconfigure suas configurações de módulo. Assim, o toodo use Olá etapas a seguir:
 
-1. No Explorador de Projetos do IntelliJ, clique com o botão direito do mouse no projeto **Java-Web-App-On-Azure** . Quando o menu de contexto for exibido, clique em **Abrir Configurações do Módulo**.
+1. No Explorador de projeto do IntelliJ, clique com botão direito Olá **Java aplicativo Web no Azure** projeto. Quando o menu de contexto Olá for exibida, clique em **abrir configurações de módulo**.
 
     ![Abrir configurações do módulo][05a]
-2. Quando a caixa de diálogo Estrutura do Projeto aparece:
+2. Quando for exibida a caixa de diálogo Olá estrutura do projeto:
 
-   a. Clique em **Artefatos** na lista de **Configurações do Projeto**.
-   b. Altere o nome do artefato na caixa **Nome** de modo que ele não contenha caracteres especiais ou espaços em branco. Isso é necessário porque o nome será usado no URI (Uniform Resource Identifier).
-   c. Altere o **Tipo** para **Aplicativo Web: arquivo**.
-   d. Clique em **OK** para fechar a caixa de diálogo Estrutura de Projeto.
+   a. Clique em **artefatos** na lista de saudação do **configurações de projeto**.
+   b. Alterar nome do artefato Olá no hello **nome** caixa para que ele não contém espaço em branco ou caracteres especiais; isso é necessário pois Olá nome será usado em Olá identificador de recurso uniforme (URI).
+   c. Saudação de alteração **tipo** muito**aplicativo Web: arquivo**.
+   d. Clique em **Okey** caixa de diálogo tooclose Olá estrutura do projeto.
 
     ![Abrir configurações do módulo][05b]
 
-Quando você tiver definido suas configurações de módulo, poderá publicar seu aplicativo no Azure usando as seguintes etapas:
+Quando você tiver configurado as definições de módulo, você pode publicar seu aplicativo tooAzure usando Olá etapas a seguir:
 
-1. No Explorador de Projetos do IntelliJ, clique com o botão direito do mouse no projeto **Java-Web-App-On-Azure** . Quando o menu de contexto for exibido, selecione **Azure** e clique em **Publicar como Aplicativo Web do Azure...**
+1. No Explorador de projeto do IntelliJ, clique com botão direito Olá **Java aplicativo Web no Azure** projeto. Quando o menu de contexto Olá for exibida, selecione **Azure**e, em seguida, clique em **Publicar como um aplicativo Web do Azure...**
    
     ![Menu de Contexto de Publicação do Azure][06]
-2. Se você ainda não tiver entrado no Azure por meio do IntelliJ, será solicitada a entrada em sua conta do Azure. (Se você tiver várias contas do Azure, alguns dos avisos mostrados durante o processo de entrada poderão ser exibidos mais de uma vez, mesmo se forem aparentemente os mesmos. Quando isso acontecer, continue seguindo as instruções de entrada.)
+2. Se você tiver não tiver entrado no Azure de IntelliJ, será solicitada toosign em sua conta do Azure. (Se você tiver várias contas do Azure, alguns dos prompts de saudação durante o processo de entrada hello podem ser mostradas mais de uma vez, mesmo se eles parecem toobe Olá mesmo. Quando isso acontece, continuar toofollow Olá sinal instruções).
    
     ![Caixa de diálogo Login do Azure][07]
-3. Após o logon bem-sucedido em sua conta do Azure, a caixa de diálogo **Gerenciar Assinaturas** exibirá uma lista de assinaturas associadas às suas credenciais. (Se houver várias assinaturas listadas e você quiser trabalhar com apenas um subconjunto específico, será possível desmarcar as que não deseja usar.) Depois de selecionar suas assinaturas, clique em **Fechar**.
+3. Depois de ter entrado com êxito em sua conta do Azure, Olá **gerenciar assinaturas** caixa de diálogo exibirá uma lista de assinaturas que estão associados com suas credenciais. (Se houver várias assinaturas listadas e você desejar toowork com apenas um subconjunto específico de-los, opcionalmente pode desmarcar Olá assinaturas que não toouse.) Depois de selecionar suas assinaturas, clique em **Fechar**.
    
     ![Gerenciar Assinaturas][08]
-4. Quando a caixa de diálogo **Implantar no Contêiner do Aplicativo Web do Azure** for mostrada, ela exibirá todos os contêineres do Aplicativo Web criados anteriormente por você; se você não tiver criado nenhum contêiner, a lista estará vazia.
+4. Olá quando **implantar tooAzure contêiner de aplicativo da Web** caixa de diálogo for exibida, ele exibirá qualquer contêiner de aplicativo Web que você criou anteriormente; se você não criou qualquer contêiner, a lista de saudação estará vazia.
    
     ![Contêineres de Aplicativo][09]
-5. Se você nunca tiver criado um contêiner de aplicativos Web do Azure, ou se quiser publicar seu aplicativo em um novo contêiner, use as etapas a seguir. Caso contrário, selecione um Contêiner de Aplicativo Web existente e pule para a etapa 6 abaixo.
+5. Se você não criou um contêiner de aplicativo Web do Azure antes, ou se você gostaria que toopublish seu aplicativo tooa novo contêiner, use Olá etapas a seguir. Caso contrário, selecione um contêiner do aplicativo Web existente e ignorar toostep 6 abaixo.
    
    1. Clique em **+**
       
        ![Adicionar Contêiner de Aplicativo][10]
-   2. A caixa de diálogo **Novo Contêiner de Aplicativo Web** será exibida e será usada nas próximas etapas.
+   2. Olá **novo contêiner de aplicativo Web** caixa de diálogo será exibida, que será usado para Olá lado várias etapas.
       
        ![Novo Contêiner de Aplicativo][11a]
-   3. Insira um **Rótulo DNS** para seu Contêiner do Aplicativo Web; isso formará o rótulo DNS folha da URL do host de seu aplicativo Web no Azure. Observe que o nome deve estar disponível e de acordo com os requisitos de nomenclatura de aplicativo Web do Azure.
-   4. No menu suspenso **Contêiner da Web** , selecione o software apropriado ao seu aplicativo.
+   3. Insira um **rótulo DNS** para seu contêiner de aplicativo da Web; isso formarão o rótulo DNS Olá folha da URL de host Olá para o aplicativo web no Azure. Observe que esse nome hello deve estar disponível e está de acordo com requisitos de nomenclatura de aplicativo Web tooAzure.
+   4. Em Olá **contêiner da Web** menu suspenso, selecione Olá o software apropriado para seu aplicativo.
       
-       No momento, você pode escolher entre o Tomcat 8, Tomcat 7 ou Jetty 9. Uma distribuição recente do software selecionado será fornecida pelo Azure e ele será executado em uma distribuição recente do JDK 8 criado pela Oracle e fornecido pelo Azure.
-   5. No menu suspenso **Assinatura** , selecione a assinatura que deseja usar para essa implantação.
-   6. No menu suspenso **Grupo de Recursos** , selecione o Grupo de Recursos com o qual deseja associar seu Aplicativo Web. (Os Grupos de Recursos do Azure lhe permitem agrupar recursos relacionados para que, por exemplo, possam ser excluídos juntos.)
+       No momento, você pode escolher entre o Tomcat 8, Tomcat 7 ou Jetty 9. Uma distribuição recente do software de saudação selecionada será fornecida pelo Azure e ele será executado em uma distribuição recente do JDK 8 criado pela Oracle e fornecido pelo Azure.
+   5. Em Olá **assinatura** menu suspenso, assinatura selecione Olá deseja toouse para essa implantação.
+   6. Em Olá **grupo de recursos** menu suspenso, selecione Olá grupo de recursos com o qual você deseja tooassociate seu aplicativo Web. (Grupos de recursos do azure permite que você toogroup recursos relacionados juntos para que, por exemplo, pode ser excluídos em conjunto.)
       
-       Você pode selecionar um Grupo de Recursos existente (se houver) e ignorar a etapa g abaixo ou usar as seguintes etapas para criar um novo Grupo de Recursos:
+       Você pode selecionar um grupo de recursos existente (se houver) e ignorar toostep g abaixo ou use Olá seguir etapas toocreate um novo grupo de recursos:
       
-      * Selecione **&lt;&lt; Criar novo grupo de recursos &gt;&gt;** no menu suspenso **Grupo de recursos**.
-      * A caixa de diálogo **Novo Grupo de Recursos** será exibida:
+      * Selecione  **&lt; &lt; criar novo grupo de recursos &gt; &gt;**  em Olá **grupo de recursos** menu suspenso.
+      * Olá **novo grupo de recursos** caixa de diálogo será exibida:
         
           ![Novo grupo de recursos][12]
-      * Na caixa de texto **Nome** , especifique um nome para o novo Grupo de Recursos.
-      * No menu suspenso **Região** , selecione a localização do data center do Azure apropriada ao Grupo de Recursos.
+      * Em Olá Olá **nome** caixa de texto, especifique um nome para seu novo grupo de recursos.
+      * Em Olá Olá **região** menu suspenso, selecione Olá apropriado do Azure Datacenter local para seu grupo de recursos.
       * Clique em **OK**.
-   7. O menu suspenso **Plano do Serviço de Aplicativo** lista os planos do serviço de aplicativo associados ao Grupo de Recursos selecionado. (Um Plano do Serviço de Aplicativo especifica informações como o local de seu Aplicativo Web, o tipo de preço e o tamanho da instância de computação. Um único Plano do Serviço de Aplicativo pode ser usado para vários Aplicativos Web, por isso, ele é mantido separadamente de uma implantação de Aplicativo Web específica.)
+   7. Olá **plano do serviço de aplicativo** menu suspenso lista planos de serviço de aplicativo hello que estão associados a saudação grupo de recursos que você selecionou. (Um plano de serviço de aplicativo especifica informações como a localização de saudação do seu aplicativo Web, Olá tipo de preço e tamanho de instância de computação hello. Um único Plano do Serviço de Aplicativo pode ser usado para vários Aplicativos Web, por isso, ele é mantido separadamente de uma implantação de Aplicativo Web específica.)
       
-       Você pode selecionar um Plano do Serviço de Aplicativo existente (se houver) e ignorar a etapa h abaixo ou usar as seguintes etapas para criar um novo Plano do Serviço de Aplicativo:
+       Você pode selecionar um plano de serviço de aplicativo existente (se houver) e ignorar toostep h abaixo, ou usar Olá toocreate etapas um novo plano de serviço de aplicativo a seguir:
       
-      * Selecione **&lt;&lt; Criar novo plano do Serviço de Aplicativo &gt;&gt;** no menu suspenso **Plano do Serviço de Aplicativo**.
-      * A caixa de diálogo **Novo Plano do Serviço de Aplicativo** será exibida:
+      * Selecione  **&lt; &lt; criar novo plano de serviço de aplicativo &gt; &gt;**  em Olá **plano do serviço de aplicativo** menu suspenso.
+      * Olá **novo plano de serviço de aplicativo** caixa de diálogo será exibida:
         
           ![Novo Plano do Serviço de Aplicativo][13]
-      * Na caixa de texto **Nome** , especifique um nome para o novo Plano do Serviço de Aplicativo.
-      * No menu suspenso **Localização** , selecione a localização do data center do Azure apropriada ao plano.
-      * No menu suspenso **Tipo de Preço** , selecione o preço apropriado ao plano. Para fins de teste, é possível escolher **Gratuito**.
-      * No menu suspenso **Tamanho da Instância** , selecione o tamanho de instância apropriado ao plano. Para fins de teste, é possível escolher **Pequeno**.
+      * Em Olá Olá **nome** caixa de texto, especifique um nome para o novo plano de serviço de aplicativo.
+      * Em Olá Olá **local** menu suspenso, selecione Olá apropriado do Azure Datacenter local para o plano de saudação.
+      * Em Olá Olá **preço** menu suspenso, selecione Olá apropriado de preços para o plano de saudação. Para fins de teste, é possível escolher **Gratuito**.
+      * Em Olá Olá **tamanho da instância** menu suspenso, o tamanho de instância apropriada do hello selecione plano hello. Para fins de teste, é possível escolher **Pequeno**.
       * Clique em **OK**.
-   8. (Opcional) Por padrão, uma distribuição recente de Java 8 será implantada automaticamente como sua JVM pelo Azure no contêiner do aplicativo Web. No entanto, você pode selecionar uma versão diferente e uma distribuição da JVM. Para fazer isso, execute as seguintes etapas:
+   8. (Opcional) Por padrão, uma distribuição recente de Java 8 será implantada automaticamente como sua JVM pelo contêiner de aplicativo da web tooyour do Azure. No entanto, você pode selecionar uma versão diferente e a distribuição de saudação da JVM. Assim, o toodo use Olá etapas a seguir:
       
-      * Clique na guia **JDK** na caixa de diálogo **Novo Contêiner do Aplicativo Web**.
-      * Você pode escolher entre uma das duas seguintes opções:
+      * Clique em Olá **JDK** guia Olá **novo contêiner de aplicativo Web** caixa de diálogo.
+      * Você pode escolher uma saudação as opções a seguir:
         
-        * Implantar o JDK padrão, que é oferecido pelo Azure
+        * Implantar o padrão de saudação JDK oferecido pelo Azure
         * Implantar um JDK de terceiros de uma lista suspensa de JDKs adicionais que estão disponíveis no Azure
         * Implantar um JDK personalizado, que deve ser empacotado como um arquivo ZIP e ser publicamente disponível ou em sua conta de armazenamento do Azure
         
         ![Guia Novo JDK de Contêiner de Aplicativo][11b]
-   9. Depois de concluir todas as etapas acima, a caixa de diálogo New Web App Container (Novo Contêiner de Aplicativos Web) deve ser semelhante à ilustração a seguir:
+   9. Depois de concluir todos Olá acima etapas, caixa de diálogo novo contêiner de aplicativo Web hello deve se assemelhar Olá ilustração a seguir:
       
        ![Novo Contêiner de Aplicativo][14]
-   10. Clique em **OK** para concluir a criação do novo contêiner do Aplicativo Web.
+   10. Clique em **Okey** toocomplete criação de saudação do seu novo contêiner de aplicativo Web.
        
-        Aguarde alguns segundos para a lista de contêineres de Aplicativo Web ser atualizada. O contêiner do aplicativo Web recém-criado agora deve ser selecionado na lista.
-6. Agora você está pronto para concluir a implantação inicial do seu aplicativo Web no Azure. Clique em **OK** para implantar seu aplicativo Java no contêiner do aplicativo Web selecionado. Por padrão, o aplicativo será implantado como um subdiretório do servidor de aplicativos. Se desejar implantá-lo como o aplicativo raiz, marque a caixa de seleção **Implantar na raiz** antes de clicar em **OK**.
+        Aguarde alguns segundos para lista de saudação do hello toobe de contêineres de aplicativo Web atualizada e o contêiner de aplicativo web recém-criado agora deve ser selecionado na lista de saudação.
+6. Agora você está pronto toocomplete implantação inicial do hello de tooAzure seu aplicativo Web; Clique em **Okey** toodeploy sua toohello de aplicativo Java selecionado contêiner do aplicativo Web. Por padrão, o aplicativo será implantado como um subdiretório saudação do servidor de aplicativos. Se quiser toobe implantado como um aplicativo raiz de hello, verifique Olá **implantar tooroot** caixa de seleção antes de clicar em **Okey**.
    
-    ![Implantar no Azure][15]
-7. Em seguida, você deverá ver o modo de exibição do **Log de Atividades do Azure** , que indicará o status da implantação de seu Aplicativo Web.
+    ![Implantar tooAzure][15]
+7. Em seguida, você deve ver Olá **o Log de atividades do Azure** exibição, que indica o status de implantação de saudação do seu aplicativo Web.
    
     ![Indicador de Progresso][16]
    
-    O processo de implantação de seu aplicativo Web no Azure deve demorar apenas alguns segundos para ser concluído. Quando seu aplicativo estiver pronto, você verá um link chamado **Publicada** in the **Status** . Quando você clicar no link, ele o levará à página inicial do seu aplicativo Web implantado, ou você pode usar as etapas da seção a seguir para navegar até o seu aplicativo Web.
+    processo de saudação de implantar seu aplicativo Web tooAzure deve levar somente alguns segundos toocomplete. Quando pronto seu aplicativo, você verá um link chamado **publicado** em Olá **Status** coluna. Quando você clica em um link de Olá, levará home page do aplicativo da Web tooyour implantado, ou você pode usar etapas Olá Olá seção toobrowse tooyour web aplicativo a seguir.
 
-## <a name="browsing-to-your-web-app-on-azure"></a>Navegando até seu aplicativo Web no Azure
-Para navegar até o aplicativo Web no Azure, você poderá usar o modo de exibição do **Azure Explorer** .
+## <a name="browsing-tooyour-web-app-on-azure"></a>Navegação tooyour aplicativo Web no Azure
+toobrowse tooyour aplicativo Web no Azure, você pode usar o hello **Azure Explorer** exibição.
 
-Se o modo de exibição do **Azure Explorer** ainda não estiver aberto, você poderá abri-lo clicando no menu **Exibir** no IntelliJ, clicando em **Janelas de Ferramentas** e em **Service Explorer**. Se você não tiver feito logon anteriormente, receberá uma solicitação para fazê-lo.
+Se hello **Azure Explorer** exibição não ainda estiver aberta, você pode abri-lo clicando em, em seguida, **exibição** menu em IntelliJ, em seguida, clique em **janelas de ferramentas**e, em seguida, clique em  **Gerenciador de serviço**. Se você não tiver conectado anteriormente, ele solicitará que você toodo assim.
 
-Quando o modo de exibição do **Azure Explorer** for exibido, use estas etapas para navegar pelo aplicativo Web: 
+Olá quando **Azure Explorer** modo de exibição, use execute tooyour de toobrowse essas etapas aplicativo Web: 
 
-1. Expanda o nó **Azure** .
-2. Expanda o nó **Aplicativos Web** . 
-3. Clique com botão direito do mouse no Aplicativo Web desejado.
-4. Quando o menu de contexto for exibido, clique em **Abrir no Navegador**.
+1. Expanda Olá **Azure** nó.
+2. Expanda Olá **aplicativos Web** nó. 
+3. Olá com o botão direito desejada do aplicativo Web.
+4. Quando o menu de contexto Olá for exibida, clique em **abrir no navegador**.
    
     ![Procurar o Aplicativo Web][17]
 
 ## <a name="updating-your-web-app"></a>Atualizando seu aplicativo Web
 A atualização de um aplicativo Web do Azure em execução é um processo rápido e fácil, e você tem duas opções de atualização:
 
-* Você pode atualizar a implantação de um aplicativo Web Java existente.
-* Você pode publicar um aplicativo Java adicional no mesmo contêiner de aplicativo Web.
+* Você pode atualizar a implantação de saudação do aplicativo Web Java existente.
+* Você pode publicar um toohello de aplicativo Java adicional mesmo contêiner de aplicativo da Web.
 
-Em ambos os casos, o processo é idêntico e demora apenas alguns segundos:
+Em ambos os casos, o processo de saudação é idêntico e leva apenas alguns segundos:
 
-1. No explorador de projetos do IntelliJ, clique com o botão direito do mouse no aplicativo Java que você deseja atualizar ou adicionar a um contêiner de aplicativos Web existente.
-2. Quando o menu de contexto for exibido, selecione **Azure** e, em seguida, **Publicar como Aplicativo Web do Azure...**
-3. Como você já fez logon anteriormente, verá uma lista com seus contêineres de aplicativo Web existentes. Selecione aquele no qual deseja publicar ou publicar novamente o aplicativo Java e clique em **OK**.
+1. No Explorador de projeto IntelliJ Olá, clique no aplicativo de Java hello deseja tooupdate ou adicionar tooan existente do contêiner do aplicativo da Web.
+2. Quando o menu de contexto Olá for exibida, selecione **Azure** e, em seguida, **Publicar como um aplicativo Web do Azure...**
+3. Como você já fez logon anteriormente, verá uma lista com seus contêineres de aplicativo Web existentes. Selecione Olá um deseja toopublish ou publicar novamente o Java aplicativo tooand, clique **Okey**.
 
-Após alguns segundos, o modo de exibição do **Log de Atividades do Azure** mostrará a implantação atualizada como **Publicada** e será possível verificar o aplicativo atualizado em um navegador da Web.
+Alguns segundos mais tarde, Olá **o Log de atividades do Azure** exibição mostrará sua implantação atualizada como **publicado** e você será capaz de tooverify seu aplicativo atualizado em um navegador da web.
 
 ## <a name="starting-stopping-or-restarting-an-existing-web-app"></a>Iniciar, parar ou reiniciar o aplicativo Web existente
-Para iniciar ou parar um contêiner do Aplicativo Web do Azure existente, (incluindo todos os aplicativos Java implantados nele), é possível usar o modo de exibição do **Azure Explorer** .
+toostart ou interromper um contêiner existente do aplicativo Web do Azure, (incluindo todos os aplicativos do Java Olá implantado nele), você pode usar o hello **Azure Explorer** exibição.
 
-Se o modo de exibição do **Azure Explorer** ainda não estiver aberto, você poderá abri-lo clicando no menu **Exibir** no IntelliJ, clicando em **Janelas de Ferramentas** e em **Service Explorer**. Se você não tiver feito logon anteriormente, receberá uma solicitação para fazê-lo.
+Se hello **Azure Explorer** exibição não ainda estiver aberta, você pode abri-lo clicando em, em seguida, **exibição** menu em IntelliJ, em seguida, clique em **janelas de ferramentas**e, em seguida, clique em  **Gerenciador de serviço**. Se você não tiver conectado anteriormente, ele solicitará que você toodo assim.
 
-Quando o modo de exibição do **Azure Explorer** for exibido, use estas etapas para iniciar ou parar o Aplicativo Web: 
+Olá quando **Azure Explorer** modo de exibição, use siga essas etapas toostart ou interrompa o aplicativo Web: 
 
-1. Expanda o nó **Azure** .
-2. Expanda o nó **Aplicativos Web** . 
-3. Clique com botão direito do mouse no Aplicativo Web desejado.
-4. Quando o menu de contexto for exibido, clique em **Iniciar**, **Parar** ou **Reiniciar**. Observe que as opções de menu são sensíveis ao contexto, para que você só possa parar um aplicativo Web que esteja em execução ou iniciar um aplicativo Web que não esteja em execução no momento.
+1. Expanda Olá **Azure** nó.
+2. Expanda Olá **aplicativos Web** nó. 
+3. Olá com o botão direito desejada do aplicativo Web.
+4. Quando o menu de contexto Olá for exibida, clique em **iniciar**, **parar**, ou **reiniciar**. Observe que as opções de menu Olá têm reconhecimento de contexto, para que você só pode parar um aplicativo web em execução ou iniciar um aplicativo da web que não está em execução no momento.
    
     ![Parar Aplicativo Web][18]
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre os kits de ferramentas do Azure para Java IDEs, confira os links a seguir:
+Para obter mais informações sobre Olá kits de ferramentas do Azure para Java IDEs, consulte Olá links a seguir:
 
 * [Kit de ferramentas do Azure para Eclipse]
-  * [Instalação do Kit de Ferramentas do Azure para o Eclipse]
+  * [Saudação de instalar o Kit de ferramentas do Azure para Eclipse]
   * [Criar um aplicativo Web Hello World para o Azure no Eclipse]
-  * [Novidades no Kit de Ferramentas do Azure para o Eclipse]
-* [Kit de Ferramentas do Azure para IntelliJ]
-  * [Instalando o Kit de ferramentas do Azure para IntelliJ]
+  * [Novidades no Kit de ferramentas do Azure para Eclipse de saudação]
+* [Kit de ferramentas do Azure para IntelliJ]
+  * [Olá instalando o Kit de ferramentas do Azure para IntelliJ]
   * *Criar um aplicativo Web Hello World para o Azure no IntelliJ (este artigo)*
-  * [Novidades no Kit de Ferramentas do Azure para IntelliJ]
+  * [Novidades no Kit de ferramentas do Azure para IntelliJ de saudação]
 
 <a name="see-also"></a>
 
 ## <a name="see-also"></a>Consulte também
-Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure].
+Para obter mais informações sobre como usar o Azure com Java, consulte Olá [Centro de desenvolvedores de Java do Azure].
 
-Para obter mais informações sobre como criar aplicativos Web do Azure, confira a [Visão geral de Aplicativos Web].
+Para obter informações adicionais sobre a criação de aplicativos Web do Azure, consulte Olá [visão geral de aplicativos Web].
 
 [!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
 
 [Kit de ferramentas do Azure para Eclipse]: ../azure-toolkit-for-eclipse.md
-[Kit de Ferramentas do Azure para IntelliJ]: ../azure-toolkit-for-intellij.md
+[Kit de ferramentas do Azure para IntelliJ]: ../azure-toolkit-for-intellij.md
 [Criar um aplicativo Web Hello World para o Azure no Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
 [Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
-[Instalação do Kit de Ferramentas do Azure para o Eclipse]: ../azure-toolkit-for-eclipse-installation.md
-[Instalando o Kit de ferramentas do Azure para IntelliJ]: ../azure-toolkit-for-intellij-installation.md
-[Novidades no Kit de Ferramentas do Azure para o Eclipse]: ../azure-toolkit-for-eclipse-whats-new.md
-[Novidades no Kit de Ferramentas do Azure para IntelliJ]: ../azure-toolkit-for-intellij-whats-new.md
+[Saudação de instalar o Kit de ferramentas do Azure para Eclipse]: ../azure-toolkit-for-eclipse-installation.md
+[Olá instalando o Kit de ferramentas do Azure para IntelliJ]: ../azure-toolkit-for-intellij-installation.md
+[Novidades no Kit de ferramentas do Azure para Eclipse de saudação]: ../azure-toolkit-for-eclipse-whats-new.md
+[Novidades no Kit de ferramentas do Azure para IntelliJ de saudação]: ../azure-toolkit-for-intellij-whats-new.md
 
-[Central de desenvolvimento Java do Azure]: https://azure.microsoft.com/develop/java/
-[Visão geral de Aplicativos Web]: ./app-service-web-overview.md
+[Centro de desenvolvedores de Java do Azure]: https://azure.microsoft.com/develop/java/
+[visão geral de aplicativos Web]: ./app-service-web-overview.md
 [Apache Tomcat]: http://tomcat.apache.org/
 [Jetty]: http://www.eclipse.org/jetty/
 

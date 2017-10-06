@@ -1,6 +1,6 @@
 ---
-title: Monitorar o andamento do trabalho usando o .NET
-description: "Saiba como usar o código do manipulador de eventos para acompanhar o andamento do trabalho e enviar atualizações de status. O exemplo de código é escritos em C# e usam o SDK dos Serviços de Mídia para .NET."
+title: aaaMonitor andamento do trabalho usando o .NET
+description: "Saiba como tootrack de código de manipulador de eventos toouse andamento do trabalho e enviar as atualizações de status. exemplo de código Hello é escrito em c# e usa Olá SDK do Media Services para .NET."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 851981b291115ba31dc40535f8bcc71cdb475717
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 530aa1d78437cd7c41b4d9a895f9a0e9de0ad49d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-job-progress-using-net"></a>Monitorar o andamento do trabalho usando o .NET
 > [!div class="op_single_selector"]
@@ -28,10 +28,10 @@ ms.lasthandoff: 08/29/2017
 > 
 > 
 
-Quando você executa trabalhos, geralmente precisa de uma maneira de acompanhar o andamento do trabalho. Você pode verificar o andamento definindo um evento StateChanged (conforme descrito neste tópico) ou usando o Armazenamento de Filas do Azure para monitorar as notificações de trabalho dos Serviços de Mídia (conforme descrito [neste](media-services-dotnet-check-job-progress-with-queues.md) tópico).
+Quando você executa trabalhos, você geralmente requerem uma maneira tootrack trabalho de andamento. Você pode verificar o progresso de saudação definindo um manipulador de eventos StateChanged (conforme descrito neste tópico) ou usando toomonitor de armazenamento de fila do Azure Media Services trabalho notificações (conforme descrito em [isso](media-services-dotnet-check-job-progress-with-queues.md) tópico).
 
-## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>Definir o manipulador de eventos StateChanged para monitorar o andamento do trabalho
-O exemplo de código a seguir define o manipulador de eventos StateChanged: Esse manipulador de eventos acompanha o andamento do trabalho e fornece o status atualizado, dependendo do estado. O código também define o método LogJobStop. Esse método auxiliar registra os detalhes de erros.
+## <a name="define-statechanged-event-handler-toomonitor-job-progress"></a>Definir o andamento do trabalho StateChanged evento manipulador toomonitor
+Olá exemplo de código a seguir define o manipulador de eventos StateChanged hello. Este manipulador de eventos controla o andamento do trabalho e fornece o status atualizado, dependendo do estado de saudação. código Olá também define o método de LogJobStop hello. Esse método auxiliar registra os detalhes de erros.
 
     private static void StateChanged(object sender, JobStateChangedEventArgs e)
     {
@@ -73,7 +73,7 @@ O exemplo de código a seguir define o manipulador de eventos StateChanged: Esse
         StringBuilder builder = new StringBuilder();
         IJob job = GetJob(jobId);
 
-        builder.AppendLine("\nThe job stopped due to cancellation or an error.");
+        builder.AppendLine("\nThe job stopped due toocancellation or an error.");
         builder.AppendLine("***************************");
         builder.AppendLine("Job ID: " + job.Id);
         builder.AppendLine("Job Name: " + job.Name);
@@ -96,7 +96,7 @@ O exemplo de código a seguir define o manipulador de eventos StateChanged: Esse
             }
         }
         builder.AppendLine("***************************\n");
-        // Write the output to a local file and to the console. The template 
+        // Write hello output tooa local file and toohello console. hello template 
         // for an error output file is:  JobStop-{JobId}.txt
         string outputFile = _outputFilesFolder + @"\JobStop-" + JobIdAsFileName(job.Id) + ".txt";
         WriteToFile(outputFile, builder.ToString());

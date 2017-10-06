@@ -1,6 +1,6 @@
 ---
-title: "Usar Hive com Hadoop para análise de log do site – HDInsight do Azure | Microsoft Docs"
-description: "Saiba como usar o Hive com o HDInsight para analisar os logs do Website. Você usará um arquivo de log como entrada em uma tabela do HDInsight e usará o HiveQL para consultar os dados."
+title: "aaaUse Hive com Hadoop para análise de log do site - HDInsight do Azure | Microsoft Docs"
+description: "Saiba como toouse Hive com HDInsight tooanalyze site registra. Você usa um arquivo de log como entrada para uma tabela de HDInsight e usar dados de saudação do HiveQL tooquery."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -16,44 +16,44 @@ ms.topic: article
 ms.date: 05/17/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: e1cdb786bb6049980aafc0213abf53013e342618
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9cbce3cc8cf8bc3ad104dc4ca6a5628802c8fe89
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Usar o Hive com o HDInsight baseado no Windows para analisar logs de sites
-Saiba como usar o HiveQL com HDInsight para analisar os logs de um Website. A análise de log do Website pode ser usada para segmentar seu público com base em atividades semelhantes, categorizar os visitantes do site por demografia e descobrir o conteúdo que eles veem, seus Websites de origem e assim por diante.
+# <a name="use-hive-with-windows-based-hdinsight-tooanalyze-logs-from-websites"></a>Use o Hive com logs de tooanalyze HDInsight baseados em Windows de sites
+Saiba como toouse HiveQL com HDInsight tooanalyze logs de um site. Análise de log do site pode ser usado toosegment seu público-alvo com base nas atividades semelhantes, categorizar os visitantes do site por dados demográficos e toofind conteúdo Olá exibirem, Olá sites que eles vêm e assim por diante.
 
 > [!IMPORTANT]
-> As etapas neste documento só funcionam com clusters HDInsight baseados no Windows. O HDInsight está disponível somente no Windows para versões inferiores ao HDInsight 3.4. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Olá etapas para esse documento só funciona com clusters HDInsight baseados no Windows. O HDInsight está disponível somente no Windows para versões inferiores ao HDInsight 3.4. Linux é Olá sistema operacional somente de usado no HDInsight versão 3.4 ou posterior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-Neste exemplo, você utilizará um cluster do HDInsight para analisar arquivos de log do Website para obter informações sobre a frequência de visitas ao Website por meio de Websites externos em um dia. Você também vai gerar um resumo dos erros de site que os usuários enfrentam. Você saberá como:
+Neste exemplo, você usará uma HDInsight cluster tooanalyze site log arquivos tooget percepção frequência de saudação do site toohello visitas a sites externos em um dia. Você também irá gerar um resumo de erros de site que os usuários de saudação enfrentar. Você saberá como:
 
-* Conectar-se a um armazenamento de Blob do Azure, que contém os arquivos de log do site.
-* Criar tabelas do HIVE para consultar esses logs.
-* Criar consultas do HIVE para analisar os dados.
-* Usar o Microsoft Excel para conectar-se ao HDInsight (usando ODBC, conectividade de banco de dados aberta) para recuperar os dados analisados.
+* Conecte-se tooa armazenamento de BLOBs do Azure, que contém arquivos de log do site.
+* Criar tabelas de HIVE tooquery esses logs.
+* Crie consultas de HIVE tooanalyze dados de saudação.
+* Usar o Microsoft Excel tooconnect tooHDInsight (por meio de dados do banco de dados aberto connectivity (ODBC) tooretrieve Olá analisado.
 
 ![HDI.Samples.Website.Log.Analysis][img-hdi-weblogs-sample]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Você deve ter provisionado um cluster Hadoop no Azure HDInsight. Para obter instruções, confira [Provisionar clusters do HDInsight][hdinsight-provision].
 * Você deve ter o Microsoft Excel 2013 ou Microsoft Excel 2010 instalado.
-* Você deve ter o [Driver ODBC do Microsoft Hive](http://www.microsoft.com/download/details.aspx?id=40886) para importar dados do Hive no Excel.
+* Você deve ter [Microsoft ODBC Driver Hive](http://www.microsoft.com/download/details.aspx?id=40886) tooimport dados de Hive no Excel.
 
-## <a name="to-run-the-sample"></a>Para executar a amostra
-1. No [Portal do Azure](https://portal.azure.com/), no quadro inicial (caso você tenha fixado o cluster ali), clique no bloco do cluster no qual você deseja executar o exemplo.
-2. Na folha do cluster, em **Links Rápidos**, clique em **Painel do Cluster** e, na folha **Painel do Cluster**, clique em **Painel do Cluster HDInsight**. Como alternativa, você pode abrir diretamente o painel usando a seguinte URL:
+## <a name="toorun-hello-sample"></a>exemplo de hello toorun
+1. De saudação [Portal do Azure](https://portal.azure.com/), da saudação quadro inicial (se você fixou o cluster de saudação existe), clique em bloco de cluster Olá no qual você deseja que o exemplo de hello toorun.
+2. De saudação do cluster folha, em **Links rápidos**, clique em **painel Cluster**e, em seguida, Olá **painel Cluster** folha, clique em **HDInsight Cluster Painel**. Como alternativa, você pode abrir diretamente painel hello usando Olá URL a seguir:
 
          https://<clustername>.azurehdinsight.net
 
-    Quando solicitado, faça a autenticação usando o nome de usuário e senha do administrador usados ao provisionar o cluster.
-3. Na página da Web que é aberta, clique na guia **Galeria de Introdução** e, sob a categoria **Soluções com Dados de Exemplo**, clique no exemplo **Análise de Log do Site**.
-4. Siga as instruções fornecidas na página da Web para concluir a amostra.
+    Quando solicitado, autentica usando o nome de usuário de administrador hello e senha que você usou ao provisionar o cluster hello.
+3. Na página de web de saudação que é aberta, clique em Olá **Galeria de Introdução** guia e, em seguida, em Olá **soluções com dados de exemplo** categoria, clique Olá **análise de Log do site** exemplo.
+4. Siga as instruções de saudação fornecidas no exemplo de saudação de toofinish hello página da web.
 
 ## <a name="next-steps"></a>Próximas etapas
-Experimente o exemplo a seguir: [Analisando dados do sensor usando o Hive com HDInsight](hdinsight-hive-analyze-sensor-data.md).
+Tente Olá exemplo a seguir: [analisando dados de sensor com Hive HDInsight](hdinsight-hive-analyze-sensor-data.md).
 
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis.md

@@ -1,6 +1,6 @@
 ---
-title: "Controlar o roteamento em uma rede virtual do Azure - PowerShell - Clássico | Microsoft Docs"
-description: Aprenda a controlar o roteamento em VNets usando o PowerShell | Classico
+title: "aaaControl roteamento em uma rede Virtual do Azure - PowerShell - clássico | Microsoft Docs"
+description: "Saiba como toocontrol roteamento em VNets usando o PowerShell | Clássico"
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
-ms.openlocfilehash: e9564d223cb85529f1fa97bc398d35c6debcedae
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 36edf263fb434d5fb13310d4324da20e57f016a9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Controlar o roteamento e usar dispositivos virtuais (clássico) usando o PowerShell
 
@@ -33,26 +33,26 @@ ms.lasthandoff: 07/11/2017
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 > [!IMPORTANT]
-> Antes de trabalhar com os recursos do Azure, é importante entender que, no momento, o Azure apresenta dois modelos de implantação: Azure Resource Manager e clássico. Verifique se você entendeu [os modelos e as ferramentas de implantação](../azure-resource-manager/resource-manager-deployment-model.md) antes de trabalhar com qualquer recurso do Azure. Você pode exibir a documentação para ferramentas diferentes selecionando uma opção na parte superior deste artigo. Este artigo aborda o modelo de implantação clássico.
+> Antes de trabalhar com recursos do Azure, é importante toounderstand que o Azure atualmente tem dois modelos de implantação: Gerenciador de recursos do Azure e clássico. Verifique se você entendeu [os modelos e as ferramentas de implantação](../azure-resource-manager/resource-manager-deployment-model.md) antes de trabalhar com qualquer recurso do Azure. Você pode exibir a documentação de saudação para diferentes ferramentas selecionando uma opção na parte superior da saudação deste artigo. Este artigo aborda o modelo de implantação clássico hello.
 > 
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
-O exemplo de comando do Azure PowerShell abaixo espera um ambiente simples já criado com base no cenário acima. Se você quiser executar os comandos da forma como eles aparecem neste documento, crie o ambiente descrito em [criar uma VNet (clássica) usando o PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md).
+exemplo Hello Azure PowerShell comandos abaixo esperam um ambiente simples já foi criado com base no cenário de saudação acima. Comandos de saudação toorun conforme elas são exibidas neste documento, criar ambiente Olá mostrado na [criar uma rede virtual (clássica) usando o PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-the-udr-for-the-front-end-subnet"></a>Criar o UDR para a sub-rede de front-end
-Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end com base no cenário acima, siga as etapas abaixo.
+## <a name="create-hello-udr-for-hello-front-end-subnet"></a>Criar hello UDR para a sub-rede de front-end Olá
+tabela de rotas toocreate hello e rotas necessárias para a sub-rede de front-end de saudação com base no cenário de saudação acima, siga as etapas de saudação abaixo.
 
-1. Execute o comando a seguir para criar uma tabela de rota para a sub-rede de front-end:
+1. Execute Olá toocreate de comando a seguir uma tabela de rotas para sub-rede front-end hello:
 
     ```powershell
     New-AzureRouteTable -Name UDR-FrontEnd -Location uswest `
     -Label "Route table for front end subnet"
     ```
 
-2. Execute o comando a seguir para criar uma rota na tabela de rotas para enviar todo o tráfego destinado à sub-rede de back-end (192.168.2.0/24) para a VM **FW1** (192.168.0.4):
+2. Executar Olá após o comando toocreate uma rota no toosend de tabela de rota Olá todo o tráfego destinado toohello sub-rede de back-end (192.168.2.0/24) toohello **FW1** VM (192.168.0.4):
 
     ```powershell
     Get-AzureRouteTable UDR-FrontEnd `
@@ -61,7 +61,7 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end c
     -NextHopIpAddress 192.168.0.4
     ```
 
-3. Execute o comando a seguir para associar a tabela de rotas à sub-rede de **FrontEnd**:
+3. Execução hello após a tabela de rotas do comando tooassociate Olá com hello **front-end** sub-rede:
 
     ```powershell
     Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
@@ -69,10 +69,10 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end c
     -RouteTableName UDR-FrontEnd
     ```
 
-## <a name="create-the-udr-for-the-back-end-subnet"></a>Criar UDR para a sub-rede de back-end
-Para criar a tabela de rotas e a rota necessária para a sub-rede de back-end com base no cenário, siga as seguintes etapas:
+## <a name="create-hello-udr-for-hello-back-end-subnet"></a>Criar hello UDR para a sub-rede de back-end Olá
+tabela de rotas toocreate hello e rota necessário para fazer Olá end subrede com base no cenário de saudação, conclua Olá etapas a seguir:
 
-1. Execute o comando a seguir para criar uma tabela de rota para a sub-rede de back-end:
+1. Execute Olá toocreate de comando a seguir uma tabela de rotas para sub-rede de back-end hello:
 
     ```powershell
     New-AzureRouteTable -Name UDR-BackEnd `
@@ -80,7 +80,7 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de back-end co
     -Label "Route table for back end subnet"
     ```
 
-2. Execute o comando a seguir para criar uma rota na tabela de rotas para enviar todo o tráfego destinado à sub-rede de front-end (192.168.1.0/24) para a VM **FW1** (192.168.0.4):
+2. Executar Olá após o comando toocreate uma rota no toosend de tabela de rota Olá todo o tráfego destinado toohello sub-rede front-end (192.168.1.0/24) toohello **FW1** VM (192.168.0.4):
 
     ```powershell
     Get-AzureRouteTable UDR-BackEnd
@@ -91,7 +91,7 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de back-end co
     -NextHopIpAddress 192.168.0.4
     ```
 
-3. Execute o comando a seguir para associar a tabela de rotas à sub-rede de **BackEnd**:
+3. Execução hello após a tabela de rotas do comando tooassociate Olá com hello **back-end** sub-rede:
 
     ```powershell
     Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
@@ -99,18 +99,18 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de back-end co
     -RouteTableName UDR-BackEnd
     ```
 
-## <a name="enable-ip-forwarding-on-the-fw1-vm"></a>Habilitar o encaminhamento IP na VM FW1
+## <a name="enable-ip-forwarding-on-hello-fw1-vm"></a>Habilitar o encaminhamento de IP hello FW1 VM
 
-Para habilitar o encaminhamento de IP na VM FW1, siga as seguintes etapas:
+encaminhamento de IP tooenable em Olá FW1 VM, Olá concluir as etapas a seguir:
 
-1. Execute o seguinte comando para verificar o status do encaminhamento de IP:
+1. Execute Olá status do comando toocheck Olá de encaminhamento IP a seguir:
 
     ```powershell
     Get-AzureVM -Name FW1 -ServiceName TestRGFW `
     | Get-AzureIPForwarding
     ```
 
-2. Execute o comando a seguir para habilitar o encaminhamento de IP para a VM *FW1*:
+2. Comando a seguir de execução Olá tooenable encaminhamento de IP para Olá *FW1* VM:
 
     ```powershell
     Get-AzureVM -Name FW1 -ServiceName TestRGFW `

@@ -1,6 +1,6 @@
 ---
-title: "Conexões Híbridas do Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Como criar e usar Conexões Híbridas para acessar recursos em redes diferentes"
+title: "AAA \"conexões híbridas do serviço de aplicativo do Azure | Microsoft Docs\""
+description: "Como toocreate e usar recursos de tooaccess de conexões híbridas em redes diferentes"
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -14,48 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2017
 ms.author: ccompy
-ms.openlocfilehash: fef9e7b280387934cb093f51b4c8aa134a3b87e7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 61d58068ab0a7c803019e3f0e92bde4273d1a053
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Conexões Híbridas do Serviço de Aplicativo do Azure #
 
 ## <a name="overview"></a>Visão geral ##
 
-Conexões Híbridas é um serviço no Azure e uma funcionalidade no Serviço de Aplicativo do Azure.  Como um serviço, ele tem uso e recursos além daqueles usados no Serviço de Aplicativo do Azure.  Para saber mais sobre Conexões Híbridas e seu uso fora do Serviço de Aplicativo do Azure, você pode começar aqui, [Conexões Híbridas de Retransmissão do Azure][HCService]
+Conexões híbridas é um serviço no Azure, bem como um recurso de saudação do serviço de aplicativo do Azure.  Como um serviço tem uso e recursos além daqueles que serão utilizados na saudação do serviço de aplicativo do Azure.  toolearn mais sobre conexões híbridas e seu uso fora de saudação do serviço de aplicativo do Azure você pode iniciar aqui, [as conexões de retransmissão híbridas do Azure][HCService]
 
-No Serviço de Aplicativo do Azure, as conexões híbridas podem ser usadas para acessar recursos do aplicativo em outras redes. Ele fornece acesso DE seu aplicativo PARA um ponto de extremidade do aplicativo.  Ele não permite que uma funcionalidade alternativa acesse seu aplicativo.  Conforme usado no Serviço de Aplicativo, cada conexão híbrida se correlaciona com uma única combinação de host e a porta TCP.  Isso significa que o ponto de extremidade de conexão híbrida pode estar em qualquer sistema operacional e em qualquer aplicativo, desde que você esteja atingindo uma porta de escuta TCP. As conexões híbridas não sabem e nem se importam qual é o protocolo de aplicativo ou o que você está acessando.  Ele simplesmente fornece acesso à rede.  
+Dentro de saudação do serviço de aplicativo do Azure, conexões híbridas podem ser usado tooaccess recursos do aplicativo em outras redes. Ele fornece acesso a partir de seu ponto de extremidade de aplicativo do aplicativo tooan.  Ele não permite que um recurso alternativo tooaccess seu aplicativo.  Como usado no saudação do serviço de aplicativo, cada conexão híbrida correlaciona tooa combinação única de host e porta do TCP.  Isso significa que esse ponto de extremidade de conexão do hello híbrida pode ser em qualquer sistema operacional e qualquer aplicativo fornecido que está atingindo uma porta de escuta TCP. Conexões híbridas não souber ou importantes para o protocolo de aplicativo hello é ou o que você está acessando.  Ele simplesmente fornece acesso à rede.  
 
 
-## <a name="how-it-works"></a>Como ele funciona ##
-A funcionalidade de conexões híbridas consiste em duas chamadas de saída para Retransmissão do Barramento de Serviço.  Há uma conexão de uma biblioteca no host em que o aplicativo é executado no Serviço de Aplicativo e, em seguida, há uma conexão do HCM (Gerenciador de Conexão Híbrida) à Retransmissão do Barramento de Serviço.  O HCM é um serviço de retransmissão que você implanta dentro da hospedagem de rede 
+## <a name="how-it-works"></a>Como funciona ##
+recurso de conexões híbridas Olá consiste em duas chamadas de saída tooService retransmissão de barramento.  Há uma conexão de uma biblioteca no host de saudação em que seu aplicativo está em execução no serviço de aplicativo hello e, em seguida, há uma conexão de retransmissão de barramento de tooService Olá Manager(HCM) de Conexão híbrida.  Olá HCM é um serviço de retransmissão que você implanta em Olá hospedagem de rede 
 
-Por meio de duas conexões unidas, seu aplicativo tem um túnel TCP para uma combinação fixa host:porta no outro lado do HCM.  A conexão usa a TLS 1.2 para segurança e chaves SAS para autenticação/autorização.    
+Por meio de saudação duas conexões ingressado no seu aplicativo tenha um tooa de túnel TCP fixa combinação de host: porta em hello outro lado da saudação HCM.  conexão Olá usa o protocolo TLS 1.2 para segurança e chaves SAS para autenticação/autorização.    
 
 ![][1]
 
-Quando seu aplicativo faz uma solicitação DNS que corresponde a um ponto de extremidade de Conexão Híbrida configurado, o tráfego TCP de saída será redirecionado pela conexão híbrida.  
+Quando seu aplicativo faz uma solicitação DNS que corresponde a um ponto de extremidade de Conexão híbrida de configurar e tráfego TCP de saída Olá será redirecionado para baixo de conexão do hello híbrida.  
 
 > [!NOTE]
-> Isso significa que você deve tentar sempre usar um nome DNS para sua Conexão Híbrida.  Se em vez disso o ponto de extremidade usar um endereço IP, alguns softwares cliente não farão uma pesquisa de DNS.
+> Isso significa que você deve tentar tooalways use um nome DNS para sua Conexão híbrida.  Alguns softwares cliente fazer uma pesquisa de DNS se o ponto de extremidade de saudação usa um endereço IP em vez disso.
 >
 >
 
-Há dois tipos de conexões híbridas: as novas conexões híbridas, que são oferecidas como um serviço de Retransmissão do Azure, e as Conexões Híbridas do BizTalk, que são mais antigas.  As Conexões híbridas do BizTalk mais antigas são denominadas Conexões Híbridas Clássicas no portal.  Há mais informações posteriormente neste documento sobre elas.
+Há dois tipos de conexões híbridas, conexões híbridas novo Olá que são oferecidos como um serviço de retransmissão do Azure e Olá as conexões híbridas BizTalk mais antigos.  Hello as conexões híbridas BizTalk mais antigos são chamados tooas as conexões híbridas clássico no portal de saudação.  Há mais informações posteriormente neste documento sobre elas.
 
 ### <a name="app-service-hybrid-connection-benefits"></a>Benefícios das conexões híbridas do Serviço de Aplicativo ###
 
-Há uma série de benefícios para a funcionalidade de conexões híbridas, incluindo
+Há inúmeras vantagens toohello híbrida conexões recurso incluindo
 
 - Os aplicativos podem acessar serviços e sistemas locais com segurança
-- a funcionalidade não requer um ponto de extremidade acessível da Internet
-- é rápido e fácil de configurar  
-- cada conexão híbrida corresponde a uma única combinação de host: porta, o que é um aspecto de segurança excelente
-- ele normalmente não exige buracos de firewall, já que a saída de todas as conexões ocorre por portas da Web padrão
-- já que a funcionalidade é no nível de rede, isso também significa que ele independe do idioma usado pelo seu aplicativo e da tecnologia usada pelo ponto de extremidade
-- ele pode ser usado para fornecer acesso em várias redes de um único aplicativo 
+- Olá recurso não exige um ponto de extremidade acessível da internet
+- é rápido e fácil tooset backup  
+- combinação de host: porta única tooa que é um aspecto de segurança excelente corresponde a cada conexão híbrida
+- normalmente não é necessário buracos firewall como conexões Olá são todas as saídas através das portas padrão da web
+- porque o recurso Olá é o nível de rede que também significa que se trata de idioma desconhecido toohello usado pela sua tecnologia de aplicativo e hello usada pelo ponto de extremidade de saudação
+- ele pode ser usado tooprovide acesso em várias redes de um único aplicativo 
 
 ### <a name="things-you-cannot-do-with-hybrid-connections"></a>Coisas que você não pode fazer com as Conexões Híbridas ###
 
@@ -69,113 +69,113 @@ Há algumas coisas que você não pode fazer com as conexões híbridas e elas i
 
 ## <a name="adding-and-creating-a-hybrid-connection-in-your-app"></a>Adicionar e criar uma Conexão Híbrida em seu aplicativo ##
 
-As Conexões Híbridas podem ser criadas por meio do portal do aplicativo ou do portal do serviço de Conexão Híbrida.  É altamente recomendável que você use o portal do aplicativo para criar as Conexões Híbridas que você deseja usar com seu aplicativo.  Para criar uma Conexão Híbrida, vá para o [Portal do Azure][portal] e acesse a interface do usuário para seu aplicativo.  Selecione **Rede > Configurar seus pontos de extremidade de conexão híbrida**.  Daqui, você pode ver as Conexões Híbridas configuradas com seu aplicativo  
+Conexões híbridas podem ser criadas por meio do portal aplicativo hello ou no portal de serviço de Conexão híbrida hello.  É altamente recomendável que você use Olá toocreate portal de aplicativo hello conexões híbridas desejar toouse com seu aplicativo.  toocreate uma Conexão híbrida vá toohello [portal do Azure] [ portal] e vá para hello da interface do usuário para seu aplicativo.  Selecione **Rede > Configurar seus pontos de extremidade de conexão híbrida**.  Aqui você pode ver conexões híbridas Olá configurados com seu aplicativo  
 
 ![][2]
 
-Para adicionar uma nova Conexão híbrida, clique em Adicionar Conexão Híbrida.  A interface do usuário lista as Conexões Híbridas que você já criou.  Para adicionar uma ou mais delas ao seu aplicativo, clique naqueles que deseja e pressione **Adicionar a conexão híbrida selecionada**.  
+tooadd uma nova Conexão híbrida, clique em Adicionar Conexão de híbrida.  saudação de interface do usuário que abre a lista conexões híbridas Olá que você criou.  tooadd uma ou mais delas tooyour aplicativo, clique em Olá que você deseja e pressione **adicionar selecionada conexão híbrida**.  
 
 ![][3]
 
-Se você quiser criar uma nova Conexão Híbrida, clique em **criar nova conexão híbrida**.  Aqui você especifica o: 
+Se você quiser toocreate uma Conexão híbrida novo, clique em **criar nova conexão de híbrida**.  Aqui você especifica o: 
 
 - nome do ponto de extremidade
 - nome do host do ponto de extremidade
 - porta do ponto de extremidade
-- namespace do barramento de serviço que você deseja usar
+- namespace de barramento de serviço que você deseja toouse
 
 ![][4]
 
-Cada conexão híbrida é associada a um namespace do barramento de serviço e cada namespace do barramento de serviço está em uma região do Azure.  É importante tentar usar um namespace do barramento de serviço na mesma região do seu aplicativo para evitar latência de rede induzida.
+Cada conexão híbrida é o namespace do barramento de serviço tooa associado e cada namespace do barramento de serviço está em uma região do Azure.  É importante tootry e usar um serviço de namespace de barramento Olá mesma região do seu aplicativo, latência de rede induzido tooavoid.
 
-Se você quiser remover sua conexão híbrida do seu aplicativo, clique com o botão direito do mouse nele e selecione **Desconectar**.  
+Se você quiser tooremove sua conexão híbrida do seu aplicativo, clique com o botão direito nele e selecione **Disconnect**.  
 
-Depois que uma conexão híbrida é adicionada ao seu aplicativo Web, você pode apenas clicar sobre ela para ver seus detalhes.  
+Depois que uma conexão híbrida é adicionada tooyour web app, você pode ver detalhes sobre ele, simplesmente clicando nele.  
 
 ![][5]
 
 ## <a name="hybrid-connections-and-app-service-plans"></a>Conexões Híbridas e Planos de Serviço de Aplicativo ##
 
-As únicas conexões híbridas que você pode estabelecer agora são as novas conexões híbridas.  Eles só estão disponíveis em SKUs de preço Básico, Standard, Premium e Isolado.  Há limites vinculados ao plano de preços.  
+Olá híbrida apenas conexões estabelecidas que agora você pode fazer são do hello novo híbrida.  Eles só estão disponíveis em SKUs de preço Básico, Standard, Premium e Isolado.  Há limites vinculados toohello preços do plano.  
 
-| Plano de Preços | Número de conexões híbridas utilizáveis no plano |
+| Plano de Preços | Número de conexões híbridas utilizáveis no plano de saudação |
 |----|----|
 | Basic | 5 |
 | Standard | 25 |
 | Premium | 200 |
 | Isolado | 200 |
 
-Já que há restrições do Plano do Serviço de Aplicativo, também há uma interface do usuário no Plano do Serviço de Aplicativo que mostra quantas conexões híbridas estão sendo usadas e por quais aplicativos.  
+Como há restrições plano do serviço de aplicativo, também há UI Olá plano de serviço aplicativo que mostra quantas conexões híbridas estão sendo usadas e por quais aplicativos.  
 
 ![][6]
 
-Assim como ocorre com o modo de exibição do aplicativo, você pode ver detalhes sobre sua conexão híbrida clicando nela.  Nas propriedades mostradas aqui, você pode ver todas as informações que você tinha no modo de exibição do aplicativo, mas também pode ver quantos outros aplicativos no mesmo Plano do Serviço de Aplicativo estão usando essa conexão híbrida.
+Assim como com a exibição do aplicativo hello, você pode ver detalhes sobre a conexão híbrida clicando nele.  Nas propriedades de saudação mostradas aqui, você pode ver todas as informações de saudação você tinha no modo de exibição de aplicativo hello, mas também pode ver quantos outros aplicativos no hello mesmo plano de serviço de aplicativo estão usando essa conexão híbrida.
 
 ![][7]
 
-Embora haja um limite no número de pontos de extremidade de conexão híbrida que podem ser usados em um Plano do Serviço de Aplicativo, cada conexão híbrida usada pode ser usada entre qualquer número de aplicativos nesse Plano do Serviço de Aplicativo.  Isso quer dizer que, se eu tivesse uma conexão híbrida que usasse em cinco aplicativos separados no meu Plano do Serviço de Aplicativo, trataria-se ainda de apenas uma conexão híbrida.
+Embora não haja um limite no número de saudação de pontos de extremidade de conexão híbrida que podem ser usados em um plano de serviço de aplicativo, cada conexão híbrida usado pode ser usado em qualquer número de aplicativos no plano de serviço desse aplicativo.  Isso é toosay se eu tivesse 1 conexão híbrida usados em 5 aplicativos separados no meu plano de serviço de aplicativo, que é ainda apenas 1 conexão de híbrida.
 
-Há um custo adicional para conexões híbridas que vai além de apenas serem utilizáveis em um SKU Básico, Standard, Premium ou Isolado.  Para obter detalhes sobre preços de conexão híbrida, veja aqui: [Preços do Barramento de Serviço][sbpricing].
+Não há conexões de toohybrid um custo adicional além somente ser usados em Basic, Standard, Premium ou SKU isolado.  Para obter detalhes sobre preços de conexão híbrida, veja aqui: [Preços do Barramento de Serviço][sbpricing].
 
 ## <a name="hybrid-connection-manager"></a>Gerenciador de Conexão Híbrida ##
 
-Para que as conexões híbridas funcionem, você precisa de um agente de retransmissão na rede que hospede o seu ponto de extremidade de conexão híbrida.  Esse agente de retransmissão é chamado de HCM (Gerenciador de Conexão Híbrida).  Essa ferramenta pode ser baixada da interface do usuário **Rede > Configurar seus pontos de extremidade de conexão híbrida** disponível no seu aplicativo no [Portal do Azure][portal].  
+Para toowork de conexões híbrida é necessário um agente de retransmissão na rede de saudação que hospeda o ponto de extremidade de conexão híbrida.  Olá Gerenciador de Conexão híbrida (HCM) é chamado de que o agente de retransmissão.  Essa ferramenta pode ser baixada do hello **rede > configurar seus pontos de extremidade de conexão híbrida** a interface do usuário disponível no seu aplicativo hello [portal do Azure][portal].  
 
-Essa ferramenta é executada no Windows Server 2008 R2 e versões posteriores do Windows.  Uma vez instalado, o HCM executa como um serviço.  Esse serviço se conecta à retransmissão do Barramento de Serviço do Azure com base nos pontos de extremidade configurados.  As saída das conexões provenientes do HCM destinam-se às portas 80 e 443.    
+Essa ferramenta é executada no Windows Server 2008 R2 e versões posteriores do Windows.  Depois de instalado, Olá HCM é executado como um serviço.  Esse serviço se conecta a retransmissão de barramento de serviço tooAzure com base em pontos de extremidade de saudação configurado.  conexões de saudação do hello HCM são tooports saída 80 e 443.    
 
-A HCM tem uma interface do usuário para configurá-la.  Após o HCM ser instalado, você poderá exibir a interface do usuário executando o HybridConnectionManagerUi.exe que fica no diretório de instalação do Gerenciador de Conexão Híbrida.  Ela também pode ser facilmente acessada no Windows 10 digitando *Interface do usuário do Gerenciador de Conexões Híbridas* na caixa de pesquisa.  
+Olá HCM tem uma interface de usuário tooconfigure-lo.  Após Olá que HCM está instalado, você pode abrir a saudação da interface do usuário executando Olá HybridConnectionManagerUi.exe que se encontra no diretório de instalação do Gerenciador de Conexão híbrida hello.  Ela também pode ser facilmente acessada no Windows 10 digitando *Interface do usuário do Gerenciador de Conexões Híbridas* na caixa de pesquisa.  
 
-Quando a interface do usuário do HCM é iniciada, a primeira coisa que você vê é uma tabela que lista todas as conexões híbridas configuradas com esta instância do HCM.  Se você quiser fazer alterações, você precisará autenticar com o Azure. 
+Quando Olá HCM UI é iniciada, primeiro Olá você consulte é uma tabela que lista todas as conexões híbridas Olá configurados com esta instância do hello HCM.  Se você quiser toomake as alterações, você precisará tooauthenticate com o Azure. 
 
-Para adicionar uma ou mais Conexões Híbridas a seu HCM:
+tooadd uma ou mais conexões híbridas tooyour HCM:
 
-1. Inicie a interface do usuário do HCM
+1. Iniciar Olá HCM UI
 1. Clique em configurar outra conexão híbrida ![][8]
 
 1. Entre com sua conta do Azure
-1. Escolha uma assinatura
-1. Clique nas conexões híbridas que você deseja que este HCM retransmita ![][9]
+1. Escolha uma subscrição
+1. Clique em conexões híbridas de saudação deseja que este toorelay HCM![][9]
 
 1. Clique em Salvar
 
-Neste ponto, você verá as conexões híbridas que você adicionou.  Você também pode clicar na conexão híbrida configurada e ver detalhes sobre ela.
+Neste ponto, você verá as conexões híbridas Olá adicionado.  Também pode clicar em Olá configurado híbrida conexão e ver os detalhes sobre a conexão de saudação.
 
 ![][10]
 
-Para que o HCM possa dar suporte às conexões híbridas com as quais ele é configurado, ele precisará de:
+Para que seu HCM toobe toosupport capaz de saudação conexões híbridas, que é configurado, ele precisa:
 
-- Acesso TCP ao Azure nas portas 80 e 443
-- Acesso TCP ao ponto de extremidade de conexão híbrida
-- capacidade de fazer pesquisas de DNS no host do ponto de extremidade e no namespace do Barramento de Serviço do Azure
+- TooAzure de acesso TCP por portas 80 e 443
+- Ponto de extremidade de TCP acesso toohello híbrida conexão
+- capacidade toodo DNS aparência no-break no host do ponto de extremidade de Olá Olá namespace de barramento de serviço do azure
 
-O HCM dá suporte tanto às novas conexões híbridas quanto às conexões híbridas do BizTalk mais antigas.
+Olá HCM aceita novas conexões híbridas, bem como conexões de híbrida do BizTalk mais antigas hello.
 
 ### <a name="redundancy"></a>Redundância ###
 
-Cada HCM pode dar suporte a várias conexões híbridas.  Além disso, qualquer determinada conexão híbrida pode ter suporte de vários HCMs.  O comportamento padrão é transferir o tráfego pelo método round robin pelos HCMs configurados para qualquer determinado ponto de extremidade.  Se desejar alta disponibilidade nas conexões híbridas da rede, basta instanciar vários HCMs em computadores separados. 
+Cada HCM pode dar suporte a várias conexões híbridas.  Além disso, qualquer determinada conexão híbrida pode ter suporte de vários HCMs.  comportamento padrão de saudação é tooround tráfego robin Olá configurado HCMs para determinado ponto de extremidade.  Se desejar alta disponibilidade nas conexões híbridas da rede, basta instanciar vários HCMs em computadores separados. 
 
 ### <a name="manually-adding-a-hybrid-connection"></a>Adicionar uma conexão híbrida manualmente ###
 
-Se desejar que alguém fora da sua assinatura hospede uma instância HCM para uma determinada conexão híbrida, você poderá compartilhar com eles a cadeia de conexão de gateway para a conexão híbrida.  Você pode ver isso nas propriedades de uma conexão híbrida no [Portal do Azure][portal]. Para usar essa cadeia de caracteres, clique no botão **Configurar manualmente** no HCM e cole-o na cadeia de conexão de gateway.
+Se desejar que alguém fora da sua assinatura toohost uma instância HCM para uma conexão híbrida determinado, você pode compartilhar com eles Olá a cadeia de caracteres de conexão de gateway para a conexão do hello híbrida.  Você pode ver isso nas propriedades de saudação de uma conexão híbrida na Olá [portal do Azure][portal]. toouse cadeia de caracteres, clique em Olá **configurar manualmente** botão no hello HCM e cole na cadeia de caracteres de conexão de gateway hello.
 
 
 ## <a name="troubleshooting"></a>Solucionar problemas ##
 
-Quando sua conexão híbrida é configurada com um aplicativo em execução e há pelo menos um HCM com essa conexão híbrida configurada, o status indicará **Conectado** no portal.  Se ele não informa **Conectado**, isso significa que seu aplicativo está inativo ou o HCM não pode realizar uma conexão de saída para o Azure nas portas 80 ou 443.  
+Quando a conexão híbrida é configurado com um aplicativo em execução e há pelo menos um HCM que tenha essa conexão híbrida configurado, Olá status indicará **conectado** no portal de saudação.  Se ele não indicar **conectado** significa que o seu aplicativo está inativo ou não é possível conectar seu HCM out tooAzure na porta 80 ou 443.  
 
-O principal motivo pelo qual os clientes não podem se conectar ao ponto de extremidade é porque o ponto de extremidade foi especificado usando um endereço IP em vez de um nome DNS.  Se seu aplicativo não puder acessar o ponto de extremidade desejado e você tiver usado um endereço IP, mude e passe a usar um nome DNS válido no host em que o HCM está em execução.  Outros itens a serem verificados são que o nome DNS seja resolvido corretamente no host em que a HCM está em execução e que haja conectividade do host em que a HCM está em execução para o ponto de extremidade de conexão híbrida.  
+motivo principal Olá para que os clientes não podem se conectar a tootheir de ponto de extremidade é porque o ponto de extremidade de saudação foi especificado usando um endereço IP em vez de um nome DNS.  Se seu aplicativo não é possível alcançar o ponto de extremidade de saudação desejado e você usou um endereço IP, alterne toousing um nome DNS válido no host Olá onde hello HCM está em execução.  Toocheck outras coisas são que Olá nome DNS seja resolvido corretamente no host de saudação onde hello HCM está em execução e se há conectividade de host Olá onde hello HCM está sendo executado o ponto de extremidade de conexão de híbrida toohello.  
 
-Há uma ferramenta no Serviço de Aplicativo que pode ser invocada por meio do console, chamada tcpping.  Essa ferramenta pode informar se você tem acesso a um ponto de extremidade TCP, mas não lhe diz se você tem acesso a um ponto de extremidade de conexão híbrida.  Quando usado no console em relação a um ponto de extremidade de conexão híbrida, um ping bem-sucedido apenas informará que você tem uma conexão híbrida configurada para o aplicativo que usa essa combinação de host:porta.  
+É uma ferramenta de saudação do serviço de aplicativo que pode ser chamado do console de saudação chamado tcpping.  Essa ferramenta pode informar se você tiver o ponto de extremidade TCP de tooa acesso, mas não informa se você tiver o ponto de extremidade da conexão híbrida acesso tooa.  Quando usados no console de saudação em relação a um ponto de extremidade de conexão híbrida, um ping com êxito apenas informará que você tenha uma conexão híbrida configurado para o aplicativo que usa essa combinação de host: porta.  
 
 ## <a name="biztalk-hybrid-connections"></a>Conexões Híbridas do BizTalk ##
 
-A funcionalidade Conexões Híbridas antiga do BizTalk foi encerrada no que se refere a criações futuras de Conexões Híbridas do BizTalk.  Você pode continuar usando as Conexões Híbridas do BizTalk preexistentes com seus aplicativos, mas deve migrar para o novo serviço.  Entre os benefícios no novo serviço em relação à versão do BizTalk, estão:
+capacidade de conexões híbridas de BizTalk antiga Olá foi fechada off toofurther criações de Conexão de híbrida do BizTalk.  Você pode continuar usando o BizTalk preexistentes as conexões híbridas com seus aplicativos, mas deve migrar toohello novo serviço.  Entre Olá benefícios em novo serviço Olá pela versão do BizTalk Olá são:
 
 - nenhuma conta adicional do BizTalk é necessária
 - O TLS é 1.2 em vez do 1.0, o qual é usado nas Conexões Híbridas do BizTalk
-- A comunicação é pelas portas 80 e 443 e usa um nome DNS para acessar o Azure, em vez de usar endereços IP e uma variedade de outras portas.  
+- A comunicação é por portas 80 e 443 usando um tooreach do nome DNS do Azure, em vez de endereços IP e uma variedade de outros outras portas.  
 
-Para adicionar uma Conexão Híbrida do BizTalk ao seu aplicativo, vá para seu aplicativo no [Portal do Azure][portal] e clique em **Rede > Configurar seus pontos de extremidade de conexão híbrida**.  Na tabela de conexões híbridas clássicas, clique em **Adicionar conexão híbrida clássica**.  Daqui em diante, você verá uma lista das conexões híbridas do BizTalk.  
+tooadd um aplicativo do BizTalk híbrida conexão tooyour, vá tooyour aplicativo hello [portal do Azure] [ portal] e clique em **rede > configurar seus pontos de extremidade de conexão híbrida**.  Na tabela de conexões do hello clássico híbrida clique **Adicionar conexão híbrida clássico**.  Daqui em diante, você verá uma lista das conexões híbridas do BizTalk.  
 
 
 <!--Image references-->

@@ -1,5 +1,5 @@
 ---
-title: "(preterido) Análise de Sobrevivência com o Azure Machine Learning | Microsoft Docs"
+title: "AAA(deprecated) análise de sobrevivência com o aprendizado de máquina do Azure | Microsoft Docs"
 description: "(preterido) Probabilidade de ocorrência de evento de Análise de Sobrevivência"
 services: machine-learning
 documentationcenter: 
@@ -16,47 +16,47 @@ ms.date: 01/06/2017
 ms.author: zhangya
 ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-redirect_document_id: TRUE
-ms.openlocfilehash: 7d4066d5f15a39c428d8035257c4841f9b3cc775
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: af946d8df5ba650a9d74fbabbe3b15d3a07dd508
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deprecated-survival-analysis"></a>(preterido) Análise de Sobrevivência
 
 > [!NOTE]
-> O Microsoft DataMarket está sendo desativado e essa API foi preterida. 
+> Olá Microsoft DataMarket está sendo desativado e esta API foi preterida. 
 > 
-> Você pode encontrar muitos testes de exemplo úteis e APIs na [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com). Para saber mais sobre a Galeria, confira [Compartilhar e descobrir soluções na Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+> Você pode encontrar várias APIs e experiências de exemplo útil no hello [Cortana Intelligence galeria](http://gallery.cortanaintelligence.com). Para obter mais informações sobre Olá galeria, consulte [compartilhamento e descobrir recursos na Olá Cortana Intelligence galeria](machine-learning-gallery-how-to-use-contribute-publish.md).
 
-Em muitos cenários, o resultado principal em avaliação é o momento de um evento de interesse. Em outras palavras, a pergunta “quando esse evento ocorrerá?” é feita. Como exemplo, considere situações em que os dados descrevem o tempo decorrido (dias, anos, quilometragem, etc.) até o evento de interesse (recidiva da doença, recebimento de grau PhD, falha nas pastilhas de freio) ocorrer. Cada instância nos dados representa um objeto específico (um paciente, uma estudante, um carro, etc.).
+Em muitos cenários, o resultado principal de saudação em avaliação é Olá tooan evento de interesse. Em outras palavras, pergunta de hello "quando esse evento ocorrerá?" é feita. Como exemplo, considere situações em que dados saudação descrevem o tempo decorrido de saudação (dias, anos, quilometragem, etc.) até Olá ocorre o evento de interesse (relapse doença, grau PhD recebida, falha de freio preenchimento). Cada instância em dados saudação representa um objeto específico (um paciente um aluno, um carro, etc.).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Esse [serviço Web](https://datamarket.azure.com/dataset/aml_labs/survivalanalysis) responde à pergunta “qual é a probabilidade de o evento de interesse ocorrer no tempo n para o objeto x?” Ao fornecer um modelo de análise de sobrevivência, esse serviço Web permite aos usuários fornecer dados para treinar o modelo e testá-lo. O tema principal do teste é modelar a extensão do tempo decorrido até que ocorra o evento de interesse. 
+Isso [serviço web](https://datamarket.azure.com/dataset/aml_labs/survivalanalysis) responde a pergunta de hello "qual é a probabilidade de Olá Olá eventos de interesse ocorrerá por tempo n para objeto x?" Ao fornecer um modelo de análise de sobrevivência, esse serviço da web permite que os usuários toosupply dados tootrain Olá modelo e testá-lo. tema principal de saudação do experimento Olá toomodel Olá de é Olá decorrido tempo até que ocorra o evento de saudação de interesse. 
 
-> Este serviço Web poderia ser consumido por usuários – potencialmente por meio de um aplicativo móvel, de um site ou até mesmo em um computador local, por exemplo. Mas a finalidade do serviço Web é também servir como um exemplo de como o Azure Machine Learning pode ser usado para criar serviços Web sobre o código R. Com apenas algumas linhas de código R e cliques de botão dentro do Azure Machine Learning Studio, um experimento pode ser criado com código R e publicado como um serviço Web. O serviço Web pode ser publicado no Azure Marketplace e consumido por dispositivos e usuários em todo o mundo – sem qualquer infraestrutura configurada pelo autor do serviço Web.  
+> Este serviço Web poderia ser consumido por usuários – potencialmente por meio de um aplicativo móvel, de um site ou até mesmo em um computador local, por exemplo. Mas finalidade de saudação do serviço web de saudação também é tooserve como um exemplo de como o aprendizado de máquina do Azure pode ser usado toocreate os serviços da web sobre o código R. Com apenas algumas linhas de código R e cliques de botão dentro do Azure Machine Learning Studio, um experimento pode ser criado com código R e publicado como um serviço Web. serviço web de saudação pode ser publicado toohello Azure Marketplace e consumido por usuários e dispositivos em Olá, mundo com nenhuma configuração de infraestrutura pelo autor de saudação do serviço web de saudação.  
 > 
 > 
 
 ## <a name="consumption-of-web-service"></a>Consumo do serviço Web
-O esquema de dados de entrada do serviço Web é mostrado na tabela a seguir. São necessárias seis informações como entrada: dados de treinamento, dados de teste, tempo de interesse, o índice da dimensão de "tempo", o índice da dimensão de "evento" e os tipos de variáveis (contínua ou fator). Os dados de treinamento são representados por uma sequência, em que as linhas são separadas por vírgulas e as colunas são separadas por ponto e vírgula. O número de recursos de dados é flexível. Todos os elementos na cadeia de caracteres de entrada devem ser numéricos. Nos dados de treinamento, a dimensão de "tempo" indica o número de unidades de tempo (dias, anos, quilometragem, etc.) decorridas desde o ponto de partida do estudo (o recebimento de programas de tratamento de drogas pelo paciente, o início do doutorado de um aluno, o início do uso de um carro, etc.) até o evento de interesse (o paciente voltar a usar drogas, o aluno obter o grau de PhD, as pastilhas do freio do carro falharem, etc.) ocorrer. A dimensão de "evento" indica se o evento de interesse ocorre no final do estudo. Um valor de "evento=1" significa que o evento de interesse ocorre no período indicado pela dimensão de "tempo"; "evento=0" significa que o evento de interesse não ocorreu até o momento indicado pela dimensão de "tempo".
+esquema de dados de entrada de saudação do serviço web de saudação é mostrada no Olá a tabela a seguir. Seis informações são necessárias como entrada hello: dados de treinamento, dados de teste, tempo de interesse, o índice de saudação da dimensão "Hora" Olá, índice e dimensão "evento" e os tipos de variáveis de saudação (contínua ou o fator). dados de treinamento de saudação são representados com uma cadeia de caracteres, em que linhas de saudação são separadas por vírgula e Olá colunas são separadas por ponto e vírgula. número de saudação de recursos de dados de saudação é flexível. Todos os elementos de saudação na cadeia de caracteres de entrada hello devem ser numéricos. Nos dados de treinamento Olá, a dimensão de tempo"hello" indica número Olá de unidades de tempo (dias, anos, quilometragem, etc.) decorrido desde que o ponto de partida de saudação da saudação estudar (um paciente programas de tratamento de droga, um estudo de PhD aluno inicial, um carro iniciando toobe controlado por, etc.) Após hello eventos de interesse (paciente Olá retornando toodrug uso, grau Olá PhD hello, obtenção dos alunos, car Olá ter falha de preenchimento de freio, etc.). dimensão de "evento" Olá indica se o evento Olá de interesse ocorre no final de saudação do estudo hello. Um valor de "evento = 1" significa que eventos de interesse de Olá ocorre em tempo de saudação indicado pela dimensão de "tempo" hello; "evento = 0" significa que Olá eventos de interesse não ocorreu por tempo Olá indicado pela dimensão de "tempo" hello.
 
 * trainingdata - uma cadeia de caracteres. As linhas são separadas por vírgulas; as colunas são separadas por ponto e vírgula. Cada linha inclui a dimensão de "tempo", a dimensão de "evento" e as variáveis do preditor.
 * testingdata - Uma linha de dados que contém variáveis de previsão para um determinado objeto.
-* time_of_interest - O tempo de interesse decorrido n.
-* index_time - O índice da coluna da dimensão de "tempo" (a partir de 1).
-* index_event - O índice da coluna da dimensão de "evento" (a partir de 1).
+* time_of_interest - Olá tempo de interesse n.
+* index_time - índice de coluna de saudação da dimensão de "Hora" hello (começando em 1).
+* index_event - índice de coluna de saudação da dimensão de "evento" hello (começando em 1).
 * variable_types - Uma cadeia de caracteres com ponto e vírgula como separador. 0 representa variáveis contínuas e 1 representa variáveis de fator.
 
-A saída é a probabilidade de um evento ocorrer em um determinado tempo. 
+saída de Hello é a probabilidade de saudação de um evento que ocorre em uma hora específica. 
 
-> Esse serviço, conforme hospedado no Azure Marketplace é um serviço OData; ele pode ser chamado por meio de métodos POST ou GET. 
+> Esse serviço, como hospedado em hello Azure Marketplace é um serviço OData; Esses podem ser chamados por meio de métodos POST ou GET. 
 > 
 > 
 
-Há várias maneiras de consumir o serviço de forma automática (os aplicativos de exemplo estão [aqui](http://microsoftazuremachinelearning.azurewebsites.net/SurvivalAnalysis.aspx)). 
+Há várias maneiras de consumo de serviço de saudação de forma automática (um aplicativo de exemplo é [aqui](http://microsoftazuremachinelearning.azurewebsites.net/SurvivalAnalysis.aspx)). 
 
 ### <a name="starting-c-code-for-web-service-consumption"></a>Iniciando o código C# para consumo de serviço Web:
     public class Input
@@ -93,14 +93,14 @@ Há várias maneiras de consumir o serviço de forma automática (os aplicativos
 
 
 
-A interpretação desse teste é a seguinte: Supondo que o objetivo dos dados seja modelar o tempo decorrido até o retorno para o uso de drogas para os pacientes que receberam um dos dois programas de tratamento. O resultado das leituras do serviço Web: para pacientes com 35 anos, dois tratamentos anteriores para drogas, recebendo o programa de tratamento residencial longo e com o uso de heroína e cocaína, a probabilidade de voltar a usar drogas é de 95,64% até o dia 500.
+interpretação de saudação desse teste é o seguinte. Supondo que objetivo Olá dados saudação é toomodel Olá tempo até Olá retornar toodrug uso para pacientes Olá que receberam um dos programas de tratamento de saudação dois. Olá saída de leituras de serviço da web hello: para pacientes sendo 35 anos, tendo anterior medicamento tratamento 2 vezes, levando o programa de tratamento de tempo residencial Olá, e com o uso de heroin e cocaine, a probabilidade de saudação de retorno de uso de droga toohello é 95.64% por dia 500.
 
 ## <a name="creation-of-web-service"></a>Criação de serviço Web
-> Este serviço Web foi criado usando o Azure Machine Learning. Para obter uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de testes e [publicação de serviços Web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do teste que criou o serviço Web e o exemplo de código para cada um dos módulos dentro do teste.
+> Este serviço Web foi criado usando o Azure Machine Learning. Para obter uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de testes e [publicação de serviços Web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do experimento Olá que criou o código de exemplo e o serviço da web hello para cada um dos módulos Olá experimento hello.
 > 
 > 
 
-De dentro do Azure Machine Learning, um novo teste em branco foi criado e dois módulos [Executar Scripts R][execute-r-script] foram levados ao espaço de trabalho. O esquema de dados foi criado com um [Executar Script R][execute-r-script] simples, que define o esquema de dados de entrada para o serviço Web. Esse módulo é, então, vinculado ao segundo módulo [Executar Script R][execute-r-script], que faz a maior parte do trabalho. Esse módulo faz o pré-processamento de dados, a criação de modelo e as previsões. Na etapa de pré-processamento de dados, os dados de entrada representados por uma cadeia de caracteres longa são transformados e convertidos em uma estrutura de dados. Na etapa de construção do modelo, um pacote R externo "survival_2.37-7.zip" é instalado para realizar a análise de sobrevivência. Em seguida, a função de "coxph" é executada após uma série de tarefas de processamento de dados. Os detalhes da função "coxph" para a análise de sobrevivência podem ser lidos na documentação de R. Na etapa de previsão, uma instância de teste é fornecida para o modelo treinado com a função "surfit" e a curva de sobrevivência para esta instância de teste é produzida como a variável "curva". Por fim, a probabilidade do tempo de interesse é obtida. 
+De dentro de aprendizado de máquina do Azure, uma nova experiência em branco foi criada e dois [Executar Script R] [ execute-r-script] módulos foram recebidos no espaço de trabalho de saudação. Olá esquema de dados foi criada com um simples [Executar Script R][execute-r-script], que define o esquema de dados de entrada hello para serviço web de saudação. Esse módulo é vinculado toohello segundo [Executar Script R] [ execute-r-script] módulo, que major o trabalho. Esse módulo faz o pré-processamento de dados, a criação de modelo e as previsões. Na etapa de pré-processamento de dados hello, dados de entrada hello representados por uma cadeia de caracteres longa são transformados e convertidos em um quadro de dados. Na etapa de criação de modelo hello, um pacote R externo "survival_2.37 7.zip" é instalado para realizar a análise de sobrevivência. Em seguida, função de "coxph" hello é executada após um tarefas de processamento de dados da série. detalhes de saudação da função de "coxph" Olá para análise de sobrevivência podem ser lidos na documentação de saudação R. Na etapa de previsão hello, uma instância de teste é fornecida em treinado Olá com função de "surfit" hello e curva de sobrevivência Olá para esta instância de teste é produzida como variável "curva". Por fim, a probabilidade de saudação do tempo de saudação de interesse é obtida. 
 
 ### <a name="experiment-flow"></a>Fluxo de teste:
 ![fluxo de teste][1]
@@ -118,7 +118,7 @@ De dentro do Azure Machine Learning, um novo teste em branco foi criado e dois m
 
     sampleInput=data.frame(trainingdata,testingdata,time_of_interest,index_time,index_event,variable_types)
 
-    maml.mapOutputPort("sampleInput"); #send data to output port
+    maml.mapOutputPort("sampleInput"); #send data toooutput port
 
 #### <a name="module-2"></a>Módulo 2:
     #Read data from input port
@@ -148,7 +148,7 @@ De dentro do Azure Machine Learning, um novo teste em branco foi criado e dois m
     install.packages("src/packages_survival/survival_2.37-7.zip",lib=".",repos=NULL,verbose=TRUE)
     library(survival)
 
-    # Prepare to build model
+    # Prepare toobuild model
     attach(mydata)
 
     for (i in 1:n_col){ mydata[,i]=as.numeric(mydata[,i])} 
@@ -160,7 +160,7 @@ De dentro do Azure Machine Learning, um novo teste em branco foi criado e dois m
     variable_types = unlist(strsplit(as.character(variable_types),";"))
 
     len = length(v_predictors)
-    c="" # Construct the execution string
+    c="" # Construct hello execution string
     for (i in 1:len){
     if(i==len){
     if(variable_types[i]!=0){ c=paste(c, "factor(",v_predictors[i],")",sep="")}
@@ -174,7 +174,7 @@ De dentro do Azure Machine Learning, um novo teste em branco foi criado e dois m
     f=paste(f,c)
     f=paste(f,", data=mydata )")
 
-    # Fit a Cox proportional hazards model and get the predicted survival curve for a testing instance 
+    # Fit a Cox proportional hazards model and get hello predicted survival curve for a testing instance 
     fit=eval(parse(text=f))
 
     testingdata = as.data.frame(matrix(testingdata, ncol=len,byrow = TRUE),stringsAsFactors=FALSE)
@@ -183,7 +183,7 @@ De dentro do Azure Machine Learning, um novo teste em branco foi criado e dois m
 
     curve=survfit(fit,testingdata)
 
-    # Based on user input, find the event occurrence probability
+    # Based on user input, find hello event occurrence probability
     position_closest=which.min(abs(prob_event$time - time_of_interest))
 
     if(prob_event[position_closest,"time"]==time_of_interest){# exact match
@@ -196,7 +196,7 @@ De dentro do Azure Machine Learning, um novo teste em branco foi criado e dois m
     }else{output=(prob_event[position_closest,"prob"]+prob_event[position_closest+1,"prob"])/2}
     }
 
-    #Pull out results to send to web service
+    #Pull out results toosend tooweb service
     output=paste(round(100*output, 2), "%") 
     maml.mapOutputPort("output"); #output port
 
@@ -204,10 +204,10 @@ De dentro do Azure Machine Learning, um novo teste em branco foi criado e dois m
 
 
 ## <a name="limitations"></a>Limitações
-Este serviço Web aceita apenas valores numéricos como variáveis de recurso (colunas). A coluna "evento" pode ter apenas o valor 0 ou 1. A coluna "hora" precisa ser um inteiro positivo.
+Este serviço Web aceita apenas valores numéricos como variáveis de recurso (colunas). coluna de "evento" Hello pode levar apenas o valor 0 ou 1. coluna de "Hora" Hello precisa toobe um número inteiro positivo.
 
 ## <a name="faq"></a>Perguntas frequentes
-Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publicação no Azure Marketplace, consulte [aqui](machine-learning-marketplace-faq.md).
+Para perguntas frequentes sobre o consumo do serviço web de saudação ou publicação toohello Azure Marketplace, consulte [aqui](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-survival-analysis/survive_img2.png
 

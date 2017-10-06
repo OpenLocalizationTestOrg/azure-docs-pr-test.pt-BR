@@ -1,6 +1,6 @@
 ---
-title: "Visão geral do Azure IoT Edge | Microsoft Docs"
-description: "Descreve os principais conceitos da arquitetura no Azure IoT Edge, como agentes, módulos e gateways."
+title: aaaOverview da borda do IoT do Azure | Microsoft Docs
+description: "Descreve os conceitos arquitetura no Azure IoT Edge Olá chave como agentes, módulos e gateways."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -13,52 +13,52 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
 ms.author: dobett
-ms.openlocfilehash: ecdd56c91a8fc2011b3d7abe93b9d27c1e1e0bef
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 32debc0d4f40cfd7f2cce7cf8c76b12ec18ee2dc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-iot-edge-architectural-concepts"></a>Conceitos de arquitetura do Azure IoT Edge
 
-Antes de examinar algum código de exemplo ou criar seu próprio gateway de campo usando o IoT Edge, é necessário entender os principais conceitos nos quais se baseia arquitetura do SDK.
+Antes de examinar um código de exemplo ou criar seu próprio gateway de campo usando borda IoT, você deve entender os conceitos de chave de saudação que são a base de arquitetura de saudação da borda de IoT.
 
 ## <a name="iot-edge-modules"></a>Módulos do IoT Edge
 
-Você cria um gateway com o Azure IoT Edge criando e montando *módulos do IoT Edge*. Os módulos usam *mensagens* para trocar dados entre si. Um módulo recebe uma mensagem, executa alguma ação nela, opcionalmente, a transforma em uma nova mensagem e a publica para ser processada por outros módulos. Alguns módulos poderão gerar apenas novas mensagens e nunca processar as mensagens de entrada. Uma cadeia de módulos cria um pipeline de processamento de dados com cada módulo executando uma transformação nos dados em um ponto do pipeline.
+Você cria um gateway com o Azure IoT Edge criando e montando *módulos do IoT Edge*. Os módulos usam *mensagens* tooexchange dados entre si. Um módulo recebe uma mensagem, executa alguma ação nele, opcionalmente o transforma em uma nova mensagem e, em seguida, publica para outros módulos tooprocess. Alguns módulos poderão gerar apenas novas mensagens e nunca processar as mensagens de entrada. Uma cadeia de módulos cria um pipeline de processamento de dados com cada módulo executar uma transformação nos dados de saudação em um ponto em que o pipeline.
 
 ![Uma cadeia de módulos no gateway, compilada com o IoT Edge do Azure][1]
 
-O IoT Edge contém os seguintes componentes:
+Borda de IoT contém Olá componentes a seguir:
 
 * Módulos pré-gravados que executam funções comuns de gateway.
-* As interfaces que um desenvolvedor pode usar para gravar módulos personalizados.
-* A infraestrutura necessária para implantar e executar um conjunto de módulos.
+* interfaces de saudação um desenvolvedor podem usar módulos personalizados toowrite.
+* Olá toodeploy necessário de infraestrutura e executar um conjunto de módulos.
 
-O SDK fornece uma camada de abstração que permite criar gateways para serem executados em vários sistemas operacionais e plataformas.
+Olá SDK fornece uma camada de abstração que permite que você toobuild gateways toorun em vários sistemas operacionais e plataformas.
 
 ![Camada de abstração do IoT Edge do Azure][2]
 
 ## <a name="messages"></a>Mensagens
 
-Mesmo que pensar sobre os módulos que transmitem mensagens entre si seja uma maneira conveniente de conceitualizar o funcionamento de um gateway, ela não reflete com precisão o que acontece. Módulos do IoT Edge usam um agente para se comunicarem entre si. Os módulos publicam mensagens para o agente (usando padrões de mensagens, como barramento ou publicação/assinatura) e permitem que o agente direcione a mensagem para os módulos conectados a ele.
+Embora pensar módulos transmitindo mensagens tooeach outros é uma maneira conveniente de tooconceptualize como funções um gateway, ele não refletir precisamente o que acontece. Módulos de borda IoT usam toocommunicate um agente com o outro. Módulos publicar broker toohello de mensagens (usando padrões de mensagens, como de barramento ou a publicação/assinatura) e deixe Olá broker rota Olá mensagem toohello módulos conectados tooit.
 
-Um módulo usa a função **Broker_Publish** para publicar uma mensagem para o agente. O agente entrega as mensagens para um módulo, invocando uma função de retorno de chamada. Uma mensagem consiste em um conjunto de propriedades de chave/valor e no conteúdo transmitido como um bloco de memória.
+Um módulo usa Olá **Broker_Publish** toopublish um agente de mensagens toohello de função. broker Olá oferece módulo de tooa de mensagens, chamando uma função de retorno de chamada. Uma mensagem consiste em um conjunto de propriedades de chave/valor e no conteúdo transmitido como um bloco de memória.
 
-![A função do Agente no IoT Edge do Azure][3]
+![função Hello de saudação do Broker no Azure IoT Edge][3]
 
 ## <a name="message-routing-and-filtering"></a>Roteamento e filtragem de mensagens
 
-Há duas maneiras de direcionar mensagens para os módulos corretos do IoT Edge:
+Há duas maneiras de módulos toohello IoT borda corretos mensagens toodirect:
 
-* Você pode transmitir um conjunto de links para o agente para que este saiba a origem e o coletor de cada módulo.
-* Um módulo pode filtrar as propriedades da mensagem.
+* Você pode passar um conjunto de links podem ser passados toohello agente para agente Olá Saiba fonte hello e coletor para cada módulo.
+* Um módulo pode filtrar em Propriedades de saudação de mensagem de saudação.
 
-Um módulo só deve agir em relação a uma mensagem se a mensagem é destinada a ele. Os links e a filtragem de mensagens criam efetivamente um pipeline de mensagem.
+Um módulo só deve agir sobre uma mensagem se a mensagem de saudação é destinada. Os links e a filtragem de mensagens criam efetivamente um pipeline de mensagem.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para ver esses conceitos aplicados em um exemplo que você pode executar, consulte [Explorar arquitetura do Azure IoT Edge][lnk-hello-world].
+toosee esses conceitos aplicados em um exemplo que você pode executar, consulte [arquitetura de explorar o Azure IoT borda][lnk-hello-world].
 
 <!-- Images -->
 [1]: media/iot-hub-iot-edge-overview/modules.png

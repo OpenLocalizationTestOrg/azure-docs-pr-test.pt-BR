@@ -1,6 +1,6 @@
 ---
-title: Conectar o Raspberry Pi (C) ao IoT do Azure - Solucionar problemas | Microsoft Docs
-description: "Página de solução de problemas para experiência Raspberry Pi Node.js"
+title: Connect Raspberry PI (C) tooAzure IoT - solucionar | Microsoft Docs
+description: "Página de experiência de framboesa Pi Node Olá de solução de problemas"
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,61 +17,61 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: f9058068972ddbb674d3cd159948835dc88c4451
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8f0807104550e8e53a132f7741564b33f1db17ea
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshooting"></a>Solucionar problemas
 ## <a name="hardware-issues"></a>Problemas de hardware
-### <a name="the-application-runs-well-but-the-led-is-not-blinking"></a>O aplicativo funciona bem, mas o LED não está piscando
-Esse problema está sempre relacionado à conectividade de circuito do hardware. Use as etapas a seguir para identificar problemas:
+### <a name="hello-application-runs-well-but-hello-led-is-not-blinking"></a>aplicativo Hello também será executado, mas Olá LED estiver piscando não
+Esse problema é sempre conectividade de circuito toohardware relacionados. Use Olá etapas tooidentify problemas a seguir:
 
-1. Verifique se você escolheu o **GPIO** correto na placa. As duas portas devem ser **GPIO GND (Pino 6)** e **GPIO 04 (Pino 7)**.
-2. Verifique se a polaridade do seu LED está correta. A base maior deve indicar o pino de nó **positivo**.
-3. Use o **Pino 3.3 V** e o **Pino GND** em seu Raspberry Pi 3. Trate o Pi como corrente contínua. Verifique se o LED funciona bem.
+1. Verifique que você escolheu Olá correto **GPIO** em seu quadro. Olá duas portas devem ser **GPIO GND (Pin 6)** e **GPIO 04 (7 Pin)**.
+2. Verifique se polaridade de saudação do seu LED está correta. trecho mais Olá deve indicar Olá **positivo**, pin do nó.
+3. Saudação de uso **3.3 v fixar** e **GND Pin** em framboesa Pi 3. Trate Pi como Olá corrente. Verifique que Olá LED funciona bem.
 
 ![Especificação do LED](media/iot-hub-raspberry-pi-lessons/troubleshooting/led_spec.png)
 
 ### <a name="other-hardware-issues"></a>Outros problemas de hardware
-Para obter informações sobre como resolver problemas comuns no Raspberry Pi 3, consulte a [página oficial de solução de problemas](http://elinux.org/R-Pi_Troubleshooting).
+Para obter informações sobre como resolver problemas comuns de framboesa Pi 3, consulte Olá [página oficial de solução de problemas](http://elinux.org/R-Pi_Troubleshooting).
 
 ## <a name="nodejs-package-issues"></a>Problemas do pacote de Node.js
 ### <a name="no-response-during-gulp-tasks"></a>Sem resposta durante as tarefas de gulp
-Se você encontrar problemas ao executar tarefas de gulp, adicione a opção `--verbose` para depuração. Tente finalizar as tarefas de gulp atuais usando Ctrl + C e, em seguida, execute o seguinte comando na janela do console para ver mensagens de depuração. Você pode ver mensagens de erro detalhadas em sua saída do console.
+Se você encontrar problemas em vez de tarefas em execução, você pode adicionar Olá `--verbose` opção de depuração. Tente tooterminate atual gulp tarefas usando Ctrl + C e execute a saudação comando em suas mensagens de depuração de toosee de janela de console a seguir. Você pode ver mensagens de erro detalhadas em sua saída do console.
 
 ```bash
 gulp --verbose
 ```
 
 ### <a name="device-discovery-issues"></a>Problemas de descoberta de dispositivo
-Para obter ajuda na solução de problemas comuns com o comando `devdisco`, consulte o [Leiame](https://github.com/Azure/device-discovery-cli/blob/develop/readme.md).
+Para obter ajuda na solução de problemas comuns com hello `devdisco` de comando, verifique Olá [Leiame](https://github.com/Azure/device-discovery-cli/blob/develop/readme.md).
 
 ### <a name="npm-issues"></a>problemas de npm
-Tente atualizar o pacote npm usando o comando a seguir:
+Tente tooupdate seu pacote npm usando Olá comando a seguir:
 
 ```bash
 npm install -g npm
 ```
 
-Se o problema persistir, deixe seus comentários no final deste artigo ou crie um problema de GitHub em nosso [repositório de exemplo](https://github.com/Azure-Samples/iot-hub-node-raspberrypi-getting-started).
+Se o problema de saudação ainda existe, deixar seus comentários no final deste artigo hello ou criar um problema do GitHub em nosso [repositório de exemplo](https://github.com/Azure-Samples/iot-hub-node-raspberrypi-getting-started).
 
 ## <a name="remote-debugging"></a>Depuração remota
-### <a name="run-the-sample-application-in-debug-mode"></a>Execute o aplicativo de exemplo no modo de depuração
+### <a name="run-hello-sample-application-in-debug-mode"></a>Execute o aplicativo de exemplo hello no modo de depuração
 ```bash
 gulp run --debug
 ```
 
-Quando o mecanismo de depuração estiver pronto, você deverá ver ```Debugger listening on port 5858``` na saída do console.
+Quando o mecanismo de depuração Olá estiver pronto, você deverá ver ```Debugger listening on port 5858``` na saída do console hello.
 
-### <a name="configure-visual-studio-code-to-connect-to-the-remote-device"></a>Configurar o Visual Studio Code para se conectar ao dispositivo remoto
-1. Abra o painel **Depurar** painel no lado esquerdo.
-2. Clique no botão verde **Iniciar Depuração** (F5). O Visual Studio Code abre um arquivo launch.json.
-3. Atualize o arquivo launch.json com o seguinte conteúdo. Substitua `[device hostname or IP address]` pelo nome do host ou endereço IP do dispositivo real.
+### <a name="configure-visual-studio-code-tooconnect-toohello-remote-device"></a>Configure o dispositivo remoto do Visual Studio Code tooconnect toohello
+1. Olá abrir **depurar** painel no lado esquerdo de saudação.
+2. Clique em Olá verde **iniciar depuração** botão (F5). O Visual Studio Code abre um arquivo launch.json.
+3. Atualize o arquivo de Launch de saudação com hello conteúdo a seguir. Substituir `[device hostname or IP address]` com o nome de host ou endereço IP de dispositivo real do hello.
 
 > [!NOTE]
-> Para saber mais sobre a depuração do Visual Studio, consulte [Depuração no Visual Studio Code](https://code.visualstudio.com/Docs/editor/debugging#_launchjson-attributes).
+> toolearn mais sobre Olá Visual Studio depuração, consulte muito[depuração no Visual Studio Code](https://code.visualstudio.com/Docs/editor/debugging#_launchjson-attributes).
 
 
 ```json
@@ -96,23 +96,23 @@ Quando o mecanismo de depuração estiver pronto, você deverá ver ```Debugger 
 
 ![Configuração de depuração remota](media/iot-hub-raspberry-pi-lessons/troubleshooting/remote_debugging_configuration.png)
 
-### <a name="attach-to-the-remote-application"></a>Anexar ao aplicativo remoto
-Clique no botão verde **Iniciar Depuração** (F5) para iniciar a depuração.
+### <a name="attach-toohello-remote-application"></a>Anexar o aplicativo remoto toohello
+Clique em Olá verde **iniciar depuração** (F5) botão toostart depuração.
 
-Leia [JavaScript no Código do VS](https://code.visualstudio.com/docs/languages/javascript#_debugging) para saber mais sobre o depurador.
+Leitura [JavaScript no código VS](https://code.visualstudio.com/docs/languages/javascript#_debugging) toolearn mais sobre o depurador de saudação.
 
 ![Depuração remota interativa](media/iot-hub-raspberry-pi-lessons/troubleshooting/remote_debugging_interactive.png)
 
 ## <a name="azure-cli-issues"></a>Problemas da CLI do Azure
-A interface de linha de comando do Azure (CLI do Azure) é uma compilação de visualização. Para procurar soluções, você pode consultar o [Guia de Instalação de Visualização](https://github.com/Azure/azure-cli/blob/master/doc/preview_install_guide.md).
+Hello Azure interface de linha de comando (CLI do Azure) é uma compilação de visualização. soluções de tooseek, você pode usar o hello [guia de instalação de visualização](https://github.com/Azure/azure-cli/blob/master/doc/preview_install_guide.md).
 
-Se você encontrar erros com a ferramenta, emita um [problema](https://github.com/Azure/azure-cli/issues) na seção **problemas** do repositório do GitHub.
+Se você encontrar quaisquer erros com a ferramenta hello, arquivo um [problema](https://github.com/Azure/azure-cli/issues) em Olá **problemas** seção do repositório do GitHub hello.
 
-Para obter ajuda para solucionar problemas comuns, consulte o [Leiame](https://github.com/Azure/azure-cli/blob/master/README.rst).
+Para obter ajuda na solução de problemas comuns, consulte Olá [Leiame](https://github.com/Azure/azure-cli/blob/master/README.rst).
 
 ## <a name="python-installation-issues"></a>Problemas de instalação do Python
 ### <a name="legacy-installation-issues-macos"></a>Problemas de instalação herdada (macOS)
-Ao instalar o pip, um erro de permissão será lançado quando houver pacotes herdados instalados com permissões **su**. Essa situação ocorre porque a instalação anterior do Python usando brew (macOS) não está completamente desinstalada. Alguns pacotes do pip de uma instalação anterior foram criados pela raiz, o que causa o erro de permissão. A solução é remover os pacotes instalados pela raiz. Use as etapas a seguir para concluir esta tarefa:
+Ao instalar o pip, um erro de permissão será lançado quando houver pacotes herdados instalados com permissões **su**. Essa situação ocorre porque a instalação anterior do Python usando brew (macOS) não está completamente desinstalada. Alguns pacotes de pip de uma instalação anterior foram criados pela raiz, que faz com que o erro de permissão de saudação. Olá solução é tooremove esses pacotes instalados pela raiz. Use essa tarefa de saudação toocomplete as etapas a seguir:
 
 1. Acesse: /usr/local/lib/python2.7/site-packages
 2. Listar pacotes criados por raiz: `ls -l | grep root`
@@ -120,36 +120,36 @@ Ao instalar o pip, um erro de permissão será lançado quando houver pacotes he
 4. Reinstale o Python.
 
 ## <a name="azure-iot-hub-issues"></a>Problemas do Hub IoT do Azure
-Se você tiver provisionado com êxito o Hub IoT do Azure com a CLI do Azure e precisar de uma ferramenta para gerenciar os dispositivos conectados ao seu Hub IoT, tente as seguintes ferramentas.
+Se você tiver configurado com êxito o hub IoT do Azure com a CLI do Azure, e você precisa de uma ferramenta toomanage Olá os dispositivos que estão se conectando tooyour IoT hub, tente Olá ferramentas a seguir.
 
 ### <a name="device-explorer"></a>Gerenciador de dispositivos
-O [Gerenciador de dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) é executado no computador local do Windows e se conecta ao seu hub IoT no Azure. Ele se comunica com os seguintes [pontos de extremidade de Hub IoT](iot-hub-devguide.md):
+Olá [explorer dispositivo](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) ferramenta é executada em sua máquina local do Windows e se conecta tooyour IoT hub no Azure. Ele se comunica com os seguintes Olá [pontos de extremidade de IoT Hub](iot-hub-devguide.md):
 
 
-* *Gerenciamento de identidade do dispositivo* para provisionar e gerenciar dispositivos registrados com seu hub IoT.
-* *Receber do dispositivo para nuvem* para que você possa monitorar as mensagens enviadas de seu dispositivo ao seu Hub IoT.
-* *Enviar do dispositivo para nuvem* para que você possa enviar mensagens para seus dispositivos de seu Hub IoT.
+* *Gerenciamento de identidade do dispositivo* tooprovision e gerenciar dispositivos registrados com o hub IoT.
+* *Receber o dispositivo para nuvem* para que você pode monitorar as mensagens enviadas do hub IoT de tooyour de dispositivo.
+* *Enviar a nuvem para dispositivo* para que você pode enviar mensagens tooyour dispositivos do seu hub IoT.
 
-Configure a cadeia de conexão do Hub IoT dentro desta ferramenta para usar todos os seus recursos.
+Configure todos os seus recursos de sua cadeia de conexão de hub IoT dentro toouse essa ferramenta.
 
 ### <a name="iothub-explorer"></a>iothub-explorer
-[iothub-explorer](https://github.com/Azure/iothub-explorer) é uma ferramenta de CLI de várias plataformas de exemplo para gerenciar dispositivos. Use a ferramenta para gerenciar os dispositivos no Registro de identidade, monitorar mensagens de dispositivo para a nuvem e enviar mensagens de nuvem para o dispositivo.
+[Gerenciador de Hub IOT](https://github.com/Azure/iothub-explorer) é uma ferramenta CLI em várias plataformas de exemplo toomanage dispositivos. Você pode usar dispositivos de Olá Olá ferramenta toomanage no registro de identidade Olá, monitorar mensagens de dispositivo para nuvem e enviar mensagens de nuvem para dispositivo.
 
-Para instalar a versão mais recente (pré-lançamento) da ferramenta Gerenciador do iothub, execute o comando a seguir em seu ambiente de linha de comando:
+tooinstall Olá versão (pré-lançamento) mais recente da ferramenta de Gerenciador de Hub IOT hello, executar Olá comandos em seu ambiente de linha de comando a seguir:
 
 ```bash
 npm install -g iothub-explorer@latest
 ```
 
-Você pode usar o comando a seguir para obter ajuda adicional sobre todos os comandos do Gerenciador do iothub e seus parâmetros:
+Você pode usar Olá Olá de tooget obter ajuda adicional sobre todos os comandos do Gerenciador de Hub IOT e seus parâmetros de comando a seguir:
 
 ```bash
 iothub-explorer help
 ```
 
 ### <a name="azure-portal"></a>Portal do Azure
-Uma experiência completa de CLI ajuda você a criar e gerenciar todos os recursos do Azure. Você também poderá usar o [portal do Azure](../azure-portal-overview.md) para ajudar a provisionar, gerenciar e depurar seus recursos do Azure.
+Uma experiência completa de CLI ajuda você a criar e gerenciar todos os recursos do Azure. Você também poderá Olá toouse [portal do Azure](../azure-portal-overview.md) toohelp provisionar, gerenciar e depurar seus recursos do Azure.
 
 ## <a name="azure-storage-issues"></a>Problemas de Armazenamento do Azure
-[O Gerenciador de Armazenamento do Microsoft Azure (Preview)](http://storageexplorer.com) é um aplicativo autônomo da Microsoft que pode ser usado para trabalhar com dados do Armazenamento do Azure no Windows, macOS e Linux. Com essa ferramenta você pode se conectar à sua tabela e ver os dados contidos nela. Você pode usar essa ferramenta para solucionar seus problemas de Armazenamento do Azure.
+[Gerenciador de armazenamento do Microsoft Azure (visualização)](http://storageexplorer.com) é um aplicativo autônomo da Microsoft que você pode usar toowork com dados de armazenamento do Azure no Linux, Windows e macOS. Usando essa ferramenta, você pode conectar-se a tabela de tooyour e ver dados hello. Você pode usar essa ferramenta tootroubleshoot seus problemas de armazenamento do Azure.
 

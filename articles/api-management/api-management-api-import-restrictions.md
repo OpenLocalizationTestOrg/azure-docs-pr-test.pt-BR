@@ -1,6 +1,6 @@
 ---
-title: "Restrições e problemas conhecidos na importação de API do Gerenciamento de API do Azure | Microsoft Docs"
-description: "Detalhes de problemas conhecidos e restrições na importação para o Gerenciamento de API do Azure usando os formatos Open API, WSDL ou WADL."
+title: Importar aaaRestrictions e problemas conhecidos na API de gerenciamento de API do Azure | Microsoft Docs
+description: "Detalhes dos problemas conhecidos e as restrições na importação para o gerenciamento de API do Azure usando os formatos de API aberta, WSDL ou WADL hello."
 services: api-management
 documentationcenter: 
 author: mattfarm
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: apipm
-ms.openlocfilehash: ac799d66b5038c207413086b0fa71239ff2a332f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0bed5ace47de6ccbfbecba25ea6b69c5329de089
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrições de importação de API e problemas conhecidos
 ## <a name="about-this-list"></a>Sobre esta lista
-Enquanto todos os esforços são feitos para garantir que a importação de sua API no Gerenciamento de API do Azure seja a mais simples possível e sem problemas, podemos impor ocasionalmente restrições ou identificar problemas que precisam ser corrigidos antes de você poder importar com êxito. Este artigo documenta essas informações, organizadas pelo formato de importação da API.
+Enquanto todos os esforços é feito tooensure que importar sua API para gerenciamento de API do Azure é a maneira mais uniforme e livre de problemas possível, podemos ocasionalmente impor restrições ou identificar problemas que precisará toobe corrigida antes de importar com êxito. Este artigo documenta essas, se organizado pelo formato de importação de saudação do hello API.
 
 ## <a name="open-api"> </a>Open API/Swagger
-Em geral, se você estiver recebendo erros ao importar seu documento da Open API, verifique você o validou usando o designer no novo Portal do Azure (Design - Front-End - Editor de Especificação da Open API) ou com uma ferramenta de terceiros, como o <a href="http://www.swagger.io">Editor do Swagger</a>.
+Em geral, se você estiver recebendo erros importar seu documento API aberta, verifique se você tiver validado - usando o designer de saudação em Olá novo Portal do Azure (Design - Front-End - abrir Editor de API Specification) ou com um 3ª parte ferramenta como <a href="http://www.swagger.io"> Editor de swagger</a>.
 
 * **Nome do Host** exigimos um atributo de nome de host.
 * **Caminho Base** exigimos um atributo de caminho base.
 * **Esquemas** exigimos uma matriz de esquema. 
 
 ## <a name="wsdl"> </a>WSDL
-Arquivos WSDL são usados para gerar as APIs de passagem SOAP ou servir como o backend de uma API de SOAP para REST.
+Arquivos WSDL são usada toogenerate APIs do SOAP de passagem ou servem como Olá back-end da API SOAP para REST.
 
-* **WSDL:Import** no momento, não oferecemos suporte à APIs usando este atributo. Os clientes devem mesclar os elementos importados em um documento.
+* **WSDL:Import** no momento, não oferecemos suporte à APIs usando este atributo. Os clientes devem mesclar elementos Olá importado em um documento.
 * No momento, não há suporte para **Mensagens com diversas partes**.
 * **wsHttpBinding no WCF** Serviços SOAP criados com o Windows Communication Foundation devem usar basicHttpBinding – não há suporte para wsHttpBinding.
 * **MTOM** Serviços que usam MTOM <em>podem</em> funcionar. No momento, não oferecemos suporte oficial.
-* Não há suporte para tipos de **recursão** definidos recursivamente (por exemplo, referir-se a uma matriz de si mesmo).
+* **Recursão** tipos que são definidos recursivamente (por exemplo, consulte tooan matriz de si mesmos) não têm suporte.
 
 ## <a name="wadl"> </a>WADL
 Atualmente, não há problemas de importação de WADL conhecidos.
@@ -77,6 +77,6 @@ Atualmente, não há problemas de importação de WADL conhecidos.
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to create and publish a product]: api-management-howto-add-products.md
-[How to cache operation results in Azure API Management]: api-management-howto-cache.md
+[How tooadd operations tooan API]: api-management-howto-add-operations.md
+[How toocreate and publish a product]: api-management-howto-add-products.md
+[How toocache operation results in Azure API Management]: api-management-howto-cache.md

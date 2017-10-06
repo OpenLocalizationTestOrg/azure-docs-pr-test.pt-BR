@@ -1,6 +1,6 @@
 ---
-title: "Preparação de discos rígidos para um trabalho de importação da Importação/Exportação do Azure | Microsoft Docs"
-description: "Saiba como preparar os discos rígidos usando a ferramenta WAImportExport para criar um trabalho de importação para o serviço Importação/Exportação do Azure."
+title: "trabalho de importação de unidades de disco rígido para uma importação/exportação do Azure aaaPreparing | Microsoft Docs"
+description: "Saiba como tooprepare discos rígidos usando Olá WAImportExport ferramenta toocreate um trabalho de importação para Olá serviço de importação/exportação do Azure."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
-ms.openlocfilehash: 5b894dac8fdc26999b6f3cbffaf7e6a98e68d000
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3f247a9efee29da2d18140353edc9dd7103a0761
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparação de discos rígidos para um trabalho de importação
 
-A ferramenta WAImportExport é a ferramenta de preparação e reparo de unidade que pode ser usada com o serviço [Importação/Exportação do Microsoft Azure](storage-import-export-service.md). Use essa ferramenta para copiar dados para os discos rígidos que você vai enviar para um datacenter do Azure. Após a conclusão de um trabalho de importação, é possível usar essa ferramenta para reparar os blobs corrompidos, ausentes ou que entraram em conflito com outros blobs. Depois de receber as unidades de um trabalho de exportação concluído, é possível usar essa ferramenta para reparar os arquivos corrompidos ou ausentes nas unidades. Neste artigo, explicamos o uso dessa ferramenta.
+Olá ferramenta WAImportExport é preparação da unidade hello e ferramenta de reparo que você pode usar com hello [serviço de importação/exportação do Microsoft Azure](storage-import-export-service.md). Você pode usar essa ferramenta toocopy dados toohello discos rígidos que você vai tooship tooan datacenter do Azure. Depois que um trabalho de importação for concluída, você pode usar essa ferramenta toorepair todos os blobs que foram corrompidos, estavam ausentes ou está em conflito com outros blobs. Depois de receber Olá unidades de um trabalho de exportação concluído, você pode usar essa ferramenta toorepair todos os arquivos que foram corrompidos ou ausentes em unidades de saudação. Neste artigo, vamos sobre o uso de saudação dessa ferramenta.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,14 +30,14 @@ A ferramenta WAImportExport é a ferramenta de preparação e reparo de unidade 
 
 - **Configuração da máquina**
   - Windows 7, Windows Server 2008 R2 ou um sistema operacional Windows mais recente
-  - O .NET Framework 4 deve estar instalado. Confira nas [Perguntas frequentes](#faq) como verificar se o .Net Framework está instalado na máquina.
-- **Chave da conta de armazenamento** - É necessário ter pelo menos uma das chaves de conta para a conta de armazenamento.
+  - O .NET Framework 4 deve estar instalado. Consulte [perguntas frequentes sobre](#faq) sobre como toocheck se o .net Framework está instalado na máquina de saudação.
+- **Chave de conta de armazenamento** -é necessário pelo menos uma das chaves de conta Olá Olá conta de armazenamento.
 
 ### <a name="preparing-disk-for-import-job"></a>Preparação do disco para o trabalho de importação
 
-- **BitLocker -** o BitLocker deve ser habilitado no computador executando a ferramenta WAImportExport. Confira nas [Perguntas frequentes](#faq) como habilitar o BitLocker.
+- **BitLocker -** BitLocker deve ser habilitado na ferramenta Olá máquina executa Olá WAImportExport. Consulte Olá [perguntas frequentes sobre](#faq) como tooenable BitLocker.
 - **Discos** acessíveis do computador no qual a ferramenta WAImportExport é executada. Confira nas [Perguntas frequentes](#faq) a especificação do disco.
-- **Arquivos de origem** - Os arquivos que você pretende importar devem estar acessíveis no computador de cópia, estejam eles em um compartilhamento de rede ou um disco rígido local.
+- **Arquivos de origem** -arquivos de saudação planejar tooimport devem estar acessíveis do computador de cópia hello, independentemente de estarem em um compartilhamento de rede ou um disco rígido local.
 
 ### <a name="repairing-a-partially-failed-import-job"></a>Reparação de um trabalho de importação com falha parcial
 
@@ -50,19 +50,19 @@ A ferramenta WAImportExport é a ferramenta de preparação e reparo de unidade 
 
 ## <a name="download-and-install-waimportexport"></a>Baixar e instalar a WAImportExport
 
-Baixe a [versão mais recente do WAImportExport.exe](https://www.microsoft.com/download/details.aspx?id=55280). Extraia o conteúdo compactado em um diretório em seu computador.
+Baixar Olá [versão mais recente do WAImportExport.exe](https://www.microsoft.com/download/details.aspx?id=55280). Extraia o diretório de tooa conteúdo compactado Olá no seu computador.
 
-A próxima tarefa é criar arquivos CSV.
+A próxima tarefa é toocreate os arquivos CSV.
 
-## <a name="prepare-the-dataset-csv-file"></a>Preparar o arquivo CSV de conjunto de dados
+## <a name="prepare-hello-dataset-csv-file"></a>Preparar o arquivo CSV Olá conjunto de dados
 
 ### <a name="what-is-dataset-csv"></a>O que é o CSV de conjunto de dados
 
-O arquivo CSV de conjunto de dados é o valor do sinalizador /dataset, um arquivo CSV contendo uma lista de diretórios e/ou arquivos de lista a serem copiados nas unidades de destino. A primeira etapa para criar um trabalho de importação é determinar quais diretórios e arquivos você pretende importar. Isso pode ser uma lista de diretórios, uma lista de arquivos exclusivos ou uma combinação dos dois. Quando um diretório é incluído, todos os arquivos no diretório e seus subdiretórios farão parte do trabalho de importação.
+Arquivo CSV de DataSet é o valor de saudação do sinalizador de /conjunto de dados é um arquivo CSV que contém uma lista de diretórios e/ou uma lista de arquivos copiado de toobe tootarget unidades. Olá primeira etapa toocreating um trabalho de importação é toodetermine quais diretórios e arquivos que você vai tooimport. Isso pode ser uma lista de diretórios, uma lista de arquivos exclusivos ou uma combinação dos dois. Quando um diretório é incluído, todos os arquivos no diretório hello e seus subdiretórios farão parte do trabalho de importação de saudação.
 
-Para cada diretório ou arquivo a ser importado, você deve identificar um diretório virtual de destino ou um blob no serviço Blob do Azure. Você usará esses destinos como entradas para a ferramenta WAImportExport. Os diretórios devem ser delimitados com o caractere de barra "/".
+Para cada toobe de diretório ou arquivo importado, você deve identificar um diretório virtual de destino ou blob no hello serviço Blob do Azure. Você usará esses destinos como ferramenta de WAImportExport toohello entradas. Diretórios devem ser delimitados pelo caractere de barra invertida hello "/".
 
-A tabela a seguir mostra alguns exemplos de blobs de destino:
+Olá, a tabela a seguir mostra alguns exemplos de destinos de blob:
 
 | Arquivo ou diretório de origem | Blob de destino ou diretório virtual |
 | --- | --- |
@@ -83,24 +83,24 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 
 | Campo | Descrição |
 | --- | --- |
-| BasePath | **[Obrigatório]**<br/>O valor desse parâmetro representa a origem em que os dados a serem importados estão localizados. A ferramenta copiará recursivamente todos os dados localizados nesse caminho.<br><br/>**Valores Permitidos**: deve ser um caminho válido no computador local ou um caminho de compartilhamento válido e deve ser acessível ao usuário. O caminho do diretório deve ser um caminho absoluto (não um caminho relativo). Se o caminho termina com "\\", ele representa um diretório. Caso contrário, um caminho que termina sem "\\" representa um arquivo.<br/>Nenhuma regex é permitido neste campo. Se o caminho contiver espaços, coloque-os entre "".<br><br/>**Exemplo**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
-| DstBlobPathOrPrefix | **[Obrigatório]**<br/> O caminho até o diretório virtual de destino em sua conta de armazenamento do Windows Azure. O diretório virtual pode ou não existir. Se não existir, o serviço de Importação/Exportação criará um.<br/><br/>Certifique-se de usar nomes de contêineres válidos ao especificar diretórios virtuais ou blobs de destino. Tenha em mente que os nomes de contêiner devem estar em minúsculas. Para conhecer as regras de nomenclatura de contêineres, consulte [Nomenclatura e referência de contêineres, blobs e metadados](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Se apenas a raiz for especificada, a estrutura do diretório de origem será replicada no contêiner de blob de destino. Caso deseje a uma estrutura de diretório diferente no código-fonte, várias linhas de mapeamento no CSV<br/><br/>Você pode especificar um contêiner ou um prefixo de blob como music/70s/. O diretório de destino deve começar com o nome do contêiner, seguido por uma barra "/" e, opcionalmente, pode incluir um diretório virtual de blob que termina com "/".<br/><br/>Quando o contêiner de destino for o contêiner raiz, especifique explicitamente o contêiner raiz, incluindo a barra, como $root/. Como os blobs no contêiner raiz não podem incluir "/" em seus nomes, quaisquer subdiretórios no diretório de origem não serão copiados quando o diretório de destino for o contêiner raiz.<br/><br/>**Exemplo**<br/>Se o caminho do blob de destino for https://mystorageaccount.blob.core.windows.net/video, o valor desse campo poderá ser video/  |
-| BlobType | **[Opcional]** block &#124; page<br/>Atualmente, o serviço de Importação/Exportação oferece suporte dois tipos de Blobs. Blobs de página e Blobs de bloco. Por padrão, todos os arquivos serão importados como Blobs de blocos. E \*.vhd e \*.vhdx serão importados como Blobs de página. Há um limite para o tamanho permitido para o blob de bloco e o blob de página. Confira [Metas de escalabilidade do armazenamento](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files) para saber mais.  |
-| Disposition | **[Opcional]** rename &#124; no-overwrite &#124; overwrite <br/> Este campo especifica o comportamento de cópia durante a importação, ou seja Quando os dados estão sendo carregados do disco para a conta de armazenamento. As opções disponíveis são: renomear&#124;substituir&#124;não-substituir. O padrão é "renomear" se nada é especificado. <br/><br/>**Rename**: se um objeto com o mesmo nome estiver presente, isso cria uma cópia no destino.<br/>Overwrite: substitui o arquivo por um arquivo mais recente. O arquivo com a última modificação vence.<br/>**No-overwrite**: ignora a substituição do arquivo, se ele já estiver presente.|
-| MetadataFile | **[Opcional]** <br/>O valor para esse campo é o arquivo de metadados, que pode ser fornecido se for necessário preservar os metadados dos objetos ou fornecer metadados personalizados. Caminho até o arquivo de metadados para os blobs de destino. Confira [Formato de arquivo de propriedades e metadados de serviço de Importação/Exportação](storage-import-export-file-format-metadata-and-properties.md) para saber mais |
-| PropertiesFile | **[Opcional]** <br/>Caminho até o arquivo de propriedades para os blobs de destino. Confira [Formato de arquivo de propriedades e metadados de serviço de Importação/Exportação](storage-import-export-file-format-metadata-and-properties.md) para saber mais. |
+| BasePath | **[Obrigatório]**<br/>valor desse parâmetro Hello representa a fonte de saudação onde se encontra Olá toobe de dados importado. ferramenta de saudação irá copiar recursivamente todos os dados localizados nesse caminho.<br><br/>**Valores permitidos**: isso tem toobe um caminho válido no computador local ou um caminho de compartilhamento válido e deve ser acessível por usuário hello. caminho do diretório Olá deve ser um caminho absoluto (não um caminho relativo). Se o caminho de saudação termina com "\\", representa um caminho terminando sem um diretório else"\\" representa um arquivo.<br/>Nenhuma regex é permitido neste campo. Se Olá caminho contiver espaços, coloque-a "".<br><br/>**Exemplo**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
+| DstBlobPathOrPrefix | **[Obrigatório]**<br/> Olá caminho toohello diretório virtual de destino em sua conta de armazenamento do Windows Azure. diretório virtual Olá pode ou não existir. Se não existir, o serviço de Importação/Exportação criará um.<br/><br/>Ser toouse-se de que os nomes de contêiner válido ao especificar diretórios virtuais de destino ou blobs. Tenha em mente que os nomes de contêiner devem estar em minúsculas. Para conhecer as regras de nomenclatura de contêineres, consulte [Nomenclatura e referência de contêineres, blobs e metadados](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Se apenas a raiz é especificada, a estrutura de diretórios de Olá da fonte de saudação é replicada no contêiner de blob de destino hello. Se desejar que uma estrutura de diretórios diferentes Olá um na origem, várias linhas de mapeamento em CSV<br/><br/>Você pode especificar um contêiner ou um prefixo de blob como music/70s/. Olá diretório de destino deve começar com o nome do contêiner de hello, seguido por uma barra "/" e pode incluir opcionalmente um diretório virtual de blob que termina com "/".<br/><br/>Quando o contêiner de destino Olá é contêiner raiz de saudação, você deve especificar explicitamente contêiner raiz de hello, incluindo Olá barra invertida, como $root /. Como blobs no contêiner raiz de saudação não podem incluir "/" em seus nomes, os subdiretórios no diretório de origem de saudação não serão copiados quando o diretório de destino de saudação é o contêiner raiz de saudação.<br/><br/>**Exemplo**<br/>Se o caminho de blob de destino de saudação é https://mystorageaccount.blob.core.windows.net/video, o valor de saudação do campo pode ser vídeo /  |
+| BlobType | **[Opcional]** block &#124; page<br/>Atualmente, o serviço de Importação/Exportação oferece suporte dois tipos de Blobs. Blobs de página e Blobs de bloco. Por padrão, todos os arquivos serão importados como Blobs de blocos. E \*. vhd e \*. vhdx será importado como Page BlobsThere é um limite de blob de blocos hello e o tamanho permitido do blob de página. Confira [Metas de escalabilidade do armazenamento](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files) para saber mais.  |
+| Disposition | **[Opcional]** rename &#124; no-overwrite &#124; overwrite <br/> Este campo especifica o comportamento de cópia Olá durante ou importação seja Quando os dados estão sendo carregados toohello conta de armazenamento do disco de saudação. Opções disponíveis são: Renomear &#124; Substituir &#124; não-substituir. Padrões muito "Renomear" se nada for especificado. <br/><br/>**Rename**: se um objeto com o mesmo nome estiver presente, isso cria uma cópia no destino.<br/>Substituir: substitui o arquivo hello com arquivo mais recente. arquivo Hello com wins última modificação.<br/>**Substituir não**: ignora a gravação da saudação do arquivo se estiver presente.|
+| MetadataFile | **[Opcional]** <br/>campo de toothis Olá valor é o arquivo de metadados de saudação que pode ser fornecido se precisar de saudação um toopreserve Olá metadados de objetos de saudação ou fornecer metadados personalizados. Arquivo de metadados de toohello de caminho para blobs de destino hello. Confira [Formato de arquivo de propriedades e metadados de serviço de Importação/Exportação](storage-import-export-file-format-metadata-and-properties.md) para saber mais |
+| PropertiesFile | **[Opcional]** <br/>Arquivo de propriedade caminho toohello para blobs de destino hello. Confira [Formato de arquivo de propriedades e metadados de serviço de Importação/Exportação](storage-import-export-file-format-metadata-and-properties.md) para saber mais. |
 
 ## <a name="prepare-initialdriveset-or-additionaldriveset-csv-file"></a>Preparar o arquivo CSV AdditionalDriveSet ou InitialDriveSet
 
 ### <a name="what-is-driveset-csv"></a>O que é o CSV driveset
 
-O valor do sinalizador /InitialDriveSet ou /AdditionalDriveSet é um arquivo CSV que contém a lista de discos para os quais as letras de unidade estão mapeadas, de modo que a ferramenta possa selecionar corretamente a lista de discos para preparação. Se o tamanho dos dados for maior do que o tamanho de um único disco, a ferramenta WAImportExport distribuirá os dados em vários discos inscritos nesse arquivo CSV de forma otimizada.
+Olá, valor do sinalizador de saudação /InitialDriveSet ou /AdditionalDriveSet é um arquivo CSV que contém a lista Olá de discos toowhich letras de unidade de saudação são mapeadas para que hello ferramenta pode corretamente lista de seleção Olá de discos toobe preparado. Se o tamanho dos dados Olá é maior do que um tamanho de disco único, ferramenta WAImportExport de saudação distribuirá dados saudação em vários discos inscritos nesse arquivo CSV de forma otimizada.
 
-Não há limite para o número de discos nos quais os dados podem ser gravados em uma única sessão. A ferramenta distribuirá os dados com base no tamanho do disco e no tamanho da pasta. Ele selecionará o disco mais otimizado para o tamanho do objeto. Após serem carregados na conta de armazenamento, os dados serão ser convergidos novamente para a estrutura do diretório que foi especificada no arquivo do conjunto de dados. Para criar um CSV driveset, execute as etapas abaixo.
+Não há nenhum limite no número de saudação de dados de saudação de discos pode ser gravado tooin uma única sessão. ferramenta de saudação distribui dados com base no tamanho do disco e tamanho da pasta. Ele selecionará disco hello mais otimizado para saudação do tamanho do objeto. Olá dados quando carregado toohello conta de armazenamento será convergida toohello back estrutura de diretório que foi especificada no arquivo de conjunto de dados. Em ordem toocreate um driveset CSV, siga as etapas de saudação abaixo.
 
 ### <a name="create-basic-volume-and-assign-drive-letter"></a>Criar um volume básico e atribuir uma letra de unidade
 
-Para criar um volume básico e atribuir uma letra de unidade, siga as instruções de "Criação de partição mais simples" fornecidas em [Visão geral do gerenciamento de disco](https://technet.microsoft.com/library/cc754936.aspx).
+Em ordem toocreate um volume básico e atribuir uma letra de unidade, seguindo as instruções de hello "Mais simples partição para a criação de" fornecido no [visão geral do gerenciamento de disco](https://technet.microsoft.com/library/cc754936.aspx).
 
 ### <a name="sample-initialdriveset-and-additionaldriveset-csv-file"></a>Exemplo de arquivo CSV InitialDriveSet e AdditionalDriveSet
 
@@ -114,19 +114,19 @@ H,Format,SilentMode,Encrypt,
 
 | Campos | Valor |
 | --- | --- |
-| DriveLetter | **[Obrigatório]**<br/> Cada unidade fornecida à ferramenta como destino deve ter um volume NTFS simples e uma letra de unidade atribuída.<br/> <br/>**Exemplo**: R ou r |
-| FormatOption | **[Obrigatório]** Format &#124; AlreadyFormatted<br/><br/> **Format**: isso formatará todos os dados no disco. <br/>**AlreadyFormatted**: a ferramenta ignorará a formatação quando esse valor for especificado. |
-| SilentOrPromptOnFormat | **[Obrigatório]** SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: esse valor permitirá que o usuário execute a ferramenta no Modo Silencioso. <br/>**PromptOnFormat**: a ferramenta solicitará ao usuário a confirmação se a ação realmente destina-se a todos os formatos.<br/><br/>Se não for definido, o comando será anulado e exibirá a mensagem de erro: "Valor incorreto para SilentOrPromptOnFormat: nenhum" |
-| Criptografia | **[Obrigatório]** Encrypt &#124; AlreadyEncrypted<br/> O valor desse campo decide qual disco criptografar e qual não criptografar. <br/><br/>**Encrypt**: a ferramenta formatará a unidade. Se o valor do campo "FormatOption" for "Format", esse valor deverá ser "Encrypt". Se "AlreadyEncrypted" for especificado, o resultado será um erro "Quando Format for especificado, Encrypt também deverá ser especificado".<br/>**AlreadyEncrypted**: a ferramenta descriptografará a unidade usando o BitLockerKey fornecido no campo "ExistingBitLockerKey". Se o valor do campo "FormatOption" for "AlreadyFormatted", esse valor poderá ser "Encrypt" ou "AlreadyEncrypted" |
-| ExistingBitLockerKey | **[Obrigatório]**  Se o valor do campo "Encryption" for "AlreadyEncrypted"<br/> O valor desse campo é a chave do BitLocker associada ao disco específico. <br/><br/>Esse campo deve ser deixado em branco se o valor do campo "Encryption" for "Encrypt".  Se o BitLocker Key for especificada nesse caso, o resultado será um erro "A Chave do Bitlocker não deve ser especificada".<br/>  **Exemplo**: 060456-014509-132033-080300-252615-584177-672089-411631|
+| DriveLetter | **[Obrigatório]**<br/> Cada unidade que está sendo fornecida toohello ferramenta como destino Olá precisa ter um volume NTFS simples nela e uma letra de unidade atribuída tooit.<br/> <br/>**Exemplo**: R ou r |
+| FormatOption | **[Obrigatório]** Format &#124; AlreadyFormatted<br/><br/> **Formato**: especificar isso formatará a todos os dados de saudação em disco hello. <br/>**AlreadyFormatted**: ferramenta de saudação ignorará a formatação quando esse valor é especificado. |
+| SilentOrPromptOnFormat | **[Obrigatório]** SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: fornecer esse valor permitirá a ferramenta de saudação do usuário toorun no modo silencioso. <br/>**PromptOnFormat**: ferramenta Olá solicitará Olá usuário tooconfirm se Olá ação destina-se realmente em cada formato.<br/><br/>Se não for definido, o comando será anulado e exibirá a mensagem de erro: "Valor incorreto para SilentOrPromptOnFormat: nenhum" |
+| Criptografia | **[Obrigatório]** Encrypt &#124; AlreadyEncrypted<br/> valor de saudação do campo decide qual tooencrypt de disco e que não a. <br/><br/>**Criptografar**: ferramenta formatará a unidade de saudação. Se o valor do campo "FormatOption" for "Formato", em seguida, esse valor é necessário toobe "Criptografar". Se "AlreadyEncrypted" for especificado, o resultado será um erro "Quando Format for especificado, Encrypt também deverá ser especificado".<br/>**AlreadyEncrypted**: ferramenta descriptografar unidade hello usando Olá BitLockerKey fornecido no campo "ExistingBitLockerKey". Se o valor do campo "FormatOption" for "AlreadyFormatted", esse valor poderá ser "Encrypt" ou "AlreadyEncrypted" |
+| ExistingBitLockerKey | **[Obrigatório]**  Se o valor do campo "Encryption" for "AlreadyEncrypted"<br/> valor de saudação do campo é chave do BitLocker Olá que está associado ao disco determinado hello. <br/><br/>Este campo deve ser deixado em branco se o valor de saudação do campo "Criptografia" é "Criptografar".  Se o BitLocker Key for especificada nesse caso, o resultado será um erro "A Chave do Bitlocker não deve ser especificada".<br/>  **Exemplo**: 060456-014509-132033-080300-252615-584177-672089-411631|
 
 ##  <a name="preparing-disk-for-import-job"></a>Preparação do disco para o trabalho de importação
 
-Para preparar unidades para um trabalho de importação, chame a ferramenta WAImportExport com o comando **PrepImport**. Os parâmetros que você inclui dependem se esta for a primeira sessão de cópia ou uma sessão de cópia subsequente.
+tooprepare unidades para um trabalho de importação, chame a ferramenta WAImportExport Olá Olá **PrepImport** comando. Quais parâmetros você incluir depende se isso for Olá primeira sessão de cópia ou uma sessão de cópia subsequentes.
 
 ### <a name="first-session"></a>Primeira sessão
 
-Primeira Sessão de Cópia para copiar um único diretório/múltiplos diretórios em um único disco/múltiplos discos (dependendo do que é especificado no arquivo CSV) Comando PrepImport da ferramenta WAImportExport para a primeira sessão de cópia a fim de copiar diretórios e/ou arquivos com uma nova sessão de cópia:
+Primeira sessão de cópia tooCopy uma ferramenta de WAImportExport de disco (dependendo do que é especificado no arquivo CSV) de várias Single/Multiple Directory tooa comando PrepImport para Olá primeiro copiar diretórios toocopy de sessão e/ou arquivos com uma nova sessão de cópia:
 
 ```
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
@@ -140,7 +140,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:\*\*\*\*\*\*
 
 ### <a name="add-data-in-subsequent-session"></a>Adicionar dados em uma sessão subsequente
 
-Em sessões de cópia subsequentes, não é necessário especificar os parâmetros iniciais. Use o mesmo arquivo de diário para que a ferramenta se lembre onde parou na sessão anterior. O estado da sessão de cópia é gravado no arquivo de diário. Esta é a sintaxe de uma sessão de cópia subsequente para copiar outros diretórios e/ou arquivos:
+Em sessões de cópia subsequentes, não é necessário parâmetros iniciais do toospecify hello. Você precisa toouse Olá mesmo arquivo de diário para que Olá ferramenta tooremember onde ele deixado no hello sessão anterior. estado de saudação de sessão de cópia de saudação é gravado toohello arquivo de diário. Esta é a sintaxe Olá para uma cópia subsequente diretórios adicionais de toocopy de sessão e/ou arquivos:
 
 ```
 WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<DifferentSessionId>  [DataSet:<differentdataset.csv>]
@@ -152,12 +152,12 @@ WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<DifferentSessionId>  [Da
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
 ```
 
-### <a name="add-drives-to-latest-session"></a>Adicionar unidades à sessão mais recente
+### <a name="add-drives-toolatest-session"></a>Adicionar unidades toolatest sessão
 
-Se os dados não se ajustarem às unidades especificadas em InitialDriveset, será possível usar a ferramenta para adicionar outras unidades à mesma sessão de cópia. 
+Se dados saudação não se ajustou em unidades especificadas em InitialDriveset, você pode usar o hello ferramenta tooadd unidades adicionais toosame a sessão de cópia. 
 
 >[!NOTE] 
->A identificação da sessão deve corresponder à identificação de sessão anterior. Arquivo de diário deve corresponder àquele especificado na sessão anterior.
+>id da sessão Olá deve corresponder a id de sessão anterior de saudação. Arquivo de diário deve corresponder Olá especificada na sessão anterior.
 >
 ```
 WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
@@ -169,9 +169,9 @@ WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /Addition
 WAImportExport.exe PrepImport /j:SameJournalTest.jrn /id:session#2  /AdditionalDriveSet:driveset-2.csv
 ```
 
-### <a name="abort-the-latest-session"></a>Anular a sessão mais recente:
+### <a name="abort-hello-latest-session"></a>Anule Olá sessão mais recente:
 
-Se uma sessão de cópia for interrompida e não for possível retomá-la (por exemplo, se um diretório de origem ficar inacessível), será necessário anular a sessão atual para que ela possa ser revertida e novas sessões de cópia possam ser iniciadas:
+Se uma sessão de cópia for interrompida e não é possível tooresume (por exemplo, se um diretório de origem ficar inacessível), você deverá abortar Olá sessão atual para que ela pode ser revertida volta e novas sessões de cópia podem ser iniciadas:
 
 ```
 WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AbortSession
@@ -183,11 +183,11 @@ WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AbortSes
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /AbortSession
 ```
 
-Somente a última sessão de cópia, se for finalizada de maneira anormal, poderá ser anulada. Observe que não é possível anular a primeira sessão de cópia de uma unidade. Em vez disso, reinicie a sessão de cópia com um novo arquivo de diário.
+Olá somente última sessão de cópia, se for finalizada de maneira anormal, poderá ser abortada. Observe que você não é possível anular Olá a primeira sessão de cópia para uma unidade. Em vez disso, você deve reiniciar a sessão de cópia de saudação com um novo arquivo de diário.
 
 ### <a name="resume-a-latest-interrupted-session"></a>Retomar a sessão interrompida mais recente
 
-Se uma sessão de cópia for interrompida por qualquer motivo, você poderá retomá-la executando a ferramenta apenas com o arquivo de diário especificado:
+Se uma sessão de cópia for interrompida por qualquer motivo, você poderá retomá-la executando a ferramenta de saudação com apenas Olá arquivo de diário especificado:
 
 ```
 WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /ResumeSession
@@ -200,30 +200,30 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 ```
 
 > [!IMPORTANT] 
-> Ao retomar uma sessão de cópia, não modifique os diretórios e arquivos de dados de origem adicionando ou removendo arquivos.
+> Quando você retomar uma sessão de cópia, não modifique diretórios e arquivos de dados de origem Olá adicionando ou removendo arquivos.
 
 ## <a name="waimportexport-parameters"></a>Parâmetros de WAImportExport
 
 | parâmetros | Descrição |
 | --- | --- |
-|     /j:&lt;JournalFile&gt;  | **Obrigatório**<br/> Caminho até o arquivo de diário. Um arquivo de diário acompanha um conjunto de unidades e registra o progresso da preparação dessas unidades. O arquivo de diário deve ser sempre especificado.  |
-|     /logdir:&lt;LogDirectory&gt;  | **Opcional**. O diretório de log.<br/> Arquivos de log detalhado, bem como alguns arquivos temporários, serão gravados nesse diretório. Se nenhum for especificado, o diretório atual será usado como o diretório de log. O diretório de log pode ser especificado somente uma vez para o mesmo arquivo de diário.  |
-|     /id:&lt;SessionId&gt;  | **Obrigatório**<br/> A ID da sessão é usada para identificar uma sessão de cópia. Ela é usada para garantir a recuperação correta de uma sessão de cópia interrompida.  |
-|     /ResumeSession  | Opcional. Se a última sessão de cópia tiver sido finalizada de maneira anormal, esse parâmetro poderá ser especificado para retomar a sessão.   |
-|     /AbortSession  | Opcional. Se a última sessão de cópia tiver sido finalizada de maneira anormal, esse parâmetro poderá ser especificado para anular a sessão.  |
-|     /sn:&lt;StorageAccountName&gt;  | **Obrigatório**<br/> Aplicável somente para RepairImport e RepairExport. O nome da conta de armazenamento.  |
-|     /sk:&lt;StorageAccountKey&gt;  | **Obrigatório**<br/> A chave da conta de armazenamento. |
-|     /InitialDriveSet:&lt;driveset.csv&gt;  | **Obrigatório** Ao executar a primeira sessão de cópia<br/> Um arquivo CSV que contém uma lista de unidades para preparação.  |
-|     /AdditionalDriveSet:&lt;driveset.csv&gt; | **Obrigatório**. Ao adicionar unidades à sessão de cópia atual. <br/> Um arquivo CSV que contém uma lista de unidades adicionais para adição.  |
-|      /r:&lt;RepairFile&gt; | **Obrigatório** Aplicável somente para RepairImport e RepairExport.<br/> Caminho até o arquivo para acompanhar o progresso do reparo. Cada unidade deve ter um, e somente um, arquivo de reparo.  |
-|     /d:&lt;TargetDirectories&gt; | **Obrigatório**. Aplicável somente para RepairImport e RepairExport. Para RepairImport, um ou mais diretórios separados por ponto e vírgula para reparação; para RepairExport, um diretório para reparação, por exemplo, diretório raiz da unidade.  |
-|     /CopyLogFile:&lt;DriveCopyLogFile&gt; | **Obrigatório** Aplicável somente para RepairImport e RepairExport. Caminho até o arquivo de log de cópia da unidade (detalhado ou de erro).  |
-|     /ManifestFile:&lt;DriveManifestFile&gt; | **Obrigatório** Aplicável somente para RepairExport.<br/> Caminho até o arquivo de manifesto da unidade.  |
-|     /PathMapFile:&lt;DrivePathMapFile&gt; | **Opcional**. Aplicável somente para RepairImport.<br/> Caminho até o arquivo que contém mapeamentos dos caminhos de arquivo relativos à raiz da unidade até os locais de arquivos reais (delimitado por tabulação). Quando for especificado pela primeira vez, ele será preenchido com caminhos de arquivo com destinos vazios, o que significa que não será encontrado em TargetDirectories, terá o acesso negado, nome inválido ou existirá em vários diretórios. O arquivo de mapa de caminho pode ser editado manualmente para incluir os caminhos de destino corretos, e pode ser especificado novamente para que a ferramenta possa resolver os caminhos de arquivo corretamente.  |
-|     /ExportBlobListFile:&lt;ExportBlobListFile&gt; | **Obrigatório**. Aplicável somente para PreviewExport.<br/> Caminho até o arquivo XML que contém a lista de caminhos de blob ou prefixos de caminhos de blob para os blobs a serem exportados. O formato de arquivo é o mesmo usado no formato de blob na lista de blobs na operação Put Job da API REST do serviço de Importação/Exportação.  |
-|     /DriveSize:&lt;DriveSize&gt; | **Obrigatório**. Aplicável somente para PreviewExport.<br/>  Tamanho de unidades a serem usadas para exportação. Por exemplo, 500 GB, 1,5 TB. Observação: 1 GB = 1.000.000.000 bytes1 TB = 1.000.000.000.000 bytes  |
-|     /DataSet:&lt;dataset.csv&gt; | **Obrigatório**<br/> Um arquivo CSV contendo uma lista de diretórios e/ou arquivos de lista a serem copiados nas unidades de destino.  |
-|     /silentmode  | **Opcional**.<br/> Se não for especificado, você será lembrado sobre o requisito das unidades, e sua confirmação será necessária para continuar.  |
+|     /j:&lt;JournalFile&gt;  | **Obrigatório**<br/> Arquivo de diário de toohello de caminho. Um arquivo de diário rastreia um conjunto de unidades e registros Olá andamento preparar essas unidades. arquivo de diário Olá sempre deve ser especificado.  |
+|     /logdir:&lt;LogDirectory&gt;  | **Opcional**. diretório de log Hello.<br/> Arquivos de log detalhados, bem como alguns arquivos temporários serão gravados toothis directory. Se não for especificado, o atual diretório será usado como diretório de log hello. Olá diretório de log pode ser especificado somente uma vez para Olá mesmo arquivo de diário.  |
+|     /id:&lt;SessionId&gt;  | **Obrigatório**<br/> Olá identificação de sessão usado tooidentify uma sessão de cópia. É usado tooensure de recuperação precisa de uma sessão de cópia interrompida.  |
+|     /ResumeSession  | Opcional. Se Olá última sessão de cópia foi finalizada de maneira anormal, esse parâmetro pode ser especificado tooresume Olá sessão.   |
+|     /AbortSession  | Opcional. Se Olá última sessão de cópia foi finalizada de maneira anormal, esse parâmetro pode ser especificado tooabort Olá sessão.  |
+|     /sn:&lt;StorageAccountName&gt;  | **Obrigatório**<br/> Aplicável somente para RepairImport e RepairExport. nome de Olá Olá da conta de armazenamento.  |
+|     /sk:&lt;StorageAccountKey&gt;  | **Obrigatório**<br/> chave Olá Olá da conta de armazenamento. |
+|     /InitialDriveSet:&lt;driveset.csv&gt;  | **Necessário** ao executar Olá primeira sessão de cópia<br/> Um arquivo CSV que contém uma lista de unidades tooprepare.  |
+|     /AdditionalDriveSet:&lt;driveset.csv&gt; | **Obrigatório**. Ao adicionar a sessão de cópia de toocurrent unidades. <br/> Um arquivo CSV que contém uma lista de unidades adicionais toobe adicionado.  |
+|      /r:&lt;RepairFile&gt; | **Obrigatório** Aplicável somente para RepairImport e RepairExport.<br/> Caminho toohello arquivo para controlar o progresso do reparo. Cada unidade deve ter um, e somente um, arquivo de reparo.  |
+|     /d:&lt;TargetDirectories&gt; | **Obrigatório**. Aplicável somente para RepairImport e RepairExport. Para RepairImport, toorepair de um ou mais diretórios separados por ponto e vírgula; Para RepairExport, um diretório toorepair, por exemplo, raiz de diretório da unidade de saudação.  |
+|     /CopyLogFile:&lt;DriveCopyLogFile&gt; | **Obrigatório** Aplicável somente para RepairImport e RepairExport. Arquivo de log de cópia de unidade do caminho toohello (detalhado ou erro).  |
+|     /ManifestFile:&lt;DriveManifestFile&gt; | **Obrigatório** Aplicável somente para RepairExport.<br/> Caminho toohello unidade arquivo de manifesto.  |
+|     /PathMapFile:&lt;DrivePathMapFile&gt; | **Opcional**. Aplicável somente para RepairImport.<br/> Toohello de caminho do arquivo que contém mapeamentos de arquivo caminhos relativos toohello unidade raiz toolocations dos arquivos reais (delimitado por tabulação). Quando for especificado pela primeira vez, ele será preenchido com caminhos de arquivo com destinos vazios, o que significa que não será encontrado em TargetDirectories, terá o acesso negado, nome inválido ou existirá em vários diretórios. arquivo de mapa de caminho Olá pode ser editada manualmente tooinclude caminhos de destino correto hello e especificado novamente para caminhos de arquivo hello ferramenta tooresolve Olá corretamente.  |
+|     /ExportBlobListFile:&lt;ExportBlobListFile&gt; | **Obrigatório**. Aplicável somente para PreviewExport.<br/> Toohello caminho XML arquivo contendo a lista de caminhos de blob ou prefixos de caminho para Olá blobs toobe exportados de blob. formato de arquivo Olá Olá mesmo como formato de blob de lista Olá blob em Olá operação Put Job da API REST do serviço de importação/exportação hello.  |
+|     /DriveSize:&lt;DriveSize&gt; | **Obrigatório**. Aplicável somente para PreviewExport.<br/>  Tamanho de unidades toobe usado para exportação. Por exemplo, 500 GB, 1,5 TB. Observação: 1 GB = 1.000.000.000 bytes1 TB = 1.000.000.000.000 bytes  |
+|     /DataSet:&lt;dataset.csv&gt; | **Obrigatório**<br/> Um arquivo CSV que contém uma lista de diretórios e/ou uma lista de arquivos toobe copiados tootarget unidades.  |
+|     /silentmode  | **Opcional**.<br/> Se não for especificado, ele lembrará Olá requisito de unidades e precisa toocontinue sua confirmação.  |
 
 ## <a name="tool-output"></a>Saída da ferramenta
 
@@ -238,7 +238,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
       <ClientCreator>client-creator</ClientCreator>
       <!-- First Blob List -->
       <BlobList Id="session#1-0">
-         <!-- Global properties and metadata that applies to all blobs -->
+         <!-- Global properties and metadata that applies tooall blobs -->
          <MetadataPath Hash="md5-hash">global-metadata-file-path</MetadataPath>
          <PropertiesPath Hash="md5-hash">global-properties-file-path</PropertiesPath>
          <!-- First Blob -->
@@ -284,7 +284,7 @@ SaveCommandOutput: Completed
 [EndUpdateRecord]
 ```
 
-### <a name="sample-journal-file-jrn-for-session-that-records-the-trail-of-sessions"></a>Exemplo de arquivo de diário (JRN) para sessão que registra a trilha de sessões
+### <a name="sample-journal-file-jrn-for-session-that-records-hello-trail-of-sessions"></a>Arquivo de diário de exemplo (JRN) para a sessão que registra a trilha de saudação de sessões
 
 ```
 [BeginUpdateRecord][2016/11/02 18:24:14.735][Type:NewJournalFile]
@@ -306,23 +306,23 @@ StorageAccountKey: *******
 
 #### <a name="what-is-waimportexport-tool"></a>O que é a ferramenta WAImportExport?
 
-A ferramenta WAImportExport é a ferramenta de preparação e reparo de unidade que pode ser usada com o serviço de Importação/Exportação do Microsoft Azure. Use essa ferramenta para copiar dados para os discos rígidos que você vai enviar para um datacenter do Azure. Após a conclusão de um trabalho de importação, é possível usar essa ferramenta para reparar os blobs corrompidos, ausentes ou que entraram em conflito com outros blobs. Depois de receber as unidades de um trabalho de exportação concluído, é possível usar essa ferramenta para reparar os arquivos corrompidos ou ausentes nas unidades.
+ferramenta de WAImportExport Olá é preparação da unidade hello e a ferramenta de reparo que você pode usar com hello serviço de importação/exportação do Microsoft Azure. Você pode usar essa ferramenta toocopy dados toohello discos rígidos que você vai tooship tooan data center do Azure. Depois que um trabalho de importação for concluída, você pode usar essa ferramenta toorepair todos os blobs que foram corrompidos, estavam ausentes ou está em conflito com outros blobs. Depois de receber Olá unidades de um trabalho de exportação concluído, você pode usar essa ferramenta toorepair todos os arquivos que foram corrompidos ou ausentes em unidades de saudação.
 
-#### <a name="how-does-the-waimportexport-tool-work-on-multiple-source-dir-and-disks"></a>Como funciona a ferramenta WAImportExport em vários diretórios de origem e discos?
+#### <a name="how-does-hello-waimportexport-tool-work-on-multiple-source-dir-and-disks"></a>Como faz Olá ferramenta WAImportExport funciona em vários discos e diretório fonte?
 
-Se o tamanho dos dados for maior do que o tamanho do disco, a ferramenta WAImportExport distribuirá os dados entre os discos de forma otimizada. A cópia dos dados em vários discos pode ser feita em paralelo ou sequencialmente. Não há limite para o número de discos nos quais os dados podem ser gravados simultaneamente. A ferramenta distribuirá os dados com base no tamanho do disco e no tamanho da pasta. Ele selecionará o disco mais otimizado para o tamanho do objeto. Após serem carregados na conta de armazenamento, os dados serão ser convergidos novamente para a estrutura do diretório especificada.
+Se o tamanho dos dados Olá for maior que o tamanho do disco Olá, ferramenta WAImportExport de saudação distribuirá dados saudação em discos de saudação de forma otimizada. Olá discos de toomultiple de cópia de dados podem ser feitos em paralelo ou sequencialmente. Não há nenhum limite no número de saudação de dados de saudação de discos pode ser gravado toosimultaneously. ferramenta de saudação distribui dados com base no tamanho do disco e tamanho da pasta. Ele selecionará disco hello mais otimizado para saudação do tamanho do objeto. Olá dados quando carregado toohello conta de armazenamento será convergida volta toohello especificado a estrutura de diretórios.
 
 #### <a name="where-can-i-find-previous-version-of-waimportexport-tool"></a>Onde posso encontrar a versão anterior da ferramenta WAImportExport?
 
-A ferramenta WAImportExport tem todas as funcionalidades que a ferramenta WAImportExport V1 tinha. A ferramenta WAImportExport permite aos usuários especificar várias fontes e gravar em várias unidades. Além disso, é possível gerenciar com facilidade vários locais de origem dos quais os dados precisam ser copiados em um único arquivo CSV. No entanto, caso você precise do suporte a SAS ou queira copiar uma única origem para um único disco, será possível [baixar a ferramenta WAImportExport V1] (http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) e consultar a [Referência à WAImportExport V1](storage-import-export-tool-how-to-v1.md) para obter ajuda com o uso da WAImportExport V1.
+A ferramenta WAImportExport tem todas as funcionalidades que a ferramenta WAImportExport V1 tinha. Ferramenta WAImportExport permite que os usuários toospecify várias origens e unidades de toomultiple de gravação. Além disso, um pode gerenciar facilmente vários locais de origem do qual dados saudação precisam toobe copiado em um único arquivo CSV. No entanto, no caso de precisar SAS suporte ou desejar toocopy única fonte toosingle disco, você pode [baixar WAImportExport V1 ferramenta] (http://go.microsoft.com/fwlink/? LinkID = 301900&amp;clcid = 0x409) e consulte muito[WAImportExport V1 referência](storage-import-export-tool-how-to-v1.md) para obter ajuda com o uso de WAImportExport V1.
 
 #### <a name="what-is-a-session-id"></a>O que é uma ID de sessão?
 
-A ferramenta espera que o parâmetro (/id) da sessão de cópia seja o mesmo se a intenção for distribuir os dados entre vários discos. Manter o mesmo nome da sessão de cópia permitirá que o usuário copie dados de um ou vários locais de origem para um ou vários discos/diretórios de destino. A manutenção da mesma id de sessão permite que a ferramenta escolha a cópia dos arquivos onde ela foi deixada na última vez.
+ferramenta de saudação espera que a sessão de cópia de saudação (/ id) toobe parâmetro hello mesmo se a intenção de saudação toospread Olá dados em vários discos. Manter Olá mesmo nome de sessão de cópia Olá habilitará dados toocopy do usuário de um ou vários locais de origem para um ou vários discos/diretórios de destino. Mantendo a mesma id de sessão permite Olá ferramenta toopick backup de cópia de saudação de arquivos em que estava Olá última vez.
 
-No entanto, a mesma sessão de cópia não pode ser usado para importar dados em contas de armazenamento diferentes.
+No entanto, a mesma sessão de cópia não pode ser tooimport usadas contas de armazenamento de toodifferent de dados.
 
-Quando o nome de sessão de cópia for o mesmo entre várias execuções da ferramenta, o arquivo de log (/logdir) e a chave da conta de armazenamento (/sk) também deverá ser igual.
+Quando o nome de sessão de cópia é igual em várias execuções da ferramenta hello, Olá logfile (/ logdir) e a chave de conta de armazenamento (/ sk) é também toobe esperado Olá mesmo.
 
 A SessionId pode conter letras, 0 a 9, sublinhado (\_), hífen (-) ou hash (#), e seu comprimento deve ser de 3 a 30.
 
@@ -330,52 +330,52 @@ Por exemplo, sessão-1 ou sessão#1 ou sessão\_1
 
 #### <a name="what-is-a-journal-file"></a>O que é um arquivo de diário?
 
-Sempre que você executar a ferramenta WAImportExport para copiar arquivos no disco rígido, a ferramenta criará uma sessão de cópia. O estado da sessão de cópia é gravado no arquivo de diário. Se uma sessão de cópia for interrompida (por exemplo, devido a uma perda de energia do sistema), ela poderá ser retomada executando a ferramenta novamente e especificando o arquivo de diário na linha de comando.
+Cada vez que executar Olá WAImportExport ferramenta toocopy arquivos toohello disco rígido, a ferramenta Olá cria uma sessão de cópia. estado de saudação de sessão de cópia de saudação é gravado toohello arquivo de diário. Se uma sessão de cópia for interrompida (por exemplo, devido a perda de energia do sistema tooa), ele poderá ser retomado executando a ferramenta Olá novamente e especificando o arquivo de diário Olá na linha de comando de saudação.
 
-Para cada disco rígido que você preparar com a Ferramenta de Importação/Exportação do Azure, a ferramenta criará um único arquivo de diário com o nome "&lt;DriveID&gt;.xml", em que DriveID é o número de série associado à unidade lida pela ferramenta no disco. Você precisará dos arquivos de diário de todas as unidades para criar o trabalho de importação. O arquivo de diário também pode ser usado para retomar a preparação da unidade se a ferramenta for interrompida.
+Para cada disco rígido que você prepara com Olá, ferramenta de importação/exportação do Azure, a ferramenta de saudação criará um único arquivo de diário com o nome "&lt;DriveID&gt;. xml" onde Id da unidade é o número de série Olá associado unidade toohello Olá ferramenta lerá disco de saudação. Você precisará arquivos de diário de saudação de seu trabalho de importação unidades toocreate Olá todas. arquivo de diário Olá também pode ser usados tooresume preparação da unidade se Olá ferramenta for interrompida.
 
 #### <a name="what-is-a-log-directory"></a>O que é um diretório de log?
 
-O diretório de log especifica um diretório a ser usado para armazenar logs detalhados, bem como arquivos de manifesto temporários. Se nenhum for especificado, o diretório atual será usado como o diretório de log. Os logs são logs detalhados.
+diretório de log Olá Especifica que um diretório toobe usado logs detalhados toostore, bem como arquivos de manifesto temporários. Se não for especificado, diretório atual Olá será usado como diretório de log hello. Olá logs são logs detalhados.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-#### <a name="what-are-the-specifications-of-my-disk"></a>Quais são as especificações de meu disco?
+#### <a name="what-are-hello-specifications-of-my-disk"></a>Quais são as especificações de saudação do disco?
 
-Um ou mais discos rígidos SATAII ou III ou SSD de 2,5 ou 3,5 polegadas vazios e conectados ao computador de cópia.
+Um ou mais SATAII 2,5 polegadas ou 3,5 vazio ou III ou SSD rígido unidades de computador de cópia toohello conectado.
 
 #### <a name="how-can-i-enable-bitlocker-on-my-machine"></a>Como habilitar o BitLocker em meu computador?
 
-Uma maneira simples de verificar é clicando com o botão direito na unidade do sistema. Ele mostrará opções para o Bitlocker se o recurso estiver ativado. Se estiver desativado, você não o verá.
+Toocheck de maneira simples é clicando na unidade do sistema. Ele mostrará opções do Bitlocker se o recurso de saudação é ativado. Se estiver desativado, você não o verá.
 
 ![Verificar o BitLocker](./media/storage-import-export-tool-preparing-hard-drives-import/BitLocker.png)
 
-Este é um artigo sobre [como habilitar o BitLocker](https://technet.microsoft.com/library/cc766295.aspx)
+Este é um artigo em [como tooenable BitLocker](https://technet.microsoft.com/library/cc766295.aspx)
 
-É possível que seu computador não tenha o chip do TPM. Se você não obtiver uma saída usando tpm.msc, examine as próximas perguntas frequentes.
+É possível que seu computador não tenha o chip do TPM. Se não houver uma saída usando msc, examine Olá próxima FAQ.
 
-#### <a name="how-to-disable-trusted-platform-module-tpm-in-bitlocker"></a>Como desabilitar o TPM (Trusted Platform Module ) no BitLocker?
+#### <a name="how-toodisable-trusted-platform-module-tpm-in-bitlocker"></a>Como toodisable confiáveis Platform Module (TPM) no BitLocker?
 > [!NOTE]
-> Apenas se não houver TPM nos servidores, você precisará desabilitar a política do TPM. Não é necessário desabilitar o TPM se há um TPM confiável no servidor do usuário. 
+> Somente se não houver nenhum TPM em seus servidores, é necessário toodisable política TPM. Não é necessário toodisable TPM se houver um TPM confiável no servidor do usuário. 
 > 
 
-Para desabilitar o TPM no BitLocker, consulte as seguintes etapas:<br/>
-1. Inicie o **Editor de Política de Grupo** digitando gpedit.msc em um prompt de comando. Se parecer que o **Editor de Política de Grupo** não está disponível, ative o BitLocker primeiro. Consulte as perguntas frequentes anteriores.
+Em ordem toodisable TPM do BitLocker, percorrer Olá etapas a seguir:<br/>
+1. Inicie o **Editor de Política de Grupo** digitando gpedit.msc em um prompt de comando. Se **Editor de política de grupo** toobe não estará disponível, para habilitar o BitLocker. Consulte as perguntas frequentes anteriores.
 2. Abra **Política do Computador Local &gt; Configuração do Computador &gt; Modelos Administrativos &gt; Componentes do Windows&gt; Criptografia de Unidade de Disco BitLocker &gt; Unidades do Sistema Operacional**.
 3. Edite a política **Exigir autenticação adicional na inicialização**.
-4. Configure a política como **Habilitado** e certifique-se de que **Permitir BitLocker sem um TPM compatível** esteja marcado.
+4. Definir a política de saudação muito**habilitado** e certifique-se de **Permitir BitLocker sem um TPM compatível** é verificada.
 
-####  <a name="how-to-check-if-net-4-or-higher-version-is-installed-on-my-machine"></a>Como verificar se o .NET 4 ou uma versão posterior está instalada em meu computador?
+####  <a name="how-toocheck-if-net-4-or-higher-version-is-installed-on-my-machine"></a>Como toocheck se o .NET 4 ou versão posterior está instalada no meu computador?
 
 Todas as versões do Microsoft .NET Framework são instaladas no seguinte diretório: %Windir%\Microsoft.NET\Framework\
 
-Navegue até a parte mencionada acima no computador de destino onde a ferramenta precisa ser executada. Procure o nome da pasta que começa com "v4". A ausência de um diretório como esse significa que o .NET 4 não está instalado em seu computador. Você pode baixar o .Net 4 em seu computador usando o [Microsoft .NET Framework 4 (Instalador da Web)](https://www.microsoft.com/download/details.aspx?id=17851).
+Navegue toohello acima mencionada parte no computador de destino onde a ferramenta Olá precisa toorun. Procure o nome da pasta que começa com "v4". A ausência de um diretório como esse significa que o .NET 4 não está instalado em seu computador. Você pode baixar o .Net 4 em seu computador usando o [Microsoft .NET Framework 4 (Instalador da Web)](https://www.microsoft.com/download/details.aspx?id=17851).
 
 ### <a name="limits"></a>limites
 
-#### <a name="how-many-drives-can-i-preparesend-at-the-same-time"></a>Quantas unidades eu posso preparar/enviar ao mesmo tempo?
+#### <a name="how-many-drives-can-i-preparesend-at-hello-same-time"></a>Quantas unidades pode, preparar/envio em Olá simultaneamente?
 
-Não há limite no número de discos que a ferramenta pode preparar. No entanto, a ferramenta espera letras de unidade como entradas. Isso causa uma limitação na preparação de 25 discos simultâneos. Um único trabalho pode lidar no máximo com 10 discos por vez. Se você preparar mais de 10 discos visando a mesma conta de armazenamento, os discos poderão ser distribuídos em vários trabalhos.
+Não há nenhum limite no número de saudação de discos que Olá ferramenta pode preparar. No entanto, a ferramenta Olá espera letras de unidade como entradas. Que limita a preparação de disco simultâneas too25. Um único trabalho pode lidar no máximo com 10 discos por vez. Se você preparar os discos de mais de 10 direcionamento Olá a mesma conta de armazenamento, discos Olá podem ser distribuídos entre vários trabalhos.
 
 #### <a name="can-i-target-more-than-one-storage-account"></a>Posso visar mais de uma conta de armazenamento?
 
@@ -387,33 +387,33 @@ Apenas uma conta de armazenamento pode ser enviada por trabalho e em uma única 
 
 Sim. A criptografia do BitLocker é habilitada e exigida para esse processo.
 
-#### <a name="what-will-be-the-hierarchy-of-my-data-when-it-appears-in-the-storage-account"></a>Qual será a hierarquia dos meus dados quando ela for exibida na conta de armazenamento?
+#### <a name="what-will-be-hello-hierarchy-of-my-data-when-it-appears-in-hello-storage-account"></a>Qual será hierarquia Olá dos dados quando ele aparece na conta de armazenamento Olá?
 
-Embora os dados sejam distribuídos entre os discos, quando os dados são carregados na conta de armazenamento eles são convergidos novamente para a estrutura do diretório que foi especificada no arquivo CSV do conjunto de dados.
+Embora os dados são distribuídos entre discos, Olá dados quando carregado toohello conta de armazenamento será convergida toohello estrutura de diretório especificada no arquivo CSV Olá conjunto de dados de volta.
 
-#### <a name="how-many-of-the-input-disks-will-have-active-io-in-parallel-when-copy-is-in-progress"></a>Quantos discos de entrada terão E/S ativa em paralelo quando a cópia estiver em andamento?
+#### <a name="how-many-of-hello-input-disks-will-have-active-io-in-parallel-when-copy-is-in-progress"></a>A quantidade de saudação entrada discos terá ativa e/s em paralelo, quando a cópia está em andamento?
 
-A ferramenta distribui os dados entre os discos de entrada com base no tamanho dos arquivos de entrada. Dito isso, o número de discos ativos em paralelo depende completamente da natureza dos dados de entrada. Dependendo do tamanho dos arquivos individuais no conjunto de dados de entrada, um ou mais discos pode mostrar E/S ativa em paralelo. Confira a próxima pergunta para obter mais detalhes.
+ferramenta Olá distribui dados em discos de entrada hello com base no tamanho Olá Olá de arquivos de entrada. Dito isso, número de saudação de discos ativos em paralelo delends completamente a natureza Olá Olá de dados de entrada. Dependendo do tamanho de saudação de arquivos individuais no conjunto de dados de entrada hello, um ou mais discos podem mostrar ativa e/s em paralelo. Confira a próxima pergunta para obter mais detalhes.
 
-#### <a name="how-does-the-tool-distribute-the-files-across-the-disks"></a>Como a ferramenta distribui os arquivos entre os discos?
+#### <a name="how-does-hello-tool-distribute-hello-files-across-hello-disks"></a>Como ferramenta Olá distribuir arquivos Olá entre discos Olá?
 
-A ferramenta de WAImportExport lê e grava arquivos, lote por lote, um lote contém no máximo 100000 arquivos. Isso significa que no máximo 100000 arquivos podem ser gravados em paralelo. Vários discos são gravados simultaneamente se esses 100000 arquivos forem distribuídos em várias unidades. No entanto, o fato de a ferramenta gravar em vários discos simultaneamente ou um único disco depende do tamanho cumulativo do lote. Por exemplo, no caso de arquivos menores, se todos os 10.0000 arquivos couberem em uma única unidade, a ferramenta gravará apenas um disco durante o processamento deste lote.
+A ferramenta de WAImportExport lê e grava arquivos, lote por lote, um lote contém no máximo 100000 arquivos. Isso significa que no máximo 100000 arquivos podem ser gravados em paralelo. Vários discos são gravados toosimultaneously se esses 100000 arquivos são distribuídas toomulti unidades. No entanto se ferramenta Olá grava toomultiple discos simultaneamente ou um único disco depende do tamanho cumulativo de saudação do lote de saudação. Por exemplo, no caso de arquivos menores, se todos os arquivos 10,0000 toofit capaz em uma única unidade, ferramenta gravará tooonly um disco durante o processamento de saudação desse lote.
 
 ### <a name="waimportexport-output"></a>Saída de WAImportExport
 
-#### <a name="there-are-two-journal-files-which-one-should-i-upload-to-azure-portal"></a>Existem dois arquivos de diário, qual deles devo carregar no Portal do Azure?
+#### <a name="there-are-two-journal-files-which-one-should-i-upload-tooazure-portal"></a>Há dois arquivos de diário, qual deles deverá posso carregar tooAzure portal?
 
-**.xml**: para cada disco rígido que você preparar com a Ferramenta WAImportExport, a ferramenta criará um único arquivo de diário com o nome `<DriveID>.xml`, em que DriveID é o número de série associado à unidade lida pela ferramenta no disco. Você precisará dos arquivos de diário de todas as unidades para criar o trabalho de importação no Portal do Azure. Esse arquivo de diário também pode ser usado para retomar a preparação da unidade se a ferramenta for interrompida.
+**. XML** -para cada disco rígido que você prepara com a ferramenta WAImportExport de Olá, ferramenta de saudação criará um único arquivo de diário com nome `<DriveID>.xml` onde DriveID é o número de série Olá associado unidade toohello Olá ferramenta lê do disco de saudação. Você precisará arquivos de diário de saudação de todo o trabalho de importação unidades toocreate Olá no hello portal do Azure. Este arquivo de diário também pode ser usados tooresume preparação da unidade se Olá ferramenta for interrompida.
 
-**.jrn**: o arquivo de diário com o sufixo `.jrn` contém o status de todas as sessões de cópia de um disco rígido. Ele também contém as informações necessárias para criar o trabalho de importação. Você deve sempre especificar um arquivo de diário ao executar a ferramenta WAImportExport, bem como uma ID da sessão de cópia.
+**.jrn** -arquivo de diário Olá com sufixo `.jrn` contém o status de saudação para todas as sessões de cópia para um disco rígido. Ele também contém informações de saudação necessário Olá toocreate trabalho de importação. Você sempre deve especificar um arquivo de diário ao ID de ferramenta de WAImportExport Olá em execução, bem como uma sessão de cópia
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Configurando a Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-setup.md)
-* [Definindo propriedades e metadados durante o processo de importação](storage-import-export-tool-setting-properties-metadata-import.md)
-* [Fluxo de trabalho de exemplo para preparar discos rígidos para um trabalho de importação](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
+* [Configurando Olá ferramenta de importação/exportação do Azure](storage-import-export-tool-setup.md)
+* [Processo de importação de definição de propriedades e metadados durante a saudação](storage-import-export-tool-setting-properties-metadata-import.md)
+* [Discos rígidos de tooprepare do fluxo de trabalho de exemplo para um trabalho de importação](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
 * [Referência rápida para comandos usados frequentemente](storage-import-export-tool-quick-reference.md) 
 * [Revisão do status do trabalho com arquivos de log de cópia](storage-import-export-tool-reviewing-job-status-v1.md)
 * [Reparação de um trabalho de importação](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Reparação de um trabalho de exportação](storage-import-export-tool-repairing-an-export-job-v1.md)
-* [Solucionando problemas da Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-troubleshooting-v1.md)
+* [Olá, ferramenta de importação/exportação do Azure de solução de problemas](storage-import-export-tool-troubleshooting-v1.md)

@@ -1,6 +1,6 @@
 ---
-title: Criar uma regra com base no caminho - Gateway de Aplicativo do Azure - Portal do Azure | Microsoft Docs
-description: Saiba como criar uma regra com base no caminho para um gateway de aplicativo usando o portal
+title: aaaCreate um caminho com base em regra - Gateway de aplicativo do Azure - Portal do Azure | Microsoft Docs
+description: "Saiba como toocreate uma regra de caminho para um gateway de aplicativo usando Olá portal"
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -15,76 +15,76 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: gwallace
-ms.openlocfilehash: c184e94a04cfbdedcae70ed154aeb7dd134d1baf
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 21cb52c426ca5f7dfedf07a96e87fbc85d243647
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-portal"></a>Criar uma regra baseada em caminho para um gateway de aplicativo usando o portal
+# <a name="create-a-path-based-rule-for-an-application-gateway-by-using-hello-portal"></a>Criar uma regra de caminho para um gateway de aplicativo usando o portal de saudação
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](application-gateway-create-url-route-portal.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-create-url-route-arm-ps.md)
 > * [CLI 2.0 do Azure](application-gateway-create-url-route-cli.md)
 
-O Roteamento com base em caminho de URL permite que você associe rotas com base no caminho de URL da solicitação Http. Ele verifica se há uma rota para um pool de back-end configurado para a URL listada no Gateway de Aplicativo e envia o tráfego de rede para o pool de back-end definido. Um uso comum para o roteamento com base em URL é balancear a carga das solicitações para tipos de conteúdo diferentes para pools de servidores back-end diferentes.
+Roteamento baseado no caminho de URL permite que você tooassociate rotas com base no caminho de URL de saudação de solicitação Http. Ele verifica se há um pool de back-end de tooa rota configurado para URL Olá listado no hello Application Gateway e envia Olá toohello de tráfego de rede definida pelo pool de back-end. Um uso comum para roteamento baseado em URL é equilibrar solicitações de tooload para pools de toodifferent de diferentes tipos de conteúdo do servidor de back-end.
 
-O roteamento com base em URL apresenta um novo tipo de regra ao gateway de aplicativo. O Gateway de Aplicativo tem dois tipos de regra: básica e com base no caminho. O tipo de regra básica fornece o serviço de round robin para os pools de back-end, enquanto as regras com base no caminho também leva em consideração, além da distribuição round robin, o padrão de caminho da URL da solicitação ao escolher o pool de back-end apropriado.
+Roteamento baseado em URL apresenta um novo gateway de tooapplication do tipo de regra. O Gateway de Aplicativo tem dois tipos de regra: básica e com base no caminho. Olá tipo de regra básica, fornece serviço de round-robin para Olá back-end pools ao regras com base no caminho de distribuição de rodízio tooround Além disso, também leva padrão de caminho da URL de solicitação de saudação em consideração ao escolher o pool de back-end apropriado de saudação.
 
 ## <a name="scenario"></a>Cenário
 
-O cenário a seguir passa pela criação de uma regra com base no caminho em um gateway de aplicativo existente.
-O cenário pressupõe que você já seguiu as etapas para [Criar um Gateway de Aplicativo](application-gateway-create-gateway-portal.md).
+Olá cenário a seguir passa por criar uma regra de caminho baseado em um gateway existente do aplicativo.
+Olá cenário pressupõe que você já seguiu as etapas de saudação muito[criar um Application Gateway](application-gateway-create-gateway-portal.md).
 
 ![roteamento de url][scenario]
 
-## <a name="createrule"></a>Criar a regra com base no caminho
+## <a name="createrule"></a>Criar regra de caminho baseado Olá
 
-Uma regra com base no caminho exige seu próprio ouvinte. Antes da criação da regra, não se esqueça de verificar se você tem um ouvinte disponível para uso.
+Uma regra de caminho requer seu próprio ouvinte, antes de criar a regra de saudação ser tooverify se você tiver um ouvinte disponível toouse.
 
 ### <a name="step-1"></a>Etapa 1
 
-Navegue até o [Portal do Azure](http://portal.azure.com) e selecione um gateway de aplicativo existente. Clique em **Regras**
+Navegue toohello [portal do Azure](http://portal.azure.com) e selecione um gateway existente do aplicativo. Clique em **Regras**
 
 ![Visão geral do Gateway de Aplicativo][1]
 
 ### <a name="step-2"></a>Etapa 2
 
-Clique no botão **Com base no caminho** para adicionar uma nova regra com base em caminho.
+Clique em **baseados no caminho** botão tooadd uma nova regra de caminho baseado.
 
 ### <a name="step-3"></a>Etapa 3
 
-A folha **Adicionar regra com base no caminho** tem duas seções. A primeira seção é onde você definiu o ouvinte, o nome da regra e as configurações de caminho padrão. As configurações do caminho padrão são para rotas que não se ajustam à rota com base no caminho personalizada. A segunda seção da folha **Adicionar regra com base no caminho** é onde você define as regras com base no caminho em si.
+Olá **Adicionar regra de caminho com base em** folha tem duas seções. Olá primeira seção é onde você definiu o ouvinte Olá, nome de saudação da regra de saudação e configurações de caminho saudação padrão. configurações de caminho saudação padrão são para rotas que não pertencem a rota Olá personalizados baseados no caminho. Olá a segunda seção do hello **Adicionar regra de caminho com base em** folha é onde você define regras baseadas no caminho Olá próprios.
 
 **Configurações Básicas**
 
-* **Nome** – esse valor é um nome amigável para a regra que está acessível no portal.
-* **Ouvinte** – esse valor é o ouvinte usado para a regra.
-* **Pool de back-end padrão** : essa configuração é a que define o back-end a ser usado para a regra padrão
-* **Configurações HTTP padrão** : essa configuração é a que define as configurações HTTP a serem usadas para a regra padrão.
+* **Nome** -este valor é uma regra de toohello nome amigável que pode ser acessada no portal de saudação.
+* **Ouvinte** -este valor é o ouvinte de saudação que é usado para a regra de saudação.
+* **Padrão de pool de back-end** -essa configuração é a configuração de saudação que define Olá toobe de back-end usado para a regra padrão de saudação
+* **Configurações de HTTP padrão** -essa configuração é a configuração de saudação que define Olá toobe de configurações de HTTP usado para a regra padrão de saudação.
 
 **Regras com base no caminho**
 
-* **Nome** – esse valor é um nome amigável para a regra com base no caminho.
-* **Caminhos** – essa configuração define o caminho que a regra procura ao encaminhar o tráfego
-* **Pool de back-end** : essa configuração é a que define o back-end a ser usado para a regra padrão
-* **Configuração HTTP** : essa configuração é a que define as configurações HTTP a serem usadas para a regra.
+* **Nome** -este valor é uma regra de toopath com base no nome amigável.
+* **Caminhos** -essa configuração define Olá caminho Olá regra procura ao encaminhar o tráfego
+* **Pool de back-end** -essa configuração é a configuração de saudação que define Olá toobe de back-end usado para a regra de saudação
+* **Configuração de HTTP** -essa configuração é a configuração de saudação que define Olá toobe de configurações de HTTP usado para a regra de saudação.
 
 > [!IMPORTANT]
-> Caminhos: a lista de padrões de caminho para correspondência. Cada um deve começar com /, e o único lugar no qual um "\*" é permitido é no final. Exemplos válidos são /xyz, /xyz* ou /xyz/*.  
+> Caminhos: lista de saudação de toomatch de padrões de caminho. Cada deve começar com / e coloque-Olá somente um "\*" é permitido é final hello. Exemplos válidos são /xyz, /xyz* ou /xyz/*.  
 
 ![Folha Adicionar regra com base no caminho com informações preenchidas][2]
 
-Adicionar uma regra com base no caminho a um gateway de aplicativo existente é um processo fácil por meio do portal. Após uma regra com base no caminho ser sido criada, ela poderá ser editada para adicionar mais regras. 
+Adicionar uma regra de caminho com tooan gateway existente do aplicativo é um processo fácil por meio do portal hello. Depois que uma regra de caminho tiver sido criada, pode ser editado tooadd mais regras. 
 
 ![adicionando mais regras com base no caminho][3]
 
-Essa etapa configura uma rota com base no caminho. É importante entender que as solicitações não são reescritas; à medida que as solicitações chegam, o Gateway de Aplicativo inspeciona a solicitação e a regra básica no padrão de URL envia a solicitação para o back-end apropriado.
+Essa etapa configura uma rota com base no caminho. É importante toounderstand que solicitações não são reconfiguradas, à medida que solicitações no gateway do aplicativo inspeciona solicitação hello e basic Olá url padrão envia Olá solicitação toohello apropriado back-end.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como configurar o descarregamento SSL com o Gateway de Aplicativo do Azure, veja [Configurar descarregamento SSL](application-gateway-ssl-portal.md)
+toolearn como tooconfigure descarregamento de SSL com o Gateway de aplicativo do Azure, consulte [configurar descarregamento de SSL](application-gateway-ssl-portal.md)
 
 [1]: ./media/application-gateway-create-url-route-portal/figure1.png
 [2]: ./media/application-gateway-create-url-route-portal/figure2.png

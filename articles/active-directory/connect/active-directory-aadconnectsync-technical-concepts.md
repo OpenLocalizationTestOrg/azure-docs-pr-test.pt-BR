@@ -1,6 +1,6 @@
 ---
 title: "Sincronização do Azure AD Connect: conceitos técnicos | Microsoft Docs"
-description: "Explica os conceitos técnicos da sincronização do Azure AD Connect."
+description: "Explica conceitos técnicos de saudação de sincronização do Azure AD Connect."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi;andkjell
-ms.openlocfilehash: 6cf8debc6443bb60fc5f601ea4aa392eb2f13a8f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c6309bb9be462fb3d49c5b6ab302d4327ce4b7be
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Sincronização do Azure AD Connect: conceitos técnicos
-Este artigo é um resumo do tópico [Entender a arquitetura](active-directory-aadconnectsync-technical-concepts.md).
+Este artigo é um resumo do tópico Olá [Entendendo a arquitetura de](active-directory-aadconnectsync-technical-concepts.md).
 
 O Azure AD Connect Sync tem como base uma plataforma sólida de sincronização de metadiretório.
-As seções a seguir apresentam os conceitos de sincronização de metadiretório.
-Complementando MIIS, ILM e FIM, os Serviços de Sincronização do Active Directory do Azure fornecem a próxima plataforma para conexão a fontes de dados, realizando a sincronização de dados entre diferentes fontes e o provisionamento e desprovisionamento de identidades.
+Olá seções a seguir apresentam conceitos Olá para sincronização de metadiretório.
+Compilação com base em MIIS, ILM e FIM, hello Azure Active Directory Sync Services fornece Olá próxima plataforma para conectar fontes de toodata, sincronizar dados entre fontes de dados, bem como Olá provisionamento e desprovisionamento de identidades.
 
 ![Conceitos técnicos](./media/active-directory-aadconnectsync-technical-concepts/scenario.png)
 
-As seções a seguir fornecem mais detalhes sobre os seguintes aspectos do Serviço de Sincronização FIM:
+Olá seções a seguir fornece mais detalhes sobre Olá aspectos do serviço de sincronização do FIM da saudação a seguir:
 
 * Conector
 * Fluxo de atributos
@@ -38,51 +38,50 @@ As seções a seguir fornecem mais detalhes sobre os seguintes aspectos do Servi
 * Provisionamento
 
 ## <a name="connector"></a>Conector
-Os módulos de código que são usados para comunicação com um diretório conectado são chamados de conectores (anteriormente conhecidos como MAs [agentes de gerenciamento]).
+módulos de código Hello são usada toocommunicate com um diretório conectado são chamados de conectores (anteriormente conhecidos como agentes de gerenciamento (MAs)).
 
-Eles são instalados no computador que executa a sincronização do Azure AD Connect.
-Os conectores fornecem a capacidade de conversar sem agentes usando protocolos de sistema remoto, em vez de depender da implantação de agentes especializados. Isso significa que o risco e tempos de implantação reduzidos, especialmente ao lidar com sistemas e aplicativos críticos.
+Eles são instalados no computador Olá executando a sincronização do Azure AD Connect. conectores de saudação fornecem Olá capacidade sem agente tooconverse por meio de protocolos de sistema remoto em vez de depender da implantação de saudação de agentes especializados. Isso significa que o risco e tempos de implantação reduzidos, especialmente ao lidar com sistemas e aplicativos críticos.
 
-Na figura acima, o conector é sinônimo de espaço conector, mas abrange toda a comunicação com o sistema externo.
+Imagem Olá acima, o conector de Olá é sinônimo de espaço do conector Olá mas engloba todas as comunicações com o sistema externo hello.
 
-O conector é responsável por todas as funcionalidades de importação e exportação no sistema e libera os desenvolvedores da necessidade de compreender como conectar a cada sistema nativamente ao usar provisionamento declarativo para personalizar as transformações de dados.
+Olá conector é responsável por todas as importam e exportar funcionalidade toohello sistema e libera os desenvolvedores da necessidade toounderstand como tooconnect tooeach sistema nativamente ao usar transformações de dados toocustomize provisionamento declarativo.
 
-Importações e exportações ocorrem apenas quando agendadas, permitindo mais isolamento de alterações que ocorrem no sistema, desde que as alterações não sejam propagadas automaticamente para a fonte de dados conectada. Além disso, os desenvolvedores também podem criar seus próprios conectores para conectar a praticamente qualquer fonte de dados.
+As importações e exportações só ocorrem quando programadas, permitindo ainda mais isolamento das mudanças que ocorrem no sistema hello, desde que as alterações não se propagam automaticamente toohello fonte de dados conectada. Além disso, os desenvolvedores também podem criar seus próprios conectores para conectar-se toovirtually qualquer fonte de dados.
 
 ## <a name="attribute-flow"></a>Fluxo de atributos
-O metaverso é a exibição consolidada de todas as identidades associadas de espaços conectores vizinhos. Na figura acima, o fluxo de atributos é representado por linhas com setas para o fluxo de entrada e saída. O fluxo de atributo é o processo de cópia ou transformação de dados de um sistema para outro, e todos os fluxos de atributos (entradas ou saídas).
+Olá metaverso é a exibição de saudação consolidada de todas as identidades ingressadas dos espaços conectores vizinhos. Na Figura Olá acima, o fluxo de atributos é representado por linhas com setas para fluxo de entrada e saída. O fluxo de atributos é o processo de saudação de cópia ou de transformação de dados de um sistema tooanother e todos os atributos fluxos (entrados ou saídos).
 
-O fluxo de atributos ocorre bidirecionalmente entre o metaverso e o espaço conector, quando as operações de sincronização (completa ou delta) estão agendadas para execução.
+O fluxo de atributos ocorre entre Olá espaço do conector e Olá metaverso bidirecional quando operações de sincronização (completa ou delta) são agendado toorun.
 
-O fluxo de atributos ocorre apenas quando essas sincronizações são executadas. Fluxos de atributos são definidos nas Regras de Sincronização. Eles podem ser entrada (ISR na imagem anterior) ou saída (OSR na figura acima).
+O fluxo de atributos ocorre apenas quando essas sincronizações são executadas. Fluxos de atributos são definidos nas Regras de Sincronização. Eles podem ser entrada (ISR na imagem de saudação acima) ou saída (OSR na imagem de saudação acima).
 
 ## <a name="connected-system"></a>Sistema conectado
-Sistema conectado (também conhecido como diretório conectado) refere-se ao sistema remoto ao qual o Azure AD Connect sync se conectou e do qual está lendo e gravando dados de identidade.
+Sistema conectado (também conhecido como diretório conectado) se refere a toohello de sistema remoto do Azure AD Connect sincronização conectou tooand leitura e gravação tooand de dados de identidade do.
 
 ## <a name="connector-space"></a>Espaço conector
-Cada fonte de dados conectada é representada como um subconjunto filtrado dos objetos e atributos no espaço conector.
-Isso permite que o serviço de sincronização funcione localmente sem a necessidade de entrar em contato com o sistema remoto ao sincronizar os objetos; além disso, restringe a interação a apenas importações e exportações.
+Cada fonte de dados conectada é representada como um subconjunto filtrado dos objetos de saudação e atributos no espaço do conector hello.
+Isso permite toooperate de serviço de sincronização Olá localmente sem Olá necessidade toocontact Olá remoto do sistema durante a sincronização de objetos de saudação e restringe tooimports interação e exporta apenas.
 
-Quando a fonte de dados e o conector têm a capacidade de fornecer uma lista de alterações (uma importação de delta); em seguida, a eficiência operacional aumenta drasticamente, já que apenas as alterações desde o último ciclo de sondagem são trocadas. O espaço conector isola a fonte de dados conectada de propagação automática de alterações, ao exigir que o conector agende importações e exportações. Essa garantia adicional lhe dá tranquilidade ao testar, visualizar ou confirmar a próxima atualização.
+Quando fonte de dados de saudação e conector Olá tem Olá capacidade tooprovide uma lista de alterações (uma importação de delta), em seguida, Olá eficiência operacional aumentará drasticamente como apenas as alterações desde o último polling de saudação do ciclo é trocadas. espaço do conector Olá isola a fonte de dados conectada Olá de alterações que se propagam automaticamente exigindo que agenda Olá conector importa e exporta. Este seguro adicionado concede a você tranquilidade durante o teste, visualiza ou confirma a próxima atualização de saudação.
 
 ## <a name="metaverse"></a>Metaverso
-O metaverso é a exibição consolidada de todas as identidades associadas de espaços conectores vizinhos.
+Olá metaverso é a exibição de saudação consolidada de todas as identidades ingressadas dos espaços conectores vizinhos.
 
-Conforme as identidades são vinculadas uma à outra e atribui-se autoridade a vários atributos por meio de mapeamentos de fluxo de importação, o objeto metaverso central começa a agregar informações de vários sistemas. Desse fluxo de atributos de objeto, mapeamentos transportam informações para sistemas de saída.
+Conforme as identidades são vinculadas e a autoridade é atribuída a vários atributos através de mapeamentos de fluxo de importação, o objeto do metaverso central Olá começa tooaggregate informações de diversos sistemas. Deste fluxo de atributo de objeto, os mapeamentos carregam toooutbound os sistemas de informações.
 
-Objetos são criados quando um sistema autoritativo projeta-os no metaverso. Assim que todas as conexões são removidas, o objeto do metaverso é excluído.
+Objetos são criados quando um sistema autoritativo os projeta no metaverso hello. Assim que todas as conexões são removidas, o objeto do metaverso Olá é excluído.
 
-Objetos no metaverso não podem ser editados diretamente. Todos os dados do objeto devem ter contribuído por meio do fluxo de atributos. O metaverso mantém conectores persistentes com cada espaço de conector. Esses conectores não exigem reavaliação para cada execução de sincronização. Isso significa que a sincronização do Azure Connect AD não tem que localizar o objeto remoto correspondente a cada vez. Isso evita a necessidade de agentes caros para evitar alterações em atributos que normalmente seria responsável por correlacionar os objetos.
+Objetos no metaverso Olá não podem ser editados diretamente. Todos os dados no objeto Olá devem estar contribuindo através do fluxo de atributos. Olá metaverso mantém conectores persistentes com cada espaço do conector. Esses conectores não exigem reavaliação para cada execução de sincronização. Isso significa que sincronização do Azure AD Connect não tem objeto remoto correspondente de saudação toolocate cada vez. Isso evita a necessidade de saudação de agentes dispendiosos tooprevent alterações tooattributes que normalmente seriam responsáveis para correlacionar os objetos de saudação.
 
-Ao descobrir novas fontes de dados que podem ter objetos preexistentes que precisam ser gerenciados, o Azure AD Connect usa um processo chamado regra de junção para avaliar os candidatos em potencial com os quais deseja estabelecer um vínculo.
-Quando o vínculo é estabelecido, essa avaliação não ocorre novamente e o fluxo de atributos normal pode ocorrer entre a fonte de dados conectada remota e o metaverso.
+Ao descobrir novas fontes de dados que podem ter objetos pré-existentes que precisem toobe gerenciado, usos de sincronização do Azure AD Connect em um processo chamado de uma junção regra tooevaluate potenciais candidatos com os quais tooestablish um link.
+Depois de saudação vínculo é estabelecido, essa avaliação não reincide e fluxo de atributo normal pode ocorrer entre fonte de dados remota conectada hello e Olá metaverso.
 
 ## <a name="provisioning"></a>Provisionamento
-Quando uma fonte autoritativa projeta um novo objeto no metaverso, um novo objeto de espaço conector pode ser criado em outro conector, representando uma fonte de dados conectada downstream.
+Quando uma fonte autoritativa projeta um novo objeto no metaverso Olá um novo objeto de espaço do conector pode ser criado em outro conector que representa uma fonte de dados conectada downstream.
 
 Inerentemente, isso estabelece um vínculo e o fluxo de atributo pode prosseguir bidirecionalmente.
 
-Sempre que uma regra determina que um novo objeto de espaço conector precisa ser criado, ele é chamado de provisionamento. No entanto, como essa operação só ocorre dentro do espaço conector, ele não se transfere para a fonte de dados conectada até que uma exportação seja executada.
+Sempre que uma regra determina que um novo objeto de espaço do conector deve toobe criado, ele é chamado de provisionamento. No entanto, porque essa operação só acontece no espaço do conector hello, ele não será transferida a fonte de dados conectada Olá até uma exportação é executada.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)

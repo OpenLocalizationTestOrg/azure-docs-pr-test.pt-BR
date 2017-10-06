@@ -1,6 +1,6 @@
 ---
-title: "Ajudar a proteger a comunicação para serviços no Azure Service Fabric | Microsoft Docs"
-description: "Visão geral de como ajudar a proteger a comunicação para os Reliable Services executados em um cluster do Azure Service Fabric."
+title: "uma comunicação segura para os serviços no Azure Service Fabric aaaHelp | Microsoft Docs"
+description: "Visão geral de como toohelp proteger a comunicação de serviços confiáveis que estão em execução em um cluster do Azure Service Fabric."
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: c4634e3d8efb1745fffcfe3e647e43d867038716
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 14db54d50c35478c1f2c156de0dba36f1427c8cb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Ajudar a proteger a comunicação para serviços no Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -27,9 +27,9 @@ ms.lasthandoff: 07/11/2017
 >
 
 ## <a name="help-secure-a-service-when-youre-using-service-remoting"></a>Ajudar a proteger um serviço quando você estiver usando a comunicação remota de serviço
-Usaremos um [exemplo](service-fabric-reliable-services-communication-remoting-java.md) existente que explica como configurar a comunicação remota para os Reliable Services. Para ajudar a proteger um serviço quando você estiver usando a comunicação remota de serviço, siga estas etapas:
+Usaremos uma existente [exemplo](service-fabric-reliable-services-communication-remoting-java.md) que explica como tooset a conexão remota para serviços confiáveis. toohelp proteger um serviço quando você estiver usando a comunicação remota do serviço, siga estas etapas:
 
-1. Crie uma interface, `HelloWorldStateless`, que define os métodos que estarão disponíveis para chamada de procedimento remoto no seu serviço. Seu serviço usará `FabricTransportServiceRemotingListener`, declarado no pacote do `microsoft.serviceFabric.services.remoting.fabricTransport.runtime`. Esta é uma implementação de `CommunicationListener` que fornece recursos de comunicação remota.
+1. Criar uma interface `HelloWorldStateless`, que define os métodos de saudação que estarão disponíveis para uma chamada de procedimento remoto em seu serviço. O serviço usará `FabricTransportServiceRemotingListener`, que é declarada no hello `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` pacote. Esta é uma implementação de `CommunicationListener` que fornece recursos de comunicação remota.
 
     ```java
     public interface HelloWorldStateless extends Service {
@@ -53,11 +53,11 @@ Usaremos um [exemplo](service-fabric-reliable-services-communication-remoting-ja
     ```
 2. Adicionar credenciais de segurança e configurações de ouvinte.
 
-    Certifique-se de que o certificado que você deseja usar para ajudar proteger a comunicação do serviço esteja instalado em todos os nós do cluster. Há duas maneiras de fornecer configurações de ouvinte e credenciais de segurança:
+    Verifique se esse certificado Olá que você deseja toohelp toouse segura que a comunicação de serviço é instalada em todos os nós Olá cluster hello. Há duas maneiras de fornecer configurações de ouvinte e credenciais de segurança:
 
    1. Fornecê-las usando um [pacote de configuração](service-fabric-application-model.md):
 
-       Adicione uma seção `TransportSettings` ao arquivo settings.xml.
+       Adicionar um `TransportSettings` seção no arquivo settings.xml de saudação.
 
        ```xml
        <!--Section name should always end with "TransportSettings".-->
@@ -72,7 +72,7 @@ Usaremos um [exemplo](service-fabric-reliable-services-communication-remoting-ja
 
        ```
 
-       Nesse caso, o método `createServiceInstanceListeners` terá esta aparência:
+       Nesse caso, Olá `createServiceInstanceListeners` método terá esta aparência:
 
        ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {
@@ -84,7 +84,7 @@ Usaremos um [exemplo](service-fabric-reliable-services-communication-remoting-ja
         }
        ```
 
-        Se você adicionar uma seção `TransportSettings` ao arquivo settings.xml sem nenhum prefixo, `FabricTransportListenerSettings` carregará todas as configurações dessa seção por padrão.
+        Se você adicionar um `TransportSettings` seção no arquivo de settings.xml Olá sem qualquer prefixo `FabricTransportListenerSettings` carregar todas as configurações de saudação desta seção por padrão.
 
         ```xml
         <!--"TransportSettings" section without any prefix.-->
@@ -92,7 +92,7 @@ Usaremos um [exemplo](service-fabric-reliable-services-communication-remoting-ja
             ...
         </Section>
         ```
-        Nesse caso, o método `CreateServiceInstanceListeners` terá esta aparência:
+        Nesse caso, Olá `CreateServiceInstanceListeners` método terá esta aparência:
 
         ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {
@@ -103,9 +103,9 @@ Usaremos um [exemplo](service-fabric-reliable-services-communication-remoting-ja
             return listeners;
         }
        ```
-3. Ao chamar métodos em um serviço protegido usando a pilha de comunicação remota, em vez de usar a classe `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` para criar um proxy de serviço, use `microsoft.serviceFabric.services.remoting.client.FabricServiceProxyFactory`.
+3. Quando você chama métodos em um serviço protegido usando a pilha de comunicação remota do hello, em vez de usar o hello `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` toocreate classe um proxy do serviço, use `microsoft.serviceFabric.services.remoting.client.FabricServiceProxyFactory`.
 
-    Se o código cliente estiver sendo executado como parte de um serviço, você poderá carregar `FabricTransportSettings` do arquivo settings.xml. Crie uma seção TransportSettings semelhante ao código de serviço, conforme mostrado acima. Faça as alterações a seguir no código cliente:
+    Se o código de saudação do cliente é executado como parte de um serviço, você poderá carregar `FabricTransportSettings` do arquivo de settings.xml hello. Crie uma seção de TransportSettings que é o código de serviço toohello semelhantes, conforme mostrado anteriormente. Verifique Olá alterações toohello cliente código a seguir:
 
     ```java
 

@@ -1,5 +1,5 @@
 ---
-title: "Adicionar um repositório Git a um laboratório no Azure DevTest Labs | Microsoft Docs"
+title: "aaaAdd um laboratório de tooa repositório Git no Azure DevTest Labs | Microsoft Docs"
 description: "Adicionar um repositório Git do GitHub ou do Visual Studio Team Services à sua fonte de artefatos personalizados no Azure DevTest Labs"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
@@ -14,92 +14,92 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
-ms.openlocfilehash: 053f92a65f9ae29154d471fd22ee842620b4f273
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e590559ffb2d497e39823e35c3f66974f42f13c2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-a-git-repository-to-store-custom-artifacts-and-azure-resource-manager-templates"></a>Adicionar um repositório Git para armazenar os artefatos personalizados e modelos do Azure Resource Manager
+# <a name="add-a-git-repository-toostore-custom-artifacts-and-azure-resource-manager-templates"></a>Adicionar um artefatos do Git repositório toostore personalizados e modelos do Gerenciador de recursos do Azure
 
-Se você quiser [criar artefatos personalizados](devtest-lab-artifact-author.md) para as VMs em seu laboratório ou [usar modelos do Azure Resource Manager para criar um ambiente de teste personalizado](devtest-lab-create-environment-from-arm.md), adicione também um repositório gito para incluir os artefatos ou modelos do Azure Resource Manager que sua equipe cria. O repositório pode ser hospedado no [GitHub](https://github.com) ou no [VSTS (Visual Studio Team Services)](https://visualstudio.com).
+Se você quiser muito[criar artefatos personalizados](devtest-lab-artifact-author.md) para Olá máquinas virtuais no laboratório, ou [usar o Azure Resource Manager modelos toocreate um ambiente de teste personalizada](devtest-lab-create-environment-from-arm.md), você também deve adicionar uma tooinclude de repositório Git particular artefatos de saudação ou modelos do Gerenciador de recursos do Azure que sua equipe cria. repositório de saudação pode ser hospedado em [GitHub](https://github.com) ou na [Visual Studio Team Services (VSTS)](https://visualstudio.com).
 
-Nós fornecemos um [repositório Github dos artefatos](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) que podem ser implantados ou personalizados para seus laboratórios. Quando você personaliza ou cria um artefato, você não armazena-os no repositório público, você deve criar seu próprio repositório particular. 
+Nós fornecemos um [repositório Github dos artefatos](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) que podem ser implantados ou personalizados para seus laboratórios. Quando você personaliza ou cria um artefato, você não pode armazená-los no repositório público hello – você deve criar seu próprio repositório privado. 
 
-Quando você cria uma máquina virtual, você pode salvar o modelo do Azure Resource Manager, personalizá-lo, caso queira, e usá-lo posteriormente para facilmente criar mais VMs. Você deve criar seu próprio repositório particular para armazenar seus modelos personalizados do Azure Resource Manager.  
+Quando você cria uma máquina virtual, você pode salvar modelo do Azure Resource Manager hello, personalizá-lo se você deseja e, em seguida, usá-lo posteriormente tooeasily criar VMs mais. Você deve criar seu próprio repositório toostore seus modelos personalizados do Azure Resource Manager.  
 
-* Para saber como criar um repositório no GitHub, confira o [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-* Para saber como criar um projeto do Team Services com um Repositório Git, veja [Conectar ao Visual Studio Team Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+* toolearn como toocreate um repositório GitHub, consulte [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
+* toolearn como toocreate um projeto do Team Services com um repositório Git, consulte [conectar tooVisual Studio Team Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
-A captura de tela a seguir mostra um exemplo da aparência de um repositório contendo artefatos no GitHub:   
+Olá, captura de tela a seguir mostra um exemplo da aparência de um repositório que contém os artefatos no GitHub:  
 ![Repositório de artefatos de exemplo no GitHub](./media/devtest-lab-add-repo/devtestlab-github-artifact-repo-home.png)
 
-## <a name="get-the-repository-information-and-credentials"></a>Obter as credenciais e informações de repositório
-Para adicionar um repositório de artefatos ao laboratório, você deve primeiro obter determinadas informações do seu repositório. As seções a seguir vão orientá-lo para obter essas informações para repositórios hospedados no GitHub e no Visual Studio Team Services.
+## <a name="get-hello-repository-information-and-credentials"></a>Obter credenciais e informações de saudação do repositório
+tooadd um laboratório de tooyour repositório, você deve primeiro obter certas informações do seu repositório. Olá seguintes seções o orientam em obter essas informações para repositórios hospedado no GitHub e do Visual Studio Team Services.
 
-### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>Obter a URL de clone do repositório GitHub e token de acesso pessoal
-Para obter a URL de clone do repositório GitHub e token de acesso pessoal, siga estas etapas:
+### <a name="get-hello-github-repository-clone-url-and-personal-access-token"></a>Obter token de acesso pessoal e URL de clone do repositório de GitHub Olá
+URL de clone do repositório do tooget Olá GitHub e o token de acesso pessoal, siga estas etapas:
 
-1. Navegue até a página inicial do repositório GitHub que contém o artefato ou definições de modelo do Azure Resource Manager.
+1. Procure toohello home page do repositório GitHub Olá que contém o artefato de saudação ou definições de modelo do Gerenciador de recursos do Azure.
 2. Selecione **Clonar ou baixar**.
-3. Selecione o botão para copiar a **URL de clone HTTPS** para a área de transferência e salvar essa URL para uso posterior.
-4. Selecione a imagem de perfil no canto superior direito do GitHub e, em seguida, **Configurações**.
-5. No menu **Configurações pessoais** à esquerda, selecione **Tokens de acesso pessoal**.
+3. Saudação do hello selecione botão toocopy **url de clone HTTPS** toohello área de transferência e salve a URL de saudação para uso posterior.
+4. Selecione a imagem do perfil Olá no canto superior direito de saudação do GitHub e selecione **configurações**.
+5. Em Olá **configurações pessoais** menu saudação à esquerda, selecione **tokens de acesso pessoal**.
 6. Selecione **Gerar novo token**.
-7. Na página **Novo token de acesso pessoal**, insira uma **Descrição do token**, aceite os itens padrão em **Selecionar escopos** e escolha **Gerar Token**.
-8. Salve o token gerado, pois você precisará dele mais tarde.
+7. Em Olá **novo token de acesso pessoal** , insira um **Token descrição**, aceite itens padrão Olá Olá **selecione escopos**e, em seguida, escolha **gerar Token**.
+8. Salve o token de saudação gerada conforme necessário mais tarde.
 9. Você pode fechar o GitHub agora.   
-10. Continue para a seção [Conectar seu laboratório ao repositório](#connect-your-lab-to-the-repository).
+10. Continuar toohello [conectar seu repositório do laboratório toohello](#connect-your-lab-to-the-repository) seção.
 
-### <a name="get-the-visual-studio-team-services-repository-clone-url-and-personal-access-token"></a>Obter a URL de clone do repositório do Visual Studio Team Services e token de acesso pessoal
-Para obter a URL de clone do repositório do Visual Studio Team Services e token de acesso pessoal, siga estas etapas:
+### <a name="get-hello-visual-studio-team-services-repository-clone-url-and-personal-access-token"></a>Obter token de acesso pessoal e URL de clone do repositório do hello do Visual Studio Team Services
+URL de clone do repositório do tooget saudação do Visual Studio Team Services e o token de acesso pessoal, siga estas etapas:
 
-1. Abra a página inicial de sua coleção de equipe (por exemplo, `https://contoso-web-team.visualstudio.com`) e selecione o projeto.
-2. Na home page do projeto, selecione **Código**.
-3. Para exibir a URL de clone, na página **Código** do projeto, selecione **Clone**.
-4. Salve a URL, você precisará dela mais tarde neste tutorial.
-5. Para criar um Token de Acesso Pessoal, selecione **Meu perfil** no menu suspenso da conta de usuário.
-6. Na página de informações de perfil, selecione **Segurança**.
-7. Na guia **Segurança**, selecione **Adicionar**.
-8. Na página **Criar um token de acesso pessoal** :
+1. Olá abrir home page de sua coleção de equipe (por exemplo, `https://contoso-web-team.visualstudio.com`) e, em seguida, selecione o seu projeto.
+2. Na página de início do projeto hello, selecione **código**.
+3. URL de clone Olá tooview, no projeto Olá **código** página, selecione **Clone**.
+4. Salve Olá URL precisar posteriormente neste tutorial.
+5. Selecione toocreate um Token de acesso pessoal, **meu perfil** Olá usuário suspensa no menu da conta.
+6. Na página de informações de perfil hello, selecione **segurança**.
+7. Em Olá **segurança** guia, selecione **adicionar**.
+8. Em Olá **criar um token de acesso pessoal** página:
 
-   * Insira uma **Descrição** para o token.
-   * Selecione **180 dias** na lista **Expira em**.
-   * Escolha **Todas as contas acessíveis** na lista **Contas**.
-   * Escolha a opção **Todos os escopos** .
+   * Insira um **descrição** de token de saudação.
+   * Selecione **180 dias** de saudação **expira em** lista.
+   * Escolha **todas as contas acessíveis** de saudação **contas** lista.
+   * Escolha Olá **todos os escopos** opção.
    * Escolha **Criar Token**.
-9. Quando terminar, o novo token será exibido na lista de **Tokens de Acesso Pessoal** . Selecione **Copiar Token**e salve o valor do token para uso posterior.
-10. Continue para a seção [Conectar seu laboratório ao repositório](#connect-your-lab-to-the-repository).
+9. Quando terminar, o novo token de saudação aparece no hello **Tokens de acesso pessoal** lista. Selecione **copiar Token**e, em seguida, salve o valor do token Olá para uso posterior.
+10. Continuar toohello [conectar seu repositório do laboratório toohello](#connect-your-lab-to-the-repository) seção.
 
-## <a name="connect-your-lab-to-the-repository"></a>Conecte seu laboratório ao repositório
-1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selecione **Mais Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
-3. Na lista de laboratórios, selecione o laboratório desejado.   
-4. No painel esquerdo, selecione **Configuração e políticas**.
-5. Na área **Configuração e políticas** do laboratório, selecione **Repositórios**.
-6. Na área **Repositório**, selecione **+ Adicionar**.
+## <a name="connect-your-lab-toohello-repository"></a>Conecte-se o repositório de toohello de laboratório
+1. Entrar toohello [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+2. Selecione **mais serviços**e, em seguida, selecione **DevTest Labs** da lista de saudação.
+3. Saudação de laboratórios, selecione lista laboratório desejado hello.   
+4. No painel esquerdo do hello, selecione **políticas e configurações**.
+5. No laboratório de saudação **políticas e configurações** área, selecione **repositórios**.
+6. Em Olá **repositórios** área, selecione **+ adicionar**.
 
     ![Adicionar um botão de repositório](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
-7. Na segunda página **Repositórios**, especifique as seguintes informações:
+7. Em Olá segundo **repositórios** especifique Olá informações a seguir:
 
-   * **Nome** – insira um nome para o repositório.
-   * **URL de Clone de Git** – insira a URL HTTPS de clone de Git que você copiou anteriormente do GitHub ou do Visual Studio Team Services.
-   * **Ramificação** – insira a ramificação para obter as suas definições.
-   * **Token de Acesso Pessoal** – insira o token de acesso pessoal obtido anteriormente do GitHub ou do Visual Studio Team Services.
-   * **Caminhos de pasta** – Insira, pelo menos, um caminho de pasta em relação a URL de clone que contém o artefato ou definições de modelo do Azure Resource Manager. Ao especificar um subdiretório, certifique-se de incluir a barra no caminho da pasta.
+   * **Nome** -Insira um nome para o repositório de saudação.
+   * **Url de Clone de Git** -insira Olá Git URL de clone HTTPS que você copiou anteriormente do GitHub ou Visual Studio Team Services.
+   * **Ramificação** -insira Olá ramificação tooget suas definições.
+   * **Token de acesso pessoal** -insira o token de acesso pessoal Olá é obtido anteriormente do GitHub ou Visual Studio Team Services.
+   * **Caminhos de pastas** -Insira pelo menos um caminho relativo toohello clone URL da pasta que contém o artefato ou definições de modelo do Gerenciador de recursos do Azure. Ao especificar um subdiretório, verifique se tooinclude Olá barra invertida no caminho da pasta hello.
 
      ![Área de repositórios](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 8. Selecione **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois que você criou seu repositório Git, você pode fazer um ou ambos estes procedimentos, dependendo das suas necessidades:
-* Armazene seus [artefatos personalizados](devtest-lab-artifact-author.md), que você pode usar depois para criar novas VMs.
-* [Crie ambientes de várias VMs e recursos de PaaS com modelos do Azure Resource Manager](devtest-lab-create-environment-from-arm.md) e, então, armazene os modelos em seu repositório particular.
+Depois que você criou seu repositório Git particular, você pode fazer uma ou ambas das seguintes hello, dependendo de suas necessidades:
+* Armazenamento de seu [artefatos personalizados](devtest-lab-artifact-author.md), que você pode usar toocreate posterior novas VMs.
+* [Criar ambientes de várias VMs e recursos de PaaS com modelos do Azure Resource Manager](devtest-lab-create-environment-from-arm.md) e, em seguida, armazene os modelos de saudação em seu repositório privado.
 
-Quando você criar uma VM, poderá verificar se os artefatos ou os modelos são adicionados ao seu repositório Git. Eles estarão disponíveis imediatamente na lista de artefatos ou modelos, com o nome do seu repositório particular mostrado na coluna que especifica a origem. 
+Quando você cria uma máquina virtual, você pode verificar artefatos hello ou modelos são adicionados tooyour repositório do Git. Eles estão disponíveis imediatamente na lista de saudação de artefatos ou modelos, com nome de saudação do seu repositório privado mostrado na coluna Olá que especifica a origem de saudação. 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ### <a name="related-blog-posts"></a>Postagens de blogs relacionadas
-* [Como solucionar problemas de falha de Artefatos no Azure DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
-* [Ingressar uma VM em um Domínio do AD existente usando um modelo do Resource Manager no Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [Como tootroubleshoot falhando artefatos no Azure DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
+* [Ingressar em um domínio de AD usando um modelo do Gerenciador de recursos no Azure DevTest Labs de tooexisting VM](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)

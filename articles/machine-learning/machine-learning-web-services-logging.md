@@ -1,6 +1,6 @@
 ---
-title: "Registro em log de serviços Web do Machine Learning | Microsoft Azure"
-description: "Saiba como habilitar o registro em log de serviços Web de Machine Learning. O registro em log fornece informações adicionais para ajudar a solucionar problemas com as APIs."
+title: "aaaLogging para serviços web do aprendizado de máquina | Microsoft Docs"
+description: "Saiba como serviços da web de registro em log tooenable para aprendizado de máquina. Registro em log informações adicionais toohelp Olá APIs de solução de problemas."
 services: machine-learning
 documentationcenter: 
 author: raymondlaghaeian
@@ -14,73 +14,73 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.author: raymondl;garye
-ms.openlocfilehash: 7d0b2db01427430d6b0a317cdfefc265dd4b06e2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ed23933d52d2151af658af2307d7df8743071f65
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>Habilitar o log de serviços Web de Machine Learning
-Este documento fornece informações sobre o recurso de logs de serviços Web do Machine Learning. Os logs fornecem informações adicionais, além de apenas um número de erro e uma mensagem, o que pode ajudar a solucionar suas chamadas para as APIs de Machine Learning.  
+Este documento fornece informações sobre Olá log capacidade de serviços web do aprendizado de máquina. Registro em log informações adicionais, além de um número de erro e uma mensagem, que pode ajudá-lo a solucionar problemas de seu toohello chama APIs de aprendizado de máquina.  
 
-## <a name="how-to-enable-logging-for-a-web-service"></a>Como habilitar o registro em log para um serviço Web
+## <a name="how-tooenable-logging-for-a-web-service"></a>Como o log tooenable para um serviço Web
 
-Você hara habilita os logs no portal de [serviços Web do Azure Machine Learning](https://services.azureml.net). 
+Habilitar o registro de saudação [serviços de Web de aprendizado de máquina do Azure](https://services.azureml.net) portal. 
 
-1. Entre no portal de Serviços Web do Azure Machine Learning em [https://services.azureml.net](https://services.azureml.net). Para um serviço Web Clássico, você também pode acessar o portal clicando em **Nova Experiência de Serviços Web** na página de Serviços Web do Machine Learning no Machine Learning Studio.
+1. Entrar no portal de serviços de Web de aprendizado de máquina do Azure toohello em [https://services.azureml.net](https://services.azureml.net). Para um serviço web clássico, você também pode obter toohello portal clicando **nova experiência de serviços Web** na página de serviços de Web do aprendizado de máquina Olá no estúdio de aprendizado de máquina.
 
    ![Novo link de Experiência dos Serviços Web](media/machine-learning-web-services-logging/new-web-services-experience-link.png)
 
-2. Na barra de menus superior, clique em **Serviços Web** para um novo serviço Web ou clique em **Serviços Web Clássicos** para um serviço Web Clássico.
+2. Na barra de menus superior hello, clique em **serviços Web** para um novo serviço da web, ou clique em **Web Services clássico** para um clássico de serviço web.
 
    ![Selecione serviços Web Novos ou Clássicos](media/machine-learning-web-services-logging/select-web-service.png)
 
-3. Para um novo serviço Web, clique no nome de serviço Web. Para um serviço Web Clássico, clique no nome do serviço Web e clique no ponto de extremidade apropriado na próxima página.
+3. Para um novo serviço da web, clique em nome do serviço web hello. Para um serviço web clássico, clique em nome do serviço web hello e clique em ponto de extremidade apropriado Olá na próxima página de saudação.
 
-4. Na barra de menus superior, clique em **Configurar**.
+4. Na barra de menus superior hello, clique em **configurar**.
 
-5. Defina a opção **Habilitar Log** como *Erro* (para registrar somente erros) ou *Todos* (para registro em log completo).
+5. Saudação de conjunto **Habilitar log** opção muito*erro* (toolog somente erros) ou *todas as* (para registro em log completo).
 
    ![Selecionar o nível de log](media/machine-learning-web-services-logging/enable-logging.png)
 
 6. Clique em **Salvar**.
 
-7. Para os serviços Web Clássicos, crie o contêiner **ml-diagnostics**.
+7. Para serviços da web de clássico, criar hello **ml diagnóstico** contêiner.
 
-   Todos os logs de serviço Web são mantidos em um contêiner de blob denominado **ml diagnóstico** na conta de armazenamento associada ao serviço Web. Para novos serviços Web, esse contêiner é criado na primeira vez que você acessa o serviço Web. Para serviços Web Clássico, você precisa criar o contêiner, se ele ainda não existe. 
+   Todos os logs de serviço web são mantidos em um contêiner de blob denominado **ml diagnóstico** na conta de armazenamento Olá associada ao serviço web de saudação. Para novos serviços da web, esse contêiner é criado Olá primeira vez que você acessar o serviço web de saudação. Para serviços da web de clássico, você precisar de toocreate Olá contêiner se ele ainda não existir. 
 
-   1. No [portal do Azure](https://portal.azure.com), vá para a conta de armazenamento associada ao serviço Web.
+   1. Em Olá [portal do Azure](https://portal.azure.com), vá toohello conta de armazenamento associada ao serviço da web de saudação.
 
    2. Em **Serviço Blob**, clique em **Contêineres**.
 
-   3. Se o contêiner **ml-diagnostics** não existir, clique em **+Contêiner**, dê ao contêiner o nome "ml-diagnostics" e selecione o **Tipo de acesso** como "Blob". Clique em **OK**.
+   3. Se contêiner Olá **ml diagnóstico** não existe, clique em **+ contêiner**, dê a saudação contêiner Olá nome "ml de diagnóstico" e selecione Olá **tipo de acesso** como "Blob". Clique em **OK**.
 
       ![Selecionar o nível de log](media/machine-learning-web-services-logging/create-ml-diagnostics-container.png)
 
 > [!TIP]
 >
-> Para um serviço Web Clássico, o Painel de Serviços Web no Machine Learning Studio também tem uma opção para habilitar o log. No entanto, como os logs são gerenciados por meio do portal de serviços Web, você precisa habilitar os logs por meio do portal, conforme descrito neste artigo. Se você tiver habilitado os logs no Studio, no Portal de Serviços Web, desabilite os logs e habilite-os novamente.
+> Para um serviço web clássico, Olá painel de serviços Web no estúdio de aprendizado de máquina também tem um registro em log do comutador tooenable. No entanto, como log agora é gerenciado por meio do portal de serviços Web hello, é necessário tooenable log por meio do portal Olá conforme descrito neste artigo. Se você tiver habilitado o log no Studio, em seguida, no Portal de serviços da Web de Olá, desabilite o log e habilitá-lo novamente.
 
 
-## <a name="the-effects-of-enabling-logging"></a>Os efeitos de habilitar o registro em log
-Quando o log estiver habilitado, os diagnósticos e erros do ponto de extremidade de serviço Web serão registrados no contêiner de blobs **ml-diagnostics** na Conta de Armazenamento do Azure vinculada ao espaço de trabalho do usuário. Esse contêiner armazena todas as informações de diagnóstico para todos os pontos de extremidade do serviço da Web para todos os espaços de trabalho associados a esta conta de armazenamento.
+## <a name="hello-effects-of-enabling-logging"></a>efeitos de saudação de habilitar o registro em log
+Quando o log está habilitado, diagnóstico hello e erros de ponto de extremidade do serviço Olá web são registrados em Olá **ml diagnóstico** contêiner de blob em Olá conta de armazenamento do Azure vinculada ao espaço de trabalho do usuário hello. Este contêiner contém todas as informações de diagnóstico Olá para todos os pontos de serviço web Olá para todos os espaços de trabalho Olá associados a esta conta de armazenamento.
 
-Os logs podem ser exibidos usando qualquer uma das várias ferramentas disponíveis para explorar uma Conta de Armazenamento do Azure. A maneira mais fácil possível de navegar para a conta de armazenamento no portal do Azure: clique em **Contêineres** e clique no contêiner **ml diagnostics**.  
+Olá logs podem ser exibidos usando qualquer um dos Olá várias ferramentas tooexplore disponível uma conta de armazenamento do Azure. Olá mais fácil pode ser toonavigate toohello conta de armazenamento Olá portal do Azure, clique em **contêineres**e, em seguida, clique em contêiner Olá **ml diagnóstico**.  
 
 ## <a name="log-blob-detail-information"></a>Informações detalhadas do log blob
-Cada blob no contêiner contém as informações de diagnóstico para um das seguintes ações:
+Cada blob no contêiner de saudação contém informações de diagnóstico de saudação para exatamente um Olá ações a seguir:
 
-* Uma execução do método Batch-Execution  
-* Uma execução do método Request-Response  
+* A execução do método hello execução em lotes  
+* A execução do método hello solicitação-resposta  
 * Inicialização de um contêiner de Request-Response
 
-O nome de cada blob tem um prefixo da seguinte forma: 
+nome de saudação de cada blob tem um prefixo de saudação formulário a seguir: 
 
 
 `{Workspace Id}-{Web service Id}-{Endpoint Id}/{Log type}`
 
 
-Sendo que _Tipo de log_ assume um dos seguintes valores:  
+Onde _tipo de Log_ é uma saudação valores a seguir:  
 
 * lote  
 * pontuação/solicitações  

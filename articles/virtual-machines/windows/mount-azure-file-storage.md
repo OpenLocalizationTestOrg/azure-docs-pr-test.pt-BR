@@ -1,6 +1,6 @@
 ---
-title: Montar armazenamento de arquivos do Azure com base em uma VM do Windows Azure | Microsoft Docs
-description: "Armazene o arquivo na nuvem com o armazenamento de arquivos do Azure e monte o compartilhamento de arquivos de nuvem de uma VM (máquina virtual) do Azure."
+title: aaaMount armazenamento de arquivo do Azure de uma VM do Windows Azure | Microsoft Docs
+description: "Armazene o arquivo na nuvem Olá com armazenamento de arquivos do Azure e montar o compartilhamento de arquivos de nuvem a partir de uma máquina virtual do Azure (VM)."
 documentationcenter: 
 author: cynthn
 manager: timlt
@@ -13,62 +13,62 @@ ms.devlang:
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 6ffb2d2da1e2439df6f5da543411e3c2c68d3435
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 965f1c1b3f0d07fec6d86f9312a05e02e8ce7fe0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-azure-file-shares-with-windows-vms"></a>Usar compartilhamentos de arquivos do Azure com VMs do Windows 
 
-Você pode usar compartilhamentos de arquivos do Azure como uma maneira de armazenar e acessar arquivos na VM. Por exemplo, você pode armazenar um script ou um arquivo de configuração de aplicativo que deseja que todas as VMs compartilhem. Neste tópico, mostramos como criar e montar um compartilhamento de arquivos do Azure e como carregar e baixar arquivos.
+Você pode usar compartilhamentos de arquivos do Azure como uma maneira toostore e acessar arquivos de sua VM. Por exemplo, você pode armazenar um script ou um arquivo de configuração de aplicativo que você deseja que todos os seu tooshare de VMs. Neste tópico, mostramos como compartilhamento de arquivos de montagem do Azure e toocreate e tooupload e download de arquivos.
 
-## <a name="connect-to-a-file-share-from-a-vm"></a>Conectar a um compartilhamento de arquivo por meio de uma VM
+## <a name="connect-tooa-file-share-from-a-vm"></a>Conecte-se o compartilhamento de arquivos tooa de uma VM
 
-Esta seção pressupõe que você já tenha um compartilhamento de arquivos ao qual deseja se conectar. Se você precisar criar um, confira [Criar um compartilhamento de arquivos](#create-a-file-share) mais adiante neste tópico.
+Esta seção pressupõe que você já tiver um compartilhamento de arquivos que você deseja tooconnect para. Se você precisar toocreate um, consulte [criar um compartilhamento de arquivos](#create-a-file-share) mais adiante neste tópico.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. No menu à esquerda, clique em **Contas de armazenamento**.
+1. Entrar toohello [portal do Azure](https://portal.azure.com).
+2. No menu à esquerda do hello, clique em **contas de armazenamento**.
 3. Escolha sua conta de armazenamento.
-4. Na página **Visão geral**, em **Serviços**, selecione **Arquivos**.
+4. Em Olá **visão geral** página em **serviços**, selecione **arquivos**.
 5. Selecione um compartilhamento de arquivos.
-6. Clique em **Conectar** para abrir uma página que mostra a sintaxe de linha de comando para montar o compartilhamento de arquivos do Windows ou Linux.
-7. Realce a sintaxe do comando e cole-a no Bloco de Notas ou em outro lugar em que você possa acessá-la facilmente. 
-8. Edite a sintaxe para remover o **> ** inicial e substitua *[letra da unidade]* pela letra da unidade (por exemplo, **y:**) em que você deseja montar o compartilhamento de arquivos.
-8. Conecte-se à VM e abra um prompt de comando.
-9. Cole a sintaxe de conexão editado e pressione **Enter**.
-10. Quando a conexão tiver sido criada, você receberá a mensagem **O comando foi concluído com êxito.**
-11. Verifique a conexão digitando a letra da unidade para alternar para a unidade e digite **dir** para ver o conteúdo do compartilhamento de arquivo.
+6. Clique em **conectar** tooopen uma página que mostra a sintaxe de linha de comando Olá montagem Olá para compartilhamento de arquivos do Windows ou Linux.
+7. Realçar a sintaxe de saudação do comando hello e cole-o no bloco de notas ou em outro lugar onde você pode acessá-lo facilmente. 
+8. Editar à esquerda do hello sintaxe tooremove hello * * > * * e substituir *[letra da unidade]* com a letra de unidade de saudação (por exemplo, **y:**) onde deseja que o compartilhamento de arquivos toomount hello.
+8. Conecte-se tooyour VM e abra um prompt de comando.
+9. Colar em Olá editado sintaxe de conexão e pressione **Enter**.
+10. Quando a conexão Olá tiver sido criado, você obter mensagem de saudação **Olá comando foi concluído com êxito.**
+11. Verifique a conexão Olá digitando Olá letra tooswitch toothat unidade e, em seguida, digite **dir** toosee conteúdo de saudação do compartilhamento de arquivo hello.
 
 
 
 ## <a name="create-a-file-share"></a>Criar um compartilhamento de arquivos 
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. No menu à esquerda, clique em **Contas de armazenamento**.
+1. Entrar toohello [portal do Azure](https://portal.azure.com).
+2. No menu à esquerda do hello, clique em **contas de armazenamento**.
 3. Escolha sua conta de armazenamento.
-4. Na página **Visão geral**, em **Serviços**, selecione **Arquivos**.
-5. Na página de Serviço de Arquivo, clique em **+Compartilhamento de arquivos** para criar o primeiro compartilhamento de arquivos.\
-6. Preencha o nome do compartilhamento de arquivo. Nomes de compartilhamento de arquivos podem usar letras minúsculas, números e hifens únicos. O nome não pode começar com um hífen e não é possível usar várias hifens consecutivos. 
-7. Preencha o limite de tamanho do arquivo, até 5120 GB.
-8. Clique em **OK** para implantar o compartilhamento de arquivos.
+4. Em Olá **visão geral** página em **serviços**, selecione **arquivos**.
+5. Na página de serviço de arquivo hello, clique em **+ compartilhamento de arquivos** toocreate do primeiro arquivo compartilhar. \
+6. Preencha o nome de compartilhamento de arquivo hello. Nomes de compartilhamento de arquivos podem usar letras minúsculas, números e hifens únicos. Olá nome não pode começar com um hífen e não é possível usar várias hifens consecutivos. 
+7. Preencha um limite no arquivo de saudação como grande pode ser a too5120 GB.
+8. Clique em **Okey** toodeploy compartilhamento de arquivos de saudação.
    
 ## <a name="upload-files"></a>Carregar arquivos
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. No menu à esquerda, clique em **Contas de armazenamento**.
+1. Entrar toohello [portal do Azure](https://portal.azure.com).
+2. No menu à esquerda do hello, clique em **contas de armazenamento**.
 3. Escolha sua conta de armazenamento.
-4. Na página **Visão geral**, em **Serviços**, selecione **Arquivos**.
+4. Em Olá **visão geral** página em **serviços**, selecione **arquivos**.
 5. Selecione um compartilhamento de arquivos.
-6. Clique em **Carregar** para abrir a página **Carregar arquivos**.
-7. Clique no ícone de pasta para procurar no sistema de arquivos local um arquivo para carregar.   
-8. Clique em **Carregar** para carregar o arquivo para o compartilhamento de arquivos.
+6. Clique em **carregar** tooopen Olá **carregar arquivos** página.
+7. Clique em Olá toobrowse de ícone de pasta sistema de arquivos local para tooupload um arquivo.   
+8. Clique em **carregar** tooupload Olá toohello arquivo compartilhamento.
 
 ## <a name="download-files"></a>Baixar arquivos
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. No menu à esquerda, clique em **Contas de armazenamento**.
+1. Entrar toohello [portal do Azure](https://portal.azure.com).
+2. No menu à esquerda do hello, clique em **contas de armazenamento**.
 3. Escolha sua conta de armazenamento.
-4. Na página **Visão geral**, em **Serviços**, selecione **Arquivos**.
+4. Em Olá **visão geral** página em **serviços**, selecione **arquivos**.
 5. Selecione um compartilhamento de arquivos.
-6. Clique com o botão direito do mouse no arquivo e escolha **Baixar** para baixá-lo no computador local.
+6. Clique com botão direito no arquivo hello e escolha **baixar** toodownload-computador local tooyour.
    
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -1,6 +1,6 @@
 ---
-title: "Procedimentos de atualização do SDK para Web do Azure Mobile Engagement | Microsoft Docs"
-description: "As atualizações e procedimentos mais recentes do SDK para Web do Azure Mobile Engagement"
+title: "procedimentos de atualização de SDK do Mobile Engagement Web aaaAzure | Microsoft Docs"
+description: "Olá procedimentos para Olá Web SDK e atualizações mais recentes para o Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,40 +14,40 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-ms.openlocfilehash: afa8037dcb7a53042fa606e2c4014b442d4be326
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a2df65904c6b56584ce6588ed26a9b79f3aa27ea
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-mobile-engagement-web-sdk-upgrade-procedures"></a>Procedimentos de atualização do SDK para Web do Azure Mobile Engagement
-Se você já tiver integrado uma versão anterior do SDK para Web do Azure Mobile Engagement em seu aplicativo Web, precisará considerar os seguintes pontos ao atualizar o SDK.
+Se você já tiver integrado uma versão anterior do Olá Web SDK do Azure Mobile Engagement em seu aplicativo web, é necessário tooconsider Olá pontos a seguir quando você atualiza Olá SDK.
 
-Se você tiver ignorado várias versões do SDK para Web do Mobile Engagement, talvez seja necessário concluir vários procedimentos durante o processo de atualização. Por exemplo, se você migrar da 1.4.0 para a 1.6.0, primeiro siga os procedimentos para atualizar da 1.4.0 para a 1.5.0. Em seguida, siga os procedimentos para atualizar da 1.5.0 para a 1.6.0.
+Se você tiver ignorado a várias versões de Olá Web SDK do Mobile Engagement, talvez seja necessário toocomplete vários procedimentos durante o processo de atualização de saudação. Por exemplo, se você migrar de 1.4.0 too1.6.0, primeiro execute Olá procedimentos tooupgrade de 1.4.0 too1.5.0. Em seguida, siga Olá procedimentos tooupgrade de 1.5.0 too1.6.0.
 
-Seja qual for a versão da qual você está realizando a atualização, substitua qualquer versão anterior do arquivo azure-engagement.js pela versão mais recente dele.
+Qualquer versão de atualização, substitua qualquer versão anterior do arquivo de saudação do azure-engagement.js a versão mais recente de saudação do arquivo hello.
 
-## <a name="upgrade-from-121-to-200"></a>Atualizar da 1.2.1 para a 2.0.0
-Esta seção descreve como migrar uma integração do SDK para Web do Mobile Engagement do serviço Capptain, oferecido pelo Capptain SAS, para um aplicativo do Azure Mobile Engagement. Se você estiver migrando de uma versão anterior, consulte o site do Capptain para migrar primeiro para 1.2.1 e depois aplicar os procedimentos a seguir.
+## <a name="upgrade-from-121-too200"></a>Atualização do 1.2.1 too2.0.0
+Esta seção descreve como toomigrate uma integração do SDK do Mobile Engagement Web do serviço de Capptain hello, oferecido pelo Capptain SAS, aplicativo do Azure Mobile Engagement tooan. Se você estiver migrando de uma versão anterior, por favor consulte Olá Capptain site toofirst migrar too1.2.1 e, em seguida, aplicar Olá procedimentos a seguir.
 
-Essa versão do SDK para Web do Mobile Engagement não dá suporte para Samsung Smart TV, Opera TV, webOS ou com o recurso Reach.
+Não dá suporte a esta versão do Olá Web SDK do Mobile Engagement Samsung Smart TV, Opera TV, webOS ou recurso de alcance hello.
 
 > [!IMPORTANT]
-> O Capptain e o Azure Mobile Engagement não são o mesmo serviço. O procedimento a seguir destaca apenas como migrar o aplicativo cliente. Migrar o SDK para Web do Mobile Engagement no aplicativo não migrará os dados de um servidor do Capptain para um servidor do Mobile Engagement.
+> Capptain e do Azure Mobile Engagement não são Olá mesmo serviço. Olá procedimento a seguir realça apenas como toomigrate Olá aplicativo cliente. Migrando Olá Web SDK do Mobile Engagement no aplicativo hello não serão migrados para os dados de um Capptain tooa Mobile Engagement server.
 > 
 > 
 
 ### <a name="javascript-files"></a>Arquivos JavaScript
-Substitua o arquivo capptain-sdk.js pelo arquivo azure-engagement.js e atualize suas importações de script adequadamente.
+Substitua saudação de arquivo capptain-sdk.js com o arquivo de saudação do azure-engagement.js e atualize seu script importa adequadamente.
 
 ### <a name="remove-capptain-reach"></a>Remover o Capptain Reach
-Essa versão do SDK para Web do Mobile Engagement não dá suporte ao recurso Reach. Se você tiver integrado o Capptain Reach ao aplicativo, será necessário removê-lo.
+Esta versão do Olá Web SDK do Mobile Engagement não dá suporte a recurso de alcance hello. Se você tiver integrado Capptain alcance em seu aplicativo, você precisa tooremove-lo.
 
-Remova a importação de CSS do Reach da sua página e exclua o arquivo .css relacionado (capptain-reach.css, por padrão).
+Remover Olá alcançar CSS importar sua página e excluir o arquivo. CSS relacionados de saudação (capptain-reach.css, por padrão).
 
-Exclua os seguintes recursos do Reach: a imagem de fechamento (capptain-close.png, por padrão) e o ícone da marca (capptain-notification-icon, por padrão).
+Excluir Olá alcance recursos a seguir: Olá fechar imagem (capptain-close.png, por padrão) e o ícone de marca de saudação (capptain--ícone de notificação, por padrão).
 
-Remova a interface do usuário do Reach para notificações no aplicativo. O layout padrão tem esta aparência:
+Remova hello alcançar da interface do usuário para notificações no aplicativo. layout da saudação padrão tem esta aparência:
 
     <!-- capptain notification -->
     <div id="capptain_notification_area" class="capptain_category_default">
@@ -64,7 +64,7 @@ Remova a interface do usuário do Reach para notificações no aplicativo. O lay
       </div>
     </div>
 
-Remova a interface do usuário do Reach para anúncios da Web e pesquisas. O layout padrão tem esta aparência:
+Remova Olá alcançar da interface do usuário para notificações de texto e da web e pesquisas. layout da saudação padrão tem esta aparência:
 
     <div id="capptain_overlay" class="capptain_category_default">
       <button id="capptain_overlay_close">x</button>
@@ -77,7 +77,7 @@ Remova a interface do usuário do Reach para anúncios da Web e pesquisas. O lay
       </div>
     </div>
 
-Remova o objeto `reach` da sua configuração, se ele existir. Ele tem esta aparência:
+Remover Olá `reach` do objeto de configuração, se ele existir. Ele tem esta aparência:
 
     window.capptain = {
       [...]
@@ -89,16 +89,16 @@ Remova o objeto `reach` da sua configuração, se ele existir. Ele tem esta apar
 Remova qualquer outra personalização do Reach, como categorias.
 
 ### <a name="remove-deprecated-apis"></a>Remover APIs substituídas
-Algumas das APIs do Capptain foram preteridas na versão do SDK para Web do Mobile Engagement.
+Algumas APIs de Capptain são preteridos no Olá Web SDK do Mobile Engagement.
 
-Remova todas as chamadas para as seguintes APIs: `agent.connect`, `agent.disconnect`, `agent.pause` e `agent.sendMessageToDevice`.
+Remova qualquer toohello chamadas seguintes APIs: `agent.connect`, `agent.disconnect`, `agent.pause`, e `agent.sendMessageToDevice`.
 
-Remova as instâncias dos seguintes retornos de chamada da sua configuração do Capptain: `onConnected`, `onDisconnected`, `onDeviceMessageReceived` e `onPushMessageReceived`.
+Remover todas as instâncias de saudação retornos de chamada a seguir da configuração do seu Capptain: `onConnected`, `onDisconnected`, `onDeviceMessageReceived`, e `onPushMessageReceived`.
 
 ### <a name="configuration"></a>Configuração
-O Mobile Engagement usa uma cadeia de conexão para configurar os identificadores do SDK, por exemplo, o identificador do aplicativo.
+Mobile Engagement usa uma conexão cadeia de caracteres tooconfigure SDK os identificadores, por exemplo, o identificador de aplicativo hello.
 
-Substitua a ID do aplicativo pela cadeia de conexão. Observe que o objeto global para a configuração do SDK muda de `capptain` para `azureEngagement`.
+Substitua a ID do aplicativo de saudação com a cadeia de caracteres de conexão. Observe o objeto global Olá de saudação configuração SDK é alterado de `capptain` muito`azureEngagement`.
 
 Antes da migração:
 
@@ -114,10 +114,10 @@ Após a migração:
       [...]
     };
 
-A cadeia de conexão para o seu aplicativo é exibida no Portal do Azure.
+cadeia de caracteres de conexão de saudação para seu aplicativo é exibida no hello Portal do Azure.
 
 ### <a name="javascript-apis"></a>APIs do JavaScript
-O objeto `window.capptain` global do JavaScript foi renomeado para `window.azureEngagement`, mas você pode usar o alias `window.engagement` para chamadas à API. Você não pode usar o alias para definir a configuração do SDK.
+objeto de JavaScript global Olá `window.capptain` foi renomeado `window.azureEngagement` , mas você pode usar o hello `window.engagement` alias para chamadas de API. Você não pode usar a configuração do SDK do hello alias toodefine hello.
 
 Por exemplo: `capptain.deviceId` se torna `engagement.deviceId`, `capptain.agent.startActivity` se torna `engagement.agent.startActivity` e assim por diante.
 

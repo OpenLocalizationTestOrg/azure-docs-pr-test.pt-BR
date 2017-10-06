@@ -1,6 +1,6 @@
 ---
-title: Analisar dados no Data Lake Store usando o Power BI | Microsoft Docs
-description: "Usar o Power BI para analisar os dados armazenados no Repositório Azure Data Lake"
+title: "dados de aaaAnalyze no repositório Data Lake usando o Power BI | Microsoft Docs"
+description: "Usar dados do Power BI tooanalyze armazenados no repositório Azure Data Lake"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -14,89 +14,89 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/10/2017
 ms.author: nitinme
-ms.openlocfilehash: 0cf7e385ef2edd650479e120f52469bc6632f2eb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6a1bfa80fd1b0dda59b7eaaae9ca1585ba42783e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="analyze-data-in-data-lake-store-by-using-power-bi"></a>Analisar dados no Repositório Data Lake usando o Power BI
-Neste artigo, você aprenderá a usar o Power BI Desktop para analisar e visualizar dados armazenados no Repositório Azure Data Lake.
+Neste artigo, você aprenderá como toouse Power BI Desktop tooanalyze e visualizar os dados armazenados no repositório Azure Data Lake.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar este tutorial, você deve ter o seguinte:
+Antes de começar este tutorial, você deve ter o seguinte hello:
 
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Conta do Repositório Azure Data Lake**. Siga as instruções em [Introdução ao Repositório Azure Data Lake usando o Portal do Azure](data-lake-store-get-started-portal.md). Este artigo pressupõe que você já tenha criado uma conta do Data Lake Store chamada **mybidatalakestore** e carregado um arquivo de dados de exemplo (**Drivers.txt**) para ela. Esse exemplo de arquivo está disponível para download no [Repositório Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
+* **Conta do Repositório Azure Data Lake**. Siga as instruções de saudação em [Introdução ao repositório Azure Data Lake usando hello Azure Portal](data-lake-store-get-started-portal.md). Este artigo pressupõe que você já criou uma conta do repositório Data Lake, chamada **mybidatalakestore**e carregar um arquivo de dados de exemplo (**Drivers.txt**) tooit. Esse exemplo de arquivo está disponível para download no [Repositório Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
 * **Power BI Desktop**. Você pode baixá-lo no [Centro de Download da Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=45331). 
 
 ## <a name="create-a-report-in-power-bi-desktop"></a>Criar um relatório no Power BI Desktop
 1. Inicie o Power BI Desktop em seu computador.
-2. Na faixa de opções **Início**, clique em **Obter Dados** e clique em Mais. Na caixa de diálogo **Obter Dados**, clique em **Azure**, clique em **Azure Data Lake Store** e clique em **Conectar**.
+2. De saudação **início** de faixa de opções, clique em **obter dados**e, em seguida, clique em mais. Em Olá **obter dados** caixa de diálogo, clique em **Azure**, clique em **repositório Azure Data Lake**e, em seguida, clique em **conectar**.
    
-    ![Conectar-se ao Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Conectar ao Data Lake Store")
-3. Se você vir uma caixa de diálogo informando que o conector está em uma fase de desenvolvimento, escolha continuar.
-4. Na caixa de diálogo **Microsoft Azure Data Lake Store**, forneça a URL da sua conta do Data Lake Store e clique em **OK**.
+    ![Conectar tooData Lake repositório](./media/data-lake-store-power-bi/get-data-lake-store-account.png "conectar tooData Lake repositório")
+3. Se você vir uma caixa de diálogo sobre o conector de saudação em uma fase de desenvolvimento, optar por toocontinue.
+4. Em Olá **Microsoft Azure Data Lake Store** caixa de diálogo, forneça Olá URL tooyour repositório Data Lake conta e, em seguida, clique em **Okey**.
    
     ![URL do Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "URL para Data Lake Store")
-5. Na caixa de diálogo seguinte, clique em **Entrar** para entrar na conta do Repositório Data Lake. Você será redirecionado à página de logon de sua organização. Siga os prompts para entrar na conta.
+5. Na próxima caixa de diálogo hello, clique em **entrar** toosign na conta do repositório Data Lake. Você será redirecionado na página de entrada tooyour da organização. Siga Olá prompts toosign em conta hello.
    
     ![Entrar no Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Entrar no Data Lake Store")
 6. Depois de entrar com sucesso, clique em **Conectar**.
    
-    ![Conectar-se ao Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Conectar-se ao Data Lake Store")
-7. A próxima caixa de diálogo mostra o arquivo carregado para sua conta do Repositório Data Lake. Verifique as informações e clique em **Carregar**.
+    ![Conectar tooData Lake repositório](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "conectar tooData Lake repositório")
+7. próxima caixa de diálogo Olá mostra arquivo hello que conta do repositório Data Lake tooyour foi carregado. Verifique se as informações de saudação e, em seguida, clique em **carga**.
    
     ![Carregar dados no Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Carregar dados no Data Lake Store")
-8. Após os dados serem carregados com êxito no Power BI, você verá os seguintes campos na guia **Campos** .
+8. Depois que os dados de saudação foi carregados com êxito para o Power BI, você verá Olá Olá campos a seguir **campos** guia.
    
     ![Importar campos](./media/data-lake-store-power-bi/imported-fields.png "importado campos")
    
-    No entanto, para visualizar e analisar os dados, preferimos que eles fiquem disponíveis conforme os seguintes campos
+    No entanto, toovisualize e analisar dados hello, podemos preferir Olá dados toobe disponível por Olá campos a seguir
    
     ![Desejado campos](./media/data-lake-store-power-bi/desired-fields.png "desejado campos")
    
-    Nas próximas etapas, atualizaremos a consulta para converter os dados importados no formato desejado.
-9. Na faixa de opções **Início**, clique em **Editar Consultas**.
+    Próximas etapas de hello, atualizaremos Olá consultar tooconvert Olá importado dados em formato de saudação desejado.
+9. De saudação **início** de faixa de opções, clique em **editar consultas**.
    
     ![Editar consultas](./media/data-lake-store-power-bi/edit-queries.png "editar consultas")
-10. No Editor de Consultas, na coluna **Conteúdo**, clique em **Binário**.
+10. Em Olá Editor de consultas, em Olá **conteúdo** coluna, clique em **binário**.
     
     ![Editar consultas](./media/data-lake-store-power-bi/convert-query1.png "editar consultas")
-11. Você verá um ícone de arquivo que representa o arquivo **Drivers.txt** carregado. Clique no arquivo com o botão direito do mouse e clique em **CSV**.    
+11. Você verá um ícone de arquivo, que representa a saudação **Drivers.txt** arquivo carregado. Clique com botão direito arquivo hello e, em seguida, clique em **CSV**.    
     
     ![Editar consultas](./media/data-lake-store-power-bi/convert-query2.png "editar consultas")
-12. Você deve ver uma saída parecida com a que está abaixo. Os dados agora estão disponíveis em um formato que você pode usar para criar visualizações.
+12. Você deve ver uma saída parecida com a que está abaixo. Os dados agora estão disponíveis em um formato que você pode usar toocreate visualizações.
     
     ![Editar consultas](./media/data-lake-store-power-bi/convert-query3.png "editar consultas")
-13. Na faixa de opções **Início**, clique em **Fechar e Aplicar** e, em seguida, clique em **Fechar e Aplicar**.
+13. De saudação **início** de faixa de opções, clique em **fechar e aplicar**e, em seguida, clique em **fechar e aplicar**.
     
     ![Editar consultas](./media/data-lake-store-power-bi/load-edited-query.png "editar consultas")
-14. Depois que a consulta for atualizada, a guia **Campos** mostrará os novos campos disponíveis para visualização.
+14. Depois que a consulta Olá é atualizada, Olá **campos** guia Mostrar Olá novos campos disponíveis para visualização.
     
     ![Atualizado campos](./media/data-lake-store-power-bi/updated-query-fields.png "atualizado campos")
-15. Vamos criar um gráfico de pizza para representar os drivers em cada cidade de um determinado país. Para fazer isso, faça as seleções a seguir.
+15. Vamos crie um gráfico de pizza toorepresent drivers de Olá em cada cidade de um determinado país. Portanto, o toodo Verifique Olá seleções a seguir.
     
-    1. Na guia Visualizações, clique no símbolo do gráfico de pizza.
+    1. Na guia de visualizações hello, clique em símbolo Olá para um gráfico de pizza.
        
         ![Criar um gráfico de pizza](./media/data-lake-store-power-bi/create-pie-chart.png "criar o gráfico de pizza")
-    2. As colunas que vamos usar são a **Coluna 4** (nome da cidade) e a **Coluna 7** (nome do país). Arraste essas colunas da guia **Campos** para a guia **Visualizações** conforme mostrado abaixo.
+    2. colunas de saudação que vamos toouse são **colunas 4** (nome de cidade Olá) e **coluna 7** (nome de país Olá). Arraste essas colunas da **campos** guia muito**visualizações** guia conforme mostrado abaixo.
        
         ![Criar visualizações](./media/data-lake-store-power-bi/create-visualizations.png "Criar visualizações")
-    3. O gráfico de pizza agora deve ser semelhante ao mostrado abaixo.
+    3. gráfico de pizza Olá agora deve se assemelhar como Olá mostrada abaixo.
        
         ![Gráfico de pizza](./media/data-lake-store-power-bi/pie-chart.png "Criar visualizações")
-16. Ao selecionar um país específico nos filtros de nível de página, você poderá ver o número de drivers em cada cidade do país selecionado. Por exemplo, na guia **Visualizações**, em **Filtros de nível de página**, escolha **Brasil**.
+16. Selecionando um país específico de filtros de nível de página hello, agora você pode ver o número de saudação de drivers em cada cidade do país de saudação selecionada. Por exemplo, sob Olá **visualizações** guia em **filtros de nível de página**, selecione **Brasil**.
     
     ![Selecione um país](./media/data-lake-store-power-bi/select-country.png "selecione um país")
-17. O gráfico de pizza é atualizado automaticamente para exibir os drivers em cidades do Brasil.
+17. gráfico de pizza Olá é automaticamente atualizada toodisplay Olá drivers nas cidades de saudação do Brasil.
     
     ![Drivers em um país](./media/data-lake-store-power-bi/driver-per-country.png "Drivers por país")
-18. No menu **Arquivo**, clique em **Salvar** para salvar a visualização como um arquivo do Power BI Desktop.
+18. De saudação **arquivo** menu, clique em **salvar** visualização de saudação toosave como um arquivo do Power BI Desktop.
 
-## <a name="publish-report-to-power-bi-service"></a>Publicar o relatório no serviço Power BI
-Depois de criar as visualizações no Power BI Desktop, compartilhe-as com outras pessoas publicando-as no serviço Power BI. Para obter instruções sobre como fazer isso, confira [Publicar a partir do Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
+## <a name="publish-report-toopower-bi-service"></a>Publicar relatório tooPower BI serviço
+Depois de criar visualizações de saudação no Power BI Desktop, você pode compartilhá-lo com outras pessoas publicando-o serviço do Power BI toohello. Para obter instruções sobre como toodo que, consulte [publicar por meio do Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Analisar dados no Repositório Data Lake usando o Análise Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

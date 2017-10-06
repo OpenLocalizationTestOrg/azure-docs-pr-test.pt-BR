@@ -1,5 +1,5 @@
 ---
-title: "Tutorial de Serviço de Contêiner do Azure – gerenciar DC/SO | Microsoft Docs"
+title: "tutorial de serviço de contêiner aaaAzure - gerenciar DC/OS | Microsoft Docs"
 description: "Tutorial de Serviço de Contêiner do Azure – gerenciar DC/SO"
 services: container-service
 documentationcenter: 
@@ -17,41 +17,41 @@ ms.workload: na
 ms.date: 07/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e93f782c26c32f97749e817ec59ee3c2ecb7e119
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b91c433bfd7e48ec405cc62be1486d9d4662839d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Tutorial de Serviço de Contêiner do Azure – gerenciar DC/SO
 
-DC/SO fornece uma plataforma distribuída para executar aplicativos modernos e em contêineres. Com o Serviço de Contêiner do Azure, o provisionamento de um cluster de DC/SO pronto para produção é simples e rápido. Este início rápido detalha as etapas básicas necessárias para implantar um cluster do DC/SO e executar uma carga de trabalho básica.
+DC/SO fornece uma plataforma distribuída para executar aplicativos modernos e em contêineres. Com o Serviço de Contêiner do Azure, o provisionamento de um cluster de DC/SO pronto para produção é simples e rápido. Esse início rápido detalhes as etapas básicas necessárias toodeploy um cluster de DC/OS e execução de carga de trabalho básica.
 
 > [!div class="checklist"]
 > * Criar um cluster de DC/SO do ACS
-> * Conectar-se ao cluster
-> * Instalar a CLI de DC/SO
-> * Implantar um aplicativo para o cluster
-> * Dimensionar um aplicativo no cluster
-> * Dimensionar os nós de cluster de DC/SO
+> * Conecte-se o cluster toohello
+> * Instalar Olá CLI DC/OS
+> * Implantar um cluster de toohello do aplicativo
+> * Dimensionar um aplicativo no cluster Olá
+> * Expandir nós de cluster Olá DC/OS
 > * Gerenciamento básico do DC/SO
-> * Excluir o cluster de DC/SO
+> * Excluir Olá DC/OS cluster
 
-Este tutorial requer a CLI do Azure, versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar atualizar, confira [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Este tutorial requer Olá CLI do Azure versão 2.0.4 ou posterior. Executar `az --version` toofind versão de saudação. Se você precisar tooupgrade, consulte [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-dcos-cluster"></a>Criar cluster de DC/SO
 
-Primeiro, crie um grupo de recursos com o comando [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
+Primeiro, crie um grupo de recursos com hello [criar grupo az](/cli/azure/group#create) comando. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
 
-O seguinte exemplo cria um grupo de recursos chamado *myResourceGroup* no local *westeurope*.
+Olá, exemplo a seguir cria um grupo de recursos denominado *myResourceGroup* em Olá *westeurope* local.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
 ```
 
-Em seguida, crie um cluster de DC/SO com o comando [az acs create](/cli/azure/acs#create).
+Em seguida, criar um cluster de DC/SO com hello [az acs criar](/cli/azure/acs#create) comando.
 
-O exemplo a seguir cria um cluster de DC/SO chamado *myDCOSCluster* e cria as chaves de SSH se elas ainda não existirem. Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`.  
+Olá, exemplo a seguir cria um cluster de DC/OS denominado *myDCOSCluster* e cria as chaves de SSH se eles ainda não existir. toouse um conjunto específico de chaves, use Olá `--ssh-key-value` opção.  
 
 ```azurecli
 az acs create \
@@ -61,17 +61,17 @@ az acs create \
   --generate-ssh-keys
 ```
 
-Após alguns minutos, o comando é concluído e retorna informações sobre a implantação.
+Após alguns minutos, o comando de Olá for concluída e retorna informações sobre a implantação de saudação.
 
-## <a name="connect-to-dcos-cluster"></a>Conectar-se ao cluster de DC/SO
+## <a name="connect-toodcos-cluster"></a>Conecte-se o cluster tooDC/OS
 
-Quando um cluster de DC/SO tiver sido criado, ele poderá ser acessado por meio de um túnel SSH. Execute o seguinte comando para retornar o endereço IP público do mestre de DC/SO. Esse endereço IP é armazenado em uma variável e usado na próxima etapa.
+Quando um cluster de DC/SO tiver sido criado, ele poderá ser acessado por meio de um túnel SSH. Execute Olá comando tooreturn Olá endereço IP público do mestre de controlador de domínio/OS Olá a seguir. Esse endereço IP é armazenado em uma variável e usado na próxima etapa do hello.
 
 ```azurecli
 ip=$(az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-master')].[ipAddress]" -o tsv)
 ```
 
-Para criar o túnel SSH, execute o seguinte comando e siga as instruções na tela. Se a porta 80 já estiver em uso, o comando falhará. Atualize a porta em túnel para uma que não esteja em uso, como `85:localhost:80`. 
+toocreate Olá túnel SSH, executar Olá comando a seguir e siga o hello instruções na tela. Se a porta 80 já está em uso, Olá falhará. Saudação de atualização encapsulado tooone de porta não está em uso, como `85:localhost:80`. 
 
 ```azurecli
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
@@ -79,13 +79,13 @@ sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 
 ## <a name="install-dcos-cli"></a>Instalar CLI de DC/SO
 
-Instale a CLI de DC/SO usando o comando [az acs dcos install-cli](/azure/acs/dcos#install-cli). Se você estiver usando o Azure CloudShell, a CLI do DC/SO já estará instalada. Se você estiver executando a CLI do Azure em macOS ou Linux, talvez precise executar o comando com sudo.
+Instalar a cli do hello DC/OS usando Olá [az acs dcos install-cli](/azure/acs/dcos#install-cli) comando. Se você estiver usando o Azure CloudShell, Olá CLI DC/sistema operacional já está instalado. Se você estiver executando Olá CLI do Azure em macOS ou Linux, talvez seja necessário um comando de saudação toorun com sudo.
 
 ```azurecli
 az acs dcos install-cli
 ```
 
-Antes de poder usar a CLI com o cluster, ela deve ser configurada para usar o túnel SSH. Para fazer isso, execute o comando a seguir, ajustando a porta, se necessário.
+Antes de Olá que CLI pode ser usado com cluster hello, deve ser túnel SSH Olá toouse configurado. toodo assim, executar Olá comando a seguir, ajustando porta hello, se necessário.
 
 ```azurecli
 dcos config set core.dcos_url http://localhost
@@ -93,7 +93,7 @@ dcos config set core.dcos_url http://localhost
 
 ## <a name="run-an-application"></a>Executar um aplicativo
 
-O mecanismo de agendamento padrão para um cluster de DC/SO do ACS é o Marathon. O Marathon é usado para iniciar um aplicativo e gerenciar o estado do aplicativo no cluster de DC/SO. Para agendar um aplicativo por meio do Marathon, crie um arquivo chamado **marathon-app.json** e copie o seguinte conteúdo para ele. 
+padrão de saudação mecanismo para um cluster ACS DC/OS de agendamento é maratona. Maratona é toostart usado um aplicativo e gerenciar o estado de saudação do aplicativo hello no cluster de DC/OS de saudação. tooschedule um aplicativo por meio da maratona, crie um arquivo chamado **app.json maratona**, e Olá cópia seguindo o conteúdo nele. 
 
 ```json
 {
@@ -121,19 +121,19 @@ O mecanismo de agendamento padrão para um cluster de DC/SO do ACS é o Marathon
 }
 ```
 
-Execute o seguinte comando para agendar o aplicativo para ser executado no cluster do DC/SO.
+Execute Olá após o comando tooschedule Olá aplicativo toorun no cluster de DC/OS de saudação.
 
 ```azurecli
 dcos marathon app add marathon-app.json
 ```
 
-Para ver o status da implantação para o aplicativo, execute o comando a seguir.
+status da implantação toosee Olá para o aplicativo hello, executar Olá comando a seguir.
 
 ```azurecli
 dcos marathon app list
 ```
 
-Quando o valor da coluna **TAREFAS** mudar de *0/1* para *1/1*, a implantação do aplicativo terá sido concluída.
+Olá quando **tarefas** alterna o valor da coluna de *0/1* muito*1/1*, implantação do aplicativo foi concluída.
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
@@ -142,7 +142,7 @@ ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 
 ## <a name="scale-marathon-application"></a>Dimensionar aplicativo Marathon
 
-No exemplo anterior, um aplicativo de instância única foi criado. Para atualizar essa implantação para que as três instâncias do aplicativo estejam disponíveis, abra o arquivo **marathon-app.json** e atualize a propriedade da instância para 3.
+No exemplo anterior de saudação, um aplicativo de instância única foi criado. tooupdate essa implantação para que as três instâncias do aplicativo hello estão disponíveis, abra o hello **maratona app.json** de arquivos e atualizar Olá too3 de propriedade de instância.
 
 ```json
 {
@@ -170,19 +170,19 @@ No exemplo anterior, um aplicativo de instância única foi criado. Para atualiz
 }
 ```
 
-Atualizar o aplicativo usando o comando `dcos marathon app update`.
+Atualizar o aplicativo hello usando Olá `dcos marathon app update` comando.
 
 ```azurecli
 dcos marathon app update demo-app-private < marathon-app.json
 ```
 
-Para ver o status da implantação para o aplicativo, execute o comando a seguir.
+status da implantação toosee Olá para o aplicativo hello, executar Olá comando a seguir.
 
 ```azurecli
 dcos marathon app list
 ```
 
-Quando o valor da coluna **TAREFAS** mudar de *1/3* para *3/1*, a implantação do aplicativo terá sido concluída.
+Olá quando **tarefas** alterna o valor da coluna de *1/3* muito*3/1*, implantação do aplicativo foi concluída.
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
@@ -191,11 +191,11 @@ ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 
 ## <a name="run-internet-accessible-app"></a>Execute o aplicativo acessível pela Internet
 
-O cluster DC/SO do ACS consiste em dois conjuntos de nó, um público, que pode ser acessado pela Internet, e um privado, que não está acessível pela Internet. O conjunto padrão é o de nós privados, que foi usado no último exemplo.
+Olá ACS DC/OS cluster consiste em dois conjuntos de nó, Olá a um público que pode ser acessado na internet e um particular que não é acessível em Olá da internet. conjunto padrão de saudação é nós particular do hello, que foi usado no exemplo última hello.
 
-Para disponibilizar um aplicativo pela Internet, implante-o no conjunto de nós públicos. Para fazer isso, dê ao objeto `acceptedResourceRoles` um valor de `slave_public`.
+toomake um aplicativo acessível na Olá da internet, implantá-los toohello conjunto de nós públicos. toodo portanto, conceder Olá `acceptedResourceRoles` o valor do objeto `slave_public`.
 
-Crie um arquivo chamado **nginx-public.json** e copie o seguinte conteúdo para ele.
+Crie um arquivo chamado **nginx public.json** e Olá cópia seguindo o conteúdo nele.
 
 ```json
 {
@@ -227,33 +227,33 @@ Crie um arquivo chamado **nginx-public.json** e copie o seguinte conteúdo para 
 }
 ```
 
-Execute o seguinte comando para agendar o aplicativo para ser executado no cluster do DC/SO.
+Execute Olá após o comando tooschedule Olá aplicativo toorun no cluster de DC/OS de saudação.
 
 ```azurecli 
 dcos marathon app add nginx-public.json
 ```
 
-Obtenha o endereço IP público dos agentes de cluster público DC/SO.
+Obter o endereço IP público de Olá Olá DC/OS públicos de agentes do cluster.
 
 ```azurecli 
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
-Navegar para esse endereço retorna o site NGINX padrão.
+Procurando toothis endereço retorna o site NGINX saudação padrão.
 
 ![NGINX](./media/container-service-dcos-manage-tutorial/nginx.png)
 
 ## <a name="scale-dcos-cluster"></a>Cluster de DC/SO de escala
 
-Nos exemplos anteriores, um aplicativo foi dimensionado para várias instâncias. A infraestrutura do DC/SO também pode ser dimensionada para fornecer mais ou menos capacidade de computação. Isso é feito com o comando [az acs scale](). 
+Nos exemplos anteriores do hello, um aplicativo foi dimensionado toomultiple instância. infraestrutura de DC/OS Olá também pode ser dimensionado tooprovide mais ou menos de capacidade de computação. Isso é feito com hello [az acs dimensionar]() comando. 
 
-Para ver a contagem atual de agentes do DC/SO, use o comando [az acs show](/cli/azure/acs#show).
+contagem atual do hello toosee dos agentes de DC/sistema operacional, use Olá [az acs Mostrar](/cli/azure/acs#show) comando.
 
 ```azurecli
 az acs show --resource-group myResourceGroup --name myDCOSCluster --query "agentPoolProfiles[0].count"
 ```
 
-Para aumentar a contagem para 5, use o comando [az acs scale](/cli/azure/acs#scale). 
+tooincrease Olá too5 contagem, use Olá [az acs dimensionar](/cli/azure/acs#scale) comando. 
 
 ```azurecli
 az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-count 5
@@ -261,7 +261,7 @@ az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-c
 
 ## <a name="delete-dcos-cluster"></a>Excluir cluster de DC/SO
 
-Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#delete) para remover o grupo de recursos, o cluster DC/SO todos os recursos relacionados.
+Quando não é mais necessário, você pode usar o hello [excluir grupo de az](/cli/azure/group#delete) comando tooremove grupo de recursos de hello, cluster de DC/OS e recursos todos relacionados.
 
 ```azurecli 
 az group delete --name myResourceGroup --no-wait
@@ -269,18 +269,18 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu sobre a tarefa básica de gerenciamento de DC/SO, incluindo as seguintes. 
+Neste tutorial, você aprendeu sobre tarefas básicas de gerenciamento DC/sistema operacional incluindo Olá seguinte. 
 
 > [!div class="checklist"]
 > * Criar um cluster de DC/SO do ACS
-> * Conectar-se ao cluster
-> * Instalar a CLI de DC/SO
-> * Implantar um aplicativo para o cluster
-> * Dimensionar um aplicativo no cluster
-> * Dimensionar os nós de cluster de DC/SO
-> * Excluir o cluster de DC/SO
+> * Conecte-se o cluster toohello
+> * Instalar Olá CLI DC/OS
+> * Implantar um cluster de toohello do aplicativo
+> * Dimensionar um aplicativo no cluster Olá
+> * Expandir nós de cluster Olá DC/OS
+> * Excluir Olá DC/OS cluster
 
-Avance para o próximo tutorial para saber mais sobre o aplicativo de balanceamento de carga no DC/SO no Azure. 
+Toohello antecipada próxima toolearn tutorial sobre como carregar o aplicativo balanceamento no controlador de domínio/sistema operacional no Azure. 
 
 > [!div class="nextstepaction"]
 > [Aplicativos de balanceamento de carga](container-service-load-balancing.md)

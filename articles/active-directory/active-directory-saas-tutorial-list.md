@@ -1,5 +1,5 @@
 ---
-title: "Tutoriais de integração de aplicativos SaaS para uso com o Azure AD | Microsoft Docs"
+title: "aaaSaaS tutoriais de integração do aplicativo para uso com o Azure AD | Microsoft Docs"
 description: "Configure a integração do logon único do Azure Active Directory com uma variedade de aplicativos software como serviço de terceiros."
 services: active-directory
 documentationcenter: 
@@ -15,19 +15,19 @@ ms.date: 06/21/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: 5bedead730e0538c4cad464a9aee7f97a5a8c3ef
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: d99ec50ac2db52ab0f8547b2caaac19fd3a5a0d9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integração do aplicativo SaaS com o Azure Active Directory
 
-Para ajudar a integrar seus aplicativos [(SaaS)](https://azure.microsoft.com/overview/what-is-saas/) habilitados para nuvem com o Azure Active Directory, desenvolvemos um conjunto de tutoriais que explicam como configurar.
+toohelp integrar sua nuvem habilitada [(SaaS)](https://azure.microsoft.com/overview/what-is-saas/) aplicativos com o Active Directory do Azure, desenvolvemos um conjunto de tutoriais que orientarão você na configuração.
 
-Onde há diretrizes sobre o provisionamento de usuário, incluímos um tutorial de aplicativo para o provisionamento de usuário na coluna direita ao lado do tutorial do aplicativo.
+Em que se tem orientação de provisionamento de usuário, incluímos um tutorial de aplicativo na coluna direita hello, próximo tutorial do aplicativo toohello de provisionamento do usuário.
 
-Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao Azure AD, consulte o [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
+Para Olá lista abrangente de aplicativos SaaS que foram previamente integrado ao AD do Azure, consulte Olá [Marketplace do Active Directory](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
 
 ## <a name="saas-tutorials"></a>Tutoriais de SaaS
 
@@ -68,7 +68,7 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-autotaskworkplace-tutorial.png)| [Autotask](active-directory-saas-autotaskworkplace-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_BambooHR.png)| [Bamboo HR](active-directory-saas-bamboo-hr-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/saasapp_bambubysproutsocial.png)| [Bambu by Sprout Social](active-directory-saas-bambubysproutsocial-tutorial.md)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-bcinthecloud-tutorial.png)| [BC in the Cloud](active-directory-saas-bcinthecloud-tutorial.md)
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-bcinthecloud-tutorial.png)| [Continuidade de negócios na nuvem de saudação](active-directory-saas-bcinthecloud-tutorial.md)
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-beeline-tutorial.png)| [BeeLine](active-directory-saas-beeline-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-benefithub-tutorial.png)| [BenefitHub](active-directory-saas-benefithub-tutorial.md)
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Benefitssolver.png)| [Benefitsolver](active-directory-saas-benefitsolver-tutorial.md)|
@@ -349,7 +349,7 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/saasapp_teamphoria.png)| [Teamphoria](active-directory-saas-teamphoria-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_TeamSeer.png)| [TeamSeer](active-directory-saas-teamseer-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Teamwork.png)| [Teamwork](active-directory-saas-teamwork-tutorial.md)
-| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-thefundingportal-tutorial.png)| [The Funding Portal](active-directory-saas-thefundingportal-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-thefundingportal-tutorial.png)| [Olá capital Portal](active-directory-saas-thefundingportal-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-thirdlight-tutorial.png)| [ThirdLight](active-directory-saas-thirdlight-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-thoughtworks-mingle-tutorial.png)| [Thoughtworks Mingle](active-directory-saas-thoughtworks-mingle-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-thousandeyes-tutorial.png)| [ThousandEyes](active-directory-saas-thousandeyes-tutorial.md)|
@@ -403,4 +403,4 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 ## <a name="related-articles"></a>Artigos relacionados
 
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-* [Lista de tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS](active-directory-saas-tutorial-list.md)

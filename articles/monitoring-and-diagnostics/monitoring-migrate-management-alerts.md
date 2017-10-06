@@ -1,5 +1,5 @@
 ---
-title: Migrar alertas sobre eventos de gerenciamento para Alertas do Log de Atividades | Microsoft Docs
+title: aaaMigrate Azure alertas em eventos de gerenciamento tooActivity alertas de Log | Microsoft Docs
 description: "Os alertas em eventos de gerenciamento serão removidos em 1º de outubro. Prepare-se migrando os alertas de migração existentes."
 author: johnkemnetz
 manager: orenr
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: johnkem
-ms.openlocfilehash: 08a457029d3721f5c38dbcd2d2aab7d09a241d8f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: e00bc4f0bad4e8f97443310770c333d250e343ec
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migrar alertas do Azure em eventos de gerenciamento para alertas do Log de Atividades
+# <a name="migrate-azure-alerts-on-management-events-tooactivity-log-alerts"></a>Migrar do Azure alertas em alertas de Log de eventos tooActivity de gerenciamento
 
 
 > [!WARNING]
-> Os alertas em eventos de gerenciamento serão desativados a partir do dia 1º de outubro. Use as instruções abaixo para entender se você tem esses alertas e migrá-los em caso positivo.
+> Os alertas em eventos de gerenciamento serão desativados a partir do dia 1º de outubro. Use instruções Olá abaixo toounderstand se você tiver esses alertas e migrá-los nesse caso.
 >
 > 
 
 ## <a name="what-is-changing"></a>O que está mudando
 
-O Azure Monitor (antigo Azure Insights) oferecia a capacidade de criar um alerta que disparava eventos de gerenciamento e gerava notificações para a URL de um webhook ou endereços de email. Você pode ter criado um desses alertas usando uma das seguintes maneiras:
-* No Portal do Azure de certos tipos de recursos, em Monitoramento -> Alertas -> Adicionar Alerta, em que "Alertar sobre" está definido como "Eventos"
-* Executando o cmdlet do PowerShell, Add-AzureRmLogAlertRule
-* Usando diretamente a [API REST do alerta](http://docs.microsoft.com/rest/api/monitor/alertrules) com odata.type = “ManagementEventRuleCondition” e dataSource.odata.type = “RuleManagementEventDataSource”
+Monitor do Azure (anteriormente Azure Insights) oferecidos toocreate um recurso um alerta acionado de eventos de gerenciamento e gerado notificações tooa endereços de email ou URL do webhook. Você pode ter criado um desses alertas usando uma das seguintes maneiras:
+* Olá portal do Azure para certos tipos de recursos, em monitoramento -> alertas -> Adicionar alerta, onde "Alerta de" está definida muito "Eventos"
+* Cmdlet de PowerShell Add-AzureRmLogAlertRule Olá em execução
+* Usando diretamente [Olá API REST do alerta](http://docs.microsoft.com/rest/api/monitor/alertrules) com OData. Type = "ManagementEventRuleCondition" e dataSource.odata.type = "RuleManagementEventDataSource"
  
-O script do PowerShell a seguir retorna uma lista de todos os alertas sobre eventos de gerenciamento em sua assinatura, bem como as condições definidas em cada alerta.
+Olá script PowerShell a seguir retorna uma lista de todos os alertas em eventos de gerenciamento que você tem em sua assinatura, bem como as condições de saudação definidas em cada alerta.
 
 ```powershell
 Login-AzureRmAccount
@@ -54,11 +54,11 @@ foreach ($alert in $alerts) {
 } 
 ```
 
-Se você não tiver alertas em eventos de gerenciamento, o cmdlet do PowerShell acima produzirá uma série de mensagens de aviso como esta:
+Se você não tem alertas em eventos de gerenciamento, o cmdlet do PowerShell Olá acima produzirá uma série de mensagens de aviso como esta:
 
-`WARNING: The output of this cmdlet will be flattened, i.e. elimination of the properties field, in a future release to improve the user experience.`
+`WARNING: hello output of this cmdlet will be flattened, i.e. elimination of hello properties field, in a future release tooimprove hello user experience.`
 
-Essas mensagens de aviso podem ser ignoradas. Se você tiver alertas sobre eventos de gerenciamento, a saída desse cmdlet do PowerShell será esta:
+Essas mensagens de aviso podem ser ignoradas. Se você tem alertas em eventos de gerenciamento, Olá saída deste cmdlet do PowerShell será assim:
 
 ```
 Alert Name: webhookEvent1
@@ -95,22 +95,22 @@ ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resource
 ---------------------------------
 ```
 
-Cada alerta é separado por uma linha tracejada, e os detalhes incluem a ID de recurso do alerta e a regra específica que está sendo monitorada.
+Cada alerta é separada por uma linha tracejada e detalhes incluem a ID de recurso de saudação do alerta hello e regras específicas de hello está sendo monitorado.
 
-Essa funcionalidade foi transferida para [Alertas do Log de Atividades do Azure Monitor](monitoring-activity-log-alerts.md). Esses novos alertas permitem que você defina uma condição em eventos do Log de Atividades e receba uma notificação quando um novo evento corresponder à condição. Eles também oferecem vários aprimoramentos de alertas sobre eventos de gerenciamento:
-* Você pode reutilizar seu grupo de destinatários de notificação ("ações") em vários alertas usando [Grupos de Ação](monitoring-action-groups.md), reduzindo a complexidade que é alterar quem deve receber um alerta.
+Essa funcionalidade passou por transição muito[alertas de Log de atividade do Monitor](monitoring-activity-log-alerts.md). Esses novos alertas permitem que você tooset uma condição em eventos de Log de atividades e recebem uma notificação quando um novo evento corresponde a condição de saudação. Eles também oferecem vários aprimoramentos de alertas sobre eventos de gerenciamento:
+* Você pode reutilizar o grupo de destinatários de notificação ("ações") em vários alertas usando [grupos de ação](monitoring-action-groups.md), reduzindo a complexidade de saudação da alteração que deve receber um alerta.
 * Você poderá receber uma notificação diretamente em seu telefone usando SMS com Grupos de Ação.
 * Você pode [criar alertas do Log de Atividades com modelos do Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
-* Você pode criar condições com maior flexibilidade e complexidade a fim de atender às suas necessidades específicas.
+* Você pode criar condições com maior toomeet flexibilidade e a complexidade suas necessidades específicas.
 * As notificações são entregues mais rapidamente.
  
-## <a name="how-to-migrate"></a>Como migrar
+## <a name="how-toomigrate"></a>Como toomigrate
  
-Para criar um novo Alerta do Log de Atividades, você pode:
-* Seguir [nosso guia sobre como criar um alerta no Portal do Azure](monitoring-activity-log-alerts.md)
-* Saiba como [Criar um alerta usando um modelo do Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+toocreate um novo alerta de atividade de Log, você pode:
+* Execute [nosso guia em como toocreate um alerta no hello portal do Azure](monitoring-activity-log-alerts.md)
+* Saiba como muito[criar um alerta usando um modelo do Gerenciador de recursos](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
  
-Os alertas em eventos de gerenciamento que você criou anteriormente não serão migrados automaticamente para os Alertas do Log de Atividades. Você precisa usar o script do PowerShell anterior para listar os alertas sobre eventos de gerenciamento configurados atualmente, e recriá-los manualmente como Alertas do Log de Atividades. Isso deve ser feito antes de 1º de outubro, pois após essa data os alertas em eventos de gerenciamento não serão mais visíveis em sua assinatura do Azure. Outros tipos de alertas do Azure, incluindo alertas de métrica do Azure Monitor, alertas do Application Insights e alertas do Log Analytics não são afetados por essa alteração. Se você tiver dúvidas, poste nos comentários abaixo.
+Alertas em eventos de gerenciamento que você criou anteriormente não serão automaticamente migrado tooActivity Log de alertas. É necessário toouse Olá anterior alertas de saudação do PowerShell script toolist em eventos de gerenciamento que você configurou atualmente e recriá-los manualmente como alertas de Log de atividade. Isso deve ser feito antes de 1º de outubro, pois após essa data os alertas em eventos de gerenciamento não serão mais visíveis em sua assinatura do Azure. Outros tipos de alertas do Azure, incluindo alertas de métrica do Azure Monitor, alertas do Application Insights e alertas do Log Analytics não são afetados por essa alteração. Se você tiver dúvidas, poste nos comentários de saudação abaixo.
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -118,6 +118,6 @@ Os alertas em eventos de gerenciamento que você criou anteriormente não serão
 * Saiba mais sobre o [Log de Atividades](monitoring-overview-activity-logs.md)
 * Configurar [alertas do Log de Atividades por meio do Portal do Azure](monitoring-activity-log-alerts.md)
 * Configurar [alertas do Log de Atividades por meio do Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
-* Examine o [esquema do webhook de alertas do Log de Atividade](monitoring-activity-log-alerts-webhook.md)
+* Saudação de revisão [esquema webhook alerta do log de atividade](monitoring-activity-log-alerts-webhook.md)
 * Saiba mais sobre as [Notificações de Serviço](monitoring-service-notifications.md)
 * Saiba mais sobre [Grupos de Ação](monitoring-action-groups.md)

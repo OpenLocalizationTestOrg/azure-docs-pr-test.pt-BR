@@ -1,5 +1,5 @@
 ---
-title: "Segurança de nível de linha com o Power BI Embedded"
+title: "segurança em nível de aaaRow com o Power BI Embedded"
 description: "Detalhes sobre segurança de nível de linha com o Power BI Embedded"
 services: power-bi-embedded
 documentationcenter: 
@@ -15,90 +15,90 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/11/2017
 ms.author: asaxton
-ms.openlocfilehash: 1cde5b9ee4c716af07d427d4d0eb3f0775d456ac
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 384f78826ecc710cf8f101b251ae68b074f3e98b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="row-level-security-with-power-bi-embedded"></a>Segurança de nível de linha com o Power BI Embedded
 
-A RLS (segurança em nível de linha) pode ser usada para restringir o acesso do usuário a dados específicos em um relatório ou conjunto de dados, permitindo que vários usuários diferentes usem o mesmo relatório, mas vendo dados diferentes. O Power BI Embedded agora dá suporte a conjuntos de dados configurados com RLS.
+Segurança em nível de linha (RLS) pode ser usado toorestrict usuário acessar tooparticular dados dentro de um relatório ou conjunto de dados, permitindo para toouse de vários usuários diferentes Olá mesmo relatório ao ver todos os dados de diferentes. O Power BI Embedded agora dá suporte a conjuntos de dados configurados com RLS.
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-flow-1.png)
 
-Para tirar proveito da RLS, é importante compreender os três conceitos principais: usuários, funções e regras. Vamos examinar cada um com mais detalhes:
+Em ordem tootake as vantagens do RLS, é importante que compreender os três conceitos principais; Os usuários, funções e regras. Vamos examinar cada um com mais detalhes:
 
-**Usuários** – são os usuários finais reais que exibem os relatórios. No Power BI Embedded, os usuários são identificados pela propriedade Nome de usuário em um Token de Aplicativo.
+**Os usuários** – estes são os usuários finais real de saudação exibir relatórios. No Power BI inserido, os usuários são identificados pela propriedade de nome de usuário de saudação em um Token de aplicativo.
 
-**Funções** – os usuários pertencem a funções. Uma função é um contêiner de regras e pode ter um nome como "Gerente de vendas" ou "Representante de vendas". No Power BI Embedded, os usuários são identificados pela propriedade Funções em um Token de Aplicativo.
+**Funções** – os usuários pertencem tooroles. Uma função é um contêiner de regras e pode ter um nome como "Gerente de vendas" ou "Representante de vendas". No Power BI inserido, os usuários são identificados pela propriedade de funções hello em um Token de aplicativo.
 
-**Regras** – funções têm regras e essas regras são os filtros reais aplicados aos dados. Isso pode ser tão simples quanto "País = EUA" ou algo muito mais dinâmico.
+**Regras de** – funções têm regras, e essas regras são filtros Olá real forem toobe aplicada toohello dados. Isso pode ser tão simples quanto "País = EUA" ou algo muito mais dinâmico.
 
 ### <a name="example"></a>Exemplo
 
-Para o restante deste artigo, forneceremos um exemplo de criação de RLS e o usaremos em um aplicativo incorporado. Nosso exemplo usa o arquivo PBIX [exemplo de análise de varejo](http://go.microsoft.com/fwlink/?LinkID=780547) .
+Para rest Olá deste artigo, forneceremos um exemplo de RLS de criação e, em seguida, consumindo que dentro de um aplicativo incorporado. Usa o nosso exemplo hello [exemplo de análise de varejo](http://go.microsoft.com/fwlink/?LinkID=780547) arquivo PBIX.
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-scenario-2.png)
 
-Nosso exemplo de análise de varejo mostra as vendas para todas as lojas em uma cadeia de varejo específica. Sem RLS, não importa que gerente regional entra e exibe o relatório; eles veem os mesmos dados. A cúpula sênior determinou que cada gerente regional veja apenas as vendas das lojas que eles gerenciam e, para fazer isso, podemos usar RLS.
+Nosso exemplo de análise de varejo mostra as vendas de todos os repositórios de saudação em uma cadeia de varejo específico. Sem RLS, não importa qual Distrito manager entra e exibições hello relatório, ele verá Olá os mesmos dados. Gerenciamento sênior determinou que cada gerente regional deverão ver apenas Olá vendas para lojas Olá gerenciam e toodo isso, podemos usar RLS.
 
-A RLS é criada no Power BI Desktop. Quando o conjunto de dados e o relatório são abertos, podemos alternar para modo de exibição de diagrama a fim de ver o esquema:
+A RLS é criada no Power BI Desktop. Quando a saudação de conjunto de dados e relatórios são abertos, é possível alternar toosee toodiagram exibir o esquema de saudação:
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-3.png)
 
-Eis algumas observações em relação a esse esquema:
+Aqui estão alguns toonotice coisas com esse esquema:
 
-* Todas as medidas, como **Total de vendas**, são armazenadas na tabela de fatos **Vendas**.
+* Todas as medidas, como **Total de vendas**, são armazenados no hello **vendas** tabela de fatos.
 * Há quatro tabelas de dimensões adicionais relacionadas: **Item**, **Hora**, **Loja** e **Região**.
-* As setas nas linhas de relação indicam como os filtros podem fluir de uma tabela para outra. Por exemplo, se um filtro é colocado em **Hora[Data]**, no esquema atual ele filtraria somente valores na tabela **Vendas**. Nenhuma outra tabela seria afetada por esse filtro, já que todas as setas nas linhas de relação apontam em direção à tabela de vendas, e não para fora dela.
-* A tabela **Região** indica quem é o gerente de cada região:
+* setas de saudação nas linhas de relação Olá indicam como filtros podem fluir de tooanother de uma tabela. Por exemplo, se um filtro for colocado em **hora [Data]**, no esquema atual Olá ele seria apenas filtrar valores em Olá **vendas** tabela. Nenhuma outra tabela seria afetada por esse filtro desde que todas as setas Olá na tabela de vendas do hello relação linhas toohello ponto e não ausente.
+* Olá **Distrito** tabela indica quem é o gerente de saudação para cada Distrito:
   
   ![](media/power-bi-embedded-rls/pbi-embedded-rls-district-table-4.png)
 
-Com base nesse esquema, se aplicamos um filtro na coluna**Gerente regional** e esse filtro corresponder ao usuário que exibe o relatório, ele também filtrará as tabelas **Loja** e **Vendas**, a fim de mostrar somente os dados relacionados ao gerente regional em questão.
+Com base neste esquema, se conseguimos aplicar um filtro toohello **gerente regional** coluna Olá tabela regional e se esse filtro corresponder usuário Olá exibindo relatório hello, esse filtro também filtrará inativo saudação **repositório**e **vendas** tooonly tabelas mostram dados de que determinado Distrito manager.
 
 Veja como fazer isso:
 
-1. Na guia Modelagem, clique em **Gerenciar Funções**.  
+1. Na guia de modelagem hello, clique em **gerenciar funções**.  
    ![](media/power-bi-embedded-rls/pbi-embedded-rls-modeling-tab-5.png)
 2. Criar uma nova função chamada **Gerente**.  
    ![](media/power-bi-embedded-rls/pbi-embedded-rls-manager-role-6.png)
-3. Na tabela **Região**, insira a seguinte expressão DAX: **[District Manager] = Username()**  
+3. Em Olá **Distrito** tabela insira Olá expressão DAX a seguir: **[gerente regional] = username)**  
    ![](media/power-bi-embedded-rls/pbi-embedded-rls-manager-role-7.png)
-4. Para verificar se as regras estão funcionando, na guia **Modelagem**, clique em **Exibir como Funções** e digite o seguinte:  
+4. regras de saudação se toomake estão trabalhando, Olá **modelagem** , clique em **exibir como funções**e digite Olá seguinte:  
    ![](media/power-bi-embedded-rls/pbi-embedded-rls-view-as-roles-8.png)
    
-   Os relatórios agora mostrarão dados como se você estivesse conectado como **Paulo Araújo**.
+   Olá relatórios agora mostrará dados como se você entrou como **Andrew Ma**.
 
-A aplicação do filtro como fizemos aqui filtrará todos os registros nas tabelas **Região**, **Loja** e **Vendas**. No entanto, devido à direção do filtro nas relações entre **Vendas** e **Hora**, as tabelas **Vendas** e **Item** e **Item** e **Hora** não serão filtradas.
+Aplicar filtro hello, forma Olá fizemos aqui, filtre para baixo de todos os registros no hello **Distrito**, **repositório**, e **vendas** tabelas. No entanto, devido a direção do filtro Olá em relações de saudação entre **vendas** e **tempo**, **vendas** e **Item**e **Item** e **tempo** tabelas não serão filtradas para baixo.
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-9.png)
 
-Que podem ser adequadas para esse requisito; no entanto, se não quisermos que os gerentes vejam itens para os quais não têm vendas, poderíamos ativar a filtragem cruzada bidirecional a relação e fluir o filtro de segurança em ambos os sentidos. Isso pode ser feito editando a relação entre **Vendas** e **Item**, assim:
+Que pode ser okey para este requisito, no entanto, se não queremos gerenciadores toosee itens para os quais não têm nenhuma venda, foi possível ativar a filtragem cruzada para Olá relação e fluxo Olá filtro de segurança em ambas as direções bidirecional. Isso pode ser feito editando relação Olá entre **vendas** e **Item**, assim:
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-edit-relationship-10.png)
 
-Agora, os filtros também podem fluir da tabela Vendas para a tabela **Item** :
+Agora, os filtros também podem fluir de Olá vendas tabela toohello **Item** tabela:
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-11.png)
 
 > [!NOTE]
-> Se você estiver usando o modo DirectQuery para seus dados, precisará habilitar a filtragem bidirecional selecionando estas duas opções:
+> Se você estiver usando o modo DirectQuery para seus dados, você precisará tooenable bidirecional cruz filtragem selecionando essas duas opções:
 
 1. **Arquivo** -> **Opções e Configurações** -> **Recursos de Visualização** -> **Habilitar filtragem cruzada em ambas as direções para DirectQuery**.
 2. **Arquivo** -> **Opções e Configurações** -> **DirectQuery** -> **Permitir medidas irrestritas no modo DirectQuery**.
 
-Para saber mais sobre filtragem cruzada bidirecional, baixe o whitepaper [Filtragem cruzada bidirecional no SQL Server Analysis Services 2016 e no Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional cross-filtering in Analysis Services 2016 and Power BI.docx).
+toolearn mais informações sobre filtragem cruzada bidirecional, download Olá [a filtragem cruzada bidirecional no SQL Server Analysis Services 2016 e Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional cross-filtering in Analysis Services 2016 and Power BI.docx) white paper.
 
-Isso conclui todo o trabalho que precisa ser feito no Power BI Desktop, mas há um mais trabalho que precisa ser feito para tornar as regras de RLS definidas funcionarem no Power BI Embedded. Os usuários são autenticados e autorizados pelo seu aplicativo e Tokens de Aplicativo são usados para conceder acesso de usuário a um relatório de Power BI Embedded específico. O Power BI Embedded não tem nenhuma informação específica sobre quem é o usuário. Para que a RLS funcione, você precisará passar algum contexto adicional como parte de seu token do aplicativo:
+Isso conclui todo o trabalho Olá que precisa toobe feito no Power BI Desktop, mas não há um mais trabalho que precisa toomake toobe feito Olá RLS regras definimos o trabalho no Power BI inserido. Os usuários são autenticados e autorizados por seu aplicativo e tokens de aplicativo são usado toogrant usuário acesso tooa Power BI inserido relatório específico. O Power BI Embedded não tem nenhuma informação específica sobre quem é o usuário. Para toowork RLS, você precisará toopass algum contexto adicional como parte de seu token de aplicativo:
 
-* **nome de usuário** (opcional) – usado com RLS, é uma cadeia de caracteres que pode ser usada para ajudar a identificar o usuário ao aplicar regras RLS. Confira Usando segurança de nível de linha com o Power BI Embedded
-* **funções** – uma cadeia de caracteres que contém as funções a selecionar ao aplicar regras de segurança em nível de linha. Ao transmitir mais de uma função, elas deverão ser transmitidas como uma matriz de cadeia de caracteres.
+* **nome de usuário** (opcional) – este usado com a RLS é uma cadeia de caracteres que pode ser usada toohelp identificar usuário Olá ao aplicar regras RLS. Confira Usando segurança de nível de linha com o Power BI Embedded
+* **funções** – uma cadeia de caracteres que contém a saudação funções tooselect ao aplicar regras de segurança em nível de linha. Ao transmitir mais de uma função, elas deverão ser transmitidas como uma matriz de cadeia de caracteres.
 
-Crie o token usando o método [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__). Se a propriedade de nome de usuário estiver presente, você também deverá passar pelo menos um valor como funções.
+Criar o token hello usando Olá [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__) método. Se a propriedade de nome de usuário Olá estiver presente, você também deve passar pelo menos um valor em funções.
 
-Por exemplo, você pode alterar EmbedSample. A linha 55 DashboardController pode ser atualizada de
+Por exemplo, você pode alterar Olá EmbedSample. A linha 55 DashboardController pode ser atualizada de
 
     var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
 
@@ -106,19 +106,19 @@ para
 
     var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id, "Andrew Ma", ["Manager"]);'
 
-O token do aplicativo completo será algo parecido com isto:
+token de aplicativo completo Olá será parecida com isto:
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-app-token-string-12.png)
 
-Agora, com todas as partes juntas, quando alguém entrar em nosso aplicativo para exibir esse relatório, só poderá ver os dados que tiver permissão para ver, conforme definido pela nossa segurança em nível de linha.
+Agora, com todas as partes da saudação juntas, quando alguém fizer em nosso aplicativo tooview neste relatório, eles só serão toosee capaz de dados de saudação que eles são permitidos toosee, conforme definido pela nossa segurança em nível de linha.
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-dashboard-13.png)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 [RLS (segurança no nível da linha) com Power](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)  
 [Autenticando e autorizando com o Power BI Embedded](power-bi-embedded-app-token-flow.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Amostra de inserção de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
-Mais perguntas? [Experimentar a comunidade do Power BI](http://community.powerbi.com/)
+Mais perguntas? [Tente Olá comunidade do Power BI](http://community.powerbi.com/)
 

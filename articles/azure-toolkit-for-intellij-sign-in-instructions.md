@@ -1,6 +1,6 @@
 ---
-title: "Instruções de entrada do Kit de ferramentas do Azure para IntelliJ | Microsoft Docs"
-description: Saiba como se inscrever no Microsoft Azure usando o Kit de ferramentas do Azure para IntelliJ.
+title: "instruções aaaSign-in para hello Azure Toolkit for IntelliJ | Microsoft Docs"
+description: Saiba como toosign em tooMicrosoft do Azure usando hello o Kit de ferramentas do Azure para IntelliJ.
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,160 +14,160 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: 4e2ed072bdaea0a71fef042c0c72b7656a42bbe8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2de781fc19267cce133b1e6456481497e165fce4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="sign-in-instructions-for-the-azure-toolkit-for-intellij"></a>Instruções de entrada para o Kit de ferramentas do Azure para IntelliJ
+# <a name="sign-in-instructions-for-hello-azure-toolkit-for-intellij"></a>Instruções entrar para hello Azure Toolkit for IntelliJ
 
-O Kit de ferramentas do Azure para IntelliJ fornece dois métodos para entrar em sua conta do Azure:
+Olá Kit de ferramentas do Azure para IntelliJ fornece dois métodos para entrar no tooyour conta do Azure:
 
-  * **Interativo**: insira suas credenciais do Azure sempre que você entrar em sua conta do Azure.
-  * **Automatizada**: crie um arquivo de credenciais que pode ser usado para entrar automaticamente em sua conta do Azure.
+  * **Interativo**: Insira suas credenciais do Azure cada vez que você entrar no tooyour conta do Azure.
+  * **Automatizada**: criar um arquivo de credenciais que você pode usar o logon de tooautomatically em tooyour conta do Azure.
 
-As seções a seguir descrevem como usar cada método.
+Olá seções a seguir descrevem como toouse cada método.
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
 
-## <a name="sign-in-to-your-azure-account-interactively"></a>Entrar em sua conta do Azure interativamente
+## <a name="sign-in-tooyour-azure-account-interactively"></a>Entrar tooyour conta do Azure de modo interativo
 
-Para entrar no Azure inserindo manualmente suas credenciais do Azure, faça o seguinte:
+toosign em tooAzure inserindo manualmente suas credenciais do Azure, Olá a seguir:
 
 1. Abra seu projeto com o IntelliJ IDEA.
 
-2. Clique em **Ferramentas**, aponte para **Azure** e clique em **Entrar no Azure**.
+2. Clique em **ferramentas**, ponto muito**Azure**e, em seguida, clique em **Azure entrar**.
 
-   ![O comando de Entrada do IntelliJ Azure][I01]
+   ![Olá IntelliJ Azure entrar no comando][I01]
 
-3. Na caixa de diálogo **Entrar no Azure**, selecione **Interativo** e clique em **Entrar**.
+3. Em Olá **Azure entrar** janela, selecione **interativo**e, em seguida, clique em **entrar**.
 
-   ![A janela Entrar no Azure com Interativo selecionado][I02]
+   ![Hello Azure entrada na janela com interativo selecionado][I02]
 
-4. Na caixa de diálogo **Logon no Azure**, insira suas credenciais do Azure e clique em **Entrar**.
+4. Em Olá **Log no Azure** caixa de diálogo for exibida, insira suas credenciais do Azure e, em seguida, clique em **entrar**.
 
-   ![A janela da caixa de diálogo Logon no Azure][I03]
+   ![janela de diálogo de logon do Azure Olá][I03]
 
-5. Na caixa de diálogo **Selecionar Assinaturas**, selecione as assinaturas que deseja usar e, em seguida, clique em **OK**.
+5. Em Olá **selecione assinaturas** caixa de diálogo, assinaturas de saudação selecione que você deseja toouse e, em seguida, clique em **Okey**.
 
-   ![A caixa de diálogo Selecionar Assinaturas][I04]
+   ![caixa de diálogo Selecionar assinaturas Olá][I04]
 
 ## <a name="sign-out-of-your-azure-account-after-you-have-signed-in-interactively"></a>Sair de sua conta do Azure depois de entrar interativamente
 
-Depois de configurar sua conta usando as etapas anteriores, você sairá automaticamente de sua conta do Azure sempre que reiniciar o IntelliJ IDEA. No entanto, se você quiser sair de sua conta do Azure *sem* reiniciar o IntelliJ IDEA, faça o seguinte.
+Depois que você configurou sua conta usando Olá etapas anteriores, você será conectado automaticamente fora da sua conta do Azure cada vez que você reiniciar IntelliJ IDEIA. No entanto, se você quiser toosign fora da sua conta do Azure *sem* reiniciar IntelliJ IDEIA, Olá a seguir.
 
-1. No IntelliJ IDEA, no menu **Ferramentas**, aponte para **Azure** e clique em **Sair do Azure**.
+1. Em IntelliJ IDEIA, em hello **ferramentas** menus, aponte muito**Azure**e, em seguida, clique em **Azure sair**.
 
-   ![O comando de Saída do IntelliJ Azure][L01]
+   ![Olá comando IntelliJ Azure sair][L01]
 
-2. Na janela de confirmação **Sair do Azure**, clique em **Sim**.
+2. Em Olá **Azure sair** janela de confirmação, clique em **Sim**.
 
-   ![A janela de confirmação Sair do Azure][L02]
+   ![janela de Hello Azure sair confirmação][L02]
 
-## <a name="sign-in-to-your-azure-account-automatically"></a>Entrar em sua conta do Azure automaticamente
+## <a name="sign-in-tooyour-azure-account-automatically"></a>Conectar automaticamente tooyour conta do Azure
 
-Esta seção fornece uma orientarão pela criação de um arquivo de credenciais contendo os dados de sua entidade de serviço. Após a conclusão desse processo, o Eclipse usará automaticamente o arquivo de credenciais para entrar automaticamente no Azure sempre que você abrir o projeto.
+Esta seção fornece uma orientarão pela criação de um arquivo de credenciais contendo os dados de sua entidade de serviço. Depois de concluir esse processo, tooautomatically Eclipse usa Olá credenciais arquivo de entrada que no tooAzure cada vez que você abra seu projeto.
 
 1. Abra seu projeto com o IntelliJ IDEA.
 
-2. No menu **Ferramentas**, aponte para **Azure** e clique em **Entrar no Azure**.
+2. Em Olá **ferramentas** menu ponto muito**Azure**e, em seguida, clique em **Azure entrar**.
 
-   ![O comando de Entrada do IntelliJ Azure][A01]
+   ![Olá IntelliJ Azure entrar no comando][A01]
 
-3. Na janela **Entrar no Azure**, selecione **Automatizado** e clique em **Novo**.
+3. Em Olá **Azure entrar** janela, selecione **automatizada**e, em seguida, clique em **novo**.
 
-   ![A janela Entrar no Azure com Automatizado selecionado][A02]
+   ![Hello Azure entrada na janela com automatizado selecionada][A02]
 
-4. Na janela da **caixa de diálogo Logon no Azure**, insira suas credenciais do Azure e clique em **Entrar**.
+4. Em Olá **caixa de diálogo de logon do Azure** janela, insira suas credenciais do Azure e, em seguida, clique em **entrar**.
 
-   ![A janela da caixa de diálogo Logon no Azure][A03]
+   ![janela de diálogo de logon do Azure Olá][A03]
 
-5. Na janela **Criar Arquivos de Autenticação**, selecione as assinaturas que quer usar, escolha o diretório de destino e clique em **Iniciar**.
+5. Em Olá **criar arquivos de autenticação** janela, assinaturas de saudação selecione deseja toouse, escolha o diretório de destino e, em seguida, clique em **iniciar**.
 
-   ![A janela Criar Arquivos de Autenticação][A04]
+   ![janela de criar arquivos de autenticação Olá][A04]
 
-6. Na caixa de diálogo **Status de Criação da Entidade de Serviço**, após a criação dos arquivos, clique em **OK**.
+6. Em Olá **Status de criação da entidade de serviço** caixa de diálogo, depois que os arquivos foram criados com êxito, clique em **Okey**.
 
-   ![A caixa de diálogo Status de Criação da Entidade de Serviço][A05]
+   ![Olá caixa de diálogo Status de criação da entidade de serviço][A05]
 
-7. Na janela **Entrar no Azure**, clique em **Entrar**.
+7. Em Olá **Azure entrar** janela, clique em **entrar**.
 
    ![Caixa de Diálogo de Logon do Azure][A06]
 
-8. Na caixa de diálogo **Selecionar Assinaturas**, selecione as assinaturas que deseja usar e, em seguida, clique em **OK**.
+8. Em Olá **selecione assinaturas** caixa de diálogo, assinaturas de saudação selecione que você deseja toouse e, em seguida, clique em **Okey**.
 
-   ![A caixa de diálogo Selecionar Assinaturas][A07]
+   ![caixa de diálogo Selecionar assinaturas Olá][A07]
 
 ## <a name="sign-out-of-your-azure-account-after-you-have-signed-in-automatically"></a>Sair de sua conta do Azure depois de entrar automaticamente
 
-Depois de configurar sua conta usando as etapas anteriores, o Kit de ferramentas do Azure conectará automaticamente você à sua conta do Azure sempre que reiniciar o IntelliJ IDEA. No entanto, para sair de sua conta do Azure e impedir que o Kit de ferramentas do Azure promova sua entrada automaticamente, faça o seguinte:
+Depois que você configurou sua conta usando Olá etapas anteriores, Olá Kit de ferramentas do Azure automaticamente faz com que você no tooyour cada vez que você reiniciar IntelliJ IDEIA de conta do Azure. No entanto, toosign fora da sua conta do Azure e evitar Olá Kit de ferramentas do Azure de conectá-lo automaticamente, Olá a seguir:
 
-1. No IntelliJ IDEA, no menu **Ferramentas**, aponte para **Azure** e clique em **Sair do Azure**.
+1. Em IntelliJ IDEIA, em hello **ferramentas** menus, aponte muito**Azure**e, em seguida, clique em **Azure sair**.
 
-   ![O comando de Saída do IntelliJ Azure][L01]
+   ![Olá comando IntelliJ Azure sair][L01]
 
-2. Na janela de confirmação **Sair do Azure**, clique em **Sim**.
+2. Em Olá **Azure sair** janela de confirmação, clique em **Sim**.
 
-   ![A janela de confirmação Sair do Azure][L03]
+   ![janela de Hello Azure sair confirmação][L03]
 
-## <a name="sign-in-to-your-azure-account-automatically-by-using-an-existing-credentials-file"></a>Entre em sua conta do Azure automaticamente usando um arquivo de credenciais existente
+## <a name="sign-in-tooyour-azure-account-automatically-by-using-an-existing-credentials-file"></a>Entre no tooyour conta do Azure automaticamente usando um arquivo existente de credenciais
 
-Se você sair de sua conta do Azure enquanto usa o IntelliJ IDEA, será necessário usar um arquivo de credenciais existente para entrar automaticamente na conta novamente. Para configurar o Kit de ferramentas do Azure para Eclipse a fim de usar um arquivo de credenciais existente, faça o seguinte:
+Se você assinar fora da sua conta do Azure, quando você estiver usando IntelliJ IDEIA, você deve usar um sinal de tooautomatically de arquivo de credenciais existentes em toohello conta. Olá tooconfigure Kit de ferramentas do Azure para Eclipse toouse um arquivo existente de credenciais, Olá a seguir:
 
 1. Abra seu projeto com o IntelliJ IDEA.
 
-2. No menu **Ferramentas**, aponte para **Azure** e clique em **Entrar no Azure**.
+2. Em Olá **ferramentas** menu ponto muito**Azure**e, em seguida, clique em **Azure entrar**.
 
-   ![O comando de Entrada do IntelliJ Azure][A01]
+   ![Olá IntelliJ Azure entrar no comando][A01]
 
-3. Na janela **Entrar no Azure**, selecione **Automatizado** e clique em **Procurar**.
+3. Em Olá **Azure entrar** janela, selecione **automatizada**e, em seguida, clique em **procurar**.
 
-   ![A janela Entrar no Azure com Automatizado selecionado][A02]
+   ![Hello Azure entrada na janela com automatizado selecionada][A02]
 
-4. Na caixa de diálogo **Selecionar Arquivo de Autenticação**, selecione um arquivo de credenciais criado anteriormente e clique em **Selecionar**.
+4. Em Olá **Selecionar arquivo de autenticação** caixa de diálogo, selecione um arquivo de credenciais criado anteriormente e, em seguida, clique em **selecione**.
 
-   ![A caixa de diálogo Selecionar Arquivo de Autenticação][A08]
+   ![caixa de diálogo Selecionar arquivo de autenticação Olá][A08]
 
-5. Na janela **Entrar no Azure**, clique em **Entrar**.
+5. Em Olá **Azure entrar** janela, clique em **entrar**.
 
-   ![A janela Entrar no Azure com Automatizado selecionado][A06]
+   ![Hello Azure entrada na janela com automatizado selecionada][A06]
 
-6. Na caixa de diálogo **Selecionar Assinaturas**, selecione as assinaturas que deseja usar e, em seguida, clique em **OK**.
+6. Em Olá **selecione assinaturas** caixa de diálogo, assinaturas de saudação selecione que você deseja toouse e, em seguida, clique em **Okey**.
 
-   ![A caixa de diálogo Selecionar Assinaturas][A07]
+   ![caixa de diálogo Selecionar assinaturas Olá][A07]
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre os kits de ferramentas do Azure para Java IDEs, confira os links a seguir:
+Para obter mais informações sobre Olá kits de ferramentas do Azure para Java IDEs, consulte Olá links a seguir:
 
 * [Kit de ferramentas do Azure para Eclipse]
-  * [Novidades no Kit de Ferramentas do Azure para Eclipse]
-  * [Instalação do Kit de Ferramentas do Azure para o Eclipse]
-  * [Instruções de entrada para o Kit de ferramentas do Azure para Eclipse]
+  * [O que há de novo no hello Kit de ferramentas do Azure para Eclipse]
+  * [Saudação de instalar o Kit de ferramentas do Azure para Eclipse]
+  * [Instruções de entrada para Olá Kit de ferramentas do Azure para Eclipse]
   * [Criar um aplicativo Web Olá, Mundo para o Azure no Eclipse]
 * [Kit de Ferramentas do Azure para IntelliJ]
-  * [Novidades no Kit de Ferramentas do Azure para IntelliJ]
-  * [Instalação do Kit de Ferramentas do Azure para IntelliJ]
-  * *Instruções de entrada para o Kit de ferramentas do Azure para IntelliJ* (este artigo)
-  * [Criar um aplicativo Web Hello World para o Azure no IntelliJ]
+  * [O que há de novo no hello Azure Toolkit for IntelliJ]
+  * [Saudação de instalar o Kit de ferramentas do Azure para IntelliJ]
+  * *Instruções entrar para hello Azure Toolkit for IntelliJ* (Este artigo)
+  * [Criar um aplicativo Web Olá, Mundo para o Azure no IntelliJ]
 
-Para saber mais sobre como usar o Azure com Java, confira o [Centro de Desenvolvedores Java do Azure] e as [Ferramentas Java para Visual Studio Team Services].
+Para obter mais informações sobre como usar o Azure com Java, consulte Olá [Centro de desenvolvedores de Java do Azure] e hello [ferramentas Java para o Visual Studio Team Services].
 
 <!-- URL List -->
 
 [Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse.md
 [Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij.md
 [Criar um aplicativo Web Hello World para o Azure no Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
-[Criar um aplicativo Web Hello World para o Azure no IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[Instalação do Kit de Ferramentas do Azure para o Eclipse]: ./azure-toolkit-for-eclipse-installation.md
-[Instalação do Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-installation.md
-[Instruções de entrada para o Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
-[Sign-in instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[Novidades no Kit de Ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
-[Novidades no Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+[Criar um aplicativo Web Olá, Mundo para o Azure no IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Saudação de instalar o Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Saudação de instalar o Kit de ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Instruções de entrada para Olá Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Sign-in instructions for hello Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[O que há de novo no hello Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[O que há de novo no hello Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
-[Centro de Desenvolvedores Java do Azure]: https://azure.microsoft.com/develop/java/
-[Ferramentas Java para Visual Studio Team Services]: https://java.visualstudio.com/
+[Centro de desenvolvedores de Java do Azure]: https://azure.microsoft.com/develop/java/
+[ferramentas Java para o Visual Studio Team Services]: https://java.visualstudio.com/
 
 <!-- IMG List -->
 

@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory ao SAP Business Object Cloud | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o SAP Business Object Cloud."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e a nuvem de objeto do SAP Business."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,35 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 6d517c5e302ac36e5bba2053998c75f8f4d42683
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a3e9bd93897271531f91bcbc50cd361e8a20551e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Tutorial: integração do Azure Active Directory ao SAP Business Object Cloud
 
-Neste tutorial, você aprenderá a integrar o SAP Business Object Cloud ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como toointegrate SAP Business objeto nuvem com o Azure Active Directory (AD do Azure).
 
-Você obtém os seguintes benefícios quando integra o SAP Business Object Cloud ao Azure AD:
+Você obtém Olá benefícios a seguir ao integrar a nuvem de objeto do SAP Business com o Azure AD:
 
-- No Azure AD, você pode controlar quem tem acesso ao SAP Business Object Cloud.
-- Você pode conectar automaticamente seus usuários ao SAP Business Object Cloud usando o logon único e a conta do Azure AD de um usuário.
-- É possível gerenciar suas contas em uma, um local central e no portal do Azure.
+- No AD do Azure, você pode controlar quem tem acesso tooSAP nuvem de objeto de negócios.
+- Você pode entrar automaticamente no tooSAP seus usuários comerciais objeto nuvem usando o logon único e uma conta de usuário do AD do Azure.
+- Você pode gerenciar suas contas em um local central, Olá portal do Azure.
 
-Para saber mais sobre a integração de aplicativos de SaaS (software como serviço) ao Azure AD, confira [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+toolearn mais sobre o software como uma integração de aplicativo de serviço (SaaS) com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Active Directory do Azure?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao SAP Business Object Cloud, você precisa dos seguintes itens:
+tooset a integração do AD do Azure com o SAP Business objeto nuvem, você precisa Olá itens a seguir:
 
 - Uma assinatura do AD do Azure
 - Um SAP Business Object Cloud, com logon único habilitado
 
 > [!NOTE]
-> Em caso de testar as etapas deste tutorial, recomendamos não testá-las em um ambiente de produção.
+> Se você testar etapas Olá neste tutorial, é recomendável que você não testá-las em um ambiente de produção.
 
-Recomendações para testar as etapas deste tutorial:
+Recomendações para testar etapas Olá neste tutorial:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, você poderá [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
@@ -50,75 +50,75 @@ Recomendações para testar as etapas deste tutorial:
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. 
 
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
 
-1. Adicionar o SAP Business Object Cloud da galeria.
+1. Adicione a nuvem de objeto do SAP Business da Galeria de saudação.
 2. Configurar e testar o logon único do Azure AD.
 
-## <a name="add-sap-business-object-cloud-from-the-gallery"></a>Adicionar o SAP Business Object Cloud da galeria
-Para configurar a integração do SAP Business Object Cloud ao Azure AD, na galeria, adicione o SAP Business Object Cloud à sua lista de aplicativos SaaS gerenciados.
+## <a name="add-sap-business-object-cloud-from-hello-gallery"></a>Adicionar a nuvem de objeto do SAP Business da Galeria de saudação
+tooset a integração de saudação do SAP Business objeto nuvem com o AD do Azure, na Galeria de hello, adicionar lista de tooyour de nuvem de objeto do SAP Business de aplicativos SaaS gerenciados.
 
-Para adicionar o SAP Business Object Cloud da galeria:
+Nuvem de objeto do SAP Business da Galeria de saudação do tooadd:
 
-1. No [portal do Azure](https://portal.azure.com), no menu esquerdo, selecione **Azure Active Directory**. 
+1. Em Olá [portal do Azure](https://portal.azure.com), no hello menu à esquerda, selecione **Active Directory do Azure**. 
 
-    ![O botão Azure Active Directory][1]
+    ![botão de Active Directory do Azure Olá][1]
 
 2. Selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 
-    ![A página de aplicativos empresariais][2]
+    ![página de aplicativos de empresa Olá][2]
     
-3. Para adicionar um novo aplicativo, selecione **Novo aplicativo**.
+3. tooadd um novo aplicativo, selecione **novo aplicativo**.
 
-    ![O botão Novo aplicativo][3]
+    ![Novo botão de aplicativo Hello][3]
 
-4. Na caixa de pesquisa, insira **SAP Business Object Cloud**.
+4. Na caixa de pesquisa hello, digite **SAP Business objeto nuvem**.
 
-    ![A caixa de pesquisa](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_search.png)
+    ![caixa de pesquisa Olá](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_search.png)
 
-5. No painel de resultados, selecione **SAP Business Object Cloud** e o botão **Adicionar**.
+5. No painel de resultados de saudação, selecione **SAP Business objeto nuvem**e, em seguida, selecione **adicionar**.
 
-    ![SAP Business Object Cloud na lista de resultados](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_addfromgallery.png)
+    ![Nuvem de objeto do SAP Business na lista de resultados de saudação](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_addfromgallery.png)
 
 ##  <a name="set-up-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
 
 Nesta seção, você vai configurar e testar o logon único do Azure AD com o SAP Business Object Cloud, com base em uma usuária de teste chamada *Brenda Fernandes*.
 
-Para que o logon único funcione, o Azure AD precisa conhecer o usuário equivalente do Azure AD no SAP Business Object Cloud. É necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado no SAP Business Object Cloud.
+Para toowork de logon único, o AD do Azure precisa usuário correspondente do tooknow Olá AD do Azure na nuvem de objeto do SAP Business. Uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação na nuvem de objeto do SAP Business deve ser estabelecida.
 
-Para estabelecer a relação de vinculação, no SAP Business Object Cloud, para **Nome de usuário**, atribua o valor de **nome de usuário** no Azure AD.
+Olá tooestablish referente à relação, na nuvem de objeto do SAP Business, **Username**, atribuir valor Olá Olá **nome de usuário** no AD do Azure.
 
-Para configurar e testar o logon único do Azure AD com o SAP Business Object Cloud, complete as seguintes tarefas:
+tooconfigure e teste de logon único do AD do Azure com a nuvem de objeto do SAP Business, Olá concluir tarefas a seguir:
 
-1. [Configurar o logon único do Azure AD](#set-up-azure-ad-single-sign-on). Configura um usuário para usar esse recurso.
-2. [Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user). Testa o logon único do Azure AD com a usuária Brenda Fernandes.
-3. [Criar um usuário de teste do SAP Business Object Cloud](#create-an-sap-business-object-cloud-test-user). Cria um equivalente de Brenda Fernandes no SAP Business Object Cloud que é vinculado à representação do usuário no Azure AD.
-4. [Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user). Configura Brenda Fernandes para usar o logon único do Azure AD.
-5. [Testar o logon único](#test-single-sign-on). Verifica se a configuração funciona.
+1. [Configurar o logon único do Azure AD](#set-up-azure-ad-single-sign-on). Configura um usuário toouse esse recurso.
+2. [Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user). Testes do AD do Azure-logon único com o usuário Olá Britta Simon.
+3. [Criar um usuário de teste do SAP Business Object Cloud](#create-an-sap-business-object-cloud-test-user). Cria um equivalente de Britta Simon na nuvem de objeto do SAP Business que é vinculado toohello representação do AD do Azure do usuário hello.
+4. [Atribuir um usuário de teste de saudação do AD do Azure](#assign-the-azure-ad-test-user). Define o Britta Simon toouse logon único do AD do Azure.
+5. [Testar o logon único](#test-single-sign-on). Verifica que se a configuração de saudação funciona.
 
 ### <a name="set-up-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você ativa o logon único do Azure AD no portal do Azure. Em seguida, configura o logon único no seu aplicativo SAP Business Object Cloud.
+Nesta seção, você ativar único do AD do Azure logon no portal do Azure de saudação. Em seguida, configura o logon único no seu aplicativo SAP Business Object Cloud.
 
-Para configurar o logon único do Azure AD com o SAP Business Object Cloud:
+tooset o AD do Azure-logon único com o SAP Business objeto nuvem:
 
-1. No portal do Azure, na página de integração do aplicativo do **SAP Business Object Cloud**, selecione **Logon único**.
+1. Em Olá portal do Azure, Olá **SAP Business objeto nuvem** página de integração de aplicativos, selecione **o logon único**.
 
     ![Selecionar Logon Único][4]
 
-2. Na página **Logon único**, para **Modo**, selecione **Logon com base em SAML**.
+2. Em Olá **o logon único** página, para **modo**, selecione **baseado no SAML logon**.
  
     ![Selecionar Logon com base em SAML](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_samlbase.png)
 
-3. Em **Domínio e URLs do SAP Business Object Cloud**, conclua as seguintes etapas:
+3. Em **URLs e domínio de nuvem de objeto do SAP Business**completa Olá seguintes etapas:
 
-    1. Na caixa **URL de Entrada**, digite uma URL com o seguinte padrão: 
+    1. Em Olá **URL de logon** caixa, digite uma URL que tenha o saudação padrão a seguir: 
     | |
     |-|-|
     | `https://<sub-domain>.sapanalytics.cloud/` |
     | `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
-    2. Na caixa **Identificador**, digite uma URL com o seguinte padrão:
+    2. Em Olá **identificador** caixa, digite uma URL que tenha o saudação padrão a seguir:
     | |
     |-|-|
     | `<sub-domain>.sapbusinessobjects.cloud` |
@@ -127,9 +127,9 @@ Para configurar o logon único do Azure AD com o SAP Business Object Cloud:
     ![URLs da página Domínio e URLs do SAP Business Object Cloud](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_url.png)
  
     > [!NOTE] 
-    > Os valores nessas URLs são apenas para demonstração. Atualize os valores com a verdadeira URL de entrada e a URL do identificador. Para obter a URL de entrada, entre em contato com a [equipe de Suporte ao cliente do SAP Business Object Cloud](https://www.sap.com/product/analytics/cloud-analytics.support.html). Você pode obter a URL do identificador ao baixar os metadados do SAP Business Object Cloud do console do administrador. Isso é explicado mais adiante no tutorial. 
+    > valores Hello essas URLs são apenas para demonstração. Atualizar valores de saudação com hello real URL de logon URL e o identificador. tooget Olá URL de logon, Olá contato [equipe de suporte do SAP Business objeto nuvem Client](https://www.sap.com/product/analytics/cloud-analytics.support.html). Você pode obter a URL de identificador Olá baixando metadados da nuvem de objeto do SAP Business de saudação do console de administração de saudação. Isso é explicado posteriormente no tutorial de saudação. 
 
-4. Em **Certificado de Autenticação SAML**, selecione **XML de Metadados**. Em seguida, salve o arquivo de metadados no computador.
+4. Em **Certificado de Autenticação SAML**, selecione **XML de Metadados**. Em seguida, salve o arquivo de metadados de saudação em seu computador.
 
     ![Selecionar XML de Metadados](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_certificate.png) 
 
@@ -137,150 +137,150 @@ Para configurar o logon único do Azure AD com o SAP Business Object Cloud:
 
     ![Selecionar Salvar](./media/active-directory-saas-sapboc-tutorial/tutorial_general_400.png)
 
-6. Em outra janela do navegador da Web, entre no site da empresa do seu SAP Business Object Cloud como um administrador.
+6. Em uma janela de navegador web diferente, entre no site da empresa tooyour SAP Business objeto nuvem como um administrador.
 
 7. Selecione **Menu** > **Sistema** > **Administração**.
     
     ![Selecionar Menu, Sistema e Administração](./media/active-directory-saas-sapboc-tutorial/config1.png)
 
-8. Na guia **Segurança**, selecione o ícone **Editar** (caneta).
+8. Em Olá **segurança** guia, selecione Olá **editar** ícone (caneta).
     
-    ![Na guia Segurança, selecionar o ícone Editar](./media/active-directory-saas-sapboc-tutorial/config2.png)  
+    ![Na guia de segurança hello, selecione o ícone de edição de saudação](./media/active-directory-saas-sapboc-tutorial/config2.png)  
 
 9. Para **Método de Autenticação**, selecione **SSO (Logon Único) do SAML**.
 
-    ![Selecionar Logon Único do SAML para o método de autenticação](./media/active-directory-saas-sapboc-tutorial/config3.png)  
+    ![Selecione logon único SAML para o método de autenticação Olá](./media/active-directory-saas-sapboc-tutorial/config3.png)  
 
-10. Para baixar os metadados do provedor de serviços (Etapa 1), selecione **Baixar**. No arquivo de metadados, localize e copie o valor **entityID**. No portal do Azure, em **Domínio e URLs do SAP Business Object Cloud**, cole o valor na caixa **Identificador**.
+10. toodownload Olá provedor metadados de serviço (etapa 1), selecione **baixar**. No arquivo de metadados de hello, localizar e copiar Olá **entityID** valor. Em hello Azure portal em **URLs e domínio de nuvem de objeto do SAP Business**, cole o valor de saudação em Olá **identificador** caixa.
 
-    ![Copiar e colar o valor de entityID](./media/active-directory-saas-sapboc-tutorial/config4.png)  
+    ![Copie e cole o valor de ID de saudação](./media/active-directory-saas-sapboc-tutorial/config4.png)  
 
-11. Para fazer upload dos metadados do provedor de serviços (Etapa 2) no arquivo que você baixou do portal do Azure, em **Fazer upload dos metadados do Provedor de Identidade**, selecione **Fazer Upload**.  
+11. tooupload Olá provedor metadados de serviço (etapa 2) no arquivo hello baixado do hello portal do Azure, em **metadados do provedor de identidade carregar**, selecione **carregar**.  
 
     ![Em Fazer upload dos metadados do Provedor de Identidade, selecionar Fazer Upload](./media/active-directory-saas-sapboc-tutorial/config5.png)
 
-12. Na lista **Atributo de Usuário**, selecione o atributo de usuário (Etapa 3) que você quer usar na sua implementação. Esse atributo de usuário é mapeado para o provedor de identidade. Para inserir um atributo personalizado na página do usuário, use a opção **Mapeamento de SAML Personalizado**. Ou você pode selecionar o **Email** ou a **ID DE USUÁRIO** como o atributo de usuário. Em nosso exemplo, selecionamos **Email** porque mapeamos a declaração da identificação de usuário com o atributo **userprincipalname** na seção **Atributos de Usuário** do portal do Azure. Isso fornece um email de usuário exclusivo, que é enviado ao aplicativo SAP Business Object Cloud em cada resposta bem-sucedida de SAML.
+12. Em Olá **usuário atributo** lista, o atributo de usuário selecione hello (etapa 3) que você deseja toouse para sua implementação. Esse atributo de usuário mapeia toohello provedor de identidade. tooenter um atributo personalizado na página do usuário hello, use Olá **mapeamento personalizado de SAML** opção. Ou, você pode selecionar o **Email** ou **ID de usuário** como atributo de saudação do usuário. Em nosso exemplo, selecionamos **Email** porque Mapeamos Olá declaração do identificador de usuário com hello **userprincipalname** atributo Olá **atributos de usuário** seção Olá Portal do Azure. Isso fornece um email exclusivo do usuário, que é enviado toohello aplicativo SAP Business objeto nuvem em cada resposta SAML bem-sucedida.
 
     ![Selecionar Atributo de Usuário](./media/active-directory-saas-sapboc-tutorial/config6.png)
 
-13. Para verificar a conta com o provedor de identidade (Etapa 4), na caixa **Credencial de Logon (Email)**, insira o endereço de email do usuário. Em seguida, selecione **Verificar Conta**. O sistema adiciona credenciais de entrada à conta de usuário.
+13. conta de saudação tooverify com o provedor de identidade de saudação (etapa 4), em Olá **credencial de logon (Email)** , digite o endereço de email do usuário hello. Em seguida, selecione **Verificar Conta**. sistema de saudação adiciona a conta de usuário de toohello de credenciais de logon.
 
     ![Inserir email e selecionar Verificar Conta](./media/active-directory-saas-sapboc-tutorial/config7.png)
 
-14. Selecione o ícone **Salvar**.
+14. Selecione Olá **salvar** ícone.
 
     ![Ícone Salvar](./media/active-directory-saas-sapboc-tutorial/save.png)
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo! Depois de adicionar o aplicativo selecionando **Active Directory** > **Aplicativos Empresariais**, selecione a guia **Logon Único**. Você pode acessar a documentação inserida na seção **Configuração**, na parte inferior da página. Para saber mais, confira a [documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> Você pode ler uma versão concisa essas instruções Olá [portal do Azure](https://portal.azure.com), enquanto você estiver configurando seu aplicativo! Depois de adicionar o aplicativo hello selecionando **do Active Directory** > **aplicativos empresariais**, selecione Olá **Single Sign-On** guia. Você pode acessar a documentação Olá inserido em Olá **configuração** seção final Olá Olá página. Para saber mais, confira a [documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
-Nesta seção, você criará uma usuária de teste no portal do Azure chamada Brenda Fernandes.
+Nesta seção, você deve criar um usuário de teste chamado Britta Simon no hello portal do Azure.
 
-Para criar um usuário de teste no Azure AD:
+toocreate um usuário de teste no AD do Azure:
 
-1. No portal do Azure, no menu esquerdo, selecione **Azure Active Directory**.
+1. No hello portal do Azure, no menu da esquerda hello, selecione **Active Directory do Azure**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapboc-tutorial/create_aaduser_01.png) 
 
-2. Para exibir a lista de usuários, selecione **Usuários e grupos** e, em seguida, selecione **Todos os usuários**.
+2. lista de saudação do toodisplay de usuários, selecionados **usuários e grupos**e, em seguida, selecione **todos os usuários**.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapboc-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, selecione **Adicionar**.
+3. Olá tooopen **usuário** caixa de diálogo, selecione **adicionar**.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapboc-tutorial/create_aaduser_03.png) 
 
-4. Na caixa de diálogo **Usuário**, conclua as seguintes etapas:
+4. Em Olá **usuário** caixa de diálogo, Olá concluir as etapas a seguir:
  
-    1. Na caixa **Nome**, insira **BrendaFernandes**.
+    1. Em Olá **nome** , digite **BrittaSimon**.
 
-    2. Na caixa **Nome de usuário**, insira o endereço de email da usuária Brenda Fernandes.
+    2. Em Olá **nome de usuário** , digite o endereço de email de saudação do usuário Olá Britta Simon.
 
-    3. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+    3. Selecione Olá **Mostrar senha** caixa de seleção e anote o valor de saudação que é exibido no hello **senha** caixa.
 
     4. Selecione **Criar**.
 
-        ![A caixa de diálogo Usuário](./media/active-directory-saas-sapboc-tutorial/create_aaduser_04.png) 
+        ![caixa de diálogo de usuário Olá](./media/active-directory-saas-sapboc-tutorial/create_aaduser_04.png) 
 
     ![Criar um usuário do AD do Azure][100]
 
 ### <a name="create-an-sap-business-object-cloud-test-user"></a>Criar um usuário de teste do SAP Business Object Cloud
 
-Os usuários do Azure AD devem ser provisionados no SAP Business Object Cloud para que possam entrar no SAP Business Object Cloud. No SAP Business Object Cloud, o provisionamento é uma tarefa manual.
+Os usuários do AD do Azure devem ser provisionados no SAP Business objeto nuvem antes que ele possa entrar tooSAP nuvem de objeto de negócios. No SAP Business Object Cloud, o provisionamento é uma tarefa manual.
 
-Para provisionar uma conta de usuário:
+tooprovision uma conta de usuário:
 
-1. Entre no site da empresa do seu SAP Business Object Cloud como administrador.
+1. Entre no tooyour site da empresa de nuvem de objeto do SAP Business como um administrador.
 
 2. Selecione **Menu** > **Segurança** > **Usuários**.
 
     ![Adicionar Funcionário](./media/active-directory-saas-sapboc-tutorial/user1.png)
 
-3. Na página **Usuários**, para adicionar detalhes do novo usuário, selecione **+**. 
+3. Em Olá **usuários** , tooadd novos detalhes do usuário, selecione  **+** . 
 
     ![Página Adicionar Usuários](./media/active-directory-saas-sapboc-tutorial/user4.png)
 
-    Em seguida, conclua as seguintes etapas:
+    Em seguida, conclua Olá etapas a seguir:
 
-    1. Na caixa **ID DE USUÁRIO**, insira a ID do usuário, como **Brenda**.
+    1. Em Olá **ID de usuário** , digite a ID de usuário de saudação do usuário hello, como **Britta**.
 
-    2. Na caixa **NOME**, insira o nome do usuário, como **Brenda**.
+    2. Em Olá **nome** , digite Olá primeiro nome do usuário hello, como **Britta**.
 
-    3. Na caixa **SOBRENOME**, insira o sobrenome do usuário, como **Fernandes**.
+    3. Em Olá **Sobrenome** , digite o sobrenome de saudação do usuário hello, como **Simon**.
 
-    4. Na caixa **NOME DE EXIBIÇÃO**, insira o nome completo do usuário, como **Brenda Fernandes**.
+    4. Em Olá **nome de exibição** , digite o nome completo de saudação do usuário hello, como **Britta Simon**.
 
-    5. Na caixa **EMAIL**, insira o endereço de email do usuário, como **brittasimon@contoso.com**.
+    5. Em Olá **email** , digite o endereço de email de saudação do usuário hello, como  **brittasimon@contoso.com** .
 
-    6. Na página **Selecionar Funções**, selecione a função apropriada para o usuário e selecione **OK**.
+    6. Em Olá **selecionar funções** página, selecione a função apropriada Olá para usuário hello e, em seguida, selecione **Okey**.
 
       ![Escolher função](./media/active-directory-saas-sapboc-tutorial/user3.png)
 
-    7. Selecione o ícone **Salvar**.    
+    7. Selecione Olá **salvar** ícone.  
 
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
 
-Nesta seção, você permitirá que a usuária Brenda Fernandes use o logon único do Azure AD concedendo acesso de conta de usuário ao SAP Business Object Cloud.
+Nesta seção, você permitir que Olá usuário Britta Simon toouse AD do Azure-logon único, concedendo Olá usuário conta acesso tooSAP nuvem de objeto de negócios.
 
-Para atribuir Brenda Fernandes ao SAP Business Object Cloud:
+tooassign Britta Simon tooSAP nuvem de objeto de negócios:
 
-1. No portal do Azure, abra a exibição de aplicativos e vá para a exibição de diretório. Selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. No portal do Azure de Olá, abrir modo de exibição de aplicativos hello e vá toohello exibição de diretório. Selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **SAP Business Object Cloud**.
+2. Na lista de aplicativos hello, selecione **SAP Business objeto nuvem**.
 
     ![Configurar Logon Único](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_app.png) 
 
-3. No menu esquerdo, selecione **Usuários e grupos**.
+3. No menu à esquerda do hello, selecione **usuários e grupos**.
 
     ![Selecionar Usuários e grupos][202] 
 
-4. Selecione **Adicionar**. Na página **Adicionar Atribuição**, selecione **Usuários e grupos**.
+4. Selecione **Adicionar**. Em seguida, na Olá **Adicionar atribuição** página, selecione **usuários e grupos**.
 
-    ![A página Adicionar Atribuição][203]
+    ![página de adicionar atribuição Olá][203]
 
-5. Na página **Usuários e grupos**, na lista de usuários, selecione **Brenda Fernandes**.
+5. Em Olá **usuários e grupos** página, na lista de saudação de usuários, selecionados **Britta Simon**.
 
-6. Na página **Usuários e grupos**, selecione **Selecionar**.
+6. Em Olá **usuários e grupos** página, selecione **selecione**.
 
-7. Na página **Adicionar Atribuição**, selecione **Atribuir**.
+7. Em Olá **Adicionar atribuição** página, selecione **atribuir**.
 
-![Atribuir a função de usuário][200] 
+![Atribuir função de usuário Olá][200] 
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
+Nesta seção, você pode testar a AD do Azure única configuração de logon usando o painel de acesso de saudação.
 
-Ao selecionar o bloco do SAP Business Object Cloud no painel de acesso, você deve ser conectado automaticamente ao aplicativo SAP Business Object Cloud.
+Quando você seleciona o bloco de nuvem de objeto do SAP Business Olá no painel de acesso hello, você deve ser conectado automaticamente tooyour aplicativo em nuvem de objeto do SAP Business.
 
-Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md).
+Para obter mais informações sobre o painel de acesso hello, consulte [painel de acesso Introdução toohello](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS ao Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como aplicativos de SaaS toointegrate com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Referência técnica do acesso condicional ao Azure Active Directory | Microsoft Docs"
-description: "Com o controle de acesso condicional, o Active Directory do Azure verifica as condições específicas escolhidas para autenticação do usuário, antes de permitir o acesso ao aplicativo. Quando essas condições forem atendidas, o usuário é autenticado e autorizado a acessar o aplicativo."
+title: "Referência técnica do acesso condicional do Active Directory de aaaAzure | Microsoft Docs"
+description: "Com controle de acesso condicional, o Active Directory do Azure verifica condições específicas hello, que você escolhe ao autenticar usuário hello e antes de permitir acesso toohello aplicativo. Quando essas condições forem atendidas, o usuário de Olá é autenticado e acesso toohello aplicativo autorizado."
 services: active-directory.
 documentationcenter: 
 author: MarkusVi
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: ca16a5399f94fd1ab267e0798cade3fd83f75b13
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ee201405d1d17f130607a95bf455b60cd222dd0c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Referência técnica do acesso condicional ao Azure Active Directory
 
@@ -27,16 +27,16 @@ ms.lasthandoff: 08/29/2017
 Regras de acesso condicional têm suporte em vários tipos de aplicativos do AD do Azure. Essa lista inclui:
 
 
-* Aplicativos registrados com o Proxy de Aplicativo do Azure
+* Aplicativos registrados com hello Proxy de aplicativo do Azure
 * Aplicativo Remoto do Azure
 * Aplicativos de linha de negócios e de multilocação desenvolvidos registrados no AD do Azure
 * Dynamics CRM
-* Aplicativos federados da galeria de aplicativos do Azure AD
+* Aplicativos federados da Galeria de aplicativo do AD do Azure Olá
 * Microsoft Office 365 Yammer
 * Microsoft Office 365 Exchange Online
 * Microsoft Office 365 SharePoint Online (inclui o OneDrive for Business)
 * Microsoft Power BI 
-* Aplicativos de SSO de senha da galeria de aplicativos do Azure AD
+* Aplicativos de SSO de senha da Galeria de aplicativo hello AD do Azure
 * Visual Studio Team Services
 * Equipes da Microsoft
 
@@ -49,43 +49,43 @@ Regras de acesso condicional têm suporte em vários tipos de aplicativos do AD 
 
 
 ## <a name="enable-access-rules"></a>Habilitar regras de acesso
-Cada regra pode ser habilitada ou desabilitada com base no aplicativo. Quando as regras estão **ATIVADAS** , elas são habilitadas e impostas aos usuários que acessam o aplicativo. Quando estão **DESATIVADAS** , elas não são usadas e não afetam a experiência de entrada dos usuários.
+Cada regra pode ser habilitada ou desabilitada com base no aplicativo. Quando as regras são **ON** serão habilitadas e aplicadas a usuários que acessam o aplicativo hello. Quando eles são **OFF** não serão usados e assinará não usuários de saudação do impacto na experiência.
 
-## <a name="applying-rules-to-specific-users"></a>Aplicar regras a usuários específicos
-As regras podem ser aplicadas a conjuntos específicos de usuários baseados no grupo de segurança definindo **Aplicar a**. **Aplicar a** pode ser definido como **Todos os Usuários** ou **Grupos**. Quando definido como **Todos os Usuários** , as regras são aplicadas a qualquer usuário com acesso ao aplicativo. A opção **Grupos** permite que grupos de segurança e de distribuição específicos sejam selecionados e as regras sejam impostas somente para esses grupos.
+## <a name="applying-rules-toospecific-users"></a>Usuários de toospecific aplicando regras
+As regras podem ser aplicadas toospecific conjuntos de usuários com base no grupo de segurança, definindo **aplicar a**. **Aplicar a** pode ser definido muito**todos os usuários** ou **grupos**. Quando definido muito**todos os usuários** Olá regras se aplicarão tooany usuário com aplicativos de toohello de acesso. Olá **grupos** opção permite específicas de segurança e toobe de grupos de distribuição selecionado, as regras serão aplicadas apenas para esses grupos.
 
-Ao implantar uma regra, é comum aplicá-la primeiro a um conjunto limitado de usuários, que são membros de um grupo piloto. Após a conclusão, a regra pode ser aplicada a **Todos os Usuários**. Isso fará com que a regra a seja imposta a todos os usuários na organização.
+Ao implantar uma regra, é comum toofirst aplicá-lo um conjunto limitado de usuários, que são membros de grupos um piloto. Depois que a regra de saudação completa pode ser aplicada muito**todos os usuários**. Isso fará com que a regra Olá toobe imposta para todos os usuários na organização hello.
 
-Alguns grupos também podem ser isentos da política usando a opção **Exceto** . Todos os membros desses grupos estarão isentos mesmo que apareçam em um grupo incluído.
+Selecione grupos também podem ser isentos da política usando Olá **exceto** opção. Todos os membros desses grupos estarão isentos mesmo que apareçam em um grupo incluído.
 
 ## <a name="at-work-networks"></a>Redes "No trabalho"
-As regras de acesso condicional que usam uma rede "No trabalho" dependem de intervalos de endereços IP confiáveis que foram configurados no Azure AD ou que usam a declaração “inside corpnet” do AD FS. Essas regras incluem:
+As regras de acesso condicional que usam uma rede "no trabalho", dependem de intervalos de endereços IP confiáveis que foram configurados no AD do Azure, ou o uso de hello "dentro da rede corporativa" declarações do AD FS. Essas regras incluem:
 
 * Exigir autenticação multifator quando não está no trabalho
 * Bloquear acesso quando não estiver no trabalho
 
 Opções para especificar redes "no trabalho"
 
-1. Configurar intervalos de endereços IP na [página de configurações da autenticação multifator](../multi-factor-authentication/multi-factor-authentication-whats-next.md). A política de acesso condicional usará os intervalos configurados em cada solicitação de autenticação e emissão de token para avaliar as regras. 
-2. Configure o uso da declaração inside corpnet; essa opção pode ser usada com diretórios federados, usando o AD FS. Para saber mais sobre as declarações inside corpnet, veja [IPs confiáveis](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
+1. Configurar intervalos de endereços IP confiáveis em hello [página de configuração de autenticação multifator](../multi-factor-authentication/multi-factor-authentication-whats-next.md). Política de acesso condicional usará os intervalos de saudação configurado em cada solicitação e o token de emissão tooevaluate as regras de autenticação. 
+2. Configurar o uso de saudação dentro de declaração da rede corporativa, essa opção pode ser usada com diretórios federados, usando o AD FS. toolearn mais sobre hello dentro de declarações de rede corporativa, consulte [Tusted IPs](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
 
 
 ## <a name="rules-based-on-application-sensitivity"></a>Regras com base na confidencialidade do aplicativo
-As regras são configuradas por aplicativo, permitindo que os serviços de alto valor sejam protegidos sem afetar o acesso a outros serviços. As regras de acesso condicional podem ser configuradas na guia **Configurar** do aplicativo. 
+Regras são configuradas por aplicativo permitindo Olá alto valor serviços toobe protegida sem afetar o acesso tooother serviços. Regras de acesso condicional podem ser configuradas em Olá **configurar** guia do aplicativo hello. 
 
 Regras oferecidas atualmente:
 
 * **Exigir autenticação multifator**
   
-  * Todos os usuários aos quais essa política se aplica deverão realizar a autenticação por meio da autenticação multifator pelo menos uma vez.
+  * Todos os usuários que essa política é aplicada toowill ser tooauthenticate necessária por meio de pelo menos uma vez a autenticação multifator.
 * **Exigir autenticação multifator quando não está no trabalho**
   
-  * Se essa política for aplicada, todos os usuários terão que ter realizado a autenticação multifator pelo menos uma vez se acessarem o serviço de um local remoto não comercial. Se os usuários saírem de um local de trabalho para um local remoto, precisarão realizar a autenticação multifator ao acessar o serviço.
+  * Se essa política é aplicada, todos os usuários serão autenticação de multifator toohave necessária executada pelo menos uma vez se acessam o serviço de saudação de um local remoto inativo. Se eles mudam de local de tooremote um trabalho, eles serão tooperform necessária a autenticação multifator ao acessar o serviço de saudação.
 * **Bloquear acesso quando não estiver no trabalho** 
   
-  * Quando os usuários saírem de um local de trabalho para um local remoto, eles serão bloqueados se a política “Bloquear acesso quando não estiver no trabalho” estiver aplicada a eles.  Eles terão o acesso permitido novamente quando estiverem em um local de trabalho.
+  * Quando os usuários mudam de local remoto do trabalho tooa, eles serão bloqueados se hello, "Bloquear acesso quando não estiver no trabalho" política é aplicada toothem.  Eles terão o acesso permitido novamente quando estiverem em um local de trabalho.
 
 ## <a name="related-topics"></a>Tópicos relacionados
-* [Proteger o acesso ao Office 365 e a outros aplicativos conectados ao Active Directory do Azure](active-directory-conditional-access.md)
+* [Protegendo o acesso tooOffice 365 e outros aplicativos conectados tooAzure do Active Directory](active-directory-conditional-access.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 

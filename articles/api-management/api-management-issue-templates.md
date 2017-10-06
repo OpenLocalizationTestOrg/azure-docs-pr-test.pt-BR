@@ -1,6 +1,6 @@
 ---
-title: Modelos de problemas no Gerenciamento de API do Azure | Microsoft Docs
-description: "Saiba como personalizar o conteúdo das páginas de Problemas no portal do desenvolvedor do Gerenciamento de API do Azure."
+title: modelos de aaaIssue no gerenciamento de API do Azure | Microsoft Docs
+description: "Saiba como toocustomize Olá conteúdo das páginas de problema Olá no portal do desenvolvedor Olá no gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: e13344df198bca4f73c75fa58221436b94e2f258
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e12902e52c164f73902a97f15ea550790dfecf1c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Modelos de problemas no Gerenciamento de API do Azure
-O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configura o respectivo conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como o [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), bem como um conjunto fornecido de [Recursos de cadeia de caracteres](api-management-template-resources.md#strings), [Recursos do Glyph](api-management-template-resources.md#glyphs) e [Controles de página](api-management-page-controls.md) localizados, você tem grande flexibilidade para configurar o conteúdo das páginas, conforme a necessidade, usando esses modelos.  
+Gerenciamento de API do Azure fornece que Olá conteúdo de saudação toocustomize capacidade de páginas de portal do desenvolvedor usando um conjunto de modelos que configurar seu conteúdo. Usando [DotLiquid](http://dotliquidmarkup.org/) sintaxe e hello editor de sua escolha, como [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de localizadas [recursos de cadeia de caracteres](api-management-template-resources.md#strings), [ Recursos de glifo](api-management-template-resources.md#glyphs), e [página controles](api-management-page-controls.md), você tiver um grande flexibilidade tooconfigure Olá conteúdo das páginas hello como desejar usar esses modelos.  
   
- Os modelos desta seção permitem personalizar o conteúdo das páginas de problemas no portal do desenvolvedor.  
+ Olá modelos nesta seção permitem toocustomize conteúdo de saudação de páginas de problema Olá no portal do desenvolvedor hello.  
   
 -   [Lista de problemas](#IssueList)  
   
 > [!NOTE]
->  Os modelos de amostra padrão estão incluídos na documentação a seguir, mas estão sujeitos à alteração devido a melhorias contínuas. Você pode exibir os modelos padrão em tempo real no portal do desenvolvedor, navegando até os modelos individuais desejados. Para saber mais sobre como trabalhar com modelos, confira [Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos](api-management-developer-portal-templates.md).  
+>  Modelos de padrão de exemplo estão incluídos no hello documentação a seguir, mas são toochange assunto devido a melhorias toocontinuous. Você pode exibir modelos do saudação padrão em tempo real no portal do desenvolvedor Olá navegando modelos individuais toohello desejado. Para obter mais informações sobre como trabalhar com modelos, consulte [como toocustomize Olá portal do desenvolvedor do gerenciamento de API usando modelos](api-management-developer-portal-templates.md).  
   
 ##  <a name="IssueList"></a> Lista de problemas  
- O modelo **Lista de problemas** possibilita personalizar o corpo da página de lista de problemas no portal do desenvolvedor.  
+ Olá **lista problema** modelo permite toocustomize corpo de saudação da página de lista de problema Olá no portal do desenvolvedor hello.  
   
  ![Lista de problemas do portal do desenvolvedor](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "Lista de problemas do portal do desenvolvedor do APIM")  
   
@@ -88,7 +88,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ### <a name="controls"></a>Controles  
- O modelo `Issue list` pode usar os seguintes [controles de página](api-management-page-controls.md).  
+ Olá `Issue list` modelo pode usar a seguinte Olá [página controles](api-management-page-controls.md).  
   
 -   [paging-control](api-management-page-controls.md#paging-control)  
   
@@ -96,10 +96,10 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|Problemas|Coleção de entidades de [problemas](api-management-template-data-model-reference.md#Issue).|Os problemas visíveis para o usuário atual.|  
-|Paginamento|Entidade de [paginação](api-management-template-data-model-reference.md#Paging).|As informações de paginação da coleção de aplicativos.|  
-|IsAuthenticated|booleano|Se o usuário atual está conectado ao portal do desenvolvedor.|  
-|CanReportIssues|booleano|Se o usuário atual tem permissões para arquivar um problema.|  
+|Problemas|Coleção de entidades de [problemas](api-management-template-data-model-reference.md#Issue).|usuário atual do Hello problemas toohello visível.|  
+|Paginamento|Entidade de [paginação](api-management-template-data-model-reference.md#Paging).|Olá paginação as informações para a coleção de aplicativos de saudação.|  
+|IsAuthenticated|Booliano|Se o usuário atual Olá é toohello assinado no portal do desenvolvedor.|  
+|CanReportIssues|Booliano|Se o usuário atual Olá tem permissões toofile um problema.|  
 |Pesquisar|string|Essa propriedade foi preterida e não deve ser usada.|  
   
 ### <a name="sample-template-data"></a>Amostra de dados do modelo  
@@ -110,8 +110,8 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
         {  
             "Id": "5702b68bb16653124c8f9ba7",  
             "ApiId": "570275f1b16653124c8f9ba3",  
-            "Title": "I couldn't figure out how to connect my application to the API",  
-            "Description": "I'm having trouble connecting my application to the backend API.",  
+            "Title": "I couldn't figure out how tooconnect my application toohello API",  
+            "Description": "I'm having trouble connecting my application toohello backend API.",  
             "SubscriptionDeveloperName": "Clayton",  
             "IssueState": "Proposed",  
             "ReportedOn": "2016-04-04T18:46:35.64",  
@@ -134,4 +134,4 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como trabalhar com modelos, confira [Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos](api-management-developer-portal-templates.md).
+Para obter mais informações sobre como trabalhar com modelos, consulte [como toocustomize Olá portal do desenvolvedor do gerenciamento de API usando modelos](api-management-developer-portal-templates.md).

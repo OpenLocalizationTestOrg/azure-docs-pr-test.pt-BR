@@ -1,6 +1,6 @@
 ---
-title: Simular um dispositivo com Azure IoT Edge (Linux) | Microsoft Docs
-description: Como usar o Azure IoT Edge no Linux para criar um dispositivo simulado que envie telemetria por meio de um gateway do IoT Edge para um hub IoT.
+title: aaaSimulate um dispositivo com borda de IoT do Azure (Linux) | Microsoft Docs
+description: Como toouse Azure IoT borda em Linux toocreate um dispositivo simulado que envia a telemetria por meio de uma borda de IoT hub do gateway tooan IoT.
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/09/2017
 ms.author: andbuc
-ms.openlocfilehash: 5349960373ae6815862c5f79a69dd6d5d9d624ab
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 168fb8eda8671d02c63073bdf36dfcd88b397fe2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-simulated-device-linux"></a>Use o Azure IoT Edge para enviar mensagens do dispositivo para a nuvem com um dispositivo simulado (Linux)
+# <a name="use-azure-iot-edge-toosend-device-to-cloud-messages-with-a-simulated-device-linux"></a>Usar mensagens de dispositivo para a nuvem do Azure IoT borda toosend com um dispositivo simulado (Linux)
 
 [!INCLUDE [iot-hub-iot-edge-simulated-selector](../../includes/iot-hub-iot-edge-simulated-selector.md)]
 
 [!INCLUDE [iot-hub-iot-edge-install-build-linux](../../includes/iot-hub-iot-edge-install-build-linux.md)]
 
-## <a name="how-to-run-the-sample"></a>Como executar a amostra
+## <a name="how-toorun-hello-sample"></a>Como toorun Olá exemplo
 
-O script **build.sh** gera sua saída na pasta **build** na cópia local do repositório **iot-edge**. Essa saída inclui os quatro módulos do IoT Edge usados neste exemplo.
+Olá **build.sh** script gera a saída no hello **criar** pasta em sua cópia local da saudação **iot borda** repositório. Essa saída inclui módulos de borda IoT quatro Olá usados neste exemplo.
 
-O script da build coloca:
+Olá locais de script de compilação a:
 
-* **liblogger.so** na pasta **build/modules/logger**.
-* **libiothub.so** na pasta **build/modules/iothub**.
-* **lib\_identity\_map.so** na pasta **build/modules/identitymap**.
-* **libsimulated\_device.so** na pasta **build/modules/simulated\_device**.
+* **liblogger.SO** em Olá **build/módulos/agente** pasta.
+* **libiothub.SO** em Olá **build/módulos/hub IOT** pasta.
+* **lib\_identidade\_map.so** em Olá **build/módulos/identitymap** pasta.
+* **libsimulated\_device.so** em Olá **build/módulos/simulados\_dispositivo** pasta.
 
-Use esses caminhos para os valores de **caminho do módulo**, conforme mostrado no seguinte arquivo de configurações do JSON:
+Usar estes caminhos para Olá **caminho do módulo** valores conforme Olá arquivo de configurações de JSON a seguir:
 
-O processo de exemplo \_device\_cloud\_upload\_ leva o caminho até um arquivo de configuração JSON como um argumento na linha de comando. O arquivo JSON de exemplo a seguir é fornecido no repositório do SDK em **samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_sample\_lin.json**. Este arquivo de configuração funciona da forma como está, a menos que você tenha modificado o script de build para colocar os módulos ou os executáveis de exemplo do IoT Edge em locais não padrão.
+Olá simulado\_dispositivo\_nuvem\_carregar\_processo de exemplo usa o arquivo de configuração de JSON Olá caminho tooa como um argumento de linha de comando. Olá seguinte arquivo JSON de exemplo é fornecido no repositório do SDK de saudação em **exemplos\\simulada\_dispositivo\_nuvem\_carregar\_exemplo\\src\\ simulada\_dispositivo\_nuvem\_carregar\_exemplo\_lin.json**. Isso funciona de arquivo de configuração como está a menos que você modifique Olá compilar módulos de saudação do script tooplace IoT borda ou amostra executáveis em locais não padrão.
 
 > [!NOTE]
-> Os caminhos de módulo são referentes ao diretório de onde você executa o executável\_device\_cloud\_upload\_ de exemplo; não é o diretório onde o executável está localizado. O arquivo de configuração JSON de exemplo, por padrão, grava 'deviceCloudUploadGatewaylog.log' no diretório de trabalho atual.
+> caminhos de módulo Olá são relativo toohello diretório de onde você executa Olá simulado\_dispositivo\_nuvem\_carregar\_executável de exemplo, não Olá diretório executável hello. arquivo de configuração de JSON de exemplo Hello padrões toowriting too'deviceCloudUploadGatewaylog.log' no diretório de trabalho atual.
 
-Em um editor de texto, abra o arquivo **samples/simulated\_device\_cloud\_upload\_sample/src/simulated\_device\_cloud\_upload\_lin.json** na sua cópia local do repositório **iot-edge**. Este arquivo configura os módulos do IoT Edge no gateway de exemplo:
+Em um editor de texto, abra o arquivo hello **exemplos/simulados\_dispositivo\_nuvem\_carregar\_exemplo/src/simulados\_dispositivo\_nuvem\_carregar\_lin.json** em sua cópia local da saudação **iot borda** repositório. Esse arquivo configura os módulos de borda IoT Olá no gateway do exemplo hello:
 
-* O módulo **IoTHub** se conecta ao seu hub IoT. Você o configura para enviar dados ao Hub IoT. Especificamente, defina o valor de **IoTHubName** como o nome de seu hub IoT e defina o valor de **IoTHubSuffix** como **azure-devices.net**. Defina o valor de **Transporte** como um destes: **HTTP**, **AMQP** ou **MQTT**. Atualmente, apenas **HTTP** compartilha uma conexão TCP para todas as mensagens de dispositivo. Se você definir o valor como **AMQP** ou **MQTT**, o gateway manterá uma conexão TCP separada para o Hub IoT para cada dispositivo.
-* O módulo **mapping** mapeia os endereços MAC dos dispositivos simulados para as IDs de dispositivo do Hub IoT. Verifique se os valores de **deviceId** correspondem às IDs dos dois dispositivos que você adicionou ao hub IoT e se os valores de **deviceKey** contêm as chaves dos dois dispositivos.
-* Os módulos **BLE1** e **BLE2** são os dispositivos simulados. Observe como os endereços MAC deles correspondem aos endereços no módulo **mapping**.
-* O módulo **Logger** registra a atividade de gateway em um arquivo.
-* Os valores de **caminho do módulo** mostrados no exemplo presumem que você executa o exemplo da pasta **build** na sua cópia local do repositório **iot-edge**.
-* A matriz **links** na parte inferior do arquivo JSON conecta os módulos **BLE1** e **BLE2** ao módulo **mapping**, e o **mapping** ao módulo **IoTHub**. Ela também garante que todas as mensagens são registradas pelo módulo **Logger** .
+* Olá **hub IOT** módulo se conecta tooyour IoT hub. Você configurá-lo de hub IoT do toosend dados tooyour. Especificamente, o conjunto Olá **IoTHubName** toohello o nome do seu hub IoT do valor e defina Olá **IoTHubSuffix** valor muito**devices.net azure**. Saudação de conjunto **transporte** tooone de valor de: **HTTP**, **AMQP**, ou **MQTT**. Atualmente, apenas **HTTP** compartilha uma conexão TCP para todas as mensagens de dispositivo. Se você definir o valor de saudação muito**AMQP**, ou **MQTT**, gateway Olá mantém um separado tooIoT de conexão de TCP Hub para cada dispositivo.
+* Olá **mapeamento** módulo mapeia endereços MAC de saudação de suas ids de dispositivo simulado dispositivos tooyour Hub IoT. Verifique se **deviceId** valores correspondência Olá ids de Olá dois dispositivos adicionados tooyour IoT hub e que hello **deviceKey** valores contêm chaves Olá dos dois dispositivos.
+* Olá **BLE1** e **BLE2** módulos são dispositivos de saudação simulada. Observe como os endereços de seu MAC correspondência Olá endereços Olá **mapeamento** módulo.
+* Olá **agente** módulo registra o arquivo de tooa de atividade de gateway.
+* Olá **caminho do módulo** valores mostrados no exemplo hello presumem que você execute o exemplo hello da saudação **criar** pasta em sua cópia local da saudação **iot borda** repositório.
+* Olá **links** matriz na parte inferior de saudação do arquivo JSON de saudação conecta Olá **BLE1** e **BLE2** módulos toohello **mapeamento** módulo e hello **mapeamento** módulo toohello **hub IOT** módulo. Ela também garante que todas as mensagens são registradas por Olá **agente** módulo.
 
 ```json
 {
@@ -149,17 +149,17 @@ Em um editor de texto, abra o arquivo **samples/simulated\_device\_cloud\_upload
 }
 ```
 
-Salve as alterações feitas no arquivo de configuração.
+Salvar as alterações de saudação feitas toohello arquivo de configuração.
 
-Para executar a amostra:
+exemplo de hello toorun:
 
-1. No shell, navegue até a pasta **iot-edge/build**.
-2. Execute o comando a seguir:
+1. No shell, navegar toohello **build a borda/iot** pasta.
+2. Execute Olá comando a seguir:
    
     ```sh
     ./samples/simulated_device_cloud_upload/simulated_device_cloud_upload_sample ../samples/simulated_device_cloud_upload/src/simulated_device_cloud_upload_lin.json
     ```
-3. É possível usar o [gerenciador de dispositivo][lnk-device-explorer] ou a ferramenta [iothub-explorer][lnk-iothub-explorer] para monitorar as mensagens que o Hub IoT recebe do gateway. Por exemplo, usando o iothub-explorer, você pode monitorar as mensagens de dispositivo para nuvem usando o seguinte comando:
+3. Você pode usar o hello [explorer dispositivo] [ lnk-device-explorer] ou [Gerenciador de Hub IOT] [ lnk-iothub-explorer] ferramenta toomonitor mensagens de saudação que recebe do hub IoT de saudação gateway. Por exemplo, usando o Gerenciador de Hub IOT você pode monitorar mensagens de dispositivo para nuvem usando Olá comando a seguir:
 
     ```sh
     iothub-explorer monitor-events --login "HostName={Your iot hub name}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={Your IoT Hub key}"
@@ -167,15 +167,15 @@ Para executar a amostra:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para compreender de maneira mais avançada o Azure IoT Edge e experimentar alguns exemplos de código, acesse os seguintes recursos e tutoriais para desenvolvedores:
+toogain uma compreensão mais avançada de borda de IoT do Azure e experiência com alguns exemplos de código, visite Olá tutoriais de desenvolvedor e recursos:
 
 * [Enviar mensagens do dispositivo para a nuvem de um dispositivo físico com o Azure IoT Edge][lnk-physical-device]
 * [Azure IoT Edge][lnk-iot-edge]
 
-Para explorar melhor as funcionalidades do Hub IoT, consulte:
+toofurther explorar recursos de saudação do IoT Hub, consulte:
 
 * [Guia do desenvolvedor do Hub IoT][lnk-devguide]
-* [Proteger sua solução de IoT desde o início][lnk-securing]
+* [Proteger a sua solução de IoT da saudação de plano de fundo para cima][lnk-securing]
 
 <!-- Links -->
 [lnk-iot-edge]: https://github.com/Azure/iot-edge/

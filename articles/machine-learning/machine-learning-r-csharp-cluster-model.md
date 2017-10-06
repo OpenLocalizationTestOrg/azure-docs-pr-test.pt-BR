@@ -1,5 +1,5 @@
 ---
-title: (preterido) Modelo de cluster - Azure | Microsoft Docs
+title: AAA(deprecated) modelo de Cluster - Azure | Microsoft Docs
 description: (preterido) Modelo de cluster
 services: machine-learning
 documentationcenter: 
@@ -16,42 +16,42 @@ ms.date: 01/06/2017
 ms.author: lazzeri
 ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-redirect_document_id: TRUE
-ms.openlocfilehash: 7cbbbd6d4236dab638eb3051595a584557480841
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: 7b2dffb855a8d91114752b579115e97d07210e45
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deprecated-cluster-model"></a>(preterido) Modelo de cluster
 
 > [!NOTE]
-> O Microsoft DataMarket está sendo desativado e essa API foi preterida. 
+> Olá Microsoft DataMarket está sendo desativado e esta API foi preterida. 
 > 
-> Você pode encontrar muitos testes de exemplo úteis e APIs na [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com). Para saber mais sobre a Galeria, confira [Compartilhar e descobrir soluções na Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+> Você pode encontrar várias APIs e experiências de exemplo útil no hello [Cortana Intelligence galeria](http://gallery.cortanaintelligence.com). Para obter mais informações sobre Olá galeria, consulte [compartilhamento e descobrir recursos na Olá Cortana Intelligence galeria](machine-learning-gallery-how-to-use-contribute-publish.md).
 
-Como podemos prever grupos de titulares de cartão de crédito para reduzir o risco de cancelamento de uma dívida para os emissores de cartão de crédito? Como podemos definir grupos de traços de personalidade de funcionários para melhorar seu desempenho no trabalho? Como os médicos podem classificar pacientes em grupos com base nas características de suas doenças? A princípio, todas essas perguntas podem ser respondidas por meio da análise de cluster.   
+Como podemos prever grupos comportamentos dos sistema crédito em ordem tooreduce Olá custos off risco de emissores de cartão de crédito? Como pode podemos definir grupos de características de identificação de funcionários em ordem tooimprove seu desempenho no trabalho? Como o médicos podem classificar pacientes em grupos com base nas características de saudação do seus infecciosas? A princípio, todas essas perguntas podem ser respondidas por meio da análise de cluster.   
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-A análise de cluster classifica um conjunto de observações em dois ou mais grupos desconhecidos que se excluem mutuamente com base nas combinações de variáveis. O objetivo da análise de cluster é descobrir um sistema de organizar observações, geralmente as pessoas ou suas características, em grupos, em que os membros dos grupos compartilham de propriedades em comum. Esse [serviço](https://datamarket.azure.com/dataset/aml_labs/k_cluster_model) usa a metodologia de K-Means, uma técnica de clustering comumente usada, para agrupar dados arbitrários em grupos. Esse serviço Web usa os dados e o número de clusters k como entrada e produz previsões de a quais dos grupos k cada observação pertence. 
+A análise de cluster classifica um conjunto de observações em dois ou mais grupos desconhecidos que se excluem mutuamente com base nas combinações de variáveis. finalidade de saudação da análise de cluster é toodiscover um sistema de organizar observações, geralmente as pessoas ou suas características em grupos, onde os membros de grupos de saudação compartilham propriedades em comum. Isso [service](https://datamarket.azure.com/dataset/aml_labs/k_cluster_model) usa Olá metodologia de K-Means, uma técnica normalmente usada de clustering, dados arbitrários de toocluster em grupos. Esse serviço da web usa dados de saudação e número de saudação de k clusters como entrada e produz previsões que Olá k grupos toowhich cada observações pertence. 
 
-> Este serviço Web poderia ser consumido por usuários – potencialmente por meio de um aplicativo móvel, de um site ou até mesmo em um computador local, por exemplo. Mas a finalidade do serviço Web é também servir como um exemplo de como o Azure Machine Learning pode ser usado para criar serviços Web sobre o código R. Com apenas algumas linhas de código R e cliques de botão dentro do Azure Machine Learning Studio, um experimento pode ser criado com código R e publicado como um serviço Web. O serviço Web pode ser publicado no Azure Marketplace e consumido por dispositivos e usuários em todo o mundo – sem qualquer infraestrutura configurada pelo autor do serviço Web.  
+> Este serviço Web poderia ser consumido por usuários – potencialmente por meio de um aplicativo móvel, de um site ou até mesmo em um computador local, por exemplo. Mas finalidade de saudação do serviço web de saudação também é tooserve como um exemplo de como o aprendizado de máquina do Azure pode ser usado toocreate os serviços da web sobre o código R. Com apenas algumas linhas de código R e cliques de botão dentro do Azure Machine Learning Studio, um experimento pode ser criado com código R e publicado como um serviço Web. serviço web de saudação pode ser publicado toohello Azure Marketplace e consumido por usuários e dispositivos em Olá, mundo com nenhuma configuração de infraestrutura pelo autor de saudação do serviço web de saudação.  
 > 
 > 
 
 ## <a name="consumption-of-web-service"></a>Consumo do serviço Web
-Esse serviço Web agrupa os dados em um conjunto de grupos k e gera a atribuição de grupo para cada linha. O serviço Web espera que o usuário final insira seus dados como cadeias de caracteres em que as linhas são separadas por vírgula (,) e as colunas são separadas por ponto e vírgula (;). O serviço Web espera 1 linha por vez. Um conjunto de dados de exemplo poderia ser assim:
+Esse serviço da web agrupa dados saudação em um conjunto de k grupos e saídas Olá atribuição de grupo para cada linha. serviço web de saudação espera Olá tooinput dados como uma cadeia de caracteres em que linhas são separadas por vírgulas (,) e as colunas são separadas por ponto e vírgula (;). serviço web de saudação espera 1 linha por vez. Um conjunto de dados de exemplo poderia ser assim:
 
 ![Dados de amostra][1]
 
-Suponha que o usuário desejasse separar esses dados em três grupos que se excluam mutuamente. Os dados de entrada para o conjunto de dados acima seria o seguinte: value = “10;5;2,18;1;6,7;5;5,22;3;4,12;2;1,10;3;4”; k=”3”. A saída é a associação a um grupo prevista para cada uma das linhas.
+Suponha que Olá usuário quisesse tooseparate esses dados em grupos mutuamente 3. Olá dados de entrada para Olá acima de conjunto de dados seria a seguinte Olá: valor = "10; 5 2,18; 1; 6,7; 5; 5,22; 3; 4,12; 2; 1,10; 3; 4"; k = "3". saída de Hello é Olá associação de grupo previsto para cada uma das linhas de saudação.
 
-> Esse serviço, conforme hospedado no Azure Marketplace é um serviço OData; ele pode ser chamado por meio de métodos POST ou GET. 
+> Esse serviço, como hospedado em hello Azure Marketplace é um serviço OData; Esses podem ser chamados por meio de métodos POST ou GET. 
 > 
 > 
 
-Há várias maneiras de consumir o serviço de forma automática (os aplicativos de exemplo estão [aqui](http://microsoftazuremachinelearning.azurewebsites.net/ClusterModel.aspx)).
+Há várias maneiras de consumo de serviço de saudação de forma automática (um aplicativo de exemplo é [aqui](http://microsoftazuremachinelearning.azurewebsites.net/ClusterModel.aspx)).
 
 ### <a name="starting-c-code-for-web-service-consumption"></a>Iniciando o código C# para consumo de serviço Web:
     public class Input
@@ -85,23 +85,23 @@ Há várias maneiras de consumir o serviço de forma automática (os aplicativos
 
 
 ## <a name="creation-of-web-service"></a>Criação de serviço Web
-> Este serviço Web foi criado usando o Azure Machine Learning. Para obter uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de testes e [publicação de serviços Web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do teste que criou o serviço Web e o exemplo de código para cada um dos módulos dentro do teste.
+> Este serviço Web foi criado usando o Azure Machine Learning. Para obter uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de testes e [publicação de serviços Web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do experimento Olá que criou o código de exemplo e o serviço da web hello para cada um dos módulos Olá experimento hello.
 > 
 > 
 
-De dentro do Azure Machine Learning, um novo teste em branco foi criado e dois módulos [Executar Script R][execute-r-script] foram levados ao espaço de trabalho. O esquema de dados foi criado com um [Executar Script R][execute-r-script] simples. Em seguida, o esquema de dados foi vinculado à seção de modelo de cluster, criada novamente com um [Executar Script R][execute-r-script]. No [Executar Script R][execute-r-script] usado para o modelo de cluster, o serviço Web utiliza a função "k-means", que é predefinida no [Executar Script R][execute-r-script] do Machine Learning do Azure.    
+De dentro de aprendizado de máquina do Azure, uma nova experiência em branco foi criada e dois [Executar Script R] [ execute-r-script] extraída de módulos no espaço de trabalho de saudação. esquema de saudação de dados foi criada com um simples [Executar Script R][execute-r-script]. Em seguida, o esquema de dados Olá foi vinculado toohello do cluster modelo, criado novamente com um [Executar Script R][execute-r-script]. Em Olá [Executar Script R] [ execute-r-script] usado para o modelo de cluster Olá, serviço da web de saudação, em seguida, utiliza a função hello "k-means", que é predefinida no hello [Executar Script R] [ execute-r-script] de aprendizado de máquina do Azure.    
 
 ![Fluxo de teste][3]
 
 #### <a name="module-1"></a>Módulo 1:
-    #Enter the input data as a string 
+    #Enter hello input data as a string 
     mydata <- data.frame(value = "1; 3; 5; 6; 7; 7, 5; 5; 6; 7; 2; 1, 3; 7; 2; 9; 56; 6, 1; 4; 5; 26; 4; 23, 15; 35; 6; 7; 12; 1, 32; 51; 62; 7; 21; 1", k=5, stringsAsFactors=FALSE)
 
     maml.mapOutputPort("mydata");     
 
 
 #### <a name="module-2"></a>Módulo 2:
-    # Map 1-based optional input ports to variables
+    # Map 1-based optional input ports toovariables
     mydata <- maml.mapInputPort(1) # class: data.frame
 
     data.split <- strsplit(mydata[1,1], ",")[[1]]
@@ -122,15 +122,15 @@ De dentro do Azure Machine Learning, um novo teste em branco foi criado e dois m
     n_col=ncol(mydatafinal)
     colnames(mydatafinal) <- paste("V",1:n_col,sep="")
 
-    # Select data.frame to be sent to the output Dataset port
+    # Select data.frame toobe sent toohello output Dataset port
     maml.mapOutputPort("mydatafinal");
 
 
 ## <a name="limitations"></a>Limitações
-Este é um exemplo muito simples de um serviço Web de clustering. Como pode ser visto no código de exemplo acima, nenhuma captura de erro é implementada e o serviço pressupõe que tudo é uma variável contínua (nenhum recurso categórico é permitido), uma vez que o serviço apenas produz valores números no momento da criação do serviço Web. Além disso, atualmente o serviço lida com um tamanho de dados limitado, devido à natureza da solicitação/resposta da chamada do serviço Web e ao fato de que o modelo é ajustado sempre que o serviço Web é chamado. 
+Este é um exemplo muito simples de um serviço Web de clustering. Como pode ser visto no código de exemplo hello acima, nenhum erro capturando é implementado e Olá serviço considera tudo o que é uma variável contínua (não há recursos categóricos permitidos), como Olá serviço apenas entradas valores numéricos na Olá Olá criação desta Web serviço. Além disso, o serviço Olá atualmente lida com tamanho de dados limitada, devido a natureza de solicitação/resposta toohello do serviço web de saudação do fato de chamada e Olá Olá modelo está sendo ajustar sempre que o serviço web de saudação é chamado. 
 
 ## <a name="faq"></a>Perguntas frequentes
-Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publicação no Azure Marketplace, consulte [aqui](machine-learning-marketplace-faq.md).
+Para perguntas frequentes sobre o consumo do serviço web de saudação ou publicação toohello Azure Marketplace, consulte [aqui](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-cluster-model/cluster-img1.png
 [2]: ./media/machine-learning-r-csharp-cluster-model/cluster-img2.png

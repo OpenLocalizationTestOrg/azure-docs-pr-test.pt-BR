@@ -1,6 +1,6 @@
 ---
-title: "Matriz de suporte do Azure Site Recovery para replicação do Azure para o Azure | Microsoft Docs"
-description: "Resume os sistemas operacionais com suporte e as configurações de replicação do Azure Site Recovery de VMs (máquinas virtuais) do Azure de uma região para outra, de acordo com as necessidades de DR (recuperação de desastre)."
+title: "matriz de suporte a recuperação de Site para replicação do Azure tooAzure aaaAzure | Microsoft Docs"
+description: "Resume os sistemas operacionais de saudação com suporte e configurações de replicação do Azure Site Recovery de máquinas virtuais (VMs) do Azure de uma região tooanother para necessidades de recuperação de desastres."
 services: site-recovery
 documentationcenter: 
 author: sujayt
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/10/2017
 ms.author: sujayt
-ms.openlocfilehash: 482bcf08b1256e26e15f7093fda621da4fdd5344
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 75b2451b4c2069ca4b11deb0efe1329d43879eb8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matriz de suporte do Azure Site Recovery para replicação do Azure para o Azure
+# <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-tooazure"></a>Matriz de suporte do Azure Site Recovery para replicação do tooAzure do Azure
 
 
 >[!NOTE]
 >
 > Atualmente, a replicação do Site Recovery para máquinas virtuais do Azure está em versão prévia.
 
-Este artigo resume as configurações e os componentes com suporte no Azure Site Recovery ao replicar e recuperar máquinas virtuais do Azure de uma região para outra.
+Este artigo resume os componentes e configurações com suporte para o Azure Site Recovery Quando a replicação e a recuperação de máquinas virtuais do Azure da região de tooanother de uma região.
 
 ## <a name="user-interface-options"></a>Opções de interface do usuário
 
@@ -44,20 +44,20 @@ Este artigo resume as configurações e os componentes com suporte no Azure Site
 
 **Tipo de movimentação de recursos** | **Com suporte/Sem suporte** | **Comentários**  
 --- | --- | ---
-**Mover cofre entre grupos de recursos** | Sem suporte |Não é possível mover o cofre dos Serviços de Recuperação entre grupos de recursos.
-**Mover Computação, Armazenamento e Rede entre grupos de recursos** | Sem suporte |Se você mover uma máquina virtual (ou seus componentes associados, como armazenamento e rede) depois de habilitar a replicação, precisará desabilitar a replicação e habilitá-la novamente na máquina virtual.
+**Mover cofre entre grupos de recursos** | Sem suporte |Você não pode mover o Cofre de serviços de recuperação de saudação entre grupos de recursos.
+**Mover Computação, Armazenamento e Rede entre grupos de recursos** | Sem suporte |Se você mover uma máquina virtual (ou seus componentes associados, como armazenamento e rede) depois de habilitar a replicação, você precisa de replicação toodisable e habilitar a replicação da máquina virtual de saudação novamente.
 
 
 ## <a name="support-for-deployment-models"></a>Suporte para modelos de implantação
 
 **Modelo de implantação** | **Com suporte/Sem suporte** | **Comentários**  
 --- | --- | ---
-**Clássico** | Suportado | É possível replicar apenas uma máquina virtual clássica e recuperá-la como uma máquina virtual clássica. Não é possível recuperá-la como uma máquina de virtual do Resource Manager. Se você implantar uma VM clássica sem uma rede virtual e diretamente em uma região do Azure, não haverá suporte para essa opção.
+**Clássico** | Suportado | É possível replicar apenas uma máquina virtual clássica e recuperá-la como uma máquina virtual clássica. Não é possível recuperá-la como uma máquina de virtual do Resource Manager. Se você implantar uma VM clássica sem uma rede virtual e diretamente tooan região do Azure, não há suporte.
 **Gerenciador de Recursos** | Suportado |
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Suporte para versões do SO do computador replicado
 
-O suporte abaixo é aplicável a qualquer carga de trabalho em execução no sistema operacional mencionado.
+Olá abaixo suporte é aplicável para qualquer carga de trabalho em execução no hello mencionado o sistema operacional.
 
 #### <a name="windows"></a>Windows
 
@@ -76,20 +76,20 @@ O suporte abaixo é aplicável a qualquer carga de trabalho em execução no sis
 - CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2, 7.3
 - Ubuntu 14.04 LTS Server [ (versões de kernel com suporte)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS Server [ (versões de kernel com suporte)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
-- Oracle Enterprise Linux 6.4, 6.5 que executa o kernel compatível com Red Hat ou o UEK3 (Unbreakable Enterprise Kernel Versão 3)
+- Oracle Enterprise Linux 6.4, 6.5 executando o kernel compatível do Red Hat hello ou inviolável Enterprise Kernel versão 3 (UEK3)
 - SUSE Linux Enterprise Server 11 SP3
 
 >[!NOTE]
 >
-> A autenticação baseada em senha e logon pode ser desabilitada no failover em servidores Ubuntu que a utilizam junto com o pacote cloud-init para configurar máquinas virtuais de nuvem, pode ter o logon baseado em senha desabilitado no failover (dependendo da configuração de cloudinit). O logon baseado em senha pode ser reabilitado na máquina virtual redefinindo a senha no menu configurações (na seção SUPORTE + SOLUÇÃO DE PROBLEMAS) da máquina virtual de failover no Portal do Azure.
+> Ubuntu servidores usando a senha com base em autenticação e logon, e usar máquinas de virtuais de nuvem Olá nuvem init pacote tooconfigure, pode ter senha logon desabilitada após o failover (dependendo da configuração de cloudinit hello.) Logon baseada em senha pode ser habilitada novamente na máquina virtual de saudação redefinindo a senha de saudação no menu de configurações de saudação (em Olá suporte + seção solução de problemas) do hello failover da máquina virtual no portal do Azure de saudação.
 
 ### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versões com suporte do kernel Ubuntu para máquinas virtuais do Azure
 
 **Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
-14.04 LTS | 9.9 | 3.13.0-24-Generic para 3.13.0-117-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic para 4.4.0-75-generic |
-14.04 LTS | 9.10 | 3.13.0-24-generic a 3.13.0-121-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-81-generic |
-16.04 LTS | 9.10 | 4.4.0-21-generic a 4.4.0-81-generic,<br/>4.8.0-34-generic a 4.8.0-56-generic,<br/>4.10.0-14-generic a 4.10.0-24-generic |
+14.04 LTS | 9.9 | 3.13.0-24-Generic too3.13.0-117-genérico<br/>3.16.0-25-Generic too3.16.0-77-genérico<br/>3.19.0-18-Generic too3.19.0-80-genérico<br/>4.2.0-18-Generic too4.2.0-42-genérico<br/>4.4.0-21-Generic too4.4.0 75 genérico |
+14.04 LTS | 9.10 | 3.13.0-24-Generic too3.13.0 121-genérico,<br/>3.16.0-25-Generic too3.16.0-77-genérico<br/>3.19.0-18-Generic too3.19.0-80-genérico<br/>4.2.0-18-Generic too4.2.0-42-genérico<br/>4.4.0-21-Generic too4.4.0 81 genérico |
+16.04 LTS | 9.10 | 4.4.0-21-Generic too4.4.0-81-genérico<br/>4.8.0-34-Generic too4.8.0-56-genérico<br/>4.10.0-14-Generic too4.10.0 24 genérico |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Sistemas de arquivos com suporte e configurações de armazenamento de convidado em máquinas virtuais do Azure que executam o sistema operacional Linux
 
@@ -99,7 +99,7 @@ O suporte abaixo é aplicável a qualquer carga de trabalho em execução no sis
 
 ## <a name="region-support"></a>Suporte de regiões
 
-É possível replicar e recuperar VMs entre duas regiões quaisquer dentro do mesmo cluster geográfico.
+Você pode replicar e recuperar VMs entre quaisquer duas regiões dentro de saudação mesmo cluster geográfico.
 
 **Cluster geográfico** | **Regiões do Azure**
 -- | --
@@ -110,39 +110,39 @@ Austrália   | Leste da Austrália, Sudeste da Austrália
 
 >[!NOTE]
 >
-> Para a região Sul do Brasil, é possível apenas replicar e fazer failover para uma das regiões Centro-Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2 e Centro-Norte dos EUA e fazer failback.
+> Para região Sul do Brasil, você só pode replicar e fazer failover tooone do Centro Sul dos EUA, oeste centro dos EUA, Leste dos EUA, Leste dos EUA 2, oeste dos EUA, oeste dos EUA 2 e regiões Centro Norte dos EUA e falha.
 
 
 ## <a name="support-for-compute-configuration"></a>Suporte para configuração de Computação
 
 **Configuração** | **Com suporte/Sem suporte** | **Comentários**
 --- | --- | ---
-Tamanho | Qualquer tamanho de VM do Azure com, no mínimo, 2 núcleos de CPU e 1 GB de RAM | Consulte [Tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md)
-Conjuntos de disponibilidade | Suportado | Se você usar a opção padrão durante a etapa “Habilitar replicação” no portal, o conjunto de disponibilidade será automaticamente criado de acordo com a configuração da região de origem. Altere o conjunto de disponibilidade de destino definido em “Item replicado > Configurações > Computação e Rede > Conjunto de disponibilidade” a qualquer momento.
-VMs do HUB (Benefício de Uso Híbrido) | Suportado | Se a VM de origem tiver a licença do HUB habilitada, a VM de Failover de teste ou de Failover também usará a licença do HUB.
+Tamanho | Qualquer tamanho de VM do Azure com, no mínimo, 2 núcleos de CPU e 1 GB de RAM | Consulte também[tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md)
+Conjuntos de disponibilidade | Suportado | Se você usar a opção padrão de saudação durante a etapa 'Habilitar replicação' no portal, o conjunto de disponibilidade de saudação é automaticamente criado com base na configuração de região de origem. Você pode alterar a disponibilidade de destino Olá definida ' item replicadas > Configurações > computação e rede > conjunto de disponibilidade ' qualquer momento.
+VMs do HUB (Benefício de Uso Híbrido) | Suportado | Se a VM de origem Olá tem licença HUB habilitada, Olá failover de teste ou Failover de VM também usa licenças HUB hello.
 conjuntos de escala de máquina virtual | Sem suporte |
-Imagens da Galeria do Azure – publicadas pela Microsoft | Suportado | Com suporte, desde que a VM seja executada em um sistema operacional com suporte pelo Site Recovery
-Imagens da Galeria do Azure – publicadas por terceiros | Suportado | Com suporte, desde que a VM seja executada em um sistema operacional com suporte pelo Site Recovery.
-Imagens personalizadas – publicadas por terceiros | Suportado | Com suporte, desde que a VM seja executada em um sistema operacional com suporte pelo Site Recovery.
-VMs migradas com o Site Recovery | Suportado | Se ela for um computador Físico/VMware migrado para o Azure com o Site Recovery, você precisará desinstalar a versão mais antiga do serviço de mobilidade e reiniciar o computador antes de replicá-lo para outra região do Azure.
+Imagens da Galeria do Azure – publicadas pela Microsoft | Suportado | Suporte contanto que Olá VM é executado em um sistema operacional suportado pela recuperação de Site
+Imagens da Galeria do Azure – publicadas por terceiros | Suportado | Suporte como Olá VM é executado em um sistema operacional suportado pela recuperação de Site.
+Imagens personalizadas – publicadas por terceiros | Suportado | Suporte como Olá VM é executado em um sistema operacional suportado pela recuperação de Site.
+VMs migradas com o Site Recovery | Suportado | Se ele é migrado de uma máquina VMware/físicos tooAzure com a recuperação de Site, você precisa toouninstall hello mais antiga versão do serviço de mobilidade e reiniciar a máquina de saudação antes de replicar o tooanother região do Azure.
 
 ## <a name="support-for-storage-configuration"></a>Suporte para configuração de Armazenamento
 
 **Configuração** | **Com suporte/Sem suporte** | **Comentários**
 --- | --- | ---
-Tamanho máximo do disco do sistema operacional | 1023 GB | Consulte [Discos usados pelas VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
-Tamanho máximo do disco de dados | 1023 GB | Consulte [Discos usados pelas VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
-Número de discos de dados | Até 64, com suporte em um tamanho específico de VM do Azure | Consulte [Tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md)
-Disco temporário | Sempre excluído da replicação | O disco temporário sempre é excluído da replicação. Você não deve colocar nenhum dado persistente no disco temporário, de acordo com as diretrizes do Azure. Consulte [Disco temporário em VMs do Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) para obter mais detalhes.
-Taxa de alteração de dados no disco | Máximo de 6 MBps por disco | Se a taxa média de alteração de dados no disco estiver acima de 6 MBps de forma contínua, a replicação não será atualizada. No entanto, se essa for uma intermitência de dados ocasional e a taxa de alteração de dados for maior que 6 MBps por algum tempo e ficar inoperante, a replicação será atualizada. Nesse caso, talvez você veja os pontos de recuperação um pouco atrasados.
+Tamanho máximo do disco do sistema operacional | 1023 GB | Consulte também[discos usados por máquinas virtuais.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+Tamanho máximo do disco de dados | 1023 GB | Consulte também[discos usados por máquinas virtuais.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+Número de discos de dados | Até 64, com suporte em um tamanho específico de VM do Azure | Consulte também[tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md)
+Disco temporário | Sempre excluído da replicação | O disco temporário sempre é excluído da replicação. Você não deve colocar nenhum dado persistente no disco temporário, de acordo com as diretrizes do Azure. Consulte também[em disco temporário em VMs do Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) para obter mais detalhes.
+Taxa de disco de saudação de alteração de dados | Máximo de 6 MBps por disco | Se a taxa de alteração de dados de média de saudação em disco hello está além 6 MBps continuamente, a replicação não será atualizado. No entanto, se for uma intermitência de dados ocasionais e Olá taxa de alteração de dados é maior que 6 MBps por algum tempo e resume, a replicação será atualizado. Nesse caso, talvez você veja os pontos de recuperação um pouco atrasados.
 Discos em contas de armazenamento Standard | Suportado |
-Discos em contas de armazenamento Premium | Suportado | Se uma VM tiver discos distribuídos em contas de armazenamento Standard e Premium, você poderá selecionar uma conta de armazenamento de destino diferente para cada disco, a fim de garantir que você tem a mesma configuração de armazenamento na região de destino
+Discos em contas de armazenamento Premium | Suportado | Se uma VM tem discos distribuídos em contas de armazenamento standard e premium, você pode selecionar uma conta de armazenamento de destino diferente para cada disco tooensure tiver Olá a mesma configuração de armazenamento na região de destino
 Managed Disks Standard | Sem suporte |  
 Managed Disks Premium | Sem suporte |
 Espaços de armazenamento | Suportado |         
 Criptografia em repouso (SSE) | Suportado | Para contas de armazenamento de cache e de destino, você pode selecionar uma conta de armazenamento habilitada para SSE.     
 ADE (Azure Disk Encryption) | Sem suporte |
-Adição/remoção de disco a quente | Sem suporte | Se você adicionar ou remover um disco de dados da VM, precisará desabilitar a replicação e habilitá-la novamente na VM.
+Adição/remoção de disco a quente | Sem suporte | Se você adicionar ou remove discos de dados em Olá VM, você precisa de replicação toodisable e habilitar a replicação novamente para Olá VM.
 Exclusão de disco | Sem suporte|   O disco temporário é excluído por padrão.
 LRS | Suportado |
 GRS | Suportado |
@@ -151,27 +151,27 @@ ZRS | Sem suporte |
 Armazenamento Frio e Quente | Sem suporte | Não há suporte para discos de máquina virtual no armazenamento frio e quente
 
 >[!IMPORTANT]
-> Siga as [diretrizes de armazenamento](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) para as máquinas virtuais de origem do Azure para evitar problemas de desempenho. Se você seguir as configurações padrão, o Site Recovery criará as contas de armazenamento necessárias com base na configuração de fonte. Caso você personalize e selecione suas próprias configurações, siga o (../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) como as VMs de origem.
+> Certifique-se de que você siga Olá [diretrizes de armazenamento](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) para sua fonte de virtual do Azure máquinas tooavoid eventuais problemas de desempenho. Se você seguir as configurações padrão de saudação, recuperação de Site criará contas de armazenamento Olá necessárias com base na configuração de fonte de saudação. Se você personalizar e selecione suas próprias configurações, certifique-se de seguir hello (... / storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) como a fonte de VMs.
 
 ## <a name="support-for-network-configuration"></a>Suporte para configuração de Rede
 **Configuração** | **Com suporte/Sem suporte** | **Comentários**
 --- | --- | ---
-NIC (adaptador de rede) | Até o número máximo de NICs com suporte em um tamanho específico de VM do Azure | As NICs são criadas quando a VM é criada como parte de uma operação de Failover de teste ou de Failover. O número de NICs na VM de failover depende do número de NICs que a VM de origem tem no momento da habilitação da replicação. Se você adicionar ou remover uma NIC depois de habilitar a replicação, isso não afetará a contagem de NICs na VM de failover.
-Balanceador de Carga de Internet | Suportado | Você precisa associar o balanceador de carga pré-configurado usando um script de automação do Azure em um plano de recuperação.
-Balanceador de carga interno | Suportado | Você precisa associar o balanceador de carga pré-configurado usando um script de automação do Azure em um plano de recuperação.
-IP público| Suportado | Você precisa associar um IP público já existente a NIC ou criar um e associá-lo a NIC usando um script de automação do Azure em um plano de recuperação.
-NSG na NIC (Resource Manager)| Suportado | Você precisa associar o NSG a NIC usando um script de automação do Azure em um plano de recuperação.  
-NSG na sub-rede (Resource Manager e Clássico)| Suportado | Você precisa associar o NSG a NIC usando um script de automação do Azure em um plano de recuperação.
-NSG na VM (Clássico)| Suportado | Você precisa associar o NSG a NIC usando um script de automação do Azure em um plano de recuperação.
-IP Reservado (IP Estático)/Reter o IP de origem | Suportado | Se a NIC da VM de origem tiver a configuração de IP estático e a sub-rede de destino tiver o mesmo IP disponível, ela será atribuída à VM de failover. Se a sub-rede de destino não tiver o mesmo IP disponível, um dos IPs disponíveis na sub-rede será reservado para essa VM. Você pode especificar um IP fixo de sua escolha em “Item replicado > Configurações > Computação e Rede > Adaptadores de rede”. Você pode selecionar a NIC e especificar a sub-rede e o IP de sua escolha.
-IP Dinâmico| Suportado | Se a NIC da VM de origem tiver a configuração de IP dinâmico, a NIC da VM de failover também será Dinâmica por padrão. Você pode especificar um IP fixo de sua escolha em “Item replicado > Configurações > Computação e Rede > Adaptadores de rede”. Você pode selecionar a NIC e especificar a sub-rede e o IP de sua escolha.
-Integração do Gerenciador de Tráfego | Suportado | Você pode pré-configurar o Gerenciador de Tráfego de tal forma que o tráfego seja encaminhado para o ponto de extremidade na região de origem com regularidade e para o ponto de extremidade na região de destino em caso de failover.
+NIC (adaptador de rede) | Até o número máximo de NICs com suporte em um tamanho específico de VM do Azure | NICs são criados quando Olá VM é criado como parte da operação de Failover ou failover de teste. Olá número de NICs em failover Olá que VM depende do número Olá da fonte de saudação NICs de que VM tem no tempo de saudação de habilitação da replicação. Se você adicionar ou remover NIC depois de habilitar a replicação, ele não afeta contagem NIC Olá failover da VM.
+Balanceador de Carga de Internet | Suportado | Você precisa tooassociate Olá pré-configurado balanceador de carga usando um script de automação do azure em um plano de recuperação.
+Balanceador de carga interno | Suportado | Você precisa tooassociate Olá pré-configurado balanceador de carga usando um script de automação do azure em um plano de recuperação.
+IP público| Suportado | Necessário tooassociate um toohello IP público NIC já existente ou crie um e associar toohello NIC usando um script de automação do azure em um plano de recuperação.
+NSG na NIC (Resource Manager)| Suportado | É necessário tooassociate Olá NSG toohello NIC usando um script de automação do azure em um plano de recuperação.  
+NSG na sub-rede (Resource Manager e Clássico)| Suportado | É necessário tooassociate Olá NSG toohello NIC usando um script de automação do azure em um plano de recuperação.
+NSG na VM (Clássico)| Suportado | É necessário tooassociate Olá NSG toohello NIC usando um script de automação do azure em um plano de recuperação.
+IP Reservado (IP Estático)/Reter o IP de origem | Suportado | Se Olá NIC na VM de origem Olá configuração de IP estático e a sub-rede de destino Olá tem Olá mesmo IP disponível, ele está atribuído toohello failover VM. Se a sub-rede de destino Olá não tem Olá mesmo IP disponível, um dos Olá IPs disponíveis na sub-rede Olá será reservada para essa VM. Você pode especificar um IP fixo de sua escolha em “Item replicado > Configurações > Computação e Rede > Adaptadores de rede”. Você pode selecionar Olá NIC e especificar sub-rede hello e IP de sua escolha.
+IP Dinâmico| Suportado | Se Olá NIC na VM de origem Olá configuração de IP dinâmico Olá NIC Olá failover VM também é dinâmico por padrão. Você pode especificar um IP fixo de sua escolha em “Item replicado > Configurações > Computação e Rede > Adaptadores de rede”. Você pode selecionar Olá NIC e especificar sub-rede hello e IP de sua escolha.
+Integração do Gerenciador de Tráfego | Suportado | Você pode pré-configurar o Gerenciador de tráfego de forma que o tráfego de Olá é o ponto de extremidade roteados toohello na região de origem em um ponto de extremidade regular base e toohello na região de destino no caso de failover.
 DNS gerenciado do Azure | Suportado |
 DNS Personalizado  | Suportado |    
-Proxy não autenticado | Suportado | Consulte o [documento de diretrizes de rede.](site-recovery-azure-to-azure-networking-guidance.md)    
-Proxy autenticado | Sem suporte | Se a VM estiver usando um proxy autenticado para a conectividade de saída, ela não poderá ser replicada com o Azure Site Recovery.    
-VPN Site a Site com local (com ou sem o ExpressRoute)| Suportado | Verifique se as UDRs e os NSGs são configurados de tal forma que o tráfego do Site Recovery não seja encaminhado para o local. Consulte o [documento de diretrizes de rede.](site-recovery-azure-to-azure-networking-guidance.md)  
-Conexão VNET a VNET | Suportado | Consulte o [documento de diretrizes de rede.](site-recovery-azure-to-azure-networking-guidance.md)  
+Proxy não autenticado | Suportado | Consulte também[documento de diretrizes de rede.](site-recovery-azure-to-azure-networking-guidance.md)    
+Proxy autenticado | Sem suporte | Se Olá VM estiver usando um proxy autenticado para conectividade de saída, ela não pode ser replicada usando o Azure Site Recovery.  
+Site tooSite VPN com o local (com ou sem ExpressRoute)| Suportado | Certifique-se de que UDRs hello e NSGs estão configurados de forma tráfego Olá de recuperação de Site não é roteado tooon local. Consulte também[documento de diretrizes de rede.](site-recovery-azure-to-azure-networking-guidance.md)  
+Conexão de tooVNET de rede virtual | Suportado | Consulte também[documento de diretrizes de rede.](site-recovery-azure-to-azure-networking-guidance.md)  
 
 
 ## <a name="next-steps"></a>Próximas etapas

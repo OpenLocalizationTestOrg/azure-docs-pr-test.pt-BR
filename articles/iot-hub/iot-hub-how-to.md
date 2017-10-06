@@ -1,6 +1,6 @@
 ---
-title: "Instruções para o Hub IoT do Azure | Microsoft Docs"
-description: "Como desenvolvedor, como usar os vários recursos do Hub IoT?"
+title: aaaAzure IoT Hub como muito | Microsoft Docs
+description: "Como desenvolvedor, como usar o hello vários recursos de IoT Hub?"
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 786121ae249d69376b4be4c74000868cbb208989
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d9c6e25bb332704dee4327bcdc361a299c064130
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-azure-iot-hub"></a>Como usar o Hub IoT do Azure
+# <a name="how-toouse-azure-iot-hub"></a>Como toouse Azure IoT Hub
 
-Você tem várias opções para aprender a desenvolver para o serviço do Hub IoT:
+Você tem várias toolearn opções como toodevelop para Olá IoT Hub de serviço:
 
-* Leia os artigos conceituais que descrevem os recursos do Hub IoT em detalhes.
-* Siga um dos tutoriais que abordam os vários recursos do Hub IoT.
+* Leitura Olá conceituais artigos que descrevem os recursos de saudação do IoT Hub em detalhes.
+* Siga um dos tutoriais Olá que abrangem Olá vários recursos do IoT Hub.
 
 ## <a name="developer-guide"></a>Guia do desenvolvedor
 
-Como desenvolvedor, você pode ler diretrizes conceituais detalhadas sobre o Hub IoT no [Guia do Desenvolvedor][lnk-devguide]. Este guia inclui os seguintes tópicos:
+Como desenvolvedor, você pode ler diretrizes conceituais detalhadas sobre IoT Hub em Olá [guia desenvolvedor][lnk-devguide]. Este guia inclui os seguintes tópicos:
 
-* Descrições detalhadas de todos os recursos de Hub IoT que ajudam você a aprender a usá-los.
-* Orientação sobre como escolher caso várias opções estejam disponíveis.
+* Obter descrições de todos os recursos de IoT Hub ajudarão-lo a toolearn como toouse-los.
+* Orientação sobre como toochoose quando várias opções estão disponíveis.
 
 ## <a name="tutorials"></a>Tutoriais
 
-Se você prefere aprender sobre recursos específicos do Hub IoT trabalhando em exercícios práticos, há vários tutoriais para escolher. Muitos desses tutoriais estão disponíveis em várias linguagens de programação. Os tutoriais incluem:
+Se você preferir toolearn sobre os recursos específicos do IoT Hub trabalhando exercícios práticos, há vários toochoose tutoriais do. Muitos desses tutoriais estão disponíveis em várias linguagens de programação. Os tutoriais incluem:
 
-- [Processar mensagens do dispositivo para nuvem do Hub IoT usando rotas][lnk-routes-tutorial]. Este tutorial mostra como usar regras de roteamento do Hub IoT para enviar mensagens de dispositivo à nuvem de maneira fácil, com base em configuração.
+- [Processar mensagens do dispositivo para nuvem do Hub IoT usando rotas][lnk-routes-tutorial]. Este tutorial mostra como roteamento de Hub IoT toouse as regras de mensagens de dispositivo para nuvem toodispatch de forma fácil, com base em configuração.
 
-- [Enviar mensagens da nuvem para o dispositivo com o Hub IoT][lnk-c2d-tutorial]. Este tutorial mostra como enviar mensagens de nuvem ao dispositivo por meio do Hub IoT e receber mensagens da nuvem para um dispositivo.
+- [Enviar mensagens da nuvem para o dispositivo com o Hub IoT][lnk-c2d-tutorial]. Este tutorial mostra como a nuvem para dispositivo toosend mensagens pelo IoT Hub e receber mensagens de nuvem para dispositivo em um dispositivo.
 
-- [Carregar arquivos de dispositivos para a nuvem com o Hub IoT][lnk-upload-tutorial]. Este tutorial mostra como usar os recursos de carregamento de arquivo do Hub IoT.
+- [Carregar arquivos da nuvem de toohello de dispositivos com o IoT Hub][lnk-upload-tutorial]. Este tutorial mostra como arquivo de saudação toouse carregar recursos do IoT Hub.
 
-- [Introdução a dispositivos gêmeos][lnk-twin-tutorial]. Este tutorial apresenta gêmeos de dispositivos, propriedades relatadas, propriedades desejadas e marcas. Você usa gêmeos de dispositivo para sincronizar valores com os dispositivos.
+- [Introdução a dispositivos gêmeos][lnk-twin-tutorial]. Este tutorial apresenta toodevice twins, propriedades relatadas, propriedades desejadas e marcas. Você pode usar valores do dispositivo twins toosynchronize com seus dispositivos.
 
-- [Usar métodos diretos][lnk-methods-tutorial]. Este tutorial mostra como usar métodos diretos. Você adiciona um manipulador a um método direto no dispositivo simulado e invoca o método direto do Hub IoT.
+- [Usar métodos diretos][lnk-methods-tutorial]. Este tutorial mostra como toouse direto métodos. Adicionar um manipulador para um método direto no seu dispositivo simulado e invocar o método direto de saudação do IoT Hub.
 
-- [Introdução ao gerenciamento de dispositivos][lnk-dm-tutorial]. Este tutorial mostra como usar recursos-chave de gerenciamento de dispositivos, como gêmeos e métodos diretos. Você pode usar esses recursos para reinicializar remotamente seu dispositivo simulado.
+- [Introdução ao gerenciamento de dispositivos][lnk-dm-tutorial]. Este tutorial mostra como os recursos de gerenciamento de dispositivo chave toouse como twins e métodos diretos. Você usa seu dispositivo simulado reinicialização de tooremotely esses recursos.
 
-- [Usar as propriedades desejadas para configurar os dispositivos][lnk-properties-tutorial]. Este tutorial mostra como usar as propriedades desejadas e relatadas do dispositivo gêmeo para configurar o dispositivo remotamente.
+- [Usar propriedades desejadas tooconfigure dispositivos][lnk-properties-tutorial]. Este tutorial mostra como do duas do toouse Olá dispositivo desejado e relatado propriedades, tooremotely configurar seu dispositivo.
 
-- [Usar trabalhos de dispositivo para iniciar uma atualização de firmware do dispositivo][lnk-jobs-tutorial]. Este tutorial mostra como usar recursos-chave de gerenciamento de dispositivos, como gêmeos e métodos diretos. Você aprenderá a usar esses recursos para atualizar o firmware do dispositivo remotamente.
+- [Usar dispositivo trabalhos tooinitiate uma atualização de firmware do dispositivo][lnk-jobs-tutorial]. Este tutorial mostra como os recursos de gerenciamento de dispositivo chave toouse como twins e métodos diretos. Você aprenderá como toouse tooremotely esses recursos atualizar firmware do dispositivo.
 
-- [Agendar e transmitir trabalhos][lnk-schedule-tutorial]. Este tutorial mostra como usar propriedades desejadas e métodos diretos para interagir com vários dispositivos em um horário agendado.
+- [Agendar e transmitir trabalhos][lnk-schedule-tutorial]. Este tutorial mostra como toouse desejado propriedades e métodos diretos toointeract com vários dispositivos em um horário agendado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o serviço do Hub IoT, confira o [Guia do Desenvolvedor][lnk-devguide].
+toolearn mais sobre Olá serviço de IoT Hub, consulte Olá [guia desenvolvedor][lnk-devguide].
 
 [lnk-devguide]: ./iot-hub-devguide.md
 [lnk-routes-tutorial]: ./iot-hub-csharp-csharp-process-d2c.md

@@ -1,5 +1,5 @@
 ---
-title: "Automação da implantação de aplicativos com extensões de máquina virtual | Microsoft Docs"
+title: "Implantação de aplicativo com extensões de máquina Virtual de aaaAutomating | Microsoft Docs"
 description: "Tutorial principal de DotNet da máquina virtual do Azure"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,22 +16,22 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2996eef71b39c6240fac5484854f72d3e657d0f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6d52537fbd4e935f19d3864def11484f519f8598
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="application-deployment-with-azure-resource-manager-templates-for-windows-vms"></a>Implantação de aplicativos com modelos do Azure Resource Manager para VMs Windows
 
-Depois que todos os requisitos de infraestrutura do Azure foram identificados e convertidos em um modelo de implantação, a implantação real do aplicativo precisa ser resolvida. Implantação de aplicativo aqui se refere a instalar os binários do aplicativo real nos recursos do Azure. Para o exemplo de Loja de Música, o .Net Core e o IIS precisam ser instalados e configurados em cada máquina virtual. Os binários da Loja de Música precisam ser instalados na máquina virtual e o banco de dados da Loja de Música criado previamente.
+Depois que todos os requisitos de infra-estrutura do Azure foram identificados e convertidos em um modelo de implantação, implantação de aplicativo real Olá precisa toobe resolvido. Implantação de aplicativo aqui se refere a tooinstalling Olá real binários em recursos do Azure. Para exemplo de repositório de música hello, .net Core e o IIS precisa toobe instalado e configurado em cada máquina virtual. Olá binários necessário toobe instalado na máquina virtual de saudação do repositório de música e Olá banco de dados do repositório de música criado previamente.
 
-Este documento detalha como extensões de Máquina Virtual podem automatizar a implantação de aplicativos e configuração de máquinas virtuais do Azure. Todas as dependências e configurações exclusivas são realçadas. Para obter a melhor experiência, pré-implante uma instância da solução em sua assinatura do Azure e trabalhe com o modelo do Azure Resource Manager. O modelo completo pode ser encontrado aqui – [Implantação de Loja de Música no Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
+Este documento detalha como extensões de máquina Virtual podem automatizar máquinas de virtuais de tooAzure de implantação e configuração de aplicativo. Todas as dependências e configurações exclusivas são realçadas. Para melhor experiência de hello, pré-implante uma instância do hello solução tooyour assinatura do Azure e trabalha junto com o modelo do Azure Resource Manager hello. modelo completo Olá pode ser encontrado aqui – [implantação de repositório de música no Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
 ## <a name="configuration-script"></a>Script de configuração
-Extensões de máquina virtual são programas especializados executadas em máquinas virtuais para fornecer automação da configuração. As extensões estão disponíveis para várias finalidades específicas, como antivírus, configuração de registro e configuração do Docker. A extensão de Script personalizado pode ser usada para executar qualquer script em uma máquina virtual. Com o exemplo de Loja de Música, cabe à extensão de script personalizado configurar as máquinas virtuais do Windows e instalar o aplicativo de Loja de Música.
+Extensões de máquina virtual são programas especializados que são executadas em automação de configuração de tooprovide de máquinas virtuais. As extensões estão disponíveis para várias finalidades específicas, como antivírus, configuração de registro e configuração do Docker. Olá extensão de Script personalizado pode ser usado toorun os scripts em uma máquina virtual. Com exemplo de repositório de música hello, é a extensão de script personalizado de toohello tooconfigure máquinas de virtuais do Windows de saudação e instalar o aplicativo de repositório de música hello.
 
-Antes de detalhar como extensões de máquina virtual são declaradas em um modelo do Azure Resource Manager, examine o script que é executado. Esse script configura a máquina virtual do Windows para hospedar o aplicativo de Loja de Música. Quando executado, o script instala todo software necessário, instala o aplicativo de Loja de Música do controle do código-fonte e prepara o banco de dados. 
+Antes de Detalhar como extensões de máquina virtual são declaradas em um modelo do Azure Resource Manager, examine o script hello que é executado. Esse script configura Olá Windows máquina virtual toohost Olá aplicativo de repositório de música. Quando executado, o script de Olá instala o software necessário todos os, instalar o aplicativo de repositório de música de saudação do controle de origem e preparar o banco de dados de saudação. 
 
 > Este exemplo é para fins de demonstração.
 
@@ -84,11 +84,11 @@ New-Website -Name "MusicStore" -Port 80 -PhysicalPath C:\music\ -ApplicationPool
 ```
 
 ## <a name="vm-script-extension"></a>Extensão de script da VM
-Extensões de VM podem ser executadas em uma máquina virtual no momento do build incluindo o recurso de extensão no modelo do Azure Resource Manager. A extensão pode ser adicionada usando o Assistente para Adicionar Recursos do Visual Studio ou inserindo JSON válido no modelo. O recurso de extensão do script é aninhado dentro do recurso de máquina virtual; isso pode ser visto no exemplo a seguir.
+Extensões de VM pode ser executadas em uma máquina virtual no momento da compilação, incluindo o recurso de extensão Olá no modelo do Azure Resource Manager hello. extensão de saudação pode ser adicionado com o Assistente do Visual Studio adicionar recurso hello, ou inserindo um JSON válido no modelo de saudação. Olá recursos de extensão do Script está aninhado em Olá recurso de máquina Virtual. Isso pode ser visto no exemplo a seguir de saudação.
 
-Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Extensão de script da VM](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L339). 
+Siga este exemplo JSON do link toosee Olá no modelo do Gerenciador de recursos de hello – [extensão do Script VM](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L339). 
 
-Observe que no JSON a seguir o script é armazenado no GitHub. Esse script também pode ser armazenado no Armazenamento de Blobs do Azure. Além disso, os modelos do Azure Resource Manager permitem a criação da cadeia de caracteres de execução de script de forma que os valores de parâmetros de modelo podem ser usados como parâmetros para execução de script. Nesse caso, os dados são fornecidos ao implantar os modelos e, em seguida, esses valores podem ser usados ao executar o script.
+Observe Olá abaixo JSON que Olá script é armazenado no GitHub. Esse script também pode ser armazenado no Armazenamento de Blobs do Azure. Além disso, os modelos de Gerenciador de recursos do Azure permitem Olá script execução cadeia de caracteres toobe construído de forma que os valores de parâmetros de modelo podem ser usados como parâmetros para a execução do script. Nesse caso os dados são fornecidos ao implantar modelos Olá, e esses valores, em seguida, podem ser usados ao executar o script hello.
 
 ```json
 {
@@ -120,11 +120,11 @@ Observe que no JSON a seguir o script é armazenado no GitHub. Esse script tamb�
 }
 ```
 
-Conforme mencionado acima, também é possível armazenar os scripts personalizados no armazenamento de Blobs do Azure. Há duas opções para armazenar os recursos de script no armazenamento de blobs: torne o contêiner/script público e siga a mesma abordagem acima ou mantenha-o no armazenamento de blobs privado, o que exige que você forneça o storageAccountName e a storageAccountKey para a definição de recurso CustomScriptExtension.
+Conforme mencionado acima, também é possível toostore scripts personalizados no armazenamento de BLOBs do Azure. Há duas opções para armazenar recursos de script hello no armazenamento de blob; tornar Olá público de contêiner/script e siga Olá mesma abordagem acima, ou também podem ser mantido no armazenamento de blob privada que exige que você tooprovide Olá storageAccountName e storageAccountKey toohello CustomScriptExtension definição de recurso.
 
-No exemplo abaixo, avançamos um pouco. Embora seja possível fornecer o nome da conta de armazenamento e a chave como um parâmetro ou uma variável durante a implantação, os modelos do Resource Manager fornecem a função `listKeys`, que pode obter a chave da conta de armazenamento de forma programática e inseri-la no modelo para você no momento da implantação.
+No exemplo hello abaixo é tenha sido uma etapa adicional. Embora seja possível tooprovide nome de conta de armazenamento de saudação e a chave como um parâmetro ou variável durante a implantação, os modelos de Gerenciador de recursos fornecem Olá `listKeys` função que pode obter a conta de armazenamento Olá chave programaticamente e inseri-lo em toohello modelo para você no momento da implantação.
 
-Na definição de recurso CustomScriptExtension de exemplo abaixo, nosso script personalizado já foi carregado em uma conta de armazenamento do Azure chamada `mystorageaccount9999`, que existe em outro Grupo de Recursos chamado `mysa999rgname`. Quando implantamos um modelo que contém esse recurso, a função `listKeys` obtém de forma programática a chave da conta de armazenamento `mystorageaccount9999` no Grupo de Recursos `mysa999rgname` e a insere no modelo para nós.
+No exemplo hello definição de recurso CustomScriptExtension abaixo, nosso script personalizado já foi carregado tooan conta de armazenamento do Azure chamado `mystorageaccount9999` que existe em outro grupo de recursos chamado `mysa999rgname`. Quando é implantar um modelo que contém esse recurso, Olá `listKeys` função programaticamente obtém a chave de conta de armazenamento Olá Olá conta de armazenamento `mystorageaccount9999` em Olá grupo de recursos `mysa999rgname` e o insere no modelo toohello para nós.
 
 ```json
 {
@@ -158,9 +158,9 @@ Na definição de recurso CustomScriptExtension de exemplo abaixo, nosso script 
 }
 ```
 
-A principal vantagem dessa abordagem é que ela não exige a alteração do modelo nem dos parâmetros de implantação, em caso de alteração na chave da conta de armazenamento.
+Olá principal vantagem dessa abordagem é que ele não requer que você toochange seu modelo ou parâmetros de implantação no evento de saudação do hello alterar chave de conta do armazenamento.
 
-Para obter mais informações sobre como usar a extensão de script personalizado, consulte [Extensões de script personalizado com modelos do Resource Manager](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para obter mais informações sobre como usar a extensão do script personalizado hello, consulte [extensões de script personalizado com modelos do Gerenciador de recursos](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-step"></a>Próxima etapa
 <hr>

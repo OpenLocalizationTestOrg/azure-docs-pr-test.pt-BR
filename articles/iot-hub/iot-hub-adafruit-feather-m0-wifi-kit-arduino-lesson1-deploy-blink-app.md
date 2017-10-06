@@ -1,6 +1,6 @@
 ---
-title: "Conectar o Arduino ao IoT do Azure - Lição 1: implantar aplicativo | Microsoft Docs"
-description: Clone o aplicativo Arduino de exemplo do GitHub e execute o gulp para implantar esse aplicativo no Adafruit Feather M0 WiFi. Este aplicativo de exemplo pisca o GPIO
+title: "Conecte-se Arduino tooAzure IoT - lição 1: implantar o aplicativo | Microsoft Docs"
+description: "Clonar um aplicativo de Arduino exemplo hello do GitHub e, em seguida, execute o gulp toodeploy tooyour esse aplicativo Adafruit difusão M0 WiFi. Este aplicativo de exemplo pisca Olá GPIO"
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,36 +17,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 4431808ac6182d194e841c087c8f89f1a12b1911
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5bf8e4ae88e070aeacf34bfc43b8d2daeeb1a2fa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-and-deploy-the-blink-application"></a>Criar e implantar o aplicativo de piscar
+# <a name="create-and-deploy-hello-blink-application"></a>Criar e implantar o aplicativo de intermitência hello
 ## <a name="what-you-will-do"></a>O que você fará
-Clonar o aplicativo Arduino de exemplo do GitHub e usar a ferramenta gulp para implantar esse aplicativo de exemplo na placa Adafruit Feather M0 WiFi Arduino. O aplicativo de exemplo pisca o LED conectado à placa no GPIO núm. 13 a cada dois segundos.
+Clonar um aplicativo de Arduino exemplo hello do GitHub e use Olá gulp ferramenta toodeploy Olá exemplo aplicativo tooyour Adafruit difusão M0 WiFi Arduino quadro. Olá exemplo aplicativo pisca Olá GPIO 13 barod LEVOU a cada dois segundos.
 
-Se você tiver problemas, procure por soluções na [página de solução de problemas][troubleshooting-page].
+Se você tiver problemas, procure por soluções em Olá [página de solução][troubleshooting-page].
 
 ## <a name="what-you-will-learn"></a>O que você aprenderá
-* Como implantar e executar o aplicativo de exemplo em sua placa Arduino.
+* Como toodeploy e execução Olá aplicativo de exemplo em seu quadro Arduino.
 
 ## <a name="what-you-need"></a>O que você precisa
-Você deve ter concluído com sucesso as seções a seguir:
+Você deve ter concluído Olá seguintes operações com êxito:
 
 * [Configurar seu dispositivo][configure-your-device]
-* [Obter as ferramentas][get-the-tools]
+* [Obter ferramentas Olá][get-the-tools]
 
-## <a name="open-the-sample-application"></a>Abrir o aplicativo de exemplo
-Para abrir o aplicativo de exemplo, siga estas etapas:
+## <a name="open-hello-sample-application"></a>Aplicativo de exemplo hello aberto
+Olá tooopen aplicativo de exemplo, siga estas etapas:
 
-1. Clone o repositório de exemplo do GitHub executando o seguinte comando:
+1. Clone o repositório de exemplo de saudação do GitHub executando Olá comando a seguir:
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-c-feather-m0-getting-started.git
    ```
-2. Abra o aplicativo de exemplo no Visual Studio Code, executando os seguintes comandos:
+2. Abra o aplicativo de exemplo hello no código do Visual Studio executando Olá comandos a seguir:
 
    ```bash
    cd iot-hub-c-feather-m0-getting-started
@@ -56,27 +56,27 @@ Para abrir o aplicativo de exemplo, siga estas etapas:
 
    ![Estrutura do repositório][repo-structure]
 
-O arquivo `app.ino` na subpasta `app` é o arquivo de origem principal que contém o código para controlar o LED.
+Olá `app.ino` arquivo hello `app` subpasta é o arquivo de origem da chave de saudação que contém Olá código toocontrol Olá LED.
 
 ### <a name="install-application-dependencies"></a>Instalar dependências de aplicativos
-Instale as bibliotecas e outros módulos necessários para o aplicativo de exemplo executando o seguinte comando:
+Instale bibliotecas de saudação e outros módulos, que é necessário para o aplicativo de exemplo hello executando Olá comando a seguir:
 
 ```bash
 npm install
 ```
 
-## <a name="configure-the-device-connection"></a>Configurar a conexão do dispositivo
-Para configurar a conexão do dispositivo, siga estas etapas:
+## <a name="configure-hello-device-connection"></a>Configurar conexão do dispositivo Olá
+tooconfigure Olá conexão do dispositivo, siga estas etapas:
 
-1. Obter a porta serial do dispositivo com a CLI de descoberta de dispositivo:
+1. Obter a porta serial saudação do dispositivo Olá Olá CLI de descoberta do dispositivo:
 
    ```bash
    devdisco list --usb
    ```
 
-   Você deve ver uma saída semelhante à seguinte e encontrar a porta COM USB para sua placa Arduino: ![Descoberta de dispositivos][device-discovery]
+   Você deve ver uma saída que é a seguir toohello semelhante e encontrar a porta COM hello usb para a sua placa Arduino: ![a descoberta de dispositivos][device-discovery]
 
-2. Abra o arquivo `config.json` na pasta da lição e adicione o valor do número da porta COM encontrado:
+2. Arquivo hello abrir `config.json` em Olá pasta lição e adicionar valor Olá Olá encontrado número da porta COM:
 
    ```json
    {
@@ -85,45 +85,45 @@ Para configurar a conexão do dispositivo, siga estas etapas:
    ```
    ![config.json][config-json]
    > [!NOTE]
-   > Para a porta COM, na plataforma Windows, ele tem o formato de `COM1, COM2, ...`. No macOS ou Ubuntu, começa com `/dev/`.
+   > Para a porta de saudação COM, na plataforma Windows, tem um formato de Olá `COM1, COM2, ...`. No macOS ou Ubuntu, começa com `/dev/`.
 
-## <a name="deploy-and-run-the-sample-application"></a>Implantar e executar o aplicativo de exemplo
-### <a name="install-the-required-tools-for-your-arduino-board"></a>Instalar as ferramentas necessárias para sua placa Arduino
+## <a name="deploy-and-run-hello-sample-application"></a>Implantar e executar o aplicativo de exemplo hello
+### <a name="install-hello-required-tools-for-your-arduino-board"></a>Instalar as ferramentas de saudação necessários para seu quadro Arduino
 
-Instale o SDK do Hub IoT do Azure na placa Arduino executando o seguinte comando:
+Instale o hello Azure IoT Hub SDK para seu quadro Arduino executando Olá comando a seguir:
 
 ```bash
 gulp install-tools
 ```
 
-Essa tarefa pode levar muito tempo para ser concluída, dependendo da sua conexão de rede.
+Essa tarefa pode levar um longo tempo toocomplete, dependendo de sua conexão de rede.
 
 > [!NOTE]
-> Saia da instância em execução do IDE do Arduino ao executar tarefas gulp: `install-tools`, `run`.
+> Saia do hello executando a instância de Arduino IDE quando você executar tarefas de gulp: `install-tools`, `run`.
 
-### <a name="deploy-and-run-the-sample-app"></a>Implantar e executar o aplicativo de exemplo
-Implantar e executar o aplicativo de exemplo executando o seguinte comando:
+### <a name="deploy-and-run-hello-sample-app"></a>Implantar e executar o aplicativo de exemplo hello
+Implantar e executar o aplicativo de exemplo hello executando Olá comando a seguir:
 
 ```bash
 gulp run
 
-# You can monitor the serial port by running listen task:
+# You can monitor hello serial port by running listen task:
 gulp listen
 
 # Or you can combine above two gulp tasks into one:
 gulp run --listen
 ```
 
-### <a name="verify-the-app-works"></a>Verificar se o aplicativo funciona
-Se você não vir o LED piscar, consulte o [guia de solução de problemas][troubleshooting-page] para ver soluções de problemas comuns.
+### <a name="verify-hello-app-works"></a>Verifique se Olá aplicativo funciona
+Se você não vir Olá LED piscando, consulte Olá [guia de solução de problemas] [ troubleshooting-page] para problemas de toocommon de soluções.
 
 ![LED piscando][led-blinking]
 
 ## <a name="summary"></a>Resumo
-Você instalou as ferramentas necessárias para trabalhar com a placa Arduino e implantou um aplicativo de exemplo para a placa Arduino para piscar o LED. Agora, você pode criar, implantar e executar outro aplicativo de exemplo que conecta sua placa Arduino ao Hub IoT do Azure para enviar e receber mensagens.
+Instalar Olá necessárias ferramentas toowork com seu quadro Arduino e implantado uma saudação de quadro tooblink do exemplo aplicativo tooyour Arduino LED. Você pode criar, implantar e executar outro aplicativo de exemplo que se conecta a seu quadro de Arduino tooAzure toosend de IoT Hub e receber mensagens.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Obter as ferramentas do Azure][get-the-azure-tools]
+[Obter Olá ferramentas do Azure][get-the-azure-tools]
 
 <!-- Images and links -->
 

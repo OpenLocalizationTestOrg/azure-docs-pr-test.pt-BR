@@ -1,6 +1,6 @@
 ---
-title: Consumir dados de monitoramento do Azure | Microsoft Docs
-description: "Saiba mais sobre todas as fontes de dados de monitoramento disponíveis no Azure hoje."
+title: aaaConsume dados de monitoramento do Azure | Microsoft Docs
+description: "Saiba mais sobre Olá todas as fontes de dados disponíveis no Azure de monitoramento hoje."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 6586cad908e6527b874dc3f0ee256c6b2cea8c49
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3c7fdad7c25b4d456df395b453fa0e75d514b0b9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Consumir dados de monitoramento do Azure
 
-Em toda a plataforma do Azure, estamos reunindo dados de monitoramento em um único lugar com o pipeline do Azure Monitor, mas, praticamente reconhecemos que hoje nem todos os dados de monitoramento ainda estão disponíveis no pipeline. Neste artigo, resumiremos as várias maneiras pelas quais é possível acessar de forma programática os dados de monitoramento dos serviços do Azure.
+Em hello Azure plataforma, traz dados em um único local com o pipeline do Monitor do Azure Olá de monitoramento juntos, mas praticamente Reconheço que atualmente não todos os dados de monitoramento ainda está disponível nesse pipeline. Neste artigo, vamos resumirá Olá várias maneiras que você pode acessar programaticamente os dados de monitoramento de serviços do Azure.
 
 ## <a name="options-for-data-consumption"></a>Opções para consumo de dados
 
@@ -52,5 +52,5 @@ Em toda a plataforma do Azure, estamos reunindo dados de monitoramento em um ún
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre as [métricas do Azure Monitor](monitoring-overview-metrics.md)
-- Saiba mais sobre o [Log de Atividades do Azure](monitoring-overview-activity-logs.md)
+- Saiba mais sobre [Olá Log de atividades do Azure](monitoring-overview-activity-logs.md)
 - Saiba mais sobre os [Logs de Diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)

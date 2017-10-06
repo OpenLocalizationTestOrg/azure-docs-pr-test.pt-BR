@@ -1,6 +1,6 @@
 ---
-title: "Personalizar a fábrica conectada do Azure IoT Suite | Microsoft Docs"
-description: "Uma descrição de como personalizar o comportamento da solução pré-configurada de fábrica conectada."
+title: "aaaCustomize Azure IoT Suite conectado fábrica | Microsoft Docs"
+description: "Uma descrição de como o comportamento de saudação toocustomize de saudação conectadas fábrica pré-configurado solução."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,72 +15,72 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 90a6172dbd887ecda5a9f5d9082a4e136092bc10
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 53f2fef7a76b5d8e6ad023945a7812dc7fabd12c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizar como a solução de fábrica conectada exibe dados dos servidores OPC UA
+# <a name="customize-how-hello-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizar como Olá conectadas fábrica solução exibe dados de seus servidores de OPC UA
 
 ## <a name="introduction"></a>Introdução
 
-A solução de fábrica conectada agrega e exibe dados dos servidores OPC UA conectados à solução. Você pode procurar e enviar comandos para os servidores OPC UA na solução. Para obter mais informações sobre o OPC UA, consulte as [Perguntas frequentes sobre fábrica conectada](iot-suite-faq-cf.md).
+Olá fábrica conectado solução agrega e exibe dados de saudação OPC UA servidores conectados toohello solução. Você pode procurar e enviar comandos toohello OPC UA servidores em sua solução. Para obter mais informações sobre OPC UA, consulte Olá [conectado perguntas Frequentes de fábrica](iot-suite-faq-cf.md).
 
-Exemplos de dados agregados na solução incluem a OEE (Eficiência Geral de Equipamentos) e os KPIs (Indicadores Chave de Desempenho) que podem ser exibidos no painel nos níveis da fábrica, da linha e da estação. A captura de tela a seguir mostra os valores de OEE e KPI da estação **Assembly** na **Linha de produção 1**, na fábrica de **Munique**:
+Exemplos de dados agregados na solução Olá incluem hello eficiência geral de equipamentos (OEE) e indicadores chave de desempenho (KPIs) que você pode exibir no painel de saudação na fábrica de saudação, linha e níveis de estação. Olá, seguinte captura de tela mostra valores OEE e KPI Olá Olá **Assembly** estação, na **produção linha 1**, em Olá **Munique** fábrica:
 
-![Exemplo de valores de OEE e KPI na solução][img-oee-kpi]
+![Exemplo de valores OEE e um KPI na solução Olá][img-oee-kpi]
 
-A solução permite exibir informações detalhadas de itens de dados específicos dos servidores OPC UA, chamados *estações*. A seguinte captura de tela mostra gráficos do número de itens fabricados de uma estação específica:
+ativa a solução Olá tooview você obter informações de itens de dados específicos do hello servidores OPC UA, chamados *estações*. Olá seguinte captura de tela mostra gráficos do número de saudação de itens fabricados de uma estação específico:
 
 ![Gráficos de número de itens fabricados][img-manufactured-items]
 
-Se você clicar em um dos gráficos, poderá explorar os dados ainda mais usando o TSI (Time Series Insights):
+Se você clicar em um dos gráficos Olá, você pode explorar dados Olá ainda mais usando Insights de série de tempo (TSI):
 
 ![Explorar dados usando o Time Series Insights][img-tsi]
 
 Este artigo descreve:
 
-- Como os dados são disponibilizados para as várias exibições da solução.
-- Como você pode personalizar a maneira como a solução exibe os dados.
+- Como dados saudação são feita a toohello disponível em vários modos de exibição na solução de saudação.
+- Como você pode personalizar a solução de saudação de maneira Olá exibe dados de saudação.
 
 ## <a name="data-sources"></a>Fontes de dados
 
-A solução de fábrica conectada exibe dados dos servidores OPC UA conectados à solução. A instalação padrão inclui vários servidores OPC UA que executam uma simulação de fábrica. Você pode adicionar seus próprios servidores OPC UA que [se conectam por meio de um gateway][lnk-connect-cf] à solução.
+Olá fábrica conectado solução exibe dados de saudação OPC UA servidores conectados toohello solução. instalação de padrão de saudação inclui vários servidores de OPC UA executando uma simulação de fábrica. Você pode adicionar seus próprios servidores OPC UA que [se conectar por meio de um gateway] [ lnk-connect-cf] tooyour solução.
 
-Você pode procurar itens de dados que um servidor OPC UA conectado pode enviar para a solução no painel:
+Você pode procurar itens de dados de saudação que um servidor conectado de OPC UA pode enviar tooyour solução no painel de saudação:
 
-1. Navegue para a exibição **Selecionar um servidor OPC UA**:
+1. Navegue toohello **selecionar um servidor de OPC UA** exibição:
 
-    ![Navegar para a exibição Selecionar um servidor OPC UA][img-select-server]
+    ![Navegue toohello selecione um modo de exibição do servidor de OPC UA][img-select-server]
 
-1. Selecione um servidor e clique em **Conectar**. Clique em **Continuar** quando o aviso de segurança for exibido.
+1. Selecione um servidor e clique em **Conectar**. Clique em **continuar** quando o aviso de segurança de saudação aparece.
 
     > [!NOTE]
-    > Esse aviso só será exibido uma vez para cada servidor e estabelece uma relação de confiança entre o painel da solução e o servidor.
+    > Este aviso só aparecerá uma vez para cada servidor e estabelece uma relação de confiança entre o painel de solução hello e servidor de saudação.
 
-1. Agora você pode procurar itens de dados que o servidor pode enviar para a solução. Os itens que estão sendo enviados para a solução têm uma marca de seleção verde:
+1. Você pode agora itens de dados do hello procurar Olá servidor podem enviar toohello solução. Os itens que estão sendo enviados toohello solução tem uma marca de seleção verde:
 
     ![Itens publicados][img-published]
 
-1. Se você for um *Administrador* da solução, poderá optar por publicar um item de dados para disponibilizá-lo na solução de fábrica conectada. Como Administrador, você também pode alterar o valor de itens de dados e chamar métodos no servidor OPC UA.
+1. Se você for um *administrador* solução hello, você pode escolher toopublish um toomake de item de dados disponível em Olá conectado a solução de fábrica. Como administrador, também pode alterar o valor de saudação de itens de dados e chamar métodos em Olá servidor OPC UA.
 
-## <a name="map-the-data"></a>Mapear os dados
+## <a name="map-hello-data"></a>Dados de saudação do mapa
 
-A solução de fábrica conectada mapeia e agrega os itens de dados publicados do servidor OPC UA nas várias exibições da solução. A solução de fábrica conectada é implantada em sua conta do Azure quando você provisiona a solução. Um arquivo JSON da solução de fábrica conectada do Visual Studio armazena essas informações de mapeamento. Exiba e modifique esse arquivo de configuração JSON na solução de fábrica conectada do Visual Studio. Você pode reimplantar a solução depois de fazer uma alteração.
+Olá conectado mapas de solução de fábrica e Olá agregações itens de dados publicados de saudação OPC UA server toohello várias exibições em solução de saudação. Olá fábrica conectado solução implanta tooyour conta do Azure quando você provisiona solução hello. Um arquivo JSON em Olá solução do Visual Studio conectado fábrica armazena essas informações de mapeamento. Você pode exibir e modificar esse arquivo de configuração JSON Olá conectado fábrica solução do Visual Studio. Você pode reutilizar a solução Olá depois que você fizer uma alteração.
 
-Você pode usar o arquivo de configuração para:
+Você pode usar o arquivo de configuração de saudação para:
 
-- Editar as fábricas simuladas, linhas de produção e estações existentes.
-- Mapear dados de servidores OPC UA reais que estão conectados à solução.
+- Edite saudação fábricas de simulada existente, as linhas de produção e estações.
+- Mapear dados de servidores de OPC UA reais que você se conectar a solução toohello.
 
-Para clonar uma cópia da solução de fábrica conectada do Visual Studio, use o seguinte comando do Git:
+tooclone uma cópia da saudação conectado a solução do Visual Studio de fábrica, use Olá git comando a seguir:
 
 `git clone https://github.com/Azure/azure-iot-connected-factory.git`
 
-O arquivo **ContosoTopologyDescription.json** define o mapeamento dos itens de dados do servidor OPC UA para as exibições no painel da solução de fábrica conectada. Encontre esse arquivo de configuração na pasta **Contoso\Topology** do projeto **WebApp** na solução do Visual Studio.
+arquivo Hello **ContosoTopologyDescription.json** define Olá mapeamento da saudação dados do servidor de OPC UA itens toohello exibições no painel de solução de fábrica conectado hello. Você pode encontrar esse arquivo de configuração no hello **Contoso\Topology** pasta Olá **WebApp** projeto no hello solução do Visual Studio.
 
-O conteúdo do arquivo JSON é organizado como uma hierarquia de nós de fábrica, linha de produção e estação. Essa hierarquia define a hierarquia de navegação no painel da fábrica conectada. Os valores em cada nó da hierarquia determinam as informações exibidas no painel. Por exemplo, o arquivo JSON contém os seguintes valores para a fábrica de Munique:
+conteúdo de saudação do arquivo JSON de saudação é organizado como uma hierarquia de fábrica, linha de produção e os nós de estação. Essa hierarquia define a hierarquia de navegação de saudação no painel de fábrica conectado hello. Os valores em cada nó de hierarquia Olá determinam informações de Olá exibidas no painel de saudação. Por exemplo, o arquivo JSON de saudação contém Olá Olá fábrica Munique valores a seguir:
 
 ```json
 "Guid": "73B534AE-7C7E-4877-B826-F1C0EA339F65",
@@ -95,31 +95,31 @@ O conteúdo do arquivo JSON é organizado como uma hierarquia de nós de fábric
 "Image": "munich.jpg"
 ```
 
-O nome, a descrição e a localização aparecem nesta exibição no painel:
+local, a descrição e o nome da saudação aparecem nesta exibição no painel de saudação:
 
-![Dados de Munique no painel][img-munich]
+![Dados de Munique no painel de saudação][img-munich]
 
-Cada fábrica, linha de produção e estação tem uma propriedade de imagem. Encontre esses arquivos JPEG na pasta **Content\img** do projeto **WebApp**. Esses arquivos de imagem são exibidos no painel da fábrica conectada.
+Cada fábrica, linha de produção e estação tem uma propriedade de imagem. Você pode encontrar esses arquivos JPEG em Olá **Content\img** pasta Olá **WebApp** projeto. Esses arquivos de imagem exibem no painel de fábrica conectado de saudação.
 
-Cada estação inclui várias propriedades detalhadas que definem o mapeamento dos itens de dados do OPC UA. Essas propriedades são descritas nas seguintes seções:
+Cada estação inclui várias propriedades detalhadas que definem Olá mapeamento da saudação OPC UA itens de dados. Essas propriedades são descritas Olá seções a seguir:
 
 ### <a name="opcuri"></a>OpcUri
 
-O valor de **OpcUri** é o URI do Aplicativo do OPC UA que identifica exclusivamente o servidor OPC UA. Por exemplo, o valor de **OpcUri** da estação de assembly na linha de produção 1 em Munique tem esta aparência: **urn:scada2194:ua:munich:productionline0:assemblystation**.
+Olá **OpcUri** valor é hello OPC UA aplicativo URI que identifica exclusivamente a saudação servidor OPC UA. Por exemplo, Olá **OpcUri** valor de estação de assembly hello na linha de produção 1 em Munique semelhante ao seguinte Olá: **urn: scada2194:ua:munich:productionline0:assemblystation**.
 
-Exiba os URIs dos servidores OPC UA conectados no painel da solução:
+Você pode exibir hello URIs de saudação conectada OPC UA servidores no painel de solução de saudação:
 
 ![Exibir URIs do servidor OPC UA][img-server-uris]
 
 ### <a name="simulation"></a>Simulação
 
-As informações do nó **Simulation** são específicas à simulação do OPC UA executada nos servidores do OPC UA provisionados por padrão. Ele não é usado para um servidor OPC UA real.
+Olá informações Olá **simulação** nó é específico toohello simulação OPC UA que é executado no hello servidores OPC UA provisionados por padrão. Ele não é usado para um servidor OPC UA real.
 
 ### <a name="kpi1-and-kpi2"></a>Kpi1 e Kpi2
 
-Esses nós descrevem como os dados da estação contribuem para os dois valores de KPI no painel. Em uma implantação padrão, esses valores de KPI são unidades por hora e kWh por hora. A solução calcula os valores de KPI no nível de uma estação e agrega-os nos níveis da fábrica e da linha de produção.
+Esses nós descrevem como dados de estação Olá contribuem toohello dois valores KPI no painel de saudação. Em uma implantação padrão, esses valores de KPI são unidades por hora e kWh por hora. solução de saudação calcula os valores KPI no nível de saudação de uma estação e agrega-los na linha de produção de hello e níveis de fábrica.
 
-Cada KPI tem um valor mínimo, máximo e de destino. Cada valor de KPI também pode definir ações de alerta a serem executados pela solução de fábrica conectada. O seguinte trecho mostra as definições de KPI para a estação de assembly na linha de produção 1 em Munique:
+Cada KPI tem um valor mínimo, máximo e de destino. Cada valor KPI também pode definir ações de alerta para tooperform de solução de fábrica Olá conectado. Olá trecho a seguir mostra definições de KPI Olá para a estação de assembly hello na linha de produção 1 em Munique:
 
 ```json
 "Kpi1": {
@@ -139,41 +139,41 @@ Cada KPI tem um valor mínimo, máximo e de destino. Cada valor de KPI também p
 }
 ```
 
-A captura de tela a seguir mostra os dados de KPI no painel.
+Olá seguinte captura de tela mostra dados KPI de saudação no painel de saudação.
 
-![Informações de KPI no painel][lnk-kpi]
+![Informações de KPI no painel de saudação][lnk-kpi]
 
 ### <a name="opcnodes"></a>OpcNodes
 
-Os nós **OpcNodes** identificam os itens de dados publicados do servidor OPC UA e especificam como processar esses dados.
+Olá **OpcNodes** identificam nós Olá itens de dados publicados de saudação servidor OPC UA e especificar como tooprocess esses dados.
 
-O valor de **NodeId** identifica a NodeID do OPC UA específica do servidor OPC UA. O primeiro nó da estação de assembly na linha de produção 1 em Munique tem um valor igual a **ns=2;i=385**. Um valor de **NodeId** especifica o item de dados a ser lido do servidor OPC UA e **SymbolicName** fornece um nome amigável ao usuário ser usado no painel para os dados.
+Olá **NodeId** valor identifica Olá NodeID de UA OPC específico de saudação servidor OPC UA. primeiro nó Olá na estação de assembly Olá para a linha de produção 1 em Munique tem um valor **ns = 2; i = 385**. Um **NodeId** valor especifica Olá tooread de item de dados de saudação servidor OPC UA e hello **SymbolicName** fornece toouse um nome amigável de usuário no painel de saudação para os dados.
 
-Outros valores associados a cada nó são resumidos na seguinte tabela:
+Outros valores associados a cada nó são resumidos na Olá a tabela a seguir:
 
 | Valor | Descrição |
 | ----- | ----------- |
-| Relevância  | Os valores de KPI e OEE com os quais esses dados contribuem. |
-| OpCode     | Como os dados são agregados. |
-| Unidades      | As unidades a serem usadas no painel.  |
-| Visible    | Indica se esse valor será exibido no painel. Alguns valores são usados em cálculos, mas não são exibidos.  |
-| Máximo    | O valor máximo que dispara um alerta no painel. |
-| MaximumAlertActions | Uma ação a ser tomada em resposta a um alerta. Por exemplo, enviar um comando para uma estação. |
+| Relevância  | os valores KPI e OEE Olá esses dados contribuem para. |
+| OpCode     | Como os dados de saudação são agregados. |
+| Unidades      | Olá unidades toouse, no painel de saudação.  |
+| Visible    | Se toodisplay este valor no painel de saudação. Alguns valores são usados em cálculos, mas não são exibidos.  |
+| Máximo    | valor máximo Olá que dispara um alerta no painel de saudação. |
+| MaximumAlertActions | Tootake uma ação no alerta de tooan de resposta. Por exemplo, envie uma estação de tooa do comando. |
 | ConstValue | Um valor constante usado em um cálculo. |
 
-## <a name="deploy-the-changes"></a>Implantar as alterações
+## <a name="deploy-hello-changes"></a>Implantar alterações Olá
 
-Quando você terminar de fazer alterações no arquivo **ContosoTopologyDescription.json**, deverá reimplantar a solução de fábrica conectada à sua conta do Azure.
+Quando terminar de fazer alterações toohello **ContosoTopologyDescription.json** arquivo, você deve reimplantar Olá conectado fábrica solução tooyour conta do Azure.
 
-O repositório **azure-iot-connected-factory** inclui um script **build.ps1** do PowerShell que pode ser usado para recompilar e implantar a solução.
+Olá **azure iot-conectado-fábrica** repositório inclui um **build.ps1** script do PowerShell, você pode usar toorebuild e implantar a solução de saudação.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre a solução pré-configurada de fábrica conectada lendo os seguintes artigos:
+Saiba mais sobre solução de fábrica pré-configurado de saudação conectada por Olá ler artigos a seguir:
 
 * [Passo a passo de solução pré-configurada de fábrica conectada][lnk-rm-walkthrough]
 * [Implantar um gateway para a fábrica conectada][lnk-connect-cf]
-* [Permissões no site azureiotsuite.com][lnk-permissions]
+* [Permissões no site de azureiotsuite.com Olá][lnk-permissions]
 * [Perguntas frequentes do factory conectado](iot-suite-faq-cf.md)
 * [Perguntas frequentes][lnk-faq]
 

@@ -1,6 +1,6 @@
 ---
-title: Personalizar o portal do desenvolvedor do Gerenciamento de API usando modelos - Azure | Microsoft Docs
-description: Aprenda a personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos.
+title: "portal do desenvolvedor do gerenciamento de API Olá aaaCustomize usando modelos-Azure | Microsoft Docs"
+description: "Saiba como toocustomize Olá portal do desenvolvedor do gerenciamento de API do Azure usando modelos."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,58 +14,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 40d25726d31d2018785b77d169a8811c565316bf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b00d5f1534e9466f30ff3920e7aae048feb8b8c4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos
+# <a name="how-toocustomize-hello-azure-api-management-developer-portal-using-templates"></a>Como toocustomize Olá portal do desenvolvedor do gerenciamento de API do Azure usando modelos
 
-Há três maneiras básicas para personalizar o portal do desenvolvedor no Gerenciamento de API do Azure:
+Há três portal do desenvolvedor maneiras fundamentais toocustomize Olá no gerenciamento de API do Azure:
 
-* [Editar o conteúdo de páginas estáticas e elementos de layout da página][modify-content-layout]
-* [Atualizar os estilos usados para elementos de página entre o portal do desenvolvedor][customize-styles]
-* [Modificar os modelos usados para as páginas geradas pelo portal][portal-templates] (explicado neste guia)
+* [Editar conteúdo Olá páginas estáticas e elementos de layout de página][modify-content-layout]
+* [Atualizar estilos Olá usados para elementos de página entre o portal do desenvolvedor Olá][customize-styles]
+* [Modificar modelos de saudação usados para as páginas geradas pelo portal de saudação] [ portal-templates] (explicado neste guia)
 
-Modelos são usados para personalizar o conteúdo das páginas de portal de desenvolvedor geradas pelo sistema (por exemplo, documentos de API, produtos, autenticação do usuário etc.). Com a sintaxe do [DotLiquid](http://dotliquidmarkup.org/), e um conjunto fornecido de recursos de cadeia de caracteres localizados, ícones e controles de página, você conta com muita flexibilidade para configurar o conteúdo das páginas como quiser.
+Os modelos são usados toocustomize Olá conteúdo das páginas de portal do desenvolvedor gerada pelo sistema (por exemplo, documentos de API, produtos, autenticação de usuário, etc.). Usando [DotLiquid](http://dotliquidmarkup.org/) sintaxe e um conjunto fornecido de recursos de cadeia de caracteres localizada, ícones e controles de página, você tiver um grande flexibilidade tooconfigure Olá conteúdo das páginas hello como desejar.
 
 ## <a name="developer-portal-templates-overview"></a>Visão geral de modelos de portal do desenvolvedor
-A edição dos modelos é feita no **Portal do desenvolvedor** ao entrar como administrador. Para chegar lá, primeiro abra o Portal do Azure e clique em **Portal do editor** na barra de ferramentas de serviço da sua instância de Gerenciamento de API.
+Edição de modelos é feita da saudação **portal do desenvolvedor** ao que está sendo conectado como um administrador. Há tooget primeiro abra Olá Portal do Azure e clique em **portal do publicador** da barra de ferramentas de serviço de saudação da sua instância de gerenciamento de API.
 
 ![Portal do editor][api-management-management-console]
 
-Em seguida, clique em **Portal do desenvolvedor** no canto superior direito. 
+Em seguida, clique em **portal do desenvolvedor** no canto direito superior Olá. 
 
 ![Menu do portal do desenvolvedor][api-management-developer-portal-menu]
 
-Para acessar os modelos de portal do desenvolvedor, clique no ícone de personalizar à esquerda para exibir o menu de personalização e clique em **Modelos**.
+tooaccess Olá modelos portal do desenvolvedor, clique em Olá personalizar ícone no menu de personalização de Olá Olá toodisplay esquerdo e, em seguida, clique em **modelos**.
 
 ![Modelos de portal do desenvolvedor][api-management-customize-menu]
 
-A lista de modelos exibe várias categorias de modelos que abrangem diferentes páginas no portal do desenvolvedor. Cada modelo é diferente, mas as etapas para editá-los e publicar as alterações são as mesmas. Para editar um modelo, clique no nome do modelo.
+lista de modelos de saudação exibe várias categorias de modelos que abrangem diferentes páginas Olá no portal do desenvolvedor hello. Cada modelo é diferente, mas Olá etapas tooedit-los e publicar as alterações de saudação são Olá mesmo. tooedit um modelo, clique em nome de saudação do modelo de saudação.
 
 ![Modelos de portal do desenvolvedor][api-management-templates-menu]
 
-Clicar em um modelo levará você para a página de portal do desenvolvedor, que é personalizável pelo modelo. Neste exemplo, o modelo da **Lista de produtos** é exibido. O modelo da **Lista de produtos** controla a área da tela indicada pelo retângulo vermelho. 
+Clicando em um modelo usa toohello desenvolvedor página de portal que é personalizável pelo modelo. Em Olá Este exemplo **lista de produtos** modelo é exibido. Olá **lista de produtos** controles de modelo Olá área da tela hello indicada pelo retângulo Olá vermelho. 
 
 ![Modelo de lista de produtos][api-management-developer-portal-templates-overview]
 
-Alguns modelos, como o de **Perfil do Usuário** , personalizam partes diferentes da mesma página. 
+Alguns modelos, como Olá **perfil de usuário** modelos, personalizar partes diferentes da saudação mesma página. 
 
 ![Modelos de perfil do usuário][api-management-user-profile-templates]
 
-O editor para cada modelo de portal do desenvolvedor tem duas seções exibidas na parte inferior da página. O lado esquerdo exibe o painel de edição para o modelo e o lado direito exibe o modelo de dados para o modelo. 
+editor de saudação para cada modelo de portal do desenvolvedor possui duas seções exibidas na parte inferior da saudação da página de saudação. lado esquerdo da saudação exibe Olá editando o painel para o modelo de saudação e do lado direito da saudação exibe o modelo de dados Olá para o modelo de saudação. 
 
-O painel de edição de modelo contém a marcação que controla a aparência e o comportamento da página correspondente no portal do desenvolvedor. A marcação no modelo usa a sintaxe [DotLiquid](http://dotliquidmarkup.org/) . É um editor popular para DotLiquid é [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Todas as alterações feitas ao modelo durante a edição são exibidas em tempo real no navegador, mas não são visíveis aos clientes até você [salvar](#to-save-a-template) e [publicar](#to-publish-a-template) o modelo.
+Painel de edição de modelos de saudação contém marcação Olá que controla a aparência de saudação e o comportamento da página de saudação correspondente no portal do desenvolvedor hello. marcação de saudação no modelo de saudação usa Olá [DotLiquid](http://dotliquidmarkup.org/) sintaxe. É um editor popular para DotLiquid é [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Qualquer modelo de toohello as alterações feitas durante a edição são exibidos em tempo real no navegador Olá, mas são clientes tooyour não visível até que você [salvar](#to-save-a-template) e [publicar](#to-publish-a-template) modelo hello.
 
 ![Marcação de modelo][api-management-template]
 
-O painel **Dados de modelo** fornece um guia para o modelo de dados para as entidades que estão disponíveis para uso em um modelo específico. Ele fornece este guia, exibindo os dados dinâmicos mostrados no momento no portal do desenvolvedor. Você pode expandir os painéis de modelo clicando no canto superior direito do retângulo do painel **Dados do modelo** .
+Olá **dados de modelo** painel fornece um guia de toohello dados modelo para entidades de saudação que estão disponíveis para uso em um modelo específico. Ele fornece este guia exibindo dados ao vivo de saudação que estão atualmente exibidos no portal do desenvolvedor hello. Você pode expandir painéis de modelo Olá clicando retângulo Olá no canto superior direito Olá Olá **dados de modelo** painel.
 
 ![Modelo de dados de modelo][api-management-template-data]
 
-No exemplo anterior, há dois produtos exibidos no portal do desenvolvedor que foram recuperados dos dados exibidos no painel **Dados de modelo** , conforme mostrado no exemplo a seguir.
+No exemplo anterior Olá existem dois produtos exibidos no portal do desenvolvedor Olá que foram recuperados do dados Olá exibidos no hello **dados de modelo** painel, conforme mostrado no exemplo a seguir de saudação.
 
 ```json
 {
@@ -84,7 +84,7 @@ No exemplo anterior, há dois produtos exibidos no portal do desenvolvedor que f
         {
             "Id": "56ec64c380ed850042060001",
             "Title": "Starter",
-            "Description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",
+            "Description": "Subscribers will be able toorun 5 calls/minute up tooa maximum of 100 calls/week.",
             "Terms": "",
             "ProductState": 1,
             "AllowMultipleSubscriptions": false,
@@ -93,7 +93,7 @@ No exemplo anterior, há dois produtos exibidos no portal do desenvolvedor que f
         {
             "Id": "56ec64c380ed850042060002",
             "Title": "Unlimited",
-            "Description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
+            "Description": "Subscribers have completely unlimited access toohello API. Administrator approval is required.",
             "Terms": null,
             "ProductState": 1,
             "AllowMultipleSubscriptions": false,
@@ -103,7 +103,7 @@ No exemplo anterior, há dois produtos exibidos no portal do desenvolvedor que f
 }
 ```
 
-A marcação no modelo de **Lista de produtos** processa os dados para fornecer a saída desejada ao iterar por meio da coleção de produtos para exibir informações e um link para cada produto individual. Observe os elementos `<search-control>` e `<page-control>` na marcação. Eles controlam a exibição da pesquisa e os controles de paginação na página. O `ProductsStrings|PageTitleProducts` é uma referência de cadeia de caracteres localizada que contém o texto do cabeçalho `h2` da página. Para obter uma lista de recursos de cadeia de caracteres, controles de página e ícones disponíveis para uso em modelos de portal do desenvolvedor, consulte [referência de modelos de portal do desenvolvedor do Gerenciamento de API](api-management-developer-portal-templates-reference.md).
+marcações Olá Olá **lista de produtos** processos de modelo Olá a saída de dados tooprovide Olá desejado através da iteração pela coleção de saudação de informações de toodisplay de produtos e um link tooeach individual do produto. Saudação de Observação `<search-control>` e `<page-control>` elementos na marcação hello. Eles controlam a exibição de Olá de Olá pesquisa e a paginação controles na página de saudação. `ProductsStrings|PageTitleProducts`é uma referência de cadeia de caracteres localizada que contém Olá `h2` texto do cabeçalho de página hello. Para obter uma lista de recursos de cadeia de caracteres, controles de página e ícones disponíveis para uso em modelos de portal do desenvolvedor, consulte [referência de modelos de portal do desenvolvedor do Gerenciamento de API](api-management-developer-portal-templates-reference.md).
 
 ```html
 <search-control></search-control>
@@ -131,59 +131,59 @@ A marcação no modelo de **Lista de produtos** processa os dados para fornecer 
 </div>
 ```
 
-## <a name="to-save-a-template"></a>Para salvar um modelo
-Para salvar um modelo, clique em Salvar no editor de modelos.
+## <a name="toosave-a-template"></a>toosave um modelo
+toosave um modelo, clique em Salvar no editor de modelo de saudação.
 
 ![Salvar modelo][api-management-save-template]
 
-Alterações salvas não são ativas no portal do desenvolvedor até serem publicadas.
+Alterações salvas não são em tempo real no portal do desenvolvedor Olá até que sejam publicados.
 
-## <a name="to-publish-a-template"></a>Para publicar um modelo
-Modelos salvos podem ser publicados individualmente ou em conjunto. Para publicar um modelo individual, clique em Publicar no editor de modelos.
+## <a name="toopublish-a-template"></a>toopublish um modelo
+Modelos salvos podem ser publicados individualmente ou em conjunto. toopublish um modelo individual, clique em Publicar no editor de modelo de saudação.
 
 ![Publicar modelo][api-management-publish-template]
 
-Clique em **Sim** para confirmar e tornar o modelo ativo no portal do desenvolvedor.
+Clique em **Sim** tooconfirm e modelo de saudação ativo no portal do desenvolvedor hello.
 
 ![Confirmar publicação][api-management-publish-template-confirm]
 
-Para publicar todas as versões do modelo atualmente não publicado, clique em **Publicar** na lista de modelos. Modelos não publicados são designados por um asterisco após o nome do modelo. Neste exemplo, os modelos de **Lista de produtos** e **Produtos** estão sendo publicados.
+toopublish cancelada todas as versões de modelo, clique em **publicar** na lista de modelos de saudação. Modelos não publicados são designados por um asterisco após o nome do modelo de saudação. Neste exemplo, Olá **lista de produtos** e **produto** modelos forem publicados.
 
 ![Publicar modelos][api-management-publish-templates]
 
-Clique em **Publicar personalizações** para confirmar.
+Clique em **publicar personalizações** tooconfirm.
 
 ![Confirmar publicação][api-management-publish-customizations]
 
-Modelos publicados recentemente entrarão em vigor imediatamente no portal do desenvolvedor.
+Modelos publicados recentemente entrarão em vigor imediatamente no portal do desenvolvedor de saudação.
 
-## <a name="to-revert-a-template-to-the-previous-version"></a>Para reverter um modelo para a versão anterior
-Para reverter um modelo para a versão publicada anterior, clique em Reverter no editor de modelos.
+## <a name="toorevert-a-template-toohello-previous-version"></a>toorevert uma versão anterior do modelo toohello
+toorevert uma versão de publicada modelo toohello anterior, clique em Reverter no editor de modelo de saudação.
 
 ![Reverter modelo][api-management-revert-template]
 
-Clique em **Sim** para confirmar.
+Clique em **Sim** tooconfirm.
 
 ![Confirmar][api-management-revert-template-confirm]
 
-A versão anteriormente publicada de um modelo fica ativa no portal do desenvolvedor quando a operação de reversão é concluída.
+Olá anteriormente versão publicada de um modelo é live no portal do desenvolvedor hello quando Olá reverter a operação foi concluída.
 
-## <a name="to-restore-a-template-to-the-default-version"></a>Para restaurar um modelo para a versão padrão
-A restauração dos modelos para a versão padrão é um processo de duas etapas. Primeiro, os modelos devem ser restaurados e, em seguida, as versões restauradas devem ser publicadas.
+## <a name="toorestore-a-template-toohello-default-version"></a>toorestore uma versão do modelo toohello padrão
+Versão de padrão de tootheir modelos restauração é um processo de duas etapas. Modelos de saudação primeiro devem ser restaurados e versões de saudação restaurada devem ser publicadas.
 
-Para restaurar um único modelo para a versão padrão, clique em Restaurar no editor de modelos.
+toorestore uma versão do modelo único toohello padrão clique em Restaurar no editor de modelo de saudação.
 
 ![Reverter modelo][api-management-reset-template]
 
-Clique em **Sim** para confirmar.
+Clique em **Sim** tooconfirm.
 
 ![Confirmar][api-management-reset-template-confirm]
 
-Para restaurar todos os modelos para as versões padrão, clique em **Restaurar modelos padrão** na lista de modelos.
+toorestore todas as versões de padrão de tootheir de modelos, clique **restaurar modelos padrão** na lista de modelos de saudação.
 
 ![Restaurar modelos][api-management-restore-templates]
 
-Os modelos restaurados devem ser publicados individualmente ou todos de uma vez, seguindo as etapas em [Para publicar um modelo](#to-publish-a-template).
+Olá modelos restaurados devem ser publicados individualmente ou ao mesmo tempo, seguindo as etapas de saudação em [toopublish um modelo](#to-publish-a-template).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter informações de referência para modelos do portal do desenvolvedor, recursos de cadeia de caracteres, ícones e controles de página, consulte [referência de modelos de portal do desenvolvedor do Gerenciamento de API](api-management-developer-portal-templates-reference.md).

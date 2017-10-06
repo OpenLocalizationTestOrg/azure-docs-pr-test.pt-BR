@@ -1,6 +1,6 @@
 ---
-title: Comparar o Hub IoT do Azure ao Hubs de Eventos do Azure | Microsoft Docs
-description: "Uma comparação dos serviços do Hub IoT e de Eventos do Azure destacando diferenças funcionais e casos de uso. A comparação inclui protocolos com suporte, gerenciamento de dispositivos, monitoramento e uploads de arquivos."
+title: aaaCompare Azure IoT Hub tooAzure Hubs de eventos | Microsoft Docs
+description: "Uma comparação de saudação IoT Hub e serviços do Azure de Hubs de evento realce as diferenças funcionais e casos de uso. comparação de saudação inclui os protocolos suportados, gerenciamento de dispositivos, monitoramento, e carregamento de arquivo."
 services: iot-hub
 documentationcenter: 
 author: fsautomata
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: a37df79a38a35b61cca72918d4d893a4bfc83b7e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e5f546b54e29860498d540abfc86a41c4662c0df
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="comparison-of-azure-iot-hub-and-azure-event-hubs"></a>Comparação do Hub IoT do Azure e Hubs de Eventos do Azure
-Um dos principais casos de uso do Hub IoT é coletar a telemetria dos dispositivos. Por esse motivo, o Hub IoT muitas vezes é comparado aos [Hubs de Eventos do Azure][Azure Event Hubs]. Assim como o Hub IoT, o Hubs de Eventos do Azure é um serviço de processamento de eventos que permite a entrada em grande escala de telemetria e de eventos na nuvem, com baixa latência e alta confiabilidade.
+Um dos casos de uso principal de saudação de IoT Hub é toogather telemetria dos dispositivos. Por esse motivo, o IoT Hub é geralmente comparado muito[Hubs de eventos do Azure][Azure Event Hubs]. Como o IoT Hub, Hubs de eventos é um serviço que permite que eventos e telemetria de processamento de eventos toohello nuvem em grande escala, com baixa latência e alta confiabilidade.
 
-Entretanto, os serviços têm várias diferenças, que são detalhadas na tabela a seguir:
+No entanto, os serviços de saudação tem muitas diferenças, que são detalhadas no Olá a tabela a seguir:
 
 | Área | Hub IoT | Hubs de Eventos |
 | --- | --- | --- |
 | Padrões de comunicação | Permite [comunicação do dispositivo com a nuvem][lnk-d2c-guidance] (mensagens, carregamentos de arquivos e propriedades reportadas) e [comunicação da nuvem com o dispositivo][lnk-c2d-guidance] (métodos diretos, propriedades desejadas, mensagens). |Permite somente a entrada de eventos (geralmente considerada para cenários do dispositivo para a nuvem). |
 | Informações de estado do dispositivo | [Dispositivos gêmeos][lnk-twins] podem armazenar e consultar informações de estado do dispositivo. | Nenhuma informação de estado do dispositivo pode ser armazenada. |
-| Suporte ao protocolo de dispositivo |Dá suporte a MQTT, MQTT por WebSockets, AMQP, AMQP por WebSockets e HTTP. Além disso, o Hub IoT funciona com o [gateway de protocolo do IoT do Azure][lnk-azure-protocol-gateway], uma implementação de gateway de protocolo personalizável que permite protocolos personalizados. |Compatível com AMQP, AMQP sobre WebSockets e HTTP. |
-| Segurança |Fornece identidade por dispositivo e controle de acesso revogável. Confira a [seção Segurança do guia do desenvolvedor de Hub IoT]. |Fornece [políticas de acesso compartilhado][Event Hubs - security] em todos os Hubs de Eventos, com suporte limitado à revogação usando [políticas do editor][Event Hubs publisher policies]. As soluções IoT muitas vezes devem implementar uma solução personalizada para permitir credenciais e medidas contra falsificação por dispositivo. |
-| Monitoramento de operações |Permite que as soluções IoT assinem um conjunto avançado de eventos de conectividade e gerenciamento de identidade de dispositivo, como erros de autenticação de dispositivos individuais, limitação e exceções de formato inválido. Esses eventos permitem identificar rapidamente problemas de conectividade no nível do dispositivo individual. |Expõe apenas as métricas de agregação. |
-| Escala |É otimizada para dar suporte a milhões de dispositivos conectados simultaneamente. |Limita as conexões conforme as [cotas de Hubs de Eventos do Azure][Azure Event Hubs quotas]. Por outro lado, os Hubs de Eventos permitem que você especifique a partição de cada mensagem enviada. |
-| SDKs de dispositivo |Fornece [SDKs de dispositivo][Azure IoT SDKs] para uma grande variedade de plataformas e linguagens, além de APIs diretas de MQTT, AMQP e HTTP. |Tem suporte no .NET, Java e C, além de nas interfaces de envio AMQP e HTTP. |
-| Upload de arquivos |Permite que soluções IoT carreguem arquivos de dispositivos para a nuvem. Inclui um ponto de extremidade de notificação de arquivo para a integração de fluxo de trabalho e uma categoria de monitoramento de operações para o suporte à depuração. | Sem suporte. |
-| Rotear mensagens para vários pontos de extremidade | Há suporte para até 10 pontos de extremidade personalizados. As regras determinam como as mensagens são roteadas para os pontos de extremidade personalizados. Para saber mais, confira [Enviar e receber mensagens com o Hub IoT][lnk-devguide-messaging]. | Exige a composição e hospedagem de um código adicional para despacho de mensagens. |
+| Suporte ao protocolo de dispositivo |Dá suporte a MQTT, MQTT por WebSockets, AMQP, AMQP por WebSockets e HTTP. Além disso, o IoT Hub funciona com hello [gateway de protocolo do Azure IoT][lnk-azure-protocol-gateway], um protocolos personalizados do protocolo personalizável gateway implementação toosupport. |Compatível com AMQP, AMQP sobre WebSockets e HTTP. |
+| Segurança |Fornece identidade por dispositivo e controle de acesso revogável. Consulte Olá [seção segurança do hello guia do desenvolvedor de IoT Hub]. |Fornece [políticas de acesso compartilhado][Event Hubs - security] em todos os Hubs de Eventos, com suporte limitado à revogação usando [políticas do editor][Event Hubs publisher policies]. Soluções de IoT geralmente são credenciais tooimplement necessária uma solução personalizada toosupport por dispositivo e medidas antifalsificação. |
+| Monitoramento de operações |Permite IoT soluções toosubscribe tooa rico conjunto de eventos de conectividade e gerenciamento de identidade de dispositivo, como erros de autenticação de dispositivo individual, limitação e exceções de formato incorreto. Esses eventos permitem que você tooquickly identificar problemas de conectividade no nível do dispositivo individual hello. |Expõe apenas as métricas de agregação. |
+| Escala |É otimizado toosupport milhões de dispositivos conectados simultaneamente. |Medidores Olá conexões conforme [cotas de Hubs de eventos do Azure][Azure Event Hubs quotas]. Em Olá outro lado, os Hubs de eventos permite que você toospecify partição de saudação para cada mensagem enviada. |
+| SDKs de dispositivo |Fornece [dispositivo SDKs] [ Azure IoT SDKs] para uma grande variedade de plataformas e idiomas em adição toodirect MQTT, AMQP e APIs do HTTP. |Há suporte para .NET, Java e C em adição tooAMQP e interfaces de envio HTTP. |
+| Upload de arquivos |Permite que os arquivos de tooupload do IoT soluções de nuvem de toohello de dispositivos. Inclui um ponto de extremidade de notificação de arquivo para a integração de fluxo de trabalho e uma categoria de monitoramento de operações para o suporte à depuração. | Sem suporte. |
+| Toomultiple pontos de extremidade de mensagens de rota | Backup too10 há suporte para pontos de extremidade personalizados. As regras determinam como as mensagens são roteadas toocustom pontos de extremidade. Para saber mais, confira [Enviar e receber mensagens com o Hub IoT][lnk-devguide-messaging]. | Requer um código adicional toobe criado e hospedado para distribuição de mensagem. |
 
-Em resumo, mesmo se o único caso de uso for a entrada de telemetria do dispositivo para nuvem, o Hub IoT fornecerá um serviço que foi desenvolvido para conectividade do dispositivo IoT. Ele continuará expandindo as propostas de valor para esses cenários com recursos específicos de IoT. Os Hubs de Eventos são projetados para a entrada de evento em grande escala, no contexto de cenários internos de datacenter e entre datacenters.
+Em resumo, mesmo se Olá caso de uso único é ingresso de telemetria do dispositivo para nuvem, o IoT Hub fornece um serviço que foi projetado para conectividade de dispositivo IoT. Ela continua propostas de valor tooexpand Olá para esses cenários com recursos específicos de IoT. Hubs de eventos destina-se a entrada de evento em grande escala, no contexto de saudação de cenários de datacenter inter e dentro do próprio datacenter.
 
-É comum usar o Hub IoT e os Hubs de Eventos na mesma solução. O Hub IoT trata da comunicação do dispositivo com a nuvem e os Hubs de Eventos tratam da entrada do evento em estágio posterior nos mecanismos de processamento em tempo real.
+Não é incomum toouse IoT Hub e Hubs de eventos de Olá mesma solução. IoT Hub trata a comunicação de dispositivo para nuvem hello e Hubs de eventos trata a entrada de evento do estágio posterior em mecanismos de processamento em tempo real.
 
 ### <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como planejar sua implantação do Hub IoT, veja [Escalando, HA e DR][lnk-scaling].
+toolearn mais sobre como planejar sua implantação do IoT Hub, consulte [dimensionamento, alta disponibilidade e recuperação de desastres][lnk-scaling].
 
-Para explorar melhor as funcionalidades do Hub IoT, consulte:
+toofurther explorar recursos de saudação do IoT Hub, consulte:
 
 * [Guia do desenvolvedor do Hub IoT][lnk-devguide]
 * [Simulando um dispositivo com IoT Edge][lnk-iotedge]
@@ -54,7 +54,7 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
 
 [Azure Event Hubs]: ../event-hubs/event-hubs-what-is-event-hubs.md
-[seção Segurança do guia do desenvolvedor de Hub IoT]: iot-hub-devguide-security.md
+[seção segurança do hello guia do desenvolvedor de IoT Hub]: iot-hub-devguide-security.md
 [Event Hubs - security]: ../event-hubs/event-hubs-authentication-and-security-model-overview.md
 [Event Hubs publisher policies]: ../event-hubs/event-hubs-features.md#event-publishers
 [Azure Event Hubs quotas]: ../event-hubs/event-hubs-quotas.md

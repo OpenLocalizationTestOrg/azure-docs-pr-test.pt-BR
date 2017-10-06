@@ -1,6 +1,6 @@
 ---
-title: "Comprar um nome de domínio personalizado para aplicativos Web do Azure"
-description: "Saiba como comprar um nome de domínio personalizado com um aplicativo Web no Serviço de Aplicativo do Azure."
+title: "aaaBuy um nome de domínio personalizado para aplicativos Web do Azure"
+description: "Saiba como nome do toobuy um domínio personalizado com um aplicativo web no serviço de aplicativo do Azure."
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -14,173 +14,173 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
-ms.openlocfilehash: 3cb22b935624041ab51e64028a1b668fd694f9b5
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 2ff61a3f27020516c917fe105ece99eb2a5754b7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Comprar um nome de domínio personalizado para aplicativos Web do Azure
 
-Domínios do Serviço de Aplicativo (versão prévia) são domínios de nível superior gerenciados diretamente no Azure. Eles facilitam o gerenciamento de domínios personalizados para [Aplicativos Web do Azure](app-service-web-overview.md). Este tutorial mostra como comprar um domínio de Serviço de Aplicativo e atribuir nomes DNS a Aplicativos Web do Azure.
+Domínios do Serviço de Aplicativo (versão prévia) são domínios de nível superior gerenciados diretamente no Azure. Eles tornam mais fácil toomanage os domínios personalizados [aplicativos Web do Azure](app-service-web-overview.md). Este tutorial mostra como toobuy um domínio de aplicativo de serviço e atribuir DNS nomes tooAzure os aplicativos Web.
 
-Este artigo é para o Serviço de Aplicativo do Azure (aplicativos Web, aplicativos de API, aplicativos móveis, aplicativos lógicos). Para a VM do Azure ou Armazenamento do Azure, consulte [Atribuir o domínio do Serviço de Aplicativo para a VM Azure ou o Armazenamento do Azure](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/). Para serviços de nuvem, consulte [Configurando um nome de domínio personalizado para um serviço de nuvem do Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
+Este artigo é para o Serviço de Aplicativo do Azure (aplicativos Web, aplicativos de API, aplicativos móveis, aplicativos lógicos). Para a máquina virtual do Azure ou no armazenamento do Azure, consulte [tooAzure de domínio do serviço de aplicativo atribuir VM ou armazenamento do Azure](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/). Para serviços de nuvem, consulte [Configurando um nome de domínio personalizado para um serviço de nuvem do Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial:
+toocomplete este tutorial:
 
 * [Crie um aplicativo do Serviço de Aplicativo](/azure/app-service/) ou use um aplicativo que você criou para outro tutorial.
 
-## <a name="prepare-the-app"></a>Preparar o aplicativo
+## <a name="prepare-hello-app"></a>Preparar o aplicativo hello
 
-Para usar domínios personalizados em Aplicativos Web do Azure, o [plano de Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/) do seu aplicativo Web deve ser uma camada paga (**Shared**, **Basic**, **Standard** ou **Premium**). Nesta etapa, você precisa ter certeza de que seu aplicativo Web está no tipo de preço com suporte.
+domínios personalizados de toouse em aplicativos Web do Azure, seu aplicativo web [plano de serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/) deve ser uma camada paga (**compartilhado**, **básica**, **padrão**, ou **Premium**). Nesta etapa, verifique se que esse aplicativo da web hello é em Olá suportado de preço.
 
-### <a name="sign-in-to-azure"></a>Entrar no Azure
+### <a name="sign-in-tooazure"></a>Entrar tooAzure
 
-Abra o [portal do Azure](https://portal.azure.com) e entre com sua conta do Azure.
+Olá abrir [portal do Azure](https://portal.azure.com) e entre com sua conta do Azure.
 
-### <a name="navigate-to-the-app-in-the-azure-portal"></a>Navegar para o aplicativo no portal do Azure
+### <a name="navigate-toohello-app-in-hello-azure-portal"></a>Navegue toohello aplicativo hello portal do Azure
 
-No menu à esquerda, selecione **Serviços de Aplicativos** e, em seguida, selecione o nome do aplicativo.
+No menu à esquerda do hello, selecione **serviços de aplicativos**e, em seguida, selecione o nome de saudação do aplicativo hello.
 
-![Navegação no Portal para o aplicativo do Azure](./media/app-service-web-tutorial-custom-domain/select-app.png)
+![Navegação do portal tooAzure aplicativo](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
-A página de gerenciamento do aplicativo do Serviço de Aplicativo é exibida.  
+Página de gerenciamento Olá de saudação do aplicativo de serviço de aplicativo é exibida.  
 
-### <a name="check-the-pricing-tier"></a>Verifique o tipo de preço
+### <a name="check-hello-pricing-tier"></a>Saudação de verificação de preço
 
-No painel de navegação à esquerda da página do aplicativo, role até a seção **Configurações** e selecione **Escalar verticalmente (plano do Serviço de Aplicativo)**.
+No hello barra de navegação de página de aplicativo hello esquerda, role toohello **configurações** seção e selecione **escalar verticalmente (plano de serviço de aplicativo)**.
 
 ![Menu Escalar verticalmente](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-A camada atual do aplicativo é realçada por uma borda azul. Verifique se o aplicativo não está na camada **Gratuita**. Não há suporte para DNS personalizado no tipo **Gratuito**. 
+camada atual do aplicativo Hello é realçada por uma borda azul. Verificar toomake se esse aplicativo hello não está em Olá **livre** camada. DNS personalizado não é suportada no hello **livre** camada. 
 
 ![Verificar tipo de preço](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-Se o plano do Serviço de Aplicativo não for **Gratuito**, feche a página **Escolher o tipo de preço** e vá para [Comprar o domínio](#buy-the-domain).
+Se hello plano de serviço de aplicativo não é **livre**, feche Olá **Escolher tipo de preços** página e ir muito[domínio de saudação comprar](#buy-the-domain).
 
-### <a name="scale-up-the-app-service-plan"></a>Escalar verticalmente o plano do Serviço de Aplicativo
+### <a name="scale-up-hello-app-service-plan"></a>Dimensionar o hello plano de serviço de aplicativo
 
-Selecione qualquer uma das camadas não estão livres (**compartilhado**, **básica**, **padrão**, ou **Premium**). 
+Selecione qualquer uma das camadas não estão livres de saudação (**compartilhado**, **básica**, **padrão**, ou **Premium**). 
 
 Clique em **Selecionar**.
 
 ![Verificar tipo de preço](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
-Quando você receber a notificação a seguir, a operação de escala terá sido concluída.
+Quando você vir Olá notificação a seguir, a operação de escala de saudação foi concluída.
 
 ![Confirmação da operação de escala](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
-## <a name="buy-the-domain"></a>Comprar o domínio
+## <a name="buy-hello-domain"></a>Comprar Olá domínio
 
-### <a name="sign-in-to-azure"></a>Entrar no Azure
-Abra o [portal do Azure](https://portal.azure.com/) e entre com sua conta do Azure.
+### <a name="sign-in-tooazure"></a>Entrar tooAzure
+Olá abrir [portal do Azure](https://portal.azure.com/) e entre com sua conta do Azure.
 
 ### <a name="launch-buy-domains"></a>Inicializar Comprar domínio
-Na guia **Aplicativos Web**, clique no nome do seu aplicativo Web, selecione **Configuraçõe**s e selecione **Domínios personalizados**
+Em Olá **aplicativos Web** , clique em nome de saudação do seu aplicativo web, selecione **configurações**e, em seguida, selecione **domínios personalizados**
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
-Na página **Domínios personalizados**, clique em **Comprar domínios**.
+Em Olá **domínios personalizados** , clique em **comprar domínios**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
-### <a name="configure-the-domain-purchase"></a>Configurar a compra de domínio
+### <a name="configure-hello-domain-purchase"></a>Configurar a compra de domínio Olá
 
-Na página **Domínio de Serviço de Aplicativo**, na caixa **Pesquisar domínio**, digite o nome de domínio que você deseja comprar e digite `Enter`. Os domínios disponíveis sugeridos são mostrados logo abaixo da caixa de texto. Selecione um ou mais domínios que deseja comprar. 
+Em Olá **domínio de serviço de aplicativo** página Olá **pesquisar domínio** caixa, digite o nome de domínio de saudação deseja toobuy e tipo `Enter`. Olá sugeridos domínios disponíveis são mostrados abaixo de caixa de texto de saudação. Selecione um ou mais domínios que você deseja toobuy. 
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
-Clique em **Informações de Contato** e preencha o formulário de informações de contato do domínio. Quando terminar, clique em **OK** para retornar à página de Domínio do Serviço de Aplicativo.
+Clique em Olá **as informações de contato** e preencha o formulário de informações de contato do domínio hello. Quando terminar, clique em **Okey** página de domínio do serviço de aplicativo toohello tooreturn.
    
-É importante preencher todos os campos obrigatórios com a máxima precisão possível. Dados incorretos para informações de contato resultarão em falhas em comprar domínios. 
+É importante preencher todos os campos obrigatórios com a máxima precisão possível. Dados incorretos para informações de contato podem resultar em domínios de toopurchase de falha. 
 
-Em seguida, selecione as opções desejadas para seu domínio. Consulte a tabela a seguir para obter explicações:
+Em seguida, selecione opções de saudação desejada para seu domínio. Consulte Olá explicações para a tabela a seguir:
 
 | Configuração | Valor sugerido | Descrição |
 |-|-|-|
-|Renovação automática | **Habilitar** | Renova seu Domínio do Serviço de Aplicativo automaticamente todo ano. Seu cartão de crédito é cobrado no mesmo preço de compra no momento da renovação. |
-|Proteção de privacidade | Habilitar | Escolha "Proteção de privacidade", que está incluída no preço de compra _gratuitamente_ (exceto por domínios de nível superior cujo registro não dê suporte a proteção de privacidade, como _.co.in_, _.co.uk_ e assim por diante). |
-| Atribuir nomes de host padrão | **www** e **@** | Se você quiser, selecione as associações de nome do host desejadas. Quando a operação de compra de domínio for concluída, seu aplicativo Web pode ser acessado nos nomes de host selecionados. Se o aplicativo Web estiver por trás do [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/), você não verá a opção de atribuir o domínio raiz (@), pois o Gerenciador de Tráfego não dá suporte a registros A. Você pode fazer alterações às atribuições de nome do host após a compra de domínio ser concluída. |
+|Renovação automática | **Habilitar** | Renova seu Domínio do Serviço de Aplicativo automaticamente todo ano. Seu cartão de crédito é cobrado Olá mesmo preço de compra no momento de saudação da renovação. |
+|Proteção de privacidade | Habilitar | Aceitar muito "Proteção de privacidade," que está incluída no preço de compra Olá _gratuitamente_ (exceto para os domínios de nível superior cujo registro não suportam a proteção de privacidade, como _. co.in_, _. Co.uk_, e assim por diante). |
+| Atribuir nomes de host padrão | **www** e **@** | Selecione Olá desejado associações de nome de host, se desejado. Quando Olá domínio compra operação estiver concluída, seu aplicativo web pode ser acessado em nomes de host de saudação selecionada. Se Olá web aplicativo estiver atrás de [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), você não vir o domínio raiz da saudação opção tooassign hello (@), pois o Gerenciador de tráfego não não suporte a registros. Você pode fazer alterações toohello atribuições de nome de host após a conclusão da compra de domínio hello. |
 
 ### <a name="accept-terms-and-purchase"></a>Aceitar os termos e comprar
 
-Clique em **Termos Legais** para examinar os termos e os encargos, clique em **Comprar**.
+Clique em **termos legais** tooreview termos de saudação e encargos hello, clique em **comprar**.
 
 > [!NOTE]
-> Domínios do Serviço de Aplicativo usam o DNS do Azure para hospedar os domínios. Além da taxa de registro de domínio, encargos de uso do DNS do Azure se aplicam. Para obter informações, consulte [Preços do DNS do Azure](https://azure.microsoft.com/pricing/details/dns/).
+> Domínios do serviço de aplicativo usam domínios de saudação toohost DNS do Azure. Além disso toohello taxa de registro de domínio, os encargos de uso do Azure DNS se aplicam. Para obter informações, consulte [Preços do DNS do Azure](https://azure.microsoft.com/pricing/details/dns/).
 >
 >
 
-De volta à página **Domínio de Serviço de Aplicativo**, clique em **OK**. Enquanto a operação estiver em andamento, você verá as seguintes notificações:
+Em Olá **domínio de serviço de aplicativo** , clique em **Okey**. Enquanto a operação de saudação está em andamento, você verá Olá notificações a seguir:
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-validate.png)
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-purchase-success.png)
 
-### <a name="test-the-hostnames"></a>Testar os nomes de host
+### <a name="test-hello-hostnames"></a>Saudação de nomes de host de teste
 
-Se você tiver atribuído nomes de host padrão ao seu aplicativo Web, também verá uma notificação de êxito para cada nome do host selecionado. 
+Se você tiver atribuído padrão nomes de host tooyour web app, você também verá uma notificação de êxito para cada nome de host selecionado. 
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-Você também verá os nomes de host selecionados na página **Domínios personalizados** na seção **Nomes de host**. 
+Você também verá nomes de host de saudação selecionada no hello **domínios personalizados** página Olá **nomes de host** seção. 
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
-Para testar os nomes de host, navegue até os nomes de host listados no navegador. O exemplo na captura de tela anterior, tente navegar para _kontoso.net_ e _www.kontoso.net_.
+nomes de host tootest hello, navegue toohello listado os nomes de host no navegador de saudação. No exemplo hello Olá anterior a captura de tela, tente navegar too_kontoso.net_ e _www.kontoso.net_.
 
-## <a name="assign-hostnames-to-web-app"></a>Atribuir nomes de host ao aplicativo Web
+## <a name="assign-hostnames-tooweb-app"></a>Atribuir nomes de host tooweb aplicativo
 
-Se você optar por não atribuir um ou mais nomes de host padrão ao seu aplicativo Web durante o processo de compra ou, se for necessário atribuir um nome do host não listado, você poderá atribuir um nome do host a qualquer momento.
+Se você escolher não tooassign um ou mais nomes de host padrão tooyour web a aplicativo durante a saudação processo de compra, ou se você precisar tooassign um nome de host não listados, você pode atribuir um nome de host a qualquer momento.
 
-Você também pode atribuir nomes de host no Domínio de Serviço de Aplicativo a qualquer outro aplicativo Web. As etapas dependem se o Domínio do Serviço de Aplicativo e o aplicativo Web pertencem à mesma assinatura.
+Você também pode atribuir nomes de host em tooany de domínio do serviço de aplicativo hello outro aplicativo da web. Olá etapas dependem se hello domínio de aplicativo do serviço e aplicativo web de saudação pertencem toohello mesma assinatura.
 
-- Assinatura diferente: mapear registros de DNS personalizados do Domínio do Serviço de Aplicativo para o aplicativo Web como um domínio adquirido externamente. Para obter informações sobre como adicionar nomes DNS personalizados a um Domínio do Serviço de Aplicativo, consulte [Gerenciar registros de DNS personalizados](#custom). Para mapear um domínio adquirido externo para um aplicativo Web, consulte [Mapear um nome DNS personalizado existente para Aplicativos Web do Azure](app-service-web-tutorial-custom-domain.md). 
-- Mesma assinatura: use as etapas a seguir.
+- Assinatura diferente: mapear registros de DNS personalizados do aplicativo da web toohello Olá domínio de serviço de aplicativo como um domínio externamente adquirido. Para obter informações sobre DNS personalizado adicionando nomes tooan domínio de serviço de aplicativo, consulte [gerenciar registros de DNS personalizados](#custom). toomap um aplicativo web de tooa de domínio externo de adquiridas, consulte [mapear um tooAzure de nome DNS de personalizada existente aplicativos Web](app-service-web-tutorial-custom-domain.md). 
+- Mesma assinatura: Olá Use as etapas a seguir.
 
 ### <a name="launch-add-hostname"></a>Inicializar adição de nome do host
-Na página **Serviços de Aplicativos**, selecione o nome do aplicativo Web ao qual você deseja atribuir nomes de host, selecione **Configurações** e, em seguida, selecione **Domínios personalizados**.
+Em Olá **serviços de aplicativos** página, o nome de saudação select de seu aplicativo web que você deseja tooassign os nomes de host para selecionar **configurações**e, em seguida, selecione **domínios personalizados**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
-Certifique-se de que seu domínio adquirido esteja listado na seção **Domínios do Serviço de Aplicativo**, mas não o selecione. 
+Certifique-se de que seu domínio adquirido está listado no hello **domínios de serviço de aplicativo** seção, mas não selecioná-lo. 
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
 > [!NOTE]
-> Todos os Domínios de Serviço de Aplicativo na mesma assinatura são mostrados na página **Domínios personalizados** do aplicativo Web. Se seu domínio estiver na assinatura do aplicativo Web, mas você não conseguir vê-lo na página **Domínios personalizados** do aplicativo Web, tente reabrir a página **Domínios personalizados** ou atualizar a página Web. Além disso, verifique o sino de notificação na parte superior do portal do Azure para progresso ou falhas de criação.
+> Todos os domínios de serviço de aplicativo de saudação mesma assinatura são mostrados no Olá web app **domínios personalizados** página. Se seu domínio está na assinatura do aplicativo da web hello, mas você não pode vê-lo em seu aplicativo da web hello **domínios personalizados** página, tente reabrir Olá **domínios personalizados** página ou atualizar Olá página da Web. Além disso, verifique sino de notificação Olá na parte superior de saudação do hello portal do Azure para falhas de criação ou de andamento.
 >
 >
 
 Selecione **Adicionar nome do host**.
 
 ### <a name="configure-hostname"></a>Configurar nome do host
-Na caixa de diálogo **Adicionar nome do host**, digite o nome de domínio totalmente qualificado do Domínio do Serviço de Aplicativo ou qualquer subdomínio. Por exemplo:
+Em Olá **Adicionar nome de host** caixa de diálogo, digite o nome de domínio totalmente qualificado de saudação do seu domínio do serviço de aplicativo ou qualquer subdomínio. Por exemplo:
 
 - kontoso.net
 - www.kontoso.net
 - abc.kontoso.net
 
-Quando terminar, selecione **Validar**. O tipo de registro de nome do host é selecionado automaticamente para você.
+Quando terminar, selecione **Validar**. tipo de registro de nome de host de saudação é selecionado automaticamente para você.
 
 Selecione **Adicionar nome do host**.
 
-Quando a operação for concluída, você verá uma notificação de êxito para o nome do host atribuído.  
+Quando a saudação operação estiver concluída, você verá uma notificação de êxito para Olá atribuído um nome de host.  
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
 ### <a name="close-add-hostname"></a>Feche Adicionar nome do host
-Na página **Adicionar nome do host**, atribua qualquer outro nome do host ao seu aplicativo Web, conforme desejado. Quando terminar, feche a página **Adicionar nome do host**.
+Em Olá **Adicionar nome de host** página, atribua a qualquer outro nome de host tooyour aplicativo da web, conforme desejado. Quando terminar, feche Olá **Adicionar nome de host** página.
 
-Agora você deve ver os nomes do host recentemente atribuídos na página **Domínios personalizados** do seu aplicativo.
+Agora você deve ver hostname(s) Olá atribuída recentemente em seu aplicativo **domínios personalizados** página.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added2.png)
 
-### <a name="test-the-hostnames"></a>Testar os nomes de host
+### <a name="test-hello-hostnames"></a>Saudação de nomes de host de teste
 
-Navegue até o nome do host listado no navegador. No exemplo na captura de tela anterior, tente navegar para _abc.kontoso.net_.
+Navegue toohello listado os nomes de host no navegador de saudação. No exemplo hello Olá anterior a captura de tela, tente navegar too_abc.kontoso.net_.
 
 <a name="custom" />
 
@@ -190,52 +190,52 @@ No Azure, os registros DNS para um Domínio do Serviço de Aplicativo são geren
 
 ### <a name="open-app-service-domain"></a>Abrir o Domínio do Serviço de Aplicativo
 
-No portal do Azure, no menu à esquerda, selecione **Mais Serviços** > **Domínios do Serviço de Aplicativo**.
+No hello portal do Azure, no menu da esquerda hello, selecione **mais serviços** > **domínios de serviço de aplicativo**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
-Selecione o domínio a gerenciar. 
+Selecione Olá toomanage de domínio. 
 
 ### <a name="access-dns-zone"></a>Acessar zona DNS
 
-No menu da esquerda do domínio, selecione **zona DNS**.
+No menu da esquerda do domínio hello, selecione **zona DNS**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-dns-zone.png)
 
-Essa ação abre a página [Zona DNS](../dns/dns-zones-records.md) do seu Domínio do Serviço de Aplicativo no DNS do Azure. Para obter informações sobre como editar os registros DNS, consulte [Como gerenciar zonas DNS no portal do Azure](../dns/dns-operations-dnszones-portal.md).
+Essa ação abre Olá [zona DNS](../dns/dns-zones-records.md) página do seu domínio do serviço de aplicativo no DNS do Azure. Para obter informações sobre como tooedit registros DNS, consulte [como zonas DNS toomanage Olá portal do Azure](../dns/dns-operations-dnszones-portal.md).
 
 ## <a name="cancel-purchase-delete-domain"></a>Cancelar compra (excluir domínio)
 
-Depois de comprar o Domínio do Serviço de Aplicativo, você tem cinco dias para cancelar sua compra para obter um reembolso integral. Depois de cinco dias, você pode excluir o Domínio do Serviço de Aplicativo, mas não pode receber um reembolso.
+Depois de comprar Olá domínio de serviço de aplicativo, você tem cinco dias toocancel sua compra, para obter um reembolso total. Depois de cinco dias, você pode excluir Olá domínio de serviço de aplicativo, mas não pode receber um reembolso.
 
 ### <a name="open-app-service-domain"></a>Abrir o Domínio do Serviço de Aplicativo
 
-No portal do Azure, no menu à esquerda, selecione **Mais Serviços** > **Domínios do Serviço de Aplicativo**.
+No hello portal do Azure, no menu da esquerda hello, selecione **mais serviços** > **domínios de serviço de aplicativo**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
-Selecione o domínio que você deseja cancelar ou excluir. 
+Selecione Olá domínio tooyou deseja toocancel ou excluir. 
 
 ### <a name="delete-hostname-bindings"></a>Excluir associações de nome de host
 
-No menu da esquerda do domínio, selecione **Associações de nome do host**. As associações de nome do host de todos os serviços do Azure são listadas aqui.
+No menu da esquerda do domínio hello, selecione **associações de Hostname**. associações de nome de host de saudação de todos os serviços do Azure são listadas aqui.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
 
-Você não pode excluir o Domínio de Serviço de Aplicativo até que todas as associações de nome de host sejam excluídas.
+Você não pode excluir Olá domínio de serviço de aplicativo até que todas as associações de nome de host são excluídas.
 
-Exclua cada associação de nome do host selecionando **…** > **Excluir**. Depois que todas as associações forem excluídas, selecione **Salvar**.
+Exclua cada associação de nome do host selecionando **…** > **Excluir**. Depois que todas as associações de saudação são excluídas, selecione **salvar**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
 
 ### <a name="cancel-or-delete"></a>Cancelar ou excluir
 
-No menu da esquerda do domínio, selecione **Visão geral**. 
+No menu da esquerda do domínio hello, selecione **visão geral**. 
 
-Se o período de cancelamento do domínio adquirido não tiver se passado, selecione **Cancelar compra**. Caso contrário, você verá um botão **Excluir** em vez disso. Para excluir o domínio sem um reembolso, selecione **Excluir**.
+Se Olá cancelamento no domínio Olá adquirido não período, selecione **cancelar a compra**. Caso contrário, você verá um botão **Excluir** em vez disso. domínio de saudação toodelete sem um reembolso, selecione **excluir**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
 
-Selecione **OK** para confirmar a operação. Se você não quiser continuar, clique em qualquer lugar fora da caixa de diálogo de confirmação.
+Selecione **Okey** tooconfirm operação de saudação. Se você não quiser tooproceed, clique em qualquer lugar fora da caixa de diálogo de confirmação de saudação.
 
-Depois que a operação estiver concluída, o domínio será liberado da sua assinatura e ficará disponível para qualquer pessoa comprar novamente. 
+Após a conclusão da operação de hello, domínio Olá é liberado da sua assinatura e disponível para qualquer pessoa toopurchase novamente. 

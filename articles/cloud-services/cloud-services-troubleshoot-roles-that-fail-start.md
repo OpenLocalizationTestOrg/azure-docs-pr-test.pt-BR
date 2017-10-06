@@ -1,6 +1,6 @@
 ---
-title: "Como solucionar problemas de funções com falha na inicialização | Microsoft Docs"
-description: "Veja algumas razões comuns pelas quais uma função do Serviço de Nuvem pode falhar ao ser iniciada. Soluções para esses problemas também são fornecidas."
+title: "funções de aaaTroubleshoot que falham toostart | Microsoft Docs"
+description: "Aqui estão algumas razões comuns por que uma função de serviço de nuvem pode falhar toostart. Problemas de toothese soluções também são fornecidos."
 services: cloud-services
 documentationcenter: 
 author: simonxjx
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/26/2017
 ms.author: v-six
-ms.openlocfilehash: 7d956192e8b9c3688b8b6f0108bd9296f66fbd62
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e2fbecb08a10984add79dfc74e73de6869bb314f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Solução de problemas de funções do serviço de nuvem com falha de inicialização
-Veja alguns problemas comuns e soluções relacionadas às funções do serviço de nuvem do Azure com falha na inicialização.
+# <a name="troubleshoot-cloud-service-roles-that-fail-toostart"></a>Solucionar problemas de funções de serviço de nuvem que falham toostart
+Aqui estão alguns problemas comuns e funções de serviços de nuvem de tooAzure relacionados soluções que não toostart.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -32,97 +32,97 @@ Funções sem resposta e funções que alternam entre os estados **Inicializando
 Os sintomas de DLLs ou assemblies ausentes podem ser:
 
 * A instância de função está alternando entre os estados **Inicializando**, **Ocupado** e **Parando**.
-* A instância de função foi movida para **Pronto** , mas, se você navegar até seu aplicativo Web, a página não será mostrada.
+* A instância de função foi movido muito**pronto** , mas se você navegar tooyour aplicativo de web, a página de saudação não será exibida.
 
 Há vários métodos recomendados para investigar esses problemas.
 
 ## <a name="diagnose-missing-dll-issues-in-a-web-role"></a>Como diagnosticar problemas de DLL ausente em uma função Web
-Quando você navega para um site que é implantado em uma função Web e o navegador exibe um erro de servidor semelhante ao mostrado abaixo, isso pode indicar que uma DLL está ausente.
+Quando você navegar pelo site de tooa que é implantado em uma função web e navegador Olá exibe a seguinte toohello semelhante do erro de servidor, isso pode indicar que uma DLL está ausente.
 
 ![Erro de servidor no aplicativo '/'.](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
 
 ## <a name="diagnose-issues-by-turning-off-custom-errors"></a>Diagnosticar problemas desativando erros personalizados
-Informações sobre erros mais completas podem ser exibidas pela configuração de web.config da função Web para definir o modo de erro personalizado como Desativado e pela reimplantação do serviço.
+Informações de erro mais completas podem ser exibidas Configurando Olá Web. config para Olá web função tooset Olá erro personalizado modo tooOff e reimplantar o serviço de saudação.
 
-Para exibir erros mais completos sem usar a Área de Trabalho Remota:
+tooview mais concluído erros sem usar a área de trabalho remota:
 
-1. Abra a solução no Microsoft Visual Studio.
-2. No **Gerenciador de Soluções**, localize o arquivo web.config e abri-lo.
-3. No arquivo web.config, localize a seção system.web e adicione a seguinte linha:
+1. Abra a solução de saudação do Microsoft Visual Studio.
+2. Em Olá **Solution Explorer**, localize o arquivo Web. config de saudação e abri-lo.
+3. No arquivo Web. config de hello, localize a seção System. Web hello e adicione Olá seguinte linha:
 
     ```xml
     <customErrors mode="Off" />
     ```
-4. Salve o arquivo.
-5. Empacote e implante novamente o serviço.
+4. Salve o arquivo hello.
+5. Empacote novamente e reimplante o serviço de saudação.
 
-Depois que o serviço for implantado novamente, você verá uma mensagem de erro com o nome do assembly ou DLL ausente.
+Depois que o serviço Olá é reimplantado, você verá uma mensagem de erro com nome Olá Olá assembly ou DLL ausente.
 
-## <a name="diagnose-issues-by-viewing-the-error-remotely"></a>Diagnosticar problemas exibindo o erro remotamente
-Você pode usar a Área de Trabalho Remota para acessar a função e exibir informações de erros mais completas remotamente. Use as seguintes etapas para exibir os erros usando a Área de Trabalho Remota:
+## <a name="diagnose-issues-by-viewing-hello-error-remotely"></a>Diagnosticar problemas exibindo erros Olá remotamente
+Você pode usar a função de saudação do tooaccess de área de trabalho remota e exibir informações de erro mais completas remotamente. Use Olá erros de saudação do tooview as etapas a seguir usando a área de trabalho remota:
 
 1. Verifique se o Azure SDK 1.3 ou posterior está instalado.
-2. Durante a implantação da solução usando o Visual Studio, escolha "Configurar conexões da Área de Trabalho Remota...". Para obter mais informações sobre como configurar a Conexão de Área de Trabalho Remota, confira [Usando a Área de Trabalho Remota com as Funções do Azure](../vs-azure-tools-remote-desktop-roles.md).
-3. No Portal Clássico do Microsoft Azure, depois que a instância mostrar um status de **Pronto**, clique em uma das instâncias de função.
-4. Clique no ícone **Conectar** na área **Acesso Remoto** da faixa de opções.
-5. Entre na máquina virtual usando as credenciais especificadas durante a configuração da Área de Trabalho Remota.
+2. Durante a implantação de saudação da solução hello usando o Visual Studio, escolha muito "Conexões configurar área de trabalho remota …". Para obter mais informações sobre como configurar a conexão de área de trabalho remota hello, consulte [usando a área de trabalho remota com funções do Azure](../vs-azure-tools-remote-desktop-roles.md).
+3. No portal clássico Olá Microsoft Azure, depois que a instância de saudação mostra um status de **pronto**, clique em uma das instâncias de função hello.
+4. Clique em Olá **conectar** ícone Olá **acesso remoto** área da faixa de opções de saudação.
+5. Entre na máquina virtual de toohello usando credenciais de saudação que foram especificadas durante a configuração da área de trabalho remota hello.
 6. Abra uma janela de comando.
 7. Digite `IPconfig`.
-8. Observe o valor do Endereço IPV4.
+8. Observe o valor do endereço IPV4 hello.
 9. Abra o Internet Explorer.
-10. Digite o endereço e o nome do aplicativo Web. Por exemplo: `http://<IPV4 Address>/default.aspx`.
+10. Digite o endereço de saudação e nome de saudação do aplicativo da web hello. Por exemplo: `http://<IPV4 Address>/default.aspx`.
 
-Navegar até o site agora retornará mensagens de erro mais explícitas:
+Navegando toohello site agora irá retornar mensagens de erro mais explícitas:
 
 * Erro de servidor no aplicativo '/'.
-* Descrição: ocorreu uma exceção sem tratamento durante a execução da solicitação da Web atual. Examine o rastreamento de pilha para obter mais informações sobre o erro e em que ponto ele ocorreu no código.
-* Detalhes da exceção: System.IO.FIleNotFoundException: não foi possível carregar o arquivo ou assembly ‘Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35’ ou uma de suas dependências. O sistema não pode encontrar o arquivo especificado.
+* Descrição: Uma exceção não tratada ocorreu durante a execução de saudação da solicitação da web atual de saudação. Analise o rastreamento de pilha de saudação para obter mais informações sobre o erro hello e onde ele foi originado no código de saudação.
+* Detalhes da exceção: System.IO.FIleNotFoundException: não foi possível carregar o arquivo ou assembly ‘Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35’ ou uma de suas dependências. sistema Olá não é possível localizar o arquivo hello especificado.
 
 Por exemplo:
 
 ![Erro de servidor explícito no aplicativo '/'](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
-## <a name="diagnose-issues-by-using-the-compute-emulator"></a>Diagnosticar problemas usando o emulador de computação
-Você pode usar o emulador de computação do Microsoft Azure para diagnosticar e solucionar problemas de dependências ausentes e erros de web.config.
+## <a name="diagnose-issues-by-using-hello-compute-emulator"></a>Diagnosticar problemas usando o emulador de computação Olá
+Você pode usar o hello Microsoft Azure compute emulator toodiagnose e solucionar problemas de dependências ausentes e erros de Web. config.
 
-Para obter melhores resultados ao usar esse método de diagnóstico, você deve usar um computador ou uma máquina virtual com uma instalação limpa do Windows. Para simular melhor o ambiente do Azure, use o Windows Server 2008 R2 x64.
+Para obter melhores resultados ao usar esse método de diagnóstico, você deve usar um computador ou uma máquina virtual com uma instalação limpa do Windows. toobest simular Olá ambiente do Azure, use o Windows Server 2008 R2 x64.
 
-1. Instalar a versão autônoma do [SDK do Azure](https://azure.microsoft.com/downloads/).
-2. No computador de desenvolvimento, compile o projeto do serviço de nuvem.
-3. No Windows Explorer, navegue até a pasta bin\debug do projeto do serviço de nuvem.
-4. Copie a pasta .csx e o arquivo .cscfg para o computador que você está usando para depurar os problemas.
-5. No computador limpo, abra uma janela de prompt de comando do SDK do Azure e digite `csrun.exe /devstore:start`.
-6. No prompt de comando, digite `run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser`.
-7. Quando a função for iniciada, você verá as informações de erro detalhadas no Internet Explorer. Você também pode usar ferramentas de solução de problemas padrão do Windows para ajudar a diagnosticar o problema.
+1. Instalar versão autônoma Olá Olá [SDK do Azure](https://azure.microsoft.com/downloads/).
+2. No computador de desenvolvimento Olá, compile o projeto de serviço de nuvem hello.
+3. No Windows Explorer, navegue toohello bin\debug pasta do projeto de serviço de nuvem hello.
+4. Copiar a pasta hello. CSx e. cscfg toohello computador que você está usando toodebug problemas de saudação do arquivo.
+5. No hello computador limpo, abra uma janela de Prompt de comando do SDK do Azure e digite `csrun.exe /devstore:start`.
+6. No prompt de comando hello, digite `run csrun <path too.csx folder> <path too.cscfg file> /launchBrowser`.
+7. Quando a função hello é iniciado, você verá informações detalhadas do erro no Internet Explorer. Você também pode usar ferramentas de solução de problemas padrão do Windows toofurther diagnosticar o problema de saudação.
 
 ## <a name="diagnose-issues-by-using-intellitrace"></a>Diagnosticar problemas usando o IntelliTrace
 Para as funções Web e de trabalho que usam o .NET Framework 4, você pode usar o [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx), que está disponível no Microsoft Visual Studio Enterprise.
 
-Siga estas etapas para implantar o serviço com o IntelliTrace habilitado:
+Execute o serviço de saudação de toodeploy essas etapas com o IntelliTrace habilitado:
 
 1. Confirme se o Azure SDK 1.3 ou posterior está instalado.
-2. Implante a solução usando o Visual Studio. Durante a implantação, marque a caixa de seleção **Habilitar IntelliTrace para funções do .NET 4** .
-3. Quando a instância for iniciada, abra o **Gerenciador de Servidores**.
-4. Expanda o nó **Azure\\Serviços de Nuvem** e localize a implantação.
-5. Expanda a implantação até ver as instâncias de função. Clique com o botão direito do mouse em uma das instâncias.
-6. Escolha **Exibir logs do IntelliTrace**. O **Resumo do IntelliTrace** será aberto.
-7. Localize a seção de exceções do resumo. Se houver exceções, a seção será rotulada como **Dados de Exceção**.
-8. Expanda os **Dados de Exceção** e procure erros **System.IO.FileNotFoundException** semelhantes ao seguinte:
+2. Implante solução de saudação usando o Visual Studio. Durante a implantação, verifique Olá **habilitar IntelliTrace para funções do .NET 4** caixa de seleção.
+3. Depois de iniciada a instância hello, abra Olá **Server Explorer**.
+4. Expanda Olá **Azure\\serviços de nuvem** nó e localize a implantação de saudação.
+5. Expanda a implantação de saudação até que você veja instâncias de função hello. Clique em uma das instâncias de saudação.
+6. Escolha **Exibir logs do IntelliTrace**. Olá **resumo do IntelliTrace** será aberto.
+7. Localize a seção de exceções de saudação do hello resumo. Se houver exceções, seção hello será rotulada **dados de exceção**.
+8. Expanda Olá **dados de exceção** e procure **System.IO. FileNotFoundException** a seguir toohello semelhante erros:
 
 ![Dados de exceção, arquivo ou assembly ausente](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503390.png)
 
 ## <a name="address-missing-dlls-and-assemblies"></a>Lidar com DLLs e assemblies ausentes
-Para resolver erros de DLL e assembly ausente, siga estas etapas:
+tooaddress tem erros DLL e assembly, siga estas etapas:
 
-1. Abra a solução no Visual Studio.
-2. No **Gerenciador de Soluções**, abra a pasta **Referências**.
-3. Clique no assembly identificado no erro.
-4. No painel **Propriedades**, localize a **propriedade Copy Local** e defina o valor como **True**.
-5. Reimplante o serviço de nuvem.
+1. Abra a solução de saudação no Visual Studio.
+2. Em **Solution Explorer**, abra Olá **referências** pasta.
+3. Clique em assembly hello identificado no erro hello.
+4. Em Olá **propriedades** painel, localize **propriedade Copy Local** e defina o valor de saudação muito**True**.
+5. Reimplante o serviço de nuvem hello.
 
-Após verificar se todos os erros foram corrigidos, você poderá implantar o serviço sem marcar a caixa de seleção **Habilitar IntelliTrace para funções do .NET 4** .
+Depois de ter verificado que todos os erros foram corrigidos, você pode implantar o serviço de saudação sem verificar Olá **habilitar IntelliTrace para funções do .NET 4** caixa de seleção.
 
 ## <a name="next-steps"></a>Próximas etapas
 Confira mais [artigos sobre solução de problemas](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) para serviços de nuvem.
 
-Para saber como solucionar problemas das funções do serviço de nuvem usando os dados de diagnóstico do computador Azure PaaS, confira a [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+toolearn como função de serviço de nuvem tootroubleshoot problemas usando dados de diagnóstico do computador de PaaS do Azure, consulte [série do blog de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

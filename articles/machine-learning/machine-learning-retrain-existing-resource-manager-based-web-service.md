@@ -1,6 +1,6 @@
 ---
-title: "Readaptar um serviço Web de previsão existente | Microsoft Docs"
-description: "Aprenda como readaptar um modelo e atualizar o serviço Web para usar o modelo recentemente adaptado no Machine Learning do Azure."
+title: "serviço web de aaaRetrain uma previsão existente | Microsoft Docs"
+description: "Saiba como tooretrain um modelo e atualização Olá web serviço toouse Olá recentemente treinado no aprendizado de máquina do Azure."
 services: machine-learning
 documentationcenter: 
 author: vDonGlover
@@ -14,100 +14,100 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-donglo
-ms.openlocfilehash: bdc994daf441d397157f8e6cbcf84d72584927f0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: fb0760d0a2adc34fc5f3df1ae41bdac075f91bf4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Readaptar um serviço Web de previsão existente
-Este documento descreve o processo de readaptação do cenário a seguir:
+Este documento descreve Olá treinamento processo para Olá cenário a seguir:
 
 * Você tem um experimento de treinamento e um experimento de previsão implantado como um serviço Web operacionalizado.
-* Você tem novos dados os quais deseja usar em seu serviço Web de previsão para executar sua pontuação.
+* Você tem novos dados que você deseja que seu tooperform de toouse de serviço web de previsão sua pontuação.
 
 > [!NOTE] 
-> Para implantar um novo serviço Web, você precisa ter permissões suficientes na assinatura na qual o serviço Web está sendo implantado. Para obter mais informações, consulte [Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning](machine-learning-manage-new-webservice.md). 
+> toodeploy um novo serviço da web, você deve ter permissões suficientes no hello assinatura toowhich você implantar o serviço web de saudação. Para obter mais informações, consulte [gerenciar um serviço Web usando o portal de serviços de Web de aprendizado de máquina do Azure Olá](machine-learning-manage-new-webservice.md). 
 
-Começando com o Serviço web e experimentos existentes, você precisa executar estas etapas:
+Começando com o serviço da web existente e experiências, você precisa toofollow estas etapas:
 
-1. Atualize o modelo.
-   1. Modifique seu experimento de treinamento para permitir entradas e saídas do serviço Web.
-   2. Implante o teste de treinamento como um serviço Web de readaptação.
-   3. Use o BES (Serviço de Execução em Lote) do teste de treinamento para readaptar o modelo.
-2. Use os cmdlets do PowerShell do Azure Machine Learning para atualizar o experimento de previsão.
-   1. Entre sua conta do Azure Resource Manager.
-   2. Obtenha a definição do serviço Web.
-   3. Exporte a definição do Serviço Web como JSON.
-   4. Atualize a referência para o blob ilearner no JSON.
-   5. Importe o JSON em uma definição de serviço Web.
-   6. Atualize o serviço Web com a nova definição de serviço Web.
+1. Atualize o modelo de saudação.
+   1. Modifique seu tooallow de experiência de treinamento para as entradas e saídas.
+   2. Implante a experiência de treinamento hello como um serviço web novos treinamentos.
+   3. Use modelo de saudação do teste de treinamento Olá serviço de execução de lote (BES) tooretrain.
+2. Use o teste da previsão de Olá Olá aprendizado de máquina do Azure PowerShell cmdlets tooupdate.
+   1. Entrar tooyour conta do Azure Resource Manager.
+   2. Obter definição de serviço web hello.
+   3. Exporte a definição de serviço web hello como JSON.
+   4. Atualização Olá toohello ilearner blob de referência no hello JSON.
+   5. Importe Olá JSON em uma definição de serviço web.
+   6. Atualize o serviço web de saudação com uma nova definição de serviço web.
 
-## <a name="deploy-the-training-experiment"></a>Implantar o teste de treinamento
-Para implantar o teste de treinamento como um serviço Web de readaptação, você deve adicionar as entradas e saídas do serviço Web ao modelo. Ao conectar um módulo *Saída do Serviço Web* ao módulo *[Modelo de Treinamento][train-model]* do teste, você habilita o teste de treinamento a fim de produzir um novo modelo de treinamento que pode ser usado em seu teste preditivo. Se você tiver um *Modelo de Avaliação*, também poderá anexar a saída do serviço Web para obter os resultados da avaliação como saída.
+## <a name="deploy-hello-training-experiment"></a>Implantar a experiência de treinamento Olá
+experiência de treinamento toodeploy hello como um serviço web novos treinamentos, você deve adicionar o modelo toohello do web service entradas e saídas. Conectando-se um *saída do serviço Web* da experiência do módulo toohello  *[treinar modelo] [ train-model]*  módulo, habilitar Olá experiência de treinamento tooproduce um novo modelo treinado que você pode usar em sua experiência de previsão. Se você tiver um *avaliar modelo* módulo, você também pode anexar resultados da avaliação do web service saída tooget hello como saída.
 
-Para atualizar seu experimento de treinamento:
+tooupdate sua experiência de treinamento:
 
-1. Conecte um módulo *Entrada do Serviço Web* à sua entrada de dados (por exemplo, um módulo *Limpar Dados Ausentes*). Normalmente, você quer garantir que os dados de entrada sejam processados da mesma forma que os dados de treinamento originais.
-2. Conecte um módulo *Saída do Serviço Web* à saída de seu módulo *Modelo de Treinamento*.
-3. Se você tiver um módulo *Modelo de Avaliação* e quiser exibir os resultados da avaliação, conecte um módulo *Saída do Serviço Web* à saída de seu módulo *Modelo de Avaliação*.
+1. Conecte-se um *entrada de serviço da Web* dados tooyour do módulo de entrada (por exemplo, um *limpar dados ausentes* módulo). Geralmente, você deseja tooensure seus dados de entrada são processados em Olá mesma forma que os dados de treinamento original.
+2. Conecte-se um *saída do serviço Web* saída do módulo toohello do seu *treinar modelo* módulo.
+3. Se você tiver um *avaliar modelo* módulo e você deseja que os resultados de avaliação do toooutput hello, conecte-se um *saída do serviço Web* saída do módulo toohello do seu *avaliar modelo* módulo.
 
 Execute seu experimento.
 
-Em seguida, você deve implantar o Teste de Treinamento como um serviço Web que produz um modelo treinado e os resultados de avaliação do modelo.  
+Em seguida, você deve implantar Olá experiência de treinamento como um serviço web que produz um modelo treinado e resultados de avaliação do modelo.  
 
-Na parte inferior da tela do experimento, clique em **Configurar o Serviço Web** e selecione **Implantar Serviço Web [Novo]**. O portal dos Serviços Web do Azure Machine Learning abre a página **Implantar Serviço Web**. Digite um nome para o serviço Web, escolha um plano de pagamento e clique em **Implantar**. Você pode usar o método de Execução em Lotes apenas para criar modelos treinados.
+Na parte inferior de saudação da tela de experimento hello, clique em **configurar o serviço Web**e, em seguida, selecione **implantar o serviço de Web [novo]**. portal de serviços de Web de aprendizado de máquina do Azure Olá abre toohello **implantar o serviço da Web** página. Digite um nome para o serviço Web, escolha um plano de pagamento e clique em **Implantar**. Somente você pode usar o método de execução de lote hello para a criação de modelos treinados.
 
-## <a name="retrain-the-model-with-new-data-by-using-bes"></a>Readapte o modelo com novos dados usando BES
-Para este exemplo, estamos usando C# para criar o aplicativo de readaptação. Você também pode usar o código de exemplo em Python ou R para realizar essa tarefa.
+## <a name="retrain-hello-model-with-new-data-by-using-bes"></a>Treinar novamente o modelo de saudação com novos dados usando BES
+Neste exemplo, estamos usando c# toocreate Olá treinamento de aplicativo. Você também pode usar essa tarefa Python ou R tooaccomplish de código de exemplo.
 
-Para chamar as APIs de Readaptação:
+Olá toocall treinamento APIs:
 
 1. Crie um aplicativo de console C# no Visual Studio: **Novo** > **Projeto** > **Visual C#** > **Área de Trabalho Clássica do Windows** > **Aplicativo de Console (.NET Framework)**.
-2. Entre no portal de Serviços Web do Machine Learning.
-3. Clique no serviço Web com o qual você está trabalhando.
+2. Entrar toohello portal de serviços de Web do aprendizado de máquina.
+3. Clique em Olá web service que você está trabalhando.
 4. Clique em **Consumo**.
-5. Na parte inferior da página **Consumir**, na seção **Código de Exemplo**, clique em **Lote**.
-6. Copie o código C# de exemplo da execução em lotes e cole-o no arquivo Program.cs. Verifique se o namespace permanece intacto.
+5. Na parte inferior de saudação do hello **consumir** página Olá **código de exemplo** seção, clique em **lote**.
+6. Copie Olá c# código de exemplo para execução em lotes e cole-o no arquivo Program.cs de saudação. Certifique-se de que o namespace Olá permanece intacto.
 
-Adicione o pacote NuGet Microsoft.AspNet.WebApi.Client como especificado nos comentários. Para adicionar a referência a Microsoft.WindowsAzure.Storage.dll, você precisará primeiro instalar a [biblioteca de cliente para os serviços de Armazenamento do Azure](https://www.nuget.org/packages/WindowsAzure.Storage).
+Adicione o pacote de NuGet Olá Microsoft.AspNet.WebApi.Client, conforme especificado nos comentários de saudação. tooadd Olá referência tooMicrosoft.WindowsAzure.Storage.dll, talvez seja necessário primeiro Olá tooinstall [biblioteca de cliente para serviços de armazenamento do Azure](https://www.nuget.org/packages/WindowsAzure.Storage).
 
-A captura de tela a seguir mostra a página **Consumir** no portal de Serviços Web do Azure Machine Learning.
+Olá, seguinte captura de tela mostra Olá **consumir** página no portal de serviços de Web de aprendizado de máquina do Azure hello.
 
 ![Página Consumir][1]
 
-### <a name="update-the-apikey-declaration"></a>Atualizar a declaração da apikey
-Localize a declaração da **apikey**:
+### <a name="update-hello-apikey-declaration"></a>Atualizar a declaração de apikey Olá
+Localizar Olá **apikey** declaração:
 
-    const string apiKey = "abc123"; // Replace this with the API key for the web service
+    const string apiKey = "abc123"; // Replace this with hello API key for hello web service
 
-Na seção **Informações básicas de consumo** da página **Consumir**, localize a chave primária e copie-a para a declaração da **apikey**.
+Em Olá **informações básicas de consumo** seção Olá **consumir** página, localize a chave primária hello e copiá-lo toohello **apikey** declaração.
 
-### <a name="update-the-azure-storage-information"></a>Atualize as informações do Armazenamento do Azure
-O código de exemplo de BES carrega um arquivo de uma unidade local (por exemplo "C:\temp\CensusIpnput.csv") para o armazenamento do Azure, processa e grava os resultados de volta para o armazenamento do Azure.  
+### <a name="update-hello-azure-storage-information"></a>Atualizar informações de armazenamento do Azure Olá
+Olá, código de exemplo do BES carrega um arquivo de um armazenamento de tooAzure de disco local (por exemplo, "C:\temp\CensusIpnput.csv"), processa e grava tooAzure armazenamento do retorno de resultados de saudação.  
 
-Para atualizar as informações do Armazenamento do Azure, recupere o nome da conta de armazenamento, a chave e as informações de contêiner de sua conta de armazenamento do Portal Clássico do Azure e, em seguida, atualize o correspondente. Depois de executar o experimento, o fluxo de trabalho resultante deverá ser semelhante ao seguinte:
+informações de armazenamento do Azure do tooupdate hello, você deve recuperar informações de nome, a chave e o contêiner para sua conta de armazenamento de saudação portal clássico do Azure e, em seguida, atualização Olá correspondi após a execução de sua experiência, Olá resultante de conta de armazenamento Olá fluxo de trabalho deve ser a seguir toohello semelhante:
 
-![Fluxo de trabalho resultante após a execução][4]valores ng no código.
+![Fluxo de trabalho resultante após a execução][4]valores NG código hello.
 
-1. Entre no portal clássico do Azure.
-2. Na coluna de navegação à esquerda, clique em **Armazenamento**.
-3. Na lista de contas de armazenamento, selecione uma para armazenar o modelo recuperado.
-4. Na parte inferior da página, clique em **Gerenciar Chaves de Acesso**.
-5. Copie e salve a **Chave de Acesso Primária** e feche a caixa de diálogo.
-6. Na parte superior da página, clique em **Contêineres**.
-7. Selecione um contêiner existente ou crie um novo e salve o nome.
+1. Entrar toohello portal clássico do Azure.
+2. Na coluna de navegação à esquerda hello, clique em **armazenamento**.
+3. Na lista de saudação de contas de armazenamento, selecione uma toostore saudação retreinados modelo.
+4. Final Olá Olá página, clique em **gerenciar chaves de acesso**.
+5. Copie e salve Olá **chave de acesso primária** e caixa de diálogo fechar hello.
+6. Na parte superior de saudação da página de saudação, clique em **contêineres**.
+7. Selecione um contêiner existente, ou crie um novo e salve o nome hello.
 
-Localize as declarações *StorageAccountName*, *StorageAccountKey* e *StorageContainerName* e atualize os valores salvos no portal clássico.
+Localizar Olá *StorageAccountName*, *StorageAccountKey*, e *StorageContainerName* declarações e atualizar valores de saudação que você salvou no portal clássico Olá .
 
     const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
     const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key
     const string StorageContainerName = "mycontainer"; // Replace this with your Azure Storage container name
 
-Você também deve garantir que o arquivo de entrada esteja disponível no local especificado no código.
+Você também deve garantir que arquivos de entrada hello está disponível no local de Olá especificado por você no código de saudação.
 
-### <a name="specify-the-output-location"></a>Especificar o local de saída
-Ao especificar o local de saída no Conteúdo de Solicitação, a extensão do arquivo especificada em *RelativeLocation* deve ser definida como `ilearner`. Veja os exemplos a seguir:
+### <a name="specify-hello-output-location"></a>Especifique o local de saída Olá
+Quando você especifica o local de saída de saudação em Olá carga de solicitação, Olá a extensão do arquivo hello especificado em *RelativeLocation* devem ser especificados como `ilearner`. Consulte Olá exemplo a seguir:
 
     Outputs = new Dictionary<string, AzureBlobDataReference>() {
         {
@@ -115,33 +115,33 @@ Ao especificar o local de saída no Conteúdo de Solicitação, a extensão do a
             new AzureBlobDataReference()
             {
                 ConnectionString = storageConnectionString,
-                RelativeLocation = string.Format("{0}/output1results.ilearner", StorageContainerName) /*Replace this with the location you want to use for your output file and a valid file extension (usually .csv for scoring results or .ilearner for trained models)*/
+                RelativeLocation = string.Format("{0}/output1results.ilearner", StorageContainerName) /*Replace this with hello location you want toouse for your output file and a valid file extension (usually .csv for scoring results or .ilearner for trained models)*/
             }
         },
 
-Veja a seguir um exemplo de saída de readaptação: ![Saída de readaptação][6]
+Olá, a seguir é um exemplo de saída de treinamento: ![treinamento de saída][6]
 
-## <a name="evaluate-the-retraining-results"></a>Avaliar os resultados da readaptação
-Quando você executa o aplicativo, a saída inclui URL e os tokens de assinaturas de acesso compartilhados necessários para acessar os resultados da avaliação.
+## <a name="evaluate-hello-retraining-results"></a>Avaliar Olá treinamento resultados
+Quando você executa o aplicativo hello, saída de hello inclui Olá URL e token de assinaturas de acesso compartilhado que são os resultados da avaliação Olá tooaccess necessário.
 
-Você pode ver os resultados do desempenho do modelo readaptado ao combinar *BaseLocation*, *RelativeLocation* e *SasBlobToken* dos resultados de saída para *output2* (como mostrado na imagem de readaptação anterior) e colando a URL completa na barra de endereço do navegador.  
+Você pode ver os resultados de desempenho de saudação do modelo Olá treinados novamente combinando Olá *BaseLocation*, *RelativeLocation*, e *SasBlobToken* Olá resultados de saída para *output2* (conforme mostrado no hello anterior de treinamento a imagem de saída) e colando URL completa Olá na barra de endereços do navegador hello.  
 
-Examine os resultados para determinar se o modelo treinado recentemente executa bem o suficiente para substituir o existente.
+Examine Olá resultados toodetermine se Olá recentemente treinado executa também suficiente Olá tooreplace existente a um.
 
-Copie *BaseLocation*, *RelativeLocation* e *SasBlobToken* dos resultados de saída.
+Saudação de cópia *BaseLocation*, *RelativeLocation*, e *SasBlobToken* Olá resultados de saída.
 
-## <a name="retrain-the-web-service"></a>Readaptar o serviço Web
-Quando você readapta um novo serviço Web, também atualiza a definição do serviço Web de previsão para fazer referenciar ao novo modelo treinado. A definição do serviço Web é uma representação interna do modelo treinado do serviço Web e não pode ser modificada diretamente. Verifique se você está recuperando a definição do serviço Web para seu experimento de previsão, e não seu teste de treinamento.
+## <a name="retrain-hello-web-service"></a>Treinar novamente o serviço web de saudação
+Quando você treinar novamente um novo serviço da web, atualiza Olá web de previsão serviço definição tooreference Olá novo modelo treinado. definição de serviço web Hello é uma representação interna do modelo treinado de saudação do serviço web de saudação e não pode ser modificada diretamente. Certifique-se de que você está recuperando a definição de serviço web Olá para sua experiência de previsão e não sua experiência de treinamento.
 
-## <a name="sign-in-to-azure-resource-manager"></a>Entre no Azure Resource Manager
-Primeiro, você deve entrar em sua conta do Azure no ambiente do PowerShell usando o cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx).
+## <a name="sign-in-tooazure-resource-manager"></a>Entrar no Gerenciador de recursos de tooAzure
+Você deve primeiro entrar em tooyour conta do Azure a partir de ambiente do PowerShell hello usando Olá [AzureRmAccount adicionar](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet.
 
-## <a name="get-the-web-service-definition-object"></a>Obter o objeto de definição do serviço Web
-Em seguida, obtenha o objeto de definição do serviço Web chamando o cmdlet [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx).
+## <a name="get-hello-web-service-definition-object"></a>Obter o objeto de definição de serviço Web de saudação
+Em seguida, obter objeto de definição de serviço Web Olá Olá chamada [AzureRmMlWebService Get](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet.
 
     $wsd = Get-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
-Para determinar o nome do grupo de recursos de um serviço Web existente, execute o cmdlet Get-AzureRmMlWebService sem parâmetros para exibir os serviços Web em sua assinatura. Localize o serviço Web e examine sua ID de serviço da Web. O nome do grupo de recursos é o quarto elemento na ID, logo após o elemento *resourceGroups* . No exemplo a seguir, o nome do grupo de recursos é Default-MachineLearning-SouthCentralUS.
+nome do grupo toodetermine Olá recursos de um serviço da web existente, execute o cmdlet de Get-AzureRmMlWebService de saudação sem serviços parâmetros toodisplay Olá web em sua assinatura. Localize o serviço web de saudação e, em seguida, examine a sua ID de serviço da web. nome de Olá Olá do grupo de recursos é quarto elemento Olá Olá ID, logo após Olá *resourceGroups* elemento. Olá exemplo a seguir, nome do grupo de recursos de saudação é SouthCentralUS-MachineLearning-padrão.
 
     Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph
     Id : /subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
@@ -150,18 +150,18 @@ Para determinar o nome do grupo de recursos de um serviço Web existente, execut
     Type : Microsoft.MachineLearning/webServices
     Tags : {}
 
-Como alternativa, para determinar o nome do grupo de recursos de um serviço Web existente, faça logon no portal de Serviços Web do Azure Machine Learning. Selecione o serviço Web. O nome do grupo de recursos é o quinto elemento da URL do serviço Web, logo após o elemento *resourceGroups* . No exemplo a seguir, o nome do grupo de recursos é Default-MachineLearning-SouthCentralUS.
+Como alternativa, toodetermine Olá recurso nome de grupo de um objeto existente serviço web, entre no portal de serviços de Web de aprendizado de máquina do Azure toohello. Selecione Olá web service. nome do grupo de recursos de saudação é elemento quinto Olá Olá URL do serviço da web de hello, logo após Olá *resourceGroups* elemento. Olá exemplo a seguir, nome do grupo de recursos de saudação é SouthCentralUS-MachineLearning-padrão.
 
     https://services.azureml.net/subscriptions/<subcription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
 
 
-## <a name="export-the-web-service-definition-object-as-json"></a>Exportar o objeto de Definição do Serviço Web como JSON
-Para modificar a definição para o modelo treinado usar o modelo treinado recentemente, primeiro você deve usar o cmdlet [Export-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767935.aspx) para exportá-lo para um arquivo no formato JSON.
+## <a name="export-hello-web-service-definition-object-as-json"></a>Exportar o objeto de definição de serviço Web hello como JSON
+definição de saudação toomodify de saudação do hello treinado toouse modelo treinado recentemente, primeiro você deve usar o hello [AzureRmMlWebService de exportação](https://msdn.microsoft.com/library/azure/mt767935.aspx) cmdlet tooexport-arquivo tooa formato JSON.
 
     Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
 
-## <a name="update-the-reference-to-the-ilearner-blob"></a>Atualizar a referência ao blob ilearner
-Nos ativos, localize o [modelo treinado] e atualize o valor *uri* no nó *locationInfo* com o URI do blob ilearner. O URI é gerado combinando *BaseLocation* e *RelativeLocation* na saída da chamada de readaptação BES.
+## <a name="update-hello-reference-toohello-ilearner-blob"></a>Atualizar Olá referência toohello ilearner blob
+Em ativos hello, localize Olá [treinado], atualização Olá *uri* valor Olá *locationInfo* nó com hello URI do blob de ilearner hello. Olá URI é gerado pela combinação Olá *BaseLocation* e hello *RelativeLocation* da saída de saudação de saudação chamada novos treinamentos BES.
 
      "asset3": {
         "name": "Retrain Sample [trained model]",
@@ -176,14 +176,14 @@ Nos ativos, localize o [modelo treinado] e atualize o valor *uri* no nó *locati
         }
       },
 
-## <a name="import-the-json-into-a-web-service-definition-object"></a>Importe o JSON em um objeto de Definição do Serviço Web
-Você deve usar o cmdlet [Import-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767925.aspx) para converter o arquivo JSON modificado novamente em um objeto de Definição de Serviço Web que você pode usar para atualizar o teste de previsão.
+## <a name="import-hello-json-into-a-web-service-definition-object"></a>Importar Olá JSON para um objeto de definição de serviço Web
+Você deve usar o hello [AzureRmMlWebService importação](https://msdn.microsoft.com/library/azure/mt767925.aspx) cmdlet tooconvert Olá modificado arquivo JSON de volta para um objeto de definição de serviço Web que você pode usar o experimento predicative do tooupdate Olá.
 
     $wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"
 
 
-## <a name="update-the-web-service"></a>Atualizar o serviço Web
-Finalmente, use o cmdlet [Update-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) para atualizar o teste de previsão.
+## <a name="update-hello-web-service"></a>Olá web serviço de atualização
+Por fim, use Olá [AzureRmMlWebService atualização](https://msdn.microsoft.com/library/azure/mt767922.aspx) tooupdate cmdlet Olá experiência previsível.
 
     Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 

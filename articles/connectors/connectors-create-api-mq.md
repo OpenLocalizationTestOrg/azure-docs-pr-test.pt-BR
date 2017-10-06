@@ -1,6 +1,6 @@
 ---
-title: "Saiba como usar o conector do MQ no Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Conectar-se a um local ou servidor MQ do Azure do seu fluxo de trabalho do aplicativo lógico para procurar, receber e enviar mensagens para o WebSphere MQ"
+title: "aaaLearn como toouse Olá conector MQ em aplicativos do Azure lógica | Microsoft Docs"
+description: "Conectar-se tooan no local ou servidor do Azure MQ de toobrowse de fluxo de trabalho de aplicativo sua lógica, receber e enviar mensagens tooWebSphere MQ"
 services: logic-apps
 author: valthom
 manager: anneta
@@ -15,32 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 06/01/2017
 ms.author: valthom; ladocs
-ms.openlocfilehash: 17c651585b56dae186286f5d8c68c363ae9c524d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8b36d53b457ced1a7461c229aecfcf8e4ae668a5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Conectar-se a um servidor do IBM MQ de aplicativos lógicos usando o conector MQ 
+# <a name="connect-tooan-ibm-mq-server-from-logic-apps-using-hello-mq-connector"></a>Conecte-se tooan servidor IBM MQ de aplicativos lógicos usando Olá MQ conector 
 
-O Conector Microsoft para MQ envia e recupera mensagens armazenadas em um servidor MQ local ou no Azure. Esse conector inclui um cliente Microsoft MQ para se comunicar com um servidor MQ IBM remoto em uma rede TCP/IP. Este documento é um guia introdutório para usar o conector MQ. É recomendável que você comece procurando uma única mensagem em uma fila e, em seguida, tente as outras ações.    
+O Conector Microsoft para MQ envia e recupera mensagens armazenadas em um servidor MQ local ou no Azure. Esse conector inclui um cliente Microsoft MQ para se comunicar com um servidor MQ IBM remoto em uma rede TCP/IP. Este documento é um conector MQ starter guia toouse hello. É recomendável começar navegando em uma única mensagem em uma fila e, em seguida, tentar Olá outras ações.    
 
-O Conector do MQ inclui as ações a seguir. Não há nenhum gatilho.
+conector MQ Olá inclui Olá ações a seguir. Não há nenhum gatilho.
 
--   Procurar uma única mensagem sem excluí-la do servidor IBM MQ
--   Procurar um lote de mensagens sem excluí-las do servidor IBM MQ
--   Receber uma única mensagem e excluí-la do servidor IBM MQ
--   Receber um lote de mensagens e excluí-las do servidor IBM MQ
--   Enviar uma única mensagem ao servidor IBM MQ 
+-   Procurar uma única mensagem sem excluir a mensagem de saudação do hello IBM MQ Server
+-   Procurar um lote de mensagens sem excluir mensagens de saudação do hello IBM MQ Server
+-   Uma única mensagem de recebimento e excluir a mensagem de saudação do hello IBM MQ Server
+-   Receber um lote de mensagens e excluir mensagens de saudação da saudação IBM MQ Server
+-   Enviar uma única mensagem toohello IBM MQ Server 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se você usar um servidor MQ local, [instale o gateway de dados local](../logic-apps/logic-apps-gateway-install.md) em um servidor dentro de sua rede. Se o servidor MQ está publicamente disponível ou disponível no Azure, o gateway de dados não é usado nem necessário.
+* Se usar um servidor do local MQ, [instalar o gateway de dados local Olá](../logic-apps/logic-apps-gateway-install.md) em um servidor dentro de sua rede. Se Olá MQ Server está publicamente disponível ou disponível no Azure, em seguida, Olá data gateway não está usado ou necessárias.
 
     > [!NOTE]
-    > O servidor em que o gateway de dados local está instalado também deve ter o .NET Framework 4.6 instalado para que o conector MQ funcione.
+    > servidor de saudação onde Olá Gateway de dados local está instalado também deve ter .net Framework 4.6 instalado para Olá MQ conector toofunction.
 
-* Criar o recurso do Azure para o gateway de dados local – [configurar a conexão de gateway de dados](../logic-apps/logic-apps-gateway-connection.md).
+* Criar hello recursos do Azure para gateway de dados local Olá - [configurar a conexão de gateway de dados Olá](../logic-apps/logic-apps-gateway-connection.md).
 
 * Versões do IBM WebSphere MQ oficialmente com suporte:
    * MQ 7.5
@@ -48,79 +48,79 @@ O Conector do MQ inclui as ações a seguir. Não há nenhum gatilho.
 
 ## <a name="create-a-logic-app"></a>Criar um aplicativo lógico
 
-1. Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**. 
-2. Insira o **Nome**, tal como MQTestApp, **Assinatura**, **Grupo de recursos** e **Localização** (use a localização em que a conexão de gateway de dados local está configurada). Selecione **Fixar no painel** e selecione **Criar**.  
+1. Em Olá **Azure iniciar placa**, selecione  **+**  (sinal de adição), **Web + móvel**e, em seguida, **aplicativo lógico**. 
+2. Digite hello **nome**, como MQTestApp, **assinatura**, **grupo de recursos**, e **local** (usar Olá local onde hello conexão de Gateway de dados local está configurado). Selecione **Pin toodashboard**e selecione **criar**.  
 ![Criar Aplicativo Lógico](media/connectors-create-api-mq/Create_Logic_App.png)
 
 ## <a name="add-a-trigger"></a>Adicionar um gatilho
 
 > [!NOTE]
-> O conector MQ não tem gatilhos. Portanto, use outro gatilho para iniciar seu aplicativo lógico, tal como o gatilho **Recorrência**. 
+> Olá MQ conector não tem todos os gatilhos. Assim, use outra toostart de gatilho seu aplicativo lógico, como Olá **recorrência** gatilho. 
 
-1. O **Designer de Aplicativos Lógicos** é aberto, selecione **Recorrência** na lista de gatilhos comuns.
-2. Selecione **Editar** dentro do gatilho Recorrência. 
-3. Defina a **Frequência** para **Dia** e defina o **Intervalo** como **7**. 
+1. Olá **lógica aplicativos Designer** é aberta, selecione **recorrência** na lista de saudação de gatilhos comuns.
+2. Selecione **editar** dentro Olá gatilho de recorrência. 
+3. Saudação de conjunto **frequência** muito**dia**e conjunto hello **intervalo** muito**7**. 
 
 ## <a name="browse-a-single-message"></a>Procurar uma única mensagem
 1. Selecione **+ Nova etapa** e selecione **Adicionar uma ação**.
-2. Na caixa de pesquisa, digite `mq` e, em seguida, selecione **MQ – procurar mensagem**.  
+2. Na caixa de pesquisa hello, digite `mq`e, em seguida, selecione **MQ - procurar mensagem**.  
 ![Procurar mensagem](media/connectors-create-api-mq/Browse_message.png)
 
-3. Se não houver uma conexão MQ existente, crie a conexão:  
+3. Se não houver uma conexão MQ existente, em seguida, crie conexão hello:  
 
-    1. Selecione **Conectar-se por meio do gateway de dados local** e insira as propriedades do servidor MQ.  
-    Para **Servidor**, você pode digitar o nome do servidor MQ ou digitar o endereço IP seguido por dois-pontos e o número da porta. 
-    2. A lista suspensa **gateway** lista quaisquer conexões de gateway existentes que tenham sido configuradas. Selecione seu gateway.
-    3. Selecione **Criar** quando terminar. A conexão é semelhante ao seguinte:   
+    1. Selecione **conectar por meio do gateway de dados local**e insira as propriedades de saudação do servidor MQ.  
+    Para **Server**, você pode inserir nome do servidor de saudação MQ ou Inserir endereço IP hello seguido por um número de porta de dois-pontos e hello. 
+    2. Olá **gateway** suspensa lista as conexões de gateway existentes que foram configuradas. Selecione seu gateway.
+    3. Selecione **Criar** quando terminar. A conexão tem a aparência a seguir toohello semelhante:   
     ![Propriedades da Conexão](media/connectors-create-api-mq/Connection_Properties.png)
 
-4. Nas propriedades da ação, você pode:  
+4. Nas propriedades de ação de saudação, você pode:  
 
-    * Use a propriedade **Fila** para acessar um nome fila diferente do que está definido na conexão
-    * Use **MessageId**, **CorrelationId**, **GroupId**e outras propriedades para procurar uma mensagem com base nas propriedades de mensagem do MQ diferentes
-    * Defina **IncludeInfo** como **True** para incluir informações adicionais da mensagem na saída. Ou defina-o como **False** para não incluir informações adicionais da mensagem na saída.
-    * Insira um valor de **Tempo limite** para determinar por quanto tempo aguardar até que uma mensagem chegue em uma fila vazia. Se nada for inserido, a primeira mensagem na fila será recuperada e não nenhum tempo será perdido esperando que uma mensagem apareça.  
+    * Saudação de uso **fila** propriedade tooaccess um nome de outra fila que está definida na conexão Olá
+    * Saudação de uso **MessageId**, **CorrelationId**, **GroupId**e toobrowse outras propriedades de uma mensagem com base nas propriedades da mensagem MQ diferentes Olá
+    * Definir **IncludeInfo** muito**True** tooinclude informações de mensagem adicionais na saída de hello. Ou, defina-o muito**False** toonot incluir informações adicionais de mensagem na saída de hello.
+    * Insira um **Timeout** toodetermine valor toowait quanto para tooarrive uma mensagem em uma fila vazia. Se nada for inserido, mensagem de saudação do primeiro na fila de saudação é recuperada e não há nenhum tempo gasto aguardando tooappear uma mensagem.  
     ![Procurar propriedades de mensagem](media/connectors-create-api-mq/Browse_message_Props.png)
 
 5. **Salve** suas alterações e, em seguida, **execute** seu aplicativo lógico:  
 ![Salvar e Executar](media/connectors-create-api-mq/Save_Run.png)
 
-6. Depois de alguns segundos, as etapas da execução são mostradas e você pode examinar a saída. Selecione a marca de seleção verde para ver os detalhes de cada etapa. Selecione **Ver saídas brutas** para ver detalhes adicionais sobre os dados de saída.  
+6. Depois de alguns segundos, etapas Olá Olá executar são mostradas, e você pode examinar a saída de hello. Selecione Olá marca de seleção verde toosee detalhes de cada etapa. Selecione **consulte saídas brutas** toosee obter detalhes adicionais sobre Olá dados de saída.  
 ![Procurar saída de mensagem](media/connectors-create-api-mq/Browse_message_output.png)  
 
     Saída bruta:  
     ![Procurar saída bruta de mensagem](media/connectors-create-api-mq/Browse_message_raw_output.png)
 
-7. Quando a opção **IncludeInfo** é definida como true, a seguinte saída é exibida:  
+7. Olá quando **IncludeInfo** opção é definida tootrue, Olá saída a seguir será exibida:  
 ![Procurar informações de inclusão da mensagem](media/connectors-create-api-mq/Browse_message_Include_Info.png)
 
 ## <a name="browse-multiple-messages"></a>Procurar várias mensagens
-A ação **Procurar mensagens** inclui uma opção **BatchSize** para indicar quantas mensagens devem ser retornadas da fila.  Se **BatchSize** não tem nenhuma entrada, todas as mensagens são retornadas. A saída retornada é uma matriz de mensagens.
+Olá **procurar mensagens** ação inclui um **BatchSize** tooindicate opção quantas mensagens devem ser retornadas da fila de saudação.  Se **BatchSize** não tem nenhuma entrada, todas as mensagens são retornadas. Olá retornado a saída é uma matriz de mensagens.
 
-1. Ao adicionar a ação **Procurar mensagens**, a primeira conexão configurada é selecionada por padrão. Selecione **Alterar conexão** para criar uma nova conexão ou selecione uma conexão diferente.
+1. Ao adicionar Olá **procurar mensagens** ação, a conexão de primeira Olá configurado é selecionada por padrão. Selecione **alterar conexão** toocreate uma nova conexão, ou selecione uma conexão diferente.
 
-2. A saída de Procurar mensagens mostra:  
+2. saída de Hello da procurar mensagens mostra:  
 ![Saída de Procurar mensagens](media/connectors-create-api-mq/Browse_messages_output.png)
 
 ## <a name="receive-a-single-message"></a>Receber uma única mensagem
-A ação **Receber mensagem** tem as mesmas entradas e saídas que a ação **Procurar mensagem**. Ao usar **Receber mensagem**, a mensagem é excluída da fila.
+Olá **receber mensagem** ação tem Olá mesmo entradas e saídas como Olá **procurar mensagem** ação. Ao usar **receber mensagem**, mensagem de saudação é excluída da fila de saudação.
 
 ## <a name="receive-multiple-messages"></a>Receber várias mensagens
-A ação **Receber mensagens** tem as mesmas entradas e saídas que a ação **Procurar mensagens**. Ao usar **Receber mensagens**, as mensagens são excluídas da fila.
+Olá **receber mensagens** ação tem Olá mesmo entradas e saídas como Olá **procurar mensagens** ação. Ao usar **receber mensagens**, mensagens de saudação são excluídas da fila de saudação.
 
-Se não houver nenhuma mensagem na fila ao fazer uma pesquisa ou um recebimento, a etapa falhará com a seguinte saída:  
+Se não houver nenhuma mensagem na fila de saudação ao fazer uma pesquisa ou receive, Olá falhar com hello saída a seguir:  
 ![Erro MQ Nenhuma Mensagem](media/connectors-create-api-mq/MQ_No_Msg_Error.png)
 
 ## <a name="send-a-message"></a>Enviar uma mensagem
-1. Ao adicionar a ação **Enviar mensagem**, a primeira conexão configurada é selecionada por padrão. Selecione **Alterar conexão** para criar uma nova conexão ou selecione uma conexão diferente. Os **Tipos de Mensagem** válidos são **Datagrama**, **Resposta** ou **Solicitação**.  
+1. Ao adicionar Olá **enviar mensagem** ação, a conexão de primeira Olá configurado é selecionada por padrão. Selecione **alterar conexão** toocreate uma nova conexão, ou selecione uma conexão diferente. Olá válido **tipos de mensagem** são **datagrama**, **resposta**, ou **solicitação**.  
 ![Send Msg Props](media/connectors-create-api-mq/Send_Msg_Props.png)
 
-2. A saída de Enviar mensagem se parece com o seguinte:  
+2. Olá saída de enviar mensagem hello seguinte aparência:  
 ![Send Msg Output](media/connectors-create-api-mq/Send_Msg_Output.png)
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/mq/).
+Exibir quaisquer gatilhos e ações definidas em swagger Olá e também os limites de saudação [detalhes conector](/connectors/mq/).
 
 ## <a name="next-steps"></a>Próximas etapas
-[Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
+[Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Explorar Olá outros conectores disponíveis na lógica de aplicativos no nosso [lista APIs](apis-list.md).

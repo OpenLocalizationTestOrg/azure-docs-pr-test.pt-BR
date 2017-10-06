@@ -1,6 +1,6 @@
 ---
-title: Como restaurar um servidor no Banco de Dados do Azure para MySQL | Microsoft Docs
-description: Este artigo descreve como restaurar um servidor no Banco de Dados do Azure para MySQL usando o Portal do Azure.
+title: aaaHow tooRestore um servidor de banco de dados do Azure para MySQL | Microsoft Docs
+description: "Este artigo descreve como toorestore um servidor no banco de dados do Azure para MySQL usando Olá portal do Azure."
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
@@ -9,46 +9,46 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/10/2017
-ms.openlocfilehash: 8c06dce534b628a602127fd02b152c8e04e02cc4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4b990d5b37c5d4924de9571192b923e3c81094ce
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para MySQL usando o Portal do Azure
+# <a name="how-toobackup-and-restore-a-server-in-azure-database-for-mysql-using-hello-azure-portal"></a>Como tooBackup e restauração de um servidor no banco de dados do Azure para MySQL usando Olá portal do Azure
 
 ## <a name="backup-happens-automatically"></a>O backup ocorre automaticamente
-Ao usar o Banco de Dados para MySQL, o serviço de banco de dados faz automaticamente um backup do serviço a cada cinco minutos. 
+Ao usar o banco de dados do Azure para MySQL, o serviço de banco de dados de saudação torna automaticamente um backup do serviço de saudação a cada 5 minutos. 
 
-Os backups ficam disponíveis por sete dias ao usar a camada Basic e 35 dias ao usar a camada Standard. Para saber mais, confira [Camadas do Banco de Dados do Azure para MySQL](concepts-service-tiers.md)
+backups de saudação estão disponíveis para 7 dias, ao usar a camada básica e 35 dias ao usar a camada padrão. Para saber mais, confira [Camadas do Banco de Dados do Azure para MySQL](concepts-service-tiers.md)
 
-Com esse recurso de backup automático você pode restaurar o servidor e todos os seus bancos de dados em um novo servidor em um ponto anterior no tempo.
+Usando esse recurso de backup automático poderá restaurar o servidor de saudação e todos os seus bancos de dados em um novo servidor tooan anteriormente point-in-time.
 
-## <a name="restore-in-the-azure-portal"></a>Restaurar no Portal do Azure
-O Banco de Dados do Azure para MySQL permite a restauração do servidor em um ponto anterior no tempo e em uma nova cópia do servidor. Use esse novo servidor para recuperar os dados. 
+## <a name="restore-in-hello-azure-portal"></a>Restaurar Olá portal do Azure
+Banco de dados do Azure para MySQL permite toorestore Olá server tooa back ponto no tempo e em tooa nova cópia do servidor de saudação. Você pode usar esse novo toorecover de servidor a seus dados. 
 
-Por exemplo, se uma tabela for acidentalmente descartada ao meio-dia de hoje, você poderá restaurar em um momento logo antes do meio-dia e recuperar a tabela e os dados dessa nova cópia do servidor.
+Por exemplo, se uma tabela tiver sido acidentalmente descartada ao meio-dia de hoje, você pode restaurar toohello tempo antes de meio-dia e recuperar Olá ausente e os dados dessa nova cópia do servidor de saudação.
 
-As etapas a seguir restauram o exemplo de servidor para um ponto no tempo:
+Hello seguinte ponto de restauração Olá exemplo server tooa tempo:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/)
+1. O logon no hello [portal do Azure](https://portal.azure.com/)
 
-2. Localizar seu servidor de Banco de Dados do Azure para MySQL. No painel esquerdo, escolha **Todos os recursos**, depois selecione o servidor na lista.
+2. Localizar seu servidor de Banco de Dados do Azure para MySQL. No painel esquerdo do hello, selecione **todos os recursos**, selecione o servidor na lista de saudação.
 
-3.  Na parte superior da folha de visão geral do servidor, clique em **Restaurar** na barra de ferramentas. A folha Restaurar é aberta.
+3.  Na parte superior de saudação da folha de visão geral do servidor de saudação, clique em **restaurar** na barra de ferramentas de saudação. Abre a folha de restauração Hello.
 ![clique no botão restaurar](./media/howto-restore-server-portal/click-restore-button.png)
 
-4. Preencha o formulário Restaurar com as informações necessárias:
+4. Preencha o formulário de restauração de saudação com informações de saudação necessárias:
 
-- **Ponto de restauração (UTC)**: usando o seletor de data e o seletor de hora, selecione um ponto no tempo para o qual restaurar. A hora especificada está no formato UTC, então provavelmente você precisará converter a hora local em UTC.
-- **Restaurar em novo servidor**: forneça um novo nome de servidor no qual restaurar o servidor existente.
-- **Local**: a opção de região é preenchida automaticamente com a região do servidor de origem e não pode ser alterada.
-- **Tipo de preço**: a opção de tipo de preço é preenchida automaticamente com o mesmo tipo de preço do servidor de origem e não pode ser alterada aqui. 
+- **(UTC) do ponto de restauração**: usando o seletor de data hello e seletor de tempo, selecione um toorestore point-in-time para. tempo de saudação especificado está em formato UTC, portanto, você provavelmente precisa tooconvert Olá local hora em UTC.
+- **Restaurar o servidor toonew**: forneça um novo servidor de nome toorestore saudação do servidor existente no.
+- **Local**: opção de região Olá automaticamente preenche com a região de servidor de origem Olá e não pode ser alterada.
+- **Camada de preços**: Olá escolha da camada de preços automaticamente preenche com hello preços do mesmo nível como servidor de origem Olá e não podem ser alteradas aqui. 
 ![Restauração PITR](./media/howto-restore-server-portal/pitr-restore.png)
 
-5. Clique em **OK** para restaurar o servidor em um ponto no tempo. 
+5. Clique em **Okey** toorestore Olá servidor toorestore tooa ponto no tempo. 
 
-6. Após a conclusão da restauração, localize o novo servidor criado para verificar se os bancos de dados foram restaurados conforme o esperado.
+6. Após a conclusão da restauração hello, localize o servidor de novo Olá criado Olá tooverify bancos de dados foram restaurados como esperado.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Bibliotecas de conexão para o Banco de Dados do Azure para MySQL](concepts-connection-libraries.md)

@@ -1,5 +1,5 @@
 ---
-title: "Usando o Ruby no Aplicativo Web do Serviço de Aplicativo do Azure no Linux | Microsoft Docs"
+title: "aaaUsing Ruby no Azure serviço de aplicativo Web App no Linux | Microsoft Docs"
 description: "Usando o Ruby no Aplicativo Web do Serviço de Aplicativo do Azure no Linux."
 keywords: "serviço de aplicativo do azure, aplicativo Web, perguntas frequentes, linux, oss, ruby"
 services: app-service
@@ -15,38 +15,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 56105d1bc153e552e12c0c408c8f6075e4eff9d0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 45692cb3bf1da9ff65b9466055029bfaef8b7d8f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-ruby-in-web-app-on-linux"></a>Usando o Ruby no Aplicativo Web no Linux #
 
-Com a atualização mais recente para nosso back-end, introduzimos o suporte ao Ruby v.2.3. Ao definir a configuração do seu aplicativo Web Linux, você pode alterar a pilha de aplicativos.
+Com hello mais recente atualização tooour back-end, introduzimos o suporte para v.2.3 Ruby. Ao definir a configuração de saudação de seu aplicativo da web de Linux, você pode alterar pilha do aplicativo hello.
 
-## <a name="using-the-azure-portal"></a>Usando o portal do Azure ##
+## <a name="using-hello-azure-portal"></a>Usando Olá portal do Azure ##
 
-Do novo menu no [Portal do Azure](https://portal.azure.com), você pode optar por criar um aplicativo Web no Linux utilizando a opção Web + Móvel, conforme mostrado na imagem a seguir:
+No menu novo, Olá no hello [portal do Azure](https://portal.azure.com), você pode escolher que toocreate um aplicativo Web no Linux de Olá Web + móvel opção conforme Olá a imagem a seguir:
 
-![Iniciar a criação de um aplicativo Web no portal do Azure][1]
+![Iniciar a criação de um aplicativo web em Olá portal do Azure][1]
 
-A folha **Criar** é aberta, conforme mostrado na seguinte imagem:
+Em seguida, Olá **criar folha** abre conforme Olá a imagem a seguir:
 
-![A folha Criar][2]
+![folha de criar Olá][2]
 
 1. Dê um nome ao aplicativo Web.
-2. Escolha um grupo de recursos existente ou crie um novo. (Veja as regiões disponíveis na [seção de limitações](app-service-linux-intro.md).)
-3. Escolha um plano do Serviço de Aplicativo do Azure existente ou crie um. (Veja as observações do plano do Serviço de Aplicativo na [seção de limitações](app-service-linux-intro.md).)
-4. Escolha o Ruby das pilhas de tempo de execução internas.
+2. Escolha um grupo de recursos existente ou crie um novo. (Consulte regiões disponíveis no hello [seção limitações](app-service-linux-intro.md).)
+3. Escolha um plano do Serviço de Aplicativo do Azure existente ou crie um. (Consulte as notas de plano do serviço de aplicativo hello [seção limitações](app-service-linux-intro.md).)
+4. Escolha pilhas de tempo de execução interna Olá Olá Ruby.
 
-Depois que seu aplicativo Web Ruby é criado, você pode implantar para ele usando Git ou FTP.
+Depois que seu aplicativo web Ruby é criado, você pode implantar tooit usando Git ou FTP.
 
-Para saber mais sobre como criar um aplicativo Ruby, confira o [guia de introdução](app-service-linux-ruby-get-started.md)
+toolearn mais sobre a criação de um aplicativo Ruby, verifique Olá [get guia de Introdução](app-service-linux-ruby-get-started.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [O que é o Aplicativo Web no Linux?](app-service-linux-intro.md)
-* [Implantação do Git local no Serviço de Aplicativo do Azure](app-service-deploy-local-git.md)
+* [TooAzure local de implantação do Git do serviço de aplicativo](app-service-deploy-local-git.md)
 * [Perguntas frequentes sobre o Aplicativo Web do Serviço de Aplicativo do Azure no Linux](app-service-linux-faq.md)
 * [Criar um aplicativo Ruby com o Aplicativo Web do Azure no Linux](app-service-linux-ruby-get-started.md)
 

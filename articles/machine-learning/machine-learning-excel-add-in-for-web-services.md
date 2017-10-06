@@ -1,6 +1,6 @@
 ---
-title: "Suplemento do Excel para serviços Web do Machine Learning | Microsoft Docs"
-description: "Como usar os serviços Web do Azure Machine Learning diretamente no Excel sem escrever nenhum código."
+title: "suplemento aaaExcel para serviços Web de aprendizado de máquina | Microsoft Docs"
+description: "Como toouse da Web de aprendizado de máquina do Azure services diretamente no Excel sem gravar qualquer código."
 services: machine-learning
 documentationcenter: 
 author: tedway
@@ -15,74 +15,74 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/14/2017
 ms.author: tedway;garye
-ms.openlocfilehash: 0d60dd87bbdd4d3eafac0f8876cc9e41412a53ea
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c52f40d33c9907f284e4750afe47181dc3365fe5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="excel-add-in-for-azure-machine-learning-web-services"></a>Suplemento do Excel para serviços Web de Azure Machine Learning
-O Excel torna fácil chamar serviços Web diretamente, sem a necessidade de escrever nenhum código.
+Excel torna fácil toocall os serviços da web diretamente sem Olá necessidade toowrite qualquer código.
 
-## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Etapas para usar um serviço Web existente na pasta de trabalho
+## <a name="steps-toouse-an-existing-web-service-in-hello-workbook"></a>Etapas tooUse um serviço da web existente na pasta de trabalho de saudação
 
-1. Abra o [arquivo de exemplo do Excel](http://aka.ms/amlexcel-sample-2), que contém o suplemento do Excel e os dados sobre passageiros do Titanic.
-2. Escolha o serviço Web clicando nele - "Titanic Survivor Predictor (exemplo de suplemento do Excel) [Pontuação]" neste exemplo.
+1. Olá abrir [arquivo do Excel de exemplo](http://aka.ms/amlexcel-sample-2), que contém Olá complemento do Excel e dados sobre em detrimento de passageiros Olá Titanic.
+2. Escolha o serviço web de saudação clicando nele-"Titanic sobrevivente indicador (suplemento do Excel exemplo) [pontuação]" neste exemplo.
    
     ![Selecionar o serviço Web][01]
-3. Isso levará você à seção **Prever**.  Esta pasta de trabalho já contém dados de exemplo, mas para uma pasta de trabalho em branco você pode selecionar uma célula no Excel e clicar em **Usar dados de exemplo**.
-4. Selecione os dados com cabeçalhos e clique no ícone de intervalo de dados de entrada.  Verifique se a caixa "Meus dados contêm cabeçalhos" está marcada.
-5. Em **Saída**, insira o número da célula em que você deseja colocar a saída, por exemplo, "H1" aqui.
+3. Isso leva você toohello **prever** seção.  Esta pasta de trabalho já contém dados de exemplo, mas para uma pasta de trabalho em branco você pode selecionar uma célula no Excel e clicar em **Usar dados de exemplo**.
+4. Selecionar dados de saudação com cabeçalhos e clique em ícone de intervalo de dados de entrada hello.  Certifique-se de hello "Meus dados têm cabeçalhos" caixa está marcada.
+5. Em **saída**, insira o número de célula Olá onde você deseja Olá toobe de saída, por exemplo "H1" aqui.
 6. Clique em **Prever**.
    
     ![Seção Prever][02]
 
-Implante um serviço Web ou use um serviço Web existente. Para obter mais informações sobre como implantar um serviço Web, consulte [Passo a passo – Etapa 5: Implantar o serviço Web do Azure Machine Learning](machine-learning-walkthrough-5-publish-web-service.md).
+Implante um serviço Web ou use um serviço Web existente. Para obter mais informações sobre como implantar um serviço web, consulte [passo a passo etapa 5: implantar o serviço de Web de aprendizado de máquina do Azure Olá](machine-learning-walkthrough-5-publish-web-service.md).
 
-Obtenha a chave de API para o seu serviço Web. O local em que você executa essa ação depende se você publicou um serviço Web Clássico do Machine Learning ou um Novo serviço Web do Machine Learning.
+Obter chave de API de saudação para o serviço web. O local em que você executa essa ação depende se você publicou um serviço Web Clássico do Machine Learning ou um Novo serviço Web do Machine Learning.
 
 **Usar um serviço Web Clássico** 
 
-1. No Machine Learning Studio, clique na seção **SERVIÇOS WEB** no painel esquerdo e selecione o serviço Web.
+1. No estúdio de aprendizado de máquina, clique em Olá **serviços WEB** seção no painel esquerdo do hello e, em seguida, selecione Olá web service.
    
     ![Selecione um serviço Web do Studio][04]
-2. Copie a chave de API para o serviço Web.
+2. Copie a chave de API de Olá para o serviço da web de saudação.
    
     ![Chave de API do Studio][05]
-3. Na guia **PAINEL** do serviço Web, clique no link **SOLICITAÇÃO/RESPOSTA**.
-4. Procure a seção **URI da solicitação** .  Copie e salve a URL.
+3. Em Olá **painel** para serviço web de saudação, clique em Olá **solicitação/resposta** link.
+4. Procure Olá **URI da solicitação** seção.  Copie e salve a URL de saudação.
 
 > [!NOTE]
-> Agora é possível entrar no portal dos [Serviços Web do Azure Machine Learning](https://services.azureml.net) para obter a chave de API para um serviço Web Clássico do Machine Learning.
+> Agora é possível toosign em Olá [serviços de Web de aprendizado de máquina do Azure](https://services.azureml.net) tooobtain portal chave de API de saudação para um serviço web de aprendizado de máquina clássico.
 > 
 > 
 
 **Usar um Novo serviço Web**
 
-1. No portal dos [Serviços Web do Azure Machine Learning](https://services.azureml.net), clique em **Serviços Web** e selecione o serviço Web. 
+1. Em Olá [serviços de Web de aprendizado de máquina do Azure](https://services.azureml.net) portal, clique **serviços Web**, em seguida, selecione o serviço da web. 
 2. Clique em **Consumo**.
-3. Procure a seção **Informações básicas de consumo** . Copie e salve a **Chave primária** e a URL de **solicitação-resposta**.
+3. Procure Olá **informações básicas de consumo** seção. Copie e salve Olá **chave primária** e hello **solicitação-resposta** URL.
 
-## <a name="steps-to-add-a-new-web-service"></a>Etapas para adicionar um Novo serviço Web
+## <a name="steps-tooadd-a-new-web-service"></a>Etapas tooAdd um novo serviço da web
 
-1. Implante um serviço Web ou use um serviço Web existente. Para obter mais informações sobre como implantar um serviço Web, consulte [Passo a passo – Etapa 5: Implantar o serviço Web do Azure Machine Learning](machine-learning-walkthrough-5-publish-web-service.md).
+1. Implante um serviço Web ou use um serviço Web existente. Para obter mais informações sobre como implantar um serviço web, consulte [passo a passo etapa 5: implantar o serviço de Web de aprendizado de máquina do Azure Olá](machine-learning-walkthrough-5-publish-web-service.md).
 2. Clique em **Consumo**.
-3. Procure a seção **Informações básicas de consumo** . Copie e salve a **Chave primária** e a URL de **solicitação-resposta**.
-4. No Excel, vá para a seção **Serviços Web** (se você estiver na seção **Prever**, clique na seta para voltar para ir para a lista de serviços Web).
+3. Procure Olá **informações básicas de consumo** seção. Copie e salve Olá **chave primária** e hello **solicitação-resposta** URL.
+4. No Excel, vá toohello **serviços Web** seção (se você estiver no hello **prever** seção, clique em Olá seta Voltar toogo toohello lista de serviços da web).
    
-    ![Vá para a seleção de serviço Web][03]
+    ![Vá tooWeb seleção de serviço][03]
 5. Clique em **Adicionar Serviço Web**.
-6. Cole a URL na caixa de texto do complemento do Excel chamada **URL**.
-7. Cole a chave de API/primária na caixa de texto chamada **Chave de API**.
+6. Cole URL Olá Olá rotulada de caixa de texto de suplemento do Excel **URL**.
+7. Chave de API/primário Olá colar na caixa de texto de saudação rotulada **chave API**.
 8. Clique em **Adicionar**.
    
     ![URL e chave de API para um serviço Web clássico.][06]
-9. Para usar o serviço Web, siga as instruções anteriores de “Etapas para usar um serviço Web existente”.
+9. toouse serviço de web Olá, siga Olá anterior direções, "Etapas tooUse um serviço da web do existente."
 
 ## <a name="sharing-your-workbook"></a>Compartilhar sua pasta de trabalho
-Se você salvar sua pasta de trabalho, as chaves de API/primária dos serviços Web adicionados também serão salvas. Isso significa que você só deve compartilhar a pasta de trabalho com pessoas confiáveis.
+Se você salvar sua pasta de trabalho, chave de API/primário Olá Olá serviços da web que você adicionou também serão salvos. Isso significa que você somente deve compartilhar pasta de trabalho de saudação com pessoas que confiáveis.
 
-Faça suas perguntas na seção de comentário abaixo ou em nosso [fórum](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
+Qualquer perguntas em Olá seguinte seção de comentários ou, no nosso [fórum](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
 
 [01]: ./media/machine-learning-excel-add-in-for-web-services/image1.png
 [02]: ./media/machine-learning-excel-add-in-for-web-services/image2.png

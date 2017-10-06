@@ -1,6 +1,6 @@
 ---
-title: Azure Authenticator para Android | Microsoft Docs
-description: "O aplicativo Microsoft Azure Authenticator pode ser usado para entrar e acessar os recursos de trabalho. O aplicativo Azure Authenticator notifica você sobre uma solicitação de verificação de dois fatores pendente exibindo um alerta no dispositivo móvel."
+title: aaaAzure Authenticator para Android | Microsoft Docs
+description: "Aplicativo Microsoft Azure Authenticator pode ser usado em toosign tooaccess recursos de trabalho. aplicativo do Azure Authenticator Olá notifica sobre uma solicitação de verificação pendente de dois fatores, exibindo um dispositivo móvel tooyour alerta."
 services: active-directory
 documentationcenter: 
 author: femila
@@ -15,107 +15,107 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 60a5cc2ecc550c76ca3cb1f1d4d20070b3e3b035
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d6cc5c2f6a3a67847ae4076424746f73d7f48411
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-authenticator-for-android"></a>Azure Authenticator para Android
-O administrador de TI pode ter recomendado usar o Microsoft Azure Authenticator para entrar e acessar os recursos de trabalho. Esse aplicativo fornece essas duas opções de entrada:
+O administrador de TI recomendou você toouse saudação do Microsoft Azure Authenticator toosign em tooaccess seus recursos de trabalho. Esse aplicativo fornece essas duas opções de entrada:
 
-* A Multi-Factor Authentication permite proteger suas contas de trabalho ou escolar com verificação de duas etapas. Entre usando algo que você conhece (por exemplo, sua senha) e proteja a conta mais com algo que você tem (uma chave de segurança desse aplicativo). O aplicativo Azure Authenticator notifica você sobre uma solicitação de verificação de dois fatores pendente exibindo um alerta no dispositivo móvel. Basta simplesmente exibir a solicitação no aplicativo e tocar em verificar ou cancelar. Como alternativa, você precisará digitar a senha exibida no aplicativo.
-* A Conta de Trabalho permite transformar seu telefone ou tablet Android em um dispositivo confiável e fornecer SSO (Logon Único) para aplicativos da empresa. Seu administrador de TI pode exigir que você adicione uma conta de trabalho para acessar os recursos da empresa. O SSO permite entrar uma vez e aproveitar automaticamente a assinatura em todos os aplicativos de que sua empresa disponibilizou para você.
+* Multi-Factor Authentication permite que você toosecure contas da sua empresa ou escola com verificação em duas etapas. Você entrar usando algo que conhece (por exemplo, sua senha) e proteger a saudação conta ainda mais com algo que tem (uma chave de segurança deste aplicativo). aplicativo do Azure Authenticator Olá notifica sobre uma solicitação de verificação pendente de dois fatores, exibindo um dispositivo móvel tooyour alerta. É necessário toosimply exibir a solicitação de saudação em hello aplicativo e toque em verificar ou Cancelar. Como alternativa, você pode ser solicitados tooenter Olá senha exibida no aplicativo hello.
+* Conta corporativa permite você tooturn seu telefone Android ou tablet em um dispositivo confiável e fornecer aplicativos de toocompany Single Sign-On (SSO). O administrador de TI pode exigir tooadd uma conta de trabalho em recursos da empresa tooaccess ordem. SSO permite logon uma vez e automaticamente disp de entrar em todos os aplicativos da sua empresa disponibilizou tooyou disponível.
 
-## <a name="installing-the-azure-authenticator-app"></a>Instalar o aplicativo Azure Authenticator
-Você pode instalar o aplicativo Azure Authenticator na Google Play Store.
-As instruções para adicionar a conta de trabalho do dispositivo Samsung Android e não Samsung Android são ligeiramente diferentes. As instruções para ambos estão listadas abaixo.
+## <a name="installing-hello-azure-authenticator-app"></a>Instalar o aplicativo do Azure Authenticator Olá
+Você pode instalar o aplicativo do Azure Authenticator saudação do Google Play Store.
+conta de trabalho de tooadd Olá instruções do Android da Samsung vs de dispositivo um dispositivo Android não Samsung são ligeiramente diferentes. instruções de saudação para ambos estão listadas abaixo.
 
-## <a name="adding-the-work-account-from-samsung-android-device"></a>Adicionar a conta de trabalho do dispositivo Samsung Android
-### <a name="adding-the-work-account-through-the-app-home-screen"></a>Adicionar a conta de trabalho por meio da tela inicial do aplicativo
-As instruções a seguir são aplicáveis para Samsung GS3 ou superior e tablets Note 2 ou superior.
+## <a name="adding-hello-work-account-from-samsung-android-device"></a>Adicione a conta de trabalho de saudação do dispositivo Android da Samsung
+### <a name="adding-hello-work-account-through-hello-app-home-screen"></a>Adicionar a conta de trabalho Olá por meio da tela inicial do aplicativo hello
+Olá, instruções a seguir são aplicável tooSamsung GS3 e acima de telefones ou Note2 e acima tablets.
 
-1. Na tela inicial do aplicativo, aceite o EULA (Contrato de Licença de Usuário Final).
-2. Na tela Ativar Conta, clique no menu de contexto à direita e selecione **Conta de Trabalho**.
-3. Na tela Adicionar conta, selecione * * conta de trabalho * *.
+1. Na tela inicial de saudação do aplicativo hello, aceite o contrato de licença de usuário final (EULA) do hello.
+2. Na tela de ativar conta hello, clique o menu de contexto de saudação em Olá direita e selecione **conta de trabalho**.
+3. Em Adicionar conta tela hello, selecione * * conta de trabalho * *.
 4. Na tela Ativar administrador do dispositivo, clique em **Ativar**.
-5. Na tela de Política de Privacidade, marque a caixa de seleção e clique em **Confirmar**.
-6. Na tela de Ingresso no Local de Trabalho, digite a identificação do usuário fornecida pela sua organização e clique em **Ingressar**.
-7. Para entrar no aplicativo Azure Authenticator, insira a c****onta e a senha da empresa e clique em **Entrar**.
-8. A próxima tela que exibe informações sobre a MFA (Multi-Factor Authentication) serve para conceder segurança adicional e é opcional. Você verá esta tela se seu trabalho ou escola exigir autenticação de dois fatores para criar uma conta de trabalho. Ela fornece instruções para verificar sua conta.
-9. A tela de Ingresso no Local de Trabalho exibe a mensagem "**Ingressar em seu local de trabalho**". O aplicativo Azure Authenticator está tentando ingressar seu dispositivo na área de trabalho.
-10. Você verá a mensagem Ingresso no local de trabalho concluído na próxima tela.
+5. Na tela de política de privacidade do hello, selecione a caixa de seleção hello e clique em **confirmar**.
+6. Na tela de ingresso Olá, digite Olá userID fornecido pela sua organização e clique em **ingressar**.
+7. toosign no aplicativo do Azure Authenticator toohello, insira sua conta um * conta e senha e clique em **entrar**.
+8. Olá próxima tela exibe informações sobre a autenticação multifator (MFA) é para segurança adicional e é opcional. Você verá esta tela se seu trabalho ou escola exigir autenticação de dois fatores para criar uma conta de trabalho. Ele fornece instruções toofurther verificar sua conta.
+9. tela de ingresso Hello exibe a mensagem de saudação, "**seu ingresso**". aplicativo do autenticador do Azure Hello está tentando toojoin dispositivo tooyour no local de trabalho.
+10. Você deve ver a mensagem de saudação ingressados locais de trabalho em Olá próxima tela.
 
 > [!NOTE]
 > É permitido ter uma única conta de trabalho em seu dispositivo.
 > 
 > 
 
-### <a name="adding-the-work-account-from-the-settings-menu"></a>Adicionar a conta de trabalho no menu de configurações
-Depois de ter instalado o aplicativo Azure Authenticator, você também poderá criar uma conta de trabalho do Gerenciador de Contas Android.
+### <a name="adding-hello-work-account-from-hello-settings-menu"></a>Adicionar a conta de trabalho Olá no menu de configurações de saudação
+Depois que você instalou o aplicativo do Azure Authenticator hello, você também pode criar uma conta de trabalho da saudação gerente de conta do Android.
 
-1. No menu Configurações, navegue até **Contas** e clique em **Adicionar Conta**.
-2. Siga as etapas 3 a 10 no procedimento, adicionando a conta de trabalho por meio da tela principal do aplicativo, a fim de adicionar uma conta de trabalho.
+1. No menu de configurações hello, navegue muito**contas** e clique em **adicionar conta**.
+2. Execute as etapas 3 a 10 no procedimento hello, conta de trabalho adicionando Olá por meio da tela inicial do hello aplicativo, tooadd uma conta de trabalho.
 
-## <a name="adding-the-work-account-from-a-non-samsung-android-device"></a>Adicionar a conta de trabalho do dispositivo não Samsung Android
-### <a name="adding-the-work-account-through-the-app-home-screen"></a>Adicionar a conta de trabalho por meio da tela inicial do aplicativo
-1. Na tela inicial do aplicativo, aceite o EULA (Contrato de Licença de Usuário Final).
-2. Na tela Ativar Conta, clique no menu de contexto à direita e selecione **Conta de Trabalho**.
-3. Na tela de Contas, clique em **Adicionar conta**.
-4. Se você vir a tela de contas, clique em **Adicionar conta**. Se uma conta de trabalho já tiver sido criada anteriormente, você verá uma tela de Sincronização mostrando a conta de trabalho existente. Você pode manter a conta de trabalho simplesmente tocando na seta para voltar à tela inicial. Como alternativa, você pode selecionar a conta para remover e recriar uma nova conta de trabalho na tela de Ingresso no Local de Trabalho, digite a identificação do usuário fornecida pela sua organização e clique em Ingressar.
-5. Para entrar no aplicativo Azure Authenticator, insira a conta e a senha da empresa e clique em **Entrar**.
-6. A próxima tela que exibe informações sobre a MFA (Multi-Factor Authentication) serve para conceder segurança adicional e é opcional. Você verá esta tela se seu trabalho ou escola exigir autenticação de dois fatores para criar uma conta de trabalho. Ela fornece instruções para verificar sua conta.
-7. Clique em **OK** na tela seguinte. Não altere o nome do certificado.
-   a mensagem "Ingressando em seu local de trabalho". O aplicativo Azure Authenticator está tentando ingressar seu dispositivo na área de trabalho.
-   Você verá a mensagem Ingresso no local de trabalho concluído na próxima tela.
+## <a name="adding-hello-work-account-from-a-non-samsung-android-device"></a>Adicionar a conta de trabalho Olá de um dispositivo Android não Samsung
+### <a name="adding-hello-work-account-through-hello-app-home-screen"></a>Adicionar a conta de trabalho Olá por meio da tela inicial do aplicativo hello
+1. Na tela inicial de saudação do aplicativo hello, aceite o contrato de licença de usuário final (EULA) do hello.
+2. Na tela de ativar conta hello, clique o menu de contexto de saudação em Olá direita e selecione **conta de trabalho**.
+3. Na tela de contas hello, clique em **adicionar conta**.
+4. Se você vir a tela de contas hello, clique em **adicionar conta**. Se uma conta de trabalho já foi criada anteriormente, você verá uma tela de sincronização mostrando Olá conta de trabalho existente. Você pode armazenar conta de trabalho Olá simplesmente pressionando tela inicial do toohello Olá seta Voltar. Como alternativa, você pode selecionar Olá conta tooremove e recriar uma nova conta de trabalho na tela de ingresso hello, digite Olá userID fornecido pela sua organização e clique em junção.
+5. toosign no aplicativo do Azure Authenticator toohello, insira sua conta organizacional e senha e clique em **entrar**.
+6. Olá próxima tela exibe informações sobre a autenticação multifator (MFA) é para segurança adicional e é opcional. Você verá esta tela se seu trabalho ou escola exigir autenticação de dois fatores para criar uma conta de trabalho. Ele fornece instruções toofurther verificar sua conta.
+7. Clique em **Okey** na próxima tela de saudação. Não altere o nome do certificado hello.
+   mensagem de saudação "Associando sua área de trabalho". aplicativo do autenticador do Azure Hello está tentando toojoin dispositivo tooyour no local de trabalho.
+   Você deve ver a mensagem de saudação ingressados locais de trabalho em Olá próxima tela.
 
 > [!NOTE]
 > É permitido ter uma única conta de trabalho em seu dispositivo.
 > 
 > 
 
-Depois de ter instalado o aplicativo Azure Authenticator, você também poderá criar uma conta de trabalho do Gerenciador de Contas Android.
+Depois que você instalou o aplicativo do Azure Authenticator hello, você também pode criar uma conta de trabalho da saudação gerente de conta do Android.
 
-1. No menu **Configurações**, navegue até Contas e clique em **Adicionar Conta**.
-2. Siga as etapas 2 a 7 no procedimento, adicionando a conta de trabalho por meio da tela** principal do aplicativo, a fim de adicionar uma conta de trabalho.
+1. De saudação **configurações** menu, navegar tooAccounts e clique em **adicionar conta**.
+2. Siga as etapas 2 a 7 no procedimento hello, adicionando Olá conta corporativa Olá aplicativo inicial tela * *, tooadd uma conta de trabalho.
 
-### <a name="how-to-find-out-which-version-is-installed"></a>Como descobrir qual versão está instalada
-1. Você pode descobrir qual versão do aplicativo Azure Authenticator e versões de serviço ingressados estão instaladas no seu dispositivo.
-2. No menu pop-up, clique em **Sobre**.
-3. A tela Sobre exibe os serviços do aplicativo e as versões instaladas no seu dispositivo.
+### <a name="how-toofind-out-which-version-is-installed"></a>Como toofind qual versão está instalada
+1. Você pode descobrir qual versão do aplicativo do Azure Authenticator hello e versões de serviço associadas são instaladas no seu dispositivo.
+2. De Olá pop-up menu, clique em **sobre**.
+3. Olá sobre tela exibe serviços de Olá do aplicativo hello e versões de saudação instaladas no dispositivo.
 
-### <a name="sending-log-files-to-report-issues"></a>Enviando arquivos de log para relatar problemas
-1. Siga as orientações do Support da Microsoft para relatar um incidente com o aplicativo Azure Authenticator, obtenha um número de incidente e envie os arquivos de log referentes ao número de incidente atribuído da seguinte maneira:
-2. No menu pop-up, clique em **Registrar em log**.
-3. Se você tiver um incidente aberto com o Suporte da Microsoft, anote o número de incidente (ele será necessário para uma etapa posterior). Se você ainda não tiver criado um incidente de suporte e quiser obter assistência, siga as diretrizes no [Suporte da Microsoft](https://support.microsoft.com/en-us/contactus) para abrir um novo incidente.
-4. Na tela de registro em log, clique em **Enviar agora**.
-5. Selecione o provedor de email que você deseja usar.
-6. Se você já tiver um incidente aberto junto ao Suporte da Microsoft, entre em contato com o engenheiro de suporte designado para o seu problema para saber como enviar os dados do log e associá-los ao incidente. O Engenheiro de Suporte fornece informações para a linha do assunto e o endereço de email. Se você não tiver um incidente de suporte, siga as orientações no Suporte da Microsoft para abrir um novo incidente.
-7. Edite as linhas **Para** e **Assunto** com as informações recebidas do Suporte da Microsoft.
-8. O aplicativo Azure Authenticator anexa o arquivo de log ao email que você está enviando. Descreva o problema enfrentado, atualize a lista de destinatários (opcional) e envie o email.
+### <a name="sending-log-files-tooreport-issues"></a>Enviando arquivos de log tooreport problemas
+1. Execute orientação Olá na Microsoft Support tooreport um incidente com o aplicativo do Azure Authenticator hello, obter um número de incidentes e enviar arquivos de log em relação a saudação atribuído o número de incidentes da seguinte maneira:
+2. De Olá pop-up menu, clique em **log**.
+3. Se você tiver um incidente aberto com o Microsoft Support, anote o número de incidentes hello (você precisará dele para uma etapa posterior). Se você ainda não criou um incidente de suporte e gostaria de Ajuda, siga as orientações de saudação no [Microsoft Support](https://support.microsoft.com/en-us/contactus) tooopen um novo incidente.
+4. Na tela de registro em log hello, clique em **enviar agora**.
+5. Selecione o provedor de email de saudação deseja toouse.
+6. Se você já tiver um incidente aberto Microsoft Support, entre em contato com o engenheiro de suporte atribuído tooyour problema toofind como toosend Olá dados de log e ele associados ao incidente de saudação. Olá engenheiro de suporte fornecerá informações de linha de endereço e o assunto do email hello. Se você ainda não tiver um incidente de suporte, siga as orientações de saudação no Microsoft Support tooopen um novo incidente.
+7. Editar saudação **para** linha e **assunto** linha com informações de saudação que você recebeu do Microsoft Support.
+8. aplicativo do Azure Authenticator Olá anexa Olá log arquivo toohello email que você está enviando. Descrever Olá problema, atualize a lista de destinatários (opcional) e enviar email de saudação.
 
-### <a name="deleting-the-work-account-and-leaving-your-workplace"></a>Excluir a conta de trabalho e deixar o local de trabalho
-Você pode remover a conta de trabalho que você criou a qualquer momento da seguinte maneira:
+### <a name="deleting-hello-work-account-and-leaving-your-workplace"></a>Excluindo conta de trabalho hello e deixando o seu local de trabalho
+Você pode remover a conta de trabalho Olá criada a qualquer momento, da seguinte maneira:
 
-**Para excluir a conta de trabalho no menu Configurações**
+**Olá toodelete conta no menu de configurações de saudação de trabalho**
 
-1. No Gerenciador de Contas, selecione **Conta de trabalho**.
-2. Na tela Conta Corporativa, em **Configurações Gerais**, selecione **Configurações de Conta – Sair de sua rede do local de trabalho**.
-3. Selecione **Sair** na tela **Ingresso no Local de Trabalho**.
-4. Clique em **OK** quando a mensagem "Tem certeza de que deseja deixar a área de trabalho" for exibida.
+1. No Gerenciador de contas de saudação, selecione **conta de trabalho**.
+2. Na tela de conta corporativa hello, em **configurações gerais**, selecione **configurações de conta – sair da sua rede local de trabalho**.
+3. Selecione **deixe** em Olá **ingresso** tela.
+4. Clique em **Okey** quando Olá a mensagem "Tem certeza de que deseja que o local de trabalho tooleave" é exibida.
 5. Isso garante que você excluiu sua conta de trabalho de seu local de trabalho.
 
 > [!NOTE]
-> É recomendável que você não use a opção de Remover Conta para excluir uma conta de trabalho, pois essa opção pode não funcionar em algumas versões anteriores do Android.
+> É recomendável que você não use Olá remover conta opção toodelete uma conta de trabalho como essa opção pode não funcionar em algumas versões anteriores do Android.
 > 
 > 
 
-## <a name="uninstalling-the-app"></a>Desinstalando o aplicativo
-Em um dispositivo Samsung Android, os privilégios de administrador do dispositivo devem ser removidos da seguinte maneira antes de desinstalar o 
+## <a name="uninstalling-hello-app"></a>Desinstalando o aplicativo hello
+Em um dispositivo Android da Samsung, privilégios de administrador do dispositivo devem ser removido toouninstalling anterior da seguinte maneira Olá 
 
 1. Em **Configurações**, em **Sistema**, selecione **Segurança**.
-2. Em **Administração de Dispositivo**, clique em **Administradores de dispositivo**. Verifique se a caixa de seleção ao lado de **Azure Authenticator** está desmarcada.
+2. Em **Administração de Dispositivo**, clique em **Administradores de dispositivo**. Verifique essa caixa de seleção Olá Avançar muito**Azure Authenticator** está desmarcada.
 
 ## <a name="troubleshooting"></a>Solucionar problemas
-Se o **Erro do Repositório de Chaves** for exibido, ele poderá ocorrer por você não ter a tela de bloqueio configurada com um PIN. Para contornar esse problema, desinstale o aplicativo Azure Authenticator, configure um PIN para a tela de bloqueio e reinstale o aplicativo.
+Se você vir Olá **erro Keystore**, isso pode ocorrer porque você não tem bloqueio Olá tela conjunto de backup com um PIN. toowork esse problema, desinstale o aplicativo do Azure Authenticator Olá, configure um PIN para a tela de bloqueio e reinstalar o aplicativo hello.
 

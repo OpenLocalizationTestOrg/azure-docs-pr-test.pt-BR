@@ -1,5 +1,5 @@
 ---
-title: "Agendamento e execução com o Data Factory | Microsoft Docs"
+title: "aaaScheduling e a execução com a fábrica de dados | Microsoft Docs"
 description: "Aprenda sobre os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory."
 services: data-factory
 documentationcenter: 
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.openlocfilehash: e6fd92cde91ae5f171c855c07fa8974a19703b41
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6114dd4896f5537c789c3b632fb90e501b694285
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Agendamento e execução com o Data Factory
-Este artigo explica os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory. Este artigo presume que você compreenda as noções básicas sobre conceitos de modelo de aplicativo do data factory, incluindo atividade, pipelines, serviços vinculados e conjuntos de dados. Para obter conceitos básicos do Azure Data Factory, consulte os seguintes artigos:
+Este artigo explica os aspectos de programação e a execução de Olá Olá do Azure Data Factory do modelo de aplicativo. Este artigo presume que você compreenda as noções básicas sobre conceitos de modelo de aplicativo do data factory, incluindo atividade, pipelines, serviços vinculados e conjuntos de dados. Para obter conceitos básicos do Azure Data Factory, consulte Olá artigos a seguir:
 
-* [Introdução ao Data Factory](data-factory-introduction.md)
+* [Introdução tooData fábrica](data-factory-introduction.md)
 * [Pipelines](data-factory-create-pipelines.md)
 * [Conjunto de dados](data-factory-create-datasets.md) 
 
 ## <a name="start-and-end-times-of-pipeline"></a>Horas de início e término do pipeline
-Um pipeline está ativo somente entre suas horas de **início** e **término**. Ele não é executado antes da hora de início ou após a hora de término. Se o pipeline estiver em pausa, ele não será executado, independentemente de suas horas de início e término. Para um pipeline ser executado, ele não deve estar pausado. É possível encontrar essas configurações (início, término, em pausa) na definição do pipeline: 
+Um pipeline está ativo somente entre sua hora de **início** e de **término**. Ele não é executado antes da hora de início do hello, ou após a hora de término hello. Se Olá pipeline é pausado, ele não é executado independentemente de seu tempo de início e término. Para um pipeline toorun, ela deve não ser pausada. Você pode encontrar essas configurações (início, fim, pausado) na definição de pipeline de saudação: 
 
 ```json
 "start": "2017-04-01T08:00:00Z",
@@ -40,7 +40,7 @@ Para obter mais informações sobre essas propriedades, consulte o artigo [Criar
 
 
 ## <a name="specify-schedule-for-an-activity"></a>Especificar o agendamento de uma atividade
-Não é o pipeline que é executado. São as atividades no pipeline que são executadas no contexto geral do pipeline. É possível especificar um agendamento recorrente para uma atividade usando a seção **agendador** do JSON da atividade. Por exemplo, você pode agendar uma atividade para ser executada a cada hora, da seguinte maneira:  
+Não é pipeline Olá que é executado. É atividades Olá Olá pipeline são executadas em Olá contexto geral do pipeline de saudação. Você pode especificar um agendamento recorrente para uma atividade usando Olá **Agendador** seção de JSON da atividade. Por exemplo, você pode agendar uma atividade toorun por hora da seguinte maneira:  
 
 ```json
 "scheduler": {
@@ -49,18 +49,18 @@ Não é o pipeline que é executado. São as atividades no pipeline que são exe
 },
 ```
 
-Conforme mostrado no diagrama a seguir, especificar um agendamento para uma atividade cria uma série de janelas em cascata nas horas de início e término do pipeline. Janelas em cascata são uma série de intervalos de tempo de tamanho fixo, não sobrepostos e contínuos. Essas janelas lógicas em cascata de uma atividade são chamadas de **janelas de atividades**.
+Conforme mostrado no diagrama a seguir de saudação, especificando que uma agenda para uma atividade cria uma série de janelas em cascata com em Olá pipeline de início e término. Janelas em cascata são uma série de intervalos de tempo de tamanho fixo, não sobrepostos e contínuos. Essas janelas lógicas em cascata de uma atividade são chamadas de **janelas de atividades**.
 
 ![Exemplo de agendador de atividades](media/data-factory-scheduling-and-execution/scheduler-example.png)
 
-A propriedade **agendador** de uma atividade é opcional. Se você especificar essa propriedade, ela deverá corresponder à cadência especificada na definição do conjunto de dados de saída da atividade. Atualmente, o conjunto de dados de saída é o que conduz o agendamento. Portanto, é necessário criar um conjunto de dados de saída mesmo que a atividade não produza nenhuma saída. 
+Olá **Agendador** propriedade para uma atividade é opcional. Se você especificar essa propriedade, ele deve corresponder cadência Olá que seja especificada na definição de saudação do conjunto de dados de saída para a atividade de saudação. Atualmente, o conjunto de dados de saída é quais unidades Olá agenda. Portanto, você deve criar um conjunto de dados de saída, mesmo que a atividade de saudação não produz nenhuma saída. 
 
 ## <a name="specify-schedule-for-a-dataset"></a>Especificar o agendamento de um conjunto de dados
-Uma atividade em um pipeline do Data Factory pode usar zero ou mais **conjuntos de dados** de entrada e gerar um ou mais conjuntos de dados de saída. Para uma atividade, você pode especificar a cadência na qual os dados de entrada estão disponíveis ou os dados de saída são gerados usando a seção **disponibilidade** nas definições do conjunto de dados. 
+Uma atividade em um pipeline do Data Factory pode usar zero ou mais **conjuntos de dados** de entrada e gerar um ou mais conjuntos de dados de saída. Para uma atividade, você pode especificar o ritmo de saudação em qual Olá dados de entrada estão disponíveis ou dados de saída de saudação são produzidos usando Olá **disponibilidade** seção definições de conjunto de dados de saudação. 
 
-**Frequência** na seção **disponibilidade** especifica a unidade de tempo. Os valores permitidos para a frequência são: Minuto, Hora, Dia, Semana e Mês. A propriedade **intervalo** na seção de disponibilidade especifica um multiplicador para a frequência. Por exemplo: se a frequência for definida como Dia e o intervalo for definido como 1 para um conjunto de dados de saída, os dados de saída serão gerados diariamente. Caso você especifique a frequência como minuto, recomendamos que defina o intervalo como não inferior a 15. 
+**Frequência** em Olá **disponibilidade** seção especifica a unidade de tempo de saudação. Olá valores permitidos para frequência são: minuto, hora, dia, semana e mês. Olá **intervalo** propriedade na seção de disponibilidade de saudação especifica um multiplicador para frequência. Por exemplo: se a frequência de saudação for definida tooDay e intervalo é definido too1 para um conjunto de dados de saída, dados de saída de saudação são produzidos diariamente. Se você especificar a frequência de saudação minuto, recomendamos que você defina Olá intervalo toono menos de 15. 
 
-No exemplo a seguir, os dados de entrada estão disponíveis a cada hora e os dados de saída são gerados a cada hora (`"frequency": "Hour", "interval": 1`). 
+No hello exemplo a seguir, os dados de entrada hello estão disponíveis por hora e dados de saída de saudação são gerados por hora (`"frequency": "Hour", "interval": 1`). 
 
 **Conjunto de dados de entrada:** 
 
@@ -114,9 +114,9 @@ No exemplo a seguir, os dados de entrada estão disponíveis a cada hora e os da
 }
 ```
 
-Atualmente, **o conjunto de dados de saída conduz o agendamento**. Em outras palavras, o agendamento especificado para o conjunto de dados de saída é usado para executar uma atividade em tempo de execução. Portanto, é necessário criar um conjunto de dados de saída mesmo que a atividade não produza nenhuma saída. Se a atividade não receber entradas, ignore a criação de conjunto de dados de entrada. 
+Atualmente, **dataset unidades Olá agenda**. Em outras palavras, a agenda de saudação especificada para o conjunto de dados de saída de saudação é usado toorun uma atividade em tempo de execução. Portanto, você deve criar um conjunto de dados de saída, mesmo que a atividade de saudação não produz nenhuma saída. Se a atividade de saudação não tem nenhuma entrada, você poderá ignorar o dataset de entrada hello criando. 
 
-Na definição de pipeline a seguir, a propriedade **agendador** é usada para especificar um agendamento para a atividade. Essa propriedade é opcional. Atualmente, o agendamento da atividade deve corresponder ao agendamento especificado para o conjunto de dados de saída.
+Seguir Olá pipeline definição, hello **Agendador** propriedade é agenda toospecify usado para a atividade de saudação. Essa propriedade é opcional. No momento, agenda hello atividade Olá deve coincidir com a agenda Olá especificada para o conjunto de dados de saída de hello.
  
 ```json
 {
@@ -161,36 +161,36 @@ Na definição de pipeline a seguir, a propriedade **agendador** é usada para e
 }
 ```
 
-Neste exemplo, a atividade é executada a cada hora entre as horas de início e término do pipeline. Os dados de saída são gerados a cada hora para janelas de três horas (8h às 9h, 9h às 10h e 10h às 11h). 
+Neste exemplo, hello atividade é executada por hora entre hello início e término horas do pipeline de saudação. Olá dados de saída são produzidos por hora para windows de três horas (8: 00 - 9 AM, 9: 00 - 10: 00 e 10 AM - 11: 00). 
 
-Cada unidade de dados consumida ou gerada por uma execução de atividade é chamada de uma **fatia de dados**. O seguinte diagrama mostra um exemplo de uma atividade com um conjunto de dados de entrada e um conjunto de dados de saída: 
+Cada unidade de dados consumida ou gerada por uma execução de atividade é chamada de uma **fatia de dados**. Olá diagrama a seguir mostra um exemplo de uma atividade com um conjunto de dados de entrada e um conjunto de dados de saída: 
 
 ![Agendador de disponibilidade](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
 
-O diagrama mostra as fatias de dados por hora para o conjunto de dados de entrada e saída. O diagrama mostra três fatias de entrada que estão prontas para processamento. A atividade de 10-11h está em andamento, produzindo a fatia de saída de 10-11h. 
+diagrama de saudação mostra por hora Olá fatias de dados para saudação de entrada e saída do conjunto de dados. diagrama de saudação mostra três fatias de entrada que estão prontas para processamento. atividade de 10-11 AM Hello está em andamento, produzindo a fatia de saída do hello 10-11 AM. 
 
-É possível acessar o intervalo de tempo associado à fatia atual no conjunto de dados JSON usando estas variáveis: [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) e [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables). Da mesma forma, é possível acessar o intervalo de tempo associado a uma janela de atividades usando WindowStart e WindowEnd. O agendamento de uma atividade deve corresponder ao agendamento do conjunto de dados de saída da atividade. Portanto, os valores de SliceStart e SliceEnd são iguais aos valores de WindowStart e WindowEnd, respectivamente. Para obter mais informações sobre essas variáveis, consulte os artigos [Funções e variáveis de sistema do Data Factory](data-factory-functions-variables.md#data-factory-system-variables).  
+Você pode acessar o intervalo de tempo de saudação associado com a fatia atual Olá Olá conjunto de dados JSON usando variáveis: [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) e [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables). Da mesma forma, você pode acessar o intervalo de tempo de saudação associado com uma janela de atividade usando hello WindowStart e WindowEnd. agenda saudação de uma atividade deve coincidir com a agenda de saudação do conjunto de dados de saída de hello atividade Olá. Portanto, Olá SliceStart e SliceEnd valores são Olá mesmo como valores WindowStart e WindowEnd respectivamente. Para obter mais informações sobre essas variáveis, consulte os artigos [Funções e variáveis de sistema do Data Factory](data-factory-functions-variables.md#data-factory-system-variables).  
 
-Você pode usar essas variáveis para finalidades diferentes em sua atividade JSON. Por exemplo, você pode usá-las para selecionar dados em conjuntos de dados de entrada e saída que representam dados de série temporal (por exemplo: 8h às 9h). Este exemplo também usa **WindowStart** e **WindowEnd** para selecionar dados relevantes para uma execução de atividade e copia-os para um blob com o **folderPath** apropriado. O **folderPath** é parametrizado para ter uma pasta separada para cada hora.  
+Você pode usar essas variáveis para finalidades diferentes em sua atividade JSON. Por exemplo, você pode usá-los tooselect dados de entrada e saídos conjuntos de dados que representa dados de série temporal (por exemplo: Estou too9 de AM 8). Este exemplo também usa **WindowStart** e **WindowEnd** tooselect de dados relevantes para uma atividade executar e copie-o blob tooa com hello apropriado **folderPath**. Olá **folderPath** é parametrizada toohave uma pasta separada para cada hora.  
 
-No exemplo anterior, o agendamento especificado para conjuntos de dados de entrada e saída é o mesmo (por hora). Se o conjunto de dados de entrada da atividade estiver disponível em uma frequência diferente, digamos, a cada 15 minutos, a atividade que produz esse conjunto de dados de saída ainda será executada uma vez por hora, pois o conjunto de dados de saída é o que conduz o agendamento da atividade. Para obter mais informações, consulte [Modelar conjuntos de dados com frequências diferentes](#model-datasets-with-different-frequencies).
+Em Olá anterior de exemplo, agendamento de saudação especificado para conjuntos de dados de entrada e saídos é Olá mesmo (por hora). Se o conjunto de dados de entrada de hello atividade hello está disponível em uma frequência diferente, significa que a cada 15 minutos, atividade Olá que produz este conjunto de dados de saída continuará sendo executada uma vez por hora, como conjunto de dados de saída de saudação é quais unidades Olá agenda de atividade. Para obter mais informações, consulte [Modelar conjuntos de dados com frequências diferentes](#model-datasets-with-different-frequencies).
 
 ## <a name="dataset-availability-and-policies"></a>Políticas e disponibilidade do conjunto de dados
-Você já viu o uso da frequência e das propriedades de intervalo na seção de disponibilidade da definição do conjunto de dados. Há algumas outras propriedades que afetam o agendamento e a execução de uma atividade. 
+Você viu que o uso de saudação de frequência e o intervalo de propriedades na seção de disponibilidade de saudação da definição de conjunto de dados. Há algumas outras propriedades que afetam a saudação de agendamento e execução de uma atividade. 
 
 ### <a name="dataset-availability"></a>Disponibilidade do conjunto de dados 
-A tabela a seguir descreve as propriedades que você pode usar na seção de **availability**:
+Olá tabela a seguir descreve as propriedades você pode usar em Olá **disponibilidade** seção:
 
 | Propriedade | Descrição | Obrigatório | Padrão |
 | --- | --- | --- | --- |
-| frequência |Especifica a unidade de tempo para a produção da fatia de conjunto de dados.<br/><br/><b>Frequência com suporte</b>: Minuto, Hora, Dia, Semana, Mês |Sim |ND |
-| intervalo |Especifica um multiplicador para frequência<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida.<br/><br/>Se você precisa que o conjunto de dados seja dividido por hora, defina <b>Frequência</b> como <b>Hora</b> e <b>intervalo</b> como <b>1</b>.<br/><br/><b>Observação:</b>: caso você especifique a frequência como minuto, recomendamos que defina o intervalo como não inferior a 15 |Sim |ND |
-| estilo |Especifica se a fatia deve ser produzida no início/término do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se a frequência for definida como Mês e o estilo como EndOfInterval, a fatia será produzida no último dia do mês. Se o estilo for definido como StartOfInterval, a fatia será produzida no primeiro dia do mês.<br/><br/>Se a frequência for definida como Dia e o estilo como EndOfInterval, a fatia será produzida na última hora do dia.<br/><br/>Se a Frequência for definida como Hora e o estilo como EndOfInterval, a fatia será produzida ao final da hora. Por exemplo, para uma fatia de período 13h – 14h, a fatia é produzida às 14h. |Não |EndOfInterval |
-| anchorDateTime |Define a posição absoluta no tempo usada pelo agendador para computar limites de fatia do conjunto de dados. <br/><br/><b>Observação:</b> se AnchorDateTime tiver partes de datas mais granulares do que a frequência, as partes mais granulares serão ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> for <b>por hora</b> (frequência: hora e intervalo: 1) e o <b>AnchorDateTime</b> contiver <b>minutos e segundos</b>, as partes <b>minutos e segundos</b> do AnchorDateTime serão ignoradas. |Não |01/01/0001 |
-| deslocamento |O período de tempo no qual o início e o término de todas as fatias de conjunto de dados são deslocados. <br/><br/><b>Observação:</b> se anchorDateTime e o deslocamento forem especificados, o resultado será um deslocamento combinado. |Não |ND |
+| frequência |Especifica a unidade de tempo de saudação de produção de fatia do conjunto de dados.<br/><br/><b>Frequência com suporte</b>: Minuto, Hora, Dia, Semana, Mês |Sim |ND |
+| intervalo |Especifica um multiplicador para frequência<br/><br/>"Intervalo de frequência x" determina com que frequência hello fatia é produzida.<br/><br/>Se você precisar hello toobe de conjunto de dados dividido por hora, defina <b>frequência</b> muito<b>hora</b>, e <b>intervalo</b> muito<b>1</b>.<br/><br/><b>Observação</b>: se você especificar a frequência como minuto, recomendamos que você defina Olá intervalo toono menor que 15 |Sim |ND |
+| estilo |Especifica se a fatia Olá deve ser produzida no hello início/término do intervalo de saudação.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Quando frequência é definida tooMonth e o estilo definido tooEndOfInterval, fatia de saudação é produzida no último dia do mês de saudação. Se o estilo de saudação é definido tooStartOfInterval, Olá fatia é produzida no hello primeiro dia do mês.<br/><br/>Quando frequência é definida tooDay e o estilo definido tooEndOfInterval, fatia de Olá é produzida no hello última hora do dia de saudação.<br/><br/>Quando frequência é definida tooHour e o estilo definido tooEndOfInterval, fatia de Olá é produzida no final de saudação de hora hello. Por exemplo, para uma fatia de período de 1 PM – 14: 00, a fatia de saudação é produzida às 14: 00. |Não |EndOfInterval |
+| anchorDateTime |Define a posição absoluta Olá no tempo usado pelos limites de fatia do Agendador toocompute conjunto de dados. <br/><br/><b>Observação</b>: se Olá AnchorDateTime tem partes de data mais granulares do que a frequência de hello, hello partes mais granulares são ignoradas. <br/><br/>Por exemplo, se hello <b>intervalo</b> é <b>por hora</b> (frequência: hora e intervalo: 1) e hello <b>AnchorDateTime</b> contém <b>minutos e segundos</b>, em seguida, Olá <b>minutos e segundos</b> partes da saudação AnchorDateTime são ignoradas. |Não |01/01/0001 |
+| deslocamento |O intervalo de tempo pelo qual saudação inicial e final de todas as fatias de conjunto de dados são transferidos. <br/><br/><b>Observação</b>: se anchorDateTime e o deslocamento forem especificados, o resultado de saudação é shift Olá combinado. |Não |ND |
 
 ### <a name="offset-example"></a>exemplo de deslocamento
-Por padrão, fatias (`"frequency": "Day", "interval": 1`) diárias começam em hora UTC de 12: 00 (meia-noite). Se desejar que a hora de início para hora UTC de 6 horas em vez disso, define o deslocamento, conforme mostrado no trecho a seguir: 
+Por padrão, fatias (`"frequency": "Day", "interval": 1`) diárias começam em hora UTC de 12: 00 (meia-noite). Se deseja saudação inicial tempo toobe 6 horas UTC em vez disso, defina Olá deslocamento conforme Olá trecho de código a seguir: 
 
 ```json
 "availability":
@@ -201,7 +201,7 @@ Por padrão, fatias (`"frequency": "Day", "interval": 1`) diárias começam em h
 }
 ```
 ### <a name="anchordatetime-example"></a>Exemplo de anchorDateTime
-No exemplo a seguir, o conjunto de dados é gerado uma vez a cada 23 horas. Primeira fatia começa no momento especificado pelo anchorDateTime, que é definido como `2017-04-19T08:00:00` (hora UTC).
+No hello exemplo a seguir, Olá dataset é produzido cada 23 horas. Hello primeira fatia começa no tempo de saudação especificado por anchorDateTime hello, que é definido muito`2017-04-19T08:00:00` (hora UTC).
 
 ```json
 "availability":    
@@ -213,7 +213,7 @@ No exemplo a seguir, o conjunto de dados é gerado uma vez a cada 23 horas. Prim
 ```
 
 ### <a name="offsetstyle-example"></a>Exemplo de deslocamento/estilo
-O conjunto de dados a seguir é um conjunto de dados mensal e é produzido no dia 3 de cada mês, às 8:00 h (`3.08:00:00`):
+Olá seguinte conjunto de dados é um conjunto de dados mensal e é gerado no dia 3 de cada mês às 8:00 (`3.08:00:00`):
 
 ```json
 "availability": {
@@ -225,14 +225,14 @@ O conjunto de dados a seguir é um conjunto de dados mensal e é produzido no di
 ```
 
 ### <a name="dataset-policy"></a>Política do conjunto de dados
-Um conjunto de dados pode ter uma política de validação definida que especifica como os dados gerados pela execução de uma fatia podem ser validados antes de estarem prontos para consumo. Nesses casos, quando a execução da fatia tiver terminado, o status da fatia de saída será alterado para **Aguardando** com um substatus de **Validação**. Depois que as fatias são validadas, o status de fatia é alterado para **Pronto**. Se uma fatia de dados foi produzida mas não passou na validação, as execuções de atividade para fatias downstream que dependem dessa fatia não são processadas. [Monitorar e gerenciar pipelines](data-factory-monitor-manage-pipelines.md) .
+Um conjunto de dados pode ter uma política de validação definida que especifica como dados de saudação gerados por uma execução de fatia podem ser validados antes de estar pronto para consumo. Nesses casos, após a fatia Olá concluiu a execução, status da fatia Olá saída será alterada muito**esperando** com um substatus de **validação**. Depois de fatias de saudação forem validadas, status da fatia Olá muda muito**pronto**. Se uma fatia de dados tiver sido gerada, mas não passou na validação de hello, execuções de atividade para frações de downstream que dependem dessa fatia não são processadas. [Monitorar e gerenciar pipelines](data-factory-monitor-manage-pipelines.md) abrange Olá vários estados de fatias de dados na fábrica de dados.
 
-A seção **política** na definição do conjunto de dados define os critérios ou a condição que as divisões de conjunto de dados devem atender. A seguinte tabela descreve as propriedades que você pode usar na seção **política**:
+Olá **política** seção na definição de conjunto de dados define os critérios de saudação ou condição Olá Olá fatias de conjunto de dados deve ser atendidos. Olá tabela a seguir descreve as propriedades você pode usar em Olá **política** seção:
 
-| Nome da política | Descrição | Aplicado a | Obrigatório | Padrão |
+| Nome da política | Descrição | Aplicado muito| Obrigatório | Padrão |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB | Valida que os dados em um **blob do Azure** atendem aos requisitos de tamanho mínimo (em megabytes). |blob do Azure |Não |ND |
-| minimumRows | Valida que os dados em um **Banco de Dados SQL do Azure** ou uma **tabela do Azure** contêm o número mínimo de linhas. |<ul><li>Banco de Dados SQL do Azure</li><li>tabela do Azure</li></ul> |Não |ND |
+| minimumSizeMB | Valida que dados Olá em um **BLOBs do Azure** Olá de atende aos requisitos de tamanho mínimo (em megabytes). |Blob do Azure |Não |ND |
+| minimumRows | Valida que dados Olá em um **banco de dados do SQL Azure** ou um **tabela do Azure** contém o número mínimo de saudação de linhas. |<ul><li>Banco de Dados SQL do Azure</li><li>tabela do Azure</li></ul> |Não |ND |
 
 #### <a name="examples"></a>Exemplos
 **minimumSizeMB:**
@@ -263,73 +263,73 @@ A seção **política** na definição do conjunto de dados define os critérios
 Para obter mais informações sobre essas propriedades e exemplos, consulte o artigo [Criar conjuntos de dados](data-factory-create-datasets.md). 
 
 ## <a name="activity-policies"></a>Políticas de atividades
-As políticas afetam o comportamento de tempo de execução de uma atividade, especialmente quando a divisão de uma tabela é processada. A tabela a seguir fornece os detalhes.
+Políticas afetam o comportamento de tempo de execução de saudação de uma atividade, especialmente quando Olá fatia de uma tabela é processada. Olá, a tabela a seguir fornece detalhes de saudação.
 
 | Propriedade | Valores permitidos | Valor Padrão | Descrição |
 | --- | --- | --- | --- |
-| simultaneidade |Inteiro  <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções de atividade paralela que podem ocorrer em divisões diferentes. Por exemplo, se uma atividade precisa passar por um grande conjunto de dados disponíveis, ter um valor de concorrência maior acelera o processamento de dados. |
-| executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a ordem das divisões de dados que estão sendo processadas.<br/><br/>Por exemplo, se houver duas fatias (uma ocorre às 16h e a outra às 17h),e ambas estiverem com a execução pendente. Se você definir executionPriorityOrder como NewestFirst, a divisão às 17h será processada primeiro. De modo semelhante, se você definir executionPriorityORder como OldestFIrst, a fatia às 16h será processada. |
-| tentar novamente |Número inteiro<br/><br/>O valor máximo pode ser 10 |0 |Número de novas tentativas antes do processamento de dados da divisão ser marcado como Com falha. A execução da atividade para uma divisão de dados é repetida até a contagem de repetição especificada. A nova tentativa é feita logo após a falha. |
-| Tempo limite |TimeSpan |00:00:00 |Tempo limite para a atividade. Exemplo: 00:10:00 (implica o tempo limite de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite será infinito.<br/><br/>Se o tempo de processamento de dados em uma divisão exceder o valor de tempo limite, ele será cancelado e o sistema tentará repetir o processamento. O número de repetições depende da propriedade de repetição. Quando atingir o tempo limite, o status será TimedOut. |
-| atrasar |TimeSpan |00:00:00 |Especifique o atraso antes do processamento de dados da divisão começar.<br/><br/>A execução da atividade de uma fatia de dados será iniciada após o atraso passar do tempo de execução esperado.<br/><br/>Exemplo: 00:10:00 (implica um atraso de 10 minutos) |
-| longRetry |Inteiro <br/><br/>Valor máximo: 10 |1 |O número de tentativas repetidas longas antes que a execução da divisão falhe.<br/><br/>Tentativas de longRetry são espaçadas por longRetryInterval. Portanto, se você precisar especificar um tempo entre tentativas de repetição, use longRetry. Se Retry e longRetry forem especificados, cada tentativa de longRetry incluirá tentativas de Retry, e o número máximo de tentativas será Retry * longRetry.<br/><br/>Por exemplo, se tivermos as seguintes configurações na política de atividade:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Presumindo que haja apenas uma fatia para execução (o status é Aguardando) e a execução da atividade sempre falhe. Inicialmente haveria três tentativas consecutivas de execução. Após cada tentativa, o status de divisão seria Retry. Depois das três primeiras tentativas, o status da divisão seria LongRetry.<br/><br/>Depois de uma hora (ou seja, valor de longRetryInteval), deve haver outro conjunto de três tentativas consecutivas de execução. Depois disso, o status da divisão seria Com falha e não haveria nova tentativa. Portanto, em geral, foram feitas seis tentativas.<br/><br/>Se qualquer execução for bem-sucedida, o status da fatia seria Ready e não haverá mais nenhuma tentativa.<br/><br/>longRetry pode ser usado em situações em que dados dependentes chegam em horários não determinísticos ou o ambiente geral está instável onde o processamento de dados ocorre. Nesses casos, fazer novas tentativas uma após a outra pode não ajudar e fazer isso após um intervalo de tempo resulta na saída desejada.<br/><br/>Advertência: não defina valores altos para longRetry ou longRetryInterval. Normalmente, os valores mais altos implicam outros problemas sistêmicos. |
-| longRetryInterval |TimeSpan |00:00:00 |O intervalo entre tentativas de repetição longa |
+| simultaneidade |Inteiro  <br/><br/>Valor máximo: 10 |1 |Número de execuções concorrentes da atividade de saudação.<br/><br/>Ele determina o número de saudação de execuções de atividade paralela que pode ocorrer em intervalos diferentes. Por exemplo, se precisar de uma atividade toogo por meio de um grande conjunto de dados disponíveis, ter um valor maior da simultaneidade acelera o processamento de dados de saudação. |
+| executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a saudação ordenação de fatias de dados que estão sendo processadas.<br/><br/>Por exemplo, se houver duas fatias (uma ocorre às 16h e a outra às 17h),e ambas estiverem com a execução pendente. Se você definir Olá executionPriorityOrder toobe NewestFirst, a fatia Olá às 17H é processada primeiro. Da mesma forma se você definir Olá executionPriorityORder toobe OldestFIrst, em seguida, Olá fatia às 16: 00 é processada. |
+| tentar novamente |Número inteiro<br/><br/>O valor máximo pode ser 10 |0 |Número de tentativas antes do processamento de dados de saudação de fatia Olá é marcado como falha. A execução da atividade para uma fatia de dados é repetida backup toohello especificado contagem de repetição. repetição de saudação é feita logo após a falha de saudação. |
+| Tempo limite |TimeSpan |00:00:00 |Tempo limite para a atividade de saudação. Exemplo: 00:10:00 (implica o tempo limite de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite de saudação é infinito.<br/><br/>Se o tempo de processamento de dados de saudação em uma fatia exceder o valor de tempo limite de Olá, é cancelada e sistema Olá tentativas de processamento de saudação tooretry. o número de tentativas Olá depende da propriedade de repetição de saudação. Quando o tempo limite ocorre, o status de saudação é definido tooTimedOut. |
+| atrasar |TimeSpan |00:00:00 |Especifique o intervalo de saudação antes do processamento de dados de saudação fatia começar.<br/><br/>execução de saudação da atividade de uma fatia de dados é iniciada depois Olá atraso é passado Olá esperado tempo de execução.<br/><br/>Exemplo: 00:10:00 (implica um atraso de 10 minutos) |
+| longRetry |Inteiro <br/><br/>Valor máximo: 10 |1 |número de saudação de repetição longa tentativas antes da execução da fatia Olá falhou.<br/><br/>Tentativas de longRetry são espaçadas por longRetryInterval. Portanto, se você precisar toospecify um tempo entre tentativas de repetição, use longRetry. Se Retry e longRetry forem especificados, cada tentativa de longRetry inclui novas tentativas e Olá o número máximo de tentativas é repetir * longRetry.<br/><br/>Por exemplo, se tivermos Olá configurações na política de atividade Olá a seguir:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Pressupomos que haja apenas um tooexecute de fatia (status está esperando) e a execução da atividade Olá falha sempre. Inicialmente haveria três tentativas consecutivas de execução. Após cada tentativa, o status da fatia Olá deve ser Retry. Depois de tentativas primeiro 3 estão acima, o status da fatia Olá deve ser LongRetry.<br/><br/>Depois de uma hora (ou seja, valor de longRetryInteval), deve haver outro conjunto de três tentativas consecutivas de execução. Depois disso, o status da fatia Olá deve ser Failed e nenhuma outra tentativa será feita. Portanto, em geral, foram feitas seis tentativas.<br/><br/>Se qualquer execução for bem-sucedida, o status da fatia Olá seria pronto e não tentativa de nenhuma outra tentativa.<br/><br/>longRetry pode ser usado em situações em que dados dependentes chegam em momentos não determinística ou hello ambiente geral é instável em ocorre o processamento de dados. Nesses casos, não pode ajudar a fazer tentativas após o outro e fazer isso após um intervalo de resultados de tempo de saudação desejado de saída.<br/><br/>Advertência: não defina valores altos para longRetry ou longRetryInterval. Normalmente, os valores mais altos implicam outros problemas sistêmicos. |
+| longRetryInterval |TimeSpan |00:00:00 |atraso de saudação entre as tentativas de repetição longa |
 
 Para obter mais informações, consulte o artigo [Pipelines](data-factory-create-pipelines.md). 
 
 ## <a name="parallel-processing-of-data-slices"></a>Processamento paralelo de fatias de dados
-Você pode definir a data de início do pipeline no passado. Quando você faz isso, o Data Factory calcula automaticamente (faz preenchimento de fundo) todas as fatias de dados no passado e começa a processá-las. Por exemplo: se você criar um pipeline com a data de início 01/04/2017 e a data atual for 10/04/2017. Se a cadência do conjunto de dados de saída for diária, o Data Factory começará a processar todas as fatias de 01/04/2017 a 09/04/2017 imediatamente porque a data de início está no passado. A fatia de 10/04/2017 ainda não será processada porque o valor da propriedade de estilo na seção de disponibilidade é EndOfInterval por padrão. A fatia mais antiga é processada primeiro, pois o valor padrão de executionPriorityOrder é OldestFirst. Para obter uma descrição da propriedade de estilo, consulte a seção [disponibilidade do conjunto de dados](#dataset-availability). Para obter uma descrição da seção executionPriorityOrder, consulte a seção [políticas de atividades](#activity-policies). 
+Você pode definir data de início de saudação do pipeline de saudação no hello anterior. Quando você fizer isso, fábrica de dados calcula (back preenchimentos) todas as fatias de dados em Olá anterior e começa a processá-las automaticamente. Por exemplo: se você criar um pipeline com data de início de 2017-04-01 e Olá a data atual for 2017-04-10. Se cadência de saudação do hello saída de conjunto de dados é diariamente, em seguida, começa a fábrica de dados processar todas as fatias de saudação do 2017-04-01 too2017-04-09 imediatamente porque Olá data de início está no hello anterior. Olá fatia de 2017-04-10 não é processada ainda porque Olá o valor da propriedade de estilo na seção de disponibilidade de saudação é EndOfInterval por padrão. Hello mais antiga fatia é processada primeiro como padrão Olá valor executionPriorityOrder é OldestFirst. Para obter uma descrição da propriedade de estilo hello, consulte [conjunto de dados disponibilidade](#dataset-availability) seção. Para obter uma descrição da seção de executionPriorityOrder hello, consulte Olá [políticas de atividade](#activity-policies) seção. 
 
-Você pode configurar as fatias de dados com preenchimento de fundo para serem processadas em paralelo definindo a propriedade **simultaneidade** na seção **política** do JSON da atividade. Essa propriedade determina o número de execuções de atividade paralela que podem ocorrer em fatias diferentes. O valor padrão da propriedade de simultaneidade é 1. Portanto, uma única fatia é processada por vez, por padrão. O valor máximo é 10. Quando um pipeline precisa passar por um grande conjunto de dados disponíveis, ter um valor de simultaneidade maior acelera o processamento dos dados. 
+Você pode configurar toobe fatias de dados de back-preenchido processado em paralelo por configuração Olá **simultaneidade** propriedade Olá **política** seção de atividade Olá JSON. Essa propriedade determina o número de saudação de execuções de atividade paralela que pode ocorrer em intervalos diferentes. saudação padrão valor para a propriedade de simultaneidade Olá é 1. Portanto, uma única fatia é processada por vez, por padrão. valor máximo de saudação é 10. Quando precisa de um pipeline toogo por meio de um grande conjunto de dados disponíveis, ter um valor maior da simultaneidade acelera o processamento de dados de saudação. 
 
 ## <a name="rerun-a-failed-data-slice"></a>Executar novamente uma fatia de dados com falha
-Quando ocorre um erro durante o processamento de uma fatia de dados, você pode descobrir por que o processamento de uma fatia falhou usando folhas do portal do Azure ou o Aplicativo Monitorar e Gerenciar. Confira [Monitorar e gerenciar pipelines usando folhas do portal do Azure](data-factory-monitor-manage-pipelines.md) ou [aplicativo de monitoramento e gerenciamento](data-factory-monitor-manage-app.md) para obter detalhes.
+Quando ocorre um erro durante o processamento de uma fatia de dados, você pode descobrir por que falha no processamento da saudação de uma fatia usando folhas de portal do Azure ou monitorar e gerenciar aplicativos. Confira [Monitorar e gerenciar pipelines usando folhas do portal do Azure](data-factory-monitor-manage-pipelines.md) ou [aplicativo de monitoramento e gerenciamento](data-factory-monitor-manage-app.md) para obter detalhes.
 
-Considere o exemplo a seguir, que mostra duas atividades. Activity1 e Activity2. A Activity1 consome uma fatia do Dataset1 e produz uma fatia do Dataset2, que é consumida como entrada pela Activity2 para gerar uma fatia do Conjunto de Dados Final.
+Considere Olá exemplo, que mostra duas atividades a seguir. Activity1 e Activity2. Atividade1 consome uma fatia de Dataset1 e produz uma fatia de Dataset2, que é utilizada como entrada pelo atividade2 tooproduce uma fatia da saudação Final do conjunto de dados.
 
 ![Fatia com falha](./media/data-factory-scheduling-and-execution/failed-slice.png)
 
-O diagrama mostra que, de três fatias recentes, houve uma falha ao produzir a fatia de 9-10h para Dataset2. O Data Factory controla automaticamente a dependência para o conjunto de dados de série temporal. Como resultado, ele não inicia a execução da atividade para a fatia downstream de 9-10h.
+Olá diagrama mostra que fora três fatias recentes, houve uma fatia de 9 de 10 AM falha produção Olá para Dataset2. Fábrica de dados controla automaticamente a dependência de conjunto de dados de série de tempo hello. Como resultado, ele não for iniciado atividade Olá executar fatia downstream do hello AM 9-10.
 
-Ferramentas de gerenciamento e monitoramento do data factory permitem analisar os logs de diagnóstico da fatia com falha, para que você localize facilmente a causa raiz do problema e corrija-o. Depois de corrigir o problema, você pode iniciar facilmente a execução da atividade para produzir a fatia com falha. Para obter mais informações sobre como executar novamente e entender as transições de estado de fatias de dados, consulte [Monitorando e gerenciando pipelines usando folhas do portal do Azure](data-factory-monitor-manage-pipelines.md) ou [Aplicativo de Monitoramento e Gerenciamento](data-factory-monitor-manage-app.md).
+Ferramentas de monitoramento e gerenciamento da fábrica de dados permitem toodrill em logs de diagnóstico Olá para a raiz de Olá Olá fatia com falha tooeasily localizar causar problema hello e corrigi-lo. Depois de corrigir o problema de saudação, você pode iniciar facilmente tooproduce Olá falha fatia de execução da atividade hello. Para obter mais informações sobre como toorerun e entender as transições de estado para fatias de dados, consulte [monitoramento e gerenciamento de pipelines usando folhas de portal do Azure](data-factory-monitor-manage-pipelines.md) ou [monitoramento e gerenciamento de aplicativo](data-factory-monitor-manage-app.md).
 
-Após você executar novamente a fatia de 9-10h para o **Dataset2**, o Data Factory iniciará a execução da fatia dependente de 9-10h no conjunto de dados final.
+Depois de você executar novamente Olá 9 10 AM fatiar para **Dataset2**, Data Factory inicia Olá executar fatia dependentes de 9 de 10 AM Olá no conjunto de dados final hello.
 
 ![Executar novamente uma fatia com falha](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
 ## <a name="multiple-activities-in-a-pipeline"></a>Várias atividades em um pipeline
-Você pode ter mais de uma atividade em um pipeline. Caso você tenha várias atividades em um pipeline e a saída de uma atividade não seja uma entrada de outra atividade, as atividades poderão ser executadas em paralelo se as fatias de dados de entrada das atividades estiverem prontas.
+Você pode ter mais de uma atividade em um pipeline. Se você tiver várias atividades em um pipeline e saída de saudação de uma atividade não é uma entrada de outra atividade, atividades Olá podem executados em paralelo, se as fatias de dados de entrada para atividades de saudação estão prontas.
 
-É possível encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. As atividades podem estar no mesmo pipeline ou em pipelines diferentes. A segunda atividade é executada apenas quando a primeira é concluída com êxito.
+É possível encadear duas atividades (executadas uma atividade após o outro), definindo Olá o conjunto de dados de saída de uma atividade Olá outra atividade de conjunto de dados de saudação de entrada. Olá atividades podem ser em Olá mesmo pipeline ou em pipelines diferentes. atividade de segundo Olá executa somente quando hello primeiro um concluir com êxito.
 
-Por exemplo, considere o seguinte caso em que um pipeline tem duas atividades:
+Por exemplo, considere hello quando um pipeline tem duas atividades a seguir:
 
 1. A Atividade A1, que exige o conjunto de dados de entrada externo D1 e produz o conjunto de dados de saída D2.
 2. A Atividade A2, que exige a entrada do conjunto de dados D2 e produz o conjunto de dados de saída D3.
 
-Nesse cenário, as atividades A1 e A2 estão no mesmo pipeline. A atividade A1 é executada quando os dados externos estão disponíveis e a frequência de disponibilidade agendada é alcançada. A atividade A2 é executada quando as fatias agendadas de D2 ficam disponíveis e a frequência de disponibilidade agendada é alcançada. Se houver um erro em uma das fatias no conjunto de dados D2, A2 não será executada para essa fatia até que fique disponível.
+Nesse cenário, as atividades A1 e A2 são em Olá mesmo pipeline. atividade de saudação que a1 é executado quando dados externos hello estão disponíveis e Olá agendado disponibilidade frequência é atingida. Hello atividade A2 é executado quando hello agendadas fatias de D2 fiquem disponíveis e hello frequência disponibilidade agendada for atingida. Se houver um erro em uma das fatias Olá no conjunto de dados D2, A2 não execute essa fatia até ela ficar disponível.
 
-O modo de exibição de Diagrama com ambas as atividades no mesmo pipeline seria semelhante ao seguinte diagrama:
+Olá o modo de exibição de diagrama com ambas as atividades no hello mesmo pipeline seria semelhante a saudação diagrama a seguir:
 
-![Encadeando atividades no mesmo pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
+![Encadeamento de atividades no hello mesmo pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
-Conforme mencionado anteriormente, as atividades poderiam estar em pipelines diferentes. Nesse cenário, a exibição de diagrama seria parecida com o seguinte diagrama:
+Como mencionado anteriormente, as atividades de saudação podem estar em pipelines diferentes. Nesse cenário, o modo de exibição de diagrama de saudação seria Olá diagrama a seguir:
 
 ![Encadeando atividades em dois pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
 
-Consulte a seção [copiar sequencialmente](#copy-sequentially) no apêndice para obter um exemplo.
+Consulte Olá [copiar sequencialmente](#copy-sequentially) seção apêndice Olá para obter um exemplo.
 
 ## <a name="model-datasets-with-different-frequencies"></a>Modelar conjuntos de dados com frequências diferentes
-Nos exemplos, as frequências de conjuntos de dados de entrada e saída e a janela de agendamento de atividade foram iguais. Alguns cenários exigem a capacidade de produzir saída em uma frequência diferente de frequências de uma ou mais entradas. O Data Factory dá suporte à modelagem desses cenários.
+Exemplos de saudação as frequências de saudação de entrada e saída conjuntos de dados e hello atividade janela de agendamento foram Olá mesmo. Alguns cenários exigem a saída de tooproduce hello capacidade em uma frequência diferente de frequências de saudação de uma ou mais entradas. O Data Factory dá suporte à modelagem desses cenários.
 
 ### <a name="sample-1-produce-a-daily-output-report-for-input-data-that-is-available-every-hour"></a>Exemplo 1: gerar um relatório diário de saída para dados de entrada que estão disponíveis de hora em hora
-Considere um cenário em que temos dados de medição de entrada de sensores disponíveis a cada hora no armazenamento de Blobs do Azure. Você deseja produzir um relatório diário de agregação com estatísticas, como média, máximo e mínimo para o dia com a [Atividade hive do Data Factory](data-factory-hive-activity.md).
+Considere um cenário em que temos dados de medição de entrada de sensores disponíveis a cada hora no armazenamento de Blobs do Azure. Você deseja tooproduce um relatório diário de agregação com estatísticas, como média, máximo e mínimo para o dia de saudação com [atividade de hive de fábrica de dados](data-factory-hive-activity.md).
 
 Veja como você pode modelar esse cenário com o Data Factory:
 
 **Conjunto de dados de entrada**
 
-Os arquivos de entrada por hora são instalados na pasta para o dia determinado. A disponibilidade de entrada é definida por **Hora** (frequência: Hora, intervalo: 1).
+Olá por hora de entrada arquivos são instalados na pasta Olá Olá dado dia. A disponibilidade de entrada é definida por **Hora** (frequência: Hora, intervalo: 1).
 
 ```json
 {
@@ -358,7 +358,7 @@ Os arquivos de entrada por hora são instalados na pasta para o dia determinado.
 ```
 **Conjunto de dados de saída**
 
-Um arquivo de saída é criado diariamente na pasta do dia. A disponibilidade de saída é definida em **Dia** (frequência: Dia e intervalo: 1).
+Um arquivo de saída é criado diariamente na pasta de saudação do dia. A disponibilidade de saída é definida em **Dia** (frequência: Dia e intervalo: 1).
 
 ```json
 {
@@ -387,7 +387,7 @@ Um arquivo de saída é criado diariamente na pasta do dia. A disponibilidade de
 
 **Atividade: atividade de hive em um pipeline**
 
-O script do hive recebe as informações de *DateTime* apropriadas como parâmetros que usam a variável **WindowStart** conforme mostrado no trecho de código a seguir. O script do hive usa essa variável para carregar os dados da pasta correta para o dia e executar a agregação para gerar a saída.
+script do hive Olá recebe Olá apropriado *DateTime* informações como parâmetros que usam Olá **WindowStart** , conforme mostrado no hello trecho de código a seguir. script do hive Olá usa dados Olá tooload variável da pasta correta Olá dia hello e Olá agregação toogenerate Olá saída.
 
 ```json
 {  
@@ -436,22 +436,22 @@ O script do hive recebe as informações de *DateTime* apropriadas como parâmet
 }
 ```
 
-O diagrama a seguir mostra o cenário de um ponto de vista de dependência de dados.
+Olá diagrama a seguir mostra o cenário de saudação de um ponto de vista da dependência de dados.
 
 ![Dependência de dados](./media/data-factory-scheduling-and-execution/data-dependency.png)
 
-A fatia de saída para cada dia depende de 24 fatias horárias do conjunto de dados de entrada. O Data Factory calcula essas dependências automaticamente descobrindo as fatias de dados de entrada que equivalem ao mesmo período de tempo utilizado para a produção da fatia de saída. Se qualquer uma das 24 fatias de entrada não estiver disponível, o Data Factory aguardará até que a fatia de entrada esteja pronta antes de iniciar a execução da atividade diária.
+Olá fatia de saída para cada dia depende 24 fatias por hora de um conjunto de dados de entrada. Calcula a fábrica dados essas dependências automaticamente descobrindo-Olá fatias de dados de entrada que se enquadram em Olá mesmo período de tempo como Olá toobe de fatias de saída produzido. Se qualquer uma das fatias de entrada hello 24 não estiver disponível, fábrica de dados aguarda Olá fatia entrada toobe pronto antes de iniciar a execução da atividade diária hello.
 
 ### <a name="sample-2-specify-dependency-with-expressions-and-data-factory-functions"></a>Exemplo 2: especificar dependência com expressões e funções do Data Factory
-Vamos considerar outro cenário. Suponha que você tenha uma atividade de hive que processa dois conjuntos de dados de entrada. Um deles tem novos dados diariamente, mas o outro obtém novos dados toda semana. Suponha que você queira fazer uma associação entre as duas entradas e produzir uma saída diariamente.
+Vamos considerar outro cenário. Suponha que você tenha uma atividade de hive que processa dois conjuntos de dados de entrada. Um deles tem novos dados diariamente, mas o outro obtém novos dados toda semana. Suponha que você desejava toodo uma junção entre duas entradas de saudação e produzir uma saída de cada dia.
 
-A abordagem simples, na qual o Data Factory detecta automaticamente as fatias de entrada certas a serem processadas alinhando-se ao período de tempo da fatia de dados de saída, não funciona.
+abordagem simples Hello, no qual fábrica de dados automaticamente descobre entrada direita Olá fatias tooprocess alinhando saída toohello tempo da fatia de dados do período não funciona.
 
-Você precisa especificar isso para cada execução de atividade, o Data Factory deve usar a fatia de dados da semana passada para o conjunto de dados de entrada semanal. Use as funções do Azure Data Factory conforme mostrado no trecho a seguir para implementar esse comportamento.
+Você deve especificar que para cada execução da atividade, Olá Data Factory deve usar a fatia de dados da semana passada Olá semanal entrada conjunto de dados. Você usar funções do Azure Data Factory conforme mostrado no hello tooimplement de trecho de código a seguir esse comportamento.
 
 **Saída1: blob do Azure**
 
-A primeira entrada é blob do Azure que está sendo atualizado diariamente.
+Olá primeiro entrada hello BLOBs do Azure está sendo atualizado diariamente.
 
 ```json
 {
@@ -481,7 +481,7 @@ A primeira entrada é blob do Azure que está sendo atualizado diariamente.
 
 **Entrada2: blob do Azure**
 
-Entrada2 é o blob do Azure que está sendo atualizado semanalmente.
+Entrada2 é hello BLOBs do Azure que está sendo atualizada semanalmente.
 
 ```json
 {
@@ -511,7 +511,7 @@ Entrada2 é o blob do Azure que está sendo atualizado semanalmente.
 
 **Saída: blob do Azure**
 
-Um arquivo de saída é criado diariamente na pasta para o dia. A disponibilidade de saída é definida como **dia** (frequência: Dia, intervalo: 1).
+Um arquivo de saída é criado diariamente na pasta de saudação do dia de saudação. Conjunto de disponibilidade de saída é muito**dia** (frequência: Day, intervalo: 1).
 
 ```json
 {
@@ -540,7 +540,7 @@ Um arquivo de saída é criado diariamente na pasta para o dia. A disponibilidad
 
 **Atividade: atividade de hive em um pipeline**
 
-A atividade de hive usa as duas entradas e produz uma fatia de saída todos os dias. É possível especificar que a fatia de saída de cada dia dependa da fatia de entrada da semana anterior para a entrada semanal, como demonstrado a seguir.
+atividade de hive Olá usa Olá duas entradas e produz uma fatia de saída todos os dias. Você pode especificar toodepend de fatia de saída de cada dia em Olá fatia de entrada da semana anterior para a entrada semanal da seguinte maneira.
 
 ```json
 {  
@@ -599,7 +599,7 @@ Veja [Funções e variáveis do sistema do Data Factory](data-factory-functions-
 ## <a name="appendix"></a>Apêndice
 
 ### <a name="example-copy-sequentially"></a>Exemplo: copiar sequencialmente
-É possível executar várias operações de cópia, uma após a outra de maneira sequencial/ordenada. Por exemplo, você pode ter duas atividades de cópia em um pipeline (CopyActivity1 e CopyActivity2) com os seguintes conjuntos de dados de saída dos dados de entrada:   
+Ele é possível toorun várias operações de cópia após o outro de forma ordenada/sequencial. Por exemplo, você pode ter dois conjuntos de saída cópia atividades em um pipeline (CopyActivity1 e CopyActivity2) com hello após entradas dados:   
 
 CopyActivity1
 
@@ -609,9 +609,9 @@ CopyActivity2
 
 Entrada: Dataset2.  Saída: Dataset3.
 
-CopyActivity2 seria executado somente se CopyActivity1 tivesse sido executado com êxito e Dataset2 estivesse disponível.
+CopyActivity2 será executado somente se Olá CopyActivity1 foi executada com êxito e Dataset2 está disponível.
 
-Veja o exemplo de JSON do pipeline:
+Aqui está o JSON de pipeline de exemplo hello:
 
 ```json
 {
@@ -650,7 +650,7 @@ Veja o exemplo de JSON do pipeline:
                     "interval": 1
                 },
                 "name": "CopyFromBlob1ToBlob2",
-                "description": "Copy data from a blob to another"
+                "description": "Copy data from a blob tooanother"
             },
             {
                 "type": "Copy",
@@ -682,7 +682,7 @@ Veja o exemplo de JSON do pipeline:
                     "interval": 1
                 },
                 "name": "CopyFromBlob2ToBlob3",
-                "description": "Copy data from a blob to another"
+                "description": "Copy data from a blob tooanother"
             }
         ],
         "start": "2016-08-25T01:00:00Z",
@@ -692,9 +692,9 @@ Veja o exemplo de JSON do pipeline:
 }
 ```
 
-Observe que no exemplo, o conjunto de dados de saída da primeira atividade de cópia (Dataset2) é especificado como entrada para a segunda atividade. Portanto, a segunda atividade será executada somente quando o conjunto de dados de saída da primeira atividade estiver pronto.  
+Observe que, no exemplo hello, conjunto de dados de saída de saudação do hello primeira atividade de cópia (Dataset2) é especificado como entrada para a atividade de segundo hello. Portanto, Olá segunda atividade executa somente quando Olá o conjunto de dados de saída da atividade primeiro hello está pronto.  
 
-No exemplo, CopyActivity2 pode ter uma entrada diferente como Dataset3, mas você especifica Dataset2 como uma entrada para CopyActivity2 para que a atividade não seja executada até que CopyActivity1 seja concluída. Por exemplo:
+No exemplo hello, CopyActivity2 pode ter uma entrada diferente, como Dataset3, mas você especificar Dataset2 como uma entrada tooCopyActivity2, para que atividade de saudação não será executado até CopyActivity1 termina. Por exemplo:
 
 CopyActivity1
 
@@ -741,7 +741,7 @@ Entradas: Dataset3, Dataset2. Saída: Dataset4.
                     "interval": 1
                 },
                 "name": "CopyFromBlobToBlob",
-                "description": "Copy data from a blob to another"
+                "description": "Copy data from a blob tooanother"
             },
             {
                 "type": "Copy",
@@ -776,7 +776,7 @@ Entradas: Dataset3, Dataset2. Saída: Dataset4.
                     "interval": 1
                 },
                 "name": "CopyFromBlob3ToBlob4",
-                "description": "Copy data from a blob to another"
+                "description": "Copy data from a blob tooanother"
             }
         ],
         "start": "2017-04-25T01:00:00Z",
@@ -786,7 +786,7 @@ Entradas: Dataset3, Dataset2. Saída: Dataset4.
 }
 ```
 
-Observe que no exemplo, dois conjuntos de dados de entrada são especificados para a segunda atividade de cópia. Quando várias entradas forem especificadas, somente o primeiro conjunto de dados de entrada será usado para copiar dados, mas outros conjuntos de dados serão usados como dependências. CopyActivity2 começaria apenas quando as seguintes condições fossem atendidas:
+Observe que no exemplo hello, dois conjuntos de dados de entrada são especificados para a segunda atividade de cópia hello. Quando várias entradas forem especificadas, somente Olá primeira entrada dataset é usado para copiar dados, mas outros conjuntos de dados são usados como as dependências. CopyActivity2 será iniciada somente depois hello seguintes condições forem atendidas:
 
-* CopyActivity1 foi concluído com êxito e Dataset2 está disponível. Esse conjunto de dados não é usado ao copiar dados para Dataset4. Ele atua apenas como uma dependência de agendamento de CopyActivity2.   
-* Dataset3 está disponível. Esse conjunto de dados representa os dados que são copiados para o destino. 
+* CopyActivity1 foi concluído com êxito e Dataset2 está disponível. Este conjunto de dados não é usado ao copiar dados tooDataset4. Ele atua apenas como uma dependência de agendamento de CopyActivity2.   
+* Dataset3 está disponível. Este conjunto de dados representa dados de saudação toohello copiado de destino. 

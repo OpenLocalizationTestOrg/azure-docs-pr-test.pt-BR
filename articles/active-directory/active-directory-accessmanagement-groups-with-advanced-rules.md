@@ -1,6 +1,6 @@
 ---
-title: Popular grupos dinamicamente com base em atributos de objeto no Azure Active Directory | Microsoft Docs
-description: "Instruções para criar regras avançadas para associação de grupo, incluindo parâmetros e operadores de regra de expressões com suporte."
+title: aaaPopulate grupos dinamicamente com base em atributos de objeto no Active Directory do Azure | Microsoft Docs
+description: "Como-do toocreate regras avançadas para a associação do grupo, incluindo suporte para operadores de regra de expressão e parâmetros."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -15,55 +15,55 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: curtand
 ms.reviewer: rodejo
-ms.openlocfilehash: b9b5ddf42958a2b4e241d0252101d979009e7dc0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: fe22829118ed8f5137a619d93fa6f9bf80835863
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="populate-groups-dynamically-based-on-object-attributes"></a>Popular grupos dinamicamente com base em atributos de objeto
-O portal clássico do Azure possibilita habilitar associações dinâmicas baseadas em atributos mais complexas de grupos do Azure AD (Azure Active Directory).  
+Olá portal clássico do Azure fornece Olá capacidade tooenable mais complexa com base em atributo associações dinâmicas para grupos do Active Directory do Azure (AD do Azure).  
 
-Quando os atributos de um usuário ou um dispositivo são alterados, o sistema avalia todas as regras de grupo dinâmicas em um diretório para ver se a alteração dispararia adições ou remoções de grupo. Se um usuário ou dispositivo atender a uma regra em um grupo, ele será adicionado como membro desse grupo. Se não atenderem mais à regra, eles serão removidos.
+Quando os atributos de uma alteração de usuário ou dispositivo, o sistema Olá avaliará todas as regras de grupo dinâmico em um diretório toosee se alterar Olá dispararia qualquer grupo adiciona ou remove. Se um usuário ou dispositivo atender a uma regra em um grupo, ele será adicionado como membro desse grupo. Se eles não atendem mais regra hello, eles serão removidos.
 
 > [!NOTE]
 > - Você pode configurar uma regra de associação dinâmica em grupos de segurança ou em grupos do Office 365.
 >
-> - Este recurso exige uma licença Azure AD Premium P1 para cada membro de usuário adicionado a pelo menos um grupo dinâmico.
+> - Este recurso requer uma licença Azure AD Premium P1 para cada grupo do usuário membro tooat adicionado pelo menos um dinâmico.
 >
 > - Você pode criar um grupo dinâmico para usuários ou dispositivos, mas não pode criar uma regra que contenha objetos de usuário e de dispositivo.
 
-> - Nesse momento não é possível criar um grupo de dispositivos com base em atributos do usuário proprietário. As regras de associação de dispositivo só podem fazer referência a atributos imediatos dos objetos de dispositivo no diretório.
+> - No momento da saudação não é possível toocreate um grupo de dispositivos com base em atributos do usuário de proprietário. Regras de associação de dispositivo podem apenas imediata atributos de referência de objetos no diretório de saudação do dispositivo.
 
-## <a name="to-create-an-advanced-rule"></a>Para criar uma regra avançada
-1. No [portal clássico do Azure](https://manage.windowsazure.com), selecione **Active Directory**e abra o diretório da sua organização.
-2. Selecione a guia **Grupos** e, em seguida, abra o grupo que deseja editar.
-3. Selecione a guia **Configurar**, selecione a opção **Regra avançada** e, em seguida, digite a regra avançada na caixa de texto.
+## <a name="toocreate-an-advanced-rule"></a>toocreate uma regra avançada
+1. Em Olá [portal clássico do Azure](https://manage.windowsazure.com), selecione **do Active Directory**e, em seguida, abra o diretório da sua organização.
+2. Selecione Olá **grupos** guia e grupo hello, em seguida, abra tooedit desejado.
+3. Selecione Olá **configurar** guia, selecione Olá **regra avançada** opção e, em seguida, digite Olá regra avançada na caixa de texto de saudação.
 
-## <a name="constructing-the-body-of-an-advanced-rule"></a>Construção do corpo de uma regra avançada
-A regra avançada que você pode criar para os membros dinâmicos para grupos é essencialmente uma expressão binária que consiste em três partes e resulta em um resultado verdadeiro ou falso. As três partes são:
+## <a name="constructing-hello-body-of-an-advanced-rule"></a>Construindo o corpo de saudação de uma regra avançada
+Olá regra avançada que você pode criar para a associação dinâmica Olá de grupos é essencialmente uma expressão binária que consiste em três partes e resulta em um resultado true ou false. saudação de três partes é:
 
 * Parâmetro da esquerda
 * Operador binário
 * Constante à direita
 
-Uma regra avançada completa é semelhante a esta: (leftParameter binaryOperator "RightConstant"), em que o parêntese de abertura e fechamento são necessários para toda a expressão binária, aspas duplas são necessárias para a constante à direita e a sintaxe do parâmetro esquerdo é user.property. Uma regra avançada pode consistir em mais de uma expressão binária separada pelos operadores lógicos -and, -or e -not.
-A seguir é exemplos de uma regra avançada construída de maneira adequada:
+Uma regra avançada completa parece semelhante toothis: (leftParameter binaryOperator "RightConstant"), onde a saudação de abertura e fechamento parênteses é necessária para toda a expressão binária Olá, aspas duplas são necessárias para a constante à direita Olá e a sintaxe de saudação para Olá parâmetro esquerdo é User. Uma regra avançada pode consistir em mais de uma expressão binária separada pelos Olá- e, - ou e - operadores lógicos não.
+Olá seguem exemplos de uma regra avançada construído corretamente:
 
 * (user.department -eq "Sales") -or (user.department -eq "Marketing")
 * (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 
-Para a lista completa de parâmetros com suporte e operadores de regra de expressão, consulte as seções a seguir.
+Para lista completa de saudação de parâmetros com suporte e operadores de regra de expressão, consulte as seções a seguir.
 
 
-Observe que a propriedade deve ser prefixada com o tipo de objeto correto: usuário ou dispositivo.
-A regra a seguir falhará na validação: mail –ne null
+Observe que a propriedade Olá deve ser prefixada com o tipo de objeto correto Olá: usuário ou dispositivo.
+Olá abaixo regra falhará a validação de saudação: email – ne null
 
-A regra correta seria:
+regra de saudação correto seria:
 
 user.mail –ne null
 
-O comprimento total do corpo da sua regra avançada não pode exceder 2048 caracteres.
+tamanho total de saudação do corpo de saudação de sua regra avançada não pode exceder 2048 caracteres.
 
 > [!NOTE]
 > Operações de cadeia de caracteres e regex diferenciam maiúsculas de minúsculas.
@@ -73,9 +73,9 @@ O comprimento total do corpo da sua regra avançada não pode exceder 2048 carac
 >
 
 ## <a name="supported-expression-rule-operators"></a>Operadores de regra de expressão com suporte
-A tabela a seguir lista todos os operadores de regra de expressão com suporte e sua sintaxe a ser usada no corpo da regra avançada:
+Olá tabela a seguir lista todos os operadores de regra de expressão Olá com suporte e seu toobe sintaxe usada no corpo da saudação do hello regra avançada:
 
-| Operador | Sintaxe |
+| operador | Sintaxe |
 | --- | --- |
 | Não é igual a |-ne |
 | É igual a |-eq |
@@ -90,11 +90,11 @@ A tabela a seguir lista todos os operadores de regra de expressão com suporte e
 
 ## <a name="operator-precedence"></a>Precedência do operador
 
-Todos os operadores estão listados abaixo da menor precedência para a maior; os operadores na mesma linha têm a mesma precedência. -any -all -or -and -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
+Todos os operadores são listados por precedência de toohigher inferior, operador na mesma linha estão na mesma precedência-qualquer - all - ou - e - não - eq - ne - startsWith - notStartsWith-contém - notContains-corresponder – notMatch-em - notIn
 
 Todos os operadores podem ser usados com ou sem o prefixo de hífen.
 
-Observe que os parênteses nem sempre serão necessários, você só precisará adicionar os parênteses quando a precedência não atender às suas necessidades. Por exemplo:
+Observe que o parêntese não são sempre necessários, você só precisa tooadd parênteses quando precedência não atende aos seus requisitos por exemplo:
 
    user.department –eq "Marketing" –and user.country –eq "US"
 
@@ -102,27 +102,27 @@ Observe que os parênteses nem sempre serão necessários, você só precisará 
 
    (user.department –eq "Marketing") –and (user.country –eq "US")
 
-## <a name="using-the--in-and--notin-operators"></a>Usando os operadores -In e -notIn
+## <a name="using-hello--in-and--notin-operators"></a>Usando Olá - em - notIn operadores e
 
-Se quiser comparar o valor de um atributo de usuário com um número de valores diferentes, você pode usar os operadores -In ou -notIn. Veja um exemplo de uso do operador -In:
+Se você deseja toocompare Olá valor de um atributo de usuário em um número de valores diferentes que você pode usar hello - em - notIn operadores ou. Aqui está um exemplo usando Olá - no operador:
 
     user.department -In [ "50001", "50002", "50003", “50005”, “50006”, “50007”, “50008”, “50016”, “50020”, “50024”, “50038”, “50039”, “51100” ]
 
-Observe o uso de "[" e "]" no início e no final da lista de valores. Essa condição é avaliada como verdadeira se o valor de user.department for igual a um dos valores na lista.
+Observe o uso de saudação do hello "[" e "]" no início de saudação e no final da lista de saudação de valores. Essa condição for avaliada tooTrue do valor de saudação do User. Department igual a um dos valores de saudação na lista de saudação.
 
 ## <a name="query-error-remediation"></a>Correção do erro de consulta
-A seguinte tabela relacionará os possíveis erros e como corrigi-los, se ocorrerem
+Olá, tabela a seguir lista os possíveis erros e como toocorrect-los, se ocorrerem
 
 | Erro de análise de consulta | Erros de uso | Uso corrigido |
 | --- | --- | --- |
-| Erro: O atributo não tem suportado. |(user.invalidProperty -eq "Valor") |(user.department -eq "value") A propriedade <br/>deve corresponder a uma na [lista de propriedades com suporte](#supported-properties). |
-| Erro: Operador não é tem suportada no atributo. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true) A propriedade <br/>é do tipo booliano. Use os operadores com suporte (-eq or -ne) em um tipo booliano da lista acima. |
-| Erro: Erro de compilação de consulta. |(user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>O operador lógico deve corresponder a uma das propriedades com suporte listadas acima. (user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Error na expressão regular. |
+| Erro: O atributo não tem suportado. |(user.invalidProperty -eq "Valor") |(user.department -eq "value") A propriedade <br/>Propriedade deve corresponder a uma das Olá [suporte para a lista de propriedades](#supported-properties). |
+| Erro: Operador não é tem suportada no atributo. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true) A propriedade <br/>é do tipo booliano. Use operadores Olá com suporte (-eq ou - ne) no tipo booliano da saudação acima da lista. |
+| Erro: Erro de compilação de consulta. |(user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>Operador lógico deve corresponder a uma das propriedades Olá suportada listadas acima. (User-corresponder ". *@domain.ext") ou (User-corresponder "@domain.ext$") erro na expressão regular. |
 | Erro: Expressão binária não está no formato correto. |user.department – eq ("Vendas") user.department - eq ("Vendas") user.department-eq ("Vendas") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>A consulta tem vários erros. Parênteses não no lugar certo. |
 | Erro: Ocorreu um erro desconhecido durante a configuração de membros dinâmicos. |(user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>A consulta tem vários erros. Parênteses não no lugar certo. |
 
 ## <a name="supported-properties"></a>Propriedades com suporte
-Estas são todas as propriedades do usuário que você pode usar na regra avançada:
+Olá seguem todas as propriedades de usuário de saudação que você pode usar sua regra avançada:
 
 ### <a name="properties-of-type-boolean"></a>Propriedades de tipo booliano
 Operadores permitidos
@@ -159,11 +159,11 @@ Operadores permitidos
 | facsimileTelephoneNumber |Qualquer valor de cadeia de caracteres ou $null |user.facsimileTelephoneNumber -eq ("valor") |
 | givenName |Qualquer valor de cadeia de caracteres ou $null |user.givenName -eq ("valor") |
 | jobTitle |Qualquer valor de cadeia de caracteres ou $null |(user.jobTitle - eq "valor") |
-| mail |Qualquer valor de cadeia de caracteres ou $null (endereço SMTP do usuário) |(user.mail - eq "valor") |
-| mailNickName |Qualquer valor de cadeia de caracteres (alias de email do usuário) |(user.mailNickName - eq "valor") |
+| mail |Qualquer valor de cadeia de caracteres ou $null (endereço SMTP do usuário Olá) |(user.mail - eq "valor") |
+| mailNickName |Qualquer valor de cadeia de caracteres (alias de email do usuário Olá) |(user.mailNickName - eq "valor") |
 | Serviço Móvel |Qualquer valor de cadeia de caracteres ou $null |(user.mobile -eq "valor") |
-| ID do objeto |GUID do objeto de usuário |(user.objectId - eq "1111111-1111-1111-1111-111111111111") |
-| onPremisesSecurityIdentifier | SID (ID de segurança) local para usuários que foram sincronizados do local para a nuvem. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
+| ID do objeto |GUID do objeto de usuário Olá |(user.objectId - eq "1111111-1111-1111-1111-111111111111") |
+| onPremisesSecurityIdentifier | Identificador de segurança (SID) local para os usuários que foram sincronizados do toohello nuvem no local. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Qualquer valor de cadeia de caracteres ou $null |(user.physicalDeliveryOfficeName -eq "valor") |
 | postalCode |Qualquer valor de cadeia de caracteres ou $null |(user.postalCode - eq "valor") |
@@ -191,63 +191,63 @@ Operadores permitidos
 ## <a name="multi-value-properties"></a>Propriedades de vários valores
 Operadores permitidos
 
-* -any (satisfeita quando pelo menos um item na coleção corresponde à condição)
-* -all (satisfeita quando todos os itens na coleção correspondem à condição)
+* -qualquer (satisfeito quando pelo menos um item na coleção de saudação corresponde a condição de saudação)
+* -todas (atendidas quando todos os itens na coleção de saudação correspondem à condição de saudação)
 
 | Propriedades | Valores | Uso |
 | --- | --- | --- |
-| assignedPlans |Cada objeto na coleção expõe as seguintes propriedades de cadeia de caracteres: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+| assignedPlans |Cada objeto na coleção de saudação expõe Olá propriedades de cadeia de caracteres a seguir: capabilityStatus, serviço, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 
-As propriedades de vários valores são coleções de objetos do mesmo tipo. Você pode usar os operadores -any e -all para aplicar uma condição a um ou todos os itens na coleção, respectivamente. Por exemplo:
+Propriedades de vários valores são coleções de objetos de saudação mesmo tipo. Você pode usar - todo e qualquer-tooapply operadores tooone uma condição ou todos Olá itens na coleção de hello, respectivamente. Por exemplo:
 
-assignedPlans é uma propriedade de valores múltiplos que lista todos os planos de serviço atribuídos ao usuário. A expressão abaixo selecionará os usuários que tenham o plano do serviço Exchange Online (Plano 2) e que também estejam no estado Habilitado:
+assignedPlans é uma propriedade de valores múltiplos que lista todos os planos de serviço toohello usuário atribuídos. Olá abaixo expressão irá selecionar os usuários que têm Olá Exchange Online (plano 2) plano de serviço que também está no estado habilitado:
 
 ```
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-(O identificador GUID identifica o plano de serviço Exchange Online (Plano 2)).
+(identificador de Guid de saudação identifica o plano do serviço Exchange Online (plano 2) hello.)
 
 > [!NOTE]
-> Isso é útil se você deseja identificar todos os usuários para os quais uma funcionalidade do Office 365 (ou outro serviço da Microsoft Online) tenha sido habilitada, por exemplo, para direcioná-los com um determinado conjunto de políticas.
+> Isso é útil se você quiser tooidentify todos os usuários para quem um Office 365 (ou outro serviço Online da Microsoft) recurso foi habilitado, para tootarget de exemplo com um determinado conjunto de políticas.
 
-A expressão a seguir selecionará todos os usuários com qualquer plano de serviço que esteja associado com o serviço do Intune (identificado pelo nome do serviço "SCO"):
+Olá expressão a seguir seleciona todos os usuários com qualquer plano de serviço que está associado a saudação serviço Intune (identificado pelo nome do serviço "SCO"):
 ```
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
 ## <a name="use-of-null-values"></a>Uso de valores nulos
 
-Para especificar um valor nulo em uma regra, você pode usar "null" ou $null. Exemplo:
+toospecify um valor nulo em uma regra, você pode usar "null" ou $null. Exemplo:
 
    user.mail –ne null é equivalente a user.mail –ne $null
 
 ## <a name="extension-attributes-and-custom-attributes"></a>Atributos de extensão e atributos personalizados
 Os atributos de extensão e os atributos personalizados têm suporte das regras de associação dinâmica.
 
-Os atributos de extensão são sincronizados no AD do Windows Server local e têm o formato "ExtensionAttributeX", em que X é igual a 1 a 15.
+Atributos de extensão são sincronizados do servidor local de janela AD e execute o formato de saudação do "ExtensionAttributeX", onde X é igual a 1-15.
 Um exemplo de uma regra que usa um atributo de extensão:
 
 (user.extensionAttribute15 -eq "Marketing")
 
-Os Atributos Personalizados são sincronizados do AD do Windows Server local ou de um aplicativo SaaS conectado e têm formato "user.extension[GUID]\__[Atributo]", em que [GUID] é o identificador exclusivo no AAD para o aplicativo que criou o atributo no AAD e [Atributo] é o nome do atributo como ele foi criado.
+Atributos personalizados são sincronizados a partir de locais AD do Windows Server ou conectado SaaS aplicativo e Olá Olá formato de "user.extension_[GUID]\__ [Attribute]", onde [GUID] é o identificador exclusivo Olá no AAD para o aplicativo hello que atributo Olá criado no AAD e [Attribute] é o nome de saudação do atributo hello como ele foi criado.
 Um exemplo de uma regra que usa um atributo personalizado:
 
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
-O nome do atributo personalizado pode ser encontrado no diretório por meio da consulta do atributo de um usuário, usando o Graph Explorer e procurando o nome do atributo.
+Olá nome de atributo personalizado pode ser encontrado no diretório Olá consultando um usuário do atributo usando o Gerenciador de gráficos e a pesquisa de nome de atributo hello.
 
 ## <a name="direct-reports-rule"></a>Regra de "subordinados diretos"
-Você pode criar um grupo contendo todos os subordinados diretos de um gerente. Quando os subordinados diretos do gerente forem alterados no futuro, a associação do grupo será ajustada automaticamente.
+Você pode criar um grupo contendo todos os subordinados diretos de um gerente. Quando altera subordinados diretos do gerente de saudação em Olá futuras, Olá a associação de grupo será ajustada automaticamente.
 
 > [!NOTE]
-> 1. Para que a regra funcione, verifique se a propriedade **ID do Gerenciador** está definida corretamente nos usuários em seu locatário. Você pode verificar o valor atual de um usuário na respectiva **guia Perfil**.
-> 2. Essa regra só dá suporte a subordinados **diretos**. No momento não é possível criar um grupo para uma hierarquia aninhada, por exemplo, um grupo que inclua os subordinados diretos e os subordinados deles.
+> 1. Para Olá regra toowork, verifique se Olá **gerente** está definida corretamente nos usuários em seu locatário. Você pode verificar o valor atual de saudação para um usuário em seus **guia perfil**.
+> 2. Essa regra só dá suporte a subordinados **diretos**. No momento não é possível toocreate um grupo para uma hierarquia aninhada, por exemplo, um grupo que inclui os subordinados diretos e seus relatórios.
 
-**Para configurar o grupo**
+**grupo de saudação tooconfigure**
 
-1. Siga as etapas de 1 a 5 da seção [Para criar a regra avançada](#to-create-the-advanced-rule) e selecione o **Tipo de associação** como **Usuário Dinâmico**.
-2. Na folha **Regras de associação dinâmica** , insira a regra com a seguinte sintaxe:
+1. Siga as etapas 1 a 5 da seção [regra avançada de saudação toocreate](#to-create-the-advanced-rule)e selecione um **tipo de associação** de **dinâmica do usuário**.
+2. Em Olá **regras de associação dinâmica** folha, digite regra Olá com hello sintaxe a seguir:
 
     *Subordinados diretos para "{obectID_of_manager}"*
 
@@ -255,11 +255,11 @@ Você pode criar um grupo contendo todos os subordinados diretos de um gerente. 
 ```
                     Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 ```
-    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found on manager's **Profile tab**.
-3. Depois de salvar a regra, todos os usuários com o valor da ID do Gerenciador especificada serão adicionados ao grupo.
+    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is hello objectID of hello manager. hello object ID can be found on manager's **Profile tab**.
+3. Depois de salvar a regra hello, todos os usuários com hello especificado valor de ID de gerente será adicionado toohello grupo.
 
-## <a name="using-attributes-to-create-rules-for-device-objects"></a>Usando atributos para criar regras para objetos de dispositivo
-Você também pode criar uma regra que seleciona objetos de dispositivo para associação em um grupo. Os seguintes atributos de dispositivo podem ser usados:
+## <a name="using-attributes-toocreate-rules-for-device-objects"></a>Usando regras de toocreate de atributos para objetos de dispositivo
+Você também pode criar uma regra que seleciona objetos de dispositivo para associação em um grupo. Olá seguintes atributos de dispositivo pode ser usado:
 
 | Propriedades              | Valores permitidos                  | Uso                                                       |
 |-------------------------|---------------------------------|-------------------------------------------------------------|
@@ -280,7 +280,7 @@ Você também pode criar uma regra que seleciona objetos de dispositivo para ass
 | ID do objeto                | um objectId válido do AAD            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 > [!NOTE]
-> Essas regras de dispositivo não podem ser criadas usando o menu suspenso "regra simples" no portal clássico do Azure.
+> Essas regras de dispositivo não podem ser criadas usando o hello "regra simples" suspenso em Olá portal clássico do Azure.
 >
 >
 
@@ -288,7 +288,7 @@ Você também pode criar uma regra que seleciona objetos de dispositivo para ass
 Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Solucionando problemas de associações dinâmicas a grupos](active-directory-accessmanagement-troubleshooting.md)
-* [Gerenciamento de acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
+* [Gerenciando acesso tooresources com grupos do Active Directory do Azure](active-directory-manage-groups.md)
 * [Cmdlets do Azure Active Directory para definir configurações de grupo](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)

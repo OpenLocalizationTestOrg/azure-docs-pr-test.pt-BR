@@ -1,6 +1,6 @@
 ---
-title: "Definir fluxos de trabalho com JSON - Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Como escrever definições de fluxo de trabalho em JSON para aplicativos lógicos"
+title: "fluxos de trabalho aaaDefine com JSON - os aplicativos lógicos do Azure | Microsoft Docs"
+description: "Como as definições de fluxo de trabalho toowrite em JSON para os aplicativos lógicos"
 author: jeffhollan
 manager: anneta
 editor: 
@@ -15,23 +15,23 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/29/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 7f9e5a10066df8a464c285273e77a85c0d562ebb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0d69d334ecee9c3e7f8684cfde68ef0e85280358
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-workflow-definitions-for-logic-apps-using-json"></a>Criar definições de fluxo de trabalho para aplicativos lógicos usando JSON
 
-Você pode criar definições de fluxo de trabalho para [Aplicativos Lógicos do Azure](logic-apps-what-are-logic-apps.md) com linguagem JSON simples e declarativa. Se ainda não fez isso, primeiro examine [como criar seu primeiro aplicativo lógico com o Designer de Aplicativos Lógicos](logic-apps-create-a-logic-app.md). Confira também a [referência completa da Linguagem de Definição de Fluxo de Trabalho](http://aka.ms/logicappsdocs).
+Você pode criar definições de fluxo de trabalho para [Aplicativos Lógicos do Azure](logic-apps-what-are-logic-apps.md) com linguagem JSON simples e declarativa. Se você ainda não fez isso, primeiro examine [como toocreate seu primeiro aplicativo lógica com lógica de aplicativo Designer](logic-apps-create-a-logic-app.md). Consulte também Olá [completo referência de linguagem de definição de fluxo de trabalho de saudação](http://aka.ms/logicappsdocs).
 
 ## <a name="repeat-steps-over-a-list"></a>Repetir etapas em uma lista
 
-Para percorrer uma matriz com até 10.000 itens e executar uma ação para cada item, use o [tipo foreach](logic-apps-loops-and-scopes.md).
+tooiterate por meio de uma matriz tem too10, 000 itens e executa uma ação para cada item, use Olá [foreach tipo](logic-apps-loops-and-scopes.md).
 
 ## <a name="handle-failures-if-something-goes-wrong"></a>Lidar com falhas se algo der errado
 
-Normalmente, convém incluir uma *etapa de correção*: uma lógica que será executada *somente se* uma ou mais de suas chamadas falharem. Este exemplo obtém dados de vários locais, mas, se a chamada falhar, queremos POSTAR uma mensagem em algum lugar para podermos acompanhar a falha posteriormente:  
+Normalmente, você deseja tooinclude um *etapa correção* — alguma lógica que executa *se e somente se* um ou mais de suas chamadas falharem. Este exemplo obtém dados de vários locais, mas se Olá chamada falhar, queremos tooPOST uma mensagem em algum lugar pode rastrear essa falha posteriormente:  
 
 ```
 {
@@ -66,13 +66,13 @@ Normalmente, convém incluir uma *etapa de correção*: uma lógica que será ex
 }
 ```
 
-Para especificar que `postToErrorMessageQueue` só será executado depois que `readData` `Failed`, use a propriedade `runAfter`, por exemplo, para especificar uma lista de valores possíveis, para que `runAfter` possa ser `["Succeeded", "Failed"]`.
+toospecify que `postToErrorMessageQueue` só será executado `readData` tem `Failed`, use Olá `runAfter` propriedade toospecify uma lista de valores possíveis, por exemplo, para que `runAfter` poderia ser `["Succeeded", "Failed"]`.
 
-Por fim, como agora este exemplo trata do erro, não marcamos mais a execução como `Failed`. Como adicionamos a etapa para tratar dessa falha neste exemplo, a execução foi `Succeeded`, embora uma etapa `Failed`.
+Por fim, porque este exemplo agora manipula erros hello, nós não marcar Olá executar como `Failed`. Como adicionamos etapa Olá para lidar com essa falha neste exemplo, Olá executar tem `Succeeded` Embora uma etapa `Failed`.
 
 ## <a name="execute-two-or-more-steps-in-parallel"></a>Executar duas ou mais etapas em paralelo
 
-Para executar várias ações em paralelo, a propriedade `runAfter` deve ser equivalente em tempo de execução. 
+toorun várias ações em paralelo, Olá `runAfter` propriedade deve ser equivalente em tempo de execução. 
 
 ```
 {
@@ -122,13 +122,13 @@ Para executar várias ações em paralelo, a propriedade `runAfter` deve ser equ
 }
 ```
 
-Neste exemplo, `branch1` e `branch2` são definidos para execução após `readData`. Como resultado, ambas as ramificações são executadas em paralelo. O carimbo de data/hora de ambas as ramificações é idêntico.
+Neste exemplo, ambos `branch1` e `branch2` são definidos toorun após `readData`. Como resultado, ambas as ramificações são executadas em paralelo. saudação de carimbo de hora para ambas as ramificações é idêntico.
 
 ![Paralelo](media/logic-apps-author-definitions/parallel.png)
 
 ## <a name="join-two-parallel-branches"></a>Unir duas ramificações paralelas
 
-Você pode unir duas ações que são definidas para execução em paralelo com a adição de itens para a propriedade `runAfter` do exemplo anterior.
+Você pode unir duas ações definidas toorun em paralelo com a adição de itens toohello `runAfter` propriedade como no exemplo anterior de saudação.
 
 ```
 {
@@ -199,9 +199,9 @@ Você pode unir duas ações que são definidas para execução em paralelo com 
 
 ![Paralelo](media/logic-apps-author-definitions/join.png)
 
-## <a name="map-list-items-to-a-different-configuration"></a>Mapear itens de lista para uma configuração diferente
+## <a name="map-list-items-tooa-different-configuration"></a>Mapear configuração diferente da lista de itens tooa
 
-Em seguida, digamos que desejemos obter conteúdo diferente com base no valor de uma propriedade. Podemos criar um mapa de valores para destinos, como um parâmetro:  
+Em seguida, vamos supor que queremos tooget conteúdo diferente com base no valor de saudação de uma propriedade. Podemos criar um mapa de valores toodestinations como um parâmetro:  
 
 ```
 {
@@ -271,19 +271,19 @@ Em seguida, digamos que desejemos obter conteúdo diferente com base no valor de
 }
 ```
 
-Nesse caso, primeiro obtemos uma lista de artigos. Com base na categoria que foi definida como um parâmetro, a segunda etapa usa um mapa para pesquisar a URL e obter o conteúdo.
+Nesse caso, primeiro obtemos uma lista de artigos. Segunda etapa de saudação com base na categoria de saudação que foi definida como um parâmetro, usa toolook um mapa Olá URL para obter conteúdo de saudação.
 
-Alguns itens a serem observados: 
+Algumas vezes toonote aqui: 
 
-*   A função [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) verifica se a categoria corresponde a uma das categorias definidas conhecidas.
+*   Olá [ `intersection()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) função verifica se categoria Olá corresponde a um dos Olá conhecido categorias definidas.
 
-*   Depois que obtemos a categoria, podemos extrair o item do mapa usando colchetes: `parameters[...]`
+*   Depois de recebermos categoria Olá, é possível efetuar pull item de saudação do mapa de saudação usando colchetes:`parameters[...]`
 
 ## <a name="process-strings"></a>Cadeias de caracteres de processo
 
-Você pode usar várias funções para manipular cadeias de caracteres. Por exemplo, suponha que haja uma cadeia de caracteres que queremos passar para um sistema, mas não temos certeza sobre a manipulação adequada da codificação de caracteres. Uma opção é para codificar essa cadeia de caracteres em formato base64. No entanto, para evitar o uso de caracteres de escape em uma URL, vamos substituir alguns caracteres. 
+Você pode usar várias cadeias de caracteres de toomanipulate de funções. Por exemplo, suponha que temos uma cadeia de caracteres que desejamos toopass tooa sistema, mas não tem certeza sobre a manipulação adequada de codificação de caracteres. Uma opção é toobase64 codifique essa cadeia de caracteres. No entanto, tooavoid saída em uma URL, vamos tooreplace alguns caracteres. 
 
-Também queremos uma subcadeia de caracteres do nome do autor da ordem, porque os cinco primeiros caracteres não são usados.
+Também gostaríamos de subcadeia de caracteres do nome da ordem hello como primeiros cinco caracteres de saudação não são usados.
 
 ```
 {
@@ -318,23 +318,23 @@ Também queremos uma subcadeia de caracteres do nome do autor da ordem, porque o
 }
 ```
 
-Trabalhando de dentro para fora:
+Trabalho de dentro de toooutside:
 
-1. Obtenha o [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length) para o nome do autor da ordem, para obtermos de volta o número total de caracteres.
+1. Obter Olá [ `length()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#length) nome do hello autor da ordem, portanto obtemos número total de saudação de caracteres.
 
 2. Subtrair 5 porque desejamos uma cadeia de caracteres mais curta.
 
-3. Na verdade, colete o [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring). Vamos começar no `5` do índice e seguir pelo restante da cadeia de caracteres.
+3. Na verdade, fazer Olá [ `substring()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring). Vamos começar no índice `5` e vá Olá restante da cadeia de caracteres de saudação.
 
-4. Converter esta subcadeia de caracteres em uma cadeia de caracteres [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64).
+4. Converter esta tooa subcadeia de caracteres [ `base64()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) cadeia de caracteres.
 
-5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) todos os `+` caracteres com `-` caracteres.
+5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)saudação de todos os `+` caracteres com `-` caracteres.
 
-6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) todos os `/` caracteres com `_` caracteres.
+6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)saudação de todos os `/` caracteres com `_` caracteres.
 
 ## <a name="work-with-date-times"></a>Trabalhar com datas e horas
 
-Valores de Data/Hora podem ser úteis, especialmente quando você estiver tentando extrair dados de uma fonte de dados na qual, naturalmente, não há suporte para *gatilhos*. Você também pode usar Datas e Horas para saber o tempo que as diversas etapas estão levando.
+Datas podem ser úteis, especialmente quando você está tentando toopull dados de uma fonte de dados que não oferece suporte naturalmente *gatilhos*. Você também pode usar Datas e Horas para saber o tempo que as diversas etapas estão levando.
 
 ```
 {
@@ -386,18 +386,18 @@ Valores de Data/Hora podem ser úteis, especialmente quando você estiver tentan
 }
 ```
 
-Neste exemplo, extraímos `startTime` da etapa anterior. Em seguida, obtemos a hora atual e subtraímos um segundo:
+Neste exemplo, podemos extrair Olá `startTime` da etapa anterior hello. Em seguida, podemos obter Olá a hora atual e subtrair um segundo:
 
 [`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) 
 
-Você pode usar outras unidades de tempo, como `minutes` ou `hours`. Por fim, podemos comparar esses dois valores. Se o primeiro valor for menor que o segundo valor, mais de um segundo terá decorrido desde o primeiro pedido.
+Você pode usar outras unidades de tempo, como `minutes` ou `hours`. Por fim, podemos comparar esses dois valores. Se o primeiro valor de saudação é menor que o valor de segundo hello, em seguida, mais de um segundo decorrido desde Olá primeiro pedido.
 
-Para formatar datas, podemos usar formatadores de cadeia de caracteres. Por exemplo, para obter RFC1123, usamos [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). Para saber mais sobre a formatação de datas, confira [Linguagem de Definição de Fluxo de Trabalho](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow).
+datas de tooformat, podemos usar formatadores de cadeia de caracteres. Por exemplo, tooget Olá RFC1123, usamos [ `utcnow('r')` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). toolearn sobre a formatação de data, consulte [linguagem de definição de fluxo de trabalho](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow).
 
 ## <a name="deployment-parameters-for-different-environments"></a>Parâmetros de implantação para ambientes diferentes
 
-Normalmente, os ciclos de vida de implantação têm um ambiente de desenvolvimento, um ambiente de preparo e um ambiente de produção. Por exemplo, você pode usar a mesma definição em todos esses ambientes, mas usar bancos de dados diferentes. Do mesmo modo, talvez você queira usar a mesma definição em regiões diferentes para alta disponibilidade, mas deseje que cada instância de Aplicativo lógico se comunique com o banco de dados dessa região.
-Esse cenário é diferente de obter parâmetros em *tempo de execução* em que, em vez disso, você deve usar a função `trigger()` do exemplo anterior.
+Normalmente, os ciclos de vida de implantação têm um ambiente de desenvolvimento, um ambiente de preparo e um ambiente de produção. Por exemplo, você pode usar Olá a mesma definição em todos esses ambientes, mas usar bancos de dados diferentes. Da mesma forma, você poderá toouse Olá a mesma definição em regiões diferentes para alta disponibilidade, mas deseja o banco de dados de cada lógica aplicativo instância tootalk toothat da região.
+Neste cenário é diferente de pegar parâmetros em *tempo de execução* onde em vez disso, você deve usar Olá `trigger()` funcionar como no exemplo anterior de saudação.
 
 Você pode começar com uma definição básica, como neste exemplo:
 
@@ -429,13 +429,13 @@ Você pode começar com uma definição básica, como neste exemplo:
 }
 ```
 
-Na verdadeira solicitação `PUT` para Aplicativos Lógicos, você pode fornecer o parâmetro `uri`. Como não existe mais um valor padrão, a carga do aplicativo lógico requer este parâmetro:
+Em Olá real `PUT` solicitar para aplicativos de lógica de saudação, você pode fornecer o parâmetro hello `uri`. Como um valor padrão não existe, carga de aplicativo hello lógica requer esse parâmetro:
 
 ```
 {
     "properties": {},
         "definition": {
-          // Use the definition from above here
+          // Use hello definition from above here
         },
         "parameters": {
             "connection": {
@@ -447,6 +447,6 @@ Na verdadeira solicitação `PUT` para Aplicativos Lógicos, você pode fornecer
 }
 ``` 
 
-Em cada ambiente, você pode fornecer um valor diferente para o parâmetro `connection` . 
+Em cada ambiente, você pode fornecer um valor diferente para Olá `connection` parâmetro. 
 
-Para ver todas as opções disponíveis para criar e gerenciar aplicativos lógicos, confira a [documentação da API REST](https://msdn.microsoft.com/library/azure/mt643787.aspx). 
+Para todos os hello opções que você tem para criar e gerenciar aplicativos lógicos, consulte Olá [documentação da API REST](https://msdn.microsoft.com/library/azure/mt643787.aspx). 

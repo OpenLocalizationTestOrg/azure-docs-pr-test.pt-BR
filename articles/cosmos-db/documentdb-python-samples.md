@@ -1,5 +1,5 @@
 ---
-title: Exemplos de Python da API do DocumentDB para o Azure Cosmos DB | Microsoft Docs
+title: exemplos de Python aaaDocumentDB API para o banco de dados do Azure Cosmos | Microsoft Docs
 description: "Encontre exemplos do Python no GitHub para tarefas comuns no Azure Cosmos DB, incluindo operações CRUD."
 keywords: Exemplos do Python
 services: cosmos-db
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2016
 ms.author: moderakh
-ms.openlocfilehash: d1577eeeb8fe8007394431ce70a1c7a6ee61776b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d8f240782b0997f2d32b68d310dc6f4ff6cb36d0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Exemplos do Python no Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -30,25 +30,25 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Soluções de exemplo que executam operações CRUD e outras operações comuns em recursos do Azure Cosmos DB estão incluídas no repositório GitHub [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python/tree/master/samples). Esse artigo fornece:
+Soluções de exemplo que executam operações CRUD e outras operações comuns no banco de dados do Azure Cosmos recursos estão incluídas no hello [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python/tree/master/samples) repositório GitHub. Esse artigo fornece:
 
-* Links para as tarefas em cada um dos arquivos do projeto de exemplo do Node.js. 
-* Links para o conteúdo de referência da API relacionada.
+* Tarefas de toohello links em cada um dos arquivos de projeto de exemplo hello Python. 
+* Toohello links relacionados ao conteúdo de referência de API.
 
 **Pré-requisitos**
 
-1. Você precisa de uma conta do Azure para usar esses exemplos do Python:
-   * Você pode [abrir uma conta do Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/): você recebe créditos que podem ser usados para experimentar serviços pagos do Azure e, mesmo após eles serem utilizados, você pode manter a conta e usar os serviços gratuitos do Azure, como os Sites. Seu cartão de crédito nunca será cobrado, a menos que você altere explicitamente suas configurações, solicitando esse tipo de cobrança.
+1. É necessário uma conta do Azure toouse esses exemplos de Python:
+   * Você pode [abrir uma conta do Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/): você obtém créditos você pode usar tootry out paga serviços do Azure e mesmo depois que eles são usados até você pode manter a conta de saudação e usar serviços do Azure, como sites de livre. Seu cartão de crédito nunca será cobrado a menos que você explicitamente alterar suas configurações e pergunte toobe cobrado.
      * É possível [ativar os benefícios para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): todos os meses, sua assinatura do Visual Studio concede créditos que podem ser usados para experimentar serviços pagos do Azure.
-2. Também é necessário ter o [SDK do Python](documentdb-sdk-python.md). 
+2. Você também precisa Olá [SDK de Python](documentdb-sdk-python.md). 
    
    > [!NOTE]
-   > Cada exemplo é independente, eles se configuram e fazem a limpeza sozinhos. Assim, as amostras emitem várias chamadas para [document_client.CreateCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html). Cada vez que isso é feito, sua assinatura será cobrada por 1 hora de uso por nível de desempenho da coleção que está sendo criada. 
+   > Cada exemplo é independente, eles se configuram e fazem a limpeza sozinhos. Como tal, exemplos de saudação emitem várias chamadas muito[document_client. CreateCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html). Cada vez que isso é feito sua assinatura será cobrada por 1 hora de uso de cada nível de desempenho de saudação da coleção hello está sendo criada. 
    > 
    > 
 
 ## <a name="database-examples"></a>Exemplos de banco de dados
-O arquivo [Program.py](https://github.com/Azure/azure-documentdb-python/tree/master/samples/DatabaseManagement/Program.py) do projeto [DatabaseManagement](https://github.com/Azure/azure-documentdb-python/tree/master/samples/DatabaseManagement) mostra como executar as tarefas a seguir.
+Olá [Program.py](https://github.com/Azure/azure-documentdb-python/tree/master/samples/DatabaseManagement/Program.py) arquivo hello [DatabaseManagement](https://github.com/Azure/azure-documentdb-python/tree/master/samples/DatabaseManagement) projeto mostra como as tarefas de saudação tooperform a seguir.
 
 | Tarefa | Referência de API |
 | --- | --- |
@@ -59,7 +59,7 @@ O arquivo [Program.py](https://github.com/Azure/azure-documentdb-python/tree/mas
 | [Excluir um banco de dados](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/DatabaseManagement/Program.py#L113-L126) |[document_client.DeleteDatabase](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html) |
 
 ## <a name="collection-examples"></a>Exemplos de coleção
-O arquivo [Program.py](https://github.com/Azure/azure-documentdb-python/tree/master/samples/CollectionManagement/Program.py) do projeto [CollectionManagement](https://github.com/Azure/azure-documentdb-python/tree/master/samples/CollectionManagement) mostra como executar as tarefas a seguir.
+Olá [Program.py](https://github.com/Azure/azure-documentdb-python/tree/master/samples/CollectionManagement/Program.py) arquivo hello [CollectionManagement](https://github.com/Azure/azure-documentdb-python/tree/master/samples/CollectionManagement) projeto mostra como as tarefas de saudação tooperform a seguir.
 
 | Tarefa | Referência de API |
 | --- | --- |
