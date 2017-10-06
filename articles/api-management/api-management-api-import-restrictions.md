@@ -1,6 +1,6 @@
 ---
-title: "Restrições e problemas conhecidos na importação de API do Gerenciamento de API do Azure | Microsoft Docs"
-description: "Detalhes de problemas conhecidos e restrições na importação para o Gerenciamento de API do Azure usando os formatos Open API, WSDL ou WADL."
+title: Importar aaaRestrictions e problemas conhecidos na API de gerenciamento de API do Azure | Microsoft Docs
+description: "Detalhes dos problemas conhecidos e as restrições na importação para o gerenciamento de API do Azure usando os formatos de API aberta, WSDL ou WADL hello."
 services: api-management
 documentationcenter: 
 author: mattfarm
@@ -14,34 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: apipm
-ms.openlocfilehash: ac799d66b5038c207413086b0fa71239ff2a332f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0bed5ace47de6ccbfbecba25ea6b69c5329de089
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="api-import-restrictions-and-known-issues"></a><span data-ttu-id="4115a-103">Restrições de importação de API e problemas conhecidos</span><span class="sxs-lookup"><span data-stu-id="4115a-103">API import restrictions and known issues</span></span>
-## <a name="about-this-list"></a><span data-ttu-id="4115a-104">Sobre esta lista</span><span class="sxs-lookup"><span data-stu-id="4115a-104">About this list</span></span>
-<span data-ttu-id="4115a-105">Enquanto todos os esforços são feitos para garantir que a importação de sua API no Gerenciamento de API do Azure seja a mais simples possível e sem problemas, podemos impor ocasionalmente restrições ou identificar problemas que precisam ser corrigidos antes de você poder importar com êxito.</span><span class="sxs-lookup"><span data-stu-id="4115a-105">While every effort is made to ensure that importing your API into Azure API Management is as seamless and problem-free as possible, we do occasionally impose restrictions or identify issues that will need to be rectified before you can successfully import.</span></span> <span data-ttu-id="4115a-106">Este artigo documenta essas informações, organizadas pelo formato de importação da API.</span><span class="sxs-lookup"><span data-stu-id="4115a-106">This article documents these, organised by the import format of the API.</span></span>
+# <a name="api-import-restrictions-and-known-issues"></a><span data-ttu-id="e1848-103">Restrições de importação de API e problemas conhecidos</span><span class="sxs-lookup"><span data-stu-id="e1848-103">API import restrictions and known issues</span></span>
+## <a name="about-this-list"></a><span data-ttu-id="e1848-104">Sobre esta lista</span><span class="sxs-lookup"><span data-stu-id="e1848-104">About this list</span></span>
+<span data-ttu-id="e1848-105">Enquanto todos os esforços é feito tooensure que importar sua API para gerenciamento de API do Azure é a maneira mais uniforme e livre de problemas possível, podemos ocasionalmente impor restrições ou identificar problemas que precisará toobe corrigida antes de importar com êxito.</span><span class="sxs-lookup"><span data-stu-id="e1848-105">While every effort is made tooensure that importing your API into Azure API Management is as seamless and problem-free as possible, we do occasionally impose restrictions or identify issues that will need toobe rectified before you can successfully import.</span></span> <span data-ttu-id="e1848-106">Este artigo documenta essas, se organizado pelo formato de importação de saudação do hello API.</span><span class="sxs-lookup"><span data-stu-id="e1848-106">This article documents these, organised by hello import format of hello API.</span></span>
 
-## <span data-ttu-id="4115a-107"><a name="open-api"> </a>Open API/Swagger</span><span class="sxs-lookup"><span data-stu-id="4115a-107"><a name="open-api"> </a>Open API/Swagger</span></span>
-<span data-ttu-id="4115a-108">Em geral, se você estiver recebendo erros ao importar seu documento da Open API, verifique você o validou usando o designer no novo Portal do Azure (Design - Front-End - Editor de Especificação da Open API) ou com uma ferramenta de terceiros, como o <a href="http://www.swagger.io">Editor do Swagger</a>.</span><span class="sxs-lookup"><span data-stu-id="4115a-108">In general, if you are receiving errors importing your Open API document, please ensure you have validated it - either using the designer in the new Azure Portal (Design - Front End - Open API Specification Editor), or with a 3rd party tool such as <a href="http://www.swagger.io">Swagger Editor</a>.</span></span>
+## <span data-ttu-id="e1848-107"><a name="open-api"> </a>Open API/Swagger</span><span class="sxs-lookup"><span data-stu-id="e1848-107"><a name="open-api"> </a>Open API/Swagger</span></span>
+<span data-ttu-id="e1848-108">Em geral, se você estiver recebendo erros importar seu documento API aberta, verifique se você tiver validado - usando o designer de saudação em Olá novo Portal do Azure (Design - Front-End - abrir Editor de API Specification) ou com um 3ª parte ferramenta como <a href="http://www.swagger.io"> Editor de swagger</a>.</span><span class="sxs-lookup"><span data-stu-id="e1848-108">In general, if you are receiving errors importing your Open API document, please ensure you have validated it - either using hello designer in hello new Azure Portal (Design - Front End - Open API Specification Editor), or with a 3rd party tool such as <a href="http://www.swagger.io">Swagger Editor</a>.</span></span>
 
-* <span data-ttu-id="4115a-109">**Nome do Host** exigimos um atributo de nome de host.</span><span class="sxs-lookup"><span data-stu-id="4115a-109">**Host Name** we require a host name attribute.</span></span>
-* <span data-ttu-id="4115a-110">**Caminho Base** exigimos um atributo de caminho base.</span><span class="sxs-lookup"><span data-stu-id="4115a-110">**Base Path** we require a base path attribute.</span></span>
-* <span data-ttu-id="4115a-111">**Esquemas** exigimos uma matriz de esquema.</span><span class="sxs-lookup"><span data-stu-id="4115a-111">**Schemes** we require a scheme array.</span></span> 
+* <span data-ttu-id="e1848-109">**Nome do Host** exigimos um atributo de nome de host.</span><span class="sxs-lookup"><span data-stu-id="e1848-109">**Host Name** we require a host name attribute.</span></span>
+* <span data-ttu-id="e1848-110">**Caminho Base** exigimos um atributo de caminho base.</span><span class="sxs-lookup"><span data-stu-id="e1848-110">**Base Path** we require a base path attribute.</span></span>
+* <span data-ttu-id="e1848-111">**Esquemas** exigimos uma matriz de esquema.</span><span class="sxs-lookup"><span data-stu-id="e1848-111">**Schemes** we require a scheme array.</span></span> 
 
-## <span data-ttu-id="4115a-112"><a name="wsdl"> </a>WSDL</span><span class="sxs-lookup"><span data-stu-id="4115a-112"><a name="wsdl"> </a>WSDL</span></span>
-<span data-ttu-id="4115a-113">Arquivos WSDL são usados para gerar as APIs de passagem SOAP ou servir como o backend de uma API de SOAP para REST.</span><span class="sxs-lookup"><span data-stu-id="4115a-113">WSDL files are used to generate SOAP Pass-through APIs, or serve as the backend of a SOAP-to-REST API.</span></span>
+## <span data-ttu-id="e1848-112"><a name="wsdl"> </a>WSDL</span><span class="sxs-lookup"><span data-stu-id="e1848-112"><a name="wsdl"> </a>WSDL</span></span>
+<span data-ttu-id="e1848-113">Arquivos WSDL são usada toogenerate APIs do SOAP de passagem ou servem como Olá back-end da API SOAP para REST.</span><span class="sxs-lookup"><span data-stu-id="e1848-113">WSDL files are used toogenerate SOAP Pass-through APIs, or serve as hello backend of a SOAP-to-REST API.</span></span>
 
-* <span data-ttu-id="4115a-114">**WSDL:Import** no momento, não oferecemos suporte à APIs usando este atributo.</span><span class="sxs-lookup"><span data-stu-id="4115a-114">**WSDL:Import** we do not currently support APIs using this attribute.</span></span> <span data-ttu-id="4115a-115">Os clientes devem mesclar os elementos importados em um documento.</span><span class="sxs-lookup"><span data-stu-id="4115a-115">Customers should merge the imported elements into one document.</span></span>
-* <span data-ttu-id="4115a-116">No momento, não há suporte para **Mensagens com diversas partes**.</span><span class="sxs-lookup"><span data-stu-id="4115a-116">**Messages with multiple parts** are currently not supported.</span></span>
-* <span data-ttu-id="4115a-117">**wsHttpBinding no WCF** Serviços SOAP criados com o Windows Communication Foundation devem usar basicHttpBinding – não há suporte para wsHttpBinding.</span><span class="sxs-lookup"><span data-stu-id="4115a-117">**WCF wsHttpBinding** SOAP services created with Windows Communication Foundation should use basicHttpBinding - wsHttpBinding is not supported.</span></span>
-* <span data-ttu-id="4115a-118">**MTOM** Serviços que usam MTOM <em>podem</em> funcionar.</span><span class="sxs-lookup"><span data-stu-id="4115a-118">**MTOM** Services using MTOM <em>may</em> work.</span></span> <span data-ttu-id="4115a-119">No momento, não oferecemos suporte oficial.</span><span class="sxs-lookup"><span data-stu-id="4115a-119">Official support is not offered at this time.</span></span>
-* <span data-ttu-id="4115a-120">Não há suporte para tipos de **recursão** definidos recursivamente (por exemplo, referir-se a uma matriz de si mesmo).</span><span class="sxs-lookup"><span data-stu-id="4115a-120">**Recursion** types that are defined recursively (e.g. refer to an array of themselves) are not supported.</span></span>
+* <span data-ttu-id="e1848-114">**WSDL:Import** no momento, não oferecemos suporte à APIs usando este atributo.</span><span class="sxs-lookup"><span data-stu-id="e1848-114">**WSDL:Import** we do not currently support APIs using this attribute.</span></span> <span data-ttu-id="e1848-115">Os clientes devem mesclar elementos Olá importado em um documento.</span><span class="sxs-lookup"><span data-stu-id="e1848-115">Customers should merge hello imported elements into one document.</span></span>
+* <span data-ttu-id="e1848-116">No momento, não há suporte para **Mensagens com diversas partes**.</span><span class="sxs-lookup"><span data-stu-id="e1848-116">**Messages with multiple parts** are currently not supported.</span></span>
+* <span data-ttu-id="e1848-117">**wsHttpBinding no WCF** Serviços SOAP criados com o Windows Communication Foundation devem usar basicHttpBinding – não há suporte para wsHttpBinding.</span><span class="sxs-lookup"><span data-stu-id="e1848-117">**WCF wsHttpBinding** SOAP services created with Windows Communication Foundation should use basicHttpBinding - wsHttpBinding is not supported.</span></span>
+* <span data-ttu-id="e1848-118">**MTOM** Serviços que usam MTOM <em>podem</em> funcionar.</span><span class="sxs-lookup"><span data-stu-id="e1848-118">**MTOM** Services using MTOM <em>may</em> work.</span></span> <span data-ttu-id="e1848-119">No momento, não oferecemos suporte oficial.</span><span class="sxs-lookup"><span data-stu-id="e1848-119">Official support is not offered at this time.</span></span>
+* <span data-ttu-id="e1848-120">**Recursão** tipos que são definidos recursivamente (por exemplo, consulte tooan matriz de si mesmos) não têm suporte.</span><span class="sxs-lookup"><span data-stu-id="e1848-120">**Recursion** types that are defined recursively (e.g. refer tooan array of themselves) are not supported.</span></span>
 
-## <span data-ttu-id="4115a-121"><a name="wadl"> </a>WADL</span><span class="sxs-lookup"><span data-stu-id="4115a-121"><a name="wadl"> </a>WADL</span></span>
-<span data-ttu-id="4115a-122">Atualmente, não há problemas de importação de WADL conhecidos.</span><span class="sxs-lookup"><span data-stu-id="4115a-122">There are no known WADL import issues currently.</span></span>
+## <span data-ttu-id="e1848-121"><a name="wadl"> </a>WADL</span><span class="sxs-lookup"><span data-stu-id="e1848-121"><a name="wadl"> </a>WADL</span></span>
+<span data-ttu-id="e1848-122">Atualmente, não há problemas de importação de WADL conhecidos.</span><span class="sxs-lookup"><span data-stu-id="e1848-122">There are no known WADL import issues currently.</span></span>
 
 
 [api-management-management-console]: ./media/api-management-howto-add-operations/api-management-management-console.png
@@ -77,6 +77,6 @@ ms.lasthandoff: 07/11/2017
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to create and publish a product]: api-management-howto-add-products.md
-[How to cache operation results in Azure API Management]: api-management-howto-cache.md
+[How tooadd operations tooan API]: api-management-howto-add-operations.md
+[How toocreate and publish a product]: api-management-howto-add-products.md
+[How toocache operation results in Azure API Management]: api-management-howto-cache.md

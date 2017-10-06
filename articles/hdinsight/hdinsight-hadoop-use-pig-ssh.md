@@ -1,6 +1,6 @@
 ---
-title: "Usar o Hadoop Pig com o SSH em um cluster HDInsight – Azure | Microsoft Docs"
-description: "Saiba como conectar a um cluster Hadoop baseado em Linux com o SSH e use o comando Pig para executar instruções Pig Latin interativamente ou como um trabalho em lotes."
+title: aaaUse Pig do Hadoop com SSH em um cluster HDInsight - Azure | Microsoft Docs
+description: "Saiba como se conectar tooa cluster de Hadoop baseado em Linux com SSH, e, em seguida, usar Olá Pig comando toorun Pig latino instruções interativamente ou como um lote de trabalho."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,89 +16,89 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
-ms.openlocfilehash: e4c893ef4bfa573dd9fbc9c9b0ae296720769842
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1da303e239b537e6b331b1d33010058582718c90
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a><span data-ttu-id="4a6f5-103">Executar trabalhos do Pig em um cluster baseado em Linux com o comando Pig (SSH)</span><span class="sxs-lookup"><span data-stu-id="4a6f5-103">Run Pig jobs on a Linux-based cluster with the Pig command (SSH)</span></span>
+# <a name="run-pig-jobs-on-a-linux-based-cluster-with-hello-pig-command-ssh"></a><span data-ttu-id="04e15-103">Executar trabalhos de Pig em um cluster baseado em Linux com hello comando Pig (SSH)</span><span class="sxs-lookup"><span data-stu-id="04e15-103">Run Pig jobs on a Linux-based cluster with hello Pig command (SSH)</span></span>
 
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
-<span data-ttu-id="4a6f5-104">Saiba como executar trabalhos do Pig interativamente de uma conexão SSH para seu cluster HDInsight.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-104">Learn how to interactively run Pig jobs from an SSH connection to your HDInsight cluster.</span></span> <span data-ttu-id="4a6f5-105">A linguagem de programação Pig Latin permite descrever as transformações que são aplicadas aos dados de entrada para produzir a saída desejada.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-105">The Pig Latin programming language allows you to describe transformations that are applied to the input data to produce the desired output.</span></span>
+<span data-ttu-id="04e15-104">Saiba como toointeractively executar trabalhos de Pig de um cluster de HDInsight de tooyour de conexão SSH.</span><span class="sxs-lookup"><span data-stu-id="04e15-104">Learn how toointeractively run Pig jobs from an SSH connection tooyour HDInsight cluster.</span></span> <span data-ttu-id="04e15-105">Olá linguagem de programação de Pig latino permite toodescribe transformações que são aplicadas toohello entrada dados tooproduce Olá desejado saída.</span><span class="sxs-lookup"><span data-stu-id="04e15-105">hello Pig Latin programming language allows you toodescribe transformations that are applied toohello input data tooproduce hello desired output.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="4a6f5-106">As etapas deste documento exigem um cluster HDInsight baseado em Linux.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-106">The steps in this document require a Linux-based HDInsight cluster.</span></span> <span data-ttu-id="4a6f5-107">O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-107">Linux is the only operating system used on HDInsight version 3.4 or greater.</span></span> <span data-ttu-id="4a6f5-108">Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).</span><span class="sxs-lookup"><span data-stu-id="4a6f5-108">For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).</span></span>
+> <span data-ttu-id="04e15-106">Olá, as etapas neste documento exigem um cluster HDInsight baseados em Linux.</span><span class="sxs-lookup"><span data-stu-id="04e15-106">hello steps in this document require a Linux-based HDInsight cluster.</span></span> <span data-ttu-id="04e15-107">Linux é Olá sistema operacional somente de usado no HDInsight versão 3.4 ou posterior.</span><span class="sxs-lookup"><span data-stu-id="04e15-107">Linux is hello only operating system used on HDInsight version 3.4 or greater.</span></span> <span data-ttu-id="04e15-108">Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).</span><span class="sxs-lookup"><span data-stu-id="04e15-108">For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).</span></span>
 
-## <span data-ttu-id="4a6f5-109"><a id="ssh"></a>Conexão com o SSH</span><span class="sxs-lookup"><span data-stu-id="4a6f5-109"><a id="ssh"></a>Connect with SSH</span></span>
+## <span data-ttu-id="04e15-109"><a id="ssh"></a>Conexão com o SSH</span><span class="sxs-lookup"><span data-stu-id="04e15-109"><a id="ssh"></a>Connect with SSH</span></span>
 
-<span data-ttu-id="4a6f5-110">Use o SSH para conectar-se ao cluster HDInsight.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-110">Use SSH to connect to your HDInsight cluster.</span></span> <span data-ttu-id="4a6f5-111">O exemplo a seguir se conecta a um cluster chamado **myhdinsight** como a conta denominada **sshuser**:</span><span class="sxs-lookup"><span data-stu-id="4a6f5-111">The following example connects to a cluster named **myhdinsight** as the account named **sshuser**:</span></span>
+<span data-ttu-id="04e15-110">Use SSH tooconnect tooyour HDInsight cluster.</span><span class="sxs-lookup"><span data-stu-id="04e15-110">Use SSH tooconnect tooyour HDInsight cluster.</span></span> <span data-ttu-id="04e15-111">exemplo a seguir Hello conecta tooa cluster denominado **myhdinsight** como Olá conta denominada **sshuser**:</span><span class="sxs-lookup"><span data-stu-id="04e15-111">hello following example connects tooa cluster named **myhdinsight** as hello account named **sshuser**:</span></span>
 
     ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 
-<span data-ttu-id="4a6f5-112">**Se você tiver fornecido uma chave de certificado para autenticação de SSH** ao criar o cluster HDInsight, talvez seja necessário especificar o local da chave privada no sistema cliente.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-112">**If you provided a certificate key for SSH authentication** when you created the HDInsight cluster, you may need to specify the location of the private key on your client system.</span></span>
+<span data-ttu-id="04e15-112">**Se você forneceu uma chave de certificado para autenticação de SSH** quando você criou o cluster do HDInsight hello, talvez seja necessário toospecify local de saudação da chave privada Olá no sistema cliente.</span><span class="sxs-lookup"><span data-stu-id="04e15-112">**If you provided a certificate key for SSH authentication** when you created hello HDInsight cluster, you may need toospecify hello location of hello private key on your client system.</span></span>
 
     ssh sshuser@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
 
-<span data-ttu-id="4a6f5-113">**Se você forneceu uma senha para autenticação SSH** ao criar o cluster HDInsight, forneça a senha quando solicitado.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-113">**If you provided a password for SSH authentication** when you created the HDInsight cluster, provide the password when prompted.</span></span>
+<span data-ttu-id="04e15-113">**Se você forneceu uma senha para autenticação de SSH** quando você criou o cluster do HDInsight hello, forneça a senha de saudação quando solicitado.</span><span class="sxs-lookup"><span data-stu-id="04e15-113">**If you provided a password for SSH authentication** when you created hello HDInsight cluster, provide hello password when prompted.</span></span>
 
-<span data-ttu-id="4a6f5-114">Para saber mais sobre como usar o SSH com HDInsight, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).</span><span class="sxs-lookup"><span data-stu-id="4a6f5-114">For more information on using SSH with HDInsight, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).</span></span>
+<span data-ttu-id="04e15-114">Para saber mais sobre como usar o SSH com HDInsight, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).</span><span class="sxs-lookup"><span data-stu-id="04e15-114">For more information on using SSH with HDInsight, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).</span></span>
 
-## <span data-ttu-id="4a6f5-115"><a id="pig"></a>Usar o comando Pig</span><span class="sxs-lookup"><span data-stu-id="4a6f5-115"><a id="pig"></a>Use the Pig command</span></span>
+## <span data-ttu-id="04e15-115"><a id="pig"></a>Use o comando de Pig de saudação</span><span class="sxs-lookup"><span data-stu-id="04e15-115"><a id="pig"></a>Use hello Pig command</span></span>
 
-1. <span data-ttu-id="4a6f5-116">Uma vez conectado, inicie a CLI (interface de linha de comando) do Pig usando o comando a seguir:</span><span class="sxs-lookup"><span data-stu-id="4a6f5-116">Once connected, start the Pig command-line interface (CLI) by using the following command:</span></span>
+1. <span data-ttu-id="04e15-116">Uma vez conectado, inicie interface de linha de comando de Pig de saudação (CLI) usando Olá comando a seguir:</span><span class="sxs-lookup"><span data-stu-id="04e15-116">Once connected, start hello Pig command-line interface (CLI) by using hello following command:</span></span>
 
         pig
 
-    <span data-ttu-id="4a6f5-117">Após um momento, você deverá ver um prompt `grunt>` .</span><span class="sxs-lookup"><span data-stu-id="4a6f5-117">After a moment, you should see a `grunt>` prompt.</span></span>
+    <span data-ttu-id="04e15-117">Após um momento, você deverá ver um prompt `grunt>` .</span><span class="sxs-lookup"><span data-stu-id="04e15-117">After a moment, you should see a `grunt>` prompt.</span></span>
 
-2. <span data-ttu-id="4a6f5-118">Insira a instrução a seguir:</span><span class="sxs-lookup"><span data-stu-id="4a6f5-118">Enter the following statement:</span></span>
+2. <span data-ttu-id="04e15-118">Digite hello instrução a seguir:</span><span class="sxs-lookup"><span data-stu-id="04e15-118">Enter hello following statement:</span></span>
 
         LOGS = LOAD '/example/data/sample.log';
 
-    <span data-ttu-id="4a6f5-119">Esse comando carrega o conteúdo do arquivo sample.log em LOGS.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-119">This command loads the contents of the sample.log file into LOGS.</span></span> <span data-ttu-id="4a6f5-120">Você pode exibir o conteúdo do arquivo usando a seguinte instrução:</span><span class="sxs-lookup"><span data-stu-id="4a6f5-120">You can view the contents of the file by using the following statement:</span></span>
+    <span data-ttu-id="04e15-119">Esse comando carrega o conteúdo de saudação do arquivo de sample.log Olá nos LOGS.</span><span class="sxs-lookup"><span data-stu-id="04e15-119">This command loads hello contents of hello sample.log file into LOGS.</span></span> <span data-ttu-id="04e15-120">Você pode exibir o conteúdo de saudação do arquivo hello usando Olá instrução a seguir:</span><span class="sxs-lookup"><span data-stu-id="04e15-120">You can view hello contents of hello file by using hello following statement:</span></span>
 
         DUMP LOGS;
 
-3. <span data-ttu-id="4a6f5-121">Em seguida, transforme os dados aplicando uma expressão regular para extrair apenas o nível de registro em log de cada registro usando a seguinte instrução:</span><span class="sxs-lookup"><span data-stu-id="4a6f5-121">Next, transform the data by applying a regular expression to extract only the logging level from each record by using the following statement:</span></span>
+3. <span data-ttu-id="04e15-121">Em seguida, transformar dados saudação aplicando um nível de log de saudação somente tooextract de expressão regular de cada registro usando Olá instrução a seguir:</span><span class="sxs-lookup"><span data-stu-id="04e15-121">Next, transform hello data by applying a regular expression tooextract only hello logging level from each record by using hello following statement:</span></span>
 
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
 
-    <span data-ttu-id="4a6f5-122">Você pode usar **DUMP** para exibir os dados após a transformação.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-122">You can use **DUMP** to view the data after the transformation.</span></span> <span data-ttu-id="4a6f5-123">Nesse caso, use `DUMP LEVELS;`.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-123">In this case, use `DUMP LEVELS;`.</span></span>
+    <span data-ttu-id="04e15-122">Você pode usar **DESPEJAR** dados de saudação tooview após a transformação de saudação.</span><span class="sxs-lookup"><span data-stu-id="04e15-122">You can use **DUMP** tooview hello data after hello transformation.</span></span> <span data-ttu-id="04e15-123">Nesse caso, use `DUMP LEVELS;`.</span><span class="sxs-lookup"><span data-stu-id="04e15-123">In this case, use `DUMP LEVELS;`.</span></span>
 
-4. <span data-ttu-id="4a6f5-124">Continue a aplicar transformações usando as instruções na tabela a seguir:</span><span class="sxs-lookup"><span data-stu-id="4a6f5-124">Continue applying transformations by using the statements in the following table:</span></span>
+4. <span data-ttu-id="04e15-124">Continue a aplicar transformações usando instruções Olá em Olá a tabela a seguir:</span><span class="sxs-lookup"><span data-stu-id="04e15-124">Continue applying transformations by using hello statements in hello following table:</span></span>
 
-    | <span data-ttu-id="4a6f5-125">Instrução de Pig Latin</span><span class="sxs-lookup"><span data-stu-id="4a6f5-125">Pig Latin statement</span></span> | <span data-ttu-id="4a6f5-126">O que a instrução faz</span><span class="sxs-lookup"><span data-stu-id="4a6f5-126">What the statement does</span></span> |
+    | <span data-ttu-id="04e15-125">Instrução de Pig Latin</span><span class="sxs-lookup"><span data-stu-id="04e15-125">Pig Latin statement</span></span> | <span data-ttu-id="04e15-126">O demonstrativo de saudação não diz</span><span class="sxs-lookup"><span data-stu-id="04e15-126">What hello statement does</span></span> |
     | ---- | ---- |
-    | `FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;` | <span data-ttu-id="4a6f5-127">Remove as linhas que contêm um valor nulo para o nível de log e armazena os resultados em `FILTEREDLEVELS`.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-127">Removes rows that contain a null value for the log level and stores the results into `FILTEREDLEVELS`.</span></span> |
-    | `GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;` | <span data-ttu-id="4a6f5-128">Agrupa as linhas pelo nível de log e armazena os resultados em `GROUPEDLEVELS`.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-128">Groups the rows by log level and stores the results into `GROUPEDLEVELS`.</span></span> |
-    | `FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;` | <span data-ttu-id="4a6f5-129">Cria um conjunto de dados que contém cada valor de nível de log exclusivo e quantas vezes ele ocorre.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-129">Creates a set of data that contains each unique log level value and how many times it occurs.</span></span> <span data-ttu-id="4a6f5-130">O conjunto de dados é armazenado em `FREQUENCIES`.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-130">The data set is stored into `FREQUENCIES`.</span></span> |
-    | `RESULT = order FREQUENCIES by COUNT desc;` | <span data-ttu-id="4a6f5-131">Ordena os níveis de log por contagem (decrescente) e armazena em `RESULT`.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-131">Orders the log levels by count (descending) and stores into `RESULT`.</span></span> |
+    | `FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;` | <span data-ttu-id="04e15-127">Remove as linhas que contêm um valor nulo para o nível de log hello e armazena os resultados de saudação em `FILTEREDLEVELS`.</span><span class="sxs-lookup"><span data-stu-id="04e15-127">Removes rows that contain a null value for hello log level and stores hello results into `FILTEREDLEVELS`.</span></span> |
+    | `GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;` | <span data-ttu-id="04e15-128">Olá grupos linhas por nível de log e armazena os resultados de saudação em `GROUPEDLEVELS`.</span><span class="sxs-lookup"><span data-stu-id="04e15-128">Groups hello rows by log level and stores hello results into `GROUPEDLEVELS`.</span></span> |
+    | `FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;` | <span data-ttu-id="04e15-129">Cria um conjunto de dados que contém cada valor de nível de log exclusivo e quantas vezes ele ocorre.</span><span class="sxs-lookup"><span data-stu-id="04e15-129">Creates a set of data that contains each unique log level value and how many times it occurs.</span></span> <span data-ttu-id="04e15-130">Olá conjunto de dados é armazenado em `FREQUENCIES`.</span><span class="sxs-lookup"><span data-stu-id="04e15-130">hello data set is stored into `FREQUENCIES`.</span></span> |
+    | `RESULT = order FREQUENCIES by COUNT desc;` | <span data-ttu-id="04e15-131">Ordena os níveis de log Olá por contagem (decrescente) e armazena em `RESULT`.</span><span class="sxs-lookup"><span data-stu-id="04e15-131">Orders hello log levels by count (descending) and stores into `RESULT`.</span></span> |
 
     > [!TIP]
-    > <span data-ttu-id="4a6f5-132">Use `DUMP` para exibir o resultado da transformação após cada etapa.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-132">Use `DUMP` to view the result of the transformation after each step.</span></span>
+    > <span data-ttu-id="04e15-132">Use `DUMP` tooview resultados de saudação da transformação Olá depois de cada etapa.</span><span class="sxs-lookup"><span data-stu-id="04e15-132">Use `DUMP` tooview hello result of hello transformation after each step.</span></span>
 
-5. <span data-ttu-id="4a6f5-133">Você também pode salvar os resultados de uma transformação usando a instrução `STORE` .</span><span class="sxs-lookup"><span data-stu-id="4a6f5-133">You can also save the results of a transformation by using the `STORE` statement.</span></span> <span data-ttu-id="4a6f5-134">Por exemplo, a instrução a seguir salva o `RESULT` no diretório `/example/data/pigout` no armazenamento padrão para seu cluster:</span><span class="sxs-lookup"><span data-stu-id="4a6f5-134">For example, the following statement saves the `RESULT` to the `/example/data/pigout` directory on the default storage for your cluster:</span></span>
+5. <span data-ttu-id="04e15-133">Você também pode salvar os resultados de saudação de uma transformação usando Olá `STORE` instrução.</span><span class="sxs-lookup"><span data-stu-id="04e15-133">You can also save hello results of a transformation by using hello `STORE` statement.</span></span> <span data-ttu-id="04e15-134">Por exemplo, a saudação instrução a seguir salva Olá `RESULT` toohello `/example/data/pigout` diretório no armazenamento padrão da saudação para seu cluster:</span><span class="sxs-lookup"><span data-stu-id="04e15-134">For example, hello following statement saves hello `RESULT` toohello `/example/data/pigout` directory on hello default storage for your cluster:</span></span>
 
         STORE RESULT into '/example/data/pigout';
 
    > [!NOTE]
-   > <span data-ttu-id="4a6f5-135">Os dados são armazenados no diretório especificado nos arquivos chamados `part-nnnnn`.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-135">The data is stored in the specified directory in files named `part-nnnnn`.</span></span> <span data-ttu-id="4a6f5-136">Se o diretório já existir, você receberá um erro.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-136">If the directory already exists, you receive an error.</span></span>
+   > <span data-ttu-id="04e15-135">Olá dados são armazenados no diretório especificado do hello nos arquivos denominados `part-nnnnn`.</span><span class="sxs-lookup"><span data-stu-id="04e15-135">hello data is stored in hello specified directory in files named `part-nnnnn`.</span></span> <span data-ttu-id="04e15-136">Se já existe um diretório de saudação, você receberá um erro.</span><span class="sxs-lookup"><span data-stu-id="04e15-136">If hello directory already exists, you receive an error.</span></span>
 
-6. <span data-ttu-id="4a6f5-137">Para sair do prompt do grunt, insira a instrução a seguir:</span><span class="sxs-lookup"><span data-stu-id="4a6f5-137">To exit the grunt prompt, enter the following statement:</span></span>
+6. <span data-ttu-id="04e15-137">Olá tooexit pesado prompt, digite Olá instrução a seguir:</span><span class="sxs-lookup"><span data-stu-id="04e15-137">tooexit hello grunt prompt, enter hello following statement:</span></span>
 
         QUIT;
 
-### <a name="pig-latin-batch-files"></a><span data-ttu-id="4a6f5-138">Arquivos de lote do Pig Latin</span><span class="sxs-lookup"><span data-stu-id="4a6f5-138">Pig Latin batch files</span></span>
+### <a name="pig-latin-batch-files"></a><span data-ttu-id="04e15-138">Arquivos de lote do Pig Latin</span><span class="sxs-lookup"><span data-stu-id="04e15-138">Pig Latin batch files</span></span>
 
-<span data-ttu-id="4a6f5-139">Você também pode usar o comando Pig para executar o Pig Latin contido em um arquivo.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-139">You can also use the Pig command to run Pig Latin contained in a file.</span></span>
+<span data-ttu-id="04e15-139">Você também pode usar o hello Pig comando toorun Pig latino contido em um arquivo.</span><span class="sxs-lookup"><span data-stu-id="04e15-139">You can also use hello Pig command toorun Pig Latin contained in a file.</span></span>
 
-1. <span data-ttu-id="4a6f5-140">Depois de sair do prompt do grunt, use o seguinte comando para canalizar STDIN em um arquivo chamado `pigbatch.pig`.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-140">After exiting the grunt prompt, use the following command to pipe STDIN into a file named `pigbatch.pig`.</span></span> <span data-ttu-id="4a6f5-141">Esse arquivo é criado no diretório inicial para a conta de usuário do SSH.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-141">This file is created in the home directory for the SSH user account.</span></span>
+1. <span data-ttu-id="04e15-140">Depois de sair do prompt de pesado Olá, uso a seguir Olá comando toopipe STDIN em um arquivo denominado `pigbatch.pig`.</span><span class="sxs-lookup"><span data-stu-id="04e15-140">After exiting hello grunt prompt, use hello following command toopipe STDIN into a file named `pigbatch.pig`.</span></span> <span data-ttu-id="04e15-141">Esse arquivo é criado no diretório base Olá Olá conta de usuário SSH.</span><span class="sxs-lookup"><span data-stu-id="04e15-141">This file is created in hello home directory for hello SSH user account.</span></span>
 
         cat > ~/pigbatch.pig
 
-2. <span data-ttu-id="4a6f5-142">Digite ou cole as seguintes linhas e use Ctrl+D quando terminar.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-142">Type or paste the following lines, and then use Ctrl+D when finished.</span></span>
+2. <span data-ttu-id="04e15-142">Digite ou cole Olá linhas a seguir e, em seguida, use Ctrl + D quando terminar.</span><span class="sxs-lookup"><span data-stu-id="04e15-142">Type or paste hello following lines, and then use Ctrl+D when finished.</span></span>
 
         LOGS = LOAD '/example/data/sample.log';
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
@@ -108,11 +108,11 @@ ms.lasthandoff: 08/03/2017
         RESULT = order FREQUENCIES by COUNT desc;
         DUMP RESULT;
 
-3. <span data-ttu-id="4a6f5-143">Use o seguinte comando para executar o arquivo `pigbatch.pig` utilizando o comando Pig.</span><span class="sxs-lookup"><span data-stu-id="4a6f5-143">Use the following command to run the `pigbatch.pig` file by using the Pig command.</span></span>
+3. <span data-ttu-id="04e15-143">Olá toorun do comando de uso a seguir de saudação `pigbatch.pig` arquivo usando o comando de Pig de saudação.</span><span class="sxs-lookup"><span data-stu-id="04e15-143">Use hello following command toorun hello `pigbatch.pig` file by using hello Pig command.</span></span>
 
         pig ~/pigbatch.pig
 
-    <span data-ttu-id="4a6f5-144">Quando o trabalho em lotes for concluído, você verá o seguinte resultado:</span><span class="sxs-lookup"><span data-stu-id="4a6f5-144">Once the batch job finishes, you see the following output:</span></span>
+    <span data-ttu-id="04e15-144">Quando termina de trabalho em lotes de saudação, você verá Olá saída a seguir:</span><span class="sxs-lookup"><span data-stu-id="04e15-144">Once hello batch job finishes, you see hello following output:</span></span>
 
         (TRACE,816)
         (DEBUG,434)
@@ -122,13 +122,13 @@ ms.lasthandoff: 08/03/2017
         (FATAL,2)
 
 
-## <span data-ttu-id="4a6f5-145"><a id="nextsteps"></a>Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="4a6f5-145"><a id="nextsteps"></a>Next steps</span></span>
+## <span data-ttu-id="04e15-145"><a id="nextsteps"></a>Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="04e15-145"><a id="nextsteps"></a>Next steps</span></span>
 
-<span data-ttu-id="4a6f5-146">Para obter informações gerais sobre como usar o Pig no HDInsight, consulte o seguinte documento:</span><span class="sxs-lookup"><span data-stu-id="4a6f5-146">For general information on Pig in HDInsight, see the following document:</span></span>
+<span data-ttu-id="04e15-146">Para obter informações gerais sobre Pig no HDInsight, consulte Olá documento a seguir:</span><span class="sxs-lookup"><span data-stu-id="04e15-146">For general information on Pig in HDInsight, see hello following document:</span></span>
 
-* [<span data-ttu-id="4a6f5-147">Usar o Pig com Hadoop no HDInsight</span><span class="sxs-lookup"><span data-stu-id="4a6f5-147">Use Pig with Hadoop on HDInsight</span></span>](hdinsight-use-pig.md)
+* [<span data-ttu-id="04e15-147">Usar o Pig com Hadoop no HDInsight</span><span class="sxs-lookup"><span data-stu-id="04e15-147">Use Pig with Hadoop on HDInsight</span></span>](hdinsight-use-pig.md)
 
-<span data-ttu-id="4a6f5-148">Para saber mais sobre outras maneiras de trabalhar com o Hadoop no HDInsight, consulte os seguintes documentos:</span><span class="sxs-lookup"><span data-stu-id="4a6f5-148">For more information on other ways to work with Hadoop on HDInsight, see the following documents:</span></span>
+<span data-ttu-id="04e15-148">Para obter mais informações sobre outra maneiras toowork com Hadoop no HDInsight, consulte Olá documentos a seguir:</span><span class="sxs-lookup"><span data-stu-id="04e15-148">For more information on other ways toowork with Hadoop on HDInsight, see hello following documents:</span></span>
 
-* [<span data-ttu-id="4a6f5-149">Usar o Hive com Hadoop no HDInsight</span><span class="sxs-lookup"><span data-stu-id="4a6f5-149">Use Hive with Hadoop on HDInsight</span></span>](hdinsight-use-hive.md)
-* [<span data-ttu-id="4a6f5-150">Usar o MapReduce com Hadoop no HDInsight</span><span class="sxs-lookup"><span data-stu-id="4a6f5-150">Use MapReduce with Hadoop on HDInsight</span></span>](hdinsight-use-mapreduce.md)
+* [<span data-ttu-id="04e15-149">Usar o Hive com Hadoop no HDInsight</span><span class="sxs-lookup"><span data-stu-id="04e15-149">Use Hive with Hadoop on HDInsight</span></span>](hdinsight-use-hive.md)
+* [<span data-ttu-id="04e15-150">Usar o MapReduce com Hadoop no HDInsight</span><span class="sxs-lookup"><span data-stu-id="04e15-150">Use MapReduce with Hadoop on HDInsight</span></span>](hdinsight-use-mapreduce.md)

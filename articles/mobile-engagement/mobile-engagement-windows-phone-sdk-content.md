@@ -1,6 +1,6 @@
 ---
-title: "Conteúdo do SDK do Windows Phone Silverlight"
-description: "Saiba mais sobre o conteúdo do SDK do Windows Phone Silverlight para o Azure Mobile Engagement"
+title: "aaaWindows conteúdo Phone Silverlight SDK"
+description: "Saiba mais sobre o conteúdo de saudação do hello SDK do Windows Phone Silverlight para o Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ce323880100706accf0c08c9929d20908c6198cb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c39247383d65200493d028a80d444a6e96a697cd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="windows-phone-silverlight-sdk-content"></a><span data-ttu-id="0089e-103">Conteúdo do SDK do Windows Phone Silverlight</span><span class="sxs-lookup"><span data-stu-id="0089e-103">Windows Phone Silverlight SDK content</span></span>
-<span data-ttu-id="0089e-104">Este documento lista e descreve o conteúdo implantado pelo SDK em seu aplicativo.</span><span class="sxs-lookup"><span data-stu-id="0089e-104">This document lists and describes the content deployed by the SDK in your application.</span></span>
+# <a name="windows-phone-silverlight-sdk-content"></a><span data-ttu-id="a15bd-103">Conteúdo do SDK do Windows Phone Silverlight</span><span class="sxs-lookup"><span data-stu-id="a15bd-103">Windows Phone Silverlight SDK content</span></span>
+<span data-ttu-id="a15bd-104">Este documento lista e descreve o conteúdo de saudação implantado por Olá SDK em seu aplicativo.</span><span class="sxs-lookup"><span data-stu-id="a15bd-104">This document lists and describes hello content deployed by hello SDK in your application.</span></span>
 
-## <a name="the-resources-folder"></a><span data-ttu-id="0089e-105">A pasta `/Resources`</span><span class="sxs-lookup"><span data-stu-id="0089e-105">The `/Resources` folder</span></span>
-<span data-ttu-id="0089e-106">Essa pasta contém todos os recursos que o Mobile Engagement precisa.</span><span class="sxs-lookup"><span data-stu-id="0089e-106">This folder contains all the resources that Mobile Engagement needs.</span></span> <span data-ttu-id="0089e-107">Você também pode personalizá-los para se adequarem ao seu aplicativo.</span><span class="sxs-lookup"><span data-stu-id="0089e-107">You can also customize them to fit your app.</span></span>
+## <a name="hello-resources-folder"></a><span data-ttu-id="a15bd-105">Olá `/Resources` pasta</span><span class="sxs-lookup"><span data-stu-id="a15bd-105">hello `/Resources` folder</span></span>
+<span data-ttu-id="a15bd-106">Esta pasta contém todos os recursos de saudação do Mobile Engagement precisa.</span><span class="sxs-lookup"><span data-stu-id="a15bd-106">This folder contains all hello resources that Mobile Engagement needs.</span></span> <span data-ttu-id="a15bd-107">Você também pode personalizá-los toofit seu aplicativo.</span><span class="sxs-lookup"><span data-stu-id="a15bd-107">You can also customize them toofit your app.</span></span>
 
-* <span data-ttu-id="0089e-108">`EngagementIconNotification.png` : O ícone de marca exibido à esquerda de uma notificação, substitua-o pelo ícone da sua marca.</span><span class="sxs-lookup"><span data-stu-id="0089e-108">`EngagementIconNotification.png` : The brand icon displayed at the left of a notification, replace this one by your brand icon.</span></span>
-* <span data-ttu-id="0089e-109">`EngagementIconOk.png` : O ícone "Ok" da ApplicationBar das páginas do Reach.</span><span class="sxs-lookup"><span data-stu-id="0089e-109">`EngagementIconOk.png` : The "Ok" icon of the reach pages ApplicationBar.</span></span>
-* <span data-ttu-id="0089e-110">`EngagementIconCancel.png` : O ícone "Cancelar" da ApplicationBar das páginas do Reach.</span><span class="sxs-lookup"><span data-stu-id="0089e-110">`EngagementIconCancel.png` : The "Cancel" icon of the reach pages ApplicationBar.</span></span>
-* <span data-ttu-id="0089e-111">`EngagementIconCloseLight.png` : O ícone “Fechar" da notificação Reach do Mobile Engagement do tema claro do Windows Phone.</span><span class="sxs-lookup"><span data-stu-id="0089e-111">`EngagementIconCloseLight.png` : The "Close" icon of the Mobile Engagement's reach notification for the Windows Phone light theme.</span></span>
-* <span data-ttu-id="0089e-112">`EngagementIconCloseDark.png` : O ícone “Fechar" da notificação Reach do Mobile Engagement do tema escuro do Windows Phone.</span><span class="sxs-lookup"><span data-stu-id="0089e-112">`EngagementIconCloseDark.png` : The "Close" icon of the Mobile Engagement's reach notification for the Windows Phone dark theme.</span></span>
-* <span data-ttu-id="0089e-113">`EngagementConfiguration.xml` : Arquivo de configuração do Mobile Engagement, é onde você pode personalizar configurações do Engagement (cadeia de conexão do Engagement, relatar falhas, etc.).</span><span class="sxs-lookup"><span data-stu-id="0089e-113">`EngagementConfiguration.xml` : The Mobile Engagement's configuration file, this is where you can customize Engagement settings (Engagement connection string, report crashes etc).</span></span>
+* <span data-ttu-id="a15bd-108">`EngagementIconNotification.png`: ícone de marca de saudação exibido no hello à esquerda de uma notificação, substituí-lo por seu ícone de marca.</span><span class="sxs-lookup"><span data-stu-id="a15bd-108">`EngagementIconNotification.png` : hello brand icon displayed at hello left of a notification, replace this one by your brand icon.</span></span>
+* <span data-ttu-id="a15bd-109">`EngagementIconOk.png`: ícone de "Okey" hello de saudação acessar páginas ApplicationBar.</span><span class="sxs-lookup"><span data-stu-id="a15bd-109">`EngagementIconOk.png` : hello "Ok" icon of hello reach pages ApplicationBar.</span></span>
+* <span data-ttu-id="a15bd-110">`EngagementIconCancel.png`: hello "Cancelar" ícone de saudação acessar páginas ApplicationBar.</span><span class="sxs-lookup"><span data-stu-id="a15bd-110">`EngagementIconCancel.png` : hello "Cancel" icon of hello reach pages ApplicationBar.</span></span>
+* <span data-ttu-id="a15bd-111">`EngagementIconCloseLight.png`: ícone de "Fechar" hello de saudação do Mobile Engagement alcançar notificação para o tema claro do Windows Phone hello.</span><span class="sxs-lookup"><span data-stu-id="a15bd-111">`EngagementIconCloseLight.png` : hello "Close" icon of hello Mobile Engagement's reach notification for hello Windows Phone light theme.</span></span>
+* <span data-ttu-id="a15bd-112">`EngagementIconCloseDark.png`: ícone de "Fechar" hello de saudação do Mobile Engagement alcançar notificação de tema escuro do Windows Phone hello.</span><span class="sxs-lookup"><span data-stu-id="a15bd-112">`EngagementIconCloseDark.png` : hello "Close" icon of hello Mobile Engagement's reach notification for hello Windows Phone dark theme.</span></span>
+* <span data-ttu-id="a15bd-113">`EngagementConfiguration.xml`: Olá o arquivo de configuração do Mobile Engagement, que é onde você pode personalizar as configurações do contrato (cadeia de caracteres de conexão do contrato, relatório falha etc).</span><span class="sxs-lookup"><span data-stu-id="a15bd-113">`EngagementConfiguration.xml` : hello Mobile Engagement's configuration file, this is where you can customize Engagement settings (Engagement connection string, report crashes etc).</span></span>
 

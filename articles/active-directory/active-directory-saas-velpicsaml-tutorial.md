@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory ao Velpic SAML | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Velpic SAML."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Velpic SAML."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,256 +13,256 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 5325f3cca00167e6b7b687509ce43435447ad2f4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 613947d8fe95113382a2cdc0f79ce9eda85a0127
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a><span data-ttu-id="63879-103">Tutorial: Integração do Azure Active Directory ao Velpic SAML</span><span class="sxs-lookup"><span data-stu-id="63879-103">Tutorial: Azure Active Directory integration with Velpic SAML</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a><span data-ttu-id="8143e-103">Tutorial: Integração do Azure Active Directory ao Velpic SAML</span><span class="sxs-lookup"><span data-stu-id="8143e-103">Tutorial: Azure Active Directory integration with Velpic SAML</span></span>
 
-<span data-ttu-id="63879-104">Neste tutorial, você aprenderá a integrar o Velpic SAML ao Azure AD (Active Directory).</span><span class="sxs-lookup"><span data-stu-id="63879-104">In this tutorial, you learn how to integrate Velpic SAML with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="8143e-104">Neste tutorial, você aprenderá como toointegrate Velpic SAML com o Azure Active Directory (AD do Azure).</span><span class="sxs-lookup"><span data-stu-id="8143e-104">In this tutorial, you learn how toointegrate Velpic SAML with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="63879-105">A integração do Velpic SAML ao Azure AD proporciona os seguintes benefícios:</span><span class="sxs-lookup"><span data-stu-id="63879-105">Integrating Velpic SAML with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="8143e-105">Integrando Velpic SAML com o AD do Azure fornece Olá benefícios a seguir:</span><span class="sxs-lookup"><span data-stu-id="8143e-105">Integrating Velpic SAML with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="63879-106">No Azure AD, você pode controlar quem tem acesso ao Velpic SAML</span><span class="sxs-lookup"><span data-stu-id="63879-106">You can control in Azure AD who has access to Velpic SAML</span></span>
-- <span data-ttu-id="63879-107">Você pode permitir que os usuários façam logon automaticamente no Velpic SAML (Logon único) com suas contas do Azure AD</span><span class="sxs-lookup"><span data-stu-id="63879-107">You can enable your users to automatically get signed-on to Velpic SAML (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="63879-108">Você pode gerenciar suas contas em um único local - o portal de Gerenciamento do Azure</span><span class="sxs-lookup"><span data-stu-id="63879-108">You can manage your accounts in one central location - the Azure Management portal</span></span>
+- <span data-ttu-id="8143e-106">Você pode controlar no AD do Azure que tenha acesso tooVelpic SAML</span><span class="sxs-lookup"><span data-stu-id="8143e-106">You can control in Azure AD who has access tooVelpic SAML</span></span>
+- <span data-ttu-id="8143e-107">Você pode habilitar seu usuários tooautomatically get conectado tooVelpic SAML (logon único) com suas contas do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="8143e-107">You can enable your users tooautomatically get signed-on tooVelpic SAML (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="8143e-108">Você pode gerenciar suas contas em um local central – portal de gerenciamento do Azure Olá</span><span class="sxs-lookup"><span data-stu-id="8143e-108">You can manage your accounts in one central location - hello Azure Management portal</span></span>
 
-<span data-ttu-id="63879-109">Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="63879-109">If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="8143e-109">Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="8143e-109">If you want tooknow more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="63879-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="63879-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="8143e-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="8143e-110">Prerequisites</span></span>
 
-<span data-ttu-id="63879-111">Para configurar a integração do Azure AD ao Velpic SAML, você precisa dos seguintes itens:</span><span class="sxs-lookup"><span data-stu-id="63879-111">To configure Azure AD integration with Velpic SAML, you need the following items:</span></span>
+<span data-ttu-id="8143e-111">tooconfigure integração do AD do Azure com Velpic SAML, você precisa Olá itens a seguir:</span><span class="sxs-lookup"><span data-stu-id="8143e-111">tooconfigure Azure AD integration with Velpic SAML, you need hello following items:</span></span>
 
-- <span data-ttu-id="63879-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="63879-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="63879-113">Uma assinatura do Velpic SAML habilitada para logon único</span><span class="sxs-lookup"><span data-stu-id="63879-113">A Velpic SAML single-sign on enabled subscription</span></span>
+- <span data-ttu-id="8143e-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="8143e-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="8143e-113">Uma assinatura do Velpic SAML habilitada para logon único</span><span class="sxs-lookup"><span data-stu-id="8143e-113">A Velpic SAML single-sign on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="63879-114">Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="63879-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="8143e-114">Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="8143e-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="63879-115">Para testar as etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="63879-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="8143e-115">tootest Olá etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="8143e-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="63879-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="63879-116">You should not use your production environment, unless this is necessary.</span></span>
-- <span data-ttu-id="63879-117">Se não tiver um ambiente de avaliação do Azure AD, você poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="63879-117">If you don't have an Azure AD trial environment, you can get an one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="8143e-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="8143e-116">You should not use your production environment, unless this is necessary.</span></span>
+- <span data-ttu-id="8143e-117">Se não tiver um ambiente de avaliação do Azure AD, você poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="8143e-117">If you don't have an Azure AD trial environment, you can get an one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="63879-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="63879-118">Scenario description</span></span>
-<span data-ttu-id="63879-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="63879-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="63879-120">O cenário descrito neste tutorial consiste em dois blocos de construção principais:</span><span class="sxs-lookup"><span data-stu-id="63879-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="8143e-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="8143e-118">Scenario description</span></span>
+<span data-ttu-id="8143e-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="8143e-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="8143e-120">cenário de saudação descrito neste tutorial consiste em dois elementos básicos:</span><span class="sxs-lookup"><span data-stu-id="8143e-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="63879-121">Adicionando Velpic SAML usando a galeria</span><span class="sxs-lookup"><span data-stu-id="63879-121">Adding Velpic SAML from the gallery</span></span>
-2. <span data-ttu-id="63879-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="63879-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="8143e-121">Adicionando Velpic SAML da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="8143e-121">Adding Velpic SAML from hello gallery</span></span>
+2. <span data-ttu-id="8143e-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="8143e-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-velpic-saml-from-the-gallery"></a><span data-ttu-id="63879-123">Adicionando Velpic SAML usando a galeria</span><span class="sxs-lookup"><span data-stu-id="63879-123">Adding Velpic SAML from the gallery</span></span>
-<span data-ttu-id="63879-124">Para configurar a integração do Velpic SAML ao Azure AD, você precisa adicionar o Velpic SAML da galeria à sua lista de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="63879-124">To configure the integration of Velpic SAML into Azure AD, you need to add Velpic SAML from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-velpic-saml-from-hello-gallery"></a><span data-ttu-id="8143e-123">Adicionando Velpic SAML da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="8143e-123">Adding Velpic SAML from hello gallery</span></span>
+<span data-ttu-id="8143e-124">integração de saudação tooconfigure do Velpic SAML no AD do Azure, você precisa tooadd Velpic SAML na lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="8143e-124">tooconfigure hello integration of Velpic SAML into Azure AD, you need tooadd Velpic SAML from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="63879-125">**Para adicionar o Velpic SAML da galeria, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="63879-125">**To add Velpic SAML from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="8143e-125">**tooadd Velpic SAML da Galeria hello, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="8143e-125">**tooadd Velpic SAML from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="63879-126">No **[Portal de Gerenciamento do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="63879-126">In the **[Azure Management Portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="8143e-126">Em Olá  **[Portal de gerenciamento](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="8143e-126">In hello **[Azure Management Portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Active Directory][1]
 
-2. <span data-ttu-id="63879-128">Navegue até **aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="63879-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="63879-129">Em seguida, vá para **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="63879-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="8143e-128">Navegue muito**aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="8143e-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="8143e-129">Em seguida, acesse muito**todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="8143e-129">Then go too**All applications**.</span></span>
 
     ![Aplicativos][2]
     
-3. <span data-ttu-id="63879-131">Clique em **adicionar** botão na parte superior da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="63879-131">Click **Add** button on the top of the dialog.</span></span>
+3. <span data-ttu-id="8143e-131">Clique em **adicionar** botão na parte superior de saudação da caixa de diálogo de saudação.</span><span class="sxs-lookup"><span data-stu-id="8143e-131">Click **Add** button on hello top of hello dialog.</span></span>
 
     ![Aplicativos][3]
 
-4. <span data-ttu-id="63879-133">Na caixa de pesquisa, digite **Velpic SAML**.</span><span class="sxs-lookup"><span data-stu-id="63879-133">In the search box, type **Velpic SAML**.</span></span>
+4. <span data-ttu-id="8143e-133">Na caixa de pesquisa hello, digite **Velpic SAML**.</span><span class="sxs-lookup"><span data-stu-id="8143e-133">In hello search box, type **Velpic SAML**.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_search.png)
 
-5. <span data-ttu-id="63879-135">No painel de resultados, selecione **Velpic SAML** e clique no botão **Adicionar** para adicionar o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="63879-135">In the results panel, select **Velpic SAML**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="8143e-135">No painel de resultados de saudação, selecione **Velpic SAML**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.</span><span class="sxs-lookup"><span data-stu-id="8143e-135">In hello results panel, select **Velpic SAML**, and then click **Add** button tooadd hello application.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="63879-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="63879-137">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="63879-138">Nesta seção, você configura e testa o logon único do Azure AD com o Velpic SAML, com base em um usuário de teste chamado "Brenda Fernandes".</span><span class="sxs-lookup"><span data-stu-id="63879-138">In this section, you configure and test Azure AD single sign-on with Velpic SAML based on a test user called "Britta Simon".</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="8143e-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="8143e-137">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="8143e-138">Nesta seção, você configura e testa o logon único do Azure AD com o Velpic SAML, com base em um usuário de teste chamado "Brenda Fernandes".</span><span class="sxs-lookup"><span data-stu-id="8143e-138">In this section, you configure and test Azure AD single sign-on with Velpic SAML based on a test user called "Britta Simon".</span></span>
 
-<span data-ttu-id="63879-139">Para que o logon único funcione, o Azure AD precisa saber qual usuário do Velpic SAML é equivalente a um usuário do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="63879-139">For single sign-on to work, Azure AD needs to know what the counterpart user in Velpic SAML is to a user in Azure AD.</span></span> <span data-ttu-id="63879-140">Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Velpic SAML.</span><span class="sxs-lookup"><span data-stu-id="63879-140">In other words, a link relationship between an Azure AD user and the related user in Velpic SAML needs to be established.</span></span>
+<span data-ttu-id="8143e-139">Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no Velpic SAML é tooa usuário no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="8143e-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in Velpic SAML is tooa user in Azure AD.</span></span> <span data-ttu-id="8143e-140">Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no Velpic SAML precisa toobe estabelecida.</span><span class="sxs-lookup"><span data-stu-id="8143e-140">In other words, a link relationship between an Azure AD user and hello related user in Velpic SAML needs toobe established.</span></span>
 
-<span data-ttu-id="63879-141">Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** no Velpic SAML.</span><span class="sxs-lookup"><span data-stu-id="63879-141">This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Velpic SAML.</span></span>
+<span data-ttu-id="8143e-141">Essa relação de link é estabelecida pela atribuição de valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** no Velpic SAML.</span><span class="sxs-lookup"><span data-stu-id="8143e-141">This link relationship is established by assigning hello value of hello **user name** in Azure AD as hello value of hello **Username** in Velpic SAML.</span></span>
 
-<span data-ttu-id="63879-142">Para configurar e testar o logon único do Azure AD com o Velpic SAML, você precisa concluir os seguintes blocos de construção:</span><span class="sxs-lookup"><span data-stu-id="63879-142">To configure and test Azure AD single sign-on with Velpic SAML, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="8143e-142">tooconfigure e teste de logon único do AD do Azure com Velpic SAML, você precisa Olá toocomplete blocos de construção a seguir:</span><span class="sxs-lookup"><span data-stu-id="8143e-142">tooconfigure and test Azure AD single sign-on with Velpic SAML, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="63879-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.</span><span class="sxs-lookup"><span data-stu-id="63879-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="63879-144">**[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="63879-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="63879-145">**[Criação de um usuário de teste do Velpic SAML](#creating-a-velpic-saml-test-user)** - para ter um equivalente de Brenda Fernandes no Velpic SAML que esteja vinculado à representação dela no Azure AD.</span><span class="sxs-lookup"><span data-stu-id="63879-145">**[Creating a Velpic SAML test user](#creating-a-velpic-saml-test-user)** - to have a counterpart of Britta Simon in Velpic SAML that is linked to the Azure AD representation of her.</span></span>
-4. <span data-ttu-id="63879-146">**[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="63879-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="63879-147">**[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.</span><span class="sxs-lookup"><span data-stu-id="63879-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="8143e-143">**[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.</span><span class="sxs-lookup"><span data-stu-id="8143e-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="8143e-144">**[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="8143e-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="8143e-145">**[Criar um usuário de teste Velpic SAML](#creating-a-velpic-saml-test-user)**  -toohave um equivalente do Britta Simon no Velpic SAML que é a representação toohello vinculado do Azure AD dela.</span><span class="sxs-lookup"><span data-stu-id="8143e-145">**[Creating a Velpic SAML test user](#creating-a-velpic-saml-test-user)** - toohave a counterpart of Britta Simon in Velpic SAML that is linked toohello Azure AD representation of her.</span></span>
+4. <span data-ttu-id="8143e-146">**[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.</span><span class="sxs-lookup"><span data-stu-id="8143e-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="8143e-147">**[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.</span><span class="sxs-lookup"><span data-stu-id="8143e-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="63879-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="63879-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="8143e-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="8143e-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="63879-149">Nesta seção, você habilita o logon único do Azure AD no portal de Gerenciamento do Azure e o configura em seu aplicativo Velpic SAML.</span><span class="sxs-lookup"><span data-stu-id="63879-149">In this section, you enable Azure AD single sign-on in the Azure Management portal and configure single sign-on in your Velpic SAML application.</span></span>
+<span data-ttu-id="8143e-149">Nesta seção, habilitar o AD do Azure-logon único no portal de gerenciamento do Azure hello e configurar o logon único no aplicativo Velpic SAML.</span><span class="sxs-lookup"><span data-stu-id="8143e-149">In this section, you enable Azure AD single sign-on in hello Azure Management portal and configure single sign-on in your Velpic SAML application.</span></span>
 
-<span data-ttu-id="63879-150">**Para configurar o logon único do Azure AD com o Velpic SAML, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="63879-150">**To configure Azure AD single sign-on with Velpic SAML, perform the following steps:**</span></span>
+<span data-ttu-id="8143e-150">**tooconfigure AD do Azure-logon único com SAML Velpic, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="8143e-150">**tooconfigure Azure AD single sign-on with Velpic SAML, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="63879-151">No portal de Gerenciamento do Azure, na página de integração do aplicativo **Velpic SAML**, clique em **Logon único**.</span><span class="sxs-lookup"><span data-stu-id="63879-151">In the Azure Management portal, on the **Velpic SAML** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="8143e-151">No portal de gerenciamento do Azure do hello, no hello **Velpic SAML** página de integração de aplicativos, clique em **o logon único**.</span><span class="sxs-lookup"><span data-stu-id="8143e-151">In hello Azure Management portal, on hello **Velpic SAML** application integration page, click **Single sign-on**.</span></span>
 
-    ![Configurar o logon único][4]
+    ![Configurar Logon Único][4]
 
-2. <span data-ttu-id="63879-153">Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.</span><span class="sxs-lookup"><span data-stu-id="63879-153">On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.</span></span>
+2. <span data-ttu-id="8143e-153">Em Olá **o logon único** caixa de diálogo, como **modo** selecione **baseado no SAML logon** tooenable de logon único.</span><span class="sxs-lookup"><span data-stu-id="8143e-153">On hello **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** tooenable single sign on.</span></span>
  
     ![Configurar Logon Único](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_samlbase.png)
 
-3. <span data-ttu-id="63879-155">Insira os detalhes na seção **Domínio e URLs do Velpic SAML**</span><span class="sxs-lookup"><span data-stu-id="63879-155">Enter the details in the **Velpic SAML Domain and URLs** section-</span></span>
+3. <span data-ttu-id="8143e-155">Insira os detalhes de saudação em Olá **Velpic SAML domínio e URLs** seção -</span><span class="sxs-lookup"><span data-stu-id="8143e-155">Enter hello details in hello **Velpic SAML Domain and URLs** section-</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_url.png)
 
-    <span data-ttu-id="63879-157">a.</span><span class="sxs-lookup"><span data-stu-id="63879-157">a.</span></span> <span data-ttu-id="63879-158">Na caixa de texto **URL de Logon**, digite o valor como: `https://<sub-domain>.velpicsaml.net`</span><span class="sxs-lookup"><span data-stu-id="63879-158">In the **Sign-on URL** textbox, type the value as: `https://<sub-domain>.velpicsaml.net`</span></span>
+    <span data-ttu-id="8143e-157">a.</span><span class="sxs-lookup"><span data-stu-id="8143e-157">a.</span></span> <span data-ttu-id="8143e-158">Em Olá **URL de logon** texto, o valor do tipo hello como:`https://<sub-domain>.velpicsaml.net`</span><span class="sxs-lookup"><span data-stu-id="8143e-158">In hello **Sign-on URL** textbox, type hello value as: `https://<sub-domain>.velpicsaml.net`</span></span>
 
-    <span data-ttu-id="63879-159">b.</span><span class="sxs-lookup"><span data-stu-id="63879-159">b.</span></span> <span data-ttu-id="63879-160">Na caixa de texto **Identificador**, cole o valor de **"URL do logon único"** `https://auth.velpic.com/saml/v2/<entity-id>/login`</span><span class="sxs-lookup"><span data-stu-id="63879-160">In the **Identifier** textbox, paste the **‘Single sign on URL’** value `https://auth.velpic.com/saml/v2/<entity-id>/login`</span></span>
+    <span data-ttu-id="8143e-159">b.</span><span class="sxs-lookup"><span data-stu-id="8143e-159">b.</span></span> <span data-ttu-id="8143e-160">Em Olá **identificador** caixa de texto, colar Olá **'URL do logon único'** valor`https://auth.velpic.com/saml/v2/<entity-id>/login`</span><span class="sxs-lookup"><span data-stu-id="8143e-160">In hello **Identifier** textbox, paste hello **‘Single sign on URL’** value `https://auth.velpic.com/saml/v2/<entity-id>/login`</span></span>
     
     > [!NOTE]
-    > <span data-ttu-id="63879-161">Observe que a URL de Logon será fornecida pela equipe do Velpic SAML e o valor do Identificador estará disponível quando você configurar o Plug-in do SSO no lado do Velpic SAML.</span><span class="sxs-lookup"><span data-stu-id="63879-161">Please note that the Sign on URL will be provided by the Velpic SAML team and Identifier value will be available when you configure the SSO Plugin on Velpic SAML side.</span></span> <span data-ttu-id="63879-162">É preciso copiar esse valor na página do aplicativo Velpic SAML e colá-lo aqui.</span><span class="sxs-lookup"><span data-stu-id="63879-162">You need to copy that value from Velpic SAML application  page and paste it here.</span></span>
+    > <span data-ttu-id="8143e-161">Observe que Olá URL de logon será fornecida pelo Olá team Velpic SAML e o valor de identificador estarão disponível quando você configura Olá plug-in do SSO no lado Velpic SAML.</span><span class="sxs-lookup"><span data-stu-id="8143e-161">Please note that hello Sign on URL will be provided by hello Velpic SAML team and Identifier value will be available when you configure hello SSO Plugin on Velpic SAML side.</span></span> <span data-ttu-id="8143e-162">É necessário toocopy que o valor da página de aplicativo Velpic SAML e cole-o aqui.</span><span class="sxs-lookup"><span data-stu-id="8143e-162">You need toocopy that value from Velpic SAML application  page and paste it here.</span></span>
 
-4. <span data-ttu-id="63879-163">Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo XML em seu computador.</span><span class="sxs-lookup"><span data-stu-id="63879-163">On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.</span></span>
+4. <span data-ttu-id="8143e-163">Em Olá **o certificado de autenticação SAML** seção, clique em **Metadata XML** e, em seguida, salve o arquivo XML de saudação em seu computador.</span><span class="sxs-lookup"><span data-stu-id="8143e-163">On hello **SAML Signing Certificate** section, click **Metadata XML** and then save hello XML file on your computer.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_certificate.png) 
 
-5. <span data-ttu-id="63879-165">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="63879-165">Click **Save** button.</span></span>
+5. <span data-ttu-id="8143e-165">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="8143e-165">Click **Save** button.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-velpicsaml-tutorial/tutorial_general_400.png)
 
-6. <span data-ttu-id="63879-167">Na seção Configuração do Velpic SAML, clique em Configurar o Velpic SAML para abrir a janela Configurar logon.</span><span class="sxs-lookup"><span data-stu-id="63879-167">On the Velpic SAML Configuration section, click Configure Velpic SAML to open Configure sign-on window.</span></span> <span data-ttu-id="63879-168">Copie a ID da Entidade SAML da seção Referência Rápida.</span><span class="sxs-lookup"><span data-stu-id="63879-168">Copy the SAML Entity ID from the Quick Reference section.</span></span>
+6. <span data-ttu-id="8143e-167">No hello seção de configuração de SAML Velpic, clique em Configurar Velpic SAML tooopen configurar logon na janela.</span><span class="sxs-lookup"><span data-stu-id="8143e-167">On hello Velpic SAML Configuration section, click Configure Velpic SAML tooopen Configure sign-on window.</span></span> <span data-ttu-id="8143e-168">Copie Olá SAML ID da entidade de saudação seção de referência rápida.</span><span class="sxs-lookup"><span data-stu-id="8143e-168">Copy hello SAML Entity ID from hello Quick Reference section.</span></span>
 
-7. <span data-ttu-id="63879-169">Em uma janela diferente do navegador da Web, faça logon no site do Velpic SAML na sua empresa como administrador.</span><span class="sxs-lookup"><span data-stu-id="63879-169">In a different web browser window, log into your Velpic SAML company site as an administrator.</span></span>
+7. <span data-ttu-id="8143e-169">Em uma janela diferente do navegador da Web, faça logon no site do Velpic SAML na sua empresa como administrador.</span><span class="sxs-lookup"><span data-stu-id="8143e-169">In a different web browser window, log into your Velpic SAML company site as an administrator.</span></span>
 
-8. <span data-ttu-id="63879-170">Clique na guia **Gerenciar** e vá para a seção **Integração**, onde você pode clicar no botão **Plug-ins** para criar novo plug-in para Conectar.</span><span class="sxs-lookup"><span data-stu-id="63879-170">Click on **Manage** tab and go to **Integration** section where you need to click on **Plugins** button to create new plugin for Sign-In.</span></span>
+8. <span data-ttu-id="8143e-170">Clique em **gerenciar** guia e vá muito**integração** seção onde você precisa de tooclick em **plug-ins** botão toocreate novo plug-in para entrar.</span><span class="sxs-lookup"><span data-stu-id="8143e-170">Click on **Manage** tab and go too**Integration** section where you need tooclick on **Plugins** button toocreate new plugin for Sign-In.</span></span>
 
     ![Plug-in](./media/active-directory-saas-velpicsaml-tutorial/velpic_1.png)
 
-9. <span data-ttu-id="63879-172">Clique no botão **"Adicionar plug-in"**.</span><span class="sxs-lookup"><span data-stu-id="63879-172">Click on the **‘Add plugin’** button.</span></span>
+9. <span data-ttu-id="8143e-172">Clique em Olá **'Adicionar plug-in'** botão.</span><span class="sxs-lookup"><span data-stu-id="8143e-172">Click on hello **‘Add plugin’** button.</span></span>
     
     ![Plug-in](./media/active-directory-saas-velpicsaml-tutorial/velpic_2.png)
 
-10. <span data-ttu-id="63879-174">Clique no bloco **SAML** na página Adicionar Plug-in.</span><span class="sxs-lookup"><span data-stu-id="63879-174">Click on the **SAML** tile in the Add Plugin page.</span></span>
+10. <span data-ttu-id="8143e-174">Clique em Olá **SAML** lado a lado na página de adicionar plug-in de saudação.</span><span class="sxs-lookup"><span data-stu-id="8143e-174">Click on hello **SAML** tile in hello Add Plugin page.</span></span>
     
     ![Plug-in](./media/active-directory-saas-velpicsaml-tutorial/velpic_3.png)
 
-11. <span data-ttu-id="63879-176">Insira o nome do novo plug-in SAML e clique no botão **"Adicionar"**.</span><span class="sxs-lookup"><span data-stu-id="63879-176">Enter the name of the new SAML plugin and click the **‘Add’** button.</span></span>
+11. <span data-ttu-id="8143e-176">Insira nome de saudação do hello novo SAML plug-in e clique em Olá **'Add'** botão.</span><span class="sxs-lookup"><span data-stu-id="8143e-176">Enter hello name of hello new SAML plugin and click hello **‘Add’** button.</span></span>
 
     ![Plug-in](./media/active-directory-saas-velpicsaml-tutorial/velpic_4.png)
 
-12. <span data-ttu-id="63879-178">Insira os detalhes da seguinte maneira:</span><span class="sxs-lookup"><span data-stu-id="63879-178">Enter the details as follows:</span></span>
+12. <span data-ttu-id="8143e-178">Insira os detalhes de saudação da seguinte maneira:</span><span class="sxs-lookup"><span data-stu-id="8143e-178">Enter hello details as follows:</span></span>
 
     ![Plug-in](./media/active-directory-saas-velpicsaml-tutorial/velpic_5.png)
 
-    <span data-ttu-id="63879-180">a.</span><span class="sxs-lookup"><span data-stu-id="63879-180">a.</span></span> <span data-ttu-id="63879-181">Na caixa de texto **Nome**, digite o nome do plug-in SAML.</span><span class="sxs-lookup"><span data-stu-id="63879-181">In the **Name** textbox, type the name of SAML plugin.</span></span>
+    <span data-ttu-id="8143e-180">a.</span><span class="sxs-lookup"><span data-stu-id="8143e-180">a.</span></span> <span data-ttu-id="8143e-181">Em Olá **nome** caixa de texto Nome do tipo saudação do plug-in SAML.</span><span class="sxs-lookup"><span data-stu-id="8143e-181">In hello **Name** textbox, type hello name of SAML plugin.</span></span>
 
-    <span data-ttu-id="63879-182">b.</span><span class="sxs-lookup"><span data-stu-id="63879-182">b.</span></span> <span data-ttu-id="63879-183">Na caixa de texto **URL do Emissor**, cole a **ID da Entidade SAML** que copiou da janela **Configurar logon** no portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="63879-183">In the **Issuer URL** textbox, paste the **SAML Entity ID** you copied from the **Configure sign-on** window of the Azure portal.</span></span>
+    <span data-ttu-id="8143e-182">b.</span><span class="sxs-lookup"><span data-stu-id="8143e-182">b.</span></span> <span data-ttu-id="8143e-183">Em hello **URL do emissor** textbox, colar Olá **ID da entidade SAML** você copiou da saudação **configurar o logon** janela de saudação portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="8143e-183">In hello **Issuer URL** textbox, paste hello **SAML Entity ID** you copied from hello **Configure sign-on** window of hello Azure portal.</span></span>
 
-    <span data-ttu-id="63879-184">c.</span><span class="sxs-lookup"><span data-stu-id="63879-184">c.</span></span> <span data-ttu-id="63879-185">Em **Configuração dos Metadados do Provedor**, faça upload do arquivo XML de Metadados que você baixou no portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="63879-185">In the **Provider Metadata Config** upload the Metadata XML file which you downloaded from Azure portal.</span></span>
+    <span data-ttu-id="8143e-184">c.</span><span class="sxs-lookup"><span data-stu-id="8143e-184">c.</span></span> <span data-ttu-id="8143e-185">Em Olá **configuração do provedor de metadados** carregar Olá arquivo Metadata XML que você baixou do portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="8143e-185">In hello **Provider Metadata Config** upload hello Metadata XML file which you downloaded from Azure portal.</span></span>
 
-    <span data-ttu-id="63879-186">d.</span><span class="sxs-lookup"><span data-stu-id="63879-186">d.</span></span> <span data-ttu-id="63879-187">Você também pode optar por habilitar o SAML apenas durante o provisionamento, habilitando a caixa de seleção **"Criar automaticamente novos usuários"**.</span><span class="sxs-lookup"><span data-stu-id="63879-187">You can also choose to enable SAML just in time provisioning by enabling the **‘Auto create new users’** checkbox.</span></span> <span data-ttu-id="63879-188">Se um usuário não existir no Velpic e esse sinalizador não estiver habilitado, o logon no Azure falhará.</span><span class="sxs-lookup"><span data-stu-id="63879-188">If a user doesn’t exist in Velpic and this flag is not enabled, the login from Azure will fail.</span></span> <span data-ttu-id="63879-189">Se o sinalizador estiver habilitado, o usuário será provisionado automaticamente no Velpic no momento do logon.</span><span class="sxs-lookup"><span data-stu-id="63879-189">If the flag is enabled the user will automatically be provisioned into Velpic at the time of login.</span></span> 
+    <span data-ttu-id="8143e-186">d.</span><span class="sxs-lookup"><span data-stu-id="8143e-186">d.</span></span> <span data-ttu-id="8143e-187">Você também pode escolher tooenable SAML apenas durante o provisionamento, permitindo Olá **'Criação automática de novos usuários'** caixa de seleção.</span><span class="sxs-lookup"><span data-stu-id="8143e-187">You can also choose tooenable SAML just in time provisioning by enabling hello **‘Auto create new users’** checkbox.</span></span> <span data-ttu-id="8143e-188">Se um usuário não existe no Velpic e esse sinalizador não estiver habilitado, o logon de saudação do Azure falhará.</span><span class="sxs-lookup"><span data-stu-id="8143e-188">If a user doesn’t exist in Velpic and this flag is not enabled, hello login from Azure will fail.</span></span> <span data-ttu-id="8143e-189">Se o sinalizador Olá será habilitado Olá usuário automaticamente ser provisionados no Velpic no tempo de saudação do logon.</span><span class="sxs-lookup"><span data-stu-id="8143e-189">If hello flag is enabled hello user will automatically be provisioned into Velpic at hello time of login.</span></span> 
 
-    <span data-ttu-id="63879-190">e.</span><span class="sxs-lookup"><span data-stu-id="63879-190">e.</span></span> <span data-ttu-id="63879-191">Copie a **URL de logon único** da caixa de texto e cole-a no portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="63879-191">Copy the **Single sign on URL** from the text box and paste it in the Azure portal.</span></span>
+    <span data-ttu-id="8143e-190">e.</span><span class="sxs-lookup"><span data-stu-id="8143e-190">e.</span></span> <span data-ttu-id="8143e-191">Saudação de cópia **URL do logon único** da caixa de texto de saudação e colar no hello portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="8143e-191">Copy hello **Single sign on URL** from hello text box and paste it in hello Azure portal.</span></span>
     
-    <span data-ttu-id="63879-192">f.</span><span class="sxs-lookup"><span data-stu-id="63879-192">f.</span></span> <span data-ttu-id="63879-193">Clique em **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="63879-193">Click **Save**.</span></span>
+    <span data-ttu-id="8143e-192">f.</span><span class="sxs-lookup"><span data-stu-id="8143e-192">f.</span></span> <span data-ttu-id="8143e-193">Clique em **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="8143e-193">Click **Save**.</span></span>
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="63879-194">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="63879-194">Creating an Azure AD test user</span></span>
-<span data-ttu-id="63879-195">O objetivo desta seção é criar um usuário de teste no Portal de Gerenciamento do Azure chamado Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="63879-195">The objective of this section is to create a test user in the Azure Management portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="8143e-194">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="8143e-194">Creating an Azure AD test user</span></span>
+<span data-ttu-id="8143e-195">Olá o objetivo desta seção é toocreate um usuário de teste no portal de gerenciamento do Azure Olá chamado Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="8143e-195">hello objective of this section is toocreate a test user in hello Azure Management portal called Britta Simon.</span></span>
 
 ![Criar um usuário do AD do Azure][100]
 
-<span data-ttu-id="63879-197">**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="63879-197">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="8143e-197">**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="8143e-197">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="63879-198">No **portal de Gerenciamento do Azure**, no painel navegação à esquerda, clique em **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="63879-198">In the **Azure Management portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="8143e-198">Em Olá **portal de gerenciamento do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="8143e-198">In hello **Azure Management portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-velpicsaml-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="63879-200">Vá para **usuários e grupos** e clique em **todos os usuários** para exibir a lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="63879-200">Go to **Users and groups** and click **All users** to display the list of users.</span></span>
+2. <span data-ttu-id="8143e-200">Vá muito**usuários e grupos** e clique em **todos os usuários** toodisplay lista de saudação de usuários.</span><span class="sxs-lookup"><span data-stu-id="8143e-200">Go too**Users and groups** and click **All users** toodisplay hello list of users.</span></span>
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-velpicsaml-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="63879-202">Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="63879-202">At the top of the dialog click **Add** to open the **User** dialog.</span></span>
+3. <span data-ttu-id="8143e-202">Na parte superior de saudação da caixa de diálogo Olá clique **adicionar** tooopen Olá **usuário** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="8143e-202">At hello top of hello dialog click **Add** tooopen hello **User** dialog.</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-velpicsaml-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="63879-204">Na página do diálogo **Usuário**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="63879-204">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="8143e-204">Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="8143e-204">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-velpicsaml-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="63879-206">a.</span><span class="sxs-lookup"><span data-stu-id="63879-206">a.</span></span> <span data-ttu-id="63879-207">Na caixa de texto **Nome**, digite **Brenda Fernandes**.</span><span class="sxs-lookup"><span data-stu-id="63879-207">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="8143e-206">a.</span><span class="sxs-lookup"><span data-stu-id="8143e-206">a.</span></span> <span data-ttu-id="8143e-207">Em Olá **nome** caixa de texto, tipo **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="8143e-207">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="63879-208">b.</span><span class="sxs-lookup"><span data-stu-id="63879-208">b.</span></span> <span data-ttu-id="63879-209">Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="63879-209">In the **User name** textbox, type the **email address** of BrittaSimon.</span></span>
+    <span data-ttu-id="8143e-208">b.</span><span class="sxs-lookup"><span data-stu-id="8143e-208">b.</span></span> <span data-ttu-id="8143e-209">Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.</span><span class="sxs-lookup"><span data-stu-id="8143e-209">In hello **User name** textbox, type hello **email address** of BrittaSimon.</span></span>
 
-    <span data-ttu-id="63879-210">c.</span><span class="sxs-lookup"><span data-stu-id="63879-210">c.</span></span> <span data-ttu-id="63879-211">Selecione **Mostrar senha** e anote o valor de **senha**.</span><span class="sxs-lookup"><span data-stu-id="63879-211">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="8143e-210">c.</span><span class="sxs-lookup"><span data-stu-id="8143e-210">c.</span></span> <span data-ttu-id="8143e-211">Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.</span><span class="sxs-lookup"><span data-stu-id="8143e-211">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="63879-212">d.</span><span class="sxs-lookup"><span data-stu-id="63879-212">d.</span></span> <span data-ttu-id="63879-213">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="63879-213">Click **Create**.</span></span>
+    <span data-ttu-id="8143e-212">d.</span><span class="sxs-lookup"><span data-stu-id="8143e-212">d.</span></span> <span data-ttu-id="8143e-213">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="8143e-213">Click **Create**.</span></span>
  
-### <a name="creating-a-velpic-saml-test-user"></a><span data-ttu-id="63879-214">Criando um usuário de teste no Velpic SAML</span><span class="sxs-lookup"><span data-stu-id="63879-214">Creating a Velpic SAML test user</span></span>
+### <a name="creating-a-velpic-saml-test-user"></a><span data-ttu-id="8143e-214">Criando um usuário de teste no Velpic SAML</span><span class="sxs-lookup"><span data-stu-id="8143e-214">Creating a Velpic SAML test user</span></span>
 
-<span data-ttu-id="63879-215">Normalmente, esta etapa não é necessária, pois o aplicativo dá suporte ao provisionamento de usuário na hora certa.</span><span class="sxs-lookup"><span data-stu-id="63879-215">This step is usually not required as the application supports just in time user provisioning.</span></span> <span data-ttu-id="63879-216">Se o provisionamento automático de usuário não estiver habilitado, a criação manual do usuário poderá ser feita como descrito abaixo.</span><span class="sxs-lookup"><span data-stu-id="63879-216">If the automatic user provisioning is not enabled then manual user creation can be done as described below.</span></span>
+<span data-ttu-id="8143e-215">Esta etapa geralmente não é necessária como aplicativo hello dá suporte apenas durante o provisionamento do usuário.</span><span class="sxs-lookup"><span data-stu-id="8143e-215">This step is usually not required as hello application supports just in time user provisioning.</span></span> <span data-ttu-id="8143e-216">Se o provisionamento de usuário automático de saudação não estiver habilitado, em seguida, criação manual do usuário pode ser feita conforme descrito abaixo.</span><span class="sxs-lookup"><span data-stu-id="8143e-216">If hello automatic user provisioning is not enabled then manual user creation can be done as described below.</span></span>
 
-<span data-ttu-id="63879-217">Entre no site da empresa do seu Velpic SAML como um administrador e execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="63879-217">Log into your Velpic SAML company site as an administrator and perform following steps:</span></span>
+<span data-ttu-id="8143e-217">Entre no site da empresa do seu Velpic SAML como um administrador e execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="8143e-217">Log into your Velpic SAML company site as an administrator and perform following steps:</span></span>
     
-1. <span data-ttu-id="63879-218">Clique na guia Gerenciar, vá para a seção Usuários e clique no botão Novo para adicionar usuários.</span><span class="sxs-lookup"><span data-stu-id="63879-218">Click on Manage tab and go to Users section, then click on New button to add users.</span></span>
+1. <span data-ttu-id="8143e-218">Clique na guia gerenciar e vá tooUsers seção, clique no novo usuários tooadd de botão.</span><span class="sxs-lookup"><span data-stu-id="8143e-218">Click on Manage tab and go tooUsers section, then click on New button tooadd users.</span></span>
 
     ![adicionar usuário](./media/active-directory-saas-velpicsaml-tutorial/velpic_7.png)
 
-2. <span data-ttu-id="63879-220">Na página da caixa de diálogo **"Criar Novo Usuário"**, execute as etapas que se seguem.</span><span class="sxs-lookup"><span data-stu-id="63879-220">On the **“Create New User”** dialog page, perform the following steps.</span></span>
+2. <span data-ttu-id="8143e-220">Em Olá **"Criar novo usuário"** caixa de diálogo de página, execute Olá etapas a seguir.</span><span class="sxs-lookup"><span data-stu-id="8143e-220">On hello **“Create New User”** dialog page, perform hello following steps.</span></span>
 
     ![usuário](./media/active-directory-saas-velpicsaml-tutorial/velpic_8.png)
     
-    <span data-ttu-id="63879-222">a.</span><span class="sxs-lookup"><span data-stu-id="63879-222">a.</span></span> <span data-ttu-id="63879-223">Na caixa de texto **Nome**, digite o nome de Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="63879-223">In the **First Name** textbox, type the first name of Britta Simon.</span></span>
+    <span data-ttu-id="8143e-222">a.</span><span class="sxs-lookup"><span data-stu-id="8143e-222">a.</span></span> <span data-ttu-id="8143e-223">Em Olá **nome** caixa de texto, tipo hello nome Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="8143e-223">In hello **First Name** textbox, type hello first name of Britta Simon.</span></span>
 
-    <span data-ttu-id="63879-224">b.</span><span class="sxs-lookup"><span data-stu-id="63879-224">b.</span></span> <span data-ttu-id="63879-225">Na caixa de texto **Sobrenome**, digite o sobrenome de Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="63879-225">In the **Last Name** textbox, type the last name of Britta Simon.</span></span>
+    <span data-ttu-id="8143e-224">b.</span><span class="sxs-lookup"><span data-stu-id="8143e-224">b.</span></span> <span data-ttu-id="8143e-225">Em Olá **Sobrenome** caixa de texto, digite Olá sobrenome do Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="8143e-225">In hello **Last Name** textbox, type hello last name of Britta Simon.</span></span>
 
-    <span data-ttu-id="63879-226">c.</span><span class="sxs-lookup"><span data-stu-id="63879-226">c.</span></span> <span data-ttu-id="63879-227">Na caixa de texto **Nome de Usuário**, digite o nome de usuário de Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="63879-227">In the **User Name** textbox, type the user name of Britta Simon.</span></span>
+    <span data-ttu-id="8143e-226">c.</span><span class="sxs-lookup"><span data-stu-id="8143e-226">c.</span></span> <span data-ttu-id="8143e-227">Em Olá **nome de usuário** caixa de texto, nome de usuário do tipo saudação do Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="8143e-227">In hello **User Name** textbox, type hello user name of Britta Simon.</span></span>
 
-    <span data-ttu-id="63879-228">d.</span><span class="sxs-lookup"><span data-stu-id="63879-228">d.</span></span> <span data-ttu-id="63879-229">Na caixa de texto **Email**, digite o endereço de email da conta de Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="63879-229">In the **Email** textbox, type the email address of Britta Simon account.</span></span>
+    <span data-ttu-id="8143e-228">d.</span><span class="sxs-lookup"><span data-stu-id="8143e-228">d.</span></span> <span data-ttu-id="8143e-229">Em Olá **Email** caixa de texto, tipo hello endereço de email da conta de Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="8143e-229">In hello **Email** textbox, type hello email address of Britta Simon account.</span></span>
 
-    <span data-ttu-id="63879-230">e.</span><span class="sxs-lookup"><span data-stu-id="63879-230">e.</span></span> <span data-ttu-id="63879-231">O restante das informações é opcional, você pode preenchê-las se necessário.</span><span class="sxs-lookup"><span data-stu-id="63879-231">Rest of the information is optional, you can fill it if needed.</span></span>
+    <span data-ttu-id="8143e-230">e.</span><span class="sxs-lookup"><span data-stu-id="8143e-230">e.</span></span> <span data-ttu-id="8143e-231">O restante das informações de saudação é opcional, que você pode preenchê-lo se necessário.</span><span class="sxs-lookup"><span data-stu-id="8143e-231">Rest of hello information is optional, you can fill it if needed.</span></span>
     
-    <span data-ttu-id="63879-232">f.</span><span class="sxs-lookup"><span data-stu-id="63879-232">f.</span></span> <span data-ttu-id="63879-233">Clique em **SALVAR**.</span><span class="sxs-lookup"><span data-stu-id="63879-233">Click **SAVE**.</span></span>  
+    <span data-ttu-id="8143e-232">f.</span><span class="sxs-lookup"><span data-stu-id="8143e-232">f.</span></span> <span data-ttu-id="8143e-233">Clique em **SALVAR**.</span><span class="sxs-lookup"><span data-stu-id="8143e-233">Click **SAVE**.</span></span>  
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="63879-234">Atribuição do usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="63879-234">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="8143e-234">Atribuir um usuário de teste de saudação do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="8143e-234">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="63879-235">Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Velpic SAML.</span><span class="sxs-lookup"><span data-stu-id="63879-235">In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Velpic SAML.</span></span>
+<span data-ttu-id="8143e-235">Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo tooVelpic seu acesso SAML.</span><span class="sxs-lookup"><span data-stu-id="8143e-235">In this section, you enable Britta Simon toouse Azure single sign-on by granting her access tooVelpic SAML.</span></span>
 
 ![Atribuir usuário][200] 
 
-<span data-ttu-id="63879-237">**Para atribuir Brenda Fernandes ao Velpic SAML, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="63879-237">**To assign Britta Simon to Velpic SAML, perform the following steps:**</span></span>
+<span data-ttu-id="8143e-237">**tooassign Britta Simon tooVelpic SAML, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="8143e-237">**tooassign Britta Simon tooVelpic SAML, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="63879-238">No portal de gerenciamento do Azure, abra a exibição de aplicativos e, em seguida, navegue até o modo de exibição de diretório e vá para **aplicativos empresariais** e clique em **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="63879-238">In the Azure Management portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="8143e-238">No portal de gerenciamento do Azure hello, abrir modo de exibição de aplicativos Olá e, em seguida, navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="8143e-238">In hello Azure Management portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Atribuir usuário][201] 
 
-2. <span data-ttu-id="63879-240">Na lista de aplicativos, selecione **Velpic SAML**.</span><span class="sxs-lookup"><span data-stu-id="63879-240">In the applications list, select **Velpic SAML**.</span></span>
+2. <span data-ttu-id="8143e-240">Na lista de aplicativos hello, selecione **Velpic SAML**.</span><span class="sxs-lookup"><span data-stu-id="8143e-240">In hello applications list, select **Velpic SAML**.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_app.png) 
 
-3. <span data-ttu-id="63879-242">No menu à esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="63879-242">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="8143e-242">No menu Olá Olá esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="8143e-242">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Atribuir usuário][202] 
 
-4. <span data-ttu-id="63879-244">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="63879-244">Click **Add** button.</span></span> <span data-ttu-id="63879-245">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="63879-245">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="8143e-244">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="8143e-244">Click **Add** button.</span></span> <span data-ttu-id="8143e-245">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="8143e-245">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Atribuir usuário][203]
 
-5. <span data-ttu-id="63879-247">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="63879-247">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="8143e-247">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.</span><span class="sxs-lookup"><span data-stu-id="8143e-247">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="63879-248">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="63879-248">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="8143e-248">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="8143e-248">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="63879-249">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="63879-249">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="8143e-249">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="8143e-249">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="63879-250">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="63879-250">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="8143e-250">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="8143e-250">Testing single sign-on</span></span>
 
-<span data-ttu-id="63879-251">Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.</span><span class="sxs-lookup"><span data-stu-id="63879-251">In this section, you test your Azure AD single sign-on configuration using the Access Panel.</span></span>
+<span data-ttu-id="8143e-251">Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.</span><span class="sxs-lookup"><span data-stu-id="8143e-251">In this section, you test your Azure AD single sign-on configuration using hello Access Panel.</span></span>
 
-1. <span data-ttu-id="63879-252">Ao clicar no bloco Velpic SAML no Painel de Acesso, você deve acessar a página de logon do aplicativo Velpic SAML.</span><span class="sxs-lookup"><span data-stu-id="63879-252">When you click the Velpic SAML tile in the Access Panel, you should get login page of Velpic SAML application.</span></span> <span data-ttu-id="63879-253">Você deve ver o botão **"Fazer logon com Azure AD"** na página de entrada.</span><span class="sxs-lookup"><span data-stu-id="63879-253">You should see the **‘Log In With Azure AD’** button on the sign in page.</span></span>
+1. <span data-ttu-id="8143e-252">Quando você clica em Olá Velpic SAML bloco no painel de acesso de saudação, você deve obter a página de logon do aplicativo Velpic SAML.</span><span class="sxs-lookup"><span data-stu-id="8143e-252">When you click hello Velpic SAML tile in hello Access Panel, you should get login page of Velpic SAML application.</span></span> <span data-ttu-id="8143e-253">Você deve ver Olá **'Fazer logon com o AD do Azure'** botão na página de entrada hello.</span><span class="sxs-lookup"><span data-stu-id="8143e-253">You should see hello **‘Log In With Azure AD’** button on hello sign in page.</span></span>
 
     ![Plug-in](./media/active-directory-saas-velpicsaml-tutorial/velpic_6.png)
 
-2. <span data-ttu-id="63879-255">Clique no botão **"Fazer logon com Azure AD"** para entrar no Velpic usando sua conta do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="63879-255">Click on the **‘Log In With Azure AD’** button to log in to Velpic using your Azure AD account.</span></span>
+2. <span data-ttu-id="8143e-255">Clique em Olá **'Fazer logon com o AD do Azure'** botão toolog em tooVelpic usando sua conta do AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="8143e-255">Click on hello **‘Log In With Azure AD’** button toolog in tooVelpic using your Azure AD account.</span></span>
 
 
-## <a name="additional-resources"></a><span data-ttu-id="63879-256">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="63879-256">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="8143e-256">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="8143e-256">Additional resources</span></span>
 
-* [<span data-ttu-id="63879-257">Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="63879-257">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="63879-258">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="63879-258">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="8143e-257">Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="8143e-257">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="8143e-258">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="8143e-258">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 
 

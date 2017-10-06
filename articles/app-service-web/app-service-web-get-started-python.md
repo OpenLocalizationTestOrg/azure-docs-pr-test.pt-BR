@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo Web Python no Azure | Microsoft Docs
+title: aaaCreate um aplicativo web do Python no Azure | Microsoft Docs
 description: "Implante seu primeiro Olá, Mundo em Python no aplicativo Web do Serviço de Aplicativo do Azure em minutos."
 services: app-service\web
 documentationcenter: 
@@ -15,71 +15,71 @@ ms.topic: quickstart
 ms.date: 03/17/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 119f9770097c010cc360e0e204d06a307a268814
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 42178d490d8aa8eaf93710667aad598794c62c8f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-python-web-app-in-azure"></a><span data-ttu-id="31c31-103">Criar um aplicativo Web do Python no Azure</span><span class="sxs-lookup"><span data-stu-id="31c31-103">Create a Python web app in Azure</span></span>
+# <a name="create-a-python-web-app-in-azure"></a><span data-ttu-id="1b00b-103">Criar um aplicativo Web do Python no Azure</span><span class="sxs-lookup"><span data-stu-id="1b00b-103">Create a Python web app in Azure</span></span>
 
-<span data-ttu-id="31c31-104">Os [aplicativos Web do Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches.</span><span class="sxs-lookup"><span data-stu-id="31c31-104">[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service.</span></span>  <span data-ttu-id="31c31-105">Este início rápido orienta como desenvolver e implantar um aplicativo Python nos Aplicativos Web do Azure.</span><span class="sxs-lookup"><span data-stu-id="31c31-105">This quickstart walks through how to develop and deploy a Python app to Azure Web Apps.</span></span> <span data-ttu-id="31c31-106">Crie o aplicativo Web usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e use o Git para implantar o código Python de exemplo para o aplicativo Web.</span><span class="sxs-lookup"><span data-stu-id="31c31-106">You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy sample Python code to the web app.</span></span>
+<span data-ttu-id="1b00b-104">Os [aplicativos Web do Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches.</span><span class="sxs-lookup"><span data-stu-id="1b00b-104">[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service.</span></span>  <span data-ttu-id="1b00b-105">Este guia de início rápido orienta como toodevelop e implantar um aplicativo de Python tooAzure aplicativos Web.</span><span class="sxs-lookup"><span data-stu-id="1b00b-105">This quickstart walks through how toodevelop and deploy a Python app tooAzure Web Apps.</span></span> <span data-ttu-id="1b00b-106">Criar Olá web app usando Olá [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), e você usar o aplicativo de web toohello de código Python de exemplo toodeploy de Git.</span><span class="sxs-lookup"><span data-stu-id="1b00b-106">You create hello web app using hello [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git toodeploy sample Python code toohello web app.</span></span>
 
 ![Aplicativo de exemplo em execução no Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-<span data-ttu-id="31c31-108">Você pode seguir as etapas abaixo usando um computador Mac, Windows ou Linux.</span><span class="sxs-lookup"><span data-stu-id="31c31-108">You can follow the steps below using a Mac, Windows, or Linux machine.</span></span> <span data-ttu-id="31c31-109">A conclusão das etapas demora cerca de cinco minutos assim que os pré-requisitos são instalados.</span><span class="sxs-lookup"><span data-stu-id="31c31-109">Once the prerequisites are installed, it takes about five minutes to complete the steps.</span></span>
-## <a name="prerequisites"></a><span data-ttu-id="31c31-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="31c31-110">Prerequisites</span></span>
+<span data-ttu-id="1b00b-108">Você pode seguir estas etapas hello usando um computador Mac, Windows ou Linux.</span><span class="sxs-lookup"><span data-stu-id="1b00b-108">You can follow hello steps below using a Mac, Windows, or Linux machine.</span></span> <span data-ttu-id="1b00b-109">Depois que a instalação dos pré-requisitos Olá, são necessárias cerca de cinco minutos toocomplete Olá etapas.</span><span class="sxs-lookup"><span data-stu-id="1b00b-109">Once hello prerequisites are installed, it takes about five minutes toocomplete hello steps.</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="1b00b-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="1b00b-110">Prerequisites</span></span>
 
-<span data-ttu-id="31c31-111">Para concluir este tutorial:</span><span class="sxs-lookup"><span data-stu-id="31c31-111">To complete this tutorial:</span></span>
+<span data-ttu-id="1b00b-111">toocomplete este tutorial:</span><span class="sxs-lookup"><span data-stu-id="1b00b-111">toocomplete this tutorial:</span></span>
 
-1. [<span data-ttu-id="31c31-112">Instalar o Git</span><span class="sxs-lookup"><span data-stu-id="31c31-112">Install Git</span></span>](https://git-scm.com/)
-1. [<span data-ttu-id="31c31-113">Instalar o Python</span><span class="sxs-lookup"><span data-stu-id="31c31-113">Install Python</span></span>](https://www.python.org/downloads/)
+1. [<span data-ttu-id="1b00b-112">Instalar o Git</span><span class="sxs-lookup"><span data-stu-id="1b00b-112">Install Git</span></span>](https://git-scm.com/)
+1. [<span data-ttu-id="1b00b-113">Instalar o Python</span><span class="sxs-lookup"><span data-stu-id="1b00b-113">Install Python</span></span>](https://www.python.org/downloads/)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-<span data-ttu-id="31c31-114">Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior.</span><span class="sxs-lookup"><span data-stu-id="31c31-114">If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later.</span></span> <span data-ttu-id="31c31-115">Execute `az --version` para encontrar a versão.</span><span class="sxs-lookup"><span data-stu-id="31c31-115">Run `az --version` to find the version.</span></span> <span data-ttu-id="31c31-116">Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).</span><span class="sxs-lookup"><span data-stu-id="31c31-116">If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).</span></span> 
+<span data-ttu-id="1b00b-114">Se você escolher tooinstall e usa o hello CLI localmente, este tópico requer que você está executando a versão do CLI do Azure Olá 2.0 ou posterior.</span><span class="sxs-lookup"><span data-stu-id="1b00b-114">If you choose tooinstall and use hello CLI locally, this topic requires that you are running hello Azure CLI version 2.0 or later.</span></span> <span data-ttu-id="1b00b-115">Executar `az --version` toofind versão de saudação.</span><span class="sxs-lookup"><span data-stu-id="1b00b-115">Run `az --version` toofind hello version.</span></span> <span data-ttu-id="1b00b-116">Se você precisar tooinstall ou atualização, consulte [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).</span><span class="sxs-lookup"><span data-stu-id="1b00b-116">If you need tooinstall or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).</span></span> 
 
-## <a name="download-the-sample"></a><span data-ttu-id="31c31-117">Baixar o exemplo</span><span class="sxs-lookup"><span data-stu-id="31c31-117">Download the sample</span></span>
+## <a name="download-hello-sample"></a><span data-ttu-id="1b00b-117">Baixe o exemplo hello</span><span class="sxs-lookup"><span data-stu-id="1b00b-117">Download hello sample</span></span>
 
-<span data-ttu-id="31c31-118">Em uma janela de terminal, execute o comando a seguir para clonar o repositório de aplicativo de exemplo para o computador local.</span><span class="sxs-lookup"><span data-stu-id="31c31-118">In a terminal window, run the following command to clone the sample app repository to your local machine.</span></span>
+<span data-ttu-id="1b00b-118">Em uma janela de terminal, execute Olá comando tooclone Olá aplicativo repositório tooyour local máquina de exemplo a seguir.</span><span class="sxs-lookup"><span data-stu-id="1b00b-118">In a terminal window, run hello following command tooclone hello sample app repository tooyour local machine.</span></span>
 
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
 
-<span data-ttu-id="31c31-119">Você pode usar essa janela de terminal para executar todos os comandos neste guia de início rápido.</span><span class="sxs-lookup"><span data-stu-id="31c31-119">You use this terminal window to run all the commands in this quickstart.</span></span>
+<span data-ttu-id="1b00b-119">Use essa janela do terminal toorun todos os comandos de saudação neste guia de início rápido.</span><span class="sxs-lookup"><span data-stu-id="1b00b-119">You use this terminal window toorun all hello commands in this quickstart.</span></span>
 
-<span data-ttu-id="31c31-120">Altere para o diretório que contém o código de exemplo.</span><span class="sxs-lookup"><span data-stu-id="31c31-120">Change to the directory that contains the sample code.</span></span>
+<span data-ttu-id="1b00b-120">Altere o diretório de toohello que contém o código de exemplo hello.</span><span class="sxs-lookup"><span data-stu-id="1b00b-120">Change toohello directory that contains hello sample code.</span></span>
 
 ```bash
 cd Python-docs-hello-world
 ```
 
-## <a name="run-the-app-locally"></a><span data-ttu-id="31c31-121">Executar o aplicativo localmente</span><span class="sxs-lookup"><span data-stu-id="31c31-121">Run the app locally</span></span>
+## <a name="run-hello-app-locally"></a><span data-ttu-id="1b00b-121">Executar o aplicativo hello localmente</span><span class="sxs-lookup"><span data-stu-id="1b00b-121">Run hello app locally</span></span>
 
-<span data-ttu-id="31c31-122">Instale os pacotes necessários usando `pip`.</span><span class="sxs-lookup"><span data-stu-id="31c31-122">Install the required packages using `pip`.</span></span>
+<span data-ttu-id="1b00b-122">Instalar pacotes de saudação necessária usando `pip`.</span><span class="sxs-lookup"><span data-stu-id="1b00b-122">Install hello required packages using `pip`.</span></span>
 
 ```bash
 pip install -r requirements.txt
 ```
 
-<span data-ttu-id="31c31-123">Execute o aplicativo localmente abrindo uma janela do terminal e usando a linha de comando `Python` do exemplo para iniciar o servidor interno da Web Python.</span><span class="sxs-lookup"><span data-stu-id="31c31-123">Run the application locally by opening a terminal window and using the `Python` command to launch the built-in Python web server.</span></span>
+<span data-ttu-id="1b00b-123">Executar o aplicativo hello localmente abrindo uma janela do terminal e usando Olá `Python` servidor de web do comando toolaunch Olá interno Python.</span><span class="sxs-lookup"><span data-stu-id="1b00b-123">Run hello application locally by opening a terminal window and using hello `Python` command toolaunch hello built-in Python web server.</span></span>
 
 ```bash
 python main.py
 ```
 
-<span data-ttu-id="31c31-124">Abra um navegador da Web e navegue até o aplicativo de exemplo em http://localhost:5000.</span><span class="sxs-lookup"><span data-stu-id="31c31-124">Open a web browser, and navigate to the sample app at http://localhost:5000.</span></span>
+<span data-ttu-id="1b00b-124">Abra um navegador da web e navegue toohello o aplicativo de exemplo em http://localhost:5000/.</span><span class="sxs-lookup"><span data-stu-id="1b00b-124">Open a web browser, and navigate toohello sample app at http://localhost:5000.</span></span>
 
-<span data-ttu-id="31c31-125">Você poderá ver a mensagem **Hello World** no aplicativo de exemplo exibido na página.</span><span class="sxs-lookup"><span data-stu-id="31c31-125">You can see the **Hello World** message from the sample app displayed in the page.</span></span>
+<span data-ttu-id="1b00b-125">Você pode ver Olá **Hello World** mensagem do aplicativo de exemplo hello exibida na página de saudação.</span><span class="sxs-lookup"><span data-stu-id="1b00b-125">You can see hello **Hello World** message from hello sample app displayed in hello page.</span></span>
 
 ![Aplicativo de exemplo em execução local](media/app-service-web-get-started-python/localhost-hello-world-in-browser.png)
 
-<span data-ttu-id="31c31-127">Na janela do terminal, pressione **Ctrl+C** para sair do servidor Web.</span><span class="sxs-lookup"><span data-stu-id="31c31-127">In your terminal window, press **Ctrl+C** to exit the web server.</span></span>
+<span data-ttu-id="1b00b-127">Na janela de terminal, pressione **Ctrl + C** servidor de web tooexit hello.</span><span class="sxs-lookup"><span data-stu-id="1b00b-127">In your terminal window, press **Ctrl+C** tooexit hello web server.</span></span>
 
-[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
+[!INCLUDE [Log in tooAzure](../../includes/login-to-azure.md)] 
 
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
@@ -91,26 +91,26 @@ python main.py
 
 ![Página de aplicativo Web vazia](media/app-service-web-get-started-python/app-service-web-service-created.png)
 
-<span data-ttu-id="31c31-129">Você criou um novo aplicativo Web vazio no Azure.</span><span class="sxs-lookup"><span data-stu-id="31c31-129">You’ve created an empty new web app in Azure.</span></span>
+<span data-ttu-id="1b00b-129">Você criou um novo aplicativo Web vazio no Azure.</span><span class="sxs-lookup"><span data-stu-id="1b00b-129">You’ve created an empty new web app in Azure.</span></span>
 
-## <a name="configure-to-use-python"></a><span data-ttu-id="31c31-130">Configurar para usar o Python</span><span class="sxs-lookup"><span data-stu-id="31c31-130">Configure to use Python</span></span>
+## <a name="configure-toouse-python"></a><span data-ttu-id="1b00b-130">Configurar toouse Python</span><span class="sxs-lookup"><span data-stu-id="1b00b-130">Configure toouse Python</span></span>
 
-<span data-ttu-id="31c31-131">Use o comando [az webapp config set](/cli/azure/webapp/config#set) para configurar o uso da versão do Python `3.4` pelo aplicativo Web.</span><span class="sxs-lookup"><span data-stu-id="31c31-131">Use the [az webapp config set](/cli/azure/webapp/config#set) command to configure the web app to use Python version `3.4`.</span></span>
+<span data-ttu-id="1b00b-131">Saudação de uso [az webapp config conjunto](/cli/azure/webapp/config#set) versão do Python comando tooconfigure Olá web aplicativo toouse `3.4`.</span><span class="sxs-lookup"><span data-stu-id="1b00b-131">Use hello [az webapp config set](/cli/azure/webapp/config#set) command tooconfigure hello web app toouse Python version `3.4`.</span></span>
 
 ```azurecli-interactive
 az webapp config set --python-version 3.4 --name <app_name> --resource-group myResourceGroup
 ```
 
 
-<span data-ttu-id="31c31-132">A definição da versão do Python dessa maneira usa um contêiner padrão fornecido pela plataforma.</span><span class="sxs-lookup"><span data-stu-id="31c31-132">Setting the Python version this way uses a default container provided by the platform.</span></span> <span data-ttu-id="31c31-133">Para usar seu próprio contêiner, veja a referência de CLI para o comando [az webapp config container set](/cli/azure/webapp/config/container#set).</span><span class="sxs-lookup"><span data-stu-id="31c31-133">To use your own container, see the CLI reference for the [az webapp config container set](/cli/azure/webapp/config/container#set) command.</span></span>
+<span data-ttu-id="1b00b-132">Definindo a versão do Python Olá dessa maneira usa um contêiner padrão fornecido pela plataforma de saudação.</span><span class="sxs-lookup"><span data-stu-id="1b00b-132">Setting hello Python version this way uses a default container provided by hello platform.</span></span> <span data-ttu-id="1b00b-133">toouse seu próprio contêiner, consulte Olá referência CLI para Olá [az webapp config contêiner conjunto](/cli/azure/webapp/config/container#set) comando.</span><span class="sxs-lookup"><span data-stu-id="1b00b-133">toouse your own container, see hello CLI reference for hello [az webapp config container set](/cli/azure/webapp/config/container#set) command.</span></span>
 
 [!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+[!INCLUDE [Push tooAzure](../../includes/app-service-web-git-push-to-azure.md)] 
 
 ```bash
 Counting objects: 18, done.
-Delta compression using up to 4 threads.
+Delta compression using up too4 threads.
 Compressing objects: 100% (16/16), done.
 Writing objects: 100% (18/18), 4.31 KiB | 0 bytes/s, done.
 Total 18 (delta 4), reused 0 (delta 0)
@@ -146,60 +146,60 @@ remote:         1 file(s) copied.
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+toohttps://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-## <a name="browse-to-the-app"></a><span data-ttu-id="31c31-134">Navegar até o aplicativo</span><span class="sxs-lookup"><span data-stu-id="31c31-134">Browse to the app</span></span>
+## <a name="browse-toohello-app"></a><span data-ttu-id="1b00b-134">Procurar toohello aplicativo</span><span class="sxs-lookup"><span data-stu-id="1b00b-134">Browse toohello app</span></span>
 
-<span data-ttu-id="31c31-135">Navegue até o aplicativo implantado usando o navegador da Web.</span><span class="sxs-lookup"><span data-stu-id="31c31-135">Browse to the deployed application using your web browser.</span></span>
+<span data-ttu-id="1b00b-135">Procure o aplicativo toohello implantado usando o navegador da web.</span><span class="sxs-lookup"><span data-stu-id="1b00b-135">Browse toohello deployed application using your web browser.</span></span>
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-<span data-ttu-id="31c31-136">O código de exemplo em Python está em execução em um aplicativo Web do Serviço de Aplicativo do Azure.</span><span class="sxs-lookup"><span data-stu-id="31c31-136">The Python sample code is running in an Azure App Service web app.</span></span>
+<span data-ttu-id="1b00b-136">Olá, código de exemplo do Python está em execução em um aplicativo da web do serviço de aplicativo do Azure.</span><span class="sxs-lookup"><span data-stu-id="1b00b-136">hello Python sample code is running in an Azure App Service web app.</span></span>
 
 ![Aplicativo de exemplo em execução no Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-<span data-ttu-id="31c31-138">**Parabéns!**</span><span class="sxs-lookup"><span data-stu-id="31c31-138">**Congratulations!**</span></span> <span data-ttu-id="31c31-139">Você implantou seu primeiro aplicativo Python no Serviço de Aplicativo.</span><span class="sxs-lookup"><span data-stu-id="31c31-139">You've deployed your first Python app to App Service.</span></span>
+<span data-ttu-id="1b00b-138">**Parabéns!**</span><span class="sxs-lookup"><span data-stu-id="1b00b-138">**Congratulations!**</span></span> <span data-ttu-id="1b00b-139">Você implantou seu primeiro tooApp de aplicativo Python serviço.</span><span class="sxs-lookup"><span data-stu-id="1b00b-139">You've deployed your first Python app tooApp Service.</span></span>
 
-## <a name="update-and-redeploy-the-code"></a><span data-ttu-id="31c31-140">Atualizar e reimplantar o código</span><span class="sxs-lookup"><span data-stu-id="31c31-140">Update and redeploy the code</span></span>
+## <a name="update-and-redeploy-hello-code"></a><span data-ttu-id="1b00b-140">Atualize e reimplante o código de saudação</span><span class="sxs-lookup"><span data-stu-id="1b00b-140">Update and redeploy hello code</span></span>
 
-<span data-ttu-id="31c31-141">Usando um editor de texto local, abra o arquivo `main.py` no aplicativo do Python e faça uma pequena alteração no texto próximo à instrução `return`:</span><span class="sxs-lookup"><span data-stu-id="31c31-141">Using a local text editor, open the `main.py` file in the Python app, and make a small change to the text next to the `return` statement:</span></span>
+<span data-ttu-id="1b00b-141">Usando um editor de texto local, abra Olá `main.py` arquivo no aplicativo de Python hello e faça toohello de Avançar texto uma pequena alteração toohello `return` instrução:</span><span class="sxs-lookup"><span data-stu-id="1b00b-141">Using a local text editor, open hello `main.py` file in hello Python app, and make a small change toohello text next toohello `return` statement:</span></span>
 
 ```python
 return 'Hello, Azure!'
 ```
 
-<span data-ttu-id="31c31-142">Confirme suas alterações no Git e, em seguida, envie as alterações de código por push para o Azure.</span><span class="sxs-lookup"><span data-stu-id="31c31-142">Commit your changes in Git, and then push the code changes to Azure.</span></span>
+<span data-ttu-id="1b00b-142">Confirmar as alterações no Git e, em seguida, enviar por push Olá tooAzure de alterações de código.</span><span class="sxs-lookup"><span data-stu-id="1b00b-142">Commit your changes in Git, and then push hello code changes tooAzure.</span></span>
 
 ```bash
 git commit -am "updated output"
 git push azure master
 ```
 
-<span data-ttu-id="31c31-143">Depois que a implantação for concluída, troque para a janela do navegador aberta na etapa [Navegar até o aplicativo](#browse-to-the-app) e atualize a página.</span><span class="sxs-lookup"><span data-stu-id="31c31-143">Once deployment has completed, switch back to the browser window that opened in the [Browse to the app](#browse-to-the-app) step, and refresh the page.</span></span>
+<span data-ttu-id="1b00b-143">Depois que a implantação for concluída, alternar toohello voltar a janela do navegador é aberto no hello [procurar toohello aplicativo](#browse-to-the-app) etapa e a página de atualização de saudação.</span><span class="sxs-lookup"><span data-stu-id="1b00b-143">Once deployment has completed, switch back toohello browser window that opened in hello [Browse toohello app](#browse-to-the-app) step, and refresh hello page.</span></span>
 
 ![Aplicativo de exemplo atualizado em execução no Azure](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a><span data-ttu-id="31c31-145">Gerenciar seu novo aplicativo Web do Azure</span><span class="sxs-lookup"><span data-stu-id="31c31-145">Manage your new Azure web app</span></span>
+## <a name="manage-your-new-azure-web-app"></a><span data-ttu-id="1b00b-145">Gerenciar seu novo aplicativo Web do Azure</span><span class="sxs-lookup"><span data-stu-id="1b00b-145">Manage your new Azure web app</span></span>
 
-<span data-ttu-id="31c31-146">Vá para o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerenciar o aplicativo Web que você criou.</span><span class="sxs-lookup"><span data-stu-id="31c31-146">Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created.</span></span>
+<span data-ttu-id="1b00b-146">Vá toohello <a href="https://portal.azure.com" target="_blank">portal do Azure</a> toomanage Olá web aplicativo que você criou.</span><span class="sxs-lookup"><span data-stu-id="1b00b-146">Go toohello <a href="https://portal.azure.com" target="_blank">Azure portal</a> toomanage hello web app you created.</span></span>
 
-<span data-ttu-id="31c31-147">No menu à esquerda, clique em **Serviços de Aplicativos** e então clique no nome do seu aplicativo Web do Azure.</span><span class="sxs-lookup"><span data-stu-id="31c31-147">From the left menu, click **App Services**, and then click the name of your Azure web app.</span></span>
+<span data-ttu-id="1b00b-147">No menu à esquerda do hello, clique em **serviços de aplicativos**e, em seguida, clique em nome de saudação do seu aplicativo web do Azure.</span><span class="sxs-lookup"><span data-stu-id="1b00b-147">From hello left menu, click **App Services**, and then click hello name of your Azure web app.</span></span>
 
-![Navegação do portal para o aplicativo Web do Azure](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
+![Aplicativo de web de tooAzure de navegação do Portal](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
-<span data-ttu-id="31c31-149">A página Visão Geral do seu aplicativo Web é exibida.</span><span class="sxs-lookup"><span data-stu-id="31c31-149">You see your web app's Overview page.</span></span> <span data-ttu-id="31c31-150">Aqui você pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir.</span><span class="sxs-lookup"><span data-stu-id="31c31-150">Here, you can perform basic management tasks like browse, stop, start, restart, and delete.</span></span> 
+<span data-ttu-id="1b00b-149">A página Visão Geral do seu aplicativo Web é exibida.</span><span class="sxs-lookup"><span data-stu-id="1b00b-149">You see your web app's Overview page.</span></span> <span data-ttu-id="1b00b-150">Aqui você pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir.</span><span class="sxs-lookup"><span data-stu-id="1b00b-150">Here, you can perform basic management tasks like browse, stop, start, restart, and delete.</span></span> 
 
 ![Folha Serviço de Aplicativo no portal do Azure](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
-<span data-ttu-id="31c31-152">O menu à esquerda fornece páginas diferentes para configurar seu aplicativo.</span><span class="sxs-lookup"><span data-stu-id="31c31-152">The left menu provides different pages for configuring your app.</span></span> 
+<span data-ttu-id="1b00b-152">menu esquerdo Olá fornece diferentes páginas para configurar seu aplicativo.</span><span class="sxs-lookup"><span data-stu-id="1b00b-152">hello left menu provides different pages for configuring your app.</span></span> 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a><span data-ttu-id="31c31-153">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="31c31-153">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="1b00b-153">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="1b00b-153">Next steps</span></span>
 
 > [!div class="nextstepaction"]
-> [<span data-ttu-id="31c31-154">Python com PostgreSQL</span><span class="sxs-lookup"><span data-stu-id="31c31-154">Python with PostgreSQL</span></span>](app-service-web-tutorial-docker-python-postgresql-app.md)
+> [<span data-ttu-id="1b00b-154">Python com PostgreSQL</span><span class="sxs-lookup"><span data-stu-id="1b00b-154">Python with PostgreSQL</span></span>](app-service-web-tutorial-docker-python-postgresql-app.md)

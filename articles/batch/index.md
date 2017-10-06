@@ -1,6 +1,6 @@
 ---
-title: "Documentação do Lote do Azure - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba como usar o Lote para executar aplicativos paralelos em larga escala de computação e de alto desempenho com eficiência. Tutoriais, referências de API e outras documentações."
+title: "aaaAzure documentação do lote - tutoriais, referência de API | Microsoft Docs"
+description: "Saiba como toouse em lote paralela em grande escala toorun e aplicativos de computação de alto desempenho com eficiência. Tutoriais, referências de API e outras documentações."
 services: batch
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: bf3e8b9e8976e2b68bc0da6a3beb1dacfaef6066
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 25172c7b3462794643d1cba539fcd0d9a6c4c62e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="batch-documentation"></a>Documentação do Lote
 
-Saiba como usar o Lote para executar aplicativos paralelos em larga escala de computação e de alto desempenho com eficiência na nuvem. Tutoriais, referências de API e outras documentações mostram como definir os recursos de computação do Azure para executar seus aplicativos em paralelo ou em grande escala sem configurar manualmente ou gerenciando a infra-estrutura.
+Saiba como paralela em grande escala do toorun toouse em lotes e aplicativos de computação de alto desempenho com eficiência em Olá nuvem. Tutoriais, referências de API e outras documentações mostram como toodefine hello Azure computação recursos tooexecute seus aplicativos em paralelo ou em escala sem configurar manualmente ou gerenciar a infraestrutura.
 
 <ul class="panelContent cardsFTitle">
     <li>

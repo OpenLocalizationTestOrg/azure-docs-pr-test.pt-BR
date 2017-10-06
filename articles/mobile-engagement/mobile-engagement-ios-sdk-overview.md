@@ -1,5 +1,5 @@
 ---
-title: "Visão geral do SDK para iOS do Azure Mobile Engagement | Microsoft Docs"
+title: "aaaAzure iOS Mobile Engagement visão geral do SDK | Microsoft Docs"
 description: "Atualizações e procedimentos mais recentes para o SDK do iOS para Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,44 +14,44 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.openlocfilehash: 6acd343782a3ee07750e27ec3022ff81cedfadee
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 38f0da2f84df9c62f8fbca233bfda8b9936fdc0f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="ios-sdk-for-azure-mobile-engagement"></a><span data-ttu-id="e5942-103">SDK do iOS para o Azure Mobile Engagement</span><span class="sxs-lookup"><span data-stu-id="e5942-103">iOS SDK for Azure Mobile Engagement</span></span>
-<span data-ttu-id="e5942-104">Comece aqui obter todos os detalhes sobre como integrar o Azure Mobile Engagement em um aplicativo iOS.</span><span class="sxs-lookup"><span data-stu-id="e5942-104">Start here to get all the details on how to integrate Azure Mobile Engagement in an iOS App.</span></span> <span data-ttu-id="e5942-105">Se você gostaria de experimentá-lo primeiro, faça nosso [tutorial de 15 minutos](mobile-engagement-ios-get-started.md).</span><span class="sxs-lookup"><span data-stu-id="e5942-105">If you'd like to give it a try first, make sure you do our [15 minutes tutorial](mobile-engagement-ios-get-started.md).</span></span>
+# <a name="ios-sdk-for-azure-mobile-engagement"></a><span data-ttu-id="5deab-103">SDK do iOS para o Azure Mobile Engagement</span><span class="sxs-lookup"><span data-stu-id="5deab-103">iOS SDK for Azure Mobile Engagement</span></span>
+<span data-ttu-id="5deab-104">Iniciar aqui tooget todos os detalhes de saudação em como toointegrate do Azure Mobile Engagement em um aplicativo iOS.</span><span class="sxs-lookup"><span data-stu-id="5deab-104">Start here tooget all hello details on how toointegrate Azure Mobile Engagement in an iOS App.</span></span> <span data-ttu-id="5deab-105">Se você quiser toogive ele tentar primeiro, verifique se você fazer nossa [tutorial de 15 minutos](mobile-engagement-ios-get-started.md).</span><span class="sxs-lookup"><span data-stu-id="5deab-105">If you'd like toogive it a try first, make sure you do our [15 minutes tutorial](mobile-engagement-ios-get-started.md).</span></span>
 
-<span data-ttu-id="e5942-106">Clique para ver o [Conteúdo do SDK](mobile-engagement-ios-sdk-content.md)</span><span class="sxs-lookup"><span data-stu-id="e5942-106">Click to see the [SDK Content](mobile-engagement-ios-sdk-content.md)</span></span>
+<span data-ttu-id="5deab-106">Clique em toosee Olá [conteúdo do SDK](mobile-engagement-ios-sdk-content.md)</span><span class="sxs-lookup"><span data-stu-id="5deab-106">Click toosee hello [SDK Content](mobile-engagement-ios-sdk-content.md)</span></span>
 
-## <a name="integration-procedures"></a><span data-ttu-id="e5942-107">Procedimentos de integração</span><span class="sxs-lookup"><span data-stu-id="e5942-107">Integration procedures</span></span>
-1. <span data-ttu-id="e5942-108">Comece aqui: [Como integrar o Mobile Engagement em seu aplicativo iOS](mobile-engagement-ios-integrate-engagement.md)</span><span class="sxs-lookup"><span data-stu-id="e5942-108">Start here: [How to integrate Mobile Engagement in your iOS app](mobile-engagement-ios-integrate-engagement.md)</span></span>
-2. <span data-ttu-id="e5942-109">Para Notificações: [Como integrar o Reach (Notificações) em seu aplicativo iOS](mobile-engagement-ios-integrate-engagement-reach.md)</span><span class="sxs-lookup"><span data-stu-id="e5942-109">For Notifications: [How to integrate Reach (Notifications) in your iOS app](mobile-engagement-ios-integrate-engagement-reach.md)</span></span>
-3. <span data-ttu-id="e5942-110">Implementação do plano de marcação: [Como usar a API de marcação avançada do Mobile Engagement em seu aplicativo iOS](mobile-engagement-ios-use-engagement-api.md)</span><span class="sxs-lookup"><span data-stu-id="e5942-110">Tag plan implementation: [How to use the advanced Mobile Engagement tagging API in your iOS app](mobile-engagement-ios-use-engagement-api.md)</span></span>
+## <a name="integration-procedures"></a><span data-ttu-id="5deab-107">Procedimentos de integração</span><span class="sxs-lookup"><span data-stu-id="5deab-107">Integration procedures</span></span>
+1. <span data-ttu-id="5deab-108">Comece aqui: [como toointegrate Mobile Engagement em seu aplicativo iOS](mobile-engagement-ios-integrate-engagement.md)</span><span class="sxs-lookup"><span data-stu-id="5deab-108">Start here: [How toointegrate Mobile Engagement in your iOS app](mobile-engagement-ios-integrate-engagement.md)</span></span>
+2. <span data-ttu-id="5deab-109">Para notificações: [como toointegrate alcance (notificações) em seu aplicativo iOS](mobile-engagement-ios-integrate-engagement-reach.md)</span><span class="sxs-lookup"><span data-stu-id="5deab-109">For Notifications: [How toointegrate Reach (Notifications) in your iOS app](mobile-engagement-ios-integrate-engagement-reach.md)</span></span>
+3. <span data-ttu-id="5deab-110">Marca o plano de implementação: [como toouse Olá avançado Mobile Engagement marcação API em seu aplicativo iOS](mobile-engagement-ios-use-engagement-api.md)</span><span class="sxs-lookup"><span data-stu-id="5deab-110">Tag plan implementation: [How toouse hello advanced Mobile Engagement tagging API in your iOS app](mobile-engagement-ios-use-engagement-api.md)</span></span>
 
-## <a name="release-notes"></a><span data-ttu-id="e5942-111">Notas de versão</span><span class="sxs-lookup"><span data-stu-id="e5942-111">Release notes</span></span>
-### <a name="410-07172017"></a><span data-ttu-id="e5942-112">4.1.0 (07/17/2017)</span><span class="sxs-lookup"><span data-stu-id="e5942-112">4.1.0 (07/17/2017)</span></span>
-* <span data-ttu-id="e5942-113">Corrigidas as notificações apagadas na tela de fundo.</span><span class="sxs-lookup"><span data-stu-id="e5942-113">Fixed badges cleared in background.</span></span>
-* <span data-ttu-id="e5942-114">Corrigidos os avisos no XCode 9 sobre as APIs não chamadas na fila principal.</span><span class="sxs-lookup"><span data-stu-id="e5942-114">Fixed warnings on XCode 9 about APIs not called in main queue.</span></span>
-* <span data-ttu-id="e5942-115">Corrigida uma perda de memória em pesquisas Reach.</span><span class="sxs-lookup"><span data-stu-id="e5942-115">Fixed a memory leak in Reach polls.</span></span>
-* <span data-ttu-id="e5942-116">Removido o suporte para iOS 6.X.</span><span class="sxs-lookup"><span data-stu-id="e5942-116">Dropped support for iOS 6.X.</span></span> <span data-ttu-id="e5942-117">Desta versão em diante, o destino da implantação do seu aplicativo deverá ser pelo menos o iOS 7.</span><span class="sxs-lookup"><span data-stu-id="e5942-117">Starting from this version the deployment target of your application must be at least iOS 7.</span></span>
+## <a name="release-notes"></a><span data-ttu-id="5deab-111">Notas de versão</span><span class="sxs-lookup"><span data-stu-id="5deab-111">Release notes</span></span>
+### <a name="410-07172017"></a><span data-ttu-id="5deab-112">4.1.0 (07/17/2017)</span><span class="sxs-lookup"><span data-stu-id="5deab-112">4.1.0 (07/17/2017)</span></span>
+* <span data-ttu-id="5deab-113">Corrigidas as notificações apagadas na tela de fundo.</span><span class="sxs-lookup"><span data-stu-id="5deab-113">Fixed badges cleared in background.</span></span>
+* <span data-ttu-id="5deab-114">Corrigidos os avisos no XCode 9 sobre as APIs não chamadas na fila principal.</span><span class="sxs-lookup"><span data-stu-id="5deab-114">Fixed warnings on XCode 9 about APIs not called in main queue.</span></span>
+* <span data-ttu-id="5deab-115">Corrigida uma perda de memória em pesquisas Reach.</span><span class="sxs-lookup"><span data-stu-id="5deab-115">Fixed a memory leak in Reach polls.</span></span>
+* <span data-ttu-id="5deab-116">Removido o suporte para iOS 6.X.</span><span class="sxs-lookup"><span data-stu-id="5deab-116">Dropped support for iOS 6.X.</span></span> <span data-ttu-id="5deab-117">A partir do destino de implantação de saudação essa versão do seu aplicativo deve ter pelo menos o iOS 7.</span><span class="sxs-lookup"><span data-stu-id="5deab-117">Starting from this version hello deployment target of your application must be at least iOS 7.</span></span>
 
-<span data-ttu-id="e5942-118">Para a versão anterior, consulte as [notas de versão completas](mobile-engagement-ios-release-notes.md)</span><span class="sxs-lookup"><span data-stu-id="e5942-118">For earlier version please see the [complete release notes](mobile-engagement-ios-release-notes.md)</span></span>
+<span data-ttu-id="5deab-118">Para a versão anterior, consulte Olá [concluir notas de versão](mobile-engagement-ios-release-notes.md)</span><span class="sxs-lookup"><span data-stu-id="5deab-118">For earlier version please see hello [complete release notes](mobile-engagement-ios-release-notes.md)</span></span>
 
-## <a name="upgrade-procedures"></a><span data-ttu-id="e5942-119">Procedimentos de atualização</span><span class="sxs-lookup"><span data-stu-id="e5942-119">Upgrade procedures</span></span>
-<span data-ttu-id="e5942-120">Se você já tiver integrado uma versão anterior do Engagement no seu aplicativo, você deve considerar os seguintes pontos ao atualizar o SDK.</span><span class="sxs-lookup"><span data-stu-id="e5942-120">If you already have integrated an older version of Engagement into your application, you have to consider the following points when upgrading the SDK.</span></span>
+## <a name="upgrade-procedures"></a><span data-ttu-id="5deab-119">Procedimentos de atualização</span><span class="sxs-lookup"><span data-stu-id="5deab-119">Upgrade procedures</span></span>
+<span data-ttu-id="5deab-120">Se você já tiver integrado uma versão mais antiga do contrato em seu aplicativo, você tem Olá tooconsider pontos a seguir ao atualizar Olá SDK.</span><span class="sxs-lookup"><span data-stu-id="5deab-120">If you already have integrated an older version of Engagement into your application, you have tooconsider hello following points when upgrading hello SDK.</span></span>
 
-<span data-ttu-id="e5942-121">Talvez você precise seguir vários procedimentos se perdeu várias versões do SDK consulte os [Procedimentos de atualização](mobile-engagement-ios-upgrade-procedure.md)completos.</span><span class="sxs-lookup"><span data-stu-id="e5942-121">You may have to follow several procedures if you missed several versions of the SDK see the complete [Upgrade Procedures](mobile-engagement-ios-upgrade-procedure.md).</span></span>
+<span data-ttu-id="5deab-121">Você pode ter toofollow vários procedimentos se perdeu várias versões do hello SDK consulte Olá completa [procedimentos de atualização](mobile-engagement-ios-upgrade-procedure.md).</span><span class="sxs-lookup"><span data-stu-id="5deab-121">You may have toofollow several procedures if you missed several versions of hello SDK see hello complete [Upgrade Procedures](mobile-engagement-ios-upgrade-procedure.md).</span></span>
 
-<span data-ttu-id="e5942-122">Para cada nova versão do SDK, você deve primeiro substituir (remover e importar novamente no xcode) as pastas EngagementSDK e EngagementReach.</span><span class="sxs-lookup"><span data-stu-id="e5942-122">For each new version of the SDK you must first replace (remove and re-import in xcode) the EngagementSDK and EngagementReach folders.</span></span>
+<span data-ttu-id="5deab-122">Para cada nova versão do SDK do hello primeiro você deve substituir (remover e importar novamente no xcode) Olá pastas EngagementSDK e EngagementReach.</span><span class="sxs-lookup"><span data-stu-id="5deab-122">For each new version of hello SDK you must first replace (remove and re-import in xcode) hello EngagementSDK and EngagementReach folders.</span></span>
 
-### <a name="from-300-to-400"></a><span data-ttu-id="e5942-123">De 3.0.0 a 4.0.0</span><span class="sxs-lookup"><span data-stu-id="e5942-123">From 3.0.0 to 4.0.0</span></span>
-### <a name="xcode-8"></a><span data-ttu-id="e5942-124">XCode 8</span><span class="sxs-lookup"><span data-stu-id="e5942-124">XCode 8</span></span>
-<span data-ttu-id="e5942-125">O XCode 8 é obrigatório desde a versão 4.0.0 do SDK.</span><span class="sxs-lookup"><span data-stu-id="e5942-125">XCode 8 is mandatory starting from version 4.0.0 of the SDK.</span></span>
+### <a name="from-300-too400"></a><span data-ttu-id="5deab-123">De 3.0.0 too4.0.0</span><span class="sxs-lookup"><span data-stu-id="5deab-123">From 3.0.0 too4.0.0</span></span>
+### <a name="xcode-8"></a><span data-ttu-id="5deab-124">XCode 8</span><span class="sxs-lookup"><span data-stu-id="5deab-124">XCode 8</span></span>
+<span data-ttu-id="5deab-125">8 XCode é obrigatório a partir da versão 4.0.0 de saudação SDK.</span><span class="sxs-lookup"><span data-stu-id="5deab-125">XCode 8 is mandatory starting from version 4.0.0 of hello SDK.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="e5942-126">Se você realmente depende do XCode 7, pode usar o [SDK do iOS Engagement v3.2.4](https://aka.ms/r6oouh).</span><span class="sxs-lookup"><span data-stu-id="e5942-126">If you really depend on XCode 7 then you may use the [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh).</span></span> <span data-ttu-id="e5942-127">Há um bug conhecido no módulo de alcance nesta versão anterior durante a execução em dispositivos como iOS 10: as notificações de sistema não são acionadas.</span><span class="sxs-lookup"><span data-stu-id="e5942-127">There is a known bug on the reach module of this previous version while running on iOS 10 devices:  system notifications are not actioned.</span></span> <span data-ttu-id="e5942-128">Para corrigir isso, você terá que implementar a API desaprovada `application:didReceiveRemoteNotification:` no representante do aplicativo da seguinte maneira:</span><span class="sxs-lookup"><span data-stu-id="e5942-128">To fix this you will have to implement the deprecated API `application:didReceiveRemoteNotification:` in your app delegate as follows:</span></span>
+> <span data-ttu-id="5deab-126">Se você realmente depende XCode 7, você pode usar o hello [iOS SDK Engagement v3.2.4](https://aka.ms/r6oouh).</span><span class="sxs-lookup"><span data-stu-id="5deab-126">If you really depend on XCode 7 then you may use hello [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh).</span></span> <span data-ttu-id="5deab-127">Há um bug conhecido no módulo de alcance Olá desta versão anterior durante a execução em dispositivos iOS 10: notificações do sistema não são acionadas.</span><span class="sxs-lookup"><span data-stu-id="5deab-127">There is a known bug on hello reach module of this previous version while running on iOS 10 devices:  system notifications are not actioned.</span></span> <span data-ttu-id="5deab-128">toofix isso você terá tooimplement Olá preterido API `application:didReceiveRemoteNotification:` em seu aplicativo delegar da seguinte maneira:</span><span class="sxs-lookup"><span data-stu-id="5deab-128">toofix this you will have tooimplement hello deprecated API `application:didReceiveRemoteNotification:` in your app delegate as follows:</span></span>
 >
 >
 
@@ -62,26 +62,26 @@ ms.lasthandoff: 08/03/2017
     }
 
 > [!IMPORTANT]
-> <span data-ttu-id="e5942-129">**Não recomendamos essa solução alternativa** pois esse comportamento pode alterar qualquer atualização da versão futura iOS (até mesmo pequenas) porque esta API do iOS foi preterida.</span><span class="sxs-lookup"><span data-stu-id="e5942-129">**We do not recommend this workaround** as this behavior can change in any upcoming (even minor) iOS version upgrade because this iOS API is deprecated.</span></span> <span data-ttu-id="e5942-130">Você deve mudar para o XCode 8 assim que possível.</span><span class="sxs-lookup"><span data-stu-id="e5942-130">You should switch to XCode 8 as soon as possible.</span></span>
+> <span data-ttu-id="5deab-129">**Não recomendamos essa solução alternativa** pois esse comportamento pode alterar qualquer atualização da versão futura iOS (até mesmo pequenas) porque esta API do iOS foi preterida.</span><span class="sxs-lookup"><span data-stu-id="5deab-129">**We do not recommend this workaround** as this behavior can change in any upcoming (even minor) iOS version upgrade because this iOS API is deprecated.</span></span> <span data-ttu-id="5deab-130">Você deve alternar tooXCode 8 assim que possível.</span><span class="sxs-lookup"><span data-stu-id="5deab-130">You should switch tooXCode 8 as soon as possible.</span></span>
 >
 >
 
-#### <a name="usernotifications-framework"></a><span data-ttu-id="e5942-131">Estrutura UserNotifications</span><span class="sxs-lookup"><span data-stu-id="e5942-131">UserNotifications framework</span></span>
-<span data-ttu-id="e5942-132">Você precisa adicionar a estrutura `UserNotifications` em suas fases de build.</span><span class="sxs-lookup"><span data-stu-id="e5942-132">You need to add the `UserNotifications` framework in your Build Phases.</span></span>
+#### <a name="usernotifications-framework"></a><span data-ttu-id="5deab-131">Estrutura UserNotifications</span><span class="sxs-lookup"><span data-stu-id="5deab-131">UserNotifications framework</span></span>
+<span data-ttu-id="5deab-132">Você precisa Olá tooadd `UserNotifications` framework em fases de compilação.</span><span class="sxs-lookup"><span data-stu-id="5deab-132">You need tooadd hello `UserNotifications` framework in your Build Phases.</span></span>
 
-<span data-ttu-id="e5942-133">no Explorador de projeto, abra o painel de projeto e selecione o destino correto.</span><span class="sxs-lookup"><span data-stu-id="e5942-133">in the project explorer, open your project pane and select the correct target.</span></span> <span data-ttu-id="e5942-134">Em seguida, abra a guia **"Compilar fases"** e, no menu **"Link binário com bibliotecas"**, adicione a estrutura `UserNotifications.framework` – defina o link como `Optional`</span><span class="sxs-lookup"><span data-stu-id="e5942-134">Then, open the **"Build phases"** tab and in the **"Link Binary With Libraries"** menu, add framework `UserNotifications.framework` - set the link as `Optional`</span></span>
+<span data-ttu-id="5deab-133">no Explorador de projeto hello, abra o painel de projeto e selecione o destino correto hello.</span><span class="sxs-lookup"><span data-stu-id="5deab-133">in hello project explorer, open your project pane and select hello correct target.</span></span> <span data-ttu-id="5deab-134">Em seguida, abra Olá **"Fases de compilação"** guia e em Olá **"Binário com bibliotecas de vínculo"** menu, adicionar framework `UserNotifications.framework` -definir Olá link como`Optional`</span><span class="sxs-lookup"><span data-stu-id="5deab-134">Then, open hello **"Build phases"** tab and in hello **"Link Binary With Libraries"** menu, add framework `UserNotifications.framework` - set hello link as `Optional`</span></span>
 
-#### <a name="application-push-capability"></a><span data-ttu-id="e5942-135">Capacidade de envio por push do aplicativo</span><span class="sxs-lookup"><span data-stu-id="e5942-135">Application push capability</span></span>
-<span data-ttu-id="e5942-136">O XCode 8 pode redefinir a capacidade de envio por push do aplicativo. Verifique isso novamente na guia `capability` do destino selecionado.</span><span class="sxs-lookup"><span data-stu-id="e5942-136">XCode 8 may reset your app push capability, please double check it in the `capability` tab of your selected target.</span></span>
+#### <a name="application-push-capability"></a><span data-ttu-id="5deab-135">Capacidade de envio por push do aplicativo</span><span class="sxs-lookup"><span data-stu-id="5deab-135">Application push capability</span></span>
+<span data-ttu-id="5deab-136">8 XCode pode redefinir seu aplicativo push capacidade,. Verifique novamente em Olá `capability` guia de destino selecionado.</span><span class="sxs-lookup"><span data-stu-id="5deab-136">XCode 8 may reset your app push capability, please double check it in hello `capability` tab of your selected target.</span></span>
 
-#### <a name="add-the-new-ios-10-notification-registration-code"></a><span data-ttu-id="e5942-137">Adicionar o novo código de registro de notificação do iOS 10</span><span class="sxs-lookup"><span data-stu-id="e5942-137">Add the new iOS 10 notification registration code</span></span>
-<span data-ttu-id="e5942-138">O trecho de código anterior para registrar o aplicativo para as notificações ainda funciona, mas está usando as APIs desaprovadas durante a execução no iOS 10.</span><span class="sxs-lookup"><span data-stu-id="e5942-138">The older code snippet to register the app to notifications still works but is using deprecated APIs while running on iOS 10.</span></span>
+#### <a name="add-hello-new-ios-10-notification-registration-code"></a><span data-ttu-id="5deab-137">Adicione código de registro do hello novo iOS notificação 10</span><span class="sxs-lookup"><span data-stu-id="5deab-137">Add hello new iOS 10 notification registration code</span></span>
+<span data-ttu-id="5deab-138">Olá antigos código trecho tooregister Olá aplicativo toonotifications ainda funciona, mas está usando preterido APIs durante a execução no iOS 10.</span><span class="sxs-lookup"><span data-stu-id="5deab-138">hello older code snippet tooregister hello app toonotifications still works but is using deprecated APIs while running on iOS 10.</span></span>
 
-<span data-ttu-id="e5942-139">Importe a estrutura `User Notification` :</span><span class="sxs-lookup"><span data-stu-id="e5942-139">Import the `User Notification` framework:</span></span>
+<span data-ttu-id="5deab-139">Saudação de importação `User Notification` framework:</span><span class="sxs-lookup"><span data-stu-id="5deab-139">Import hello `User Notification` framework:</span></span>
 
         #import <UserNotifications/UserNotifications.h>
 
-<span data-ttu-id="e5942-140">No seu método representante do aplicativo `application:didFinishLaunchingWithOptions` , substitua:</span><span class="sxs-lookup"><span data-stu-id="e5942-140">In your application delegate `application:didFinishLaunchingWithOptions` method replace:</span></span>
+<span data-ttu-id="5deab-140">No seu método representante do aplicativo `application:didFinishLaunchingWithOptions` , substitua:</span><span class="sxs-lookup"><span data-stu-id="5deab-140">In your application delegate `application:didFinishLaunchingWithOptions` method replace:</span></span>
 
         if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
             [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
@@ -92,7 +92,7 @@ ms.lasthandoff: 08/03/2017
             [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         }
 
-<span data-ttu-id="e5942-141">por:</span><span class="sxs-lookup"><span data-stu-id="e5942-141">by :</span></span>
+<span data-ttu-id="5deab-141">por:</span><span class="sxs-lookup"><span data-stu-id="5deab-141">by :</span></span>
 
         if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
         {
@@ -110,15 +110,15 @@ ms.lasthandoff: 08/03/2017
             [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         }
 
-#### <a name="resolve-unusernotificationcenter-delegate-conflicts"></a><span data-ttu-id="e5942-142">Resolver conflitos de delegado UNUserNotificationCenter</span><span class="sxs-lookup"><span data-stu-id="e5942-142">Resolve UNUserNotificationCenter delegate conflicts</span></span>
+#### <a name="resolve-unusernotificationcenter-delegate-conflicts"></a><span data-ttu-id="5deab-142">Resolver conflitos de delegado UNUserNotificationCenter</span><span class="sxs-lookup"><span data-stu-id="5deab-142">Resolve UNUserNotificationCenter delegate conflicts</span></span>
 
-<span data-ttu-id="e5942-143">*Se o aplicativo nem uma das bibliotecas de terceiros implementar um `UNUserNotificationCenterDelegate`, ignore esta parte.*</span><span class="sxs-lookup"><span data-stu-id="e5942-143">*If neither your application or one of your third party libraries implements a `UNUserNotificationCenterDelegate` then you can skip this part.*</span></span>
+<span data-ttu-id="5deab-143">*Se o aplicativo nem uma das bibliotecas de terceiros implementar um `UNUserNotificationCenterDelegate`, ignore esta parte.*</span><span class="sxs-lookup"><span data-stu-id="5deab-143">*If neither your application or one of your third party libraries implements a `UNUserNotificationCenterDelegate` then you can skip this part.*</span></span>
 
-<span data-ttu-id="e5942-144">Um delegado `UNUserNotificationCenter` é usado pelo SDK para monitorar o ciclo de vida das notificações do Engagement em dispositivos que executam o iOS 10 ou superior.</span><span class="sxs-lookup"><span data-stu-id="e5942-144">A `UNUserNotificationCenter` delegate is used by the SDK to monitor the life cycle of Engagement notifications on devices running on iOS 10 or greater.</span></span> <span data-ttu-id="e5942-145">O SDK tem sua própria implementação do protocolo `UNUserNotificationCenterDelegate`, mas pode haver apenas um delegado `UNUserNotificationCenter` por aplicativo.</span><span class="sxs-lookup"><span data-stu-id="e5942-145">The SDK has its own implementation of the `UNUserNotificationCenterDelegate` protocol but there can be only one `UNUserNotificationCenter` delegate per application.</span></span> <span data-ttu-id="e5942-146">Qualquer outro delegado adicionado ao objeto `UNUserNotificationCenter` entrará em conflito com o do Engagement.</span><span class="sxs-lookup"><span data-stu-id="e5942-146">Any other delegate added to the `UNUserNotificationCenter` object will conflict with the Engagement one.</span></span> <span data-ttu-id="e5942-147">Se o SDK detectar seu delegado ou qualquer delegado de terceiros, ele não usará sua própria implementação, para lhe dar uma chance para resolver os conflitos.</span><span class="sxs-lookup"><span data-stu-id="e5942-147">If the SDK detects your or any other third party's delegate then it will not use its own implementation to give you a chance to resolve the conflicts.</span></span> <span data-ttu-id="e5942-148">Você precisará adicionar a lógica do Engagement ao seu próprio delegado para resolver os conflitos.</span><span class="sxs-lookup"><span data-stu-id="e5942-148">You will have to add the Engagement logic to your own delegate in order to resolve the conflicts.</span></span>
+<span data-ttu-id="5deab-144">Um `UNUserNotificationCenter` delegado é usado pelo ciclo de vida de Olá Olá SDK toomonitor de notificações de compromisso em dispositivos que executam o iOS 10 ou superior.</span><span class="sxs-lookup"><span data-stu-id="5deab-144">A `UNUserNotificationCenter` delegate is used by hello SDK toomonitor hello life cycle of Engagement notifications on devices running on iOS 10 or greater.</span></span> <span data-ttu-id="5deab-145">Olá SDK tem sua própria implementação de saudação `UNUserNotificationCenterDelegate` de protocolo, mas pode haver apenas um `UNUserNotificationCenter` delegar por aplicativo.</span><span class="sxs-lookup"><span data-stu-id="5deab-145">hello SDK has its own implementation of hello `UNUserNotificationCenterDelegate` protocol but there can be only one `UNUserNotificationCenter` delegate per application.</span></span> <span data-ttu-id="5deab-146">Qualquer outro representante adicionado toohello `UNUserNotificationCenter` objeto está em conflito com hello contrato um.</span><span class="sxs-lookup"><span data-stu-id="5deab-146">Any other delegate added toohello `UNUserNotificationCenter` object will conflict with hello Engagement one.</span></span> <span data-ttu-id="5deab-147">Se Olá SDK detectar delegado do seu ou qualquer outra parte, em seguida, ele não usará sua própria implementação toogive você tooresolve uma chance Olá conflitos.</span><span class="sxs-lookup"><span data-stu-id="5deab-147">If hello SDK detects your or any other third party's delegate then it will not use its own implementation toogive you a chance tooresolve hello conflicts.</span></span> <span data-ttu-id="5deab-148">Você terá tooadd Olá contrato lógica tooyour possui delegado em ordem tooresolve conflitos de saudação.</span><span class="sxs-lookup"><span data-stu-id="5deab-148">You will have tooadd hello Engagement logic tooyour own delegate in order tooresolve hello conflicts.</span></span>
 
-<span data-ttu-id="e5942-149">Há duas maneiras de fazer isso.</span><span class="sxs-lookup"><span data-stu-id="e5942-149">There are two ways to achieve this.</span></span>
+<span data-ttu-id="5deab-149">Há dois tooachieve de maneiras isso.</span><span class="sxs-lookup"><span data-stu-id="5deab-149">There are two ways tooachieve this.</span></span>
 
-<span data-ttu-id="e5942-150">Proposta 1: apenas encaminhando as chamadas do delegado para o SDK:</span><span class="sxs-lookup"><span data-stu-id="e5942-150">Proposal 1, simply by forwarding your delegate calls to the SDK:</span></span>
+<span data-ttu-id="5deab-150">Proposta 1, encaminhando o delegado chama toohello SDK:</span><span class="sxs-lookup"><span data-stu-id="5deab-150">Proposal 1, simply by forwarding your delegate calls toohello SDK:</span></span>
 
     #import <UIKit/UIKit.h>
     #import "EngagementAgent.h"
@@ -145,7 +145,7 @@ ms.lasthandoff: 08/03/2017
     }
     @end
 
-<span data-ttu-id="e5942-151">Ou proposta 2: herdando da classe `AEUserNotificationHandler`</span><span class="sxs-lookup"><span data-stu-id="e5942-151">Or proposal 2, by inheriting from the `AEUserNotificationHandler` class</span></span>
+<span data-ttu-id="5deab-151">Ou proposta 2, herdando de saudação `AEUserNotificationHandler` classe</span><span class="sxs-lookup"><span data-stu-id="5deab-151">Or proposal 2, by inheriting from hello `AEUserNotificationHandler` class</span></span>
 
     #import "AEUserNotificationHandler.h"
     #import "EngagementAgent.h"
@@ -172,10 +172,10 @@ ms.lasthandoff: 08/03/2017
     @end
 
 > [!NOTE]
-> <span data-ttu-id="e5942-152">Você pode determinar se uma notificação vem do Engagement ou não passando seu dicionário `userInfo` para o método da classe `isEngagementPushPayload:` do Agent.</span><span class="sxs-lookup"><span data-stu-id="e5942-152">You can determine whether a notification comes from Engagement or not by passing its `userInfo` dictionary to the Agent `isEngagementPushPayload:` class method.</span></span>
+> <span data-ttu-id="5deab-152">Você pode determinar se uma notificação de contrato ou não passando seus `userInfo` toohello dicionário agente `isEngagementPushPayload:` método de classe.</span><span class="sxs-lookup"><span data-stu-id="5deab-152">You can determine whether a notification comes from Engagement or not by passing its `userInfo` dictionary toohello Agent `isEngagementPushPayload:` class method.</span></span>
 
-<span data-ttu-id="e5942-153">Verifique se o delegado do objeto `UNUserNotificationCenter` é definido como seu delegado no método `application:willFinishLaunchingWithOptions:` ou `application:didFinishLaunchingWithOptions:` do delegado do aplicativo.</span><span class="sxs-lookup"><span data-stu-id="e5942-153">Make sure that the `UNUserNotificationCenter` object's delegate is set to your delegate within either the `application:willFinishLaunchingWithOptions:` or the `application:didFinishLaunchingWithOptions:` method of your application delegate.</span></span>
-<span data-ttu-id="e5942-154">Por exemplo, se você implementou a proposta 1 acima:</span><span class="sxs-lookup"><span data-stu-id="e5942-154">For instance, if you implemented the above proposal 1:</span></span>
+<span data-ttu-id="5deab-153">Certifique-se de que Olá `UNUserNotificationCenter` representante do objeto é definido tooyour delegado em qualquer Olá `application:willFinishLaunchingWithOptions:` ou hello `application:didFinishLaunchingWithOptions:` método do seu representante de aplicativo.</span><span class="sxs-lookup"><span data-stu-id="5deab-153">Make sure that hello `UNUserNotificationCenter` object's delegate is set tooyour delegate within either hello `application:willFinishLaunchingWithOptions:` or hello `application:didFinishLaunchingWithOptions:` method of your application delegate.</span></span>
+<span data-ttu-id="5deab-154">Por exemplo, se você tiver implementado Olá acima proposta 1:</span><span class="sxs-lookup"><span data-stu-id="5deab-154">For instance, if you implemented hello above proposal 1:</span></span>
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         // Any other code

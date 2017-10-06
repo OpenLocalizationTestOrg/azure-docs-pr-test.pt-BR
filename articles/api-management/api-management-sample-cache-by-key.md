@@ -1,6 +1,6 @@
 ---
-title: Cache personalizado no Gerenciamento de API do Azure
-description: Saiba como armazenar em cache os itens por chave no gerenciamento de API do Azure
+title: aaaCustom cache no gerenciamento de API do Azure
+description: Saiba como toocache itens por chave no gerenciamento de API do Azure
 services: api-management
 documentationcenter: 
 author: darrelmiller
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: f5d5f44e34fbcd122a10be0ca5b3001760c4c64d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 681380743c8c96af5d0a8e25948a8c0663e9fd35
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="custom-caching-in-azure-api-management"></a><span data-ttu-id="90ff5-103">Cache personalizado no Gerenciamento de API do Azure</span><span class="sxs-lookup"><span data-stu-id="90ff5-103">Custom caching in Azure API Management</span></span>
-<span data-ttu-id="90ff5-104">O serviço de gerenciamento de API do Azure tem suporte interno para [Cache de resposta HTTP](api-management-howto-cache.md) usando a URL de recurso como chave.</span><span class="sxs-lookup"><span data-stu-id="90ff5-104">Azure API Management service has built-in support for [HTTP response caching](api-management-howto-cache.md) using the resource URL as the key.</span></span> <span data-ttu-id="90ff5-105">A chave pode ser modificada por cabeçalhos de solicitação usando as propriedades do `vary-by` .</span><span class="sxs-lookup"><span data-stu-id="90ff5-105">The key can be modified by request headers using the `vary-by` properties.</span></span> <span data-ttu-id="90ff5-106">Isso é útil para armazenar em cache respostas HTTP inteiras (também conhecido como representações), mas às vezes é útil para armazenar apenas uma parte de uma representação.</span><span class="sxs-lookup"><span data-stu-id="90ff5-106">This is useful for caching entire HTTP responses (aka representations), but sometimes it is useful to just cache a portion of a representation.</span></span> <span data-ttu-id="90ff5-107">As novas políticas [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) e [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) fornecem a capacidade de armazenar e recuperar partes arbitrárias de dados de dentro das definições da política.</span><span class="sxs-lookup"><span data-stu-id="90ff5-107">The new [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) and [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) policies provide the ability to store and retrieve arbitrary pieces of data from within policy definitions.</span></span> <span data-ttu-id="90ff5-108">Essa capacidade também adiciona valor à política anteriormente introduzida [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) porque você agora pode armazenar em cache as respostas de serviços externos.</span><span class="sxs-lookup"><span data-stu-id="90ff5-108">This ability also adds value to the previously introduced [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) policy because you can now cache responses from external services.</span></span>
+# <a name="custom-caching-in-azure-api-management"></a><span data-ttu-id="51cdb-103">Cache personalizado no Gerenciamento de API do Azure</span><span class="sxs-lookup"><span data-stu-id="51cdb-103">Custom caching in Azure API Management</span></span>
+<span data-ttu-id="51cdb-104">Serviço de gerenciamento de API do Azure tem suporte interno para [cache de resposta HTTP](api-management-howto-cache.md) usando a URL de recurso hello como chave de saudação.</span><span class="sxs-lookup"><span data-stu-id="51cdb-104">Azure API Management service has built-in support for [HTTP response caching](api-management-howto-cache.md) using hello resource URL as hello key.</span></span> <span data-ttu-id="51cdb-105">Olá chave pode ser modificada por cabeçalhos de solicitação usando Olá `vary-by` propriedades.</span><span class="sxs-lookup"><span data-stu-id="51cdb-105">hello key can be modified by request headers using hello `vary-by` properties.</span></span> <span data-ttu-id="51cdb-106">Isso é útil para armazenar em cache respostas HTTP inteiras (também conhecido como representações), mas às vezes é útil toojust cache uma parte de uma representação.</span><span class="sxs-lookup"><span data-stu-id="51cdb-106">This is useful for caching entire HTTP responses (aka representations), but sometimes it is useful toojust cache a portion of a representation.</span></span> <span data-ttu-id="51cdb-107">Olá novo [valor de pesquisa de cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) e [valor do repositório de cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) políticas fornecem a capacidade de saudação toostore e recuperar partes arbitrárias de dados do grupo de definições de política.</span><span class="sxs-lookup"><span data-stu-id="51cdb-107">hello new [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) and [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) policies provide hello ability toostore and retrieve arbitrary pieces of data from within policy definitions.</span></span> <span data-ttu-id="51cdb-108">Essa capacidade também adiciona valor toohello introduzida anteriormente [solicitação de envio](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) política porque você agora pode armazenar em cache respostas de serviços externos.</span><span class="sxs-lookup"><span data-stu-id="51cdb-108">This ability also adds value toohello previously introduced [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) policy because you can now cache responses from external services.</span></span>
 
-## <a name="architecture"></a><span data-ttu-id="90ff5-109">Arquitetura</span><span class="sxs-lookup"><span data-stu-id="90ff5-109">Architecture</span></span>
-<span data-ttu-id="90ff5-110">O serviço de Gerenciamento de API usa um cache de dados compartilhados por locatário para que, à medida que você escalar verticalmente para várias unidades, ainda tenha acesso ao mesmo dados em cache.</span><span class="sxs-lookup"><span data-stu-id="90ff5-110">API Management service uses a shared per-tenant data cache so that, as you scale up to multiple units you will still get access to the same cached data.</span></span> <span data-ttu-id="90ff5-111">No entanto, ao trabalhar com uma implantação de várias regiões, existem caches independentes dentro de cada uma das regiões.</span><span class="sxs-lookup"><span data-stu-id="90ff5-111">However, when working with a multi-region deployment there are independent caches within each of the regions.</span></span> <span data-ttu-id="90ff5-112">Por isso, é importante não tratar o cache como um armazenamento de dados, em que ele é a única fonte de alguma informação.</span><span class="sxs-lookup"><span data-stu-id="90ff5-112">Due to this, it is important to not treat the cache as a data store, where it is the only source of some piece of information.</span></span> <span data-ttu-id="90ff5-113">Se posteriormente você decidir se beneficiar da implantação de várias regiões, clientes com usuários que viajam podem perder o acesso aos dados armazenados em cache.</span><span class="sxs-lookup"><span data-stu-id="90ff5-113">If you did, and later decided to take advantage of the multi-region deployment, then customers with users that travel may lose access to that cached data.</span></span>
+## <a name="architecture"></a><span data-ttu-id="51cdb-109">Arquitetura</span><span class="sxs-lookup"><span data-stu-id="51cdb-109">Architecture</span></span>
+<span data-ttu-id="51cdb-110">Serviço de gerenciamento de API usa um cache de dados compartilhado por locatário para que, ao dimensionar unidades toomultiple você ainda terá acesso toohello mesmo dados armazenados em cache.</span><span class="sxs-lookup"><span data-stu-id="51cdb-110">API Management service uses a shared per-tenant data cache so that, as you scale up toomultiple units you will still get access toohello same cached data.</span></span> <span data-ttu-id="51cdb-111">No entanto, ao trabalhar com uma implantação de várias regiões são independentes caches dentro de cada uma das regiões de saudação.</span><span class="sxs-lookup"><span data-stu-id="51cdb-111">However, when working with a multi-region deployment there are independent caches within each of hello regions.</span></span> <span data-ttu-id="51cdb-112">Vencimento toothis, é importante toonot tratar cache hello como um repositório de dados, onde é a única fonte Olá de alguma informação.</span><span class="sxs-lookup"><span data-stu-id="51cdb-112">Due toothis, it is important toonot treat hello cache as a data store, where it is hello only source of some piece of information.</span></span> <span data-ttu-id="51cdb-113">Se você fez e posteriormente decidir tootake vantagem da implantação de várias regiões hello, os clientes com usuários que viajam poderão perder acesso toothat armazenado em cache dados.</span><span class="sxs-lookup"><span data-stu-id="51cdb-113">If you did, and later decided tootake advantage of hello multi-region deployment, then customers with users that travel may lose access toothat cached data.</span></span>
 
-## <a name="fragment-caching"></a><span data-ttu-id="90ff5-114">Cache de fragmento</span><span class="sxs-lookup"><span data-stu-id="90ff5-114">Fragment caching</span></span>
-<span data-ttu-id="90ff5-115">Há alguns casos nos quais respostas sendo retornadas contêm uma parte dos dados que é cara de determinar e ainda permanece atualizada por um período razoável.</span><span class="sxs-lookup"><span data-stu-id="90ff5-115">There are certain cases where responses being returned contain some portion of data that is expensive to determine and yet remains fresh for a reasonable amount of time.</span></span> <span data-ttu-id="90ff5-116">Por exemplo, considere um serviço criado por uma companhia aérea que fornece informações relacionadas a reservas de voo, status de voo, etc. Se o usuário for um membro do programa de pontos da companhia aérea, ele também teria informações relacionadas ao seu status atual e milhas acumuladas.</span><span class="sxs-lookup"><span data-stu-id="90ff5-116">As an example, consider a service built by an airline that provides information relating flight reservations, flight status, etc. If the user is a member of the airlines points program, they would also have information relating to their current status and mileage accumulated.</span></span> <span data-ttu-id="90ff5-117">Essas informações relacionadas ao usuário podem ser armazenadas em um sistema diferente, mas pode ser desejável incluí-las em respostas retornadas sobre reservas e o status de voo.</span><span class="sxs-lookup"><span data-stu-id="90ff5-117">This user-related information might be stored in a different system, but it may be desirable to include it in responses returned about flight status and reservations.</span></span> <span data-ttu-id="90ff5-118">Isso pode ser feito usando um processo chamado cache fragmentado.</span><span class="sxs-lookup"><span data-stu-id="90ff5-118">This can be done using a process called fragment caching.</span></span> <span data-ttu-id="90ff5-119">A representação principal pode ser retornada do servidor de origem usando algum tipo de token para indicar onde as informações relacionadas ao usuário devem ser inseridas.</span><span class="sxs-lookup"><span data-stu-id="90ff5-119">The primary representation can be returned from the origin server using some kind of token to indicate where the user-related information is to be inserted.</span></span> 
+## <a name="fragment-caching"></a><span data-ttu-id="51cdb-114">Cache de fragmento</span><span class="sxs-lookup"><span data-stu-id="51cdb-114">Fragment caching</span></span>
+<span data-ttu-id="51cdb-115">Há alguns casos onde as respostas que está sendo retornadas contêm uma parte dos dados que são caro toodetermine e ainda permanecem atualizada por um período de tempo razoável.</span><span class="sxs-lookup"><span data-stu-id="51cdb-115">There are certain cases where responses being returned contain some portion of data that is expensive toodetermine and yet remains fresh for a reasonable amount of time.</span></span> <span data-ttu-id="51cdb-116">Por exemplo, considere um serviço criado por uma companhia aérea que fornece informações relacionadas a reservas de voo, status de voo, etc. Se o usuário Olá é membro do programa de pontos de companhias aéreas hello, eles também teriam informações sobre o status atual de tootheir e quilometragem acumulados.</span><span class="sxs-lookup"><span data-stu-id="51cdb-116">As an example, consider a service built by an airline that provides information relating flight reservations, flight status, etc. If hello user is a member of hello airlines points program, they would also have information relating tootheir current status and mileage accumulated.</span></span> <span data-ttu-id="51cdb-117">Essas informações relacionadas ao usuário podem ser armazenadas em um sistema diferente, mas pode ser desejável tooinclude em respostas retornada sobre o status de voo e reservas.</span><span class="sxs-lookup"><span data-stu-id="51cdb-117">This user-related information might be stored in a different system, but it may be desirable tooinclude it in responses returned about flight status and reservations.</span></span> <span data-ttu-id="51cdb-118">Isso pode ser feito usando um processo chamado cache fragmentado.</span><span class="sxs-lookup"><span data-stu-id="51cdb-118">This can be done using a process called fragment caching.</span></span> <span data-ttu-id="51cdb-119">Olá representação primária pode ser retornada do servidor de origem hello usando algum tipo de token tooindicate onde informações relacionadas ao usuário de saudação são toobe inserido.</span><span class="sxs-lookup"><span data-stu-id="51cdb-119">hello primary representation can be returned from hello origin server using some kind of token tooindicate where hello user-related information is toobe inserted.</span></span> 
 
-<span data-ttu-id="90ff5-120">Considere a seguinte resposta JSON de uma API de back-end.</span><span class="sxs-lookup"><span data-stu-id="90ff5-120">Consider the following JSON response from a backend API.</span></span>
+<span data-ttu-id="51cdb-120">Considere Olá seguindo a resposta JSON de uma API de back-end.</span><span class="sxs-lookup"><span data-stu-id="51cdb-120">Consider hello following JSON response from a backend API.</span></span>
 
 ```json
 {
@@ -42,13 +42,13 @@ ms.lasthandoff: 07/11/2017
 }  
 ```
 
-<span data-ttu-id="90ff5-121">E o recursos secundário em `/userprofile/{userid}` , semelhante.</span><span class="sxs-lookup"><span data-stu-id="90ff5-121">And secondary resource at `/userprofile/{userid}` that looks like,</span></span>
+<span data-ttu-id="51cdb-121">E o recursos secundário em `/userprofile/{userid}` , semelhante.</span><span class="sxs-lookup"><span data-stu-id="51cdb-121">And secondary resource at `/userprofile/{userid}` that looks like,</span></span>
 
 ```json
 { "username" : "Bob Smith", "Status" : "Gold" }
 ```
 
-<span data-ttu-id="90ff5-122">Para determinar as informações de usuário apropriadas a incluir, precisamos identificar quem é o usuário final.</span><span class="sxs-lookup"><span data-stu-id="90ff5-122">In order to determine the appropriate user information to include, we need to identify who the end user is.</span></span> <span data-ttu-id="90ff5-123">Esse mecanismo é dependente da implementação.</span><span class="sxs-lookup"><span data-stu-id="90ff5-123">This mechanism is implementation dependent.</span></span> <span data-ttu-id="90ff5-124">Por exemplo, estou usando a declaração `Subject` de um token `JWT`.</span><span class="sxs-lookup"><span data-stu-id="90ff5-124">As an example, I am using the `Subject` claim of a `JWT` token.</span></span> 
+<span data-ttu-id="51cdb-122">Ordem toodetermine Olá usuário apropriado informações tooinclude, precisamos tooidentify que o usuário final de saudação.</span><span class="sxs-lookup"><span data-stu-id="51cdb-122">In order toodetermine hello appropriate user information tooinclude, we need tooidentify who hello end user is.</span></span> <span data-ttu-id="51cdb-123">Esse mecanismo é dependente da implementação.</span><span class="sxs-lookup"><span data-stu-id="51cdb-123">This mechanism is implementation dependent.</span></span> <span data-ttu-id="51cdb-124">Por exemplo, estou usando Olá `Subject` de declaração de um `JWT` token.</span><span class="sxs-lookup"><span data-stu-id="51cdb-124">As an example, I am using hello `Subject` claim of a `JWT` token.</span></span> 
 
 ```xml
 <set-variable
@@ -56,7 +56,7 @@ ms.lasthandoff: 07/11/2017
   value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
 ```
 
-<span data-ttu-id="90ff5-125">Armazenamos o valor `enduserid` em uma variável de contexto para uso posterior.</span><span class="sxs-lookup"><span data-stu-id="90ff5-125">We store this `enduserid` value in a context variable for later use.</span></span> <span data-ttu-id="90ff5-126">A próxima etapa é determinar se uma solicitação anterior já recuperou as informações do usuário e armazenou-a no cache.</span><span class="sxs-lookup"><span data-stu-id="90ff5-126">The next step is to determine if a previous request has already retrieved the user information and stored it in the cache.</span></span> <span data-ttu-id="90ff5-127">Para fazer isso, usamos a política `cache-lookup-value` .</span><span class="sxs-lookup"><span data-stu-id="90ff5-127">For this we use the `cache-lookup-value` policy.</span></span>
+<span data-ttu-id="51cdb-125">Armazenamos o valor `enduserid` em uma variável de contexto para uso posterior.</span><span class="sxs-lookup"><span data-stu-id="51cdb-125">We store this `enduserid` value in a context variable for later use.</span></span> <span data-ttu-id="51cdb-126">Olá próxima etapa é toodetermine se uma solicitação anterior já recuperar informações de saudação do usuário e armazená-lo em cache hello.</span><span class="sxs-lookup"><span data-stu-id="51cdb-126">hello next step is toodetermine if a previous request has already retrieved hello user information and stored it in hello cache.</span></span> <span data-ttu-id="51cdb-127">Para isso, usamos Olá `cache-lookup-value` política.</span><span class="sxs-lookup"><span data-stu-id="51cdb-127">For this we use hello `cache-lookup-value` policy.</span></span>
 
 ```xml
 <cache-lookup-value
@@ -64,17 +64,17 @@ key="@("userprofile-" + context.Variables["enduserid"])"
 variable-name="userprofile" />
 ```
 
-<span data-ttu-id="90ff5-128">Se não houver nenhuma entrada no cache que corresponda ao valor da chave, então, nenhuma variável de contexto `userprofile` será criada.</span><span class="sxs-lookup"><span data-stu-id="90ff5-128">If there is no entry in the cache that corresponds to the key value, then no `userprofile` context variable will be created.</span></span> <span data-ttu-id="90ff5-129">Podemos verificar o êxito da pesquisa usando a política de fluxo de controle `choose` .</span><span class="sxs-lookup"><span data-stu-id="90ff5-129">We check the success of the lookup using the `choose` control flow policy.</span></span>
+<span data-ttu-id="51cdb-128">Se não houver nenhuma entrada no cache de saudação que corresponde o valor da chave toohello e não `userprofile` variável de contexto será criado.</span><span class="sxs-lookup"><span data-stu-id="51cdb-128">If there is no entry in hello cache that corresponds toohello key value, then no `userprofile` context variable will be created.</span></span> <span data-ttu-id="51cdb-129">Precisamos verificar o sucesso de saudação da pesquisa hello usando Olá `choose` política de fluxo de controle.</span><span class="sxs-lookup"><span data-stu-id="51cdb-129">We check hello success of hello lookup using hello `choose` control flow policy.</span></span>
 
 ```xml
 <choose>
     <when condition="@(!context.Variables.ContainsKey("userprofile"))">
-        <!-- If the userprofile context variable doesn’t exist, make an HTTP request to retrieve it.  -->
+        <!-- If hello userprofile context variable doesn’t exist, make an HTTP request tooretrieve it.  -->
     </when>
 </choose>
 ```
 
-<span data-ttu-id="90ff5-130">Se a variável de contexto `userprofile` não existir, teremos de fazer uma solicitação HTTP para recuperá-la.</span><span class="sxs-lookup"><span data-stu-id="90ff5-130">If the `userprofile` context variable doesn’t exist, then we are going to have to make an HTTP request to retrieve it.</span></span>
+<span data-ttu-id="51cdb-130">Se hello `userprofile` variável de contexto não existir, então, será contínuo toohave toomake um HTTP solicitação tooretrieve-lo.</span><span class="sxs-lookup"><span data-stu-id="51cdb-130">If hello `userprofile` context variable doesn’t exist, then we are going toohave toomake an HTTP request tooretrieve it.</span></span>
 
 ```xml
 <send-request
@@ -83,7 +83,7 @@ variable-name="userprofile" />
   timeout="10"
   ignore-error="true">
 
-  <!-- Build a URL that points to the profile for the current end-user -->
+  <!-- Build a URL that points toohello profile for hello current end-user -->
   <set-url>@(new Uri(new Uri("https://apimairlineapi.azurewebsites.net/UserProfile/"),
       (string)context.Variables["enduserid"]).AbsoluteUri)
   </set-url>
@@ -91,7 +91,7 @@ variable-name="userprofile" />
 </send-request>
 ```
 
-<span data-ttu-id="90ff5-131">Usamos o `enduserid` para construir a URL para o recurso de perfil do usuário.</span><span class="sxs-lookup"><span data-stu-id="90ff5-131">We use the `enduserid` to construct the URL to the user profile resource.</span></span> <span data-ttu-id="90ff5-132">Assim que tivermos a resposta, podemos extrair o texto do corpo de resposta e armazená-lo em uma variável de contexto.</span><span class="sxs-lookup"><span data-stu-id="90ff5-132">Once we have the response, we can pull the body text out of the response and store it back into a context variable.</span></span>
+<span data-ttu-id="51cdb-131">Usamos Olá `enduserid` recurso de perfil de usuário tooconstruct Olá URL toohello.</span><span class="sxs-lookup"><span data-stu-id="51cdb-131">We use hello `enduserid` tooconstruct hello URL toohello user profile resource.</span></span> <span data-ttu-id="51cdb-132">Assim que tivermos resposta hello, podemos extrair texto Olá sem resposta hello e armazená-lo novamente em uma variável de contexto.</span><span class="sxs-lookup"><span data-stu-id="51cdb-132">Once we have hello response, we can pull hello body text out of hello response and store it back into a context variable.</span></span>
 
 ```xml
 <set-variable
@@ -99,7 +99,7 @@ variable-name="userprofile" />
     value="@(((IResponse)context.Variables["userprofileresponse"]).Body.As<string>())" />
 ```
 
-<span data-ttu-id="90ff5-133">Para evitar fazer essa solicitação HTTP novamente, quando o mesmo usuário fizer outra solicitação, podemos armazenar o perfil do usuário no cache.</span><span class="sxs-lookup"><span data-stu-id="90ff5-133">To avoid us having to make this HTTP request again, when the same user makes another request, we can store the user profile in the cache.</span></span>
+<span data-ttu-id="51cdb-133">tooavoid tenhamos toomake essa solicitação HTTP novamente, ao mesmo usuário hello faz outra solicitação, que pode armazenar Olá perfil de usuário no cache de saudação.</span><span class="sxs-lookup"><span data-stu-id="51cdb-133">tooavoid us having toomake this HTTP request again, when hello same user makes another request, we can store hello user profile in hello cache.</span></span>
 
 ```xml
 <cache-store-value
@@ -107,11 +107,11 @@ variable-name="userprofile" />
     value="@((string)context.Variables["userprofile"])" duration="100000" />
 ```
 
-<span data-ttu-id="90ff5-134">Armazenamos o valor em cache usando a mesma chave exata com qual tentamos originalmente recuperá-la.</span><span class="sxs-lookup"><span data-stu-id="90ff5-134">We store the value in the cache using the exact same key that we originally attempted to retrieve it with.</span></span> <span data-ttu-id="90ff5-135">A duração que escolhemos para armazenar o valor deve ser baseada na frequência das alterações e no nível de tolerância dos usuários a informações desatualizadas.</span><span class="sxs-lookup"><span data-stu-id="90ff5-135">The duration that we choose to store the value should be based on how often the information changes and how tolerant users are to out of date information.</span></span> 
+<span data-ttu-id="51cdb-134">Armazenamos valor Olá no cache de saudação usando Olá exata mesma chave que tentamos originalmente tooretrieve com.</span><span class="sxs-lookup"><span data-stu-id="51cdb-134">We store hello value in hello cache using hello exact same key that we originally attempted tooretrieve it with.</span></span> <span data-ttu-id="51cdb-135">Olá duração, escolhemos o valor de saudação toostore deve ser baseada em frequência hello usuários como tolerante a falhas e alterações de informações são tooout de informações de data.</span><span class="sxs-lookup"><span data-stu-id="51cdb-135">hello duration that we choose toostore hello value should be based on how often hello information changes and how tolerant users are tooout of date information.</span></span> 
 
-<span data-ttu-id="90ff5-136">É importante perceber que recuperar do cache ainda é uma solicitação de rede fora do processo e, potencialmente, pode ainda adicionar dezenas de milissegundos à solicitação.</span><span class="sxs-lookup"><span data-stu-id="90ff5-136">It is important to realize that retrieving from the cache is still an out-of-process, network request and potentially can still add tens of milliseconds to the request.</span></span> <span data-ttu-id="90ff5-137">Os benefícios são fornecidos ao determinar que as informações de perfil do usuário demoram muito mais, devido à necessidade de fazer consultas em banco de dados de consultas ou agregar informações de vários back-ends.</span><span class="sxs-lookup"><span data-stu-id="90ff5-137">The benefits come when determining the user profile information takes significantly longer than that due to needing to do database queries or aggregate information from multiple back-ends.</span></span>
+<span data-ttu-id="51cdb-136">É importante toorealize que recuperar do cache de saudação ainda é um fora do processo, a solicitação de rede e potencialmente ainda poderá adicionar dezenas de solicitação de toohello milissegundos.</span><span class="sxs-lookup"><span data-stu-id="51cdb-136">It is important toorealize that retrieving from hello cache is still an out-of-process, network request and potentially can still add tens of milliseconds toohello request.</span></span> <span data-ttu-id="51cdb-137">benefícios de saudação vir ao determinar informações de perfil de usuário Olá leva significativamente mais tempo do que o devido a consultas de banco de dados de toodo tooneeding ou agregar informações de vários back-ends.</span><span class="sxs-lookup"><span data-stu-id="51cdb-137">hello benefits come when determining hello user profile information takes significantly longer than that due tooneeding toodo database queries or aggregate information from multiple back-ends.</span></span>
 
-<span data-ttu-id="90ff5-138">A etapa final do processo é atualizar a resposta retornada com nossas informações de perfil do usuário.</span><span class="sxs-lookup"><span data-stu-id="90ff5-138">The final step in the process is to update the returned response with our user profile information.</span></span>
+<span data-ttu-id="51cdb-138">Olá, etapa final do processo de saudação é Olá tooupdate retornada uma resposta com nosso informações de perfil do usuário.</span><span class="sxs-lookup"><span data-stu-id="51cdb-138">hello final step in hello process is tooupdate hello returned response with our user profile information.</span></span>
 
 ```xml
 <!-- Update response body with user profile-->
@@ -120,9 +120,9 @@ variable-name="userprofile" />
     to="@((string)context.Variables["userprofile"])" />
 ```
 
-<span data-ttu-id="90ff5-139">Optei por incluir aspas como parte do token, para que, mesmo que a substituição não ocorra, a resposta seja um JSON válido.</span><span class="sxs-lookup"><span data-stu-id="90ff5-139">I chose to include the quotation marks as part of the token so that even when the replace doesn’t occur, the response was still valid JSON.</span></span> <span data-ttu-id="90ff5-140">Isso era, principalmente, para facilitar a depuração.</span><span class="sxs-lookup"><span data-stu-id="90ff5-140">This was primarily to make debugging easier.</span></span>
+<span data-ttu-id="51cdb-139">Escolhi tooinclude Olá aspas como parte do token Olá para que, mesmo quando não ocorre Olá replace, resposta Olá era JSON ainda é válido.</span><span class="sxs-lookup"><span data-stu-id="51cdb-139">I chose tooinclude hello quotation marks as part of hello token so that even when hello replace doesn’t occur, hello response was still valid JSON.</span></span> <span data-ttu-id="51cdb-140">Isso foi principalmente toomake depuração mais fácil.</span><span class="sxs-lookup"><span data-stu-id="51cdb-140">This was primarily toomake debugging easier.</span></span>
 
-<span data-ttu-id="90ff5-141">Depois que você combina todas essas etapas, o resultado final é uma política semelhante à mostrada a seguir.</span><span class="sxs-lookup"><span data-stu-id="90ff5-141">Once you combine all these steps together, the end result is a policy that looks like the following one.</span></span>
+<span data-ttu-id="51cdb-141">Depois que você pode combinar todas essas etapas juntas, o resultado de final de saudação é uma política que se parece com hello seguindo um.</span><span class="sxs-lookup"><span data-stu-id="51cdb-141">Once you combine all these steps together, hello end result is a policy that looks like hello following one.</span></span>
 
 ```xml
 <policies>
@@ -132,22 +132,22 @@ variable-name="userprofile" />
           name="enduserid"
           value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
 
-        <!--Look for userprofile for this user in the cache -->
+        <!--Look for userprofile for this user in hello cache -->
         <cache-lookup-value
           key="@("userprofile-" + context.Variables["enduserid"])"
           variable-name="userprofile" />
 
-        <!-- If we don’t find it in the cache, make a request for it and store it -->
+        <!-- If we don’t find it in hello cache, make a request for it and store it -->
         <choose>
             <when condition="@(!context.Variables.ContainsKey("userprofile"))">
-                <!-- Make HTTP request to get user profile -->
+                <!-- Make HTTP request tooget user profile -->
                 <send-request
                   mode="new"
                   response-variable-name="userprofileresponse"
                   timeout="10"
                   ignore-error="true">
 
-                   <!-- Build a URL that points to the profile for the current end-user -->
+                   <!-- Build a URL that points toohello profile for hello current end-user -->
                     <set-url>@(new Uri(new Uri("https://apimairlineapi.azurewebsites.net/UserProfile/"),(string)context.Variables["enduserid"]).AbsoluteUri)</set-url>
                     <set-method>GET</set-method>
                 </send-request>
@@ -176,22 +176,22 @@ variable-name="userprofile" />
 </policies>
 ```
 
-<span data-ttu-id="90ff5-142">Essa abordagem de cache é usada principalmente em sites da Web em que o HTML é composto no lado do servidor para que possa ser renderizado como uma única página.</span><span class="sxs-lookup"><span data-stu-id="90ff5-142">This caching approach is primarily used in web sites where HTML is composed on the server side so that it can be rendered as a single page.</span></span> <span data-ttu-id="90ff5-143">No entanto, ela também pode ser útil em APIs em que os clientes não podem realizar cache HTTP de cliente ou é desejável não colocar a responsabilidade no cliente.</span><span class="sxs-lookup"><span data-stu-id="90ff5-143">However, it can also be useful in APIs where clients cannot do client side HTTP caching or it is desirable not to put that responsibility on the client.</span></span>
+<span data-ttu-id="51cdb-142">Essa abordagem de cache é usada principalmente em sites da web onde o HTML é composto no lado do servidor de saudação para que ele pode ser renderizado como uma única página.</span><span class="sxs-lookup"><span data-stu-id="51cdb-142">This caching approach is primarily used in web sites where HTML is composed on hello server side so that it can be rendered as a single page.</span></span> <span data-ttu-id="51cdb-143">No entanto, ele também pode ser útil para onde os clientes não é possível executar o cliente de APIs do lado do cache de HTTP ou é desejável não tooput essa responsabilidade no cliente de saudação.</span><span class="sxs-lookup"><span data-stu-id="51cdb-143">However, it can also be useful in APIs where clients cannot do client side HTTP caching or it is desirable not tooput that responsibility on hello client.</span></span>
 
-<span data-ttu-id="90ff5-144">Esse tipo de cache de fragmento também pode ser feito nos servidores back-end da Web, usando um servidor de cache Redis, no entanto, o uso do serviço de gerenciamento de API para realizar esse trabalho é útil quando os fragmentos em cache são provenientes de back-ends diferentes das respostas principais.</span><span class="sxs-lookup"><span data-stu-id="90ff5-144">This same kind of fragment caching can also be done on the backend web servers using a Redis caching server, however, using the API Management service to perform this work is useful when the cached fragments are coming from different back-ends than the primary responses.</span></span>
+<span data-ttu-id="51cdb-144">Esse tipo de cache de fragmento também pode ser feito nos servidores de web de back-end hello usando um servidor de cache de Redis, no entanto, usar tooperform de serviço de gerenciamento de API Olá esse trabalho é útil quando fragmentos Olá armazenados em cache são provenientes de back-ends diferentes que Olá respostas primárias.</span><span class="sxs-lookup"><span data-stu-id="51cdb-144">This same kind of fragment caching can also be done on hello backend web servers using a Redis caching server, however, using hello API Management service tooperform this work is useful when hello cached fragments are coming from different back-ends than hello primary responses.</span></span>
 
-## <a name="transparent-versioning"></a><span data-ttu-id="90ff5-145">Controle de versão transparente</span><span class="sxs-lookup"><span data-stu-id="90ff5-145">Transparent versioning</span></span>
-<span data-ttu-id="90ff5-146">É uma prática comum para várias versões de implementação diferentes de uma API, ter suporte a qualquer momento.</span><span class="sxs-lookup"><span data-stu-id="90ff5-146">It is common practice for multiple different implementation versions of an API to be supported at any one time.</span></span> <span data-ttu-id="90ff5-147">Isso, talvez, é para dar suporte a ambientes diferentes, como desenvolvimento, teste, produção, etc., ou pode dar suporte a versões mais antigas da API e dar tempo aos consumidores da API para migrarem para versões mais recentes.</span><span class="sxs-lookup"><span data-stu-id="90ff5-147">This is perhaps to support different environments, like dev, test, production, etc, or it may be to support older versions of the API to give time for API consumers to migrate to newer versions.</span></span> 
+## <a name="transparent-versioning"></a><span data-ttu-id="51cdb-145">Controle de versão transparente</span><span class="sxs-lookup"><span data-stu-id="51cdb-145">Transparent versioning</span></span>
+<span data-ttu-id="51cdb-146">É uma prática comum para várias versões diferentes de implementação de um toobe de API com suporte a qualquer momento.</span><span class="sxs-lookup"><span data-stu-id="51cdb-146">It is common practice for multiple different implementation versions of an API toobe supported at any one time.</span></span> <span data-ttu-id="51cdb-147">Essa é talvez toosupport diferentes ambientes, como desenvolvimento, teste, produção, etc., ou pode ser toosupport de versões mais antigas de tempo de toogive Olá API para as versões de API consumidores toomigrate toonewer.</span><span class="sxs-lookup"><span data-stu-id="51cdb-147">This is perhaps toosupport different environments, like dev, test, production, etc, or it may be toosupport older versions of hello API toogive time for API consumers toomigrate toonewer versions.</span></span> 
 
-<span data-ttu-id="90ff5-148">Uma abordagem para lidar com isso, em vez de exigir que os desenvolvedores de cliente alterem as URLs de `/v1/customers` para `/v2/customers`, é armazenar dados de perfil do consumidor, cuja versão da API eles desejam usar e chamar a URL de back-end apropriada.</span><span class="sxs-lookup"><span data-stu-id="90ff5-148">One approach to handling this instead of requiring client developers to change the URLs from `/v1/customers` to `/v2/customers` is to store in the consumer’s profile data which version of the API they currently wish to use and call the appropriate backend URL.</span></span> <span data-ttu-id="90ff5-149">Para determinar a URL correta de back-end para chamar determinado cliente, é necessário consultar alguns dados de configuração.</span><span class="sxs-lookup"><span data-stu-id="90ff5-149">In order to determine the correct backend URL to call for a particular client, it is necessary to query some configuration data.</span></span> <span data-ttu-id="90ff5-150">Ao armazenar em cache esses dados de configuração, podemos minimizar a degradação do desempenho ao fazer essa pesquisa.</span><span class="sxs-lookup"><span data-stu-id="90ff5-150">By caching this configuration data, we can minimize the performance penalty of doing this lookup.</span></span>
+<span data-ttu-id="51cdb-148">Uma abordagem toohandling em vez de exigir saudação do cliente desenvolvedores toochange URLs de `/v1/customers` muito`/v2/customers` é toostore nos dados de perfil do consumidor Olá qual versão de API do hello eles atualmente deseja toouse e chamar hello URL de back-end.</span><span class="sxs-lookup"><span data-stu-id="51cdb-148">One approach toohandling this instead of requiring client developers toochange hello URLs from `/v1/customers` too`/v2/customers` is toostore in hello consumer’s profile data which version of hello API they currently wish toouse and call hello appropriate backend URL.</span></span> <span data-ttu-id="51cdb-149">Em ordem toodetermine Olá correto de back-end URL toocall para um determinado cliente, é necessário tooquery alguns dados de configuração.</span><span class="sxs-lookup"><span data-stu-id="51cdb-149">In order toodetermine hello correct backend URL toocall for a particular client, it is necessary tooquery some configuration data.</span></span> <span data-ttu-id="51cdb-150">Armazenando em cache esses dados de configuração, é possível minimizar penalidade de desempenho de saudação de fazer essa pesquisa.</span><span class="sxs-lookup"><span data-stu-id="51cdb-150">By caching this configuration data, we can minimize hello performance penalty of doing this lookup.</span></span>
 
-<span data-ttu-id="90ff5-151">A primeira etapa é determinar o identificador usado para configurar a versão desejada.</span><span class="sxs-lookup"><span data-stu-id="90ff5-151">The first step is to determine the identifier used to configure the desired version.</span></span> <span data-ttu-id="90ff5-152">Neste exemplo, optei por associar a versão à chave de assinatura do produto.</span><span class="sxs-lookup"><span data-stu-id="90ff5-152">In this example, I chose to associate the version to the product subscription key.</span></span> 
+<span data-ttu-id="51cdb-151">Olá primeira etapa é o identificador de saudação toodetermine usado versão desejada do tooconfigure hello.</span><span class="sxs-lookup"><span data-stu-id="51cdb-151">hello first step is toodetermine hello identifier used tooconfigure hello desired version.</span></span> <span data-ttu-id="51cdb-152">Neste exemplo, escolhi chave de assinatura de produto tooassociate Olá versão toohello.</span><span class="sxs-lookup"><span data-stu-id="51cdb-152">In this example, I chose tooassociate hello version toohello product subscription key.</span></span> 
 
 ```xml
 <set-variable name="clientid" value="@(context.Subscription.Key)" />
 ```
 
-<span data-ttu-id="90ff5-153">Em seguida, fazemos uma pesquisa no cache para ver se já recuperamos a versão de cliente desejada.</span><span class="sxs-lookup"><span data-stu-id="90ff5-153">We then do a cache lookup to see if we already have retrieved the desired client version.</span></span>
+<span data-ttu-id="51cdb-153">Em seguida, fazemos uma toosee de pesquisa do cache se já recuperamos versão de cliente desejado de saudação.</span><span class="sxs-lookup"><span data-stu-id="51cdb-153">We then do a cache lookup toosee if we already have retrieved hello desired client version.</span></span>
 
 ```xml
 <cache-lookup-value
@@ -199,14 +199,14 @@ key="@("clientversion-" + context.Variables["clientid"])"
 variable-name="clientversion" />
 ```
 
-<span data-ttu-id="90ff5-154">Em seguida, verificamos se não a encontramos no cache.</span><span class="sxs-lookup"><span data-stu-id="90ff5-154">Then we check to see if we did not find it in the cache.</span></span>
+<span data-ttu-id="51cdb-154">Em seguida, marcamos toosee se não foi encontrada-la no cache de saudação.</span><span class="sxs-lookup"><span data-stu-id="51cdb-154">Then we check toosee if we did not find it in hello cache.</span></span>
 
 ```xml
 <choose>
     <when condition="@(!context.Variables.ContainsKey("clientversion"))">
 ```
 
-<span data-ttu-id="90ff5-155">Se não, nós a recuperamos.</span><span class="sxs-lookup"><span data-stu-id="90ff5-155">If we didn’t then we go and retrieve it.</span></span>
+<span data-ttu-id="51cdb-155">Se não, nós a recuperamos.</span><span class="sxs-lookup"><span data-stu-id="51cdb-155">If we didn’t then we go and retrieve it.</span></span>
 
 ```xml
 <send-request
@@ -219,7 +219,7 @@ variable-name="clientversion" />
 </send-request>
 ```
 
-<span data-ttu-id="90ff5-156">Extraia o texto do corpo de resposta da resposta.</span><span class="sxs-lookup"><span data-stu-id="90ff5-156">Extract the response body text from the response.</span></span>
+<span data-ttu-id="51cdb-156">Extrai o texto do corpo de resposta de saudação da resposta de saudação.</span><span class="sxs-lookup"><span data-stu-id="51cdb-156">Extract hello response body text from hello response.</span></span>
 
 ```xml
 <set-variable
@@ -227,7 +227,7 @@ variable-name="clientversion" />
       value="@(((IResponse)context.Variables["clientconfiguresponse"]).Body.As<string>())" />
 ```
 
-<span data-ttu-id="90ff5-157">Armazene-o no cache para uso futuro.</span><span class="sxs-lookup"><span data-stu-id="90ff5-157">Store it back in the cache for future use.</span></span>
+<span data-ttu-id="51cdb-157">Armazená-lo novamente no cache de saudação para uso futuro.</span><span class="sxs-lookup"><span data-stu-id="51cdb-157">Store it back in hello cache for future use.</span></span>
 
 ```xml
 <cache-store-value
@@ -236,14 +236,14 @@ variable-name="clientversion" />
       duration="100000" />
 ```
 
-<span data-ttu-id="90ff5-158">E, finalmente, atualize a URL do back-end para selecionar a versão de serviço desejada pelo cliente.</span><span class="sxs-lookup"><span data-stu-id="90ff5-158">And finally update the back-end URL to select the version of the service desired by the client.</span></span>
+<span data-ttu-id="51cdb-158">E finalmente Olá back-end URL tooselect Olá versão da atualização do serviço de saudação desejado pelo cliente hello.</span><span class="sxs-lookup"><span data-stu-id="51cdb-158">And finally update hello back-end URL tooselect hello version of hello service desired by hello client.</span></span>
 
 ```xml
 <set-backend-service
       base-url="@(context.Api.ServiceUrl.ToString() + "api/" + (string)context.Variables["clientversion"] + "/")" />
 ```
 
-<span data-ttu-id="90ff5-159">A política completa é conforme segue.</span><span class="sxs-lookup"><span data-stu-id="90ff5-159">The completely policy is as follows.</span></span>
+<span data-ttu-id="51cdb-159">Olá completamente política é da seguinte maneira.</span><span class="sxs-lookup"><span data-stu-id="51cdb-159">hello completely policy is as follows.</span></span>
 
 ```xml
 <inbound>
@@ -251,7 +251,7 @@ variable-name="clientversion" />
     <set-variable name="clientid" value="@(context.Subscription.Key)" />
     <cache-lookup-value key="@("clientversion-" + context.Variables["clientid"])" variable-name="clientversion" />
 
-    <!-- If we don’t find it in the cache, make a request for it and store it -->
+    <!-- If we don’t find it in hello cache, make a request for it and store it -->
     <choose>
         <when condition="@(!context.Variables.ContainsKey("clientversion"))">
             <send-request mode="new" response-variable-name="clientconfiguresponse" timeout="10" ignore-error="true">
@@ -268,16 +268,16 @@ variable-name="clientversion" />
 </inbound>
 ```
 
-<span data-ttu-id="90ff5-160">Habilitar consumidores da API a controlar, de forma transparente, qual versão de back-end está sendo acessado por clientes sem a necessidade de atualizar e reimplantar clientes é uma solução elegante que resolve muitas preocupações de controle de versão de API.</span><span class="sxs-lookup"><span data-stu-id="90ff5-160">Enabling API consumers to transparently control which backend version is being accessed by clients without having to update and redeploy clients is a elegant solution that addresses many API versioning concerns.</span></span>
+<span data-ttu-id="51cdb-160">Ativando o controle de tootransparently consumidores de API qual versão de back-end está sendo acessado por clientes sem ter que clientes tooupdate e a reimplantação é uma solução elegante que resolve muitos problemas de controle de versão de API.</span><span class="sxs-lookup"><span data-stu-id="51cdb-160">Enabling API consumers tootransparently control which backend version is being accessed by clients without having tooupdate and redeploy clients is a elegant solution that addresses many API versioning concerns.</span></span>
 
-## <a name="tenant-isolation"></a><span data-ttu-id="90ff5-161">Isolamento de locatário</span><span class="sxs-lookup"><span data-stu-id="90ff5-161">Tenant Isolation</span></span>
-<span data-ttu-id="90ff5-162">Em implantações maiores, de vários locatários, algumas empresas criar grupos separados de locatários em implantações distintas do hardware de back-end.</span><span class="sxs-lookup"><span data-stu-id="90ff5-162">In larger, multi-tenant deployments some companies create separate groups of tenants on distinct deployments of backend hardware.</span></span> <span data-ttu-id="90ff5-163">Isso minimiza o número de clientes afetados por um problema de hardware no back-end.</span><span class="sxs-lookup"><span data-stu-id="90ff5-163">This minimizes the number of customers who are impacted by a hardware issue on the backend.</span></span> <span data-ttu-id="90ff5-164">Também permite que novas versões de software sejam implementadas em estágios.</span><span class="sxs-lookup"><span data-stu-id="90ff5-164">It also enables new software versions to be rolled out in stages.</span></span> <span data-ttu-id="90ff5-165">O ideal é que essa arquitetura de back-end seja transparente para os consumidores de API.</span><span class="sxs-lookup"><span data-stu-id="90ff5-165">Ideally this backend architecture should be transparent to API consumers.</span></span> <span data-ttu-id="90ff5-166">Isso pode ser obtido de forma semelhante ao controle de versão transparente porque baseia-se na mesma técnica de manipular a URL do back-end usando o estado de configuração por chave de API.</span><span class="sxs-lookup"><span data-stu-id="90ff5-166">This can be achieved in a similar way to transparent versioning because it is based on the same technique of manipulating the backend URL using configuration state per API key.</span></span>  
+## <a name="tenant-isolation"></a><span data-ttu-id="51cdb-161">Isolamento de locatário</span><span class="sxs-lookup"><span data-stu-id="51cdb-161">Tenant Isolation</span></span>
+<span data-ttu-id="51cdb-162">Em implantações maiores, de vários locatários, algumas empresas criar grupos separados de locatários em implantações distintas do hardware de back-end.</span><span class="sxs-lookup"><span data-stu-id="51cdb-162">In larger, multi-tenant deployments some companies create separate groups of tenants on distinct deployments of backend hardware.</span></span> <span data-ttu-id="51cdb-163">Isso minimiza o número de saudação de clientes que são afetados por um problema de hardware em Olá back-end.</span><span class="sxs-lookup"><span data-stu-id="51cdb-163">This minimizes hello number of customers who are impacted by a hardware issue on hello backend.</span></span> <span data-ttu-id="51cdb-164">Ele também permite que o novo toobe de versões de software distribuído em estágios.</span><span class="sxs-lookup"><span data-stu-id="51cdb-164">It also enables new software versions toobe rolled out in stages.</span></span> <span data-ttu-id="51cdb-165">O ideal é essa arquitetura de back-end deve ser consumidores tooAPI transparente.</span><span class="sxs-lookup"><span data-stu-id="51cdb-165">Ideally this backend architecture should be transparent tooAPI consumers.</span></span> <span data-ttu-id="51cdb-166">Isso pode ser obtido de um controle de versão de tootransparent de maneira semelhante, porque ela é baseada no hello mesma técnica de manipulação de URL de back-end hello usando o estado de configuração por chave de API.</span><span class="sxs-lookup"><span data-stu-id="51cdb-166">This can be achieved in a similar way tootransparent versioning because it is based on hello same technique of manipulating hello backend URL using configuration state per API key.</span></span>  
 
-<span data-ttu-id="90ff5-167">Em vez de retornar uma versão de preferência da API para cada chave de assinatura, você retornará um identificador que relaciona um locatário ao grupo de hardware atribuído.</span><span class="sxs-lookup"><span data-stu-id="90ff5-167">Instead of returning a preferred version of the API for each subscription key, you would return an identifier that relates a tenant to the assigned hardware group.</span></span> <span data-ttu-id="90ff5-168">Esse identificador pode ser usado para construir a URL de back-end apropriada.</span><span class="sxs-lookup"><span data-stu-id="90ff5-168">That identifier can be used to construct the appropriate backend URL.</span></span>
+<span data-ttu-id="51cdb-167">Em vez de retornar uma versão preferencial do hello API para cada chave de assinatura, você retornará um identificador que está relacionada a um grupo de hardware do locatário toohello atribuído.</span><span class="sxs-lookup"><span data-stu-id="51cdb-167">Instead of returning a preferred version of hello API for each subscription key, you would return an identifier that relates a tenant toohello assigned hardware group.</span></span> <span data-ttu-id="51cdb-168">Esse identificador pode ser usado tooconstruct Olá back-end apropriado URL.</span><span class="sxs-lookup"><span data-stu-id="51cdb-168">That identifier can be used tooconstruct hello appropriate backend URL.</span></span>
 
-## <a name="summary"></a><span data-ttu-id="90ff5-169">Resumo</span><span class="sxs-lookup"><span data-stu-id="90ff5-169">Summary</span></span>
-<span data-ttu-id="90ff5-170">A liberdade de usar o cache de gerenciamento de API do Azure para armazenar qualquer tipo de dados permite acesso eficiente aos dados de configuração que podem afetar a maneira pela qual uma solicitação de entrada é processada.</span><span class="sxs-lookup"><span data-stu-id="90ff5-170">The freedom to use the Azure API management cache for storing any kind of data enables efficient access to configuration data that can affect the way an inbound request is processed.</span></span> <span data-ttu-id="90ff5-171">Ele também pode ser usado para armazenar fragmentos de dados que podem aumentar as respostas retornadas de uma API de back-end.</span><span class="sxs-lookup"><span data-stu-id="90ff5-171">It can also be used to store data fragments that can augment responses, returned from a backend API.</span></span>
+## <a name="summary"></a><span data-ttu-id="51cdb-169">Resumo</span><span class="sxs-lookup"><span data-stu-id="51cdb-169">Summary</span></span>
+<span data-ttu-id="51cdb-170">saudação de toouse Olá liberdade cache de gerenciamento de API do Azure para armazenar qualquer tipo de dados permite que os dados de tooconfiguration acesso eficiente que podem afetar a maneira de saudação que uma solicitação de entrada é processada.</span><span class="sxs-lookup"><span data-stu-id="51cdb-170">hello freedom toouse hello Azure API management cache for storing any kind of data enables efficient access tooconfiguration data that can affect hello way an inbound request is processed.</span></span> <span data-ttu-id="51cdb-171">Ele também pode ser usado toostore os fragmentos de dados que podem aumentar respostas, retornadas de uma API de back-end.</span><span class="sxs-lookup"><span data-stu-id="51cdb-171">It can also be used toostore data fragments that can augment responses, returned from a backend API.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="90ff5-172">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="90ff5-172">Next steps</span></span>
-<span data-ttu-id="90ff5-173">Envie-nos seus comentários no thread de discussão para este tópico, se houver outros cenários que essas políticas habilitaram para você, ou se houver cenários que você gostaria de ter, mas não sente que é possível no momento.</span><span class="sxs-lookup"><span data-stu-id="90ff5-173">Please give us your feedback in the Disqus thread for this topic if there are other scenarios that these policies have enabled for you, or if there are scenarios you would like to achieve but do not feel are currently possible.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="51cdb-172">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="51cdb-172">Next steps</span></span>
+<span data-ttu-id="51cdb-173">. Forneça seus comentários no hello threads do Disqus para este tópico se há outros cenários que essas políticas tem habilitado para você, ou se há cenários você gostaria que tooachieve, mas não se sinta são possíveis no momento.</span><span class="sxs-lookup"><span data-stu-id="51cdb-173">Please give us your feedback in hello Disqus thread for this topic if there are other scenarios that these policies have enabled for you, or if there are scenarios you would like tooachieve but do not feel are currently possible.</span></span>
 

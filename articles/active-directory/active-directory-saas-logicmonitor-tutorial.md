@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory com o LogicMonitor | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o LogicMonitor."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e LogicMonitor."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,245 +13,245 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: e49960cac868f80af3e9165a9f75e49be87515f4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ea5cb8b574d763cb114286e3b2a5c94ab5546756
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a><span data-ttu-id="994d6-103">Tutorial: Integração do Active Directory do Azure com o LogicMonitor</span><span class="sxs-lookup"><span data-stu-id="994d6-103">Tutorial: Azure Active Directory integration with LogicMonitor</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a><span data-ttu-id="e9ad0-103">Tutorial: Integração do Active Directory do Azure com o LogicMonitor</span><span class="sxs-lookup"><span data-stu-id="e9ad0-103">Tutorial: Azure Active Directory integration with LogicMonitor</span></span>
 
-<span data-ttu-id="994d6-104">Neste tutorial, você aprenderá a integrar o LogicMonitor ao Azure AD (Azure Active Directory).</span><span class="sxs-lookup"><span data-stu-id="994d6-104">In this tutorial, you learn how to integrate LogicMonitor with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="e9ad0-104">Neste tutorial, você aprenderá como toointegrate LogicMonitor com o Azure Active Directory (AD do Azure).</span><span class="sxs-lookup"><span data-stu-id="e9ad0-104">In this tutorial, you learn how toointegrate LogicMonitor with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="994d6-105">A integração do LogicMonitor ao Azure AD oferece os seguintes benefícios:</span><span class="sxs-lookup"><span data-stu-id="994d6-105">Integrating LogicMonitor with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="e9ad0-105">Integrando o LogicMonitor com o AD do Azure fornece Olá benefícios a seguir:</span><span class="sxs-lookup"><span data-stu-id="e9ad0-105">Integrating LogicMonitor with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="994d6-106">Você pode controlar no Azure AD quem tem acesso ao LogicMonitor</span><span class="sxs-lookup"><span data-stu-id="994d6-106">You can control in Azure AD who has access to LogicMonitor</span></span>
-- <span data-ttu-id="994d6-107">Você pode permitir que os usuários façam logon automaticamente no LogicMonitor (Logon Único) com suas contas do Azure AD</span><span class="sxs-lookup"><span data-stu-id="994d6-107">You can enable your users to automatically get signed-on to LogicMonitor (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="994d6-108">Você pode gerenciar suas contas em um única localização: o Portal do Azure</span><span class="sxs-lookup"><span data-stu-id="994d6-108">You can manage your accounts in one central location - the Azure portal</span></span>
+- <span data-ttu-id="e9ad0-106">Você pode controlar no AD do Azure que tenha acesso tooLogicMonitor</span><span class="sxs-lookup"><span data-stu-id="e9ad0-106">You can control in Azure AD who has access tooLogicMonitor</span></span>
+- <span data-ttu-id="e9ad0-107">Você pode habilitar seu usuários tooautomatically get conectado tooLogicMonitor (logon único) com suas contas do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="e9ad0-107">You can enable your users tooautomatically get signed-on tooLogicMonitor (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="e9ad0-108">Você pode gerenciar suas contas em um local central - Olá portal do Azure</span><span class="sxs-lookup"><span data-stu-id="e9ad0-108">You can manage your accounts in one central location - hello Azure portal</span></span>
 
-<span data-ttu-id="994d6-109">Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="994d6-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="e9ad0-109">Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="e9ad0-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="994d6-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="994d6-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="e9ad0-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="e9ad0-110">Prerequisites</span></span>
 
-<span data-ttu-id="994d6-111">Para configurar a integração do Azure AD ao LogicMonitor, você precisa dos seguintes itens:</span><span class="sxs-lookup"><span data-stu-id="994d6-111">To configure Azure AD integration with LogicMonitor, you need the following items:</span></span>
+<span data-ttu-id="e9ad0-111">tooconfigure integração do AD do Azure com LogicMonitor, você precisa Olá itens a seguir:</span><span class="sxs-lookup"><span data-stu-id="e9ad0-111">tooconfigure Azure AD integration with LogicMonitor, you need hello following items:</span></span>
 
-- <span data-ttu-id="994d6-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="994d6-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="994d6-113">Uma assinatura habilitada para logon único do LogicMonitor</span><span class="sxs-lookup"><span data-stu-id="994d6-113">A LogicMonitor single sign-on enabled subscription</span></span>
+- <span data-ttu-id="e9ad0-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="e9ad0-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="e9ad0-113">Uma assinatura habilitada para logon único do LogicMonitor</span><span class="sxs-lookup"><span data-stu-id="e9ad0-113">A LogicMonitor single sign-on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="994d6-114">Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="994d6-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="e9ad0-114">Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="994d6-115">Para testar as etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="994d6-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="e9ad0-115">tootest Olá etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="e9ad0-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="994d6-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="994d6-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="994d6-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="994d6-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="e9ad0-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="e9ad0-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="e9ad0-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="994d6-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="994d6-118">Scenario description</span></span>
-<span data-ttu-id="994d6-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="994d6-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="994d6-120">O cenário descrito neste tutorial consiste em dois blocos de construção principais:</span><span class="sxs-lookup"><span data-stu-id="994d6-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="e9ad0-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="e9ad0-118">Scenario description</span></span>
+<span data-ttu-id="e9ad0-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="e9ad0-120">cenário de saudação descrito neste tutorial consiste em dois elementos básicos:</span><span class="sxs-lookup"><span data-stu-id="e9ad0-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="994d6-121">Adicionar o LogicMonitor da galeria</span><span class="sxs-lookup"><span data-stu-id="994d6-121">Adding LogicMonitor from the gallery</span></span>
-2. <span data-ttu-id="994d6-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="994d6-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="e9ad0-121">Adicionando LogicMonitor da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="e9ad0-121">Adding LogicMonitor from hello gallery</span></span>
+2. <span data-ttu-id="e9ad0-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="e9ad0-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-logicmonitor-from-the-gallery"></a><span data-ttu-id="994d6-123">Adicionar o LogicMonitor da galeria</span><span class="sxs-lookup"><span data-stu-id="994d6-123">Adding LogicMonitor from the gallery</span></span>
-<span data-ttu-id="994d6-124">Para configurar a integração do LogicMonitor ao Azure AD, você precisará adicionar o LogicMonitor da galeria à sua lista de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="994d6-124">To configure the integration of LogicMonitor into Azure AD, you need to add LogicMonitor from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-logicmonitor-from-hello-gallery"></a><span data-ttu-id="e9ad0-123">Adicionando LogicMonitor da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="e9ad0-123">Adding LogicMonitor from hello gallery</span></span>
+<span data-ttu-id="e9ad0-124">integração de saudação tooconfigure do LogicMonitor no AD do Azure, você precisa tooadd LogicMonitor da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-124">tooconfigure hello integration of LogicMonitor into Azure AD, you need tooadd LogicMonitor from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="994d6-125">**Para adicionar o LogicMonitor da galeria, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="994d6-125">**To add LogicMonitor from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="e9ad0-125">**tooadd LogicMonitor da Galeria hello, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="e9ad0-125">**tooadd LogicMonitor from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="994d6-126">No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="994d6-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="e9ad0-126">Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Active Directory][1]
 
-2. <span data-ttu-id="994d6-128">Navegue até **aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="994d6-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="994d6-129">Em seguida, vá para **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="994d6-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="e9ad0-128">Navegue muito**aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="e9ad0-129">Em seguida, acesse muito**todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-129">Then go too**All applications**.</span></span>
 
     ![Aplicativos][2]
     
-3. <span data-ttu-id="994d6-131">Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.</span><span class="sxs-lookup"><span data-stu-id="994d6-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="e9ad0-131">tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
     ![Aplicativos][3]
 
-4. <span data-ttu-id="994d6-133">Na caixa de pesquisa, digite **LogicMonitor**.</span><span class="sxs-lookup"><span data-stu-id="994d6-133">In the search box, type **LogicMonitor**.</span></span>
+4. <span data-ttu-id="e9ad0-133">Na caixa de pesquisa hello, digite **LogicMonitor**.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-133">In hello search box, type **LogicMonitor**.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-logicmonitor-tutorial/tutorial_logicmonitor_search.png)
 
-5. <span data-ttu-id="994d6-135">No painel de resultados, selecione **LogicMonitor** e clique no botão **Adicionar** para adicionar o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="994d6-135">In the results panel, select **LogicMonitor**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="e9ad0-135">No painel de resultados de saudação, selecione **LogicMonitor**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-135">In hello results panel, select **LogicMonitor**, and then click **Add** button tooadd hello application.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-logicmonitor-tutorial/tutorial_logicmonitor_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="994d6-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="994d6-137">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="994d6-138">Nesta seção, você configurará e testará o logon único do Azure AD com o LogicMonitor, com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="994d6-138">In this section, you configure and test Azure AD single sign-on with LogicMonitor based on a test user called "Britta Simon".</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="e9ad0-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="e9ad0-137">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="e9ad0-138">Nesta seção, você configurará e testará o logon único do Azure AD com o LogicMonitor, com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-138">In this section, you configure and test Azure AD single sign-on with LogicMonitor based on a test user called "Britta Simon".</span></span>
 
-<span data-ttu-id="994d6-139">Para que o logon único funcione, o Azure AD precisa saber qual usuário do LogicMonitor é equivalente a um usuário do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="994d6-139">For single sign-on to work, Azure AD needs to know what the counterpart user in LogicMonitor is to a user in Azure AD.</span></span> <span data-ttu-id="994d6-140">Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do LogicMonitor.</span><span class="sxs-lookup"><span data-stu-id="994d6-140">In other words, a link relationship between an Azure AD user and the related user in LogicMonitor needs to be established.</span></span>
+<span data-ttu-id="e9ad0-139">Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no LogicMonitor é tooa usuário no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in LogicMonitor is tooa user in Azure AD.</span></span> <span data-ttu-id="e9ad0-140">Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no LogicMonitor precisa toobe estabelecida.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-140">In other words, a link relationship between an Azure AD user and hello related user in LogicMonitor needs toobe established.</span></span>
 
-<span data-ttu-id="994d6-141">No LogicMonitor, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.</span><span class="sxs-lookup"><span data-stu-id="994d6-141">In LogicMonitor, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="e9ad0-141">No LogicMonitor, atribuir o valor de saudação do hello **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-141">In LogicMonitor, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="994d6-142">Para configurar e testar o logon único do Azure AD com o LogicMonitor, você precisará concluir os seguintes blocos de construção:</span><span class="sxs-lookup"><span data-stu-id="994d6-142">To configure and test Azure AD single sign-on with LogicMonitor, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="e9ad0-142">tooconfigure e teste de logon único do AD do Azure com LogicMonitor, é necessário Olá toocomplete blocos de construção a seguir:</span><span class="sxs-lookup"><span data-stu-id="e9ad0-142">tooconfigure and test Azure AD single sign-on with LogicMonitor, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="994d6-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.</span><span class="sxs-lookup"><span data-stu-id="994d6-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="994d6-144">**[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="994d6-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="994d6-145">**[Criação de um usuário de teste do LogicMonitor](#creating-a-logicmonitor-test-user)** – para ter um equivalente de Brenda Fernandes no LogicMonitor que esteja vinculado à representação do usuário no Azure AD.</span><span class="sxs-lookup"><span data-stu-id="994d6-145">**[Creating a LogicMonitor test user](#creating-a-logicmonitor-test-user)** - to have a counterpart of Britta Simon in LogicMonitor that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="994d6-146">**[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="994d6-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="994d6-147">**[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.</span><span class="sxs-lookup"><span data-stu-id="994d6-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="e9ad0-143">**[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="e9ad0-144">**[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="e9ad0-145">**[Criar um usuário de teste do LogicMonitor](#creating-a-logicmonitor-test-user)**  -toohave um equivalente do Britta Simon no LogicMonitor é vinculado toohello AD do Azure representação do usuário.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-145">**[Creating a LogicMonitor test user](#creating-a-logicmonitor-test-user)** - toohave a counterpart of Britta Simon in LogicMonitor that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="e9ad0-146">**[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="e9ad0-147">**[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="994d6-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="994d6-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="e9ad0-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="e9ad0-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="994d6-149">Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo LogicMonitor.</span><span class="sxs-lookup"><span data-stu-id="994d6-149">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your LogicMonitor application.</span></span>
+<span data-ttu-id="e9ad0-149">Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único em seu aplicativo do LogicMonitor.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-149">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your LogicMonitor application.</span></span>
 
-<span data-ttu-id="994d6-150">**Para configurar o logon único do Azure AD com o LogicMonitor, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="994d6-150">**To configure Azure AD single sign-on with LogicMonitor, perform the following steps:**</span></span>
+<span data-ttu-id="e9ad0-150">**tooconfigure AD do Azure-logon único com LogicMonitor, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="e9ad0-150">**tooconfigure Azure AD single sign-on with LogicMonitor, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="994d6-151">No portal do Azure, na página de integração de aplicativos do **LogicMonitor**, clique em **Logon único**.</span><span class="sxs-lookup"><span data-stu-id="994d6-151">In the Azure portal, on the **LogicMonitor** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="e9ad0-151">Em Olá portal do Azure, Olá **LogicMonitor** página de integração de aplicativos, clique em **o logon único**.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-151">In hello Azure portal, on hello **LogicMonitor** application integration page, click **Single sign-on**.</span></span>
 
     ![Configurar Logon Único][4]
 
-2. <span data-ttu-id="994d6-153">Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.</span><span class="sxs-lookup"><span data-stu-id="994d6-153">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="e9ad0-153">Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-153">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Configurar Logon Único](./media/active-directory-saas-logicmonitor-tutorial/tutorial_logicmonitor_samlbase.png)
 
-3. <span data-ttu-id="994d6-155">Na seção **Domínio e URLs do LogicMonitor**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="994d6-155">On the **LogicMonitor Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="e9ad0-155">Em Olá **LogicMonitor domínio e URLs** , execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="e9ad0-155">On hello **LogicMonitor Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-logicmonitor-tutorial/tutorial_logicmonitor_url.png)
 
-    <span data-ttu-id="994d6-157">a.</span><span class="sxs-lookup"><span data-stu-id="994d6-157">a.</span></span> <span data-ttu-id="994d6-158">Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.logicmonitor.com`</span><span class="sxs-lookup"><span data-stu-id="994d6-158">In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.logicmonitor.com`</span></span>
+    <span data-ttu-id="e9ad0-157">a.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-157">a.</span></span> <span data-ttu-id="e9ad0-158">Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<companyname>.logicmonitor.com`</span><span class="sxs-lookup"><span data-stu-id="e9ad0-158">In hello **Sign-on URL** textbox, type a URL using hello following pattern: `https://<companyname>.logicmonitor.com`</span></span>
 
-    <span data-ttu-id="994d6-159">b.</span><span class="sxs-lookup"><span data-stu-id="994d6-159">b.</span></span> <span data-ttu-id="994d6-160">Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.logicmonitor.com`</span><span class="sxs-lookup"><span data-stu-id="994d6-160">In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.logicmonitor.com`</span></span>
+    <span data-ttu-id="e9ad0-159">b.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-159">b.</span></span> <span data-ttu-id="e9ad0-160">Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<companyname>.logicmonitor.com`</span><span class="sxs-lookup"><span data-stu-id="e9ad0-160">In hello **Identifier** textbox, type a URL using hello following pattern: `https://<companyname>.logicmonitor.com`</span></span>
 
     > [!NOTE] 
-    > <span data-ttu-id="994d6-161">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="994d6-161">These values are not real.</span></span> <span data-ttu-id="994d6-162">Atualize esses valores com a URL de Entrada e o Identificador reais.</span><span class="sxs-lookup"><span data-stu-id="994d6-162">Update these values with the actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="994d6-163">Entre em contato com a [equipe de suporte do cliente do LogicMonitor](https://www.logicmonitor.com/contact/) para obter esses valores.</span><span class="sxs-lookup"><span data-stu-id="994d6-163">Contact [LogicMonitor Client support team](https://www.logicmonitor.com/contact/) to get these values.</span></span> 
+    > <span data-ttu-id="e9ad0-161">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-161">These values are not real.</span></span> <span data-ttu-id="e9ad0-162">Atualizar esses valores com hello real URL de logon e o identificador.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-162">Update these values with hello actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="e9ad0-163">Entre em contato com [equipe de suporte do cliente LogicMonitor](https://www.logicmonitor.com/contact/) tooget esses valores.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-163">Contact [LogicMonitor Client support team](https://www.logicmonitor.com/contact/) tooget these values.</span></span> 
  
 
 
-4. <span data-ttu-id="994d6-164">Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.</span><span class="sxs-lookup"><span data-stu-id="994d6-164">On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.</span></span>
+4. <span data-ttu-id="e9ad0-164">Em Olá **o certificado de autenticação SAML** seção, clique em **Metadata XML** e, em seguida, salve o arquivo de metadados de saudação em seu computador.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-164">On hello **SAML Signing Certificate** section, click **Metadata XML** and then save hello metadata file on your computer.</span></span>
 
-    ![Configurar o logon único](./media/active-directory-saas-logicmonitor-tutorial/tutorial_logicmonitor_certificate.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-logicmonitor-tutorial/tutorial_logicmonitor_certificate.png) 
 
-5. <span data-ttu-id="994d6-166">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="994d6-166">Click **Save** button.</span></span>
+5. <span data-ttu-id="e9ad0-166">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="e9ad0-166">Click **Save** button.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-logicmonitor-tutorial/tutorial_general_400.png)
 
-6. <span data-ttu-id="994d6-168">Faça logon em seu site de empresa do **LogicMonitor** como administrador.</span><span class="sxs-lookup"><span data-stu-id="994d6-168">Log in to your **LogicMonitor** company site as an administrator.</span></span>
+6. <span data-ttu-id="e9ad0-168">Faça logon no tooyour **LogicMonitor** site da empresa como um administrador.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-168">Log in tooyour **LogicMonitor** company site as an administrator.</span></span>
 
-7. <span data-ttu-id="994d6-169">No menu na parte superior, clique em **Configurações**.</span><span class="sxs-lookup"><span data-stu-id="994d6-169">In the menu on the top, click **Settings**.</span></span>
+7. <span data-ttu-id="e9ad0-169">No menu de saudação na parte superior de saudação, clique em **configurações**.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-169">In hello menu on hello top, click **Settings**.</span></span>
    
-   <span data-ttu-id="994d6-170">![Configurações](./media/active-directory-saas-logicmonitor-tutorial/ic790052.png "Configurações")</span><span class="sxs-lookup"><span data-stu-id="994d6-170">![Settings](./media/active-directory-saas-logicmonitor-tutorial/ic790052.png "Settings")</span></span>
+   <span data-ttu-id="e9ad0-170">![Configurações](./media/active-directory-saas-logicmonitor-tutorial/ic790052.png "Configurações")</span><span class="sxs-lookup"><span data-stu-id="e9ad0-170">![Settings](./media/active-directory-saas-logicmonitor-tutorial/ic790052.png "Settings")</span></span>
 
-8. <span data-ttu-id="994d6-171">Na guia de navegação à esquerda, clique em **Logon Único**</span><span class="sxs-lookup"><span data-stu-id="994d6-171">In the navigation bat on the left side, click **Single Sign On**</span></span>
+8. <span data-ttu-id="e9ad0-171">No hello bat de navegação no lado esquerdo do hello, clique em **logon único**</span><span class="sxs-lookup"><span data-stu-id="e9ad0-171">In hello navigation bat on hello left side, click **Single Sign On**</span></span>
    
-   <span data-ttu-id="994d6-172">![Logon Único](./media/active-directory-saas-logicmonitor-tutorial/ic790053.png "Logon Único")</span><span class="sxs-lookup"><span data-stu-id="994d6-172">![Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/ic790053.png "Single Sign-On")</span></span>
+   <span data-ttu-id="e9ad0-172">![Logon Único](./media/active-directory-saas-logicmonitor-tutorial/ic790053.png "Logon Único")</span><span class="sxs-lookup"><span data-stu-id="e9ad0-172">![Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/ic790053.png "Single Sign-On")</span></span>
 
-9. <span data-ttu-id="994d6-173">Na seção **Configurações de SSO (logon único)** , realize as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="994d6-173">In the **Single Sign-on (SSO) settings** section, perform the following steps:</span></span>
+9. <span data-ttu-id="e9ad0-173">Em Olá **as configurações de logon único (SSO)** , execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="e9ad0-173">In hello **Single Sign-on (SSO) settings** section, perform hello following steps:</span></span>
    
-   <span data-ttu-id="994d6-174">![Configurações de Logon Único](./media/active-directory-saas-logicmonitor-tutorial/ic790054.png "Configurações de Logon Único")</span><span class="sxs-lookup"><span data-stu-id="994d6-174">![Single Sign-On Settings](./media/active-directory-saas-logicmonitor-tutorial/ic790054.png "Single Sign-On Settings")</span></span>
+   <span data-ttu-id="e9ad0-174">![Configurações de Logon Único](./media/active-directory-saas-logicmonitor-tutorial/ic790054.png "Configurações de Logon Único")</span><span class="sxs-lookup"><span data-stu-id="e9ad0-174">![Single Sign-On Settings](./media/active-directory-saas-logicmonitor-tutorial/ic790054.png "Single Sign-On Settings")</span></span>
    
-   <span data-ttu-id="994d6-175">a.</span><span class="sxs-lookup"><span data-stu-id="994d6-175">a.</span></span> <span data-ttu-id="994d6-176">Selecione **Habilitar Logon Único**.</span><span class="sxs-lookup"><span data-stu-id="994d6-176">Select **Enable Single Sign-on**.</span></span>
+   <span data-ttu-id="e9ad0-175">a.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-175">a.</span></span> <span data-ttu-id="e9ad0-176">Selecione **Habilitar Logon Único**.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-176">Select **Enable Single Sign-on**.</span></span>
 
-   <span data-ttu-id="994d6-177">b.</span><span class="sxs-lookup"><span data-stu-id="994d6-177">b.</span></span> <span data-ttu-id="994d6-178">Para **Atribuição de Função Padrão**, selecione **readonly**.</span><span class="sxs-lookup"><span data-stu-id="994d6-178">As **Default Role Assignment**, select **readonly**.</span></span>
+   <span data-ttu-id="e9ad0-177">b.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-177">b.</span></span> <span data-ttu-id="e9ad0-178">Para **Atribuição de Função Padrão**, selecione **readonly**.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-178">As **Default Role Assignment**, select **readonly**.</span></span>
    
-   <span data-ttu-id="994d6-179">c.</span><span class="sxs-lookup"><span data-stu-id="994d6-179">c.</span></span> <span data-ttu-id="994d6-180">Abra o arquivo de metadados baixado no bloco de notas e cole o conteúdo do arquivo na caixa de texto **Metadados do Provedor de Identidade** .</span><span class="sxs-lookup"><span data-stu-id="994d6-180">Open the downloaded metadata file in notepad, and then paste content of the file into the **Identity Provider Metadata** textbox.</span></span>
+   <span data-ttu-id="e9ad0-179">c.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-179">c.</span></span> <span data-ttu-id="e9ad0-180">Abra o arquivo de metadados de saudação baixado no bloco de notas e, em seguida, cole o conteúdo do arquivo hello Olá **metadados do provedor de identidade** caixa de texto.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-180">Open hello downloaded metadata file in notepad, and then paste content of hello file into hello **Identity Provider Metadata** textbox.</span></span>
    
-   <span data-ttu-id="994d6-181">d.</span><span class="sxs-lookup"><span data-stu-id="994d6-181">d.</span></span> <span data-ttu-id="994d6-182">Clique em **Salvar Alterações**.</span><span class="sxs-lookup"><span data-stu-id="994d6-182">Click **Save Changes**.</span></span>
+   <span data-ttu-id="e9ad0-181">d.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-181">d.</span></span> <span data-ttu-id="e9ad0-182">Clique em **Salvar Alterações**.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-182">Click **Save Changes**.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="994d6-183">É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!</span><span class="sxs-lookup"><span data-stu-id="994d6-183">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="994d6-184">Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior.</span><span class="sxs-lookup"><span data-stu-id="994d6-184">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="994d6-185">Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="994d6-185">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="e9ad0-183">Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!</span><span class="sxs-lookup"><span data-stu-id="e9ad0-183">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="e9ad0-184">Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-184">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="e9ad0-185">Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="e9ad0-185">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 > 
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="994d6-186">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="994d6-186">Creating an Azure AD test user</span></span>
-<span data-ttu-id="994d6-187">O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="994d6-187">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="e9ad0-186">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="e9ad0-186">Creating an Azure AD test user</span></span>
+<span data-ttu-id="e9ad0-187">Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-187">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Criar um usuário do AD do Azure][100]
 
-<span data-ttu-id="994d6-189">**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="994d6-189">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="e9ad0-189">**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="e9ad0-189">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="994d6-190">No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="994d6-190">In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="e9ad0-190">Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-190">In hello **Azure portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-logicmonitor-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="994d6-192">Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="994d6-192">To display the list of users, go to **Users and groups** and click **All users**.</span></span>
+2. <span data-ttu-id="e9ad0-192">lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-192">toodisplay hello list of users, go too**Users and groups** and click **All users**.</span></span>
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-logicmonitor-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="994d6-194">Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="994d6-194">To open the **User** dialog, click **Add** on the top of the dialog.</span></span>
+3. <span data-ttu-id="e9ad0-194">Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-194">tooopen hello **User** dialog, click **Add** on hello top of hello dialog.</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-logicmonitor-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="994d6-196">Na página do diálogo **Usuário**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="994d6-196">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="e9ad0-196">Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="e9ad0-196">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-logicmonitor-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="994d6-198">a.</span><span class="sxs-lookup"><span data-stu-id="994d6-198">a.</span></span> <span data-ttu-id="994d6-199">Na caixa de texto **Nome**, digite **Brenda Fernandes**.</span><span class="sxs-lookup"><span data-stu-id="994d6-199">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="e9ad0-198">a.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-198">a.</span></span> <span data-ttu-id="e9ad0-199">Em Olá **nome** caixa de texto, tipo **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-199">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="994d6-200">b.</span><span class="sxs-lookup"><span data-stu-id="994d6-200">b.</span></span> <span data-ttu-id="994d6-201">Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="994d6-201">In the **User name** textbox, type the **email address** of BrittaSimon.</span></span>
+    <span data-ttu-id="e9ad0-200">b.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-200">b.</span></span> <span data-ttu-id="e9ad0-201">Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-201">In hello **User name** textbox, type hello **email address** of BrittaSimon.</span></span>
 
-    <span data-ttu-id="994d6-202">c.</span><span class="sxs-lookup"><span data-stu-id="994d6-202">c.</span></span> <span data-ttu-id="994d6-203">Selecione **Mostrar senha** e anote o valor de **senha**.</span><span class="sxs-lookup"><span data-stu-id="994d6-203">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="e9ad0-202">c.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-202">c.</span></span> <span data-ttu-id="e9ad0-203">Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-203">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="994d6-204">d.</span><span class="sxs-lookup"><span data-stu-id="994d6-204">d.</span></span> <span data-ttu-id="994d6-205">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="994d6-205">Click **Create**.</span></span>
+    <span data-ttu-id="e9ad0-204">d.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-204">d.</span></span> <span data-ttu-id="e9ad0-205">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-205">Click **Create**.</span></span>
  
-### <a name="creating-a-logicmonitor-test-user"></a><span data-ttu-id="994d6-206">Criar um usuário de teste do LogicMonitor</span><span class="sxs-lookup"><span data-stu-id="994d6-206">Creating a LogicMonitor test user</span></span>
+### <a name="creating-a-logicmonitor-test-user"></a><span data-ttu-id="e9ad0-206">Criar um usuário de teste do LogicMonitor</span><span class="sxs-lookup"><span data-stu-id="e9ad0-206">Creating a LogicMonitor test user</span></span>
 
-<span data-ttu-id="994d6-207">Para usuários do AAD conseguirem efetuar logon, eles devem ser provisionados para o aplicativo LogicMonitor usando seus nomes de usuário do Active Directory do Azure.</span><span class="sxs-lookup"><span data-stu-id="994d6-207">For AAD users to be able to sign in, they must be provisioned to the LogicMonitor application using their Azure Active Directory user names.</span></span>
+<span data-ttu-id="e9ad0-207">Para AAD usuários toobe capaz de toosign no, eles devem ser provisionado toohello aplicativo do LogicMonitor usando seus nomes de usuário do Active Directory do Azure.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-207">For AAD users toobe able toosign in, they must be provisioned toohello LogicMonitor application using their Azure Active Directory user names.</span></span>
 
-<span data-ttu-id="994d6-208">**Para configurar o provisionamento de usuários, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="994d6-208">**To configure user provisioning, perform the following steps:**</span></span>
+<span data-ttu-id="e9ad0-208">**tooconfigure provisionamento de usuário, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="e9ad0-208">**tooconfigure user provisioning, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="994d6-209">Faça logon no site da sua empresa LogicMonitor como um administrador.</span><span class="sxs-lookup"><span data-stu-id="994d6-209">Log in to your LogicMonitor company site as an administrator.</span></span>
+1. <span data-ttu-id="e9ad0-209">Faça logon no tooyour site da empresa LogicMonitor como um administrador.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-209">Log in tooyour LogicMonitor company site as an administrator.</span></span>
 
-2. <span data-ttu-id="994d6-210">No menu na parte superior, clique em **Configurações** e em **Funções e Usuários**.</span><span class="sxs-lookup"><span data-stu-id="994d6-210">In the menu on the top, click **Settings**, and then click **Roles and Users**.</span></span>
+2. <span data-ttu-id="e9ad0-210">No menu de saudação na parte superior de saudação, clique em **configurações**e, em seguida, clique em **funções e usuários**.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-210">In hello menu on hello top, click **Settings**, and then click **Roles and Users**.</span></span>
    
-   <span data-ttu-id="994d6-211">![Funções e Usuários](./media/active-directory-saas-logicmonitor-tutorial/ic790056.png "Funções e Usuários")</span><span class="sxs-lookup"><span data-stu-id="994d6-211">![Roles and Users](./media/active-directory-saas-logicmonitor-tutorial/ic790056.png "Roles and Users")</span></span>
+   <span data-ttu-id="e9ad0-211">![Funções e Usuários](./media/active-directory-saas-logicmonitor-tutorial/ic790056.png "Funções e Usuários")</span><span class="sxs-lookup"><span data-stu-id="e9ad0-211">![Roles and Users](./media/active-directory-saas-logicmonitor-tutorial/ic790056.png "Roles and Users")</span></span>
 
-3. <span data-ttu-id="994d6-212">Clique em **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="994d6-212">Click **Add**.</span></span>
+3. <span data-ttu-id="e9ad0-212">Clique em **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-212">Click **Add**.</span></span>
 
-4. <span data-ttu-id="994d6-213">Na seção **Adicionar uma conta** , realize as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="994d6-213">In the **Add an account** section, perform the following steps:</span></span>
+4. <span data-ttu-id="e9ad0-213">Em Olá **adicionar uma conta** , execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="e9ad0-213">In hello **Add an account** section, perform hello following steps:</span></span>
    
-   <span data-ttu-id="994d6-214">![Adicionar uma conta](./media/active-directory-saas-logicmonitor-tutorial/ic790057.png "Adicionar uma conta")</span><span class="sxs-lookup"><span data-stu-id="994d6-214">![Add an account](./media/active-directory-saas-logicmonitor-tutorial/ic790057.png "Add an account")</span></span>
+   <span data-ttu-id="e9ad0-214">![Adicionar uma conta](./media/active-directory-saas-logicmonitor-tutorial/ic790057.png "Adicionar uma conta")</span><span class="sxs-lookup"><span data-stu-id="e9ad0-214">![Add an account](./media/active-directory-saas-logicmonitor-tutorial/ic790057.png "Add an account")</span></span>
    
-   <span data-ttu-id="994d6-215">a.</span><span class="sxs-lookup"><span data-stu-id="994d6-215">a.</span></span> <span data-ttu-id="994d6-216">Digite os valores para **Nome de usuário**, **Email**, **Senha** e **Digitar senha novamente** do usuário do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.</span><span class="sxs-lookup"><span data-stu-id="994d6-216">Type the **Username**, **Email**, **Password**, and **Retype password** values of the Azure Active Directory user you want to provision into the related textboxes.</span></span>
+   <span data-ttu-id="e9ad0-215">a.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-215">a.</span></span> <span data-ttu-id="e9ad0-216">Saudação de tipo **Username**, **Email**, **senha**, e **senha Insira novamente** valores de usuário do Active Directory do Azure Olá desejado tooprovision em Olá relacionados caixas de texto.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-216">Type hello **Username**, **Email**, **Password**, and **Retype password** values of hello Azure Active Directory user you want tooprovision into hello related textboxes.</span></span>
    
-   <span data-ttu-id="994d6-217">b.</span><span class="sxs-lookup"><span data-stu-id="994d6-217">b.</span></span> <span data-ttu-id="994d6-218">Selecione **Funções**, **Exibir Permissões** e **Status**.</span><span class="sxs-lookup"><span data-stu-id="994d6-218">Select **Roles**, **View Permissions**, and the **Status**.</span></span>
+   <span data-ttu-id="e9ad0-217">b.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-217">b.</span></span> <span data-ttu-id="e9ad0-218">Selecione **funções**, **permissões de exibição**e hello **Status**.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-218">Select **Roles**, **View Permissions**, and hello **Status**.</span></span>
    
-   <span data-ttu-id="994d6-219">c.</span><span class="sxs-lookup"><span data-stu-id="994d6-219">c.</span></span> <span data-ttu-id="994d6-220">Clique em **Enviar**.</span><span class="sxs-lookup"><span data-stu-id="994d6-220">Click **Submit**.</span></span>
+   <span data-ttu-id="e9ad0-219">c.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-219">c.</span></span> <span data-ttu-id="e9ad0-220">Clique em **Enviar**.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-220">Click **Submit**.</span></span>
 
 >[!NOTE]
-><span data-ttu-id="994d6-221">Você pode usar qualquer outra ferramenta de criação da conta de usuário do LogicMonitor ou APIs fornecidas pelo LogicMonitor para provisionar as contas de usuário do Active Directory do Azure.</span><span class="sxs-lookup"><span data-stu-id="994d6-221">You can use any other LogicMonitor user account creation tools or APIs provided by LogicMonitor to provision Azure Active Directory user accounts.</span></span> 
+><span data-ttu-id="e9ad0-221">Você pode usar qualquer ferramenta de criação outros LogicMonitor usuário conta ou APIs fornecidas pelo LogicMonitor tooprovision Azure Active Directory as contas de usuário.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-221">You can use any other LogicMonitor user account creation tools or APIs provided by LogicMonitor tooprovision Azure Active Directory user accounts.</span></span> 
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="994d6-222">Atribuição do usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="994d6-222">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="e9ad0-222">Atribuir um usuário de teste de saudação do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="e9ad0-222">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="994d6-223">Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao LogicMonitor.</span><span class="sxs-lookup"><span data-stu-id="994d6-223">In this section, you enable Britta Simon to use Azure single sign-on by granting access to LogicMonitor.</span></span>
+<span data-ttu-id="e9ad0-223">Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooLogicMonitor.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-223">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooLogicMonitor.</span></span>
 
 ![Atribuir usuário][200] 
 
-<span data-ttu-id="994d6-225">**Para atribuir Brenda Fernandes ao LogicMonitor, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="994d6-225">**To assign Britta Simon to LogicMonitor, perform the following steps:**</span></span>
+<span data-ttu-id="e9ad0-225">**tooassign Britta Simon tooLogicMonitor, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="e9ad0-225">**tooassign Britta Simon tooLogicMonitor, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="994d6-226">No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="994d6-226">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="e9ad0-226">No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-226">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Atribuir usuário][201] 
 
-2. <span data-ttu-id="994d6-228">Na lista de aplicativos, selecione **LogicMonitor**.</span><span class="sxs-lookup"><span data-stu-id="994d6-228">In the applications list, select **LogicMonitor**.</span></span>
+2. <span data-ttu-id="e9ad0-228">Na lista de aplicativos hello, selecione **LogicMonitor**.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-228">In hello applications list, select **LogicMonitor**.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-logicmonitor-tutorial/tutorial_logicmonitor_app.png) 
 
-3. <span data-ttu-id="994d6-230">No menu à esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="994d6-230">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="e9ad0-230">No menu Olá Olá esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-230">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Atribuir usuário][202] 
 
-4. <span data-ttu-id="994d6-232">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="994d6-232">Click **Add** button.</span></span> <span data-ttu-id="994d6-233">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="994d6-233">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="e9ad0-232">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-232">Click **Add** button.</span></span> <span data-ttu-id="e9ad0-233">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-233">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Atribuir usuário][203]
 
-5. <span data-ttu-id="994d6-235">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="994d6-235">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="e9ad0-235">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-235">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="994d6-236">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="994d6-236">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="e9ad0-236">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-236">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="994d6-237">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="994d6-237">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="e9ad0-237">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-237">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="994d6-238">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="994d6-238">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="e9ad0-238">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="e9ad0-238">Testing single sign-on</span></span>
 
-<span data-ttu-id="994d6-239">Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.</span><span class="sxs-lookup"><span data-stu-id="994d6-239">In this section, you test your Azure AD single sign-on configuration using the Access Panel.</span></span>
+<span data-ttu-id="e9ad0-239">Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-239">In this section, you test your Azure AD single sign-on configuration using hello Access Panel.</span></span>
  
-<span data-ttu-id="994d6-240">Ao clicar no bloco do LogicMonitor no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo LogicMonitor.</span><span class="sxs-lookup"><span data-stu-id="994d6-240">When you click the LogicMonitor tile in the Access Panel, you should get automatically signed-on to your LogicMonitor application.</span></span>
-<span data-ttu-id="994d6-241">Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="994d6-241">For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
+<span data-ttu-id="e9ad0-240">Quando você clica em bloco LogicMonitor Olá Olá painel de acesso, você deve obter tooyour automaticamente conectado no aplicativo do LogicMonitor.</span><span class="sxs-lookup"><span data-stu-id="e9ad0-240">When you click hello LogicMonitor tile in hello Access Panel, you should get automatically signed-on tooyour LogicMonitor application.</span></span>
+<span data-ttu-id="e9ad0-241">Para obter mais informações sobre Olá painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="e9ad0-241">For more information about hello Access Panel, see [Introduction toohello Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
 
-## <a name="additional-resources"></a><span data-ttu-id="994d6-242">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="994d6-242">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="e9ad0-242">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="e9ad0-242">Additional resources</span></span>
 
-* [<span data-ttu-id="994d6-243">Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="994d6-243">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="994d6-244">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="994d6-244">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="e9ad0-243">Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="e9ad0-243">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="e9ad0-244">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="e9ad0-244">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 
 

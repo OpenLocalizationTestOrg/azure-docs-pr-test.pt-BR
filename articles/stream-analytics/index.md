@@ -1,6 +1,6 @@
 ---
-title: "Documentação do Stream Analytics do Azure - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba como executar a análise da IoT na nuvem com o processamento de eventos totalmente gerenciado. Analise dados em tempo real usando aplicativos, sensores, dispositivos e muito mais."
+title: "aaaAzure documentação Stream Analytics - tutoriais, referência de API | Microsoft Docs"
+description: "Saiba como toorun IoT análise em Olá nuvem com o processamento de eventos totalmente gerenciado. Analise dados em tempo real usando aplicativos, sensores, dispositivos e muito mais."
 services: stream-analytics
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/23/2017
 ms.author: carolz
-ms.openlocfilehash: f82be4ff7bd0839be4f826f9a04ba0876f4ec91d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4015137b0f39f86ada69d92e77e72b77b799d2d6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="stream-analytics-documentation"></a>Documentação do Stream Analytics
 
-Saiba como executar a análise da IoT (Internet das Coisas) na nuvem com o Stream Analytics, um mecanismo de processamento de eventos totalmente gerenciado. Os tutoriais e as outras documentações mostram como analisar dados em tempo real desde aplicativos, sensores, dispositivos, mídia social e muito mais. 
+Saiba como análise de Internet das coisas (IoT) toorun em Olá nuvem com a análise de fluxo, um mecanismo de processamento de eventos totalmente gerenciado. A documentação e tutoriais mostram como tooanalyze dados em tempo real de aplicativos, sensores, dispositivos, mídia social e muito mais. 
 
 <ul class="panelContent cardsFTitle">
      <li>

@@ -1,6 +1,6 @@
 ---
-title: "Instruções de entrada do Kit de ferramentas do Azure para IntelliJ | Microsoft Docs"
-description: Saiba como se inscrever no Microsoft Azure usando o Kit de ferramentas do Azure para IntelliJ.
+title: "instruções aaaSign-in para hello Azure Toolkit for IntelliJ | Microsoft Docs"
+description: Saiba como toosign em tooMicrosoft do Azure usando hello o Kit de ferramentas do Azure para IntelliJ.
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,160 +14,160 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: 4e2ed072bdaea0a71fef042c0c72b7656a42bbe8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2de781fc19267cce133b1e6456481497e165fce4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="sign-in-instructions-for-the-azure-toolkit-for-intellij"></a><span data-ttu-id="b8616-103">Instruções de entrada para o Kit de ferramentas do Azure para IntelliJ</span><span class="sxs-lookup"><span data-stu-id="b8616-103">Sign-in instructions for the Azure Toolkit for IntelliJ</span></span>
+# <a name="sign-in-instructions-for-hello-azure-toolkit-for-intellij"></a><span data-ttu-id="e2761-103">Instruções entrar para hello Azure Toolkit for IntelliJ</span><span class="sxs-lookup"><span data-stu-id="e2761-103">Sign-in instructions for hello Azure Toolkit for IntelliJ</span></span>
 
-<span data-ttu-id="b8616-104">O Kit de ferramentas do Azure para IntelliJ fornece dois métodos para entrar em sua conta do Azure:</span><span class="sxs-lookup"><span data-stu-id="b8616-104">The Azure Toolkit for IntelliJ provides two methods for signing in to your Azure account:</span></span>
+<span data-ttu-id="e2761-104">Olá Kit de ferramentas do Azure para IntelliJ fornece dois métodos para entrar no tooyour conta do Azure:</span><span class="sxs-lookup"><span data-stu-id="e2761-104">hello Azure Toolkit for IntelliJ provides two methods for signing in tooyour Azure account:</span></span>
 
-  * <span data-ttu-id="b8616-105">**Interativo**: insira suas credenciais do Azure sempre que você entrar em sua conta do Azure.</span><span class="sxs-lookup"><span data-stu-id="b8616-105">**Interactive**: You enter your Azure credentials each time you sign in to your Azure account.</span></span>
-  * <span data-ttu-id="b8616-106">**Automatizada**: crie um arquivo de credenciais que pode ser usado para entrar automaticamente em sua conta do Azure.</span><span class="sxs-lookup"><span data-stu-id="b8616-106">**Automated**: You create a credentials file that you can use to automatically sign in to your Azure account.</span></span>
+  * <span data-ttu-id="e2761-105">**Interativo**: Insira suas credenciais do Azure cada vez que você entrar no tooyour conta do Azure.</span><span class="sxs-lookup"><span data-stu-id="e2761-105">**Interactive**: You enter your Azure credentials each time you sign in tooyour Azure account.</span></span>
+  * <span data-ttu-id="e2761-106">**Automatizada**: criar um arquivo de credenciais que você pode usar o logon de tooautomatically em tooyour conta do Azure.</span><span class="sxs-lookup"><span data-stu-id="e2761-106">**Automated**: You create a credentials file that you can use tooautomatically sign in tooyour Azure account.</span></span>
 
-<span data-ttu-id="b8616-107">As seções a seguir descrevem como usar cada método.</span><span class="sxs-lookup"><span data-stu-id="b8616-107">The following sections describe how to use each method.</span></span>
+<span data-ttu-id="e2761-107">Olá seções a seguir descrevem como toouse cada método.</span><span class="sxs-lookup"><span data-stu-id="e2761-107">hello following sections describe how toouse each method.</span></span>
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
 
-## <a name="sign-in-to-your-azure-account-interactively"></a><span data-ttu-id="b8616-108">Entrar em sua conta do Azure interativamente</span><span class="sxs-lookup"><span data-stu-id="b8616-108">Sign in to your Azure account interactively</span></span>
+## <a name="sign-in-tooyour-azure-account-interactively"></a><span data-ttu-id="e2761-108">Entrar tooyour conta do Azure de modo interativo</span><span class="sxs-lookup"><span data-stu-id="e2761-108">Sign in tooyour Azure account interactively</span></span>
 
-<span data-ttu-id="b8616-109">Para entrar no Azure inserindo manualmente suas credenciais do Azure, faça o seguinte:</span><span class="sxs-lookup"><span data-stu-id="b8616-109">To sign in to Azure by manually entering your Azure credentials, do the following:</span></span>
+<span data-ttu-id="e2761-109">toosign em tooAzure inserindo manualmente suas credenciais do Azure, Olá a seguir:</span><span class="sxs-lookup"><span data-stu-id="e2761-109">toosign in tooAzure by manually entering your Azure credentials, do hello following:</span></span>
 
-1. <span data-ttu-id="b8616-110">Abra seu projeto com o IntelliJ IDEA.</span><span class="sxs-lookup"><span data-stu-id="b8616-110">Open your project with IntelliJ IDEA.</span></span>
+1. <span data-ttu-id="e2761-110">Abra seu projeto com o IntelliJ IDEA.</span><span class="sxs-lookup"><span data-stu-id="e2761-110">Open your project with IntelliJ IDEA.</span></span>
 
-2. <span data-ttu-id="b8616-111">Clique em **Ferramentas**, aponte para **Azure** e clique em **Entrar no Azure**.</span><span class="sxs-lookup"><span data-stu-id="b8616-111">Click **Tools**, point to **Azure**, and then click **Azure Sign In**.</span></span>
+2. <span data-ttu-id="e2761-111">Clique em **ferramentas**, ponto muito**Azure**e, em seguida, clique em **Azure entrar**.</span><span class="sxs-lookup"><span data-stu-id="e2761-111">Click **Tools**, point too**Azure**, and then click **Azure Sign In**.</span></span>
 
-   ![O comando de Entrada do IntelliJ Azure][I01]
+   ![Olá IntelliJ Azure entrar no comando][I01]
 
-3. <span data-ttu-id="b8616-113">Na caixa de diálogo **Entrar no Azure**, selecione **Interativo** e clique em **Entrar**.</span><span class="sxs-lookup"><span data-stu-id="b8616-113">In the **Azure Sign In** window, select **Interactive**, and then click **Sign in**.</span></span>
+3. <span data-ttu-id="e2761-113">Em Olá **Azure entrar** janela, selecione **interativo**e, em seguida, clique em **entrar**.</span><span class="sxs-lookup"><span data-stu-id="e2761-113">In hello **Azure Sign In** window, select **Interactive**, and then click **Sign in**.</span></span>
 
-   ![A janela Entrar no Azure com Interativo selecionado][I02]
+   ![Hello Azure entrada na janela com interativo selecionado][I02]
 
-4. <span data-ttu-id="b8616-115">Na caixa de diálogo **Logon no Azure**, insira suas credenciais do Azure e clique em **Entrar**.</span><span class="sxs-lookup"><span data-stu-id="b8616-115">In the **Azure Log In** dialog box appears, enter your Azure credentials, and then click **Sign in**.</span></span>
+4. <span data-ttu-id="e2761-115">Em Olá **Log no Azure** caixa de diálogo for exibida, insira suas credenciais do Azure e, em seguida, clique em **entrar**.</span><span class="sxs-lookup"><span data-stu-id="e2761-115">In hello **Azure Log In** dialog box appears, enter your Azure credentials, and then click **Sign in**.</span></span>
 
-   ![A janela da caixa de diálogo Logon no Azure][I03]
+   ![janela de diálogo de logon do Azure Olá][I03]
 
-5. <span data-ttu-id="b8616-117">Na caixa de diálogo **Selecionar Assinaturas**, selecione as assinaturas que deseja usar e, em seguida, clique em **OK**.</span><span class="sxs-lookup"><span data-stu-id="b8616-117">In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, and then click **OK**.</span></span>
+5. <span data-ttu-id="e2761-117">Em Olá **selecione assinaturas** caixa de diálogo, assinaturas de saudação selecione que você deseja toouse e, em seguida, clique em **Okey**.</span><span class="sxs-lookup"><span data-stu-id="e2761-117">In hello **Select Subscriptions** dialog box, select hello subscriptions that you want toouse, and then click **OK**.</span></span>
 
-   ![A caixa de diálogo Selecionar Assinaturas][I04]
+   ![caixa de diálogo Selecionar assinaturas Olá][I04]
 
-## <a name="sign-out-of-your-azure-account-after-you-have-signed-in-interactively"></a><span data-ttu-id="b8616-119">Sair de sua conta do Azure depois de entrar interativamente</span><span class="sxs-lookup"><span data-stu-id="b8616-119">Sign out of your Azure account after you have signed in interactively</span></span>
+## <a name="sign-out-of-your-azure-account-after-you-have-signed-in-interactively"></a><span data-ttu-id="e2761-119">Sair de sua conta do Azure depois de entrar interativamente</span><span class="sxs-lookup"><span data-stu-id="e2761-119">Sign out of your Azure account after you have signed in interactively</span></span>
 
-<span data-ttu-id="b8616-120">Depois de configurar sua conta usando as etapas anteriores, você sairá automaticamente de sua conta do Azure sempre que reiniciar o IntelliJ IDEA.</span><span class="sxs-lookup"><span data-stu-id="b8616-120">After you have configured your account by using the preceding steps, you will be automatically signed out of your Azure account each time you restart IntelliJ IDEA.</span></span> <span data-ttu-id="b8616-121">No entanto, se você quiser sair de sua conta do Azure *sem* reiniciar o IntelliJ IDEA, faça o seguinte.</span><span class="sxs-lookup"><span data-stu-id="b8616-121">However, if you want to sign out of your Azure account *without* restarting IntelliJ IDEA, do the following.</span></span>
+<span data-ttu-id="e2761-120">Depois que você configurou sua conta usando Olá etapas anteriores, você será conectado automaticamente fora da sua conta do Azure cada vez que você reiniciar IntelliJ IDEIA.</span><span class="sxs-lookup"><span data-stu-id="e2761-120">After you have configured your account by using hello preceding steps, you will be automatically signed out of your Azure account each time you restart IntelliJ IDEA.</span></span> <span data-ttu-id="e2761-121">No entanto, se você quiser toosign fora da sua conta do Azure *sem* reiniciar IntelliJ IDEIA, Olá a seguir.</span><span class="sxs-lookup"><span data-stu-id="e2761-121">However, if you want toosign out of your Azure account *without* restarting IntelliJ IDEA, do hello following.</span></span>
 
-1. <span data-ttu-id="b8616-122">No IntelliJ IDEA, no menu **Ferramentas**, aponte para **Azure** e clique em **Sair do Azure**.</span><span class="sxs-lookup"><span data-stu-id="b8616-122">In IntelliJ IDEA, on the **Tools** menu, point to **Azure**, and then click **Azure Sign Out**.</span></span>
+1. <span data-ttu-id="e2761-122">Em IntelliJ IDEIA, em hello **ferramentas** menus, aponte muito**Azure**e, em seguida, clique em **Azure sair**.</span><span class="sxs-lookup"><span data-stu-id="e2761-122">In IntelliJ IDEA, on hello **Tools** menu, point too**Azure**, and then click **Azure Sign Out**.</span></span>
 
-   ![O comando de Saída do IntelliJ Azure][L01]
+   ![Olá comando IntelliJ Azure sair][L01]
 
-2. <span data-ttu-id="b8616-124">Na janela de confirmação **Sair do Azure**, clique em **Sim**.</span><span class="sxs-lookup"><span data-stu-id="b8616-124">In the **Azure Sign Out** confirmation window, click **Yes**.</span></span>
+2. <span data-ttu-id="e2761-124">Em Olá **Azure sair** janela de confirmação, clique em **Sim**.</span><span class="sxs-lookup"><span data-stu-id="e2761-124">In hello **Azure Sign Out** confirmation window, click **Yes**.</span></span>
 
-   ![A janela de confirmação Sair do Azure][L02]
+   ![janela de Hello Azure sair confirmação][L02]
 
-## <a name="sign-in-to-your-azure-account-automatically"></a><span data-ttu-id="b8616-126">Entrar em sua conta do Azure automaticamente</span><span class="sxs-lookup"><span data-stu-id="b8616-126">Sign in to your Azure account automatically</span></span>
+## <a name="sign-in-tooyour-azure-account-automatically"></a><span data-ttu-id="e2761-126">Conectar automaticamente tooyour conta do Azure</span><span class="sxs-lookup"><span data-stu-id="e2761-126">Sign in tooyour Azure account automatically</span></span>
 
-<span data-ttu-id="b8616-127">Esta seção fornece uma orientarão pela criação de um arquivo de credenciais contendo os dados de sua entidade de serviço.</span><span class="sxs-lookup"><span data-stu-id="b8616-127">This section walks you through creating a credentials file that contains your service principal data.</span></span> <span data-ttu-id="b8616-128">Após a conclusão desse processo, o Eclipse usará automaticamente o arquivo de credenciais para entrar automaticamente no Azure sempre que você abrir o projeto.</span><span class="sxs-lookup"><span data-stu-id="b8616-128">After you have completed this process, Eclipse uses the credentials file to automatically sign you in to Azure each time you open your project.</span></span>
+<span data-ttu-id="e2761-127">Esta seção fornece uma orientarão pela criação de um arquivo de credenciais contendo os dados de sua entidade de serviço.</span><span class="sxs-lookup"><span data-stu-id="e2761-127">This section walks you through creating a credentials file that contains your service principal data.</span></span> <span data-ttu-id="e2761-128">Depois de concluir esse processo, tooautomatically Eclipse usa Olá credenciais arquivo de entrada que no tooAzure cada vez que você abra seu projeto.</span><span class="sxs-lookup"><span data-stu-id="e2761-128">After you have completed this process, Eclipse uses hello credentials file tooautomatically sign you in tooAzure each time you open your project.</span></span>
 
-1. <span data-ttu-id="b8616-129">Abra seu projeto com o IntelliJ IDEA.</span><span class="sxs-lookup"><span data-stu-id="b8616-129">Open your project with IntelliJ IDEA.</span></span>
+1. <span data-ttu-id="e2761-129">Abra seu projeto com o IntelliJ IDEA.</span><span class="sxs-lookup"><span data-stu-id="e2761-129">Open your project with IntelliJ IDEA.</span></span>
 
-2. <span data-ttu-id="b8616-130">No menu **Ferramentas**, aponte para **Azure** e clique em **Entrar no Azure**.</span><span class="sxs-lookup"><span data-stu-id="b8616-130">On the **Tools** menu, point to **Azure**, and then click **Azure Sign In**.</span></span>
+2. <span data-ttu-id="e2761-130">Em Olá **ferramentas** menu ponto muito**Azure**e, em seguida, clique em **Azure entrar**.</span><span class="sxs-lookup"><span data-stu-id="e2761-130">On hello **Tools** menu, point too**Azure**, and then click **Azure Sign In**.</span></span>
 
-   ![O comando de Entrada do IntelliJ Azure][A01]
+   ![Olá IntelliJ Azure entrar no comando][A01]
 
-3. <span data-ttu-id="b8616-132">Na janela **Entrar no Azure**, selecione **Automatizado** e clique em **Novo**.</span><span class="sxs-lookup"><span data-stu-id="b8616-132">In the **Azure Sign In** window, select **Automated**, and then click **New**.</span></span>
+3. <span data-ttu-id="e2761-132">Em Olá **Azure entrar** janela, selecione **automatizada**e, em seguida, clique em **novo**.</span><span class="sxs-lookup"><span data-stu-id="e2761-132">In hello **Azure Sign In** window, select **Automated**, and then click **New**.</span></span>
 
-   ![A janela Entrar no Azure com Automatizado selecionado][A02]
+   ![Hello Azure entrada na janela com automatizado selecionada][A02]
 
-4. <span data-ttu-id="b8616-134">Na janela da **caixa de diálogo Logon no Azure**, insira suas credenciais do Azure e clique em **Entrar**.</span><span class="sxs-lookup"><span data-stu-id="b8616-134">In the **Azure Login Dialog** window, enter your Azure credentials, and then click **Sign in**.</span></span>
+4. <span data-ttu-id="e2761-134">Em Olá **caixa de diálogo de logon do Azure** janela, insira suas credenciais do Azure e, em seguida, clique em **entrar**.</span><span class="sxs-lookup"><span data-stu-id="e2761-134">In hello **Azure Login Dialog** window, enter your Azure credentials, and then click **Sign in**.</span></span>
 
-   ![A janela da caixa de diálogo Logon no Azure][A03]
+   ![janela de diálogo de logon do Azure Olá][A03]
 
-5. <span data-ttu-id="b8616-136">Na janela **Criar Arquivos de Autenticação**, selecione as assinaturas que quer usar, escolha o diretório de destino e clique em **Iniciar**.</span><span class="sxs-lookup"><span data-stu-id="b8616-136">In the **Create Authentication Files** window, select the subscriptions that you want to use, choose your destination directory, and then click **Start**.</span></span>
+5. <span data-ttu-id="e2761-136">Em Olá **criar arquivos de autenticação** janela, assinaturas de saudação selecione deseja toouse, escolha o diretório de destino e, em seguida, clique em **iniciar**.</span><span class="sxs-lookup"><span data-stu-id="e2761-136">In hello **Create Authentication Files** window, select hello subscriptions that you want toouse, choose your destination directory, and then click **Start**.</span></span>
 
-   ![A janela Criar Arquivos de Autenticação][A04]
+   ![janela de criar arquivos de autenticação Olá][A04]
 
-6. <span data-ttu-id="b8616-138">Na caixa de diálogo **Status de Criação da Entidade de Serviço**, após a criação dos arquivos, clique em **OK**.</span><span class="sxs-lookup"><span data-stu-id="b8616-138">In the **Service Principal Creation Status** dialog box, after your files have been created successfully, click **OK**.</span></span>
+6. <span data-ttu-id="e2761-138">Em Olá **Status de criação da entidade de serviço** caixa de diálogo, depois que os arquivos foram criados com êxito, clique em **Okey**.</span><span class="sxs-lookup"><span data-stu-id="e2761-138">In hello **Service Principal Creation Status** dialog box, after your files have been created successfully, click **OK**.</span></span>
 
-   ![A caixa de diálogo Status de Criação da Entidade de Serviço][A05]
+   ![Olá caixa de diálogo Status de criação da entidade de serviço][A05]
 
-7. <span data-ttu-id="b8616-140">Na janela **Entrar no Azure**, clique em **Entrar**.</span><span class="sxs-lookup"><span data-stu-id="b8616-140">In the **Azure Sign In** window, click **Sign in**.</span></span>
+7. <span data-ttu-id="e2761-140">Em Olá **Azure entrar** janela, clique em **entrar**.</span><span class="sxs-lookup"><span data-stu-id="e2761-140">In hello **Azure Sign In** window, click **Sign in**.</span></span>
 
    ![Caixa de Diálogo de Logon do Azure][A06]
 
-8. <span data-ttu-id="b8616-142">Na caixa de diálogo **Selecionar Assinaturas**, selecione as assinaturas que deseja usar e, em seguida, clique em **OK**.</span><span class="sxs-lookup"><span data-stu-id="b8616-142">In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, and then click **OK**.</span></span>
+8. <span data-ttu-id="e2761-142">Em Olá **selecione assinaturas** caixa de diálogo, assinaturas de saudação selecione que você deseja toouse e, em seguida, clique em **Okey**.</span><span class="sxs-lookup"><span data-stu-id="e2761-142">In hello **Select Subscriptions** dialog box, select hello subscriptions that you want toouse, and then click **OK**.</span></span>
 
-   ![A caixa de diálogo Selecionar Assinaturas][A07]
+   ![caixa de diálogo Selecionar assinaturas Olá][A07]
 
-## <a name="sign-out-of-your-azure-account-after-you-have-signed-in-automatically"></a><span data-ttu-id="b8616-144">Sair de sua conta do Azure depois de entrar automaticamente</span><span class="sxs-lookup"><span data-stu-id="b8616-144">Sign out of your Azure account after you have signed in automatically</span></span>
+## <a name="sign-out-of-your-azure-account-after-you-have-signed-in-automatically"></a><span data-ttu-id="e2761-144">Sair de sua conta do Azure depois de entrar automaticamente</span><span class="sxs-lookup"><span data-stu-id="e2761-144">Sign out of your Azure account after you have signed in automatically</span></span>
 
-<span data-ttu-id="b8616-145">Depois de configurar sua conta usando as etapas anteriores, o Kit de ferramentas do Azure conectará automaticamente você à sua conta do Azure sempre que reiniciar o IntelliJ IDEA.</span><span class="sxs-lookup"><span data-stu-id="b8616-145">After you have configured your account by using the preceding steps, the Azure Toolkit automatically signs you in to your Azure account each time you restart IntelliJ IDEA.</span></span> <span data-ttu-id="b8616-146">No entanto, para sair de sua conta do Azure e impedir que o Kit de ferramentas do Azure promova sua entrada automaticamente, faça o seguinte:</span><span class="sxs-lookup"><span data-stu-id="b8616-146">However, to sign out of your Azure account and prevent the Azure Toolkit from signing you in automatically, do the following:</span></span>
+<span data-ttu-id="e2761-145">Depois que você configurou sua conta usando Olá etapas anteriores, Olá Kit de ferramentas do Azure automaticamente faz com que você no tooyour cada vez que você reiniciar IntelliJ IDEIA de conta do Azure.</span><span class="sxs-lookup"><span data-stu-id="e2761-145">After you have configured your account by using hello preceding steps, hello Azure Toolkit automatically signs you in tooyour Azure account each time you restart IntelliJ IDEA.</span></span> <span data-ttu-id="e2761-146">No entanto, toosign fora da sua conta do Azure e evitar Olá Kit de ferramentas do Azure de conectá-lo automaticamente, Olá a seguir:</span><span class="sxs-lookup"><span data-stu-id="e2761-146">However, toosign out of your Azure account and prevent hello Azure Toolkit from signing you in automatically, do hello following:</span></span>
 
-1. <span data-ttu-id="b8616-147">No IntelliJ IDEA, no menu **Ferramentas**, aponte para **Azure** e clique em **Sair do Azure**.</span><span class="sxs-lookup"><span data-stu-id="b8616-147">In IntelliJ IDEA, on the **Tools** menu, point to **Azure**, and then click **Azure Sign Out**.</span></span>
+1. <span data-ttu-id="e2761-147">Em IntelliJ IDEIA, em hello **ferramentas** menus, aponte muito**Azure**e, em seguida, clique em **Azure sair**.</span><span class="sxs-lookup"><span data-stu-id="e2761-147">In IntelliJ IDEA, on hello **Tools** menu, point too**Azure**, and then click **Azure Sign Out**.</span></span>
 
-   ![O comando de Saída do IntelliJ Azure][L01]
+   ![Olá comando IntelliJ Azure sair][L01]
 
-2. <span data-ttu-id="b8616-149">Na janela de confirmação **Sair do Azure**, clique em **Sim**.</span><span class="sxs-lookup"><span data-stu-id="b8616-149">In the **Azure Sign Out** confirmation window, click **Yes**.</span></span>
+2. <span data-ttu-id="e2761-149">Em Olá **Azure sair** janela de confirmação, clique em **Sim**.</span><span class="sxs-lookup"><span data-stu-id="e2761-149">In hello **Azure Sign Out** confirmation window, click **Yes**.</span></span>
 
-   ![A janela de confirmação Sair do Azure][L03]
+   ![janela de Hello Azure sair confirmação][L03]
 
-## <a name="sign-in-to-your-azure-account-automatically-by-using-an-existing-credentials-file"></a><span data-ttu-id="b8616-151">Entre em sua conta do Azure automaticamente usando um arquivo de credenciais existente</span><span class="sxs-lookup"><span data-stu-id="b8616-151">Sign in to your Azure account automatically by using an existing credentials file</span></span>
+## <a name="sign-in-tooyour-azure-account-automatically-by-using-an-existing-credentials-file"></a><span data-ttu-id="e2761-151">Entre no tooyour conta do Azure automaticamente usando um arquivo existente de credenciais</span><span class="sxs-lookup"><span data-stu-id="e2761-151">Sign in tooyour Azure account automatically by using an existing credentials file</span></span>
 
-<span data-ttu-id="b8616-152">Se você sair de sua conta do Azure enquanto usa o IntelliJ IDEA, será necessário usar um arquivo de credenciais existente para entrar automaticamente na conta novamente.</span><span class="sxs-lookup"><span data-stu-id="b8616-152">If you sign out of your Azure account when you are using IntelliJ IDEA, you must use an existing credentials file to automatically sign back in to the account.</span></span> <span data-ttu-id="b8616-153">Para configurar o Kit de ferramentas do Azure para Eclipse a fim de usar um arquivo de credenciais existente, faça o seguinte:</span><span class="sxs-lookup"><span data-stu-id="b8616-153">To configure the Azure Toolkit for Eclipse to use an existing credentials file, do the following:</span></span>
+<span data-ttu-id="e2761-152">Se você assinar fora da sua conta do Azure, quando você estiver usando IntelliJ IDEIA, você deve usar um sinal de tooautomatically de arquivo de credenciais existentes em toohello conta.</span><span class="sxs-lookup"><span data-stu-id="e2761-152">If you sign out of your Azure account when you are using IntelliJ IDEA, you must use an existing credentials file tooautomatically sign back in toohello account.</span></span> <span data-ttu-id="e2761-153">Olá tooconfigure Kit de ferramentas do Azure para Eclipse toouse um arquivo existente de credenciais, Olá a seguir:</span><span class="sxs-lookup"><span data-stu-id="e2761-153">tooconfigure hello Azure Toolkit for Eclipse toouse an existing credentials file, do hello following:</span></span>
 
-1. <span data-ttu-id="b8616-154">Abra seu projeto com o IntelliJ IDEA.</span><span class="sxs-lookup"><span data-stu-id="b8616-154">Open your project with IntelliJ IDEA.</span></span>
+1. <span data-ttu-id="e2761-154">Abra seu projeto com o IntelliJ IDEA.</span><span class="sxs-lookup"><span data-stu-id="e2761-154">Open your project with IntelliJ IDEA.</span></span>
 
-2. <span data-ttu-id="b8616-155">No menu **Ferramentas**, aponte para **Azure** e clique em **Entrar no Azure**.</span><span class="sxs-lookup"><span data-stu-id="b8616-155">On the **Tools** menu, point to **Azure**, and then click **Azure Sign In**.</span></span>
+2. <span data-ttu-id="e2761-155">Em Olá **ferramentas** menu ponto muito**Azure**e, em seguida, clique em **Azure entrar**.</span><span class="sxs-lookup"><span data-stu-id="e2761-155">On hello **Tools** menu, point too**Azure**, and then click **Azure Sign In**.</span></span>
 
-   ![O comando de Entrada do IntelliJ Azure][A01]
+   ![Olá IntelliJ Azure entrar no comando][A01]
 
-3. <span data-ttu-id="b8616-157">Na janela **Entrar no Azure**, selecione **Automatizado** e clique em **Procurar**.</span><span class="sxs-lookup"><span data-stu-id="b8616-157">In the **Azure Sign In** window, select **Automated**, and then click **Browse**.</span></span>
+3. <span data-ttu-id="e2761-157">Em Olá **Azure entrar** janela, selecione **automatizada**e, em seguida, clique em **procurar**.</span><span class="sxs-lookup"><span data-stu-id="e2761-157">In hello **Azure Sign In** window, select **Automated**, and then click **Browse**.</span></span>
 
-   ![A janela Entrar no Azure com Automatizado selecionado][A02]
+   ![Hello Azure entrada na janela com automatizado selecionada][A02]
 
-4. <span data-ttu-id="b8616-159">Na caixa de diálogo **Selecionar Arquivo de Autenticação**, selecione um arquivo de credenciais criado anteriormente e clique em **Selecionar**.</span><span class="sxs-lookup"><span data-stu-id="b8616-159">In the **Select Authentication File** dialog box, select a previously created credentials file, and then click **Select**.</span></span>
+4. <span data-ttu-id="e2761-159">Em Olá **Selecionar arquivo de autenticação** caixa de diálogo, selecione um arquivo de credenciais criado anteriormente e, em seguida, clique em **selecione**.</span><span class="sxs-lookup"><span data-stu-id="e2761-159">In hello **Select Authentication File** dialog box, select a previously created credentials file, and then click **Select**.</span></span>
 
-   ![A caixa de diálogo Selecionar Arquivo de Autenticação][A08]
+   ![caixa de diálogo Selecionar arquivo de autenticação Olá][A08]
 
-5. <span data-ttu-id="b8616-161">Na janela **Entrar no Azure**, clique em **Entrar**.</span><span class="sxs-lookup"><span data-stu-id="b8616-161">In the **Azure Sign In** window, click **Sign in**.</span></span>
+5. <span data-ttu-id="e2761-161">Em Olá **Azure entrar** janela, clique em **entrar**.</span><span class="sxs-lookup"><span data-stu-id="e2761-161">In hello **Azure Sign In** window, click **Sign in**.</span></span>
 
-   ![A janela Entrar no Azure com Automatizado selecionado][A06]
+   ![Hello Azure entrada na janela com automatizado selecionada][A06]
 
-6. <span data-ttu-id="b8616-163">Na caixa de diálogo **Selecionar Assinaturas**, selecione as assinaturas que deseja usar e, em seguida, clique em **OK**.</span><span class="sxs-lookup"><span data-stu-id="b8616-163">In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, and then click **OK**.</span></span>
+6. <span data-ttu-id="e2761-163">Em Olá **selecione assinaturas** caixa de diálogo, assinaturas de saudação selecione que você deseja toouse e, em seguida, clique em **Okey**.</span><span class="sxs-lookup"><span data-stu-id="e2761-163">In hello **Select Subscriptions** dialog box, select hello subscriptions that you want toouse, and then click **OK**.</span></span>
 
-   ![A caixa de diálogo Selecionar Assinaturas][A07]
+   ![caixa de diálogo Selecionar assinaturas Olá][A07]
 
-## <a name="next-steps"></a><span data-ttu-id="b8616-165">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="b8616-165">Next steps</span></span>
-<span data-ttu-id="b8616-166">Para obter mais informações sobre os kits de ferramentas do Azure para Java IDEs, confira os links a seguir:</span><span class="sxs-lookup"><span data-stu-id="b8616-166">For more information about the Azure Toolkits for Java IDEs, see the following links:</span></span>
+## <a name="next-steps"></a><span data-ttu-id="e2761-165">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="e2761-165">Next steps</span></span>
+<span data-ttu-id="e2761-166">Para obter mais informações sobre Olá kits de ferramentas do Azure para Java IDEs, consulte Olá links a seguir:</span><span class="sxs-lookup"><span data-stu-id="e2761-166">For more information about hello Azure Toolkits for Java IDEs, see hello following links:</span></span>
 
-* <span data-ttu-id="b8616-167">[Kit de ferramentas do Azure para Eclipse]</span><span class="sxs-lookup"><span data-stu-id="b8616-167">[Azure Toolkit for Eclipse]</span></span>
-  * <span data-ttu-id="b8616-168">[Novidades no Kit de Ferramentas do Azure para Eclipse]</span><span class="sxs-lookup"><span data-stu-id="b8616-168">[What's new in the Azure Toolkit for Eclipse]</span></span>
-  * <span data-ttu-id="b8616-169">[Instalação do Kit de Ferramentas do Azure para o Eclipse]</span><span class="sxs-lookup"><span data-stu-id="b8616-169">[Installing the Azure Toolkit for Eclipse]</span></span>
-  * <span data-ttu-id="b8616-170">[Instruções de entrada para o Kit de ferramentas do Azure para Eclipse]</span><span class="sxs-lookup"><span data-stu-id="b8616-170">[Sign-in instructions for the Azure Toolkit for Eclipse]</span></span>
-  * <span data-ttu-id="b8616-171">[Criar um aplicativo Web Olá, Mundo para o Azure no Eclipse]</span><span class="sxs-lookup"><span data-stu-id="b8616-171">[Create a Hello World web app for Azure in Eclipse]</span></span>
-* <span data-ttu-id="b8616-172">[Kit de Ferramentas do Azure para IntelliJ]</span><span class="sxs-lookup"><span data-stu-id="b8616-172">[Azure Toolkit for IntelliJ]</span></span>
-  * <span data-ttu-id="b8616-173">[Novidades no Kit de Ferramentas do Azure para IntelliJ]</span><span class="sxs-lookup"><span data-stu-id="b8616-173">[What's new in the Azure Toolkit for IntelliJ]</span></span>
-  * <span data-ttu-id="b8616-174">[Instalação do Kit de Ferramentas do Azure para IntelliJ]</span><span class="sxs-lookup"><span data-stu-id="b8616-174">[Installing the Azure Toolkit for IntelliJ]</span></span>
-  * <span data-ttu-id="b8616-175">*Instruções de entrada para o Kit de ferramentas do Azure para IntelliJ* (este artigo)</span><span class="sxs-lookup"><span data-stu-id="b8616-175">*Sign-in instructions for the Azure Toolkit for IntelliJ* (this article)</span></span>
-  * <span data-ttu-id="b8616-176">[Criar um aplicativo Web Hello World para o Azure no IntelliJ]</span><span class="sxs-lookup"><span data-stu-id="b8616-176">[Create a Hello World web app for Azure in IntelliJ]</span></span>
+* <span data-ttu-id="e2761-167">[Kit de ferramentas do Azure para Eclipse]</span><span class="sxs-lookup"><span data-stu-id="e2761-167">[Azure Toolkit for Eclipse]</span></span>
+  * <span data-ttu-id="e2761-168">[O que há de novo no hello Kit de ferramentas do Azure para Eclipse]</span><span class="sxs-lookup"><span data-stu-id="e2761-168">[What's new in hello Azure Toolkit for Eclipse]</span></span>
+  * <span data-ttu-id="e2761-169">[Saudação de instalar o Kit de ferramentas do Azure para Eclipse]</span><span class="sxs-lookup"><span data-stu-id="e2761-169">[Installing hello Azure Toolkit for Eclipse]</span></span>
+  * <span data-ttu-id="e2761-170">[Instruções de entrada para Olá Kit de ferramentas do Azure para Eclipse]</span><span class="sxs-lookup"><span data-stu-id="e2761-170">[Sign-in instructions for hello Azure Toolkit for Eclipse]</span></span>
+  * <span data-ttu-id="e2761-171">[Criar um aplicativo Web Olá, Mundo para o Azure no Eclipse]</span><span class="sxs-lookup"><span data-stu-id="e2761-171">[Create a Hello World web app for Azure in Eclipse]</span></span>
+* <span data-ttu-id="e2761-172">[Kit de Ferramentas do Azure para IntelliJ]</span><span class="sxs-lookup"><span data-stu-id="e2761-172">[Azure Toolkit for IntelliJ]</span></span>
+  * <span data-ttu-id="e2761-173">[O que há de novo no hello Azure Toolkit for IntelliJ]</span><span class="sxs-lookup"><span data-stu-id="e2761-173">[What's new in hello Azure Toolkit for IntelliJ]</span></span>
+  * <span data-ttu-id="e2761-174">[Saudação de instalar o Kit de ferramentas do Azure para IntelliJ]</span><span class="sxs-lookup"><span data-stu-id="e2761-174">[Installing hello Azure Toolkit for IntelliJ]</span></span>
+  * <span data-ttu-id="e2761-175">*Instruções entrar para hello Azure Toolkit for IntelliJ* (Este artigo)</span><span class="sxs-lookup"><span data-stu-id="e2761-175">*Sign-in instructions for hello Azure Toolkit for IntelliJ* (this article)</span></span>
+  * <span data-ttu-id="e2761-176">[Criar um aplicativo Web Olá, Mundo para o Azure no IntelliJ]</span><span class="sxs-lookup"><span data-stu-id="e2761-176">[Create a Hello World web app for Azure in IntelliJ]</span></span>
 
-<span data-ttu-id="b8616-177">Para saber mais sobre como usar o Azure com Java, confira o [Centro de Desenvolvedores Java do Azure] e as [Ferramentas Java para Visual Studio Team Services].</span><span class="sxs-lookup"><span data-stu-id="b8616-177">For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].</span></span>
+<span data-ttu-id="e2761-177">Para obter mais informações sobre como usar o Azure com Java, consulte Olá [Centro de desenvolvedores de Java do Azure] e hello [ferramentas Java para o Visual Studio Team Services].</span><span class="sxs-lookup"><span data-stu-id="e2761-177">For more information about using Azure with Java, see hello [Azure Java Developer Center] and hello [Java Tools for Visual Studio Team Services].</span></span>
 
 <!-- URL List -->
 
-<span data-ttu-id="b8616-178">[Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse.md</span><span class="sxs-lookup"><span data-stu-id="b8616-178">[Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse.md</span></span>
-<span data-ttu-id="b8616-179">[Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij.md</span><span class="sxs-lookup"><span data-stu-id="b8616-179">[Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md</span></span>
-<span data-ttu-id="b8616-180">[Criar um aplicativo Web Hello World para o Azure no Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md</span><span class="sxs-lookup"><span data-stu-id="b8616-180">[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md</span></span>
-<span data-ttu-id="b8616-181">[Criar um aplicativo Web Hello World para o Azure no IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md</span><span class="sxs-lookup"><span data-stu-id="b8616-181">[Create a Hello World web app for Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md</span></span>
-<span data-ttu-id="b8616-182">[Instalação do Kit de Ferramentas do Azure para o Eclipse]: ./azure-toolkit-for-eclipse-installation.md</span><span class="sxs-lookup"><span data-stu-id="b8616-182">[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md</span></span>
-<span data-ttu-id="b8616-183">[Instalação do Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-installation.md</span><span class="sxs-lookup"><span data-stu-id="b8616-183">[Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md</span></span>
-<span data-ttu-id="b8616-184">[Instruções de entrada para o Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md</span><span class="sxs-lookup"><span data-stu-id="b8616-184">[Sign-in instructions for the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md</span></span>
-[Sign-in instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-<span data-ttu-id="b8616-185">[Novidades no Kit de Ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md</span><span class="sxs-lookup"><span data-stu-id="b8616-185">[What's new in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md</span></span>
-<span data-ttu-id="b8616-186">[Novidades no Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md</span><span class="sxs-lookup"><span data-stu-id="b8616-186">[What's new in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md</span></span>
+[Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse.md
+[Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij.md
+[Criar um aplicativo Web Hello World para o Azure no Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Criar um aplicativo Web Olá, Mundo para o Azure no IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Saudação de instalar o Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Saudação de instalar o Kit de ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Instruções de entrada para Olá Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Sign-in instructions for hello Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[O que há de novo no hello Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[O que há de novo no hello Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
-<span data-ttu-id="b8616-187">[Centro de Desenvolvedores Java do Azure]: https://azure.microsoft.com/develop/java/</span><span class="sxs-lookup"><span data-stu-id="b8616-187">[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/</span></span>
-<span data-ttu-id="b8616-188">[Ferramentas Java para Visual Studio Team Services]: https://java.visualstudio.com/</span><span class="sxs-lookup"><span data-stu-id="b8616-188">[Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/</span></span>
+[Centro de desenvolvedores de Java do Azure]: https://azure.microsoft.com/develop/java/
+[ferramentas Java para o Visual Studio Team Services]: https://java.visualstudio.com/
 
 <!-- IMG List -->
 

@@ -1,6 +1,6 @@
 ---
-title: "Documentação do Azure Devtest Labs - Tutoriais | Microsoft Docs"
-description: "Saiba como criar rapidamente ambientes de teste de aplicativos usando artefatos reutilizáveis. Tutoriais, vídeos e muito mais mostram como criar, gerenciar e proteger laboratórios."
+title: "aaaAzure Devtest Labs documentação - tutoriais | Microsoft Docs"
+description: "Saiba como tooquickly criar ambientes de teste de aplicativo usando artefatos reutilizáveis. Tutoriais, vídeos e muito mais mostram como toocreate, gerenciar e proteger laboratórios."
 services: devtest-lab
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 3c54e0f89529fb159c3940f5792c4c0e095ee3fb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b403eeda791425bc8f74ee4430224479e39d727c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="devtest-labs-documentation"></a>Documentação do DevTest Labs
 
-Saiba como usar o Devtest Labs para criar rapidamente ambientes de teste de aplicativos usando artefatos reutilizáveis. Tutoriais, vídeos e outras documentações mostram como criar, gerenciar e proteger laboratórios e adicionar e gerenciar artefatos.
+Saiba como toouse Devtest Labs tooquickly criar ambientes de teste de aplicativo usando artefatos reutilizáveis. A documentação, vídeos e tutoriais mostram como toocreate, gerenciar, proteger labs e adicionar e gerenciar artefatos.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ Saiba como usar o Devtest Labs para criar rapidamente ambientes de teste de apli
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução ao Azure DevTest Labs usando o Portal do Azure</h3>
+                        <h3>Introdução ao Azure DevTest Labs usando Olá portal do Azure</h3>
                     </div>
                 </div>
             </div>

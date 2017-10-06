@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory ao Samanage | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Samanage."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e do Samanage."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,255 +13,255 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: c54dbe407145a29a712acc3c0fb549a38ac26bed
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c8edc29f113b8088438618a731e97c0f4f155b9c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-samanage"></a><span data-ttu-id="b8032-103">Tutorial: Integração do Azure Active Directory ao Samanage</span><span class="sxs-lookup"><span data-stu-id="b8032-103">Tutorial: Azure Active Directory integration with Samanage</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-samanage"></a><span data-ttu-id="ad0ef-103">Tutorial: Integração do Azure Active Directory ao Samanage</span><span class="sxs-lookup"><span data-stu-id="ad0ef-103">Tutorial: Azure Active Directory integration with Samanage</span></span>
 
-<span data-ttu-id="b8032-104">Neste tutorial, você aprende a integrar o Samanage ao Azure AD (Azure Active Directory).</span><span class="sxs-lookup"><span data-stu-id="b8032-104">In this tutorial, you learn how to integrate Samanage with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="ad0ef-104">Neste tutorial, você aprenderá como toointegrate Samanage com o Azure Active Directory (AD do Azure).</span><span class="sxs-lookup"><span data-stu-id="ad0ef-104">In this tutorial, you learn how toointegrate Samanage with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="b8032-105">A integração do Samanage ao Azure AD oferece os seguintes benefícios:</span><span class="sxs-lookup"><span data-stu-id="b8032-105">Integrating Samanage with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="ad0ef-105">Integrando o Samanage com o AD do Azure fornece Olá benefícios a seguir:</span><span class="sxs-lookup"><span data-stu-id="ad0ef-105">Integrating Samanage with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="b8032-106">No Azure AD, é possível controlar quem tem acesso ao Samanage</span><span class="sxs-lookup"><span data-stu-id="b8032-106">You can control in Azure AD who has access to Samanage</span></span>
-- <span data-ttu-id="b8032-107">Você pode permitir que seus usuários façam logon automaticamente no Samanage (logon único) com as contas do Azure AD deles</span><span class="sxs-lookup"><span data-stu-id="b8032-107">You can enable your users to automatically get signed-on to Samanage (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="b8032-108">Você pode gerenciar suas contas em um única localização: o Portal do Azure</span><span class="sxs-lookup"><span data-stu-id="b8032-108">You can manage your accounts in one central location - the Azure portal</span></span>
+- <span data-ttu-id="ad0ef-106">Você pode controlar no AD do Azure que tenha acesso tooSamanage</span><span class="sxs-lookup"><span data-stu-id="ad0ef-106">You can control in Azure AD who has access tooSamanage</span></span>
+- <span data-ttu-id="ad0ef-107">Você pode habilitar seu usuários tooautomatically get conectado tooSamanage (logon único) com suas contas do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="ad0ef-107">You can enable your users tooautomatically get signed-on tooSamanage (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="ad0ef-108">Você pode gerenciar suas contas em um local central - Olá portal do Azure</span><span class="sxs-lookup"><span data-stu-id="ad0ef-108">You can manage your accounts in one central location - hello Azure portal</span></span>
 
-<span data-ttu-id="b8032-109">Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="b8032-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="ad0ef-109">Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="ad0ef-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="b8032-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="b8032-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="ad0ef-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="ad0ef-110">Prerequisites</span></span>
 
-<span data-ttu-id="b8032-111">Para configurar a integração do Azure AD ao Samanage, você precisará dos seguintes itens:</span><span class="sxs-lookup"><span data-stu-id="b8032-111">To configure Azure AD integration with Samanage, you need the following items:</span></span>
+<span data-ttu-id="ad0ef-111">tooconfigure integração do AD do Azure com o Samanage, você precisa Olá itens a seguir:</span><span class="sxs-lookup"><span data-stu-id="ad0ef-111">tooconfigure Azure AD integration with Samanage, you need hello following items:</span></span>
 
-- <span data-ttu-id="b8032-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="b8032-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="b8032-113">Uma assinatura habilitada para logon único do Samanage</span><span class="sxs-lookup"><span data-stu-id="b8032-113">A Samanage single sign-on enabled subscription</span></span>
+- <span data-ttu-id="ad0ef-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="ad0ef-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="ad0ef-113">Uma assinatura habilitada para logon único do Samanage</span><span class="sxs-lookup"><span data-stu-id="ad0ef-113">A Samanage single sign-on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="b8032-114">Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="b8032-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="ad0ef-114">Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="b8032-115">Para testar as etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="b8032-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="ad0ef-115">tootest Olá etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="ad0ef-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="b8032-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="b8032-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="b8032-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="b8032-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="ad0ef-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="ad0ef-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="ad0ef-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="b8032-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="b8032-118">Scenario description</span></span>
-<span data-ttu-id="b8032-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="b8032-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="b8032-120">O cenário descrito neste tutorial consiste em dois blocos de construção principais:</span><span class="sxs-lookup"><span data-stu-id="b8032-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="ad0ef-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="ad0ef-118">Scenario description</span></span>
+<span data-ttu-id="ad0ef-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="ad0ef-120">cenário de saudação descrito neste tutorial consiste em dois elementos básicos:</span><span class="sxs-lookup"><span data-stu-id="ad0ef-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="b8032-121">Adição do Samanage da galeria</span><span class="sxs-lookup"><span data-stu-id="b8032-121">Adding Samanage from the gallery</span></span>
-2. <span data-ttu-id="b8032-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="b8032-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="ad0ef-121">Adicionando Samanage da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="ad0ef-121">Adding Samanage from hello gallery</span></span>
+2. <span data-ttu-id="ad0ef-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="ad0ef-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-samanage-from-the-gallery"></a><span data-ttu-id="b8032-123">Adição do Samanage da galeria</span><span class="sxs-lookup"><span data-stu-id="b8032-123">Adding Samanage from the gallery</span></span>
-<span data-ttu-id="b8032-124">Para configurar a integração do Samanage ao Azure AD, você precisa adicionar o Samanage na galeria à sua lista de aplicativos de SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="b8032-124">To configure the integration of Samanage into Azure AD, you need to add Samanage from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-samanage-from-hello-gallery"></a><span data-ttu-id="ad0ef-123">Adicionando Samanage da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="ad0ef-123">Adding Samanage from hello gallery</span></span>
+<span data-ttu-id="ad0ef-124">integração de saudação tooconfigure do Samanage no AD do Azure, você precisa tooadd Samanage da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-124">tooconfigure hello integration of Samanage into Azure AD, you need tooadd Samanage from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="b8032-125">**Para adicionar o Samanage da galeria, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="b8032-125">**To add Samanage from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="ad0ef-125">**tooadd Samanage da Galeria hello, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="ad0ef-125">**tooadd Samanage from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="b8032-126">No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="b8032-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="ad0ef-126">Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Active Directory][1]
 
-2. <span data-ttu-id="b8032-128">Navegue até **aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="b8032-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="b8032-129">Em seguida, vá para **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="b8032-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="ad0ef-128">Navegue muito**aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="ad0ef-129">Em seguida, acesse muito**todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-129">Then go too**All applications**.</span></span>
 
     ![Aplicativos][2]
     
-3. <span data-ttu-id="b8032-131">Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.</span><span class="sxs-lookup"><span data-stu-id="b8032-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="ad0ef-131">tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
     ![Aplicativos][3]
 
-4. <span data-ttu-id="b8032-133">Na caixa de pesquisa, digite **Samanage**.</span><span class="sxs-lookup"><span data-stu-id="b8032-133">In the search box, type **Samanage**.</span></span>
+4. <span data-ttu-id="ad0ef-133">Na caixa de pesquisa hello, digite **Samanage**.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-133">In hello search box, type **Samanage**.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_search.png)
 
-5. <span data-ttu-id="b8032-135">No painel de resultados, selecione **Samanage** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="b8032-135">In the results panel, select **Samanage**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="ad0ef-135">No painel de resultados de saudação, selecione **Samanage**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-135">In hello results panel, select **Samanage**, and then click **Add** button tooadd hello application.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="b8032-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="b8032-137">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="b8032-138">Nesta seção, você configura e testa o logon único do Azure AD com o Samanage, com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="b8032-138">In this section, you configure and test Azure AD single sign-on with Samanage based on a test user called "Britta Simon".</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="ad0ef-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="ad0ef-137">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="ad0ef-138">Nesta seção, você configura e testa o logon único do Azure AD com o Samanage, com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-138">In this section, you configure and test Azure AD single sign-on with Samanage based on a test user called "Britta Simon".</span></span>
 
-<span data-ttu-id="b8032-139">Para que o logon único funcione, o Azure AD precisa saber qual usuário do Samanage é equivalente a um usuário do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="b8032-139">For single sign-on to work, Azure AD needs to know what the counterpart user in Samanage is to a user in Azure AD.</span></span> <span data-ttu-id="b8032-140">Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Samanage.</span><span class="sxs-lookup"><span data-stu-id="b8032-140">In other words, a link relationship between an Azure AD user and the related user in Samanage needs to be established.</span></span>
+<span data-ttu-id="ad0ef-139">Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no Samanage é tooa usuário no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in Samanage is tooa user in Azure AD.</span></span> <span data-ttu-id="ad0ef-140">Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no Samanage precisa toobe estabelecida.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-140">In other words, a link relationship between an Azure AD user and hello related user in Samanage needs toobe established.</span></span>
 
-<span data-ttu-id="b8032-141">No Samanage, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.</span><span class="sxs-lookup"><span data-stu-id="b8032-141">In Samanage, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="ad0ef-141">No Samanage, atribuir o valor de saudação do hello **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-141">In Samanage, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="b8032-142">Para configurar e testar o logon único do Azure AD com o Samanage, você precisará concluir os seguintes blocos de construção:</span><span class="sxs-lookup"><span data-stu-id="b8032-142">To configure and test Azure AD single sign-on with Samanage, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="ad0ef-142">tooconfigure e teste de logon único do AD do Azure com o Samanage, é necessário Olá toocomplete blocos de construção a seguir:</span><span class="sxs-lookup"><span data-stu-id="ad0ef-142">tooconfigure and test Azure AD single sign-on with Samanage, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="b8032-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.</span><span class="sxs-lookup"><span data-stu-id="b8032-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="b8032-144">**[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="b8032-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="b8032-145">**[Criando um usuário de teste do Samanage](#creating-a-samanage-test-user)** – para ter um equivalente de Brenda Fernandes no Samanage que esteja vinculado à representação de usuário do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="b8032-145">**[Creating a Samanage test user](#creating-a-samanage-test-user)** - to have a counterpart of Britta Simon in Samanage that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="b8032-146">**[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="b8032-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="b8032-147">**[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.</span><span class="sxs-lookup"><span data-stu-id="b8032-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="ad0ef-143">**[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="ad0ef-144">**[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="ad0ef-145">**[Criar um usuário de teste do Samanage](#creating-a-samanage-test-user)**  -toohave um equivalente do Britta Simon no Samanage é vinculado toohello AD do Azure representação do usuário.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-145">**[Creating a Samanage test user](#creating-a-samanage-test-user)** - toohave a counterpart of Britta Simon in Samanage that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="ad0ef-146">**[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="ad0ef-147">**[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="b8032-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="b8032-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="ad0ef-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="ad0ef-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="b8032-149">Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo Samanage.</span><span class="sxs-lookup"><span data-stu-id="b8032-149">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Samanage application.</span></span>
+<span data-ttu-id="ad0ef-149">Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo Samanage.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-149">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your Samanage application.</span></span>
 
-<span data-ttu-id="b8032-150">**Para configurar o logon único do Azure AD com o Samanage, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="b8032-150">**To configure Azure AD single sign-on with Samanage, perform the following steps:**</span></span>
+<span data-ttu-id="ad0ef-150">**tooconfigure AD do Azure-logon único com o Samanage, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="ad0ef-150">**tooconfigure Azure AD single sign-on with Samanage, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="b8032-151">No portal do Azure, na página de integração do aplicativo **Samanage**, clique em **Logon único**.</span><span class="sxs-lookup"><span data-stu-id="b8032-151">In the Azure portal, on the **Samanage** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="ad0ef-151">Em Olá portal do Azure, Olá **Samanage** página de integração de aplicativos, clique em **o logon único**.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-151">In hello Azure portal, on hello **Samanage** application integration page, click **Single sign-on**.</span></span>
 
     ![Configurar Logon Único][4]
 
-2. <span data-ttu-id="b8032-153">Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.</span><span class="sxs-lookup"><span data-stu-id="b8032-153">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="ad0ef-153">Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-153">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Configurar Logon Único](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_samlbase.png)
 
-3. <span data-ttu-id="b8032-155">Na seção **Domínio e URLs do Samanage**, realize as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="b8032-155">On the **Samanage Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="ad0ef-155">Em Olá **Samanage domínio e URLs** , execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="ad0ef-155">On hello **Samanage Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_url.png)
 
-    <span data-ttu-id="b8032-157">a.</span><span class="sxs-lookup"><span data-stu-id="b8032-157">a.</span></span> <span data-ttu-id="b8032-158">Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<Company Name>.samanage.com/saml_login/<Company Name>`</span><span class="sxs-lookup"><span data-stu-id="b8032-158">In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<Company Name>.samanage.com/saml_login/<Company Name>`</span></span>
+    <span data-ttu-id="ad0ef-157">a.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-157">a.</span></span> <span data-ttu-id="ad0ef-158">Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<Company Name>.samanage.com/saml_login/<Company Name>`</span><span class="sxs-lookup"><span data-stu-id="ad0ef-158">In hello **Sign-on URL** textbox, type a URL using hello following pattern: `https://<Company Name>.samanage.com/saml_login/<Company Name>`</span></span>
 
-    <span data-ttu-id="b8032-159">b.</span><span class="sxs-lookup"><span data-stu-id="b8032-159">b.</span></span> <span data-ttu-id="b8032-160">Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<Company Name>.samanage.com`</span><span class="sxs-lookup"><span data-stu-id="b8032-160">In the **Identifier** textbox, type a URL using the following pattern: `https://<Company Name>.samanage.com`</span></span>
+    <span data-ttu-id="ad0ef-159">b.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-159">b.</span></span> <span data-ttu-id="ad0ef-160">Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<Company Name>.samanage.com`</span><span class="sxs-lookup"><span data-stu-id="ad0ef-160">In hello **Identifier** textbox, type a URL using hello following pattern: `https://<Company Name>.samanage.com`</span></span>
 
     > [!NOTE] 
-    > <span data-ttu-id="b8032-161">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="b8032-161">These values are not real.</span></span> <span data-ttu-id="b8032-162">Atualize esses valores com a URL de Logon e o Identificador reais, que são explicados adiante no tutorial.</span><span class="sxs-lookup"><span data-stu-id="b8032-162">Update these values with the actual Sign-on URL and Identifier, which is explained later in the tutorial.</span></span> <span data-ttu-id="b8032-163">Para obter mais detalhes, contate a [equipe de suporte ao Cliente do Samanage](https://www.samanage.com/support).</span><span class="sxs-lookup"><span data-stu-id="b8032-163">For more details contact [Samanage Client support team](https://www.samanage.com/support).</span></span>    
+    > <span data-ttu-id="ad0ef-161">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-161">These values are not real.</span></span> <span data-ttu-id="ad0ef-162">Atualize esses valores com URL de logon real hello e o identificador que é explicada posteriormente no tutorial de saudação.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-162">Update these values with hello actual Sign-on URL and Identifier, which is explained later in hello tutorial.</span></span> <span data-ttu-id="ad0ef-163">Para obter mais detalhes, contate a [equipe de suporte ao Cliente do Samanage](https://www.samanage.com/support).</span><span class="sxs-lookup"><span data-stu-id="ad0ef-163">For more details contact [Samanage Client support team](https://www.samanage.com/support).</span></span>    
  
-4. <span data-ttu-id="b8032-164">Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.</span><span class="sxs-lookup"><span data-stu-id="b8032-164">On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.</span></span>
+4. <span data-ttu-id="ad0ef-164">Em Olá **o certificado de autenticação SAML** seção, clique em **Certificate(Base64)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-164">On hello **SAML Signing Certificate** section, click **Certificate(Base64)** and then save hello certificate file on your computer.</span></span>
 
-    ![Configurar o logon único](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_certificate.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_certificate.png) 
 
-5. <span data-ttu-id="b8032-166">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="b8032-166">Click **Save** button.</span></span>
+5. <span data-ttu-id="ad0ef-166">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="ad0ef-166">Click **Save** button.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-samanage-tutorial/tutorial_general_400.png)
 
-6. <span data-ttu-id="b8032-168">Na seção **Configuração do Samanage**, clique em **Configurar o Samanage** para abrir a janela **Configurar logon**.</span><span class="sxs-lookup"><span data-stu-id="b8032-168">On the **Samanage Configuration** section, click **Configure Samanage** to open **Configure sign-on** window.</span></span> <span data-ttu-id="b8032-169">Copie a **URL de Saída e a ID da Entidade SAML** da **seção Referência Rápida.**</span><span class="sxs-lookup"><span data-stu-id="b8032-169">Copy the **Sign-Out URL, and SAML Entity ID** from the **Quick Reference section.**</span></span>
+6. <span data-ttu-id="ad0ef-168">Em Olá **Samanage configuração** seção, clique em **configurar Samanage** tooopen **configurar o logon** janela.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-168">On hello **Samanage Configuration** section, click **Configure Samanage** tooopen **Configure sign-on** window.</span></span> <span data-ttu-id="ad0ef-169">Saudação de cópia **URL de logout e a ID da entidade SAML** de saudação **seção de referência rápida.**</span><span class="sxs-lookup"><span data-stu-id="ad0ef-169">Copy hello **Sign-Out URL, and SAML Entity ID** from hello **Quick Reference section.**</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_configure.png) 
 
-7. <span data-ttu-id="b8032-171">Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do Samanage como administrador.</span><span class="sxs-lookup"><span data-stu-id="b8032-171">In a different web browser window, log into your Samanage company site as an administrator.</span></span>
+7. <span data-ttu-id="ad0ef-171">Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do Samanage como administrador.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-171">In a different web browser window, log into your Samanage company site as an administrator.</span></span>
 
-8. <span data-ttu-id="b8032-172">Clique em **Painel** e selecione **Configuração** no painel de navegação à esquerda.</span><span class="sxs-lookup"><span data-stu-id="b8032-172">Click **Dashboard** and select **Setup** in left navigation pane.</span></span>
+8. <span data-ttu-id="ad0ef-172">Clique em **Painel** e selecione **Configuração** no painel de navegação à esquerda.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-172">Click **Dashboard** and select **Setup** in left navigation pane.</span></span>
    
-    <span data-ttu-id="b8032-173">![Painel](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "Painel")</span><span class="sxs-lookup"><span data-stu-id="b8032-173">![Dashboard](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "Dashboard")</span></span>
+    <span data-ttu-id="ad0ef-173">![Painel](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "Painel")</span><span class="sxs-lookup"><span data-stu-id="ad0ef-173">![Dashboard](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "Dashboard")</span></span>
 
-9. <span data-ttu-id="b8032-174">Clique em **Logon Único**.</span><span class="sxs-lookup"><span data-stu-id="b8032-174">Click **Single Sign-On**.</span></span>
+9. <span data-ttu-id="ad0ef-174">Clique em **Logon Único**.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-174">Click **Single Sign-On**.</span></span>
    
-    <span data-ttu-id="b8032-175">![Logon Único](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_002.png "Logon Único")</span><span class="sxs-lookup"><span data-stu-id="b8032-175">![Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_002.png "Single Sign-On")</span></span>
+    <span data-ttu-id="ad0ef-175">![Logon Único](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_002.png "Logon Único")</span><span class="sxs-lookup"><span data-stu-id="ad0ef-175">![Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_002.png "Single Sign-On")</span></span>
 
-10. <span data-ttu-id="b8032-176">Navegue até a seção **Logon usando SAML** , execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="b8032-176">Navigate to **Login using SAML** section, perform the following steps:</span></span>
+10. <span data-ttu-id="ad0ef-176">Navegue muito**logon usando SAML** , execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="ad0ef-176">Navigate too**Login using SAML** section, perform hello following steps:</span></span>
    
-    <span data-ttu-id="b8032-177">![Logon usando SAML](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_003.png "Logon usando SAML")</span><span class="sxs-lookup"><span data-stu-id="b8032-177">![Login using SAML](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_003.png "Login using SAML")</span></span>
+    <span data-ttu-id="ad0ef-177">![Logon usando SAML](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_003.png "Logon usando SAML")</span><span class="sxs-lookup"><span data-stu-id="ad0ef-177">![Login using SAML](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_003.png "Login using SAML")</span></span>
  
-    <span data-ttu-id="b8032-178">a.</span><span class="sxs-lookup"><span data-stu-id="b8032-178">a.</span></span> <span data-ttu-id="b8032-179">Clique em **Habilitar o Logon Único com SAML**.</span><span class="sxs-lookup"><span data-stu-id="b8032-179">Click **Enable Single Sign-On with SAML**.</span></span>  
+    <span data-ttu-id="ad0ef-178">a.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-178">a.</span></span> <span data-ttu-id="ad0ef-179">Clique em **Habilitar o Logon Único com SAML**.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-179">Click **Enable Single Sign-On with SAML**.</span></span>  
  
-    <span data-ttu-id="b8032-180">b.</span><span class="sxs-lookup"><span data-stu-id="b8032-180">b.</span></span> <span data-ttu-id="b8032-181">Na caixa de texto **URL do Provedor de Identidade**, cole o valor da **ID da Entidade SAML** copiado do portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="b8032-181">In the **Identity Provider URL** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal.</span></span>    
+    <span data-ttu-id="ad0ef-180">b.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-180">b.</span></span> <span data-ttu-id="ad0ef-181">Em hello **URL do provedor de identidade** caixa de texto valor Olá colar **ID da entidade SAML** que você copiou do portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-181">In hello **Identity Provider URL** textbox, paste hello value of **SAML Entity ID** which you have copied from Azure portal.</span></span>    
  
-    <span data-ttu-id="b8032-182">c.</span><span class="sxs-lookup"><span data-stu-id="b8032-182">c.</span></span> <span data-ttu-id="b8032-183">Confirme se a **URL de Logon** corresponde à **URL de Logon** da seção **Domínio e URLs do Samanage** no portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="b8032-183">Confirm the **Login URL** matches the **Sign On URL** of **Samanage Domain and URLs** section in Azure portal.</span></span>
+    <span data-ttu-id="ad0ef-182">c.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-182">c.</span></span> <span data-ttu-id="ad0ef-183">Confirmar Olá **URL de logon** correspondências Olá **URL de logon** de **Samanage domínio e URLs** seção no portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-183">Confirm hello **Login URL** matches hello **Sign On URL** of **Samanage Domain and URLs** section in Azure portal.</span></span>
  
-    <span data-ttu-id="b8032-184">d.</span><span class="sxs-lookup"><span data-stu-id="b8032-184">d.</span></span> <span data-ttu-id="b8032-185">Na caixa de texto **URL de Logoff**, insira o valor da **URL de Saída** copiado do portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="b8032-185">In the **Logout URL** textbox, enter the value of **Sign-Out URL** which you have copied from Azure portal.</span></span>
+    <span data-ttu-id="ad0ef-184">d.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-184">d.</span></span> <span data-ttu-id="ad0ef-185">Em Olá **URL de Logout** caixa de texto, insira o valor de saudação do **URL de logout** que você copiou do portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-185">In hello **Logout URL** textbox, enter hello value of **Sign-Out URL** which you have copied from Azure portal.</span></span>
  
-    <span data-ttu-id="b8032-186">e.</span><span class="sxs-lookup"><span data-stu-id="b8032-186">e.</span></span> <span data-ttu-id="b8032-187">Na caixa de texto **Emissor SAML**, digite o URI da ID do aplicativo definido no provedor de identidade.</span><span class="sxs-lookup"><span data-stu-id="b8032-187">In the **SAML Issuer** textbox, type the app id URI set in your identity provider.</span></span>
+    <span data-ttu-id="ad0ef-186">e.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-186">e.</span></span> <span data-ttu-id="ad0ef-187">Em Olá **emissor SAML** caixa de texto, a id do tipo de aplicativo hello URI definido no seu provedor de identidade.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-187">In hello **SAML Issuer** textbox, type hello app id URI set in your identity provider.</span></span>
  
-    <span data-ttu-id="b8032-188">f.</span><span class="sxs-lookup"><span data-stu-id="b8032-188">f.</span></span> <span data-ttu-id="b8032-189">Abra o certificado codificado em Base64 baixado no portal do Azure no bloco de notas, copie o conteúdo dele para a área de transferência e, depois, cole-o na caixa de texto **Cole o Certificado x.509 do Provedor de Identidade abaixo**.</span><span class="sxs-lookup"><span data-stu-id="b8032-189">Open your base-64 encoded certificate downloaded from Azure portal in notepad, copy the content of it into your clipboard, and then paste it to the **Paste your Identity Provider x.509 Certificate below** textbox.</span></span>
+    <span data-ttu-id="ad0ef-188">f.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-188">f.</span></span> <span data-ttu-id="ad0ef-189">Abra seu certificado codificado em base 64 baixado do portal do Azure no bloco de notas, Olá de copiar conteúdo dele para sua área de transferência e, em seguida, cole-o toohello **cole seu provedor de identidade x. 509 certificado abaixo** caixa de texto.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-189">Open your base-64 encoded certificate downloaded from Azure portal in notepad, copy hello content of it into your clipboard, and then paste it toohello **Paste your Identity Provider x.509 Certificate below** textbox.</span></span>
  
-    <span data-ttu-id="b8032-190">g.</span><span class="sxs-lookup"><span data-stu-id="b8032-190">g.</span></span> <span data-ttu-id="b8032-191">Clique em **Criar usuários se eles não existirem no Samanage**.</span><span class="sxs-lookup"><span data-stu-id="b8032-191">Click **Create users if they do not exist in Samanage**.</span></span>
+    <span data-ttu-id="ad0ef-190">g.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-190">g.</span></span> <span data-ttu-id="ad0ef-191">Clique em **Criar usuários se eles não existirem no Samanage**.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-191">Click **Create users if they do not exist in Samanage**.</span></span>
  
-    <span data-ttu-id="b8032-192">h.</span><span class="sxs-lookup"><span data-stu-id="b8032-192">h.</span></span> <span data-ttu-id="b8032-193">Clique em **Atualizar**.</span><span class="sxs-lookup"><span data-stu-id="b8032-193">Click **Update**.</span></span>
+    <span data-ttu-id="ad0ef-192">h.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-192">h.</span></span> <span data-ttu-id="ad0ef-193">Clique em **Atualizar**.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-193">Click **Update**.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="b8032-194">É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!</span><span class="sxs-lookup"><span data-stu-id="b8032-194">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="b8032-195">Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior.</span><span class="sxs-lookup"><span data-stu-id="b8032-195">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="b8032-196">Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="b8032-196">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="ad0ef-194">Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!</span><span class="sxs-lookup"><span data-stu-id="ad0ef-194">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="ad0ef-195">Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-195">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="ad0ef-196">Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="ad0ef-196">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
  
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="b8032-197">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="b8032-197">Creating an Azure AD test user</span></span>
-<span data-ttu-id="b8032-198">O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="b8032-198">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="ad0ef-197">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="ad0ef-197">Creating an Azure AD test user</span></span>
+<span data-ttu-id="ad0ef-198">Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-198">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Criar um usuário do AD do Azure][100]
 
-<span data-ttu-id="b8032-200">**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="b8032-200">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="ad0ef-200">**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="ad0ef-200">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="b8032-201">No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="b8032-201">In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="ad0ef-201">Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-201">In hello **Azure portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-samanage-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="b8032-203">Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="b8032-203">To display the list of users, go to **Users and groups** and click **All users**.</span></span>
+2. <span data-ttu-id="ad0ef-203">lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-203">toodisplay hello list of users, go too**Users and groups** and click **All users**.</span></span>
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-samanage-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="b8032-205">Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="b8032-205">To open the **User** dialog, click **Add** on the top of the dialog.</span></span>
+3. <span data-ttu-id="ad0ef-205">Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-205">tooopen hello **User** dialog, click **Add** on hello top of hello dialog.</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-samanage-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="b8032-207">Na página do diálogo **Usuário**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="b8032-207">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="ad0ef-207">Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="ad0ef-207">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-samanage-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="b8032-209">a.</span><span class="sxs-lookup"><span data-stu-id="b8032-209">a.</span></span> <span data-ttu-id="b8032-210">Na caixa de texto **Nome**, digite **Brenda Fernandes**.</span><span class="sxs-lookup"><span data-stu-id="b8032-210">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="ad0ef-209">a.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-209">a.</span></span> <span data-ttu-id="ad0ef-210">Em Olá **nome** caixa de texto, tipo **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-210">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="b8032-211">b.</span><span class="sxs-lookup"><span data-stu-id="b8032-211">b.</span></span> <span data-ttu-id="b8032-212">Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="b8032-212">In the **User name** textbox, type the **email address** of BrittaSimon.</span></span>
+    <span data-ttu-id="ad0ef-211">b.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-211">b.</span></span> <span data-ttu-id="ad0ef-212">Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-212">In hello **User name** textbox, type hello **email address** of BrittaSimon.</span></span>
 
-    <span data-ttu-id="b8032-213">c.</span><span class="sxs-lookup"><span data-stu-id="b8032-213">c.</span></span> <span data-ttu-id="b8032-214">Selecione **Mostrar senha** e anote o valor de **senha**.</span><span class="sxs-lookup"><span data-stu-id="b8032-214">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="ad0ef-213">c.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-213">c.</span></span> <span data-ttu-id="ad0ef-214">Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-214">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="b8032-215">d.</span><span class="sxs-lookup"><span data-stu-id="b8032-215">d.</span></span> <span data-ttu-id="b8032-216">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="b8032-216">Click **Create**.</span></span>
+    <span data-ttu-id="ad0ef-215">d.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-215">d.</span></span> <span data-ttu-id="ad0ef-216">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-216">Click **Create**.</span></span>
  
-### <a name="creating-a-samanage-test-user"></a><span data-ttu-id="b8032-217">Criação de um usuário de teste de Samanage</span><span class="sxs-lookup"><span data-stu-id="b8032-217">Creating a Samanage test user</span></span>
+### <a name="creating-a-samanage-test-user"></a><span data-ttu-id="ad0ef-217">Criação de um usuário de teste de Samanage</span><span class="sxs-lookup"><span data-stu-id="ad0ef-217">Creating a Samanage test user</span></span>
 
-<span data-ttu-id="b8032-218">Para permitir que os usuários do Azure AD façam logon no Samanage, eles devem ser provisionados no Samanage.</span><span class="sxs-lookup"><span data-stu-id="b8032-218">To enable Azure AD users to log in to Samanage, they must be provisioned into Samanage.</span></span>  
-<span data-ttu-id="b8032-219">No caso do Samanage, o provisionamento é uma tarefa manual.</span><span class="sxs-lookup"><span data-stu-id="b8032-219">In the case of Samanage, provisioning is a manual task.</span></span>
+<span data-ttu-id="ad0ef-218">tooenable AD do Azure usuários toolog em tooSamanage, eles devem ser provisionados no Samanage.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-218">tooenable Azure AD users toolog in tooSamanage, they must be provisioned into Samanage.</span></span>  
+<span data-ttu-id="ad0ef-219">No caso de saudação do Samanage, o provisionamento é uma tarefa manual.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-219">In hello case of Samanage, provisioning is a manual task.</span></span>
 
-<span data-ttu-id="b8032-220">**Para provisionar uma conta de usuário, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="b8032-220">**To provision a user account, perform the following steps:**</span></span>
+<span data-ttu-id="ad0ef-220">**tooprovision uma conta de usuário, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="ad0ef-220">**tooprovision a user account, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="b8032-221">Faça logon em seu site de empresa Samanage como um administrador.</span><span class="sxs-lookup"><span data-stu-id="b8032-221">Log into your Samanage company site as an administrator.</span></span>
+1. <span data-ttu-id="ad0ef-221">Faça logon em seu site de empresa Samanage como um administrador.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-221">Log into your Samanage company site as an administrator.</span></span>
 
-2. <span data-ttu-id="b8032-222">Clique em **Painel** e selecione **Configuração** no painel de navegação à esquerda.</span><span class="sxs-lookup"><span data-stu-id="b8032-222">Click **Dashboard** and select **Setup** in left navigation pan.</span></span>
+2. <span data-ttu-id="ad0ef-222">Clique em **Painel** e selecione **Configuração** no painel de navegação à esquerda.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-222">Click **Dashboard** and select **Setup** in left navigation pan.</span></span>
    
-    <span data-ttu-id="b8032-223">![Configuração](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "Configuração")</span><span class="sxs-lookup"><span data-stu-id="b8032-223">![Setup](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "Setup")</span></span>
+    <span data-ttu-id="ad0ef-223">![Configuração](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "Configuração")</span><span class="sxs-lookup"><span data-stu-id="ad0ef-223">![Setup](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "Setup")</span></span>
 
-3. <span data-ttu-id="b8032-224">Clique na guia **Usuários**</span><span class="sxs-lookup"><span data-stu-id="b8032-224">Click the **Users** tab</span></span>
+3. <span data-ttu-id="ad0ef-224">Clique em Olá **usuários** guia</span><span class="sxs-lookup"><span data-stu-id="ad0ef-224">Click hello **Users** tab</span></span>
    
-    <span data-ttu-id="b8032-225">![Usuários](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_006.png "Usuários")</span><span class="sxs-lookup"><span data-stu-id="b8032-225">![Users](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_006.png "Users")</span></span>
+    <span data-ttu-id="ad0ef-225">![Usuários](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_006.png "Usuários")</span><span class="sxs-lookup"><span data-stu-id="ad0ef-225">![Users](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_006.png "Users")</span></span>
 
-4. <span data-ttu-id="b8032-226">Clique em **Novo Usuário**.</span><span class="sxs-lookup"><span data-stu-id="b8032-226">Click **New User**.</span></span>
+4. <span data-ttu-id="ad0ef-226">Clique em **Novo Usuário**.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-226">Click **New User**.</span></span>
    
-    <span data-ttu-id="b8032-227">![Novo Usuário](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_007.png "Novo Usuário")</span><span class="sxs-lookup"><span data-stu-id="b8032-227">![New User](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_007.png "New User")</span></span>
+    <span data-ttu-id="ad0ef-227">![Novo Usuário](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_007.png "Novo Usuário")</span><span class="sxs-lookup"><span data-stu-id="ad0ef-227">![New User](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_007.png "New User")</span></span>
 
-5. <span data-ttu-id="b8032-228">Digite o **Nome** e o **Endereço de Email** de uma conta do Azure Active Directory que você deseja provisionar e clique em **Criar usuário**.</span><span class="sxs-lookup"><span data-stu-id="b8032-228">Type the **Name** and the **Email Address** of an Azure Active Directory account you want to provision and click **Create user**.</span></span>
+5. <span data-ttu-id="ad0ef-228">Saudação de tipo **nome** e hello **endereço de Email** de uma conta do Active Directory do Azure que deseja tooprovision e clique **criar usuário**.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-228">Type hello **Name** and hello **Email Address** of an Azure Active Directory account you want tooprovision and click **Create user**.</span></span>
    
-    <span data-ttu-id="b8032-229">![Criar usuário](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_008.png "Criar usuário")</span><span class="sxs-lookup"><span data-stu-id="b8032-229">![Create User](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_008.png "Create User")</span></span>
+    <span data-ttu-id="ad0ef-229">![Criar usuário](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_008.png "Criar usuário")</span><span class="sxs-lookup"><span data-stu-id="ad0ef-229">![Create User](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_008.png "Create User")</span></span>
    
    >[!NOTE]
-   ><span data-ttu-id="b8032-230">O titular da conta do Active Directory do Azure receberá um email e seguirá um link para confirmar a conta antes que ela se torne ativa.</span><span class="sxs-lookup"><span data-stu-id="b8032-230">The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active.</span></span> <span data-ttu-id="b8032-231">Você pode usar qualquer outra ferramenta de criação de conta de usuário do Samanage ou as APIs fornecidas pelo Samanage para provisionar contas de usuário do Azure Active Directory.</span><span class="sxs-lookup"><span data-stu-id="b8032-231">You can use any other Samanage user account creation tools or APIs provided by Samanage to provision Azure Active Directory user accounts.</span></span>
+   ><span data-ttu-id="ad0ef-230">proprietário de conta do Active Directory do Azure Olá será receberá um email e execute tooconfirm um link em sua conta antes de se tornar ativa.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-230">hello Azure Active Directory account holder will receive an email and follow a link tooconfirm their account before it becomes active.</span></span> <span data-ttu-id="ad0ef-231">Você pode usar qualquer ferramenta de criação outros Samanage usuário conta ou APIs fornecidas pelo Samanage tooprovision Azure Active Directory as contas de usuário.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-231">You can use any other Samanage user account creation tools or APIs provided by Samanage tooprovision Azure Active Directory user accounts.</span></span>
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="b8032-232">Atribuição do usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="b8032-232">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="ad0ef-232">Atribuir um usuário de teste de saudação do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="ad0ef-232">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="b8032-233">Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Samanage.</span><span class="sxs-lookup"><span data-stu-id="b8032-233">In this section, you enable Britta Simon to use Azure single sign-on by granting access to Samanage.</span></span>
+<span data-ttu-id="ad0ef-233">Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooSamanage.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-233">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooSamanage.</span></span>
 
 ![Atribuir usuário][200] 
 
-<span data-ttu-id="b8032-235">**Para atribuir Brenda Fernandes ao Samanage, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="b8032-235">**To assign Britta Simon to Samanage, perform the following steps:**</span></span>
+<span data-ttu-id="ad0ef-235">**tooassign Britta Simon tooSamanage, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="ad0ef-235">**tooassign Britta Simon tooSamanage, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="b8032-236">No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="b8032-236">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="ad0ef-236">No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-236">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Atribuir usuário][201] 
 
-2. <span data-ttu-id="b8032-238">Na lista de aplicativos, selecione **Samanage**.</span><span class="sxs-lookup"><span data-stu-id="b8032-238">In the applications list, select **Samanage**.</span></span>
+2. <span data-ttu-id="ad0ef-238">Na lista de aplicativos hello, selecione **Samanage**.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-238">In hello applications list, select **Samanage**.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_app.png) 
 
-3. <span data-ttu-id="b8032-240">No menu à esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="b8032-240">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="ad0ef-240">No menu Olá Olá esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-240">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Atribuir usuário][202] 
 
-4. <span data-ttu-id="b8032-242">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="b8032-242">Click **Add** button.</span></span> <span data-ttu-id="b8032-243">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="b8032-243">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="ad0ef-242">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-242">Click **Add** button.</span></span> <span data-ttu-id="ad0ef-243">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-243">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Atribuir usuário][203]
 
-5. <span data-ttu-id="b8032-245">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="b8032-245">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="ad0ef-245">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-245">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="b8032-246">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="b8032-246">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="ad0ef-246">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-246">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="b8032-247">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="b8032-247">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="ad0ef-247">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-247">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="b8032-248">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="b8032-248">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="ad0ef-248">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="ad0ef-248">Testing single sign-on</span></span>
 
-<span data-ttu-id="b8032-249">Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.</span><span class="sxs-lookup"><span data-stu-id="b8032-249">In this section, you test your Azure AD single sign-on configuration using the Access Panel.</span></span>
+<span data-ttu-id="ad0ef-249">Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-249">In this section, you test your Azure AD single sign-on configuration using hello Access Panel.</span></span>
 
-<span data-ttu-id="b8032-250">Ao clicar no bloco do Samanage no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Samanage.</span><span class="sxs-lookup"><span data-stu-id="b8032-250">When you click the Samanage tile in the Access Panel, you should get automatically signed-on to your Samanage application.</span></span>
-<span data-ttu-id="b8032-251">Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="b8032-251">For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).</span></span>
+<span data-ttu-id="ad0ef-250">Quando você clica em bloco Samanage Olá Olá painel de acesso, você deve obter automaticamente assinado em tooyour Samanage aplicativo.</span><span class="sxs-lookup"><span data-stu-id="ad0ef-250">When you click hello Samanage tile in hello Access Panel, you should get automatically signed-on tooyour Samanage application.</span></span>
+<span data-ttu-id="ad0ef-251">Para obter mais informações sobre Olá painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="ad0ef-251">For more information about hello Access Panel, see [Introduction toohello Access Panel](active-directory-saas-access-panel-introduction.md).</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="b8032-252">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="b8032-252">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="ad0ef-252">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="ad0ef-252">Additional resources</span></span>
 
-* [<span data-ttu-id="b8032-253">Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="b8032-253">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="b8032-254">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="b8032-254">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="ad0ef-253">Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="ad0ef-253">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="ad0ef-254">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="ad0ef-254">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 
 

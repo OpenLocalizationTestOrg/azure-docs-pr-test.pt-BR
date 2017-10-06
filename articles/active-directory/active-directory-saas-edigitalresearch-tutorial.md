@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory ao eDigitalResearch | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o eDigitalResearch."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e eDigitalResearch."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,208 +14,208 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: f877a1dd844c40c913f3121e5288952653c312cd
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6dd3cafb25ef8ede3a4c16902ed8da69cb7b715f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a><span data-ttu-id="e3824-103">Tutorial: integração do Azure Active Directory ao eDigitalResearch</span><span class="sxs-lookup"><span data-stu-id="e3824-103">Tutorial: Azure Active Directory integration with eDigitalResearch</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a><span data-ttu-id="22635-103">Tutorial: integração do Azure Active Directory ao eDigitalResearch</span><span class="sxs-lookup"><span data-stu-id="22635-103">Tutorial: Azure Active Directory integration with eDigitalResearch</span></span>
 
-<span data-ttu-id="e3824-104">Neste tutorial, você aprenderá a integrar o eDigitalResearch ao Azure AD (Azure Active Directory).</span><span class="sxs-lookup"><span data-stu-id="e3824-104">In this tutorial, you learn how to integrate eDigitalResearch with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="22635-104">Neste tutorial, você aprenderá como eDigitalResearch toointegrate com o Azure Active Directory (AD do Azure).</span><span class="sxs-lookup"><span data-stu-id="22635-104">In this tutorial, you learn how toointegrate eDigitalResearch with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="e3824-105">A integração do eDigitalResearch ao Azure AD oferece os seguintes benefícios:</span><span class="sxs-lookup"><span data-stu-id="e3824-105">Integrating eDigitalResearch with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="22635-105">Integrando eDigitalResearch com o AD do Azure fornece Olá benefícios a seguir:</span><span class="sxs-lookup"><span data-stu-id="22635-105">Integrating eDigitalResearch with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="e3824-106">No Azure AD, é possível controlar quem tem acesso ao eDigitalResearch.</span><span class="sxs-lookup"><span data-stu-id="e3824-106">You can control in Azure AD who has access to eDigitalResearch.</span></span>
-- <span data-ttu-id="e3824-107">Você pode permitir que os usuários façam logon automaticamente no eDigitalResearch (Logon Único) com as respectivas contas do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="e3824-107">You can enable your users to automatically get signed-on to eDigitalResearch (Single Sign-On) with their Azure AD accounts.</span></span>
-- <span data-ttu-id="e3824-108">Você pode gerenciar suas contas em um único local central – o portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="e3824-108">You can manage your accounts in one central location - the Azure portal.</span></span>
+- <span data-ttu-id="22635-106">Você pode controlar no AD do Azure que tenha acesso tooeDigitalResearch.</span><span class="sxs-lookup"><span data-stu-id="22635-106">You can control in Azure AD who has access tooeDigitalResearch.</span></span>
+- <span data-ttu-id="22635-107">Você pode habilitar seu usuários tooautomatically get conectado tooeDigitalResearch (logon único) com suas contas do AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="22635-107">You can enable your users tooautomatically get signed-on tooeDigitalResearch (Single Sign-On) with their Azure AD accounts.</span></span>
+- <span data-ttu-id="22635-108">Você pode gerenciar suas contas em um local central - Olá portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="22635-108">You can manage your accounts in one central location - hello Azure portal.</span></span>
 
-<span data-ttu-id="e3824-109">Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="e3824-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="22635-109">Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="22635-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="e3824-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="e3824-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="22635-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="22635-110">Prerequisites</span></span>
 
-<span data-ttu-id="e3824-111">Para configurar a integração do Azure AD com o eDigitalResearch, você precisará dos seguintes itens:</span><span class="sxs-lookup"><span data-stu-id="e3824-111">To configure Azure AD integration with eDigitalResearch, you need the following items:</span></span>
+<span data-ttu-id="22635-111">tooconfigure integração do AD do Azure com eDigitalResearch, você precisa Olá itens a seguir:</span><span class="sxs-lookup"><span data-stu-id="22635-111">tooconfigure Azure AD integration with eDigitalResearch, you need hello following items:</span></span>
 
-- <span data-ttu-id="e3824-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="e3824-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="e3824-113">Uma assinatura do eDigitalResearch habilitada para logon único</span><span class="sxs-lookup"><span data-stu-id="e3824-113">A eDigitalResearch single sign-on enabled subscription</span></span>
+- <span data-ttu-id="22635-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="22635-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="22635-113">Uma assinatura do eDigitalResearch habilitada para logon único</span><span class="sxs-lookup"><span data-stu-id="22635-113">A eDigitalResearch single sign-on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="e3824-114">Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="e3824-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="22635-114">Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="22635-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="e3824-115">Para testar as etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="e3824-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="22635-115">tootest Olá etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="22635-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="e3824-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="e3824-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="e3824-117">Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="e3824-117">If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="22635-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="22635-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="22635-117">Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="22635-117">If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="e3824-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="e3824-118">Scenario description</span></span>
-<span data-ttu-id="e3824-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="e3824-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="e3824-120">O cenário descrito neste tutorial consiste em dois blocos de construção principais:</span><span class="sxs-lookup"><span data-stu-id="e3824-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="22635-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="22635-118">Scenario description</span></span>
+<span data-ttu-id="22635-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="22635-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="22635-120">cenário de saudação descrito neste tutorial consiste em dois elementos básicos:</span><span class="sxs-lookup"><span data-stu-id="22635-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="e3824-121">Adicionando o eDigitalResearch da galeria</span><span class="sxs-lookup"><span data-stu-id="e3824-121">Adding eDigitalResearch from the gallery</span></span>
-2. <span data-ttu-id="e3824-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="e3824-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="22635-121">Adicionando eDigitalResearch da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="22635-121">Adding eDigitalResearch from hello gallery</span></span>
+2. <span data-ttu-id="22635-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="22635-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-edigitalresearch-from-the-gallery"></a><span data-ttu-id="e3824-123">Adicionando o eDigitalResearch da galeria</span><span class="sxs-lookup"><span data-stu-id="e3824-123">Adding eDigitalResearch from the gallery</span></span>
-<span data-ttu-id="e3824-124">Para configurar a integração do eDigitalResearch ao Azure AD, você precisará adicionar o eDigitalResearch da galeria à sua lista de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="e3824-124">To configure the integration of eDigitalResearch into Azure AD, you need to add eDigitalResearch from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-edigitalresearch-from-hello-gallery"></a><span data-ttu-id="22635-123">Adicionando eDigitalResearch da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="22635-123">Adding eDigitalResearch from hello gallery</span></span>
+<span data-ttu-id="22635-124">integração de saudação tooconfigure de eDigitalResearch no AD do Azure, você precisa eDigitalResearch tooadd da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="22635-124">tooconfigure hello integration of eDigitalResearch into Azure AD, you need tooadd eDigitalResearch from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="e3824-125">**Para adicionar o eDigitalResearch da galeria, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="e3824-125">**To add eDigitalResearch from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="22635-125">**eDigitalResearch tooadd da Galeria hello, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="22635-125">**tooadd eDigitalResearch from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="e3824-126">No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="e3824-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="22635-126">Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="22635-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
-    ![O botão Azure Active Directory][1]
+    ![botão de Active Directory do Azure Olá][1]
 
-2. <span data-ttu-id="e3824-128">Navegue até **aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="e3824-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="e3824-129">Em seguida, vá para **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="e3824-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="22635-128">Navegue muito**aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="22635-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="22635-129">Em seguida, acesse muito**todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="22635-129">Then go too**All applications**.</span></span>
 
-    ![A folha Aplicativos empresariais][2]
+    ![folha de aplicativos de empresa Olá][2]
     
-3. <span data-ttu-id="e3824-131">Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.</span><span class="sxs-lookup"><span data-stu-id="e3824-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="22635-131">tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="22635-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
-    ![O botão Novo aplicativo][3]
+    ![Novo botão de aplicativo Hello][3]
 
-4. <span data-ttu-id="e3824-133">Na caixa de pesquisa, digite **eDigitalResearch**, selecione **eDigitalResearch** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="e3824-133">In the search box, type **eDigitalResearch**, select **eDigitalResearch** from result panel then click **Add** button to add the application.</span></span>
+4. <span data-ttu-id="22635-133">Na caixa de pesquisa hello, digite **eDigitalResearch**, selecione **eDigitalResearch** no painel de resultados e clique em **adicionar** botão aplicativo hello de tooadd.</span><span class="sxs-lookup"><span data-stu-id="22635-133">In hello search box, type **eDigitalResearch**, select **eDigitalResearch** from result panel then click **Add** button tooadd hello application.</span></span>
 
-    ![eDigitalResearch na lista de resultados](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_addfromgallery.png)
+    ![eDigitalResearch na lista de resultados de saudação](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a><span data-ttu-id="e3824-135">Configurar e testar logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="e3824-135">Configure and test Azure AD single sign-on</span></span>
+## <a name="configure-and-test-azure-ad-single-sign-on"></a><span data-ttu-id="22635-135">Configurar e testar logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="22635-135">Configure and test Azure AD single sign-on</span></span>
 
-<span data-ttu-id="e3824-136">Nesta seção, você configurará e testará o logon único do Azure AD com o eDigitalResearch, com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="e3824-136">In this section, you configure and test Azure AD single sign-on with eDigitalResearch based on a test user called "Britta Simon".</span></span>
+<span data-ttu-id="22635-136">Nesta seção, você configurará e testará o logon único do Azure AD com o eDigitalResearch, com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="22635-136">In this section, you configure and test Azure AD single sign-on with eDigitalResearch based on a test user called "Britta Simon".</span></span>
 
-<span data-ttu-id="e3824-137">Para que o logon único funcione, o Azure AD precisa saber qual usuário do eDigitalResearch é equivalente a um usuário do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="e3824-137">For single sign-on to work, Azure AD needs to know what the counterpart user in eDigitalResearch is to a user in Azure AD.</span></span> <span data-ttu-id="e3824-138">Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado no eDigitalResearch.</span><span class="sxs-lookup"><span data-stu-id="e3824-138">In other words, a link relationship between an Azure AD user and the related user in eDigitalResearch needs to be established.</span></span>
+<span data-ttu-id="22635-137">Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá em eDigitalResearch é tooa usuário no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="22635-137">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in eDigitalResearch is tooa user in Azure AD.</span></span> <span data-ttu-id="22635-138">Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação em eDigitalResearch precisa toobe estabelecida.</span><span class="sxs-lookup"><span data-stu-id="22635-138">In other words, a link relationship between an Azure AD user and hello related user in eDigitalResearch needs toobe established.</span></span>
 
-<span data-ttu-id="e3824-139">No eDigitalResearch, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.</span><span class="sxs-lookup"><span data-stu-id="e3824-139">In eDigitalResearch, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="22635-139">EDigitalResearch, atribuir valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.</span><span class="sxs-lookup"><span data-stu-id="22635-139">In eDigitalResearch, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="e3824-140">Para configurar e testar o logon único do Azure AD com o eDigitalResearch, você precisará concluir os seguintes blocos de construção:</span><span class="sxs-lookup"><span data-stu-id="e3824-140">To configure and test Azure AD single sign-on with eDigitalResearch, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="22635-140">tooconfigure e teste de logon único do AD do Azure com eDigitalResearch, é necessário Olá toocomplete blocos de construção a seguir:</span><span class="sxs-lookup"><span data-stu-id="22635-140">tooconfigure and test Azure AD single sign-on with eDigitalResearch, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="e3824-141">**[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.</span><span class="sxs-lookup"><span data-stu-id="e3824-141">**[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="e3824-142">**[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="e3824-142">**[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="e3824-143">**[Criar um usuário de teste eDigitalResearch](#create-a-edigitalresearch-test-user)** – para ter um equivalente de Brenda Fernandes no eDigitalResearch vinculado à representação do usuário no Azure AD.</span><span class="sxs-lookup"><span data-stu-id="e3824-143">**[Create a eDigitalResearch test user](#create-a-edigitalresearch-test-user)** - to have a counterpart of Britta Simon in eDigitalResearch that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="e3824-144">**[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="e3824-144">**[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="e3824-145">**[Testar o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.</span><span class="sxs-lookup"><span data-stu-id="e3824-145">**[Test single sign-on](#test-single-sign-on)**  to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="22635-141">**[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.</span><span class="sxs-lookup"><span data-stu-id="22635-141">**[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="22635-142">**[Criar um usuário de teste do AD do Azure](#create-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="22635-142">**[Create an Azure AD test user](#create-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="22635-143">**[Criar um usuário de teste eDigitalResearch](#create-a-edigitalresearch-test-user)**  -toohave um equivalente do Britta Simon em eDigitalResearch é toohello vinculado do Azure AD representação do usuário.</span><span class="sxs-lookup"><span data-stu-id="22635-143">**[Create a eDigitalResearch test user](#create-a-edigitalresearch-test-user)** - toohave a counterpart of Britta Simon in eDigitalResearch that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="22635-144">**[Atribuir um usuário de teste de saudação do AD do Azure](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.</span><span class="sxs-lookup"><span data-stu-id="22635-144">**[Assign hello Azure AD test user](#assign-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="22635-145">**[Testar o logon único](#test-single-sign-on)**  tooverify Olá se os trabalhos de configuração.</span><span class="sxs-lookup"><span data-stu-id="22635-145">**[Test single sign-on](#test-single-sign-on)**  tooverify whether hello configuration works.</span></span>
 
-### <a name="configure-azure-ad-single-sign-on"></a><span data-ttu-id="e3824-146">Configurar o logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="e3824-146">Configure Azure AD single sign-on</span></span>
+### <a name="configure-azure-ad-single-sign-on"></a><span data-ttu-id="22635-146">Configurar o logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="22635-146">Configure Azure AD single sign-on</span></span>
 
-<span data-ttu-id="e3824-147">Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único no aplicativo eDigitalResearch.</span><span class="sxs-lookup"><span data-stu-id="e3824-147">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your eDigitalResearch application.</span></span>
+<span data-ttu-id="22635-147">Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo eDigitalResearch.</span><span class="sxs-lookup"><span data-stu-id="22635-147">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your eDigitalResearch application.</span></span>
 
-<span data-ttu-id="e3824-148">**Para configurar o logon único do Azure AD com o eDigitalResearch, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="e3824-148">**To configure Azure AD single sign-on with eDigitalResearch, perform the following steps:**</span></span>
+<span data-ttu-id="22635-148">**tooconfigure AD do Azure-logon único com eDigitalResearch, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="22635-148">**tooconfigure Azure AD single sign-on with eDigitalResearch, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="e3824-149">No Portal do Azure, na página de integração de aplicativos do **eDigitalResearch**, clique em **Logon único**.</span><span class="sxs-lookup"><span data-stu-id="e3824-149">In the Azure portal, on the **eDigitalResearch** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="22635-149">Em Olá portal do Azure, Olá **eDigitalResearch** página de integração de aplicativos, clique em **o logon único**.</span><span class="sxs-lookup"><span data-stu-id="22635-149">In hello Azure portal, on hello **eDigitalResearch** application integration page, click **Single sign-on**.</span></span>
 
     ![Link Configurar logon único][4]
 
-2. <span data-ttu-id="e3824-151">Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.</span><span class="sxs-lookup"><span data-stu-id="e3824-151">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="22635-151">Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.</span><span class="sxs-lookup"><span data-stu-id="22635-151">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Caixa de diálogo Logon único](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_samlbase.png)
 
-3. <span data-ttu-id="e3824-153">Na seção **Domínio e URLs do eDigitalResearch**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="e3824-153">On the **eDigitalResearch Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="22635-153">Em Olá **eDigitalResearch domínio e URLs** , execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="22635-153">On hello **eDigitalResearch Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Informações de logon único de Domínio e URLs do eDigitalResearch](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_url.png)
 
-    <span data-ttu-id="e3824-155">a.</span><span class="sxs-lookup"><span data-stu-id="e3824-155">a.</span></span> <span data-ttu-id="e3824-156">Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<company-name>.edigitalresearch.com`</span><span class="sxs-lookup"><span data-stu-id="e3824-156">In the **Identifier** textbox, type a URL using the following pattern: `https://<company-name>.edigitalresearch.com`</span></span>
+    <span data-ttu-id="22635-155">a.</span><span class="sxs-lookup"><span data-stu-id="22635-155">a.</span></span> <span data-ttu-id="22635-156">Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<company-name>.edigitalresearch.com`</span><span class="sxs-lookup"><span data-stu-id="22635-156">In hello **Identifier** textbox, type a URL using hello following pattern: `https://<company-name>.edigitalresearch.com`</span></span>
 
-    <span data-ttu-id="e3824-157">b.</span><span class="sxs-lookup"><span data-stu-id="e3824-157">b.</span></span> <span data-ttu-id="e3824-158">Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<company-name>.edigitalresearch.com/login/consume`</span><span class="sxs-lookup"><span data-stu-id="e3824-158">In the **Reply URL** textbox, type a URL using the following pattern: `https://<company-name>.edigitalresearch.com/login/consume`</span></span>
+    <span data-ttu-id="22635-157">b.</span><span class="sxs-lookup"><span data-stu-id="22635-157">b.</span></span> <span data-ttu-id="22635-158">Em Olá **URL de resposta** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<company-name>.edigitalresearch.com/login/consume`</span><span class="sxs-lookup"><span data-stu-id="22635-158">In hello **Reply URL** textbox, type a URL using hello following pattern: `https://<company-name>.edigitalresearch.com/login/consume`</span></span>
 
     > [!NOTE] 
-    > <span data-ttu-id="e3824-159">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="e3824-159">These values are not real.</span></span> <span data-ttu-id="e3824-160">Atualize esses valores com o Identificador e a URL de Resposta reais.</span><span class="sxs-lookup"><span data-stu-id="e3824-160">Update these values with the actual Identifier and Reply URL.</span></span> <span data-ttu-id="e3824-161">Contate a [equipe de suporte do eDigitalResearch](http://www.maruedr.com/contact) para obter esses valores.</span><span class="sxs-lookup"><span data-stu-id="e3824-161">Contact [eDigitalResearch support team](http://www.maruedr.com/contact) to get these values.</span></span>
+    > <span data-ttu-id="22635-159">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="22635-159">These values are not real.</span></span> <span data-ttu-id="22635-160">Atualize esses valores com URL de resposta e o identificador de real de saudação.</span><span class="sxs-lookup"><span data-stu-id="22635-160">Update these values with hello actual Identifier and Reply URL.</span></span> <span data-ttu-id="22635-161">Entre em contato com [eDigitalResearch a equipe de suporte](http://www.maruedr.com/contact) tooget esses valores.</span><span class="sxs-lookup"><span data-stu-id="22635-161">Contact [eDigitalResearch support team](http://www.maruedr.com/contact) tooget these values.</span></span>
  
 
 
-4. <span data-ttu-id="e3824-162">Na seção **Certificado de Autenticação SAML**, clique em **Certificado Base(64)** e, em seguida, salve o arquivo do certificado em seu computador.</span><span class="sxs-lookup"><span data-stu-id="e3824-162">On the **SAML Signing Certificate** section, click **Certificate Base(64)** and then save the certificate file on your computer.</span></span>
+4. <span data-ttu-id="22635-162">Em Olá **o certificado de autenticação SAML** seção, clique em **Base(64) certificado** e, em seguida, salve o arquivo de certificado de saudação em seu computador.</span><span class="sxs-lookup"><span data-stu-id="22635-162">On hello **SAML Signing Certificate** section, click **Certificate Base(64)** and then save hello certificate file on your computer.</span></span>
 
-    <span data-ttu-id="e3824-163">!</span><span class="sxs-lookup"><span data-stu-id="e3824-163">!</span></span>![O link de download do Certificado](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_certificate.png) 
+    <span data-ttu-id="22635-163">!</span><span class="sxs-lookup"><span data-stu-id="22635-163">!</span></span>![link de download de certificado Olá](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_certificate.png) 
 
-5. <span data-ttu-id="e3824-165">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="e3824-165">Click **Save** button.</span></span>
+5. <span data-ttu-id="22635-165">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="22635-165">Click **Save** button.</span></span>
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_general_400.png)
 
-6. <span data-ttu-id="e3824-167">Na seção **Configuração do eDigitalResearch**, clique em **Configurar o eDigitalResearch** para abrir a janela **Configurar logon**.</span><span class="sxs-lookup"><span data-stu-id="e3824-167">On the **eDigitalResearch Configuration** section, click **Configure eDigitalResearch** to open **Configure sign-on** window.</span></span> <span data-ttu-id="e3824-168">Copie a **URL de Saída e a ID da Entidade SAML** da **seção Referência Rápida.**</span><span class="sxs-lookup"><span data-stu-id="e3824-168">Copy the **Sign-Out URL, SAML Entity ID** from the **Quick Reference section.**</span></span>
+6. <span data-ttu-id="22635-167">Em Olá **eDigitalResearch configuração** seção, clique em **configurar eDigitalResearch** tooopen **configurar o logon** janela.</span><span class="sxs-lookup"><span data-stu-id="22635-167">On hello **eDigitalResearch Configuration** section, click **Configure eDigitalResearch** tooopen **Configure sign-on** window.</span></span> <span data-ttu-id="22635-168">Saudação de cópia **URL de logout, ID da entidade SAML** de saudação **seção de referência rápida.**</span><span class="sxs-lookup"><span data-stu-id="22635-168">Copy hello **Sign-Out URL, SAML Entity ID** from hello **Quick Reference section.**</span></span>
 
     ![Configuração do eDigitalResearch](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_configure.png) 
 
-7. <span data-ttu-id="e3824-170">Para configurar o logon único no lado do **eDigitalResearch**, é necessário enviar o **Arquivo de Certificado (Base64)** baixado, a **ID da Entidade SAML** e a **URL de Saída** para a [equipe de suporte do eDigitalResearch](http://www.maruedr.com/contact).</span><span class="sxs-lookup"><span data-stu-id="e3824-170">To configure single sign-on on **eDigitalResearch** side, you need to send the downloaded **Certificate (Base64) File**, **SAML Entity ID**, and **Sign-Out URL** to [eDigitalResearch support team](http://www.maruedr.com/contact).</span></span> <span data-ttu-id="e3824-171">Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.</span><span class="sxs-lookup"><span data-stu-id="e3824-171">They set this setting to have the SAML SSO connection set properly on both sides.</span></span>
+7. <span data-ttu-id="22635-170">tooconfigure logon único no **eDigitalResearch** lado, você precisa toosend Olá baixado **arquivo de certificado (Base64)**, **ID da entidade SAML**, e  **URL de saída** muito[a equipe de suporte eDigitalResearch](http://www.maruedr.com/contact).</span><span class="sxs-lookup"><span data-stu-id="22635-170">tooconfigure single sign-on on **eDigitalResearch** side, you need toosend hello downloaded **Certificate (Base64) File**, **SAML Entity ID**, and **Sign-Out URL** too[eDigitalResearch support team](http://www.maruedr.com/contact).</span></span> <span data-ttu-id="22635-171">Eles definidos Olá de toohave essa configuração conexão SSO do SAML definido corretamente em ambos os lados.</span><span class="sxs-lookup"><span data-stu-id="22635-171">They set this setting toohave hello SAML SSO connection set properly on both sides.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="e3824-172">É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!</span><span class="sxs-lookup"><span data-stu-id="e3824-172">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="e3824-173">Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior.</span><span class="sxs-lookup"><span data-stu-id="e3824-173">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="e3824-174">Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="e3824-174">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="22635-172">Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!</span><span class="sxs-lookup"><span data-stu-id="22635-172">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="22635-173">Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação.</span><span class="sxs-lookup"><span data-stu-id="22635-173">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="22635-174">Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="22635-174">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 
-### <a name="create-an-azure-ad-test-user"></a><span data-ttu-id="e3824-175">Criar um usuário de teste do Azure AD</span><span class="sxs-lookup"><span data-stu-id="e3824-175">Create an Azure AD test user</span></span>
+### <a name="create-an-azure-ad-test-user"></a><span data-ttu-id="22635-175">Criar um usuário de teste do Azure AD</span><span class="sxs-lookup"><span data-stu-id="22635-175">Create an Azure AD test user</span></span>
 
-<span data-ttu-id="e3824-176">O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="e3824-176">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+<span data-ttu-id="22635-176">Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="22635-176">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
    ![Criar um usuário de teste do Azure AD][100]
 
-<span data-ttu-id="e3824-178">**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="e3824-178">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="22635-178">**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="22635-178">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="e3824-179">No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="e3824-179">In the Azure portal, in the left pane, click the **Azure Active Directory** button.</span></span>
+1. <span data-ttu-id="22635-179">No hello portal do Azure, no painel esquerdo do hello, clique em Olá **Active Directory do Azure** botão.</span><span class="sxs-lookup"><span data-stu-id="22635-179">In hello Azure portal, in hello left pane, click hello **Azure Active Directory** button.</span></span>
 
-    ![O botão Azure Active Directory](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_01.png)
+    ![botão de Active Directory do Azure Olá](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_01.png)
 
-2. <span data-ttu-id="e3824-181">Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.</span><span class="sxs-lookup"><span data-stu-id="e3824-181">To display the list of users, go to **Users and groups**, and then click **All users**.</span></span>
+2. <span data-ttu-id="22635-181">lista de saudação toodisplay de usuários, vá muito**usuários e grupos**e, em seguida, clique em **todos os usuários**.</span><span class="sxs-lookup"><span data-stu-id="22635-181">toodisplay hello list of users, go too**Users and groups**, and then click **All users**.</span></span>
 
-    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_02.png)
+    ![Olá "Usuários e grupos" e "Todos os usuários" links](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_02.png)
 
-3. <span data-ttu-id="e3824-183">Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.</span><span class="sxs-lookup"><span data-stu-id="e3824-183">To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.</span></span>
+3. <span data-ttu-id="22635-183">Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação do hello **todos os usuários** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="22635-183">tooopen hello **User** dialog box, click **Add** at hello top of hello **All Users** dialog box.</span></span>
 
-    ![O botão Adicionar](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_03.png)
+    ![botão Adicionar de saudação](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_03.png)
 
-4. <span data-ttu-id="e3824-185">Na caixa de diálogo **Usuário**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="e3824-185">In the **User** dialog box, perform the following steps:</span></span>
+4. <span data-ttu-id="22635-185">Em Olá **usuário** caixa de diálogo caixa, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="22635-185">In hello **User** dialog box, perform hello following steps:</span></span>
 
-    ![A caixa de diálogo Usuário](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_04.png)
+    ![caixa de diálogo de usuário Olá](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_04.png)
 
-    <span data-ttu-id="e3824-187">a.</span><span class="sxs-lookup"><span data-stu-id="e3824-187">a.</span></span> <span data-ttu-id="e3824-188">Na caixa **Nome**, digite **BrendaFernandes**.</span><span class="sxs-lookup"><span data-stu-id="e3824-188">In the **Name** box, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="22635-187">a.</span><span class="sxs-lookup"><span data-stu-id="22635-187">a.</span></span> <span data-ttu-id="22635-188">Em Olá **nome** , digite **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="22635-188">In hello **Name** box, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="e3824-189">b.</span><span class="sxs-lookup"><span data-stu-id="e3824-189">b.</span></span> <span data-ttu-id="e3824-190">Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="e3824-190">In the **User name** box, type the email address of user Britta Simon.</span></span>
+    <span data-ttu-id="22635-189">b.</span><span class="sxs-lookup"><span data-stu-id="22635-189">b.</span></span> <span data-ttu-id="22635-190">Em Olá **nome de usuário** caixa tipo hello endereço de email do usuário Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="22635-190">In hello **User name** box, type hello email address of user Britta Simon.</span></span>
 
-    <span data-ttu-id="e3824-191">c.</span><span class="sxs-lookup"><span data-stu-id="e3824-191">c.</span></span> <span data-ttu-id="e3824-192">Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.</span><span class="sxs-lookup"><span data-stu-id="e3824-192">Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.</span></span>
+    <span data-ttu-id="22635-191">c.</span><span class="sxs-lookup"><span data-stu-id="22635-191">c.</span></span> <span data-ttu-id="22635-192">Selecione Olá **Mostrar senha** caixa de seleção e anote o valor de saudação que é exibido no hello **senha** caixa.</span><span class="sxs-lookup"><span data-stu-id="22635-192">Select hello **Show Password** check box, and then write down hello value that's displayed in hello **Password** box.</span></span>
 
-    <span data-ttu-id="e3824-193">d.</span><span class="sxs-lookup"><span data-stu-id="e3824-193">d.</span></span> <span data-ttu-id="e3824-194">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="e3824-194">Click **Create**.</span></span>
+    <span data-ttu-id="22635-193">d.</span><span class="sxs-lookup"><span data-stu-id="22635-193">d.</span></span> <span data-ttu-id="22635-194">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="22635-194">Click **Create**.</span></span>
   
-### <a name="create-a-edigitalresearch-test-user"></a><span data-ttu-id="e3824-195">Criar um usuário de teste eDigitalResearch</span><span class="sxs-lookup"><span data-stu-id="e3824-195">Create a eDigitalResearch test user</span></span>
+### <a name="create-a-edigitalresearch-test-user"></a><span data-ttu-id="22635-195">Criar um usuário de teste eDigitalResearch</span><span class="sxs-lookup"><span data-stu-id="22635-195">Create a eDigitalResearch test user</span></span>
 
-<span data-ttu-id="e3824-196">O objetivo desta seção é criar um usuário chamado Brenda Fernandes no eDigitalResearch.</span><span class="sxs-lookup"><span data-stu-id="e3824-196">The objective of this section is to create a user called Britta Simon in eDigitalResearch.</span></span> 
+<span data-ttu-id="22635-196">Olá objetivo desta seção é toocreate um usuário chamado Britta Simon no eDigitalResearch.</span><span class="sxs-lookup"><span data-stu-id="22635-196">hello objective of this section is toocreate a user called Britta Simon in eDigitalResearch.</span></span> 
 
-<span data-ttu-id="e3824-197">Trabalhe com a [equipe de suporte do eDigitalResearch](http://www.maruedr.com/contact) para criar os usuários.</span><span class="sxs-lookup"><span data-stu-id="e3824-197">Work with the [eDigitalResearch support team](http://www.maruedr.com/contact) to get users created.</span></span>     
+<span data-ttu-id="22635-197">Trabalhar com hello [eDigitalResearch a equipe de suporte](http://www.maruedr.com/contact) tooget usuários criados.</span><span class="sxs-lookup"><span data-stu-id="22635-197">Work with hello [eDigitalResearch support team](http://www.maruedr.com/contact) tooget users created.</span></span>       
     
  > [!NOTE]
- > <span data-ttu-id="e3824-198">O titular da conta do Azure Active Directory recebe um email e segue um link para confirmar sua conta antes que ela se torne ativa.</span><span class="sxs-lookup"><span data-stu-id="e3824-198">The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.</span></span>
+ > <span data-ttu-id="22635-198">proprietário de conta do Active Directory do Azure Olá recebe um email e segue um link tooconfirm sua conta antes de se tornar ativa.</span><span class="sxs-lookup"><span data-stu-id="22635-198">hello Azure Active Directory account holder receives an email and follows a link tooconfirm their account before it becomes active.</span></span>
 
-### <a name="assign-the-azure-ad-test-user"></a><span data-ttu-id="e3824-199">Atribuir o usuário de teste do Azure AD</span><span class="sxs-lookup"><span data-stu-id="e3824-199">Assign the Azure AD test user</span></span>
+### <a name="assign-hello-azure-ad-test-user"></a><span data-ttu-id="22635-199">Atribuir um usuário de teste de saudação do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="22635-199">Assign hello Azure AD test user</span></span>
 
-<span data-ttu-id="e3824-200">Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao eDigitalResearch.</span><span class="sxs-lookup"><span data-stu-id="e3824-200">In this section, you enable Britta Simon to use Azure single sign-on by granting access to eDigitalResearch.</span></span>
+<span data-ttu-id="22635-200">Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooeDigitalResearch.</span><span class="sxs-lookup"><span data-stu-id="22635-200">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooeDigitalResearch.</span></span>
 
-![Atribuir a função de usuário][200] 
+![Atribuir função de usuário Olá][200] 
 
-<span data-ttu-id="e3824-202">**Para atribuir Brenda Fernandes ao eDigitalResearch, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="e3824-202">**To assign Britta Simon to eDigitalResearch, perform the following steps:**</span></span>
+<span data-ttu-id="22635-202">**tooassign Britta Simon tooeDigitalResearch, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="22635-202">**tooassign Britta Simon tooeDigitalResearch, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="e3824-203">No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="e3824-203">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="22635-203">No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="22635-203">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Atribuir usuário][201] 
 
-2. <span data-ttu-id="e3824-205">Na lista de aplicativos, selecione **eDigitalResearch**.</span><span class="sxs-lookup"><span data-stu-id="e3824-205">In the applications list, select **eDigitalResearch**.</span></span>
+2. <span data-ttu-id="22635-205">Na lista de aplicativos hello, selecione **eDigitalResearch**.</span><span class="sxs-lookup"><span data-stu-id="22635-205">In hello applications list, select **eDigitalResearch**.</span></span>
 
-    ![O link eDigitalResearch na lista de Aplicativos](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_app.png)  
+    ![Olá eDigitalResearch link na lista de aplicativos Olá](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_app.png)  
 
-3. <span data-ttu-id="e3824-207">No menu à esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="e3824-207">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="22635-207">No menu Olá Olá esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="22635-207">In hello menu on hello left, click **Users and groups**.</span></span>
 
-    ![O link “Usuários e grupos”][202]
+    ![link de "Usuários e grupos" Hello][202]
 
-4. <span data-ttu-id="e3824-209">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="e3824-209">Click **Add** button.</span></span> <span data-ttu-id="e3824-210">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="e3824-210">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="22635-209">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="22635-209">Click **Add** button.</span></span> <span data-ttu-id="22635-210">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="22635-210">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
-    ![O painel Adicionar Atribuição][203]
+    ![Painel de atribuição adicionar Olá][203]
 
-5. <span data-ttu-id="e3824-212">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="e3824-212">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="22635-212">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.</span><span class="sxs-lookup"><span data-stu-id="22635-212">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="e3824-213">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="e3824-213">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="22635-213">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="22635-213">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="e3824-214">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="e3824-214">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="22635-214">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="22635-214">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="test-single-sign-on"></a><span data-ttu-id="e3824-215">Testar logon único</span><span class="sxs-lookup"><span data-stu-id="e3824-215">Test single sign-on</span></span>
+### <a name="test-single-sign-on"></a><span data-ttu-id="22635-215">Testar logon único</span><span class="sxs-lookup"><span data-stu-id="22635-215">Test single sign-on</span></span>
 
-<span data-ttu-id="e3824-216">Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.</span><span class="sxs-lookup"><span data-stu-id="e3824-216">In this section, you test your Azure AD single sign-on configuration using the Access Panel.</span></span>
+<span data-ttu-id="22635-216">Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.</span><span class="sxs-lookup"><span data-stu-id="22635-216">In this section, you test your Azure AD single sign-on configuration using hello Access Panel.</span></span>
 
-<span data-ttu-id="e3824-217">Quando você clica no bloco eDigitalResearch no Painel de Acesso, você deve ser conectado automaticamente ao aplicativo eDigitalResearch.</span><span class="sxs-lookup"><span data-stu-id="e3824-217">When you click the eDigitalResearch tile in the Access Panel, you should get automatically signed-on to your eDigitalResearch application.</span></span>
-<span data-ttu-id="e3824-218">Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="e3824-218">For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
+<span data-ttu-id="22635-217">Quando você clica em bloco eDigitalResearch Olá Olá painel de acesso, você deve obter automaticamente assinado em tooyour eDigitalResearch aplicativo.</span><span class="sxs-lookup"><span data-stu-id="22635-217">When you click hello eDigitalResearch tile in hello Access Panel, you should get automatically signed-on tooyour eDigitalResearch application.</span></span>
+<span data-ttu-id="22635-218">Para obter mais informações sobre o painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="22635-218">For more information about the Access Panel, see [Introduction toohello Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
 
-## <a name="additional-resources"></a><span data-ttu-id="e3824-219">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="e3824-219">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="22635-219">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="22635-219">Additional resources</span></span>
 
-* [<span data-ttu-id="e3824-220">Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="e3824-220">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="e3824-221">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="e3824-221">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="22635-220">Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="22635-220">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="22635-221">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="22635-221">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 
 

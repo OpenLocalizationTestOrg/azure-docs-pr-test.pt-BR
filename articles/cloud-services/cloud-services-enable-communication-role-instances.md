@@ -1,6 +1,6 @@
 ---
-title: "Comunicação para funções nos Serviços de Nuvem | Microsoft Docs"
-description: "As instâncias de função nos Serviços de Nuvem podem ter pontos de extremidade (http, https, tcp, udp) definidos que se comunicam com a parte externa ou entre outras instâncias de função."
+title: "aaaCommunication para funções em serviços de nuvem | Microsoft Docs"
+description: "Instâncias de função em serviços de nuvem podem ter pontos de extremidade (http, https, tcp, udp) definidos para eles que se comunicam com hello fora ou entre outras instâncias de função."
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
-ms.openlocfilehash: 8e171d56bb67c971337fa383014988074ec828b1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1fb39215ceb8a3f0381ef5e108c1149de115ff8e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="enable-communication-for-role-instances-in-azure"></a><span data-ttu-id="0e370-103">Habilitar a comunicação para instâncias de função no Azure</span><span class="sxs-lookup"><span data-stu-id="0e370-103">Enable communication for role instances in azure</span></span>
-<span data-ttu-id="0e370-104">As funções de serviço de nuvem se comunicam por meio de conexões internas e externas.</span><span class="sxs-lookup"><span data-stu-id="0e370-104">Cloud service roles communicate through internal and external connections.</span></span> <span data-ttu-id="0e370-105">As conexões externas são chamadas de **pontos de extremidade de entrada**, enquanto as conexões internas são chamadas de **pontos de extremidade internos**.</span><span class="sxs-lookup"><span data-stu-id="0e370-105">External connections are called **input endpoints** while internal connections are called **internal endpoints**.</span></span> <span data-ttu-id="0e370-106">Este tópico descreve como modificar a [definição de serviço](cloud-services-model-and-package.md#csdef) para criar pontos de extremidade.</span><span class="sxs-lookup"><span data-stu-id="0e370-106">This topic describes how to modify the [service definition](cloud-services-model-and-package.md#csdef) to create endpoints.</span></span>
+# <a name="enable-communication-for-role-instances-in-azure"></a><span data-ttu-id="7075d-103">Habilitar a comunicação para instâncias de função no Azure</span><span class="sxs-lookup"><span data-stu-id="7075d-103">Enable communication for role instances in azure</span></span>
+<span data-ttu-id="7075d-104">As funções de serviço de nuvem se comunicam por meio de conexões internas e externas.</span><span class="sxs-lookup"><span data-stu-id="7075d-104">Cloud service roles communicate through internal and external connections.</span></span> <span data-ttu-id="7075d-105">As conexões externas são chamadas de **pontos de extremidade de entrada**, enquanto as conexões internas são chamadas de **pontos de extremidade internos**.</span><span class="sxs-lookup"><span data-stu-id="7075d-105">External connections are called **input endpoints** while internal connections are called **internal endpoints**.</span></span> <span data-ttu-id="7075d-106">Este tópico descreve como Olá toomodify [definição de serviço](cloud-services-model-and-package.md#csdef) toocreate pontos de extremidade.</span><span class="sxs-lookup"><span data-stu-id="7075d-106">This topic describes how toomodify hello [service definition](cloud-services-model-and-package.md#csdef) toocreate endpoints.</span></span>
 
-## <a name="input-endpoint"></a><span data-ttu-id="0e370-107">Ponto de extremidade de entrada</span><span class="sxs-lookup"><span data-stu-id="0e370-107">Input endpoint</span></span>
-<span data-ttu-id="0e370-108">O ponto de extremidade de entrada é usado quando você deseja expor uma porta para o exterior.</span><span class="sxs-lookup"><span data-stu-id="0e370-108">The input endpoint is used when you want to expose a port to the outside.</span></span> <span data-ttu-id="0e370-109">Você especifica o tipo de protocolo e a porta do ponto de extremidade e então o aplica às portas externa e interna do ponto de extremidade.</span><span class="sxs-lookup"><span data-stu-id="0e370-109">You specify the protocol type and the port of the endpoint which then applies for both the external and internal ports for the endpoint.</span></span> <span data-ttu-id="0e370-110">Se desejar, você pode especificar uma porta interna diferente para o ponto de extremidade com o atributo [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) .</span><span class="sxs-lookup"><span data-stu-id="0e370-110">If you want, you can specify a different internal port for the endpoint with the [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) attribute.</span></span>
+## <a name="input-endpoint"></a><span data-ttu-id="7075d-107">Ponto de extremidade de entrada</span><span class="sxs-lookup"><span data-stu-id="7075d-107">Input endpoint</span></span>
+<span data-ttu-id="7075d-108">ponto de extremidade de entrada Hello é usado quando você deseja tooexpose toohello uma porta fora.</span><span class="sxs-lookup"><span data-stu-id="7075d-108">hello input endpoint is used when you want tooexpose a port toohello outside.</span></span> <span data-ttu-id="7075d-109">Especifique o tipo de protocolo hello e porta de saudação do ponto de extremidade de saudação que aplica-se para as duas portas de saudação interno e externo para o ponto de extremidade de saudação.</span><span class="sxs-lookup"><span data-stu-id="7075d-109">You specify hello protocol type and hello port of hello endpoint which then applies for both hello external and internal ports for hello endpoint.</span></span> <span data-ttu-id="7075d-110">Se desejar, você pode especificar uma porta interna diferente para o ponto de extremidade de saudação com hello [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) atributo.</span><span class="sxs-lookup"><span data-stu-id="7075d-110">If you want, you can specify a different internal port for hello endpoint with hello [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) attribute.</span></span>
 
-<span data-ttu-id="0e370-111">O ponto de extremidade de entrada pode usar os seguintes protocolos: **http, https, tcp, udp**.</span><span class="sxs-lookup"><span data-stu-id="0e370-111">The input endpoint can use the following protocols: **http, https, tcp, udp**.</span></span>
+<span data-ttu-id="7075d-111">ponto de extremidade de entrada Hello pode usar Olá seguintes protocolos: **http, https, tcp, udp**.</span><span class="sxs-lookup"><span data-stu-id="7075d-111">hello input endpoint can use hello following protocols: **http, https, tcp, udp**.</span></span>
 
-<span data-ttu-id="0e370-112">Para criar um ponto de extremidade de entrada, adicione o elemento filho **InputEndpoint** ao elemento **Endpoints** de uma função Web ou de trabalho.</span><span class="sxs-lookup"><span data-stu-id="0e370-112">To create an input endpoint, add the **InputEndpoint** child element to the **Endpoints** element of either a web or worker role.</span></span>
+<span data-ttu-id="7075d-112">toocreate um ponto de extremidade de entrada, adicionar Olá **InputEndpoint** toohello de elemento filho **pontos de extremidade** elemento de função de um trabalho ou web.</span><span class="sxs-lookup"><span data-stu-id="7075d-112">toocreate an input endpoint, add hello **InputEndpoint** child element toohello **Endpoints** element of either a web or worker role.</span></span>
 
 ```xml
 <Endpoints>
@@ -36,12 +36,12 @@ ms.lasthandoff: 07/11/2017
 </Endpoints> 
 ```
 
-## <a name="instance-input-endpoint"></a><span data-ttu-id="0e370-113">Ponto de extremidade de entrada de instância</span><span class="sxs-lookup"><span data-stu-id="0e370-113">Instance input endpoint</span></span>
-<span data-ttu-id="0e370-114">Os pontos de extremidade de entrada de instância são semelhantes aos pontos de extremidade de entrada, mas permitem que você mapeie portas voltadas para o público específicas para cada instância de função individual usando o encaminhamento de porta no balanceador de carga.</span><span class="sxs-lookup"><span data-stu-id="0e370-114">Instance input endpoints are similar to input endpoints but allows you map specific public-facing ports for each individual role instance by using port forwarding on the load balancer.</span></span> <span data-ttu-id="0e370-115">Você pode especificar uma única porta voltada para o público ou um intervalo de portas.</span><span class="sxs-lookup"><span data-stu-id="0e370-115">You can specify a single public-facing port, or a range of ports.</span></span>
+## <a name="instance-input-endpoint"></a><span data-ttu-id="7075d-113">Ponto de extremidade de entrada de instância</span><span class="sxs-lookup"><span data-stu-id="7075d-113">Instance input endpoint</span></span>
+<span data-ttu-id="7075d-114">Entrada pontos de extremidade de instância são pontos de extremidade tooinput semelhantes, mas permite mapear portas específicas de público para cada instância de função individuais usando o encaminhamento de porta no balanceador de carga de saudação.</span><span class="sxs-lookup"><span data-stu-id="7075d-114">Instance input endpoints are similar tooinput endpoints but allows you map specific public-facing ports for each individual role instance by using port forwarding on hello load balancer.</span></span> <span data-ttu-id="7075d-115">Você pode especificar uma única porta voltada para o público ou um intervalo de portas.</span><span class="sxs-lookup"><span data-stu-id="7075d-115">You can specify a single public-facing port, or a range of ports.</span></span>
 
-<span data-ttu-id="0e370-116">O ponto de extremidade de entrada de instância só pode usar **tcp** ou **udp** como o protocolo.</span><span class="sxs-lookup"><span data-stu-id="0e370-116">The instance input endpoint can only use **tcp** or **udp** as the protocol.</span></span>
+<span data-ttu-id="7075d-116">ponto de extremidade entrada Hello instância só pode usar **tcp** ou **udp** como protocolo de saudação.</span><span class="sxs-lookup"><span data-stu-id="7075d-116">hello instance input endpoint can only use **tcp** or **udp** as hello protocol.</span></span>
 
-<span data-ttu-id="0e370-117">Para criar um ponto de extremidade de entrada de instância, adicione o elemento filho **InstanceInputEndpoint** ao elemento **Endpoints** de uma função Web ou de trabalho.</span><span class="sxs-lookup"><span data-stu-id="0e370-117">To create an instance input endpoint, add the **InstanceInputEndpoint** child element to the **Endpoints** element of either a web or worker role.</span></span>
+<span data-ttu-id="7075d-117">toocreate ponto de extremidade de entrada um instância, adicionar Olá **InstanceInputEndpoint** toohello de elemento filho **pontos de extremidade** elemento de função de um trabalho ou web.</span><span class="sxs-lookup"><span data-stu-id="7075d-117">toocreate an instance input endpoint, add hello **InstanceInputEndpoint** child element toohello **Endpoints** element of either a web or worker role.</span></span>
 
 ```xml
 <Endpoints>
@@ -53,12 +53,12 @@ ms.lasthandoff: 07/11/2017
 </Endpoints>
 ```
 
-## <a name="internal-endpoint"></a><span data-ttu-id="0e370-118">Ponto de extremidade interno</span><span class="sxs-lookup"><span data-stu-id="0e370-118">Internal endpoint</span></span>
-<span data-ttu-id="0e370-119">Os pontos de extremidade internos estão disponíveis para a comunicação entre instâncias.</span><span class="sxs-lookup"><span data-stu-id="0e370-119">Internal endpoints are available for instance-to-instance communication.</span></span> <span data-ttu-id="0e370-120">A porta é opcional e, se for omitida, uma porta dinâmica será atribuída ao ponto de extremidade.</span><span class="sxs-lookup"><span data-stu-id="0e370-120">The port is optional and if omitted, a dynamic port is assigned to the endpoint.</span></span> <span data-ttu-id="0e370-121">Um intervalo de portas pode ser usado.</span><span class="sxs-lookup"><span data-stu-id="0e370-121">A port range can be used.</span></span> <span data-ttu-id="0e370-122">Há um limite de cinco pontos de extremidade internos por função.</span><span class="sxs-lookup"><span data-stu-id="0e370-122">There is a limit of five internal endpoints per role.</span></span>
+## <a name="internal-endpoint"></a><span data-ttu-id="7075d-118">Ponto de extremidade interno</span><span class="sxs-lookup"><span data-stu-id="7075d-118">Internal endpoint</span></span>
+<span data-ttu-id="7075d-119">Os pontos de extremidade internos estão disponíveis para a comunicação entre instâncias.</span><span class="sxs-lookup"><span data-stu-id="7075d-119">Internal endpoints are available for instance-to-instance communication.</span></span> <span data-ttu-id="7075d-120">Olá porta é opcional e se ele for omitido, uma porta dinâmica é atribuída toohello de ponto de extremidade.</span><span class="sxs-lookup"><span data-stu-id="7075d-120">hello port is optional and if omitted, a dynamic port is assigned toohello endpoint.</span></span> <span data-ttu-id="7075d-121">Um intervalo de portas pode ser usado.</span><span class="sxs-lookup"><span data-stu-id="7075d-121">A port range can be used.</span></span> <span data-ttu-id="7075d-122">Há um limite de cinco pontos de extremidade internos por função.</span><span class="sxs-lookup"><span data-stu-id="7075d-122">There is a limit of five internal endpoints per role.</span></span>
 
-<span data-ttu-id="0e370-123">O ponto de extremidade interno pode usar os seguintes protocolos: **http, tcp, udp, any**.</span><span class="sxs-lookup"><span data-stu-id="0e370-123">The internal endpoint can use the following protocols: **http, tcp, udp, any**.</span></span>
+<span data-ttu-id="7075d-123">ponto de extremidade interno Olá pode usar Olá seguintes protocolos: **http, tcp, udp, qualquer**.</span><span class="sxs-lookup"><span data-stu-id="7075d-123">hello internal endpoint can use hello following protocols: **http, tcp, udp, any**.</span></span>
 
-<span data-ttu-id="0e370-124">Para criar um ponto de extremidade de entrada interno, adicione o elemento filho **InternalEndpoint** ao elemento **Endpoints** de uma função Web ou de trabalho.</span><span class="sxs-lookup"><span data-stu-id="0e370-124">To create an internal input endpoint, add the **InternalEndpoint** child element to the **Endpoints** element of either a web or worker role.</span></span>
+<span data-ttu-id="7075d-124">toocreate um ponto de extremidade de entrada interno, adicionar Olá **InternalEndpoint** toohello de elemento filho **pontos de extremidade** elemento de função de um trabalho ou web.</span><span class="sxs-lookup"><span data-stu-id="7075d-124">toocreate an internal input endpoint, add hello **InternalEndpoint** child element toohello **Endpoints** element of either a web or worker role.</span></span>
 
 ```xml
 <Endpoints>
@@ -66,7 +66,7 @@ ms.lasthandoff: 07/11/2017
 </Endpoints> 
 ```
 
-<span data-ttu-id="0e370-125">Você também pode usar um intervalo de portas.</span><span class="sxs-lookup"><span data-stu-id="0e370-125">You can also use a port range.</span></span>
+<span data-ttu-id="7075d-125">Você também pode usar um intervalo de portas.</span><span class="sxs-lookup"><span data-stu-id="7075d-125">You can also use a port range.</span></span>
 
 ```xml
 <Endpoints>
@@ -77,42 +77,42 @@ ms.lasthandoff: 07/11/2017
 ```
 
 
-## <a name="worker-roles-vs-web-roles"></a><span data-ttu-id="0e370-126">Funções de trabalho versus Funções da Web</span><span class="sxs-lookup"><span data-stu-id="0e370-126">Worker roles vs. Web roles</span></span>
-<span data-ttu-id="0e370-127">Há uma diferença mínima em relação aos pontos de extremidade quando você trabalha com as funções Web e de trabalho.</span><span class="sxs-lookup"><span data-stu-id="0e370-127">There is one minor difference with endpoints when working with both worker and web roles.</span></span> <span data-ttu-id="0e370-128">A função Web deve ter pelo menos um ponto de extremidade de entrada único usando o protocolo **HTTP** .</span><span class="sxs-lookup"><span data-stu-id="0e370-128">The web role must have at minimum a single input endpoint using the **HTTP** protocol.</span></span>
+## <a name="worker-roles-vs-web-roles"></a><span data-ttu-id="7075d-126">Funções de trabalho versus Funções da Web</span><span class="sxs-lookup"><span data-stu-id="7075d-126">Worker roles vs. Web roles</span></span>
+<span data-ttu-id="7075d-127">Há uma diferença mínima em relação aos pontos de extremidade quando você trabalha com as funções Web e de trabalho.</span><span class="sxs-lookup"><span data-stu-id="7075d-127">There is one minor difference with endpoints when working with both worker and web roles.</span></span> <span data-ttu-id="7075d-128">Olá função web deve ter pelo menos um ponto de extremidade de entrada único usando Olá **HTTP** protocolo.</span><span class="sxs-lookup"><span data-stu-id="7075d-128">hello web role must have at minimum a single input endpoint using hello **HTTP** protocol.</span></span>
 
 ```xml
 <Endpoints>
   <InputEndpoint name="StandardWeb" protocol="http" port="80" localPort="80" />
-  <!-- more endpoints may be declared after the first InputEndPoint -->
+  <!-- more endpoints may be declared after hello first InputEndPoint -->
 </Endpoints>
 ```
 
-## <a name="using-the-net-sdk-to-access-an-endpoint"></a><span data-ttu-id="0e370-129">Usando o SDK do .NET para acessar um ponto de extremidade</span><span class="sxs-lookup"><span data-stu-id="0e370-129">Using the .NET SDK to access an endpoint</span></span>
-<span data-ttu-id="0e370-130">A Biblioteca Gerenciada do Azure fornece métodos para que instâncias de função se comuniquem no tempo de execução.</span><span class="sxs-lookup"><span data-stu-id="0e370-130">The Azure Managed Library provides methods for role instances to communicate at runtime.</span></span> <span data-ttu-id="0e370-131">A partir da execução de código em uma instância de função, você poderá recuperar informações sobre a existência de outras instâncias de função e de seus pontos de extremidade, bem como informações sobre a instância de função atual.</span><span class="sxs-lookup"><span data-stu-id="0e370-131">From code running within a role instance, you can retrieve information about the existence of other role instances and their endpoints, as well as information about the current role instance.</span></span>
+## <a name="using-hello-net-sdk-tooaccess-an-endpoint"></a><span data-ttu-id="7075d-129">Usando o SDK .NET de saudação tooaccess um ponto de extremidade</span><span class="sxs-lookup"><span data-stu-id="7075d-129">Using hello .NET SDK tooaccess an endpoint</span></span>
+<span data-ttu-id="7075d-130">Olá biblioteca gerenciada do Azure fornece métodos para toocommunicate de instâncias de função em tempo de execução.</span><span class="sxs-lookup"><span data-stu-id="7075d-130">hello Azure Managed Library provides methods for role instances toocommunicate at runtime.</span></span> <span data-ttu-id="7075d-131">Código em execução dentro de uma instância de função, você pode recuperar informações sobre a existência de saudação de outras instâncias de função e seus pontos de extremidade, bem como informações sobre a instância de função atual da saudação.</span><span class="sxs-lookup"><span data-stu-id="7075d-131">From code running within a role instance, you can retrieve information about hello existence of other role instances and their endpoints, as well as information about hello current role instance.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="0e370-132">Você só pode recuperar informações sobre instâncias de função que estejam sendo executadas em seu serviço de nuvem e que definam pelo menos um ponto de extremidade interno.</span><span class="sxs-lookup"><span data-stu-id="0e370-132">You can only retrieve information about role instances that are running in your cloud service and that define at least one internal endpoint.</span></span> <span data-ttu-id="0e370-133">Não é possível obter dados sobre instâncias de função que estejam sendo executadas em um serviço diferente.</span><span class="sxs-lookup"><span data-stu-id="0e370-133">You cannot obtain data about role instances running in a different service.</span></span>
+> <span data-ttu-id="7075d-132">Você só pode recuperar informações sobre instâncias de função que estejam sendo executadas em seu serviço de nuvem e que definam pelo menos um ponto de extremidade interno.</span><span class="sxs-lookup"><span data-stu-id="7075d-132">You can only retrieve information about role instances that are running in your cloud service and that define at least one internal endpoint.</span></span> <span data-ttu-id="7075d-133">Não é possível obter dados sobre instâncias de função que estejam sendo executadas em um serviço diferente.</span><span class="sxs-lookup"><span data-stu-id="7075d-133">You cannot obtain data about role instances running in a different service.</span></span>
 > 
 > 
 
-<span data-ttu-id="0e370-134">Você pode usar a propriedade [Instances](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) para recuperar instâncias de uma função.</span><span class="sxs-lookup"><span data-stu-id="0e370-134">You can use the [Instances](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) property to retrieve instances of a role.</span></span> <span data-ttu-id="0e370-135">Primeiro use [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) para retornar uma referência à instância de função atual e use a propriedade [Role](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) para retornar uma referência à função propriamente dita.</span><span class="sxs-lookup"><span data-stu-id="0e370-135">First use the [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) to return a reference to the current role instance, and then use the [Role](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) property to return a reference to the role itself.</span></span>
+<span data-ttu-id="7075d-134">Você pode usar o hello [instâncias](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) instâncias de tooretrieve de propriedade de uma função.</span><span class="sxs-lookup"><span data-stu-id="7075d-134">You can use hello [Instances](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) property tooretrieve instances of a role.</span></span> <span data-ttu-id="7075d-135">Primeiro use Olá [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) tooreturn uma função atual do toohello de referência da instância e, em seguida, usar o hello [função](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) propriedade tooreturn uma função de toohello de referência em si.</span><span class="sxs-lookup"><span data-stu-id="7075d-135">First use hello [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) tooreturn a reference toohello current role instance, and then use hello [Role](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) property tooreturn a reference toohello role itself.</span></span>
 
-<span data-ttu-id="0e370-136">Quando você se conecta a uma instância de função programaticamente por meio do SDK do .NET, é relativamente fácil de acessar as informações do ponto de extremidade.</span><span class="sxs-lookup"><span data-stu-id="0e370-136">When you connect to a role instance programmatically through the .NET SDK, it's relatively easy to access the endpoint information.</span></span> <span data-ttu-id="0e370-137">Por exemplo, depois que você tiver se conectado a um ambiente de função específico, poderá obter a porta de um ponto de extremidade específico com este código:</span><span class="sxs-lookup"><span data-stu-id="0e370-137">For example, after you've already connected to a specific role environment, you can get the port of a specific endpoint with this code:</span></span>
+<span data-ttu-id="7075d-136">Quando você conectar instância de função tooa programaticamente por meio de saudação SDK .NET, é relativamente fácil tooaccess informações de ponto de extremidade de saudação.</span><span class="sxs-lookup"><span data-stu-id="7075d-136">When you connect tooa role instance programmatically through hello .NET SDK, it's relatively easy tooaccess hello endpoint information.</span></span> <span data-ttu-id="7075d-137">Por exemplo, depois que você já conectou tooa ambiente de função específica, você pode obter a porta Olá de um ponto de extremidade específico com este código:</span><span class="sxs-lookup"><span data-stu-id="7075d-137">For example, after you've already connected tooa specific role environment, you can get hello port of a specific endpoint with this code:</span></span>
 
 ```csharp
 int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].IPEndpoint.Port;
 ```
 
-<span data-ttu-id="0e370-138">A propriedade **Instances** retorna uma coleção de objetos **RoleInstance**.</span><span class="sxs-lookup"><span data-stu-id="0e370-138">The **Instances** property returns a collection of **RoleInstance** objects.</span></span> <span data-ttu-id="0e370-139">Esta coleção sempre contém a instância atual.</span><span class="sxs-lookup"><span data-stu-id="0e370-139">This collection always contains the current instance.</span></span> <span data-ttu-id="0e370-140">Se a função não definir um ponto de extremidade interno, a coleção incluirá a instância atual, mas nenhuma outra instância.</span><span class="sxs-lookup"><span data-stu-id="0e370-140">If the role does not define an internal endpoint, the collection includes the current instance but no other instances.</span></span> <span data-ttu-id="0e370-141">O número de instâncias de função na coleção sempre será 1 quando nenhum ponto de extremidade interno for definido para a função.</span><span class="sxs-lookup"><span data-stu-id="0e370-141">The number of role instances in the collection will always be 1 in the case where no internal endpoint is defined for the role.</span></span> <span data-ttu-id="0e370-142">Se a função definir um ponto de extremidade interno, suas instâncias serão descobríveis no tempo de execução e o número de instâncias na coleção corresponderá ao número de instâncias especificadas para a função no arquivo de configuração de serviço.</span><span class="sxs-lookup"><span data-stu-id="0e370-142">If the role defines an internal endpoint, its instances are discoverable at runtime, and the number of instances in the collection will correspond to the number of instances specified for the role in the service configuration file.</span></span>
+<span data-ttu-id="7075d-138">Olá **instâncias** propriedade retorna uma coleção de **RoleInstance** objetos.</span><span class="sxs-lookup"><span data-stu-id="7075d-138">hello **Instances** property returns a collection of **RoleInstance** objects.</span></span> <span data-ttu-id="7075d-139">Essa coleção sempre contém a instância atual do hello.</span><span class="sxs-lookup"><span data-stu-id="7075d-139">This collection always contains hello current instance.</span></span> <span data-ttu-id="7075d-140">Se a função hello não definir um ponto de extremidade interno, a coleção de Olá inclui a instância atual do hello, mas nenhuma outra instância.</span><span class="sxs-lookup"><span data-stu-id="7075d-140">If hello role does not define an internal endpoint, hello collection includes hello current instance but no other instances.</span></span> <span data-ttu-id="7075d-141">número de saudação de instâncias de função na coleção de saudação sempre será 1 em caso de Olá onde nenhum ponto de extremidade interno é definido para a função hello.</span><span class="sxs-lookup"><span data-stu-id="7075d-141">hello number of role instances in hello collection will always be 1 in hello case where no internal endpoint is defined for hello role.</span></span> <span data-ttu-id="7075d-142">Se a função hello define um ponto de extremidade interno, suas instâncias serão detectáveis em tempo de execução e número de saudação de instâncias na coleção de saudação corresponderá toohello número de instâncias especificado para a função hello no arquivo de configuração do serviço de saudação.</span><span class="sxs-lookup"><span data-stu-id="7075d-142">If hello role defines an internal endpoint, its instances are discoverable at runtime, and hello number of instances in hello collection will correspond toohello number of instances specified for hello role in hello service configuration file.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="0e370-143">A Biblioteca Gerenciada do Azure não oferece um meio de determinar a integridade de outras instâncias de função, mas você pode implementar essas avaliações de integridade caso o serviço precise dessa funcionalidade.</span><span class="sxs-lookup"><span data-stu-id="0e370-143">The Azure Managed Library does not provide a means of determining the health of other role instances, but you can implement such health assessments yourself if your service needs this functionality.</span></span> <span data-ttu-id="0e370-144">Você pode usar o [Diagnóstico do Azure](cloud-services-dotnet-diagnostics.md) para obter informações sobre  as instâncias de função em execução.</span><span class="sxs-lookup"><span data-stu-id="0e370-144">You can use [Azure Diagnostics](cloud-services-dotnet-diagnostics.md) to obtain information about running role instances.</span></span>
+> <span data-ttu-id="7075d-143">Olá biblioteca gerenciada do Azure não fornece um meio de determinar a integridade de saudação de outras instâncias de função, mas você pode implementar essas avaliações de integridade se seu serviço precisar desta funcionalidade.</span><span class="sxs-lookup"><span data-stu-id="7075d-143">hello Azure Managed Library does not provide a means of determining hello health of other role instances, but you can implement such health assessments yourself if your service needs this functionality.</span></span> <span data-ttu-id="7075d-144">Você pode usar [diagnóstico do Azure](cloud-services-dotnet-diagnostics.md) tooobtain informações sobre a execução de instâncias de função.</span><span class="sxs-lookup"><span data-stu-id="7075d-144">You can use [Azure Diagnostics](cloud-services-dotnet-diagnostics.md) tooobtain information about running role instances.</span></span>
 > 
 > 
 
-<span data-ttu-id="0e370-145">Para determinar o número da porta de um ponto de extremidade interno em uma instância de função, você poderá usar a propriedade [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) para retornar um objeto de Dicionário que contenha nomes de ponto de extremidade e seus endereços IP e portas correspondentes.</span><span class="sxs-lookup"><span data-stu-id="0e370-145">To determine the port number for an internal endpoint on a role instance, you can use the [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) property to return a Dictionary object that contains endpoint names and their corresponding IP addresses and ports.</span></span> <span data-ttu-id="0e370-146">A propriedade [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) retorna o endereço IP e a porta de um ponto de extremidade especificado.</span><span class="sxs-lookup"><span data-stu-id="0e370-146">The [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) property returns the IP address and port for a specified endpoint.</span></span> <span data-ttu-id="0e370-147">A propriedade **PublicIPEndpoint** retorna a porta de um ponto de extremidade com balanceamento de carga.</span><span class="sxs-lookup"><span data-stu-id="0e370-147">The **PublicIPEndpoint** property returns the port for a load balanced endpoint.</span></span> <span data-ttu-id="0e370-148">A parte do endereço IP da propriedade **PublicIPEndpoint** não é usada.</span><span class="sxs-lookup"><span data-stu-id="0e370-148">The IP address portion of the **PublicIPEndpoint** property is not used.</span></span>
+<span data-ttu-id="7075d-145">número da porta toodetermine Olá para um ponto de extremidade interno em uma instância de função, você pode usar o hello [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) tooreturn de propriedade endereços de um objeto de dicionário que contém nomes de ponto de extremidade e seu IP correspondente e portas.</span><span class="sxs-lookup"><span data-stu-id="7075d-145">toodetermine hello port number for an internal endpoint on a role instance, you can use hello [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) property tooreturn a Dictionary object that contains endpoint names and their corresponding IP addresses and ports.</span></span> <span data-ttu-id="7075d-146">Olá [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) propriedade retorna o endereço IP hello e a porta para um ponto de extremidade especificado.</span><span class="sxs-lookup"><span data-stu-id="7075d-146">hello [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) property returns hello IP address and port for a specified endpoint.</span></span> <span data-ttu-id="7075d-147">Olá **PublicIPEndpoint** propriedade retorna porta Olá para um ponto de extremidade com balanceamento de carga.</span><span class="sxs-lookup"><span data-stu-id="7075d-147">hello **PublicIPEndpoint** property returns hello port for a load balanced endpoint.</span></span> <span data-ttu-id="7075d-148">parte do endereço IP de saudação do hello **PublicIPEndpoint** propriedade não é usada.</span><span class="sxs-lookup"><span data-stu-id="7075d-148">hello IP address portion of hello **PublicIPEndpoint** property is not used.</span></span>
 
-<span data-ttu-id="0e370-149">Veja um exemplo que itera instâncias de função.</span><span class="sxs-lookup"><span data-stu-id="0e370-149">Here is an example that iterates role instances.</span></span>
+<span data-ttu-id="7075d-149">Veja um exemplo que itera instâncias de função.</span><span class="sxs-lookup"><span data-stu-id="7075d-149">Here is an example that iterates role instances.</span></span>
 
 ```csharp
 foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Instances)
@@ -125,10 +125,10 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 }
 ```
 
-<span data-ttu-id="0e370-150">Veja um exemplo de função de trabalho que expõe o ponto de extremidade por meio da definição de serviço e começa a escutar conexões.</span><span class="sxs-lookup"><span data-stu-id="0e370-150">Here is an example of a worker role that gets the endpoint exposed through the service definition and starts listening for connections.</span></span>
+<span data-ttu-id="7075d-150">Aqui está um exemplo de uma função de trabalho que obtém o ponto de extremidade de saudação exposto por meio da definição de serviço hello e começa a escuta de conexões.</span><span class="sxs-lookup"><span data-stu-id="7075d-150">Here is an example of a worker role that gets hello endpoint exposed through hello service definition and starts listening for connections.</span></span>
 
 > [!WARNING]
-> <span data-ttu-id="0e370-151">Este código só funcionará para um serviço implantado.</span><span class="sxs-lookup"><span data-stu-id="0e370-151">This code will only work for a deployed service.</span></span> <span data-ttu-id="0e370-152">Quando executados no Emulador de Computação do Azure, os elementos de configuração de serviço que criam pontos de extremidade de porta direta (elementos**InstanceInputEndpoint** ) são ignorados.</span><span class="sxs-lookup"><span data-stu-id="0e370-152">When running in the Azure Compute Emulator, service configuration elements that create direct port endpoints (**InstanceInputEndpoint** elements) are ignored.</span></span>
+> <span data-ttu-id="7075d-151">Este código só funcionará para um serviço implantado.</span><span class="sxs-lookup"><span data-stu-id="7075d-151">This code will only work for a deployed service.</span></span> <span data-ttu-id="7075d-152">Quando em execução no emulador de computação do Azure de saudação, elementos de configuração que criar pontos de extremidade de porta direta de serviço (**InstanceInputEndpoint** elementos) são ignorados.</span><span class="sxs-lookup"><span data-stu-id="7075d-152">When running in hello Azure Compute Emulator, service configuration elements that create direct port endpoints (**InstanceInputEndpoint** elements) are ignored.</span></span>
 > 
 > 
 
@@ -167,7 +167,7 @@ namespace WorkerRole1
         var listener = new Socket(
           myInternalEp.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
-        // Bind socket listener to internal endpoint and listen
+        // Bind socket listener toointernal endpoint and listen
         listener.Bind(myInternalEp);
         listener.Listen(10);
         Trace.TraceInformation("Listening on IP:{0},Port: {1}",
@@ -175,7 +175,7 @@ namespace WorkerRole1
 
         while (true)
         {
-          // Block the thread and wait for a client request
+          // Block hello thread and wait for a client request
           Socket handler = listener.Accept();
           Trace.TraceInformation("Client request received.");
 
@@ -205,23 +205,23 @@ namespace WorkerRole1
 
     public override bool OnStart()
     {
-      // Set the maximum number of concurrent connections 
+      // Set hello maximum number of concurrent connections 
       ServicePointManager.DefaultConnectionLimit = 12;
 
       // For information on handling configuration changes
-      // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
+      // see hello MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
       return base.OnStart();
     }
   }
 }
 ```
 
-## <a name="network-traffic-rules-to-control-role-communication"></a><span data-ttu-id="0e370-153">Regras de tráfego de rede para controlar a comunicação de função</span><span class="sxs-lookup"><span data-stu-id="0e370-153">Network traffic rules to control role communication</span></span>
-<span data-ttu-id="0e370-154">Depois de definir pontos de extremidade internos, você poderá adicionar regras de tráfego de rede (com base nos pontos de extremidade que você criou) para controlar como as instâncias de função podem se comunicar umas com os outras.</span><span class="sxs-lookup"><span data-stu-id="0e370-154">After you define internal endpoints, you can add network traffic rules (based on the endpoints that you created) to control how role instances can communicate with each other.</span></span> <span data-ttu-id="0e370-155">O diagrama a seguir mostra alguns cenários comuns para o controle da comunicação de função:</span><span class="sxs-lookup"><span data-stu-id="0e370-155">The following diagram shows some common scenarios for controlling role communication:</span></span>
+## <a name="network-traffic-rules-toocontrol-role-communication"></a><span data-ttu-id="7075d-153">Comunicação de função de toocontrol de regras de tráfego de rede</span><span class="sxs-lookup"><span data-stu-id="7075d-153">Network traffic rules toocontrol role communication</span></span>
+<span data-ttu-id="7075d-154">Depois de definir pontos de extremidade internos, você pode adicionar toocontrol de regras (com base em pontos de extremidade de saudação que você criou) de tráfego de rede como instâncias de função podem se comunicar uns com os outros.</span><span class="sxs-lookup"><span data-stu-id="7075d-154">After you define internal endpoints, you can add network traffic rules (based on hello endpoints that you created) toocontrol how role instances can communicate with each other.</span></span> <span data-ttu-id="7075d-155">Olá diagrama a seguir mostra alguns cenários comuns para controlar a comunicação de função:</span><span class="sxs-lookup"><span data-stu-id="7075d-155">hello following diagram shows some common scenarios for controlling role communication:</span></span>
 
-<span data-ttu-id="0e370-156">![Cenários de Regras de tráfego de rede](./media/cloud-services-enable-communication-role-instances/scenarios.png "Cenários de Regras de tráfego de rede")</span><span class="sxs-lookup"><span data-stu-id="0e370-156">![Network Traffic Rules Scenarios](./media/cloud-services-enable-communication-role-instances/scenarios.png "Network Traffic Rules Scenarios")</span></span>
+<span data-ttu-id="7075d-156">![Cenários de Regras de tráfego de rede](./media/cloud-services-enable-communication-role-instances/scenarios.png "Cenários de Regras de tráfego de rede")</span><span class="sxs-lookup"><span data-stu-id="7075d-156">![Network Traffic Rules Scenarios](./media/cloud-services-enable-communication-role-instances/scenarios.png "Network Traffic Rules Scenarios")</span></span>
 
-<span data-ttu-id="0e370-157">O exemplo de código a seguir mostra as definições de função das funções mostradas no diagrama anterior.</span><span class="sxs-lookup"><span data-stu-id="0e370-157">The following code example shows role definitions for the roles shown in the previous diagram.</span></span> <span data-ttu-id="0e370-158">Cada definição de função inclui pelo menos um ponto de extremidade interno definido:</span><span class="sxs-lookup"><span data-stu-id="0e370-158">Each role definition includes at least one internal endpoint defined:</span></span>
+<span data-ttu-id="7075d-157">Olá, exemplo de código a seguir mostra definições de função para funções hello mostradas no diagrama anterior hello.</span><span class="sxs-lookup"><span data-stu-id="7075d-157">hello following code example shows role definitions for hello roles shown in hello previous diagram.</span></span> <span data-ttu-id="7075d-158">Cada definição de função inclui pelo menos um ponto de extremidade interno definido:</span><span class="sxs-lookup"><span data-stu-id="7075d-158">Each role definition includes at least one internal endpoint defined:</span></span>
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -253,14 +253,14 @@ namespace WorkerRole1
 ```
 
 > [!NOTE]
-> <span data-ttu-id="0e370-159">A restrição de comunicação entre funções pode ocorrer com pontos de extremidade internos de portas fixas e atribuídas automaticamente.</span><span class="sxs-lookup"><span data-stu-id="0e370-159">Restriction of communication between roles can occur with internal endpoints of both fixed and automatically assigned ports.</span></span>
+> <span data-ttu-id="7075d-159">A restrição de comunicação entre funções pode ocorrer com pontos de extremidade internos de portas fixas e atribuídas automaticamente.</span><span class="sxs-lookup"><span data-stu-id="7075d-159">Restriction of communication between roles can occur with internal endpoints of both fixed and automatically assigned ports.</span></span>
 > 
 > 
 
-<span data-ttu-id="0e370-160">Por padrão, após a definição de um ponto de extremidade interno, a comunicação poderá fluir de qualquer função para o ponto de extremidade interno de uma função sem qualquer restrição.</span><span class="sxs-lookup"><span data-stu-id="0e370-160">By default, after an internal endpoint is defined, communication can flow from any role to the internal endpoint of a role without any restrictions.</span></span> <span data-ttu-id="0e370-161">Para restringir a comunicação, você deverá adicionar um elemento **NetworkTrafficRules** ao elemento **ServiceDefinition** no arquivo de definição de serviço.</span><span class="sxs-lookup"><span data-stu-id="0e370-161">To restrict communication, you must add a **NetworkTrafficRules** element to the **ServiceDefinition** element in the service definition file.</span></span>
+<span data-ttu-id="7075d-160">Por padrão, após a definição de um ponto de extremidade interno, comunicação pode fluir de qualquer função toohello ponto de extremidade interno de uma função sem nenhuma restrição.</span><span class="sxs-lookup"><span data-stu-id="7075d-160">By default, after an internal endpoint is defined, communication can flow from any role toohello internal endpoint of a role without any restrictions.</span></span> <span data-ttu-id="7075d-161">comunicação toorestrict, você deve adicionar um **NetworkTrafficRules** elemento toohello **ServiceDefinition** elemento no arquivo de definição de serviço hello.</span><span class="sxs-lookup"><span data-stu-id="7075d-161">toorestrict communication, you must add a **NetworkTrafficRules** element toohello **ServiceDefinition** element in hello service definition file.</span></span>
 
-### <a name="scenario-1"></a><span data-ttu-id="0e370-162">Cenário 1</span><span class="sxs-lookup"><span data-stu-id="0e370-162">Scenario 1</span></span>
-<span data-ttu-id="0e370-163">Permita apenas o tráfego de rede de **WebRole1** para **WorkerRole1**.</span><span class="sxs-lookup"><span data-stu-id="0e370-163">Only allow network traffic from **WebRole1** to **WorkerRole1**.</span></span>
+### <a name="scenario-1"></a><span data-ttu-id="7075d-162">Cenário 1</span><span class="sxs-lookup"><span data-stu-id="7075d-162">Scenario 1</span></span>
+<span data-ttu-id="7075d-163">Permitir somente o tráfego de rede de **WebRole1** muito**WorkerRole1**.</span><span class="sxs-lookup"><span data-stu-id="7075d-163">Only allow network traffic from **WebRole1** too**WorkerRole1**.</span></span>
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -278,8 +278,8 @@ namespace WorkerRole1
 </ServiceDefinition>
 ```
 
-### <a name="scenario-2"></a><span data-ttu-id="0e370-164">Cenário 2</span><span class="sxs-lookup"><span data-stu-id="0e370-164">Scenario 2</span></span>
-<span data-ttu-id="0e370-165">Permita apenas o tráfego de rede de **WebRole1** para **WorkerRole1** e **WorkerRole2**.</span><span class="sxs-lookup"><span data-stu-id="0e370-165">Only allows network traffic from **WebRole1** to **WorkerRole1** and **WorkerRole2**.</span></span>
+### <a name="scenario-2"></a><span data-ttu-id="7075d-164">Cenário 2</span><span class="sxs-lookup"><span data-stu-id="7075d-164">Scenario 2</span></span>
+<span data-ttu-id="7075d-165">Permite apenas o tráfego de rede de **WebRole1** muito**WorkerRole1** e **WorkerRole2**.</span><span class="sxs-lookup"><span data-stu-id="7075d-165">Only allows network traffic from **WebRole1** too**WorkerRole1** and **WorkerRole2**.</span></span>
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -297,8 +297,8 @@ namespace WorkerRole1
 </ServiceDefinition>
 ```
 
-### <a name="scenario-3"></a><span data-ttu-id="0e370-166">Cenário 3</span><span class="sxs-lookup"><span data-stu-id="0e370-166">Scenario 3</span></span>
-<span data-ttu-id="0e370-167">Permita apenas o tráfego de rede de **WebRole1** para **WorkerRole1** e de **WorkerRole1** para **WorkerRole2**.</span><span class="sxs-lookup"><span data-stu-id="0e370-167">Only allows network traffic from **WebRole1** to **WorkerRole1**, and **WorkerRole1** to **WorkerRole2**.</span></span>
+### <a name="scenario-3"></a><span data-ttu-id="7075d-166">Cenário 3</span><span class="sxs-lookup"><span data-stu-id="7075d-166">Scenario 3</span></span>
+<span data-ttu-id="7075d-167">Permite apenas o tráfego de rede de **WebRole1** muito**WorkerRole1**, e **WorkerRole1** muito**WorkerRole2**.</span><span class="sxs-lookup"><span data-stu-id="7075d-167">Only allows network traffic from **WebRole1** too**WorkerRole1**, and **WorkerRole1** too**WorkerRole2**.</span></span>
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -326,8 +326,8 @@ namespace WorkerRole1
 </ServiceDefinition>
 ```
 
-### <a name="scenario-4"></a><span data-ttu-id="0e370-168">Cenário 4</span><span class="sxs-lookup"><span data-stu-id="0e370-168">Scenario 4</span></span>
-<span data-ttu-id="0e370-169">Permita apenas o tráfego de rede de **WebRole1** para **WorkerRole1**, de **WebRole1** para **WorkerRole2** e de **WorkerRole1** para **WorkerRole2**.</span><span class="sxs-lookup"><span data-stu-id="0e370-169">Only allows network traffic from **WebRole1** to **WorkerRole1**, **WebRole1** to **WorkerRole2**, and **WorkerRole1** to **WorkerRole2**.</span></span>
+### <a name="scenario-4"></a><span data-ttu-id="7075d-168">Cenário 4</span><span class="sxs-lookup"><span data-stu-id="7075d-168">Scenario 4</span></span>
+<span data-ttu-id="7075d-169">Permite apenas o tráfego de rede de **WebRole1** muito**WorkerRole1**, **WebRole1** muito**WorkerRole2**, e  **WorkerRole1** muito**WorkerRole2**.</span><span class="sxs-lookup"><span data-stu-id="7075d-169">Only allows network traffic from **WebRole1** too**WorkerRole1**, **WebRole1** too**WorkerRole2**, and **WorkerRole1** too**WorkerRole2**.</span></span>
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -367,8 +367,8 @@ namespace WorkerRole1
 </ServiceDefinition>
 ```
 
-<span data-ttu-id="0e370-170">Veja uma referência de esquema XML para os elementos usados acima [aqui](https://msdn.microsoft.com/library/azure/gg557551.aspx).</span><span class="sxs-lookup"><span data-stu-id="0e370-170">An XML schema reference for the elements used above can be found [here](https://msdn.microsoft.com/library/azure/gg557551.aspx).</span></span>
+<span data-ttu-id="7075d-170">Uma referência de esquema XML para elementos de saudação usado acima pode ser encontrada [aqui](https://msdn.microsoft.com/library/azure/gg557551.aspx).</span><span class="sxs-lookup"><span data-stu-id="7075d-170">An XML schema reference for hello elements used above can be found [here](https://msdn.microsoft.com/library/azure/gg557551.aspx).</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="0e370-171">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="0e370-171">Next steps</span></span>
-<span data-ttu-id="0e370-172">Leia mais sobre o [modelo](cloud-services-model-and-package.md)de Serviço de Nuvem.</span><span class="sxs-lookup"><span data-stu-id="0e370-172">Read more about the Cloud Service [model](cloud-services-model-and-package.md).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="7075d-171">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="7075d-171">Next steps</span></span>
+<span data-ttu-id="7075d-172">Leia mais sobre Olá serviço de nuvem [modelo](cloud-services-model-and-package.md).</span><span class="sxs-lookup"><span data-stu-id="7075d-172">Read more about hello Cloud Service [model](cloud-services-model-and-package.md).</span></span>
 

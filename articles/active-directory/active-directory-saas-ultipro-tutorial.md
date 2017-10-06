@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory ao UltiPro | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o UltiPro."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e UltiPro."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,118 +13,118 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: ab60bda1be7101d5bd0c51f5499a820db40375bf
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8cb613228893e8cbf997957452d55d0ab7939171
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ultipro"></a><span data-ttu-id="6e709-103">Tutorial: Integração do Azure Active Directory ao UltiPro</span><span class="sxs-lookup"><span data-stu-id="6e709-103">Tutorial: Azure Active Directory integration with UltiPro</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-ultipro"></a><span data-ttu-id="e60aa-103">Tutorial: Integração do Azure Active Directory ao UltiPro</span><span class="sxs-lookup"><span data-stu-id="e60aa-103">Tutorial: Azure Active Directory integration with UltiPro</span></span>
 
-<span data-ttu-id="6e709-104">Neste tutorial, você aprenderá como integrar o UltiPro ao Azure AD (Azure Active Directory).</span><span class="sxs-lookup"><span data-stu-id="6e709-104">In this tutorial, you learn how to integrate UltiPro with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="e60aa-104">Neste tutorial, você aprenderá como toointegrate UltiPro com o Azure Active Directory (AD do Azure).</span><span class="sxs-lookup"><span data-stu-id="e60aa-104">In this tutorial, you learn how toointegrate UltiPro with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="6e709-105">A integração do UltiPro ao Azure AD oferece os seguintes benefícios:</span><span class="sxs-lookup"><span data-stu-id="6e709-105">Integrating UltiPro with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="e60aa-105">Integrando UltiPro com o AD do Azure fornece Olá benefícios a seguir:</span><span class="sxs-lookup"><span data-stu-id="e60aa-105">Integrating UltiPro with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="6e709-106">No Azure AD, é possível controlar quem tem acesso ao UltiPro</span><span class="sxs-lookup"><span data-stu-id="6e709-106">You can control in Azure AD who has access to UltiPro</span></span>
-- <span data-ttu-id="6e709-107">Você pode permitir que seus usuários façam logon automaticamente no UltiPro (Logon Único) com suas contas do Azure AD</span><span class="sxs-lookup"><span data-stu-id="6e709-107">You can enable your users to automatically get signed-on to UltiPro (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="6e709-108">Você pode gerenciar suas contas em um única localização: o Portal do Azure</span><span class="sxs-lookup"><span data-stu-id="6e709-108">You can manage your accounts in one central location - the Azure portal</span></span>
+- <span data-ttu-id="e60aa-106">Você pode controlar no AD do Azure que tenha acesso tooUltiPro</span><span class="sxs-lookup"><span data-stu-id="e60aa-106">You can control in Azure AD who has access tooUltiPro</span></span>
+- <span data-ttu-id="e60aa-107">Você pode habilitar seu usuários tooautomatically get conectado tooUltiPro (logon único) com suas contas do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="e60aa-107">You can enable your users tooautomatically get signed-on tooUltiPro (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="e60aa-108">Você pode gerenciar suas contas em um local central - Olá portal do Azure</span><span class="sxs-lookup"><span data-stu-id="e60aa-108">You can manage your accounts in one central location - hello Azure portal</span></span>
 
-<span data-ttu-id="6e709-109">Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="6e709-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="e60aa-109">Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="e60aa-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="6e709-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="6e709-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="e60aa-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="e60aa-110">Prerequisites</span></span>
 
-<span data-ttu-id="6e709-111">Para configurar a integração do Azure AD ao UltiPro, você precisará dos seguintes itens:</span><span class="sxs-lookup"><span data-stu-id="6e709-111">To configure Azure AD integration with UltiPro, you need the following items:</span></span>
+<span data-ttu-id="e60aa-111">tooconfigure integração do AD do Azure com UltiPro, você precisa Olá itens a seguir:</span><span class="sxs-lookup"><span data-stu-id="e60aa-111">tooconfigure Azure AD integration with UltiPro, you need hello following items:</span></span>
 
-- <span data-ttu-id="6e709-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="6e709-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="6e709-113">Uma assinatura do UltiPro habilitada para logon único</span><span class="sxs-lookup"><span data-stu-id="6e709-113">A UltiPro single sign-on enabled subscription</span></span>
+- <span data-ttu-id="e60aa-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="e60aa-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="e60aa-113">Uma assinatura do UltiPro habilitada para logon único</span><span class="sxs-lookup"><span data-stu-id="e60aa-113">A UltiPro single sign-on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="6e709-114">Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="6e709-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="e60aa-114">Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="e60aa-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="6e709-115">Para testar as etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="6e709-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="e60aa-115">tootest Olá etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="e60aa-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="6e709-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="6e709-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="6e709-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="6e709-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="e60aa-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="e60aa-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="e60aa-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="e60aa-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="6e709-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="6e709-118">Scenario description</span></span>
-<span data-ttu-id="6e709-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="6e709-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="6e709-120">O cenário descrito neste tutorial consiste em dois blocos de construção principais:</span><span class="sxs-lookup"><span data-stu-id="6e709-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="e60aa-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="e60aa-118">Scenario description</span></span>
+<span data-ttu-id="e60aa-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="e60aa-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="e60aa-120">cenário de saudação descrito neste tutorial consiste em dois elementos básicos:</span><span class="sxs-lookup"><span data-stu-id="e60aa-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="6e709-121">Adicionando o UltiPro usando a galeria</span><span class="sxs-lookup"><span data-stu-id="6e709-121">Adding UltiPro from the gallery</span></span>
-2. <span data-ttu-id="6e709-122">configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="6e709-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="e60aa-121">Adicionando UltiPro da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="e60aa-121">Adding UltiPro from hello gallery</span></span>
+2. <span data-ttu-id="e60aa-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="e60aa-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-ultipro-from-the-gallery"></a><span data-ttu-id="6e709-123">Adicionando o UltiPro usando a galeria</span><span class="sxs-lookup"><span data-stu-id="6e709-123">Adding UltiPro from the gallery</span></span>
-<span data-ttu-id="6e709-124">Para configurar a integração do UltiPro ao Azure AD, você precisa adicionar o UltiPro da galeria à sua lista de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="6e709-124">To configure the integration of UltiPro into Azure AD, you need to add UltiPro from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-ultipro-from-hello-gallery"></a><span data-ttu-id="e60aa-123">Adicionando UltiPro da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="e60aa-123">Adding UltiPro from hello gallery</span></span>
+<span data-ttu-id="e60aa-124">integração de saudação tooconfigure de UltiPro no AD do Azure, você precisa tooadd UltiPro da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="e60aa-124">tooconfigure hello integration of UltiPro into Azure AD, you need tooadd UltiPro from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="6e709-125">**Para adicionar o UltiPro da galeria, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="6e709-125">**To add UltiPro from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="e60aa-125">**tooadd UltiPro da Galeria hello, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="e60aa-125">**tooadd UltiPro from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="6e709-126">No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="6e709-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="e60aa-126">Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="e60aa-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Active Directory][1]
 
-2. <span data-ttu-id="6e709-128">Navegue até **aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="6e709-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="6e709-129">Em seguida, vá para **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="6e709-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="e60aa-128">Navegue muito**aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="e60aa-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="e60aa-129">Em seguida, acesse muito**todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="e60aa-129">Then go too**All applications**.</span></span>
 
     ![Aplicativos][2]
     
-3. <span data-ttu-id="6e709-131">Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.</span><span class="sxs-lookup"><span data-stu-id="6e709-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="e60aa-131">tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="e60aa-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
     ![Aplicativos][3]
 
-4. <span data-ttu-id="6e709-133">Na caixa de pesquisa, digite **UltiPro**.</span><span class="sxs-lookup"><span data-stu-id="6e709-133">In the search box, type **UltiPro**.</span></span>
+4. <span data-ttu-id="e60aa-133">Na caixa de pesquisa hello, digite **UltiPro**.</span><span class="sxs-lookup"><span data-stu-id="e60aa-133">In hello search box, type **UltiPro**.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_search.png)
 
-5. <span data-ttu-id="6e709-135">No painel de resultados, selecione **UltiPro** e clique no botão **Adicionar** para adicionar o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="6e709-135">In the results panel, select **UltiPro**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="e60aa-135">No painel de resultados de saudação, selecione **UltiPro**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.</span><span class="sxs-lookup"><span data-stu-id="e60aa-135">In hello results panel, select **UltiPro**, and then click **Add** button tooadd hello application.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="6e709-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="6e709-137">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="6e709-138">Nesta seção, você configurará e testará o logon único do Azure AD com o UltiPro, com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="6e709-138">In this section, you configure and test Azure AD single sign-on with UltiPro based on a test user called "Britta Simon".</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="e60aa-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="e60aa-137">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="e60aa-138">Nesta seção, você configurará e testará o logon único do Azure AD com o UltiPro, com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="e60aa-138">In this section, you configure and test Azure AD single sign-on with UltiPro based on a test user called "Britta Simon".</span></span>
 
-<span data-ttu-id="6e709-139">Para que o logon único funcione, o Azure AD precisa saber qual usuário do UltiPro é equivalente a um usuário do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="6e709-139">For single sign-on to work, Azure AD needs to know what the counterpart user in UltiPro is to a user in Azure AD.</span></span> <span data-ttu-id="6e709-140">Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado no UltiPro.</span><span class="sxs-lookup"><span data-stu-id="6e709-140">In other words, a link relationship between an Azure AD user and the related user in UltiPro needs to be established.</span></span>
+<span data-ttu-id="e60aa-139">Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá em UltiPro é tooa usuário no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="e60aa-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in UltiPro is tooa user in Azure AD.</span></span> <span data-ttu-id="e60aa-140">Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação em UltiPro precisa toobe estabelecida.</span><span class="sxs-lookup"><span data-stu-id="e60aa-140">In other words, a link relationship between an Azure AD user and hello related user in UltiPro needs toobe established.</span></span>
 
-<span data-ttu-id="6e709-141">No UltiPro, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.</span><span class="sxs-lookup"><span data-stu-id="6e709-141">In UltiPro, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="e60aa-141">UltiPro, atribuir valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.</span><span class="sxs-lookup"><span data-stu-id="e60aa-141">In UltiPro, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="6e709-142">Para configurar e testar o logon único do Azure AD com o UltiPro, você precisa concluir os seguintes blocos de construção:</span><span class="sxs-lookup"><span data-stu-id="6e709-142">To configure and test Azure AD single sign-on with UltiPro, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="e60aa-142">tooconfigure e teste de logon único do AD do Azure com UltiPro, é necessário Olá toocomplete blocos de construção a seguir:</span><span class="sxs-lookup"><span data-stu-id="e60aa-142">tooconfigure and test Azure AD single sign-on with UltiPro, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="6e709-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.</span><span class="sxs-lookup"><span data-stu-id="6e709-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="6e709-144">**[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="6e709-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="6e709-145">**[Criação de um usuário de teste do UltiPro](#creating-a-ultipro-test-user)** – para ter um equivalente de Brenda Fernandes no UltiPro que esteja vinculado à representação de usuário no Azure AD.</span><span class="sxs-lookup"><span data-stu-id="6e709-145">**[Creating a UltiPro test user](#creating-a-ultipro-test-user)** - to have a counterpart of Britta Simon in UltiPro that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="6e709-146">**[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="6e709-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="6e709-147">**[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.</span><span class="sxs-lookup"><span data-stu-id="6e709-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="e60aa-143">**[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.</span><span class="sxs-lookup"><span data-stu-id="e60aa-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="e60aa-144">**[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="e60aa-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="e60aa-145">**[Criar um usuário de teste UltiPro](#creating-a-ultipro-test-user)**  -toohave um equivalente do Britta Simon em UltiPro é toohello vinculado do Azure AD representação do usuário.</span><span class="sxs-lookup"><span data-stu-id="e60aa-145">**[Creating a UltiPro test user](#creating-a-ultipro-test-user)** - toohave a counterpart of Britta Simon in UltiPro that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="e60aa-146">**[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.</span><span class="sxs-lookup"><span data-stu-id="e60aa-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="e60aa-147">**[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.</span><span class="sxs-lookup"><span data-stu-id="e60aa-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="6e709-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="6e709-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="e60aa-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="e60aa-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="6e709-149">Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único no aplicativo UltiPro.</span><span class="sxs-lookup"><span data-stu-id="6e709-149">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your UltiPro application.</span></span>
+<span data-ttu-id="e60aa-149">Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo UltiPro.</span><span class="sxs-lookup"><span data-stu-id="e60aa-149">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your UltiPro application.</span></span>
 
-<span data-ttu-id="6e709-150">**Para configurar o logon único do Azure AD com o UltiPro, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="6e709-150">**To configure Azure AD single sign-on with UltiPro, perform the following steps:**</span></span>
+<span data-ttu-id="e60aa-150">**tooconfigure AD do Azure-logon único com UltiPro, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="e60aa-150">**tooconfigure Azure AD single sign-on with UltiPro, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="6e709-151">No Portal do Azure, na página de integração de aplicativos do **UltiPro**, clique em **Logon único**.</span><span class="sxs-lookup"><span data-stu-id="6e709-151">In the Azure portal, on the **UltiPro** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="e60aa-151">Em Olá portal do Azure, Olá **UltiPro** página de integração de aplicativos, clique em **o logon único**.</span><span class="sxs-lookup"><span data-stu-id="e60aa-151">In hello Azure portal, on hello **UltiPro** application integration page, click **Single sign-on**.</span></span>
 
     ![Configurar Logon Único][4]
 
-2. <span data-ttu-id="6e709-153">Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.</span><span class="sxs-lookup"><span data-stu-id="6e709-153">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="e60aa-153">Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.</span><span class="sxs-lookup"><span data-stu-id="e60aa-153">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Configurar Logon Único](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_samlbase.png)
 
-3. <span data-ttu-id="6e709-155">Na seção **URLs e Domínio do UltiPro**, siga as etapas abaixo:</span><span class="sxs-lookup"><span data-stu-id="6e709-155">On the **UltiPro Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="e60aa-155">Em Olá **UltiPro domínio e URLs** , execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="e60aa-155">On hello **UltiPro Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_url.png)
 
-    <span data-ttu-id="6e709-157">a.</span><span class="sxs-lookup"><span data-stu-id="6e709-157">a.</span></span> <span data-ttu-id="6e709-158">Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:</span><span class="sxs-lookup"><span data-stu-id="6e709-158">In the **Sign-on URL** textbox, type a URL using the following pattern:</span></span>
+    <span data-ttu-id="e60aa-157">a.</span><span class="sxs-lookup"><span data-stu-id="e60aa-157">a.</span></span> <span data-ttu-id="e60aa-158">Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:</span><span class="sxs-lookup"><span data-stu-id="e60aa-158">In hello **Sign-on URL** textbox, type a URL using hello following pattern:</span></span>
     | |
     |--|
     | `https://<companyname>.ultipro.com/`|
     | `https://<companyname>.ultiproworkplace.com?cpi=AZUREADISSSUERURL`|
     | ` https://<companyname>.ultipro.ca`|
     
-    <span data-ttu-id="6e709-159">b.</span><span class="sxs-lookup"><span data-stu-id="6e709-159">b.</span></span> <span data-ttu-id="6e709-160">Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:</span><span class="sxs-lookup"><span data-stu-id="6e709-160">In the **Identifier** textbox, type a URL using the following pattern:</span></span>
+    <span data-ttu-id="e60aa-159">b.</span><span class="sxs-lookup"><span data-stu-id="e60aa-159">b.</span></span> <span data-ttu-id="e60aa-160">Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:</span><span class="sxs-lookup"><span data-stu-id="e60aa-160">In hello **Identifier** textbox, type a URL using hello following pattern:</span></span>
     | |
     |--|
     | `https://<companyname>.ultipro.com/adfs/services/trust`|
     | `https://<companyname>.ultiproworkplace.com/adfs/services/trust`|
     | `https://<companyname>.ultipro.ca/adfs/services/trust`|
     
-    <span data-ttu-id="6e709-161">c.</span><span class="sxs-lookup"><span data-stu-id="6e709-161">c.</span></span> <span data-ttu-id="6e709-162">Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão:</span><span class="sxs-lookup"><span data-stu-id="6e709-162">In the **Reply URL** textbox, type a URL using the following pattern:</span></span>
+    <span data-ttu-id="e60aa-161">c.</span><span class="sxs-lookup"><span data-stu-id="e60aa-161">c.</span></span> <span data-ttu-id="e60aa-162">Em Olá **URL de resposta** caixa de texto, digite um URL usando o saudação padrão a seguir:</span><span class="sxs-lookup"><span data-stu-id="e60aa-162">In hello **Reply URL** textbox, type a URL using hello following pattern:</span></span>
     | |
     |--|
     | `https://<companyname>.ultipro.com/<instancename>`|
@@ -132,100 +132,100 @@ ms.lasthandoff: 08/03/2017
     | `https://<companyname>.ultipro.ca/<instancename>`|
     
     > [!NOTE] 
-    > <span data-ttu-id="6e709-163">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="6e709-163">These values are not real.</span></span> <span data-ttu-id="6e709-164">Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada.</span><span class="sxs-lookup"><span data-stu-id="6e709-164">Update these values with the actual Identifier, Reply URL, and Sign-On URL.</span></span> <span data-ttu-id="6e709-165">Contate a [equipe de suporte ao cliente do UltiPro](https://www.ultimatesoftware.com/ContactUs) para obter esses valores.</span><span class="sxs-lookup"><span data-stu-id="6e709-165">Contact [UltiPro Client support team](https://www.ultimatesoftware.com/ContactUs) to get these values.</span></span> 
+    > <span data-ttu-id="e60aa-163">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="e60aa-163">These values are not real.</span></span> <span data-ttu-id="e60aa-164">Atualizar esses valores com hello real identificador, URL de resposta e URL de logon.</span><span class="sxs-lookup"><span data-stu-id="e60aa-164">Update these values with hello actual Identifier, Reply URL, and Sign-On URL.</span></span> <span data-ttu-id="e60aa-165">Entre em contato com [equipe de suporte do cliente UltiPro](https://www.ultimatesoftware.com/ContactUs) tooget esses valores.</span><span class="sxs-lookup"><span data-stu-id="e60aa-165">Contact [UltiPro Client support team](https://www.ultimatesoftware.com/ContactUs) tooget these values.</span></span> 
 
-5. <span data-ttu-id="6e709-166">Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.</span><span class="sxs-lookup"><span data-stu-id="6e709-166">On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.</span></span>
+5. <span data-ttu-id="e60aa-166">Em Olá **o certificado de autenticação SAML** seção, clique em **Certificate(Base64)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.</span><span class="sxs-lookup"><span data-stu-id="e60aa-166">On hello **SAML Signing Certificate** section, click **Certificate(Base64)** and then save hello certificate file on your computer.</span></span>
 
-    ![Configurar o logon único](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_certificate.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_certificate.png) 
 
-6. <span data-ttu-id="6e709-168">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="6e709-168">Click **Save** button.</span></span>
+6. <span data-ttu-id="e60aa-168">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="e60aa-168">Click **Save** button.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-ultipro-tutorial/tutorial_general_400.png)
     
-7. <span data-ttu-id="6e709-170">Na seção **Configuração do UltiPro**, clique em **Configurar o UltiPro** para abrir a janela **Configurar logon**.</span><span class="sxs-lookup"><span data-stu-id="6e709-170">On the **UltiPro Configuration** section, click **Configure UltiPro** to open **Configure sign-on** window.</span></span> <span data-ttu-id="6e709-171">Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**</span><span class="sxs-lookup"><span data-stu-id="6e709-171">Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**</span></span>
+7. <span data-ttu-id="e60aa-170">Em Olá **UltiPro configuração** seção, clique em **configurar UltiPro** tooopen **configurar o logon** janela.</span><span class="sxs-lookup"><span data-stu-id="e60aa-170">On hello **UltiPro Configuration** section, click **Configure UltiPro** tooopen **Configure sign-on** window.</span></span> <span data-ttu-id="e60aa-171">Saudação de cópia **URL de logout, ID de entidade de SAML e Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**</span><span class="sxs-lookup"><span data-stu-id="e60aa-171">Copy hello **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from hello **Quick Reference section.**</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_configure.png) 
 
-8. <span data-ttu-id="6e709-173">Para configurar o logon único no lado do **UltiPro**, é necessário enviar o **Certificado (Base64), a URL de Saída, ID da Entidade SAML e URL do Serviço de Logon Único SAML** baixados para a [equipe de suporte do UltiPro](https://www.ultimatesoftware.com/ContactUs).</span><span class="sxs-lookup"><span data-stu-id="6e709-173">To configure single sign-on on **UltiPro** side, you need to send the downloaded **Certificate(Base64), Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [UltiPro support team](https://www.ultimatesoftware.com/ContactUs).</span></span>
+8. <span data-ttu-id="e60aa-173">tooconfigure logon único no **UltiPro** lado, você precisa toosend Olá baixado **Certificate(Base64), URL de logout, ID de entidade de SAML e Single Sign-On URL do serviço SAML** muito[UltiPro equipe de suporte](https://www.ultimatesoftware.com/ContactUs).</span><span class="sxs-lookup"><span data-stu-id="e60aa-173">tooconfigure single sign-on on **UltiPro** side, you need toosend hello downloaded **Certificate(Base64), Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** too[UltiPro support team](https://www.ultimatesoftware.com/ContactUs).</span></span>
 
 > [!TIP]
-> <span data-ttu-id="6e709-174">É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!</span><span class="sxs-lookup"><span data-stu-id="6e709-174">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="6e709-175">Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior.</span><span class="sxs-lookup"><span data-stu-id="6e709-175">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="6e709-176">Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="6e709-176">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="e60aa-174">Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!</span><span class="sxs-lookup"><span data-stu-id="e60aa-174">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="e60aa-175">Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação.</span><span class="sxs-lookup"><span data-stu-id="e60aa-175">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="e60aa-176">Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="e60aa-176">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 > 
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="6e709-177">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="6e709-177">Creating an Azure AD test user</span></span>
-<span data-ttu-id="6e709-178">O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="6e709-178">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="e60aa-177">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="e60aa-177">Creating an Azure AD test user</span></span>
+<span data-ttu-id="e60aa-178">Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="e60aa-178">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Criar um usuário do AD do Azure][100]
 
-<span data-ttu-id="6e709-180">**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="6e709-180">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="e60aa-180">**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="e60aa-180">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="6e709-181">No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="6e709-181">In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="e60aa-181">Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="e60aa-181">In hello **Azure portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ultipro-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="6e709-183">Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="6e709-183">To display the list of users, go to **Users and groups** and click **All users**.</span></span>
+2. <span data-ttu-id="e60aa-183">lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.</span><span class="sxs-lookup"><span data-stu-id="e60aa-183">toodisplay hello list of users, go too**Users and groups** and click **All users**.</span></span>
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ultipro-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="6e709-185">Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="6e709-185">To open the **User** dialog, click **Add** on the top of the dialog.</span></span>
+3. <span data-ttu-id="e60aa-185">Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.</span><span class="sxs-lookup"><span data-stu-id="e60aa-185">tooopen hello **User** dialog, click **Add** on hello top of hello dialog.</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ultipro-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="6e709-187">Na página do diálogo **Usuário**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="6e709-187">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="e60aa-187">Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="e60aa-187">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ultipro-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="6e709-189">a.</span><span class="sxs-lookup"><span data-stu-id="6e709-189">a.</span></span> <span data-ttu-id="6e709-190">Na caixa de texto **Nome**, digite **Brenda Fernandes**.</span><span class="sxs-lookup"><span data-stu-id="6e709-190">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="e60aa-189">a.</span><span class="sxs-lookup"><span data-stu-id="e60aa-189">a.</span></span> <span data-ttu-id="e60aa-190">Em Olá **nome** caixa de texto, tipo **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="e60aa-190">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="6e709-191">b.</span><span class="sxs-lookup"><span data-stu-id="6e709-191">b.</span></span> <span data-ttu-id="6e709-192">Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="6e709-192">In the **User name** textbox, type the **email address** of BrittaSimon.</span></span>
+    <span data-ttu-id="e60aa-191">b.</span><span class="sxs-lookup"><span data-stu-id="e60aa-191">b.</span></span> <span data-ttu-id="e60aa-192">Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.</span><span class="sxs-lookup"><span data-stu-id="e60aa-192">In hello **User name** textbox, type hello **email address** of BrittaSimon.</span></span>
 
-    <span data-ttu-id="6e709-193">c.</span><span class="sxs-lookup"><span data-stu-id="6e709-193">c.</span></span> <span data-ttu-id="6e709-194">Selecione **Mostrar senha** e anote o valor de **senha**.</span><span class="sxs-lookup"><span data-stu-id="6e709-194">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="e60aa-193">c.</span><span class="sxs-lookup"><span data-stu-id="e60aa-193">c.</span></span> <span data-ttu-id="e60aa-194">Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.</span><span class="sxs-lookup"><span data-stu-id="e60aa-194">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="6e709-195">d.</span><span class="sxs-lookup"><span data-stu-id="6e709-195">d.</span></span> <span data-ttu-id="6e709-196">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="6e709-196">Click **Create**.</span></span>
+    <span data-ttu-id="e60aa-195">d.</span><span class="sxs-lookup"><span data-stu-id="e60aa-195">d.</span></span> <span data-ttu-id="e60aa-196">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="e60aa-196">Click **Create**.</span></span>
  
-### <a name="creating-a-ultipro-test-user"></a><span data-ttu-id="6e709-197">Criando um usuário de teste do UltiPro</span><span class="sxs-lookup"><span data-stu-id="6e709-197">Creating a UltiPro test user</span></span>
+### <a name="creating-a-ultipro-test-user"></a><span data-ttu-id="e60aa-197">Criando um usuário de teste do UltiPro</span><span class="sxs-lookup"><span data-stu-id="e60aa-197">Creating a UltiPro test user</span></span>
 
-<span data-ttu-id="6e709-198">Nesta seção, você criará uma usuária chamada Brenda Fernandes no UltiPro.</span><span class="sxs-lookup"><span data-stu-id="6e709-198">In this section, you create a user called Britta Simon in UltiPro.</span></span> <span data-ttu-id="6e709-199">Trabalhe com a [equipe de suporte do UltiPro](https://www.ultimatesoftware.com/ContactUs) para adicionar os usuários à plataforma do UltiPro.</span><span class="sxs-lookup"><span data-stu-id="6e709-199">Work with [UltiPro support team](https://www.ultimatesoftware.com/ContactUs) to add the users in the UltiPro platform.</span></span> <span data-ttu-id="6e709-200">Os usuários devem ser criados e ativados antes de usar o logon único.</span><span class="sxs-lookup"><span data-stu-id="6e709-200">Users must be created and activated before you use single sign-on.</span></span>
+<span data-ttu-id="e60aa-198">Nesta seção, você criará uma usuária chamada Brenda Fernandes no UltiPro.</span><span class="sxs-lookup"><span data-stu-id="e60aa-198">In this section, you create a user called Britta Simon in UltiPro.</span></span> <span data-ttu-id="e60aa-199">Trabalhar com [UltiPro a equipe de suporte](https://www.ultimatesoftware.com/ContactUs) para adicionar usuários de saudação na plataforma de UltiPro hello.</span><span class="sxs-lookup"><span data-stu-id="e60aa-199">Work with [UltiPro support team](https://www.ultimatesoftware.com/ContactUs) to add hello users in hello UltiPro platform.</span></span> <span data-ttu-id="e60aa-200">Os usuários devem ser criados e ativados antes de usar o logon único.</span><span class="sxs-lookup"><span data-stu-id="e60aa-200">Users must be created and activated before you use single sign-on.</span></span>
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="6e709-201">Atribuição do usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="6e709-201">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="e60aa-201">Atribuir um usuário de teste de saudação do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="e60aa-201">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="6e709-202">Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao UltiPro.</span><span class="sxs-lookup"><span data-stu-id="6e709-202">In this section, you enable Britta Simon to use Azure single sign-on by granting access to UltiPro.</span></span>
+<span data-ttu-id="e60aa-202">Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooUltiPro.</span><span class="sxs-lookup"><span data-stu-id="e60aa-202">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooUltiPro.</span></span>
 
 ![Atribuir usuário][200] 
 
-<span data-ttu-id="6e709-204">**Para atribuir Brenda Fernandes ao UltiPro, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="6e709-204">**To assign Britta Simon to UltiPro, perform the following steps:**</span></span>
+<span data-ttu-id="e60aa-204">**tooassign Britta Simon tooUltiPro, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="e60aa-204">**tooassign Britta Simon tooUltiPro, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="6e709-205">No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="6e709-205">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="e60aa-205">No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="e60aa-205">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Atribuir usuário][201] 
 
-2. <span data-ttu-id="6e709-207">Na lista de aplicativos, selecione **UltiPro**.</span><span class="sxs-lookup"><span data-stu-id="6e709-207">In the applications list, select **UltiPro**.</span></span>
+2. <span data-ttu-id="e60aa-207">Na lista de aplicativos hello, selecione **UltiPro**.</span><span class="sxs-lookup"><span data-stu-id="e60aa-207">In hello applications list, select **UltiPro**.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_app.png) 
 
-3. <span data-ttu-id="6e709-209">No menu à esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="6e709-209">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="e60aa-209">No menu Olá Olá esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="e60aa-209">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Atribuir usuário][202] 
 
-4. <span data-ttu-id="6e709-211">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="6e709-211">Click **Add** button.</span></span> <span data-ttu-id="6e709-212">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="6e709-212">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="e60aa-211">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="e60aa-211">Click **Add** button.</span></span> <span data-ttu-id="e60aa-212">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="e60aa-212">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Atribuir usuário][203]
 
-5. <span data-ttu-id="6e709-214">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="6e709-214">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="e60aa-214">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.</span><span class="sxs-lookup"><span data-stu-id="e60aa-214">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="6e709-215">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="6e709-215">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="e60aa-215">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="e60aa-215">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="6e709-216">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="6e709-216">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="e60aa-216">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="e60aa-216">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="6e709-217">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="6e709-217">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="e60aa-217">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="e60aa-217">Testing single sign-on</span></span>
 
-<span data-ttu-id="6e709-218">O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.</span><span class="sxs-lookup"><span data-stu-id="6e709-218">The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.</span></span>  
-<span data-ttu-id="6e709-219">Quando clicar no bloco UltiPro no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo UltiPro.</span><span class="sxs-lookup"><span data-stu-id="6e709-219">When you click the UltiPro tile in the Access Panel, you should get automatically signed-on to your UltiPro application.</span></span>
+<span data-ttu-id="e60aa-218">Olá o objetivo desta seção é tootest sua configuração de logon único do AD do Azure usando Olá painel de acesso.</span><span class="sxs-lookup"><span data-stu-id="e60aa-218">hello objective of this section is tootest your Azure AD single sign-on configuration using hello Access Panel.</span></span>  
+<span data-ttu-id="e60aa-219">Quando você clica em bloco UltiPro Olá Olá painel de acesso, você deve obter automaticamente assinado em tooyour UltiPro aplicativo.</span><span class="sxs-lookup"><span data-stu-id="e60aa-219">When you click hello UltiPro tile in hello Access Panel, you should get automatically signed-on tooyour UltiPro application.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="6e709-220">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="6e709-220">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="e60aa-220">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="e60aa-220">Additional resources</span></span>
 
-* [<span data-ttu-id="6e709-221">Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="6e709-221">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="6e709-222">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="6e709-222">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="e60aa-221">Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="e60aa-221">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="e60aa-222">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="e60aa-222">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 
