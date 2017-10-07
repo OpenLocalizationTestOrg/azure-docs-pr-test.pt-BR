@@ -1,6 +1,6 @@
 ---
-title: "Programa de MVP de Segurança do Azure | Microsoft Docs"
-description: "O artigo fornece uma visão geral da área de contribuição com a Segurança do Azure no programa MVP."
+title: "aaaAzure segurança MVP programa | Microsoft Docs"
+description: "artigo Olá fornece uma visão geral Olá área de contribuição de segurança do Azure no hello programa MVP."
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-ms.openlocfilehash: 9a9f4341aaca5bb6049c6d85993c92ea6dd1c8dd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e8dfea6522055acb9d4c7bbce5c1c1650e29606a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-security-mvp-program"></a>Programa MVP de Segurança do Azure
-Os MVPs (Profissionais Mais Valiosos) da Microsoft são líderes de comunidade que demonstraram um compromisso exemplar em ajudar outras pessoas a obterem o máximo proveito de sua experiência com tecnologias da Microsoft. Eles compartilham sua paixão, conhecimento real e experiência técnica com a comunidade e com a Microsoft.
+Microsoft Most Valuable Professionals (MVPs) são líderes de comunidade que você demonstrou um toohelping compromisso exemplares que outros obtém hello mais fora da sua experiência com tecnologias da Microsoft. Eles compartilham seus entusiasta excepcional, o conhecimento do mundo real e a experiência técnica à comunidade hello e com a Microsoft.
 
-Estamos felizes em anunciar que o Microsoft Azure agora reconhece especialistas da comunidade com conhecimento especial na segurança do Azure. MVPs da Microsoft podem ser premiados como MVP no Microsoft Azure, na área de contribuição com a Segurança do Azure.
+Estamos feliz tooannounce Microsoft Azure agora reconhece especialistas da comunidade com conhecimento especial na segurança do Azure. Microsoft MVPs podem ser concedidos Olá MVP no Microsoft Azure no hello área de contribuição de segurança do Azure.
 
 ![Microsoft MVP](./media/azure-security-mvp/azure-security-mvp-fig1.png)
 
-Embora não haja qualquer parâmetro para tornar-se um MVP, em parte porque ele varia segundo a tecnologia e seu ciclo de vida, alguns dos critérios que avaliamos incluem o impacto das contribuições do candidato em fóruns online, como Respostas da Microsoft, TechNet e o MSDN; wikis e conteúdo online; conferências e grupos de usuários; podcasts, sites, blogs e mídia social; além de artigos e livros.
+Embora não haja nenhum parâmetro de comparação para se tornar um MVP, em parte porque ele varia de acordo com a tecnologia e de seu ciclo de vida, alguns dos critérios de saudação que avaliamos incluem impacto Olá fóruns de tooonline contribuições do candidato, como Microsoft Answers, TechNet e MSDN; wikis e conteúdo online. conferências e grupos de usuários; podcasts, sites, blogs e mídia social; e artigos e livros.
 
-Você é um especialista em segurança do Azure? Você conhece alguém que é? Então, [Nomeie a si mesmo ou a outra pessoa](https://mvp.microsoft.com/Nomination/nominate-an-mvp) para se tornar um MVP de segurança do Azure hoje mesmo!
+Você é um especialista em segurança do Azure? Você conhece alguém que é? Em seguida, [designam você ou outra pessoa](https://mvp.microsoft.com/Nomination/nominate-an-mvp) toobecome um MVP de segurança do Azure hoje mesmo!

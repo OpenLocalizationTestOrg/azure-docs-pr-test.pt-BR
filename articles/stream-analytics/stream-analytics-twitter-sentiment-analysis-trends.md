@@ -1,6 +1,6 @@
 ---
-title: "Análise de Sentimento do Twitter em tempo real com o Stream Analytics do Azure | Microsoft Docs"
-description: "Saiba como usar a Stream Analytics para análise de sentimento Twitter em tempo real. Orientações passo a passo de geração de eventos aos dados em um painel em tempo real."
+title: "análise de sentimento do Twitter aaaReal tempo com o Azure Stream Analytics | Microsoft Docs"
+description: "Saiba como toouse do Stream Analytics para análise de sentimento do Twitter em tempo real. Orientações passo a passo de toodata de geração de eventos em um painel ativo."
 keywords: "análise de tendência do twitter em tempo real, análise de sentimento, análise de mídia social, exemplo de análise de tendência"
 services: stream-analytics
 documentationcenter: 
@@ -15,73 +15,73 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: jeffstok
-ms.openlocfilehash: 8de6850964700f5b3f71d144b40af927f2e52d7e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 157790caa7ea6f5570dd9c9d3bd9694d437eb4c1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análise de sentimento do Twitter em tempo real no Stream Analytics do Azure
 
-Aprenda a compilar uma solução de análise de sentimento para análise de mídia social colocando os eventos em tempo real do Twitter nos Hubs de Eventos do Azure. Você pode então gravar uma consulta Azure Stream Analytics para analisar os dados e ou armazenar os resultados para uso posterior ou usar um painel e [Power BI](https://powerbi.com/) para fornecer insights em tempo real.
+Saiba como uma solução de análise de sentimento para análise de mídia social, colocando em tempo real de toobuild Twitter eventos para Hubs de eventos do Azure. Em seguida, você pode escrever um Stream Analytics do Azure consultar tooanalyze Olá dados e um repositório Olá resultados para uso posterior ou use um painel e [Power BI](https://powerbi.com/) tooprovide insights em tempo real.
 
-As ferramentas de análise de mídias sociais ajudam as organizações a compreender os tópicos mais populares. Os tópicos mais populares são entidades e atitudes com um alto volume de postagens em mídia social. A análise de sentimento, também chamada de *mineração opinião*, usa as ferramentas de análise de mídia social para determinar as atitudes em direção a um produto, ideia e assim por diante. 
+As ferramentas de análise de mídias sociais ajudam as organizações a compreender os tópicos mais populares. Os tópicos mais populares são entidades e atitudes com um alto volume de postagens em mídia social. Análise de sentimento, que também é chamado *mineração opinião*, usa posturas de toodetermine de ferramentas de análise de mídia social para um produto, ideia e assim por diante. 
 
-A análise de tendência do Twitter em tempo real é um ótimo exemplo de uma ferramenta analítica, porque o modelo de assinatura com hashtag permite que você escute palavras-chave específicas (hashtags) e desenvolva a análise de sentimento no feed.
+Análise de tendência do Twitter em tempo real é um ótimo exemplo de uma ferramenta de análise, porque o modelo de assinatura de hashtag Olá permite que você toolisten toospecific palavras-chave (hashtags) e desenvolver a análise de sentimento de saudação feed.
 
 ## <a name="scenario-social-media-sentiment-analysis-in-real-time"></a>Cenário: Análise de sentimento de mídia social em tempo real
 
-Uma empresa com um site de mídia de notícias está interessada em obter uma vantagem sobre seus concorrentes apresentando conteúdo do site imediatamente relevante para seus leitores. A empresa usa a análise de mídia social sobre os tópicos relevantes para seus leitores, fazendo uma análise de sentimento em tempo real nos dados do Twitter.
+Uma empresa que tem um site de mídia está interessa em obter uma vantagem sobre a concorrência apresentando o conteúdo do site que está imediatamente relevantes tooits leitores. empresa de saudação usa análise de mídia social sobre tópicos que são relevantes tooreaders ao fazer a análise de sentimento em tempo real dos dados do Twitter.
 
-Para identificar os tópicos em destaque em tempo real no Twitter, a empresa precisa de análise em tempo real sobre o volume de tweets e de sentimento para os tópicos principais. Em outras palavras, eles precisam de um mecanismo de análise para análise de sentimento baseado nesse feed de mídia social.
+tópicos de análise de tendências de tooidentify em tempo real no Twitter, Olá necessidades de empresa análise em tempo real sobre volume de tweet hello e sentimento tópicos chave. Em outras palavras, a necessidade de saudação é um mecanismo de análise de análise de sentimento que se baseia a esta mídia social feed.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Neste tutorial, você deve usar um aplicativo cliente que se conecta ao Twitter e procura tweets com determinados hashtags (que podem ser definidos). Para executar o aplicativo e analisar os tweets usando o Azure Streaming Analytics, você deve ter o seguinte:
+Neste tutorial, você deve usar um aplicativo cliente que se conecta tooTwitter e procura tweets com determinados hashtags (que pode ser definida). Em ordem toorun Olá aplicativo e analisar Olá tweets usando a análise de fluxo do Azure, você deve ter o seguinte hello:
 
 * Uma assinatura do Azure
 * Uma conta do Twitter 
-* Um aplicativo do Twitter e o [token de acesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) para o aplicativo. Nós fornecemos instruções de alto nível sobre como criar um aplicativo do Twitter mais tarde.
-* O aplicativo TwitterWPFClient, que lê o feed do Twitter. Para obter esse aplicativo, baixe o arquivo [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) do GitHub e, em seguida, descompacte o pacote em uma pasta no seu computador. Se você quiser ver código-fonte e executar o aplicativo em um depurador, você pode obter o código-fonte do [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* Um aplicativo do Twitter e hello [token de acesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) para o aplicativo. Podemos fornecer instruções de alto nível sobre como toocreate um aplicativo do Twitter mais tarde.
+* aplicativo de TwitterWPFClient Hello, que lê Olá Twitter feed. tooget esse aplicativo, o download Olá [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) do GitHub de arquivo e, em seguida, descompacte o pacote de saudação em uma pasta no seu computador. Se desejar que o código-fonte toosee hello e executar o aplicativo hello em um depurador, você pode obter o código-fonte Olá de [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
 
 ## <a name="create-an-event-hub-for-streaming-analytics-input"></a>Criar um hub de eventos para entrada do Streaming Analytics
 
-O aplicativo de exemplo gera eventos e empurra eles para um hub de eventos do Azure. Os Hubs de Eventos do Azure são o método preferencial de ingestão de eventos para Stream Analytics. Para obter mais informações, consulte a [documentação dos Hubs de Evento do Azure](../event-hubs/event-hubs-what-is-event-hubs.md).
+aplicativo de exemplo Hello gera eventos e envia-os tooan hub de eventos do Azure. Hubs de eventos do Azure são método hello preferido de inclusão de eventos para análise de fluxo. Para obter mais informações, consulte Olá [documentação de Hubs de eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md).
 
 
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>Criar um namespace de hub de eventos e um hub de eventos
-Neste procedimento, você primeiro cria um namespace de hub de eventos e, em seguida, adiciona um hub de eventos para esse namespace. Namespaces do hub de evento são usados para agrupar logicamente instâncias de barramento de evento relacionadas. 
+Neste procedimento, você primeiro criar um namespace de hub de eventos e, em seguida, você pode adicionar um namespace de toothat do hub de eventos. Namespaces do hub de eventos são usados toologically grupo relacionadas a instâncias de barramento de eventos. 
 
-1. Registre-se no Portal do Azure e clique em **Novo** > **Internet das Coisas** > **Hub de Evento**. 
+1. Faça logon no portal do Azure de toohello e clique em **novo** > **Internet das coisas** > **Hub de eventos**. 
 
-2. Na folha **Criar um namespace**, insira um nome de namespace como `<yourname>-socialtwitter-eh-ns`. Você pode usar qualquer nome para o namespace, mas o nome deve ser válido para uma URL e deve ser exclusivo no Azure. 
+2. Em Olá **criar namespace** folha, insira um nome de namespace como `<yourname>-socialtwitter-eh-ns`. Você pode usar qualquer nome de namespace hello, mas nome hello deve ser válido para uma URL e deve ser exclusivo no Azure. 
     
 3. Selecione uma assinatura e crie ou escolha um grupo de recursos e clique em **Criar**. 
 
     ![Criar um namespace do hub de eventos](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-namespace.png)
  
-4. Quando o namespace acabar a implementação, localize o namespace de hub de eventos na lista de recursos do Azure. 
+4. Ao namespace Olá terminou de implantação, encontre hello namespace de hub de eventos na lista de recursos do Azure. 
 
-5. Clique em novo namespace e, na folha do namespace, clique em **+&nbsp;Hub de eventos**. 
+5. Clique em novo namespace de saudação e na folha de namespace hello, clique em  **+ &nbsp;Hub de eventos**. 
 
-    ![Botão Adicionar Hub de Eventos para criar um novo hub de eventos ](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
+    ![botão de adicionar o Hub de eventos Olá para criar um novo hub de eventos ](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
  
-6. Nomeie o novo hub de evento `socialtwitter-eh`. Você pode usar um nome diferente. Se você fizer isso, anote-o, pois você precisará desse nome mais tarde. Você não precisa definir outras opções para o hub de eventos.
+6. Nome hello novo hub de eventos `socialtwitter-eh`. Você pode usar um nome diferente. Se você fizer isso, anote-lo, porque você precisa de nome hello mais tarde. Você não precisa tooset quaisquer outras opções para o hub de eventos de saudação.
 
     ![Folha para a criação de um novo hub de eventos](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub.png)
  
 7. Clique em **Criar**.
 
 
-### <a name="grant-access-to-the-event-hub"></a>Conceder acesso para o hub de eventos
+### <a name="grant-access-toohello-event-hub"></a>Hub de eventos de toohello conceder acesso
 
-Antes que um processo possa enviar dados para um hub de eventos, o hub de eventos deve ter uma política que permita o acesso apropriado. A política de acesso produz uma cadeia de conexão que inclui informações de autorização.
+Antes de um processo pode enviar o hub de eventos de tooan de dados, o hub de eventos Olá deve ter uma política que permite o acesso apropriado. política de acesso de saudação produz uma cadeia de caracteres de conexão que inclui informações de autorização.
 
-1.  Na folha de namespace de evento, clique em **Hubs de Eventos** e, em seguida, clique no nome do seu novo Hub de Eventos.
+1.  Na folha de namespace do evento hello, clique em **Hubs de eventos** e, em seguida, clique em nome de saudação do seu novo hub de eventos.
 
-2.  Na folha de Hub de Eventos, clique em **Políticas de acesso compartilhado** e depois em **+&nbsp;Adicionar**.
+2.  Na folha de hub de evento hello, clique em **políticas de acesso compartilhado** e, em seguida, clique em  **+ &nbsp;adicionar**.
 
     >[!NOTE]
-    >Verifique se você está trabalhando com o hub de eventos, não com o namespace de hub de eventos.
+    >Verifique se que você estiver trabalhando com o hub de eventos hello, não Olá namespace de hub de eventos.
 
 3.  Adicione uma política chamada `socialtwitter-access` e para **Declaração**, selecione **Gerenciar**.
 
@@ -89,176 +89,176 @@ Antes que um processo possa enviar dados para um hub de eventos, o hub de evento
  
 4.  Clique em **Criar**.
 
-5.  Depois que a política for implementada, clique na lista de políticas de acesso compartilhado.
+5.  Após a implantação de política de saudação, clique na lista de saudação de políticas de acesso compartilhado.
 
-6.  Localize a caixa rotulada **CHAVE PRIMÁRIA DA CADEIA DE CONEXÃO** e clique no botão de cópia próximo à cadeia de conexão. 
+6.  Caixa de saudação localizar **chave primária de cadeia de caracteres de conexão** e clique em cadeia de conexão do hello cópia botão Avançar toohello. 
     
-    ![Copiando a chave de cadeia de cadeia de conexão primária da política de acesso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-shared-access-policy-copy-connection-string.png)
+    ![Copiar a chave de cadeia de caracteres de conexão primária de saudação da política de acesso de saudação](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-shared-access-policy-copy-connection-string.png)
  
-7.  Cole a cadeia de conexão em um editor de texto. Você precisa dessa cadeia de conexão para a próxima seção, depois que você fizer algumas pequenas modificações.
+7.  Cole a cadeia de caracteres de conexão de saudação em um editor de texto. É necessário essa cadeia de caracteres de conexão para a próxima seção de hello, depois de fazer algumas pequenas edições tooit.
 
-    A cadeia de conexão tem esta aparência:
+    cadeia de caracteres de conexão Olá tem esta aparência:
 
         Endpoint=sb://YOURNAME-socialtwitter-eh-ns.servicebus.windows.net/;SharedAccessKeyName=socialtwitter-access;SharedAccessKey=Gw2NFZw6r...FxKbXaC2op6a0ZsPkI=;EntityPath=socialtwitter-eh
 
-    Observe que a cadeia de conexão contém vários pares de chave-valor, separados por ponto e vírgula: `Endpoint`, `SharedAccessKeyName`, `SharedAccessKey`, e `EntityPath`.  
+    Observe que a cadeia de caracteres de conexão Olá contém vários pares de chave-valor, separados por ponto e vírgula: `Endpoint`, `SharedAccessKeyName`, `SharedAccessKey`, e `EntityPath`.  
 
     > [!NOTE]
-    > Por segurança, partes da cadeia de conexão do exemplo foram removidas.
+    > Para segurança, partes da cadeia de conexão Olá no exemplo hello foram removidos.
 
-8.  No editor de texto, remova o `EntityPath` par da cadeia de conexão (não se esqueça de remover o ponto e vírgula anterior). Quando você terminar, a cadeia de conexão terá esta aparência:
+8.  No editor de texto de saudação, remover Olá `EntityPath` par de cadeia de caracteres de conexão de saudação (não se esqueça de tooremove Olá-e-vírgula anterior). Quando terminar, cadeia de caracteres de conexão Olá terá esta aparência:
 
         Endpoint=sb://YOURNAME-socialtwitter-eh-ns.servicebus.windows.net/;SharedAccessKeyName=socialtwitter-access;SharedAccessKey=Gw2NFZw6r...FxKbXaC2op6a0ZsPkI=
 
 
-## <a name="configure-and-start-the-twitter-client-application"></a>Configurar e iniciar o aplicativo de cliente do Twitter
-O aplicativo cliente obtém eventos de tweet diretamente do Twitter. Para fazer isso, ele precisa de permissão para chamar as APIs de Streaming do Twitter. Para configurar essa permissão, você pode criar um aplicativo no Twitter que gere as credenciais exclusivas (por exemplo, um token OAuth). Você pode configurar o aplicativo de cliente para usar essas credenciais ao fazer chamadas à API. 
+## <a name="configure-and-start-hello-twitter-client-application"></a>Configurar e iniciar o aplicativo de cliente do Twitter hello
+aplicativo de cliente Hello obtém eventos tweet diretamente do Twitter. Em ordem toodo isso, é necessário Olá toocall de permissão do Twitter APIs de Streaming. tooconfigure que permissão, você cria um aplicativo no Twitter, que gera as credenciais exclusivas (por exemplo, um token de OAuth). Você pode configurar toouse de aplicativo cliente Olá essas credenciais ao fazer chamadas de API. 
 
 ### <a name="create-a-twitter-application"></a>Criar um aplicativo do Twitter
 Se você ainda não tiver um aplicativo do Twitter que você possa usar para este tutorial, você pode criar um. Você já deve ter uma conta do Twitter.
 
 > [!NOTE]
-> O processo exato no Twitter para criar um aplicativo e obter o token, as chaves e segredos pode mudar. Se essas instruções não corresponderem ao que você vê no site do Twitter, consulte a documentação do desenvolvedor do Twitter.
+> exato do processo no Twitter para criar um aplicativo e obter o token, segredos e chaves de Olá Olá pode ser alterado. Se essas instruções não corresponderem, o que você vê no site do Twitter Olá, consulte a documentação do desenvolvedor do Twitter toohello.
 
-1. Vá para a [página de gerenciamento de aplicativo do Twitter](https://apps.twitter.com/). 
+1. Vá toohello [página de gerenciamento de aplicativo do Twitter](https://apps.twitter.com/). 
 
 2. Crie um aplicativo novo. 
 
-    * Para a URL do site, especifique uma URL válida. Ele não precisa ser um site ativo. (Você não pode especificar apenas `localhost`.)
-    * Deixe o campo de retorno de chamada em branco. O aplicativo cliente que você usar para este tutorial não requer retornos de chamada.
+    * Para a URL do site hello, especifique uma URL válida. Ele não tem toobe um site ativo. (Você não pode especificar apenas `localhost`.)
+    * Deixe o campo de retorno de chamada de saudação em branco. aplicativo de cliente Hello que usar para este tutorial não requer retornos de chamada.
 
     ![Criando um aplicativo no Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
 
-3. Opcionalmente, altere as permissões do aplicativo para somente leitura.
+3. Opcionalmente, altere as permissões do aplicativo hello somente tooread.
 
-4. Quando o aplicativo for criado, clique na página **Chaves e Tokens de acesso**.
+4. Quando o aplicativo hello é criado, acesse toohello **chaves e Tokens de acesso** página.
 
-5. Clique no botão para gerar um token de acesso e um segredo de token de acesso.
+5. Clique em Olá botão toogenerate um token de acesso e o segredo do token de acesso.
 
-Mantenha essas informações em mãos, pois você precisará delas no próximo procedimento.
+Mantenha essas informações úteis, pois você precisará no procedimento a seguir hello.
 
 >[!NOTE]
->As chaves e segredos do aplicativo Twitter fornecem acesso à sua conta do Twitter. Trate essas informações como confidenciais, o mesmo faça com sua senha do Twitter. Por exemplo, não insira essas informações em um aplicativo que você forneça a outras pessoas. 
+>chaves de saudação e segredos do aplicativo do Twitter hello fornecem acesso tooyour Twitter conta. Tratar essas informações como confidenciais, Olá mesmo como fazer sua senha do Twitter. Por exemplo, não insira essas informações em um aplicativo que você forneça tooothers. 
 
 
-### <a name="configure-the-client-application"></a>Configurar o aplicativo do cliente
-Nós criamos um aplicativo de cliente que se conecta aos dados do Twitter por meio das [APIs de Streaming do Twitter](https://dev.twitter.com/streaming/overview) para coletar eventos de Tweets sobre um conjunto específico de tópicos. O aplicativo usa a ferramenta de código aberto [Sentiment140](http://help.sentiment140.com/), que atribui o seguinte valor de sentimento para cada tweet:
+### <a name="configure-hello-client-application"></a>Configurar o aplicativo de cliente hello
+Criamos um aplicativo cliente que se conecta tooTwitter dados usando [APIs de Streaming do Twitter](https://dev.twitter.com/streaming/overview) toocollect eventos de tweet sobre um conjunto específico de tópicos. usa o aplicativo Hello Olá [Sentiment140](http://help.sentiment140.com/) ferramenta de software livre, que atribui Olá tweet de tooeach do valor de sensibilidade a seguir:
 
 * 0 = negativo
 * 2 = neutro
 * 4 = positivo
 
-Depois que um valor de sentimento foi atribuído aos eventos de tweet, eles são enviados para o hub de eventos que você criou anteriormente.
+Depois de eventos de tweet Olá atribuiu um valor de sensibilidade, eles são enviados por push toohello hub de eventos que você criou anteriormente.
 
-Antes do aplicativo ser executado, ele requer certas informações, como as chaves do Twitter e a cadeia de conexão de hub de eventos. Você pode fornecer as informações de configuração das seguintes maneiras:
+Antes que o aplicativo hello é executado, ele requer certas informações, como chaves de Twitter hello e cadeia de conexão de hub de evento hello. Você pode fornecer informações de configuração de saudação das seguintes maneiras:
 
-* Execute o aplicativo e, em seguida, use a interface de usuário do aplicativo para inserir a cadeia de conexão, as chaves e os segredos. Se você fizer isso, as informações de configuração são usadas para a sessão atual, mas não serão salvas.
-* Edite o arquivo de configuração do aplicativo e defina os valores de lá. Essa abordagem persiste as informações de configuração, mas isso também significa que essas informações potencialmente confidenciais são armazenadas em texto sem formatação em seu computador.
+* Executar o aplicativo hello e use do aplicativo hello da interface do usuário tooenter Olá chaves, segredos e cadeia de caracteres de conexão. Se você fizer isso, as informações de configuração de saudação são usadas para a sessão atual, mas não serão salvas.
+* Edite o arquivo. config do aplicativo hello e conjunto de valores de saudação nela. Essa abordagem persiste nas informações de configuração hello, mas isso também significa que essas informações potencialmente confidenciais e são armazenadas em texto sem formatação em seu computador.
 
-O procedimento a seguir documenta as duas abordagens. 
+Olá procedimento a seguir documenta as duas abordagens. 
 
-1. Verifique se você baixou e descompactou o aplicativo [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip), conforme listado nos pré-requisitos.
+1. Verifique se você baixou e descompactado Olá [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) aplicativo, conforme listado na pré-requisitos hello.
 
-2. Para definir os valores em tempo de execução (e apenas para a sessão atual), execute o `TwitterWPFClient.exe` aplicativo. Quando o aplicativo solicitar, insira os seguintes valores:
+2. tooset Olá valores em tempo de execução (e apenas Olá sessão atual), execute Olá `TwitterWPFClient.exe` aplicativo. Quando o aplicativo hello solicita, digite Olá valores a seguir:
 
-    * A chave do consumidor do Twitter (chave de API).
-    * A segredo do consumidor do Twitter (segredo de API).
-    * O Token de acesso do Twitter.
-    * O Segredo do Token de acesso do Twitter.
-    * As informações de cadeia de conexão que você salvou anteriormente. Certifique-se de que você use a cadeia de conexão do qual você removeu o `EntityPath` par chave-valor.
-    * As palavras-chave do Twitter que você deseja determinar o sentimento.
+    * Olá chave do consumidor do Twitter (chave de API).
+    * Olá segredo de consumidor no Twitter (segredo de API).
+    * saudação do Token de acesso do Twitter.
+    * Olá Twitter segredo do Token de acesso.
+    * Olá conexão informações da cadeia que você salvou anteriormente. Certifique-se de que você use a cadeia de caracteres de conexão de saudação que você removeu Olá `EntityPath` par chave-valor do.
+    * Olá Twitter palavras-chave que você deseja que o sentimento toodetermine para.
 
    ![Aplicativo TwitterWpfClient em execução, mostrando as configurações obscuras](./media/stream-analytics-twitter-sentiment-analysis-trends/wpfclientlines.png)
 
-3. Para definir os valores de maneira persistente, use um editor de texto para abrir o arquivo de configuração TwitterWpfClient.exe. Em seguida, no elemento `<appSettings>`, faça isso:
+3. os valores hello tooset persistente, usam um texto editor tooopen Olá TwitterWpfClient.exe.config. Em seguida, em Olá `<appSettings>` elemento, fazer isso:
 
-    * Defina `oauth_consumer_key` a chave do consumidor do Twitter (chave de API). 
-    * Defina `oauth_consumer_secret` o segredo do consumidor do Twitter (segredo de API).
-    * Defina `oauth_token` o Token de acesso do Twitter.
-    * Defina `oauth_token_secret` o Segredo do Token de acesso do Twitter.
+    * Definir `oauth_consumer_key` toohello chave do consumidor do Twitter (chave de API). 
+    * Definir `oauth_consumer_secret` toohello segredo de consumidor no Twitter (segredo de API).
+    * Definir `oauth_token` toohello Token de acesso do Twitter.
+    * Definir `oauth_token_secret` toohello Twitter segredo do Token de acesso.
 
-    Mais adiante no elemento `<appSettings>`, faça essas alterações:
+    Mais adiante Olá `<appSettings>` elemento, fazer essas alterações:
 
-    * Defina `EventHubName` para o nome do hub de evento (ou seja, o valor do caminho da entidade).
-    * Defina `EventHubNameConnectionString` a cadeia de conexão. Certifique-se de que você use a cadeia de conexão do qual você removeu o `EntityPath` par chave-valor.
+    * Definir `EventHubName` toohello nome do hub de evento (ou seja, o valor de toohello do caminho de entidade Olá).
+    * Definir `EventHubNameConnectionString` toohello cadeia de caracteres de conexão. Certifique-se de que você use a cadeia de caracteres de conexão de saudação que você removeu Olá `EntityPath` par chave-valor do.
 
-    A `<appSettings>` seção se parece com o seguinte exemplo. (Para maior clareza e segurança, nós encapsulamos algumas linhas e removemos alguns caracteres.)
+    Olá `<appSettings>` seção aparência Olá exemplo a seguir. (Para maior clareza e segurança, nós encapsulamos algumas linhas e removemos alguns caracteres.)
 
-    ![Arquivo de configuração de aplicativo TwitterWpfClient em um editor de texto, mostrando as chaves e segredos do Twitter e as informações de cadeia de conexão de hub de eventos](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
+    ![Arquivo de configuração de aplicativo TwitterWpfClient em um editor de texto, mostrando as chaves do Twitter hello e segredos e informações de cadeia de caracteres de conexão de hub do hello evento](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
  
-4. Se você ainda não iniciou o aplicativo, execute o TwitterWpfClient.exe agora. 
+4. Se você já não iniciar o aplicativo hello, execute TwitterWpfClient.exe agora. 
 
-5. Selecione o botão iniciar verde para coletar sentimento social. Você vê eventos de Tweet com os valores **CreatedAt**, **Topic** e **SentimentScore** sendo enviados ao hub de eventos.
+5. Clique em sentimento social de toocollect Olá de botão Verde Iniciar. Consulte eventos Tweet com hello **criadona**, **tópico**, e **SentimentScore** valores que estão sendo enviados tooyour hub de eventos.
 
     ![Aplicativo TwitterWpfClient em execução, mostrando as listagem de tweets](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-app-listing.png)
 
     >[!NOTE]
-    >Se você encontrar erros, e você não vir um fluxo de tweets exibido na parte inferior da janela, verifique novamente as chaves e segredos. Além disso, verifique a cadeia de conexão (certifique-se de que ela não inclui o `EntityPath` chave e valor.)
+    >Se você encontrar erros, e você não vir um fluxo de tweets exibido na parte inferior de saudação da janela hello, verifique novamente os segredos e chaves de saudação. Verifique também a cadeia de caracteres de conexão de saudação (certifique-se de que ele não inclui Olá `EntityPath` chave e valor.)
 
 
 ## <a name="create-a-stream-analytics-job"></a>Criar um trabalho de Stream Analytics
 
-Agora que os eventos de Tweets estão sendo transmitidos em tempo real do Twitter, você pode configurar um trabalho de Stream Analytics para analisar esses eventos em tempo real.
+Agora que os eventos tweet são streaming em tempo real do Twitter, você pode configurar um tooanalyze de trabalho do Stream Analytics esses eventos em tempo real.
 
-1. No portal do Azure, clique em **Novo** > **Internet das Coisas** > **Trabalho do Stream Analytics**.
+1. No portal do Azure de Olá, clique em **novo** > **Internet das coisas** > **trabalho do Stream Analytics**.
 
-2. Selecione o trabalho `socialtwitter-sa-job` e especifique uma assinatura, um grupo de recursos e um local.
+2. Nome do trabalho Olá `socialtwitter-sa-job` e especificar uma assinatura, o grupo de recursos e o local.
 
-    É aconselhável colocar o trabalho e o hub de eventos na mesma região para melhor desempenho e para que não seja necessário pagar para transferir dados entre regiões.
+    É uma boa ideia tooplace Olá trabalho e hello hub de evento Olá mesma região para melhor desempenho e, portanto, que não é necessário pagar tootransfer dados entre regiões.
 
     ![Criando um novo trabalho do Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/newjob.png)
 
 3. Clique em **Criar**.
 
-    O trabalho é criado e o portal exibe detalhes do trabalho.
+    Olá trabalho é criado e o portal de saudação exibe detalhes do trabalho.
 
 
-## <a name="specify-the-job-input"></a>Especificar a entrada de trabalho
+## <a name="specify-hello-job-input"></a>Especificar a entrada de trabalho Olá
 
-1. No trabalho do Stream Analytics, em **Topologia do Trabalho**, no meio da folha de trabalho, selecione **Entradas**. 
+1. Em seu trabalho de análise de fluxo, em **trabalho topologia** no meio de saudação da folha de trabalho hello, clique em **entradas**. 
 
-2. Na folha **Entradas**, clique em **+&nbsp;Adicionar** e, em seguida, preencha a folha com estes valores:
+2. Em Olá **entradas** folha, clique em  **+ &nbsp;adicionar** e, em seguida, preencha a folha Olá com estes valores:
 
-    * **Alias de entrada**: Use o nome `TwitterStream`. Se você usar um nome diferente, anote-o porque você precisará dele depois.
+    * **Alias de entrada**: Use o nome de saudação `TwitterStream`. Se você usar um nome diferente, anote-o porque você precisará dele depois.
     * **Tipo de Origem**: Selecione **Fluxo de Dados**.
     * **Origem**: Selecione **Hub de Eventos**.
     * **Opção de importação**: Selecione **Usar hub de evento da assinatura atual**. 
-    * **Namespace de barramento de serviço**: Selecione o namespace de hub de eventos que você criou anteriormente (`<yourname>-socialtwitter-eh-ns`).
-    * **Hub de eventos**: Selecione o hub de eventos que você criou anteriormente (`socialtwitter-eh`).
-    * **Nome de política do hub de eventos**: Selecione a política de acesso que você criou anteriormente (`socialtwitter-access`).
+    * **Namespace de barramento de serviço**: selecione Olá namespace de hub de eventos que você criou anteriormente (`<yourname>-socialtwitter-eh-ns`).
+    * **Hub de eventos**: hub de eventos Olá selecione que você criou anteriormente (`socialtwitter-eh`).
+    * **Nome de política do hub de evento**: selecione a política de acesso de saudação que você criou anteriormente (`socialtwitter-access`).
 
     ![Criar nova entrada para o trabalho de Streaming Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
 3. Clique em **Criar**.
 
 
-## <a name="specify-the-job-query"></a>Especificar a consulta de trabalho
+## <a name="specify-hello-job-query"></a>Especifique a consulta de trabalho Olá
 
-O Stream Analytics dá suporte a um modelo de consulta simples e declarativo que descreve as transformações. Para saber mais sobre a linguagem, consulte a [Referência de linguagem de consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx).  Este tutorial ajuda você a criar e testar várias consultas sobre dados do Twitter.
+O Stream Analytics dá suporte a um modelo de consulta simples e declarativo que descreve as transformações. toolearn mais sobre a linguagem hello, consulte Olá [referência de linguagem do Azure Stream Analytics consulta](https://msdn.microsoft.com/library/azure/dn834998.aspx).  Este tutorial ajuda você a criar e testar várias consultas sobre dados do Twitter.
 
-Para comparar o número de menções entre tópicos, você pode usar uma [Janela em Cascata](https://msdn.microsoft.com/library/azure/dn835055.aspx) para obter a contagem de menções por tópico a cada cinco segundos.
+número de saudação do toocompare de menções entre tópicos, você pode usar um [janela em cascata](https://msdn.microsoft.com/library/azure/dn835055.aspx) tooget contagem de saudação do menções por tópico cada cinco segundos.
 
-1. Feche a folha de **entradas** se ainda não o fez.
+1. Olá fechar **entradas** folha se ainda não o fez.
 
-2. Na folha do trabalho, clique na caixa **Consulta**. Azure lista as entradas e saídas que são configuradas para o trabalho e permite que você crie uma consulta que permite transformar o fluxo de entrada como ela é enviada para a saída.
+2. Na folha de trabalho hello, clique em Olá **consulta** caixa. Azure lista entradas hello e saídas que são configuradas para trabalho hello e permite que você crie uma consulta que permite transform o fluxo de entrada hello como saída toohello é enviado.
 
-3. Certifique-se de que o aplicativo TwitterWpfClient está em execução. 
+3. Certifique-se de que Olá TwitterWpfClient aplicativo está em execução. 
 
-3. Na folha **Consulta**, clique nos pontos ao lado da `TwitterStream` entrada e, em seguida, selecione **Dados de exemplo da entrada**.
+3. Em hello **consulta** folha, clique em Olá pontos próximo toohello `TwitterStream` de entrada e, em seguida, selecione **dados de entrada de exemplo**.
 
-    ![Opções de menu para usar dados de exemplo para a entrada de trabalho de Streaming Analytics, com "Dados de exemplo de entrada" selecionados](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-sample-data-from-input.png)
+    ![Dados de exemplo do menu Opções toouse para Olá análise de fluxo de trabalho da entrada, "Dados de exemplo de entrada" selecionados](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-sample-data-from-input.png)
 
-    Isso abrirá uma folha que permite que você especifique quantos dados de exemplo obter definido em termos de quanto tempo necessário para ler o fluxo de entrada.
+    Isso abrirá uma folha que permite que você especifique a quantidade tooget de dados de exemplo, definida em termos de quanto tempo o fluxo de entrada hello tooread.
 
-4. Defina **Minutos** para 3 e, em seguida, clique em **Ok**. 
+4. Definir **minutos** too3 e, em seguida, clique em **Okey**. 
     
-    ![Opções de amostragem de fluxo de entrada, com "3 minutos" selecionados.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-input-create-sample-data.png)
+    ![Opções de amostragem de fluxo de entrada hello, com "3 minutos" selecionados.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-input-create-sample-data.png)
 
-    O Azure prova dados do fluxo de entrada de 3 minutos e notifica quando os dados de exemplo estão prontos. (Isso pode levar um tempo.) 
+    O Azure amostras de amostra de dados de fluxo de entrada hello de 3 minutos e notifica você quando os dados de exemplo hello estão prontos. (Isso pode levar um tempo.) 
 
-    Os dados de exemplo são armazenados temporariamente e estão disponíveis enquanto a janela de consulta estiver aberta. Se você fechar a janela de consulta, os dados de exemplo serão descartados e você terá que criar um novo conjunto de dados de exemplo. 
+    dados de exemplo Hello são armazenados temporariamente e estão disponíveis enquanto janela de consulta Olá aberto. Se você fechar a janela de consulta Olá, dados de exemplo hello serão descartados e você tiver toocreate um novo conjunto de dados de exemplo. 
 
-5. Altere a consulta no editor de código para:
+5. Alterar consulta Olá Olá código editor toohello seguinte:
 
     ```
     SELECT System.Timestamp as Time, Topic, COUNT(*)
@@ -266,49 +266,49 @@ Para comparar o número de menções entre tópicos, você pode usar uma [Janela
     GROUP BY TUMBLINGWINDOW(s, 5), Topic
     ```
 
-    Se não usar `TwitterStream` como o alias para a entrada, substitua o alias para `TwitterStream` na consulta.  
+    Se não usar `TwitterStream` como Olá alias de entrada hello, substitua o alias para `TwitterStream` na consulta de saudação.  
 
-    Essa consulta usa a palavra-chave **TIMESTAMP BY** para especificar um campo de carimbo de data/hora na carga a ser usada na computação temporal. Se esse campo não for especificado, a operação em janela será realizada usando a hora em que cada evento chegou ao hub de eventos. Saiba mais na seção “Hora de chegada versus tempo de aplicação” na [Referência de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx).
+    Essa consulta usa Olá **TIMESTAMP BY** toospecify de palavra-chave um campo de carimbo de hora no hello carga toobe usado no cálculo temporal hello. Se esse campo não for especificado, a operação de janelas de saudação é executada usando o tempo de saudação que cada evento chegou ao hub de eventos de saudação. Saiba mais na seção hello "tempo de chegada vs hora do aplicativo" [referência de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
-    A consulta também acessa um carimbo de data/hora para o final de cada janela usando a propriedade **System.Timestamp**.
+    Essa consulta também acessa um carimbo de hora de término hello de cada janela usando Olá **timestamp** propriedade.
 
-5. Clique em **Testar**. A consulta é executada em relação aos dados que você amostrou.
+5. Clique em **Testar**. consulta de saudação é executada em relação aos dados Olá você de amostra.
     
-6. Clique em **Salvar**. Isso salva a consulta como parte do trabalho de Streaming Analytics. (Ele não salva os dados de exemplo.)
+6. Clique em **Salvar**. Isso economiza consulta hello como parte do trabalho de análise de fluxo contínuo de saudação. (Ele não salva os dados de exemplo hello.)
 
 
-## <a name="experiment-using-different-fields-from-the-stream"></a>Experimente usar diferentes campos do fluxo 
+## <a name="experiment-using-different-fields-from-hello-stream"></a>Experimente usar diferentes campos de fluxo de saudação 
 
-A tabela a seguir lista os campos que fazem parte do fluxo de dados JSON. Fique à vontade para fazer experiências no editor de consultas.
+Olá tabela a seguir lista os campos de saudação que fazem parte da saudação fluxo de dados JSON. Sinta-se livre tooexperiment no editor de consultas de saudação.
 
 |Propriedade JSON | Definição|
 |--- | ---|
-|CreatedAt | A hora em que foi criado o tweet|
-|Tópico | O tópico que corresponde à palavra-chave especificada|
-|SentimentScore | A pontuação de sentimento do Sentiment140|
-|Autor | O identificador do Twitter que enviou o tweet|
-|Texto | O corpo completo do tweet|
+|CreatedAt | tempo de saudação que tweet Olá foi criado|
+|Tópico | tópico de saudação que corresponde a saudação especificado palavra-chave|
+|SentimentScore | pontuação de sensibilidade de saudação do Sentiment140|
+|Autor | Identificador do Twitter Olá que enviou tweet Olá|
+|Texto | corpo completo de saudação do tweet Olá|
 
 
 ## <a name="create-an-output-sink"></a>Criar um coletor de saída
 
-Agora você definiu um fluxo de eventos, uma entrada de hub de eventos para a ingestão de eventos e uma consulta para executar uma transformação no fluxo. A última etapa é definir um coletor de saída para o trabalho.  
+Agora você definiu um fluxo de eventos, uma entrada tooingest do hub de eventos e uma consulta tooperform uma transformação em fluxo hello. Olá última etapa é toodefine um coletor de saída para o trabalho de saudação.  
 
-Neste tutorial, você gravou os eventos de tweets agregados de nossa consulta de trabalho para o armazenamento de Blobs do Azure.  Você também pode enviar por push os resultados para um Banco de Dados SQL do Azure, um armazenamento de Tabelas do Azure, para Hubs de Eventos ou Power BI, dependendo das suas necessidades de aplicativo.
+Neste tutorial, você pode escrever Olá agregado tweet eventos da saudação trabalho consulta tooAzure armazenamento de Blob.  Você também pode enviar seu resultados tooAzure banco de dados SQL, armazenamento de tabela do Azure, os Hubs de eventos, ou Power BI, dependendo do seu aplicativo precisa.
 
-## <a name="specify-the-job-output"></a>Especificar a saída de trabalho
+## <a name="specify-hello-job-output"></a>Especifique a saída do trabalho Olá
 
-1. Na seção **Trabalho de Topologia**, clique na caixa **Saída**. 
+1. Em Olá **trabalho topologia** seção, clique em Olá **saída** caixa. 
 
-2. Na folha **Saídas**, clique em **+&nbsp;Adicionar** e, em seguida, preencha a folha com estes valores:
+2. Em Olá **saídas** folha, clique em  **+ &nbsp;adicionar** e, em seguida, preencha a folha Olá com estes valores:
 
-    * **Alias de saída**: Use o nome `TwitterStream-Output`. 
+    * **Alias de saída**: Use o nome de saudação `TwitterStream-Output`. 
     * **Coletor**: selecione **Armazenamento de blobs**.
     * **Opções de importação**: Selecione **Usar armazenamento de blobs da assinatura atual**.
     * **Conta de armazenamento**. Selecione **Criar uma nova conta de armazenamento.**
-    * **Conta de armazenamento** (segunda caixa). Digite `YOURNAMEsa`, onde `YOURNAME` é o seu nome ou outra cadeia de caracteres exclusiva. O nome pode ter apenas letras minúsculas e números e deve ser exclusivo no Azure. 
+    * **Conta de armazenamento** (segunda caixa). Digite `YOURNAMEsa`, onde `YOURNAME` é o seu nome ou outra cadeia de caracteres exclusiva. nome de saudação pode usar apenas letras minúsculas e números e deve ser exclusivo no Azure. 
     * **Contêiner**. Digite `socialtwitter`.
-    O nome da conta de armazenamento e o nome do contêiner são usados juntos para fornecer um URI para o armazenamento de blobs, como este: 
+    nome de conta de armazenamento Hello e o nome do contêiner são tooprovide usado junto um URI para o armazenamento de blob hello, como este: 
 
     `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
     
@@ -316,49 +316,49 @@ Neste tutorial, você gravou os eventos de tweets agregados de nossa consulta de
     
 4. Clique em **Criar**. 
 
-    Azure cria a conta de armazenamento e gera uma chave automaticamente. 
+    Azure cria a conta de armazenamento hello e gera uma chave automaticamente. 
 
-5. Feche a folha **Saída**. 
+5. Olá fechar **saídas** folha. 
 
 
-## <a name="start-the-job"></a>Iniciar o trabalho
+## <a name="start-hello-job"></a>Iniciar trabalho Olá
 
-Uma entrada de trabalho, uma consulta e uma saída são especificadas. Você está pronto para iniciar o trabalho do Stream Analytics.
+Uma entrada de trabalho, uma consulta e uma saída são especificadas. Você está pronto toostart Olá Stream Analytics.
 
-1. Certifique-se de que o aplicativo TwitterWpfClient está em execução. 
+1. Certifique-se de que Olá TwitterWpfClient aplicativo está em execução. 
 
-2. Na folha do trabalho, clique em **Iniciar**.
+2. Na folha de trabalho hello, clique em **iniciar**.
 
-    ![Iniciar o trabalho do Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sa-job-start-output.png)
+    ![Iniciar o trabalho de análise de fluxo de saudação](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sa-job-start-output.png)
 
-3. Na folha **Iniciar trabalho**, para **Hora de início de trabalho**, selecione **Agora** e, em seguida, clique em **Iniciar**. 
+3. Em Olá **Iniciar trabalho** folha, para **hora de início da saída de trabalho**, selecione **agora** e, em seguida, clique em **iniciar**. 
 
-    ![Folha "Começar trabalho" para trabalho do Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sa-job-start-job-blade.png)
+    ![Folha "Iniciar o trabalho" para o trabalho de análise de fluxo de saudação](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sa-job-start-job-blade.png)
 
-    O Azure notifica você quando o trabalho for iniciado e, na folha de trabalho, o status é exibido como **Executando**.
+    Azure notifica quando o trabalho Olá foi iniciado e, na folha de trabalho hello, status de saudação é exibido como **executando**.
 
     ![Trabalho em execução](./media/stream-analytics-twitter-sentiment-analysis-trends/jobrunning.png)
 
 ## <a name="view-output-for-sentiment-analysis"></a>Exibir saída para análise sentimento
 
-Depois que o trabalho tiver sido iniciado e estiver processando o fluxo do Twitter em tempo real, escolha como você deseja exibir a saída para análise de sentimento.
+Depois que seu trabalho inicia a execução e processamento de fluxo em tempo real de Twitter hello, você pode exibir a saída de saudação para análise de sentimento.
 
-Use uma ferramenta como o [Azure Storage Explorer](https://http://storageexplorer.com/) ou o [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) para exibir a saída do trabalho em tempo real. Daqui, você pode usar o [Power BI](https://powerbi.com/) para estender seu aplicativo para incluir um painel personalizado como o demonstrado na seguinte captura de tela:
+Você pode usar uma ferramenta como [Azure Storage Explorer](https://http://storageexplorer.com/) ou [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) tooview seu trabalho de saída em tempo real. A partir daqui, você pode usar [Power BI](https://powerbi.com/) tooextend tooinclude seu aplicativo um painel personalizado, como Olá mostrada na Olá captura de tela a seguir:
 
 ![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 
 
-## <a name="create-another-query-to-identify-trending-topics"></a>Criar outra consulta para identificar os tópicos mais populares
+## <a name="create-another-query-tooidentify-trending-topics"></a>Criar outra consulta tooidentify tópicos de análise de tendências
 
-Outra consulta que você pode usar para entender o sentimento do Twitter baseia-se em uma [Janela Deslizante](https://msdn.microsoft.com/library/azure/dn835051.aspx). Para identificar os tópicos mais populares, procuraremos tópicos que ultrapassem um valor limite de menções em determinado período de tempo.
+Outra consulta, você pode usar o sentimento do Twitter toounderstand baseia-se em uma [janela deslizante](https://msdn.microsoft.com/library/azure/dn835051.aspx). tópicos de análise de tendências tooidentify, pesquisar tópicos que entre um valor de limite para menções em um período de tempo especificado.
 
-Para as finalidades deste tutorial, verificaremos os tópicos mencionados mais de 20 vezes nos últimos 5 segundos.
+Para fins de saudação deste tutorial, você deve verificar tópicos mencionados mais de 20 vezes Olá últimos 5 segundos.
 
-1. Na folha de trabalho, clique em **Parar** para interromper o trabalho. 
+1. Na folha de trabalho hello, clique em **parar** toostop trabalho de saudação. 
 
-2. Na seção **Trabalho de Topologia**, clique na caixa **Saída**. 
+2. Em Olá **trabalho topologia** seção, clique em Olá **consulta** caixa. 
 
-3. Mude a consulta para o seguinte:
+3. Alterar a seguir Olá consulta toohello:
 
     ```    
     SELECT System.Timestamp as Time, Topic, COUNT(*) as Mentions
@@ -369,16 +369,16 @@ Para as finalidades deste tutorial, verificaremos os tópicos mencionados mais d
 
 4. Clique em **Salvar**.
 
-5. Certifique-se de que o aplicativo TwitterWpfClient está em execução. 
+5. Certifique-se de que Olá TwitterWpfClient aplicativo está em execução. 
 
-6. Clique em **Iniciar** para reiniciar o trabalho usando a nova consulta.
+6. Clique em **iniciar** toorestart Olá trabalho nova consulta de saudação.
 
 
 ## <a name="get-support"></a>Obtenha suporte
 Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
+* [Introdução tooAzure Stream Analytics](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)

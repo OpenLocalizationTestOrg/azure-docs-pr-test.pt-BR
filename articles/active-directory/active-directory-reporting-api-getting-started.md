@@ -1,6 +1,6 @@
 ---
-title: "Introdução à API de relatório do Azure AD no Portal clássico do Azure AD | Microsoft Docs"
-description: "Como começar a usar a API de relatório do Azure Active Directory"
+title: "aaaGetting iniciado com a API de relatório de saudação do AD do Azure no portal clássico de saudação do AD do Azure | Microsoft Docs"
+description: "Como tooget iniciada com hello Active Directory do Azure API de relatório"
 services: active-directory
 documentationcenter: 
 author: dhanyahk
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/18/2017
 ms.author: dhanyahk;markvi
-ms.openlocfilehash: 5e98b660fe19bb8abebf1c3b996b6295a6c4e728
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 52e22d442650731fc6ed28991fc65f9182af0540
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="getting-started-with-the-azure-active-directory-reporting-api-on-the-azure-ad-classic-portal"></a>Introdução à API de relatório do Azure Active Directory no Portal clássico do Azure AD
-*Este tópico faz parte do [Guia de Relatórios do Azure Active Directory](active-directory-reporting-guide.md).*
+# <a name="getting-started-with-hello-azure-active-directory-reporting-api-on-hello-azure-ad-classic-portal"></a>Guia de Introdução com hello API de relatórios no portal clássico de saudação do AD do Azure Active Directory do Azure
+*Este tópico faz parte da saudação [do Azure Active Directory Reporting guia](active-directory-reporting-guide.md).*
 
-O Azure Active Directory fornece vários relatórios. Os dados desses relatórios podem ser muito úteis para seus aplicativos, como sistemas SIEM, auditoria e ferramentas de business intelligence. As APIs de relatório do Azure AD fornecem acesso programático aos dados através de um conjunto de APIs baseadas em REST. Você pode chamar essas APIs de várias ferramentas e linguagens de programação.
+O Azure Active Directory fornece vários relatórios. dados Olá desses relatórios podem ser muito útil tooyour aplicativos, como sistemas SIEM, auditoria e ferramentas de business intelligence. Olá AD do Azure reporting que APIs fornecem dados de toohello acesso programático por meio de um conjunto de APIs com base em REST. Você pode chamar essas APIs de várias ferramentas e linguagens de programação.
 
-Este artigo fornece as informações necessárias para começar com as APIs de relatório do Azure AD.
-Na próxima seção, você encontrará mais detalhes sobre como usar as APIs de auditoria e de entrada. Para todas as outras APIs, consulte o artigo [Eventos e relatórios do Azure AD (versão prévia)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview).
+Este artigo fornece informações de saudação necessário tooget iniciado com o relatório de saudação do AD do Azure APIs.
+Na próxima seção, Olá, você pode encontrar mais detalhes sobre como usar o hello auditar e APIs de entrada. Para todas as outras APIs, consulte Olá [relatórios do AD do Azure e events(preview)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview) artigo.
 
 Para dúvidas, problemas ou comentários, entre em contato com a [Ajuda de relatório do AAD](mailto:aadreportinghelp@microsoft.com).
 
 ## <a name="learning-map"></a>Mapa de aprendizagem
-1. **Prepare-se** – Antes de testar os exemplos de API, você precisa atender aos [pré-requisitos para acessar a API de relatório do Azure AD](active-directory-reporting-api-prerequisites.md).
-2. **Explore** – Tenha uma primeira impressão das APIs de relatórios:
+1. **Preparar** -antes de testar as amostras da API, você precisa Olá toocomplete [pré-requisitos tooaccess Olá AD do Azure reporting API](active-directory-reporting-api-prerequisites.md).
+2. **Explorar** -Obtenha uma primeira impressão de saudação reporting APIs:
    
-   * [Usar os exemplos para a API de auditoria](active-directory-reporting-api-audit-samples.md) 
-   * [Usar os exemplos para a API de relatório de atividade de entrada](active-directory-reporting-api-sign-in-activity-samples.md)
+   * [Usando os exemplos de saudação para auditoria Olá API](active-directory-reporting-api-audit-samples.md) 
+   * [Usando os exemplos de saudação para a API de relatório de atividade de entrada hello](active-directory-reporting-api-sign-in-activity-samples.md)
 3. **Personalizar** – Criar sua própria solução: 
    
-   * [Usar a referência de API de auditoria](active-directory-reporting-api-audit-reference.md) 
-   * [Usar a referência da API de relatório de atividade de entrada](active-directory-reporting-api-sign-in-activity-reference.md)
+   * [Usando a referência de API de auditoria Olá](active-directory-reporting-api-audit-reference.md) 
+   * [Usando o relatório de atividade de entrada hello referência de API](active-directory-reporting-api-sign-in-activity-reference.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-Se você estiver curioso para ver todos os pontos de extremidade de API do Graph do Azure AD navegando até [https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta](https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta).
+Se você estiver curioso toosee todos Olá pontos de extremidade de API do Azure AD Graph disponíveis navegando muito[https://graph.windows.net/tenant-name/reports/$ metadados? api-version = beta](https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta).
 

@@ -1,5 +1,5 @@
 ---
-title: "Visão geral de Instâncias de Contêiner do Azure | Azure Docs"
+title: "Visão geral de instâncias de contêiner de aaaAzure | Documentos do Azure"
 description: "Compreender as Instâncias de Contêiner do Azure"
 services: container-instances
 documentationcenter: 
@@ -17,21 +17,21 @@ ms.workload: na
 ms.date: 07/20/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 3fb230c6b16a57e3650abf2000acdfe944cd633c
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: c0662ede1260b15d9841bfc2c3c4cec4c30338d6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-container-instances"></a>Instâncias de Contêiner do Azure
 
-Os contêineres estão se tornando o modo preferido para empacotar, implantar e gerenciar aplicativos de nuvem. As Instâncias de Contêiner do Azure oferecem a maneira mais rápida e simples para executar um contêiner no Azure, sem a necessidade de provisionar máquinas virtuais e adotar um serviço de nível superior. 
+Contêineres rapidamente estão se tornando toopackage de maneira Olá preferido, implantar e gerenciar aplicativos de nuvem. Instâncias de contêiner do Azure oferece hello mais rápido e toorun de maneira mais simples um contêiner no Azure, sem ter que tooprovision todas as máquinas virtuais e sem ter que tooadopt um serviço de nível superior. 
 
-As Instâncias de Contêiner do Azure são uma ótima solução para qualquer cenário que possa operar em contêineres isolados, incluindo aplicativos simples, automação de tarefas e criação de trabalhos. Para cenários em que você precisa de orquestração de contêiner completa, incluindo descoberta do serviço em vários contêineres, dimensionamento automático e atualizações de aplicativo coordenadas, recomendamos o [Serviço de Contêiner do Azure](https://docs.microsoft.com/azure/container-service/).
+As Instâncias de Contêiner do Azure são uma ótima solução para qualquer cenário que possa ser usado em contêineres isolados, incluindo aplicativos simples, automação de tarefas e criação de trabalhos. Para cenários em que você precisa total orquestração de contêiner, incluindo descoberta do serviço em vários contêineres, dimensionamento automático e atualizações de coordenada de aplicativo, é recomendável Olá [serviço de contêiner do Azure](https://docs.microsoft.com/azure/container-service/).
 
 ## <a name="fast-startup-times"></a>Inicialização mais rápida
 
-Os contêineres oferecem vantagens significativas de inicialização em relação às máquinas virtuais. Com as Instâncias de Contêiner do Azure, você pode iniciar um contêiner no Azure em segundos, sem a necessidade de provisionar e gerenciar máquinas virtuais.
+Os contêineres oferecem vantagens significativas de inicialização em relação às máquinas virtuais. Com instâncias de contêiner do Azure, você pode iniciar um contêiner no Azure em segundos, sem Olá necessidade tooprovision e gerenciar máquinas virtuais.
 
 ## <a name="hypervisor-level-security"></a>Segurança em nível de hipervisor
 
@@ -39,24 +39,24 @@ Historicamente, os contêineres ofereciam isolamento de dependência de aplicati
 
 ## <a name="custom-sizes"></a>Tamanhos personalizados
 
-Os contêineres normalmente são otimizados para executar apenas um único aplicativo, mas as necessidades exatas desses aplicativos podem variar significativamente. Com as Instâncias de Contêiner do Azure, você pode solicitar exatamente o que precisa em termos de memória e núcleos de CPU. Você paga com base no que solicitar, cobrado por segundo, para poder otimizar seus gastos eficientemente com base em suas necessidades.
+Contêineres são normalmente otimizada toorun apenas um único aplicativo, mas necessidades Olá desses aplicativos podem diferir significativamente. Com as Instâncias de Contêiner do Azure, você pode solicitar exatamente o que precisa em termos de memória e núcleos de CPU. Você paga com base no qual você solicitar cobrado por Olá segundo, para que você pode otimizar eficiente seus gastos com base em suas necessidades.
 
 ## <a name="public-ip-connectivity"></a>Conectividade IP pública
 
-Com as Instâncias de Contêiner do Azure, você pode expor seus contêineres diretamente à Internet com um endereço IP público. No futuro, vamos expandir nossos recursos de rede para incluir a integração com redes virtuais, balanceadores de carga e outras partes principais da infraestrutura de rede do Azure.
+Com instâncias de contêiner do Azure, você pode expor seus contêineres toohello diretamente à internet com um endereço IP público. Olá futuras, selecionamos expandir nossa rede recursos tooinclude a integração com redes virtuais, carregar balanceadores e outras partes do núcleo do hello infraestrutura de rede do Azure.
 
 ## <a name="persistent-storage"></a>Armazenamento persistente
 
-Para recuperar e persistir estados com as Instâncias de Contêiner do Azure, nós oferecemos a montagem direta de compartilhamentos de arquivos do Azure.
+tooretrieve e persistir o estado de instâncias de contêiner do Azure, nós oferecemos compartilhamentos de arquivos de montagem direta do Azure.
 
 ## <a name="linux-and-windows-containers"></a>Contêineres do Windows e do Linux
 
-Com as Instâncias de Contêiner do Azure, você pode agendar contêineres do Windows e do Linux com a mesma API. Basta indicar o tipo de sistema operacional base e todo o resto é idêntico.
+Com instâncias de contêiner do Azure, você pode agendar as duas janelas e contêineres do Linux com hello mesma API. Simplesmente indicar o tipo de sistema operacional base hello e todo o resto é idêntico.
 
 ## <a name="co-scheduled-groups"></a>Grupos coagendados
 
-As Instâncias de Contêiner do Azure dão suporte à programação de grupos com vários contêineres que compartilham um computador host, uma rede local, um armazenamento e um ciclo de vida. Isso permite que você combine seu aplicativo principal com outros que atuam em uma função de suporte, como o registro em log.
+As Instâncias de Contêiner do Azure dão suporte à programação de grupos com vários contêineres que compartilham um computador host, uma rede local, um armazenamento e um ciclo de vida. Isso permite que você toocombine principal do seu aplicativo com outras pessoas atuando em uma função de suporte, como o registro em log.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Tente implantar um contêiner no Azure com um único comando usando nosso [guia de início rápido](container-instances-quickstart.md).
+Tente implantar tooAzure um contêiner com um único comando usando nosso [guia de início rápido](container-instances-quickstart.md).

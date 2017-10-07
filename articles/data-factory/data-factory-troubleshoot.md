@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas do Data Factory do Azure
-description: Saiba como solucionar problemas com o uso do Azure Data Factory.
+title: problemas do Azure Data Factory aaaTroubleshoot
+description: Saiba como tootroubleshoot problemas com o uso do Azure Data Factory.
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -14,55 +14,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: spelluru
-ms.openlocfilehash: 953a2703db7c8991f580a7c963d6cbd94265c213
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: cf65bcf3e1c3f061d3ac1dbf32e99cc7b014f9dc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Solucionar problemas do Data Factory
-Esse artigo fornece dicas de solução de problemas ao usar o Azure Data Factory. Este artigo não lista todos os possíveis problemas ao usar o serviço, mas abrange alguns problemas e dicas de solução geral de problemas.   
+Esse artigo fornece dicas de solução de problemas ao usar o Azure Data Factory. Este artigo não lista todos os possíveis problemas de saudação ao usar o serviço hello, mas ele aborda alguns problemas e dicas de solução de problemas gerais.   
 
 ## <a name="troubleshooting-tips"></a>Dicas de solução de problemas
-### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Erro: a assinatura não está registada para usar o namespace 'Microsoft.DataFactory'
-Caso você receba esse erro, o provedor de recursos do Azure Data Factory não foi registrado no seu computador. Faça o seguinte:
+### <a name="error-hello-subscription-is-not-registered-toouse-namespace-microsoftdatafactory"></a>Erro: assinatura de saudação não está registrado toouse namespace 'DataFactory'
+Se você receber esse erro, o provedor de recursos do Azure Data Factory Olá não foi registrado no seu computador. Olá a seguir:
 
 1. Inicie o Azure PowerShell.
-2. Faça logon na conta do Azure usando o comando a seguir.
+2. Faça logon no tooyour conta do Azure usando o comando a seguir de saudação.
 
     ```powershell
     Login-AzureRmAccount
     ```
-3. Execute o seguinte comando para registrar o provedor do Azure Data Factory.
+3. Execute Olá provedor do Azure Data Factory do comando tooregister Olá a seguir.
 
     ```powershell        
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problema: Erro não autorizado ao executar um cmdlet da Data Factory
-Você provavelmente não está usando a assinatura ou conta do Azure correta com o Azure PowerShell. Use os cmdlets a seguir para selecionar a assinatura e conta do Azure corretas para usar com o Azure PowerShell.
+Você provavelmente não estiver usando o direito de saudação conta do Azure ou assinatura com hello Azure PowerShell. Use Olá cmdlets tooselect Olá direita toouse de conta e assinatura do Azure com hello Azure PowerShell a seguir.
 
-1. Login-AzureRmAccount - Use a ID de usuário e a senha corretas
-2. Get-AzureRmSubscription: exiba todas as assinaturas da conta.
-3. Select-AzureRmSubscription &lt;nome da assinatura&gt; - Selecione a assinatura correta. Use a mesma assinatura usada para criar um data factory no portal do Azure.
+1. Logon AzureRmAccount - Use Olá direita ID e senha
+2. Get-AzureRmSubscription - todos Olá assinaturas para a conta de saudação do modo de exibição.
+3. Selecione AzureRmSubscription &lt;nome da assinatura&gt; -assinatura de saudação à direita. Use Olá mesmo que você usar toocreate uma fábrica de dados em Olá portal do Azure.
 
-### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problema: falha ao inicializar a Configura Expressa do Gateway de Gerenciamento de Dados no portal do Azure
-A instalação Expressa do Gateway de Gerenciamento de Dados requer o Internet Explorer ou um navegador da Web compatível com Microsoft ClickOnce. Se a Instalação Expressa não for iniciada, siga um destes procedimentos:
+### <a name="problem-fail-toolaunch-data-management-gateway-express-setup-from-azure-portal"></a>Problema: Não toolaunch Express instalação do Gateway do gerenciamento de dados do portal do Azure
+instalação do Express Olá para Olá Data Management Gateway requer o Internet Explorer ou um navegador da web compatível com o Microsoft ClickOnce. Se Olá instalação expressa falhar toostart, faça um dos seguintes hello:
 
 * Use o Internet Explorer ou um navegador da Web compatível com o Microsoft ClickOnce.
 
-    Se você estiver usando o Chrome, vá para a [loja na Web do Chrome](https://chrome.google.com/webstore/), pesquise a palavra-chave "ClickOnce", escolha uma das extensões do ClickOnce e instale-a.
+    Se você estiver usando o Chrome, vá toohello [repositório na web do Chrome](https://chrome.google.com/webstore/), pesquisar "ClickOnce" palavra-chave with, escolha uma das extensões de ClickOnce hello e instalá-lo.
 
-    Faça o mesmo para o Firefox (instalar o suplemento). Clique no botão Abrir menu na barra de ferramentas (três linhas horizontais no canto superior direito), clique em Complementos, pesquise a palavra-chave "ClickOnce", escolha uma das extensões do ClickOnce e instale-a.
-* Use o link **Configuração Manual** mostrado na mesma folha no portal. Use essa abordagem para baixar o arquivo de instalação e executá-lo manualmente. Depois que a instalação for bem-sucedida, você verá a caixa de diálogo Configuração do Gateway de Gerenciamento de Dados. Copie a **chave** na tela do portal e use-a no gerenciador de configuração para registrar manualmente o gateway com o serviço.  
+    Olá mesmo para o Firefox (instalação do suplemento). Botão Abrir Menu na barra de ferramentas da saudação (três linhas horizontais no canto superior direito de saudação), complementos, com "ClickOnce" palavra-chave de pesquisa, escolha uma das extensões de ClickOnce hello e instalá-lo.
+* Saudação de uso **instalação Manual** link mostrado em Olá mesmo folha no portal de saudação. Use este arquivo de instalação toodownload abordagem e executá-lo manualmente. Após Olá instalação for bem-sucedida, você verá a caixa de diálogo de configuração de Gateway de gerenciamento de dados de saudação. Saudação de cópia **chave** da tela de portal hello e usar no hello configuration manager toomanually registrar gateway Olá Olá serviço.  
 
-### <a name="problem-fail-to-connect-to-on-premises-sql-server"></a>Problema: falha ao se conectar ao SQL Server local
-Inicie o **Gerenciador de Configuração de Gateway de Gerenciamento de Dados** no computador do gateway e use a guia **Solução de Problemas** para testar a conexão ao SQL Server do computador do gateway. Consulte [Solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para ver dicas sobre como solucionar os problemas relacionados à conexão/gateway.   
+### <a name="problem-fail-tooconnect-tooon-premises-sql-server"></a>Problema: Não tooconnect tooon-local do SQL Server
+Iniciar **Gerenciador de configuração de Gateway de gerenciamento de dados** Olá máquina de gateway e usar Olá **solução de problemas** guia tootest Olá conexão tooSQL Server do computador do gateway hello. Consulte [Solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para ver dicas sobre como solucionar os problemas relacionados à conexão/gateway.   
 
 ### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>Problema: as fatias de entrada ficam sempre no estado Aguardando
-As fatias podem estar no estado **Aguardando** devido a vários motivos. Um dos motivos comuns é que a propriedade **external** não está definida como **true**. Qualquer conjunto de dados que seja produzido fora do escopo do Azure Data Factory deve ser marcado com a propriedade **external** . Essa propriedade indica que os dados são externos e não são compatíveis com pipelines no data factory. As fatias de dados são marcadas como **Pronto** depois que os dados estão disponíveis no respectivo armazenamento.
+fatias de saudação poderiam estar em **esperando** estado devido a motivos de toovarious. Um dos motivos comuns de saudação é que hello **externo** propriedade não está definida muito**true**. Qualquer conjunto de dados que é o escopo de produzidos Olá fora do Azure Data Factory deve ser marcado com **externo** propriedade. Essa propriedade indica que dados saudação são externo e não foi feito por qualquer pipelines na fábrica de dados hello. fatias de dados Olá são marcadas como **pronto** quando dados saudação estão disponíveis na respectiva loja de saudação.
 
-Consulte o exemplo a seguir para o uso da propriedade **external** . Como opção, você pode especificar **externalData*** quando definir external como true.
+Consulte Olá seguinte exemplo para uso de saudação do hello **externo** propriedade. Você pode opcionalmente especificar **externalData*** quando você define tootrue externo.
 
 Consulte o artigo [Conjuntos de dados](data-factory-create-datasets.md) para obter mais detalhes sobre essa propriedade.
 
@@ -92,34 +92,34 @@ Consulte o artigo [Conjuntos de dados](data-factory-create-datasets.md) para obt
 }
 ```
 
-Para resolver o erro, adicione a propriedade **external** e a seção opcional **externalData** à definição de JSON da tabela de entrada e recrie a tabela.
+tooresolve Olá erro, adicione Olá **externo** propriedade e hello opcional **externalData** seção toohello definição de JSON da tabela de entrada hello e recriar tabela de saudação.
 
 ### <a name="problem-hybrid-copy-operation-fails"></a>Problema: Falha na operação de cópia híbrida
-Consulte [Solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para ver as etapas para solucionar os problemas de cópia para/a partir de um armazenamento de dados local usando o Gateway de Gerenciamento de Dados.
+Consulte [solucionar problemas do gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para etapas tootroubleshoot problemas com copiar para/de dados de um local de armazenam usando Olá Gateway de gerenciamento de dados.
 
 ### <a name="problem-on-demand-hdinsight-provisioning-fails"></a>Problema: falha no provisionamento sob demanda do HDInsight
-Ao usar um serviço vinculado do tipo HDInsightOnDemand, você deve especificar um linkedServiceName que aponta para o Armazenamento de Blobs do Azure. O serviço do Data Factory usa esse armazenamento para armazenar logs e arquivos de suporte para seu cluster do HDInsight sob demanda.  Às vezes, o provisionamento de um cluster de HDInsight sob demanda falha com o seguinte erro:
+Ao usar um serviço vinculado do tipo HDInsightOnDemand, é necessário toospecify um linkedServiceName que aponta tooan armazenamento de BLOBs do Azure. Serviço de fábrica de dados usa esse armazenamento toostore logs e arquivos de suporte para o cluster do HDInsight sob demanda.  Às vezes, o provisionamento de um cluster do HDInsight sob demanda falha com hello erro a seguir:
 
 ```
-Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
+Failed toocreate cluster. Exception: Unable toocomplete hello cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
 ```
 
-Esse erro normalmente indica que o local da conta de armazenamento especificado no linkedServiceName não está no mesmo local de datacenter, no qual o provisionamento do HDInsight está ocorrendo. Exemplo: se seu data factory estiver no Oeste dos EUA e o armazenamento do Azure estiver no Leste dos EUA, o provisionamento sob demanda falhará no Oeste dos EUA.
+Esse erro geralmente indica que local Olá Olá da conta de armazenamento especificada na Olá linkedServiceName não está em Olá mesmo data center local onde o provisionamento de HDInsight hello está acontecendo. Exemplo: se sua fábrica de dados está no Oeste dos EUA e Olá armazenamento do Azure está no Leste dos EUA, Olá falha de provisionamento sob demanda no Oeste dos EUA.
 
-Além disso, há uma segunda propriedade JSON additionalLinkedServiceNames, em que as contas de armazenamento adicionais podem ser especificadas no HDInsight sob demanda. Essas contas de armazenamento adicionais vinculadas devem estar no mesmo local que o cluster HDInsight, ou falharão com o mesmo erro.
+Além disso, há uma segunda propriedade JSON additionalLinkedServiceNames, em que as contas de armazenamento adicionais podem ser especificadas no HDInsight sob demanda. Essas contas de armazenamento vinculada adicional devem estar no hello mesmo local que o cluster do HDInsight hello ou falha com hello mesmo erro.
 
 ### <a name="problem-custom-net-activity-fails"></a>Problema: falha de atividade .NET personalizada
 Consulte [Depurar um pipeline com atividade personalizada](data-factory-use-custom-activities.md#troubleshoot-failures) para obter etapas detalhadas.
 
-## <a name="use-azure-portal-to-troubleshoot"></a>Usar o portal do Azure para solucionar o problema
+## <a name="use-azure-portal-tootroubleshoot"></a>Use tootroubleshoot portal do Azure
 ### <a name="using-portal-blades"></a>Usando as folhas do portal
 Consulte [Monitorar pipeline](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline) para obter as etapas.
 
 ### <a name="using-monitor-and-manage-app"></a>Usando o Aplicativo Monitorar e Gerenciar
 Consulte [Monitorar e gerenciar os pipelines do Data Factory usando o Aplicativo de Monitoramento e Gerenciamento](data-factory-monitor-manage-app.md) para obter detalhes.
 
-## <a name="use-azure-powershell-to-troubleshoot"></a>Usar o Azure PowerShell para solucionar o problema
-### <a name="use-azure-powershell-to-troubleshoot-an-error"></a>Usar o Azure PowerShell para solucionar o erro
+## <a name="use-azure-powershell-tootroubleshoot"></a>Use o PowerShell do Azure tootroubleshoot
+### <a name="use-azure-powershell-tootroubleshoot-an-error"></a>Usar o Azure PowerShell tootroubleshoot um erro
 Consulte [Monitorar pipelines do Data Factory usando o Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline) para obter detalhes.
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md

@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory com o Onit | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Onit."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e do Onit."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,133 +14,133 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 47c0055b89dbcf6a30a7f9ac5a33913e7bf463fa
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 9e12449e5bf7f169b3cadfaa12438ac5d52ed8f8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onit"></a>Tutorial: Integração do Active Directory do Azure com o Onit
 
-Neste tutorial, você aprenderá a integrar o Onit ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como toointegrate Onit com o Azure Active Directory (AD do Azure).
 
-A integração do Onit ao Azure AD oferece os seguintes benefícios:
+Integrando o Onit com o AD do Azure fornece Olá benefícios a seguir:
 
-- No Azure AD, é possível controlar quem tem acesso ao Onit.
-- Você pode permitir que os usuários façam logon automaticamente no Onit (logon único) com as respectivas contas do Azure AD.
-- Você pode gerenciar suas contas em um único local central – o portal do Azure.
+- Você pode controlar no AD do Azure que tenha acesso tooOnit.
+- Você pode habilitar seu usuários tooautomatically get conectado tooOnit (logon único) com suas contas do AD do Azure.
+- Você pode gerenciar suas contas em um local central - Olá portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao Onit, você precisará dos seguintes itens:
+tooconfigure integração do AD do Azure com o Onit, você precisa Olá itens a seguir:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura habilitada para logon único do Onit
 
 > [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
 
-1. Adicionar o Onit da galeria
+1. Adicionando Onit da Galeria de saudação
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-onit-from-the-gallery"></a>Adicionar o Onit da galeria
-Para configurar a integração do Onit ao Azure AD, você precisará adicionar o Onit à sua lista de aplicativos SaaS gerenciados por meio da galeria.
+## <a name="adding-onit-from-hello-gallery"></a>Adicionando Onit da Galeria de saudação
+integração de saudação tooconfigure do Onit no AD do Azure, você precisa tooadd Onit da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
 
-**Para adicionar o Onit da galeria, execute as seguintes etapas:**
+**tooadd Onit da Galeria hello, execute Olá etapas a seguir:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
 
-    ![O botão Azure Active Directory][1]
+    ![botão de Active Directory do Azure Olá][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
 
-    ![A folha Aplicativos empresariais][2]
+    ![folha de aplicativos de empresa Olá][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
 
-    ![O botão Novo aplicativo][3]
+    ![Novo botão de aplicativo Hello][3]
 
-4. Na caixa de pesquisa, digite **Onit**, selecione **Onit** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa hello, digite **Onit**, selecione **Onit** no painel de resultados e clique em **adicionar** botão aplicativo hello de tooadd.
 
-    ![Onit na lista de resultados](./media/active-directory-saas-onit-tutorial/tutorial_onit_addfromgallery.png)
+    ![Onit na lista de resultados de saudação](./media/active-directory-saas-onit-tutorial/tutorial_onit_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
 Nesta seção, você configurará e testará o logon único do Azure AD com o Onit, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Onit é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Onit.
+Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no Onit é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no Onit precisa toobe estabelecida.
 
-No Onit, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+No Onit, atribuir o valor de saudação do hello **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
 
-Para configurar e testar o logon único do Azure AD com o Onit, você precisa concluir os seguintes blocos de construção:
+tooconfigure e teste de logon único do AD do Azure com o Onit, é necessário Olá toocomplete blocos de construção a seguir:
 
-1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Onit](#create-an-onit-test-user)** – para ter um equivalente de Brenda Fernandes no Onit vinculado à representação do usuário no Azure AD.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** para verificar se a configuração funciona.
+1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#create-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
+3. **[Criar um usuário de teste do Onit](#create-an-onit-test-user)**  -toohave um equivalente do Britta Simon no Onit é vinculado toohello AD do Azure representação do usuário.
+4. **[Atribuir um usuário de teste de saudação do AD do Azure](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
+5. **[Testar o logon único](#test-single-sign-on)**  tooverify Olá se os trabalhos de configuração.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único no aplicativo Onit.
+Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no seu aplicativo Onit.
 
-**Para configurar o logon único do Azure AD com o Onit, execute as seguintes etapas:**
+**tooconfigure AD do Azure-logon único com o Onit, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, na página de integração de aplicativos do **Onit**, clique em **Logon único**.
+1. Em Olá portal do Azure, Olá **Onit** página de integração de aplicativos, clique em **o logon único**.
 
     ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
  
     ![Caixa de diálogo Logon único](./media/active-directory-saas-onit-tutorial/tutorial_onit_samlbase.png)
 
-3. Na seção **Domínio e URLs do Onit**, execute as seguintes etapas:
+3. Em Olá **Onit domínio e URLs** , execute Olá etapas a seguir:
 
     ![Informações de logon único de Domínio e URLs do Onit](./media/active-directory-saas-onit-tutorial/tutorial_onit_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<sub-domain>.onit.com`
+    a. Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<sub-domain>.onit.com`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<sub-domain>.onit.com`
+    b. Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<sub-domain>.onit.com`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do Onit](https://www.onit.com/support) para obter esses valores. 
+    > Esses valores não são reais. Atualizar esses valores com hello real URL de logon e o identificador. Entre em contato com [equipe de suporte do cliente do Onit](https://www.onit.com/support) tooget esses valores. 
  
-4. Na seção **Certificado de Autenticação SAML**, copie o valor da **IMPRESSÃO DIGITAL** do certificado.
+4. Em Olá **o certificado de autenticação SAML** seção, Olá cópia **impressão digital** o valor de certificado.
 
-    ![O link de download do Certificado](./media/active-directory-saas-onit-tutorial/tutorial_onit_certificate.png) 
+    ![link de download de certificado Olá](./media/active-directory-saas-onit-tutorial/tutorial_onit_certificate.png) 
 
-5. O aplicativo Onit espera que as declarações SAML estejam em um formato específico. Configure as seguintes declarações para o aplicativo. Você pode gerenciar o valor dos atributos na guia **"Atributo"** do aplicativo. A captura de tela a seguir mostra um exemplo disso. 
+5. Aplicativo Onit espera as asserções SAML de saudação em um formato específico. Configure Olá declarações para esse aplicativo a seguir. Você pode gerenciar os valores hello desses atributos de saudação **"Atributo"** guia do aplicativo hello. Olá captura de tela a seguir mostra um exemplo. 
 
     ![Configurar Logon Único](./media/active-directory-saas-onit-tutorial/tutorial_onit_attribute.png) 
 
-6. Na seção **Atributos do Usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML como mostra a imagem e execute as etapas a seguir:
+6. Em Olá **atributos de usuário** seção Olá **o logon único** caixa de diálogo, configurar atributos de token SAML, conforme mostrado na imagem hello e executar Olá etapas a seguir:
     
     | Nome do atributo | Valor do atributo |
     | ------------------- | -------------------- |
     | email | user.mail |
     
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+    a. Clique em **Adicionar atributo** tooopen Olá **Adicionar atributo** caixa de diálogo.
 
-    ![Configurar o logon único](./media/active-directory-saas-onit-tutorial/tutorial_attribute_04.png)
+    ![Configurar Logon Único](./media/active-directory-saas-onit-tutorial/tutorial_attribute_04.png)
 
     ![Configurar Logon Único](./media/active-directory-saas-onit-tutorial/tutorial_attribute_05.png)
 
-    b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
+    b. Em Olá **nome** caixa de texto, nome de atributo do tipo hello mostrado para aquela linha.
 
-    c. Na lista **Valor**, digite o valor do atributo mostrado para essa linha.
+    c. De saudação **valor** lista, o valor do atributo type Olá mostrado para aquela linha.
 
-    d. Deixe o **Namespace** em branco.
+    d. Deixe Olá **Namespace** em branco.
     
     e. Clique em **OK**.
 
@@ -148,118 +148,118 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-onit-tutorial/tutorial_general_400.png)
 
-8. Na seção **Configuração do Onit**, clique em **Configurar o Onit** para abrir a janela **Configurar logon**. Copie a **URL do Serviço de Logon Único do SAML e a URL de logoff** da **seção de Referência Rápida.**
+8. Em Olá **Onit configuração** seção, clique em **configurar Onit** tooopen **configurar o logon** janela. Saudação de cópia **URL de logout, Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**
 
     ![Configuração do Onit](./media/active-directory-saas-onit-tutorial/tutorial_onit_configure.png)
 
 9. Em outra janela do navegador da Web, faça logon em seu site de empresa Onit como um administrador.
 
-10. No menu na parte superior, clique em **Administração**.
+10. No menu de saudação na parte superior de saudação, clique em **administração**.
    
    ![Administração](./media/active-directory-saas-onit-tutorial/IC791174.png "Administração")
 11. Clique em **Editar Empresa**.
    
    ![Editar Corporação](./media/active-directory-saas-onit-tutorial/IC791175.png "Editar Corporação")
    
-12. Clique na guia **Segurança** .
+12. Clique em Olá **segurança** guia.
     
     ![Editar Informações da Empresa](./media/active-directory-saas-onit-tutorial/IC791176.png "Editar Informações da Empresa")
 
-13. Na guia **Segurança** , realize as seguintes etapas:
+13. Em Olá **segurança** guia, execute Olá etapas a seguir:
 
     ![Logon Único](./media/active-directory-saas-onit-tutorial/IC791177.png "Logon Único")
 
     a. Como **Estratégia de Autenticação**, selecione **Logn Único e Senha**.
     
-    b. Na caixa de texto **URL de Destino do IdP**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do Portal do Azure.
+    b. Em **URL de destino de Idp** caixa de texto valor Olá colar **Single Sign-On URL do serviço SAML**, que você copiou do portal do Azure.
 
-    c. Na caixa de texto **URL de Logoff do IDP**, cole o valor da **URL de Saída** copiado do Portal do Azure.
+    c. Em **URL de logout Idp** caixa de texto valor Olá colar **URL de logout**, que você copiou do portal do Azure.
 
-    d. Na caixa de texto **Impressão Digital do Certificado IdP (SHA1)**, cole o valor da **Impressão Digital** do certificado copiado do Portal do Azure.
+    d. Em **impressão digital do certificado Idp (SHA1)** caixa de texto, colar Olá **impressão digital** valor de certificado, que você copiou do portal do Azure.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
 
    ![Criar um usuário de teste do Azure AD][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
 
-1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
+1. No hello portal do Azure, no painel esquerdo do hello, clique em Olá **Active Directory do Azure** botão.
 
-    ![O botão Azure Active Directory](./media/active-directory-saas-onit-tutorial/create_aaduser_01.png)
+    ![botão de Active Directory do Azure Olá](./media/active-directory-saas-onit-tutorial/create_aaduser_01.png)
 
-2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos**e, em seguida, clique em **todos os usuários**.
 
-    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/active-directory-saas-onit-tutorial/create_aaduser_02.png)
+    ![Olá "Usuários e grupos" e "Todos os usuários" links](./media/active-directory-saas-onit-tutorial/create_aaduser_02.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação do hello **todos os usuários** caixa de diálogo.
 
-    ![O botão Adicionar](./media/active-directory-saas-onit-tutorial/create_aaduser_03.png)
+    ![botão Adicionar de saudação](./media/active-directory-saas-onit-tutorial/create_aaduser_03.png)
 
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+4. Em Olá **usuário** caixa de diálogo caixa, execute Olá etapas a seguir:
 
-    ![A caixa de diálogo Usuário](./media/active-directory-saas-onit-tutorial/create_aaduser_04.png)
+    ![caixa de diálogo de usuário Olá](./media/active-directory-saas-onit-tutorial/create_aaduser_04.png)
 
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
+    a. Em Olá **nome** , digite **BrittaSimon**.
 
-    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
+    b. Em Olá **nome de usuário** caixa tipo hello endereço de email do usuário Britta Simon.
 
-    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+    c. Selecione Olá **Mostrar senha** caixa de seleção e anote o valor de saudação que é exibido no hello **senha** caixa.
 
     d. Clique em **Criar**.
  
 ### <a name="create-an-onit-test-user"></a>Criar um usuário de teste do Onit
 
-Para permitir que os usuários do AD do Azure façam logon no Onit, eles devem ser provisionados no Onit.  
+Em ordem tooenable AD do Azure usuários toolog no Onit, eles devem ser provisionados no Onit.  
 
-No caso do Onit, o provisionamento é uma tarefa manual.
+No caso de saudação do Onit, o provisionamento é uma tarefa manual.
 
-**Para configurar o provisionamento de usuários, execute as seguintes etapas:**
+**tooconfigure provisionamento de usuário, execute Olá etapas a seguir:**
 
-1. Faça logon em seu site de empresa do **Onit** como administrador.
+1. Logon tooyour **Onit** site da empresa como um administrador.
 2. Clique em **Adicionar Usuário**.
    
    ![Administração](./media/active-directory-saas-onit-tutorial/IC791180.png "Administração")
-3. Na página do diálogo **Adicionar usuário** , realize as seguintes etapas:
+3. Em Olá **adicionar usuário** caixa de diálogo de página, execute Olá etapas a seguir:
    
    ![Adicionar Usuário](./media/active-directory-saas-onit-tutorial/IC791181.png "Adicionar Usuário")
    
-  1. Digite o **Nome** e **Endereço de Email** de uma conta válida do Azure AD que você deseja provisionar nas caixas de texto relacionadas.
+  1. Saudação de tipo **nome** e hello **endereço de Email** de uma válida do Azure relacionados de conta do AD desejados tooprovision para Olá caixas de texto.
   2. Clique em **Criar**.    
    
  > [!NOTE]
- > O titular da conta do Azure Active Directory recebe um email e segue um link para confirmar sua conta antes que ela se torne ativa.
+ > proprietário de conta do Active Directory do Azure Olá recebe um email e segue um link tooconfirm sua conta antes de se tornar ativa.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
 
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Onit.
+Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooOnit.
 
-![Atribuir a função de usuário][200] 
+![Atribuir função de usuário Olá][200] 
 
-**Para atribuir Brenda Fernandes ao Onit, execute as seguintes etapas:**
+**tooassign Britta Simon tooOnit, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Onit**.
+2. Na lista de aplicativos hello, selecione **Onit**.
 
-    ![O link do Onit na lista de Aplicativos](./media/active-directory-saas-onit-tutorial/tutorial_onit_app.png)  
+    ![link do Onit Olá na lista de aplicativos Olá](./media/active-directory-saas-onit-tutorial/tutorial_onit_app.png)  
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
 
-    ![O link “Usuários e grupos”][202]
+    ![link de "Usuários e grupos" Hello][202]
 
 4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
-    ![O painel Adicionar Atribuição][203]
+    ![Painel de atribuição adicionar Olá][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -267,14 +267,14 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
 
-Ao clicar no bloco do Onit no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo Onit.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md). 
+Quando você clica em bloco Onit Olá Olá painel de acesso, você deve obter automaticamente assinado em tooyour Onit aplicativo.
+Para obter mais informações sobre o painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

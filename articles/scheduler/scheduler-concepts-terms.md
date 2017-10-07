@@ -1,5 +1,5 @@
 ---
-title: Conceitos, termos e entidades do Agendador | Microsoft Docs
+title: aaaScheduler entidades, termos e conceitos | Microsoft Docs
 description: "Conceitos, terminologia e hierarquia de entidades do Agendador do Azure, incluindo trabalhos e coleções de trabalhos.  Fornece um exemplo completo de um trabalho agendado."
 services: scheduler
 documentationcenter: .NET
@@ -14,45 +14,45 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 73e7de7bfd2937e401aeab05e0e10fa292cf37b9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Conceitos, terminologia e hierarquia de entidades do Agendador
 ## <a name="scheduler-entity-hierarchy"></a>Hierarquia de entidade do Agendador
-A tabela a seguir descreve os principais recursos expostos ou usados pela API do Agendador:
+Olá tabela a seguir descreve Olá principais recursos expostos ou usados por Olá API do Agendador:
 
 | Recurso | Descrição |
 | --- | --- |
-| **Coleção de trabalhos** |Uma coleção de trabalhos contém um grupo de trabalhos e mantém as configurações, cotas e limites que são compartilhados pelos trabalhos dentro da coleção. Uma coleção de trabalhos é criada por um proprietário de assinatura e agrupa os trabalhos com base em limites de uso ou aplicativo. Ele é restrito a uma região. Ele também permite a imposição de cotas para restringir o uso de todos os trabalhos na coleção. As cotas incluem MaxJobs e MaxRecurrence. |
+| **Coleção de trabalhos** |Uma coleção de trabalho contém um grupo de trabalho e mantém as configurações, cotas e limites que são compartilhados pelos trabalhos dentro da coleção de saudação. Uma coleção de trabalhos é criada por um proprietário de assinatura e agrupa os trabalhos com base em limites de uso ou aplicativo. Ela é restrita tooone região. Também permite imposição Olá das cotas de uso de saudação tooconstrain de todos os trabalhos na coleção. cotas de saudação incluem MaxJobs e MaxRecurrence. |
 | **Trabalho** |Um trabalho define uma única ação recorrente com estratégias simples ou complexas para execução. As ações podem incluir solicitações HTTP, de fila de armazenamento, de barramento de serviço ou de tópico do barramento de serviço. |
 | **Histórico de trabalho** |Um histórico de trabalho representa os detalhes para a execução de um trabalho. Ele contém o êxito versus a falha, bem como os detalhes da resposta. |
 
 ## <a name="scheduler-entity-management"></a>Gerenciamento de entidade do Agendador
-Em um alto nível, o Agendador e a API de gerenciamento do serviço expõem as seguintes operações nos recursos:
+Em um nível alto, Agendador hello e API de gerenciamento do serviço de saudação expõem Olá operações nos recursos de saudação a seguir:
 
 | Recurso | Descrição e endereço de URI |
 | --- | --- |
-| **Gerenciamento de coleção de trabalhos** |GET, PUT e DELETE dão suporte para criar e modificar as coleções e os trabalhos nelas contidos. Uma coleção de trabalhos é um contêiner para trabalhos, com o mapeamento para cotas e configurações compartilhadas. Os exemplos de cotas, descritos a seguir, são o número máximo de trabalhos e o menor intervalo de recorrência. <p>PUT e DELETE: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>GET: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p> |
-| **Gerenciamento de trabalhos** |GET, PUT, POST, PATCH e DELETE dão suporte para criar e modificar trabalhos. Todos os trabalhos devem pertencer a uma coleção de trabalhos que já existe, para que não haja criação implícita. <p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p> |
+| **Gerenciamento de coleção de trabalhos** |GET, PUT e DELETE dão suporte para criar e modificar coleções e trabalhos Olá nele contidos. Uma coleção de trabalhos é um contêiner para trabalhos e mapeia tooquotas e configurações compartilhadas. Os exemplos de cotas, descritos a seguir, são o número máximo de trabalhos e o menor intervalo de recorrência. <p>PUT e DELETE: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>GET: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p> |
+| **Gerenciamento de trabalhos** |GET, PUT, POST, PATCH e DELETE dão suporte para criar e modificar trabalhos. Todos os trabalhos devem pertencer a coleção de trabalhos de tooa que já existe, portanto não há nenhuma criação implícita. <p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p> |
 | **Gerenciamento de histórico de trabalho** |Suporte de GET para busca de 60 dias do histórico de execução do trabalho, tais como, tempo decorrido do trabalho e resultados de execução do trabalho. Adiciona suporte ao parâmetro de cadeia de caracteres consulta para filtrar com base no estado e status. <P>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p> |
 
 ## <a name="job-types"></a>Tipos de trabalho
-Existem vários tipos de trabalhos: trabalhos HTTP (incluindo trabalhos HTTPS que oferecem suporte a SSL), trabalhos de fila de armazenamento, trabalhos de fila do barramento de serviço e trabalhos de tópico do barramento de serviço. Trabalhos de HTTP são ideais se você tiver um ponto de extremidade de uma carga de trabalho ou serviço existente. Você pode usar os trabalhos de fila de armazenamento para postar mensagens em filas de armazenamento, portanto, esses trabalhos são ideais para cargas de trabalho que usam filas de armazenamento. Da mesma forma, os trabalhos de barramento de serviço são ideais para as cargas de trabalho que usam tópicos e filas do barramento de serviço.
+Existem vários tipos de trabalhos: trabalhos HTTP (incluindo trabalhos HTTPS que oferecem suporte a SSL), trabalhos de fila de armazenamento, trabalhos de fila do barramento de serviço e trabalhos de tópico do barramento de serviço. Trabalhos de HTTP são ideais se você tiver um ponto de extremidade de uma carga de trabalho ou serviço existente. Você pode usar o armazenamento trabalhos toopost mensagens toostorage filas, portanto esses trabalhos são ideais para cargas de trabalho que usam filas de armazenamento. Da mesma forma, os trabalhos de barramento de serviço são ideais para as cargas de trabalho que usam tópicos e filas do barramento de serviço.
 
-## <a name="the-job-entity-in-detail"></a>A entidade "trabalho" em detalhes
+## <a name="hello-job-entity-in-detail"></a>entidade de "trabalho" Hello em detalhes
 Em um nível básico, um trabalho agendado tem várias partes:
 
-* A ação a ser executada quando o temporizador do trabalho é disparado  
-* (Opcional) O tempo para executar o trabalho  
-* (Opcional) Quando e com que frequência repetir o trabalho  
-* (Opcional) Uma ação a ser acionada, se a ação principal falhar  
+* Olá tooperform ação quando o trabalho do temporizador hello é acionado  
+* Trabalho de saudação do toorun de tempo de saudação (opcional)  
+* (Opcional) Quando e com que frequência trabalho de saudação toorepeat  
+* (Opcional) Toofire uma ação se a ação primária Olá falhar  
 
-Internamente, um trabalho agendado também contém dados fornecidos pelo sistema, como o próximo tempo de execução agendado.
+Internamente, um trabalho agendado também contém os dados fornecidos pelo sistema, como o próximo tempo de execução agendada hello.
 
-O código a seguir fornece um exemplo completo de um trabalho agendado. Os detalhes são fornecidos nas seções seguintes.
+saudação de código a seguir fornece um exemplo completo de um trabalho agendado. Os detalhes são fornecidos nas seções seguintes.
 
     {
         "startTime": "2012-08-04T00:00Z",               // optional
@@ -84,14 +84,14 @@ O código a seguir fornece um exemplo completo de um trabalho agendado. Os detal
         "recurrence":                                   // optional
         {
             "frequency": "week",                        // can be "year" "month" "day" "week" "minute"
-            "interval": 1,                              // optional, how often to fire (default to 1)
+            "interval": 1,                              // optional, how often toofire (default too1)
             "schedule":                                 // optional (advanced scheduling specifics)
             {
                 "weekDays": ["monday", "wednesday", "friday"],
                 "hours": [10, 22]
             },
-            "count": 10,                                 // optional (default to recur infinitely)
-            "endTime": "2012-11-04",                     // optional (default to recur infinitely)
+            "count": 10,                                 // optional (default toorecur infinitely)
+            "endTime": "2012-11-04",                     // optional (default toorecur infinitely)
         },
         "state": "disabled",                           // enabled or disabled
         "status":                                       // controlled by Scheduler service
@@ -104,7 +104,7 @@ O código a seguir fornece um exemplo completo de um trabalho agendado. Os detal
         },
     }
 
-Como visto no trabalho agendado no exemplo acima, uma definição de trabalho tem várias partes:
+Conforme visto no trabalho agendado de exemplo de hello acima, uma definição de trabalho tem várias partes:
 
 * Hora de início ("startTime")  
 * Ação ("action"), que inclui a ação de erro ("errorAction")
@@ -116,12 +116,12 @@ Como visto no trabalho agendado no exemplo acima, uma definição de trabalho te
 Vamos examinar cada um em detalhes:
 
 ## <a name="starttime"></a>startTime
-O "startTime" é a hora de início e permite que o chamador especifique um deslocamento de fuso horário na rede no [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601).
+Olá "startTime" é hora de início de saudação e permite Olá chamador toospecify um fuso horário de deslocamento na transmissão de saudação em [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601).
 
 ## <a name="action-and-erroraction"></a>action e errorAction
-A “ação” é a ação invocada em cada ocorrência e descreve um tipo de invocação de serviço. A ação é o que será executado na agenda fornecida. O agendador dá suporte a ações HTTP, de fila de armazenamento, de tópico do barramento de serviço e de fila do barramento de serviço.
+Olá "ação" hello ação invocada em cada ocorrência e descreve um tipo de invocação de serviço. ação de saudação é o que será executado em Olá fornecido agenda. O agendador dá suporte a ações HTTP, de fila de armazenamento, de tópico do barramento de serviço e de fila do barramento de serviço.
 
-A ação no exemplo acima é uma ação de http. Abaixo está um exemplo de uma ação de fila de armazenamento:
+Olá no exemplo hello acima é uma ação HTTP. Abaixo está um exemplo de uma ação de fila de armazenamento:
 
     {
             "type": "storageQueue",
@@ -147,45 +147,45 @@ A seguir, um exemplo de uma ação de fila do barramento de serviço:
         "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message",  
       "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
 
-"errorAction" é o manipulador de erro, a ação invocada quando ocorre falha na ação principal. Você pode usar essa variável para chamar um ponto de extremidade de tratamento de erros ou enviar uma notificação do usuário. Isso pode ser usado para atingir um ponto de extremidade secundário no caso em que o principal não está disponível (por exemplo, no caso de um desastre no site do ponto de extremidade) ou pode ser usado para notificar um ponto de extremidade de tratamento de erros. Assim como a ação principal, a ação de erro pode ser simples ou composta lógica com base em outras ações. Para saber como criar um token SAS, consulte [Criar e usar uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/azure/jj721951.aspx).
+Olá "errorAction" é o manipulador de erro hello, ação de saudação invocada quando ocorre falha na ação principal hello. Você pode usar essa variável toocall um ponto de extremidade de tratamento de erros ou enviar uma notificação do usuário. Isso pode ser usado para alcançar um ponto de extremidade secundário no caso de Olá que Olá primário não está disponível (por exemplo, no caso de saudação de um desastre no site do ponto de extremidade Olá) ou pode ser usado para notificar um ponto de extremidade de tratamento de erros. Saudação de ação primária, uma ação de erro Olá pode ser lógica simples ou composta com base em outras ações. toolearn como toocreate um token SAS, consulte muito[criar e usar uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/azure/jj721951.aspx).
 
 ## <a name="recurrence"></a>recurrence
 A recorrência tem várias partes:
 
 * Frequência: uma por minuto, hora, dia, semana, mês, ano  
-* Intervalo: intervalo na frequência determinada para a recorrência  
-* Agenda prescrita: especificar minutos, horas, dias da semana, meses e dias do mês da recorrência  
+* Intervalo: Intervalo na Olá atribuído a frequência de recorrência Olá  
+* Agenda prescrita: especificar minutos, horas, dias da semana, meses e dias do mês Olá recorrência  
 * Contagem: contagem de ocorrências  
-* Hora de término: nenhum trabalho será executado após a hora de término especificada  
+* Hora de término: nenhum trabalho será executado após Olá especificado a hora de término  
 
-Um trabalho é recorrente se tiver um objeto recorrente especificado em sua definição JSON. Se count e endTime forem especificados, a regra de conclusão que ocorre primeiro será aplicada.
+Um trabalho é recorrente se tiver um objeto recorrente especificado em sua definição JSON. Se a contagem e o endTime estiverem especificados, a regra de conclusão de saudação que ocorre primeiro é cumprida.
 
 ## <a name="state"></a>state
-O estado do trabalho é um dos quatro valores: habilitado, desabilitado, concluído ou com falha. Você pode utilizar os recursos PUT ou PATCH nos trabalhos para atualizá-los para o estado habilitado ou desabilitado. Se um trabalho tiver sido concluído ou estiver com falha, este é um estado final que não pode ser atualizado (embora o trabalho possa ser excluído). A seguir está um exemplo da propriedade state:
+estado de saudação do trabalho de saudação é um dos quatro valores: habilitado, desabilitado, concluído ou com falha. Você pode colocar ou PATCH trabalhos isso como tooupdate-los toohello habilitado ou desabilitado de estado. Se um trabalho foi concluído ou com falha, que é um estado final não pode ser atualizado (embora o trabalho de saudação ainda pode ser excluído). Um exemplo de propriedade de estado de saudação é o seguinte:
 
         "state": "disabled", // enabled, disabled, completed, or faulted
 Trabalhos concluídos e com falha são excluídos após 60 dias.
 
 ## <a name="status"></a>status
-Após o início de um trabalho do Agendador,  informações sobre o status atual do trabalho serão retornadas. Esse objeto não é configurável pelo usuário – ele é definido pelo sistema. No entanto, ele está incluído no objeto de trabalho (em vez de um recurso vinculado separado) para que qualquer um possa obter facilmente o status de um trabalho.
+Após o início de um trabalho do Agendador, serão retornadas informações sobre o status atual de saudação do trabalho de saudação. Este objeto não é configurável pelo usuário hello – ele é definido pelo sistema de saudação. No entanto, ele é incluído no hello objeto de trabalho (em vez de um recurso vinculado separado) para que possa obter status de saudação de um trabalho facilmente.
 
-O status do trabalho inclui o tempo de execução anterior (se houver), a hora da próxima execução agendada (para trabalhos em andamento) e a contagem de execução do trabalho.
+Status do trabalho inclui o tempo de saudação do hello execução anterior (se houver), Olá hora da próxima execução agendada hello (para trabalhos em andamento) e contagem de execução de saudação do trabalho de saudação.
 
 ## <a name="retrypolicy"></a>retryPolicy
-Se um trabalho do Agendador falhar, é possível especificar uma política de repetição para determinar se e como a ação é repetida. Isso é determinado pelo objeto **retryType** – será definido como **nenhum** se não houver nenhuma política de repetição, conforme mostrado acima. Defina-o como **fixo** se houver uma política de repetição.
+Se um trabalho do Agendador falhar, é possível toospecify um toodetermine de política de repetição se e como a ação de saudação é repetida. Isso é determinado pelo Olá **retryType** objeto — está definido muito**nenhum** se não houver nenhuma política de repetição, como mostrado acima. Defina-o muito**fixa** se houver uma política de repetição.
 
-Para definir uma política de nova tentativa, configurações adicionais de dois valores podem ser especificadas: um intervalo de nova tentativa (**retryInterval**) e o número de tentativas (**retryCount**).
+tooset uma política de repetição, duas configurações adicionais podem ser especificadas: um intervalo de repetição (**retryInterval**) e o número de tentativas de saudação (**retryCount**).
 
-Intervalo de nova tentativa, especificado com o objeto **retryInterval** , que é o intervalo entre as tentativas. O valor padrão é de 30 segundos, seu valor configurável mínimo é de 15 segundos e o valor máximo é de 18 meses. Os trabalhos em coleções de trabalhos gratuitas têm um valor mínimo configurável de 1 hora.  Ele é definido no formato ISO 8601. Da mesma forma, o valor do número de tentativas é especificado com o objeto **retryCount** ; esse é o número de vezes que uma nova tentativa será feita. O valor padrão é 4 e o valor máximo é 20\. Ambos **retryInterval** e **retryCount** são opcionais. Eles receberão seus valores padrão se **retryType** for definido como **fixo** e nenhum valor for especificado explicitamente.
+intervalo de repetição Hello, especificado com hello **retryInterval** de objeto, é o intervalo de saudação entre repetições. O valor padrão é de 30 segundos, seu valor configurável mínimo é de 15 segundos e o valor máximo é de 18 meses. Os trabalhos em coleções de trabalhos gratuitas têm um valor mínimo configurável de 1 hora.  Ele é definido no formato ISO 8601 de saudação. Da mesma forma, o valor de saudação do número de saudação de novas tentativas for especificado com hello **retryCount** objeto; é Olá número de vezes que uma nova tentativa será feita. O valor padrão é 4 e o valor máximo é 20\. Ambos **retryInterval** e **retryCount** são opcionais. Eles recebem seus valores padrão se **retryType** está definido muito**fixa** e nenhum valor for especificado explicitamente.
 
 ## <a name="see-also"></a>Consulte também
  [O que é o Agendador?](scheduler-intro.md)
 
- [Introdução à utilização do Agendador no Portal do Azure](scheduler-get-started-portal.md)
+ [Começar a usar o Agendador no hello portal do Azure](scheduler-get-started-portal.md)
 
  [Planos e Cobrança no Agendador do Azure](scheduler-plans-billing.md)
 
- [Como criar agendas complexas e recorrência avançada com o Agendador do Azure](scheduler-advanced-complexity.md)
+ [Como toobuild complexo agenda e recorrência avançadas com o Agendador do Azure](scheduler-advanced-complexity.md)
 
  [Referência da API REST do Agendador do Azure](https://msdn.microsoft.com/library/mt629143)
 

@@ -1,5 +1,5 @@
 ---
-title: Como paginar os resultados da pesquisa na Pesquisa do Azure | Microsoft Docs
+title: resultados da pesquisa de toopage de aaaHow na pesquisa do Azure | Microsoft Docs
 description: "Paginação na Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado do Microsoft Azure."
 services: search
 documentationcenter: 
@@ -14,36 +14,36 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 1054e15a2751c53aad5dbc8054c4cec41102dee9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e3abc1ca4d5994b0a77955379081a4fcfa5a7fa7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-page-search-results-in-azure-search"></a>Como paginar os resultados da pesquisa na Pesquisa do Azure
-Este artigo fornece orientação sobre como usar a API REST do Serviço de Pesquisa do Azure para implementar elementos padrão da página de resultados da pesquisa, por exemplo, contagem total, recuperação de documentos, ordens de classificação e navegação.
+# <a name="how-toopage-search-results-in-azure-search"></a>Como os resultados de pesquisa toopage na pesquisa do Azure
+Este artigo fornece orientação sobre como toouse Olá API de REST do serviço de pesquisa do Azure tooimplement elementos padrão de uma pesquisa de página de resultados, como contagens do total, recuperação de documentos, ordens de classificação e navegação.
 
-Em cada caso mencionado abaixo, as opções relacionadas à página que colaboram com dados ou informações para sua página de resultados da pesquisa são especificadas por meio de solicitações de [Documento de Pesquisa](http://msdn.microsoft.com/library/azure/dn798927.aspx) enviadas ao Serviço de Pesquisa do Azure. As solicitações incluem um comando GET, um caminho e os parâmetros de consulta que informam ao serviço que está sendo solicitado, e como formular a resposta.
+Em cada caso mencionado a seguir, relacionados à página de opções que contribuem com dados ou informações tooyour página resultados da pesquisa são especificadas por meio de saudação [pesquisar documento](http://msdn.microsoft.com/library/azure/dn798927.aspx) solicitações enviadas tooyour serviço de pesquisa do Azure. Solicitações incluem um comando GET, caminho e os parâmetros de consulta que informam o serviço de saudação que está sendo solicitado e como tooformulate Olá resposta.
 
 > [!NOTE]
-> Uma solicitação válida inclui diversos elementos, como uma URL de serviço e o caminho, o verbo HTTP, `api-version` etc. Para resumir, recortamos os exemplos para destacar apenas a sintaxe relevante para a paginação. Confira a documentação da [API REST do Serviço de Pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) para obter detalhes sobre a sintaxe da solicitação.
+> Uma solicitação válida inclui diversos elementos, como uma URL de serviço e o caminho, o verbo HTTP, `api-version` etc. Para resumir, podemos cortados Olá exemplos toohighlight Olá apenas sintaxe toopagination relevante. Consulte Olá [API de REST do serviço de pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) documentação para obter detalhes sobre a sintaxe de solicitação.
 > 
 > 
 
 ## <a name="total-hits-and-page-counts"></a>Total de ocorrências e contagens de página
-Mostrar o número total de resultados retornados por uma consulta e, em seguida, retornar esses resultados em pedaços menores, é fundamental para praticamente todas as páginas de pesquisa.
+Mostrar Olá total do número de resultados retornados por uma consulta e, em seguida, retornar os resultados em partes menores, é fundamental toovirtually todas as páginas de pesquisa.
 
 ![][1]
 
-Na Pesquisa do Azure, você deve usar os parâmetros `$count`, `$top` e `$skip` para retornar esses valores. O exemplo a seguir mostra um exemplo de solicitação pelo total de ocorrências, a retorna como `@OData.count`:
+Na pesquisa do Azure, você usar Olá `$count`, `$top`, e `$skip` parâmetros tooreturn esses valores. Olá, exemplo a seguir mostra uma solicitação de exemplo para o total de acertos, retornados como `@OData.count`:
 
         GET /indexes/onlineCatalog/docs?$count=true
 
-Recupera documentos em grupos de 15 e também mostra o total de ocorrências, começando na primeira página:
+Recupere documentos em grupos de 15 e também mostra o total de acertos hello, começando na primeira página do hello:
 
         GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=0&$count=true
 
-A paginação de resultados exige `$top` e `$skip`, sendo que `$top` especifica quantos itens devem retornar em um lote, e `$skip` especifica quantos itens ignorar. No exemplo a seguir, cada página mostra os próximos 15 itens, indicados por saltos incrementais no parâmetro `$skip` .
+Resultados de paginação requer `$top` e `$skip`, onde `$top` Especifica quantos tooreturn de itens em um lote e `$skip` Especifica quantos tooskip de itens. Olá seguinte exemplo, cada página mostra Olá itens lado 15, indicadas pela saltos incremental de saudação em Olá `$skip` parâmetro.
 
         GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=0&$count=true
 
@@ -52,51 +52,51 @@ A paginação de resultados exige `$top` e `$skip`, sendo que `$top` especifica 
         GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=30&$count=true
 
 ## <a name="layout"></a>Layout
-Talvez você queira mostrar em uma página de resultados da pesquisa uma imagem em miniatura, um subconjunto dos campos e um link para uma página completa sobre um produto.
+Em uma página de resultados de pesquisa, talvez você queira tooshow uma imagem em miniatura, um subconjunto de campos e uma página do link tooa completa do produto.
 
  ![][2]
 
-Na Pesquisa do Azure, você usaria `$select` e um comando de pesquisa para implementar essa experiência.
+Pesquisa do Azure, você usaria `$select` e uma pesquisa de comando tooimplement essa experiência.
 
-Para retornar um subconjunto dos campos para um layout lado a lado:
+tooreturn um subconjunto de campos para um layout lado a lado:
 
         GET /indexes/ onlineCatalog/docs?search=*&$select=productName,imageFile,description,price,rating 
 
-Arquivos de imagem e de mídia não são diretamente pesquisáveis e devem ser armazenados em outra plataforma de armazenamento, por exemplo, o armazenamento do Blob do Azure, para reduzir os custos. No índice e nos documentos, defina um campo que armazena o endereço da URL do conteúdo externo. Em seguida, use o campo como uma referência de imagem. A URL da imagem deve estar no documento.
+Arquivos de mídia e imagens não são diretamente pesquisáveis e devem ser armazenados em outra plataforma de armazenamento, como o armazenamento de BLOBs do Azure, os custos de tooreduce. No índice hello e documentos, defina um campo que armazena o endereço de URL de saudação do conteúdo externo hello. Em seguida, você pode usar o campo hello como uma referência de imagem. imagem de toohello URL Olá deve estar no documento hello.
 
-Para recuperar uma página de descrição de produto em um evento **onClick** , use [Pesquisar Documento](http://msdn.microsoft.com/library/azure/dn798929.aspx) para passar a chave do documento que será recuperada. O tipo de dados da chave é `Edm.String`. Neste exemplo, é *246810*. 
+tooretrieve uma descrição do produto da página para um **onClick** evento, use [pesquisar documento](http://msdn.microsoft.com/library/azure/dn798929.aspx) toopass na chave de saudação do hello tooretrieve de documento. saudação de tipo de dados da chave de saudação é `Edm.String`. Neste exemplo, é *246810*. 
 
         GET /indexes/onlineCatalog/docs/246810
 
 ## <a name="sort-by-relevance-rating-or-price"></a>Classificar por relevância, por classificação ou por preço
-Por padrão, as ordens de classificação normalmente usam a opção de relevância, mas é comum disponibilizar ordens de classificação alternativas para que os clientes possam reorganizar rapidamente esses resultados em uma ordem de classificação diferente.
+Ordens de classificação geralmente padrão toorelevance, mas é comum ordens de classificação alternativa de toomake prontamente disponíveis para que os clientes podem rapidamente rearranjas essas resultados existentes em uma ordem de classificação diferente.
 
  ![][3]
 
-Na Pesquisa do Azure, a classificação baseia-se na expressão `$orderby`, para todos os campos indexados como `"Sortable": true.`
+Na pesquisa do Azure, a classificação é baseada em Olá `$orderby` expressão para todos os campos são indexados como`"Sortable": true.`
 
-A relevância está fortemente associada a perfis de pontuação. Você pode usar a pontuação padrão, que depende de análise de texto e estatísticas para classificar todos os resultados, com pontuações mais altas sendo atribuídas a documentos com mais correspondências, ou correspondências mais sólidas, de um termo de pesquisa.
+A relevância está fortemente associada a perfis de pontuação. Você pode usar saudação padrão de pontuação, que se baseia em ordem de toorank de análise e estatísticas de texto todos os resultados com pontuações mais altas toodocuments com mais ou mais correspondências um termo de pesquisa em andamento.
 
-As ordens de classificação alternativas normalmente são associadas a eventos **onClick** que remetem a um método que cria a ordem de classificação. Por exemplo, este elemento de página:
+Ordens de classificação alternativa normalmente estão associadas **onClick** eventos que o retorno de chamada tooa método que cria a ordem de classificação de saudação. Por exemplo, este elemento de página:
 
  ![][4]
 
-Você criaria um método que aceitasse a opção de classificação selecionada como entrada, e retornaria uma lista ordenada dos critérios associados a essa opção.
+Você deve criar um método que aceita a opção de classificação de saudação selecionada como entrada e retorna uma lista ordenada para critérios de saudação associados a essa opção.
 
  ![][5]
 
 > [!NOTE]
-> Embora a pontuação padrão seja suficiente para muitos cenários, recomendamos basear a relevância em um perfil personalizado de pontuação. Um perfil personalizado de pontuação permite um aumento dos itens mais úteis para o seu negócio. Confira [Adicionar um perfil de pontuação](http://msdn.microsoft.com/library/azure/dn798928.aspx) para saber mais. 
+> Enquanto a pontuação do saudação padrão é suficiente para muitos cenários, é recomendável baseando relevantes em um perfil de pontuação personalizado em vez disso. Um perfil de pontuação personalizado oferece uma forma como os itens tooboost que são mais benéfico tooyour para os negócios. Confira [Adicionar um perfil de pontuação](http://msdn.microsoft.com/library/azure/dn798928.aspx) para saber mais. 
 > 
 > 
 
 ## <a name="faceted-navigation"></a>Navegação facetada
-A navegação de pesquisa é comum em uma página de resultados, e normalmente fica na lateral ou na parte superior de uma página. Na Pesquisa do Azure, a navegação facetada proporciona uma pesquisa autodirecionada com base em filtros predefinidos. Confira [Navegação facetada na Pesquisa do Azure](search-faceted-navigation.md) para mais detalhes.
+Navegação de pesquisa é comum em uma página de resultados, geralmente localizada no lado de saudação ou superior de uma página. Na Pesquisa do Azure, a navegação facetada proporciona uma pesquisa autodirecionada com base em filtros predefinidos. Confira [Navegação facetada na Pesquisa do Azure](search-faceted-navigation.md) para mais detalhes.
 
-## <a name="filters-at-the-page-level"></a>Filtros no nível da página
-Se o design da solução incluir páginas de pesquisa dedicada para tipos específicos de conteúdo (por exemplo, um aplicativo de varejo online com os departamentos relacionados na parte superior da página), você poderá inserir uma expressão de filtro, junto com um evento **onClick** , para abrir uma página em um estado pré-filtrado. 
+## <a name="filters-at-hello-page-level"></a>Filtros no nível de página Olá
+Se seu design de solução incluído páginas de pesquisa dedicado para tipos específicos de conteúdo (por exemplo, um aplicativo de varejo online que tem departamentos listados na parte superior de saudação da página Olá), você pode inserir uma expressão de filtro junto com um **onClick** evento tooopen uma página em um estado pré-filtrada. 
 
-Você pode enviar um filtro com ou sem uma expressão de pesquisa. Por exemplo, a seguinte solicitação filtrará o nome da marca, retornando somente os documentos que correspondem a ele.
+Você pode enviar um filtro com ou sem uma expressão de pesquisa. Por exemplo, hello solicitação a seguir filtra em nome de marca, retornando somente os documentos que correspondem a ele.
 
         GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 

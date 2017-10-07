@@ -1,6 +1,6 @@
 ---
-title: "Migrar de Conta de Automação e Recursos | Microsoft Docs"
-description: "Este artigo descreve como mover uma conta de Automação na Automação do Azure e recursos associados de uma assinatura para outra."
+title: "aaaMigrate conta de automação e os recursos | Microsoft Docs"
+description: "Este artigo descreve como toomove uma automação conta de automação do Azure e os recursos associados de tooanother de uma assinatura."
 services: automation
 documentationcenter: 
 author: MGoedtel
@@ -14,54 +14,54 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: magoedte
-ms.openlocfilehash: 687da15bdaf854254321b59350f47549781676f5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 201c9091cd2d78d7ea407c1e5fb27f366bb4fa8c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="migrate-automation-account-and-resources"></a>Migrar de Conta de Automação e recursos
-Para contas de Automação e seus recursos associados (ou seja, ativos, runbooks, módulos, etc.) que você criou no portal do Azure e deseja migrar de um grupo de recursos para outro ou de uma assinatura para outra, você pode fazer isso facilmente com a funcionalidade [mover recursos](../azure-resource-manager/resource-group-move-resources.md) disponível no portal do Azure. No entanto, antes de prosseguir com esta ação, consulte primeiro a seguinte [lista de verificação antes de mover os recursos](../azure-resource-manager/resource-group-move-resources.md#checklist-before-moving-resources) e, além dessa, a lista abaixo específica para Automação.   
+Para contas de automação e seus recursos associados (ou seja, ativos, runbooks, módulos, etc.) que você criou no hello portal do Azure e deseja toomigrate de um recurso de grupo tooanother ou de tooanother de uma assinatura, você pode fazer isso facilmente com Olá [mover recursos](../azure-resource-manager/resource-group-move-resources.md) disponíveis no portal do Azure de saudação do recurso. No entanto, antes de prosseguir com esta ação, você deve examinar a seguir Olá [lista de verificação antes de mover recursos](../azure-resource-manager/resource-group-move-resources.md#checklist-before-moving-resources) e Além disso, a lista Olá abaixo tooAutomation específico.   
 
-1. A assinatura/grupo de recursos de destino deve estar na mesma região que a origem.  Isso significa que contas de Automação não podem ser movidas entre regiões.
-2. Ao mover recursos (como runbooks, trabalhos, etc.), ambos o grupo de origem e o grupo de destino estão bloqueados pela duração da operação. As operações de gravação e exclusão são bloqueadas nos grupos até que a migração seja concluída.  
-3. Quaisquer runbooks ou variáveis que fazem referência a um recursos ou ID de assinatura da assinatura existente precisará ser atualizado depois que a migração for concluída.   
+1. grupo de recursos/assinatura de destino Olá deve ser na mesma região que a origem de saudação.  Isso significa que contas de Automação não podem ser movidas entre regiões.
+2. Ao mover recursos (por exemplo, runbooks, trabalhos, etc.), grupo de saudação de origem e o grupo de destino Olá são bloqueadas durante operação Olá Olá. Gravar e excluir operações são bloqueados em grupos de saudação até que seja concluída Olá move.  
+3. Quaisquer runbooks ou variáveis que fazem referência a uma ID de assinatura ou o recurso de assinatura existente Olá precisará toobe atualizado após a migração for concluída.   
 
 > [!NOTE]
 > Esse recurso não dá suporte à movimentação de recursos de automação Clássicos.
 >
 >
 
-## <a name="to-move-the-automation-account-using-the-portal"></a>Para mover a conta de Automação usando o portal
-1. Em sua conta de Automação, clique em **Mover** na parte superior da folha.<br> ![Opção de mover](media/automation-migrate-account-subscription/automation-menu-move.png)<br>
-2. Na folha **Mover recursos** , observe que ele apresenta recursos relacionados a sua conta de Automação e a seus grupos de recursos.  Selecione a **assinatura** e o **grupo de recursos** nas listas suspensas ou selecione a opção **criar um novo grupo de recursos** e digite um novo nome de grupo de recursos no campo fornecido.  
-3. Examine e marque a caixa de seleção para confirmar que você *entende que as ferramentas e scripts precisarão ser atualizados para usar as novas ID de recurso depois de mover recursos* e clique em **OK**.<br> ![Folha Mover Recursos](media/automation-migrate-account-subscription/automation-move-resources-blade.png)<br>   
+## <a name="toomove-hello-automation-account-using-hello-portal"></a>toomove Olá conta de automação usando o portal de saudação
+1. Na sua conta de automação, clique em **mover** na parte superior de saudação da folha de saudação.<br> ![Opção de mover](media/automation-migrate-account-subscription/automation-menu-move.png)<br>
+2. Em Olá **mover recursos** folha, observe que ela apresenta tooboth de recursos relacionados os grupos de recursos e de sua conta de automação.  Selecione Olá **assinatura** e **grupo de recursos** de listas suspensas de saudação ou opção select Olá **criar um novo grupo de recursos** e digite um novo nome de grupo de recursos no campo Olá fornecido.  
+3. Revisão e Olá selecione caixa de seleção tooacknowledge você *entender as ferramentas e scripts serão necessidade toobe atualizado toouse novas IDs de recurso depois de mover recursos* e, em seguida, clique em **Okey**.<br> ![Folha Mover Recursos](media/automation-migrate-account-subscription/automation-move-resources-blade.png)<br>   
 
-Essa ação pode levar vários minutos para ser concluída.  Em **Notificações**, será exibido um status de cada ação que ocorre, incluindo validação, migração e, por fim, quando estiver concluído.     
+Esta ação levará toocomplete de vários minutos.  Em **Notificações**, será exibido um status de cada ação que ocorre, incluindo validação, migração e, por fim, quando estiver concluído.     
 
-## <a name="to-move-the-automation-account-using-powershell"></a>Para mover a Conta de Automação usando o PowerShell
-Para mover os recursos de Automação existentes para outro grupo de recursos ou assinatura, use o cmdlet **Get-AzureRmResource** para obter a conta de Automação específica e, em seguida, o cmdlet **Move-AzureRmResource** para realizar a movimentação.
+## <a name="toomove-hello-automation-account-using-powershell"></a>toomove Olá conta de automação usando o PowerShell
+toomove existente grupo de recursos de tooanother de recursos de automação ou assinatura, use Olá **Get-AzureRmResource** conta de automação específica do cmdlet tooget hello e, em seguida, **Move-AzureRmResource** cmdlet tooperform Olá mover.
 
-O primeiro exemplo mostra como mover uma conta de Automação para um novo grupo de recursos.
+Olá primeiro exemplo mostra como a conta toomove uma automação tooa novo grupo de recursos.
 
    ```
     $resource = Get-AzureRmResource -ResourceName "TestAutomationAccount" -ResourceGroupName "ResourceGroup01"
     Move-AzureRmResource -ResourceId $resource.ResourceId -DestinationResourceGroupName "NewResourceGroup"
    ```
 
-Depois de executar o exemplo de código acima, você deverá confirmar se deseja executar esta ação.  Após clicar em **Sim** e permitir que o script continue, você não receberá nenhuma notificação durante a execução da migração.  
+Depois de executar Olá o exemplo de código acima, será solicitada tooverify deseja tooperform esta ação.  Depois de clicar em **Sim** e permitir Olá tooproceed de script, você não receberá notificações enquanto ele está executando a migração hello.  
 
-Para mover para uma nova assinatura, inclua um valor para o parâmetro *DestinationSubscriptionId* .
+toomove tooa nova assinatura, inclua um valor para Olá *DestinationSubscriptionId* parâmetro.
 
    ```
     $resource = Get-AzureRmResource -ResourceName "TestAutomationAccount" -ResourceGroupName "ResourceGroup01"
     Move-AzureRmResource -ResourceId $resource.ResourceId -DestinationResourceGroupName "NewResourceGroup" -DestinationSubscriptionId "SubscriptionId"
    ```
 
-Assim como no exemplo anterior, será solicitado que você confirme a mudança.  
+Como com o exemplo anterior de saudação, será solicitada tooconfirm Olá mover.  
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre como mover os recursos para um novo grupo de recursos ou assinatura, consulte [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md)
-* Para saber mais sobre o Controle de Acesso baseado em Função na Automação do Azure, consulte [Controle de acesso baseado em função na Automação do Azure](automation-role-based-access-control.md).
-* Para saber mais sobre os cmdlets do PowerShell para gerenciar sua assinatura, consulte [Como usar o Azure PowerShell com o Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
-* Para saber mais sobre os recursos do portal para gerenciar sua assinatura, consulte [Como usar o Portal do Azure para gerenciar recursos](../azure-resource-manager/resource-group-portal.md).
+* Para obter mais informações sobre como mover grupo de recursos toonew de recursos ou assinatura, consulte [Mover grupo de recursos toonew de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md)
+* Para obter mais informações sobre o controle de acesso baseado em função na automação do Azure, consulte muito[controle de acesso baseado em função no Azure Automation](automation-role-based-access-control.md).
+* toolearn sobre cmdlets do PowerShell para gerenciar sua assinatura, consulte [usando o PowerShell do Azure com o Gerenciador de recursos](../azure-resource-manager/powershell-azure-resource-manager.md)
+* toolearn sobre recursos do portal para gerenciar sua assinatura, consulte [usando os recursos de toomanage do Portal do Azure Olá](../azure-resource-manager/resource-group-portal.md).

@@ -1,6 +1,6 @@
 ---
-title: Como usar o PowerShell para gerenciar o Armazenamento de Arquivos do Azure | Microsoft Docs
-description: Saiba como usar o PowerShell para gerenciar o Armazenamento de Arquivos do Azure.
+title: aaaHow toouse PowerShell toomanage armazenamento de arquivo do Azure | Microsoft Docs
+description: Saiba o armazenamento de arquivo do Azure toouse PowerShell toomanage.
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
-ms.openlocfilehash: 148375b156c4ae1aa4bf203d215f7ed607a71b89
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: 0e30e8796cf8bbf5f9249b26179d5e0f9077c8fe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-powershell-to-manage-azure-file-storage"></a>Como usar o PowerShell para gerenciar o Armazenamento de Arquivos do Azure
-Você pode usar o Azure PowerShell para criar e gerenciar compartilhamentos de arquivos.
+# <a name="how-toouse-powershell-toomanage-azure-file-storage"></a>Como toouse PowerShell toomanage armazenamento de arquivo do Azure
+Você pode usar o Azure PowerShell toocreate e gerenciar compartilhamentos de arquivos.
 
-## <a name="install-the-powershell-cmdlets-for-azure-storage"></a>Instalar os cmdlets do PowerShell para Armazenamento do Azure
-Para se preparar para usar o PowerShell, baixe e instale os cmdlets do PowerShell do Azure. Consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs) para obter o ponto e as instruções de instalação.
+## <a name="install-hello-powershell-cmdlets-for-azure-storage"></a>Instalar cmdlets do PowerShell Olá para o armazenamento do Azure
+tooprepare toouse PowerShell, baixe e instale Olá cmdlets do PowerShell do Azure. Consulte [como tooinstall e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para Olá instalar ponto e instruções de instalação.
 
 > [!NOTE]
-> É recomendável baixar e instalar ou atualizar para o módulo mais recente do PowerShell do Azure.
+> É recomendável baixar e instalar ou atualizar toohello último módulo do PowerShell do Azure.
 > 
 > 
 
-Abra uma janela do Azure PowerShell clicando em **Iniciar** e digitando **Windows PowerShell**. A janela do PowerShell carregará o módulo do Azure PowerShell para você.
+Abra uma janela do Azure PowerShell clicando em **Iniciar** e digitando **Windows PowerShell**. janela do PowerShell Olá carrega o módulo do Powershell do Azure Olá para você.
 
 ## <a name="create-a-context-for-your-storage-account-and-key"></a>Criar um contexto para sua conta e chave de armazenamento
-Crie o contexto da conta de armazenamento. O contexto encapsula a conta de armazenamento e a chave da conta. Para obter instruções sobre como copiar a chave da conta no [portal do Azure](https://portal.azure.com), veja [Exibir e copiar chaves de acesso de armazenamento](storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Crie o contexto de conta de armazenamento hello. contexto de saudação encapsula a chave de nome e uma conta de conta de armazenamento do hello. Para obter instruções sobre como copiar a chave da conta de saudação [portal do Azure](https://portal.azure.com), consulte [exibir e copiar chaves de acesso de armazenamento](storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
-Substitua `storage-account-name` e `storage-account-key` pelo nome e chave da sua conta de armazenamento no exemplo a seguir.
+Substituir `storage-account-name` e `storage-account-key` com o nome da conta de armazenamento e a chave no exemplo a seguir de saudação.
 
 ```powershell
 # create a context for account and key
@@ -44,7 +44,7 @@ $ctx=New-AzureStorageContext storage-account-name storage-account-key
 ```
 
 ## <a name="create-a-new-file-share"></a>Criar um novo compartilhamento de arquivo
-Crie o novo compartilhamento, denominado `logs`.
+Criar novo compartilhamento hello, denominado `logs`.
 
 ```powershell
 # create a new share
@@ -54,44 +54,44 @@ $s = New-AzureStorageShare logs -Context $ctx
 Agora você tem um compartilhamento de arquivo no armazenamento de arquivos. Em seguida, adicionaremos um diretório e um arquivo.
 
 > [!IMPORTANT]
-> O nome do seu compartilhamento de arquivo deve estar em minúsculas. Para obter detalhes completos sobre como nomear arquivos e compartilhamentos de arquivos, confira [Nomenclatura e referência de compartilhamentos, diretórios, arquivos e metadados](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+> nome de saudação do seu compartilhamento de arquivo deve ser todas minúscula. Para obter detalhes completos sobre como nomear arquivos e compartilhamentos de arquivos, confira [Nomenclatura e referência de compartilhamentos, diretórios, arquivos e metadados](https://msdn.microsoft.com/library/azure/dn167011.aspx).
 > 
 > 
 
-## <a name="create-a-directory-in-the-file-share"></a>Criar um diretório no compartilhamento de arquivos
-Crie um diretório no compartilhamento. No exemplo a seguir, o diretório é denominado `CustomLogs`:
+## <a name="create-a-directory-in-hello-file-share"></a>Criar um diretório no compartilhamento de arquivo hello
+Crie um diretório no compartilhamento de saudação. Olá exemplo a seguir, o diretório de saudação é denominado `CustomLogs`.
 
 ```powershell
-# create a directory in the share
+# create a directory in hello share
 New-AzureStorageDirectory -Share $s -Path CustomLogs
 ```
 
-## <a name="upload-a-local-file-to-the-directory"></a>Carregar um arquivo local no diretório
-Agora, carregue um arquivo local no diretório. O exemplo a seguir carrega um arquivo de `C:\temp\Log1.txt`. Edite o caminho do arquivo para que ele aponte para um arquivo válido em seu computador local.
+## <a name="upload-a-local-file-toohello-directory"></a>Carregar um diretório do arquivo local toohello
+Agora, carregar um diretório de toohello arquivo local. Olá, exemplo a seguir carrega um arquivo de `C:\temp\Log1.txt`. Edite o caminho do arquivo hello para que ele aponte tooa de arquivo válido na sua máquina local.
 
 ```powershell
-# upload a local file to the new directory
+# upload a local file toohello new directory
 Set-AzureStorageFileContent -Share $s -Source C:\temp\Log1.txt -Path CustomLogs
 ```
 
-## <a name="list-the-files-in-the-directory"></a>Listar os arquivos no diretório
-Para ver o arquivo no diretório, você pode listar todos os arquivos do diretório. Esse comando retorna os arquivos e subdiretórios (se houver) no diretório CustomLogs.
+## <a name="list-hello-files-in-hello-directory"></a>Listar Olá arquivos no diretório de saudação
+arquivo de saudação do toosee no diretório de saudação, você pode listar todos os arquivos do diretório hello. Esse comando retorna subdiretórios e arquivos de saudação (se houver) no diretório de CustomLogs hello.
 
 ```powershell
-# list files in the new directory
+# list files in hello new directory
 Get-AzureStorageFile -Share $s -Path CustomLogs | Get-AzureStorageFile
 ```
 
-Get-AzureStorageFile retorna uma lista de arquivos e diretórios para qualquer objeto de diretório que é passado. "Get-AzureStorageFile -Share $s" retorna uma lista de arquivos e diretórios no diretório raiz. Para obter uma lista de arquivos em um subdiretório, você precisa passar o subdiretório para Get-AzureStorageFile. É o que isso faz: a primeira parte do comando até o pipe retorna uma instância de diretório do subdiretório CustomLogs. Em seguida, ela é passada para Get-AzureStorageFile, que retorna os arquivos e diretórios em CustomLogs.
+Get-AzureStorageFile retorna uma lista de arquivos e diretórios para qualquer objeto de diretório que é passado. "Get-AzureStorageFile-compartilhar $s" retorna uma lista de arquivos e diretórios no diretório raiz de saudação. tooget uma lista de arquivos em um subdiretório, você tem toopass Olá subdiretório tooGet-AzureStorageFile. --Que é o que isso faz a primeira parte saudação do comando Olá o pipe toohello retorna uma instância de diretório do subdiretório Olá CustomLogs. Em seguida, que é passado para Get-AzureStorageFile, que retorna Olá arquivos e diretórios em CustomLogs.
 
 ## <a name="copy-files"></a>Copiar arquivos
-A partir da versão 0.9.7 do Azure PowerShell, você pode copiar um arquivo em outro arquivo, um arquivo em um blob ou um blob em um arquivo. A seguir, demonstramos como executar essas operações de cópia usando cmdlets do PowerShell.
+A partir da versão 0.9.7 do PowerShell do Azure, você pode copiar um arquivo de tooanother, um blob de tooa de arquivo ou um arquivo de tooa de blob. Abaixo, demonstraremos como tooperform esses copiam operações usando cmdlets do PowerShell.
 
 ```powershell
-# copy a file to the new directory
+# copy a file toohello new directory
 Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt -DestShareName destshare -DestFilePath destdir/hellocopy.txt -Context $srcCtx -DestContext $destCtx
 
-# copy a blob to a file directory
+# copy a blob tooa file directory
 Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 ```
 ## <a name="next-steps"></a>Próximas etapas

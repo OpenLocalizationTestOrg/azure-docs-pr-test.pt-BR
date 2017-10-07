@@ -1,6 +1,6 @@
 ---
-title: "Adicionar o gatilho de recorrência em aplicativos lógicos | Microsoft Docs"
-description: "Visão geral do gatilho de recorrência e como usá-lo com um aplicativo lógico do Azure."
+title: "gatilho de recorrência Olá aaaAdd em aplicativos lógicos | Microsoft Docs"
+description: "Visão geral de gatilho de recorrência Olá e como toouse com um aplicativo do Azure lógica."
 services: 
 documentationcenter: 
 author: jeffhollan
@@ -15,49 +15,49 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: fe558958c316c8dba42163e277ae01451f712e5a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e7c625c382a88a1e7cdfff4ddc0caf55727232bd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-recurrence-trigger"></a>Introdução ao gatilho de recorrência
-Usando o gatilho de recorrência, você pode criar fluxos de trabalho poderosos na nuvem.
+# <a name="get-started-with-hello-recurrence-trigger"></a>Introdução ao gatilho de recorrência Olá
+Usando o gatilho de recorrência hello, você pode criar fluxos de trabalho poderosos na nuvem hello.
 
 Por exemplo, você pode:
 
-* Agendar um fluxo de trabalho para executar um procedimento armazenado SQL todos os dias.
-* Enviar por email um resumo de todos os tweets da semana passada sobre uma determinada hashtag.
+* Agende um fluxo de trabalho toorun um procedimento armazenado SQL diariamente.
+* Um resumo de todos os tweets dentro Olá última semana sobre um determinado hashtag de email.
 
-Para começar a usar o gatilho de recorrência em um aplicativo lógico, confira [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+tooget iniciado usando o gatilho de recorrência de saudação em um aplicativo de lógica, consulte [criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="use-a-recurrence-trigger"></a>Usar um gatilho de recorrência
-Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](connectors-overview.md).
+Um gatilho é um evento que pode ser usado toostart Olá fluxo de trabalho é definido em um aplicativo lógico. [Saiba mais sobre gatilhos](connectors-overview.md).
 
-Veja uma sequência de exemplo de como configurar um gatilho de recorrência em um aplicativo lógico:
+Aqui está uma sequência de exemplo de como tooset backup uma recorrência disparar em um aplicativo de lógica:
 
-1. Adicione o gatilho **Recorrência** como a primeira etapa em um aplicativo lógico.
-2. Preencha os parâmetros para o intervalo de recorrência.
+1. Adicionar Olá **recorrência** disparador como primeira etapa Olá em um aplicativo de lógica.
+2. Preencha os parâmetros Olá Olá intervalo de recorrência.
 
-O aplicativo lógico iniciará uma execução depois de cada intervalo de tempo.
+Olá lógica aplicativo agora inicia uma execução depois de cada intervalo de tempo.
 
 ![Gatilho HTTP](./media/connectors-native-recurrence/using-trigger.png)
 
 ## <a name="trigger-details"></a>Detalhes do gatilho
-O gatilho de recorrência tem as propriedades a seguir que você pode configurar.
+gatilho de recorrência Olá tem Olá propriedades que você pode configurar a seguir.
 
 Ele dispara um aplicativo lógico depois de um intervalo de tempo especificado.
 Um * significa que é um campo obrigatório.
 
 | Nome de exibição | Nome da propriedade | Descrição |
 | --- | --- | --- |
-| Frequência* |frequência |A unidade de tempo: `Second`, `Minute`, `Hour`, `Day` ou `Year`. |
-| Intervalo* |intervalo |O intervalo da frequência determinada para a recorrência. |
+| Frequência* |frequência |unidade de saudação de tempo: `Second`, `Minute`, `Hour`, `Day`, ou `Year`. |
+| Intervalo* |intervalo |intervalo de saudação do hello atribuído a frequência de recorrência de saudação. |
 | Fuso horário |timeZone |Se uma hora de início for fornecida sem uma diferença UTC, este fuso horário será usado. |
-| Hora de início |startTime |A hora de início no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). |
+| Hora de início |startTime |hora de início de saudação em [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). |
 
 <br>
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora, experimente a plataforma e [crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
+Agora, experimente a plataforma hello e [criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Você pode explorar Olá outros conectores disponíveis em aplicativos lógicos examinando nosso [lista APIs](apis-list.md).
 

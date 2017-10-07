@@ -1,6 +1,6 @@
 ---
-title: Como redimensionar uma VM do Linux com a CLI 1.0 do Azure | Microsoft Docs
-description: "Como escalar ou reduzir verticalmente uma máquina virtual Linux, alterando o tamanho da VM."
+title: aaaHow tooresize uma VM do Linux com hello 1.0 da CLI do Azure | Microsoft Docs
+description: "Como a escala para baixo de uma máquina virtual Linux, alterando ou tooscale backup Olá tamanho da VM."
 services: virtual-machines-linux
 documentationcenter: na
 author: mikewasson
@@ -16,38 +16,38 @@ ms.workload: infrastructure-services
 ms.date: 05/16/2016
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 72f5a3cd6463befd5108040ed166984281bfc5f0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 43dd955dc2f2dd9d1b2da07ecbfbf2459bcaa4d2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="resize-a-linux-vm-with-azure-cli-10"></a>Redimensionar uma VM Linux com a CLI do Azure 1.0
 
 ## <a name="overview"></a>Visão geral
 
-Depois de provisionar uma VM (máquina virtual), é possível escalar ou reduzir verticalmente a VM alterando o [tamanho da VM][vm-sizes]. Em alguns casos, você deverá desalocar a VM primeiro. Isso pode acontecer se o novo tamanho não estiver disponível no cluster de hardware que hospeda a VM.
+Depois de provisionar uma máquina virtual (VM), você pode expandir ou reduzir Olá VM alterando Olá [tamanho da VM][vm-sizes]. Em alguns casos, você deverá desalocar Olá VM pela primeira vez. Isso pode acontecer se o novo tamanho de saudação não está disponível no cluster de hardware de saudação que está hospedando o hello VM.
 
-Este artigo mostra como redimensionar uma VM Linux usando a [CLI do Azure][azure-cli].
+Este artigo mostra como tooresize uma VM do Linux usando Olá [CLI do Azure][azure-cli].
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
-Você pode concluir a tarefa usando uma das seguintes versões da CLI:
+## <a name="cli-versions-toocomplete-hello-task"></a>Tarefa de saudação do CLI versões toocomplete
+Você pode concluir a tarefa hello usando uma saudação versões da CLI a seguir:
 
-- [CLI 1.0 do Azure](#resize-a-linux-vm) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos (este artigo)
-- [CLI 2.0 do Azure](change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – nossa última geração de CLI para o modelo de implantação de gerenciamento de recursos
+- [1.0 de CLI do Azure](#resize-a-linux-vm) – nosso CLI para Olá clássico e o recurso de gerenciamento modelos de implantação (Este artigo)
+- [2.0 do CLI do Azure](change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) -nossa próxima geração CLI para o modelo de implantação do gerenciamento de recursos de saudação
 
 
 ## <a name="resize-a-linux-vm"></a>Redimensionar uma VM Linux
-Para redimensionar uma VM, execute as etapas a seguir.
+tooresize uma VM, execute Olá etapas a seguir.
 
-1. Execute o comando da CLI a seguir. Esse comando lista os tamanhos de VM que estão disponíveis no cluster do hardware onde a VM está hospedada.
+1. Execute Olá CLI comando a seguir. Esse comando lista os tamanhos de VM Olá que estão disponíveis no cluster de hardware Olá onde hello VM está hospedada.
    
     ```azurecli
     azure vm sizes -g myResourceGroup --vm-name myVM
     ```
-2. Se o tamanho desejado estiver listado, execute o comando a seguir para redimensionar a VM.
+2. Se Olá desejado tamanho estiver listado, execute Olá Olá tooresize de comando VM a seguir.
    
     ```azurecli
     azure vm set -g myResourceGroup --vm-size <new-vm-size> -n myVM  \
@@ -55,10 +55,10 @@ Para redimensionar uma VM, execute as etapas a seguir.
         --boot-diagnostics-storage-uri https://mystorageaccount.blob.core.windows.net/ 
     ```
    
-    A VM será reiniciada durante esse processo. Após a reinicialização, os discos do sistema operacional e de dados serão remapeados. Qualquer coisa no disco temporário será perdida.
+    Olá VM será reiniciado durante esse processo. Após a reinicialização de saudação, seu sistema operacional existente e os discos de dados serão remapeados. Tudo em disco temporário hello serão perdido.
    
-    O uso da opção `--enable-boot-diagnostics` habilita o [diagnóstico de inicialização][boot-diagnostics], para registrar erros relacionados à inicialização.
-3. Caso contrário, se o tamanho desejado não estiver listado, execute os comandos a seguir para desalocar a máquina virtual, redimensioná-la e, em seguida, reinicie a máquina virtual.
+    Saudação de uso `--enable-boot-diagnostics` opção habilita [diagnósticos de inicialização][boot-diagnostics], toolog qualquer toostartup de erros relacionados.
+3. Caso contrário, se Olá desejado tamanho não estiver listado, execute Olá toodeallocate Olá VM, redimensioná-la e, em seguida, reiniciar Olá VM de comandos a seguir.
    
     ```azurecli
     azure vm deallocate -g myResourceGroup myVM
@@ -69,7 +69,7 @@ Para redimensionar uma VM, execute as etapas a seguir.
     ```
    
    > [!WARNING]
-   > Desalocar a VM também libera os endereços IP dinâmicos atribuídos à VM. Os discos do sistema operacional e de dados não são afetados.
+   > Olá ao desalocar VM também libera os endereços IP dinâmicos atribuídos toohello VM. Olá SO e discos de dados não são afetados.
    > 
    > 
 

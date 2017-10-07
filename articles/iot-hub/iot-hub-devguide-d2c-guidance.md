@@ -1,6 +1,6 @@
 ---
-title: "Opções do dispositivo para a nuvem do Hub IoT do Azure| Microsoft Docs"
-description: "Guia do desenvolvedor ‑ diretrizes sobre quando usar mensagens do dispositivo para a nuvem, as propriedades relatadas ou upload do arquivo para comunicações da nuvem para o dispositivo."
+title: "Opções de aaaAzure IoT Hub de dispositivo para nuvem | Microsoft Docs"
+description: "Guia do desenvolvedor - orientações sobre quando as mensagens de dispositivo para nuvem toouse, propriedades relatadas ou arquivo carrega para comunicações de nuvem para dispositivo."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: elioda
-ms.openlocfilehash: a36283053939ccd53856a394cd9efb66285271ae
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2caefc4f59e16ad28b0d8cf4b3bb627b4cba803b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Diretrizes de comunicações do dispositivo para a nuvem
-Ao enviar informações do aplicativo do dispositivo para o back-end da solução, o Hub IoT expõe três opções:
+Ao enviar informações de saudação dispositivo aplicativo toohello solução back-end, o IoT Hub expõe três opções:
 
 * [Mensagens do dispositivo para a nuvem ][lnk-d2c], para telemetria de série de tempo e alertas.
-* [Propriedades relatadas][lnk-twins], para relatar informações de estado do dispositivo, como recursos disponíveis, condições e estado de fluxos de trabalho de longa duração. Por exemplo, configuração e atualizações de software.
-* [Carregar arquivos][lnk-fileupload], para arquivos de mídia e lotes grandes de telemetria carregados por dispositivos conectados de forma intermitente ou compactados para economizar largura de banda.
+* [Relatado propriedades] [ lnk-twins] para relatar informações de estado do dispositivo, como recursos disponíveis, condições ou estado de saudação de fluxos de trabalho de longa execução. Por exemplo, configuração e atualizações de software.
+* [Carregamentos de arquivos] [ lnk-fileupload] para mídia de arquivos e lotes grandes telemetria carregados pelos dispositivos conectados de maneira intermitente ou compactados toosave largura de banda.
 
-Aqui está uma comparação detalhada das várias opções de comunicação do dispositivo para a nuvem.
+Aqui está uma comparação detalhada das Olá várias opções de comunicação do dispositivo para a nuvem.
 
 |  | Mensagens do dispositivo para a nuvem | Propriedades reportadas | Carregamentos de arquivos |
 | ---- | ------- | ---------- | ---- |
-| Cenário | Série de tempo de telemetria e alertas. Por exemplo, os lotes de dados de sensor de 256 KB enviados a cada 5 minutos. | Recursos disponíveis e condições. Por exemplo, o modo atual de conectividade do dispositivo como celular ou WiFi. Sincronização dos fluxos de trabalho de longa duração, como atualizações de software e configuração. | Arquivos de mídia. Lotes grandes de telemetria (geralmente compactados). |
-| Armazenamento e recuperação | Armazenado temporariamente pelo Hub IoT, até sete dias. Somente leitura sequencial. | Armazenados pelo Hub IoT no dispositivo gêmeo. Recuperáveis usando a [linguagem de consulta do Hub IoT][lnk-query]. | Armazenados na conta de Armazenamento do Azure fornecida pelo usuário. |
-| Tamanho | Mensagens de até 256 KB. | O tamanho máximo relatado das propriedades é de 8 KB. | Tamanho máximo de arquivo com suporte pelo Armazenamento de Blobs do Azure. |
+| Cenário | Série de tempo de telemetria e alertas. Por exemplo, os lotes de dados de sensor de 256 KB enviados a cada 5 minutos. | Recursos disponíveis e condições. Por exemplo, Olá atual dispositivo modo de conectividade, como o celular ou Wi-Fi. Sincronização dos fluxos de trabalho de longa duração, como atualizações de software e configuração. | Arquivos de mídia. Lotes grandes de telemetria (geralmente compactados). |
+| Armazenamento e recuperação | Armazenados temporariamente pelo IoT Hub, backup too7 dias. Somente leitura sequencial. | Armazenados pelo IoT Hub em duas de dispositivo de saudação. Recuperáveis usando Olá [linguagem de consulta de IoT Hub][lnk-query]. | Armazenados na conta de Armazenamento do Azure fornecida pelo usuário. |
+| Tamanho | As mensagens de too256 KB. | O tamanho máximo relatado das propriedades é de 8 KB. | Tamanho máximo de arquivo com suporte pelo Armazenamento de Blobs do Azure. |
 | Frequência | Alta. Para saber mais, confira [Limites do Hub IoT][lnk-quotas]. | Média. Para saber mais, confira [Limites do Hub IoT][lnk-quotas]. | Baixa. Para saber mais, confira [Limites do Hub IoT][lnk-quotas]. |
-| Protocolo | Disponível em todos os protocolos. | Disponível atualmente somente ao usar MQTT. | Disponível ao usar qualquer protocolo, mas requer HTTP no dispositivo. |
+| Protocolo | Disponível em todos os protocolos. | Disponível atualmente somente ao usar MQTT. | Disponíveis ao usar qualquer protocolo, mas requer HTTP no dispositivo de saudação. |
 
-É possível que um aplicativo exija o envio de informações como uma série de tempo de telemetria ou alerta, e também a disponibilização no dispositivo gêmeo. Nesse cenário, você pode escolher uma das seguintes opções:
+É possível que um aplicativo requer tooboth enviar informações como uma série de tempo de telemetria ou alerta e também toomake disponível em duas de dispositivo de saudação. Nesse cenário, você pode escolher de saudação as opções a seguir:
 
-* O aplicativo do dispositivo envia uma mensagem de dispositivo para a nuvem e relata uma alteração de propriedade.
-* O back-end da solução pode armazenar as informações nas marcações do dispositivo gêmeo quando ele recebe a mensagem.
+* Olá dispositivo aplicativo envia uma mensagem de dispositivo para nuvem e relata uma alteração de propriedade.
+* back-end de solução Olá pode armazenar informações de Olá nas marcas do duas do hello dispositivo quando ele recebe a mensagem de saudação.
 
-Como as mensagens de dispositivo para a nuvem permitem uma taxa de transferência muito mais alta do que as atualizações do dispositivo gêmeo, às vezes é desejável evitar a atualização do dispositivo gêmeo para cada mensagem de dispositivo para a nuvem.
+Como mensagens de dispositivo para nuvem permitem uma maior taxa de transferência que atualizações do dispositivo duas, às vezes é desejável tooavoid atualização duas do hello dispositivo para todas as mensagens de dispositivo para nuvem.
 
 
 [lnk-twins]: iot-hub-devguide-device-twins.md

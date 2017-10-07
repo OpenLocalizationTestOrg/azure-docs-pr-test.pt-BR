@@ -1,6 +1,6 @@
 ---
-title: "Adicionar uma CDN a um Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Adicione uma rede de distribuição de conteúdo (CDN) para um serviço de aplicativo do Azure para armazenar em cache e entregar os arquivos estáticos de servidores perto de seus clientes em todo o mundo."
+title: "aaaAdd tooan um CDN do serviço de aplicativo do Azure | Microsoft Docs"
+description: "Adicionar um toocache de serviço de aplicativo do Azure Content Delivery Network (CDN) tooan e entregar seus arquivos estáticos de servidores clientes tooyour Fechar ao redor Olá, mundo."
 services: app-service\web
 author: syntaxc4
 ms.author: cfowler
@@ -10,17 +10,17 @@ ms.service: app-service-web
 manager: erikre
 ms.workload: web
 ms.custom: mvc
-ms.openlocfilehash: 257b75d01f3904661c1a188a2d53ffcb74f48f06
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 88b7fd884517279064472b804a6d1dc2921cbd24
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Como adicionar uma Rede de distribuição de conteúdo (CDN) em um Serviço de Aplicativo do Azure
+# <a name="add-a-content-delivery-network-cdn-tooan-azure-app-service"></a>Adicionar uma tooan de rede de fornecimento de conteúdo (CDN) do serviço de aplicativo do Azure
 
-[A Rede de distribuição de conteúdo (CDN) do Azure](../cdn/cdn-overview.md) armazena em cache conteúdo Web estático em locais estrategicamente posicionados para fornecer uma taxa de transferência máxima para a distribuição de conteúdo aos usuários. O CDN também reduz a carga do servidor no seu aplicativo web. Este tutorial mostra como adicionar o CDN do Azure para um [aplicativo web no serviço de aplicativo do Azure](app-service-web-overview.md). 
+[Rede de fornecimento de conteúdo do Azure (CDN)](../cdn/cdn-overview.md) armazena em cache o conteúdo estático da web em locais estrategicamente colocados tooprovide taxa de transferência máxima para entregar conteúdo toousers. Olá CDN também reduz a carga do servidor em seu aplicativo web. Este tutorial mostra como tooadd Azure CDN tooa [aplicativo web no serviço de aplicativo do Azure](app-service-web-overview.md). 
 
-Segue a home page do site de exemplo estático em HTML que você usará para trabalhar:
+Aqui está o hello home page do hello exemplo site HTML estático que você trabalhará com:
 
 ![Home page do aplicativo de exemplo](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page.png)
 
@@ -29,63 +29,63 @@ O que você aprenderá:
 > [!div class="checklist"]
 > * Criar um novo ponto de extremidade do CDN.
 > * Atualizar ativos em cache.
-> * Usar cadeias de caracteres de consulta para controlar versões armazenadas em cache.
-> * Usar um domínio personalizado para o ponto de extremidade do CDN.
+> * Usar consulta de cadeias de caracteres versões toocontrol armazenado em cache.
+> * Use um domínio personalizado para o ponto de extremidade CDN hello.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial:
+toocomplete este tutorial:
 
 - [Instalar o Git](https://git-scm.com/)
 - [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-the-web-app"></a>Criar o aplicativo Web
+## <a name="create-hello-web-app"></a>Criar aplicativo web de saudação
 
-Para criar o aplicativo Web com que você trabalhará, execute o [Início rápido HTML estático](app-service-web-get-started-html.md) na etapa **Navegar até o aplicativo**.
+aplicativo web do toocreate Olá que você trabalhará com hello siga [início rápido HTML estático](app-service-web-get-started-html.md) por meio de saudação **procurar toohello aplicativo** etapa.
 
 ### <a name="have-a-custom-domain-ready"></a>Tenha um domínio personalizado pronto
 
-Para concluir a etapa de domínio personalizado deste tutorial, você precisa possuir um domínio personalizado e ter acesso ao registro DNS do seu provedor de domínio (como GoDaddy). Por exemplo, para adicionar entradas DNS para `contoso.com` e `www.contoso.com`, você deve ter acesso para definir as configurações de DNS para o `contoso.com` domínio raiz.
+etapa de domínio personalizado Olá toocomplete deste tutorial, você precisa tooown um domínio personalizado e ter acessar tooyour o registro DNS para o seu provedor de domínio (como GoDaddy). Por exemplo, as entradas DNS tooadd para `contoso.com` e `www.contoso.com`, você deve ter acesso tooconfigure Olá as configurações de DNS para Olá `contoso.com` domínio raiz.
 
-Se você ainda não tiver um domínio de nome, considere concluir o [Tutorial de domínio do serviço de aplicativo](custom-dns-web-site-buydomains-web-app.md) para adquirir um domínio usando o portal do Azure. 
+Se você ainda não tiver um nome de domínio, considere a seguir Olá [tutorial de domínio do serviço de aplicativo](custom-dns-web-site-buydomains-web-app.md) toopurchase usando um domínio Olá portal do Azure. 
 
-## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
+## <a name="log-in-toohello-azure-portal"></a>Faça logon no toohello portal do Azure
 
-Abra um navegador e navegue até o [portal do Azure](https://portal.azure.com).
+Abra um navegador e navegue toohello [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-cdn-profile-and-endpoint"></a>Como criar um perfil do CDN e um ponto de extremidade
 
-No painel de navegação esquerdo, selecione **Serviços de aplicativos** e, em seguida, selecione o aplicativo que você criou no [Início rápido do HTML estático](app-service-web-get-started-html.md).
+No hello barra de navegação esquerda, selecione **serviços de aplicativos**e em seguida, selecione o aplicativo hello que você criou no hello [início rápido HTML estático](app-service-web-get-started-html.md).
 
-![Selecione o aplicativo de serviço de aplicativo no portal](media/app-service-web-tutorial-content-delivery-network/portal-select-app-services.png)
+![Selecione o aplicativo de serviço de aplicativo no portal de saudação](media/app-service-web-tutorial-content-delivery-network/portal-select-app-services.png)
 
-Na página **Serviço de aplicativo**, na seção **Configurações**, selecione **Rede > Configurar CDN do Azure para seu aplicativo**.
+Em Olá **do serviço de aplicativo** página Olá **configurações** seção, selecione **rede > configurar o Azure CDN para seu aplicativo**.
 
-![Selecione CDN no portal](media/app-service-web-tutorial-content-delivery-network/portal-select-cdn.png)
+![Selecione a CDN no portal de saudação](media/app-service-web-tutorial-content-delivery-network/portal-select-cdn.png)
 
-Na página da **Rede de distribuição de conteúdo do Azure**, forneça as configurações do **ponto de extremidade novo** conforme especificado na tabela.
+Em Olá **rede de fornecimento de conteúdo do Azure** , forneça Olá **novo ponto de extremidade** configurações conforme especificado na tabela de saudação.
 
-![Como criar perfil e o ponto de extremidade no portal](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint.png)
+![Criar perfil e o ponto de extremidade no portal de saudação](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint.png)
 
 | Configuração | Valor sugerido | Descrição |
 | ------- | --------------- | ----------- |
-| **Perfil do CDN** | myCDNProfile | Selecione **Criar novo** para criar um perfil de CDN. Um perfil do CDN é uma coleção de pontos de extremidade do CDN com o mesmo tipo de preços. |
-| **Tipo de preços** | Akamai Standard | O [tipo de preços](../cdn/cdn-overview.md#azure-cdn-features) especifica o provedor e os recursos disponíveis. Neste tutorial, estamos usando o Akamai padrão. |
-| **Nome do ponto de extremidade do CDN** | Qualquer nome que seja exclusivo no domínio azureedge.net | Acesse os recursos armazenados em cache no domínio  *\<endpointname >. azureedge.net*.
+| **Perfil do CDN** | myCDNProfile | Selecione **criar novo** toocreate perfil CDN. Perfil CDN é uma coleção de pontos de extremidade CDN com hello mesma camada de preços. |
+| **Tipo de preços** | Akamai Standard | Olá [preço](../cdn/cdn-overview.md#azure-cdn-features) Especifica o provedor de saudação e recursos disponíveis. Neste tutorial, estamos usando o Akamai padrão. |
+| **Nome do ponto de extremidade do CDN** | Qualquer nome que seja exclusivo no domínio de azureedge.net Olá | Acessar os recursos armazenados em cache no domínio Olá  *\<endpointname >. azureedge.net*.
 
 Selecione **Criar**.
 
-O Azure cria o perfil e o ponto de extremidade. O ponto de extremidade novo aparece na lista de **pontos de extremidade** na mesma página e, quando ele tiver provisionado, o status será **Executando**.
+O Azure cria o ponto de extremidade e perfil de saudação. novo ponto de extremidade de saudação aparece no hello **pontos de extremidade** lista Olá a mesma página, e quando ela é provisionada status Olá é **executando**.
 
 ![Ponto de extremidade novo na lista](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint-in-list.png)
 
-### <a name="test-the-cdn-endpoint"></a>Testar o ponto de extremidade CDN
+### <a name="test-hello-cdn-endpoint"></a>Saudação de teste ponto de extremidade CDN
 
 Se você selecionou o tipo de preços da Verizon, normalmente demora cerca de 90 minutos para a propagação de ponto de extremidade. Para Akamai, leva alguns minutos para ocorrer a propagação
 
-O aplicativo de exemplo possui um arquivo `index.html` e as pastas *css*, *img* e *js* que contêm outros ativos estáticos. Os caminhos de conteúdo para todos esses arquivos são os mesmos no ponto de extremidade do CDN. Por exemplo, as duas URLs a seguir acessam o arquivo *bootstrap.css* na pasta *css*:
+aplicativo de exemplo Hello tem um `index.html` arquivo e *css*, *img*, e *js* pastas que contêm outros ativos estáticos. Olá conteúdo de caminhos para todos esses arquivos são Olá mesmo ponto de extremidade de CDN hello. Por exemplo, ambos Olá seguintes URLs acessam Olá *bootstrap.css* arquivo hello *css* pasta:
 
 ```
 http://<appname>.azurewebsites.net/css/bootstrap.css
@@ -95,7 +95,7 @@ http://<appname>.azurewebsites.net/css/bootstrap.css
 http://<endpointname>.azureedge.net/css/bootstrap.css
 ```
 
-Navegue em um navegador até a URL abaixo:
+Navegue até um toohello de navegador a URL a seguir:
 
 ```
 http://<endpointname>.azureedge.net/index.html
@@ -103,36 +103,36 @@ http://<endpointname>.azureedge.net/index.html
 
 ![Home page do aplicativo de exemplo distribuídos a partir do CDN](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page-cdn.png)
 
- Consulte a mesma página que você executou anteriormente em um aplicativo Web do Azure. A CDN do Azure recuperou os ativos do aplicativo web de origem e está servindo-os do ponto de extremidade da CDN
+ Você verá Olá mesma página que você executou anteriormente em um aplicativo web do Azure. CDN do Azure recuperou ativos do aplicativo de web para a origem hello e está servindo-los do ponto de extremidade CDN Olá
 
-Para garantir que essa página está armazenada em cache no CDN, atualize a página. Duas solicitações para o mesmo ativo, às vezes, são necessárias para que o CDN armazene em cache o conteúdo solicitado.
+tooensure que esta página é armazenada em cache no hello CDN, página de atualização de saudação. Duas solicitações para hello mesmo ativo às vezes são necessárias para CDN toocache Olá Olá conteúdo solicitado.
 
 Para obter mais informações sobre como criar perfis do CDN do Azure e pontos de extremidade, confira [Introdução ao CDN do Azure](../cdn/cdn-create-new-endpoint.md).
 
-## <a name="purge-the-cdn"></a>Limpar o CDN
+## <a name="purge-hello-cdn"></a>Limpar Olá CDN
 
-O CDN atualiza periodicamente seus recursos do aplicativo web de origem com base na configuração de tempo de vida (TTL). A TTL padrão é de sete dias.
+Olá CDN atualiza periodicamente seus recursos do aplicativo de web de origem Olá com base na configuração do hello time-to-live (TTL). TTL padrão de saudação é de sete dias.
 
-Às vezes você precisará atualizar o CDN antes da expiração do TTL, por exemplo, quando você implanta o conteúdo atualizado para o aplicativo web. Para disparar uma atualização, você pode limpar manualmente os recursos do CDN. 
+Às vezes pode ser necessário toorefresh Olá CDN antes Olá expiração do tempo de vida – por exemplo, quando você implanta o aplicativo da web de toohello conteúdo atualizado. tootrigger uma atualização, você pode limpar manualmente recursos CDN hello. 
 
-Nesta seção do tutorial, você implanta uma alteração para o aplicativo web e limpa o CDN para disparar o CDN para que ele atualize seu cache.
+Nesta seção do tutorial hello, implantar um aplicativo da web toohello alteração e limpar Olá CDN tootrigger Olá CDN toorefresh seu cache.
 
-### <a name="deploy-a-change-to-the-web-app"></a>Implantar uma alteração no aplicativo web
+### <a name="deploy-a-change-toohello-web-app"></a>Implantar um aplicativo de web de toohello de alteração
 
-Abra o arquivo `index.html` e adicione "-V2" para o título H1, conforme mostrado no exemplo a seguir: 
+Olá abra `index.html` e adicione "-V2" toohello H1 título, conforme mostrado no exemplo a seguir de saudação: 
 
 ```
 <h1>Azure App Service - Sample Static HTML Site - V2</h1>
 ```
 
-Confirme as alterações para implantá-las no aplicativo web.
+Confirmar suas alterações e implantá-lo toohello web app.
 
 ```bash
 git commit -am "version 2"
 git push azure master
 ```
 
-Depois de concluir a implantação, navegue até a URL do aplicativo web e confira a alteração.
+Depois que a implantação for concluída, a URL de aplicativo de web toohello procurar e você verá Olá alterar.
 
 ```
 http://<appname>.azurewebsites.net/index.html
@@ -140,7 +140,7 @@ http://<appname>.azurewebsites.net/index.html
 
 ![V2 no título no aplicativo web](media/app-service-web-tutorial-content-delivery-network/v2-in-web-app-title.png)
 
-Navegue até a URL de ponto de extremidade do CDN da home page, você não visualizará a alteração porque a versão armazenada em cache no CDN ainda não expirou. 
+Procurar toohello URL de ponto de extremidade CDN para a home page do hello e você não vir Olá alterar porque a versão armazenada em cache Olá no hello CDN ainda não expirou. 
 
 ```
 http://<endpointname>.azureedge.net/index.html
@@ -148,35 +148,35 @@ http://<endpointname>.azureedge.net/index.html
 
 ![Nenhum V2 no título no CDN](media/app-service-web-tutorial-content-delivery-network/no-v2-in-cdn-title.png)
 
-### <a name="purge-the-cdn-in-the-portal"></a>Limpar o CDN no portal
+### <a name="purge-hello-cdn-in-hello-portal"></a>Limpar Olá CDN no portal de saudação
 
-Para disparar o CDN para atualizar sua versão armazenada em cache, limpe o CDN.
+tootrigger Olá CDN tooupdate sua versão armazenada em cache, limpe Olá CDN.
 
-Na navegação à esquerda do portal, selecione **Grupos de recursos** e, em seguida, selecione o grupo de recursos que você criou para seu aplicativo web (myResourceGroup).
+No hello portal de navegação esquerdo, selecione **grupos de recursos**e, em seguida, selecione o grupo de recursos de saudação que você criou para seu aplicativo web (myResourceGroup).
 
 ![Escolha o grupo de recursos](media/app-service-web-tutorial-content-delivery-network/portal-select-group.png)
 
-Na lista de recursos, selecione o ponto de extremidade do CDN.
+Na lista de saudação de recursos, selecione o ponto de extremidade CDN.
 
 ![Selecione o ponto de extremidade](media/app-service-web-tutorial-content-delivery-network/portal-select-endpoint.png)
 
-Na parte superior da página **Ponto de extremidade**, clique em **Limpar**.
+Na parte superior de saudação do hello **ponto de extremidade** , clique em **limpar**.
 
 ![Selecione Limpar](media/app-service-web-tutorial-content-delivery-network/portal-select-purge.png)
 
-Digite os caminhos de conteúdo que você deseja limpar. Você pode passar um caminho de arquivo completo para limpar um arquivo específico ou um segmento de caminho para limpar e atualizar o conteúdo de uma pasta. Como você alterou `index.html`, certifique-se de que seja um dos caminhos.
+Insira os caminhos de conteúdo Olá desejar toopurge. Você pode passar um toopurge de caminho de arquivo completo de um arquivo individual ou um toopurge de segmento de caminho e atualizar todo o conteúdo em uma pasta. Como você alterou `index.html`, certifique-se de que é um dos caminhos de saudação.
 
-Na parte inferior da página, selecione **Limpar**.
+Final Olá Olá página, selecione **limpar**.
 
 ![Limpar página](media/app-service-web-tutorial-content-delivery-network/app-service-web-purge-cdn.png)
 
-### <a name="verify-that-the-cdn-is-updated"></a>Verifique se o CDN está atualizado
+### <a name="verify-that-hello-cdn-is-updated"></a>Verifique se esse Olá que CDN é atualizada
 
-Aguarde até que a solicitação de limpeza conclua o processamento, normalmente demora alguns minutos. Para conferir o status atual, selecione o ícone de sino na parte superior da página. 
+Aguarde até que a solicitação de limpeza Olá termina de processar, normalmente de alguns minutos. toosee Olá o status atual, ícone de sino Olá select na parte superior de saudação da página de saudação. 
 
 ![Limpar notificação](media/app-service-web-tutorial-content-delivery-network/portal-purge-notification.png)
 
-Navegue até a URL de ponto de extremidade do CDN para `index.html`, agora você pode ver o V2 que você adicionou ao título da home page. Isso mostra que o cache do CDN foi atualizado.
+Procurar toohello URL de ponto de extremidade CDN para `index.html`, e agora você verá Olá V2 que você adicionou toohello título na home page do hello. Isso mostra que o cache CDN Olá foi atualizada.
 
 ```
 http://<endpointname>.azureedge.net/index.html
@@ -186,23 +186,23 @@ http://<endpointname>.azureedge.net/index.html
 
 Para obter mais informações, confira [Como limpar um ponto de extremidade do CDN do Azure](../cdn/cdn-purge-endpoint.md). 
 
-## <a name="use-query-strings-to-version-content"></a>Use cadeias de caracteres de consulta para o conteúdo da versão
+## <a name="use-query-strings-tooversion-content"></a>Usar o conteúdo de tooversion de cadeias de caracteres de consulta
 
-O CDN do Azure oferece as seguintes opções de comportamento do armazenamento em cache:
+Olá CDN do Azure oferece Olá cache comportamento as opções a seguir:
 
 * Ignorar as cadeias de caracteres de consulta
 * Ignorar o cache para cadeias de caracteres de consulta
 * Armazenar em cache todas as URLs exclusivas 
 
-A primeira delas é o padrão, o que significa que há apenas uma versão em cache de um ativo, independentemente da cadeia de caracteres de consulta na URL. 
+Olá primeiro deles é padrão hello, o que significa que há somente uma versão em cache de um ativo, independentemente da cadeia de caracteres de consulta de Olá Olá URL. 
 
-Nesta seção do tutorial, você deve alterar o comportamento do armazenamento em cache para armazenar em cache todas as URLs exclusivas.
+Nesta seção do tutorial hello, você alterar Olá cache comportamento toocache todas as URLs exclusivas.
 
-### <a name="change-the-cache-behavior"></a>Alterar o comportamento do armazenamento em cache
+### <a name="change-hello-cache-behavior"></a>Alterar o comportamento do cache Olá
 
-Na página do **ponto de extremidade do CDN** do portal do Azure, selecione **Cache**.
+No portal do Azure de saudação **ponto de extremidade CDN** página, selecione **Cache**.
 
-Selecione **Armazenar em cache todas as URLs exclusivas** na lista suspensa do **comportamento do armazenamento em cache da cadeia de caracteres de consulta**.
+Selecione **armazenar em Cache todas as URLs exclusivas** de saudação **comportamento do cache de cadeia de consulta** lista suspensa.
 
 Selecione **Salvar**.
 
@@ -210,24 +210,24 @@ Selecione **Salvar**.
 
 ### <a name="verify-that-unique-urls-are-cached-separately"></a>Verifique se as URLs exclusivas são armazenadas em cache separadamente
 
-Em um navegador, acesse a home page no ponto de extremidade do CDN, mas inclua uma cadeia de caracteres de consulta: 
+Em um navegador, navegue toohello home page no ponto de extremidade CDN hello, mas incluir uma cadeia de caracteres de consulta: 
 
 ```
 http://<endpointname>.azureedge.net/index.html?q=1
 ```
 
-O CDN retorna o conteúdo do aplicativo web atual, que inclui "V2" no título. 
+Olá CDN retorna Olá atual conteúdo da web app, que inclui "V2" no título da saudação. 
 
-Para garantir que essa página está armazenada em cache no CDN, atualize a página. 
+tooensure que esta página é armazenada em cache no hello CDN, página de atualização de saudação. 
 
-Abra `index.html` e altere "V2" para "V3" e implante a alteração. 
+Abra `index.html` e alterar "V2" muito "V3" e implantar a alteração de saudação. 
 
 ```bash
 git commit -am "version 3"
 git push azure master
 ```
 
-Em um navegador, acesse a URL de ponto de extremidade do CDN com uma cadeia de caracteres de consulta nova, como `q=2`. O CDN obtém o arquivo `index.html` atual e exibe "V3".  Mas se você navegar até o ponto de extremidade do CDN com a cadeia de caracteres de consulta `q=1`, confira "V2".
+Em um navegador, vá toohello URL de ponto de extremidade CDN com uma nova cadeia de caracteres de consulta, como `q=2`. Olá CDN obtém Olá atual `index.html` de arquivos e exibe "V3".  Porém, se você navegar toohello o ponto de extremidade CDN com hello `q=1` cadeia de caracteres, consulte "V2".
 
 ```
 http://<endpointname>.azureedge.net/index.html?q=2
@@ -244,49 +244,49 @@ http://<endpointname>.azureedge.net/index.html?q=1
 A saída mostra que cada cadeia de caracteres de consulta é tratada de maneira diferente:
 
 * p = 1 foi usada antes e, portanto, o conteúdo em cache é retornado (V2).
-* p = 2 é novo e, portanto, o conteúdo do aplicativo Web mais recente é recuperado e retornado (V3).
+* p = 2 é novo, portanto, conteúdo de aplicativo da web mais recente Olá é recuperado e retornado (V3).
 
 Para obter mais informações, confira [controle do comportamento do armazenamento em cache do CDN do Azure com cadeias de caracteres de consulta](../cdn/cdn-query-string.md).
 
-## <a name="map-a-custom-domain-to-a-cdn-endpoint"></a>Como mapear um domínio personalizado para um ponto de extremidade do CDN
+## <a name="map-a-custom-domain-tooa-cdn-endpoint"></a>Mapear um ponto de extremidade CDN do domínio personalizado tooa
 
-Você mapeará seu domínio personalizado com o ponto de extremidade do CDN criando um registro CNAME. Um Registro CNAME é um recurso do DNS que mapeia um domínio de origem a um domínio de destino. Por exemplo, você pode mapear `cdn.contoso.com` ou `static.contoso.com` para `contoso.azureedge.net`.
+Criando um registro CNAME, você vai mapear seu domínio personalizado de tooyour ponto de extremidade CDN. Um registro CNAME é um recurso DNS que mapeia um domínio de destino de tooa de domínio de origem. Por exemplo, você pode mapear `cdn.contoso.com` ou `static.contoso.com` muito`contoso.azureedge.net`.
 
-Se você não tiver um domínio personalizado, considere concluir o [Tutorial de domínio do serviço de aplicativo](custom-dns-web-site-buydomains-web-app.md) para adquirir um domínio usando o portal do Azure. 
+Se você não tiver um domínio personalizado, considere a seguir Olá [tutorial de domínio do serviço de aplicativo](custom-dns-web-site-buydomains-web-app.md) toopurchase usando um domínio Olá portal do Azure. 
 
-### <a name="find-the-hostname-to-use-with-the-cname"></a>Localize o nome do host a ser usado com o CNAME
+### <a name="find-hello-hostname-toouse-with-hello-cname"></a>Localizar Olá hostname toouse com hello CNAME
 
-Na página de **Ponto de extremidade** do portal do Azure, certifique-se de que a **Visão geral** esteja selecionada na navegação esquerda e, em seguida, selecione o botão **+ domínio personalizado**, na parte superior da página.
+No portal do Azure de saudação **ponto de extremidade** página, certifique-se de **visão geral** está selecionado na saudação à esquerda de navegação e, em seguida, selecione hello **+ domínio personalizado** botão na parte superior de saudação da página de saudação.
 
 ![Selecione Adicionar domínio personalizado](media/app-service-web-tutorial-content-delivery-network/portal-select-add-domain.png)
 
-Na página **adicionar um domínio personalizado**, você pode visualizar o nome de host do ponto de extremidade para usar na criação de um registro CNAME. O nome de host é derivado da sua URL de ponto de extremidade do CDN: **&lt;EndpointName>.azureedge.net**. 
+Em Olá **adicionar um domínio personalizado** página, você verá toouse de nome de host Olá ponto de extremidade na criação de um registro CNAME. nome de host de saudação é derivado da sua URL de ponto de extremidade CDN:  **&lt;EndpointName >. azureedge.net**. 
 
 ![Adicionar página de domínio](media/app-service-web-tutorial-content-delivery-network/portal-add-domain.png)
 
-### <a name="configure-the-cname-with-your-domain-registrar"></a>Como configurar o CNAME com seu registrador de domínio
+### <a name="configure-hello-cname-with-your-domain-registrar"></a>Configurar Olá CNAME com seu registrador de domínio
 
-Navegue até o site do registrador do domínio e localize a seção para criar registros DNS. Você pode encontrá-lo em uma seção como **Nome de Domínio**, **DNS** ou **Gerenciamento de Servidor de Nomes**.
+Navegue de site do registrador de domínio tooyour e localize a seção Olá para criar registros DNS. Você pode encontrá-lo em uma seção como **Nome de Domínio**, **DNS** ou **Gerenciamento de Servidor de Nomes**.
 
-Localize a seção de gerenciamento de CNAMEs. Talvez você precise acessar uma página de configurações avançadas e procurar as palavras CNAME, Alias ou Subdomínios.
+Localize seção Olá para gerenciar CNAMEs. Você pode ter a página de configurações avançadas de tooan toogo e procure palavras Olá CNAME, Alias ou subdomínios.
 
-Crie um registro CNAME que mapeia o subdomínio escolhido (por exemplo, **estático** ou **cdn**) para o **nome de host do ponto de extremidade** mostrado anteriormente no portal. 
+Criar um registro CNAME que mapeie o subdomínio escolhido (por exemplo, **estático** ou **cdn**) toohello **nome de host do ponto de extremidade** mostrado anteriormente no portal de saudação. 
 
-### <a name="enter-the-custom-domain-in-azure"></a>Digite o domínio personalizado no Azure
+### <a name="enter-hello-custom-domain-in-azure"></a>Digite o domínio personalizado Olá no Azure
 
-Retorne à página **Adicionar domínios personalizados** e insira seu domínio personalizado, incluindo o subdomínio, na caixa de diálogo. Por exemplo, insira: `cdn.contoso.com`.   
+Retornar toohello **adicionar um domínio personalizado** página e, em seguida, digite seu domínio personalizado, incluindo o subdomínio hello, na caixa de diálogo de saudação. Por exemplo, insira: `cdn.contoso.com`.   
    
-O Azure verificará se o registro do CNAME existe para o nome de domínio que você digitou. Se o CNAME estiver correto, seu domínio personalizado será validado.
+Azure verifica se o registro CNAME Olá existe para nome de domínio Olá que você inseriu. Se Olá CNAME estiver correto, seu domínio personalizado será validado.
 
-Observe que, em alguns casos, pode levar algum tempo para que o registro CNAME se propague para servidores de nomes na Internet. Se o domínio não for validado imediatamente, aguarde alguns minutos e tente novamente.
+Pode levar tempo para Olá CNAME toopropagate registro tooname servidores em Olá Internet. Se o domínio não for validado imediatamente, aguarde alguns minutos e tente novamente.
 
-### <a name="test-the-custom-domain"></a>Teste do domínio personalizado
+### <a name="test-hello-custom-domain"></a>Domínio personalizado de saudação de teste
 
-Em um navegador, navegue até o arquivo `index.html` usando o seu domínio personalizado (por exemplo, `cdn.contoso.com/index.html`) para verificar se o resultado é o mesmo de quando você acessa `<endpointname>azureedge.net/index.html` diretamente.
+Em um navegador, navegue toohello `index.html` arquivo usando seu domínio personalizado (por exemplo, `cdn.contoso.com/index.html`) tooverify é resultado de Olá Olá mesmo como quando você entrar diretamente muito`<endpointname>azureedge.net/index.html`.
 
 ![Home page do aplicativo de exemplo usando a URL do domínio personalizado](media/app-service-web-tutorial-content-delivery-network/home-page-custom-domain.png)
 
-Para obter mais informações, confira [Mapeamento do conteúdo do CDN do Azure para um domínio personalizado](../cdn/cdn-map-content-to-custom-domain.md).
+Para obter mais informações, consulte [domínio personalizado do mapa do Azure CDN tooa conteúdo](../cdn/cdn-map-content-to-custom-domain.md).
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
@@ -297,10 +297,10 @@ O que você aprendeu:
 > [!div class="checklist"]
 > * Criar um novo ponto de extremidade do CDN.
 > * Atualizar ativos em cache.
-> * Usar cadeias de caracteres de consulta para controlar versões armazenadas em cache.
-> * Usar um domínio personalizado para o ponto de extremidade do CDN.
+> * Usar consulta de cadeias de caracteres versões toocontrol armazenado em cache.
+> * Use um domínio personalizado para o ponto de extremidade CDN hello.
 
-Aprenda a otimizar o desempenho da CDN nos seguintes artigos:
+Saiba como toooptimize desempenho CDN Olá seguintes artigos:
 
 > [!div class="nextstepaction"]
 > [Melhorar o desempenho compactando os arquivos na CDN do Azure](../cdn/cdn-improve-performance.md)

@@ -1,5 +1,5 @@
 ---
-title: "Gerenciar as configurações de verificação em duas etapas | Microsoft Docs"
+title: "aaaManage as configurações de verificação em duas etapas | Microsoft Docs"
 description: "Gerencie como usar Autenticação Multifator do Azure incluindo alterar suas informações de contato ou configurar seus dispositivos."
 services: multi-factor-authentication
 keywords: "cliente do multifactor authentication, problema de autenticação, ID de correlação"
@@ -16,56 +16,56 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: kgremban
 ms.custom: end-user
-ms.openlocfilehash: f752fb19e4ff2f831d50104e9c7d5f42cc3486d9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2c974b08c584943f3c5a6b9bf16497d1706e8329
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Gerenciar as configurações de verificação em duas etapas
-Este artigo responde a perguntas sobre como atualizar as configurações de autenticação multifator ou de verificação em duas etapas. Se você estiver tendo problemas ao se conectar à sua conta, confira [Tendo problemas com a verificacão em duas etapas](multi-factor-authentication-end-user-troubleshoot.md) para a resolução de problemas.
+Este artigo responde às perguntas sobre como as configurações de tooupdate para a autenticação multifator ou de verificação em duas etapas. Se você estiver tendo problemas para entrar no tooyour conta, consulte muito[tendo problemas com a verificação em duas etapas](multi-factor-authentication-end-user-troubleshoot.md) para resolução de problemas.
 
-## <a name="where-to-find-the-settings-page"></a>Onde encontrar a página de configurações
+## <a name="where-toofind-hello-settings-page"></a>Onde toofind Olá página Configurações
 Dependendo de como a sua empresa usa a Autenticação Multifator do Azure, há alguns lugares onde você pode alterar as configurações, como o número de seu telefone.
 
-Se o seu administrador de TI envia uma URL específica ou etapas para gerenciar a verificação em duas etapas, siga as instruções. Caso contrário, as instruções a seguir devem funcionar para todos os outros. Se você seguir estas etapas, mas não vê as mesmas opções, isso significa que sua empresa ou escola personalizaram o próprio portal. Peça ao administrador o link para o portal de Autenticação Multifator do Azure.
+Se o seu administrador de TI enviado uma URL específica ou a verificação de duas etapas toomanage etapas, siga essas instruções. Caso contrário, Olá seguindo instruções deve funcionar para todos os outros. Se você seguir estas etapas, mas não vir Olá opções, que significa que sua empresa ou escola seu próprio portal personalizado. Peça ao administrador do portal de autenticação multifator do Azure Olá link tooyour.
 
-1. Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com)  
-2. Selecione o nome da conta no canto superior direito e selecione **perfil**.  
+1. Entrar muito[https://myapps.microsoft.com](https://myapps.microsoft.com)  
+2. Selecione o nome da conta em Olá superior direito e selecione **perfil**.  
 3. Escolha **Verificação de segurança adicional**.  
 
     ![Myapps](./media/multi-factor-authentication-end-user-manage/myapps1.png)
-4. A página de Verificação de segurança adicional carrega com suas configurações.
+4. página de verificação de segurança adicionais de saudação carrega com suas configurações.
 
     ![Prova](./media/multi-factor-authentication-end-user-manage/proofup.png)
 
-## <a name="i-want-to-change-my-phone-number-or-add-a-secondary-number"></a>Desejo alterar meu número de telefone ou adicionar um número secundário
-É importante configurar um número de telefone de autenticação secundário.  Como seu número de telefone principal e seu aplicativo móvel provavelmente estão no mesmo telefone, o número de telefone secundário é a única maneira de poder retornar à sua conta caso seu telefone seja roubado ou você o perca.
+## <a name="i-want-toochange-my-phone-number-or-add-a-secondary-number"></a>Eu quiser toochange meu número de telefone ou adicionar um número secundário
+É importante tooconfigure um número de telefone de autenticação secundária.  Porque o principal número de telefone e seu aplicativo móvel são provavelmente em Olá mesmo telefone, número de telefone secundário Olá é única forma de saudação será tooget capaz de volta para sua conta, se o seu telefone for perdido ou roubado.
 
 > [!NOTE]
-> Se você não tem acesso ao seu número de telefone principal e precisa de ajuda para entrar em sua conta, confira os tópicos de Ajuda em [Tendo problemas com a verificação em duas etapas](multi-factor-authentication-end-user-troubleshoot.md).  
+> Se você não tem o número de telefone principal do acesso tooyour e precisar de ajuda para obter tooyour conta, consulte os tópicos de ajuda na [tendo problemas com a verificacao](multi-factor-authentication-end-user-troubleshoot.md).  
 
-**Para alterar o número de telefone principal:**  
+**toochange número de telefone principal:**  
 
-1. Na página de Verificação de segurança adicional, marque a caixa de texto com seu número de telefone atual e edite com o seu novo número de telefone.  
+1. Na página de verificação de segurança adicional hello, marque a caixa de texto de saudação com seu número de telefone atual e editá-lo com o novo número de telefone.  
 2. Selecione **Salvar**.  
-3. Se este é o número que você usa para a opção de verificação preferencial, você precisa verificar o novo número antes de salvá-lo.  
+3. Se esse for o número de saudação que você usa para a opção de verificação preferencial, você tem novo número de saudação tooverify antes de salvá-lo.  
 
-**Para adicionar um número de telefone secundário:**  
+**tooadd um número de telefone secundário:**  
 
-1. Na página de Verificação de segurança adicional, marque a caixa ao lado de **Telefone de autenticação alternativo.**  
-2. Insira o número de telefone secundário na caixa de texto.  
+1. Na página de verificação de segurança adicional hello, caixa de seleção Olá Avançar muito**telefone de autenticação alternativo.**  
+2. Insira seu número de telefone secundário na caixa de texto de saudação.  
 3. Selecione **Salvar** e suas alterações são concluídas.  
 
 ## <a name="require-two-step-verification-again-on-a-device-youve-marked-as-trusted"></a>Exigir verificação em duas etapas novamente em um dispositivo que você marcou como confiável
 
-Dependendo das configurações de sua organização, uma caixa de seleção "Não pergunte novamente por **X** dias" pode ser exibida quando você executa a verificação em duas etapas em seu navegador. Se você marcar essa caixa de seleção e perder seu dispositivo ou achar que sua conta foi comprometida, restaure a verificação em duas etapas para todos os seus dispositivos. 
+Dependendo das configurações de sua organização, uma caixa de seleção "Não pergunte novamente por **X** dias" pode ser exibida quando você executa a verificação em duas etapas em seu navegador. Se essa caixa de seleção e, em seguida, perder seu dispositivo ou achar que a conta for comprometida, você deve restaurar tooall de verificação em duas etapas em seus dispositivos. 
 
-1. Na página Verificação de segurança adicional, selecione **Restaurar autenticação multifator em dispositivos anteriormente confiáveis**.
-2. Na próxima vez que você entrar em qualquer dispositivo, receberá uma solicitação para executar a verificação de duas etapas. 
+1. Na página de verificação de segurança adicional hello, selecione **restauração multi-factor authentication em dispositivos confiáveis**.
+2. Hello próxima vez que você entrar em qualquer dispositivo, você será solicitado tooperform verificacao. 
 
-## <a name="how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one"></a>Como limpar o Microsoft Authenticator de meu dispositivo antigo e movê-lo para um novo?
-Quando você desinstala o aplicativo do dispositivo ou reinicia o dispositivo, ele não remove a ativação no back-end. Para saber mais, veja [Microsoft Authenticator](microsoft-authenticator-app-how-to.md).
+## <a name="how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-tooa-new-one"></a>Como limpar Microsoft Authenticator do meu dispositivo antigo e mover tooa um novo?
+Quando você desinstala o aplicativo de saudação do seu dispositivo ou dispositivo de saudação de redefinição, não remove a ativação no back-end Olá Olá. Para saber mais, veja [Microsoft Authenticator](microsoft-authenticator-app-how-to.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Obter dicas de solução de problemas e ajuda em [Tendo problemas com a verificação em duas etapas](multi-factor-authentication-end-user-troubleshoot.md)

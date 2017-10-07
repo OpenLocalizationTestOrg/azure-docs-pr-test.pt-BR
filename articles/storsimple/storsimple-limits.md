@@ -1,5 +1,5 @@
 ---
-title: "Limites do sistema do StorSimple série 8000 | Microsoft Docs"
+title: limites de sistema aaaStorSimple 8000 series | Microsoft Docs
 description: "Descreve os limites do sistema e os tamanhos recomendados para componentes e conexões do StorSimple série 8000."
 services: storsimple
 documentationcenter: NA
@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e4f7bfd117696ddb25156e027e29c0d21f27804
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5f21862989f23f2fa4cf02c884cc0fc85c6cc2bc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>O que são limites do sistema do StorSimple série 8000?
 ## <a name="overview"></a>Visão geral
-O StorSimple fornece armazenamento escalonável e flexível para seu datacenter. No entanto, há algumas limitações que você deve ter em mente ao planejar, implantar e operar a solução StorSimple. A tabela a seguir descreve esses limites e fornece algumas recomendações para que você possa aproveitar ao máximo sua solução StorSimple.
+O StorSimple fornece armazenamento escalonável e flexível para seu datacenter. No entanto, há algumas limitações que você deve ter em mente ao planejar, implantar e operar a solução StorSimple. Olá tabela a seguir descreve esses limites e fornece algumas recomendações para que você possa obter hello mais fora da sua solução StorSimple.
 
 | Identificador de limite | Limite | Comentários |
 | --- | --- | --- |
@@ -31,7 +31,7 @@ O StorSimple fornece armazenamento escalonável e flexível para seu datacenter.
 | Número máximo de contêineres de volume |64 | |
 | Número máximo de volumes |255 | |
 | Número máximo de volumes afixados localmente |32 | |
-| Número máximo de agendas por modelo de largura de banda |168 |Uma agenda para cada hora, cada dia da semana (24x7). |
+| Número máximo de agendas por modelo de largura de banda |168 |Uma agenda para cada hora, todos os dias da semana hello (7 * 24). |
 | Tamanho máximo de um volume em camadas em dispositivos físicos |64 TB para 8100 e 8600 |8100 e 8600 são dispositivos físicos. |
 | Tamanho máximo de um volume em camadas em dispositivos virtuais no Azure |30 TB para 8010  <br></br> 64 TB para 8020 |8010 e 8020 são dispositivos virtuais no Azure que usam armazenamento Standard e Premium, respectivamente. |
 | Tamanho máximo de um volume localmente afixado em dispositivos físicos |8,5 TB para 8100 <br></br> 22,5 TB para 8600 |8100 e 8600 são dispositivos físicos. |
@@ -43,18 +43,18 @@ O StorSimple fornece armazenamento escalonável e flexível para seu datacenter.
 | Número máximo de agendas por política de backup |10 | |
 | Número máximo de instantâneos de qualquer tipo que podem ser retidos por volume |256 |Esse número inclui instantâneos locais e na nuvem. |
 | Número máximo de instantâneos que podem estar presentes em qualquer dispositivo |10.000 | |
-| Número máximo de volumes que podem ser processados paralelamente para backup, restauração e clonagem |16 |<ul><li>Se houver mais de 16 volumes, eles serão processados sequencialmente conforme os slots de processamento ficarem disponíveis.</li><li>Novos backups de um volume clonado ou restaurado em camadas não poderão ocorrer até que a operação seja finalizada. No entanto, para um volume local, há permissão para backups quando o volume estiver online.</li></ul> |
-| Tempo de recuperação de clonagem e restauração para volumes em camadas |Menos de 2 minutos |<ul><li>O volume é disponibilizado em até 2 minutos durante a operação de restauração ou clonagem, independentemente do tamanho do volume.</li><li>Inicialmente, o desempenho do volume pode ser mais lento do que o normal, pois a maioria dos dados e metadados ainda reside na nuvem. O desempenho pode aumentar à medida que os dados fluem da nuvem para o dispositivo StorSimple.</li><li>O tempo total para baixar metadados depende do tamanho do volume alocado. Os metadados são automaticamente colocados no dispositivo em segundo plano a uma taxa de 5 minutos por TB de dados de volume alocados. Essa taxa pode ser afetada pela largura de banda da Internet para a nuvem.</li><li>A operação de restauração ou clonagem será concluída quando todos os metadados estiverem no dispositivo.</li><li>As operações de backup não podem ser executadas até que a operação de restauração ou clonagem seja totalmente concluída. |
-| Tempo de recuperação de restauração para volumes localmente fixados |Menos de 2 minutos |<ul><li>O volume é disponibilizado em até 2 minutos durante a operação de restauração, independentemente do tamanho do volume.</li><li>Inicialmente, o desempenho do volume pode ser mais lento do que o normal, pois a maioria dos dados e metadados ainda reside na nuvem. O desempenho pode aumentar à medida que os dados fluem da nuvem para o dispositivo StorSimple.</li><li>O tempo total para baixar metadados depende do tamanho do volume alocado. Os metadados são automaticamente colocados no dispositivo em segundo plano a uma taxa de 5 minutos por TB de dados de volume alocados. Essa taxa pode ser afetada pela largura de banda da Internet para a nuvem.</li><li>Ao contrário de volumes em camadas, para volumes localmente afixados, os dados do volume também serão baixados localmente no dispositivo. A operação de restauração é concluída quando todos os dados de volume são colocados no dispositivo.</li><li>As operações de restauração podem ser longas. O tempo total para concluir a restauração dependerá do tamanho do volume local provisionado, da largura de banda da Internet e dos dados existentes no dispositivo. Operações de backup em volume localmente afixado são permitidas enquanto a operação de restauração está em andamento. |
-| Taxa de processamento de instantâneos de nuvem |15 minutos/TB |<ul><li>O tempo mínimo para preparar o instantâneo de nuvem para upload, de acordo com os TB dos dados do volume alocado no backup. </li><li> O tempo total do instantâneo de nuvem é calculado pela adição desse tempo ao tempo de upload do instantâneo, que é afetado pela largura de banda da Internet para a nuvem. |
-| Taxa de transferência máxima de leitura/gravação do cliente (quando servida da camada SSD)* |920/720 MB/s com uma única interface de rede de 10 GbE |Até 2 vezes com MPIO e duas interfaces de rede. |
-| Taxa de transferência máxima de leitura/gravação do cliente (quando servida da camada HDD)* |120/250 MB/s | |
-| Taxa de transferência máxima de leitura/gravação do cliente (quando originada da camada de nuvem)* para a Atualização 3 e posterior** |40/60 MB/s para volumes em camadas<br><br>60/80 MB/s para volumes em camadas com a opção de arquivamento selecionada durante a criação do volume |A taxa de transferência de leitura depende dos clientes que geram e mantêm profundidade suficiente de fila de E/S. <br><br>A velocidade obtida depende da velocidade da conta de armazenamento subjacente usada. |
+| Número máximo de volumes que podem ser processados paralelamente para backup, restauração e clonagem |16 |<ul><li>Se houver mais de 16 volumes, eles serão processados sequencialmente conforme os slots de processamento ficarem disponíveis.</li><li>Novos backups de clonado ou um volume em camadas restaurado não pode ocorrer até a conclusão da operação de saudação. No entanto, para um volume local, backups são permitidos depois que o volume hello está online.</li></ul> |
+| Tempo de recuperação de clonagem e restauração para volumes em camadas |Menos de 2 minutos |<ul><li>Olá volume é disponibilizado em 2 minutos da operação de restauração ou clonagem, independentemente do tamanho do volume hello.</li><li>desempenho do volume de saudação inicialmente pode ser mais lento do que o normal, pois a maioria dos dados hello e metadados ainda reside na nuvem de saudação. Como os fluxos de dados do dispositivo StorSimple do hello nuvem toohello pode aumentar o desempenho.</li><li>Olá tempo total toodownload metadados depende Olá tamanho de volume alocado. Metadados automaticamente são trazidos para o dispositivo de Olá no plano de fundo de saudação na taxa de saudação de 5 minutos por TB de dados de volume alocado. Essa taxa pode ser afetada pela nuvem de toohello de largura de banda de Internet.</li><li>Olá restauração ou operação de clonagem é concluída quando todos os metadados de saudação estão no dispositivo de saudação.</li><li>Operações de backup não podem ser executadas até que a restauração de saudação ou operação de clonagem esteja totalmente concluída. |
+| Tempo de recuperação de restauração para volumes localmente fixados |Menos de 2 minutos |<ul><li>Olá volume é disponibilizado em 2 minutos da operação de restauração hello, independentemente do tamanho do volume hello.</li><li>desempenho do volume de saudação inicialmente pode ser mais lento do que o normal, pois a maioria dos dados hello e metadados ainda reside na nuvem de saudação. Como os fluxos de dados do dispositivo StorSimple do hello nuvem toohello pode aumentar o desempenho.</li><li>Olá tempo total toodownload metadados depende Olá tamanho de volume alocado. Metadados automaticamente são trazidos para o dispositivo de Olá no plano de fundo de saudação na taxa de saudação de 5 minutos por TB de dados de volume alocado. Essa taxa pode ser afetada pela nuvem de toohello de largura de banda de Internet.</li><li>Ao contrário de volumes em camadas, para volumes localmente afixados, dados de volume de saudação também seja baixados localmente no dispositivo de saudação. operação de restauração de saudação é concluída quando todos os dados de volume Olá foi colocado toohello dispositivo.</li><li>operações de restauração Olá podem ser longos. restauração de Olá Olá tempo total toocomplete vai depender de tamanho de saudação de volume local Olá provisionado, largura de banda de Internet e os dados existentes no dispositivo Olá Olá. Operações de backup no volume localmente afixada de saudação são permitidas enquanto a operação de restauração hello está em andamento. |
+| Taxa de processamento de instantâneos de nuvem |15 minutos/TB |<ul><li>Tempo mínimo toomake Olá instantâneo em nuvem pronto para carregamento, por TB de dados de volume alocado no backup. </li><li> Hora do instantâneo de nuvem total é calculada adicionando o tempo de carregamento esse tempo toohello instantâneo, que é afetado por Olá toocloud de largura de banda de Internet. |
+| Produção de leitura/gravação do cliente máxima (quando servido pela camada SSD de saudação) * |920/720 MB/s com uma única interface de rede de 10 GbE |Backup too2x com MPIO e duas interfaces de rede. |
+| Produção de leitura/gravação do cliente máximo (quando servido pela camada HDD Olá) * |120/250 MB/s | |
+| Produção de leitura/gravação do cliente máxima (quando servido pela camada de nuvem Olá) * e posterior para atualização 3 * * |40/60 MB/s para volumes em camadas<br><br>60/80 MB/s para volumes em camadas com a opção de arquivamento selecionada durante a criação do volume |A taxa de transferência de leitura depende dos clientes que geram e mantêm profundidade suficiente de fila de E/S. <br><br>Velocidade obtida depende da velocidade de Olá Olá subjacente da conta de armazenamento usada. |
 
 &#42; A taxa de transferência máxima por tipo de E/S foi medida com cenários 100% de gravação e 100% de leitura. A taxa de transferência real pode ser menor e depende da combinação de E/S e das condições da rede.
 
-&#42;&#42; Os números de desempenho antes da Atualização 3 podem ser menores.
+&#42; &#42; Desempenho de números anterior tooUpdate 3 pode ser menor.
 
 ## <a name="next-steps"></a>Próximas etapas
-Analise os [requisitos de sistema do StorSimple](storsimple-system-requirements.md). 
+Saudação de revisão [requisitos do sistema StorSimple](storsimple-system-requirements.md). 
 

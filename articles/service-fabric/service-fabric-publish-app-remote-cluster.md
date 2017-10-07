@@ -1,6 +1,6 @@
 ---
-title: Publicar um aplicativo em um cluster remoto com o Visual Studio | Microsoft Docs
-description: Saiba mais sobre como publicar um aplicativo em um cluster do Service Fabric remoto usando o Visual Studio.
+title: aaaPublish um cluster remoto de tooa do aplicativo com o Visual Studio | Microsoft Docs
+description: "Saiba como toopublish uma malha de serviço remoto do aplicativo tooa de cluster usando o Visual Studio."
 services: service-fabric
 documentationcenter: na
 author: cawams
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/29/2016
 ms.author: cawa
-ms.openlocfilehash: c440c520d84fc503ff9e705555449e92555d4721
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d0f06f120cc7e22f3f8e73ce0970e1da5823e647
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-and-remove-applications-using-visual-studio"></a>Implantar e remover aplicativos usando o Visual Studio
 > [!div class="op_single_selector"]
@@ -30,82 +30,82 @@ ms.lasthandoff: 07/11/2017
 
 <br/>
 
-A extensão do Service Fabric do Azure para Visual Studio permite facilmente repetir e executar por script a publicação de um aplicativo em um cluster do Service Fabric.
+Olá extensão do Azure Service Fabric para Visual Studio fornece uma maneira fácil, repetíveis e programável toopublish um cluster de malha do serviço do aplicativo tooa.
 
-## <a name="the-artifacts-required-for-publishing"></a>Os artefatos necessários para publicação
+## <a name="hello-artifacts-required-for-publishing"></a>artefatos de saudação necessários para publicação
 ### <a name="deploy-fabricapplicationps1"></a>Deploy-FabricApplication.ps1
-Este é um script do PowerShell que usa um caminho de perfil de publicação como um parâmetro para a publicação de aplicativos do Service Fabric. Como esse script faz parte do seu aplicativo, fique à vontade para modificá-lo como achar melhor para ele.
+Este é um script do PowerShell que usa um caminho de perfil de publicação como um parâmetro para a publicação de aplicativos do Service Fabric. Como esse script faz parte do seu aplicativo, você está toomodify bem-vindo-lo conforme necessário para seu aplicativo.
 
 ### <a name="publish-profiles"></a>Perfis de publicação
-Uma pasta no projeto de aplicativo do Service Fabric chamada **PublishProfiles** contém arquivos XML que armazenam informações essenciais para a publicação de aplicativos, como:
+Uma pasta no projeto de aplicativo do Service Fabric Olá chamada **PublishProfiles** contém os arquivos XML que armazenam informações essenciais para publicar um aplicativo, como:
 
 * Parâmetros de conexão de cluster do Service Fabric
-* Caminho para um arquivo de parâmetros de aplicativo
+* Arquivo de parâmetro de aplicativo do caminho tooan
 * Configurações de atualização
 
-Por padrão, o aplicativo incluirá três perfis de publicação: Local.1Node.xml, Local.5Node.xml e Cloud.xml. Você pode adicionar mais perfis copiando e colando um dos arquivos padrão.
+Por padrão, o aplicativo incluirá três perfis de publicação: Local.1Node.xml, Local.5Node.xml e Cloud.xml. Você pode adicionar mais perfis copiando e colando um dos arquivos de padrão de saudação.
 
 ### <a name="application-parameter-files"></a>Arquivos de parâmetros de aplicativo
-Uma pasta no projeto de aplicativo do Service Fabric chamada **ApplicationParameters** contém arquivos XML com valores de parâmetro do manifesto do aplicativo especificados pelo usuário. Os arquivos de manifesto do aplicativo podem ser parametrizados, de modo que você possa usar valores diferentes para configurações de implantação. Para saber mais sobre a parametrização de aplicativo, confira [Gerenciar vários ambientes no Service Fabric](service-fabric-manage-multiple-environment-app-configuration.md).
+Uma pasta no projeto de aplicativo do Service Fabric Olá chamada **ApplicationParameters** contém arquivos XML para valores de parâmetro de manifesto do aplicativo especificado pelo usuário. Os arquivos de manifesto do aplicativo podem ser parametrizados, de modo que você possa usar valores diferentes para configurações de implantação. toolearn mais sobre a parametrização de seu aplicativo, consulte [gerenciar vários ambientes na malha do serviço](service-fabric-manage-multiple-environment-app-configuration.md).
 
 > [!NOTE]
-> Para serviços de ator, você deve compilar o projeto antes de tentar editar o arquivo em um editor ou por meio da caixa de diálogo de publicação. Isso ocorre porque parte dos arquivos de manifesto serão gerados durante a compilação.
+> Para serviços de ator, você deve compilar o projeto de saudação primeiro antes de tentar o arquivo de saudação tooedit em um editor ou por meio de saudação caixa de diálogo Publicar. Isso ocorre porque a parte dos arquivos de manifesto hello será gerado durante a compilação de saudação.
 
-## <a name="to-publish-an-application-using-the-publish-service-fabric-application-dialog-box"></a>Para publicar um aplicativo usando a caixa de diálogo Publicar Aplicativo do Service Fabric
-As etapas a seguir demonstram como publicar um aplicativo usando a caixa de diálogo **Publicar Aplicativo do Service Fabric** fornecida pelas Ferramentas do Service Fabric do Visual Studio.
+## <a name="toopublish-an-application-using-hello-publish-service-fabric-application-dialog-box"></a>toopublish um aplicativo usando a caixa de diálogo Publicar aplicativo do Service Fabric Olá
+Olá etapas a seguir demonstram como toopublish usando um aplicativo hello **publicar aplicativo do Service Fabric** caixa de diálogo fornecida pelo Olá ferramentas do Visual Studio Service Fabric.
 
-1. No menu de atalho do projeto Aplicativo do Service Fabric, escolha **Publicar...** para exibir a caixa de diálogo **Publicar Aplicativo do Service Fabric**.
+1. No menu de atalho de saudação do projeto de aplicativo do Service Fabric hello, escolha **publicar...** Olá tooview **publicar aplicativo do Service Fabric** caixa de diálogo.
    
-    ![A caixa de diálogo **Publicar Aplicativo do Service Fabric**][0]
+    ![Olá * * caixa de diálogo Publicar serviço malha aplicativo * *][0]
    
-    O arquivo selecionado na lista suspensa **Perfil de destino** é onde todas as configurações, exceto as **Versões do manifesto**, são salvas. Você pode reutilizar um perfil existente ou criar um novo escolhendo **<Gerenciar Perfis... >** na lista suspensa **Perfil de destino**. Quando você escolhe um perfil de publicação, seu conteúdo aparece nos campos correspondentes da caixa de diálogo. Para salvar suas alterações a qualquer momento, escolha o link **Salvar Perfil** .    
-2. Na seção **Ponto de extremidade da conexão** , especifique um ponto de extremidade de publicação local ou remoto de cluster do Service Fabric. Para adicionar ou alterar o ponto de extremidade de conexão, clique na lista suspensa **Ponto de Extremidade de Conexão** . A lista mostra os pontos de extremidade de conexão do cluster do Service Fabric disponíveis nos quais você pode publicar com base em suas assinaturas do Azure. Você deve se conectar ao Visual Studio se já não estiver.
+    arquivo Hello selecionado no hello **perfil de destino** caixa de listagem suspensa é o local onde todas as configurações de hello, exceto **manifesto versões**, são salvas. Você pode reutilizar um perfil existente ou crie um novo escolhendo **<... para gerenciar perfis >** em Olá **perfil de destino** caixa de listagem suspensa. Quando você escolhe um perfil de publicação, seu conteúdo aparece nos campos correspondentes de Olá Olá da caixa de diálogo. toosave as alterações a qualquer momento, escolha Olá **Salvar perfil** link.    
+2. Em Olá **ponto de extremidade de Conexão** seção, especifique o ponto de extremidade de um cluster local ou remota do Service Fabric publicação. tooadd ou alterar Olá ponto de extremidade de conexão, clique em Olá **ponto de extremidade de Conexão** lista suspensa. lista de saudação mostra Olá disponíveis do Service Fabric cluster conexão pontos de extremidade toowhich que você pode publicar com base em sua assinatura do Azure (s). Observe que se você não ainda tiver entrado no tooVisual Studio, você será solicitado toodo assim.
    
-    Use a caixa de diálogo de seleção de cluster para escolher o conjunto de assinaturas e os clusters disponíveis.
+    Use toochoose de caixa de diálogo Olá cluster seleção de conjunto de saudação de assinaturas disponíveis e os clusters.
    
-    ![A caixa de diálogo **Selecionar Cluster do Service Fabric**][1]
+    ![Olá * * caixa de diálogo Selecionar serviço malha Cluster * *][1]
    
    > [!NOTE]
-   > Se você deseja publicar em um ponto de extremidade arbitrário (como um cluster de terceiros), confira a seção **Publicando em um ponto de extremidade de cluster arbitrário** abaixo.
+   > Se você quiser toopublish tooan arbitrário ponto de extremidade (por exemplo, um cluster de terceiros), consulte Olá **publicação ponto de extremidade de cluster arbitrário tooan** seção abaixo.
    > 
    > 
    
-    Depois de escolher um ponto de extremidade, o Visual Studio valida a conexão com o cluster do Service Fabric selecionado. Se o cluster não for seguro, o Visual Studio poderá conectar-se a ele imediatamente. No entanto, se o cluster estiver protegido, será necessário instalar um certificado em seu computador local antes de continuar. Confira [Como configurar conexões seguras](service-fabric-visualstudio-configure-secure-connections.md) para saber mais. Ao terminar, escolha o botão **OK** . O cluster selecionado aparece na caixa de diálogo **Publicar Aplicativo do Service Fabric** .
-3. Na caixa de listagem suspensa **Arquivo de Parâmetros do Aplicativo** , navegue até um arquivo de parâmetros do aplicativo. Um arquivo de parâmetros do aplicativo contém valores especificados pelo usuário para os parâmetros no arquivo de manifesto do aplicativo. Para adicionar ou alterar um parâmetro, escolha o botão **Editar** . Insira ou altere o valor do parâmetro na grade **Parâmetros** . Quando tiver terminado, escolha o botão **Salvar** .
+    Depois que você escolher um ponto de extremidade, o Visual Studio valida cluster do Service Fabric do hello conexão toohello selecionado. Se o cluster de saudação não é seguro, Visual Studio pode se conectar tooit imediatamente. No entanto, se o cluster de saudação é segura, você precisará tooinstall um certificado no computador local antes de continuar. Consulte [como tooconfigure proteger conexões](service-fabric-visualstudio-configure-secure-connections.md) para obter mais informações. Quando terminar, escolha Olá **Okey** botão. cluster selecionado Olá aparece no hello **publicar aplicativo do Service Fabric** caixa de diálogo.
+3. Em Olá **arquivo de parâmetro de aplicativo** lista suspensa caixa, navegue até o arquivo de parâmetro de aplicativo tooan. Um arquivo de parâmetro de aplicativo contém os valores especificados pelo usuário para os parâmetros no arquivo de manifesto de aplicativo hello. tooadd ou alterar um parâmetro, escolha Olá **editar** botão. Insira ou altere o valor do parâmetro hello em Olá **parâmetros** grade. Quando terminar, escolha Olá **salvar** botão.
    
-    ![A caixa de diálogo **Editar Parâmetros**][2]
-4. Use a caixa de seleção **Atualizar o Aplicativo** para especificar se esta ação de publicação é uma atualização. Ações de publicação de atualização são diferentes das ações de publicação normais. Confira [Atualização de Aplicativo do Service Fabric](service-fabric-application-upgrade.md) para obter uma lista das diferenças. Para definir as configurações de atualização, escolha o link **Definir Configurações de Atualização** . O editor de parâmetros de atualização é exibido. Confira [Configurar a atualização de um aplicativo do Service Fabric](service-fabric-visualstudio-configure-upgrade.md) para saber mais sobre os parâmetros de atualização.
-5. Escolha o botão **Versões do Manifesto...** para exibir a caixa de diálogo **Editar Versões**. Você precisa atualizar as versões do aplicativo e do serviço para que uma atualização ocorra. Confira o [Tutorial de atualização do aplicativo Service Fabric](service-fabric-application-upgrade-tutorial.md) para saber como as versões do aplicativo e do manifesto do serviço afetam um processo de atualização.
+    ![Olá * * caixa de diálogo Editar parâmetros * *][2]
+4. Saudação de uso **atualização Olá aplicativo** toospecify da caixa de seleção se esta ação de publicação é uma atualização. Ações de publicação de atualização são diferentes das ações de publicação normais. Confira [Atualização de Aplicativo do Service Fabric](service-fabric-application-upgrade.md) para obter uma lista das diferenças. configurações de atualização tooconfigure, escolha Olá **configurar configurações de atualização de** link. editor de parâmetro de atualização de saudação aparece. Consulte [configurar a atualização de um aplicativo do Service Fabric Olá](service-fabric-visualstudio-configure-upgrade.md) toolearn mais sobre os parâmetros de atualização.
+5. Escolha Olá **versões de manifesto...** saudação do botão tooview **editar versões** caixa de diálogo. Você precisará tooupdate aplicativo e as versões de serviço para um local de atualização tootake. Consulte [tutorial do aplicativo de atualização do Service Fabric](service-fabric-application-upgrade-tutorial.md) toolearn como aplicativo e versões de manifesto do serviço afetam um processo de atualização.
    
-    ![A caixa de diálogo **Editar Versões**][3]
+    ![Olá * * caixa de diálogo Editar versões * *][3]
    
-    Se o aplicativo e as versões de serviço usarem o controle de versão semântico, por exemplo, 1.0.0, ou valores numéricos no formato 1.0.0.0, selecione a opção **Atualizar automaticamente as versões do aplicativo e do serviço** . Quando você escolhe essa opção, os números de versão do serviço e do aplicativo são atualizados automaticamente sempre que um código, uma configuração ou a versão do pacote de dados é atualizado. Se você preferir editar as versões manualmente, desmarque a caixa de seleção para desativar esse recurso.
+    Se o aplicativo hello e versões de serviço usam controle de versão semântico como 1.0.0 ou valores numéricos no formato de saudação do 1.0.0.0, selecione Olá **atualizar automaticamente o aplicativo e as versões de serviço** opção. Quando você escolher essa opção, o serviço de saudação e números de versão do aplicativo são atualizados automaticamente sempre que um código, configuração ou versão do pacote de dados é atualizado. Se você preferir versões de saudação tooedit manualmente, desmarque Olá caixa de seleção toodisable esse recurso.
    
    > [!NOTE]
-   > Para que todas as entradas do pacote apareçam em um projeto de ator, primeiro compile o projeto a fim de gerar as entradas nos arquivos de Manifesto do Serviço.
+   > Para todos os tooappear de entradas de pacote para um projeto de ator, primeiro crie o hello projeto toogenerate entradas Olá nos arquivos de manifesto do serviço de saudação.
    > 
    > 
-6. Quando você terminar de especificar todas as configurações necessárias, escolha o botão **Publicar** para publicar seu aplicativo no cluster do Service Fabric selecionado. As configurações especificadas por você são aplicadas ao processo de publicação.
+6. Quando você terminar especificar todas as configurações necessárias do hello, escolha Olá **publicar** botão toopublish seu toohello de aplicativo selecionado cluster do Service Fabric. Olá configurações que você especificou são aplicadas toohello o processo de publicação.
 
-## <a name="publish-to-an-arbitrary-cluster-endpoint-including-party-clusters"></a>Publicar em um ponto de extremidade de cluster arbitrário (incluindo clusters de terceiros)
-A experiência de publicação do Visual Studio é otimizada para publicação em clusters remotos associados a uma de suas assinaturas do Azure. No entanto, é possível publicar em pontos de extremidade arbitrários (como clusters de parte do Service Fabric) editando diretamente o XML do perfil de publicação. Como descrito acima, três perfis de publicação são fornecidos por padrão, **Local.1Node.xml**, **Local.5Node.xml** e **Cloud.xml**, mas você pode criar perfis adicionais para ambientes diferentes. Por exemplo, você pode querer criar um perfil de publicação em clusters de terceiros, talvez chamado **Party.xml**.
+## <a name="publish-tooan-arbitrary-cluster-endpoint-including-party-clusters"></a>Publicar o ponto de extremidade do cluster arbitrário tooan (incluindo clusters de terceiros)
+Olá experiência de publicação do Visual Studio é otimizado para a publicação de clusters tooremote associados a uma de suas assinaturas do Azure. No entanto, é toopublish possíveis pontos de extremidade de tooarbitrary (como clusters de parte do Service Fabric) por diretamente editando Olá publicar perfil XML. Conforme descrito acima, três perfis de publicação são fornecidos por padrão –**Local.1Node.xml**, **Local.5Node.xml**, e **Cloud.xml**– mas toocreate boas-vinda perfis adicionais para ambientes diferentes. Por exemplo, você pode querer toocreate um perfil de publicação tooparty clusters, talvez denominados **Party.xml**.
 
-Se você está se conectando a um cluster não seguro, tudo de que precisa é o ponto de extremidade de conexão do cluster, assim como `partycluster1.eastus.cloudapp.azure.com:19000`. Nesse caso, o ponto de extremidade de conexão no perfil de publicação se assemelharia a este:
+Se você estiver se conectando tooan não segura de cluster, tudo que é necessário é a extremidade de conexão do cluster Olá, como `partycluster1.eastus.cloudapp.azure.com:19000`. Nesse caso, ponto de extremidade de conexão de saudação em Olá publicar perfil seria semelhante a esta:
 
 ```XML
 <ClusterConnectionParameters ConnectionEndpoint="partycluster1.eastus.cloudapp.azure.com:19000" />
 ```
 
-  Se você estiver se conectando a um cluster protegido, precisará também fornecer os detalhes do certificado de cliente do repositório local para ser usado na autenticação. Para obter mais detalhes, confira [Configurar conexões seguras para um cluster do Service Fabric](service-fabric-visualstudio-configure-secure-connections.md).
+  Se você estiver se conectando cluster protegido tooa, você também precisará tooprovide detalhes de saudação do certificado de cliente de saudação do hello repositório local toobe usado para autenticação. Para obter mais detalhes, consulte [cluster do Service Fabric do Configurando conexões seguras tooa](service-fabric-visualstudio-configure-secure-connections.md).
 
-  Depois de configurar o seu perfil de publicação, você pode referenciá-lo na caixa de diálogo de publicação, conforme mostrado abaixo.
+  Depois de configurar seu perfil de publicação, você pode referenciá-lo no hello caixa de diálogo Publicar, conforme mostrado abaixo.
 
   ![Novo perfil de publicação na caixa de diálogo de publicação][4]
 
-  Observe que, nesse caso, o novo perfil de publicação aponta para um dos arquivos de parâmetro do aplicativo padrão. Isso é ideal se você deseja publicar a mesma configuração de aplicativo em vários ambientes. Por outro lado, quando você deseja ter configurações diferentes para cada ambiente que quiser publicar, faz sentido criar um arquivo de parâmetros de aplicativo correspondente.
+  Observe que nesse caso, Olá novo perfil de publicação pontos tooone saudação padrão parâmetro dos arquivos de aplicativo. Isso é apropriado se você quiser toopublish Olá mesmo número de tooa de configuração de aplicativo de ambientes. Por outro lado, em casos onde você deseja toohave a configurações diferentes para cada ambiente que você deseja toopublish para, faria sentido toocreate um arquivo de parâmetro correspondente do aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber como automatizar o processo de publicação em um ambiente de integração contínua, confira [Set up Service Fabric continuous integration](service-fabric-set-up-continuous-integration.md)(Configurar a integração contínua no Service Fabric).
+toolearn como o processo de publicação Olá tooautomate em um ambiente de integração contínua, consulte [configurar a integração contínua do Service Fabric](service-fabric-set-up-continuous-integration.md).
 
 [0]: ./media/service-fabric-publish-app-remote-cluster/PublishDialog.png
 [1]: ./media/service-fabric-publish-app-remote-cluster/SelectCluster.png

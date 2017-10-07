@@ -1,6 +1,6 @@
 ---
-title: "Gerenciamento de soluções de parceiros na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento fornece uma orientação de como a Central de Segurança do Azure permite que você monitore rapidamente o status de integridade de suas soluções de parceiro integradas com sua assinatura do Azure."
+title: "soluções de parceiros de aaaManaging na Central de segurança do Azure | Microsoft Docs"
+description: "Este documento orienta a como a Central de segurança do Azure permite que você monitor com um status de integridade de saudação rapidamente suas soluções de parceiros integrados com sua assinatura do Azure."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,57 +14,57 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2017
 ms.author: terrylan
-ms.openlocfilehash: 2ebb930e877c5027f4d7b0a316a7f5ebe84471b1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fc97aedf709b9044bfd3d4ecae0b58d5fa716bbb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitoring-partner-solutions-with-azure-security-center"></a>Monitoramento de soluções de parceiros com a Central de Segurança do Azure
-Este documento orienta sobre como monitorar o status de integridade de suas soluções de parceiro na Central de Segurança do Azure.
+Este documento o orienta como toomonitor Olá status de integridade de suas soluções de parceiros na Central de segurança do Azure.
 
 > [!NOTE]
-> Este documento apresenta o serviço usando uma implantação de exemplo. Este documento não é um guia passo a passo.
+> Este documento apresenta serviço hello usando um exemplo de implantação. Este documento não é um guia passo a passo.
 >
 >
 
 ## <a name="monitoring-partner-solutions"></a>Monitoramento das soluções de parceiros
-O bloco **Soluções de parceiros** na folha **Central de Segurança** permite que você monitore rapidamente o status de integridade de suas soluções de parceiro integradas com sua assinatura do Azure.
+Olá **soluções de parceiros** bloco Olá **Central de segurança** permite folha monitorar em um status de integridade de saudação rapidamente suas soluções de parceiros que estão integradas com sua assinatura do Azure.
 
 ![Bloco Soluções de parceiros][1]
 
-O bloco **Soluções de parceiros** exibe o número de soluções de parceiros integradas à sua assinatura. Se não houver nenhuma solução integrada, o bloco exibirá o número zero.
+Olá **soluções de parceiros** lado a lado exibe o saudação várias soluções de parceiros integrados com sua assinatura. Se não houver nenhum soluções integradas, o bloco Olá exibe o número de Olá zero.
 
-Para exibir a integridade das soluções de seu parceiro:
+integridade de saudação tooview suas soluções de parceiros:
 
-1. Selecione o bloco **Soluções de parceiros** . A folha **Soluções de parceiros** será aberta, exibindo uma lista das soluções de parceiros conectadas à Central de Segurança.
+1. Selecione Olá **soluções de parceiros** lado a lado. Olá **soluções de parceiros** folha abre exibindo uma lista de suas soluções de parceiro conectado tooSecurity Center.
 
    ![Soluções de parceiros][3]
 
-   O status de uma solução de parceiro pode ser:
+   saudação status de uma solução de parceiro pode ser:
 
    * Protegido (verde) - não há qualquer problema de integridade
    * Não íntegro (vermelho) - há um problema de integridade que requer atenção imediata
-   * Parou de relatar (laranja) - a solução interrompeu o envio de relatórios sobre sua integridade
-   * Status de proteção desconhecido (laranja) - a integridade da solução é desconhecida no momento devido a um processo para adicionar um novo recurso à solução existente com falha.
-   * Não relatado (cinza) - a solução não reportou nada ainda. O status da solução pode não ser relatado se tiver sido conectada recentemente e ainda estiver sendo implantada.
+   * Parado reporting (laranja) - solução Olá parou a relatar sua integridade.
+   * Status da proteção desconhecido (laranja) - integridade Olá de solução de saudação é desconhecido no momento devido tooa falhado o processo de adição de uma nova solução existente de toohello de recursos.
+   * Não relatar (cinza) - solução de saudação não relatou qualquer coisa ainda, status de uma solução pode ser não relatados se recentemente foi conectado e ainda está sendo implantado.
 
-2. Selecione uma solução de parceiro. Neste exemplo, vamos selecionar a solução **Qualys**.  Uma folha será aberta mostrando o status da solução de parceiro e dos recursos associados a ela. Selecione **Console da solução** para abrir a experiência de gerenciamento do parceiro para essa solução.
+2. Selecione uma solução de parceiro. Neste exemplo, permite que selecione Olá **Qualys** solução.  Uma folha abre mostrando recursos associados do status de saudação de solução de parceiro de saudação e solução de saudação. Selecione **console de solução** experiência de gerenciamento de parceiros de saudação tooopen para esta solução.
 
    ![Detalhes da solução de parceiro][4]
-3. Retorne à folha **Qualys** e selecione **Vincular VM**. A folha **Vincular Aplicativos** é aberta. Nela, você pode conectar recursos à solução de parceiro.
+3. Voltar toohello **Qualys** folha e selecione **Link VM**. Olá **aplicativos de Link** folha é aberta. Aqui você pode conectar a solução de parceiro de toohello de recursos.
 
-   ![Vincular recursos à solução de parceiro][5]
+   ![Solução de toopartner de recursos do link][5]
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste documento, você foi apresentado às **Soluções de Parceiros** na Central de Segurança. Para saber mais sobre a Central de Segurança, confira estes artigos:
+Neste documento, você foram introduzida toohello **soluções de parceiros** lado a lado na Central de segurança. toolearn mais sobre o Centro de segurança, consulte Olá artigos a seguir:
 
-* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Definir políticas de segurança na Central de segurança do Azure](security-center-policies.md) — Saiba como tooconfigure as políticas de segurança para sua assinatura do Azure e grupos de recursos.
 * [Gerenciando as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) : saiba como as recomendações ajudam a proteger os recursos do Azure.
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) : saiba como monitorar a integridade dos recursos do Azure.
-* [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e responder aos alertas de segurança.
-* [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.
-* [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) : obtenha as últimas notícias de segurança e informações do Azure.
+* [Monitoramento de integridade de segurança na Central de segurança do Azure](security-center-monitoring.md) — Saiba como toomonitor Olá a integridade de seus recursos do Azure.
+* [Gerenciando e respondendo toosecurity alertas na Central de segurança do Azure](security-center-managing-and-responding-alerts.md) — Saiba como alertas de toosecurity toomanage e responder.
+* [Perguntas frequentes sobre o Centro de segurança do Azure](security-center-faq.md) — localizar perguntas frequentes sobre como usar o serviço de saudação.
+* [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) — Obtenha notícias mais recentes de segurança do Azure hello e informações.
 
 <!--Image references-->
 [1]: ./media/security-center-partner-solutions/partner-solutions-tile.png

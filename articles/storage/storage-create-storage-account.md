@@ -1,6 +1,6 @@
 ---
-title: Como criar, gerenciar ou excluir uma conta de armazenamento no Portal do Azure | Microsoft Docs
-description: Crie uma nova conta de armazenamento, gerencie as chaves de acesso de sua conta ou exclua uma conta de armazenamento no Portal do Azure. Saiba mais sobre contas de armazenamento standard e premium.
+title: "aaaHow toocreate, gerenciar ou excluir uma conta de armazenamento no portal do Azure de saudação | Microsoft Docs"
+description: "Criar uma nova conta de armazenamento, gerenciar suas chaves de acesso de conta ou excluir uma conta de armazenamento Olá portal do Azure. Saiba mais sobre contas de armazenamento standard e premium."
 services: storage
 documentationcenter: 
 author: robinsh
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
 ms.date: 01/23/2017
 ms.author: robinsh
-ms.openlocfilehash: 0a59bc29581b870d8aee07ed4e77df2be576361a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c11c6509e192170db4812f47c389fc1009b94daf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="about-azure-storage-accounts"></a>Sobre as contas de armazenamento do Azure
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
@@ -27,7 +27,7 @@ ms.lasthandoff: 08/03/2017
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Visão geral
-Uma conta de armazenamento do Azure fornece um namespace exclusivo para armazenar e acessar os objetos de dados do Armazenamento do Azure. Todos os objetos em uma conta de armazenamento são cobrados juntos como um grupo. Por padrão, os dados em sua conta estão disponíveis somente para você, o proprietário da conta.
+Uma conta de armazenamento do Azure fornece um namespace exclusivo toostore e acessar os objetos de dados de armazenamento do Azure. Todos os objetos em uma conta de armazenamento são cobrados juntos como um grupo. Por padrão, dados de saudação em sua conta são tooyou somente disponível, proprietário da conta Olá.
 
 [!INCLUDE [storage-account-types-include](../../includes/storage-account-types-include.md)]
 
@@ -35,14 +35,14 @@ Uma conta de armazenamento do Azure fornece um namespace exclusivo para armazena
 [!INCLUDE [storage-account-billing-include](../../includes/storage-account-billing-include.md)]
 
 > [!NOTE]
-> Ao criar uma máquina virtual do Azure, uma conta de armazenamento será criada automaticamente no local da implantação se você ainda não tiver uma conta de armazenamento nesse local. Assim, não é necessário seguir as etapas abaixo para criar uma conta de armazenamento para seus discos da máquina virtual. O nome da conta de armazenamento será baseado no nome da máquina virtual. Confira a [Documentação de máquinas virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/) para obter mais detalhes.
+> Quando você cria uma máquina virtual do Azure, uma conta de armazenamento é criada para você automaticamente no local de implantação de saudação se você ainda não tiver uma conta de armazenamento no local. Portanto, não é necessário toofollow etapas de saudação abaixo toocreate uma conta de armazenamento para os discos de máquina virtual. o nome de conta de armazenamento Olá se baseará no nome da máquina virtual hello. Consulte Olá [documentação de máquinas virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/) para obter mais detalhes.
 > 
 > 
 
 ## <a name="storage-account-endpoints"></a>Pontos de extremidade da conta de armazenamento
-Cada objeto armazenado no Armazenamento do Azure tem um endereço de URL exclusivo. O nome da conta de armazenamento forma o subdomínio desse endereço. A combinação do nome do subdomínio e do domínio, que é específico a cada serviço, forma um *ponto de extremidade* para a sua conta de armazenamento.
+Cada objeto armazenado no Armazenamento do Azure tem um endereço de URL exclusivo. formulários de nome de conta de armazenamento Olá Olá subdomínio do endereço. Hello combinação de nome de subdomínio e domínio, que é o serviço tooeach específico, constitui um *ponto de extremidade* para sua conta de armazenamento.
 
-Por exemplo, se a sua conta de armazenamento se chamar *mystorageaccount*, os pontos de extremidade padrão para a conta de armazenamento serão:
+Por exemplo, se sua conta de armazenamento é chamada *mystorageaccount*, e em seguida, Olá pontos de extremidade padrão para sua conta de armazenamento são:
 
 * Serviço Blob: http://*mystorageaccount*.blob.core.windows.net
 * Serviço Tabela: http://*mystorageaccount*.table.core.windows.net
@@ -50,114 +50,114 @@ Por exemplo, se a sua conta de armazenamento se chamar *mystorageaccount*, os po
 * Serviço Arquivo: http://*mystorageaccount*.file.core.windows.net
 
 > [!NOTE]
-> Uma conta de armazenamento de Blobs expõe apenas o ponto de extremidade do serviço Blob.
+> Uma conta de armazenamento de Blob expõe apenas o ponto de extremidade de serviço de Blob hello.
 > 
 > 
 
-A URL para acessar um objeto em uma conta de armazenamento é compilada acrescentando o local do objeto na conta de armazenamento ao ponto de extremidade. Por exemplo, um endereço de blob pode ter este formato: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
+Olá URL para acessar um objeto em uma conta de armazenamento é criada, acrescentando o local do objeto Olá no ponto de extremidade toohello conta de armazenamento de saudação. Por exemplo, um endereço de blob pode ter este formato: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-Também é possível configurar um nome de domínio para usar com a conta de armazenamento. Para as contas de armazenamento clássicas, veja [Configurar um Nome de domínio personalizado para o Ponto de Extremidade do Armazenamento de Blobs](storage-custom-domain-name.md) para obter detalhes. Para as contas de armazenamento do Gerenciador de Recursos, esse recurso não foi adicionado ao [portal do Azure](https://portal.azure.com) ainda, mas você pode configurá-lo com o PowerShell. Para saber mais, confira o cmdlet [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx) .  
+Você também pode configurar um toouse de nome de domínio personalizado com sua conta de armazenamento. Para as contas de armazenamento clássicas, veja [Configurar um Nome de domínio personalizado para o Ponto de Extremidade do Armazenamento de Blobs](storage-custom-domain-name.md) para obter detalhes. Para contas de armazenamento do Gerenciador de recursos, esse recurso não foi adicionado toohello [portal do Azure](https://portal.azure.com) ainda, mas você pode configurá-lo com o PowerShell. Para obter mais informações, consulte Olá [AzureRmStorageAccount conjunto](https://msdn.microsoft.com/library/mt607146.aspx) cmdlet.  
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. No menu Hub, selecione **Novo** -> **Armazenamento** -> **Conta de armazenamento**.
-3. Insira um nome para a conta de armazenamento. Confira [Pontos de extremidade da conta de armazenamento](#storage-account-endpoints) para saber como o nome da conta de armazenamento será usado em seus objetos no Armazenamento do Azure.
+1. Entrar toohello [portal do Azure](https://portal.azure.com).
+2. No menu de Hub hello, selecione **novo** -> **armazenamento** -> **conta de armazenamento**.
+3. Insira um nome para a conta de armazenamento. Consulte [pontos de extremidade de conta de armazenamento](#storage-account-endpoints) para obter detalhes sobre como o nome de conta de armazenamento hello serão usados tooaddress seus objetos no armazenamento do Azure.
    
    > [!NOTE]
    > Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas.
    > 
-   > O nome da sua conta de armazenamento deve ser exclusivo no Azure. O portal do Azure indicará se o nome da conta de armazenamento selecionada já está em uso.
+   > O nome da sua conta de armazenamento deve ser exclusivo no Azure. Olá portal do Azure indicará se o nome de conta de armazenamento Olá que selecionar já está em uso.
    > 
    > 
-4. Especifique o modelo de implantação a ser usado: **Resource Manager** ou **Clássico**. **Gerenciador de Recursos** é o modelo de implantação recomendado. Para saber mais, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](../azure-resource-manager/resource-manager-deployment-model.md).
+4. Especificar Olá toobe de modelo de implantação usado: **Gerenciador de recursos de** ou **clássico**. **Gerenciador de recursos** Olá recomenda-se o modelo de implantação. Para saber mais, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](../azure-resource-manager/resource-manager-deployment-model.md).
    
    > [!NOTE]
-   > As contas de armazenamento de Blobs só podem ser criadas usando o modelo de implantação do Resource Manager.
+   > Contas de armazenamento de blob só podem ser criadas usando o modelo de implantação do Gerenciador de recursos de saudação.
    > 
    > 
-5. Selecione o tipo de conta de armazenamento: **Finalidade geral** ou **Armazenamento de blobs**. **Finalidade geral** é o padrão.
+5. Selecione o tipo de saudação da conta de armazenamento: **geral** ou **armazenamento de Blob**. **Finalidade geral** é saudação padrão.
    
-    Se **Finalidade geral** tiver sido selecionado, especifique a camada de desempenho: **Standard** ou **Premium**. O padrão é **Standard**. Para saber mais sobre as contas de armazenamento standard e premium, confira [Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md) e [Armazenamento Premium: Armazenamento de Alto Desempenho para Cargas de Trabalho da Máquina Virtual do Azure](storage-premium-storage.md).
+    Se **geral** foi selecionado, especifique o nível de desempenho Olá: **padrão** ou **Premium**. saudação padrão é **padrão**. Para obter mais detalhes sobre as contas de armazenamento standard e premium, consulte [tooMicrosoft Introdução armazenamento do Azure](storage-introduction.md) e [armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquina Virtual do Azure](storage-premium-storage.md).
    
-    Se **Armazenamento de Blobs** tiver sido selecionado, especifique o tipo de acesso: **Dinâmico** ou **Estático**. O padrão é **Dinâmica**. Confira [Armazenamento de Blobs do Azure: camadas Estática e Dinâmica](storage-blob-storage-tiers.md) para saber mais.
-6. Selecione a opção de replicação para a conta de armazenamento:**LRS**, **GRS**, **RA-GRS** ou **ZRS**. O padrão é **RA-GRS**. Para obter mais detalhes sobre as opções de replicação do Armazenamento do Azure, confira [Replicação do Armazenamento do Azure](storage-redundancy.md).
-7. Selecione a assinatura na qual você deseja criar a nova conta de armazenamento.
+    Se **armazenamento de Blob** foi selecionado, especifique o nível de acesso de saudação: **acesso** ou **moderado**. saudação padrão é **acesso**. Confira [Armazenamento de Blobs do Azure: camadas Estática e Dinâmica](storage-blob-storage-tiers.md) para saber mais.
+6. Selecionar opção de replicação Olá Olá conta de armazenamento: **LRS**, **GRS**, **RA-GRS**, ou **ZRS**. saudação padrão é **RA-GRS**. Para obter mais detalhes sobre as opções de replicação do Armazenamento do Azure, confira [Replicação do Armazenamento do Azure](storage-redundancy.md).
+7. Selecione a assinatura Olá no qual você deseja toocreate Olá nova conta de armazenamento.
 8. Especifique um novo grupo de recursos ou selecione um grupo de recursos existente. Para saber mais sobre grupos de recursos, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-9. Selecione a região geográfica para sua conta de armazenamento. Veja [Regiões do Azure](https://azure.microsoft.com/regions/#services) para saber mais sobre quais serviços estão disponíveis em qual região.
-10. Clique em **Criar** para criar a conta de armazenamento.
+9. Selecione a localização geográfica Olá para sua conta de armazenamento. Veja [Regiões do Azure](https://azure.microsoft.com/regions/#services) para saber mais sobre quais serviços estão disponíveis em qual região.
+10. Clique em **criar** toocreate conta de armazenamento de saudação.
 
 ## <a name="manage-your-storage-account"></a>Gerenciar sua conta de armazenamento
 ### <a name="change-your-account-configuration"></a>Alterar a configuração da conta
-Após criar a conta de armazenamento, você pode modificar sua configuração, por exemplo, alterando a opção de replicação usada para a conta ou a alterando a camada de acesso para uma conta de armazenamento de Blobs. No [portal do Azure](https://portal.azure.com), navegue até a conta de armazenamento, encontre e clique em **Configuração** e clique em **CONFIGURAÇÕES** para exibir e/ou alterar a configuração da conta.
+Depois de criar sua conta de armazenamento, você pode modificar sua configuração, como alterar a opção de replicação Olá usada para a conta hello ou camada de acesso Olá alteração para uma conta de armazenamento de Blob. Em Olá [portal do Azure](https://portal.azure.com), navegar tooyour conta de armazenamento, localize e clique em **configuração** em **configurações** tooview e/ou alteração de configuração de conta hello.
 
 > [!NOTE]
-> Dependendo do nível de desempenho que você escolheu durante a criação da conta de armazenamento, talvez algumas opções de replicação não estejam disponíveis.
+> Dependendo da camada de desempenho Olá escolhidas durante a criação de conta de armazenamento Olá, algumas opções de replicação podem não estar disponíveis.
 > 
 > 
 
-A alteração da opção de replicação mudará seu preço. Para saber mais, veja a página [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) .
+Alterando a opção de replicação Olá alterará o preço. Para saber mais, veja a página [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) .
 
-Para contas de armazenamento de Blobs, a alteração da camada de acesso pode incorrer em encargos para a alteração, além de alterar seu preço. Veja as [Contas de armazenamento de blobs - Preços e Cobrança](storage-blob-storage-tiers.md#pricing-and-billing) para obter mais detalhes.
+Blob contas de armazenamento, alteração da camada de acesso de saudação podem incorrer em encargos de saudação alteram Além disso toochanging o preço. Consulte Olá [Blob contas de armazenamento - preços e faturamento](storage-blob-storage-tiers.md#pricing-and-billing) para obter mais detalhes.
 
 ### <a name="manage-your-storage-access-keys"></a>Gerenciar as chaves de acesso de armazenamento
-Quando você cria uma conta de armazenamento, o Azure gera duas chaves de acesso de armazenamento de 512 bits, que são usadas para autenticação quando a conta de armazenamento é acessada. Ao fornecer as duas chaves de acesso de armazenamento, o Azure permite que você regenere as chaves sem interrupção para o serviço de armazenamento ou o acesso a esse serviço.
+Quando você cria uma conta de armazenamento, o Azure gera duas chaves de acesso de armazenamento de 512 bits, que são usadas para autenticação quando a conta de armazenamento Olá é acessada. Fornecendo duas chaves de acesso de armazenamento, o Azure permite que você tooregenerate chaves de saudação com nenhum serviço de armazenamento de tooyour de interrupção ou acesso toothat.
 
 > [!NOTE]
-> Recomendamos que você evite compartilhar suas chaves de acesso de armazenamento com outras pessoas. Para permitir o acesso a recursos de armazenamento sem dar as suas chaves de acesso, você pode usar uma *assinatura de acesso compartilhado*. Uma assinatura de acesso compartilhado fornece acesso a um recurso na sua conta para um intervalo que você definir e com as permissões que você especificar. Confira [Usando Assinaturas de Acesso Compartilhado (SAS)](storage-dotnet-shared-access-signature-part-1.md) para saber mais.
+> Recomendamos que você evite compartilhar suas chaves de acesso de armazenamento com outras pessoas. recursos de toostorage toopermit acesso sem emitir suas chaves de acesso, você pode usar um *assinatura de acesso compartilhado*. Uma assinatura de acesso compartilhado fornece acesso tooa recursos em sua conta para um intervalo que você define e com permissões de saudação que você especificar. Confira [Usando Assinaturas de Acesso Compartilhado (SAS)](storage-dotnet-shared-access-signature-part-1.md) para saber mais.
 > 
 > 
 <a id="view-and-copy-storage-access-keys"/></a>
 #### <a name="view-and-copy-storage-access-keys"></a>Exibir e copiar as chaves de acesso de armazenamento
-No [Portal do Azure](https://portal.azure.com), navegue até a conta de armazenamento, clique em **Todas as configurações** e clique em **Chaves de acesso** para exibir, copiar e gerar novamente as chaves de acesso de sua conta. A folha **Chaves de Acesso** também inclui cadeias de conexão pré-configuradas usando suas chaves primária e secundária, que você pode copiar para usar em seus aplicativos.
+Em Olá [portal do Azure](https://portal.azure.com), navegar tooyour conta de armazenamento, clique em **todas as configurações** e, em seguida, clique em **chaves de acesso** tooview, copiar e regenerar suas chaves de acesso da conta. Olá **chaves de acesso** folha também inclui cadeias de caracteres de conexão pré-configurada usando suas chaves primárias e secundárias que você pode copiar toouse em seus aplicativos.
 
 #### <a name="regenerate-storage-access-keys"></a>Regenerar chaves de acesso de armazenamento
-Você deve alterar as chaves de acesso de sua conta de armazenamento periodicamente para ajudar a manter as conexões de armazenamento seguras. Duas chaves de acesso são atribuídas para que você possa manter conexões com a conta de armazenamento usando uma chave de acesso enquanto regenera a outra.
+É recomendável que você altere a conta de armazenamento de tooyour periodicamente toohelp manter suas conexões de armazenamento seguro de chaves de acesso Olá. Duas chaves de acesso são atribuídas para que você pode manter conta de armazenamento toohello conexões usando uma chave de acesso enquanto você regenera Olá outra chave de acesso.
 
 > [!WARNING]
-> A regeneração das chaves de acesso pode afetar os serviços no Azure, bem como seus próprios aplicativos que dependem da conta de armazenamento. Todos os clientes que usam a chave de acesso para acessar a conta de armazenamento precisam ser atualizados para usar a nova chave.
+> Regenerar suas chaves de acesso pode afetar os serviços no Azure, bem como seus próprios aplicativos que dependem da conta de armazenamento hello. Todos os clientes que usam a conta de armazenamento Olá acesso tooaccess chave Olá devem ser a nova chave de saudação toouse atualizado.
 > 
 > 
 
-**Serviços de mídia** - se algum serviço de mídia depender de sua conta de armazenamento, você deverá ressincronizar as chaves de acesso com o serviço de mídia depois de regenerá-las.
+**Serviços de mídia** -se você tiver serviços de mídia que dependem de sua conta de armazenamento, você deverá ressincronizar as chaves de acesso de saudação com o serviço de mídia após você regenerar chaves de saudação.
 
-**Aplicativos** - se você tiver algum aplicativo Web ou serviços de nuvem que usam a conta de armazenamento, perderá as conexões se regenerar as chaves, a menos que você as reverta.
+**Aplicativos** - se você tiver aplicativos da web ou essa conta de armazenamento de saudação do uso de serviços de nuvem, você perderá conexões Olá se você regenerar chaves, a menos que você reverter suas chaves.
 
-**Gerenciadores de Armazenamento** - se você estiver usando qualquer [aplicativo do gerenciador de armazenamento](storage-explorers.md), provavelmente precisará atualizar a chave de armazenamento usada por esses aplicativos.
+**Gerenciadores de armazenamento** - se você estiver usando qualquer [aplicativos do Gerenciador de armazenamento](storage-explorers.md), você provavelmente precisará de chave de armazenamento de saudação tooupdate usado por esses aplicativos.
 
-Veja o processo para trocar suas chaves de acesso de armazenamento:
+Este é o processo de saudação para trocar suas chaves de acesso de armazenamento:
 
-1. Atualize as cadeias de conexão no código do aplicativo para fazer referência à chave de acesso secundária da conta de armazenamento.
-2. Regenere a chave de acesso primária de sua conta de armazenamento. Na folha **Chaves de Acesso**, clique em **Regenerar Chave1** e clique em **Sim** para confirmar que você deseja gerar uma nova chave.
-3. Atualize as cadeias de conexão em seu código para fazer referência à nova chave de acesso primária.
-4. Regenere a chave de acesso secundária da mesma maneira.
+1. Atualize cadeias de conexão de saudação em sua chave de acesso secundária do aplicativo código tooreference Olá Olá da conta de armazenamento.
+2. Regenere a chave de acesso primária Olá para sua conta de armazenamento. Em Olá **chaves de acesso** folha, clique em **regenerar Key1**e, em seguida, clique em **Sim** tooconfirm que você deseja toogenerate uma nova chave.
+3. Atualize cadeias de conexão de saudação em código tooreference Olá nova chave de acesso primária.
+4. Acesso secundário Olá regenerar chave Olá mesmo maneira.
 
 ## <a name="delete-a-storage-account"></a>Excluir uma conta de armazenamento
-Para remover uma conta de armazenamento que você não está mais usando, navegue até a conta de armazenamento do [portal do Azure](https://portal.azure.com)e clique em **Excluir**. A exclusão de uma conta de armazenamento exclui a conta inteira, incluindo todos os dados na conta.
+tooremove uma conta de armazenamento que você está usando não navegue toohello conta de armazenamento Olá [portal do Azure](https://portal.azure.com)e clique em **excluir**. Excluir uma conta de armazenamento Exclui toda a conta hello, incluindo todos os dados na conta de saudação.
 
 > [!WARNING]
-> Não é possível restaurar uma conta de armazenamento excluída nem recuperar nenhuma parte de seu conteúdo antes da exclusão. Não se esqueça de fazer backup de todas as informações que você deseja salvar antes de excluir a conta. Isso também é verdadeiro para todos os recursos na conta – depois que você excluir um blob, tabela, fila ou arquivo, ele será excluído permanentemente.
+> É uma conta de armazenamento excluído o toorestore não é possível ou recuperar conteúdo de saudação que continha antes da exclusão. Ser tooback-se de que qualquer valor que você deseja toosave antes de excluir a conta de saudação. Isso também ocorre para todos os recursos na conta Olá — depois de excluir um blob, tabela, fila ou arquivo, ele será excluído permanentemente.
 > 
 > 
 
-Para excluir uma conta de armazenamento que está associada a uma máquina virtual do Azure, primeiro você deve verificar se quaisquer discos de máquina virtual foram excluídos. Se você não excluir os discos de máquina virtual primeiro, durante a tentativa de excluir sua conta de armazenamento, você verá uma mensagem de erro semelhante a:
+toodelete uma conta de armazenamento que está associada uma máquina virtual do Azure, você deve primeiro certifique-se de que nenhum disco de máquina virtual ter sido excluído. Se você não excluir os discos da máquina virtual pela primeira vez, em seguida, quando você tenta toodelete sua conta de armazenamento, você verá uma mensagem de erro semelhante a:
 
-    Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
+    Failed toodelete storage account <vm-storage-account-name>. Unable toodelete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
 
-Se a conta de armazenamento usar o modelo de implantação Clássico, você poderá remover o disco da máquina virtual seguindo estas etapas no [portal do Azure](https://manage.windowsazure.com):
+Se a conta de armazenamento Olá usa o modelo de implantação clássico hello, você pode remover o disco da máquina virtual Olá seguindo estas etapas no hello [portal do Azure](https://manage.windowsazure.com):
 
-1. Navegue até o [portal clássico do Azure](https://manage.windowsazure.com).
-2. Navegue até a guia Máquinas Virtuais.
-3. Clique na guia Discos.
+1. Navegue toohello [portal clássico do Azure](https://manage.windowsazure.com).
+2. Navegue toohello guia de máquinas virtuais.
+3. Clique Olá discos guia.
 4. Selecione o disco de dados e clique em Excluir o Disco.
-5. Para excluir imagens de disco, navegue até a guia Imagens e exclua todas as imagens armazenadas na conta.
+5. imagens de disco toodelete, navegue guia imagens da toohello e exclua as imagens que estão armazenadas na conta de saudação.
 
-Para saber mais, veja a [Documentação da Máquina Virtual do Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
+Para obter mais informações, consulte Olá [documentação de máquina Virtual do Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## <a name="next-steps"></a>Próximas etapas
-* [O Gerenciador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo gratuito da Microsoft que permite que você toowork visualmente com dados de armazenamento do Azure no Linux, Windows e macOS.
 * [Armazenamento de Blobs do Azure: camadas estáticas e dinâmicas](storage-blob-storage-tiers.md)
 * [Replicação de Armazenamento do Azure](storage-redundancy.md)
 * [Configurar cadeias de conexão do Armazenamento do Azure](storage-configure-connection-string.md)
-* [Transferir dados com o Utilitário da Linha de Comando AzCopy](storage-use-azcopy.md)
-* Visite o [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
+* [Transferência de dados com hello AzCopy utilitário de linha de comando](storage-use-azcopy.md)
+* Visite Olá [Blog da equipe do armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 

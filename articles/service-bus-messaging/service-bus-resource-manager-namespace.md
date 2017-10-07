@@ -1,6 +1,6 @@
 ---
-title: "Criar um namespace do Barramento de Serviço usando um modelo do Azure Resource Manager | Microsoft Docs"
-description: "Usar modelo do Azure Resource Manager para criar um namespace do Barramento de Serviço"
+title: "namespace de barramento de serviço aaaCreate usando um modelo do Gerenciador de recursos do Azure | Microsoft Docs"
+description: "Use o Gerenciador de recursos do Azure modelo toocreate um namespace de barramento de serviço"
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -14,58 +14,58 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: 8fff390919a1807995646dab322b4cbe56dd0268
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: fddf370affe761a734991ae9b60c1e5825e54ef7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Criar um namespace do Barramento de Serviço usando um modelo do Azure Resource Manager
 
-Este artigo descreve como usar um modelo do Azure Resource Manager que cria um namespace de Barramento de Serviço do tipo **Mensagens** com um SKU Standard/Básico. O artigo também define os parâmetros que são especificados para execução da implantação. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
+Este artigo descreve como toouse um modelo do Gerenciador de recursos do Azure que cria um namespace de barramento de serviço do tipo **mensagens** com um SKU Standard/Basic. artigo Olá também define os parâmetros de saudação que são especificados para a execução de saudação da implantação de saudação. Você pode usar este modelo para suas próprias implantações ou personalizá-lo toomeet seus requisitos.
 
-Para saber mais sobre a criação de modelos, confira [Criando modelos do Azure Resource Manager][Authoring Azure Resource Manager templates].
+Para saber mais sobre a criação de modelos, veja [Criando modelos do Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Para ver o modelo completo, confira o [Modelo de namespace do Barramento de Serviço][Service Bus namespace template] no GitHub.
+Para o modelo completo de Olá, consulte Olá [modelo de namespace do barramento de serviço] [ Service Bus namespace template] no GitHub.
 
 > [!NOTE]
-> Os modelos do Azure Resource Manager a seguir estão disponíveis para download e implantação. 
+> saudação do Azure Resource Manager modelos a seguir está disponível para download e implantação. 
 > 
 > * [Criar um namespace do Barramento de Serviço com fila](service-bus-resource-manager-namespace-queue.md)
 > * [Criar um namespace do Barramento de Serviço com tópico e assinatura](service-bus-resource-manager-namespace-topic.md)
 > * [Create a Service Bus namespace with queue and authorization rule (Criar um namespace de Barramento de Serviço com fila e regra de autorização)](service-bus-resource-manager-namespace-auth-rule.md)
 > * [Criar um namespace do Barramento de Serviço com tópico, assinatura e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Para verificar os modelos mais recentes, visite a galeria [Modelos de Início Rápido do Azure][Azure Quickstart Templates] e pesquise por Barramento de Serviço.
+> toocheck para modelos de hello mais recentes, visite Olá [modelos de início rápido do Azure] [ Azure Quickstart Templates] galeria e pesquisa para o barramento de serviço.
 > 
 > 
 
 ## <a name="what-will-you-deploy"></a>O que você implantará?
 Com esse modelo, você implantará um namespace de Barramento de Serviço com uma SKU [Básica, Standard ou Premium](https://azure.microsoft.com/pricing/details/service-bus/).
 
-Para executar a implantação automaticamente, clique no seguinte botão:
+toorun Olá implantação automaticamente, clique em Olá botão a seguir:
 
-[![Implantar no Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
+[![Implantar tooAzure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
-## <a name="parameters"></a>Parâmetros
-Com o Gerenciador de Recursos do Azure, você define parâmetros para os valores que deseja especificar quando o modelo é implantado. O modelo inclui uma seção chamada `Parameters` , que contém todos os valores de parâmetro. Você deve definir um parâmetro para os valores que variam de acordo com o projeto que você está implantando ou com o ambiente em que a implantação ocorre. Não defina parâmetros para valores que permanecem sempre os mesmos. Cada valor de parâmetro é usado no modelo para definir os recursos que são implantados.
+## <a name="parameters"></a>parâmetros
+No Gerenciador de recursos do Azure, você define parâmetros para os valores desejados toospecify quando Olá modelo é implantado. modelo de saudação inclui uma seção chamada `Parameters` que contém todos os valores de parâmetro hello. Você deve definir um parâmetro para os valores que variam com base no projeto Olá que estiver implantando ou com base no ambiente de saudação que você está implantando. Não defina parâmetros para valores sempre ficará Olá mesmo. Cada valor de parâmetro é usado em Olá modelo toodefine Olá recursos implantados.
 
-Este modelo define os parâmetros a seguir.
+Esse modelo define Olá parâmetros a seguir.
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
-O nome do namespace do Barramento de Serviço a ser criado.
+nome de saudação do hello toocreate de namespace de barramento de serviço.
 
 ```json
 "serviceBusNamespaceName": {
 "type": "string",
 "metadata": { 
-    "description": "Name of the Service Bus namespace" 
+    "description": "Name of hello Service Bus namespace" 
     }
 }
 ```
 
 ### <a name="servicebussku"></a>serviceBusSKU
-O nome do [SKU](https://azure.microsoft.com/pricing/details/service-bus/) do Barramento de Serviço a ser criado.
+nome de saudação do hello barramento de serviço [SKU](https://azure.microsoft.com/pricing/details/service-bus/) toocreate.
 
 ```json
 "serviceBusSku": { 
@@ -77,28 +77,28 @@ O nome do [SKU](https://azure.microsoft.com/pricing/details/service-bus/) do Bar
     ], 
     "defaultValue": "Standard", 
     "metadata": { 
-        "description": "The messaging tier for service Bus namespace" 
+        "description": "hello messaging tier for service Bus namespace" 
     } 
 
 ```
 
-O modelo definirá os valores permitidos para esse parâmetro (Basic, Standard ou Premium) e atribuirá um valor padrão (Standard) se nenhum valor for especificado.
+modelo de saudação define os valores de saudação que são permitidos para este parâmetro (Basic, Standard ou Premium) e atribui um valor padrão (padrão) se nenhum valor for especificado.
 
 Para saber mais sobre os preços do Barramento de Serviço, confira [Preços e cobrança do Barramento de Serviço][Service Bus pricing and billing].
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
-A versão da API do Barramento de Serviço do modelo.
+versão de API do barramento de serviço de saudação do modelo de saudação.
 
 ```json
 "serviceBusApiVersion": { 
        "type": "string", 
        "defaultValue": "2015-08-01", 
        "metadata": { 
-           "description": "Service Bus ApiVersion used by the template" 
+           "description": "Service Bus ApiVersion used by hello template" 
        } 
 ```
 
-## <a name="resources-to-deploy"></a>Recursos a implantar
+## <a name="resources-toodeploy"></a>Recursos toodeploy
 ### <a name="service-bus-namespace"></a>Namespace do Barramento de Serviço
 Cria um namespace do Barramento de Serviço padrão do tipo **Mensagens**.
 
@@ -120,7 +120,7 @@ Cria um namespace do Barramento de Serviço padrão do tipo **Mensagens**.
 ]
 ```
 
-## <a name="commands-to-run-deployment"></a>Comandos para executar a implantação
+## <a name="commands-toorun-deployment"></a>Implantação de toorun de comandos
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
@@ -136,14 +136,14 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você criou e implantou recursos usando o Azure Resource Manager, saiba como gerenciar esses recursos lendo estes artigos:
+Agora que você criou e implantou recursos usando o Gerenciador de recursos do Azure, Aprenda como toomanage esses recursos ao ler estes artigos:
 
 * [Gerenciar o Barramento de Serviço com o PowerShell](service-bus-manage-with-ps.md)
-* [Gerenciar recursos do Barramento de Serviço com o Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+* [Gerenciar recursos do barramento de serviço com hello Explorador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Service Bus pricing and billing]: service-bus-pricing-billing.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
-[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+[Using hello Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md

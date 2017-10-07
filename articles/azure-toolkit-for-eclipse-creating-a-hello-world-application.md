@@ -1,6 +1,6 @@
 ---
-title: "Criar um Serviço de Nuvem Hello World para o Azure no Eclipse"
-description: Saiba como criar um aplicativo Hello World simples usando o Kit de Ferramentas do Azure para Eclipse.
+title: "aaaCreate um Hello World serviço de nuvem do Azure no Eclipse"
+description: "Saiba como toocreate um aplicativo Hello World simples usando Olá Kit de ferramentas do Azure para Eclipse."
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,16 +14,16 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: 9b31f0faeb6ee7b5e7b8fe3a1f2827133d6188e6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dfb81374aaf78e933c0bf83a1dbd98023801491a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-hello-world-cloud-service-for-azure-in-eclipse"></a>Criar um Serviço de Nuvem Hello World para o Azure no Eclipse
-As etapas a seguir mostram como criar e implantar um aplicativo JSP básico no Azure usando o Kit de Ferramentas do Azure para Eclipse. Um exemplo de JSP é exibido para manter a simplicidade, mas etapas muito semelhantes podem ser apropriadas para um servlet Java quando o assunto é a implantação do Azure.
+Olá etapas a seguir mostram como toocreate e implantar um tooAzure de aplicativo básico do JSP usando Olá Kit de ferramentas do Azure para Eclipse. Um exemplo de JSP é exibido para manter a simplicidade, mas etapas muito semelhantes podem ser apropriadas para um servlet Java quando o assunto é a implantação do Azure.
 
-O aplicativo será semelhante ao seguinte:
+aplicativo Hello terá aparência a seguir toohello semelhante:
 
 ![][ic600360]
 
@@ -32,14 +32,14 @@ O aplicativo será semelhante ao seguinte:
 * Um IDE do Eclipse para desenvolvedores do Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>.
 * Uma distribuição de um servidor Web baseado em Java ou servidor de aplicativo, como o Apache Tomcat, o GlassFish, o JBoss Application Server, o Jetty ou o IBM® WebSphere® Application Server Liberty Core
 * Uma assinatura do Azure, que pode ser adquirida em <http://azure.microsoft.com/pricing/purchase-options/>.
-* O Kit de Ferramentas do Azure para Eclipse. Para saber mais, confira [Instalar o Kit de Ferramentas do Azure para Eclipse][Installing the Azure Toolkit for Eclipse].
+* saudação do Kit de ferramentas do Azure para Eclipse. Para obter mais informações, consulte [Olá instalando o Kit de ferramentas do Azure para Eclipse][Installing hello Azure Toolkit for Eclipse].
 
-## <a name="to-create-a-hello-world-application"></a>Para criar um aplicativo Hello World
+## <a name="toocreate-a-hello-world-application"></a>toocreate um aplicativo Hello World
 Primeiro, vamos começar com a criação de um projeto Java.
 
-1. Inicie o Eclipse, no menu clique em **Arquivo**, clique em **Novo** e depois em **Projeto Web Dinâmico**. (Se você não vir o **Projeto Web Dinâmico** listado como um projeto disponível depois de clicar em **Arquivo**, **Novo**, faça o seguinte: clique em **Arquivo**, clique em **Novo**, clique em **Projeto**, expanda **Web**, clique em **Projeto Web Dinâmico** e clique em **Avançar**).
+1. Inicie o Eclipse e no menu de saudação clique **arquivo**, clique em **novo**e, em seguida, clique em **projeto Web dinâmico**. (Se você não vir **projeto Web dinâmico** listado como um projeto disponível depois de clicar em **arquivo**, **novo**, em seguida, Olá a seguir: clique em **arquivo**, clique em **novo**, clique em **projeto... **, expanda **Web**, clique em **projeto Web dinâmico**e clique em **próximo**.)
 
-1. Para o objetivo deste tutorial, nomeie o projeto **MyHelloWorld**. (Não deixe de usar esse nome, pois as etapas subsequentes deste tutorial esperam que seu arquivo WAR seja nomeado MyHelloWorld). Sua tela será semelhante à seguinte:
+1. Para fins deste tutorial, nomeie o projeto de saudação **MyHelloWorld**. (Certifique-se de usar esse nome, as etapas subsequentes neste tutorial esperam sua toobe de arquivo WAR nomeado MyHelloWorld). Sua tela será exibido a seguir toohello semelhante:
 
    ![][ic589576]
 
@@ -47,13 +47,13 @@ Primeiro, vamos começar com a criação de um projeto Java.
 
 1. No modo de exibição do Gerenciador de Projeto do Eclipse, expanda **MyHelloWorld**. Clique com o botão direito do mouse em **WebContent**, clique em **Novo** e, em seguida, clique em **Arquivo JSP**.
 
-1. Na caixa de diálogo **Novo Arquivo JSP**, nomeie o arquivo como **index.jsp**. Mantenha a pasta pai como **MyHelloWorld/WebContent**, conforme mostrado a seguir:
+1. Em Olá **novo arquivo JSP** caixa de diálogo, o arquivo de saudação do nome **index.jsp**. Mantenha a pasta pai Olá **MyHelloWorld/WebContent**, conforme mostrado na seguinte hello:
 
    ![][ic659262]
 
-1. Para o objetivo deste tutorial, na caixa de diálogo **Selecionar Modelo JSP**, escolha **Novo Arquivo JSP (html)** e clique em **Concluir**.
+1. Em Olá **Selecionar modelo JSP** caixa de diálogo, para fins deste tutorial, selecione **novo arquivo JSP (html)** e clique em **concluir**.
 
-1. Quando o arquivo index.jsp for aberto no Eclipse, adicione o texto para exibir dinamicamente **Hello World!** dentro do elemento existente `<body>`. Seu conteúdo `<body>` atualizado deve ser semelhante ao seguinte:
+1. Quando o arquivo do hello index.jsp for aberto no Eclipse, adicione na exibição do texto toodynamically **Olá, mundo!** dentro de saudação existente `<body>` elemento. Seu atualizada `<body>` conteúdo deve aparecer da seguinte hello:
    ```
    <body>
    <b><% out.println("Hello World!"); %></b>
@@ -61,141 +61,141 @@ Primeiro, vamos começar com a criação de um projeto Java.
    ```
 1. Salve o index.jsp.
 
-## <a name="to-deploy-your-application-to-azure-the-quick-and-simple-way"></a>Para implantar seu aplicativo no Azure, a maneira rápida e simples
-Assim que você tiver um aplicativo Web Java pronto para testar, poderá usar o atalho a seguir para experimentá-lo diretamente na nuvem do Azure.
+## <a name="toodeploy-your-application-tooazure-hello-quick-and-simple-way"></a>toodeploy seu aplicativo tooAzure, Olá maneira rápida e simple
+Assim que você tiver um tootest do Java web aplicativo pronto, você pode usar o hello atalho tootry-out diretamente no hello Azure na nuvem a seguir.
 
 1. No Gerenciador de Projeto do Eclipse, clique em **MyHelloWorld**.
 
-2. Na barra de ferramentas do Eclipse, clique no botão suspenso **Publicar** e clique em **Publicar como serviço de nuvem do Azure**
+2. Na barra de ferramentas do Eclipse hello, clique em Olá **publicar** botão suspenso e, em seguida, clique em **Publicar como serviço de nuvem do Azure**
 
    ![][publishDropdownButton]
 
-3. Se você estiver publicando esse aplicativo no Azure pela primeira vez e nunca tiver criado um projeto de implantação do Azure para este aplicativo, um projeto de implantação do Azure será criado automaticamente para você. Você deverá ver o seguinte prompt, que também lista o pacote JDK e o servidor de aplicativos que será automaticamente implantado para executar o aplicativo.
+3. Se você estiver publicando tooAzure esse aplicativo para Olá primeira vez e você não tiver criado um projeto de implantação do Azure para este aplicativo antes, um projeto de implantação do Azure criado para você automaticamente. Você deve ver Olá seguir prompt, que também lista Olá JDK pacote e aplicativo servidor que será automaticamente implantado toorun seu aplicativo.
 
    ![][ic789598]
    
-   Essa abordagem de atalho permite uma maneira rápida e fácil de testar seu aplicativo no Azure sem precisar configurar um servidor ou JDK específico diferente dos padrões. Se você estiver satisfeito com os padrões, clique em **OK** para continuar com as etapas a seguir.
-   No entanto, se você quiser alterar o JDK ou o servidor de aplicativos a ser usado para seu aplicativo, faça isso mais tarde editando o projeto de implantação do Azure criado automaticamente para você, ou clique em **Cancelar** agora e leia a seção **Sobre projetos de implantação do Azure** deste tutorial.
+   Essa abordagem de atalho permite uma maneira rápida e fácil tootest seu aplicativo no Azure sem ter tooconfigure um servidor específico ou JDK diferente dos padrões de saudação. Se você estiver satisfeito com os padrões de saudação, você pode clicar em **Okey** toocontinue com hello etapas a seguir.
+   No entanto, se você quiser toochange Olá JDK ou toouse de servidor de aplicativo para seu aplicativo, você pode fazer isso mais tarde editando Olá projeto de implantação do Azure que foi criado automaticamente para você, ou você pode clicar em **Cancelar** agora e leia Olá **seção de projetos de implantação do Azure sobre** deste tutorial.
 
-4. Na caixa de diálogo **Publicar no Azure** :
+4. Em Olá **publicar tooAzure** caixa de diálogo:
 
-   1. Se ainda não houver assinaturas para selecionar na lista **Assinatura** , execute estas etapas para importar as informações de sua assinatura:
+   1. Se não houver nenhum tooselect de assinaturas no hello **assinatura** liste ainda, siga essas etapas tooimport suas informações de assinatura:
       1. Clique em **Importar do arquivo PUBLISH-SETTINGS**.
-      2. Na caixa de diálogo **Importar Informações da Assinatura**, clique em **Baixar Arquivo PUBLISH-SETTINGS**. Se você ainda não estiver conectado à sua conta do Azure, receberá uma solicitação para fazer logon. Em seguida, você receberá uma solicitação para salvar um arquivo de configurações de publicação do Azure. Salve-o em seu computador local.
-      3. Ainda na caixa de diálogo **Importar Informações de Assinatura**, clique no botão **Procurar**, selecione o arquivo de configurações de publicação que você salvou localmente na etapa anterior e, em seguida, clique em **Abrir**. Sua tela deve ser semelhante à seguinte: ![][ic644267]
+      2. Em Olá **importar informações de assinatura** caixa de diálogo, clique em **baixar o arquivo de configurações de publicação**. Se você ainda não está conectados à sua conta do Azure, será solicitado toolog no. Em seguida, será solicitado que você toosave do Azure publica o arquivo de configurações. Salve-o computador local tooyour.
+      3. Ainda no hello **importar informações de assinatura** caixa de diálogo, clique em Olá **procurar** botão, selecione Olá publicar o arquivo de configurações que você salvou localmente na etapa anterior hello e, em seguida, clique em ** Abra**. Sua tela deve ser a seguir toohello semelhante:![][ic644267]
       4. Clique em **OK**.
-   2. Para **Assinatura**, selecione a assinatura que você deseja usar para sua implantação.
-   3. Para **Conta de armazenamento**, selecione a conta de armazenamento que você deseja usar ou clique em **Novo** para criar uma nova conta de armazenamento.
-   4. Para **Nome do serviço**, selecione o serviço de nuvem que você deseja usar ou clique em **Novo** para criar um novo serviço de nuvem.
-   5. Para **SO de Destino**, selecione a versão do sistema operacional que você deseja usar para sua implantação.
-   6. Em **Ambiente de destino**, para o objetivo deste tutorial, selecione **Preparo**. (Quando você estiver pronto para implantar em seu site de produção, convém alterar isso para **Produção**.)
-   7. Opcional: verifique se **Substituir implantação anterior** está marcado se você quiser que a nova implantação substitua automaticamente a implantação anterior. Quando você habilitar essa opção, não enfrentará os problemas "409 - Conflito" ao publicar no mesmo local.
-      Observe que a caixa de diálogo **Publicar no Azure** contém uma seção para **Acesso Remoto**. Por padrão, o Acesso Remoto não está habilitado, e não habilitaremos ele para este exemplo. Para habilitar o Acesso Remoto, seria necessário digitar um nome de usuário e senha para utilização ao fazer logon remotamente. Para saber mais sobre o Acesso Remoto, confira [Habilitar o Acesso Remoto para Implantações do Azure no Eclipse][Enabling Remote Access for Azure Deployments in Eclipse].
-      A caixa de diálogo **Publicar no Azure** será semelhante à seguinte: ![][ic719488]
+   2. Para **assinatura**, selecione Olá assinatura que você deseja usar para sua implantação.
+   3. Para **conta de armazenamento**, selecione Olá conta de armazenamento que você deseja toouse ou clique em **novo** toocreate uma nova conta de armazenamento.
+   4. Para **nome do serviço**, selecione Serviço de nuvem Olá que você deseja toouse ou clique em **novo** toocreate um novo serviço de nuvem.
+   5. Para **sistema operacional de destino**, selecione Olá versão de hello sistema operacional que você deseja toouse para sua implantação.
+   6. Em **Ambiente de destino**, para o objetivo deste tutorial, selecione **Preparo**. (Quando você estiver pronto toodeploy site de produção de tooyour, mude isso muito**produção**.)
+   7. Opcional: Certifique-se de que **substituir implantação anterior** é verificado se você quiser que seu novo tooautomatically de implantação substituir Olá implantação anterior. Quando você habilitar essa opção, você vai não os problemas "409 Conflito" ao publicar toohello mesmo local.
+      Observe que Olá **publicar tooAzure** caixa de diálogo contém uma seção para **acesso remoto**. Por padrão, o Acesso Remoto não está habilitado, e não habilitaremos ele para este exemplo. tooenable acesso remoto, você deve inserir um toouse de nome e a senha do usuário ao fazer logon remotamente. Para saber mais sobre o Acesso Remoto, confira [Habilitar o Acesso Remoto para Implantações do Azure no Eclipse][Enabling Remote Access for Azure Deployments in Eclipse].
+      O **publicar tooAzure** caixa de diálogo será exibida a seguir toohello semelhante:![][ic719488]
 
-5. Clique em **Publicar** para publicar no Ambiente de preparo.
+5. Clique em **publicar** ambiente de preparo toohello toopublish.
 
-   Quando receber uma solicitação para executar uma compilação completa, clique em **Sim**. Isso pode levar alguns minutos na primeira compilação.
+   Quando solicitada tooperform uma compilação completa, clique em **Sim**. Isso pode levar vários minutos para compilação de saudação primeiro.
    Um **Log de Atividades do Azure** será exibido na seção de modos de exibição com guias do Eclipse.
-   ![][ic719489] Você pode usar esse log, bem como o modo de exibição de **Console** , para ver o progresso da implantação. Uma alternativa é fazer logon no [Portal de Gerenciamento do Azure][Azure Management Portal] e usar a seção **Serviços de Nuvem** para monitorar o status.
+   ![][ic719489]Você pode usar esse log, bem como Olá **Console** exibir progresso de saudação toosee da sua implantação. Uma alternativa é toolog em toohello [Portal de gerenciamento][Azure Management Portal]e usar o hello **serviços de nuvem** seção toomonitor status de saudação.
 
-6. Quando sua implantação tiver êxito, o **Log de Atividades do Azure** mostrará o status **Publicada**. Clique em **Publicada**, conforme mostra a imagem a seguir, e o navegador abrirá uma instância de sua implantação.
+6. Quando a implantação é implantada com êxito, Olá **o Log de atividades do Azure** mostrará um status de **publicado**. Clique em **publicado**, conforme mostrado no hello seguintes imagem e seu navegador abrirá uma instância de sua implantação.
 
    ![][ic719490]
 
-Como essa era uma implantação em um ambiente de preparo, o nome DNS estará no formato http://&lt;*guid*&gt;.cloudapp.net, e a URL conterá o nome DNS mais um sufixo para seu aplicativo. Por exemplo, http://447564652c20426f6220526f636b7321.cloudapp.net/MyHelloWorld. (A parte **MyHelloWorld** diferencia maiúsculas de minúsculas). Você também pode ver o nome DNS se clicar no nome de implantação no Portal de Gerenciamento de Plataforma do Azure (dentro da parte Serviços de Nuvem do portal de gerenciamento).
+Como essa era uma tooa implantação ambiente de preparo, o nome DNS de saudação será Olá formato http://&lt;*guid*&gt;. c e a URL de saudação conterá o nome de DNS hello e um sufixo para seu aplicativo. Por exemplo, http://447564652c20426f6220526f636b7321.cloudapp.net/MyHelloWorld. (Olá **MyHelloWorld** parte diferencia maiusculas de minúsculas.) Você também pode ver Olá DNS nome se você clicar em nome da implantação Olá no Portal de gerenciamento de plataforma da saudação (na parte de serviços de nuvem Olá Olá do portal de gerenciamento).
 
-Embora este passo a passo servisse para uma implantação no ambiente de preparo, a implantação em produção segue as mesmas etapas, exceto na caixa de diálogo **Publicar no Azure**, quando você deve escolher **Produção** em vez de **Preparo** para o **Ambiente de destino**. Uma implantação em produção resulta em uma URL baseada no nome DNS de sua escolha, em vez de um GUID como foi usado para o preparo.
+Embora este passo a passo para um toohello implantação ambiente de preparo, uma implantação tooproduction segue Olá mesmas etapas, exceto em Olá **publicar tooAzure** caixa de diálogo, selecione **produção** em vez de **preparo** para Olá **ambiente de destino**. Uma implantação tooproduction resulta em uma URL baseada no nome DNS de saudação de sua escolha, em vez de um GUID como foi usado para a preparação.
 
 > [!WARNING]
-> Neste ponto, você já implantou o aplicativo do Azure na nuvem. No entanto, antes de prosseguir, perceba que um aplicativo implantado, mesmo que ele não esteja em execução, continuará acumulando horas faturáveis para sua assinatura. Portanto, é extremamente importante que você exclua as implantações indesejadas de sua assinatura do Azure.
+> Neste ponto, você implantou sua nuvem de toohello de aplicativo do Azure. No entanto, antes de continuar, observe que um aplicativo implantado, mesmo se ele não está em execução, continuará tooaccrue horas faturáveis para sua assinatura. Portanto, é extremamente importante que você exclua as implantações indesejadas de sua assinatura do Azure.
 > 
 > 
 
 ## <a name="about-azure-deployment-projects"></a>Sobre projetos de implantação do Azure
-Para implantar um ou mais aplicativos Java no Azure, é necessário um Projeto de Implantação do Azure. Ele desempenha a função de "pacote" dentro do qual seus aplicativos precisam ser agrupados para serem publicados no Azure.
+Em ordem toodeploy um ou mais tooAzure de aplicativos Java, é necessário um projeto de implantação do Azure. Ele desempenha a função de saudação de hello "pacote" que seus aplicativos precisam toobe encapsulada em ordem toobe publicado no Azure.
 
-Além das informações sobre seus aplicativos, um projeto de implantação do Azure também contém informações sobre outros componentes importantes de sua implantação, acima de tudo: o contêiner de servidor de aplicativo para execução em seu aplicativo Web e o tempo de execução Java para executá-lo. O Azure suporta uma ampla seleção de tempos de execução Java e servidores de aplicativos Java para sua escolha.
+Além de informações de saudação sobre seus aplicativos, um projeto de implantação do Azure também contém informações sobre outros componentes-chave de sua implantação, o mais importante: Olá toorun de contêiner do servidor de aplicativo em seu aplicativo web e Olá Java runtime toorun-lo no. O Azure suporta uma ampla seleção de tempos de execução Java e servidores de aplicativos Java para sua escolha.
 
-Embora o exemplo usado aqui esteja bastante simplificado para fins educacionais, um projeto de implantação do Azure também pode conter outras informações importantes de configuração que permitem a criação quase aleatória de serviços de nuvem complexos, escalonáveis, altamente disponíveis e de várias camadas com seus aplicativos. Você pode habilitar a **afinidade de sessão ("sessões temporárias")**, o **cache rápido**, o **descarregamento de SSL**, o **firewall/roteamento de porta**, o **acesso remoto** e várias outras funcionalidades avançadas.
+Embora o exemplo hello usado aqui seja bastante simplificado para fins educacionais, um projeto de implantação do Azure também pode conter outras informações importantes de configuração que permite que você toocreate quase arbitrariamente complexo, escalonável, altamente disponível Serviços de nuvem de várias camadas com seus aplicativos. Você pode habilitar a **afinidade de sessão ("sessões temporárias")**, o **cache rápido**, o **descarregamento de SSL**, o **firewall/roteamento de porta**, o **acesso remoto** e várias outras funcionalidades avançadas.
 
-Se você tiver concluído a seção anterior deste tutorial ("Para implantar seu aplicativo no Azure, a maneira rápida e simples"), agora você verá um novo projeto de implantação do Azure no Gerenciador de Projeto gerado automaticamente para você e chamado "**MyHelloWorld_onAzure**".
+Se você concluiu a seção anterior Olá deste tutorial ("toodeploy seu aplicativo tooAzure, Olá maneira rápida e simple"), agora você verá um novo projeto de implantação do Azure no Explorador de projeto gerado automaticamente para você e nomeado de saudação "** MyHelloWorld_onAzure**".
 
-Você também pode iniciar este tutorial criando por conta própria um projeto de implantação do Azure em branco e adicionando seus aplicativos ao projeto. É um processo mais longo, mas oferece mais controle sobre a configuração inicial desde o princípio.
+Você também pode ter começado este tutorial criando primeiro um projeto de implantação do Azure em branco por conta própria e adicionando tooit seu aplicativo (s). É mais um longo processo, mas oferece mais controle sobre a configuração inicial desde o início de Olá Olá.
 
-Para criar um novo projeto de implantação do Azure do zero, clique no botão **Novo Projeto de Implantação do Azure** ![][ic710876].
+toocreate um novo projeto de implantação do Azure do zero, clique em Olá **novo projeto de implantação do Azure** botão ![][ic710876].
 
-Independentemente de você trabalhar com um projeto de implantação existente do Azure ou criar um do zero, é possível alterar facilmente suas configurações e componentes, como o JDK ou o servidor de aplicativos, a qualquer momento.
+Independentemente de se você estiver trabalhando com um projeto de implantação do Azure já existente ou criar uma nova, você está toochange capaz de suas configurações e componentes, como Olá JDK ou Olá o servidor de aplicativos, com a mesma facilidade a qualquer momento.
 
-Para alterar o JDK, ou o servidor de aplicativos, ou a lista de aplicativos em um projeto de implantação do Azure existente:
+Olá toochange JDK, ou o servidor de aplicativo hello ou lista de aplicativos de saudação em um projeto de implantação do Azure existente:
 
-1. Expanda o nó do projeto (por exemplo, **MyHelloWorld_onAzure**) no Gerenciador de Projeto
+1. Expanda o nó do projeto hello (por exemplo, **MyHelloWorld_onAzure**) no hello Explorador de projeto
 
 2. Clique com o botão direito do mouse em **WorkerRole1**
 
-3. Expanda o submenu **Azure** no menu de contexto
+3. Expanda Olá **Azure** submenu no menu de contexto de saudação
 
 4. Clique em **Configuração do Servidor**
 
-Independentemente de você ter iniciado essas etapas de configuração do servidor editando um projeto de implantação existente do Azure, conforme exibido acima, ou criando um novo a partir do zero, você verá o mesmo tipo de caixa de diálogo permitindo a configuração do JDK, dos componentes de servidor e do aplicativo. Para saber mais sobre como alterar as configurações nessas caixas de diálogo, por exemplo, alterar o JDK, o servidor de aplicativos e adicionar ou remover aplicativos em uma implantação, confira o artigo [Propriedades de configuração do servidor][Server configuration properties].
+Independentemente de se você iniciou essas etapas de configuração do servidor editando um projeto de implantação do Azure existente, como mostrado acima, ou criar um novo a partir do zero, você verá Olá mesmo tipo de caixas de diálogo que permite tooconfigure seu JDK, servidor e aplicativo componentes. toolearn mais como configurações de saudação toochange nessas caixas de diálogo, por exemplo hello toochange JDK, Olá servidor de aplicativos e adicionar ou remover aplicativos em uma implantação, consulte Olá [propriedades de configuração do servidor] [ Server configuration properties] artigo.
 
-## <a name="windows-only-to-deploy-your-application-to-the-compute-emulator"></a>Somente Windows: para implantar seu aplicativo no emulador de computação
+## <a name="windows-only-toodeploy-your-application-toohello-compute-emulator"></a>Somente o Windows: toodeploy toohello seu aplicativo o emulador de computação
 
 > [!NOTE]
-> O emulador do Azure só está disponível no Windows. Ignore esta seção se você estiver usando um sistema operacional diferente do Windows.
+> Olá emulador do Azure só está disponível no Windows. Ignore esta seção se você estiver usando um sistema operacional diferente do Windows.
 > 
 > 
 
-Se você tiver criado um novo projeto de implantação do Azure executando as etapas descritas anteriormente, ou seja, implicitamente, publicando seu aplicativo no Azure, o JDK e os servidores de aplicativo terão sido configurados para a nuvem, mas não para emulação local. Para preparar seu projeto para teste no emulador local, execute estas etapas:
+Se você tiver criado um novo projeto de implantação do Azure Olá etapas descritas anteriormente, ou seja, implicitamente, publicando tooAzure seu aplicativo, Olá JDK e servidores de aplicativos foram configurados para a nuvem hello, mas não para emulação de local. tooprepare seu projeto para testes no emulador local do hello, siga estas etapas:
 
 1. No Gerenciador de Projeto do Eclipse, clique em **MyHelloWorld_onAzure**.
 
 2. Clique com o botão direito do mouse em **WorkerRole1**.
 
-3. Expanda o submenu **Azure** no menu de contexto.
+3. Expanda Olá **Azure** submenu no menu de contexto de saudação.
 
 4. Clique em **Configuração do Servidor**.
 
-5. Na guia **JDK** , verifique se o Kit de ferramentas pré-configurou um JDK local padrão para você. Em caso negativo, ou se você quiser alterar os padrões assumidos, certifique-se de que a caixa de seleção **Usar o JDK deste caminho de arquivo para testar localmente** esteja marcada e o local de instalação do JDK que você deseja usar tenha sido especificado. Se você quiser alterá-lo, clique no botão **Procurar** e, usando o controle de navegação, selecione o local do diretório do JDK a ser usado.
+5. Em Olá **JDK** guia, verifique se Olá Kit de ferramentas pré-configurou um padrão JDK local para você. Se não, ou se você quiser toochange Olá assumido padrões, certifique-se de que Olá **Olá Use JDK desse caminho de arquivo para testar localmente** caixa de seleção está marcada e Olá local de instalação do JDK que você deseja toouse for especificado. Se você quiser toochange-la, clique em Olá **procurar** botão e usando o controle de navegação de Olá, selecione o local do diretório de saudação do hello JDK toouse.
 
-6. Clique na guia **Servidor** .
+6. Clique em Olá **Server** guia.
 
-7. Na caixa de texto **Caminho do servidor local** na parte inferior da caixa de diálogo, digite o caminho de um servidor instalado localmente que corresponda ao tipo e ao número de versão principal do servidor selecionado na parte superior da caixa de diálogo, na caixa de seleção **Implantar um servidor deste tipo**. Se você quiser usar um tipo ou versão principal diferente do servidor de aplicativos, primeiro altere a seleção nessa caixa de seleção.
+7. Em Olá **caminho de servidor Local** caixa de texto na parte inferior de Olá Olá da caixa de diálogo, digite o caminho de saudação de um servidor instalado localmente que corresponde ao tipo de saudação e número de versão principal do servidor de saudação selecionado na parte superior de Olá Olá da caixa de diálogo, em Olá **implantar um servidor deste tipo** caixa de seleção. Se você quiser toouse um tipo diferente ou a versão principal saudação do servidor de aplicativos, altere a seleção de saudação nessa caixa de seleção pela primeira vez.
 
 8. Clique em **OK**.
 
-9. Na barra de ferramentas do Eclipse, clique no botão **Executar no Emulador do Azure**, ![][ic710879]. Se o botão **Executar no Emulador do Azure** não estiver habilitado, verifique se **MyHelloWorld_onAzure** está selecionada no Gerenciador de Projeto do Eclipse e certifique-se de que o foco esteja na janela do Gerenciador de Projeto do Eclipse. Isso iniciará primeiro uma compilação completa de seu projeto e, em seguida, iniciará seu aplicativo Web de Java no emulador de computação. (Observe que dependendo das características de desempenho do computador, a primeira compilação poderá demorar de alguns segundos a alguns minutos, mas as compilações subsequentes serão mais rápidas.) Após a conclusão da primeira etapa da compilação, você receberá uma solicitação do UAC (Controle de Conta de Usuário) do Windows para permitir que esse comando faça alterações em seu computador. Clique em **Sim**.
+9. Na barra de ferramentas do Eclipse hello, clique em Olá **executar no emulador do Azure** botão, ![][ic710879]. Se hello **executar no emulador do Azure** botão não estiver habilitado, certifique-se de que **MyHelloWorld_onAzure** está selecionado no Explorador de projeto do Eclipse e certifique-se de que o Explorador de projeto do Eclipse esteja como Olá janela atual. Isso inicia pela primeira vez uma compilação completa do seu projeto e, em seguida, inicie o aplicativo de web de Java no emulador de computação hello. (Observe que, dependendo das características de desempenho do seu computador, Olá primeira compilação pode levar entre alguns segundos tooa alguns minutos, mas as compilações subsequentes receberá mais rápido.) Após a conclusão Olá a primeira etapa de compilação, você será solicitado pelo controle de conta do usuário (UAC) do Windows tooallow toomake esse comando altera tooyour computador. Clique em **Sim**.
 
 > [!IMPORTANT]
-> Se você não vir o prompt do UAC, procure na barra de tarefas do Windows o ícone do UAC e clique nele primeiro. Às vezes, o prompt do UAC não aparece como uma janela de nível superior, mas fica visível somente como um ícone na barra de tarefas.
+> Se você não vir seleção prompt do UAC Olá Olá na barra de tarefas do Windows para o ícone do UAC hello e clique nele primeiro. Às vezes, Olá prompt do UAC não aparece como uma janela de nível superior, mas é visível somente como um ícone na barra de tarefas.
 > 
 > 
 
-1. Examine a saída do emulador de computação da interface do usuário para determinar se há problemas com o seu projeto. Dependendo do conteúdo de sua implantação, pode demorar alguns minutos para seu aplicativo ser totalmente iniciado no emulador de computação.
+1. Examine a saída de saudação do hello toodetermine de interface do usuário de emulador de computação se houver algum problema com o seu projeto. Dependendo do conteúdo da saudação da sua implantação, ele pode levar alguns minutos para que seu toobe aplicativo totalmente iniciado no emulador de computação de saudação.
 
-2. Inicie o navegador e use a URL `http://localhost:8080/MyHelloWorld` como o endereço (a parte `MyHelloWorld` da URL diferencia maiúsculas de minúsculas). Você deve ver o aplicativo MyHelloWorld (a saída de index.jsp), semelhante à imagem a seguir:
+2. Iniciar o navegador e usar Olá URL `http://localhost:8080/MyHelloWorld` como endereço hello (Olá `MyHelloWorld` parte Olá URL diferencia maiusculas de minúsculas). Você deve ver o aplicativo MyHelloWorld (saída Olá de index.jsp), semelhante toohello imagem a seguir:
 
    ![][ic589579]
 
-Quando você estiver pronto para interromper a execução do aplicativo no emulador de computação, na barra de ferramentas do Eclipse, clique no botão **Redefinir Emulador do Azure**, ![][ic710880].
+Quando você estiver pronto toostop seu aplicativo seja executado no emulador de computação do hello, na barra de ferramentas do Eclipse hello, clique em Olá **redefinir emulador do Azure** botão, ![][ic710880].
 
-## <a name="to-delete-your-deployment"></a>Para excluir a implantação
-Para excluir a implantação dentro do Kit de Ferramentas do Azure para Eclipse, selecione **MyHelloWorld_onAzure** no Gerenciador de Projeto do Eclipse, certifique-se de que o foco esteja na janela do Gerenciador de Projeto do Eclipse e, em seguida, clique no botão **Cancelar publicação**, ![][ic710883], na barra de ferramentas do Eclipse. (Você pode executar a mesma operação clicando com o botão direito do mouse em **MyHelloWorld_onAzure** no Gerenciador de Projeto do Eclipse, clicando em **Azure** e, em seguida, clicando em **Cancelar a Implantação da Nuvem do Azure**). Isso exibirá a caixa de diálogo **Cancelar a Publicação do Projeto do Azure**.
+## <a name="toodelete-your-deployment"></a>toodelete sua implantação
+toodelete sua implantação em Olá Kit de ferramentas do Azure para Eclipse, certifique-se de que **MyHelloWorld_onAzure** é selecionada no Explorador de projeto do Eclipse, certifique-se de saudação Explorador de projeto do Eclipse tem janela atual Olá foco e, em seguida, clique em Olá **Cancelar publicação** botão, ![][ic710883], na barra de ferramentas do Eclipse hello. (Você pode fazer Olá a mesma operação clicando **MyHelloWorld_onAzure** no Explorador de projeto do Eclipse, clicando em **Azure** e, em seguida, clicando em **desimplantar da nuvem do Azure**.) Isso exibirá Olá **cancelar a publicação de projeto do Azure** caixa de diálogo.
 
 ![][ic719491]
 
-Selecione a assinatura e o serviço de nuvem que contém sua implantação, escolha a implantação que você deseja excluir e, em seguida, clique em **Cancelar publicação**.
+Selecione o serviço de assinatura e na nuvem Olá que contém sua implantação, implantação de saudação selecione que você deseja toodelete e, em seguida, clique em **Cancelar publicação**.
 
-(Uma alternativa ao uso do kit de ferramentas para excluir a implantação é usar a seção **Serviços de Nuvem** do Portal de Gerenciamento do Azure: navegue até sua implantação, selecione-a e, em seguida, clique no botão **Excluir**. Isso interromperá e, em seguida, excluirá a implantação. Se você quiser apenas interromper a implantação e não excluí-la, clique no botão **Parar** em vez do botão **Excluir**, mas, como foi mencionado acima, se você não excluir a implantação, os encargos continuarão acumulando para sua implantação, mesmo que ela seja interrompida).
+(Uma implantação de saudação toousing alternativo Olá toolkit toodelete é Olá toouse **serviços de nuvem** seção Olá Portal de gerenciamento do Azure: Navegue tooyour implantação, selecione-o e clique em Olá **excluir** botão. Isso interromperá e, em seguida, excluir, a implantação de saudação. Se você quiser apenas toostop implantação de saudação e não excluí-la, clique em Olá **parar** botão em vez da saudação **excluir** botão, mas, conforme mencionado acima, se você não excluir a implantação de hello, será encargos faturável Continue tooaccrue para sua implantação mesmo se ele é interrompido).
 
 ## <a name="see-also"></a>Consulte também
 [Kit de Ferramentas do Azure para Eclipse][Azure Toolkit for Eclipse]
 
-[Instalação do Kit de Ferramentas do Azure para Eclipse][Installing the Azure Toolkit for Eclipse] 
+[Saudação de instalar o Kit de ferramentas do Azure para Eclipse][Installing hello Azure Toolkit for Eclipse] 
 
-[Novidades no Kit de Ferramentas do Azure para Eclipse][What's New in the Azure Toolkit for Eclipse]
+[Novidades no Kit de ferramentas do Azure para Eclipse de saudação][What's New in hello Azure Toolkit for Eclipse]
 
-Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure][Azure Java Developer Center].
+Para obter mais informações sobre como usar o Azure com Java, consulte Olá [Centro de desenvolvedores de Java do Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
@@ -204,9 +204,9 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 [Azure Role Properties]: http://go.microsoft.com/fwlink/?LinkID=699525
 [Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Enabling Remote Access for Azure Deployments in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699538
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Installing hello Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Server configuration properties]: http://go.microsoft.com/fwlink/?LinkID=699525#server_configuration_properties
-[What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
+[What's New in hello Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
 

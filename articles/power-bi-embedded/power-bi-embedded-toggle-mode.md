@@ -1,6 +1,6 @@
 ---
-title: "Alternar entre o modo de exibição e modo de edição para relatórios no Azure Power BI Embedded | Microsoft Docs"
-description: "Saiba como alternar entre o modo de exibição e modo de edição para seus relatórios no Power BI Embedded."
+title: "aaaToggle entre o modo de exibição e edição para relatórios no Azure Power BI inserido | Microsoft Docs"
+description: "Saiba como tootoggle entre o modo de exibição e edição para seus relatórios no Power BI inserido."
 services: power-bi-embedded
 documentationcenter: 
 author: guyinacube
@@ -15,22 +15,22 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/11/2017
 ms.author: asaxton
-ms.openlocfilehash: f73bf05b41523a5833cc9366fb84cb7021b4b7a9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c9e3da5f9ae74d221af650adebde7c9d83b38a99
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-embedded"></a>Alternar entre o modo de exibição e modo de edição para seus relatórios no Power BI Embedded
 
-Saiba como alternar entre o modo de exibição e modo de edição para seus relatórios no Power BI Embedded.
+Saiba como tootoggle entre o modo de exibição e edição para seus relatórios no Power BI inserido.
 
 ## <a name="creating-an-access-token"></a>Criação de um token de acesso
 
-Você precisará criar um token de acesso que lhe permita exibir e editar um relatório. Para editar e salvar um relatório, será necessária a permissão de token **Report.ReadWrite**. Para obter mais informações, consulte [Autenticando e autorizando com o Power BI Embedded](power-bi-embedded-app-token-flow.md).
+Você precisará toocreate um token de acesso que oferece exibição de tooboth capacidade hello e editar um relatório. tooedit e salvar um relatório, você precisará Olá **Report.ReadWrite** permissão de token. Para obter mais informações, consulte [Autenticando e autorizando com o Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
 > [!NOTE]
-> Isso permitirá que você edite e salve as alterações a um relatório existente. Se você também deseja a função de suporte a **Salvar Como**, você precisará fornecer permissões adicionais. Para obter mais informações, consulte [Escopos](power-bi-embedded-app-token-flow.md#scopes).
+> Isso será permitem tooedit e salvar as alterações de relatório existente tooan. Se você também deseja a função hello de dar suporte a **Salvar como**, você precisará de permissões adicionais toosupply. Para obter mais informações, consulte [Escopos](power-bi-embedded-app-token-flow.md#scopes).
 
 ```
 using Microsoft.PowerBI.Security;
@@ -44,7 +44,7 @@ var token = embedToken.Generate("{access key}");
 
 ## <a name="embed-configuration"></a>Configuração de inserção
 
-Você precisará fornecer permissões e um viewMode para ver o botão salvar em modo de edição. Para saber mais, confira [Detalhes de configuração do servidor de inserção](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
+Você precisará toosupply permissões e um viewMode na saudação de toosee ordem Salvar botão quando no modo de edição. Para saber mais, confira [Detalhes de configuração do servidor de inserção](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
 
 Por exemplo, no JavaScript:
 
@@ -54,7 +54,7 @@ Por exemplo, no JavaScript:
     // Get models. Models, it contains enums that can be used.
     var models = window['powerbi-client'].models;
 
-    // Embed configuration used to describe the what and how to embed.
+    // Embed configuration used toodescribe hello what and how tooembed.
     // This object is used when calling powerbi.embed.
     // This also includes settings and options such as filters.
     // You can find more information at https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details.
@@ -71,43 +71,43 @@ Por exemplo, no JavaScript:
         }
     };
 
-    // Get a reference to the embedded report HTML element
+    // Get a reference toohello embedded report HTML element
     var reportContainer = $('#reportContainer')[0];
 
-    // Embed the report and display it within the div container.
+    // Embed hello report and display it within hello div container.
     var report = powerbi.embed(reportContainer, config);
 ```
 
-Isso indicará para inserir o relatório no modo de exibição com base na definição de **viewMode** para **models.ViewMode.View**.
+Isso indicará o relatório de saudação tooembed no modo de exibição com base em **viewMode** sendo definido muito**modelos. ViewMode.View**.
 
 ## <a name="view-mode"></a>Modo de exibição
 
-Você pode usar o seguinte JavaScript para mudar para o modo de exibição, caso esteja no modo de edição.
+Você pode usar o hello tooswitch JavaScript a seguir no modo de exibição, se você estiver no modo de edição.
 
 ```
-// Get a reference to the embedded report HTML element
+// Get a reference toohello embedded report HTML element
 var reportContainer = $('#reportContainer')[0];
 
-// Get a reference to the embedded report.
+// Get a reference toohello embedded report.
 report = powerbi.get(reportContainer);
 
-// Switch to view mode.
+// Switch tooview mode.
 report.switchMode("view");
 
 ```
 
 ## <a name="edit-mode"></a>Modo de edição
 
-Você pode usar o JavaScript a seguir para mudar para o modo de edição, caso esteja no modo de exibição.
+Você pode usar o hello tooswitch JavaScript a seguir no modo de edição, se você estiver no modo de exibição modo.
 
 ```
-// Get a reference to the embedded report HTML element
+// Get a reference toohello embedded report HTML element
 var reportContainer = $('#reportContainer')[0];
 
-// Get a reference to the embedded report.
+// Get a reference toohello embedded report.
 report = powerbi.get(reportContainer);
 
-// Switch to edit mode.
+// Switch tooedit mode.
 report.switchMode("edit");
 
 ```
@@ -121,4 +121,4 @@ report.switchMode("edit");
 [Amostra de inserção de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [Repositório de Git PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
 [Repositório de Git PowerBI-Node](https://github.com/Microsoft/PowerBI-Node)  
-Mais perguntas? [Experimentar a comunidade do Power BI](http://community.powerbi.com/)
+Mais perguntas? [Tente Olá comunidade do Power BI](http://community.powerbi.com/)

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory para desenvolvedores | Microsoft Docs
+title: aaaAzure do Active Directory para desenvolvedores | Microsoft Docs
 description: "Este artigo fornece uma visão geral sobre como conectar-se às contas corporativa e de estudante da Microsoft usando o Azure Active Directory."
 services: active-directory
 author: dstrockis
@@ -14,22 +14,22 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: dce813b885d492343428428056a2e8aada27b461
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4dbbea6c1e0b8a70c0c36ddd1caec5658130a003
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory para desenvolvedores
-O Azure Active Directory é um serviço de identidade de nuvem que permite aos desenvolvedores conectar com segurança qualquer usuário com uma conta corporativa ou de estudante trabalho com o suporte da Microsoft.  Esta documentação mostra como adicionar suporte do Azure AD para o seu aplicativo usando protocolos de autenticação padrão do setor, OAuth e OpenID Connect.
+Active Directory do Azure é um serviço de identidade de nuvem que permite aos desenvolvedores toosecurely entrar qualquer usuário com uma conta corporativa ou escolar feito pela Microsoft.  documentação de saudação aqui mostra como tooadd AD do Azure dão suporte ao aplicativo de tooyour usando protocolos de autenticação padrão do setor, OAuth & OpenID Connect.
 
 | | |
 | --- | --- |
-|[Noções básicas de autenticação](active-directory-authentication-scenarios.md) | Uma introdução à autenticação com o Azure AD |
-|[Tipos de aplicativos](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Uma visão geral dos cenários de autenticação com suporte no Azure AD |                                
+|[Noções básicas de autenticação](active-directory-authentication-scenarios.md) | Tooauthentication uma introdução ao AD do Azure |
+|[Tipos de aplicativos](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Uma visão geral de cenários de autenticação de saudação suportados pelo AD do Azure |                                
                                                                               
 ## <a name="get-started"></a>Introdução
-Essas configurações interativas orientarão você no uso das nossas bibliotecas de autenticação para conectar usuários do Azure Active Directory.
+Essas configurações interativa orientará usando nosso toosign de bibliotecas de autenticação de usuários do Active Directory do Azure.
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -40,13 +40,13 @@ Essas configurações interativas orientarão você no uso das nossas biblioteca
 | <center>![De serviços](./media/active-directory-developers-guide/Service_App.png)<br />De serviços</center> | [Visão geral](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)<br /><br />[Credenciais do cliente do OAuth 2.0](active-directory-protocols-oauth-service-to-service.md) |  |
 
 ## <a name="guides"></a>Guias
-Esses artigos informam como executar tarefas comuns com o Azure Active Directory.
+Esses artigos informam como as tarefas comuns de tooperform com o Active Directory do Azure.
 
 |                                                                           |  |
 |---------------------------------------------------------------------------| --- |
-|[Registro do Aplicativo](active-directory-integrating-applications.md)           | Como registrar um aplicativo no Azure AD |
-|[Aplicativos multilocatário](active-directory-devhowto-multi-tenant-overview.md)    | Como entrar em qualquer conta corporativa da Microsoft |
-|[OAuth e OpenID Connect](active-directory-protocols-openid-connect-code.md)| Como conectar usuários e chamar APIs Web usando nossos modernos protocolos de autenticação |
+|[Registro do Aplicativo](active-directory-integrating-applications.md)           | Como tooregister um aplicativo no AD do Azure |
+|[Aplicativos multilocatário](active-directory-devhowto-multi-tenant-overview.md)    | Como conta de trabalho toosign na Microsoft |
+|[OAuth e OpenID Connect](active-directory-protocols-openid-connect-code.md)| Como os usuários toosign e chamar APIs da web usando os protocolos de autenticação moderna |
 |[Mais guias...](active-directory-developers-guide-index.md#guides)        |     |
 
 ## <a name="reference"></a>Referência
@@ -54,13 +54,13 @@ Esses artigos fornecem informações detalhadas sobre as APIs, as mensagens de p
 
 |                                                                                   | |
 | ----------------------------------------------------------------------------------| --- |
-| [Bibliotecas de autenticação (ADAL)](active-directory-authentication-libraries.md)   | Uma visão geral das bibliotecas e dos SDKs fornecidos pelo Azure AD |
+| [Bibliotecas de autenticação (ADAL)](active-directory-authentication-libraries.md)   | Uma visão geral das bibliotecas de saudação & SDKs fornecidos pelo AD do Azure |
 | [Exemplos de código](active-directory-code-samples.md)                                  | Uma lista de todos os exemplos de código do Azure AD |
 | [Glossário](active-directory-dev-glossary.md)                                      | Terminologia e definições de palavras usadas em toda esta documentação |
 | [Mais materiais de referência...](active-directory-developers-guide-index.md#reference)|     |
 
 ## <a name="help--support"></a>Ajuda + suporte
-Esses são os melhores locais para obter ajuda com o desenvolvimento no Azure Active Directory.
+Esses são Olá melhores lugares tooget ajuda com o desenvolvimento no Active Directory do Azure.
 
 |  |  
 |---|
@@ -71,4 +71,4 @@ Esses são os melhores locais para obter ajuda com o desenvolvimento no Azure Ac
 <br />
 
 > [!NOTE]
-> Se você precisar entrar nas contas pessoais da Microsoft, você talvez queira considerar o uso do [ponto de extremidade do Azure AD v 2.0](active-directory-appmodel-v2-overview.md).  O ponto de extremidade do Azure AD v 2.0 é a unificação das contas pessoais da Microsoft e contas corporativas da Microsoft (do Azure AD) em um sistema de autenticação simples.
+> Se você precisar toosign-in particulares contas da Microsoft, talvez você queira tooconsider usando Olá [o ponto de extremidade do AD do Azure v 2.0](active-directory-appmodel-v2-overview.md).  o ponto de extremidade do AD do Azure de saudação v 2.0 é Unificação de saudação de contas pessoais da Microsoft e contas de trabalho da Microsoft (a partir do AD do Azure) em um sistema de autenticação único.

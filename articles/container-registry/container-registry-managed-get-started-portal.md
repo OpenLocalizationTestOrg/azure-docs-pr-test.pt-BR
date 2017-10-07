@@ -1,6 +1,6 @@
 ---
-title: Criar registro privado do Docker - portal do Azure | Microsoft Docs
-description: "Introdução à criação e ao gerenciamento de contêiner privado do Docker com o portal do Azure"
+title: registro de Docker privado aaaCreate - portal do Azure | Microsoft Docs
+description: "Começar a criar e gerenciar registros privados de contêiner do Docker com hello portal do Azure"
 services: container-registry
 documentationcenter: 
 author: neilpeterson
@@ -17,57 +17,57 @@ ms.workload: na
 ms.date: 07/11/2017
 ms.author: nepeters
 ms.custom: na
-ms.openlocfilehash: 560aee42b0c5a61c37c594d7937f833ab7183d49
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: cf3ce0dcf3036d0e9cd1eaf01721deccb00248d2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-managed-container-registry-using-the-azure-portal"></a>Criar um registro de contêiner gerenciado usando o portal do Azure
+# <a name="create-a-managed-container-registry-using-hello-azure-portal"></a>Criar um registro de contêiner gerenciado usando Olá portal do Azure
 
-O Registro de Contêiner do Azure é um serviço de registro de contêiner Docker gerenciado usado para armazenar imagens de contêiner de Docker particulares. Este guia detalha a criação de uma instância gerenciada do Registro de Contêiner do Azure usando o portal do Azure.
+O Registro de Contêiner do Azure é um serviço de registro de contêiner Docker gerenciado usado para armazenar imagens de contêiner de Docker particulares. Esses detalhes de guia criando uma instância gerenciada do registro de contêiner do Azure usando Olá portal do Azure.
 
 Os registros de contêiner gerenciados do Azure estão em versão prévia e não estão disponíveis em todas as regiões.
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
+## <a name="log-in-tooazure"></a>Faça logon no tooAzure
 
-Faça logon no Portal do Azure em http://portal.azure.com.
+Faça logon em toohello portal do Azure em http://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
 
-1. Clique no botão **Novo** no canto superior esquerdo do Portal do Azure.
+1. Clique em Olá **novo** botão localizado no canto superior esquerdo de saudação do hello portal do Azure.
 
-2. Pesquise no marketplace o **registro de contêiner do Azure** e selecione-o.
+2. Marketplace de saudação de pesquisa para **registro de contêiner do Azure** e selecioná-lo.
 
-3. Clique em **Criar**, que abrirá a folha de criação do ACR.
+3. Clique em **criar** que abrirá a folha de criação de ACR hello.
 
     ![Configurações de registro de contêiner](./media/container-registry-get-started-portal/managed-container-registry-settings.png)
 
-4. Na folha **Registro de Contêiner do Azure**, insira as informações a seguir. Clique em **Criar** quando terminar.
+4. Em Olá **registro de contêiner do Azure** folha, digite Olá informações a seguir. Clique em **Criar** quando terminar.
 
-    a. **Nome do registro**: um nome de domínio de nível superior exclusivo para o registro específico. Neste exemplo, o nome do registro é *myAzureContainerRegistry1*, mas substitua-o por um nome exclusivo. O nome pode conter apenas letras e números.
+    a. **Nome do registro**: um nome de domínio de nível superior exclusivo para o registro específico. Neste exemplo, o nome de registro de saudação é *myAzureContainerRegistry1*, mas substitua um nome exclusivo. nome de saudação pode conter apenas letras e números.
 
-    b. **Grupo de recursos**: selecione um [grupo de recursos](../azure-resource-manager/resource-group-overview.md#resource-groups) existente ou digite o nome de um novo.
+    b. **Grupo de recursos**: selecione uma existente [grupo de recursos](../azure-resource-manager/resource-group-overview.md#resource-groups) ou nome de saudação do tipo para um novo.
 
-    c. **Local**: selecione um local de datacenter do Azure em que o serviço está [disponível](https://azure.microsoft.com/regions/services/), como **Centro-Sul dos EUA**.
+    c. **Local**: selecione um local de data center do Azure onde está o serviço Olá [disponível](https://azure.microsoft.com/regions/services/), como **Centro Sul dos EUA**.
 
-    d. **Usuário administrador**: se desejar, habilite um usuário administrador para acessar o registro. Você pode alterar essa configuração após a criação do registro.
+    d. **O usuário administrador**: se desejar, habilite um registro de saudação de tooaccess de usuário admin. Você pode alterar essa configuração após a criação do registro de saudação.
 
-    e. **Registro gerenciado Use**: selecione Sim para que o ACR gerencie automaticamente o armazenamento de registro, use webhooks e use a autenticação do AAD.
+    e. **Registro gerenciado Use**: selecione Sim toohave ACR automaticamente gerenciar armazenamento de registro hello, use webhooks e usar a autenticação do AAD.
 
     f. **Tipo de Preço**: selecione um tipo de preço, veja aqui os preços do ACR para saber mais.
 
-## <a name="log-in-to-acr-instance"></a>Fazer logon na instância ACR
+## <a name="log-in-tooacr-instance"></a>Faça logon na instância de tooACR
 
-Antes de enviar por push e pull imagens de contêiner, você deverá fazer logon na instância ACR. 
+Antes de enviar por push e pull imagens de contêiner, você deve fazer logon na instância ACR toohello. 
 
-Para fazer isso, use a CLI do Azure 2.0. Primeiro, se necessário, faça logon no Azure usando o comando [az login](/cli/azure/#login). 
+Assim, o toodo usar Olá 2.0 do CLI do Azure. Primeiro, se necessário, faça logon no Azure usando Olá [logon az](/cli/azure/#login) comando. 
 
 ```azurecli
 az login
 ```
 
-Em seguida, use o comando [az acr login](/cli/azure/acr#login) para fazer logon no Registro de Contêiner do Azure.
+Em seguida, use Olá [logon de acr az](/cli/azure/acr#login) comando toolog em toohello do registro de contêiner do Azure.
 
 ```azurecli-interactive
 az acr login --name myAzureContainerRegistry1
@@ -77,14 +77,14 @@ az acr login --name myAzureContainerRegistry1
 
 ### <a name="list-container-images"></a>Listar imagens de contêiner
 
-Use os comandos de CLI `az acr` para consultar as imagens e marcas em um repositório.
+Saudação de uso `az acr` CLI comandos de imagens de saudação tooquery marcas em um repositório.
 
 > [!NOTE]
-> Atualmente, o Registro de Contêiner não dá suporte ao comando `docker search` para consulta para imagens e marcas.
+> Atualmente, registro de contêiner não dá suporte a saudação `docker search` tooquery de comando para imagens e marcas.
 
 ### <a name="list-repositories"></a>Listar repositórios
 
-O seguinte exemplo lista os repositórios em um registro, no formato JSON (JavaScript Object Notation):
+Olá, exemplo a seguir lista os repositórios de saudação em um registro, no formato JSON (JavaScript Object Notation):
 
 ```azurecli
 az acr repository list -n myContainerRegistry1 -o json
@@ -92,7 +92,7 @@ az acr repository list -n myContainerRegistry1 -o json
 
 ### <a name="list-tags"></a>Listar marcas
 
-O seguinte exemplo lista as marcas no repositório **samples/nginx**, no formato JSON:
+Olá, exemplo a seguir lista as marcas de Olá Olá **exemplos/nginx** repositório, no formato JSON:
 
 ```azurecli
 az acr repository show-tags -n myContainerRegistry1 --repository samples/nginx -o json
@@ -100,7 +100,7 @@ az acr repository show-tags -n myContainerRegistry1 --repository samples/nginx -
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou uma instância gerenciada do Registro de Contêiner do Azure usando o portal do Azure.
+Esse início rápido, você criou uma instância gerenciada do registro de contêiner do Azure usando Olá portal do Azure.
 
 > [!div class="nextstepaction"]
-> [Enviar por push sua primeira imagem usando a CLI do Docker](container-registry-get-started-docker-cli.md)
+> [Enviar por push sua primeira imagem usando Olá CLI do Docker](container-registry-get-started-docker-cli.md)

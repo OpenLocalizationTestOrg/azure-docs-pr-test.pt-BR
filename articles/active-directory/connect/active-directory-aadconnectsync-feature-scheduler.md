@@ -1,6 +1,6 @@
 ---
 title: "Sincronização do Azure AD Connect: agendador | Microsoft Docs"
-description: "Este tópico descreve o recurso Agendador interno na sincronização do Azure AD Connect."
+description: "Este tópico descreve o recurso de agendador interno Olá na sincronização do Azure AD Connect."
 services: active-directory
 documentationcenter: 
 author: AndKjell
@@ -14,48 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 63f69756b3933fecdec75cc677e1098447e5b94e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c587039cc68d305862a07beff364894b6f74cd2f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronização do Azure AD Connect: agendador
-Este tópico descreve o agendador interno na sincronização do Azure AD Connect (também conhecido como mecanismo de sincronização).
+Este tópico descreve o agendador interno de saudação na sincronização do Azure AD Connect (também conhecido como mecanismo de sincronização).
 
 Esse recurso foi introduzido com a compilação 1.1.105.0 (lançada em fevereiro de 2016).
 
 ## <a name="overview"></a>Visão geral
-A sincronização do Azure AD Connect sincroniza mudanças ocorridas em seu diretório local usando um agendador. Há dois processos de agendador, um para sincronização de senha e outro para sincronização de atributo/objeto e tarefas de manutenção. Este tópico aborda a última opção.
+A sincronização do Azure AD Connect sincroniza mudanças ocorridas em seu diretório local usando um agendador. Há dois processos de agendador, um para sincronização de senha e outro para sincronização de atributo/objeto e tarefas de manutenção. Este tópico aborda Olá último.
 
-Em versões anteriores, o agendador de objetos e atributos era separado do mecanismo de sincronização. Ele usava o agendador de tarefas do Windows ou um serviço do Windows separado para disparar o processo de sincronização. O agendador faz parte dos recursos internos nas versões 1.1 do mecanismo de sincronização e permite alguma personalização. A frequência de sincronização do novo padrão é de 30 minutos.
+Em versões anteriores, o Agendador de saudação para objetos e atributos foi toohello externo mecanismo de sincronização. Antes que o Agendador de tarefas do Windows ou um Windows service tootrigger Olá sincronização processo separado. Agendador de saudação está com hello mecanismo de sincronização de toohello internos versões 1.1 e permitem a alguma personalização. frequência de sincronização Olá novo padrão é 30 minutos.
 
-O agendador é responsável por duas tarefas:
+Agendador de saudação é responsável por duas tarefas:
 
-* **Ciclo de sincronização**. O processo de importação, sincronização e exportação das alterações.
-* **Tarefas de manutenção**. Renove as chaves e certificados para a redefinição de Senha e o DRS (Serviço de Registro de Dispositivo). Limpe as entradas antigas no log de operações.
+* **Ciclo de sincronização**. Olá processo tooimport, sincronização e alterações de exportação.
+* **Tarefas de manutenção**. Renove as chaves e certificados para a redefinição de Senha e o DRS (Serviço de Registro de Dispositivo). Limpe as entradas antigas no log de operações de saudação.
 
-O agendador em si está sempre em execução, mas ele pode ser configurado para executar apenas uma ou nenhuma dessas tarefas. Por exemplo, se você precisar ter seu próprio processo de ciclo de sincronização, poderá desabilitar essa tarefa no agendador, mas ainda executar a tarefa de manutenção.
+Agendador de saudação em si está sempre em execução, mas pode ser configurado tooonly executar uma ou nenhuma dessas tarefas. Por exemplo, se você precisar toohave seu próprio processo de ciclo de sincronização, você pode desabilitar essa tarefa no Agendador de saudação mas tarefa de manutenção Olá execução ainda.
 
 ## <a name="scheduler-configuration"></a>Configuração do agendador
-Para ver as configurações atuais, acesse o PowerShell e execute `Get-ADSyncScheduler`. Ele mostra algo parecido com esta imagem:
+toosee as configurações atuais, vá tooPowerShell e executar `Get-ADSyncScheduler`. Ele mostra algo parecido com esta imagem:
 
 ![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings2016.png)
 
-Se você vir **O comando de sincronização ou o cmdlet não está disponível** quando executar esse cmdlet, o módulo do PowerShell não estará carregado. Esse problema poderá ocorrer se você executar o Azure AD Connect em um controlador de domínio ou em um servidor com níveis mais altos de restrição do PowerShell do que as configurações padrão. Se você vir esse erro, execute `Import-Module ADSync` para disponibilizar o cmdlet.
+Se você vir **Olá sincronização comando ou cmdlet não está disponível** quando você executar esse cmdlet, em seguida, Olá PowerShell módulo não está carregado. Esse problema pode ocorrer se você executar o Azure AD Connect em um controlador de domínio ou em um servidor com níveis mais altos de restrição do PowerShell que as configurações padrão de saudação. Se você vir esse erro, execute `Import-Module ADSync` toomake Olá cmdlet disponível.
 
-* **AllowedSyncCycleInterval**. O intervalo de tempo mais curto entre os ciclos de sincronização permitido pelo Azure AD. Você não pode sincronizar com maior frequência do que a permitida por essa configuração e ainda ter suporte.
-* **CurrentlyEffectiveSyncCycleInterval**. O agendamento atualmente em vigor. Ele terá o mesmo valor de CustomizedSyncInterval (se definido) se não for mais frequente do que AllowedSyncInterval. Se você usar uma versão anterior à 1.1.281 e alterar o CustomizedSyncCycleInterval, essa alteração entrará em vigor após o próximo ciclo de sincronização. Desde o build 1.1.281, a alteração entra em vigor imediatamente.
-* **CustomizedSyncCycleInterval**. Se você quiser que o agendador seja executado em intervalos diferentes do padrão de 30 minutos, terá que definir nessa configuração. Na figura acima, o agendador foi definido para ser executado a cada hora. Se você definir essa configuração como um valor menor do que AllowedSyncInterval, a última opção será usada.
-* **NextSyncCyclePolicyType**. Delta ou Inicial. Define se a próxima execução deve apenas processar alterações delta ou se a próxima execução deve fazer importação e sincronização completas. O última opção também reprocessaria regras novas ou alteradas.
-* **NextSyncCycleStartTimeInUTC**. Da próxima vez, o agendador iniciará o próximo ciclo de sincronização.
-* **PurgeRunHistoryInterval**. Os logs de operação de tempo devem ser mantidos. Esses logs podem ser analisados no gerenciador do serviço de sincronização. O padrão é manter os logs por sete dias.
-* **SyncCycleEnabled**. Indica se o agendador está executando os processos de exportação, importação e sincronização como parte de sua operação.
-* **MaintenanceEnabled**. Mostra se o processo de manutenção está habilitado. Ele atualiza os certificados/chaves e limpa o log de operações.
-* **StagingModeEnabled**. Mostra se o [modo de preparo](active-directory-aadconnectsync-operations.md#staging-mode) está habilitado. Quando essa configuração está habilitada, ela impede que as exportações sejam executadas, mas ainda executa a importação e a sincronização.
-* **SchedulerSuspended**. Definido pelo Connect durante uma atualização para bloquear temporariamente a execução do agendador.
+* **AllowedSyncCycleInterval**. Olá menor tempo intervalo entre os ciclos de sincronização permitido pelo AD do Azure. Você não pode sincronizar com maior frequência do que a permitida por essa configuração e ainda ter suporte.
+* **CurrentlyEffectiveSyncCycleInterval**. Olá agendamento atualmente em vigor. Ele tem Olá mesmo valor CustomizedSyncInterval (se definido) se não for mais frequente que AllowedSyncInterval. Se você usar uma versão anterior à 1.1.281 e alterar o CustomizedSyncCycleInterval, essa alteração entrará em vigor após o próximo ciclo de sincronização. Compilação 1.1.281 Olá alteração entrará em vigor imediatamente.
+* **CustomizedSyncCycleInterval**. Se você quiser Olá Agendador toorun em qualquer outra frequência padrão Olá 30 minutos, você definir essa configuração. Na Figura Olá acima, Olá Agendador definido toorun a cada hora em vez disso. Se você definir o valor dessa configuração tooa inferior AllowedSyncInterval, Olá esta última é usada.
+* **NextSyncCyclePolicyType**. Delta ou Inicial. Define se Olá próxima execução deve apenas as alterações de delta de processo ou se hello próxima execução deve fazer um completo importar e sincronizar. Olá último também seria reprocessar nenhuma regra nova ou alterada.
+* **NextSyncCycleStartTimeInUTC**. Próxima inicialização Agendador Olá Olá próximo ciclo de sincronização.
+* **PurgeRunHistoryInterval**. Olá a operação de tempo de logs devem ser mantidos. Esses logs podem ser examinados no Gerenciador de serviço de sincronização de saudação. Olá padrão é tookeep esses logs para 7 dias.
+* **SyncCycleEnabled**. Indica se Agendador Olá está executando processos de exportação, sincronização e importação de saudação como parte de sua operação.
+* **MaintenanceEnabled**. Mostra se o processo de manutenção de saudação está habilitado. Atualiza Olá certificados/chaves e limpa Olá log de operações.
+* **StagingModeEnabled**. Mostra se o [modo de preparo](active-directory-aadconnectsync-operations.md#staging-mode) está habilitado. Se essa configuração estiver habilitada, ela suprime Olá exportações de execução, mas ainda executar importação e sincronização.
+* **SchedulerSuspended**. Definido por conectar durante um agendador de saudação do bloco tootemporarily atualização seja executado.
 
-Você pode alterar algumas dessas configurações com `Set-ADSyncScheduler`. Os parâmetros a seguir podem ser modificados:
+Você pode alterar algumas dessas configurações com `Set-ADSyncScheduler`. Olá parâmetros a seguir pode ser modificada:
 
 * CustomizedSyncCycleInterval
 * NextSyncCyclePolicyType
@@ -63,73 +63,73 @@ Você pode alterar algumas dessas configurações com `Set-ADSyncScheduler`. Os 
 * SyncCycleEnabled
 * MaintenanceEnabled
 
-Em builds anteriores do Azure AD Connect, **isStagingModeEnabled** era exposto em Set-ADSyncScheduler. **Não há suporte** para a definição dessa propriedade. A propriedade **SchedulerSuspended** só deve ser modificada pelo Connect. **Não há suporte** para a definição dela diretamente com o PowerShell.
+Em builds anteriores do Azure AD Connect, **isStagingModeEnabled** era exposto em Set-ADSyncScheduler. É **sem suporte** tooset essa propriedade. Olá propriedade **SchedulerSuspended** só deve ser modificado por conectar-se. É **sem suporte** tooset isso com o PowerShell diretamente.
 
-A configuração do agendador é armazenada no Azure AD. Se você tiver um servidor de preparo, uma alteração no servidor primário também afetará o servidor de preparo (exceto IsStagingModeEnabled).
+configuração do Agendador Olá é armazenada no AD do Azure. Se você tiver um servidor de preparo, qualquer alteração no servidor primário Olá também afeta Olá preparação do servidor (exceto IsStagingModeEnabled).
 
 ### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
 Sintaxe: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
 d - dias, HH - horas, mm - minutos, ss - segundos
 
 Exemplo: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
-Altera o Agendador para executar a cada três horas.
+Alterações Olá Agendador toorun a cada três horas.
 
 Exemplo: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`  
-Altera o Agendador para executar diariamente.
+As alterações de alteração Olá Agendador toorun diariamente.
 
-### <a name="disable-the-scheduler"></a>Desabilitar o agendador  
-Se você precisar fazer alterações de configuração, talvez seja melhor desabilitar o agendador. Por exemplo, quando você [configura a filtragem](active-directory-aadconnectsync-configure-filtering.md) ou [faz alterações nas regras de sincronização](active-directory-aadconnectsync-change-the-configuration.md).
+### <a name="disable-hello-scheduler"></a>Desabilitar o Agendador Olá  
+Se você precisar toomake alterações de configuração, você deseja toodisable Agendador de saudação. Por exemplo, quando você [configurar a filtragem de](active-directory-aadconnectsync-configure-filtering.md) ou [fazer alterações regras toosynchronization](active-directory-aadconnectsync-change-the-configuration.md).
 
-Execute `Set-ADSyncScheduler -SyncCycleEnabled $false` para desabilitar o agendador.
+Agendador de saudação toodisable, execute `Set-ADSyncScheduler -SyncCycleEnabled $false`.
 
-![Desabilitar o agendador](./media/active-directory-aadconnectsync-change-the-configuration/schedulerdisable.png)
+![Desabilitar o Agendador Olá](./media/active-directory-aadconnectsync-change-the-configuration/schedulerdisable.png)
 
-Quando você fizer as alterações, não se esqueça de habilitar o agendador novamente com `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+Quando você fez as alterações, não se esqueça de Agendador de saudação tooenable novamente com `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 
-## <a name="start-the-scheduler"></a>Iniciar o agendador
-Por padrão, o agendador é executado a cada 30 minutos. Em alguns casos, é bom executar um ciclo de sincronização entre os ciclos agendados ou terá que executar um tipo diferente.
+## <a name="start-hello-scheduler"></a>Inicie o Agendador de saudação
+Agendador de saudação é por padrão são executados a cada 30 minutos. Em alguns casos, convém toorun ciclo de uma sincronização entre Olá agendado ciclos ou é necessário toorun um tipo diferente.
 
 **Ciclo de sincronização delta**  
-Um ciclo de sincronização delta inclui as seguintes etapas:
+Um ciclo de sincronização delta inclui Olá etapas a seguir:
 
 * Importação delta em todos os conectores
 * Sincronização delta em todos os conectores
 * Exportação em todos os conectores
 
-É possível que você tenha uma alteração urgente que deva ser sincronizada imediatamente e precise executar um ciclo manualmente. Se precisar executar um ciclo manualmente, execute `Start-ADSyncSyncCycle -PolicyType Delta`no PowerShell.
+É possível que você tenha um urgentes alterações que devem ser sincronizadas imediatamente, por isso, você precisa toomanually executar um ciclo. Se você precisar toomanually executar um ciclo, em seguida, de execução PowerShell `Start-ADSyncSyncCycle -PolicyType Delta`.
 
 **Ciclo de sincronização completo**  
-Caso tenha feito uma das alterações de configuração a seguir, será necessário executar um ciclo de sincronização completo (também conhecido como Inicial):
+Se você fez uma saudação alterações de configuração a seguir, é necessário (também conhecido como toorun um ciclo de sincronização completa Inicial):
 
-* Adicionou mais objetos ou atributos para serem importados de um diretório de origem
-* Realizou alterações nas regras de sincronização
+* Adicionados mais toobe objetos ou atributos importado de um diretório de origem
+* Fez alterações toohello regras de sincronização
 * Alterou a [filtragem](active-directory-aadconnectsync-configure-filtering.md) para incluir um número diferente de objetos
 
-Se você tiver realizado uma dessas alterações, precisará executar um ciclo de sincronização completa para que o mecanismo de sincronização possa reconsolidar os espaços conectores. Um ciclo de sincronização completa inclui as seguintes etapas:
+Se você fez uma dessas alterações, você precisa toorun ciclo de uma sincronização completa para que o mecanismo de sincronização de saudação tem espaços de conector Olá oportunidade tooreconsolidate hello. Um ciclo de sincronização completa inclui Olá etapas a seguir:
 
 * Importação completa de todos os conectores
 * Sincronização completa de todos os conectores
 * Exportação em todos os conectores
 
-Para iniciar um ciclo de sincronização completo, execute `Start-ADSyncSyncCycle -PolicyType Initial` em um prompt do PowerShell. Esse comando inicia um ciclo de sincronização completa.
+tooinitiate um ciclo de sincronização completa, executar `Start-ADSyncSyncCycle -PolicyType Initial` em um prompt do PowerShell. Esse comando inicia um ciclo de sincronização completa.
 
-## <a name="stop-the-scheduler"></a>Parar o agendador
-Se o agendador estiver executando um ciclo de sincronização, talvez seja necessário interrompê-lo. Por exemplo, se você iniciar o assistente de instalação e receber este erro:
+## <a name="stop-hello-scheduler"></a>Parar o Agendador Olá
+Se o Agendador hello está sendo executado um ciclo de sincronização, talvez seja necessário toostop-lo. Por exemplo, se você iniciar o Assistente de instalação de saudação e você receberá esse erro:
 
 ![SyncCycleRunningError](./media/active-directory-aadconnectsync-feature-scheduler/synccyclerunningerror.png)
 
-Se um ciclo de sincronização estiver em execução, você não poderá alterar a configuração. Você pode aguardar até que o agendador conclua o processo ou pode interrompê-lo para realizar suas alterações logo em seguida. Parar o ciclo atual não é prejudicial e as alterações serão processadas na próxima execução.
+Se um ciclo de sincronização estiver em execução, você não poderá alterar a configuração. Você pode aguardar até que o Agendador Olá tiver concluído o processo de hello, mas você também pode interrompê-lo para que você possa fazer as alterações imediatamente. Parando Olá ciclo atual não é prejudicial e alterações pendentes são processadas da próxima execução.
 
-1. Comece informando o agendador para interromper o ciclo atual com o cmdlet `Stop-ADSyncSyncCycle`do PowerShell.
-2. Se você usar uma versão anterior à 1.1.281, parando em seguida, o agendador não interromperá a tarefa atual do conector atual. Para forçar a interrupção do Conector, execute as seguintes ações: ![StopAConnector](./media/active-directory-aadconnectsync-feature-scheduler/stopaconnector.png)
-   * Inicie o **Serviço de Sincronização** no menu Iniciar. Vá para **Conectores**, realce o Conector com o estado **Executando** e selecione **Parar** em Ações.
+1. Iniciar informando Olá Agendador toostop atual ciclo com o cmdlet do PowerShell Olá `Stop-ADSyncSyncCycle`.
+2. Se você usar uma compilação antes 1.1.281, parando o Agendador de saudação não interrompe a saudação atual conector de sua tarefa atual. tooforce Olá conector toostop, levar Olá ações a seguir: ![StopAConnector](./media/active-directory-aadconnectsync-feature-scheduler/stopaconnector.png)
+   * Iniciar **serviço de sincronização** saudação do menu de início. Vá muito**conectores**, realce Olá conector com o estado de saudação **executando**e selecione **parar** de saudação ações.
 
-O agendador ainda está ativo e será iniciado novamente na próxima oportunidade.
+Agendador de saudação ainda está ativo e inicia novamente na próxima oportunidade.
 
 ## <a name="custom-scheduler"></a>Agendador personalizado
-Os cmdlets documentados nesta seção só estão disponíveis no build [1.1.130.0](active-directory-aadconnect-version-history.md#111300) e posteriores.
+Olá cmdlets documentadas nesta seção estão disponíveis somente na compilação [1.1.130.0](active-directory-aadconnect-version-history.md#111300) e posterior.
 
-Se o agendador interno não atender às suas necessidades, você poderá fazer o agendamento dos Conectores usando o PowerShell.
+Se o agendador interno Olá não atender às suas necessidades, você pode agendar Olá conectores usando o PowerShell.
 
 ### <a name="invoke-adsyncrunprofile"></a>Invoke-ADSyncRunProfile
 Você pode iniciar um perfil para um Conector desta forma:
@@ -138,37 +138,37 @@ Você pode iniciar um perfil para um Conector desta forma:
 Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name of profile"
 ```
 
-Os nomes a serem usados como [Nomes de conector](active-directory-aadconnectsync-service-manager-ui-connectors.md) e [Nomes de Perfil de Execução](active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles) podem ser encontrados na [Interface do Usuário do Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md).
+Olá nomes toouse para [nomes de conector](active-directory-aadconnectsync-service-manager-ui-connectors.md) e [nomes de perfil executar](active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles) podem ser encontradas no hello [Synchronization Service Manager UI](active-directory-aadconnectsync-service-manager-ui.md).
 
 ![Invocar perfil de execução](./media/active-directory-aadconnectsync-feature-scheduler/invokerunprofile.png)  
 
-O cmdlet `Invoke-ADSyncRunProfile` é síncrono, ou seja, ele não retornará o controle até que o Conector tenha concluído a operação, seja com êxito ou com erro.
+Olá `Invoke-ADSyncRunProfile` cmdlet é síncrono, ou seja, ele não retorna o controle até que Olá conector concluiu a operação de hello, com êxito ou com um erro.
 
-Quando você agendar seus Conectores, a recomendação é agendá-los na seguinte ordem:
+Quando você planejar seus conectores, recomendação de saudação é tooschedule em Olá ordem a seguir:
 
 1. (Completo/Delta) Importar de diretórios locais, como o Active Directory
 2. (Completo/Delta) Importar do Azure AD
 3. (Completo/Delta) Sincronizar de diretórios locais, como o Active Directory
 4. (Completo/Delta) Sincronização do Azure AD
-5. Exportar para o Azure AD
-6. Exportar para diretórios locais, como o Active Directory
+5. Exportar tooAzure AD
+6. Exportar diretórios tooon local, como o Active Directory
 
-Essa ordem é como o agendador interno executa os conectores.
+Essa ordem é como o agendador interno Olá executa Olá conectores.
 
 ### <a name="get-adsyncconnectorrunstatus"></a>Get-ADSyncConnectorRunStatus
-Você também pode monitorar o mecanismo de sincronização para ver se ele está ocupado ou ocioso. Esse cmdlet retornará um resultado vazio se o mecanismo de sincronização estiver ocioso e não estiver executando um Conector. Se um Conector estiver em execução, ele retornará o nome do Conector.
+Você também pode monitorar Olá toosee de mecanismo de sincronização se ele estiver ocupado ou ocioso. Esse cmdlet retorna um resultado vazio se o mecanismo de sincronização de saudação está ocioso e não está em execução a um conector. Se um conector está em execução, ele retorna o nome de saudação do hello conector.
 
 ```
 Get-ADSyncConnectorRunStatus
 ```
 
 ![Status de execução do conector](./media/active-directory-aadconnectsync-feature-scheduler/getconnectorrunstatus.png)  
-Na imagem acima, a primeira linha é de um estado em que o mecanismo de sincronização está ocioso. A segunda linha é de quando o Conector do Azure AD está em execução.
+Imagem de saudação acima, Olá primeira linha é de um estado em que o mecanismo de sincronização hello está ocioso. Olá segunda linha quando Olá conector AD do Azure está em execução.
 
 ## <a name="scheduler-and-installation-wizard"></a>Agendador e o assistente de instalação
-Se você iniciar o assistente de instalação, o agendador será temporariamente suspenso. Esse comportamento ocorre porque ele pressupõe que você fará alterações na configuração e as definições não poderão ser aplicadas se o mecanismo de sincronização estiver ativamente em execução. Por esse motivo, não deixe o assistente de instalação aberto, já que ele impede que o mecanismo de sincronização execute ações de sincronização.
+Se você iniciar o Assistente de instalação hello, Agendador Olá é suspenso temporariamente. Esse comportamento ocorre porque supõe-se fazer alterações de configuração e essas configurações não podem ser aplicadas se o mecanismo de sincronização de saudação ativamente está em execução. Por esse motivo, não deixe o Assistente de instalação Olá aberto desde que ele interrompe o mecanismo de sincronização de saudação de executar as ações de sincronização.
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
+Saiba mais sobre Olá [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) configuração.
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).

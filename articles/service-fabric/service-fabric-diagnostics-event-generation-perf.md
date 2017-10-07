@@ -1,5 +1,5 @@
 ---
-title: Monitoramento de desempenho do Azure Service Fabric | Microsoft Docs
+title: "aaaAzure monitoramento de desempenho do serviço de malha | Microsoft Docs"
 description: "Saiba mais sobre os contadores de desempenho para o monitoramento e diagnóstico de clusters do Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.openlocfilehash: 9d63148c182c705b6b49733c59ed8fdd13872d72
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 54d4c62b7250a1f70b0898ba07ae5a37716f4cf4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="performance-metrics"></a>Métricas de desempenho
 
-As métricas devem ser coletadas para entender o desempenho de seu cluster, bem como os aplicativos em execução nele. Para clusters do Service Fabric, recomendamos coletar os seguintes contadores de desempenho.
+Métricas devem ser coletados toounderstand Olá desempenho do cluster, bem como Olá aplicativos em execução. Para clusters de malha do serviço, recomendamos coletar Olá contadores de desempenho a seguir.
 
 ## <a name="nodes"></a>Nós
 
-Para as máquinas em seu cluster, considere a possibilidade de coletar os seguintes contadores de desempenho a fim de entender melhor a carga em cada computador e tomar decisões apropriadas sobre o dimensionamento do cluster.
+Para máquinas de saudação no seu cluster, considere coletando Olá toobetter entender Olá carga em cada computador e fazer cluster apropriados dimensionamento decisões de contadores de desempenho a seguir.
 
 | Categoria do Contador | Nome do contador |
 | --- | --- |
@@ -51,7 +51,7 @@ Para as máquinas em seu cluster, considere a possibilidade de coletar os seguin
 
 ## <a name="net-applications-and-services"></a>Aplicativos e serviços de .NET
 
-Colete os contadores a seguir se você estiver implantando serviços .NET em seu cluster. 
+Olá coletar contadores a seguir se você estiver implantando o .NET de serviços de cluster tooyour. 
 
 | Categoria do Contador | Nome do contador |
 | --- | --- |
@@ -66,16 +66,16 @@ Colete os contadores a seguir se você estiver implantando serviços .NET em seu
 
 ### <a name="service-fabrics-custom-performance-counters"></a>Contadores de desempenho personalizados do Service Fabric
 
-O Service Fabric gera uma quantidade significativa de contadores de desempenho personalizados. Se o SDK estiver instalado, você poderá ver a lista abrangente em seu computador com Windows em seu aplicativo de Monitor de Desempenho (Iniciar > Monitor de Desempenho). 
+O Service Fabric gera uma quantidade significativa de contadores de desempenho personalizados. Se você tiver Olá SDK instalado, você pode ver lista abrangente de saudação em seu computador Windows em seu aplicativo do Monitor de desempenho (Iniciar > Monitor de desempenho). 
 
-Nos aplicativos que você está implantando em seu cluster, se você estiver usando Reliable Actors, adicione contadores das categorias `Service Fabric Actor` e `Service Fabric Actor Method` (consulte [Diagnósticos de Reliable Actors do Service Fabric](service-fabric-reliable-actors-diagnostics.md)).
+Em aplicativos de saudação você está implantando tooyour cluster, se você estiver usando Reliable Actors, adicione countes de `Service Fabric Actor` e `Service Fabric Actor Method` categorias (consulte [Service Fabric confiável atores diagnóstico](service-fabric-reliable-actors-diagnostics.md)).
 
 Se você usar os Reliable Services, teremos as categorias de contadores `Service Fabric Service` e `Service Fabric Service Method` das quais você deverá coletar contadores. 
 
-Se você usar Coleções Confiáveis, recomendamos adicionar o `Avg. Transaction ms/Commit` do `Service Fabric Transactional Replicator` para coletar a latência média de confirmação por métrica da transação.
+Se você usar coleções confiável, é recomendável adicionar Olá `Avg. Transaction ms/Commit` de saudação `Service Fabric Transactional Replicator` toocollect latência de confirmação média Olá por métrica da transação.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre a [geração de eventos no nível de plataforma](service-fabric-diagnostics-event-generation-infra.md) do Service Fabric
+* Saiba mais sobre [geração de eventos no nível de plataforma Olá](service-fabric-diagnostics-event-generation-infra.md) na malha do serviço
 * Coletar métricas de desempenho por meio dos [Diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md)

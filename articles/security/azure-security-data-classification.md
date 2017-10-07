@@ -1,6 +1,6 @@
 ---
-title: "Classificação de dados para o Azure | Microsoft Docs"
-description: "Este artigo fornece uma introdução aos conceitos básicos da classificação de dados e realça seu valor, especificamente no contexto da computação em nuvem e usando o Microsoft Azure"
+title: "aaaData classificação para o Azure | Microsoft Docs"
+description: "Este artigo fornece uma introdução toohello conceitos básicos da classificação de dados e realça a seu valor, especificamente no contexto de saudação da nuvem de computação e usando o Microsoft Azure"
 services: security
 documentationcenter: na
 author: YuriDio
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/18/2017
 ms.author: yurid
-ms.openlocfilehash: e5d8841c47f91b27131fcf5066bfd3805b5670f2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 726da2482beab3bf7b0ac33510f2b523d5074df8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="data-classification-for-azure"></a>Classificação de dados para o Azure
-Este artigo fornece uma introdução aos conceitos básicos da classificação de dados e realça seu valor, especificamente no contexto da computação em nuvem e usando o Microsoft Azure. 
+Este artigo fornece uma introdução toohello conceitos básicos da classificação de dados e realça a seu valor, especificamente no contexto de saudação da nuvem de computação e de uso do Microsoft Azure. 
 
 ## <a name="data-classification-fundamentals"></a>Conceitos básicos de classificação de dados
 A classificação de dados bem-sucedida em uma organização exige amplo conhecimento das necessidades da organização e uma compreensão completa de onde residem seus ativos de dados.  
@@ -34,72 +34,72 @@ Os dados existem em um destes três estados básicos:
 * Em andamento 
 * Em trânsito 
 
-Todos os três estados exigem soluções técnicas exclusivas para classificação de dados, mas os princípios aplicados da classificação de dados devem ser os mesmos para cada um deles. Os dados classificados como confidenciais precisam permanecer confidenciais quando em repouso, em andamento e em trânsito. 
+Todos os três estados exigem exclusivas soluções técnicas para classificação de dados, mas hello aplicados princípios da classificação de dados deve ser hello mesmo para cada um. Dados que são classificados como confidenciais precisam toostay confidenciais quando em repouso, no processo e em trânsito. 
 
-Os dados também podem ser estruturados ou não estruturados. Os processos de classificação típicos para os dados estruturados encontrados em planilhas e bancos de dados são menos complexos e demorados de gerenciar do que aqueles para dados não estruturados, como documentos, código-fonte e email. 
+Os dados também podem ser estruturados ou não estruturados. Processos de classificação típico para Olá estruturado dados encontrados em bancos de dados e planilhas são menos complexa e demorada toomanage que os dados não estruturados, como email, documentos e código-fonte. 
 
 > [!TIP]
 > para saber mais sobre recursos do Azure e práticas recomendadas para criptografia de dados, leia [Práticas recomendadas de criptografia de dados do Azure](azure-security-data-encryption-best-practices.md)
 > 
 > 
 
-Em geral, as organizações têm mais dados não estruturados do que dados estruturados. Independentemente de os dados serem estruturados ou não estruturados, é importante que você gerencie a confidencialidade dos dados. Quando implementada corretamente, a classificação de dados ajuda a garantir que ativos de dados sigilosos ou confidenciais sejam gerenciados com maior supervisão do que ativos de dados que são considerados públicos ou para livre distribuição. 
+Em geral, as organizações têm mais dados não estruturados do que dados estruturados. Independentemente se os dados são estruturados ou não, é importante para você toomanage dados sensibilidade. Quando implementada corretamente, classificação de dados ajuda a garantir que os dados confidenciais ativos são gerenciados com maior supervisão de ativos de dados que são considerados toodistribute público ou livre. 
 
-### <a name="controlling-access-to-data"></a>Controle do acesso a dados
-Autenticação e autorização são frequentemente confundidos um com o outro e suas funções são mal compreendidas. Na realidade, são bastante diferentes, como mostrado na figura a seguir.  
+### <a name="controlling-access-toodata"></a>Controlando acesso toodata
+Autenticação e autorização são frequentemente confundidos um com o outro e suas funções são mal compreendidas. Na realidade são bastante diferentes, conforme mostrado na figura a seguir de saudação.  
 
 ![Controle e acesso a dados](./media/azure-security-data-classification/azure-security-data-classification-fig1.png)
 
 ### <a name="authentication"></a>Autenticação
-A autenticação normalmente consiste em pelo menos duas partes: um nome de usuário ou ID de usuário para identificar um usuário e um token, como uma senha, para confirmar que a credencial de nome de usuário é válida. O processo não fornece ao usuário autenticado acesso a itens ou serviços; ele verifica se o usuário é quem diz ser.   
+Autenticação normalmente consiste em pelo menos duas partes: um tooidentify de ID de usuário ou nome de usuário um usuário e um token, como uma senha, tooconfirm que Olá credencial de nome de usuário é válido. processo de saudação não fornece Olá o usuário autenticado com acesso tooany itens ou serviços; ele verifica que o usuário Olá é quem diz.   
 
 > [!TIP]
-> O [Azure Active Directory](../active-directory/active-directory-whatis.md) fornece serviços de identidade baseados em nuvem que lhe permitem autenticar e autorizar usuários. 
+> [Active Directory do Azure](../active-directory/active-directory-whatis.md) fornece serviços de identidade baseados em nuvem que permitem que você tooauthenticate e autorizam usuários. 
 > 
 > 
 
 ### <a name="authorization"></a>Autorização
-A autorização é o processo de fornecer a um usuário autenticado a capacidade de acessar um aplicativo, um conjunto de dados, um arquivo de dados ou algum outro objeto. Para atribuir aos usuários autenticados os direitos de usar, modificar ou excluir itens que eles podem acessar, é necessária atenção à classificação de dados. 
+A autorização é o processo de saudação de fornecer um tooaccess de capacidade de saudação do usuário autenticado, um aplicativo, o conjunto de dados, o arquivo de dados ou algum outro objeto. Atribuir usuários autenticados Olá direitos toouse, modificar ou excluir os itens que eles possam acessar requer a classificação de toodata de atenção. 
 
-A autorização bem-sucedida requer a implementação de um mecanismo para validar as necessidades de usuários individuais para acessar arquivos e informações com base em uma combinação de considerações de função, política de segurança e política de risco. Por exemplo, dados de aplicativos de LOB (linha de negócios) específicos talvez não precisem ser acessados por todos os funcionários, e apenas um pequeno subconjunto de funcionários provavelmente precisará acessar os arquivos de RH (recursos humanos). Porém, para que as organizações controlem quem pode acessar dados, assim como quando e como, deve ser adotado um sistema eficaz para autenticar os usuários. 
+Autorização bem-sucedida requer a implementação de um mecanismo toovalidate individuais dos usuários precisa tooaccess arquivos e informações com base em uma combinação de função, política de segurança e considerações sobre política de risco. Por exemplo, dados de aplicativos de (LOB) de linha de negócios específicos talvez não seja necessário toobe acessado por todos os funcionários, e somente um pequeno subconjunto de funcionários provavelmente precisará de acesso toohuman arquivos de RH (recursos). Mas, para as organizações toocontrol quem pode acessar dados, bem como quando e como, um sistema efetivo para autenticar os usuários deve estar em vigor. 
 
 > [!TIP]
-> no Microsoft Azure, utilize o RBAC (Controle de Acesso Baseado em Função) do Azure para conceder somente a quantidade de acesso de que os usuários precisam para realizar seus trabalhos. Leia [Use as atribuições de função para gerenciar o acesso aos recursos do Azure Active Directory](../active-directory/role-based-access-control-configure.md) para saber mais. 
+> no Microsoft Azure, verifique se tooleverage o Access RBAC (controle) toogrant somente Olá quantidade de acesso que os usuários precisam tooperform seus trabalhos. Leitura [usar recursos de Active Directory do Azure função atribuições toomanage acesso tooyour](../active-directory/role-based-access-control-configure.md) para obter mais informações. 
 > 
 > 
 
 ### <a name="roles-and-responsibilities-in-cloud-computing"></a>Funções e responsabilidades na computação em nuvem
-Embora os provedores de nuvem possam ajudar a gerenciar riscos, os clientes precisam garantir que o gerenciamento e a imposição da classificação de dados sejam implementados corretamente para fornecer o nível apropriado de serviços de gerenciamento de dados.  
+Embora os provedores de nuvem podem ajudar a gerenciar os riscos, os clientes precisam tooensure esse gerenciamento de classificação de dados e imposição é implementada corretamente tooprovide Olá nível apropriado de serviços de gerenciamento de dados.  
 
-As responsabilidades de classificação de dados variam com base no modelo de serviço de nuvem usado, conforme mostrado na figura a seguir. Os três modelos de serviço de nuvem primários são IaaS (infraestrutura como serviço), PaaS (plataforma como serviço) e SaaS (software como serviço). A implementação de mecanismos de classificação de dados também varia com base na dependência e nas expectativas do provedor de nuvem. 
+Classificação de dados responsabilidades irão variar com base em qual modelo de serviço de nuvem está em vigor, conforme mostrado na figura a seguir de saudação. três modelos de serviço de nuvem primária Olá são infraestrutura como serviço (IaaS), plataforma como serviço (PaaS) e software como serviço (SaaS). Implementação de mecanismos de classificação de dados também irão variar com base na dependência hello e expectativas de provedor de nuvem hello. 
 
 ![Funções](./media/azure-security-data-classification/azure-security-data-classification-fig2.png)
 
-Embora você seja responsável por classificar seus dados, os provedores de nuvem devem assumir compromissos por escrito sobre como protegerão e manterão a privacidade dos dados do cliente armazenados em sua nuvem.  
+Embora você é responsável para classificar seus dados, provedores de nuvem devem assumir compromissos escritos sobre como eles serão proteger e manter a privacidade Olá Olá de dados do cliente armazenados em sua nuvem.  
 
-* Os requisitos dos **provedores de IaaS** são limitados a garantir que o ambiente virtual possa acomodar recursos de classificação de dados e requisitos de conformidade do cliente. Os provedores de IaaS têm uma função menor na classificação de dados, pois só precisam garantir que os dados do cliente atendam aos requisitos de conformidade. No entanto, os provedores ainda devem garantir que seus ambientes virtuais atendam a requisitos de classificação de dados, além de proteger seus datacenters.
-* As responsabilidades dos **provedores de PaaS** podem ser combinadas, pois a plataforma pode ser usada em uma abordagem em camadas para fornecer segurança a uma ferramenta de classificação. Os provedores de PaaS podem ser responsáveis pela autenticação e, possivelmente, por algumas regras de autorização e devem fornecer recursos de segurança e classificação de dados para sua camada de aplicativo. De forma semelhante aos provedores de IaaS, os provedores de PaaS precisam garantir que sua plataforma esteja em conformidade com quaisquer requisitos de classificação de dados relevantes.
-* Os **provedores de SaaS** frequentemente são considerados como parte de uma cadeia de autorização e precisam garantir que os dados armazenados no aplicativo SaaS possam ser controlados por tipo de classificação. Os aplicativos SaaS podem ser usados para aplicativos de LOB e, por sua própria natureza, precisam fornecer os meios para autenticar e autorizar os dados que são usados e armazenados. 
+* **Provedores de IaaS** requisitos são limitados tooensuring que Olá ambiente virtual pode acomodar as funcionalidades de classificação de dados e requisitos de conformidade do cliente. Provedores de IaaS têm uma função menor na classificação de dados porque eles só precisarem de tooensure que os dados do cliente atende aos requisitos de conformidade. No entanto, os provedores ainda devem garantir que seus ambientes virtuais atendem aos requisitos de classificação de dados em adição toosecuring seus data centers.
+* **Provedores de PaaS** responsabilidades podem ser misturadas, porque a plataforma de saudação poderia ser usada em uma abordagem em camadas de segurança de tooprovide para uma ferramenta de classificação. Provedores de PaaS podem ser responsáveis pela autenticação e possivelmente algumas regras de autorização e devem fornecer segurança e a camada de aplicativo tootheir do recursos de classificação de dados. Muito como provedores de IaaS, PaaS provedores necessário tooensure sua plataforma está em conformidade com quaisquer requisitos de classificação de dados relevantes.
+* **Provedores de SaaS** frequentemente será considerado como parte de uma cadeia de autorização e será necessário tooensure que Olá dados armazenados no aplicativo de SaaS hello pode ser controlado por tipo de classificação. Aplicativos SaaS podem ser usados para aplicativos de LOB e por natureza necessário tooprovide Olá significa tooauthenticate e autorizar os dados que são usados e armazenados. 
 
 ## <a name="classification-process"></a>Processo de classificação
-Muitas organizações que compreendem a necessidade de classificação de dados e desejam implementá-la enfrentam um desafio básico: por onde começar?
+Muitas organizações que entender Olá precisa para classificação de dados e desejar tooimplement um desafio básico: onde toobegin?
 
-Uma maneira simples e eficiente de implementar a classificação de dados é usar o modelo PLANEJAR, FAZER, VERIFICAR, AGIR do [MOF](https://technet.microsoft.com/solutionaccelerators/dd320379.aspx). A figura a seguir mostra as tarefas que são necessárias para implementar com êxito a classificação de dados nesse modelo.  
+Uma maneira simple e eficaz tooimplement a classificação de dados é toouse Olá plano, fazer, verificação, o ato de modelo de [MOF](https://technet.microsoft.com/solutionaccelerators/dd320379.aspx). a seguir Olá Figura gráficos tarefas Olá toosuccessfully necessário implementar a classificação de dados nesse modelo.  
 
-1. **PLANEJAR**. Identifique os ativos de dados e um custodiante de dados para implantar o programa de classificação e desenvolva perfis de proteção. 
-2. **FAZER**. Depois que as políticas de classificação de dados forem acordadas, implante o programa e implemente tecnologias de imposição conforme necessário para dados confidenciais.  
-3. **VERIFICAR**. Verifique e valide os relatórios para assegurar que as ferramentas e os métodos que estão sendo usados estão abordando com eficiência as políticas de classificação. 
-4. **AGIR**. Examine o status do acesso a dados e examine arquivos e dados que exigem revisão usando uma metodologia de revisão e reclassificação para adotar alterações e lidar com novos riscos.  
+1. **PLANEJAR**. Identificar os ativos de dados, um programa de classificação de dados custodiante toodeploy Olá e desenvolver perfis de proteção. 
+2. **FAZER**. Depois que as políticas de classificação de dados são acordadas, implantar o programa hello e implementar tecnologias de imposição conforme necessário para dados confidenciais.  
+3. **VERIFICAR**. Verifique e valide relatórios tooensure ferramentas hello e métodos que estão sendo usados são efetivamente endereçamento Olá políticas de classificação. 
+4. **AGIR**. Examine o status de saudação do acesso a dados e examine arquivos e dados que exigem revisão usando uma reclassificação e alterações de tooadopt de metodologia de revisão e tooaddress novos riscos.  
 
 ![Planejar, Fazer, Verificar, Agir](./media/azure-security-data-classification/azure-security-data-classification-fig3.png)
 
 ### <a name="select-a-terminology-model-that-addresses-your-needs"></a>Selecione um modelo de terminologia que atenda às suas necessidades
-Existem vários tipos de processos de classificação de dados, incluindo processos manuais, processos baseados em local que classificam os dados com base no local do usuário ou do sistema, processos baseados em aplicativos, como classificação específica de banco de dados, e processos automatizados usados por várias tecnologias, alguns dos quais são descritos na seção "Proteção de dados confidenciais", mais adiante neste artigo.  
+Existem vários tipos de processos de classificação de dados, incluindo processos manuais, processos com base no local que classificam os dados com base no local de um usuário ou do sistema, processos baseados em aplicativo, como classificação de banco de dados específico e automatizada processos usados pelo diversas tecnologias, alguns dos quais são descritos na seção de "Proteção de dados confidenciais" hello neste artigo.  
 
-Este artigo introduz dois modelos de terminologia generalizada com base em modelos bastante usados e respeitados pelo setor. Esses modelos de terminologia, que fornecem três níveis de confidencialidade de classificação, são mostrados na tabela a seguir.  
+Este artigo introduz dois modelos de terminologia generalizada com base em modelos bastante usados e respeitados pelo setor. Esses modelos de terminologia, que fornecem três níveis de sensibilidade de classificação, são mostrados no Olá a tabela a seguir.  
 
 > [!NOTE]
-> ao classificar um arquivo ou recurso que combina dados que, normalmente, seriam classificados em níveis diferentes, o nível mais alto de classificação presente deve estabelecer a classificação geral. Por exemplo, um arquivo que contém dados confidenciais e restritos deve ser classificado como restrito.  
+> ao classificar um arquivo ou recurso que combina dados que normalmente seriam classificados em níveis diferentes, o nível mais alto de saudação de classificação presente devem estabelecer Olá classificação geral. Por exemplo, um arquivo que contém dados confidenciais e restritos deve ser classificado como restrito.  
 > 
 > 
 
@@ -110,7 +110,7 @@ Este artigo introduz dois modelos de terminologia generalizada com base em model
 | Baixo |Público |Irrestrito |
 
 #### <a name="confidential-restricted"></a>Confidencial (restrito)
-As informações que são classificadas como confidenciais ou restritas incluem dados que podem ser catastróficos para uma ou mais pessoas e/ou organizações caso sejam comprometidos ou perdidos. Com frequência, essas informações são fornecidas apenas para "divulgação restrita àqueles diretamente interessados" e podem incluir: 
+Informações que são classificadas como confidenciais ou restritos incluem dados que podem ser tooone catastrófica ou mais pessoas e/ou organizações se comprometido ou perdido. Essas informações com frequência são fornecidas em uma base de "necessidade tooknow" e podem incluir: 
 
 * Dados pessoais, incluindo informações de identificação pessoal, como números de Previdência Social ou de identificação nacional, números de passaporte, números de cartão de crédito, números de carteira de motorista, registros médicos e números de ID de apólice de seguros de saúde.  
 * Registros financeiros, incluindo números de contas financeiras, como números de verificação ou de contas de investimentos. 
@@ -123,16 +123,16 @@ Frequentemente, os dados classificados como confidenciais têm requisitos regula
 #### <a name="for-internal-use-only-sensitive"></a>Apenas para uso interno (sigiloso)
 Informações que são classificadas com um nível de sigilo médio incluem arquivos e dados que não causariam um impacto grave para um indivíduo e/ou uma organização caso perdidos ou destruídos. Essas informações podem incluir: 
 
-* Emails, a maioria dos quais pode ser excluída ou distribuída sem causar uma crise (excluindo caixas de correio ou email de pessoas que são identificadas na classificação confidencial).  
+* Email, a maioria dos quais pode ser excluída ou distribuída sem provocar uma crise (excluindo as caixas de correio ou de email de pessoas que são identificadas na classificação confidencial Olá).  
 * Documentos e arquivos que não têm dados confidenciais.
 
-Em geral, essa classificação inclui tudo o que não é confidencial. Essa classificação pode incluir a maioria dos dados de negócios, pois a maioria dos arquivos que são gerenciados ou usadas no dia a dia pode ser classificada como sigilosa. Com exceção de dados que são tornados feitos públicos ou confidenciais, todos os dados em uma organização de negócios podem ser classificados como sigilosos por padrão. 
+Em geral, essa classificação inclui tudo o que não é confidencial. Essa classificação pode incluir a maioria dos dados de negócios, pois a maioria dos arquivos que são gerenciados ou usadas no dia a dia pode ser classificada como sigilosa. Com exceção de saudação de dados que são publicados ou são confidencial, todos os dados dentro de uma organização podem ser classificados como confidenciais por padrão. 
 
 #### <a name="public-unrestricted"></a>Público (irrestrito)
-As informações que são classificadas como públicas incluem dados e arquivos que não são essenciais para as necessidades de negócios ou as operações. Essa classificação também pode incluir dados deliberadamente lançados para o uso do público, como material de marketing ou comunicados à imprensa. Além disso, essa classificação pode incluir dados como mensagens de email de spam armazenadas por um serviço de email. 
+Informações que são classificadas como público incluem dados e arquivos que não são críticas toobusiness necessidades ou operações. Essa classificação também pode incluir dados deliberadamente foi lançada toohello público para seu uso, como anúncios de material ou pressione de marketing. Além disso, essa classificação pode incluir dados como mensagens de email de spam armazenadas por um serviço de email. 
 
 ### <a name="define-data-ownership"></a>Definir a propriedade dos dados
-É importante estabelecer uma cadeia de custódia clara de propriedade para todos os ativos de dados. A tabela a seguir identifica diferentes funções de propriedade de dados em iniciativas de classificação de dados e seus respectivos direitos.  
+É importante tooestablish uma cadeia de custódia claro de propriedade para todos os ativos de dados. Olá tabela a seguir identifica as funções de propriedade de dados diferentes no trabalho de classificação de dados e seus respectivos direitos.  
 
 | **Função** | **Criar** | **Modificar/excluir** | **Delegar** | **Ler** | **Arquivar/restaurar** |
 | --- | --- | --- | --- | --- | --- |
@@ -148,107 +148,107 @@ As informações que são classificadas como públicas incluem dados e arquivos 
 > 
 > 
 
-O **proprietário do ativo de dados** é o criador original dos dados, que pode delegar a propriedade e atribuir um custodiante. Quando um arquivo é criado, o proprietário deve ser capaz de atribuir uma classificação, o que significa que ele tem a responsabilidade de compreender o que precisa ser classificado como confidencial com base nas políticas da organização. Todos os dados do proprietário do ativo de dados podem ser classificados automaticamente apenas para uso interno (sigilosos), a menos que ele seja responsável pela propriedade ou criação de tipos de dados confidenciais (restritos). Com frequência, a função do proprietário será alterada depois que os dados forem classificados. Por exemplo, o proprietário pode criar um banco de dados de informações confidenciais e renunciar seus direitos para o custodiante dos dados.  
+Olá **proprietário do ativo de dados** é criador original de saudação do dados hello, que podem delegar a propriedade e atribuir curador. Quando um arquivo é criado, o proprietário de saudação deve ser capaz de tooassign uma classificação, o que significa que eles têm um toounderstand de responsabilidade que precisa toobe classificado como confidencial com base nas políticas de sua organização. Todos os dados do proprietário do ativo de dados podem ser classificados automaticamente apenas para uso interno (sigilosos), a menos que ele seja responsável pela propriedade ou criação de tipos de dados confidenciais (restritos). Com frequência, função de saudação do proprietário será alterada após Olá dados são classificados. Por exemplo, proprietário Olá pode criar um banco de dados de informações confidenciais e liberar seu custódia de dados toohello direitos.  
 
 > [!NOTE]
-> os proprietários de ativos de dados muitas vezes usam uma combinação de serviços, dispositivos e mídia, alguns dos quais são particulares e outros dos quais pertencem à organização. Uma política organizacional clara pode ajudar a garantir que o uso de dispositivos, como laptops e dispositivos inteligentes, esteja de acordo com as diretrizes de classificação de dados.  
+> os proprietários dos ativos de dados geralmente usam uma combinação de serviços, dispositivos e mídia, alguns dos quais são particulares e alguns dos quais pertencem toohello organização. Uma política organizacional clara pode ajudar a garantir que o uso de dispositivos, como laptops e dispositivos inteligentes, esteja de acordo com as diretrizes de classificação de dados.  
 > 
 > 
 
-O **custodiante de ativos de dados** é atribuído pelo proprietário do ativo (ou seu representante) para gerenciar o ativo de acordo com contratos com o proprietário do ativo ou de acordo com os requisitos de política aplicáveis. Idealmente, a função de custodiante pode ser implementada em um sistema automatizado. Um custodiante de ativo garante que os controles de acesso necessários sejam fornecidos e é responsável por gerenciar e proteger ativos delegados aos seus cuidados. As responsabilidades do custodiante de ativos podem incluir:  
+Olá **custódia de ativos de dados** é atribuído pelo proprietário do ativo hello (ou seus representantes) toomanage Olá ativo acordo tooagreements com o proprietário do ativo hello ou de acordo com os requisitos de política aplicável. Idealmente, a função de custódia de saudação pode ser implementada em um sistema automatizado. Custodiante um ativo garante que os controles de acesso necessários são fornecidos e é responsáveis por gerenciar e proteger ativos de delegado tootheir cuidado. responsabilidades de saudação de custódia de ativos de saudação podem incluir:  
 
-* Proteger o ativo de acordo com a orientação do proprietário do ativo ou de acordo com o proprietário do ativo 
+* Proteger Olá ativo de acordo com a direção do proprietário do ativo hello ou conformidade com o proprietário do ativo Olá 
 * Garantir que as políticas de classificação sejam cumpridas 
-* Informar os proprietários dos ativos de quaisquer alterações feitas em controles aprovados e/ou procedimentos de proteção antes que essas alterações entrem em vigor 
-* Relatar ao proprietário do ativo as alterações ou a remoção das responsabilidades do custodiante do ativo 
-* Um **administrador** representa um usuário que é responsável por garantir que a integridade seja mantida, mas ele não é um proprietário de ativos de dados, um custodiante nem um usuário. De fato, muitas funções de administrador fornecem serviços de gerenciamento de contêiner de dados sem ter acesso aos dados. A função de administrador inclui backup e restauração dos dados, manutenção de registros de ativos e escolha, aquisição e operação dos dispositivos e do armazenamento que contêm os ativos. 
-* O usuário do ativo inclui qualquer pessoa que receba acesso a dados ou a um arquivo. A atribuição de acesso muitas vezes é delegada pelo proprietário ao custodiante do ativo.  
+* Informar os proprietários dos ativos de quaisquer alterações tooagreed-em controles de e/ou alterações de toothose anterior de procedimentos de proteção entrar em vigor 
+* Proprietário do ativo toohello relatórios sobre remoção tooor alterações Olá ativo do responsáveis 
+* Um **administrador** representa um usuário que é responsável por garantir que a integridade seja mantida, mas ele não é um proprietário de ativos de dados, um custodiante nem um usuário. Na verdade, muitas funções de administrador fornecem serviços de gerenciamento de contêiner de dados sem a necessidade de acessar os dados toohello. a função de administrador Olá inclui backup e restauração dos dados hello, mantendo os registros de ativos de saudação e escolhendo, adquirir e operar Olá dispositivos e armazenamento que ativos de saudação de casa. 
+* usuário do recurso Olá inclui qualquer pessoa que é concedido acesso toodata ou um arquivo. Atribuição de acesso geralmente é delegada por custódia de ativos de toohello Olá proprietário.  
 
 ### <a name="implementation"></a>Implementação
-Considerações de gerenciamento se aplicam a todas as metodologias de classificação. Essas considerações precisam incluir detalhes sobre quem, o que, onde, quando e por que um ativo de dados deve ser usado, acessado, alterado ou excluído. Todo o gerenciamento do ativo deve ser feito com uma compreensão de como uma organização encara seus riscos, mas pode ser aplicada uma metodologia simple, conforme definido no processo de classificação de dados. Considerações adicionais para a classificação de dados incluem a introdução de novos aplicativos e ferramentas e a alteração de gerenciamento após a implementação de um método de classificação.  
+Considerações de gerenciamento se aplicam a tooall metodologias de classificação. Essas considerações necessário tooinclude detalhes sobre quem, o que, em que, quando e por que um ativo de dados deve ser usado, acessado, alterado ou excluído. Todo o gerenciamento ativo deve ser feito com uma compreensão de como uma organização exibe os riscos, mas pode ser aplicada uma metodologia simple, conforme definido no processo de classificação de dados de saudação. Considerações adicionais para a classificação de dados incluem a introdução de saudação de novos aplicativos e ferramentas e gerenciamento de alterações depois que um método de classificação for implementado.  
 
 ### <a name="reclassification"></a>Reclassificação
-A reclassificação ou alteração do estado de classificação de um ativo de dados precisa ser feita quando um usuário ou sistema determina que o perfil de risco ou a importância do ativo de dados foi alterado. Essa iniciativa é importante para garantir que o status de classificação continue sendo válido e atual. A maior parte do conteúdo que não é classificado manualmente pode ser classificado automaticamente ou com base no uso por um custodiante de dados ou pelo proprietário dos dados. 
+Reclassificação ou alteração do estado de classificação de saudação de um ativo de dados precisa toobe feito quando um usuário ou sistema determina a importância do ativo de dados que hello ou perfil de risco foi alterado. Esse trabalho é importante para garantir que o status de classificação Olá continua toobe atual e válido. A maior parte do conteúdo que não é classificado manualmente pode ser classificado automaticamente ou com base no uso por um custodiante de dados ou pelo proprietário dos dados. 
 
 ### <a name="manual-data-reclassification"></a>Reclassificação de dados manual
-Idealmente, essa iniciativa garantiria que os detalhes de uma alteração sejam capturados e auditados. O motivo mais provável para a reclassificação manual seria por questões de diferenciação ou para registros mantidos em formato de papel ou um requisito para examinar dados originalmente classificados incorretamente. Como este documento considera a classificação de dados e a movimentação de dados para a nuvem, as iniciativas de reclassificação manual exigem atenção caso a caso, e uma revisão de gerenciamento de risco seria o ideal para atender aos requisitos de classificação. Em geral, essa iniciativa considera a política da empresa sobre o que precisa ser classificado, o estado de classificação padrão (todos os dados e arquivos sigilosos, mas não confidenciais) e exceções para dados de alto risco. 
+Idealmente, esse esforço garantiria que detalhes de saudação de uma alteração são capturados e auditados. a razão mais provável Olá para manual reclassificação seria por motivos de diferenciação, ou para registros mantidos em formato de documento ou uma necessidade tooreview de dados que foi originalmente classificadas incorretamente. Porque este documento considera toohello movimentação de dados na nuvem e classificação de dados, os esforços de reclassificação manual exigem atenção caso a caso e uma revisão de gerenciamento de riscos seria ideal tooaddress requisitos de classificação. Em geral, essa tentativa seria considere a política da organização Olá sobre o que precisa toobe classificado, Olá estado de classificação padrão (todos os dados e arquivos sendo confidenciais, mas não confidencial) e levar exceções para dados de alto risco. 
 
 ### <a name="automatic-data-reclassification"></a>Reclassificação de dados automática
-A reclassificação de dados automática usa a mesma regra geral que a classificação manual. A exceção é que soluções automatizadas podem garantir que as regras sejam seguidas e aplicadas conforme necessário. A classificação de dados pode ser feita como parte de uma política de imposição de classificação de dados, que pode ser imposta quando dados são armazenados em uso e em trânsito usando a tecnologia de autorização.
+Reclassificação de dados automática usa Olá mesmo geral de regra como classificação manual. exceção de saudação é que soluções automatizadas podem garantir que as regras são seguidas e aplicadas conforme necessário. A classificação de dados pode ser feita como parte de uma política de imposição de classificação de dados, que pode ser imposta quando dados são armazenados em uso e em trânsito usando a tecnologia de autorização.
 
 * Baseada em aplicativo. O uso de determinados aplicativos por padrão define um nível de classificação. Por exemplo, dados de software de CRM (gerenciamento de relacionamento com o cliente), RH e ferramentas de gerenciamento de registro de saúde são confidenciais por padrão. 
-* Baseada em local. O local dos dados pode ajudar a identificar a confidencialidade dos dados. Por exemplo, é mais provável que os dados armazenados por um departamento financeiro ou de RH sejam de natureza confidencial.  
+* Baseada em local. O local dos dados pode ajudar a identificar a confidencialidade dos dados. Por exemplo, os dados armazenados por um HR ou o departamento financeiro são mais provável toobe confidencial por natureza.  
 
 ### <a name="data-retention-recovery-and-disposal"></a>Retenção, recuperação e descarte de dados
-A recuperação e o descarte de dados, assim como a reclassificação de dados, são um aspecto essencial do gerenciamento de ativos de dados. Os princípios para recuperação e descarte de dados seriam definidos por uma política de retenção de dados e impostos da mesma maneira que a reclassificação de dados. Essa iniciativa seria executada pelas funções de custodiante e de administrador como uma tarefa de colaboração.  
+A recuperação e o descarte de dados, assim como a reclassificação de dados, são um aspecto essencial do gerenciamento de ativos de dados. Hello princípios para recuperação de dados e descarte seria definidos por uma política de retenção de dados e imposta Olá mesma maneira que reclassificação de dados; Essa tentativa será executada por Olá custódia e funções de administrador como uma tarefa de colaboração.  
 
-Se não houver uma política de retenção de dados, isso poderá significar a perda de dados ou o descumprimento de requisitos de descoberta legais e regulatórios. A maioria das organizações sem uma política de retenção de dados claramente definida tende a usar uma política de retenção padrão de "manter tudo". No entanto, essa política de retenção tem riscos adicionais em cenários de serviços de nuvem. 
+Falha toohave uma política de retenção de dados pode significar toocomply de perda ou a falha de dados com os requisitos normativos e legais de descoberta. A maioria das organizações que não têm uma política de retenção de dados bem-definidos tendem toouse uma política de retenção padrão "manter tudo". No entanto, essa política de retenção tem riscos adicionais em cenários de serviços de nuvem. 
 
-Por exemplo, uma política de retenção de dados para provedores de serviços de nuvem pode ser considerada como sendo "pela duração da assinatura" (enquanto o serviço for pago, os dados serão mantidos). Esse contrato de pagamento para retenção talvez não lide com políticas de retenção corporativas ou regulatórias. A definição de uma política para dados confidenciais pode garantir que os dados sejam armazenados e removidos com base nas práticas recomendadas. Além disso, uma política de arquivamento pode ser criada para formalizar um entendimento sobre quais dados devem ser descartados e quando. 
+Por exemplo, uma política de retenção de dados para provedores de serviços de nuvem pode ser considerada como "hello durante saudação assinatura" (contanto que serviço Olá é pago para, Olá dados são retidos). Esse contrato de pagamento para retenção talvez não lide com políticas de retenção corporativas ou regulatórias. A definição de uma política para dados confidenciais pode garantir que os dados sejam armazenados e removidos com base nas práticas recomendadas. Além disso, uma diretiva de arquivamento pode ser criada tooformalize um entendimento sobre quais dados deve ser descartado de e quando. 
 
-A política de retenção de dados deve tratar dos requisitos regulatórios e de conformidade, bem como dos requisitos de retenção corporativa legais. Os dados confidenciais podem provocar questões quanto à duração da retenção e às exceções para dados que foram armazenados com um provedor. Essas questões são mais prováveis para dados que não foram classificados corretamente. 
+Política de retenção de dados deve ser abordados Olá necessário normativos e requisitos de conformidade, bem como requisitos corporativos retenção legal. Os dados confidenciais podem provocar questões quanto à duração da retenção e às exceções para dados que foram armazenados com um provedor. Essas questões são mais prováveis para dados que não foram classificados corretamente. 
 
 > [!TIP]
-> saiba mais sobre as políticas de Retenção de Dados do Azure e muito mais lendo o [Contrato de Assinatura do Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/)
+> Saiba mais sobre as políticas de retenção de dados do Azure e muito mais lendo Olá [o contrato de assinatura do Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/)
 > 
 > 
 
 ## <a name="protecting-confidential-data"></a>Proteção de dados confidenciais
-Depois que os dados são classificados, a localização e a implementação de maneiras de proteger dados confidenciais passam a ser uma parte integrante de qualquer estratégia de implantação de proteção de dados. A proteção de dados confidenciais requer atenção extra em relação a como os dados são armazenados e transmitidos em arquiteturas convencionais, bem como na nuvem. 
+Depois que os dados são classificados, localizando e implementar os dados confidenciais maneiras tooprotect se torna parte integrante de qualquer estratégia de implantação de proteção de dados. Proteção de dados confidenciais requer dados de toohow atenção adicional são armazenados e transmitidos em arquiteturas convencionais, bem como em nuvem hello. 
 
-Esta seção fornece informações básicas sobre algumas tecnologias que podem automatizar as iniciativas de imposição para ajudar a proteger dados que foram classificados como confidenciais. 
+Esta seção fornece informações básicas sobre algumas tecnologias que podem automatizar os esforços de imposição toohelp proteger os dados foram classificados como confidenciais. 
 
-Como mostra a figura a seguir, essas tecnologias podem ser implantadas como soluções locais ou baseadas na nuvem ou de modo híbrido, com algumas delas implantadas no local e outras na nuvem. (Algumas tecnologias, como criptografia e gerenciamento de direitos, também se estendem aos dispositivos do usuário.)  
+Como Olá mostra a figura a seguir, essas tecnologias podem ser implantadas como soluções baseadas em nuvem ou local — ou em um modo híbrido, com algumas delas implantado no local e alguns na nuvem hello. (Algumas tecnologias, como criptografia e gerenciamento de direitos, também estendem toouser dispositivos).  
 
 ![Tecnologias](./media/azure-security-data-classification/azure-security-data-classification-fig4.png)
 
 ### <a name="rights-management-software"></a>Software de gerenciamento de direitos
-Uma solução para impedir a perda de dados é o software de gerenciamento de direitos. Diferentemente das abordagens que tentam interromper o fluxo de informações em pontos de saída em uma organização, o software de gerenciamento de direitos funciona em níveis profundos nas tecnologias de armazenamento de dados. Os documentos são criptografados, e o controle sobre quem pode descriptografá-los usa controles de acesso que são definidos em uma solução de controle de autenticação, como um serviço de diretório.  
+Uma solução para impedir a perda de dados é o software de gerenciamento de direitos. Ao contrário das abordagens que tentam toointerrupt fluxo de saudação de informações em pontos de saída em uma organização, o software de gerenciamento de direitos funciona nos níveis de profundidade em tecnologias de armazenamento de dados. Os documentos são criptografados, e o controle sobre quem pode descriptografá-los usa controles de acesso que são definidos em uma solução de controle de autenticação, como um serviço de diretório.  
 
 > [!TIP]
-> Você pode usar o Azure RMS (Azure Rights Management) como a solução de proteção de informações para proteger os dados em diferentes cenários. Leia [O que é o Azure Rights Management?](https://docs.microsoft.com/rights-management/understand-explore/what-is-azure-rms) para saber mais sobre essa solução do Azure.
+> Você pode usar o Azure Rights Management (Azure RMS) como Olá informações proteção solução tooprotect dados em cenários diferentes. Leia [O que é o Azure Rights Management?](https://docs.microsoft.com/rights-management/understand-explore/what-is-azure-rms) para saber mais sobre essa solução do Azure.
 > 
 > 
 
-Alguns dos benefícios do software de gerenciamento de direitos incluem: 
+Alguns dos benefícios de saudação do software de gerenciamento de direitos: 
 
 * Informações confidenciais protegidas. Os usuários podem proteger seus dados diretamente usando aplicativos habilitados para gerenciamento de direitos. Não são necessárias etapas adicionais. A criação de documentos, o envio de email e a publicação de dados oferecem uma experiência de proteção de dados consistente. 
-* A proteção acompanha os dados. Os clientes permanecem no controle de quem tem acesso aos dados, seja na nuvem, na infraestrutura de TI existente ou na área de trabalho do usuário. As organizações podem optar por criptografar os dados e restringir o acesso de acordo com seus requisitos de negócios. 
-* Políticas de proteção de informações padrão. Os administradores e usuários podem usar políticas padrão para muitos cenários comerciais comuns, como "Confidencial da Empresa – Somente Leitura" e "Não Encaminhar". Há suporte a um conjunto avançado de direitos de uso, como ler, copiar, imprimir, salvar, editar e encaminhar, para permitir flexibilidade na definição de direitos de uso personalizados. 
+* Proteção acompanha os dados de saudação. Os clientes permanecem no controle de quem tem acesso tootheir dados, seja em nuvem hello, infra-estrutura de TI, ou na área de trabalho do usuário hello. As organizações podem escolher tooencrypt seus dados e restringir o acesso de acordo com tootheir requisitos de negócios. 
+* Políticas de proteção de informações padrão. Os administradores e usuários podem usar políticas padrão para muitos cenários comerciais comuns, como "Confidencial da Empresa – Somente Leitura" e "Não Encaminhar". Um rico conjunto de direitos de uso são suportadas como ler, copiar, imprimir, salvar, editar e encaminhar tooallow flexibilidade na definição de direitos de uso personalizados. 
 
 > [!TIP]
-> você pode proteger dados no Armazenamento do Azure usando a [Criptografia do Serviço de Armazenamento do Azure](../storage/storage-service-encryption.md) para Dados em Repouso. Você também pode usar a [Azure Disk Encryption](azure-security-disk-encryption.md) para proteger dados contidos em discos virtuais usados para Máquinas Virtuais do Azure.
+> você pode proteger dados no Armazenamento do Azure usando a [Criptografia do Serviço de Armazenamento do Azure](../storage/storage-service-encryption.md) para Dados em Repouso. Você também pode usar [criptografia de disco do Azure](azure-security-disk-encryption.md) toohelp proteger os dados contidos em discos virtuais usados para máquinas virtuais do Azure.
 > 
 > 
 
 ### <a name="encryption-gateways"></a>Gateways de criptografia
-Os gateways de criptografia operam em suas próprias camadas para fornecer serviços de criptografia redirecionando todo o acesso a dados baseados na nuvem. Essa abordagem não deve ser confundida com a de uma VPN (rede virtual privada). Os gateways de criptografia são projetados para fornecer uma camada transparente às soluções baseadas em nuvem.   
+Gateways de criptografia operam em seus próprios serviços de criptografia tooprovide camadas por todos os dados de acesso com base em toocloud de redirecionamento. Essa abordagem não deve ser confundida com a de uma VPN (rede virtual privada). Gateways de criptografia são criada tooprovide um transparente soluções baseadas em toocloud da camada.   
 
-Os gateways de criptografia podem fornecer um meio de gerenciar e proteger dados que foram classificados como confidenciais, criptografando os dados em trânsito, bem como os dados em repouso.  
+Gateways de criptografia podem fornecer um meio toomanage e proteger os dados que foi classificados como confidencial, criptografando os dados em trânsito hello, bem como dados em repouso.  
 
-Os gateways de criptografia são colocados no fluxo de dados entre dispositivos de usuário e datacenters de aplicativos para fornecer serviços de criptografia/descriptografia. Essas soluções, como VPNs, são predominantemente locais. Elas foram projetadas para fornecer a terceiros o controle sobre chaves de criptografia, o que ajuda a reduzir o risco de colocar os dados e a chave de gerenciamento em um só provedor. Assim como a criptografia, essas soluções são projetadas para funcionar de forma perfeita e transparente entre os usuários e o serviço. 
+Gateways de criptografia são colocados no fluxo de dados de saudação entre dispositivos de usuário e serviços de criptografia/descriptografia tooprovide centros de dados de aplicativo. Essas soluções, como VPNs, são predominantemente locais. Eles são tooprovide projetado com controle sobre chaves de criptografia, que ajuda a reduzir o risco de saudação de colocar dados saudação e gerenciamento de chaves com um provedor de terceiros. Essas soluções são desenvolvidas, semelhante a criptografia, toowork fluido e transparente entre usuários e o serviço de saudação. 
 
 > [!TIP]
-> você pode usar a Azure ExpressRoute para estender suas redes locais para a nuvem da Microsoft por meio de uma conexão privada dedicada. Leia [Visão geral técnica do ExpressRoute](../expressroute/expressroute-introduction.md) para saber mais sobre essa funcionalidade. Outras opções para conectividade entre locais entre sua rede local e o [Azure é uma VPN site a site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+> Você pode usar tooextend de rota expressa do Azure suas redes locais em nuvem da Microsoft hello sobre uma conexão privada dedicada. Leia [Visão geral técnica do ExpressRoute](../expressroute/expressroute-introduction.md) para saber mais sobre essa funcionalidade. Outras opções para conectividade entre locais entre sua rede local e o [Azure é uma VPN site a site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 > 
 > 
 
 ### <a name="data-loss-prevention"></a>Prevenção de perda de dados
-A perda de dados (às vezes chamada de vazamento de dados) é uma consideração importante, e a prevenção de perda de dados externos causada por indivíduos privilegiados mal-intencionadas e acidentais é fundamental para muitas organizações.  
+Perda de dados (às vezes chamado tooas vazamento de dados) é uma consideração importante e prevenção de saudação externo de perda de dados por meio de insiders acidental e mal-intencionados é muito importante para muitas organizações.  
 
-As tecnologias de DLP (prevenção de perda de dados) podem ajudar a garantir que soluções como serviços de email não transmitam dados que foram classificados como confidenciais. As organizações podem aproveitar recursos de DLP em produtos existentes para ajudar a evitar a perda de dados. Esses recursos usam políticas que podem ser facilmente criadas do zero ou usando um modelo fornecido pelo provedor de software.  
+As tecnologias de DLP (prevenção de perda de dados) podem ajudar a garantir que soluções como serviços de email não transmitam dados que foram classificados como confidenciais. As organizações podem tirar proveito dos recursos DLP produtos existentes toohelp evitar perda de dados. Esses recursos usam políticas que podem ser facilmente criadas do zero ou usando um modelo fornecido pelo provedor de saudação do software.  
 
-As tecnologias de DLP podem executar uma análise profunda de conteúdo por meio de correspondências de palavras-chave, correspondências de dicionário, avaliação de expressões regulares e exame de outro conteúdo para detectar conteúdo que viola as políticas de DLP organizacionais. Por exemplo, a DLP pode ajudar a evitar a perda dos seguintes tipos de dados: 
+Tecnologias DLP podem executar uma análise detalhada do conteúdo por meio de correspondências de palavra-chave, correspondências de dicionário, avaliação de expressão regular e outros exames de conteúdo toodetect conteúdo que viole as políticas DLP organizacionais. Por exemplo, DLP pode ajudar a evitar a perda de saudação do hello seguintes tipos de dados: 
 
 * Números de Previdência Social e de identificação nacional 
 * Informações bancárias 
 * Números de cartão de crédito  
 * Endereços IP 
 
-Algumas tecnologias de DLP também fornecem a capacidade de substituir a configuração de DLP (por exemplo, se uma organização precisar transmitir informações de números do seguro social para um processador de folha de pagamento). Além disso, é possível configurar a DLP para que os usuários sejam notificados antes mesmo que tentem enviar informações confidenciais que não devam ser transmitidas. 
+Algumas tecnologias DLP também fornecem a configuração de DLP Olá capacidade toooverride hello (por exemplo, se uma organização precisa de processador de folha de pagamento tootransmit número do seguro Social informações tooa). Além disso, é possível tooconfigure DLP para que os usuários são notificados antes de tentar mesmo toosend informações confidenciais que não devem ser transmitidas. 
 
 > [!TIP]
-> você pode usar os recursos de DLP do Office 365 para proteger seus documentos. Leia [Controles de conformidade do Office 365: prevenção contra perda de dados](https://blogs.office.com/2013/10/28/office-365-compliance-controls-data-loss-prevention/) para saber mais.
+> Você pode usar o Office 365 DLP recursos tooprotect seus documentos. Leia [Controles de conformidade do Office 365: prevenção contra perda de dados](https://blogs.office.com/2013/10/28/office-365-compliance-controls-data-loss-prevention/) para saber mais.
 > 
 > 
 

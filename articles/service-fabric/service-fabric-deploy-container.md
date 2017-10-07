@@ -1,6 +1,6 @@
 ---
-title: "Service Fabric e implantação de contêineres | Microsoft Docs"
-description: "Service Fabric e o uso de contêineres para implantar aplicativos de microsserviço. Este artigo descreve os recursos que o Service Fabric fornece para contêineres e como implantar uma imagem de contêiner do Windows em um cluster."
+title: "aaaService malha e implantar contêineres | Microsoft Docs"
+description: "Service Fabric e hello o uso de aplicativos de microsserviço toodeploy contêineres. Este artigo descreve os recursos de saudação do Service Fabric fornece para contêineres e como toodeploy um contêiner do Windows da imagem em um cluster."
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -14,86 +14,86 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/16/2017
 ms.author: msfussell
-ms.openlocfilehash: 25d6b056421e71fa70ed20a39589f77dbbc25c69
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8b6540579641474f21b8712b56049c7d177bec26
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-a-windows-container-to-service-fabric"></a>Implantar um contêiner do Windows no Service Fabric
+# <a name="deploy-a-windows-container-tooservice-fabric"></a>Implantar um tooService de contêiner do Windows Fabric
 > [!div class="op_single_selector"]
 > * [Implantar contêiner do Windows](service-fabric-deploy-container.md)
 > * [Implantar contêiner do Docker](service-fabric-deploy-container-linux.md)
 > 
 > 
 
-Este artigo o orienta pelo processo de compilação de serviços contidos em contêineres do Windows.
+Este artigo orienta você pelo processo de saudação da criação de serviços em contêineres em contêineres do Windows.
 
 O Service Fabric tem vários recursos que ajudam na criação de aplicativos compostos de microsserviços em execução em contêineres. 
 
-As funcionalidade s incluem:
+Olá recursos incluem:
 
 * Implantação e ativação de imagens de contêiner
 * Governança de recursos
 * Autenticação do repositório
 * Mapeamento de porta de contêiner para porta de host
 * Descoberta e comunicação de contêiner para contêiner
-* Capacidade de configurar e definir as variáveis de ambiente
+* Capacidade tooconfigure e definir variáveis de ambiente
 
-Vamos ver como cada um dos recursos funciona quando você está empacotando um serviço em contêiner a ser incluído em seu aplicativo.
+Vamos ver como cada um dos recursos funciona quando você estiver Empacotando uma toobe de serviço em contêineres incluído em seu aplicativo.
 
 ## <a name="package-a-windows-container"></a>Empacotar um contêiner do Windows
-Ao empacotar um contêiner, você pode optar por usar um modelo de projeto do Visual Studio ou [criar o pacote de aplicativos manualmente](#manually).  Ao usar o Visual Studio, a estrutura do pacote de aplicativos e os arquivos de manifesto são criados para você pelo modelo Novo Projeto.
+Ao empacotar um contêiner, você pode escolher toouse um modelo de projeto Visual Studio ou [criar manualmente o pacote de aplicativo hello](#manually).  Quando você usa o Visual Studio, a estrutura do pacote de aplicativo hello e arquivos de manifesto são criados pelo modelo de projeto novo Olá para você.
 
 > [!TIP]
-> A maneira mais fácil de empacotar uma imagem de contêiner existente em um serviço é usar o Visual Studio.
+> toopackage de maneira mais fácil de saudação uma imagem de contêiner existente em um serviço é toouse Visual Studio.
 
-## <a name="use-visual-studio-to-package-an-existing-container-image"></a>Usar o Visual Studio para empacotar uma imagem de contêiner existente
-O Visual Studio fornece um modelo de serviço do Service Fabric para ajudar você a implantar um contêiner em um cluster do Service Fabric.
+## <a name="use-visual-studio-toopackage-an-existing-container-image"></a>Use o Visual Studio toopackage uma imagem de contêiner existente
+O Visual Studio fornece uma estrutura de serviço toohelp de modelo de serviço é implantar um cluster do contêiner tooa Service Fabric.
 
 1. Escolha **Arquivo** > **Novo Projeto** e crie um aplicativo de Service Fabric.
-2. Escolha **Contêiner Convidado** como o modelo de serviço.
-3. Escolha **Nome da Imagem** e forneça o caminho da imagem no repositório de contêiner. Por exemplo, `myrepo/myimage:v1` em https://hub.docker.com
+2. Escolha **convidado contêiner** como modelo de serviço hello.
+3. Escolha **nome da imagem** e fornecer Olá caminho toohello imagem no repositório de contêiner. Por exemplo, `myrepo/myimage:v1` em https://hub.docker.com
 4. Dê um nome ao seu serviço e clique em **OK**.
-5. Se seu serviço em contêiner precisar de um ponto de extremidade para comunicação, você poderá adicionar o protocolo, a porta e o tipo ao arquivo ServiceManifest.xml. Por exemplo: 
+5. Se seu serviço em contêineres precisa de um ponto de extremidade de comunicação, agora você pode adicionar arquivos do tipo toohello ServiceManifest.xml, porta e protocolo de saudação. Por exemplo: 
      
     `<Endpoint Name="MyContainerServiceEndpoint" Protocol="http" Port="80" UriScheme="http" PathSuffix="myapp/" Type="Input" />`
     
-    Fornecendo o `UriScheme`, o Service Fabric registra automaticamente o ponto de extremidade do contêiner no serviço de Nomenclatura para capacidade de descoberta. A porta pode ser fixa (conforme mostrado no exemplo anterior) ou alocada dinamicamente. Se você não especificar uma porta, ela será alocada dinamicamente do intervalo de portas do aplicativo (como acontece com qualquer serviço).
-    Você também precisa configurar o contêiner para o mapeamento de porta de host, especificando uma política `PortBinding` no manifesto do aplicativo. Para obter mais informações, confira [Configurar contêiner para hospedar mapeamento de porta](#Portsection).
+    Fornecendo Olá `UriScheme`, Service Fabric registra automaticamente o ponto de extremidade de contêiner de saudação com hello Naming Service, serviço de descoberta. porta Olá pode ser fixa (conforme mostrado no hello anterior exemplo) ou alocada dinamicamente. Se você não especificar uma porta, ela é alocada dinamicamente do intervalo de portas de aplicativo hello (como acontece com qualquer serviço).
+    Você também precisa de mapeamento de porta tooconfigure Olá contêiner toohost especificando um `PortBinding` política no manifesto de aplicativo hello. Para obter mais informações, consulte [Configurar mapeamento de porta do contêiner toohost](#Portsection).
 6. Se seu contêiner precisar de governança de recursos, adicione `ResourceGovernancePolicy`.
-8. Se o seu contêiner precisar autenticar com um repositório privado, adicione `RepositoryCredentials`.
-7. Se estiver realizando a execução em um computador Windows Server 2016 com o suporte de contêiner habilitado, você poderá usar o pacote e a ação de publicação para implantar no cluster local. 
-8. Quando estiver pronto, você poderá publicar o aplicativo em um cluster remoto ou fazer check-in da solução para o controle do código-fonte. 
+8. Se o contêiner deve tooauthenticate com um repositório privado, em seguida, adicione `RepositoryCredentials`.
+7. Se você estiver executando em um computador Windows Server 2016 com suporte de contêiner habilitado, você pode usar pacote de hello e publicar o cluster local da ação toodeploy tooyour. 
+8. Quando estiver pronto, você pode publicar cluster remoto da saudação aplicativo tooa ou check-in de controle de toosource Olá solução. 
 
-Para obter um exemplo, [confira os códigos de exemplo de contêiner do Service Fabric no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+Para obter um exemplo, a saudação de check-out [exemplos de código do contêiner do Service Fabric no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## <a name="creating-a-windows-server-2016-cluster"></a>Criar um cluster do Windows Server 2016
-Para implantar aplicativos contidos, é necessário criar um cluster que execute o Windows Server 2016 com o suporte para contêineres habilitado. O cluster pode estar em execução localmente ou ser implantado por meio do Azure Resource Manager no Azure. 
+toodeploy seu aplicativo em contêineres, você precisa toocreate habilitado de um cluster executando o Windows Server 2016 com suporte do contêiner. O cluster pode estar em execução localmente ou ser implantado por meio do Azure Resource Manager no Azure. 
 
-Para implantar um cluster usando o Azure Resource Manager, escolha a opção de imagem **Windows Server 2016 com Contêineres** no Azure. Consulte o artigo [Criar um cluster do Service Fabric usando o Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Use as seguintes configurações do Azure Resource Manager:
+toodeploy um cluster usando o Gerenciador de recursos do Azure, escolha Olá **Windows Server 2016 com contêineres** imagem opção no Azure. Consulte o artigo Olá [criar um cluster do Service Fabric usando o Gerenciador de recursos do Azure](service-fabric-cluster-creation-via-arm.md). Certifique-se de que você use hello Azure Resource Manager configurações a seguir:
 
 ```xml
 "vmImageOffer": { "type": "string","defaultValue": "WindowsServer"     },
 "vmImageSku": { "defaultValue": "2016-Datacenter-with-Containers","type": "string"     },
 "vmImageVersion": { "defaultValue": "latest","type": "string"     },  
 ```
-Você também pode usar o [modelo de cinco nós do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) para criar um cluster. Como alternativa, leia uma [postagem de blog](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) da comunidade sobre o uso de contêineres do Windows e do Service Fabric.
+Você também pode usar o hello [modelo de cinco nós do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) toocreate um cluster. Como alternativa, leia uma [postagem de blog](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) da comunidade sobre o uso de contêineres do Windows e do Service Fabric.
 
 <a id="manually"></a>
 
 ## <a name="manually-package-and-deploy-a-container-image"></a>Empacotar e implantar manualmente uma imagem de contêiner
-O processo de empacotamento manual de um serviço em contêiner se baseia nas seguintes etapas:
+processo de saudação do empacotamento manualmente um serviço em contêineres se baseia na Olá etapas a seguir:
 
-1. Publicar os contêineres em seu repositório.
-2. Criar a estrutura de diretórios do pacote.
-3. Editar o arquivo de manifesto do serviço.
-4. Editar o arquivo de manifesto do aplicativo.
+1. Publica Olá contêineres tooyour repositório.
+2. Crie estrutura de diretório do pacote de saudação.
+3. Edite o arquivo de manifesto de serviço hello.
+4. Edite o arquivo de manifesto de aplicativo hello.
 
 ## <a name="deploy-and-activate-a-container-image"></a>Implantar e ativar uma imagem de contêiner
-No [modelo de aplicativo](service-fabric-application-model.md)do Service Fabric, um contêiner representa um host de aplicativo no qual várias réplicas de serviço são colocadas. Para implantar e ativar um contêiner, coloque o nome da imagem do contêiner em um elemento `ContainerHost` no manifesto do serviço.
+Em Olá Service Fabric [modelo de aplicativo](service-fabric-application-model.md), um contêiner representa um host de aplicativo no qual o serviço várias réplicas são colocadas. toodeploy e ativar um contêiner, um nome de saudação put da imagem de contêiner de saudação em um `ContainerHost` elemento no manifesto do serviço de saudação.
 
-No manifesto do serviço, adicione um `ContainerHost` do ponto de entrada. Em seguida, defina o `ImageName` para o nome do repositório de contêiner e imagem. O manifesto parcial a seguir mostra um exemplo de como implantar o contêiner chamado `myimage:v1` de um repositório chamado `myrepo`:
+No manifesto do serviço hello, adicione um `ContainerHost` para o ponto de entrada hello. Em seguida, o conjunto de saudação `ImageName` toobe nome de saudação do repositório de contêiner hello e imagem. Olá, manifesto parcial a seguir mostra um exemplo de como o contêiner de saudação toodeploy chamado `myimage:v1` de um repositório chamado `myrepo`:
 
 ```xml
     <CodePackage Name="Code" Version="1.0">
@@ -106,10 +106,10 @@ No manifesto do serviço, adicione um `ContainerHost` do ponto de entrada. Em se
     </CodePackage>
 ```
 
-Você pode especificar comandos opcionais para serem executados após a inicialização do contêiner sob o elemento `Commands`. Para vários comandos, delimite-os com vírgulas. 
+Você pode especificar comandos opcionais toorun durante a inicialização do contêiner de saudação em Olá `Commands` elemento. Para vários comandos, delimite-os com vírgulas. 
 
 ## <a name="understand-resource-governance"></a>Compreender a governança de recursos
-A governança de recursos é uma funcionalidade do contêiner e restringe os recursos que o contêiner pode usar no host. O `ResourceGovernancePolicy`, especificado no manifesto do aplicativo, é usado para declarar os limites de recurso para um pacote de códigos de serviço. Limites de recursos podem ser definidos para os seguintes recursos:
+Governança de recursos é um recurso de contêiner de saudação que restringe os recursos de Olá Olá contêiner pode usar no host de saudação. Olá `ResourceGovernancePolicy`, que é especificado no manifesto de aplicativo hello é usado toodeclare limites de recurso para um pacote de código de serviço. Limites de recursos podem ser definidos para Olá recursos a seguir:
 
 * Memória
 * MemorySwap
@@ -133,7 +133,7 @@ A governança de recursos é uma funcionalidade do contêiner e restringe os rec
 ```
 
 ## <a name="authenticate-a-repository"></a>Autenticar um repositório
-Para baixar um contêiner, poderá ser preciso fornecer as credenciais de logon para o repositório do contêiner. As credenciais de logon especificadas no manifesto do aplicativo são usadas para especificar as informações de logon, ou a chave SSH, para baixar a imagem do contêiner do repositório de imagens. O exemplo a seguir mostra uma conta chamada *TestUser* junto com a senha em texto não criptografado (*não* recomendado):
+toodownload um contêiner, você pode ter um repositório de contêiner de toohello tooprovide credenciais de logon. Olá credenciais de logon, especificadas no manifesto de aplicativo hello, são usadas toospecify Olá entrar informações ou uma chave SSH, para baixar a imagem de contêiner de saudação do repositório de imagens de saudação. Olá, exemplo a seguir mostra uma conta chamada *TestUser* junto com a senha Olá em texto não criptografado (*não* recomendado):
 
 ```xml
     <ServiceManifestImport>
@@ -146,11 +146,11 @@ Para baixar um contêiner, poderá ser preciso fornecer as credenciais de logon 
     </ServiceManifestImport>
 ```
 
-É recomendável que você criptografe a senha usando um certificado implantado no computador.
+É recomendável que você criptografe senha hello usando um certificado que tenha implantado toohello máquina.
 
-O exemplo a seguir mostra uma conta chamada *TestUser*, em que a senha foi criptografada usando um certificado chamado *MyCert*. Você pode usar o comando `Invoke-ServiceFabricEncryptText` do PowerShell para criar o texto cifrado secreto para a senha. Para obter mais informações, consulte o artigo [Gerenciar segredos em aplicativos do Service Fabric](service-fabric-application-secret-management.md).
+Olá, exemplo a seguir mostra uma conta chamada *TestUser*, onde a senha de saudação foi criptografada usando um certificado chamado *MyCert*. Você pode usar o hello `Invoke-ServiceFabricEncryptText` PowerShell comando toocreate Olá secreta de criptografia texto para senha hello. Para obter mais informações, consulte o artigo Olá [gerenciar segredos em aplicativos do Service Fabric](service-fabric-application-secret-management.md).
 
-A chave privada do certificado usada para descriptografar a senha deve ser implantada no computador local em um método fora de banda. (No Azure, esse método é o Azure Resource Manager.) Em seguida, quando o Service Fabric implanta o pacote de serviço para o computador, ele poderá descriptografar o segredo. Usando o segredo junto com o nome da conta, ele então pode autenticar com o repositório do contêiner.
+chave privada de saudação do certificado de saudação que usou a senha de saudação toodecrypt deve ser implantado toohello o computador local em um método fora de banda. (No Azure, esse método é o Azure Resource Manager.) Em seguida, quando o Service Fabric implanta a máquina de toohello de pacote de serviço Olá, ele pode descriptografar o segredo de hello. Usando o segredo Olá junto com o nome da conta Olá, em seguida, pode autenticar com o repositório de contêiner de saudação.
 
 ```xml
     <ServiceManifestImport>
@@ -163,8 +163,8 @@ A chave privada do certificado usada para descriptografar a senha deve ser impla
     </ServiceManifestImport>
 ```
 
-## <a name ="Portsection"></a>Configurar o contêiner para o mapeamento de porta de host
-Você pode configurar uma porta de host usada para se comunicar com o contêiner especificando um `PortBinding` no manifesto do aplicativo. A associação de porta mapeia a porta que o serviço está escutando dentro do contêiner para uma porta no host.
+## <a name ="Portsection"></a>Configurar o mapeamento de porta do contêiner toohost
+Você pode configurar toocommunicate de porta usada um host com o contêiner de saudação especificando um `PortBinding` no manifesto de aplicativo hello. Olá porta associação mapas Olá porta toowhich Olá serviço está escutando em Olá contêiner tooa porta no host de saudação.
 
 ```xml
     <ServiceManifestImport>
@@ -178,7 +178,7 @@ Você pode configurar uma porta de host usada para se comunicar com o contêiner
 ```
 
 ## <a name="configure-container-to-container-discovery-and-communication"></a>Configurar descoberta e comunicação de contêiner para contêiner
-Você pode usar o elemento `PortBinding` para mapear uma porta de contêiner para um ponto de extremidade no manifesto do serviço. No exemplo a seguir, o ponto de extremidade `Endpoint1` especifica uma porta fixa, 8905. Também pode especificar nenhuma porta, quando uma porta aleatória no intervalo de portas do aplicativo do cluster será escolhida para você.
+Você pode usar o hello `PortBinding` elemento toomap um ponto de extremidade de tooan de porta de contêiner no manifesto do serviço de saudação. Em Olá exemplo a seguir, Olá ponto de extremidade `Endpoint1` Especifica uma porta fixa, 8905. Ele também não pode especificar nenhuma porta, caso em que uma porta aleatória do intervalo de portas de aplicativo do cluster Olá é escolhida para você.
 
 
 ```xml
@@ -191,14 +191,14 @@ Você pode usar o elemento `PortBinding` para mapear uma porta de contêiner par
         </Policies>
     </ServiceManifestImport>
 ```
-Se você especificar um ponto de extremidade, usando a marca `Endpoint` no manifesto do serviço de um contêiner de convidado, o Service Fabric poderá publicar automaticamente este ponto de extremidade no serviço de Nomenclatura. Portanto, outros serviços que são executados no cluster podem descobrir esse contêiner usando as consultas REST para resolver.
+Se você especificar um ponto de extremidade, usando Olá `Endpoint` marca no manifesto do serviço de saudação de um contêiner de convidado, o Service Fabric pode publicar automaticamente toohello esse ponto de extremidade Naming service. Outros serviços que são executados no cluster hello, portanto, podem descobrir esse contêiner usando consultas REST Olá para resolver.
 
-Registrando-se no serviço de Nomenclatura, você pode executar a comunicação de contêiner para contêiner no contêiner usando o [proxy reverso](service-fabric-reverseproxy.md). A comunicação é realizada fornecendo a porta de escuta de proxy reverso http e o nome dos serviços com os quais você deseja se comunicar como variáveis de ambiente. Para obter mais informações, confira a próxima seção. 
+Registrando Olá Naming service, você pode executar o contêiner para contêiner comunicação dentro de seu contêiner usando Olá [proxy reverso](service-fabric-reverseproxy.md). A comunicação é executada, fornecendo a porta de escuta Olá proxy reverso http e o nome de saudação do serviços de saudação que você deseja toocommunicate com como variáveis de ambiente. Para obter mais informações, consulte Olá próxima seção. 
 
 ## <a name="configure-and-set-environment-variables"></a>Configurar e definir as variáveis de ambiente
-Variáveis de ambiente podem ser especificadas para cada pacote de códigos no manifesto do serviço. Esse recurso está disponível para todos os serviços, independentemente de eles serem implantados como contêineres ou processos ou executáveis convidados. Você pode substituir valores de variáveis de ambiente no manifesto do aplicativo ou especificá-los durante a implantação como parâmetros de aplicativo.
+Variáveis de ambiente podem ser especificadas para cada pacote de código no manifesto do serviço de saudação. Esse recurso está disponível para todos os serviços, independentemente de eles serem implantados como contêineres ou processos ou executáveis convidados. Você pode substituir a variável de ambiente valores no aplicativo hello manifesto ou especificá-las durante a implantação como parâmetros de aplicativo.
 
-O trecho XML do manifesto do serviço a seguir mostra um exemplo de como especificar variáveis de ambiente para um pacote de códigos:
+Olá, serviço manifesto trecho XML a seguir mostra um exemplo de como toospecify variáveis de ambiente para um pacote de código:
 
 ```xml
     <ServiceManifest Name="FrontendServicePackage" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -221,7 +221,7 @@ O trecho XML do manifesto do serviço a seguir mostra um exemplo de como especif
     </ServiceManifest>
 ```
 
-Essas variáveis de ambiente podem ser substituídas no nível do manifesto do aplicativo:
+Essas variáveis de ambiente podem ser substituídos no nível de manifesto de aplicativo hello:
 
 ```xml
     <ServiceManifestImport>
@@ -233,11 +233,11 @@ Essas variáveis de ambiente podem ser substituídas no nível do manifesto do a
     </ServiceManifestImport>
 ```
 
-No exemplo acima, especificamos um valor explícito para a variável de ambiente `HttpGateway` (19000) enquanto definimos o valor do parâmetro `BackendServiceName` é definido por meio do parâmetro de aplicativo `[BackendSvc]`. Essas configurações permitem especificar o valor para `BackendServiceName`valor quando você implanta o aplicativo e não tem um valor fixo no manifesto.
+No exemplo anterior de saudação, especificamos um valor explícito para Olá `HttpGateway` (19000), enquanto definimos Olá valor de variável de ambiente `BackendServiceName` parâmetro via Olá `[BackendSvc]` parâmetro de aplicativo. Essas configurações permitem que você valor Olá toospecify `BackendServiceName`quando você implanta o aplicativo hello e não tem um valor fixo no manifesto de saudação do valor.
 
 ## <a name="configure-isolation-mode"></a>Configurar o modo de isolamento
 
-L Windows dá suporte a dois modos de isolamento para contêineres: processo e Hyper-V.  Com o modo de isolamento de processo, todos os contêineres em execução no mesmo computador host compartilham o kernel com o host. Com o modo de isolamento do Hyper-V, os kernels são isolados entre cada contêiner do Hyper-V e o host do contêiner. O modo de isolamento é especificado na marca `ContainerHostPolicies` no arquivo de manifesto do aplicativo.  Os modos de isolamento que podem ser especificados são `process`, `hyperv` e `default`. O modo de isolamento `default` usa `process` por padrão em hosts do Windows Server e usa `hyperv` por padrão em hosts do Windows 10.  O trecho a seguir mostra como o modo de isolamento é especificado no arquivo de manifesto do aplicativo.
+L Windows dá suporte a dois modos de isolamento para contêineres: processo e Hyper-V.  Com o modo de isolamento do processo de hello, todos os contêineres de saudação em execução no hello mesmo host máquina compartilhamento saudação do kernel com o host de saudação. Com o modo de isolamento Olá Hyper-V, kernels Olá são isolados entre cada contêiner do Hyper-V e o host do contêiner hello. modo de isolamento de saudação é especificado em Olá `ContainerHostPolicies` marca no arquivo de manifesto de aplicativo hello.  modos de isolamento de saudação que podem ser especificados são `process`, `hyperv`, e `default`. Olá `default` modo de isolamento padrão é muito`process` no Windows Server hospeda e os padrões muito`hyperv` em hosts do Windows 10.  Olá trecho a seguir mostra como o modo de isolamento de saudação é especificado no arquivo de manifesto de aplicativo hello.
 
 ```xml
    <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv">
@@ -272,7 +272,7 @@ Aqui está um exemplo de manifesto de aplicativo:
     </ApplicationManifest>
 ```
 
-Aqui está um exemplo de manifesto de serviço (especificado no manifesto do aplicativo anterior):
+Um manifesto de serviço de exemplo (especificado na Olá precede o manifesto do aplicativo) a seguir:
 
 ```xml
     <ServiceManifest Name="FrontendServicePackage" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -303,7 +303,7 @@ Aqui está um exemplo de manifesto de serviço (especificado no manifesto do apl
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você implantou um serviço em contêiner, saiba como gerenciar seu ciclo de vida lendo [ciclo de vida de aplicativos do Service Fabric](service-fabric-application-lifecycle.md).
+Agora que você implantou um serviço em contêineres, saiba como toomanage seu ciclo de vida lendo [ciclo de vida do aplicativo de malha do serviço](service-fabric-application-lifecycle.md).
 
 * [Visão geral do Service Fabric e contêineres](service-fabric-containers-overview.md)
 * Por exemplo, confira [Exemplos de código do contêiner do Service Fabric no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)

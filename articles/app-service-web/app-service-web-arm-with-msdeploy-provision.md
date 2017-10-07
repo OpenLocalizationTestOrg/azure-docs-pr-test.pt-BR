@@ -1,6 +1,6 @@
 ---
-title: Implantar um aplicativo Web usando o MSDeploy com um nome de host e um certificado ssl
-description: Use um modelo do Gerenciador de Recursos do Azure para implantar um aplicativo Web usando o MSDeploy e configurando um nome de host personalizado e um certificado SSL
+title: aaaDeploy um aplicativo web usando MSDeploy com certificado de nome de host e ssl
+description: Usar um aplicativo web usando MSDeploy e configurando o nome do host personalizado e um certificado SSL de uma toodeploy de modelo do Gerenciador de recursos do Azure
 services: app-service\web
 manager: erikre
 documentationcenter: 
@@ -13,30 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2016
 ms.author: jodehavi
-ms.openlocfilehash: a0e944d0d74ecb72a919538d54db330cbbdeef64
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ac13f4a7d14ae182e8e7ced5adff30491422d1e4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-a-web-app-with-msdeploy-custom-hostname-and-ssl-certificate"></a>Implantar um aplicativo Web com o MSDeploy, um nome de host personalizado e um certificado SSL
-Este guia orienta você durante a criação de uma implantação ponta a ponta para um Aplicativo Web do Azure usando o MSDeploy e adicionando um nome de host personalizado e um certificado SSL ao modelo ARM.
+Este guia aborda a criação de uma implantação de ponta a ponta para um aplicativo Web do Azure, aproveitando MSDeploy, bem como adiciona um nome de host personalizado e um modelo do ARM SSL certificado toohello.
 
 Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
 ### <a name="create-sample-application"></a>Criar o aplicativo de exemplo
-Você implantará um aplicativo Web ASP.NET. A primeira etapa é criar um aplicativo Web simples (ou você pode optar por usar um existente — nesse caso, ignore esta etapa).
+Você implantará um aplicativo Web ASP.NET. Olá primeira etapa é toocreate um aplicativo web simples (ou você pode escolher um existente toouse - nesse caso, você pode ignorar esta etapa).
 
-Abra o Visual Studio 2015 e escolha Arquivo > Novo Projeto. Na caixa de diálogo que aparecer, escolha Web > aplicativo Web ASP.NET. Em Modelos, escolha Web e escolha o modelo MVC. Selecione *Alterar tipo de autenticação* para *Sem Autenticação*. Isso é apenas para simplificar ao máximo o aplicativo de exemplo.
+Abra o Visual Studio 2015 e escolha Arquivo > Novo Projeto. Na caixa de diálogo de saudação que aparece, escolha Web > aplicativo Web ASP.NET. Em modelos de escolha da Web e escolha o modelo MVC de saudação. Selecione *alterar o tipo de autenticação* muito*sem autenticação*. Isso é apenas toomake exemplo aplicativo hello mais simple possível.
 
-Neste ponto, você terá um aplicativo Web ASP.Net básico pronto para uso como parte do processo de implantação.
+Neste ponto, você terá um toouse pronto básica do ASP.Net web aplicativo como parte do processo de implantação.
 
 ### <a name="create-msdeploy-package"></a>Criar um pacote do MSDeploy
-A próxima etapa será criar o pacote para implantar o aplicativo Web no Azure. Para fazer isso, salve seu projeto e execute o seguinte na linha de comando:
+Próxima etapa é toocreate Olá pacote toodeploy Olá web aplicativo tooAzure. toodo isso, salvar o projeto e, em seguida, execute Olá seguinte da linha de comando de saudação:
 
     msbuild yourwebapp.csproj /t:Package /p:PackageLocation="path\to\package.zip"
 
-Isso criará um pacote compactado na pasta PackageLocation. O aplicativo está pronto para ser implantado; agora você pode compilar um modelo do Gerenciador de Recursos do Azure para fazer isso.
+Isso criará um pacote compactado na pasta de PackageLocation hello. Olá aplicativo está agora pronto toobe implantado, que agora você pode criar um toodo de modelo do Gerenciador de recursos do Azure que.
 
 ### <a name="create-arm-template"></a>Criar um modelo ARM
 Primeiro, vamos começar com um modelo ARM básico que criará um aplicativo Web e um plano de hospedagem (observe que os parâmetros e as variáveis não serão mostrados para tudo ficar mais conciso).
@@ -75,7 +75,7 @@ Primeiro, vamos começar com um modelo ARM básico que criará um aplicativo Web
         }
     }
 
-Em seguida, você precisará modificar o recurso de aplicativo Web para que ele obtenha um recurso aninhado do MSDeploy. Isso permitirá que você referencie o pacote criado anteriormente e diga ao Gerenciador de Recursos do Azure para usar o MSDeploy para implantar o pacote no Aplicativo Web do Azure. A seguir, o recurso Microsoft.Web/sites com o recurso aninhado do MSDeploy:
+Em seguida, você precisará toomodify Olá web app recursos tootake um recurso MSDeploy aninhado. Isso permitir que você tooreference Olá pacote criado anteriormente e informar o Azure Resource Manager toouse MSDeploy toodeploy Olá pacote toohello WebApp do Azure. seguinte Olá mostra recurso Microsoft.Web/sites Olá Olá aninhado MSDeploy recursos:
 
     {
         "name": "[variables('webAppName')]",
@@ -117,13 +117,13 @@ Em seguida, você precisará modificar o recurso de aplicativo Web para que ele 
         ]
     }
 
-Agora você observará que o recurso do MSDeploy obtém uma propriedade **packageUri** , definida desta forma:
+Agora você vai notar que Olá MSDeploy recurso usa um **packageUri** propriedade que é definida da seguinte maneira:
 
     "packageUri": "[concat(parameters('_artifactsLocation'), '/', parameters('webDeployPackageFolder'), '/', parameters('webDeployPackageFileName'), parameters('_artifactsLocationSasToken'))]"
 
-Essa **packageUri** obtém o uri da conta de armazenamento que aponta para a conta de armazenamento para onde você carregará o pacote compactado. O Gerenciador de Recursos do Azure aproveitará as [Assinaturas de Acesso Compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md) para obter o pacote localmente da conta de armazenamento durante a implantação do modelo. Este processo será automatizado por meio de um script do PowerShell que carregará o pacote e chamará a API de Gerenciamento do Azure para criar as chaves necessárias e passá-las para o modelo como parâmetros (*_artifactsLocation* e *_artifactsLocationSasToken*). Será necessário definir parâmetros para a pasta em que o pacote será carregado no contêiner de armazenamento e para o nome de arquivo desse pacote.
+Isso **packageUri** usa Olá uri da conta de armazenamento que a conta de armazenamento toohello onde você carregará o zip do pacote para pontos. Hello Azure Resource Manager aproveitará [assinaturas de acesso compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md) pacote de saudação toopull para baixo localmente da conta de armazenamento de hello quando você implanta o modelo de saudação. Esse processo será automatizado por meio de um script do PowerShell que carregar pacote hello e chamar hello API de gerenciamento do Azure toocreate Olá as chaves necessárias e passar em modelo hello como parâmetros (*_artifactsLocation* e *_artifactsLocationSasToken*). Você precisará toodefine parâmetros para a pasta hello e pacote de saudação do nome de arquivo é o contêiner de armazenamento de saudação do toounder carregado.
 
-Em seguida, adicione outro recurso aninhado para configurar as associações de nome de host para aproveitar um domínio personalizado. Primeiro, você precisará garantir que você possui o nome de host e configurá-lo para que o Azure verifique você o possui - consulte [Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-domain.md). Depois disso, você poderá adicionar o seguinte ao seu modelo na seção do recurso Microsoft.Web/sites:
+Em seguida, você precisa tooadd em outro recurso aninhado toosetup Olá hostname associações tooleverage um domínio personalizado. Será verificado primeiro tooensure necessidade que possui o nome de host de saudação e configurá-lo toobe pelo Azure que você possui - consulte [configurar um nome de domínio personalizado no serviço de aplicativo do Azure](app-service-web-tutorial-custom-domain.md). Depois disso, você pode adicionar Olá tooyour modelo na seção de recursos Microsoft.Web/sites Olá a seguir:
 
     {
         "apiVersion": "2015-08-01",
@@ -139,7 +139,7 @@ Em seguida, adicione outro recurso aninhado para configurar as associações de 
         }
     }
 
-Por fim, adicione outro recurso de nível superior, Microsoft.Web/certificates. Esse recurso conterá o certificado SSL e existirá no mesmo nível do aplicativo Web e do plano de hospedagem.
+Finalmente você precisa tooadd outro recurso de nível superior, Microsoft.Web/certificates. Esse recurso terá seu certificado SSL e existirão no plano de mesmo nível como seu aplicativo web e hospedagem de saudação.
 
     {
         "name": "[parameters('certificateName')]",
@@ -152,25 +152,25 @@ Por fim, adicione outro recurso de nível superior, Microsoft.Web/certificates. 
         }
     }
 
-Você precisará ter um certificado SSL válido para configurar esse recurso. Quando você tiver um certificado válido, será necessário extrair os bytes pfx como uma cadeia de caracteres de base64. Uma opção para extrair isso é usar o seguinte comando PowerShell:
+Você precisará toohave um certificado SSL válido na ordem tooset esse recurso. Uma vez que esse certificado válido, em seguida, você precisa de tooextract Olá pfx bytes como uma cadeia de caracteres base64. Uma opção tooextract trata Olá toouse comando PowerShell a seguir:
 
     $fileContentBytes = get-content 'C:\path\to\cert.pfx' -Encoding Byte
 
     [System.Convert]::ToBase64String($fileContentBytes) | Out-File 'pfx-bytes.txt'
 
-Em seguida, você poderia passar isso como um parâmetro para o modelo de implantação ARM.
+Em seguida, você poderia passar isso como um modelo de implantação do parâmetro tooyour ARM.
 
-Neste ponto, o modelo ARM estará pronto.
+Agora o modelo do ARM hello está pronto.
 
 ### <a name="deploy-template"></a>Implantar o modelo
-As etapas finais são juntar tudo isso em uma implantação completa ponta a ponta. Para facilitar a implantação, você pode aproveitar o script **Deploy-AzureResourceGroup.ps1** do PowerShell adicionado durante a criação de um projeto do Grupo de Recursos do Azure no Visual Studio para ajudar no carregamento de todos os artefatos necessários ao modelo. Ele exige a criação prévia de uma conta de armazenamento que você deseja usar. Neste exemplo, criei uma conta de armazenamento compartilhada para o pacote.zip a ser carregado. O script utilizará o AzCopy para carregar o pacote para a conta de armazenamento. Você passa o local da pasta do artefato e o script carregará automaticamente todos os arquivos desse diretório para o contêiner de armazenamento nomeado. Depois de chamar Deploy-AzureResourceGroup.ps1, você deverá atualizar as associações SSL para mapear o nome de host personalizado com o certificado SSL.
+Olá etapas finais são toopiece isso juntos em uma implantação completa ponta a ponta. toomake implantação fácil, você pode aproveitar a saudação **AzureResourceGroup.ps1 implantar** script do PowerShell que é adicionado quando você cria um projeto do grupo de recursos do Azure no Visual Studio toohelp com carregamento de qualquer artefatos necessários no modelo de saudação. Ele requer toohave criada uma conta de armazenamento que você deseja toouse antecipadamente. Neste exemplo, criei uma conta de armazenamento compartilhado para Olá package.zip toobe carregado. script Hello utilizará a conta de armazenamento de toohello AzCopy tooupload Olá pacote. Você passa em seu local de pasta de artefato e script hello carregará automaticamente todos os arquivos em que toohello diretório denominado contêiner de armazenamento. Depois de chamar implantar AzureResourceGroup.ps1 tiver toothen atualização Olá SSL associações toomap Olá nome do host personalizado com seu certificado SSL.
 
-O PowerShell a seguir mostra a implantação completa chamando Deploy-AzureResourceGroup.ps1:
+Olá mostra PowerShell a seguir Olá Olá chamada de implantação completa Deploy-AzureResourceGroup.ps1:
 
     #Set resource group name
     $rgName = "Name-of-resource-group"
 
-    #call deploy-azureresourcegroup script to deploy web app
+    #call deploy-azureresourcegroup script toodeploy web app
 
     .\Deploy-AzureResourceGroup.ps1 -ResourceGroupLocation "East US" `
                                     -ResourceGroupName $rgName `
@@ -181,7 +181,7 @@ O PowerShell a seguir mostra a implantação completa chamando Deploy-AzureResou
                                     -TemplateParametersFile "web-app-deploy-parameters.json" `
                                     -ArtifactStagingDirectory "C:\path\to\packagefolder\"
 
-    #update web app to bind ssl certificate to hostname. This has to be done after creation above.
+    #update web app toobind ssl certificate toohostname. This has toobe done after creation above.
 
     $cert = Get-PfxCertificate -FilePath C:\path\to\certificate.pfx
 
@@ -195,5 +195,5 @@ O PowerShell a seguir mostra a implantação completa chamando Deploy-AzureResou
 
     Set-AzureRmResource -ApiVersion 2014-11-01 -Name nameofwebsite -ResourceGroupName $rgName -ResourceType Microsoft.Web/sites -PropertyObject $props
 
-Neste ponto, seu aplicativo deve ter sido implantado e você deve ser capaz de localizá-lo por meio de https://www.yourcustomdomain.com
+Neste ponto seu aplicativo deve ter foi implantado e você deve ser capaz de toobrowse tooit via https://www.yourcustomdomain.com
 

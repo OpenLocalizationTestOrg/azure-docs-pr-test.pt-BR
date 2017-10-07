@@ -1,6 +1,6 @@
 ---
-title: "Indexação do Armazenamento de Blobs do Azure com o Azure Search"
-description: Saiba como indexar o Armazenamento de Blobs do Azure e extrair texto de documentos com o Azure Search
+title: aaaIndexing armazenamento de BLOBs do Azure com a pesquisa do Azure
+description: "Saiba como o texto de extração e o armazenamento de BLOBs do Azure de tooindex de documentos com pesquisa do Azure"
 services: search
 documentationcenter: 
 author: chaosrealm
@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/22/2017
 ms.author: eugenesh
-ms.openlocfilehash: 023c343122f872943fb3ab3eed7b4caedfae9ac4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 1bdd34e66a4a9192ed88cacbc7b8456d0dcdfeb6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexação de documentos no Armazenamento de Blobs do Azure com o Azure Search
-Este artigo mostra como usar o Azure Search para indexar documentos (como PDFs, documentos do Microsoft Office e vários outros formatos comuns) armazenados no armazenamento de blobs do Azure. Primeiro, ele explica as noções básicas de configuração de um indexador de blob. Em seguida, ele explora mais profundamente os comportamentos e cenários que você pode encontrar.
+Este artigo mostra como toouse documentos de tooindex de pesquisa do Azure (como PDFs, documentos do Microsoft Office e vários outros formatos comuns) armazenados no armazenamento de BLOBs do Azure. Primeiro, ele explica conceitos básicos de saudação de configurar um indexador de blob. Em seguida, ele oferece uma exploração mais profunda de comportamentos e cenários são provavelmente tooencounter.
 
 ## <a name="supported-document-formats"></a>Formatos de documento com suporte
-O indexador de blob pode extrair o texto dos seguintes formatos de documento:
+indexador de blob Olá pode extrair texto de saudação formatos de documentos a seguir:
 
 * PDF
 * Formatos do Microsoft Office: DOCX/DOC, XLSX/XLS, PPT/PPTX, MSG (emails do Outlook)  
@@ -38,7 +38,7 @@ O indexador de blob pode extrair o texto dos seguintes formatos de documento:
 * CSV (consulte a versão prévia do recurso [Indexando blobs CSV](search-howto-index-csv-blobs.md))
 
 > [!IMPORTANT]
-> No momento, o suporte para matrizes em CSV e JSON está na versão prévia. Esses formatos são disponíveis somente com a versão **2016-09-01-Preview** da API REST ou a versão 2.x-preview do SDK do .NET. Lembre-se de que as APIs de visualização servem para teste e avaliação, e não devem ser usadas em ambientes de produção.
+> No momento, o suporte para matrizes em CSV e JSON está na versão prévia. Esses formatos são disponíveis somente com a versão **2016-09-01-Preview** de saudação 2. x-visualização API REST ou versão do SDK .NET de saudação. Lembre-se de que as APIs de visualização servem para teste e avaliação, e não devem ser usadas em ambientes de produção.
 >
 >
 
@@ -50,23 +50,23 @@ Você pode configurar um indexador do Armazenamento de Blobs do Azure usando:
 * [SDK do .NET](https://aka.ms/search-sdk) do Azure Search
 
 > [!NOTE]
-> Alguns recursos (por exemplo, mapeamentos de campo) ainda não estão disponíveis no portal e precisam ser usados por meio de programação.
+> Alguns recursos (por exemplo, mapeamentos de campo) ainda não estão disponíveis no portal de saudação e tem toobe usada programaticamente.
 >
 >
 
-Aqui, demonstraremos o fluxo usando a API REST.
+Aqui, podemos demonstram hello usando Olá API REST.
 
 ### <a name="step-1-create-a-data-source"></a>Etapa 1: Criar uma fonte de dados
-Uma fonte de dados especifica quais dados indexar, as credenciais necessárias para acessar os dados e as políticas que identificam com eficiência as alterações nos dados (linhas novas, modificadas ou excluídas). Uma fonte de dados pode ser usada por vários indexadores no mesmo serviço de pesquisa.
+Uma fonte de dados especifica quais dados tooindex, as credenciais necessárias tooaccess Olá dados e políticas tooefficiently identificam alterações nos dados da saudação (linhas novo, modificados ou excluídos). Uma fonte de dados pode ser usada por vários indexadores em Olá mesmo serviço de pesquisa.
 
-Para a indexação de blobs, a fonte de dados deve ter as seguintes propriedades requeridas:
+Para a indexação de blob, a fonte de dados de Olá deve ter Olá propriedades necessárias a seguir:
 
-* **name** é o nome exclusivo da fonte de dados dentro de seu serviço de pesquisa.
+* **nome** é o nome exclusivo de Olá Olá da fonte de dados no seu serviço de pesquisa.
 * **type** deve ser `azureblob`.
-* **credentials** fornece a cadeia de conexão da conta de armazenamento como o parâmetro `credentials.connectionString`. Consulte [Como especificar credenciais](#Credentials) abaixo para obter detalhes.
-* **container** especifica um contêiner em sua conta de armazenamento. Por padrão, todos os blobs no contêiner são recuperáveis. Se você quiser apenas blobs de índice em um diretório virtual específico, especifique o diretório usando o parâmetro opcional **query**.
+* **credenciais** fornece a cadeia de conexão de conta de armazenamento hello como Olá `credentials.connectionString` parâmetro. Consulte [como credenciais toospecify](#Credentials) abaixo para obter detalhes.
+* **container** especifica um contêiner em sua conta de armazenamento. Por padrão, todos os blobs no contêiner de saudação são recuperáveis. Se você desejar somente tooindex blobs em um diretório virtual específico, você pode especificar o diretório usando Olá opcional **consulta** parâmetro.
 
-Para criar uma fonte de dados:
+toocreate uma fonte de dados:
 
     POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
@@ -79,26 +79,26 @@ Para criar uma fonte de dados:
         "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
     }   
 
-Para obter mais informações sobre Criar a API da Fonte de Dados, consulte [Criar Fonte de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
+Para obter mais informações sobre Olá criar fonte de dados API, consulte [criar fonte de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
-#### <a name="how-to-specify-credentials"></a>Como especificar credenciais ####
+#### <a name="how-toospecify-credentials"></a>Como as credenciais de toospecify ####
 
-Você pode fornecer as credenciais para o contêiner de blobs de uma das seguintes maneiras:
+Você pode fornecer credenciais de saudação do contêiner de blob Olá em uma das seguintes maneiras:
 
-- **Cadeia de conexão da conta de armazenamento de acesso total**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. É possível obter a cadeia de conexão no portal do Azure navegando para a folha da conta de armazenamento > Configurações > Chaves (para contas de armazenamento Clássicas) ou Configurações > Chaves de acesso (para contas de armazenamento do Azure Resource Manager).
-- Cadeia de conexão da SAS **(assinatura de acesso compartilhado) da conta de armazenamento**: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` o SAS deve ter a lista e permissões de leitura para os contêineres e objetos (blobs, neste caso).
--  **Assinatura de acesso compartilhado do contêiner**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` a SAS deve ter a lista e permissões de leitura para o contêiner.
+- **Cadeia de conexão da conta de armazenamento de acesso total**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Você pode obter cadeia de caracteres de conexão de saudação do hello portal do Azure navegando toohello folha de conta de armazenamento > Configurações > chaves (para contas de armazenamento do clássico) ou configurações > chaves (para contas de armazenamento do Azure Resource Manager) de acesso.
+- **Assinatura de acesso compartilhado de conta de armazenamento** cadeia de caracteres de conexão (SAS): `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<hello signature>&spr=https&se=<hello validity end time>&srt=co&ss=b&sp=rl` Olá SAS deve ter Olá lista e permissões de leitura nos contêineres e objetos (blobs nesse caso).
+-  **Assinatura de acesso compartilhado do contêiner**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<hello signature>&se=<hello validity end time>&sp=rl` Olá SAS deve ter Olá lista e permissões de leitura no contêiner de saudação.
 
 Para saber mais sobre assinaturas de acesso compartilhado de armazenamento, veja [Uso de Assinaturas de Acesso Compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> Se você usar credenciais SAS, você precisará atualizar as credenciais de fonte de dados periodicamente com assinaturas renovadas para impedir sua expiração. Se as credenciais SAS expirarem, o indexador irá falhar com uma mensagem de erro semelhante à `Credentials provided in the connection string are invalid or have expired.`.  
+> Se você usar credenciais SAS, você precisará credenciais de fonte de dados tooupdate Olá periodicamente com assinaturas renovado tooprevent da expiração. Se credenciais SAS expirarem, indexador Olá falhará com uma mensagem de erro semelhante muito`Credentials provided in hello connection string are invalid or have expired.`.  
 
 ### <a name="step-2-create-an-index"></a>Etapa 2: Criar um índice
-O índice especifica os campos em um documento, atributos e outras construções que modelam a experiência de pesquisa.
+índice de saudação especifica campos Olá em um documento, atributos, e outras construções de experiência de pesquisa que forma hello.
 
-Veja como criar um índice com um campo `content` pesquisável para armazenar o texto extraído dos blobs:   
+Aqui está como toocreate um índice com uma pesquisa `content` campo de texto de saudação toostore extraído de blobs:   
 
     POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
     Content-Type: application/json
@@ -115,9 +115,9 @@ Veja como criar um índice com um campo `content` pesquisável para armazenar o 
 Para obter mais informações sobre a criação de índices, consulte [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index)
 
 ### <a name="step-3-create-an-indexer"></a>Etapa 3: Criar um indexador
-Um indexador conecta uma fonte de dados a um índice de pesquisa de destino e fornece um agendamento para automatizar a atualização de dados.
+Um indexador se conecta a uma fonte de dados com um índice de pesquisa de destino e fornece uma atualização de dados agendada tooautomate hello.
 
-Uma vez que o índice e a fonte de dados forem criados, será possível criar o indexador:
+Após Olá índice e fonte de dados foram criados, você estará pronto toocreate indexador de saudação:
 
     POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
@@ -130,65 +130,65 @@ Uma vez que o índice e a fonte de dados forem criados, será possível criar o 
       "schedule" : { "interval" : "PT2H" }
     }
 
-Esse indexador será executado a cada duas horas (o intervalo de agendamento é definido como "PT2H"). Para executar um indexador a cada 30 minutos, defina o intervalo para "PT30M". O intervalo mais curto com suporte é de 5 minutos. O agendamento é opcional – se ele for omitido, um indexador será executado apenas uma vez quando for criado. No entanto, você pode executar um indexador sob demanda a qualquer momento.   
+Esse indexador será executado a cada duas horas (intervalo de agendamento está definido muito "PT2H"). toorun um indexador a cada 30 minutos, defina o intervalo de saudação muito "PT30M". Olá menor intervalo de com suporte é 5 minutos. Olá agenda é opcional - se ele for omitido, um indexador é executado apenas uma vez quando ela é criada. No entanto, você pode executar um indexador sob demanda a qualquer momento.   
 
-Para obter mais detalhes sobre Criar a API do Indexador, consulte [Criar Indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Para obter mais detalhes sobre Olá criar indexador API, check-out [criar indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 ## <a name="how-azure-search-indexes-blobs"></a>Como o Azure Search indexa os blobs
 
-Dependendo da [configuração do indexador](#PartsOfBlobToIndex), o indexador de blobs pode indexar somente metadados de armazenamento (algo útil quando você está preocupado apenas com os metadados e não precisa indexar o conteúdo dos blobs), metadados de armazenamento e conteúdo ou conteúdo textual e de metadados. Por padrão, o indexador extrai os metadados e o conteúdo.
+Dependendo da saudação [configuração indexador](#PartsOfBlobToIndex), indexador de blob Olá pode indexar somente metadados de armazenamento (útil quando apenas cuidado sobre Olá metadados e não precisar tooindex Olá conteúdo de blobs), metadados de conteúdo e armazenamento, ou ambos metadados e o conteúdo textual. Por padrão, o indexador Olá extrai metadados e o conteúdo.
 
 > [!NOTE]
-> Por padrão, os blobs com conteúdo estruturado, como JSON, CSV e indexados como uma única parte de texto. Se você desejar indexar blobs JSON e CSV de uma maneira estruturada, consulte as versões prévias dos recursos [Indexando blobs JSON](search-howto-index-json-blobs.md) e [Indexando blobs CSV](search-howto-index-csv-blobs.md).
+> Por padrão, os blobs com conteúdo estruturado, como JSON, CSV e indexados como uma única parte de texto. Blobs CSV e JSON tooindex de maneira estruturada, consulte [indexação JSON blobs](search-howto-index-json-blobs.md) e [indexação CSV blobs](search-howto-index-csv-blobs.md) recursos de visualização.
 >
 > Um documento composto ou incorporado (como um arquivo ZIP ou um documento do Word com email do Outlook incorporado contendo anexos) também é indexado como um único documento.
 
-* O conteúdo textual do documento é extraído para um campo de cadeia de caracteres chamado `content`.
+* conteúdo textual de saudação do documento hello é extraído em um campo de cadeia de caracteres chamado `content`.
 
 > [!NOTE]
-> O Azure Search limita quanto texto é extraído dependendo do tipo de preço: 32.000 caracteres na Camada gratuita, 64.000 na Básica e 4 milhões nas camadas Standard, Standard S2 e Standard S3. Um aviso é incluído na resposta de status do indexador para documentos truncados.  
+> A pesquisa do Azure limita a quantidade de texto extrai dependendo Olá preço: 32.000 caracteres gratuitamente camada, 64.000 Basic e 4 milhões para as camadas Standard, Standard S2 e S3 padrão. Um aviso é incluído na resposta de status do indexador Olá para documentos truncados.  
 
-* As propriedades de metadados especificadas pelo usuário e presentes no blob, se houver alguma, são extraídas literalmente.
-* As propriedades de metadados de blob padrão são extraídas para os seguintes campos:
+* Propriedades de metadados especificado pelo usuário presentes no blob hello, se houver, serão extraídas textualmente.
+* Propriedades de metadados de blob padrão são extraídas em Olá campos a seguir:
 
-  * **metadata\_storage\_name** (Edm.String): o nome do arquivo do blob. Por exemplo, se você tiver um blob /my-container/my-folder/subfolder/resume.pdf, o valor desse campo será `resume.pdf`.
-  * **metadata\_storage\_path** (Edm.String): o URI completo do blob, incluindo a conta de armazenamento. Por exemplo, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
-  * **metadata\_storage\_content\_type** (Edm.String): o tipo de conteúdo, conforme especificado pelo código usado para carregar o blob. Por exemplo: `application/octet-stream`.
-  * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset): último carimbo de data/hora modificado para o blob. O Azure Search usa esse carimbo de data/hora para identificar os blobs alterados, a fim de evitar a reindexação total após a indexação inicial.
+  * **metadados\_armazenamento\_nome** (EDM) - nome do arquivo de saudação do blob hello. Por exemplo, se você tiver um blob /my-container/my-folder/subfolder/resume.pdf, Olá valor desse campo é `resume.pdf`.
+  * **metadados\_armazenamento\_caminho** (EDM) - Olá completo URI do blob hello, incluindo a conta de armazenamento hello. Por exemplo, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+  * **metadados\_armazenamento\_conteúdo\_tipo** (EDM) - tipo de conteúdo, conforme especificado pelo código Olá usado blob de saudação tooupload. Por exemplo: `application/octet-stream`.
+  * **metadados\_armazenamento\_último\_modificado** (Edm.DateTimeOffset) - última modificação de carimbo de hora para blobs de saudação. Pesquisa do Azure usa blobs de tooidentify alterado esse carimbo de hora, tooavoid Reindexar tudo após a saudação inicial indexação.
   * **metadata\_storage\_size** (Edm.Int64): tamanho do blob em bytes.
-  * **metadata\_storage\_content\_md5** (Edm.String): hash MD5 do conteúdo do blob, se estiver disponível.
-* As propriedades de metadados específicas a cada formato de documento são extraídas nos campos listados [aqui](#ContentSpecificMetadata).
+  * **metadados\_armazenamento\_conteúdo\_md5** (EDM) - hash MD5 do conteúdo do blob hello, se disponível.
+* Formato de documento de tooeach específico de propriedades de metadados são extraídos em campos de saudação listados [aqui](#ContentSpecificMetadata).
 
-Não é necessário definir os campos para todas as propriedades acima em seu índice de pesquisa, basta capturar as propriedades necessárias para seu aplicativo.
+Você não precisa toodefine campos para todos Olá acima propriedades em seu índice de pesquisa - capture apenas propriedades Olá que precisar para seu aplicativo.
 
 > [!NOTE]
-> Geralmente, os nomes de campo no índice existente serão diferentes dos nomes de campo gerados durante a extração do documento. Você pode usar os **mapeamentos de campo** para mapear os nomes de propriedade fornecidos pelo Azure Search para os nomes de campo em seu índice de pesquisa. Você verá um exemplo de uso de mapeamento de campo abaixo.
+> Frequentemente, nomes de campo de saudação em seu índice existente serão diferentes dos nomes de campo Olá gerados durante a extração de documento. Você pode usar **mapeamentos de campo** nomes de propriedade hello toomap fornecidos por nomes de campo de toohello de pesquisa do Azure no seu índice de pesquisa. Você verá um exemplo de uso de mapeamento de campo abaixo.
 >
 >
 
 <a name="DocumentKeys"></a>
 ### <a name="defining-document-keys-and-field-mappings"></a>Definir chaves de documento e mapeamentos de campo
-No Azure Search, a chave do documento identifica exclusivamente um documento. Cada índice de pesquisa deve ter exatamente um campo de chave do tipo Edm.String. O campo de chave é necessário para cada documento adicionado ao índice (é, na verdade, o único campo obrigatório).  
+Na pesquisa do Azure, a chave de documento hello identifica exclusivamente um documento. Cada índice de pesquisa deve ter exatamente um campo de chave do tipo Edm.String. o campo de chave Olá é necessário para cada documento que está sendo adicionado toohello índice (ele é realmente Olá único campo obrigatório).  
 
-Você deve considerar cuidadosamente qual campo extraído deve ser mapeado para o campo de chave de seu índice. Os candidatos são:
+Você deve considerar atentamente qual campo extraído deve ser mapeado toohello campo de chave para o índice. candidatos a saudação são:
 
-* **metadata\_storage\_name**: este pode ser um candidato conveniente, mas observe que 1) talvez os nomes não sejam exclusivos, pois você pode ter blobs com o mesmo nome em pastas diferentes, e 2) o nome pode conter caracteres inválidos em chaves de documento, por exemplo, traços. Você pode lidar com caracteres inválidos usando a `base64Encode` [função de mapeamento de campo](search-indexer-field-mappings.md#base64EncodeFunction). Se fizer isso, lembre-se de codificar as chaves de documento ao transmiti-las em chamadas à API, como Pesquisa. (Por exemplo, em .NET você pode usar o método [UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) para essa finalidade).
-* **metadata\_storage\_path**: o uso do caminho completo garante a exclusividade, mas o caminho contém definitivamente caracteres `/` que são [inválidos em uma chave de documento](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Como foi mencionado acima, você tem a opção de codificar as chaves usando a [função](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`.
-* Se nenhuma das opções acima funcionar para você, adicione uma propriedade de metadados personalizada aos blobs. No entanto, essa opção exige que seu processo de carregamento de blob adicione essa propriedade de metadados a todos os blobs. Como a chave é uma propriedade obrigatória, todos os blobs que não tiverem essa propriedade apresentarão falha na indexação.
+* **metadados\_armazenamento\_nome** - isso pode ser um candidato conveniente, mas observe que os nomes de saudação 1) não podem ser exclusivos, porque talvez haja blobs com o mesmo nome em pastas diferentes de saudação e 2) Olá nome pode conter caracteres que são inválidos em chaves de documento, como traços. Você pode lidar com caracteres inválidos usando Olá `base64Encode` [função de mapeamento de campo](search-indexer-field-mappings.md#base64EncodeFunction) - se você fizer isso, lembre-se de chaves de documento tooencode ao transmiti-los na API chama como pesquisa. (Por exemplo, no .NET você pode usar o hello [UrlTokenEncode método](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) para essa finalidade).
+* **metadados\_armazenamento\_caminho** - usar o caminho completo da saudação garante a exclusividade, mas definitivamente contém um caminho de saudação `/` caracteres [inválida em uma chave de documento](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Como acima, você tem opção de saudação de codificação chaves hello usando Olá `base64Encode` [função](search-indexer-field-mappings.md#base64EncodeFunction).
+* Se nenhuma das opções de saudação acima funcionar, você pode adicionar um blobs de toohello de propriedade de metadados personalizados. Essa opção, no entanto, exigem sua tooadd de processo de carregamento de blob que blobs de tooall de propriedade de metadados. Como chave de saudação é uma propriedade obrigatória, todos os blobs que não têm essa propriedade falhará toobe indexado.
 
 > [!IMPORTANT]
-> Se não houver um mapeamento explícito para o campo de chave no índice, o Azure Search usará automaticamente `metadata_storage_path` como chave e valores da chave de codificação com base-64 (a segunda opção acima).
+> Se não houver nenhum mapeamento explícito para o campo de chave Olá no índice hello, pesquisa do Azure usa automaticamente `metadata_storage_path` como Olá principal e de base 64 codifica os valores de chave (Olá segunda opção acima).
 >
 >
 
-Para este exemplo, vamos escolher o campo `metadata_storage_name` como a chave do documento. Vamos supor também que o índice tenha um campo de chave chamado `key` e um campo `fileSize` para armazenamento do tamanho do documento. Para conectar as coisas conforme o desejado, especifique os seguintes mapeamentos de campo ao criar ou atualizar o indexador:
+Neste exemplo, vamos escolher Olá `metadata_storage_name` campo como chave de documento hello. Vamos supor também o índice tem um campo de chave denominado `key` e um campo `fileSize` para armazenar o tamanho do documento hello. as coisas toowire conforme desejado, especifique Olá mapeamentos de campo ao criar ou atualizar o indexador a seguir:
 
     "fieldMappings" : [
       { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
       { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
     ]
 
-Para unir tudo isso, veja como você pode adicionar mapeamentos de campo e habilitar a codificação das chaves em base-64 para um indexador existente:
+toobring este todos junto, aqui está como você pode adicionar mapeamentos de campo e habilitar codificação de base 64 de chaves para um indexador existente:
 
     PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2016-09-01
     Content-Type: application/json
@@ -205,7 +205,7 @@ Para unir tudo isso, veja como você pode adicionar mapeamentos de campo e habil
     }
 
 > [!NOTE]
-> Para saber mais sobre mapeamentos de campo, consulte [este artigo](search-indexer-field-mappings.md).
+> toolearn mais informações sobre mapeamentos de campo, consulte [neste artigo](search-indexer-field-mappings.md).
 >
 >
 
@@ -213,8 +213,8 @@ Para unir tudo isso, veja como você pode adicionar mapeamentos de campo e habil
 ## <a name="controlling-which-blobs-are-indexed"></a>Controlando quais blobs serão indexados
 É possível controlar quais blobs são indexados e quais são ignorados.
 
-### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Indexe apenas os blobs com extensões de arquivo específicas
-Você pode indexar apenas os blobs com as extensões do nome de arquivo especificadas usando o parâmetro de configuração do indexador `indexedFileNameExtensions`. O valor é uma cadeia de caracteres que contém uma lista separada por vírgulas das extensões de arquivo (com um ponto à esquerda). Por exemplo, para indexar apenas blobs de .PDF e .DOCX, faça o seguinte:
+### <a name="index-only-hello-blobs-with-specific-file-extensions"></a>Indexe somente os blobs Olá com extensões de arquivo específico
+Você pode indexar somente os blobs Olá com extensões de nome de arquivo hello especificar usando Olá `indexedFileNameExtensions` parâmetro de configuração do indexador. valor de saudação é uma cadeia de caracteres que contém uma lista separada por vírgulas de extensões de arquivo (com um ponto à esquerda). Por exemplo, tooindex somente hello. PDF e. Blobs DOCX, faça o seguinte:
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
     Content-Type: application/json
@@ -226,7 +226,7 @@ Você pode indexar apenas os blobs com as extensões do nome de arquivo especifi
     }
 
 ### <a name="exclude-blobs-with-specific-file-extensions"></a>Excluir blobs com extensões de arquivo específicas
-Você pode excluir os blobs com extensões do nome de arquivo específicas da indexação usando o parâmetro de configuração `excludedFileNameExtensions`. O valor é uma cadeia de caracteres que contém uma lista separada por vírgulas das extensões de arquivo (com um ponto à esquerda). Por exemplo, para indexar todos os blobs, exceto aqueles com as extensões .PNG e .JPEG, faça o seguinte:
+Você pode excluir blobs com extensões de nome de arquivo específico de indexação usando Olá `excludedFileNameExtensions` parâmetro de configuração. valor de saudação é uma cadeia de caracteres que contém uma lista separada por vírgulas de extensões de arquivo (com um ponto à esquerda). Por exemplo, tooindex todos os blobs exceto aqueles com hello. PNG e. Extensões JPEG, faça o seguinte:
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
     Content-Type: application/json
@@ -237,11 +237,11 @@ Você pode excluir os blobs com extensões do nome de arquivo específicas da in
       "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
     }
 
-Se os parâmetros `indexedFileNameExtensions` e `excludedFileNameExtensions` estiverem presentes, o Azure Search primeiro examinará `indexedFileNameExtensions`, em seguida, `excludedFileNameExtensions`. Isso significa que, se a mesma extensão de arquivo estiver presente nas duas listas, ela será excluída da indexação.
+Se os parâmetros `indexedFileNameExtensions` e `excludedFileNameExtensions` estiverem presentes, o Azure Search primeiro examinará `indexedFileNameExtensions`, em seguida, `excludedFileNameExtensions`. Isso significa que se hello a mesma extensão de arquivo estiver presente em ambas as listas, ele será excluído da indexação.
 
 ### <a name="dealing-with-unsupported-content-types"></a>Lidando com tipos de conteúdo sem suporte
 
-Por padrão, o indexador de blobs é interrompido assim que encontra um blob com um tipo de conteúdo sem suporte (por exemplo, uma imagem). Evidentemente, você pode usar o parâmetro `excludedFileNameExtensions` para ignorar alguns tipos de conteúdo. No entanto, talvez você precise indexar blobs sem conhecer todos os possíveis tipos de conteúdo com antecedência. Para continuar a indexação quando um tipo de conteúdo sem suporte é encontrado, defina o parâmetro de configuração `failOnUnsupportedContentType` como `false`:
+Por padrão, o indexador de blob Olá para assim que ele encontra um blob com um tipo de conteúdo sem suporte (por exemplo, uma imagem). Naturalmente, você pode usar Olá `excludedFileNameExtensions` parâmetro tooskip certos tipos de conteúdo. No entanto, talvez seja necessário tooindex blobs sem saber com antecedência todos Olá possíveis tipos de conteúdo. toocontinue indexação quando um tipo de conteúdo sem suporte é encontrado, defina Olá `failOnUnsupportedContentType` parâmetro de configuração muito`false`:
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
     Content-Type: application/json
@@ -254,7 +254,7 @@ Por padrão, o indexador de blobs é interrompido assim que encontra um blob com
 
 ### <a name="ignoring-parsing-errors"></a>Ignorando erros de análise
 
-A lógica de extração de documento do Azure Search não é perfeita e às vezes não analisa documentos de um tipo de conteúdo com suporte, como .DOCX ou .PDF. Se você não desejar interromper a indexação nesses casos, defina os parâmetros de configuração `maxFailedItems` e `maxFailedItemsPerBatch` para alguns valores razoáveis. Por exemplo:
+Lógica de extração de documento de pesquisa do Azure não é perfeita e, às vezes, haverá falha tooparse documentos de um tipo de conteúdo com suporte, como. DOCX ou. PDF. Se você não quiser Olá toointerrupt indexação em tais casos, defina Olá `maxFailedItems` e `maxFailedItemsPerBatch` valores razoável de toosome de parâmetros de configuração. Por exemplo:
 
     {
       ... other parts of indexer definition
@@ -262,15 +262,15 @@ A lógica de extração de documento do Azure Search não é perfeita e às veze
     }
 
 <a name="PartsOfBlobToIndex"></a>
-## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Controlando quais partes do blob são indexadas
+## <a name="controlling-which-parts-of-hello-blob-are-indexed"></a>Controlando quais partes do blob Olá são indexados
 
-Você pode controlar quais partes dos blobs são indexadas usando o parâmetro de configuração `dataToExtract`. Ele pode usar os seguintes valores:
+Você pode controlar quais partes dos blobs Olá são indexadas usando Olá `dataToExtract` parâmetro de configuração. Pode levar Olá valores a seguir:
 
-* `storageMetadata` – especifica que somente [as propriedades de blob padrão e os metadados especificados pelo usuário](../storage/blobs/storage-properties-metadata.md) são indexados.
-* `allMetadata` – especifica que os metadados de armazenamento e os [metadados específicos do tipo de conteúdo](#ContentSpecificMetadata) extraídos do conteúdo do blob são indexados.
-* `contentAndMetadata` – especifica que todos os metadados e conteúdo textual extraídos do blob são indexados. Esse é o valor padrão.
+* `storageMetadata`-Especifica que somente Olá [propriedades de blob padrão e os metadados especificados pelo usuário](../storage/blobs/storage-properties-metadata.md) são indexados.
+* `allMetadata`-Especifica que os metadados de armazenamento e hello [metadados específicos do tipo de conteúdo](#ContentSpecificMetadata) extraído do blob Olá conteúdo são indexados.
+* `contentAndMetadata`-Especifica que todos os metadados e o conteúdo textual extraído do blob Olá são indexados. Este é o valor padrão de saudação.
 
-Por exemplo, para indexar apenas os metadados de armazenamento, use:
+Por exemplo, tooindex apenas os metadados de armazenamento hello, use:
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
     Content-Type: application/json
@@ -281,28 +281,28 @@ Por exemplo, para indexar apenas os metadados de armazenamento, use:
       "parameters" : { "configuration" : { "dataToExtract" : "storageMetadata" } }
     }
 
-### <a name="using-blob-metadata-to-control-how-blobs-are-indexed"></a>Usando metadados de blob para controlar como os blobs são indexados
+### <a name="using-blob-metadata-toocontrol-how-blobs-are-indexed"></a>Usando toocontrol de metadados de blob como blobs são indexados
 
-Os parâmetros de configuração descritos acima se aplicam a todos os blobs. Às vezes, você pode desejar controlar como *blobs individuais* são indexados. Faça isso adicionando as seguintes propriedades de metadados de blob e valores:
+parâmetros de configuração de saudação descritos acima se aplicam a tooall blobs. Às vezes, convém toocontrol como *blobs individuais* são indexados. Você pode fazer isso adicionando o seguinte Olá valores e propriedades de metadados de blob:
 
 | Nome da propriedade | Valor da propriedade | Explicação |
 | --- | --- | --- |
-| AzureSearch_Skip |"true" |Instrui o indexador de blobs a ignorar o blob por completo. Não há nenhuma tentativa de extração de metadados nem de conteúdo. Isso é útil quando um blob específico falha repetidamente e interrompe o processo de indexação. |
-| AzureSearch_SkipContent |"true" |Isso é equivalente à configuração `"dataToExtract" : "allMetadata"` descrita [acima](#PartsOfBlobToIndex), no escopo de um blob específico. |
+| AzureSearch_Skip |"true" |Instrui o blob de Olá Olá blob indexador toocompletely ignorar. Não há nenhuma tentativa de extração de metadados nem de conteúdo. Isso é útil quando um blob específico falha repetidamente e interrompe o processo de indexação hello. |
+| AzureSearch_SkipContent |"true" |Isso é equivalente a `"dataToExtract" : "allMetadata"` configuração descrito [acima](#PartsOfBlobToIndex) blob específico tooa no escopo. |
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Indexação incremental e detecção de exclusão 
-Quando você configura um indexador de blob para execução em um cronograma, ele reindexa apenas os blobs alterados, conforme determinado pelo carimbo de data/hora `LastModified` do blob.
+Quando você configura um toorun do indexador de blob em um agendamento, ele indexará novamente apenas Olá alterada blobs, conforme determinado pelo blob de saudação `LastModified` timestamp.
 
 > [!NOTE]
-> Não é necessário especificar uma política de detecção de alteração, a indexação incremental é habilitada automaticamente para você.
+> Você não tem uma política de detecção de alteração toospecify – indexação incremental é habilitado automaticamente para você.
 
-Para dar suporte à exclusão de documentos, use uma abordagem de "exclusão reversível". Se você excluir os blobs imediatamente, documentos correspondentes não serão removidos do índice de pesquisa. Em vez disso, execute as seguintes etapas:  
+documentos de exclusão toosupport, use uma abordagem de "exclusão reversível". Se você excluir blobs de saudação imediatamente, documentos correspondentes não serão removidos do índice de pesquisa de saudação. Em vez disso, use Olá etapas a seguir:  
 
-1. Adicione uma propriedade de metadados personalizados ao blob para indicar ao Azure Search que ela é logicamente excluída
-2. Configure uma política de detecção de exclusão reversível na fonte de dados
-3. Depois que o indexador processar o blob (conforme mostrado pela API do status do indexador), você pode excluir fisicamente o blob
+1. Adicionar tooAzure da tooindicate um blob metadados personalizados propriedade toohello pesquisa que é logicamente excluído
+2. Configurar uma política de detecção de exclusão reversível na fonte de dados de saudação
+3. Depois que o indexador Olá processou blob hello (conforme mostrado pelo status do indexador Olá API), você pode excluir fisicamente blob Olá
 
-Por exemplo, a política a seguir considerará que um blob foi excluído se tiver uma propriedade de metadados `IsDeleted` com o valor `true`:
+Por exemplo, Olá política a seguir considera uma toobe blob excluído se ele tem uma propriedade de metadados `IsDeleted` com valor de saudação `true`:
 
     PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2016-09-01
     Content-Type: application/json
@@ -322,10 +322,10 @@ Por exemplo, a política a seguir considerará que um blob foi excluído se tive
 
 ## <a name="indexing-large-datasets"></a>Indexando grandes conjuntos de dados
 
-A indexação de blobs pode ser um processo demorado. Nos casos em que você tem milhões de blobs para indexar, é possível acelerar a indexação particionando seus dados e usando vários indexadores para processar os dados em paralelo. Veja como você pode configurar isso:
+A indexação de blobs pode ser um processo demorado. Em casos em que você tiver milhões de tooindex blobs, você pode acelerar a indexação de particionar seus dados e usando várias indexadores tooprocess Olá de dados em paralelo. Veja como você pode configurar isso:
 
 - Particione seus dados em vários contêineres de blob ou pastas virtuais
-- Configure várias fontes de dados do Azure Search, um por contêiner ou pasta. Para apontar para uma pasta de blobs, use o parâmetro `query`:
+- Configure várias fontes de dados do Azure Search, um por contêiner ou pasta. pasta de blob tooa toopoint, use Olá `query` parâmetro:
 
     ```
     {
@@ -336,20 +336,20 @@ A indexação de blobs pode ser um processo demorado. Nos casos em que você tem
     }
     ```
 
-- Crie um indexador correspondente para cada fonte de dados. Todos os indexadores podem apontar para o mesmo índice de pesquisa de destino.  
+- Crie um indexador correspondente para cada fonte de dados. Todos os Olá indexadores podem ponto toohello mesmo índice de pesquisa de destino.  
 
-- Uma unidade de pesquisa em seu serviço pode executar um indexador a qualquer momento. Criar vários indexadores conforme descrito acima será útil somente se eles realmente forem executados em paralelo. Para executar vários indexadores em paralelo, escale horizontalmente seu serviço de pesquisa criando um número apropriado de partições e réplicas. Por exemplo, se o serviço de pesquisa tiver seis unidades de pesquisa (por exemplo, 2 partições x 3 réplicas), seis indexadores poderão ser executados simultaneamente, resultando em um aumento de seis vezes a taxa de transferência da indexação. Para saber mais sobre o planejamento de capacidade e colocação em escala, consulte [Escalar níveis de recursos para cargas de trabalho de consulta e indexação no Azure Search](search-capacity-planning.md).
+- Uma unidade de pesquisa em seu serviço pode executar um indexador a qualquer momento. Criar vários indexadores conforme descrito acima será útil somente se eles realmente forem executados em paralelo. toorun vários indexadores em paralelo, dimensionar o serviço de pesquisa com a criação de um número apropriado de partições e réplicas. Por exemplo, se o serviço de pesquisa tiver 6 unidades de pesquisa (por exemplo, réplicas de 2 partições x 3), em seguida, 6 indexadores podem executar simultaneamente, resultando em um aumento de seis vezes produtividade da indexação hello. toolearn mais informações sobre dimensionamento e planejamento de capacidade, consulte [níveis de recursos para cargas de trabalho na pesquisa do Azure de indexação e consulta de escala](search-capacity-planning.md).
 
 ## <a name="indexing-documents-along-with-related-data"></a>Indexação de documentos junto com os dados relacionados
 
-Talvez você queira "montar" documentos de várias fontes em seu índice. Por exemplo, convém mesclar texto de blobs com outros metadados armazenados no Cosmos DB. Você pode até usar a API de indexação por push junto a vários indexadores para criar documentos de pesquisa de várias partes. 
+Talvez você queira "montar" muito documentos de várias fontes em seu índice. Por exemplo, talvez você queira toomerge texto de blobs de com outros metadados armazenados no banco de dados do Cosmos. Você pode até usar Olá API de indexação de push junto com vários indexadores muito criar documentos de pesquisa de várias partes. 
 
-Para que isso funcione, todos os indexadores e outros componentes precisam concordar com a chave de documento. Para obter instruções passo a passo detalhadas, consulte este artigo externo: [Combinar documentos com outros dados no Azure Search](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+Para este toowork, todos os indexadores e outros componentes necessário tooagree na chave de documento hello. Para obter instruções passo a passo detalhadas, consulte este artigo externo: [Combinar documentos com outros dados no Azure Search](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indexação de texto sem formatação 
 
-Se todos os seus blobs contiverem texto sem formatação na mesma codificação, você poderá melhorar significativamente o desempenho de indexação usando o **modo de análise de texto**. Para usar o modo de análise de texto, defina a propriedade de configuração `parsingMode` como `text`:
+Se todos os seus blobs contenham texto sem formatação no hello a mesma codificação, você pode melhorar significativamente o desempenho de indexação usando **modo de análise de texto**. texto toouse análise modo, Olá conjunto `parsingMode` propriedade de configuração muito`text`:
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
     Content-Type: application/json
@@ -360,7 +360,7 @@ Se todos os seus blobs contiverem texto sem formatação na mesma codificação,
       "parameters" : { "configuration" : { "parsingMode" : "text" } }
     }
 
-Por padrão, a codificação `UTF-8` será assumida. Para especificar uma codificação diferente, use a propriedade de configuração `encoding`: 
+Por padrão, Olá `UTF-8` codificação será assumida. toospecify uma codificação diferente, use Olá `encoding` propriedade de configuração: 
 
     {
       ... other parts of indexer definition
@@ -370,7 +370,7 @@ Por padrão, a codificação `UTF-8` será assumida. Para especificar uma codifi
 
 <a name="ContentSpecificMetadata"></a>
 ## <a name="content-type-specific-metadata-properties"></a>Propriedades de metadados específicas ao tipo de conteúdo
-A tabela a seguir resume o processo executado para cada formato de documento, e descreve as propriedades dos metadados extraídos pelo Azure Search.
+Olá tabela a seguir resume o processo executado para cada formato de documento e descreve as propriedades de metadados Olá extraídas pela pesquisa do Azure.
 
 | Formato de documento/tipo de conteúdo | Propriedades de metadados específicas do tipo de conteúdo | Detalhes do processamento |
 | --- | --- | --- |
@@ -383,9 +383,9 @@ A tabela a seguir resume o processo executado para cada formato de documento, e 
 | PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extração de texto, incluindo documentos incorporados |
 | PPT (application/vnd.ms-powerpoint) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extração de texto, incluindo documentos incorporados |
 | MSG (application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Extração do texto, incluindo anexos |
-| ZIP (application/zip) |`metadata_content_type` |Extração do texto de todos os documentos no arquivo |
+| ZIP (application/zip) |`metadata_content_type` |Extrair texto de todos os documentos no arquivo hello |
 | XML (application/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |Remoção da marcação XML e extração do texto |
-| JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Extrair texto<br/>OBSERVAÇÃO: se você precisar extrair vários campos de documento de um blob JSON, consulte [Como indexar blobs JSON](search-howto-index-json-blobs.md) para obter detalhes |
+| JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Extrair texto<br/>Observação: Se você precisar tooextract documento vários campos de um blob JSON, consulte [indexação JSON blobs](search-howto-index-json-blobs.md) para obter detalhes |
 | EML (message/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Extração do texto, incluindo anexos |
 | RTF (aplicativo/rtf) |`metadata_content_type`</br>`metadata_author`</br>`metadata_character_count`</br>`metadata_creation_date`</br>`metadata_page_count`</br>`metadata_word_count`</br> | Extrair texto|
 | Texto sem formatação (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | Extrair texto|

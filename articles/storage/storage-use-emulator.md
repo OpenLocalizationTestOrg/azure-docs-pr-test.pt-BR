@@ -1,6 +1,6 @@
 ---
-title: Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste | Microsoft Docs
-description: "O Emulador de Armazenamento do Azure fornece um ambiente de desenvolvimento local gratuito para desenvolvimento e teste de seus aplicativos de Armazenamento do Azure. Saiba como as solicitações são autenticadas, como se conectar ao emulador por meio do seu aplicativo e como usar a ferramenta de linha de comando."
+title: "emulador de armazenamento do Azure aaaUse Olá para desenvolvimento e teste | Microsoft Docs"
+description: "emulador de armazenamento do Azure Olá fornece um ambiente de desenvolvimento local livre para desenvolver e testar seus aplicativos de armazenamento do Azure. Saiba como solicitações são autenticadas, como tooconnect toohello emulador de seu aplicativo e como toouse Olá a ferramenta de linha de comando."
 services: storage
 documentationcenter: 
 author: mmacy
@@ -14,77 +14,77 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: marsma
-ms.openlocfilehash: 455b26aad2f426c7ee1fc9d687e95e226997be62
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 42637dcd9f476069e6ecd19ed04e7ed93fe38ff7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste
+# <a name="use-hello-azure-storage-emulator-for-development-and-testing"></a>Usar o emulador de armazenamento do Azure Olá para desenvolvimento e teste
 
-O emulador de armazenamento do Microsoft Azure fornece um ambiente local que emula os serviços de blob, fila e tabela do Azure para fins de desenvolvimento. Usando o emulador de armazenamento, você pode testar seu aplicativo contra os serviços de armazenamento locais, sem criar uma assinatura Azure ou incorrer em custos. Quando estiver satisfeito com o funcionamento de seu aplicativo no emulador, você pode alternar para usar uma conta de armazenamento do Azure na nuvem.
+emulador de armazenamento do Microsoft Azure Olá fornece um ambiente local que emula os serviços do Azure Blob, fila e tabela Olá para fins de desenvolvimento. Usando o emulador de armazenamento hello, você pode testar seu aplicativo nos serviços de armazenamento Olá localmente, sem criar uma assinatura do Azure ou incorrer em custos de qualquer. Quando estiver satisfeito com o funcionamento seu aplicativo no emulador hello, você pode alternar toousing uma conta de armazenamento do Azure na nuvem hello.
 
-## <a name="get-the-storage-emulator"></a>Obter o emulador de armazenamento
-O emulador de armazenamento está disponível como parte do [SDK do Microsoft Azure](https://azure.microsoft.com/downloads/). Você também pode instalar o emulador de armazenamento usando o [instalador autônomo](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (download direto). Para instalar o emulador de armazenamento, você deve ter privilégios administrativos em seu computador.
+## <a name="get-hello-storage-emulator"></a>Obter o emulador de armazenamento Olá
+Olá emulador de armazenamento está disponível como parte da saudação [SDK do Microsoft Azure](https://azure.microsoft.com/downloads/). Você também pode instalar o emulador de armazenamento hello usando Olá [instalador autônomo](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (download direto). emulador de armazenamento do tooinstall hello, você deve ter privilégios administrativos no computador.
 
-O emulador de armazenamento atualmente é executado apenas no Windows. Para aqueles que consideram um emulador de armazenamento para Linux, uma opção é a comunidade mantida, o emulador de armazenamento de código aberto [Azurite](https://github.com/arafato/azurite).
+emulador de armazenamento Olá atualmente é executado somente no Windows. Para aqueles que considerar um emulador de armazenamento para Linux, uma opção é a comunidade Olá mantida, o emulador de armazenamento do código-fonte aberto [Azurite](https://github.com/arafato/azurite).
 
 > [!NOTE]
-> Os dados criados em uma versão do emulador de armazenamento não têm a garantia de estarem acessíveis ao usar outra versão. Se você precisar persistir seus dados a longo prazo, recomendamos que você armazene esses dados em uma conta de armazenamento do Azure e não no emulador de armazenamento.
+> Os dados criados em uma versão do emulador de armazenamento Olá não são garantidos toobe acessível ao usar uma versão diferente. Se você precisar toopersist seus dados de longo prazo do hello, é recomendável que você armazene esses dados em uma conta de armazenamento do Azure, em vez de no emulador de armazenamento hello.
 > <p/>
-> O emulador de armazenamento depende de versões específicas das bibliotecas OData. Não há suporte para a substituição das DLLs do OData usadas pelo emulador de armazenamento em outras versões, e ela pode causar um comportamento inesperado. No entanto, qualquer versão do OData com suporte no serviço de armazenamento pode ser usada para enviar solicitações para o emulador.
+> emulador de armazenamento Olá depende versões específicas de bibliotecas de OData hello. Substituir Olá OData DLLs usadas pelo emulador de armazenamento Olá com outras versões não tem suporte e pode causar um comportamento inesperado. No entanto, qualquer versão do OData com suporte pelo serviço de armazenamento de saudação pode ser usado toosend solicitações toohello emulador.
 >
 
-## <a name="how-the-storage-emulator-works"></a>Como o emulador de armazenamento funciona
-O emulador de armazenamento usa uma instância do Microsoft SQL Server local e o sistema de arquivos local para emular os serviços de armazenamento do Azure. Por padrão, o emulador de armazenamento usa um banco de dados no Microsoft SQL Server 2012 Express LocalDB. Você pode optar por configurar o emulador de armazenamento para acessar uma instância local do SQL Server em vez da instância do LocalDB. Para saber mais, confira a seção [Iniciar e inicializar o emulador de armazenamento](#start-and-initialize-the-storage-emulator) mais adiante neste artigo.
+## <a name="how-hello-storage-emulator-works"></a>Como funciona o emulador de armazenamento Olá
+emulador de armazenamento Olá usa uma instância local do Microsoft SQL Server e serviços de armazenamento do Azure tooemulate do sistema de arquivos local hello. Por padrão, o emulador de armazenamento Olá usa um banco de dados no Microsoft SQL Server 2012 Express LocalDB. Você pode escolher uma instância local do SQL Server em vez de instância de LocalDB Olá para tooconfigure tooaccess de emulador de armazenamento de saudação. Para obter mais informações, consulte Olá [iniciar e inicializar Olá emulador de armazenamento](#start-and-initialize-the-storage-emulator) seção mais adiante neste artigo.
 
-O emulador de armazenamento se conecta ao SQL Server ou LocalDB usando a autenticação do Windows.
+emulador de armazenamento Olá conecta tooSQL Server ou LocalDB usando a autenticação do Windows.
 
-Existem algumas diferenças de funcionalidade entre o emulador de armazenamento e os serviços de armazenamento do Azure. Para saber mais sobre essas diferenças, consulte a seção [Diferenças entre o emulador de armazenamento e o armazenamento do Azure](#differences-between-the-storage-emulator-and-azure-storage) mais adiante neste artigo.
+Existem algumas diferenças na funcionalidade entre o emulador de armazenamento hello e serviços de armazenamento do Azure. Para obter mais informações sobre essas diferenças, consulte Olá [diferenças entre o emulador de armazenamento hello e armazenamento do Azure](#differences-between-the-storage-emulator-and-azure-storage) seção mais adiante neste artigo.
 
-## <a name="start-and-initialize-the-storage-emulator"></a>Iniciar e inicializar o emulador de armazenamento
-Para iniciar o Emulador de Armazenamento do Azure:
-1. Selecione o botão **Iniciar** ou pressione a tecla **Windows**.
+## <a name="start-and-initialize-hello-storage-emulator"></a>Iniciar e inicializar o emulador de armazenamento Olá
+emulador de armazenamento do Azure de saudação toostart:
+1. Selecione Olá **iniciar** Olá botão ou pressione **Windows** chave.
 1. Comece digitando `Azure Storage Emulator`.
-1. Selecione o emulador na lista de aplicativos.
+1. Selecione o emulador de saudação da lista de saudação de aplicativos exibidos.
 
-Quando o emulador de armazenamento for iniciado, aparecerá uma janela do Prompt de Comando. Use essa janela da linha do console para iniciar e parar o emulador de armazenamento, limpar dados, obter o status e inicializar o emulador. Para saber mais, confira a seção [Referência da ferramenta de linha de comando do emulador de armazenamento](#storage-emulator-command-line-tool-reference) mais adiante neste artigo.
+Quando o emulador de armazenamento Olá é iniciado, será exibida uma janela de Prompt de comando. Usar este console janela toostart e parar Olá emulador de armazenamento, limpe os dados, obter o status e inicializar o emulador de saudação. Para obter mais informações, consulte Olá [referência de ferramenta de linha de comando do emulador de armazenamento](#storage-emulator-command-line-tool-reference) seção mais adiante neste artigo.
 
-Quando o emulador estiver em execução, você verá um ícone na área de notificação da barra de tarefas do Windows.
+Quando o emulador de saudação estiver em execução, você verá um ícone na Olá área de notificação de barra de tarefas do Windows.
 
-Quando você fechar a janela do Prompt de Comando do emulador de armazenamento, o emulador de armazenamento continuará em execução. Para exibir novamente a janela de comando do Emulador de Armazenamento, execute as etapas anteriores, como se estivesse iniciando o emulador de armazenamento.
+Quando você fechar a janela de Prompt de comando de emulador de armazenamento Olá, o emulador de armazenamento Olá continuará toorun. toobring a janela de console do emulador de armazenamento Olá novamente, siga Olá etapas anteriores, como se estivesse iniciando o emulador de armazenamento hello.
 
-Na primeira vez que você executar o emulador de armazenamento, o ambiente de armazenamento local é inicializado para você. O processo de inicialização cria um banco de dados no LocalDB e reserva portas HTTP para cada serviço de armazenamento local.
+Olá primeira vez que executar o emulador de armazenamento hello, ambiente de armazenamento local de saudação é inicializado para você. o processo de inicialização Olá cria um banco de dados no LocalDB e reserva portas HTTP para cada serviço de armazenamento local.
 
-O emulador de armazenamento é instalado por padrão em `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`.
+emulador de armazenamento Olá também é instalado por padrão`C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`.
 
 > [!TIP]
-> Use o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com) para trabalhar com recursos locais do emulador de armazenamento. Procure por "(Desenvolvimento)" em "Contas de Armazenamento" na árvore de recursos do Gerenciador de Armazenamento depois instalar e iniciar o emulador de armazenamento.
+> Você pode usar o hello [Microsoft Azure Storage Explorer](http://storageexplorer.com) toowork com recursos de emulador de armazenamento local. Procure por "(desenvolvimento)" em "Contas de armazenamento" na árvore de recursos do Gerenciador de armazenamento Olá depois de instalado e iniciado o emulador de armazenamento hello.
 >
 
-### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>Inicializar o emulador de armazenamento para usar outro banco de dados SQL
-Você pode usar a ferramenta de linha de comando do emulador de armazenamento para inicializar o emulador de armazenamento para apontar para uma instância do Banco de Dados SQL diferente da instância LocalDB padrão:
+### <a name="initialize-hello-storage-emulator-toouse-a-different-sql-database"></a>Inicializar toouse emulador de armazenamento Olá outro banco de dados SQL
+Você pode usar Olá armazenamento emulador ferramenta de linha de comando tooinitialize Olá armazenamento emulador toopoint tooa SQL banco de dados instância diferente da instância de LocalDB saudação padrão:
 
-1. Abra a janela de console do Emulador de Armazenamento, conforme descrito na seção [Iniciar e inicializar o emulador de armazenamento](#start-and-initialize-the-storage-emulator).
-1. Na janela de comando, digite o seguinte comando, em que `<SQLServerInstance>` é o nome da instância do SQL Server. Para usar o LocalDB, especifique `(localdb)\MSSQLLocalDb` como a instância do SQL Server.
+1. Janela de console do emulador de armazenamento Olá aberta conforme descrito em Olá [iniciar e inicializar Olá emulador de armazenamento](#start-and-initialize-the-storage-emulator) seção.
+1. Na janela de console hello, digite Olá a seguir de comando, onde `<SQLServerInstance>` é nome Olá Olá instância do SQL Server. toouse LocalDB, especifique `(localdb)\MSSQLLocalDb` como instância do SQL Server hello.
 
   `AzureStorageEmulator.exe init /server <SQLServerInstance>`
 
-  Você também pode usar o seguinte comando, que direciona o emulador para usar a instância padrão do SQL Server:
+  Você também pode usar o hello comando, que direciona o hello emulador toouse Olá instância padrão do SQL Server a seguir:
 
   `AzureStorageEmulator.exe init /server .\\`
 
-  Se preferir, use o seguinte comando, que reinicializa o banco de dados na instância LocalDB padrão:
+  Ou, você pode usar o hello comando, que reinicializa a instância de LocalDB Olá banco de dados toohello padrão a seguir:
 
   `AzureStorageEmulator.exe init /forceCreate`
 
 Para saber mais sobre esses comandos, consulte [Referência da ferramenta de linha de comando do emulador de armazenamento](#storage-emulator-command-line-tool-reference).
 
 > [!TIP]
-> Use o [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para gerenciar suas instâncias do SQL Server, incluindo a instalação do LocalDB. Na caixa de diálogo **Conectar-se ao Servidor** do SMSS, especifique `(localdb)\MSSQLLocalDb` no campo **Nome do servidor:** para se conectar à instância do LocalDB.
+> Você pode usar o hello [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) toomanage (SSMS) instâncias do SQL Server, incluindo a instalação de LocalDB hello. Em Olá SMSS **conectar tooServer** caixa de diálogo, especifique `(localdb)\MSSQLLocalDb` em Olá **nome do servidor:** instância do campo tooconnect toohello LocalDB.
 
-## <a name="authenticating-requests-against-the-storage-emulator"></a>Autenticando solicitações no emulador de armazenamento
-Após a instalação e iniciação do emulador de armazenamento, teste seu código nele. Assim como ocorre com o Armazenamento do Azure na nuvem, cada solicitação feita no emulador de armazenamento deve ser autenticada, a menos que seja uma solicitação anônima. Você pode autenticar solicitações no emulador de armazenamento usando a autenticação de chave compartilhada ou uma SAS (Assinatura de Acesso Compartilhado).
+## <a name="authenticating-requests-against-hello-storage-emulator"></a>Autenticar solicitações no emulador de armazenamento Olá
+Depois de instalado e iniciado o emulador de armazenamento hello, você pode testar seu código em relação a ela. Assim como acontece com o armazenamento do Azure na nuvem hello, cada solicitação feita no emulador de armazenamento Olá deve ser autenticada, a menos que seja uma solicitação anônima. Você pode autenticar solicitações no emulador de armazenamento hello usando a autenticação de chave compartilhada ou com uma assinatura de acesso compartilhado (SAS).
 
 ### <a name="authenticate-with-shared-key-credentials"></a>Autenticar com credenciais de Chave Compartilhada
 [!INCLUDE [storage-emulator-connection-string-include](../../includes/storage-emulator-connection-string-include.md)]
@@ -92,12 +92,12 @@ Após a instalação e iniciação do emulador de armazenamento, teste seu códi
 Para obter mais informações sobre cadeias de conexão, consulte [Configurar cadeias de conexão do Armazenamento do Azure](storage-configure-connection-string.md).
 
 ### <a name="authenticate-with-a-shared-access-signature"></a>Autenticar com assinatura de acesso compartilhado
-Algumas bibliotecas de cliente de armazenamento do Azure, como a biblioteca do Xamarin, só oferecem suporte à autenticação com um token SAS(Assinatura de Acesso Compartilhado). Crie o token SAS usando uma ferramenta como o [Gerenciador de Armazenamento](http://storageexplorer.com/) ou outro aplicativo que ofereça suporte à autenticação de Chave Compartilhada.
+Algumas bibliotecas de cliente de armazenamento do Azure, como a biblioteca de Xamarin hello, só oferecem suporte à autenticação com um token de acesso compartilhado (SAS) de assinatura. Você pode criar o token SAS hello usando uma ferramenta como Olá [Gerenciador de armazenamento](http://storageexplorer.com/) ou outro aplicativo que oferece suporte à autenticação de chave compartilhada.
 
-Você também pode gerar um token SAS usando o Azure PowerShell. O exemplo a seguir gera um token SAS com permissões totais em um contêiner de blob:
+Você também pode gerar um token SAS usando o Azure PowerShell. Olá exemplo a seguir gera um token SAS com contêiner de blob tooa permissões completas:
 
-1. Instale o Azure PowerShell se você ainda não tiver feito isso (recomendamos o uso da versão mais recente do cmdlet do Azure PowerShell). Para obter instruções de instalação, consulte [Instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
-2. Abra o Azure PowerShell e execute os seguintes comandos, substituindo `ACCOUNT_NAME` e `ACCOUNT_KEY==` por suas próprias credenciais e `CONTAINER_NAME` por um nome de sua escolha:
+1. Instale o Azure PowerShell se você ainda não fez isso (usando a versão mais recente Olá de saudação cmdlets do PowerShell do Azure é recomendado). Para obter instruções de instalação, consulte [Instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
+2. Abra o Azure PowerShell e execute Olá comandos a seguir, substituindo `ACCOUNT_NAME` e `ACCOUNT_KEY==` com suas próprias credenciais, e `CONTAINER_NAME` com um nome de sua escolha:
 
 ```powershell
 $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
@@ -109,56 +109,56 @@ $now = Get-Date
 New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
 ```
 
-O URI da assinatura de acesso compartilhado resultante do novo contêiner deve ser semelhante ao seguinte:
+assinatura de acesso compartilhado resultante URI Olá para o novo contêiner de saudação deve ser semelhante a:
 
 ```
 https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
 ```
 
-A assinatura de acesso compartilhado criada com este exemplo é válida por um dia. A assinatura concede acesso completo (leitura, gravação, exclusão e lista) para os blobs do contêiner.
+assinatura de acesso compartilhado Olá criada com este exemplo é válida para um dia. assinatura de saudação concede acesso total (leitura, gravação, exclusão, lista) tooblobs dentro do contêiner de saudação.
 
 Para saber mais sobre assinaturas de acesso compartilhado, confira [Uso de SAS (Assinaturas de Acesso Compartilhado) no Armazenamento do Azure](storage-dotnet-shared-access-signature-part-1.md).
 
-## <a name="addressing-resources-in-the-storage-emulator"></a>Endereçamento de recursos no emulador de armazenamento
-Os pontos de extremidade de serviço para o emulador de armazenamento são diferentes dos de uma conta de armazenamento do Azure. A diferença ocorre porque o computador local não executa a resolução de nomes de domínio, exigindo que os pontos de extremidade do emulador de armazenamento sejam endereços locais.
+## <a name="addressing-resources-in-hello-storage-emulator"></a>Endereçamento de recursos no emulador de armazenamento Olá
+Olá pontos de extremidade de serviço para o emulador de armazenamento Olá são diferentes de uma conta de armazenamento do Azure. diferença de saudação é porque o computador local Olá não executa resolução de nome de domínio, que exigem endereços locais do toobe de pontos de extremidade de emulador do hello armazenamento.
 
-Ao lidar com um recurso em uma conta de armazenamento do Azure, use o esquema a seguir. O nome da conta faz parte do nome do host do URI e o recurso em questão faz parte do caminho do URI:
+Ao endereçar um recurso em uma conta de armazenamento do Azure, você pode usar Olá esquema a seguir. nome da conta de saudação é parte do nome de host URI hello e recurso de saudação que é endereçado faz parte do caminho de URI de saudação:
 
 `<http|https>://<account-name>.<service-name>.core.windows.net/<resource-path>`
 
-Por exemplo, o seguinte URI é um endereço válido para um blob em uma conta de armazenamento do Azure:
+Por exemplo, hello URI a seguir é um endereço válido para um blob em uma conta de armazenamento do Azure:
 
 `https://myaccount.blob.core.windows.net/mycontainer/myblob.txt`
 
-No entanto, no emulador de armazenamento, como o computador local não executa resolução de nomes de domínio, o nome da conta faz parte do caminho do URI e não do nome do host. Use o seguinte formato de URI para um recurso no emulador de armazenamento:
+No entanto, Olá emulador de armazenamento, porque o computador local Olá não executa resolução de nome de domínio, nome da conta Olá faz parte do caminho URI de saudação em vez do nome de host de saudação. Use Olá seguindo o formato URI para um recurso no emulador de armazenamento hello:
 
 `http://<local-machine-address>:<port>/<account-name>/<resource-path>`
 
-Por exemplo, o endereço a seguir pode ser usado para acessar um blob no emulador de armazenamento:
+Por exemplo, hello seguinte endereço pode ser usado para acessar um blob no emulador de armazenamento hello:
 
 `http://127.0.0.1:10000/myaccount/mycontainer/myblob.txt`
 
-Os pontos de extremidade de serviço para o emulador de armazenamento são:
+pontos de extremidade de serviço de saudação para o emulador de armazenamento Olá são:
 
 * Serviço Blob: `http://127.0.0.1:10000/<account-name>/<resource-path>`
 * Serviço Fila: `http://127.0.0.1:10001/<account-name>/<resource-path>`
 * Serviço Tabela: `http://127.0.0.1:10002/<account-name>/<resource-path>`
 
-### <a name="addressing-the-account-secondary-with-ra-grs"></a>Endereçamento da conta secundária com RA-GRS
-A partir da versão 3.1, o emulador de armazenamento oferece suporte a replicação de georredundância com acesso de leitura (RA-GRS). Para recursos de armazenamento na nuvem e no emulador do local, você pode acessar o local secundário acrescentando -secundário no nome da conta. Por exemplo, o endereço a seguir pode ser usado para acessar um blob usando o secundário somente leitura no emulador de armazenamento:
+### <a name="addressing-hello-account-secondary-with-ra-grs"></a>Conta de endereçamento Olá secundária com RA-GRS
+A partir da versão 3.1, o emulador de armazenamento Olá dá suporte a replicação com redundância geográfica com acesso de leitura (RA-GRS). Para recursos de armazenamento em nuvem hello e no emulador local hello, você pode acessar o local secundário Olá acrescentando - nome da conta toohello secundário. Por exemplo, a saudação endereço a seguir pode ser usada para acessar um blob usando a réplica secundária somente leitura Olá no emulador de armazenamento hello:
 
 `http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt`
 
 > [!NOTE]
-> Para obter acesso programático ao secundário com o emulador de armazenamento, use a Biblioteca Cliente de Armazenamento para .NET versão 3.2 ou posterior. Consulte a [Biblioteca de Clientes do Armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx) para ver mais detalhes.
+> Para toohello acesso programático secundário com o emulador de armazenamento hello, use Olá biblioteca de cliente de armazenamento para .NET versão 3.2 ou posterior. Consulte Olá [biblioteca de cliente de armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx) para obter detalhes.
 >
 >
 
 ## <a name="storage-emulator-command-line-tool-reference"></a>Referência da ferramenta de linha de comando do emulador de armazenamento
-A partir da versão 3.0, uma janela do console é exibida quando você inicia o Emulador de Armazenamento. Use a linha de comando na janela do console para iniciar e parar o emulador, bem como para consultar o status e executar outras operações.
+A partir da versão 3.0, uma janela do console é exibida quando você inicia o hello emulador de armazenamento. Use a linha de comando de Olá Olá console janela toostart e parar Olá emulador, bem como a consulta de status e executar outras operações.
 
 > [!NOTE]
-> Se você tiver o emulador de computação do Microsoft Azure instalado, um ícone de bandeja do sistema será exibido ao iniciar o Emulador de Armazenamento. Clique com o botão direito do mouse no ícone para revelar um menu, que fornece uma maneira gráfica de iniciar e parar o Emulador de Armazenamento.
+> Se você tiver Olá instalado do emulador de computação do Microsoft Azure, um ícone de bandeja do sistema é exibida quando você inicia o hello emulador de armazenamento. Clique duas vezes em Olá ícone tooreveal um menu que fornece uma maneira gráfica toostart e parar Olá emulador de armazenamento.
 >
 >
 
@@ -166,102 +166,102 @@ A partir da versão 3.0, uma janela do console é exibida quando você inicia o 
 `AzureStorageEmulator.exe [start] [stop] [status] [clear] [init] [help]`
 
 ### <a name="options"></a>Opções
-Para exibir a lista de opções, digite `/help` no prompt de comando.
+lista de saudação tooview de opções, digite `/help` no prompt de comando hello.
 
 | Opção | Descrição | Command | Argumentos |
 | --- | --- | --- | --- |
-| **Iniciar** |Inicia o emulador de armazenamento. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: inicia o emulador no processo atual em vez de criar um novo processo. |
-| **Parar** |Para o emulador de armazenamento. |`AzureStorageEmulator.exe stop` | |
-| **Status** |Imprime o status do emulador de armazenamento. |`AzureStorageEmulator.exe status` | |
-| **Limpar** |Limpa os dados em todos os serviços especificados na linha de comando. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*blob*: limpa os dados do blob. <br/>*fila*: limpa os dados da fila. <br/>*tabela*: limpa os dados de tabela. <br/>*todos*: limpa todos os dados em todos os serviços. |
-| **Init** |Executa a inicialização única para configurar o emulador. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server nomedoServidor\nomedaInstância*: especifica o servidor que hospeda a instância do SQL. <br/>*-sqlinstance instanceName*: especifica o nome da instância SQL a ser usada na instância do servidor padrão. <br/>*-forcecreate*: força a criação do Banco de Dados SQL, mesmo se ele já existir. <br/>*-skipcreate*: ignora a criação do Banco de Dados SQL. Isso tem precedência sobre -forcecreate.<br/>*-reserveports*: tenta reservar as portas HTTP associadas aos serviços.<br/>*-unreserveports*: tenta remover as reservas de portas HTTP associadas aos serviços. Isso tem precedência sobre -reserveports.<br/>*-inprocess*: executa a inicialização no processo atual em vez de gerar um novo processo. O processo atual deverá ser iniciado com permissões elevadas se reservas de porta forem alteradas. |
+| **Iniciar** |Inicia o emulador de armazenamento hello. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: iniciar o emulador de saudação no processo atual de saudação em vez de criar um novo processo. |
+| **Parar** |Paradas Olá emulador de armazenamento. |`AzureStorageEmulator.exe stop` | |
+| **Status** |Imprime Olá status do emulador de armazenamento hello. |`AzureStorageEmulator.exe status` | |
+| **Limpar** |Limpa os dados de saudação em todos os serviços especificados na linha de comando hello. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*blob*: limpa os dados do blob. <br/>*fila*: limpa os dados da fila. <br/>*tabela*: limpa os dados de tabela. <br/>*todos*: limpa todos os dados em todos os serviços. |
+| **Init** |Executa a inicialização única tooset o emulador de saudação. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server nomedoservidor \ NomedaInstância*: Especifica o servidor de saudação hospedando a instância do SQL hello. <br/>*instanceName - sqlinstance*: especifica nome de saudação do hello toobe de instância SQL usada na instância de servidor padrão hello. <br/>*-forcecreate*: força a criação do banco de dados SQL hello, mesmo se ele já existe. <br/>*-skipcreate*: ignora a criação do banco de dados do SQL hello. Isso tem precedência sobre -forcecreate.<br/>*-reserveports*: tentativas de portas de saudação HTTP tooreserve associadas aos serviços de saudação.<br/>*-unreserveports*: tentativas tooremove reservas para portas Olá HTTP associadas aos serviços de saudação. Isso tem precedência sobre -reserveports.<br/>*-inprocess*: realiza a inicialização no processo atual de saudação em vez de gerar um novo processo. processo de saudação atual deve ser iniciado com permissões elevadas se a alteração de reservas de porta. |
 
-## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Diferenças entre o emulador de armazenamento e o armazenamento do Azure
-Como o emulador de armazenamento é um ambiente emulado executado em uma instância SQL local, há diferenças na funcionalidade entre o emulador e uma conta de armazenamento do Azure na nuvem:
+## <a name="differences-between-hello-storage-emulator-and-azure-storage"></a>Diferenças entre o emulador de armazenamento hello e armazenamento do Azure
+Como o emulador de armazenamento Olá é um ambiente emulado em execução em uma instância local do SQL, há diferenças na funcionalidade entre o emulador hello e uma conta de armazenamento do Azure na nuvem hello:
 
-* O emulador de armazenamento oferece suporte a apenas uma única conta fixa e uma chave de autenticação conhecida.
-* O emulador de armazenamento não é um serviço de armazenamento escalonável e não dá suporte a um grande número de clientes simultâneos.
-* Conforme descrito em [Endereçamento de recursos no emulador de armazenamento](#addressing-resources-in-the-storage-emulator), os recursos são endereçados de forma diferente no emulador de armazenamento em comparação com uma conta de armazenamento do Azure. Essa diferença ocorre porque a resolução de nomes de domínio está disponível na nuvem, mas não no computador local.
-* A partir da versão 3.1, a conta do emulador de armazenamento oferece suporte a replicação de georedundância com acesso de leitura (RA-GRS). No emulador, todas as contas têm RA-GRS habilitado e nunca há qualquer tempo de retardo entre as réplicas primárias e secundárias. As operações Obter Estatísticas do Serviço Blob, Obter Estatísticas do Serviço Fila e Obter Estatísticas do Serviço Tabela são compatíveis com a conta secundária e sempre retornarão o valor do elemento da resposta `LastSyncTime` , como a hora atual, de acordo com o Banco de Dados SQL subjacente.
-* O serviço de arquivo e os pontos de extremidade de serviço de protocolo SMB não têm suporte no momento no emulador de armazenamento.
-* Se você usar uma versão dos serviços de armazenamento que ainda não tem suporte no emulador, o emulador de armazenamento retornará um erro VersionNotSupportedByEmulator (código de status HTTP 400 – Solicitação Incorreta).
+* emulador de armazenamento Olá oferece suporte a apenas uma única conta fixa e uma chave de autenticação conhecida.
+* emulador de armazenamento Olá não é um serviço de armazenamento escalonável e não oferece suporte a um grande número de clientes simultâneos.
+* Conforme descrito em [endereçamento de recursos no emulador de armazenamento Olá](#addressing-resources-in-the-storage-emulator), recursos sejam resolvidos de forma diferente no emulador de armazenamento Olá em comparação com uma conta de armazenamento do Azure. Essa diferença é como resolução de nome de domínio está disponível na nuvem hello, mas não no computador local de saudação.
+* A partir da versão 3.1, conta do emulador de armazenamento Olá dá suporte a replicação com redundância geográfica com acesso de leitura (RA-GRS). No emulador do Windows hello, todas as contas têm RA-GRS habilitado, e nunca há qualquer atraso entre as réplicas primárias e secundárias hello. operações de obter status do serviço Blob, obter status do serviço de fila e obter status do serviço tabela Olá têm suporte na conta de saudação secundária e sempre retornará o valor Olá Olá `LastSyncTime` elemento de resposta como Olá atual tempo acordo toohello subjacente Banco de dados SQL.
+* Olá serviço de arquivo e pontos de extremidade de serviço de protocolo SMB não têm suporte no emulador de armazenamento hello.
+* Se você usar uma versão dos serviços de armazenamento de saudação que ainda não é suportada pelo emulador hello, o emulador de armazenamento Olá retornará um erro de VersionNotSupportedByEmulator (código de status HTTP 400 - Solicitação incorreta).
 
 ### <a name="differences-for-blob-storage"></a>Diferenças do armazenamento de blob
-As diferenças a seguir aplicam-se ao armazenamento de blob no emulador:
+Olá diferenças a seguir se aplicam a armazenamento tooBlob no emulador hello:
 
-* O emulador de armazenamento só dá suporte a tamanhos de blob de até 2 GB.
-* A cópia incremental permite que os instantâneos de blobs substituídos sejam copiados, o que retorna uma falha no serviço.
+* emulador de armazenamento Olá só oferece suporte a tamanhos de blob a too2 GB.
+* Cópia incremental permite que os instantâneos de toobe de blobs substituído copiado, que retorna uma falha no serviço de saudação.
 * O recurso Obter Diferença de Intervalos de Páginas não funciona entre os instantâneos copiados com o uso de um Blob de Cópia Incremental.
-* Uma operação Put Blob poderá ser bem-sucedida em um blob existente no emulador de armazenamento com uma concessão ativa, mesmo que a ID de concessão não tenha sido especificada na solicitação.
-* As operações de blob de anexo não são compatíveis com o emulador. Tentar uma operação em um blob de anexo retornará um erro FeatureNotSupportedByEmulator (código de status HTTP 400 - Solicitação incorreta).
+* Uma operação de colocar Blob poderá ser bem-sucedida em um blob existente no emulador de armazenamento Olá com uma concessão ativa, mesmo se a ID de concessão de saudação não foi especificado na solicitação de saudação.
+* Anexe o emulador de saudação não dá suporte a operações de Blob. Tentar uma operação em um blob de anexo retornará um erro FeatureNotSupportedByEmulator (código de status HTTP 400 - Solicitação incorreta).
 
 ### <a name="differences-for-table-storage"></a>Diferenças do armazenamento de tabela
-As diferenças a seguir aplicam-se ao armazenamento de tabela no emulador:
+Olá diferenças a seguir se aplicam a armazenamento tooTable no emulador hello:
 
-* As propriedades de data no serviço Tabela no emulador de armazenamento oferecem suporte apenas à faixa com suporte pelo SQL Server 2005 (é necessário que elas sejam posteriores a 1º de janeiro de 1753). Todas as datas anteriores a 1º de janeiro de 1753 são alteradas para esse valor. A precisão das datas é limitada à precisão do SQL Server 2005, o que significa que as datas são precisas a 1/300 de um segundo.
-* O emulador de armazenamento dá suporte a valores de propriedade de chave de linha e chave de partição de menos de 512 bytes cada. Além disso, o tamanho total do nome de conta, nome de tabela e nomes de propriedade de chave juntos não pode exceder 900 bytes.
-* O tamanho total de uma linha em uma tabela no emulador de armazenamento é limitado a menos de 1 MB.
-* No emulador de armazenamento, as propriedades de tipo de dados `Edm.Guid` ou `Edm.Binary` só oferecem suporte aos operadores de comparação `Equal (eq)` e `NotEqual (ne)` nas cadeias de filtro de consulta.
+* Propriedades de data no hello serviço tabela no emulador de armazenamento Olá suportam apenas intervalo Olá suportado pelo SQL Server 2005 (são necessário toobe posterior a 1º de janeiro de 1753). Todas as datas anteriores a 1º de janeiro de 1753 são alteradas toothis valor. Olá, precisão de datas é limitado toohello precisão do SQL Server 2005, que significa que as datas são precisas too1/300 de segundo.
+* emulador de armazenamento Olá dá suporte a valores de propriedade de chave linha e chave de partição de menos de 512 bytes cada. Além disso, Olá tamanho total do nome da conta Olá, nome da tabela e nomes de propriedade de chave juntos não pode exceder 900 bytes.
+* tamanho total de saudação de uma linha em uma tabela no emulador de armazenamento Olá é tooless limitado de 1 MB.
+* No emulador de armazenamento hello, propriedades de dados do tipo `Edm.Guid` ou `Edm.Binary` suporte somente Olá `Equal (eq)` e `NotEqual (ne)` cadeias de caracteres de filtro de operadores de comparação na consulta.
 
 ### <a name="differences-for-queue-storage"></a>Diferenças do armazenamento de fila
-Não existem diferenças específicas para o armazenamento de fila no emulador.
+Não há nenhum armazenamento de tooQueue específico diferenças no emulador de saudação.
 
 ## <a name="storage-emulator-release-notes"></a>Notas de versão do emulador de armazenamento
 ### <a name="version-52"></a>Versão 5.2
-* O emulador de armazenamento agora dá suporte à versão 2017-04-17 dos serviços de armazenamento nos pontos de extremidade dos serviços de Blob, Fila e Tabela.
+* emulador de armazenamento Olá agora oferece suporte à versão de 2017-04-17 Olá de serviços de armazenamento nos pontos de extremidade de serviço de Blob, fila e tabela.
 * Correção de um bug em que os valores de propriedade de tabela não estavam sendo codificados corretamente.
 
 ### <a name="version-51"></a>Versão 5.1
-* Corrigido um bug em que o emulador de armazenamento estava retornando o cabeçalho `DataServiceVersion` em algumas respostas em que o serviço não estava.
+* Correção de bug em que o emulador de armazenamento Olá estava retornando Olá `DataServiceVersion` cabeçalho em algumas respostas em que o serviço Olá não foi.
 
 ### <a name="version-50"></a>Versão 5.0
-* O instalador do emulador de armazenamento não verifica mais em busca de instalações existentes do MSSQL e do .NET Framework.
-* O instalador do emulador de armazenamento não cria mais o banco de dados como parte da instalação. O banco de dados ainda será criado como parte da inicialização se necessário.
+* instalador de emulador de armazenamento Olá não verificará mais MSSQL existente e instala o .NET Framework.
+* instalador de emulador de armazenamento Olá não cria o banco de dados de saudação como parte da instalação. O banco de dados ainda será criado como parte da inicialização se necessário.
 * A criação de banco de dados não requer elevação.
 * Reservas de porta não são mais necessários para a inicialização.
-* Adiciona as seguintes opções para `init`: `-reserveports` (exige a elevação), `-unreserveports` (exige a elevação), `-skipcreate`.
-* A opção de interface do usuário do emulador de armazenamento no ícone de bandeja do sistema agora inicia a interface de linha de comando. A GUI antiga não está mais disponível.
+* Adiciona Olá as opções a seguir muito`init`: `-reserveports` (requer elevação), `-unreserveports` (requer elevação), `-skipcreate`.
+* Olá opção de interface do usuário o emulador de armazenamento no ícone de bandeja do sistema Olá agora inicia Olá interface de linha de comando. Olá antiga interface gráfica do usuário não está mais disponível.
 * Algumas DLLs foram removidas ou renomeadas.
 
 ### <a name="version-46"></a>Versão 4.6
-* O emulador de armazenamento agora dá suporte à versão 2016-05-31 dos serviços de armazenamento nos pontos de extremidade de serviço Blob, Fila e Tabela.
+* emulador de armazenamento Olá agora oferece suporte à versão 2016-05-31 Olá de serviços de armazenamento em pontos de extremidade de serviço Blob, fila e tabela.
 
 ### <a name="version-45"></a>Versão 4.5
-* Foi corrigido um erro que causava a falha da inicialização e instalação do emulador de armazenamento quando o banco de dados de backup era renomeado.
+* Correção de bug que causou a inicialização e a instalação de saudação toofail de emulador de armazenamento quando Olá fazendo o banco de dados foi renomeado.
 
 ### <a name="version-44"></a>Versão 4.4
-* O emulador de armazenamento agora dá suporte à versão 2015-12-11 dos serviços de armazenamento dos pontos de extremidade dos serviços de Blob, Fila e Tabela.
-* A coleta de lixo do emulador de armazenamento de dados de blob agora é mais eficiente ao lidar com um grande número de blobs.
-* Foi corrigido um bug que fazia o contêiner ACL XML ser validado de forma ligeiramente diferente de como o serviço de armazenamento o faz.
-* Foi corrigido um bug que às vezes fazia com que valores máx. e mín. de DateTime fossem relatados no fuso horário incorreto.
+* emulador de armazenamento Olá agora oferece suporte à versão 2015-12-11 Olá de serviços de armazenamento em pontos de extremidade de serviço Blob, fila e tabela.
+* Olá coleta de lixo do emulador de armazenamento de dados de blob agora é mais eficiente ao lidar com um grande número de blobs.
+* Correção de bug que causou o contêiner toobe ACL XML validado ligeiramente diferente de como o serviço de armazenamento de saudação faz isso.
+* Correção de bug que fez com que, às vezes, max e min toobe de valores de data e hora relatado no fuso horário incorreto hello.
 
 ### <a name="version-43"></a>Versão 4.3
-* O emulador de armazenamento agora dá suporte à versão 2015-07-08 dos serviços de armazenamento dos pontos de extremidade dos serviços de Blob, Fila e Tabela.
+* emulador de armazenamento Olá agora oferece suporte à versão 2015-07-08 Olá de serviços de armazenamento em pontos de extremidade de serviço Blob, fila e tabela.
 
 ### <a name="version-42"></a>Versão 4.2
-* O emulador de armazenamento agora dá suporte à versão 2015-04-05 dos serviços de armazenamento dos pontos de extremidade dos serviços de Blob, Fila e Tabela.
+* emulador de armazenamento Olá agora oferece suporte à versão 2015-04-05 Olá de serviços de armazenamento em pontos de extremidade de serviço Blob, fila e tabela.
 
 ### <a name="version-41"></a>Versão 4.1
-* O emulador de armazenamento agora dá suporte à versão 2015-02-21 dos serviços de armazenamento em pontos de extremidade de serviço Blob, Fila e Tabela, com exceção dos novos recursos de Blob de Acréscimo.
-* Se você usar uma versão dos serviços de armazenamento que ainda não tem suporte no emulador, o emulador retornará uma mensagem de erro significativa. É recomendável usar a versão mais recente do emulador. Se você encontrar um erro VersionNotSupportedByEmulator (código de status HTTP 400 - Solicitação incorreta), baixe a versão mais recente do emulador de armazenamento.
-* Correção do bug em que uma condição de corrida fazia com que dados de entidade de tabela ficassem incorretos durante operações de mesclagem simultâneas.
+* emulador de armazenamento Olá agora dá suporte a versão 2015-02-21 Olá de serviços de armazenamento no Blob, fila e tabela de pontos de extremidade, exceto para os novos recursos de Blob de acréscimo hello.
+* Se você usar uma versão dos serviços de armazenamento de saudação que ainda não é suportada pelo emulador Olá, o emulador Olá retorna uma mensagem de erro significativo. É recomendável usar a versão mais recente de saudação do emulador hello. Se você encontrar um erro de VersionNotSupportedByEmulator (código de status HTTP 400 - Solicitação incorreta), baixe a versão mais recente saudação do emulador de armazenamento hello.
+* Correção de bug no qual uma corrida condição que causou tabela entidade dados toobe incorreta durante as operações de mesclagem simultâneos.
 
 ### <a name="version-40"></a>Versão 4.0
-* O emulador de armazenamento executável foi renomeado para *AzureStorageEmulator.exe*.
+* emulador de armazenamento Olá executável foi renomeado muito*AzureStorageEmulator.exe*.
 
 ### <a name="version-32"></a>Versão 3.2
-* O emulador de armazenamento agora dá suporte à versão 2014-02-14 dos serviços de armazenamento dos pontos de extremidade dos serviços de Blob, Fila e Tabela. No momento, não há suporte para pontos de extremidade de serviço de Arquivo no emulador de armazenamento. Consulte [Controle de versão dos serviços de armazenamento do Azure](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) para obter detalhes sobre a versão 2014-02-14.
+* emulador de armazenamento Olá agora dá suporte a versão 2014-02-14 dos serviços de armazenamento de saudação em pontos de extremidade de serviço Blob, fila e tabela. Pontos de extremidade de serviço de arquivo não têm suporte no momento no emulador de armazenamento hello. Consulte [controle de versão para Olá serviços de armazenamento do Azure](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) para obter detalhes sobre a versão 2014-02-14.
 
 ### <a name="version-31"></a>Versão 3.1
-* Armazenamento com redundância geográfica com acesso de leitura (RA-GRS) agora tem suporte no emulador de armazenamento. As operações Obter Estatísticas do Serviço Blob, Obter Estatísticas do Serviço Fila e Obter Estatísticas do Serviço Tabela são compatíveis com a conta secundária e sempre retornarão o valor do elemento da resposta LastSyncTime, como a hora atual, de acordo com o banco de dados SQL subjacente. Para obter acesso programático ao secundário com o emulador de armazenamento, use a Biblioteca Cliente de Armazenamento para .NET versão 3.2 ou posterior. Consulte a Referência da Biblioteca de Clientes do Armazenamento do Microsoft Azure para .NET para ver mais detalhes.
+* Agora há suporte para o armazenamento com redundância geográfica com acesso de leitura (RA-GRS) no emulador de armazenamento hello. Status do serviço Blob Olá obter, obter status do serviço de fila e obter APIs de estatísticas de serviço de tabela têm suporte para a conta de saudação secundária e sempre retornará o valor de saudação do elemento de resposta de LastSyncTime hello como Olá atual toohello acordo de tempo subjacente SQL banco de dados. Para toohello acesso programático secundário com o emulador de armazenamento hello, use Olá biblioteca de cliente de armazenamento para .NET versão 3.2 ou posterior. Consulte Olá biblioteca de cliente de armazenamento do Microsoft Azure para referência do .NET para obter detalhes.
 
 ### <a name="version-30"></a>Versão 3.0
-* O emulador de armazenamento do Azure não é mais fornecido no mesmo pacote que o emulador de computação.
-* A interface gráfica do usuário do emulador de armazenamento é preterida por uma interface de linha de comando programável por script. Para obter detalhes sobre a interface de linha de comando consulte Referência da ferramenta de linha de comando do emulador de armazenamento. A interface gráfica continuará presente na versão 3.0, mas só poderá ser acessada quando o emulador de computação for instalado, clicando com o botão direito no ícone de bandeja do sistema e selecionando Mostrar IU do Emulador de Armazenamento.
-* A versão 2013-08-15 dos serviços de armazenamento do Azure agora tem total suporte. (Anteriormente nesta versão só tinha suporte do emulador de armazenamento versão 2.2.1 Preview.)
+* emulador de armazenamento do Azure Olá não é enviado em Olá mesmo pacote que o emulador de computação do hello.
+* interface gráfica do usuário do Hello storage emulator está preterida em favor de uma interface de linha de comando programável. Para obter detalhes sobre a interface de linha de comando hello, consulte a referência da ferramenta de linha de comando do armazenamento emulador. interface gráfica Olá continuará toobe presente na versão 3.0, mas ele só pode ser acessado quando Olá emulador de computação é instalado, clicando duas vezes no ícone de bandeja do sistema hello e selecionando Mostrar UI do emulador de armazenamento.
+* A versão 2013-08-15 dos serviços de armazenamento do Azure Olá agora tem suporte total. (Anteriormente nesta versão só tinha suporte do emulador de armazenamento versão 2.2.1 Preview.)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Avalie o emulador de armazenamento de código aberto baseado na comunidade, plataforma cruzada [Azurite](https://github.com/arafato/azurite). 
-* [Exemplos de Armazenamento do Azure usando .NET](storage-samples-dotnet.md) contém links para vários exemplos de código que você pode usar ao desenvolver seu aplicativo.
-* Use o [Gerenciador do Armazenamento do Microsoft Azure](http://storageexplorer.com) para trabalhar com recursos em sua conta de Armazenamento na nuvem e no emulador de armazenamento.
+* Avaliar o emulador de armazenamento de plataforma cruzada, mantida a comunidade de código aberto Olá [Azurite](https://github.com/arafato/azurite). 
+* [Exemplos de armazenamento do Azure usando o .NET](storage-samples-dotnet.md) contém exemplos de código tooseveral links você pode usar ao desenvolver seu aplicativo.
+* Você pode usar o hello [Microsoft Azure Storage Explorer](http://storageexplorer.com) toowork com recursos na sua conta de armazenamento de nuvem e no emulador de armazenamento hello.

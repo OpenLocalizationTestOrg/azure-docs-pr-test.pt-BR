@@ -1,5 +1,5 @@
 ---
-title: "Dimensionamento automático e Ambiente de Serviço de Aplicativo v1"
+title: "aaaAutoscaling e v1 do ambiente de serviço de aplicativo"
 description: "Dimensionamento automático e Ambiente de Serviço de Aplicativo"
 services: app-service
 documentationcenter: 
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: f32affd285f3918feb0e893543f2a28f678b7b10
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1a03cf494309e80596b64471d1a067b2f64a9fee
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Dimensionamento automático e Ambiente de Serviço de Aplicativo v1
 
 > [!NOTE]
-> Este artigo é sobre o Ambiente do Serviço de Aplicativo v1.  Há uma versão mais recente do Ambiente do Serviço de Aplicativo que é mais fácil de usar e é executada em infraestrutura mais avançada. Para saber mais sobre o novo início de versão com o [Introdução ao Ambiente do Serviço de Aplicativo](../app-service/app-service-environment/intro.md).
+> Este artigo é sobre Olá v1 do ambiente de serviço de aplicativo.  Há uma versão mais recente do hello ambiente de serviço de aplicativo que é mais fácil toouse e é executado na infraestrutura mais avançada. toolearn mais sobre a nova versão de hello começam com hello [Introdução toohello ambiente de serviço de aplicativo](../app-service/app-service-environment/intro.md).
 > 
 
 Os ambientes de Serviço de Aplicativo do Azure dão suporte ao *dimensionamento automático*. Você pode dimensionar automaticamente pools de trabalho individuais com base em métricas ou na agenda.
 
 ![Opções de dimensionamento automático para um pool de trabalho.][intro]
 
-O dimensionamento automático otimiza a utilização de recursos, escalar e reduzir verticalmente um ambiente de Serviço de Aplicativo de forma automática para ajustar seu orçamento e/ou perfil de carregamento.
+Dimensionamento automático otimiza a utilização de recursos automaticamente ampliando e reduzindo uma toofit do ambiente de serviço de aplicativo seu perfil de alocação e a carga.
 
 ## <a name="configure-worker-pool-autoscale"></a>Configurar o dimensionamento automático de pool de trabalho
-Você pode acessar a funcionalidade de dimensionamento automático na guia **Configurações** do pool de trabalho.
+Você pode acessar a funcionalidade de dimensionamento automático de saudação do hello **configurações** guia de pool do trabalhador hello.
 
-![Guia de configurações do pool de trabalho.][settings-scale]
+![Guia de configurações do pool do trabalhador hello.][settings-scale]
 
-A partir daí, a interface deve ser bastante familiar, já que é a mesma experiência que você vê quando dimensiona um Plano do Serviço de Aplicativo. 
+A partir daí, Olá interface deve ser bastante familiar, pois ele é hello planejar experiência mesmo que você vê quando você dimensionar um aplicativo de serviço. 
 
 ![Configurações manuais de escala.][scale-manual]
 
@@ -45,25 +45,25 @@ Você também pode configurar um perfil de dimensionamento automático.
 
 ![Configurações de dimensionamento automático.][scale-profile]
 
-Os perfis de dimensionamento automático são úteis para definir limites na sua escala. Dessa forma, você pode ter uma experiência de desempenho consistente, definindo um valor de escala de limite inferior (1) e um limite de gastos previsível, definindo um limite superior (2).
+Perfis de AutoEscala são os limites de tooset úteis em sua escala. Dessa forma, você pode ter uma experiência de desempenho consistente, definindo um valor de escala de limite inferior (1) e um limite de gastos previsível, definindo um limite superior (2).
 
 ![Configurações de escala no perfil.][scale-profile2]
 
-Depois de definir um perfil, você pode adicionar regras de dimensionamento automático para aumentar ou reduzir o número de instâncias no pool de trabalho dentro dos limites definidos pelo perfil. As regras de dimensionamento automático se baseiam em métricas.
+Depois de definir um perfil, você pode adicionar tooscale de regras de dimensionamento automático para cima ou para baixo número de saudação de instâncias no pool do trabalhador hello dentro dos limites de saudação definidas pelo perfil de saudação. As regras de dimensionamento automático se baseiam em métricas.
 
 ![Regra de escala.][scale-rule]
 
- Qualquer métrica de pool de trabalho ou de front-end pode ser usada para definir regras de dimensionamento automático. Essas métricas são as mesmas que você pode monitorar nos gráficos de folha de recursos e para as quais pode definir alertas.
+ Nenhum pool de trabalho ou a métrica de front-end pode ser usado toodefine regras de dimensionamento automático. Essas métricas são Olá mesmas métricas, você pode monitorar nos gráficos de folha de recursos de saudação ou definir alertas para o.
 
 ## <a name="autoscale-example"></a>Exemplo de dimensionamento automático
 O dimensionamento automático de um ambiente de Serviço de Aplicativo pode ser melhor ilustrado examinando um cenário.
 
-Este artigo explica todas as considerações necessárias ao configurar o dimensionamento automático. Este artigo aborda as interações que entram em jogo quando você fatora em ambientes de Serviço de Aplicativo de dimensionamento automático hospedados no Ambiente de Serviço de Aplicativo.
+Este artigo explica todas as considerações de saudação necessário ao configurar o dimensionamento automático. Olá artigo o orienta por meio de saudação interações que entram em reproduzir quando fatores de dimensionamento automático ambientes de serviço de aplicativo que são hospedadas em ambiente de serviço de aplicativo.
 
 ### <a name="scenario-introduction"></a>Introdução ao cenário
-Matheus é um SysAdmin de uma empresa que migrou uma parte das cargas de trabalho que ele gerencia para um ambiente de Serviço de Aplicativo.
+Frank é um sysadmin para uma empresa que foi migrado de uma parte de cargas de trabalho de saudação que gerencia o tooan ambiente de serviço de aplicativo.
 
-O ambiente do Serviço de Aplicativo está configurado para a escala manual da seguinte maneira:
+Olá ambiente do serviço de aplicativo toomanual dimensionamento configurado da seguinte maneira:
 
 * **Front-ends:** 3
 * **Pool de trabalho 1**: 10
@@ -72,9 +72,9 @@ O ambiente do Serviço de Aplicativo está configurado para a escala manual da s
 
 O pool de trabalho 1 é usado para cargas de trabalho de produção, embora o pool de trabalho 2 e o pool de trabalho 3 sejam usados para garantia de qualidade (QA) e cargas de trabalho de desenvolvimento.
 
-Os Planos do Serviço de Aplicativo para controle de qualidade e desenvolvimento são configurados para escala manual. O Plano do Serviço de Aplicativo de produção é definido para dimensionamento automático para lidar com variações de carga e tráfego.
+Olá aplicativo planos de serviço para controle de qualidade e desenvolvimento são configurados toomanual escala. plano de serviço de aplicativo de produção de Hello é definida toodeal tooautoscale com variações de carga e o tráfego.
 
-Matheus está familiarizado com o aplicativo. Ele sabe que as horas de pico de carga ocorrem entre 9:00 e 18:00, porque este é um aplicativo de linha de negócios (LOB) que os funcionários usam enquanto estão no escritório. O uso é reduzido depois disso, quando os usuários param de trabalhar naquele dia. Fora do horário de pico, ainda há alguma carga porque os usuários podem acessar o aplicativo remotamente, usando seus dispositivos móveis ou computadores domésticos. O plano do Serviço de Aplicativo de produção já está configurado para dimensionamento automático com base no uso de CPU com as seguintes regras:
+Frank esteja familiarizado com o aplicativo hello. Ele conhece o horário de pico de saudação de carga é entre 9:00 AM e 6:00 PM porque este é um aplicativo de (LOB) de linha de negócios que os funcionários usam enquanto estiverem no escritório de saudação. O uso é reduzido depois disso, quando os usuários param de trabalhar naquele dia. Fora do horário de pico, ainda há alguma carga porque os usuários podem acessar o aplicativo hello remotamente usando seus dispositivos móveis ou computadores domésticos. produção de Hello plano de serviço de aplicativo já está configurado tooautoscale com base no uso da CPU com hello regras a seguir:
 
 ![Configurações específicas para o aplicativo LOB.][asp-scale]
 
@@ -84,7 +84,7 @@ Matheus está familiarizado com o aplicativo. Ele sabe que as horas de pico de c
 | **Dimensionar por:** Regras de agendamento e desempenho |**Dimensionar por:** Regras de agendamento e desempenho |
 | **Perfil:** Dias da semana |**Perfil:** Final de semana |
 | **Tipo:** Recorrência |**Tipo:** Recorrência |
-| **Intervalo de destino:** 5 a 20 instâncias |**Intervalo de destino:** 3 a 10 instâncias |
+| **Intervalo de destino:** 5 instâncias too20 |**Intervalo de destino:** 3 instâncias too10 |
 | **Dias:** segunda-feira, terça-feira, quarta-feira, quinta-feira, sexta-feira |**Dias:** sábado e domingo |
 | **Hora de início:** 9:00 |**Hora de início:** 9:00 |
 | **Fuso horário:** UTC-08 |**Fuso horário:** UTC-08 |
@@ -108,44 +108,44 @@ Matheus está familiarizado com o aplicativo. Ele sabe que as horas de pico de c
 | **Tempo de resfriamento (minutos):** 20 |**Tempo de resfriamento (minutos):** 10 |
 
 ### <a name="app-service-plan-inflation-rate"></a>Taxa de inflação do plano do Serviço de Aplicativo
-Os planos do Serviço de Aplicativo configurados para dimensionamento automático o fazem a uma taxa máxima por hora. Essa taxa pode ser calculada com base nos valores fornecidos na regra de dimensionamento automático.
+Planos de serviço de aplicativo configurado tooautoscale fazê-lo a uma taxa máxima por hora. Essa taxa pode ser calculada com base em valores de saudação fornecidos na regra de dimensionamento automático hello.
 
-Compreender e calcular a *taxa de inflação do plano do Serviço de Aplicativo* é importante para o dimensionamento automático do ambiente de Serviço de Aplicativo, já que as alterações de escala em um pool de trabalho não são instantâneas.
+Compreendendo e calcular Olá *taxa de inflação do plano de serviço de aplicativo* é importante para dimensionamento automático do ambiente do serviço de aplicativo porque o pool de trabalho de tooa de alterações de escala não são instantâneos.
 
-A taxa de inflação do plano do Serviço de Aplicativo é calculada da seguinte maneira:
+Olá taxa de inflação do plano de serviço de aplicativo é calculada da seguinte maneira:
 
 ![Cálculo da taxa de inflação do plano do Serviço de Aplicativo.][ASP-Inflation]
 
-Com base na regra Dimensionamento automático – Escalar verticalmente para o perfil de Dia da semana do Plano do Serviço de Aplicativo de produção:
+Com base em Olá AutoEscala – escala a regra para o perfil de dia da semana de saudação do plano de serviço de aplicativo de produção de hello:
 
 ![Taxa de inflação de plano do Serviço de Aplicativo para dias da semana com base em Dimensionamento automático – regra Escalar Verticalmente.][Equation1]
 
-No caso da regra Dimensionamento automático - Escalar verticalmente do perfil Finais de semana do plano do Serviço de Aplicativo de produção, a fórmula resolveria para:
+No caso de saudação de saudação AutoEscala – regra aumentar para perfil de fim de semana de saudação de plano de serviço de aplicativo de produção de hello fórmula Olá deve resolver para:
 
 ![Taxa de inflação de plano do Serviço de Aplicativo para finais de semana com base em Dimensionamento automático – regra Escalar Verticalmente.][Equation2]
 
 Esse valor também pode ser calculado para operações de redução.
 
-Com base na regra Dimensionamento automático - Reduzir verticalmente do perfil dia da semana perfil do plano do Serviço de Aplicativo de produção, seria semelhante ao seguinte:
+Com base em Olá AutoEscala – regra de escala para baixo para o perfil de dia da semana de saudação de produção de hello plano de serviço de aplicativo, isso seria semelhante ao seguinte:
 
 ![Taxa de inflação de plano do Serviço de Aplicativo para dias da semana com base em Dimensionamento automático – regra Reduzir Verticalmente.][Equation3]
 
-No caso da regra Dimensionamento automático - Reduzir verticalmente do perfil Finais de semana do plano do Serviço de Aplicativo de produção, a fórmula resolveria para:  
+No caso de saudação de saudação AutoEscala – regra de escala para baixo para o perfil de fim de semana de saudação de plano de serviço de aplicativo de produção de hello fórmula Olá deve resolver para:  
 
 ![Taxa de inflação de plano do Serviço de Aplicativo para fins de semana com base em Dimensionamento automático – regra Reduzir Verticalmente.][Equation4]
 
-O Plano do Serviço de Aplicativo de produção pode crescer em uma taxa máxima de oito instâncias/hora durante a semana e quatro instâncias/hora durante o fim de semana. Ele pode liberar instâncias em uma taxa máxima de quatro instâncias/hora durante a semana e seis instâncias/hora durante os finais de semana.
+plano de serviço de aplicativo de produção de Hello pode crescer em uma taxa máxima de oito instâncias por hora durante a semana hello e quatro instâncias por hora durante a fim de semana de saudação. Ele pode liberar instâncias em uma taxa máxima de quatro instâncias por hora durante a semana hello e seis instâncias por hora durante a semana.
 
-Se vários planos do Serviço de Aplicativo estiverem sendo hospedados em um pool de trabalho, você precisará calcular a *taxa total de inflação* como a soma da taxa de inflação de todos os planos do Serviço de Aplicativo hospedados nesse pool de trabalho.
+Se vários planos de serviço de aplicativo estão hospedados em um pool de trabalho, você terá Olá toocalculate *taxa total de inflação* como soma Olá Olá inflação da taxa de saudação todos os planos de serviço de aplicativo que estão sendo hospedagem nesse pool de trabalho.
 
 ![Cálculo da taxa total de inflação para vários planos do Serviço de Aplicativo hospedados em um pool de trabalho.][ASP-Total-Inflation]
 
-### <a name="use-the-app-service-plan-inflation-rate-to-define-worker-pool-autoscale-rules"></a>Usar a taxa de inflação do plano do Serviço de Aplicativo para definir regras de dimensionamento automático do pool de trabalho
-Os pools de trabalho que hospedam Planos do Serviço de Aplicativo configurados para o dimensionamento automático precisam ter um buffer de capacidade alocado. O buffer permite que as operações de dimensionamento automático aumentem ou reduzam o plano do Serviço de Aplicativo, conforme necessário. O buffer mínimo seria a Taxa de Inflação Total do Plano do Serviço de Aplicativo calculada.
+### <a name="use-hello-app-service-plan-inflation-rate-toodefine-worker-pool-autoscale-rules"></a>Saudação de uso do serviço de aplicativo planejar as regras de AutoEscala pool de trabalho toodefine taxa de inflação
+Pools de trabalho que hospedam planos de serviço de aplicativo tooautoscale configurado necessário para alocar um buffer de capacidade. buffer de saudação permite Olá toogrow de operações de dimensionamento automático e reduzir o plano de serviço de aplicativo, conforme necessário. buffer mínimo Olá seria Olá calculado aplicativo serviço planejar inflação taxa Total.
 
-Como as operações de dimensionamento do ambiente de Serviço de Aplicativo demoram algum tempo para serem aplicadas, qualquer alteração deve levar em consideração outras alterações sob demanda que poderiam acontecer enquanto uma operação de escala está em andamento. Para acomodar essa latência, recomendamos que você use a Taxa de Inflação do Plano do Serviço de Aplicativo Total como o número mínimo de instâncias adicionadas para cada operação de dimensionamento automático.
+Como as operações de dimensionamento de ambiente de serviço de aplicativo levam algum tempo tooapply, qualquer alteração deve levar em consideração para outras alterações de demanda que podem acontecer enquanto uma operação em escala está em andamento. tooaccommodate essa latência, recomendamos que você use Olá calculado aplicativo serviço planejar inflação taxa Total como o número mínimo de saudação de instâncias que são adicionados para cada operação de dimensionamento automático.
 
-Com essas informações, Matheus pode definir o seguinte perfil e regras de dimensionamento automático:
+Com essas informações, Frank pode definir Olá perfil de AutoEscala e regras a seguir:
 
 ![Regras de perfil de dimensionamento automático para o exemplo LOB.][Worker-Pool-Scale]
 
@@ -155,7 +155,7 @@ Com essas informações, Matheus pode definir o seguinte perfil e regras de dime
 | **Dimensionar por:** Regras de agendamento e desempenho |**Dimensionar por:** Regras de agendamento e desempenho |
 | **Perfil:** Dias da semana |**Perfil:** Final de semana |
 | **Tipo:** Recorrência |**Tipo:** Recorrência |
-| **Intervalo de destino:** 13 a 25 instâncias |**Intervalo de destino:** 6 a 15 instâncias |
+| **Intervalo de destino:** 13 instâncias too25 |**Intervalo de destino:** 6 instâncias too15 |
 | **Dias:** segunda-feira, terça-feira, quarta-feira, quinta-feira, sexta-feira |**Dias:** sábado e domingo |
 | **Hora de início:** 7:00 |**Hora de início:** 9:00 |
 | **Fuso horário:** UTC-08 |**Fuso horário:** UTC-08 |
@@ -178,19 +178,19 @@ Com essas informações, Matheus pode definir o seguinte perfil e regras de dime
 | **Ação:** Diminuir a contagem em 2 |**Ação:** Diminuir a contagem em 3 |
 | **Tempo de resfriamento (minutos):** 120 |**Tempo de resfriamento (minutos):** 120 |
 
-O intervalo de Destino definido no perfil é calculado pelas instâncias do mínimas definidas no perfil para o plano do Serviço de Aplicativo + buffer.
+Olá definido no perfil de saudação do intervalo de destino é calculado com instâncias de mínimo Olá definidas no perfil de saudação plano de serviço de aplicativo + buffer.
 
-O intervalo Máximo seria a soma de todos os intervalos máximos de todos os planos do Serviço de Aplicativo hospedados no pool de trabalho.
+intervalo máximo de saudação seria soma de saudação de todos os intervalos de saudação máximo de todos os planos de serviço de aplicativo hospedados no pool do trabalhador hello.
 
-A contagem de Aumento das regras de escala vertical deve ser definida como, pelo menos, 1X a Taxa de Inflação do Plano do Serviço de Aplicativo para a escala vertical.
+Olá contagem de aumento de escala Olá as regras de deve ser conjunto tooat pelo menos 1 X a taxa de inflação de plano de serviço aplicativo para escala para cima.
 
-A contagem de redução pode ser ajustada para algo entre 1/2x ou 1x a taxa de inflação do plano do Serviço de Aplicativo para reduzir verticalmente.
+Contagem de redução pode ser ajustada toosomething entre 1/2 X ou 1 X Olá planejar taxa de inflação de serviço de aplicativo para a escala para baixo.
 
 ### <a name="autoscale-for-front-end-pool"></a>Dimensionamento automático para o pool de front-end
 As regras de dimensionamento automático de front-end são mais simples para pools de trabalho. Basicamente, você deve  
-verifique se a duração da medição e se os temporizadores de resfriamento consideram que as operações de escala em um Plano do Serviço de Aplicativo não são instantâneas.
+Certifique-se de que duração de medida de saudação e temporizadores de cooldown Olá considerar que as operações de escala em um plano de serviço de aplicativo não são instantâneas.
 
-Para este cenário, Frank sabe que a taxa de erro aumenta depois que os front-ends alcançam 80% de utilização de CPU e define a regra de dimensionamento automático para aumentar o número de instâncias da seguinte maneira:
+Para este cenário, Frank sabe que a taxa de erro Olá aumenta após front-ends atingir 80% de utilização da CPU e define Olá AutoEscala instâncias de tooincrease regra da seguinte maneira:
 
 ![Configurações de dimensionamento automático para o pool de front-end.][Front-End-Scale]
 
@@ -200,7 +200,7 @@ Para este cenário, Frank sabe que a taxa de erro aumenta depois que os front-en
 | **Dimensionar por:** Regras de agendamento e desempenho |
 | **Perfil:** Todos os dias |
 | **Tipo:** Recorrência |
-| **Intervalo de destino:** 3 a 10 instâncias |
+| **Intervalo de destino:** 3 instâncias too10 |
 | **Dias:** Todos os dias |
 | **Hora de início:** 9:00 |
 | **Fuso horário:** UTC-08 |

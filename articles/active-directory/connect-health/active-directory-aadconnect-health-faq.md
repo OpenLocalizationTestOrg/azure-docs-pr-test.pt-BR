@@ -1,6 +1,6 @@
 ---
-title: Perguntas frequentes sobre o Azure Active Directory Connect Health - Azure | Microsoft Docs
-description: "Encontre respostas para perguntas frequentes sobre o Azure AD Connect Health. Estas perguntas frequentes abordam dúvidas sobre como usar o serviço, incluindo o modelo de cobrança, recursos, limitações e suporte."
+title: "aaaAzure Active Directory conectar integridade perguntas Frequentes – Azure | Microsoft Docs"
+description: "Encontre respostas para perguntas frequentes sobre o Azure AD Connect Health. Estas perguntas frequentes abordam dúvidas sobre como usar o serviço de hello, incluindo Olá modelo, recursos, limitações e suporte de cobrança."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 902e5bdfbbf04ab70989be8c41e16eb69e475908
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3f15d9e9b557b09ef74ceff85806579dd51f2412
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas frequentes do Azure AD Connect Health
-Este artigo inclui respostas para FAQs (perguntas frequentes) sobre o Azure AD (Azure Active Directory) Connect Health. Essas perguntas frequentes abordam perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.
+Este artigo inclui respostas toofrequently perguntas frequentes (FAQs) sobre integridade de conexão do Azure Active Directory (AD do Azure). As perguntas frequentes abrangem perguntas sobre como toouse Olá serviço, que inclui a saudação modelo, recursos, limitações e suporte de cobrança.
 
 ## <a name="general-questions"></a>Perguntas gerais
-**P: Eu gerencio vários diretórios do Azure AD. Como mudar para aquele que tem o Azure Active Directory Premium?**
+**P: Eu gerencio vários diretórios do Azure AD. Como alternar toohello que possui o Azure Active Directory Premium?**
 
-Para mudar entre diferentes locatários do Azure AD, selecione o **Nome de Usuário** conectado atualmente no canto superior direito e escolhendo a conta apropriada. Se a conta não estiver listada aqui, selecione **Sair** e use as credenciais de administrador global do Diretório que tiver o Azure Active Directory Premium habilitado para entrar.
+tooswitch entre diferentes do Azure AD locatários, selecione Olá conectado no momento **nome de usuário** em Olá canto superior direito e escolha conta apropriada hello. Se a conta de saudação não estiver listada aqui, selecione **sair**, e, então, usar credenciais de administrador global saudação do diretório Olá com o Azure Active Directory Premium toosign no.
 
 **P: Qual versão de funções de identidade tem suporte do Azure AD Connect Health?**
 
-A tabela a seguir lista as funções e as versões de sistema operacional com suporte.
+Olá tabela a seguir lista as funções hello e versões de sistema operacional com suporte.
 
 |Função| Sistema Operacional/Versão|
 |--|--|
@@ -38,15 +38,15 @@ A tabela a seguir lista as funções e as versões de sistema operacional com su
 |Azure AD Connect | Versão 1.0.9125 ou superior|
 |Active Directory Domain Services (AD DS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
 
-Observe que os recursos fornecidos pelo serviço mudam de acordo com a função e o sistema operacional. Em outras palavras, talvez nem todos os recursos estejam disponíveis para todas as versões de sistema operacional. Consulte as descrições de recurso para obter detalhes.
+Observe que recursos Olá fornecidos pelo serviço Olá podem ser diferente com base na função de saudação e de sistema operacional de saudação. Em outras palavras, todos os recursos de saudação podem não estar disponíveis para todas as versões de sistema operacional. Consulte as descrições de recurso Olá para obter detalhes.
 
-**P: quantas licenças é necessário monitorar minha infra-estrutura?**
+**P: quantas licenças são necessário toomonitor minha infra-estrutura?**
 
-* O primeiro o Agente do Connect Health requer pelo menos uma licença Azure AD Premium.
+* Olá, agente de integridade de se conectar primeiro requer pelo menos uma licença Azure AD Premium.
 * Cada agente registrado adicional requer 25 licenças Azure AD Premium adicionais.
-* A contagem de agentes é equivalente ao número total de agentes registrados em todas as funções monitoradas (AD FS, Azure AD Connect e/ou AD DS).
+* Contagem de agente é equivalente toohello o número total de agentes que estão registrados em todas as funções monitoradas (AD FS, o Azure AD Connect e AD DS).
 
-As informações de licenciamento também podem ser encontradas na [página Preços do Azure AD](https://aka.ms/aadpricing).
+Informações de licenciamento também foi encontradas no hello [página de preços do Azure AD](https://aka.ms/aadpricing).
 
 Exemplo:
 
@@ -61,105 +61,105 @@ Exemplo:
 
 ## <a name="installation-questions"></a>Perguntas sobre a instalação
 
-**P: Qual é o impacto da instalação do agente do Azure AD Connect Health sobre servidores individuais?**
+**P: qual é o impacto de saudação da instalação do agente do Azure AD Connect Health da saudação em servidores individuais?**
 
-O impacto da instalação do AD FS do Agente do Microsoft Azure AD Connect Health, servidores proxy de Aplicativo Web, servidores do Azure AD Connect (sincronização) e de controladores de domínio é mínimo em relação ao consumo de CPU, de memória, à largura de banda de rede e ao armazenamento.
+impacto de saudação de instalar servidores de proxy de aplicativo web do hello Microsoft Azure agente AD Connect Health, o AD FS, servidores do Azure AD Connect (sincronização), controladores de domínio é mínimo com respeito toohello CPU, consumo de memória, largura de banda de rede e armazenamento.
 
-Os números a seguir são uma aproximação:
+Olá números a seguir é uma aproximação:
 
 * Consumo de CPU: aumento de aproximadamente 1 a 5%.
-* Consumo de memória: até 10% da memória total do sistema.
+* Consumo de memória: % too10 Olá total da memória do sistema.
 
 > [!NOTE]
-> Se o agente não pode se comunicar com o Azure, o agente armazena os dados localmente para um limite máximo definido. O agente substitui os dados em "cache" de forma “atendido menos recentemente”.
+> Se o agente de saudação não pode se comunicar com o Azure, agente Olá armazena dados de saudação localmente para um limite máximo definido. Agente de saudação substitui hello "cache" dados "reparada menos recentemente".
 >
 >
 
 * Armazenamento em buffer local para Agentes do Azure AD Connect Health: aproximadamente 20 MB.
-* Para servidores do AD FS, é recomendável que você provisione um espaço em disco de 1.024 MB (1 GB) para o Canal de Auditoria do AD FS, de modo que Agentes do Azure AD Connect Health processem todos os dados de auditoria antes que tais dados sejam substituídos.
+* Para servidores do AD FS, é recomendável que você forneça um espaço em disco de 1.024 MB (1 GB) para o canal de auditoria de saudação do AD FS para agentes de integridade de conexão de AD do Azure tooprocess todos os dados de auditoria de saudação antes que ele será substituído.
 
-**P: Será necessário reinicializar meus servidores durante a instalação dos agentes do Azure AD Connect Health?**
+**P: posso terá tooreboot meus servidores durante a instalação de saudação de agentes de integridade de conectar Olá AD do Azure?**
 
-Não. A instalação dos agentes não exigirá a reinicialização do servidor. No entanto, a instalação de algumas das etapas de pré-requisito pode exigir uma reinicialização do servidor.
+Não. instalação de saudação de agentes de saudação não exigirá servidor Olá tooreboot. No entanto, a instalação de algumas etapas de pré-requisito pode exigir uma reinicialização do servidor de saudação.
 
 Por exemplo, no Windows Server 2008 R2, a instalação do .NET Framework 4.5 requer a reinicialização do servidor.
 
 **P: Os Serviços do Azure AD Connect Health funcionam por meio de um proxy HTTP de passagem?**
 
-Sim. Para operações em andamento, você pode configurar o Agente de integridade para usar um proxy HTTP para encaminhar solicitações HTTP de saída.
+Sim. Para operações contínuas, você pode configurar um solicitações HTTP proxy tooforward saída HTTP toouse do agente de integridade de saudação.
 Leia mais sobre [configurar HTTP Proxy para agentes de integridade](active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy).
 
-Se precisar configurar um proxy durante o registro do agente, talvez seja necessário modificar as configurações de proxy do Internet Explorer com antecedência.
+Se você precisar tooconfigure um proxy durante o registro do agente, talvez seja necessário toomodify suas configurações de Proxy do Internet Explorer com antecedência.
 
 1. Abra Internet Explorer -> **Configurações** > **Opções de Internet** > **Conexões** > **Configurações da LAN**.
 2. Selecione **Usar um Servidor Proxy para a LAN**.
 3. Selecione **Avançado** se você tiver portas de proxy diferentes para HTTP e HTTPS/Seguro.
 
-**P: O Azure AD Connect Health dá suporte à autenticação básica ao se conectar a proxies HTTP?**
+**P: não autenticação básica do Azure AD Connect Health suporte quando se conectar tooHTTP proxies?**
 
-Não. Um mecanismo para especificar o nome de usuário/senha arbitrariamente para fins de autenticação básica não tem suporte.
+Não. Um mecanismo toospecify um nome de usuário arbitrários e uma senha para a autenticação básica não é suportada atualmente.
 
-**P: Quais portas de firewall eu preciso abrir para o agente do Azure AD Connect Health funcione?**
+**P: o que fazem as portas de firewall preciso tooopen para toowork do agente de integridade de conexão de saudação do AD do Azure?**
 
-Veja a [seção de requisitos](active-directory-aadconnect-health-agent-install.md#requirements) para a lista de portas de firewall e outros requisitos de conectividade.
+Consulte Olá [seção requisitos](active-directory-aadconnect-health-agent-install.md#requirements) para lista de saudação de portas de firewall e outros requisitos de conectividade.
 
-**P: por que vejo dois servidores com o mesmo nome no portal do Azure AD Connect Health?**
+**P: por que vejo que os dois servidores com hello mesmo nome no portal de integridade de conexão de saudação do AD do Azure?**
 
-Quando você remove um agente de um servidor, o servidor não é automaticamente removido do portal do Azure AD Connect Health. Se você remover um agente manualmente de um servidor ou remover o próprio servidor, precisará excluir manualmente a entrada do servidor no portal do Azure AD Connect Health.
+Quando você remove um agente de um servidor, servidor de saudação não é removido automaticamente do portal do Azure AD Connect Health hello. Se você remove um agente de um servidor ou remove o próprio servidor de saudação manualmente, será necessário entrada do servidor de saudação do toomanually delete do portal de integridade de conexão de saudação do AD do Azure.
 
-Você pode refazer a imagem de um servidor ou criar um novo servidor com os mesmo detalhes (como o nome do computador). Se você não tiver removido o servidor já registrado do portal do Azure AD Connect Health e instalado o agente no novo servidor, você poderá ver duas entradas com o mesmo nome.
+Você pode refazer a imagem de um servidor ou criar um novo servidor com hello mesmo detalhes (como o nome do computador). Se você não removeu o servidor já registrado saudação do portal de integridade de conexão de saudação do AD do Azure, e você instalou o agente de saudação no novo servidor de saudação, você poderá ver duas entradas com hello mesmo nome.
 
-Nesse caso, exclua manualmente a entrada que pertence ao servidor mais antigo. Os dados para esse servidor devem estar desatualizados.
+Nesse caso, exclua manualmente a entrada hello que pertence o servidor mais antigo toohello. dados Olá para esse servidor devem estar desatualizados.
 
 ## <a name="health-agent-registration-and-data-freshness"></a>Registro de Agente de Integridade e atualização de dados
 
-**P: Quais são os motivos comuns para as falhas de registro do Agente de Integridade e como solucionar problemas?**
+**P: quais são os motivos comuns para falhas de registro do agente de integridade de saudação e como solucionar problemas?**
 
-O agente de integridade não conseguirá registrar devido a motivos possíveis:
+Olá agente de integridade pode falhar tooregister devido a seguir toohello motivos possíveis:
 
-* O agente não pode se comunicar com os pontos de extremidade necessários porque um firewall está bloqueando o tráfego. Isso é especialmente comum em servidores proxy de aplicativo Web. Cerifique de ter permitido a comunicação de saída para as portas e os pontos de extremidade necessários. Confira a [seção de requisitos](active-directory-aadconnect-health-agent-install.md#requirements) para obter detalhes.
-* A comunicação de saída está sujeita a uma inspeção SSL feita pela camada de rede. Isso faz com que o certificado usado pelo agente seja substituído por entidade/servidor de inspeção e ocorre falha nas etapas necessárias para concluir o registro do agente.
-* O usuário não tem acesso para executar o registro do agente. Por padrão, os administradores globais têm acesso. Você pode usar [controle de acesso com base em função](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) para delegar acesso a outros usuários.
+* Agente de saudação não pode se comunicar com pontos de extremidade Olá necessário porque um firewall está bloqueando o tráfego. Isso é especialmente comum em servidores proxy de aplicativo Web. Certifique-se de que você permitiu portas e os pontos de extremidade de toohello necessária a comunicação de saída. Consulte Olá [seção requisitos](active-directory-aadconnect-health-agent-install.md#requirements) para obter detalhes.
+* Comunicação de saída está sujeito tooan inspeção de SSL pela camada de rede hello. Isso faz com que o certificado de saudação que o agente Olá usa toobe substituída pela entidade da servidor Olá inspeção e falha de registro de agente Olá etapas toocomplete hello.
+* Olá usuário não tem acesso tooperform Olá registro do agente de saudação. Por padrão, os administradores globais têm acesso. Você pode usar [controle de acesso baseado em função](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) toodelegate acesso tooother usuários.
 
-**P: Estou recebendo o alerta "Os dados do Serviço de Integridade não estão atualizados". Como solucionar esse problema?**
+**P: eu estou obtendo alertado que "dados de serviço de integridade não são a toodate." Como solucionar problemas de problema Olá?**
 
-O Azure AD Connect Health gera o alerta quando não recebe todos os pontos de dados do servidor nas últimas duas horas. Pode haver várias razões para esse alerta ser acionado.
+O Azure AD Connect Health gera um alerta de saudação quando não receber todos os pontos de dados de saudação do servidor de saudação em Olá últimas duas horas. Pode haver várias razões para esse alerta ser acionado.
 
-* O agente não pode se comunicar com os pontos de extremidade necessários porque um firewall está bloqueando o tráfego. Isso é especialmente comum em servidores proxy de aplicativo Web. Verifique se você permitiu a comunicação de saída para as portas e os pontos de extremidade necessários. Confira a [seção de requisitos](active-directory-aadconnect-health-agent-install.md#requirements) para obter detalhes.
-* A comunicação de saída está sujeita a uma inspeção SSL feita pela camada de rede. Isso faz com que o certificado usado pelo agente seja substituído pela entidade/servidor inspeção e o processo falha ao carregar dados para o serviço Azure AD Connect Health.
-* Você pode usar o comando de conectividade criado no agente. [Leia mais](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service).
-* Os agentes também dão suporte a conectividade de saída por meio de um HTTP Proxy não autenticado. [Leia mais](active-directory-aadconnect-health-agent-install.md##configure-azure-ad-connect-health-agents-to-use-http-proxy).
+* Agente de saudação não pode se comunicar com pontos de extremidade Olá necessário porque um firewall está bloqueando o tráfego. Isso é especialmente comum em servidores proxy de aplicativo Web. Certifique-se de que você tem permissão de pontos de extremidade de toohello necessária a comunicação de saída e as portas. Consulte Olá [seção requisitos](active-directory-aadconnect-health-agent-install.md#requirements) para obter detalhes.
+* Comunicação de saída está sujeito tooan inspeção de SSL pela camada de rede hello. Isso faz com que o certificado de saudação que agente Olá usa toobe substituída pela entidade da servidor Olá inspeção e processo Olá falha serviço de Azure AD Connect Health tooupload dados toohello.
+* Você pode usar o comando de conectividade de saudação incorporado ao agente hello. [Leia mais](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service).
+* agentes de saudação também dão suporte a conectividade de saída por meio de um HTTP Proxy não autenticado. [Leia mais](active-directory-aadconnect-health-agent-install.md##configure-azure-ad-connect-health-agents-to-use-http-proxy).
 
 ## <a name="operations-questions"></a>Perguntas sobre operações
-**P: Preciso habilitar a auditoria em servidores proxy de aplicativo Web?**
+**P: é necessário tooenable auditoria em servidores de proxy de aplicativo web Olá?**
 
-Não, a auditoria não precisa estar habilitada nos servidores proxy de aplicativo Web.
+Não, a auditoria não precisa toobe habilitado em servidores de proxy de aplicativo web hello.
 
 **P: Como Alertas do Azure AD Connect Health são resolvidos?**
 
-Alertas do Azure AD Connect Health são resolvidos em uma condição de êxito. Os agentes do Azure AD Connect Health detectam e relatam as condições de sucesso para o serviço periodicamente. Para alguns alertas, a supressão é periódica. Em outras palavras, se a mesma condição de erro não for observada no período de 72 horas a partir da geração do alerta, este será resolvido automaticamente.
+Alertas do Azure AD Connect Health são resolvidos em uma condição de êxito. Agentes de integridade de conexão de AD do Azure detectar e relatar o serviço de toohello de condições de sucesso Olá periodicamente. Para alguns alertas, a supressão de saudação é baseada em tempo. Em outras palavras, se hello mesma condição de erro não for observada dentro de 72 horas da geração de alertas, Olá alerta será resolvido automaticamente.
 
-**P: eu estou sendo alertado de que "A Solicitação de Autenticação de Teste (Transação Sintética) falhou ao obter um token." Como solucionar esse problema?**
+**P: eu estou obtendo alertado que "a solicitação de autenticação de teste (transações sintéticas) falha tooobtain um token". Como solucionar problemas de problema Olá?**
 
-O Azure AD Connect Health para AD FS gera este alerta quando o Agente de Integridade instalado em um servidor do AD FS falha ao obter um token como parte de uma transação sintética iniciada pelo Agente de Integridade. O agente de Integridade usa o contexto do sistema local e tenta obter um token para uma terceira parte confiável própria. Este é um teste de catch-all para garantir que o AD FS esteja em um estado de emissão de tokens.
+O Azure AD Connect Health para AD FS gera este alerta quando Olá instalado em um servidor do AD FS do agente de integridade não tooobtain um token como parte de uma transação sintética iniciada pelo Olá agente de integridade. Agente de integridade de saudação tentativas tooget um token para uma terceira parte confiável self e usa o contexto do sistema local hello. Este é um tooensure de captura todos os testes do AD FS está em um estado de emissão de tokens.
 
-Geralmente esse teste falha porque o Agente de Integridade não consegue resolver o nome do farm do AD FS. Isso poderá acontecer se os servidores do AD FS estiverem atrás de um balanceador de carga de rede e a solicitação for iniciada de um nó que esteja atrás do balanceador de carga (ao contrário de um cliente regular que está na frente do balanceador de carga). Isso pode ser corrigido através da atualização do arquivo "hosts" localizado em "C:\Windows\System32\drivers\etc" para incluir o endereço IP do servidor do AD FS ou um endereço IP de loopback (127.0.0.1) para o nome do farm do AD FS (por exemplo, sts.contoso.com). A adição do arquivo de host causará curto-circuito na chamada de rede, permitindo assim que o Agente de Integridade obtenha o token.
+Geralmente este teste falha porque Olá agente de integridade é nome do farm de saudação do AD FS tooresolve não é possível. Isso pode acontecer se servidores do hello AD FS estão atrás de um balanceador de carga de rede e solicitação de saudação obtém iniciada de um nó que está por trás do balanceador de carga de saudação (como tooa contrário cliente regular que está na frente do balanceador de carga de saudação). Isso pode ser corrigido pela atualização do arquivo de hosts"hello" localizado em "C:\WINDOWS\system32\drivers\etc." tooinclude Olá endereço do servidor de saudação do AD FS ou um endereço IP de loopback (127.0.0.1) para o nome do farm de saudação do AD FS (por exemplo, sts.contoso.com). Adicionando arquivo de host Olá curto-circuito chamada de rede hello, permitindo assim que o token de Olá Olá agente de integridade tooget.
 
-**P: recebi um email indicando que meus computadores NÃO têm patches para os ataques de ransomeware recentes. Por que eu recebi esse email?**
+**P: recebi um email indicando que minhas máquinas não são corrigidas para ataques de ransomeware recentes hello. Por que eu recebi esse email?**
 
-O serviço Azure AD Connect Health verificou todos os computadores que ele monitora para garantir que os patches necessários fossem instalados. O email foi enviado aos administradores de locatário se um ou mais computadores não tinham os patches críticos. A seguinte lógica foi usada para fazer essa determinação.
-1. Localizar todos os hotfixes instalados no computador.
-2. Verificar se pelo menos um dos HotFixes da lista definida está presente.
-3. Se Sim, o computador está protegido. Se Não, o computador está correndo risco de ataque.
+Serviço de integridade de conexão do AD do Azure examinados Olá todas as máquinas que ele monitora os patches do tooensure Olá necessários foram instaladas. email de Olá foi enviado a administradores de inquilinos toohello se pelo menos um computador não tivesse patches críticos hello. Olá lógica a seguir foi usado toomake essa determinação.
+1. Localize todos os hotfixes Olá instalados na máquina de saudação.
+2. Verifique se pelo menos um dos Olá HotFixes do hello definido lista está presente.
+3. Em caso afirmativo, a máquina de saudação está protegida. Caso contrário, a máquina hello está em risco de ataque de saudação.
 
-Você pode usar o seguinte script do PowerShell para executar essa verificação manualmente. Ele implementa a lógica acima.
+Você pode usar Olá tooperform de script do PowerShell a seguir essa verificação manualmente. Ele implementa Olá acima lógica.
 
 ```
 Function CheckForMS17-010 ()
 {
     $hotfixes = "KB3205409", "KB3210720", "KB3210721", "KB3212646", "KB3213986", "KB4012212", "KB4012213", "KB4012214", "KB4012215", "KB4012216", "KB4012217", "KB4012218", "KB4012220", "KB4012598", "KB4012606", "KB4013198", "KB4013389", "KB4013429", "KB4015217", "KB4015438", "KB4015546", "KB4015547", "KB4015548", "KB4015549", "KB4015550", "KB4015551", "KB4015552", "KB4015553", "KB4015554", "KB4016635", "KB4019213", "KB4019214", "KB4019215", "KB4019216", "KB4019263", "KB4019264", "KB4019472", "KB4015221", "KB4019474", "KB4015219", "KB4019473"
 
-    #checks the computer it's run on if any of the listed hotfixes are present
+    #checks hello computer it's run on if any of hello listed hotfixes are present
     $hotfix = Get-HotFix -ComputerName $env:computername | Where-Object {$hotfixes -contains $_.HotfixID} | Select-Object -property "HotFixID"
 
     #confirms whether hotfix is found or not

@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory ao HackerOne | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o HackerOne."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Hackerone."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,67 +13,67 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 657d8d4c98b7b133698a5cda0aa675da7f68c464
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c9dc033e26e79a7233dcfb3899c62684d4a19652
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Tutorial: Integração do Azure Active Directory ao HackerOne
 
-Neste tutorial, você aprenderá a integrar o HackerOne ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como toointegrate HackerOne com o Azure Active Directory (AD do Azure).
 
-A integração do HackerOne ao Azure AD oferece os seguintes benefícios:
+Integrando HackerOne com o AD do Azure fornece Olá benefícios a seguir:
 
-- No Azure AD, é possível controlar quem tem acesso ao HackerOne
-- Você pode permitir que seus usuários façam logon automaticamente no HackerOne (logon único) com as contas do Azure AD deles
-- Você pode gerenciar suas contas em um única localização: o Portal do Azure
+- Você pode controlar no AD do Azure que tenha acesso tooHackerOne
+- Você pode habilitar seu usuários tooautomatically get conectado tooHackerOne (logon único) com suas contas do AD do Azure
+- Você pode gerenciar suas contas em um local central - Olá portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao HackerOne, você precisa dos seguintes itens:
+tooconfigure integração do AD do Azure com HackerOne, você precisa Olá itens a seguir:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura habilitada para logon único do HackerOne
 
 > [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
 
-1. Adicionando o HackerOne da galeria
+1. Adicionando HackerOne da Galeria de saudação
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-hackerone-from-the-gallery"></a>Adicionando o HackerOne da galeria
-Para configurar a integração do HackerOne ao Azure AD, você precisará adicionar o HackerOne da galeria à sua lista de aplicativos SaaS gerenciados.
+## <a name="adding-hackerone-from-hello-gallery"></a>Adicionando HackerOne da Galeria de saudação
+integração de saudação tooconfigure de HackerOne no AD do Azure, você precisa tooadd HackerOne da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
 
-**Para adicionar o HackerOne da galeria, execute as seguintes etapas:**
+**tooadd HackerOne da Galeria hello, execute Olá etapas a seguir:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
 
     ![Aplicativos][3]
 
-4. Na caixa de pesquisa, digite **HackerOne**.
+4. Na caixa de pesquisa hello, digite **HackerOne**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_search.png)
 
-5. No painel de resultados, selecione **HackerOne** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+5. No painel de resultados de saudação, selecione **HackerOne**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_addfromgallery.png)
 
@@ -81,44 +81,44 @@ Para configurar a integração do HackerOne ao Azure AD, você precisará adicio
 
 Nesta seção, você configurará e testará o logon único do Azure AD com o HackerOne, com base em um usuário de teste chamado "Brenda Fernandes".
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do HackerOne é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do HackerOne.
+Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá em HackerOne é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação em HackerOne precisa toobe estabelecida.
 
-No HackerOne, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+HackerOne, atribuir valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
 
-Para configurar e testar o logon único do Azure AD com o HackerOne, você precisa concluir os seguintes blocos de construção:
+tooconfigure e teste de logon único do AD do Azure com HackerOne, é necessário Olá toocomplete blocos de construção a seguir:
 
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criação de um usuário de teste do HackerOne](#creating-a-hackerone-test-user)**: para ter um equivalente de Brenda Fernandes no HackerOne que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
+3. **[Criar um usuário de teste HackerOne](#creating-a-hackerone-test-user)**  -toohave um equivalente do Britta Simon em HackerOne é toohello vinculado do Azure AD representação do usuário.
+4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
+5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo HackerOne.
+Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo HackerOne.
 
-**Para configurar o logon único do Azure AD com o HackerOne, execute as seguintes etapas:**
+**tooconfigure AD do Azure-logon único com HackerOne, execute Olá etapas a seguir:**
 
-1. No portal do Azure, na página de integração de aplicativos do **HackerOne**, clique em **Logon único**.
+1. Em Olá portal do Azure, Olá **HackerOne** página de integração de aplicativos, clique em **o logon único**.
 
     ![Configurar Logon Único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
  
     ![Configurar Logon Único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_samlbase.png)
 
-3. Sobre a **URL de Logon único do HackerOne e o Identificador**, execute as seguintes etapas:
+3. Em Olá **HackerOne única URL de logon e o identificador** , execute Olá etapas a seguir:
 
     ![Configurar Logon Único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://hackerone.com/<company name>/authentication`
+    a. Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://hackerone.com/<company name>/authentication`
 
-    b. Na caixa de texto **Identificador**, digite uma URL como:  `https://hackerone.com/users/saml/metadata`
+    b. Em Olá **identificador** caixa de texto, digite um URL como:`https://hackerone.com/users/saml/metadata`
     
     > [!NOTE] 
-    > Esse valor não é real. Atualize esse valor com a URL de Logon real. Para obter esse valor, entre em contato com a [equipe de suporte do HackerOne](mailto:support@hackerone.com). 
+    > Esse valor não é real. Atualize esse valor com hello URL de logon real. Entre em contato com [HackerOne a equipe de suporte](mailto:support@hackerone.com) tooget esse valor. 
  
-4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+4. Em Olá **o certificado de autenticação SAML** seção, clique em **certificado (Base64)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.
 
     ![Configurar Logon Único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_certificate.png) 
 
@@ -126,72 +126,72 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar Logon Único](./media/active-directory-saas-hackerone-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do HackerOne**, clique em **Configurar HackerOne** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
+6. Em Olá **HackerOne configuração** seção, clique em **configurar HackerOne** tooopen **configurar o logon** janela. Saudação de cópia **Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**
 
     ![Configurar Logon Único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_configure.png) 
 
-7. Faça logon no seu locatário do HackerOne como administrador.
+7. Logon o tooyour HackerOne locatário como um administrador.
 
-8. Na parte superior do menu, clique em “**Configurações**”.
+8. No menu de saudação na parte superior do hello, clique hello "**configurações**."
    
     ![Configurar Logon Único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_001.png) 
 
-9. Navegue até "**Autenticação**" e clique em "**Adicionar configurações do SAML**".
+9. Navegue muito"**autenticação**"e clique em"**adicionar configurações SAML**."
    
     ![Configurar Logon Único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_003.png) 
 
-10. Na caixa de diálogo **Configurações de SAML** , execute as seguintes etapas:
+10. Em Olá **configurações SAML** caixa de diálogo, executar Olá etapas a seguir:
    
     ![Configurar Logon Único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_004.png) 
 
-    a. Na caixa de texto **Domínio de Email** , digite um domínio registrado.
+    a. Em Olá **domínio de Email** caixa de texto, digite um domínio registrado.
 
-    b. Na caixa de texto **URL de Logon Único**, cole o valor da **URL do Serviço de Logon Único do SAML** copiado do Portal do Azure.
+    b. Em **URL de logon único** caixas de texto, cole o valor de saudação do **Single Sign-On URL do serviço SAML** que você copiou do portal do Azure.
 
-    c. Abra seu **Arquivo de certificado** no bloco de notas baixado do Portal do Azure, copie o conteúdo dele para a área de transferência e cole-o na caixa de texto **Certificado X509**.
+    c. Abra o **arquivo de certificado** no bloco de notas baixado do portal do Azure, copie o conteúdo de saudação para sua área de transferência e, em seguida, cole-o toohello **certificado X509** caixa de texto.
     
     d. Clique em **Salvar**.
 
-11. No diálogo Configurações de Autenticação, execute as seguintes etapas:
+11. Na caixa de diálogo de configurações de autenticação hello, execute Olá etapas a seguir:
    
     ![Configurar Logon Único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_005.png) 
 
     a. Clique em **Executar teste**.
 
-    b. Se o valor do campo **Status** for igual a **Status do último teste: criado**, contate sua [equipe de suporte do HackerOne](mailto:support@hackerone.com) para solicitar uma análise da sua configuração.
+    b. Se Olá valor Olá **Status** campo é igual a **último status do teste: criado**, entre em contato com seu [HackerOne a equipe de suporte](mailto:support@hackerone.com) toorequest uma revisão da sua configuração.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
 
 ![Criar um usuário do AD do Azure][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
 
-1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hackerone-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hackerone-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hackerone-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hackerone-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
 
-    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
 
     d. Clique em **Criar**.
  
@@ -202,26 +202,26 @@ Em seguida, você criará um usuário chamado Brenda Fernandes no HackerOne. O H
 Não há itens de ação para você nesta seção. Quando você acessar HackerOne, um novo usuário será criado caso ele ainda não exista.
 
 >[!NOTE]
->Se precisar criar um usuário manualmente, você precisará entrar em contato com a equipe de suporte do Certify. 
+>Se você precisar toocreate um usuário manualmente, é necessário a equipe de suporte de certificar toocontact hello. 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
 
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure ao conceder acesso ao HackerOne.
+Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooHackerOne.
 
 ![Atribuir usuário][200] 
 
-**Para atribuir Brenda Fernandes ao HackerOne, execute as seguintes etapas:**
+**tooassign Britta Simon tooHackerOne, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **HackerOne**.
+2. Na lista de aplicativos hello, selecione **HackerOne**.
 
     ![Configurar Logon Único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -229,7 +229,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -237,13 +237,13 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-Por fim, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.  
+Por fim, você pode testar seu AD do Azure única configuração de logon usando o painel de acesso de saudação.  
 
-Quando você clica no bloco HackerOne no Painel de Acesso, deve fazer logon automaticamente no seu aplicativo HackerOne.
+Quando você clica em bloco HackerOne Olá Olá painel de acesso, você deve obter automaticamente assinado em tooyour HackerOne aplicativo.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

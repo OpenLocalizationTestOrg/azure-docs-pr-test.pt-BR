@@ -1,6 +1,6 @@
 ---
-title: Diretrizes de infraestrutura de rede do Azure - Linux | Microsoft Docs
-description: "Saiba mais sobre as principais diretrizes de design e implementação para a implantação de rede virtual nos serviços de infraestrutura do Azure."
+title: aaaAzure rede diretrizes de infraestrutura - Linux | Microsoft Docs
+description: "Saiba mais sobre Olá design e implementação diretrizes importantes para a implantação de rede virtual nos serviços de infraestrutura do Azure."
 documentationcenter: 
 services: virtual-machines-linux
 author: iainfoulds
@@ -16,67 +16,67 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 13e041956c05bec522c83587f8a7f99ac1ceb510
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f3f49b135b1f9bca3fd463e9ff27299fb97908c0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-networking-infrastructure-guidelines-for-linux-vms"></a>Diretrizes de infraestrutura de rede do Azure para VMs Linux
 
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
-Este artigo se concentra em compreender as etapas de planejamento necessárias para a rede virtual no Azure, e a conectividade entre ambientes locais existentes.
+Este artigo se concentra na compreensão Olá necessárias etapas de planejamento para a rede virtual no Azure e a conectividade entre ambientes locais existentes.
 
 ## <a name="implementation-guidelines-for-virtual-networks"></a>Diretrizes de implementação de redes virtuais
 Decisões:
 
-* Que tipo de rede virtual é necessário para hospedar sua infraestrutura ou carga de trabalho de TI (somente em nuvem ou entre instalações)?
-* Para redes virtuais entre instalações, quanto espaço de endereço você precisa para hospedar as sub-redes e VMs agora e para uma expansão razoável no futuro?
-* Você vai criar redes virtuais centralizadas ou criar redes virtuais individuais para cada grupo de recursos?
+* O tipo de rede virtual você precisa toohost sua carga de trabalho TI ou infraestrutura (somente em nuvem ou entre locais)?
+* Para redes virtuais entre locais quanto espaço de endereço você precisa de sub-redes de saudação toohost e VMs agora e de expansão razoável Olá para futuras?
+* São sobre toocreate centralizado redes virtuais ou cria redes virtuais individuais para cada grupo de recursos?
 
 Tarefas:
 
-* Defina o espaço de endereço para a rede virtual a ser criada.
-* Defina o conjunto de sub-redes e o espaço de endereço para cada uma.
-* Para redes virtuais entre instalações, defina o conjunto de espaços de endereços de redes locais para as instalações que as VMs da rede virtual precisam acessar.
-* Trabalhe com uma equipe local de rede para garantir a configuração do roteamento apropriado ao criar redes virtuais entre instalações.
-* Crie a rede virtual usando a sua convenção de nomenclatura.
+* Defina o espaço de endereço de saudação para Olá redes virtuais toobe criado.
+* Defina o conjunto de saudação de sub-redes e espaço de endereço de saudação para cada.
+* Para redes virtuais de vários locais, defina o conjunto de saudação de espaços de endereço de rede local para os locais de local Olá Olá VMs em Olá tooreach de necessidade de rede virtual.
+* Trabalhar com rede team tooensure Olá roteamento apropriado é configurado quando criar entre locais redes virtuais no local.
+* Crie rede virtual hello, usando a convenção de nomenclatura.
 
 ## <a name="virtual-networks"></a>Redes virtuais
-Redes virtuais são necessárias para oferecer suporte a comunicações entre VMs (máquinas virtuais). Você pode definir sub-redes, endereços IP personalizados, configurações de DNS, filtragem de segurança e balanceamento de carga, assim como em redes físicas. Com o uso de uma [Gateway de VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [Circuito do ExpressRoute](../../expressroute/expressroute-introduction.md), você pode conectar redes virtuais do Azure a suas redes locais. Leia mais sobre [redes virtuais e seus componentes](../../virtual-network/virtual-networks-overview.md).
+Redes virtuais são necessárias toosupport comunicações entre máquinas virtuais (VMs). Você pode definir sub-redes, endereços IP personalizados, configurações de DNS, filtragem de segurança e balanceamento de carga, assim como em redes físicas. Usando um [Gateway VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [circuito de rota expressa](../../expressroute/expressroute-introduction.md), você pode se conectar a redes de local de tooyour redes virtuais do Azure. Leia mais sobre [redes virtuais e seus componentes](../../virtual-network/virtual-networks-overview.md).
 
-Com o uso de Grupos de Recursos, você tem flexibilidade para projetar os componentes da rede virtual. As VMs podem se conectar às redes virtuais de fora de seu próprio grupo de recursos. Uma abordagem de design comum seria criar grupos de recursos centralizados contendo sua infraestrutura de rede central, que possam ser gerenciados por uma equipe comum. As VMs e seus aplicativos implantados para os grupos de recursos separados. Essa abordagem permite que proprietários do aplicativo acessem o grupo de recursos que contém suas VMs, sem abrir o acesso à configuração dos recursos rede virtual mais amplos.
+Com o uso de Grupos de Recursos, você tem flexibilidade para projetar os componentes da rede virtual. Máquinas virtuais podem se conectar a redes toovirtual fora de seu próprio grupo de recursos. Uma abordagem de design comum seria toocreate centralizado grupos de recursos que contêm sua infraestrutura de rede principal que pode ser gerenciada por uma equipe comuns. Máquinas virtuais e seus aplicativos implantados tooseparate grupos de recursos. Essa abordagem permite que os proprietários de aplicativos acesso toohello grupo de recursos que contém suas VMs sem abrir a configuração do acesso toohello de saudação mais ampla virtual recursos de rede.
 
 ## <a name="site-connectivity"></a>Conectividade de site
 ### <a name="cloud-only-virtual-networks"></a>Redes virtuais somente na nuvem
-Se os computadores e usuários locais não exigirem conectividade contínua com as VMs em uma rede virtual do Azure, o design de sua rede virtual será bastante simples:
+Se os computadores e usuários locais não exigem tooVMs contínuos de conectividade em uma rede virtual do Azure, seu design de rede virtual é muito simples:
 
 ![Diagrama básico de rede virtual somente na nuvem](./media/infrastructure-networking-guidelines/vnet01.png)
 
 Essa abordagem costuma ser usada para cargas de trabalho para a Internet, como um servidor Web baseado na Internet. Você pode gerenciar essas VMs usando conexões SSH ou VPN ponto a site.
 
-Como elas não se conectam à sua rede local, as redes virtuais somente do Azure podem usar qualquer parte do espaço de endereço IP privado. O espaço de endereço pode ser o mesmo espaço privado que está em uso local.
+Porque eles não se conectar a rede de local de tooyour, redes virtuais somente no Azure podem usar qualquer parte do espaço de endereço IP privado hello. espaço de endereço de saudação pode ser Olá usar o mesmo espaço privado que está no local.
 
 ### <a name="cross-premises-virtual-networks"></a>Redes virtuais entre instalações
-Se os computadores e usuários locais exigem conectividade contínua com as VMs em uma rede virtual do Azure, crie uma rede virtual entre instalações. Conecte a rede virtual à sua rede local com uma conexão de ExpressRoute ou uma conexão VPN site a site.
+Se precisam de computadores e usuários locais tooVMs contínuos de conectividade em uma rede virtual do Azure, crie uma rede virtual entre locais. Se conecte a rede de local de tooyour Olá rede virtual com uma rota expressa ou conexão de VPN site a site.
 
 ![Diagrama de rede virtual entre instalações](./media/infrastructure-networking-guidelines/vnet02.png)
 
-Nessa configuração, a rede virtual do Azure é essencialmente uma extensão baseada em nuvem da sua rede local.
+Nessa configuração, Olá rede virtual do Azure é essencialmente um extensão baseado em nuvem da rede local.
 
-Como eles se conectam à sua rede local, as redes virtuais entre instalações devem usar uma parte exclusiva do espaço de endereço usado por sua organização. Da mesma forma que diferentes locais da empresa receberão uma sub-rede IP específica, o Azure torna-se outro local à medida que você estende sua rede.
+Como eles se conectam tooyour rede local, redes virtuais devem usar uma parte do espaço de endereço Olá usado pela sua organização que seja exclusiva entre locais. Em hello mesma forma que diferentes locais corporativos recebem uma sub-rede IP específica, o Azure torna-se outro local, você pode estender sua rede.
 
-Para permitir que os pacotes viajem da sua rede virtual entre instalações para a sua rede local, você deve configurar o conjunto de prefixos de endereços locais relevantes como parte da definição da Rede Local para a rede virtual. Dependendo do espaço de endereço da rede virtual e do conjunto de locais relevantes na instalação, pode haver vários prefixos de endereço na Rede Local.
+tooallow tootravel de pacotes de sua rede de local de tooyour de rede virtual entre locais, você deve configurar o conjunto de saudação de prefixos de endereço local relevante como parte da definição de rede local Olá para rede virtual hello. Dependendo do endereço Olá espaço Olá virtual rede e hello conjunto de relevantes local locais, pode haver muitos prefixos de endereço na rede local hello.
 
-Você pode converter uma rede virtual somente em nuvem em uma rede virtual entre instalações, mas provavelmente será necessário renumerar o IP de seu espaço de endereço de rede virtual e recursos do Azure. Portanto, considere cuidadosamente se uma rede virtual precisará estar conectada à sua rede local quando você atribuir uma sub-rede IP.
+Você pode converter uma rede virtual do tooa entre locais de rede virtual somente em nuvem, mas provavelmente requer toore IP seu espaço de endereço de rede virtual e recursos do Azure. Portanto, considere cuidadosamente se uma rede virtual precisa de rede de local toobe tooyour conectado quando você atribui uma sub-rede IP.
 
 ## <a name="subnets"></a>Sub-redes
-As sub-redes permitem organizar os recursos que estão relacionados, seja logicamente (por exemplo, uma sub-rede para VMs associadas ao mesmo aplicativo) ou fisicamente (por exemplo, uma sub-rede por grupo de recursos). Você também pode usar técnicas de isolamento de sub-rede para aumentar a segurança.
+As sub-redes permitem tooorganize recursos que estão relacionados, ou logicamente (por exemplo, uma sub-rede para as VMs associadas toohello mesmo aplicativo), ou fisicamente (por exemplo, uma sub-rede por grupo de recursos). Você também pode usar técnicas de isolamento de sub-rede para aumentar a segurança.
 
-Para redes virtuais entre instalações, você deve criar sub-redes com as mesmas convenções que você usa para recursos locais. **O Azure sempre usa os três primeiros endereços IP do espaço de endereço para cada sub-rede**. Para determinar o número de endereços necessários para a sub-rede, comece pela contagem do número de VMs que você precisa agora. Faça a estimativa do crescimento futuro e, em seguida, use a tabela a seguir para determinar o tamanho da sub-rede.
+Para redes virtuais de vários locais, você deve criar sub-redes com hello convenções mesmo que você usa para recursos locais. **Azure sempre usa Olá três primeiros endereços IP saudação do espaço de endereço para cada sub-rede**. número de saudação toodetermine de endereços necessários para a sub-rede Olá, iniciar contando Olá número de VMs que você precisa agora. Estimar o crescimento futuro e use Olá tamanho da saudação toodetermine tabela de sub-rede Olá a seguir.
 
-| Número de VMs necessárias | Número de bits de host necessários | Tamanho da sub-rede |
+| Número de VMs necessárias | Número de bits de host necessários | Tamanho da sub-rede Olá |
 | --- | --- | --- |
 | 1 – 3 |3 |/ 29 |
 | 4 – 11 |4 |/ 28 |
@@ -85,22 +85,22 @@ Para redes virtuais entre instalações, você deve criar sub-redes com as mesma
 | 60 – 123 |7 |/ 25 |
 
 > [!NOTE]
-> Para sub-redes locais normais, o número máximo de endereços de host para uma sub-rede com n bits de host é 2<sup>n</sup> – 2. Para uma sub-rede do Azure, o número máximo de endereços de host para uma sub-rede com n bits de host é 2<sup>n</sup> – 5 (2 mais 3 para os endereços que o Azure usa em cada sub-rede).
+> Para sub-redes locais normal, o número de máximo de saudação de endereços de host para uma sub-rede com os bits de host n é 2<sup> n </sup> – 2. Para uma sub-rede do Azure, o número máximo de saudação de endereços de host para uma sub-rede com os bits de host n é 2<sup> n </sup> – 5 (2 e 3 para endereços de saudação que usa o Azure em cada sub-rede).
 > 
 > 
 
-Se você escolher um tamanho de sub-rede que seja muito pequeno, precisará renumerar o IP e reimplantar as VMs na sub-rede.
+Se você escolher um tamanho de sub-rede é muito pequeno, você tem toore IP e reimplanta Olá VMs na sub-rede hello.
 
 ## <a name="network-security-groups"></a>Grupos de segurança de rede
-Você pode aplicar regras de filtragem no tráfego que flui através de suas redes virtuais usando Grupos de Segurança de Rede. Você pode criar regras de filtragem granulares para proteger seu ambiente de rede virtual, controlar o tráfego de entrada e saída, intervalos de IP de origem e destino, portas permitidas etc. Grupos de Segurança de Rede podem ser aplicados a sub-redes de uma rede virtual ou diretamente em uma determinada interface de rede virtual. Recomendamos algum nível de filtragem de tráfego no Grupo de Segurança de Rede em suas redes virtuais. Leia mais sobre [Grupos de segurança de rede](../../virtual-network/virtual-networks-nsg.md).
+Você pode aplicar a filtragem regras toohello o tráfego que flui através de suas redes virtuais usando grupos de segurança de rede. Você pode criar toosecure de regras de filtragem granular seu ambiente de rede virtual, controle de entrada e saídos tráfego, origem e destino intervalos IP, permitido portas, etc. Grupos de segurança de rede pode ser aplicado toosubnets dentro de uma rede virtual ou diretamente tooa fornecido a interface de rede virtual. É recomendável toohave algum nível de filtragem de tráfego em suas redes virtuais do grupo de segurança de rede. Leia mais sobre [Grupos de segurança de rede](../../virtual-network/virtual-networks-nsg.md).
 
 ## <a name="additional-network-components"></a>Componentes de rede adicionais
-Assim como acontece com uma infraestrutura de rede física local, a rede virtual do Azure pode conter mais do que apenas sub-redes e endereçamento IP. Ao projetar a infraestrutura de seu aplicativo, convém incorporar alguns desses componentes adicionais:
+Assim como acontece com uma infraestrutura de rede física local, a rede virtual do Azure pode conter mais do que apenas sub-redes e endereçamento IP. Ao projetar a infra-estrutura de aplicativos, talvez você queira tooincorporate alguns desses componentes adicionais:
 
-* [Gateways de VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) - conecte redes virtuais do Azure a outras redes virtuais do Azure ou conecte-se a redes locais por meio de uma conexão VPN Site a Site. Implementar conexões de Rota Expressa para conexões seguras e dedicadas. Você também pode fornecer acesso direto aos usuários com conexões VPN Ponto a Site.
+* [Gateways VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) -conectar redes virtuais do Azure tooother virtuais do Azure redes ou se conectar a redes locais tooon por meio de uma conexão VPN Site a Site. Implementar conexões de Rota Expressa para conexões seguras e dedicadas. Você também pode fornecer acesso direto aos usuários com conexões VPN Ponto a Site.
 * [Balanceador de carga](../../load-balancer/load-balancer-overview.md) - fornece balanceamento de carga de tráfego para o tráfego interno e externo, conforme o desejado.
-* [Gateway de Aplicativo](../../application-gateway/application-gateway-introduction.md) – balanceamento de carga HTTP na camada do aplicativo, fornecendo alguns benefícios adicionais para aplicativos Web do que simplesmente implantar o Azure Load Balancer.
-* [Gerenciador de Tráfego](../../traffic-manager/traffic-manager-overview.md) - distribuição de tráfego baseado em DNS apara s usuários finais diretos para o ponto de extremidade do aplicativo disponível mais próximo, permitindo que você hospede seu aplicativo fora dos datacenters do Azure em regiões diferentes de tráfego.
+* [Application Gateway](../../application-gateway/application-gateway-introduction.md) - HTTP balanceamento de carga na camada de aplicativo hello, fornecendo alguns benefícios adicionais para aplicativos da web em vez de implantação de Balanceador de carga do Azure hello.
+* [Gerenciador de tráfego](../../traffic-manager/traffic-manager-overview.md) - baseado em DNS tráfego distribuição toodirect os usuários finais toohello mais próximo disponível extremidade do aplicativo, permitindo que você toohost seu aplicativo fora do Azure datacenters em regiões diferentes.
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]

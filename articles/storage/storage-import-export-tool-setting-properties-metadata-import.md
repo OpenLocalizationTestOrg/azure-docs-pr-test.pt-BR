@@ -1,6 +1,6 @@
 ---
-title: "Configurando propriedades e metadados usando a Importação/Exportação do Azure | Microsoft Docs"
-description: "Saiba como especificar as propriedades e os metadados a serem definidos nos blobs de destino durante a execução da Ferramenta de Importação/Exportação do Azure para preparar as unidades."
+title: "aaaSetting propriedades e metadados de importação/exportação do Azure | Microsoft Docs"
+description: "Saiba como toospecify toobe de propriedades e metadados definidos em blobs de destino de saudação ao executar Olá ferramenta de importação/exportação do Azure tooprepare suas unidades."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: bdc7a53f82d1fbbb726e2b1bd5d96678a8563566
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 05c2b13bead793c8ab5aac6ce25816be97fffb14
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="setting-properties-and-metadata-during-the-import-process"></a>Configurando propriedades e metadados durante o processo de importação
+# <a name="setting-properties-and-metadata-during-hello-import-process"></a>Processo de importação de definição de propriedades e metadados durante a saudação
 
-Quando você executa a Ferramenta de Importação/Exportação do Microsoft Azure para preparar as unidades, é possível especificar as propriedades e os metadados a serem definidos nos blobs de destino. Siga estas etapas:
+Quando você executa Olá ferramenta de importação/exportação do Microsoft Azure tooprepare suas unidades, você pode especificar propriedades e metadados toobe definidos em blobs de destino hello. Siga estas etapas:
 
-1.  Para definir propriedades de blob, crie um arquivo de texto no computador local que especifica os nomes e valores das propriedades.
-2.  Para definir metadados de blob, crie um arquivo de texto no computador local que especifica os nomes e valores dos metadados.
-3.  Passe o caminho completo para um ou ambos os arquivos à Ferramenta de Importação/Exportação do Azure como parte da operação `PrepImport`.
+1.  Propriedades do blob tooset, crie um arquivo de texto no computador local que especifica os nomes de propriedade e valores.
+2.  tooset metadados de blob, crie um arquivo de texto no computador local que especifica os valores e nomes de metadados.
+3.  Passar Olá tooone de caminho completo ou ambos esses arquivos toohello ferramenta de importação/exportação do Azure como parte da saudação `PrepImport` operação.
 
 > [!NOTE]
->  Ao especificar um arquivo de propriedades ou de metadados como parte de uma sessão de cópia, essas propriedades ou esses metadados são definidos para cada blob importado como parte da sessão de cópia. Se desejar especificar outro conjunto de propriedades ou de metadados para alguns dos blobs importados, você precisará criar uma sessão de cópia separada com arquivos de propriedades ou de metadados diferentes.
+>  Ao especificar um arquivo de propriedades ou de metadados como parte de uma sessão de cópia, essas propriedades ou esses metadados são definidos para cada blob importado como parte da sessão de cópia. Se você quiser toospecify um conjunto diferente de propriedades ou metadados para alguns dos blobs hello está sendo importados, você precisará toocreate sessão com propriedades diferentes ou arquivos de metadados de copiar um separado.
 
 ## <a name="specify-blob-properties-in-a-text-file"></a>Especificar as propriedades de blob em um arquivo de texto
 
-Para especificar as propriedades de blob, crie um arquivo de texto local e inclua um XML que especifica os nomes da propriedade como elementos e os valores da propriedade como valores. Este é um exemplo que especifica alguns valores de propriedade:
+Propriedades de blob toospecify, criar um arquivo de texto local e inclua XML que especifica os nomes de propriedade como elementos e valores de propriedade como valores. Este é um exemplo que especifica alguns valores de propriedade:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -44,11 +44,11 @@ Para especificar as propriedades de blob, crie um arquivo de texto local e inclu
 </Properties>
 ```
 
-Salve o arquivo em uma localização local como `C:\WAImportExport\ImportProperties.txt`.
+Salvar Olá arquivo tooa local como `C:\WAImportExport\ImportProperties.txt`.
 
 ## <a name="specify-blob-metadata-in-a-text-file"></a>Especificar os metadados de blob em um arquivo de texto
 
-Da mesma forma, para especificar os metadados de blob, crie um arquivo de texto local que especifica os nomes dos metadados como elementos e os valores dos metadados como valores. Este é um exemplo que especifica alguns valores de metadados:
+Da mesma forma, toospecify metadados de blob, crie um arquivo de texto local que especifica os nomes de metadados como elementos e valores de metadados como valores. Este é um exemplo que especifica alguns valores de metadados:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -59,9 +59,9 @@ Da mesma forma, para especificar os metadados de blob, crie um arquivo de texto 
 </Metadata>
 ```
 
-Salve o arquivo em uma localização local como `C:\WAImportExport\ImportMetadata.txt`.
+Salvar Olá arquivo tooa local como `C:\WAImportExport\ImportMetadata.txt`.
 
-## <a name="add-the-path-to-properties-and-metadata-files-in-datasetcsv"></a>Adicionar o caminho para os arquivos de propriedades e metadados no dataset.csv
+## <a name="add-hello-path-tooproperties-and-metadata-files-in-datasetcsv"></a>Adicionar Olá caminho tooproperties e arquivos de metadados em dataset.csv
 
 ```
 BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile

@@ -1,6 +1,6 @@
 ---
-title: Criar um aplicativo .NET do Service Fabric no Azure | Microsoft Docs
-description: "Crie um aplicativo .NET para o Azure usando a amostra de início rápido do Service Fabric."
+title: "aaaCreate um aplicativo de malha do serviço .NET no Azure | Microsoft Docs"
+description: "Crie um aplicativo .NET do Azure usando o exemplo de início rápido do Service Fabric hello."
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
-ms.openlocfilehash: d11b9af982112db8ba94b62110c18be843f1abb1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 20ef88dbf9fb0def31234ef05679a19009b9b529
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Criar um aplicativo .NET do Service Fabric no Azure
 O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços escalonáveis e confiáveis. 
 
-Este guia de início rápido mostra como implantar seu primeiro aplicativo .NET no Service Fabric. Quando terminar, você terá um aplicativo de votação com um front-end da Web do ASP.NET Core que salva os resultados da votação em um serviço de back-end com estado do cluster.
+Este guia de início rápido mostra como toodeploy seu primeiro tooService de aplicativo .NET malha. Quando você terminar, você tiver um aplicativo votação com um front-end para que salva os resultados de votação em um serviço de back-end com monitoração de estado no cluster de saudação de web do ASP.NET Core.
 
 ![Captura de tela do aplicativo](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
@@ -33,160 +33,160 @@ Com esse aplicativo, você aprenderá a:
 > * Usar o ASP.NET Core como um front-end da Web
 > * Armazenar dados de aplicativo em um serviço com estado
 > * Depurar o aplicativo localmente
-> * Implantar o aplicativo em um cluster no Azure
-> * Expandir o aplicativo para vários nós
+> * Implantar Olá aplicativo tooa cluster no Azure
+> * Aplicativo de expansão Olá em vários nós
 > * Executar um upgrade sem interrupção do aplicativo
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para concluir este guia de início rápido:
-1. [Instale o Visual Studio 2017](https://www.visualstudio.com/) com as cargas de trabalho de **desenvolvimento do Azure** e de **desenvolvimento para a Web e ASP.NET**.
+toocomplete este guia de início rápido:
+1. [Instalar o Visual Studio de 2017](https://www.visualstudio.com/) com hello **desenvolvimento do Azure** e **desenvolvimento ASP.NET e web** cargas de trabalho.
 2. [Instalar o Git](https://git-scm.com/)
-3. [Instalar o SDK do Microsoft Azure Service Fabric](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
-4. Execute o seguinte comando para habilitar o Visual Studio a implantar no cluster local do Service Fabric:
+3. [Instalar Olá SDK do Microsoft Azure Service Fabric](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
+4. Execute Olá comando tooenable Visual Studio toodeploy toohello Service Fabric cluster local a seguir:
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
     ```
 
-## <a name="download-the-sample"></a>Baixar o exemplo
-Em uma janela de comando, execute o comando a seguir para clonar o repositório de aplicativos de exemplo no computador local.
+## <a name="download-hello-sample"></a>Baixe o exemplo hello
+Em uma janela de comando, execute Olá comando tooclone Olá aplicativo repositório tooyour local máquina de exemplo a seguir.
 ```
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
-## <a name="run-the-application-locally"></a>Executar o aplicativo localmente
-Clique com o botão direito do mouse no ícone do Visual Studio no Menu Iniciar e escolha **Executar como administrador**. Para anexar o depurador aos serviços, você precisa executar o Visual Studio como administrador.
+## <a name="run-hello-application-locally"></a>Executar o aplicativo hello localmente
+Clique o ícone do Visual Studio Olá no Menu Iniciar do hello e escolha **executar como administrador**. Em ordem tooattach Olá depurador tooyour os serviços, você precisa toorun Visual Studio como administrador.
 
-Abra a solução **Voting.sln** do Visual Studio no repositório clonado.
+Olá abrir **Voting.sln** solução do Visual Studio do repositório de saudação você clonado.
 
-Para implantar o aplicativo, pressione **F5**.
+aplicativo de hello toodeploy, pressione **F5**.
 
 > [!NOTE]
-> Na primeira vez que você executar e implantar o aplicativo, o Visual Studio cria um cluster local para depuração. Essa operação pode levar algum tempo. O status de criação do cluster é exibido na janela de saída do Visual Studio.
+> Olá a primeira vez que você executar e implanta o aplicativo hello, o Visual Studio cria um cluster local para depuração. Essa operação pode levar algum tempo. status de criação de cluster Olá é exibido na janela de saída do Visual Studio hello.
 
-Quando a implantação for concluída, inicie um navegador e abra esta página: `http://localhost:8080` – o front-end da Web do aplicativo.
+Quando a saudação implantação estiver concluída, iniciar um navegador e abrir essa página: `http://localhost:8080` -Olá web front-end do aplicativo hello.
 
 ![Front-end do aplicativo](./media/service-fabric-quickstart-dotnet/application-screenshot-new.png)
 
-Agora, você pode adicionar um conjunto de opções de votação e começar a votar. O aplicativo é executado e armazena todos os dados no cluster do Service Fabric, sem a necessidade de um banco de dados separado.
+Agora, você pode adicionar um conjunto de opções de votação e começar a votar. aplicativo Hello executa e armazena todos os dados no cluster do Service Fabric, sem necessidade de saudação de um banco de dados separado.
 
-## <a name="walk-through-the-voting-sample-application"></a>Percorrer o aplicativo de exemplo de votação
-O aplicativo de votação consiste em dois serviços:
-- Serviço de front-end da Web (VotingWeb) – um serviço de front-end da Web do ASP.NET Core, que fornece a página da Web e expõe APIs Web para se comunicar com o serviço de back-end.
-- Serviço de back-end (VotingData) – um serviço Web do ASP.NET Core, que expõe uma API para armazenar os resultados da votação em um dicionário confiável persistido em disco.
+## <a name="walk-through-hello-voting-sample-application"></a>Percorrer Olá votação de aplicativo de exemplo
+Olá votação aplicativo consiste em dois serviços:
+- (VotingWeb) de serviço front-end da Web – ASP.NET Core um serviço front-end, que serve a página da web de saudação e expõe web toocommunicate APIs com serviço de back-end de saudação.
+- Serviço de back-end (VotingData)-um núcleo de ASP.NET web service, que expõe um voto de saudação do API toostore resulta em um dicionário confiável persistidos no disco.
 
 ![Diagrama de aplicativo](./media/service-fabric-quickstart-dotnet/application-diagram.png)
 
-Quando você vota no aplicativo, os seguintes eventos ocorrem:
-1. Um JavaScript envia a solicitação de votação para a API Web no serviço de front-end da Web como uma solicitação HTTP PUT.
+Quando você vota em Olá Olá do aplicativo a seguir podem ocorrer eventos:
+1. Um JavaScript envia Olá voto solicitação toohello API da web no serviço de front-end de web hello como uma solicitação HTTP PUT.
 
-2. O serviço de front-end da Web usa um proxy para localizar e encaminhar uma solicitação HTTP PUT para o serviço de back-end.
+2. serviço de front-end de web Hello usa um proxy toolocate e encaminhar a um serviço de back-end de toohello de solicitação HTTP PUT.
 
-3. O serviço de back-end recebe a solicitação de entrada e armazena o resultado atualizado em um dicionário confiável, que é replicado em vários nós no cluster e persistido em disco. Todos os dados do aplicativo são armazenados no cluster e, portanto, nenhum banco de dados é necessário.
+3. serviço de back-end Olá leva a solicitação de entrada hello e repositórios Olá atualizado resultam em um dicionário confiável, que obtém toomultiple replicado nós no cluster hello e mantidos em disco. Dados do aplicativo hello todos os são armazenados no cluster hello, portanto, nenhum banco de dados é necessária.
 
 ## <a name="debug-in-visual-studio"></a>Depuração no Visual Studio
-Ao depurar o aplicativo no Visual Studio, você usa um cluster de desenvolvimento local do Service Fabric. Você tem a opção de ajustar sua experiência de depuração para seu cenário. Neste aplicativo, armazenamos dados em nosso serviço de back-end, usando um dicionário confiável. O Visual Studio remove o aplicativo por padrão quando você interrompe o depurador. A remoção do aplicativo faz com que os dados no serviço de back-end também sejam removidos. Para persistir os dados entre as sessões de depuração, altere o **Modo de Depuração de Aplicativo** como uma propriedade no projeto **Votação** do Visual Studio.
+Ao depurar o aplicativo no Visual Studio, você usa um cluster de desenvolvimento local do Service Fabric. Você tem Olá opção tooadjust seu cenário de tooyour experiência de depuração. Neste aplicativo, armazenamos dados em nosso serviço de back-end, usando um dicionário confiável. Visual Studio remove o aplicativo hello por padrão quando você interrompe o depurador hello. Remover o aplicativo hello faz com que dados Olá Olá back-end tooalso serviço ser removido. dados de saudação toopersist entre as sessões de depuração, você pode alterar Olá **o modo de depuração de aplicativo** como uma propriedade no hello **votação** projeto no Visual Studio.
 
-Para ver o que acontece no código, conclua as seguintes etapas:
-1. Abra o arquivo **VotesController.cs** e defina um ponto de interrupção no método **Put** da API Web (linha 47). Pesquise o arquivo no Gerenciador de Soluções no Visual Studio.
+toolook o que acontece no código hello, Olá concluir as etapas a seguir:
+1. Olá abrir **VotesController.cs** arquivo e defina um ponto de interrupção da API da web hello **colocar** método (linha 47 -), você pode procurar arquivo Olá Olá Gerenciador de soluções do Visual Studio.
 
-2. Abra o arquivo **VoteDataController.cs** e defina um ponto de interrupção no método **Put** dessa API Web (linha 50).
+2. Olá abrir **VoteDataController.cs** arquivo e defina um ponto de interrupção na API de web **colocar** método (linha 50).
 
-3. Volte para o navegador e clique em uma opção de votação ou adicione uma nova opção de votação. Você chegou ao primeiro ponto de interrupção no controlador de API do front-end da Web.
-    - Esse é o local em que o JavaScript no navegador envia uma solicitação para o controlador da API Web no serviço de front-end.
+3. Voltar toohello navegador e clique em uma opção de votação ou adicionar uma nova opção de votação. Você atingiu o primeiro ponto de interrupção de saudação no controlador de api do Olá web front-end.
+    - Isso é onde Olá JavaScript no navegador Olá envia um controlador de API da web solicitação toohello no serviço de front-end de saudação.
     
     ![Adicionar Serviço de Front-end de Voto](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-    - Primeiro, construímos a URL para o ReverseProxy para nosso serviço de back-end **(1)**.
-    - Então, podemos enviar a Solicitação PUT HTTP para o ReverseProxy **(2)**.
-    - Por fim, retornamos a resposta do serviço de back-end para o cliente **(3)**.
+    - Primeiro, construímos Olá URL toohello ReverseProxy para nosso serviço de back-end **(1)**.
+    - Em seguida, podemos enviar Olá HTTP PUT solicitação toohello ReverseProxy **(2)**.
+    - Finalmente hello retornamos resposta de saudação do cliente do hello serviço back-end toohello **(3)**.
 
-4. Pressione **F5** para continuar
-    - Agora você está no ponto de interrupção no serviço de back-end.
+4. Pressione **F5** toocontinue
+    - Agora você está no ponto de interrupção Olá no serviço de back-end de saudação.
     
     ![Adicionar Serviço de Back-End de Voto](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-    - Na primeira linha do método **(1)**, estamos usando o `StateManager` para obter ou adicionar um dicionário confiável chamado `counts`.
+    - Na primeira linha hello no método hello **(1)** estamos usando Olá `StateManager` tooget ou adicionar um dicionário confiável chamado `counts`.
     - Todas as interações com valores em um dicionário confiável exigem uma transação e, portanto, o uso da instrução **(2)** cria essa transação.
-    - Na transação, depois, atualizamos o valor da chave relevante para a opção de votação e confirmamos a operação **(3)**. Depois que o método de confirmação for retornado, os dados serão atualizados no dicionário e replicados em outros nós no cluster. Os dados agora estão armazenados com segurança no cluster e o serviço de back-end pode fazer failover para outros nós, ainda tendo os dados disponíveis.
-5. Pressione **F5** para continuar
+    - Transação Olá, é, em seguida, atualizar o valor de saudação de chave relevantes Olá Olá votar na opção e confirmações Olá operação **(3)**. Depois de confirmar Olá método retorna, Olá dados são atualizados no dicionário hello e replicados tooother nós no cluster de saudação. dados de saudação agora são armazenados com segurança no cluster hello e serviço de back-end de saudação pode falhar em nós de tooother, ainda com dados de saudação disponíveis.
+5. Pressione **F5** toocontinue
 
-Para interromper a sessão de depuração, pressione **Shift + F5**.
+Olá toostop depuração sessão, pressione **Shift + F5**.
 
-## <a name="deploy-the-application-to-azure"></a>Implantar o aplicativo no Azure
-Para implantar o aplicativo em um cluster do Azure, você pode optar por criar seu próprio cluster ou usar um Cluster de Entidade.
+## <a name="deploy-hello-application-tooazure"></a>Implantar Olá aplicativo tooAzure
+cluster de tooa toodeploy Olá aplicativo no Azure, você pode escolher toocreate seu próprio cluster ou use um Cluster de terceiros.
 
-Os clusters de entidade são clusters gratuitos de duração limitada do Service Fabric, hospedados no Azure e executados pela equipe do Service Fabric, nos quais qualquer pessoa pode implantar aplicativos e aprender mais sobre a plataforma. Para obter acesso a um Cluster de Terceiros, [siga as instruções](http://aka.ms/tryservicefabric). 
+Clusters de terceiros são livres, tempo limitado clusters de malha do serviço hospedado no Azure e executar pela equipe do Service Fabric Olá em que qualquer pessoa pode implantar aplicativos e saiba mais sobre a plataforma de saudação. acesso de tooget tooa de Cluster, [siga instruções Olá](http://aka.ms/tryservicefabric). 
 
 Para obter informações sobre como criar seu próprio cluster, consulte [Criar seu primeiro cluster do Service Fabric no Azure](service-fabric-get-started-azure-cluster.md).
 
 > [!Note]
-> O serviço de front-end da Web está configurado para escutar o tráfego de entrada na porta 8080. Verifique se a porta está aberta no cluster. Se você estiver usando o Cluster de Entidade, essa porta estará aberta.
+> serviço de front-end de web de saudação é toolisten configurado na porta 8080 para tráfego de entrada. Verifique se a porta está aberta no cluster. Se você estiver usando Olá Cluster de terceiros, essa porta está aberta.
 >
 
-### <a name="deploy-the-application-using-visual-studio"></a>Implantar o aplicativo usando o Visual Studio
-Agora que o aplicativo está pronto, você poderá implantá-lo no cluster diretamente por meio do Visual Studio.
+### <a name="deploy-hello-application-using-visual-studio"></a>Implantar o aplicativo hello usando o Visual Studio
+Agora que o aplicativo hello estiver pronto, você pode implantar tooa cluster diretamente do Visual Studio.
 
-1. Clique com o botão direito do mouse em **Votação** no Gerenciador de Soluções e escolha **Publicar**. A caixa de diálogo Publicar será exibida.
+1. Clique com botão direito **votação** em Olá Gerenciador de soluções e escolha **publicar**. caixa de diálogo de publicação de saudação é exibida.
 
     ![Caixa de diálogo Publicar](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. Digite o Ponto de Extremidade de Conexão do cluster no campo **Ponto de Extremidade de Conexão** e clique em **Publicar**. Ao se inscrever no Cluster de Entidade, o Ponto de Extremidade de Conexão será fornecido no navegador. – por exemplo, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+2. Digite hello ponto de extremidade de Conexão de cluster Olá Olá **ponto de extremidade de Conexão** campo e clique em **publicar**. Ao se inscrever para Olá Cluster de terceiros, Olá ponto de extremidade de Conexão é fornecida no navegador de saudação. – por exemplo, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
 
-3. Abra um navegador e digite o endereço do cluster – por exemplo, `http://winh1x87d1d.westus.cloudapp.azure.com`. Agora, você deverá ver o aplicativo em execução no cluster no Azure.
+3. Abra um navegador e digite no endereço de cluster Olá - por exemplo, `http://winh1x87d1d.westus.cloudapp.azure.com`. Agora você verá o aplicativo hello em execução no cluster Olá no Azure.
 
 ![Front-end do aplicativo](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Dimensionar aplicativos e serviços em um cluster
-Os serviços do Service Fabric podem ser facilmente dimensionados em um cluster para acomodar uma alteração na carga dos serviços. Dimensione um serviço alterando o número de instâncias em execução no cluster. Você tem vários modos de dimensionar seus serviços usando scripts ou comandos do PowerShell ou a CLI do Service Fabric (sfctl). Neste exemplo, estamos usando o Service Fabric Explorer.
+Serviços de malha do serviço podem ser facilmente dimensionados em tooaccommodate um cluster de uma alteração na carga Olá nos serviços de saudação. Dimensionar um serviço alterando Olá número de instâncias em execução no cluster de saudação. Você tem vários modos de dimensionar seus serviços usando scripts ou comandos do PowerShell ou a CLI do Service Fabric (sfctl). Neste exemplo, estamos usando o Service Fabric Explorer.
 
-O Service Fabric Explorer é executado em todos os clusters do Service Fabric e pode ser acessado em um navegador, navegando para a porta de gerenciamento HTTP dos de clusters (19080), por exemplo, `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
+Gerenciador do Service Fabric é executado em todos os clusters de malha do serviço e pode ser acessada em um navegador, navegando porta de gerenciamento de clusters HTTP toohello (19080), por exemplo, `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
 
-Para dimensionar o serviço de front-end da Web, realize as seguintes etapas:
+Olá tooscale serviço front-end da web, Olá seguintes etapas:
 
 1. Abra o Service Fabric Explorer no cluster – por exemplo, `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
-2. Clique nas reticências (três pontos) ao lado do nó **fabric:/Voting/VotingWeb** no modo de exibição de árvore e escolha **Dimensionar Serviço**.
+2. Clique em Olá reticências (três pontos) próximo toohello **malha: / votação/VotingWeb** nó no hello treeview e escolha **serviço escala**.
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
 
-    Agora, você pode optar por dimensionar o número de instâncias do serviço de front-end da Web.
+    Agora você pode escolher o número de saudação tooscale de instâncias do serviço de front-end de web hello.
 
-3. Altere o número para **2** e clique em **Dimensionar Serviço**.
-4. Clique no nó **fabric:/Voting/VotingWeb** do modo de exibição de árvore e expanda o nó de partição (representado por um GUID).
+3. Alterar o número de saudação muito**2** e clique em **serviço escala**.
+4. Clique em Olá **fabric: / votação/VotingWeb** nó no Olá a exibição de árvore e expanda o nó da partição hello (representado por um GUID).
 
     ![Dimensionar Serviço do Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scaled-service.png)
 
-    Agora, você pode ver que o serviço tem duas instâncias e no modo de exibição de árvore, você vê em quais nós as instâncias são executadas.
+    Agora você pode ver que o serviço Olá tem duas instâncias e na exibição de árvore de saudação você ver quais nós Olá instâncias executadas em.
 
-Com essa tarefa de gerenciamento simples, dobramos o número de recursos disponíveis para nosso serviço de front-end para processar a carga do usuário. É importante entender que você não precisa de várias instâncias de um serviço para que ele seja executado de forma confiável. Se um serviço falhar, o Service Fabric garantirá que uma nova instância de serviço seja executada no cluster.
+Por esta tarefa de gerenciamento simples, nós o dobro recursos de saudação disponíveis para nossa carga de usuário do serviço front-end tooprocess. É importante toounderstand que você não precisa de várias instâncias de um toohave serviço executados de modo confiável. Se um serviço falhar, o Service Fabric certifica-se de que uma nova instância de serviço é executado no cluster hello.
 
 ## <a name="perform-a-rolling-application-upgrade"></a>Executar um upgrade sem interrupção do aplicativo
-Ao implantar novas atualizações no aplicativo, o Service Fabric distribui a atualização com segurança. As atualizações sem interrupção fornecem tempo de inatividade zero durante a atualização, bem como a reversão automática no caso de erros.
+Ao implantar o novo aplicativo de tooyour atualizações, Service Fabric lança Olá atualização de uma maneira segura. As atualizações sem interrupção fornecem tempo de inatividade zero durante a atualização, bem como a reversão automática no caso de erros.
 
-Para fazer upgrade do aplicativo, faça o seguinte:
+tooupgrade Olá aplicativo, Olá a seguir:
 
-1. Abra o arquivo **Index.cshtml** no Visual Studio – pesquise o arquivo no Gerenciador de Soluções no Visual Studio.
-2. Altere o cabeçalho da página adicionando um texto – por exemplo.
+1. Olá abrir **cshtml** arquivo no Visual Studio - você pode procurar arquivo Olá Olá Gerenciador de soluções do Visual Studio.
+2. Alterar o título de saudação na página Olá adicionando algum texto - por exemplo.
     ```html
         <div class="col-xs-8 col-xs-offset-2 text-center">
             <h2>Service Fabric Voting Sample v2</h2>
         </div>
     ```
-3. Salve o arquivo.
-4. Clique com o botão direito do mouse em **Votação** no Gerenciador de Soluções e escolha **Publicar**. A caixa de diálogo Publicar será exibida.
-5. Clique no botão **Versão do Manifesto** para alterar a versão do serviço e do aplicativo.
-6. Altere a versão do elemento **Código** sob **VotingWebPkg** para “2.0.0”, por exemplo, e clique em **Salvar**.
+3. Salve o arquivo hello.
+4. Clique com botão direito **votação** em Olá Gerenciador de soluções e escolha **publicar**. caixa de diálogo de publicação de saudação é exibida.
+5. Clique em Olá **versão manifesto** botão toochange Olá versão Olá serviço e aplicativo.
+6. Alterar a versão de saudação do hello **código** elemento sob **VotingWebPkg** muito "2.0.0", por exemplo e clique em **salvar**.
 
     ![Caixa de diálogo Alterar Versão](./media/service-fabric-quickstart-dotnet/change-version.png)
-7. Na caixa de diálogo **Publicar Aplicativo do Service Fabric**, marque a caixa de seleção Fazer Upgrade do Aplicativo e clique em **Publicar**.
+7. Em Olá **publicar aplicativo do Service Fabric** caixa de diálogo, caixa de seleção seleção Olá Olá atualização aplicativo e clique em **publicar**.
 
     ![Configuração de Upgrade da caixa de diálogo Publicar](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
-8. Abra o navegador e navegue para o endereço do cluster na porta 19080 – por exemplo, `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
-9. Clique no nó **Aplicativos** do modo de exibição de árvore e, em seguida, em **Upgrades em Andamento** no painel à direita. Você verá como o upgrade é distribuído pelos domínios de upgrade no cluster, garantindo que cada domínio está íntegro antes de continuar com o próximo.
+8. Abra seu navegador e procurar o endereço de cluster toohello na porta 19080 - por exemplo, `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
+9. Clique em Olá **aplicativos** nó no modo de exibição de árvore Olá e, em seguida, **atualizações em andamento** no painel direito da saudação. Você verá como a atualização de saudação acumula através de domínios de atualização de saudação em seu cluster, certificando-se de que cada domínio está íntegro antes de continuar toohello lado.
     ![Modo de Exibição de Upgrade no Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
-    O Service Fabric faz upgrades com segurança, aguardando dois minutos após o upgrade do serviço em cada nó no cluster. Espere que toda a atualização leve aproximadamente oito minutos.
+    Service Fabric faz atualizações seguro esperando dois minutos após a atualização de serviço de saudação em cada nó no cluster hello. Espere Olá toda atualização tootake aproximadamente oito minutos.
 
-10. Enquanto o upgrade está em execução, você ainda poderá usar o aplicativo. Como você tem duas instâncias do serviço em execução no cluster, algumas das solicitações poderão obter uma versão atualizada do aplicativo, enquanto outras ainda poderão obter a versão antiga.
+10. Durante a execução de atualização hello, você ainda pode usar o aplicativo hello. Porque você tem duas instâncias do serviço de saudação em execução no cluster hello, algumas das suas solicitações podem obter uma versão atualizada do aplicativo hello, enquanto outros usuários ainda poderão obter a versão antiga do hello.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste guia de início rápido, você aprendeu a:
@@ -196,10 +196,10 @@ Neste guia de início rápido, você aprendeu a:
 > * Usar o ASP.NET Core como um front-end da Web
 > * Armazenar dados de aplicativo em um serviço com estado
 > * Depurar o aplicativo localmente
-> * Implantar o aplicativo em um cluster no Azure
-> * Expandir o aplicativo para vários nós
+> * Implantar Olá aplicativo tooa cluster no Azure
+> * Aplicativo de expansão Olá em vários nós
 > * Executar um upgrade sem interrupção do aplicativo
 
-Para saber mais sobre o Service Fabric e o .NET, confira este tutorial:
+toolearn mais sobre o serviço de malha e .NET, examine este tutorial:
 > [!div class="nextstepaction"]
 > [Aplicativo .NET no Service Fabric](service-fabric-tutorial-create-dotnet-app.md)

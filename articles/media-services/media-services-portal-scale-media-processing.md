@@ -1,6 +1,6 @@
 ---
-title: "Dimensionar o processamento de mídia usando o portal do Azure | Microsoft Docs"
-description: "Este tutorial orienta você pelas etapas do dimensionamento do processamento de mídia usando o portal do Azure."
+title: "mídia aaaScale processamento usando Olá portal do Azure | Microsoft Docs"
+description: "Este tutorial orienta você pelas etapas de saudação de dimensionamento mídia processamento usando Olá portal do Azure."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
-ms.openlocfilehash: 46ca29d3e66701f2abcb185791089e94761984e8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 89240c6f7579b8795e7b47f2b1c398b1d5477e20
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="change-the-reserved-unit-type"></a>Alterar o tipo de unidade reservada
+# <a name="change-hello-reserved-unit-type"></a>Alterar tipo de unidade de saudação reservado
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [Portal](media-services-portal-scale-media-processing.md)
@@ -32,32 +32,32 @@ ms.lasthandoff: 08/29/2017
 
 ## <a name="overview"></a>Visão geral
 
-Uma conta dos Serviços de Mídia está associada a um Tipo de Unidade Reservada que determina a velocidade com que as suas tarefas de processamento de mídia são processadas. Você pode escolher entre os seguintes tipos de unidade reservada: **S1**, **S2** ou **S3**. Por exemplo, o mesmo trabalho de codificação é executado mais rapidamente quando você usa o tipo de unidade reservada **S2** em comparação ao tipo **S1**.
+Uma conta de serviços de mídia está associada um tipo de unidade reservada, que determina a velocidade de saudação com a qual a mídia de processamento de tarefas é processada. Você pode escolher entre os seguintes Olá reservado tipos de unidade: **S1**, **S2**, ou **S3**. Por exemplo, Olá mesmo trabalho de codificação é executada mais rapidamente ao usar o hello **S2** tipo de unidade reservada comparar toohello **S1** tipo.
 
-Além de especificar o tipo de unidade reservada, você pode especificar o provisionamento de sua conta com as **URs** (Unidades Reservadas). O número de URs provisionadas determina o número de tarefas de mídia que podem ser processadas simultaneamente em determinada conta.
+Além disso, toospecifying Olá reservado tipo de unidade, você pode especificar tooprovision sua conta com **unidades reservadas** (RUs). número de saudação de RUs provisionados determina o número de saudação de tarefas de mídia que podem ser processadas simultaneamente em uma conta.
 
 >[!NOTE]
 >As URs trabalham para paralelizar todo o processamento de mídia, incluindo os trabalhos de indexação, usando o Azure Media Indexer. No entanto, ao contrário da codificação, a indexação de trabalhos não será processada mais rapidamente com unidades reservadas mais rápidas.
 
 > [!IMPORTANT]
-> Lembre-se de examinar o tópico [Visão geral](media-services-scale-media-processing-overview.md) para obter mais informações sobre o tópico de dimensionamento de processamento de mídia.
+> Verifique se Olá de tooreview [visão geral](media-services-scale-media-processing-overview.md) tooget tópico para obter mais informações sobre como dimensionar um tópico de processamento de mídia.
 > 
 > 
 
 ## <a name="scale-media-processing"></a>Processamento de mídia de escala
-Para alterar o tipo de unidade reservada e o número de unidades reservadas, faça o seguinte:
+toochange Olá reservado hello e tipo de número de unidade de unidades reservadas, Olá a seguir:
 
-1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
-2. Na janela **Configurações**, selecione **Unidades reservadas de mídia**.
+1. Em Olá [portal do Azure](https://portal.azure.com/), selecione sua conta de serviços de mídia do Azure.
+2. Em Olá **configurações** janela, selecione **unidades reservadas para mídia**.
    
-    Para alterar o número de unidades reservadas para o tipo de unidade reservada selecionado, use o controle deslizante **Unidades Reservadas de Mídia** .
+    número de saudação do toochange de unidades reservadas para Olá selecionou o tipo de unidade reservada, use Olá **mídia servido unidades** controle deslizante.
    
-    Para alterar o **TIPO DE UNIDADE RESERVADA**, pressione S1, S2 ou S3.
+    Olá toochange **o tipo de unidade RESERVADA**, pressione S1, S2 ou S3.
    
     ![Página processadores](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
-3. Pressione o botão SALVAR para salvar as alterações.
+3. Olá Pressione Salvar botão toosave suas alterações.
    
-    As novas unidades reservadas são alocadas quando você pressiona SALVAR.
+    novas unidades reservadas de saudação são alocadas quando você pressiona Salvar.
 
 ## <a name="next-steps"></a>Próximas etapas
 Examine os roteiros de aprendizagem dos Serviços de Mídia.

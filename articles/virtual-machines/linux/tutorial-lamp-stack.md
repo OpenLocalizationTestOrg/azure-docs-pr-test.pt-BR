@@ -1,6 +1,6 @@
 ---
-title: "Implantar LAMP em uma máquina virtual do Linux no Azure | Microsoft Docs"
-description: "Tutorial – instalar a pilha LAMP em uma VM do Linux no Azure"
+title: "aaaDeploy LÂMPADA em uma máquina virtual do Linux no Azure | Microsoft Docs"
+description: "Tutorial - pilha de LÂMPADA Olá instalar em uma VM do Linux no Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
@@ -15,34 +15,34 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: danlep
-ms.openlocfilehash: 9148ac9646e4e1cfeff8f20c096e390499437e78
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a3d0ecb3277f15bd0a2fdc0d85b738a760e68865
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="install-a-lamp-web-server-on-an-azure-vm"></a>Instalar um servidor Web LAMP em uma VM do Azure
-Este artigo explica como implantar um servidor Web Apache, MySQL e PHP (a pilha LAMP) em uma VM do Ubuntu no Azure. Se você prefere o servidor Web NGINX, consulte o tutorial da [Pilha LEMP](tutorial-lemp-stack.md). Para ver o servidor LAMP em ação, opcionalmente, você pode instalar e configurar um site de WordPress. Neste tutorial, você aprenderá a:
+Este artigo o orienta como toodeploy um Apache web server, MySQL e PHP (pilha de LÂMPADA Olá) em uma VM Ubuntu no Azure. Se preferir que o servidor de web NGINX hello, consulte Olá [pilha LEMP](tutorial-lemp-stack.md) tutorial. servidor de LÂMPADA Olá toosee em ação, opcionalmente, você pode instalar e configurar um site de WordPress. Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
-> * Criar uma VM Ubuntu (o "L" na pilha de LAMP)
+> * Criar uma VM Ubuntu (Olá 'L' na pilha de LÂMPADA Olá)
 > * Abra a porta 80 para tráfego da Web
 > * Instalar Apache, MySQL e PHP
 > * Verificar a instalação e a configuração
-> * Instalar o WordPress no servidor LAMP
+> * Instalar o WordPress no servidor de LÂMPADA Olá
 
 
-Para saber mais sobre a pilha LAMP, incluindo recomendações para um ambiente de produção, consulte a [Documentação do Ubuntu](https://help.ubuntu.com/community/ApacheMySQLPHP).
+Para obter mais informações sobre a pilha de LÂMPADA hello, incluindo recomendações para um ambiente de produção, consulte Olá [Ubuntu documentação](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se você escolher tooinstall e usa o hello CLI localmente, este tutorial requer que você está executando a versão de CLI do Azure Olá 2.0.4 ou posterior. Executar `az --version` toofind versão de saudação. Se você precisar tooinstall ou atualização, consulte [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 
 ## <a name="install-apache-mysql-and-php"></a>Instalar Apache, MySQL e PHP
 
-Execute o seguinte comando para atualizar as fontes de pacote do Ubuntu e instalar o Apache, o MySQL e o PHP. Observe o acento circunflexo (^) no final do comando.
+Execute Olá comando tooupdate Ubuntu pacote origens a seguir e instalar o PHP, MySQL e Apache. Observe o circunflexo (^) do hello no final de saudação do comando hello.
 
 
 ```bash
@@ -51,7 +51,7 @@ sudo apt update && sudo apt install lamp-server^
 
 
 
-Você será solicitado a instalar os pacotes e outras dependências. Quando solicitado, defina uma senha raiz para o MySQL e, em seguida, pressione [Enter] para continuar. Avance pelas solicitações restantes. Esse processo instala as extensões PHP mínimas obrigatórias e necessárias para usar o PHP com o MySQL. 
+Você está tooinstall solicitadas Olá pacotes e outras dependências. Quando solicitado, defina uma senha de raiz para o MySQL e toocontinue [Enter]. Siga Olá restantes prompts. Esse processo instala Olá mínimo necessário PHP extensões necessário toouse PHP com o MySQL. 
 
 ![Página de senha raiz do MySQL][1]
 
@@ -60,55 +60,55 @@ Você será solicitado a instalar os pacotes e outras dependências. Quando soli
 
 ### <a name="apache"></a>Apache
 
-Verifique a versão do Apache com o seguinte comando:
+Verifique a versão de saudação do Apache com hello comando a seguir:
 ```bash
 apache2 -v
 ```
 
-Com o Apache instalado e a porta 80 aberta para a sua VM, o servidor Web agora pode ser acessado por meio da Internet. Para exibir a página padrão do Apache2 Ubuntu, abra um navegador da Web e digite o endereço IP público da VM. Insira o endereço IP público que você usou para o SSH para a VM:
+Com o Apache instalado e a porta 80 abra tooyour VM, servidor de web hello agora pode ser acessado de saudação à internet. Olá tooview do Apache2 Ubuntu padrão página, abra um navegador da web e digite o endereço IP público de saudação do hello VM. Use o endereço IP público Olá usado tooSSH toohello VM:
 
 ![Página padrão do Apache][3]
 
 
 ### <a name="mysql"></a>MySQL
 
-Verifique a versão do MySQL com o seguinte comando (observe o parâmetro `V` em letra maiúscula):
+Verificar a versão de saudação do MySQL com o comando a seguir de saudação (Observe maiuscula Olá `V` parâmetro):
 
 ```bash
 msql -V
 ```
 
-É recomendável executar o seguinte script para ajudar a proteger a instalação do MySQL:
+É recomendável executar Olá após a instalação do script toohelp Olá segura do MySQL:
 
 ```bash
 mysql_secure_installation
 ```
 
-Digite a senha raiz do MySQL e defina as configurações de segurança do seu ambiente.
+Digite sua senha de raiz de MySQL e definir configurações de segurança Olá para o seu ambiente.
 
-Se você deseja criar um banco de dados MySQL, adicionar usuários ou alterar definições de configuração, faça logon no MySQL:
+Se você quiser toocreate um banco de dados MySQL, adicionar usuários ou alterar definições de configuração, tooMySQL de logon:
 
 ```bash
 mysql -u root -p
 ```
 
-Quando terminar, saia do prompt do MySQL digitando `\q`.
+Quando terminar, saia Olá mysql prompt digitando `\q`.
 
 ### <a name="php"></a>PHP
 
-Verifique a versão do PHP com o seguinte comando:
+Verifique a versão de saudação do PHP com hello comando a seguir:
 
 ```bash
 php -v
 ```
 
-Se você deseja realizar mais testes, crie uma página de informações rápida de PHP para exibição em um navegador. O comando a seguir cria a página de informações de PHP:
+Se você quiser mais tootest, crie um tooview de página de informações rápida do PHP em um navegador. Olá comando a seguir cria uma página de informações do PHP hello:
 
 ```bash
 sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 ```
 
-Agora você pode verificar a página de informações de PHP que você criou. Abra um navegador e acesse `http://yourPublicIPAddress/info.php`. Substitua o endereço IP público de sua VM. A página deve ser semelhante a esta imagem.
+Agora você pode verificar a página de informações do PHP Olá criado por você. Abra um navegador e vá muito`http://yourPublicIPAddress/info.php`. Substitua o endereço IP público de saudação da VM. Ela deve ser a imagem toothis semelhante.
 
 ![Página de informações de PHP][2]
 
@@ -124,9 +124,9 @@ Neste tutorial, você implantou um servidor LAMP no Azure. Você aprendeu como:
 > * Abra a porta 80 para tráfego da Web
 > * Instalar Apache, MySQL e PHP
 > * Verificar a instalação e a configuração
-> * Instalar o WordPress no servidor LAMP
+> * Instalar o WordPress no servidor de LÂMPADA Olá
 
-Vá para o próximo tutorial para saber como proteger servidores Web com certificados SSL.
+Avançar toohello toolearn de tutorial Avançar como servidores de web toosecure com certificados SSL.
 
 > [!div class="nextstepaction"]
 > [Proteger servidor Web com SSL](tutorial-secure-web-server.md)

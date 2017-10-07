@@ -1,6 +1,6 @@
 ---
-title: "Recomendações de segurança do Azure Advisor | Microsoft Docs"
-description: "Use o Azure Advisor para melhorar a segurança das implantações do Azure."
+title: "aaaAzure recomendações do Orientador de segurança | Microsoft Docs"
+description: "Use o Supervisor do Azure toohelp melhorar a segurança de saudação das implantações do Azure."
 services: advisor
 documentationcenter: NA
 author: kumudd
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 53be05593c3733ccb27979a3a026414013125779
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e01ac29eb6e02bff0b1e846e320e7c36f85c7343
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="advisor-security-recommendations"></a>Recomendações de segurança do Advisor
 
-O Assistente do Azure fornece uma exibição consistente e consolidada de recomendações para todos os recursos do Azure. Ele se integra à Central de Segurança do Azure para fornecer recomendações de segurança. Você pode obter recomendações de segurança na guia **Segurança** do painel do Assistente.
+O Assistente do Azure fornece uma exibição consistente e consolidada de recomendações para todos os recursos do Azure. Ele se integra ao centro de segurança do Azure toobring você recomendações de segurança. Você pode obter as recomendações de segurança da saudação **segurança** guia no painel de Supervisor hello.
 
-![O botão Segurança do Assistente](./media/advisor-security-recommendations/advisor-security-tab.png)
+![botão de segurança do Advisor Olá](./media/advisor-security-recommendations/advisor-security-tab.png)
 
-A Central de Segurança ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure. Ela analisa periodicamente o estado de segurança de seus recursos do Azure. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, cria recomendações. As recomendações o orientam pelo processo de configuração dos controles necessários. 
+Central de segurança ajuda a evitar, detectar e reagir toothreats com maior visibilidade e controle sobre a segurança de saudação de seus recursos do Azure. Ele analisa periodicamente o estado de segurança Olá seus recursos do Azure. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, cria recomendações. recomendações de saudação orientará você durante processo de saudação do configurando controles de saudação que é necessário. 
 
-![A guia Segurança do Assistente](./media/advisor-security-recommendations/advisor-security-recommendations.png)
+![Guia de segurança do Supervisor de saudação](./media/advisor-security-recommendations/advisor-security-recommendations.png)
 
 Para obter mais informações sobre as recomendações de segurança, consulte [Gerenciando recomendações de segurança na Central de Segurança do Azure](https://azure.microsoft.com/en-us/documentation/articles/security-center-recommendations/).
 
-## <a name="how-to-access-security-recommendations-in-azure-advisor"></a>Como acessar as recomendações de Segurança no Assistente do Azure
+## <a name="how-tooaccess-security-recommendations-in-azure-advisor"></a>Como tooaccess recomendações de segurança do Azure Advisor
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entrar toohello [portal do Azure](https://portal.azure.com).
 
-2. No painel esquerdo, clique em **Mais serviços**.
+2. No painel esquerdo do hello, clique em **mais serviços**.
 
-3. No painel do menu de serviço, em **Monitoramento e Gerenciamento**, clique em **Assistente do Azure**.  
- O painel Assistente é exibido.
+3. Em Olá serviço painel de menu em **monitoramento e gerenciamento**, clique em **Advisor Azure**.  
+ Olá Advisor painel é exibido.
 
-4. No painel do Assistente, clique na guia **Segurança**.
+4. No painel do Advisor hello, clique em Olá **segurança** guia.
 
-5. Selecione a assinatura para a qual você deseja receber recomendações e, em seguida, clique em **Obter recomendações**.
+5. Selecione a assinatura Olá para o qual você deseja tooreceive recomendações e, em seguida, clique em **obter recomendações**.
 
 > [!NOTE]
-> Para acessar as recomendações do Assistente, você deve primeiro *registrar sua assinatura* no Assistente. Uma assinatura é registrada quando um *Proprietário de assinatura* inicia o painel do Assistente e clica no botão **Obter recomendações**. Essa é uma *operação única*. Depois que a assinatura for registrada, você poderá acessar as recomendações do Assistente como *Proprietário*, *Colaborador* ou *Leitor* de uma assinatura, um grupo de recursos ou um recurso específico.
+> tooaccess as recomendações do Advisor, você deve primeiro *registrar sua assinatura* com o Supervisor. Uma assinatura é registrada quando um *assinatura proprietário* inicia Olá Olá de painel de controle e clica Advisor **obter recomendações** botão. Essa é uma *operação única*. Depois de Olá assinatura está registrada, você pode acessar as recomendações do Advisor como *proprietário*, *Colaborador*, ou *leitor* para uma assinatura de um grupo de recursos, ou um recurso específico.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre as recomendações do Assistente, consulte:
-* [Introdução ao Advisor](advisor-overview.md)
+toolearn mais informações sobre recomendações do Advisor, consulte:
+* [Introdução tooAdvisor](advisor-overview.md)
 * [Introdução ao Advisor](advisor-get-started.md)
 * [Recomendações de custo do Advisor](advisor-performance-recommendations.md)
 * [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)

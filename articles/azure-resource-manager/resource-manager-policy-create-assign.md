@@ -1,6 +1,6 @@
 ---
-title: "Atribuir e gerenciar políticas de recursos do Azure | Microsoft Docs"
-description: "Descreve como aplicar as políticas de recursos do Azure a assinaturas e grupos de recursos e como exibir políticas de recursos."
+title: "aaaAssign e gerenciar políticas de recursos do Azure | Microsoft Docs"
+description: "Descreve como tooapply Azure políticas toosubscriptions e o recurso grupos de recursos e como tooview políticas de recursos."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: b204cffa8fab0ad27a9f78a81c04f0a0225d95f5
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b6999b43bbcc80d2fde9911352fd4352fa453443
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="assign-and-manage-resource-policies"></a>Atribuir e gerenciar políticas de recursos
 
-Para implantar uma política, é necessário executar as seguintes etapas:
+tooimplement uma política, você deve executar estas etapas:
 
-1. Verifique as definições de política (incluindo políticas internas fornecidas pelo Azure) para saber se já existe na sua assinatura que atende aos requisitos.
+1. Verificar política definições (incluindo as políticas internas fornecidas pelo Azure) toosee se já existir em sua assinatura que atenda a seus requisitos.
 2. Se existir, obtenha seu nome.
-3. Se não, defina a regra de política com JSON e adicione-a como uma definição de política em sua assinatura. Essa etapa disponibiliza a política para atribuição, mas não aplica as regras à sua assinatura.
-4. Para qualquer caso, atribua a política a um escopo (como uma assinatura ou grupo de recursos). As regras da política agora são impostas.
+3. Se não existir, definir a regra de política de saudação com JSON e adicioná-lo como uma definição de política na sua assinatura. Essa etapa disponibiliza para atribuição de política hello, mas não se aplica a assinatura de tooyour regras hello.
+4. Para ambos os casos, atribua o escopo de tooa política hello (como um assinatura ou grupo de recursos). regras de saudação da política de saudação agora são impostas.
 
-Este artigo ressalta as etapas para criação de uma definição de política e atribuição dessa definição a um escopo por meio da API REST, do PowerShell ou da CLI do Azure. Se preferir usar o portal para atribuir políticas, consulte [Usar o portal do Azure para atribuir e gerenciar políticas de recurso](resource-manager-policy-portal.md). Este artigo não tem como foco a sintaxe para criação da definição de política. Para obter informações sobre a sintaxe da política, confira [Visão geral da política de recursos](resource-manager-policy.md).
+Este artigo enfoca Olá etapas toocreate uma definição de política e atribuir esse escopo de tooa definição por meio da API REST, o PowerShell ou CLI do Azure. Se você preferir políticas de tooassign portal toouse hello, consulte [tooassign portal do Azure de uso e gerenciar políticas de recursos](resource-manager-policy-portal.md). Este artigo se concentra na sintaxe de Olá para criar a definição de política de saudação. Para obter informações sobre a sintaxe da política, confira [Visão geral da política de recursos](resource-manager-policy.md).
 
 ## <a name="rest-api"></a>API REST
 
 ### <a name="create-policy-definition"></a>Criar definição de política
 
-Você pode criar uma política com a [API REST para Definições de Política](/rest/api/resources/policydefinitions). A API REST permite que você crie e exclua as definições de políticas e obtenha informações sobre as definições existentes.
+Você pode criar uma política com hello [API REST para definições de política](/rest/api/resources/policydefinitions). Olá REST API permite que você toocreate e excluir definições de política e obter informações sobre as definições existentes.
 
-Para criar uma definição de política, execute:
+toocreate uma definição de política, execute:
 
 ```HTTP
 PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 ```
 
-Inclua um corpo de solicitação semelhante ao exemplo a seguir:
+Inclua um toohello semelhante de corpo de solicitação exemplo a seguir:
 
 ```json
 {
@@ -52,14 +52,14 @@ Inclua um corpo de solicitação semelhante ao exemplo a seguir:
       "allowedLocations": {
         "type": "array",
         "metadata": {
-          "description": "The list of locations that can be specified when deploying resources",
+          "description": "hello list of locations that can be specified when deploying resources",
           "strongType": "location",
           "displayName": "Allowed locations"
         }
       }
     },
     "displayName": "Allowed locations",
-    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+    "description": "This policy enables you toorestrict hello locations your organization can specify when deploying resources.",
     "policyRule": {
       "if": {
         "not": {
@@ -77,22 +77,22 @@ Inclua um corpo de solicitação semelhante ao exemplo a seguir:
 
 ### <a name="assign-policy"></a>Atribuir política
 
-Você pode aplicar a definição de política no escopo desejado por meio da [API REST para atribuições de política](/rest/api/resources/policyassignments). A API REST permite que você crie e exclua as atribuições de políticas e obtenha informações sobre as atribuições existentes.
+Você pode aplicar a definição de política de saudação no escopo de saudação desejado por meio de saudação [API REST para atribuições de política](/rest/api/resources/policyassignments). Olá REST API permite que você toocreate e excluir atribuições de política e obter informações sobre atribuições existentes.
 
-Para criar uma atribuição de política, execute:
+toocreate uma atribuição de diretiva, execute:
 
 ```HTTP
 PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 ```
 
-A {Atribuição da política} é o nome da atribuição da política.
+Olá {atribuição de política} é o nome de saudação da atribuição de política de saudação.
 
-Inclua um corpo de solicitação semelhante ao exemplo a seguir:
+Inclua um toohello semelhante de corpo de solicitação exemplo a seguir:
 
 ```json
 {
   "properties":{
-    "displayName":"West US only policy assignment on the subscription ",
+    "displayName":"West US only policy assignment on hello subscription ",
     "description":"Resources can only be provisioned in West US regions",
     "parameters": {
       "allowedLocations": { "value": ["northeurope", "westus"] }
@@ -104,16 +104,16 @@ Inclua um corpo de solicitação semelhante ao exemplo a seguir:
 ```
 
 ### <a name="view-policy"></a>Exibir política
-Para obter uma política, use a operação [Obter definição de política](https://docs.microsoft.com/rest/api/resources/policydefinitions#PolicyDefinitions_Get).
+tooget uma política, use Olá [obter a definição de política](https://docs.microsoft.com/rest/api/resources/policydefinitions#PolicyDefinitions_Get) operação.
 
 ### <a name="get-aliases"></a>Obter aliases
-Você pode recuperar aliases por meio da API REST:
+Você pode recuperar os aliases a saudação API REST:
 
 ```HTTP
 GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
 ```
 
-O exemplo a seguir mostra uma definição de um alias. Como é possível ver, um alias define caminhos em diferentes versões de API, mesmo quando há uma alteração de nome da propriedade. 
+saudação de exemplo a seguir mostra uma definição de um alias. Como é possível ver, um alias define caminhos em diferentes versões de API, mesmo quando há uma alteração de nome da propriedade. 
 
 ```json
 "aliases": [
@@ -140,16 +140,16 @@ O exemplo a seguir mostra uma definição de um alias. Como é possível ver, um
 
 ## <a name="powershell"></a>PowerShell
 
-Antes de continuar com os exemplos do PowerShell, verifique se você tem [instalada a versão mais recente](/powershell/azure/install-azurerm-ps) do PowerShell do Azure. Parâmetros de política foram adicionados na versão 3.6.0. Se você tiver uma versão mais antiga, os exemplos retornam um erro indicando que o parâmetro não pode ser encontrado.
+Antes de prosseguir com exemplos do PowerShell hello, verifique se você tem [instalado a versão mais recente do hello](/powershell/azure/install-azurerm-ps) do PowerShell do Azure. Parâmetros de política foram adicionados na versão 3.6.0. Se você tiver uma versão anterior, exemplos de saudação retornam que um parâmetro de saudação erro indicando que não foi encontrado.
 
 ### <a name="view-policy-definitions"></a>Exibir definições de políticas
-Para visualizar todas as definições de política em sua assinatura, utilize o seguinte comando:
+toosee todas as definições de política na sua assinatura, use Olá a seguir de comando:
 
 ```powershell
 Get-AzureRmPolicyDefinition
 ```
 
-Ele retorna todas as definições de política disponíveis, incluindo políticas internas. Cada política é retornada no seguinte formato:
+Ele retorna todas as definições de política disponíveis, incluindo políticas internas. Cada política é retornada no hello formato a seguir:
 
 ```powershell
 Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
@@ -157,18 +157,18 @@ ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962
 ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
 ResourceType       : Microsoft.Authorization/policyDefinitions
 Properties         : @{displayName=Allowed locations; policyType=BuiltIn; description=This policy enables you to
-                     restrict the locations your organization can specify when deploying resources. Use to enforce
+                     restrict hello locations your organization can specify when deploying resources. Use tooenforce
                      your geo-compliance requirements.; parameters=; policyRule=}
 PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
 ```
 
-Antes de continuar a criar uma definição de política, observe as políticas internas. Se você encontrar uma política interna que aplica os limites necessários, você poderá ignorar a criação de uma definição de política. Em vez disso, atribua a política interna ao escopo desejado.
+Antes de continuar toocreate uma definição de política, examine políticas internas hello. Se você encontrar uma diretiva interna que se aplica a limites de saudação que é necessário, você pode ignorar a criação de uma definição de política. Em vez disso, atribua escopo do hello diretiva interna toohello desejado.
 
 ### <a name="create-policy-definition"></a>Criar definição de política
-Você pode criar uma definição de política usando o cmdlet `New-AzureRmPolicyDefinition`.
+Você pode criar uma definição de política usando Olá `New-AzureRmPolicyDefinition` cmdlet.
 
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
+$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy toospecify access tier." -Policy '{
   "if": {
     "allOf": [
       {
@@ -193,15 +193,15 @@ $definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Pol
 }'
 ```            
 
-A saída é armazenada em um objeto `$definition`, que é usado durante a atribuição da política. 
+saudação de saída é armazenada em um `$definition` objeto, que é usado durante a atribuição de política. 
 
-Em vez de especificar o JSON como um parâmetro, você pode fornecer o caminho para um arquivo .json que contém a regra de política.
+Em vez de especificar Olá JSON como um parâmetro, você pode fornecer o arquivo hello caminho tooa. JSON que contém a regra de política de saudação.
 
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
+$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy toospecify access tier." -Policy "c:\policies\coolAccessTier.json"
 ```
 
-O exemplo a seguir cria uma definição de política que inclui parâmetros:
+Olá, exemplo a seguir cria uma definição de política que inclui parâmetros:
 
 ```powershell
 $policy = '{
@@ -228,26 +228,26 @@ $parameters = '{
     "allowedLocations": {
         "type": "array",
         "metadata": {
-          "description": "The list of locations that can be specified when deploying storage accounts.",
+          "description": "hello list of locations that can be specified when deploying storage accounts.",
           "strongType": "location",
           "displayName": "Allowed locations"
         }
     }
 }' 
 
-$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy to specify locations for storage accounts." -Policy $policy -Parameter $parameters 
+$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy toospecify locations for storage accounts." -Policy $policy -Parameter $parameters 
 ```
 
 ### <a name="assign-policy"></a>Atribuir política
 
-Aplique a política no escopo desejado usando o cmdlet `New-AzureRmPolicyAssignment`. O exemplo a seguir atribui a política a um grupo de recursos.
+Aplicar política Olá no escopo de saudação desejado usando Olá `New-AzureRmPolicyAssignment` cmdlet. Olá exemplo a seguir atribui o grupo de recursos de tooa Olá política.
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
 New-AzureRMPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
-Para atribuir uma política que requer parâmetros, crie e objete com esses valores. O seguinte exemplo recupera uma política interna e passa em valores de parâmetros:
+tooassign uma política que exige os parâmetros, crie e objeto com esses valores. Olá exemplo a seguir recupera uma diretiva interna e passa os valores de parâmetros:
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
@@ -259,14 +259,14 @@ New-AzureRMPolicyAssignment -Name locationAssignment -Scope $rg.ResourceId -Poli
 
 ### <a name="view-policy-assignment"></a>Exibir atribuição de política
 
-Para obter uma atribuição de política específica, use:
+tooget uma atribuição de política específica, use:
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
 (Get-AzureRmPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId
 ```
 
-Para exibir a regra de política de uma definição de política, use:
+regra de política tooview Olá para uma definição de política, use:
 
 ```powershell
 (Get-AzureRmPolicyDefinition -Name coolAccessTier).Properties.policyRule | ConvertTo-Json
@@ -274,7 +274,7 @@ Para exibir a regra de política de uma definição de política, use:
 
 ### <a name="remove-policy-assignment"></a>Remover atribuição de política 
 
-Para remover uma atribuição de política, use:
+tooremove uma atribuição de política, use:
 
 ```powershell
 Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
@@ -283,17 +283,17 @@ Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscription
 ## <a name="azure-cli"></a>CLI do Azure
 
 ### <a name="view-policy-definitions"></a>Exibir definições de políticas
-Para visualizar todas as definições de política em sua assinatura, utilize o seguinte comando:
+toosee todas as definições de política na sua assinatura, use Olá a seguir de comando:
 
 ```azurecli
 az policy definition list
 ```
 
-Ele retorna todas as definições de política disponíveis, incluindo políticas internas. Cada política é retornada no seguinte formato:
+Ele retorna todas as definições de política disponíveis, incluindo políticas internas. Cada política é retornada no hello formato a seguir:
 
 ```azurecli
 {                                                            
-  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
+  "description": "This policy enables you toorestrict hello locations your organization can specify when deploying resources. Use tooenforce your geo-compliance requirements.",                      
   "displayName": "Allowed locations",
   "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
   "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
@@ -312,14 +312,14 @@ Ele retorna todas as definições de política disponíveis, incluindo política
 }
 ```
 
-Antes de continuar a criar uma definição de política, observe as políticas internas. Se você encontrar uma política interna que aplica os limites necessários, você poderá ignorar a criação de uma definição de política. Em vez disso, atribua a política interna ao escopo desejado.
+Antes de continuar toocreate uma definição de política, examine políticas internas hello. Se você encontrar uma diretiva interna que se aplica a limites de saudação que é necessário, você pode ignorar a criação de uma definição de política. Em vez disso, atribua escopo do hello diretiva interna toohello desejado.
 
 ### <a name="create-policy-definition"></a>Criar definição de política
 
-Você pode criar uma definição de política usando a CLI do Azure com o comando de definição de política.
+Você pode criar uma definição de política usando a CLI do Azure com o comando de definição de política de saudação.
 
 ```azurecli
-az policy definition create --name coolAccessTier --description "Policy to specify access tier." --rules '{
+az policy definition create --name coolAccessTier --description "Policy toospecify access tier." --rules '{
   "if": {
     "allOf": [
       {
@@ -346,7 +346,7 @@ az policy definition create --name coolAccessTier --description "Policy to speci
 
 ### <a name="assign-policy"></a>Atribuir política
 
-Você pode aplicar a política para o escopo desejado usando o comando de atribuição de política. O exemplo a seguir atribui uma política a um grupo de recursos.
+Você pode aplicar o escopo da saudação política toohello desejado usando o comando de atribuição de política de saudação. saudação de exemplo a seguir atribui um grupo de recursos de tooa de política.
 
 ```azurecli
 az policy assignment create --name coolAccessTierAssignment --policy coolAccessTier --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
@@ -354,7 +354,7 @@ az policy assignment create --name coolAccessTierAssignment --policy coolAccessT
 
 ### <a name="view-policy-assignment"></a>Exibir atribuição de política
 
-Para exibir uma atribuição de política, forneça o nome da atribuição de política e o escopo:
+tooview uma atribuição de diretiva, fornecer nome de atribuição de política hello e escopo de saudação:
 
 ```azurecli
 az policy assignment show --name coolAccessTierAssignment --scope "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}"
@@ -362,12 +362,12 @@ az policy assignment show --name coolAccessTierAssignment --scope "/subscription
 
 ### <a name="remove-policy-assignment"></a>Remover atribuição de política 
 
-Para remover uma atribuição de política, use:
+tooremove uma atribuição de política, use:
 
 ```azurecli
 az policy assignment delete --name coolAccessTier --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
+* Para obter diretrizes sobre como as empresas podem usar o Gerenciador de recursos tooeffectively gerenciar assinaturas, consulte [scaffold enterprise do Azure - controle de assinatura prescritivas](resource-manager-subscription-governance.md).
 

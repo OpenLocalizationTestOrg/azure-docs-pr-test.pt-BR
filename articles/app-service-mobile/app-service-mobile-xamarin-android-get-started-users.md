@@ -1,6 +1,6 @@
 ---
-title: "Introdução à autenticação para aplicativos móveis no Xamarin Android"
-description: "Aprenda a usar os aplicativos móveis para autenticar usuários de seu aplicativo Xamarin Android por meio de uma variedade de provedores de identidade, incluindo AAD, Google, Facebook, Twitter e Microsoft."
+title: "aaaGet iniciado com a autenticação para aplicativos móveis no Xamarin Android"
+description: "Saiba como usuários de tooauthenticate toouse aplicativos móveis do seu aplicativo Xamarin Android por meio de uma variedade de provedores de identidade, incluindo AAD, Google, Facebook, Twitter e Microsoft."
 services: app-service\mobile
 documentationcenter: xamarin
 author: ggailey777
@@ -14,47 +14,47 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panarasi
-ms.openlocfilehash: 8f9a1109018c708d52cdcb7b8bce43861cecd31c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 500a4efa816e4f6d75d359e31d6357da56a72f6e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-authentication-to-your-xamarinandroid-app"></a>Adicione autenticação ao aplicativo Xamarin.Android
+# <a name="add-authentication-tooyour-xamarinandroid-app"></a>Adicionar autenticação tooyour xamarin aplicativo
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-Este tópico mostra como autenticar usuários de um aplicativo móvel em seu aplicativo cliente. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade suportado pelos Aplicativos Móveis do Azure. Após ser autenticado e autorizado com sucesso no aplicativo móvel, o valor da ID de usuário é exibido.
+Este tópico mostra como tooauthenticate usuários de um aplicativo móvel do seu aplicativo cliente. Neste tutorial, você deve adicionar projeto de início rápido de toohello de autenticação usando um provedor de identidade que é compatível com aplicativos móveis do Azure. Após com êxito que está sendo autenticado e autorizado no hello aplicativo móvel, o valor de ID de usuário de saudação é exibida.
 
-Este tutorial baseia-se no início rápido do aplicativo móvel. Você também deve primeiro concluir o tutorial [Criar um aplicativo Xamarin.Android]. Se você não usar o projeto baixado de início rápido do servidor, deve adicionar o pacote de extensão de autenticação ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Este tutorial baseia-se no início rápido de aplicativo móvel hello. Primeiro, você deve concluir o tutorial de saudação [criar um aplicativo xamarin]. Se você não usar Olá baixar o projeto de servidor de início rápido, você deve adicionar o projeto de tooyour de pacote de extensão de autenticação hello. Para obter mais informações sobre pacotes de extensão do servidor, consulte [funcionam com o servidor de back-end .NET Olá SDK para aplicativos móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ## <a name="register"></a>Registrar seu aplicativo para autenticação e configurar os Serviços de Aplicativos
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Adicionar seu aplicativo às URLs de redirecionamento externo permitidas
+## <a name="redirecturl"></a>Adicionar URLs de redirecionamento externo permitidos de toohello seu aplicativo
 
-A autenticação segura exige que você defina um novo esquema de URL para seu aplicativo. Isso permite que o sistema de autenticação redirecione para seu aplicativo após a conclusão do processo de autenticação. Neste tutorial, usamos sempre o esquema de URL _appname_. No entanto, você pode usar o esquema de URL que quiser. Ele deve ser exclusivo para seu aplicativo móvel. Para habilitar o redirecionamento no lado do servidor:
+A autenticação segura exige que você defina um novo esquema de URL para seu aplicativo. Isso permite Olá autenticação sistema tooredirect tooyour back aplicativo após a conclusão do processo de autenticação de saudação. Neste tutorial, usamos o esquema de URL Olá _appname_ em todo. No entanto, você pode usar o esquema de URL que quiser. Ele deve ser exclusivo tooyour aplicativo para dispositivos móveis. redirecionamento de saudação tooenable no lado do servidor de saudação:
 
-1. No [Portal do Azure], selecione seu Serviço de Aplicativo.
+1. No hello [portal do Azure], selecione o serviço de aplicativo.
 
-2. Clique na opção de menu **Autenticação/Autorização**.
+2. Clique em Olá **autenticação / autorização** opção de menu.
 
-3. Em **URLs de Redirecionamento Externo Permitidas**, insira `url_scheme_of_your_app://easyauth.callback`.  O **esquema_de_URL_do_seu_aplicativo** nessa cadeia de caracteres é o esquema de URL do seu aplicativo móvel.  Ele deve seguir as especificações de URL normal para um protocolo (use somente letras e números e inicie com uma letra).  Você deve anotar a cadeia de caracteres escolhida, já que precisará ajustar o código do aplicativo móvel com o esquema de URL em vários lugares.
+3. Em Olá **permitidas URLs de redirecionamento externo**, digite `url_scheme_of_your_app://easyauth.callback`.  Olá **url_scheme_of_your_app** na cadeia de caracteres é hello esquema de URL para seu aplicativo móvel.  Ele deve seguir as especificações de URL normal para um protocolo (use somente letras e números e inicie com uma letra).  Assegure uma anotação de cadeia de caracteres de saudação que você escolha como você precisará tooadjust seu código de aplicativo móvel com hello esquema de URL em vários locais.
 
 4. Clique em **OK**.
 
 5. Clique em **Salvar**.
 
-## <a name="permissions"></a>Restringir permissões a usuários autenticados
+## <a name="permissions"></a>Restringir permissões tooauthenticated usuários
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-No Visual Studio ou Xamarin Studio, execute o projeto cliente em um dispositivo ou emulador. Verifique se uma exceção não tratada com um código de status 401 (Não autorizado) é gerada após o aplicativo ser iniciado. Isso acontece porque o aplicativo tenta acessar o back-end do aplicativo móvel como um usuário não autenticado. A tabela *TodoItem* agora exige autenticação.
+No Visual Studio ou no Xamarin Studio, execute o projeto de cliente de saudação em um dispositivo ou emulador. Verifique se que uma exceção sem tratamento com um código de status de 401 (não autorizado) é gerada após o início do aplicativo hello. Isso acontece porque o aplicativo hello tentativas tooaccess seu back-end do aplicativo móvel como um usuário não autenticado. Olá *TodoItem* tabela agora requer autenticação.
 
-Em seguida, você atualizará o aplicativo do cliente para solicitar recursos do back-end do aplicativo móvel com um usuário autenticado.
+Em seguida, você irá atualizar recursos de toorequest de back-end de aplicativo móvel de saudação do aplicativo hello cliente com um usuário autenticado.
 
-## <a name="add-authentication"></a>Adicionar autenticação ao aplicativo
-O aplicativo é atualizado para exigir que os usuários toquem no botão **Entrar** e se autentiquem para que os dados sejam exibidos.
+## <a name="add-authentication"></a>Adicionar autenticação toohello aplicativo
+aplicativo Hello é saudação do toorequire atualizado os usuários tootap **entrar** botão e autenticar antes que os dados são exibidos.
 
-1. Adicione o seguinte código à classe **TodoActivity** :
+1. Adicionar Olá toohello de código a seguir **TodoActivity** classe:
    
         // Define a authenticated user.
         private MobileServiceUser user;
@@ -84,24 +84,24 @@ O aplicativo é atualizado para exigir que os usuários toquem no botão **Entra
             // Load data only after authentication succeeds.
             if (await Authenticate())
             {
-                //Hide the button after authentication succeeds.
+                //Hide hello button after authentication succeeds.
                 FindViewById<Button>(Resource.Id.buttonLoginUser).Visibility = ViewStates.Gone;
    
-                // Load the data.
+                // Load hello data.
                 OnRefreshItemsSelected();
             }
         }
    
-    Isso cria um novo método para autenticar um usuário e um manipulador de método para um novo botão **Entrar** . O usuário no código de exemplo acima é autenticado usando um logon do Facebook. Uma caixa de diálogo é usada para exibir a ID de usuário após a autenticação.
+    Isso cria um novo tooauthenticate de método de um usuário e um manipulador de método para um novo **entrar** botão. usuário Olá no código de exemplo hello acima é autenticado usando um logon do Facebook. Uma caixa de diálogo é a ID de usuário de saudação toodisplay usado uma vez autenticado.
    
    > [!NOTE]
-   > Se estiver usando um provedor de identidade que não seja o Facebook, altere o valor transmitido para **LoginAsync** acima para um dos seguintes: *MicrosoftAccount*, *Twitter*, *Google* ou *WindowsAzureActiveDirectory*.
+   > Se você estiver usando um provedor de identidade diferente do Facebook, altere o valor de saudação passado muito**LoginAsync** acima tooone seguinte Olá: *MicrosoftAccount*, *Twitter*, *Google*, ou *WindowsAzureActiveDirectory*.
    > 
    > 
-2. No método **OnCreate** , exclua ou comente a linha de código a seguir:
+2. Em Olá **OnCreate** método, excluir ou Olá comentários de linha de código a seguir:
    
         OnRefreshItemsSelected ();
-3. No arquivo Activity_To_Do.axml, adicione a definição do botão *LoginUser* a seguir antes do botão *AddItem* existente:
+3. No arquivo de Activity_To_Do.axml de saudação, adicione o seguinte Olá *LoginUser* botão definição antes Olá existente *AddItem* botão:
    
           <Button
             android:id="@+id/buttonLoginUser"
@@ -109,10 +109,10 @@ O aplicativo é atualizado para exigir que os usuários toquem no botão **Entra
             android:layout_height="wrap_content"
             android:onClick="LoginUser"
             android:text="@string/login_button_text" />
-4. Adicione o elemento a seguir no arquivo de recursos de Strings.xml:
+4. Adicione Olá arquivo de recursos do elemento toohello Strings.xml a seguir:
    
         <string name="login_button_text">Sign in</string>
-5. Abra o arquivo AndroidManifest.xml e adicione o seguinte código dentro do elemento XML `<application>`:
+5. Abrir o arquivo de AndroidManifest.xml hello, adicione Olá seguindo o código dentro de `<application>` elemento XML:
 
         <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
           <intent-filter>
@@ -123,7 +123,7 @@ O aplicativo é atualizado para exigir que os usuários toquem no botão **Entra
           </intent-filter>
         </activity>
 
-6. No Visual Studio ou Xamarin Studio, execute o projeto cliente em um dispositivo ou emulador e entre com o seu provedor de identidade preferido. Quando você entrar com êxito, o aplicativo exibirá o sua ID de logon e a lista de itens de tarefas e você poderá fazer atualizações aos dados.
+6. No Visual Studio ou no Xamarin Studio, execute o projeto de saudação do cliente em um dispositivo ou emulador e entrar com seu provedor de identidade escolhido. Quando você está conectado com êxito, aplicativo hello exibirá sua ID de logon e lista de saudação de itens de tarefas e você pode fazer atualizações toohello dados.
 
 <!-- URLs. -->
-[Criar um aplicativo Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
+[criar um aplicativo xamarin]: app-service-mobile-xamarin-android-get-started.md

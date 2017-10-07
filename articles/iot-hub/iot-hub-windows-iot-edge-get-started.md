@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao Azure IoT Edge (Windows) | Microsoft Docs"
-description: "Como criar um gateway em do Azure IoT Edge um computador Windows e saber mais sobre os principais conceitos do Azure IoT Edge, como módulos e arquivos de configuração JSON."
+title: aaaGet iniciado com borda de IoT do Azure (Windows) | Microsoft Docs
+description: "Como toobuild um gateway de extremidade de IoT do Azure em um Windows do computador e saiba mais sobre conceitos principais no Azure IoT Edge como módulos e arquivos de configuração JSON."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/07/2017
 ms.author: andbuc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5db39bab8e31a8e7026b34e72b4614b0f6f57772
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5dd13cbfc02eeb55d9f2dbffca5021f2624acf14
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="explore-azure-iot-edge-architecture-on-windows"></a>Explorar a arquitetura do Azure IoT Edge no Windows
 
@@ -27,16 +27,16 @@ ms.lasthandoff: 07/11/2017
 
 [!INCLUDE [iot-hub-iot-edge-install-build-windows](../../includes/iot-hub-iot-edge-install-build-windows.md)]
 
-## <a name="how-to-run-the-sample"></a>Como executar a amostra
+## <a name="how-toorun-hello-sample"></a>Como toorun Olá exemplo
 
-O script **build.cmd** gera sua saída na pasta **build** na cópia local do repositório **iot-edge**. Essa saída inclui os dois módulos do Edge IoT usados neste exemplo.
+Olá **build.cmd** script gera a saída no hello **criar** pasta em sua cópia local da saudação **iot borda** repositório. Essa saída inclui módulos de borda IoT dois Olá usados neste exemplo.
 
-O script de build coloca **logger.dll** na pasta **build\\modules\\logger\\Debug** e **hello\_world.dll** na pasta **build\\modules\\hello_world\\Debug**. Use esses caminhos para os valores de **caminho do módulo**, conforme mostrado no arquivo de configurações do JSON a seguir.
+Olá locais de script de compilação **logger.dll** em Olá **criar\\módulos\\agente\\depurar** pasta e **Olá\_world.dll**  em Olá **criar\\módulos\\hello_world\\depurar** pasta. Usar estes caminhos para Olá **caminho do módulo** valores conforme Olá após o arquivo de configurações de JSON.
 
-O processo hello\_world\_sample leva o caminho até um arquivo de configuração JSON como um argumento na linha de comando. O arquivo JSON de exemplo a seguir é fornecido no repositório SDK em **samples\\hello\_world\\src\\hello\_world\_win.json**. Este arquivo de configuração funciona da forma como está, a menos que você tenha modificado o script de build para colocar os módulos ou os executáveis de exemplo do IoT Edge em locais não padrão.
+Olá Olá\_world\_processo de exemplo usa o arquivo de configuração de JSON Olá caminho tooa como um argumento de linha de comando. Olá seguinte arquivo JSON de exemplo é fornecido no repositório do SDK de saudação em **exemplos\\Olá\_world\\src\\Olá\_world\_win.json**. Isso funciona de arquivo de configuração como está a menos que você modifique Olá compilar módulos de saudação do script tooplace IoT borda ou amostra executáveis em locais não padrão.
 
 > [!NOTE]
-> Os caminhos de módulo são relativos ao diretório em que se encontra o hello\_world\_sample.exe. O arquivo de configuração do JSON de exemplo assume o padrão de gravar 'log.txt' no diretório de trabalho atual.
+> caminhos de módulo Olá são diretório relativo toohello onde Olá Olá\_world\_sample.exe está localizado. exemplo Hello JSON configuração arquivo padrões toowriting 'txt' no diretório de trabalho atual.
 
 ```json
 {
@@ -71,9 +71,9 @@ O processo hello\_world\_sample leva o caminho até um arquivo de configuração
 }
 ```
 
-1. Navegue até a pasta **build** na raiz da sua cópia local do repositório **iot-edge**.
+1. Navegue toohello **criar** pasta na raiz de saudação da sua cópia local da saudação **iot borda** repositório.
 
-1. Execute o comando a seguir:
+1. Execute Olá comando a seguir:
 
     ```cmd
     samples\hello_world\Debug\hello_world_sample.exe ..\samples\hello_world\src\hello_world_win.json

@@ -1,6 +1,6 @@
 ---
-title: "Gerenciar as soluções do Azure com o PowerShell | Microsoft Docs"
-description: Use o Azure PowerShell e o Resource Manager para gerenciar seus recursos.
+title: "aaaManage Azure soluções com o PowerShell | Microsoft Docs"
+description: Use o PowerShell do Azure e o Gerenciador de recursos toomanage seus recursos.
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tomfitz
-ms.openlocfilehash: ff42e5cb29005c5f4b97babdae58bef9382071f0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 47a91af8d7eb59585bcfd43571ce76b90a0d7971
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-resources-with-azure-powershell-and-resource-manager"></a>Gerenciar recursos com o Azure PowerShell e o Resource Manager
 > [!div class="op_single_selector"]
@@ -29,43 +29,43 @@ ms.lasthandoff: 08/03/2017
 >
 >
 
-Neste artigo, você aprenderá a gerenciar suas soluções com o Azure PowerShell e o Azure Resource Manager. Se você não estiver familiarizado com o Resource Manager, veja [Visão geral do Resource Manager](resource-group-overview.md). Este tópico se concentra nas tarefas de gerenciamento. Você irá:
+Neste artigo, você aprenderá como toomanage suas soluções com o PowerShell do Azure e o Azure Resource Manager. Se você não estiver familiarizado com o Resource Manager, veja [Visão geral do Resource Manager](resource-group-overview.md). Este tópico se concentra nas tarefas de gerenciamento. Você irá:
 
-1. Criar um grupos de recursos
-2. Adicionar um recurso ao grupo de recursos
-3. Adicionar uma marca ao recurso
+1. Criar um grupo de recursos
+2. Adicionar um grupo de recursos do recurso toohello
+3. Adicionar um recurso de toohello de marca
 4. Recursos de consulta baseados em nomes ou em valores de marca
-5. Aplicar e remover um bloqueio no recurso
+5. Aplicar e remover um bloqueio no recurso Olá
 6. Excluir um grupo de recursos
 
-Este artigo mostra como implantar um modelo do Resource Manager à sua assinatura. Para obter essas informações, veja [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](resource-group-template-deploy.md).
+Este artigo não mostra como toodeploy uma assinatura de tooyour de modelo do Gerenciador de recursos. Para obter essas informações, veja [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](resource-group-template-deploy.md).
 
 ## <a name="get-started-with-azure-powershell"></a>Introdução ao Azure PowerShell
 
-Se você não tiver o Azure PowerShell instalado, veja [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+Se você não tiver instalado o Azure PowerShell, consulte [como tooinstall e configurar o Azure PowerShell](/powershell/azure/overview).
 
-Se você tiver instalado o Azure PowerShell no passado, mas não o tiver atualizado recentemente, considere a possibilidade de instalar a versão mais recente. Você pode atualizar a versão por meio do mesmo método usado para instalá-lo. Por exemplo, se você tiver usado o Web Platform Installer, inicie-o novamente e procure uma atualização.
+Se você instalou o Azure PowerShell no hello anterior, mas não tiver atualizado-recentemente, considere a possibilidade de instalar a versão mais recente do hello. Você pode atualizar a versão de hello por meio de saudação mesmo método usado tooinstall-lo. Por exemplo, se você usou Olá Web Platform Installer, iniciá-lo novamente e procure uma atualização.
 
-Para verificar a versão do módulo de Recursos do Azure, use o seguinte cmdlet:
+toocheck sua versão do hello módulo de recursos do Azure, use Olá cmdlet a seguir:
 
 ```powershell
 Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 ```
 
-Este tópico foi atualizado para a versão 3.3.0. Se você tiver uma versão anterior, sua experiência pode não corresponder às etapas mostradas neste tópico. Para obter a documentação sobre os cmdlets nesta versão, veja [AzureRM.Resources módulo](/powershell/module/azurerm.resources).
+Este tópico foi atualizado para a versão 3.3.0. Se você tiver uma versão anterior, sua experiência pode não corresponder etapas Olá mostradas neste tópico. Para obter a documentação sobre os cmdlets de saudação nesta versão, consulte [AzureRM.Resources módulo](/powershell/module/azurerm.resources).
 
-## <a name="log-in-to-your-azure-account"></a>Fazer logon na sua conta do Azure
-Antes de trabalhar em sua solução, você deve fazer logon em sua conta.
+## <a name="log-in-tooyour-azure-account"></a>Faça logon no tooyour conta do Azure
+Antes de iniciar sua solução, você deve fazer logon na conta de tooyour.
 
-Para fazer logon em sua conta do Azure, use o cmdlet **Login-AzureRmAccount**.
+toolog em tooyour conta do Azure, use Olá **AzureRmAccount Login** cmdlet.
 
 ```powershell
 Login-AzureRmAccount
 ```
 
-O cmdlet solicita as credenciais de logon para sua conta do Azure. Depois de entrar, ele baixa as configurações da conta para que elas estejam disponíveis para o Azure PowerShell.
+Olá cmdlet solicita as credenciais de logon de saudação para sua conta do Azure. Após o logon, ele baixa as configurações de conta para que eles fiquem disponível tooAzure PowerShell.
 
-O cmdlet retorna informações sobre sua conta e a assinatura a ser usada para as tarefas.
+Olá cmdlet retorna informações sobre sua conta e hello toouse de assinatura para tarefas de saudação.
 
 ```powershell
 Environment           : AzureCloud
@@ -77,7 +77,7 @@ CurrentStorageAccount :
 
 ```
 
-Se você tiver mais de uma assinatura, você pode alternar para uma assinatura diferente. Primeiro, vamos ver todas as assinaturas para sua conta.
+Se você tiver mais de uma assinatura, você pode alternar a assinatura de tooa diferente. Primeiro, vamos ver todas as assinaturas de saudação para sua conta.
 
 ```powershell
 Get-AzureRmSubscription
@@ -102,22 +102,22 @@ TenantId         : {guid}
 State            : Disabled
 ```
 
-Para alternar para uma assinatura diferente, forneça o nome da assinatura com o **AzureRmContext conjunto** cmdlet.
+tooswitch tooa de assinatura diferente, forneça o nome de assinatura de saudação com hello **AzureRmContext conjunto** cmdlet.
 
 ```powershell
 Set-AzureRmContext -SubscriptionName "Example Subscription Two"
 ```
 
-## <a name="create-a-resource-group"></a>Criar um grupos de recursos
-Antes de implantar os recursos em sua assinatura, você deve criar um grupo de recursos que conterá os recursos.
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+Antes de implantar qualquer assinatura de recursos de tooyour, você deve criar um grupo de recursos que contém recursos de saudação.
 
-Para criar um grupo de recursos, use o cmdlet **New-AzureRmResourceGroup** . O comando usa o parâmetro **Name** para especificar um nome para o grupo de recursos e o parâmetro **Location** para especificar o local.
+toocreate um grupo de recursos, use Olá **AzureRmResourceGroup novo** cmdlet. usa o comando Olá Olá **nome** toospecify parâmetro um nome para o grupo de recursos de saudação e hello **local** parâmetro toospecify seu local.
 
 ```powershell
 New-AzureRmResourceGroup -Name TestRG1 -Location "South Central US"
 ```
 
-A saída está neste formato:
+saída de Hello for Olá formato a seguir:
 
 ```powershell
 ResourceGroupName : TestRG1
@@ -127,30 +127,30 @@ Tags              :
 ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1
 ```
 
-Se você precisar recuperar o grupo de recursos posteriormente, use o seguinte cmdlet:
+Se você precisar de grupo de recursos do tooretrieve hello mais tarde, use Olá cmdlet a seguir:
 
 ```powershell
 Get-AzureRmResourceGroup -ResourceGroupName TestRG1
 ```
 
-Para obter todos os grupos de recursos em sua assinatura, não especifique um nome:
+tooget todos os grupos de recursos em sua assinatura de hello, não especifique um nome:
 
 ```powershell
 Get-AzureRmResourceGroup
 ```
 
-## <a name="add-resources-to-a-resource-group"></a>Adicionar recursos a um grupo de recursos
-Para adicionar um recurso ao grupo de recursos, você pode usar o **novo AzureRmResource** cmdlet ou um cmdlet que é específico para o tipo de recurso que você está criando (como **novo AzureRmStorageAccount**). Talvez seja mais fácil de usar um cmdlet que é específico para um tipo de recurso porque ele inclui parâmetros para as propriedades que são necessárias para o novo recurso. Usar **AzureRmResource novo**, você deve conhecer todas as propriedades para definir sem ser solicitado para eles.
+## <a name="add-resources-tooa-resource-group"></a>Adicionar grupo de recursos tooa de recursos
+tooadd um grupo de recursos de toohello de recurso, você pode usar o hello **New-AzureRmResource** cmdlet ou um cmdlet que toohello específico de tipo de recurso que você está criando (como **novo AzureRmStorageAccount**). Talvez seja mais fácil toouse um cmdlet que é o tipo de recurso específico tooa porque ele inclui parâmetros para propriedades de saudação que são necessários para o novo recurso de saudação. toouse **New-AzureRmResource**, você deve saber todas as tooset de propriedades de saudação sem ser solicitado para eles.
 
-No entanto, a adição de um recurso por meio de cmdlets pode causar uma confusão futura, pois o novo recurso não existe em um modelo do Resource Manager. A Microsoft recomenda definir a infraestrutura para sua solução do Azure em um modelo do Resource Manager. Modelos permitem repetidamente e confiável implantar sua solução. Para este tópico, você cria uma conta de armazenamento com um cmdlet do PowerShell, mas posteriormente você gerar um modelo de seu grupo de recursos.
+No entanto, a adição de um recurso por meio de cmdlets pode causar confusão futuras porque o novo recurso de saudação não existe em um modelo do Gerenciador de recursos. A Microsoft recomenda definir a infraestrutura de saudação para sua solução do Azure em um modelo do Gerenciador de recursos. Modelos permitem que você tooreliably e repetidamente implantam sua solução. Para este tópico, você cria uma conta de armazenamento com um cmdlet do PowerShell, mas posteriormente você gerar um modelo de seu grupo de recursos.
 
-O cmdlet a seguir cria uma conta de armazenamento. Em vez de usar o nome mostrado no exemplo, forneça um nome exclusivo para a conta de armazenamento. O nome deve ter entre 3 e 24 caracteres de comprimento e usar somente números e letras minúsculas. Se você usar o nome mostrado no exemplo, você recebe um erro porque esse nome já está em uso.
+Olá cmdlet a seguir cria uma conta de armazenamento. Em vez de usar o nome de saudação mostrado no exemplo hello, forneça um nome exclusivo para a conta de armazenamento hello. Olá nome deve ter entre 3 e 24 caracteres de comprimento e usar somente números e letras minúsculas. Se você usar Olá nome mostrado no exemplo hello, você receberá um erro porque esse nome já está em uso.
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName TestRG1 -AccountName mystoragename -Type "Standard_LRS" -Location "South Central US"
 ```
 
-Se você precisar recuperar esse recurso posteriormente, use o seguinte cmdlet:
+Se você precisar desse recurso de tooretrieve posteriormente, use Olá cmdlet a seguir:
 
 ```powershell
 Get-AzureRmResource -ResourceName mystoragename -ResourceGroupName TestRG1
@@ -158,15 +158,15 @@ Get-AzureRmResource -ResourceName mystoragename -ResourceGroupName TestRG1
 
 ## <a name="add-a-tag"></a>Adicione uma marca
 
-Marcas permitem que você organize seus recursos de acordo com propriedades diferentes. Por exemplo, você pode ter vários recursos em diferentes grupos de recursos que pertencem ao mesmo departamento. Você pode aplicar uma marca de departamento e o valor desses recursos para marcá-los como pertencentes à mesma categoria. Ou, você pode marcar se um recurso é usado em um ambiente de produção ou de teste. Neste tópico, você aplicar marcas em apenas um recurso, mas em seu ambiente provavelmente faz sentido aplicar marcas em todos os seus recursos.
+As marcas permitem que você tooorganize seus recursos de acordo com as propriedades de toodifferent. Por exemplo, você pode ter vários recursos em diferentes grupos de recursos que pertencem a toohello mesmo departamento. Você pode aplicar um toomark departamento marca e o valor toothose recursos-los como pertencentes toohello mesma categoria. Ou, você pode marcar se um recurso é usado em um ambiente de produção ou de teste. Neste tópico, você aplicar marcas tooonly um recurso, mas em seu ambiente provavelmente faz sentido tooapply marcas tooall seus recursos.
 
-O cmdlet a seguir aplica-se duas marcas à sua conta de armazenamento:
+Olá cmdlet a seguir aplica-se a conta de armazenamento do duas marcas tooyour:
 
 ```powershell
 Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName mystoragename -ResourceGroupName TestRG1 -ResourceType Microsoft.Storage/storageAccounts
  ```
 
-Marcas são atualizadas como um único objeto. Para adicionar uma marca a um recurso que já inclui marcas, primeiro recupere as marcas existentes. Adicionar nova marca para o objeto que contém as marcas existentes e reaplicar todas as marcas para o recurso.
+Marcas são atualizadas como um único objeto. tooadd um recurso de tooa de marca que já inclua marcas, recuperar marcas existentes hello. Adicionar Olá nova marca toohello objeto que contém marcas existentes hello e reaplique todos os recursos de toohello marcas hello.
 
 ```powershell
 $tags = (Get-AzureRmResource -ResourceName mystoragename -ResourceGroupName TestRG1).Tags
@@ -176,27 +176,27 @@ Set-AzureRmResource -Tag $tags -ResourceName mystoragename -ResourceGroupName Te
 
 ## <a name="search-for-resources"></a>Pesquisa de recursos
 
-Use o **AzureRmResource localizar** cmdlet para recuperar os recursos para os critérios de pesquisa diferentes.
+Saudação de uso **Find-AzureRmResource** cmdlet tooretrieve recursos para condições de pesquisa diferente.
 
-* Para obter um recurso por nome, forneça o **ResourceNameContains** parâmetro:
+* tooget um recurso por nome, fornecer Olá **ResourceNameContains** parâmetro:
 
   ```powershell
   Find-AzureRmResource -ResourceNameContains mystoragename
   ```
 
-* Para obter todos os recursos em um grupo de recursos, forneça o **ResourceGroupNameContains** parâmetro:
+* tooget todos os recursos de saudação em um grupo de recursos, fornecer Olá **ResourceGroupNameContains** parâmetro:
 
   ```powershell
   Find-AzureRmResource -ResourceGroupNameContains TestRG1
   ```
 
-* Para obter todos os recursos com um valor e nome de marca, forneça o **TagName** e **TagValue** parâmetros:
+* tooget todos os recursos de saudação com um nome de marca e o valor fornecem Olá **TagName** e **TagValue** parâmetros:
 
   ```powershell
   Find-AzureRmResource -TagName Dept -TagValue IT
   ```
 
-* Para todos os recursos com um tipo de recurso específico, forneça o **ResourceType** parâmetro:
+* recursos de saudação tooall com um tipo de recurso específico, forneça Olá **ResourceType** parâmetro:
 
   ```powershell
   Find-AzureRmResource -ResourceType Microsoft.Storage/storageAccounts
@@ -204,17 +204,17 @@ Use o **AzureRmResource localizar** cmdlet para recuperar os recursos para os cr
 
 ## <a name="lock-a-resource"></a>Um recurso de bloqueio
 
-Quando você precisa certificar-se de um recurso crítico for acidentalmente excluído ou modificado, aplica um bloqueio no recurso. Você pode especificar um **CanNotDelete** ou **ReadOnly**.
+Quando você precisar toomake-se de que um recurso crítico é acidentalmente excluído ou modificado, aplica um recurso de bloqueio de toohello. Você pode especificar um **CanNotDelete** ou **ReadOnly**.
 
-Para criar ou excluir bloqueios de gerenciamento, você deve ter acesso às ações `Microsoft.Authorization/*` ou `Microsoft.Authorization/locks/*`. Das funções internas, somente Proprietário e Administrador do Acesso de Usuário recebem essas ações.
+bloqueios de gerenciamento toocreate ou delete, você deve ter acesso muito`Microsoft.Authorization/*` ou `Microsoft.Authorization/locks/*` ações. De funções internas do hello, somente o proprietário e o administrador de acesso do usuário são concedidas as ações.
 
-Para aplicar um bloqueio, use o seguinte cmdlet:
+tooapply um bloqueio, use Olá cmdlet a seguir:
 
 ```powershell
 New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockStorage -ResourceName mystoragename -ResourceType Microsoft.Storage/storageAccounts -ResourceGroupName TestRG1
 ```
 
-O recurso bloqueado no exemplo anterior não pode ser excluído até que o bloqueio seja removido. Para remover um bloqueio, use:
+Olá recurso bloqueado no hello anterior exemplo não pode ser excluído até que Olá bloqueio seja removido. tooremove um bloqueio, use:
 
 ```powershell
 Remove-AzureRmResourceLock -LockName LockStorage -ResourceName mystoragename -ResourceType Microsoft.Storage/storageAccounts -ResourceGroupName TestRG1
@@ -223,36 +223,36 @@ Remove-AzureRmResourceLock -LockName LockStorage -ResourceName mystoragename -Re
 Para saber mais sobre bloqueios de configuração, confira [Bloquear recursos com o Azure Resource Manager](resource-group-lock-resources.md).
 
 ## <a name="remove-resources-or-resource-group"></a>Remover recursos ou grupo de recursos
-Você pode remover um recurso ou grupo de recursos. Ao remover um grupo de recursos, você também removerá todos os recursos dentro daquele grupo de recursos.
+Você pode remover um recurso ou grupo de recursos. Quando você remove um grupo de recursos, você também remover todos os recursos de saudação dentro desse grupo de recursos.
 
-* Para excluir um recurso do grupo de recursos, use o cmdlet **Remove-AzureRmResource** . Esse cmdlet exclui o recurso, mas não exclui o grupo de recursos.
+* toodelete um recurso do grupo de recursos hello, use Olá **Remove-AzureRmResource** cmdlet. Esse cmdlet exclui o recurso hello, mas não exclui o grupo de recursos de saudação.
 
   ```powershell
   Remove-AzureRmResource -ResourceName mystoragename -ResourceType Microsoft.Storage/storageAccounts -ResourceGroupName TestRG1
   ```
 
-* Para excluir um grupo de recursos e todos os seus recursos, use o cmdlet **Remove-AzureRmResourceGroup**.
+* toodelete um grupo de recursos e todos os seus recursos, use Olá **AzureRmResourceGroup remover** cmdlet.
 
   ```powershell
   Remove-AzureRmResourceGroup -Name TestRG1
   ```
 
-Para ambos os cmdlets, você deve confirmar que você deseja remover o recurso ou grupo de recursos. Se a operação com êxito exclui o recurso ou grupo de recursos, ele retorna **True**.
+Para ambos os cmdlets, você será solicitado tooconfirm que desejar que recursos de saudação tooremove ou grupo de recursos. Se o operação de saudação exclui com êxito recurso hello ou grupo de recursos, ele retorna **True**.
 
 ## <a name="run-resource-manager-scripts-with-azure-automation"></a>Executar scripts do Resource Manager com a automação do Azure
 
-Este tópico mostra como executar operações básicas em seus recursos com o Azure PowerShell. Para cenários mais avançados de gerenciamento, normalmente você deseja criar um script e reutilizar esse script conforme necessário ou em uma agenda. [A automação do Azure](../automation/automation-intro.md) fornece uma maneira de automatizar frequentemente usados scripts que gerenciam as soluções do Azure.
+Este tópico mostra como operações básicas de tooperform em seus recursos com o Azure PowerShell. Para cenários mais avançados de gerenciamento, você normalmente deseja toocreate um script e reutilizar esse script conforme o necessário ou em uma agenda. [Automação do Azure](../automation/automation-intro.md) fornece uma maneira para você scripts tooautomate usado com frequência que gerencia as soluções do Azure.
 
-Os tópicos a seguir mostram como usar a automação do Azure, o Resource Manager e o PowerShell para a realização de tarefas de gerenciamento:
+Olá tópicos a seguir mostram como toouse automação do Azure, o Gerenciador de recursos e o PowerShell tooeffectively executam tarefas de gerenciamento:
 
 - Para obter informações sobre como criar um runbook, consulte [meu primeiro runbook PowerShell](../automation/automation-first-runbook-textual-powershell.md).
 - Para obter informações sobre como trabalhar com galerias de scripts, consulte [galerias de Runbook e módulo de automação do Azure](../automation/automation-runbook-gallery.md).
-- Para runbooks que inicie e pare as máquinas virtuais, consulte [cenário de automação do Azure: formato JSON usando marcas para criar uma agenda para a VM do Azure inicialização e desligamento](../automation/automation-scenario-start-stop-vm-wjson-tags.md).
+- Para runbooks que iniciar e parar máquinas virtuais, consulte [cenário de automação do Azure: toocreate marcas formatada em JSON usando uma agenda para a VM do Azure inicialização e desligamento](../automation/automation-scenario-start-stop-vm-wjson-tags.md).
 - Para runbooks que iniciar e parar máquinas virtuais fora do horário comercial, consulte [VMs iniciar/parar durante a solução de fora do horário comercial em automação](../automation/automation-solution-vm-management.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre a criação de modelos do Gerenciador de Recursos, consulte [Criando Modelos do Azure Resource Manager](resource-group-authoring-templates.md).
-* Para saber mais sobre como implantar modelos, consulte [Implantar um aplicativo com o Modelo do Azure Resource Manager](resource-group-template-deploy.md).
-* Você pode mover os recursos existentes para um novo grupo de recursos. Para obter exemplos, confira [Mover recursos para um novo grupo de recursos ou uma nova assinatura](resource-group-move-resources.md).
-* Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
+* toolearn sobre como criar modelos do Gerenciador de recursos, consulte [criação de modelos de Gerenciador de recursos do Azure](resource-group-authoring-templates.md).
+* toolearn sobre a implantação de modelos, consulte [implantar um aplicativo com o modelo do Gerenciador de recursos do Azure](resource-group-template-deploy.md).
+* Você pode mover recursos tooa novo grupo de recursos existente. Para obter exemplos, consulte [tooNew recursos Mover grupo de recursos ou assinatura](resource-group-move-resources.md).
+* Para obter diretrizes sobre como as empresas podem usar o Gerenciador de recursos tooeffectively gerenciar assinaturas, consulte [scaffold enterprise do Azure - controle de assinatura prescritivas](resource-manager-subscription-governance.md).
 

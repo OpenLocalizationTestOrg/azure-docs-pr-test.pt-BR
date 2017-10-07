@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: bwren
-ms.openlocfilehash: 8bdaf9592ed29371ecfe8e9e5d2f8da9ac1795bb
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 14b363c934a018ce72be97d1a0b74a6c2210656e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Análise para o desenvolvedor: linguagens, plataformas e integrações
 Esses itens são implementações do [Application Insights](app-insights-overview.md) sobre as quais ouvimos falar, incluindo algumas de terceiros.
@@ -82,4 +82,4 @@ Esses itens são implementações do [Application Insights](app-insights-overvie
 * [Stream Analytics](app-insights-export-power-bi.md)
 
 ## <a name="projects"></a> Criar seu próprio SDK
-Se ainda não houver um SDK para sua linguagem ou plataforma, você gostaria de criar um? Examine o código dos SDKs existentes listados no [Projeto de SDK do Application Insights no GitHub](https://github.com/Microsoft/AppInsights-Home).
+Se não há ainda um SDK para a linguagem ou plataforma, talvez você gostaria que toobuild um? Dê uma olhada em código de saudação do hello existente SDKs listados no hello [projeto do SDK do Application Insights no GitHub](https://github.com/Microsoft/AppInsights-Home).

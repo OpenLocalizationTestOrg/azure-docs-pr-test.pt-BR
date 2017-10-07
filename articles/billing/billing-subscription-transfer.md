@@ -1,7 +1,7 @@
 ---
-title: Transferir a propriedade de assinatura do Azure para outra conta | Microsoft Docs
-description: "Descreve como transferir uma assinatura do Azure para outro usuário e algumas perguntas frequentes sobre o processo"
-keywords: "transferir assinatura do Azure, assinatura de transferência do Azure, mover assinatura do Azure para outra conta, alterar proprietário da assinatura do Azure, transferir assinatura do Azure para outra conta"
+title: aaaTransfer conta de tooanother de propriedade de assinatura do Azure | Microsoft Docs
+description: "Descreve como tootransfer um usuário de tooanother de assinatura do Azure e algumas perguntas frequentes (FAQ) sobre o processo de saudação"
+keywords: "transferência de assinatura de transferência de assinatura do azure, azure, mova a conta de tooanother de assinatura do azure, azure alterar o proprietário da assinatura, conta de tooanother de assinatura de transferência do azure"
 services: 
 documentationcenter: 
 author: genlin
@@ -17,144 +17,144 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8a856c39eb11546f35cb4e8c21e6bdcce98857a8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d2d9f5d9ccd34738701493e5f31c2f83a02f5d48
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma assinatura do Azure para outra conta
+# <a name="transfer-ownership-of-an-azure-subscription-tooanother-account"></a>Transferir a propriedade de uma conta de tooanother de assinatura do Azure
 
-Você pode transferir sua assinatura para outro usuário das assinaturas Pré-pago, Visual Studio, Action Pack ou BizSpark no Centro de Contas. Também damos suporte à transferência de serviços externos do Azure para esses tipos de assinatura. 
+Você pode transferir seu usuário de tooanother de assinatura para assinaturas pré-pago, Visual Studio, o pacote de ação ou BizSpark Olá Centro de contas. Há suporte para a transferência de saudação de serviços externos do Azure para esses tipos de assinatura também. 
 
-Talvez você queira transferir a propriedade de uma assinatura do Azure se você:
+Convém tootransfer propriedade de uma assinatura do Azure se você:
 
-* Precisar passar a responsabilidade pela cobrança de sua assinatura do Azure para outra pessoa.
-* Quiser alterar a conta usada para se inscrever no Azure. Talvez você tenha usado sua conta da Microsoft, mas na verdade gostaria de ter usado sua conta corporativa ou de estudante.
-* Quiser mover sua assinatura do Azure de um diretório para outro.
-* Tiver o Azure e o Office 365 em locatários diferentes e quiser consolidá-los.
+* Precisa toohand de propriedade da cobrança da sua pessoa de toosomeone de assinatura do Azure.
+* Deseja que a conta de saudação toochange usada toosign para o Azure. Talvez você usado sua Account da Microsoft, mas deve toouse sua conta corporativa ou escolar em vez disso.
+* Deseja toomove sua assinatura do Azure de um diretório tooanother.
+* Azure e o Office 365 em diferentes locatários e quero tooconsolidate.
 
-Para alterar sua assinatura para uma oferta diferente, consulte [Trocar a assinatura do Azure por outra oferta](billing-how-to-switch-azure-offer.md). 
+toochange oferecer a seu tooa de assinatura diferente, consulte [alternar sua oferta de assinatura do Azure tooanother](billing-how-to-switch-azure-offer.md). 
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Transferir a propriedade de uma assinatura do Azure
 > [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
 >
 >
 
-1. Entre em <https://account.windowsazure.com/Subscriptions>. Você precisa ser o Administrador da Conta para executar uma transferência de propriedade. Para descobrir quem é o Administrador da Conta da assinatura, confira as [Perguntas frequentes](#faq).
+1. Entre em <https://account.windowsazure.com/Subscriptions>. Você tem toobe Olá administrador da conta tooperform uma transferência de propriedade. toofind quem esteja Olá administrador da conta de assinatura hello, consulte Olá [perguntas frequentes](#faq).
 
-2. Selecione a assinatura para transferir.
+2. Selecione Olá tootransfer de assinatura.
 
-3. Clique na opção **Transferir assinatura** . Veja [Perguntas frequentes](#no-button), caso não visualize o botão.
+3. Clique em Olá **transferir assinatura** opção. Consulte [perguntas frequentes sobre](#no-button) se você não vir o botão de saudação.
 
    ![Guia de assinaturas de conta do Azure](./media/billing-subscription-transfer/image1.png)
-4. Especifique o destinatário.
+4. Especifique o destinatário hello.
 
    ![Caixa de diálogo de assinatura de transferência](./media/billing-subscription-transfer/image2.PNG)
-5. O destinatário recebe automaticamente um email com um link de aceitação.
+5. destinatário de saudação automaticamente recebe um email com um link de aceitação.
 
-   ![Email de transferência de assinatura para o destinatário](./media/billing-subscription-transfer/image3.png)
-6. O destinatário clica no link e segue as instruções, incluindo inserir suas informações de pagamento.
+   ![Toorecipient de email de transferência de assinatura](./media/billing-subscription-transfer/image3.png)
+6. destinatário de saudação clica Olá link e segue as instruções hello, inclusive, inserir suas informações de pagamento.
 
    ![Primeira página da Web de transferência de assinatura](./media/billing-subscription-transfer/image4.png)
 
    ![Segunda página da Web de transferência de assinatura](./media/billing-subscription-transfer/image5.png)
-7. Sucesso! Agora a assinatura será transferida.
+7. Sucesso! assinatura de saudação será transferida.
 
 ## <a name="transfer-subscription-ownership-for-enterprise-agreement-ea-customers"></a>Transferir a propriedade da assinatura para clientes do EA (Enterprise Agreement)
-O Administrador Corporativo pode transferir a propriedade das assinaturas em um registro. Para começar, confira [Transferir Propriedade da Conta](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) no portal do EA.
+Olá administrador corporativo pode transferir a propriedade de assinaturas em um registro. tooget iniciado, consulte [transferir propriedade da conta](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) no portal EA hello.
 
 ## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Próximas etapas depois de aceitar a posse de uma assinatura
-1. Agora, você é o Administrador da conta. Examine e atualize o Administrador de serviços e os Coadministradores. Gerencie administradores no [portal clássico do Azure](https://manage.windowsazure.com) acessando configurações. [Saiba mais sobre as funções de administrador](billing-add-change-azure-subscription-administrator.md).
+1. Agora você está Olá administrador da conta. Revise e atualize Olá administrador de serviço e administradores. Gerenciar administradores no hello [portal clássico do Azure](https://manage.windowsazure.com) indo tooSettings. [Saiba mais sobre as funções de administrador](billing-add-change-azure-subscription-administrator.md).
 
-2. Você também pode usar o controle de acesso baseado em função (RBAC) para a sua assinatura e serviços. Visite o [Portal do Azure](https://portal.azure.com). [Saiba mais sobre o RBAC](../active-directory/role-based-access-control-configure.md)
+2. Você também pode usar o controle de acesso baseado em função (RBAC) para a sua assinatura e serviços. Visite Olá [portal do Azure](https://portal.azure.com). [Saiba mais sobre o RBAC](../active-directory/role-based-access-control-configure.md)
 
 3. Atualize as credenciais associadas aos serviços dessa assinatura, incluindo:
    
-   * Certificados de gerenciamento que concedem ao usuário direitos de administrador aos recursos de assinatura. Para saber mais, confira [Criar e carregar um certificado de gerenciamento do Azure](../cloud-services/cloud-services-certs-create.md)
+   * Certificados de gerenciamento que conceder direitos de administração de usuário de saudação toosubscription recursos. Para saber mais, confira [Criar e carregar um certificado de gerenciamento do Azure](../cloud-services/cloud-services-certs-create.md)
    
    * Teclas de acesso para serviços como Armazenamento. Para saber mais, consulte [Sobre as contas de Armazenamento do Azure](../storage/common/storage-create-storage-account.md)
    
    * Credenciais de Acesso Remoto para serviços como Máquinas Virtuais do Azure. 
 
-4. [Atualize alertas de cobrança para essa assinatura](billing-set-up-alerts.md) no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions). 
+4. [Atualizar alertas de cobrança para esta assinatura](billing-set-up-alerts.md) em Olá [Centro de contas Azure](https://account.windowsazure.com/Subscriptions). 
 
-5. Se estiver trabalhando com um parceiro, considere a atualização da ID do parceiro nessa assinatura. Você pode atualizar a ID do parceiro no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions).
+5. Se você estiver trabalhando com um parceiro, considere atualizar Olá ID de parceiro nesta assinatura. Você pode atualizar a ID de parceiro Olá no hello [Centro de contas Azure](https://account.windowsazure.com/Subscriptions).
 
 <a id="faq"></a>
 
 ## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
-* <a name="whoisaa"></a> **Quem é o administrador da conta da assinatura?**
+* <a name="whoisaa"></a>**Quem é o administrador da conta de saudação da assinatura Olá?**
 
-  O administrador da conta é a pessoa que assinou ou comprou a assinatura do Azure. Ele está autorizado a acessar o [Centro de Contas](https://account.windowsazure.com/Home/Index) e a realizar várias tarefas de gerenciamento, como criar assinaturas, cancelar assinaturas, alterar a cobrança de uma assinatura ou alterar o administrador de serviços. Se você não tiver certeza de quem é o administrador da conta de uma assinatura, use as etapas a seguir para descobrir.
+  o administrador da conta Olá é Olá pessoa inscreveu ou comprou Olá assinatura do Azure. Eles são autorizados tooaccess Olá [Centro de contas](https://account.windowsazure.com/Home/Index) e executar várias tarefas de gerenciamento, como criar assinaturas, cancelar assinaturas, alterar a cobrança Olá para uma assinatura ou alterar Olá administrador de serviço. Se você não tiver certeza de que o administrador da conta Olá é para uma assinatura, use Olá seguindo as etapas toofind-out.
 
-  1. Entre no [Portal do Azure](https://portal.azure.com).
-  2. No menu Hub, selecione **Assinatura**.
-  3. Selecione a assinatura que você deseja verificar e olhe as **Configurações**.
-  4. Selecione **Propriedades**. O administrador da conta da assinatura será exibido na caixa **Administrador da Conta** .  
+  1. Entrar toohello [portal do Azure](https://portal.azure.com).
+  2. No menu de Hub hello, selecione **assinatura**.
+  3. Selecione Olá assinatura você deseja toocheck e, em seguida, procure em **configurações**.
+  4. Selecione **Propriedades**. Olá administrador da conta Olá assinatura é exibido no hello **administrador da conta** caixa.  
 
 * **Tudo é transferido? Incluindo grupos de recursos, VMs, discos e outros serviços em execução?**
 
-  Sim, todos os recursos, como VMs, discos,e sites são transferidos para o novo proprietário. No entanto, todas as [funções de administrador](billing-add-change-azure-subscription-administrator.md) e políticas [RBAC (Controle de Acesso Baseado em Função)](../active-directory/role-based-access-control-configure.md) configuradas não são transferidas entre diretórios diferentes.
+  Sim, todos os seus recursos, como VMs, discos, e sites transferir toohello novo proprietário. No entanto, todas as [funções de administrador](billing-add-change-azure-subscription-administrator.md) e políticas [RBAC (Controle de Acesso Baseado em Função)](../active-directory/role-based-access-control-configure.md) configuradas não são transferidas entre diretórios diferentes.
 
-* <a id="no-button"></a> **Por que não vejo o botão Transferir Assinatura?**
+* <a id="no-button"></a>**Por que não vejo Olá transferir assinatura botão?**
 
-  Caso não veja o botão **Transferir Assinatura**, isso significa que não oferecemos suporte à transferência de assinatura para sua oferta. [Contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+  Se você não vir Olá **assinatura transferência** botão, não há suporte para a transferência de assinatura para sua oferta. [Contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 * **Uma transferência de assinatura resulta em qualquer tempo de inatividade do serviço?**
 
-  Não há nenhum impacto no serviço. A transferência da assinatura cancela a assinatura para o Administrador da Conta atual e cria uma assinatura na conta do destinatário. A nova assinatura é associada aos serviços do Azure subjacentes. A ID da assinatura permanece a mesma.
+  Não há nenhum serviço de toohello de impacto. Transferência de assinaturas de saudação cancela a assinatura de saudação na conta atual de Olá administrador e cria uma assinatura na conta do destinatário hello. nova assinatura de saudação é associado toohello os serviços do Azure subjacente. permanece de ID de assinatura Olá Olá mesmo.
 
-* **Como usar esse processo para alterar o diretório da assinatura?**
+* **Como usar esse diretório de saudação do processo toochange para assinatura?**
 
-  Uma assinatura do Azure é criada no diretório ao qual o Administrador da Conta pertence. Para alterar o diretório, transfira a assinatura para uma conta de usuário no diretório de destino. Quando o usuário conclui as etapas para aceitar a transferência, a assinatura passa automaticamente para o diretório de destino.
+  Uma assinatura do Azure é criada no diretório de saudação que Olá administrador da conta pertence. diretório de saudação toochange, conta de usuário transferência Olá assinatura tooa no diretório de destino de saudação. Quando o usuário conclui a transferência de tooaccept etapas hello, assinatura de saudação é automaticamente movida toohello diretório de destino.
 
-* **Se eu assumir a propriedade da cobrança de uma assinatura de outra organização, eles continuarão a ter acesso aos meus recursos?**
+* **Se eu assumir a propriedade de cobrança de uma assinatura de outra organização, eles continuarão toomy toohave acessar os recursos?**
 
-  Se a assinatura for transferida para outro locatário, os usuários associados ao locatário anterior perderão o acesso à assinatura. Mesmo que um usuário não seja mais um Administrador ou Coadministrador de Serviços, ele ainda terá acesso à assinatura por meio de outros mecanismos de segurança, que incluem:
+  Se a assinatura de saudação for locatário tooanother transferidos, os usuários de Olá associados ao locatário anterior Olá perder o acesso toohello assinatura. Mesmo se um usuário não for um administrador de serviço ou coadministrador, talvez ainda tenham acesso toohello assinatura por meio de outros mecanismos de segurança, incluindo:
 
-  * Certificados de gerenciamento que concedem ao usuário direitos de administrador aos recursos de assinatura. Para saber mais, confira [Criar e carregar um certificado de gerenciamento do Azure](../cloud-services/cloud-services-certs-create.md).
+  * Certificados de gerenciamento que conceder direitos de administração de usuário de saudação toosubscription recursos. Para saber mais, confira [Criar e carregar um certificado de gerenciamento do Azure](../cloud-services/cloud-services-certs-create.md).
   * Teclas de acesso para serviços como Armazenamento. Para saber mais, confira [Sobre as contas de armazenamento do Azure](../storage/common/storage-create-storage-account.md).
   * Credenciais de Acesso Remoto para serviços como Máquinas Virtuais do Azure.
 
- Se o destinatário precisar restringir o acesso a seus recursos, ele deverá considerar a atualização dos segredos associados ao serviço. A maioria dos recursos pode ser atualizada usando as seguintes etapas:
+ Se o destinatário da saudação precisa tootheir toorestrict acessar os recursos, eles Considere atualizar informações secretas associadas ao serviço de saudação. A maioria dos recursos pode ser atualizado usando Olá etapas a seguir:
 
-    1. Vá para o [Portal do Azure](https://portal.azure.com).
-    2. No menu Hub, selecione **Todos os recursos**.
-    3. Selecione o recurso. 
-    4. Na folha de recursos, clique em **configurações**. Aqui você pode exibir e atualizar os segredos existentes.
+    1. Vá toohello [portal do Azure](https://portal.azure.com).
+    2. No menu de Hub hello, selecione **todos os recursos**.
+    3. Selecione o recurso de saudação. 
+    4. Na folha de recursos de saudação, clique em **configurações**. Aqui você pode exibir e atualizar os segredos existentes.
 
-* **Se eu transferir a assinatura no meio do ciclo de cobrança, o destinatário pagará por todo o ciclo de cobrança?**
+* **Se transferir a assinatura de saudação no meio de saudação do hello ciclo de cobrança, pagamento de destinatário Olá para cobrança todo Olá ciclo?**
 
-  O remetente é responsável pelo pagamento por qualquer uso que foi relatado até o ponto no qual a transferência foi concluída. O destinatário é responsável por uso relatado a partir do momento da transferência em diante. Pode haver algum uso que ocorreu antes da transferência, mas foi relatado posteriormente. O uso está incluído na fatura do destinatário.
+  remetente de saudação é responsável pelo pagamento para qualquer uso que foi relatado toohello ponto que a transferência de saudação é concluída. destinatário de saudação é responsável por uso relatado pelo tempo de saudação de transferência em diante. Pode haver algum uso que ocorreu antes da transferência, mas foi relatado posteriormente. uso de saudação está incluído na conta do destinatário hello.
 
-* **O destinatário tem acesso ao histórico de cobrança e de uso?**
+* **Destinatário de saudação tem acesso toousage e histórico de cobrança?**
 
-  As únicas informações disponíveis para o destinatário serão o valor da última conta ou, se a assinatura tiver sido transferida antes que a primeira conta fosse gerada, o saldo atual. O restante do histórico de cobrança e uso não é transferido com a assinatura.
+  destinatário de toohello disponíveis de apenas as informações de saudação é Olá quantidade da fatura última Olá ou se a assinatura de saudação foi transferida antes da geração de lista primeiro hello, Olá saldo atual. restante de saudação do uso hello e histórico de cobrança não transferir com assinatura de saudação.
 
-* **A oferta pode ser alterada durante uma transferência?**
+* **Oferta de saudação pode ser alterada durante uma transferência?**
 
-  A oferta deve permanecer a mesma. Para alterar sua oferta, confira [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md) (Alternar assinatura do Azure para outra oferta).
+  Olá oferta deve permanecer Olá mesmo. toochange sua oferta, consulte [alternar sua oferta de assinatura do Azure tooanother](billing-how-to-switch-azure-offer.md).
 
-* **Posso transferir uma assinatura para uma conta de usuário em outro país?**
+* **Posso transferir uma conta de usuário de tooa de assinatura em outro país?**
 
-  Não, não há suporte para transferir uma assinatura para uma conta de usuário em outro país. A conta de usuário do destinatário deve estar no mesmo país.
+  Não, não há suporte para transferir uma conta de usuário de tooa de assinatura em outro país. conta de usuário do destinatário Olá deve estar no hello mesmo país.
 
-* **O destinatário pode usar um método de pagamento diferente?**
+* **Destinatário Olá pode usar um método de pagamento diferente?**
 
-  Sim. Mas o histórico de cobrança da assinatura é dividido em duas contas.  
+  Sim. Mas, histórico de cobrança de assinatura de saudação é dividido em duas contas.  
 
-* **O método de pagamento será afetado depois que eu transferir uma assinatura do Azure?**
+* **É o método de pagamento Olá afetado depois transferi uma assinatura do Azure?**
 
-  Para aceitar uma transferência de assinatura, um cartão de crédito ou um método de pagamento semelhante deve ser fornecido para pagar pela assinatura. Por exemplo, se Pedro transferir uma assinatura para Clara e ela aceitar a transferência, Clara deverá fornecer uma forma de pagamento para pagar pela assinatura. Depois que a transferência for concluída, Clara será cobrada pela assinatura, não Pedro.
+  tooaccept uma transferência de assinatura, um cartão de crédito ou pagamento semelhante deve ser fornecido toopay para assinatura de saudação. Por exemplo, se Bob transfere um tooJane de assinatura e Jane aceita transferência Olá, Jane deve fornecer um toopay do método de pagamento para assinatura de saudação. Após a conclusão da transferência hello, Jane é cobrada por assinatura Olá Bob não.
 
-* **Como faço para migrar dados e serviços da minha assinatura do Azure para uma nova assinatura?**
+* **Como migrar dados e serviços da minha assinatura do toonew assinatura do Azure?**
 
-  Se não for possível transferir a propriedade da assinatura, migre os recursos manualmente. Consulte [Mover recursos para um novo grupo de recursos ou uma nova assinatura](../azure-resource-manager/resource-group-move-resources.md).
+  Se não for possível transferir a propriedade da assinatura, migre os recursos manualmente. Consulte [Mover grupo de recursos toonew de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md).
 
 
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
-Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente. 
+Se você ainda precisar de Ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) tooget seu problema resolvido rapidamente. 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Um tour pelo Analytics no Azure Application Insights | Microsoft Docs
-description: "Exemplos curtos de todas as principais consultas na Análise, a ferramenta de pesquisa avançada do Application Insights."
+title: "tour aaaA por meio de análise no Insights de aplicativo do Azure | Microsoft Docs"
+description: "Exemplos curtos de todas as consultas de saudação principal na análise, Olá poderosa ferramenta de pesquisa do Application Insights."
 services: application-insights
 documentationcenter: 
 author: CFreemanwa
@@ -13,35 +13,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: bwren
-ms.openlocfilehash: f5650d212eb2f8c460f062b3c11ae14c1e026ba6
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: c268e26c6bf93ac2ee2a9d5e83613150dcf90b04
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Um tour pela Análise no Application Insights
-O [Analytics](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta do Log Analytics.
+[Análise de](app-insights-analytics.md) é o recurso de pesquisa poderoso saudação do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta do Log Analytics.
 
-* **[Assista ao vídeo introdutório](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
-* **[Faça um test drive do Analytics com nossos dados simulados](https://analytics.applicationinsights.io/demo)** se seu aplicativo ainda não estiver enviando dados para o Application Insights.
-* **[Roteiro dos usuários do SQL](https://aka.ms/sql-analytics)** converte as linguagens mais comuns.
+* **[Assistir ao vídeo introdutório Olá](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Faça o test drive análise sobre nossos dados simulados](https://analytics.applicationinsights.io/demo)**  se seu aplicativo não esteja enviando dados tooApplication Insights ainda.
+* **[Roteiro de SQL-usuários](https://aka.ms/sql-analytics)**  converte as linguagens mais comuns de saudação.
 
-Vamos analisar algumas consultas básicas para começar.
+Vamos dar um passo a passo tooget algumas consultas básicas que você iniciou.
 
-## <a name="connect-to-your-application-insights-data"></a>Conectar-se aos dados do Application Insights
+## <a name="connect-tooyour-application-insights-data"></a>Conecte-se a dados do Application Insights tooyour
 Abra o Analytics na [folha de visão geral](app-insights-dashboards.md) de seu aplicativo no Application Insights:
 
 ![Abra o portal.azure.com, abra o recurso do Application Insights e clique em Análise.](./media/app-insights-analytics-tour/001.png)
 
 ## <a name="takehttpsdocsloganalyticsioquerylanguagequerylanguagetakeoperatorhtml-show-me-n-rows"></a>[Take](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html): mostre-me n linhas
-Os pontos de dados que registram em log operações de usuário (geralmente solicitações HTTP recebidas pelo seu aplicativo Web) são armazenados em uma tabela chamada `requests`. Cada linha é um ponto de dados de telemetria recebido do SDK do Application Insights em seu aplicativo.
+Os pontos de dados que registram em log operações de usuário (geralmente solicitações HTTP recebidas pelo seu aplicativo Web) são armazenados em uma tabela chamada `requests`. Cada linha é um ponto de dados de telemetria recebido do hello Application Insights SDK em seu aplicativo.
 
-Vamos começar examinando algumas linhas de exemplo da tabela:
+Vamos começar examinando algumas linhas de exemplo de tabela hello:
 
 ![results](./media/app-insights-analytics-tour/010.png)
 
 > [!NOTE]
-> Coloque o cursor em algum lugar na instrução antes de clicar em Ir. Você pode dividir uma instrução em mais de uma linha, mas não coloque linhas em branco em uma instrução. As linhas em branco são uma maneira conveniente de manter várias consultas separadas na janela.
+> Coloque o cursor de saudação em algum lugar na instrução de saudação antes de clicar em Ir. Você pode dividir uma instrução em mais de uma linha, mas não coloque linhas em branco em uma instrução. Linhas em branco são uma maneira conveniente de tookeep várias separam consultas na janela de saudação.
 >
 >
 
@@ -49,19 +49,19 @@ Escolha colunas, arraste-as, agrupe por colunas e filtre:
 
 ![Clique na seleção de coluna no canto superior direito dos resultados](./media/app-insights-analytics-tour/030.png)
 
-Expanda algum item para ver os detalhes:
+Expanda detalhes item toosee hello:
 
 ![Escolha Tabela e use Configurar Colunas](./media/app-insights-analytics-tour/040.png)
 
 > [!NOTE]
-> Clique no cabeçalho de uma coluna para reordenar os resultados disponíveis no navegador da Web. Mas lembre-se de que, para um conjunto de resultados grande, o número de linhas baixadas para o navegador é limitado. Portanto, classificar dessa maneira não mostra sempre a você os reais itens maiores ou menores. Para classificar itens de forma confiável, use o `top` ou o operador `sort`.
+> Clique em início de saudação de uma coluna ordem toore Olá resulta disponíveis no navegador da web de saudação. Mas, lembre-se de que, para um conjunto de resultados grande, número de saudação do navegador de toohello baixado de linhas é limitado. Classificando dessa maneira não mostra sempre Olá real maior ou menor de itens. itens de toosort confiável, usam Olá `top` ou `sort` operador.
 >
 >
 
 ## <a name="tophttpsdocsloganalyticsioquerylanguagequerylanguagetopoperatorhtml-and-sorthttpsdocsloganalyticsioquerylanguagequerylanguagesortoperatorhtml"></a>[Superior](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) e [classificação](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
-`take` é útil para obter um exemplo rápido de um resultado, mas mostra linhas da tabela sem uma ordem específica. Para obter uma exibição ordenada, use `top` (para obter um exemplo) ou `sort` (na tabela inteira).
+`take`é um exemplo rápido de um resultado de tooget útil, mas mostra linhas da tabela de saudação em nenhuma ordem específica. tooget uma exibição ordenada, use `top` (para obter um exemplo) ou `sort` (pela tabela inteira de saudação).
 
-Mostre-me as primeiras n linhas, ordenadas por uma coluna específica:
+Mostre-me primeiras linhas n hello, ordenadas por uma coluna específica:
 
 ```AIQL
 
@@ -80,9 +80,9 @@ Mostre-me as primeiras n linhas, ordenadas por uma coluna específica:
     requests | sort by timestamp desc | take 10
 ```
 
-O resultado seria o mesmo, mas ele seria executado um pouco mais lentamente. (Também é possível escrever `order`, que é um alias de `sort`.)
+resultado de saudação seria Olá mesmo, mas ele será executado um pouco mais lenta. (Também é possível escrever `order`, que é um alias de `sort`.)
 
-Os cabeçalhos de coluna no modo de exibição de tabela também podem ser usados para classificar os resultados na tela. Mas, obviamente, se você usou `take` ou `top` para recuperar apenas parte de uma tabela, apenas os registros que foram recuperados serão reordenados.
+cabeçalhos de coluna Olá no modo de tabela Olá também podem ser usado toosort Olá resultados na tela hello. Mas certamente, se você usou `take` ou `top` tooretrieve apenas parte de uma tabela, você terá apenas reordenar Olá registros recuperar.
 
 ## <a name="wherehttpsdocsloganalyticsioquerylanguagequerylanguagewhereoperatorhtml-filtering-on-a-condition"></a>[Where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): filtragem de uma condição
 
@@ -97,7 +97,7 @@ Vamos ver apenas as solicitações que retornaram um código de resultado espec�
 
 ![](./media/app-insights-analytics-tour/250.png)
 
-O operador `where` usa uma expressão booliana. Eis alguns pontos importantes sobre eles:
+Olá `where` operador obtém uma expressão booleana. Eis alguns pontos importantes sobre eles:
 
 * `and`, `or`: Operadores booleanos
 * `==`, `<>`, `!=`: igual a e diferente de
@@ -105,7 +105,7 @@ O operador `where` usa uma expressão booliana. Eis alguns pontos importantes so
 
 <!---Read all about [scalar expressions]().--->
 
-### <a name="getting-the-right-type"></a>Obtenção do tipo correto
+### <a name="getting-hello-right-type"></a>Obtendo o tipo correto de saudação
 Solicitações malsucedidas de localização:
 
 ```AIQL
@@ -119,21 +119,21 @@ Solicitações malsucedidas de localização:
 
 ## <a name="time"></a>Hora
 
-Por padrão, as consultas são restritas às últimas 24 horas. Mas você pode alterar esse intervalo:
+Por padrão, as consultas são restrito toohello últimas 24 horas. Mas você pode alterar esse intervalo:
 
 ![](./media/app-insights-analytics-tour/change-time-range.png)
 
-Substitua o intervalo de tempo escrevendo qualquer consulta que mencione `timestamp` em uma cláusula where. Por exemplo:
+Substituir o intervalo de tempo de saudação escrevendo qualquer consulta que menciona `timestamp` em uma cláusula where. Por exemplo:
 
 ```AIQL
 
-    // What were the slowest requests over the past 3 days?
+    // What were hello slowest requests over hello past 3 days?
     requests
-    | where timestamp > ago(3d)  // Override the time range
+    | where timestamp > ago(3d)  // Override hello time range
     | top 5 by duration
 ```
 
-O recurso de intervalo de tempo é equivalente a uma cláusula 'where' inserida após cada menção de uma das tabelas de origem.
+recurso de intervalo de tempo de saudação é equivalente tooa 'where' cláusula inserida após cada uma das tabelas de origem Olá mencionado.
 
 `ago(3d)` significa 'três dias atrás'. Outras unidades de tempo incluem horas (`2h`, `2.5h`), minutos (`25m`) e segundos (`10s`).
 
@@ -163,7 +163,7 @@ Outros exemplos:
 
 
 ## <a name="projecthttpsdocsloganalyticsioquerylanguagequerylanguageprojectoperatorhtml-select-rename-and-compute-columns"></a>[Projeto](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html): selecionar, renomear e computar colunas
-Use [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) para selecionar apenas as colunas desejadas:
+Use [ `project` ](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) toopick apenas colunas Olá desejado:
 
 ```AIQL
 
@@ -189,14 +189,14 @@ Você também pode renomear e definir novas colunas:
 ![result](./media/app-insights-analytics-tour/270.png)
 
 * Os nomes de coluna poderão incluir espaços ou símbolos se eles estiverem entre colchetes, desta forma: `['...']` ou `["..."]`
-* `%` é o operador de módulo normal.
+* `%`Olá é algo comum do operador de módulo.
 * `1d` (que é o dígito um e um “d”) é um literal de timespan que significa um dia. Aqui estão mais alguns literais de timespan: `12h`, `30m`, `10s` e `0.01s`.
-* `floor` (alias `bin`) arredonda um valor até o múltiplo mais próximo do valor de base fornecido. De modo que `floor(aTime, 1s)` arredonda um tempo até o segundo mais próximo.
+* `floor`(alias `bin`) Arredonda um valor para baixo toohello múltiplo mais próximo de valor de base Olá você fornecer. Portanto `floor(aTime, 1s)` Arredonda vez toohello mais próximo segundo.
 
-As expressões podem incluir todos os operadores comuns (`+`, `-`, ...) e há uma variedade de funções úteis.
+Expressões podem incluir todos os operadores de saudação normal (`+`, `-`,...), e há uma variedade de funções úteis.
 
 ## <a name="extend"></a>Extend
-Se quiser apenas adicionar colunas às existentes, use [`extend`](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html):
+Se você quiser apenas tooadd toohello de colunas existentes, use [ `extend` ](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html):
 
 ```AIQL
 
@@ -205,11 +205,11 @@ Se quiser apenas adicionar colunas às existentes, use [`extend`](https://docs.l
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-O uso de [`extend`](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html) será menos detalhado do que o de [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) se você quiser manter todas as colunas existentes.
+Usando [ `extend` ](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html) é menos detalhada que [ `project` ](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) se você quiser tookeep todos Olá colunas existentes.
 
-### <a name="convert-to-local-time"></a>Converter em hora local
+### <a name="convert-toolocal-time"></a>Converter o horário de toolocal
 
-Os carimbos de data e hora são sempre em UTC. Portanto, se estiver na costa do Pacífico nos EUA e for inverno, você terá algo semelhante a isto:
+Os carimbos de data e hora são sempre em UTC. Então se você estiver em Costa do Pacífico nos hello e é inverno, talvez você goste isso:
 
 ```AIQL
 
@@ -222,44 +222,44 @@ Os carimbos de data e hora são sempre em UTC. Portanto, se estiver na costa do 
 ## <a name="summarizehttpsdocsloganalyticsioquerylanguagequerylanguagesummarizeoperatorhtml-aggregate-groups-of-rows"></a>[Resumir](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html): agregar grupos de linhas
 `Summarize` aplica uma *função de agregação* especificada em grupos de linhas.
 
-Por exemplo, o tempo que o seu aplicativo Web leva para responder a uma solicitação é informado no campo `duration`. Vamos ver o tempo médio de resposta para todas as solicitações:
+Por exemplo, tempo de saudação toorespond tooa solicitação entra em seu aplicativo web é informado no campo de saudação `duration`. Vamos ver médio de resposta Olá tooall solicitações de tempo:
 
 ![](./media/app-insights-analytics-tour/410.png)
 
-Ou podemos separar o resultado em solicitações de nomes diferentes:
+Ou podemos pode separar resultado Olá em solicitações de nomes diferentes:
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize` coleta os pontos de dados no fluxo dos grupos para os quais a cláusula `by` é igualmente avaliada. Cada valor na expressão `by` (cada nome de operação no exemplo acima) resulta em uma linha na tabela de resultados.
+`Summarize`coleta Olá pontos de dados no fluxo de saudação em grupos para os quais Olá `by` cláusula avalia igualmente. Cada valor na Olá `by` expressão - cada nome de operação em Olá acima exemplo - resulta em uma linha na tabela de resultados de saudação.
 
 Ou podemos agrupar os resultados por hora do dia:
 
 ![](./media/app-insights-analytics-tour/430.png)
 
-Observe como estamos usando a função `bin` (também conhecida como `floor`). Se usássemos apenas `by timestamp`, cada linha de entrada acabaria em seu próprio pequeno grupo. Para qualquer escalar contínuo com horas ou números, é necessário dividir o intervalo contínuo em um número gerenciável de valores distintos. `bin`, que é simplesmente a conhecida função de arredondamento para baixo `floor`, é a maneira mais fácil de fazer isso.
+Observe como estamos usando Olá `bin` função (também conhecido como `floor`). Se usássemos apenas `by timestamp`, cada linha de entrada acabaria em seu próprio pequeno grupo. Para qualquer escalar contínua vezes like ou números, temos toobreak Olá série em um número gerenciável de valores discretos. `bin`-que é apenas Olá familiar arredondamento para baixo `floor` função - é Olá toodo de maneira mais fácil que.
 
-Podemos usar a mesma técnica para reduzir intervalos de cadeias de caracteres:
+Podemos usar Olá mesmos intervalos de tooreduce técnica de cadeias de caracteres:
 
 ![](./media/app-insights-analytics-tour/440.png)
 
-Observe que você pode usar `name=` para definir o nome de uma coluna de resultado, seja nas expressões de agregação, seja na cláusula by.
+Observe que você pode usar `name=` tooset nome de saudação de uma coluna de resultados, em expressões de agregação de saudação ou Olá por cláusula.
 
 ## <a name="counting-sampled-data"></a>Contando dados de amostra
-`sum(itemCount)` é a agregação recomendada para contar eventos. Em muitos casos, itemCount==1, de modo que a função simplesmente conta até o número de linhas no grupo. Contudo, quando a [amostragem](app-insights-sampling.md) estiver em operação, apenas uma fração dos eventos originais será retida como pontos de dados no Application Insights, de modo que para cada ponto de dados que você visualizar, haverá `itemCount` eventos.
+`sum(itemCount)`é Olá recomendada agregação toocount eventos. Em muitos casos, itemCount = = 1, para a função hello simplesmente conta número Olá de linhas no grupo de saudação. Mas quando [amostragem](app-insights-sampling.md) está em operação, apenas uma fração de eventos original Olá são mantidas como pontos de dados no Application Insights para que para cada ponto de dados que você vê, existem `itemCount` eventos.
 
-Por exemplo, se a amostragem descartar 75% dos eventos originais, itemCount == 4 nos registros retidos - ou seja, para cada registro retido, houve quatro registros originais.
+Por exemplo, se a amostragem descarta 75% de eventos original hello, itemCount = = 4 em registros de saudação retido - ou seja, para cada registro retido, havia quatro registros originais.
 
-A amostragem adaptável fará com que itemCount seja maior durante períodos em que seu aplicativo estiver sendo muito usado.
+Amostragem adaptável faz com que itemCount toobe mais alta durante os períodos em que seu aplicativo está sendo usado intensamente.
 
-Portanto, a soma de itemCount dá uma boa estimativa do número original de eventos.
+Resumindo itemCount, portanto, fornece uma boa estimativa do número original de saudação de eventos.
 
 ![](./media/app-insights-analytics-tour/510.png)
 
-Também há uma agregação `count()` (e uma operação de contagem), para casos em que você realmente quiser contar o número de linhas em um grupo.
+Também há um `count()` agregação (e uma operação de contagem), para casos onde você realmente deseja toocount Olá número de linhas em um grupo.
 
 Há uma série de [funções de agregação](https://docs.loganalytics.io/learn/tutorials/aggregations.html).
 
-## <a name="charting-the-results"></a>Colocando os resultados em gráficos
+## <a name="charting-hello-results"></a>Gráficos de resultados de saudação
 ```AIQL
 
     exceptions
@@ -271,11 +271,11 @@ Por padrão, os resultados são exibidos como uma tabela:
 
 ![](./media/app-insights-analytics-tour/225.png)
 
-Podemos fazer melhor do que a exibição de tabela. Vamos examinar os resultados no modo de exibição de gráfico com a opção de barra vertical:
+Podemos fazer melhor do que o modo de exibição de tabela hello. Vamos analisar resultados Olá no modo de exibição de gráfico de saudação com opção de barra vertical hello:
 
 ![Clique em Gráfico, escolha o gráfico de barras Vertical e atribua os eixos x e y](./media/app-insights-analytics-tour/230.png)
 
-Observe que, embora não tenhamos classificado os resultados por tempo (como você pode ver na exibição de tabela), a exibição de gráfico sempre mostra datetimes na ordem correta.
+Observe que embora nós não classificar resultados de Olá por hora (como você pode ver na exibição da tabela Olá), exibição de gráfico de saudação sempre mostra datetimes na ordem correta.
 
 
 ## <a name="timecharts"></a>Timecharts
@@ -288,14 +288,14 @@ Mostra quantos eventos há a cada hora:
         by bin(timestamp, 1h)
 ```
 
-Selecione a opção de exibição Gráfico:
+Selecione a opção de exibição de gráfico de saudação:
 
 ![timechart](./media/app-insights-analytics-tour/080.png)
 
 ## <a name="multiple-series"></a>Várias séries
-Várias expressões na cláusula `summarize` criam várias colunas.
+Várias expressões em Olá `summarize` cláusula cria várias colunas.
 
-Várias expressões na cláusula `by` criam várias linhas, uma para cada combinação de valores.
+Várias expressões em Olá `by` cláusula cria várias linhas, uma para cada combinação de valores.
 
 ```AIQL
 
@@ -308,13 +308,13 @@ Várias expressões na cláusula `by` criam várias linhas, uma para cada combin
 ![Tabela de solicitações por hora e local](./media/app-insights-analytics-tour/090.png)
 
 ### <a name="segment-a-chart-by-dimensions"></a>Segmentar um gráfico por dimensões
-Se você criar um gráfico de uma tabela que tenha uma coluna de cadeia de caracteres e uma coluna numérica, a cadeia de caracteres pode ser usada para dividir os dados numéricos em uma série de pontos separada. Se houver mais de uma coluna de cadeia de caracteres, você poderá escolher qual coluna usar como o discriminador.
+Se gráfico uma tabela que tenha uma coluna de cadeia de caracteres e uma coluna numérica, a cadeia de caracteres hello puder ser dados numéricos do hello toosplit usadas em séries distintas de pontos. Se houver mais de uma coluna de cadeia de caracteres, você pode escolher qual coluna toouse como discriminador de saudação.
 
 ![Segmentar um gráfico de análise](./media/app-insights-analytics-tour/100.png)
 
 #### <a name="bounce-rate"></a>Taxa de devolução
 
-Converta um booliano em uma cadeia de caracteres para usá-la como um discriminador:
+Converter um toouse de cadeia de caracteres booliana tooa-lo como um discriminador:
 
 ```AIQL
 
@@ -331,16 +331,16 @@ Converta um booliano em uma cadeia de caracteres para usá-la como um discrimina
 ```
 
 ### <a name="display-multiple-metrics"></a>Exibir várias métricas
-Se você criar um gráfico de uma tabela com mais de uma coluna numérica, além de carimbo de data/hora, será possível exibir qualquer combinação desses itens.
+Se o gráfico de uma tabela que tem mais de uma coluna numérica, em adição toohello timestamp, você pode exibir qualquer combinação desses itens.
 
 ![Segmentar um gráfico de análise](./media/app-insights-analytics-tour/110.png)
 
-Você deve selecionar **Não Dividir** antes de selecionar várias colunas numéricas. Não é possível dividir por uma coluna de cadeia de caracteres ao mesmo tempo que exibe mais de uma coluna numérica.
+Você deve selecionar **Não Dividir** antes de selecionar várias colunas numéricas. Não é possível dividir, uma coluna de cadeia de caracteres no hello mesmo tempo como exibir mais de uma coluna numérica.
 
 ## <a name="daily-average-cycle"></a>Ciclo médio diário
-Como o uso varia na média diária?
+Como o uso variar ao longo do dia médio Olá?
 
-Conte solicitações pelo módulo de tempo de um dia, compartimentalizado por horas:
+Solicitações de contagem por tempo de saudação módulo um dia, guardadas em horas:
 
 ```AIQL
 
@@ -355,12 +355,12 @@ Conte solicitações pelo módulo de tempo de um dia, compartimentalizado por ho
 ![Gráfico de linhas de horas em um dia normal](./media/app-insights-analytics-tour/120.png)
 
 > [!NOTE]
-> Observe que, no momento, temos que converter durações de tempo em datas/horas para exibir em um gráfico de linha.
+> Observe que no momento temos tooconvert toodatetimes de durações de tempo em ordem toodisplay em um gráfico de linha.
 >
 >
 
 ## <a name="compare-multiple-daily-series"></a>Comparar várias séries diárias
-Como o uso varia de acordo com a hora do dia em diferentes países?
+Como o uso variar ao longo do tempo de saudação do dia em países diferentes?
 
 ```AIQL
 
@@ -392,16 +392,16 @@ Quantas sessões existem de comprimentos diferentes?
     | project d = sessionDuration + datetime("2016-01-01"), count_
 ```
 
-A última linha é necessária para a conversão em datetime. Atualmente, o eixo x de um gráfico só será exibido como um escalar se ele for um datetime.
+última linha de saudação é necessário tooconvert toodatetime. No momento eixo Olá x de um gráfico é exibido como um valor escalar somente se ele for uma data e hora.
 
-A cláusula `where` exclui sessões únicas (sessionDuration==0) e define o comprimento do eixo x.
+Olá `where` cláusula exclui sessões única (sessionDuration = = 0) e conjuntos de Olá comprimento do eixo x da saudação.
 
 ![](./media/app-insights-analytics-tour/290.png)
 
 ## <a name="percentileshttpsdocsloganalyticsioquerylanguagequerylanguagepercentilesaggfunctionhtml"></a>[Percentis](https://docs.loganalytics.io/queryLanguage/query_language_percentiles_aggfunction.html)
 Quais intervalos de durações abordam diferentes porcentagens de sessões?
 
-Use a consulta acima, mas substitua a última linha:
+Usar Olá acima de consulta, mas substitua a última linha de saudação:
 
 ```AIQL
 
@@ -415,7 +415,7 @@ Use a consulta acima, mas substitua a última linha:
     | summarize percentiles(sesh, 5, 20, 50, 80, 95)
 ```
 
-Também removemos o limite máximo na cláusula where para obter números corretos, incluindo todas as sessões com mais de uma solicitação:
+Também é removida limite superior Olá Olá onde cláusula, na ordem tooget corrigir ilustrações, incluindo todas as sessões com mais de uma solicitação:
 
 ![result](./media/app-insights-analytics-tour/180.png)
 
@@ -425,7 +425,7 @@ O que nos mostra que:
 * 50% das sessões duram menos de 36 minutos;
 * 5% das sessões duram mais de 7 dias
 
-Para obter uma análise separada para cada país, temos apenas que trazer a coluna client_CountryOrRegion para ambos os operadores summarize:
+tooget uma análise separada para cada país, apenas temos toobring Olá client_CountryOrRegion coluna separadamente através de ambos resumir operadores:
 
 ```AIQL
 
@@ -443,9 +443,9 @@ Para obter uma análise separada para cada país, temos apenas que trazer a colu
 ![](./media/app-insights-analytics-tour/190.png)
 
 ## <a name="join"></a>Ingressar
-Temos acesso a várias tabelas, incluindo solicitações e exceções.
+Temos acesso tooseveral tabelas, incluindo solicitações e exceções.
 
-Para encontrar as exceções relacionadas a uma solicitação que retornou uma resposta com falha, podemos unir as tabelas em `session_Id`:
+toofind Olá exceções relacionadas tooa solicitação retornou uma resposta de falha, pode unir tabelas de saudação em `session_Id`:
 
 ```AIQL
 
@@ -456,12 +456,12 @@ Para encontrar as exceções relacionadas a uma solicitação que retornou uma r
 ```
 
 
-É uma prática recomendável usar `project` para selecionar apenas as colunas necessárias antes de executar a junção.
-Renomeamos a coluna de carimbo de data/hora nas mesmas cláusulas.
+É uma boa prática toouse `project` tooselect colunas de saudação apenas precisamos antes de executar Olá junção.
+Em Olá mesmas cláusulas, podemos renomear a coluna de carimbo de hora de saudação.
 
-## <a name="lethttpsdocsloganalyticsioquerylanguagequerylanguageletstatementhtml-assign-a-result-to-a-variable"></a>[Let](https://docs.loganalytics.io/queryLanguage/query_language_letstatement.html): atribuir um resultado a uma variável
+## <a name="lethttpsdocsloganalyticsioquerylanguagequerylanguageletstatementhtml-assign-a-result-tooa-variable"></a>[Permitir que](https://docs.loganalytics.io/queryLanguage/query_language_letstatement.html): atribuir uma variável de tooa de resultado
 
-Use `let` para separar as partes da expressão anterior. Os resultados não mudam:
+Use `let` tooseparate partes de saudação da expressão anterior hello. resultados de saudação não foram modificados:
 
 ```AIQL
 
@@ -474,10 +474,10 @@ Use `let` para separar as partes da expressão anterior. Os resultados não muda
 ```
 
 > [!Tip] 
-> No cliente do Analytics, não coloque linhas em branco entre as partes da consulta. Execute tudo.
+> No cliente de análise hello, não coloque as linhas em branco entre as partes de saudação de consulta de saudação. Verifique tooexecute-se de que todos eles.
 >
 
-Use `toscalar` para converter uma única célula de tabela em um valor:
+Use `toscalar` tooconvert um valor de tooa de célula de tabela única:
 
 ```AIQL
 let topCities =  toscalar (
@@ -493,7 +493,7 @@ requests
 
 ### <a name="functions"></a>Funções
 
-Use *Let* para definir uma função:
+Use *permitem* toodefine uma função:
 
 ```AIQL
 
@@ -507,11 +507,11 @@ Use *Let* para definir uma função:
 ```
 
 ## <a name="accessing-nested-objects"></a>Acessando objetos aninhados
-Os objetos aninhados podem ser acessados facilmente. Por exemplo, no fluxo de exceções, você verá objetos estruturados como este:
+Os objetos aninhados podem ser acessados facilmente. Por exemplo, no fluxo de exceções hello, você pode ver objetos estruturados como este:
 
 ![result](./media/app-insights-analytics-tour/520.png)
 
-Você pode mesclá-lo escolhendo as propriedades que te interessam:
+Você pode mesclá-la escolhendo Propriedades Olá em que você estiver interessado:
 
 ```AIQL
 
@@ -519,11 +519,11 @@ Você pode mesclá-lo escolhendo as propriedades que te interessam:
     | extend method1 = tostring(details[0].parsedStack[1].method)
 ```
 
-Observe que você precisa converter o resultado no tipo apropriado.
+Observe que você precisa que o tipo apropriado do toohello toocast Olá resultado.
 
 
 ## <a name="custom-properties-and-measurements"></a>Medidas e propriedades personalizadas
-Se o seu aplicativo anexar [dimensões personalizadas (propriedades) e medidas personalizadas](app-insights-api-custom-events-metrics.md#properties) a eventos, você os verá nos objetos `customDimensions` e `customMeasurements`.
+Se seu aplicativo anexa [dimensões personalizadas (Propriedades) e medidas personalizadas](app-insights-api-custom-events-metrics.md#properties) tooevents, em seguida, você vai vê-los no hello `customDimensions` e `customMeasurements` objetos.
 
 Por exemplo, se o seu aplicativo inclui:
 
@@ -536,17 +536,17 @@ Por exemplo, se o seu aplicativo inclui:
     telemetryClient.TrackEvent("myEvent", dimensions, measurements);
 ```
 
-Para extrair esses valores na Análise:
+tooextract esses valores na análise:
 
 ```AIQL
 
     customEvents
     | extend p1 = customDimensions.p1,
-      m1 = todouble(customMeasurements.m1) // cast to expected type
+      m1 = todouble(customMeasurements.m1) // cast tooexpected type
 
 ```
 
-Para verificar se uma dimensão personalizada é de um tipo específico:
+tooverify se uma dimensão personalizada é de um tipo específico:
 
 ```AIQL
 
@@ -556,47 +556,47 @@ Para verificar se uma dimensão personalizada é de um tipo específico:
 ```
 
 ## <a name="dashboards"></a>Painéis
-Você pode fixar os resultados em um painel para reunir todos os seus gráficos e suas tabelas mais importantes.
+Você pode fixar o painel resultados em ordem toobring tooa juntos todos os seus gráficos e tabelas mais importantes.
 
-* [Painel compartilhado do Azure](app-insights-dashboards.md#share-dashboards): clique no ícone de pino. Antes de fazer isso, você deve ter um painel compartilhado. No portal do Azure, abra ou crie um painel e clique em Compartilhar.
+* [Painel compartilhado do Azure](app-insights-dashboards.md#share-dashboards): clique no ícone de pino hello. Antes de fazer isso, você deve ter um painel compartilhado. No portal do Azure de Olá, abrir ou criar um painel e clicar em compartilhamento.
 * [Painel do Power BI](app-insights-export-power-bi.md): clique em Exportar, Consulta do Power BI. Uma vantagem dessa alternativa é que você pode exibir sua consulta juntamente com outros resultados de uma ampla variedade de fontes.
 
 ## <a name="combine-with-imported-data"></a>Combinar com dados importados
 
-Os relatórios do Analytics parecem ótimos no painel, mas, às vezes, você pode querer colocar os dados em um formato mais fácil de entender. Por exemplo, suponha que os usuários autenticados sejam identificados na telemetria por um alias. Você gostaria de mostrar os nomes reais nos resultados. Para fazer isso, você precisará de um arquivo CSV que mapeie os aliases para os nomes reais.
+Relatórios de análise uma aparência excelentes no painel hello, mas, às vezes, você deseja tootranslate Olá dados tooa mais de forma fácil de entender. Por exemplo, suponha que os usuários autenticados são identificados na telemetria Olá por um alias. Você gostaria que tooshow seu real nomes em seus resultados. toodo isso, é necessário um arquivo CSV que mapeia de nomes reais da saudação aliases toohello.
 
-Você pode importar um arquivo de dados e usá-lo assim como qualquer uma das tabelas padrão (solicitações, exceções, etc.). É possível consultá-la sozinha ou uni-la a outras tabelas. Por exemplo, se houver uma tabela chamada usermap e ela tiver as colunas `realName` e `userId`, você poderá usá-la para converter o campo `user_AuthenticatedId` na telemetria de solicitação:
+Você pode importar um arquivo de dados e usá-lo como qualquer uma das tabelas de saudação padrão (solicitações, exceções e assim por diante). É possível consultá-la sozinha ou uni-la a outras tabelas. Por exemplo, se você tiver uma tabela chamada usermap e ele tem colunas `realName` e `userId`, e em seguida, você pode usá-lo Olá tootranslate `user_AuthenticatedId` campo telemetria de solicitação hello:
 
 ```AIQL
 
     requests
     | where notempty(user_AuthenticatedId)
     | project userId = user_AuthenticatedId
-      // get the realName field from the usermap table:
+      // get hello realName field from hello usermap table:
     | join kind=leftouter ( usermap ) on userId
       // count transactions by name:
     | summarize count() by realName
 ```
 
-Para importar uma tabela, na folha Esquema, em **Outras Fontes de Dados**, siga as instruções para adicionar uma nova fonte de dados carregando uma amostra dos seus dados. Em seguida, você poderá usar essa definição para carregar as tabelas.
+tooimport uma tabela, na folha de esquema hello, em **outras fontes de dados**, siga Olá instruções tooadd uma nova fonte de dados, carregando um exemplo dos dados. Em seguida, você pode usar tabelas de tooupload essa definição.
 
-O recurso de importação está em visualização, por isso você verá inicialmente um link “Fale conosco” em “Outras fontes de dados”. Use-o para se inscrever no programa de visualização e o link será substituído por um botão “Adicionar nova fonte de dados”.
+o recurso de importação Hello está atualmente em visualização, portanto, inicialmente, você verá um link "Entre em contato conosco" em "Outras fontes de dados." Use este toosign toohello programa de visualização e link hello será substituído por um botão "Adicionar nova fonte de dados".
 
 
 ## <a name="tables"></a>Tabelas
-O fluxo de telemetria recebido de seu aplicativo é acessível por meio de várias tabelas. O esquema de propriedades disponível para cada tabela está visível na parte esquerda da janela.
+saudação de telemetria recebida do seu aplicativo está acessível por meio de várias tabelas. esquema de saudação de propriedades disponíveis para cada tabela é visível à esquerda de saudação da janela de saudação.
 
 ### <a name="requests-table"></a>Tabela de solicitações
-Conte as solicitações HTTP para seu aplicativo Web e segmento por nome de página:
+Tooyour web app e o segmento de solicitações HTTP de contagem por nome de página:
 
 ![Conte solicitações segmentadas por nome](./media/app-insights-analytics-tour/analytics-count-requests.png)
 
-Descubra as solicitações que mais falham:
+Localiza as solicitações de saudação que falham mais:
 
 ![Conte solicitações segmentadas por nome](./media/app-insights-analytics-tour/analytics-failed-requests.png)
 
 ### <a name="custom-events-table"></a>Tabela de eventos personalizada
-Se usar [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) para enviar seus próprios eventos, você poderá lê-los nessa tabela.
+Se você usar [Trackevent](app-insights-api-custom-events-metrics.md#trackevent) toosend seus próprios eventos, você pode lê-los desta tabela.
 
 Vejamos um exemplo em que o código do aplicativo contém estas linhas:
 
@@ -609,66 +609,66 @@ Vejamos um exemplo em que o código do aplicativo contém estas linhas:
            {"querytime", totalTime}})
 ```
 
-Exiba a frequência destes eventos:
+Frequência de saudação desses eventos de exibição:
 
 ![Taxa de exibição de eventos personalizados](./media/app-insights-analytics-tour/analytics-custom-events-rate.png)
 
-Extrair medidas e dimensões de eventos:
+Extrai eventos Olá medidas e dimensões:
 
 ![Taxa de exibição de eventos personalizados](./media/app-insights-analytics-tour/analytics-custom-events-dimensions.png)
 
 ### <a name="custom-metrics-table"></a>Tabela de métricas personalizada
-Se estiver usando [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) para enviar seus próprios valores de métricas, você encontrará os resultados no fluxo **customMetrics**. Por exemplo:  
+Se você estiver usando [Trackmetric](app-insights-api-custom-events-metrics.md#trackmetric) toosend seus próprios valores da métrica, você encontrará seus resultados no hello **customMetrics** fluxo. Por exemplo:  
 
 ![Métricas personalizadas na análise do Application Insights](./media/app-insights-analytics-tour/analytics-custom-metrics.png)
 
 > [!NOTE]
-> No [Metrics Explorer](app-insights-metrics-explorer.md), todas as medidas personalizadas anexadas a qualquer tipo de telemetria aparecem juntas na folha de métricas, juntamente com métricas enviadas usando `TrackMetric()`. No Analytics, no entanto, as medidas personalizadas ainda estão conectadas a qualquer tipo de telemetria no qual foram realizadas, eventos ou solicitações, entre outros, enquanto as métricas enviadas pelo TrackMetric são exibidas em seu próprio fluxo.
+> Em [Metrics Explorer](app-insights-metrics-explorer.md), todas as medidas personalizadas anexado tooany tipo de telemetria aparecem juntas na folha de métricas de saudação juntamente com métricas enviadas usando `TrackMetric()`. Mas na análise, medidas personalizadas ainda estão anexados toowhichever tipo de telemetria que foram executadas nos eventos ou solicitações e assim por diante - enquanto métricas enviadas pelo TrackMetric aparecem em seu próprio fluxo.
 >
 >
 
 ### <a name="performance-counters-table"></a>Tabela de contadores de desempenho
-Os [contadores de desempenho](app-insights-performance-counters.md) mostram métricas básicas do sistema para seu aplicativo, tais como CPU, memória e uso de rede. Você pode configurar o SDK para enviar outros contadores, incluindo seus próprios contadores personalizados.
+Os [contadores de desempenho](app-insights-performance-counters.md) mostram métricas básicas do sistema para seu aplicativo, tais como CPU, memória e uso de rede. Você pode configurar Olá SDK toosend contadores adicionais, incluindo seus próprios contadores personalizados.
 
-O esquema **performanceCounters** expõe o nome `category`, `counter` e o nome `instance` de cada contador de desempenho. Nomes de instância do contador só são aplicáveis a alguns contadores de desempenho e geralmente indicam o nome do processo ao qual a contagem está relacionada. Na telemetria de cada aplicativo, você verá apenas os contadores para aquele aplicativo. Por exemplo, para ver quais contadores estão disponíveis:
+Olá **performanceCounters** esquema expõe Olá `category`, `counter` nome, e `instance` nome de contador de desempenho. Nomes de instância do contador são somente os contadores de desempenho toosome aplicável e geralmente indicam o nome de saudação do hello processo toowhich Olá contagem está relacionada. Telemetria Olá para cada aplicativo, você verá apenas os contadores Olá para o aplicativo. Por exemplo, toosee quais contadores estão disponíveis:
 
 ![Contadores de desempenho na análise do Application Insights](./media/app-insights-analytics-tour/analytics-performance-counters.png)
 
-Para obter um gráfico de memória disponível do período selecionado:
+tooget um gráfico de memória disponível em Olá período selecionado:
 
 ![Gráfico de tempo da memória na análise do Application Insights](./media/app-insights-analytics-tour/analytics-available-memory.png)
 
-Como outras telemetrias, o **performanceCounters** também tem uma coluna `cloud_RoleInstance` que indica a identidade do computador host no qual seu aplicativo está sendo executado. Por exemplo, para comparar o desempenho do seu aplicativo em diferentes computadores:
+Como outros telemetria **performanceCounters** também tem uma coluna `cloud_RoleInstance` que indica Olá identidade da máquina de host de saudação em que seu aplicativo é executado. Por exemplo, toocompare Olá desempenho do aplicativo em máquinas diferentes hello:
 
 ![Desempenho segmentado por instância de função na análise do Application Insights](./media/app-insights-analytics-tour/analytics-metrics-role-instance.png)
 
 ### <a name="exceptions-table"></a>Tabela de exceções
 As [exceções relatadas pelo seu aplicativo](app-insights-asp-net-exceptions.md) estão disponíveis nessa tabela.
 
-Para localizar a solicitação HTTP que seu aplicativo estava manipulando quando a exceção foi gerada, ingresse em operation_Id:
+toofind Olá solicitação HTTP que seu aplicativo estava manipulando quando Olá exceção foi gerada, ingressar em operation_Id:
 
 ![Ingressar em exceções com solicitações em operation_Id](./media/app-insights-analytics-tour/analytics-exception-request.png)
 
 ### <a name="browser-timings-table"></a>Tabela de intervalos do navegador
 `browserTimings` mostra os dados de carregamento de página coletados nos navegadores de seus usuários.
 
-[Configure seu aplicativo para a telemetria do lado do cliente](app-insights-javascript.md) para ver essas métricas.
+[Configurar seu aplicativo de telemetria do lado do cliente](app-insights-javascript.md) em ordem toosee essas métricas.
 
-O esquema inclui [métricas que indicam os comprimentos de diferentes etapas do processo de carregamento de página](app-insights-javascript.md#page-load-performance). (Elas não indicam o tempo que os usuários levam para ler uma página.)  
+esquema de saudação inclui [métricas indicando comprimentos de saudação das diferentes fases do processo de carregamento de página de saudação](app-insights-javascript.md#page-load-performance). (Elas não indicam Olá período que os usuários ler uma página).  
 
-Mostrar a popularidade de diferentes páginas e o tempo de carregamento para cada página:
+Mostrar popularities Olá de diferentes páginas e tempos para cada página de carregamento:
 
 ![Tempos de carregamento de página no Analytics](./media/app-insights-analytics-tour/analytics-page-load.png)
 
 ### <a name="availability-results-table"></a>Tabela de resultados de disponibilidade
-`availabilityResults` mostra os resultados de seus [testes da Web](app-insights-monitor-web-app-availability.md). Cada execução dos testes de cada local de teste é relatada separadamente.
+`availabilityResults`mostra Olá resultados de sua [testes na web](app-insights-monitor-web-app-availability.md). Cada execução dos testes de cada local de teste é relatada separadamente.
 
 ![Tempos de carregamento de página no Analytics](./media/app-insights-analytics-tour/analytics-availability.png)
 
 ### <a name="dependencies-table"></a>Tabela de dependências
-Contém os resultados de chamadas que seu aplicativo fez para bancos de dados e APIs REST e outras chamadas para TrackDependency(). Também inclui chamadas AJAX feitas no navegador.
+Contém os resultados de chamadas que seu aplicativo torna toodatabases e APIs REST e outros chama tooTrackDependency(). Também inclui chamadas AJAX feitas do navegador de saudação.
 
-Chamadas AJAX no navegador:
+Chamadas AJAX de navegador hello:
 
 ```AIQL
 
@@ -676,7 +676,7 @@ Chamadas AJAX no navegador:
     | take 10
 ```
 
-Chamadas de dependência do servidor:
+Chamadas de dependência do servidor de saudação:
 
 ```AIQL
 
@@ -684,10 +684,10 @@ Chamadas de dependência do servidor:
     | take 10
 ```
 
-Os resultados de dependência no lado do servidor sempre mostrarão `success==False` se o Agente do Application Insights não estiver instalado. No entanto, os outros dados estarão corretos.
+Sempre mostram resultados de dependência do lado do servidor `success==False` se hello Application Insights Agent não está instalado. No entanto, hello outros dados estão corretos.
 
 ### <a name="traces-table"></a>Tabela de rastreamentos
-Contém a telemetria enviada pelo seu aplicativo usando TrackTrace() ou [outras estruturas de registro](app-insights-asp-net-trace-logs.md).
+Contém a telemetria de saudação enviada pelo seu aplicativo usando tracktrace (), ou [outras estruturas de registro em log](app-insights-asp-net-trace-logs.md).
 
 ## <a name="video"></a>Vídeo 
 
@@ -700,6 +700,6 @@ Consultas avançadas:
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Referência de linguagem de análise](app-insights-analytics-reference.md)
-* [Roteiro dos usuários do SQL](https://aka.ms/sql-analytics) converte as linguagens mais comuns.
+* [Roteiro de SQL-usuários](https://aka.ms/sql-analytics) converte as linguagens mais comuns de saudação.
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]

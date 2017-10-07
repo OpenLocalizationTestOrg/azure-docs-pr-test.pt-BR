@@ -1,6 +1,6 @@
 ---
-title: "Criar uma VM do Linux no Azure com várias NICs | Microsoft Docs"
-description: "Saiba como criar uma VM Linux com várias NICs anexadas usando a CLI do Azure ou modelos do Resource Manager."
+title: "aaaCreate uma VM do Linux no Azure com várias NICs | Microsoft Docs"
+description: "Saiba como toocreate uma VM do Linux com várias NICs anexado tooit usando modelos de saudação CLI do Azure ou o Gerenciador de recursos."
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -14,42 +14,42 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 814825cce61909167a1247a96c17a3ee9c5f2af4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 457dab734ceeeefd35cddaf1ebb9ea0a82f4e207
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-linux-virtual-machine-with-multiple-nics-using-the-azure-cli-10"></a>Criar uma máquina virtual Linux com várias NICs usando a CLI do Azure 1.0
-Você pode criar uma VM (máquina virtual) no Azure que tenha várias NICs (interfaces de rede virtual) anexadas a ela. Um cenário comum é ter sub-redes diferentes para conectividade de front-end e de back-end ou uma rede dedicada a uma solução de monitoramento ou de backup. Este artigo fornece comandos rápidos para criar uma VM com várias NICs anexadas a ela. Para obter informações detalhadas, incluindo como criar várias NICs dentro de seus próprios scripts Bash, leia mais sobre a [implantação de VMs com várias NICs](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Diferentes [tamanhos de VM](sizes.md) dão suporte a um número variável de NICs, sendo assim, dimensione sua VM adequadamente.
+# <a name="create-a-linux-virtual-machine-with-multiple-nics-using-hello-azure-cli-10"></a>Criar uma máquina virtual Linux com várias NICs usando Olá 1.0 da CLI do Azure
+Você pode criar uma máquina virtual (VM) no Azure que tenha vários tooit de interfaces (NICs) conectados a rede virtual. Um cenário comum é toohave várias sub-redes para conectividade de front-end e back-end ou uma rede dedicada tooa monitoramento ou solução de backup. Este artigo fornece comandos rápidos toocreate uma VM com vários tooit de NICs conectadas. Para obter informações detalhadas, incluindo como toocreate várias NICs dentro de sua própria Bash scripts, leia mais sobre [Implantando VMs multi-NIC](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Diferentes [tamanhos de VM](sizes.md) dão suporte a um número variável de NICs, sendo assim, dimensione sua VM adequadamente.
 
 > [!WARNING]
-> Você deverá anexar várias NICs quando criar a VM – não é possível adicionar NICs a uma VM existente com a CLI do Azure 1.0. Você pode [adicionar NICs a uma VM existente com a CLI do Azure 2.0](multiple-nics.md). Você também pode [criar uma VM com base nos discos virtuais originais](copy-vm.md) e criar várias NICs conforme implantar a VM.
+> Quando você cria uma VM - não é possível adicionar tooan NICs existentes VM com hello 1.0 da CLI do Azure, você deve anexar várias NICs. Você pode [adicionar NICs tooan existente VM com hello Azure CLI 2.0](multiple-nics.md). Você também pode [criar uma VM com base em discos virtuais original de saudação](copy-vm.md) e crie várias NICs como implantar Olá VM.
 
 
-## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
-Você pode concluir a tarefa usando uma das seguintes versões da CLI:
+## <a name="cli-versions-toocomplete-hello-task"></a>Tarefa de saudação do CLI versões toocomplete
+Você pode concluir a tarefa hello usando uma saudação versões da CLI a seguir:
 
-- [CLI 1.0 do Azure](#create-supporting-resources) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos (este artigo)
-- [CLI 2.0 do Azure](multiple-nics.md) – nossa última geração de CLI para o modelo de implantação de gerenciamento de recursos
+- [1.0 de CLI do Azure](#create-supporting-resources) – nosso CLI para Olá clássico e o recurso de gerenciamento modelos de implantação (Este artigo)
+- [2.0 do CLI do Azure](multiple-nics.md) -nossa próxima geração CLI para o modelo de implantação do gerenciamento de recursos de saudação
 
 
 ## <a name="create-supporting-resources"></a>Criar recursos de suporte
-Verifique se você tem a [CLI do Azure](../../cli-install-nodejs.md) conectada e está usando o modo do Resource Manager:
+Certifique-se de que você tenha Olá [CLI do Azure](../../cli-install-nodejs.md) conectado e usando o modo do Gerenciador de recursos:
 
 ```azurecli
 azure config mode arm
 ```
 
-Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *mystorageaccount* e *myVM*.
+Em Olá exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *mystorageaccount* e *myVM*.
 
-Em primeiro lugar, crie um grupo de recursos. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
+Em primeiro lugar, crie um grupo de recursos. Olá, exemplo a seguir cria um grupo de recursos denominado *myResourceGroup* em Olá *eastus* local:
 
 ```azurecli
 azure group create myResourceGroup --location eastus
 ```
 
-Crie uma conta de armazenamento para manter suas VMs. O exemplo a seguir cria uma conta de armazenamento chamada *mystorageaccount*:
+Crie suas VMs de um toohold de conta de armazenamento. Olá, exemplo a seguir cria uma conta de armazenamento denominada *mystorageaccount*:
 
 ```azurecli
 azure storage account create mystorageaccount \
@@ -59,7 +59,7 @@ azure storage account create mystorageaccount \
     --sku-name PLRS
 ```
 
-Crie uma rede virtual à qual você conectará suas VMs. O exemplo a seguir cria uma rede virtual chamada *myVnet* com um prefixo de endereço de *192.168.0.0/16*:
+Crie uma rede virtual tooconnect suas VMs. Olá, exemplo a seguir cria uma rede virtual denominada *myVnet* com um prefixo de endereço *192.168.0.0/16*:
 
 ```azurecli
 azure network vnet create \
@@ -69,7 +69,7 @@ azure network vnet create \
     --address-prefixes 192.168.0.0/16
 ```
 
-Crie duas sub-redes da rede virtual – uma para o tráfego de front-end e uma para o tráfego de back-end. O exemplo a seguir cria duas sub-redes, chamadas *mySubnetFrontEnd* e *mySubnetBackEnd*:
+Crie duas sub-redes da rede virtual – uma para o tráfego de front-end e uma para o tráfego de back-end. Olá, exemplo a seguir cria duas sub-redes, denominados *mySubnetFrontEnd* e *mySubnetBackEnd*:
 
 ```azurecli
 azure network vnet subnet create \
@@ -85,9 +85,9 @@ azure network vnet subnet create \
 ```
 
 ## <a name="create-and-configure-multiple-nics"></a>Criar e configurar várias NICs
-Você pode ler mais detalhes sobre a [implantação de várias NICs usando a CLI do Azure](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md), incluindo o script do processo de loop para criar todas as NICs.
+Você pode ler mais detalhes sobre [implantar várias NICs usando Olá CLI do Azure](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md), incluindo o processo de saudação do loop por meio de toocreate todas as NICs de saudação de script.
 
-O exemplo a seguir cria duas NICs, chamadas *myNic1* e *myNic2*, com uma NIC se conectando a cada sub-rede:
+Olá, exemplo a seguir cria duas NICs, denominadas *myNic1* e *myNic2*, com uma NIC conectam tooeach sub-rede:
 
 ```azurecli
 azure network nic create \
@@ -104,7 +104,7 @@ azure network nic create \
     --subnet-name mySubnetBackEnd
 ```
 
-Normalmente, você também criaria um [Grupo de Segurança de Rede](../../virtual-network/virtual-networks-nsg.md) ou [balanceador de carga](../../load-balancer/load-balancer-overview.md) para ajudar a gerenciar e distribuir o tráfego entre suas VMs. O exemplo a seguir cria um Grupo de Segurança de Rede chamado *myNetworkSecurityGroup*:
+Normalmente você cria também uma [grupo de segurança de rede](../../virtual-network/virtual-networks-nsg.md) ou [balanceador de carga](../../load-balancer/load-balancer-overview.md) toohelp gerenciar e distribuir o tráfego entre suas VMs. Olá, exemplo a seguir cria um grupo de segurança de rede denominado *myNetworkSecurityGroup*:
 
 ```azurecli
 azure network nsg create \
@@ -113,7 +113,7 @@ azure network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Associe as NICs ao Grupo de Segurança de Rede usando `azure network nic set`. O exemplo a seguir associa *myNic1* e *myNic2* a *myNetworkSecurityGroup*:
+Associar o grupo de segurança de rede de toohello de NICs usando `azure network nic set`. Olá exemplo a seguir associa *myNic1* e *myNic2* com *myNetworkSecurityGroup*:
 
 ```azurecli
 azure network nic set \
@@ -126,8 +126,8 @@ azure network nic set \
     --network-security-group-name myNetworkSecurityGroup
 ```
 
-## <a name="create-a-vm-and-attach-the-nics"></a>Criar uma VM e conectar as NICs
-Ao criar a VM, agora você especifica várias NICs. Em vez de usar `--nic-name` para fornecer uma única NIC, você usa `--nic-names` e fornece uma lista de NICs separada por vírgulas. Você também precisa tomar cuidado ao selecionar o tamanho da VM. Há limites para o número total de NICs que podem ser adicionados a uma VM. Leia mais sobre [Tamanhos de VM Linux](sizes.md). O exemplo a seguir mostra como especificar várias NICs e, em seguida, um tamanho de VM que dê suporte ao uso de várias NICs (*Standard_DS2_v2*):
+## <a name="create-a-vm-and-attach-hello-nics"></a>Criar uma máquina virtual e anexar Olá NICs
+Ao criar hello VM, agora você especificar várias NICs. Em vez disso, usando `--nic-name` tooprovide uma única NIC, em vez disso, você usar `--nic-names` e fornecer uma lista separada por vírgulas de NICs. Você também precisa tootake cuidado ao selecionar Olá tamanho da VM. Há limites para o número total de saudação de NICs que você pode adicionar tooa VM. Leia mais sobre [Tamanhos de VM Linux](sizes.md). Olá exemplo a seguir mostra como toospecify várias NICs e, em seguida, uma VM de tamanho que dá suporte ao uso várias NICs (*Standard_DS2_v2*):
 
 ```azurecli
 azure vm create \
@@ -144,7 +144,7 @@ azure vm create \
 ```
 
 ## <a name="create-multiple-nics-using-resource-manager-templates"></a>Criar várias NICs usando modelos do Resource Manager
-Os modelos do Azure Resource Manager usam arquivos JSON declarativos para definir o seu ambiente. Você pode ler uma [visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Os modelos do Gerenciador de Recursos oferecem uma maneira de criar várias instâncias de um recurso durante a implantação, como a criação de várias NICs. Você usa *copiar* para especificar o número de instâncias a serem criadas:
+Modelos do Gerenciador de recursos do Azure usam toodefine declarativa de arquivos JSON seu ambiente. Você pode ler uma [visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Modelos do Gerenciador de recursos fornecem uma maneira toocreate várias instâncias de um recurso durante a implantação, como a criação de várias NICs. Você usa *cópia* toospecify número de saudação do toocreate de instâncias:
 
 ```json
 "copy": {
@@ -155,7 +155,7 @@ Os modelos do Azure Resource Manager usam arquivos JSON declarativos para defini
 
 Leia mais sobre a [criação de várias instâncias usando *copiar*](../../resource-group-create-multiple.md). 
 
-Você também pode usar um `copyIndex()` para acrescentar um número a um nome de recurso, o que lhe permite criar `myNic1`, `myNic2` etc. Veja a seguir um exemplo de como acrescentar o valor de índice:
+Você também pode usar um `copyIndex()` toothen acrescentar um nome de recurso de tooa número, o que permite que você toocreate `myNic1`, `myNic2`, a seguir Olá etc. mostra um exemplo de acrescentar o valor de índice de saudação:
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 
@@ -164,7 +164,7 @@ Você também pode usar um `copyIndex()` para acrescentar um número a um nome d
 Você pode ler um exemplo completo em [Criando várias NICs usando modelos do Gerenciador de Recursos](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-Certifique-se de rever os [Tamanhos de VM Linux](sizes.md) ao tentar criar uma VM com várias NICs. Preste atenção ao número máximo de NICs a que cada VM dá suporte. 
+Certifique-se de que tooreview [tamanhos de VM do Linux](sizes.md) durante a tentativa de toocreating uma VM com várias NICs. Preste atenção toohello número de NICs dá suporte a cada tamanho VM. 
 
-Lembre-se de que você não pode adicionar mais NICs a uma VM existente; você deve criar todas as NICs quando implantar a VM. Tome cuidado ao planejar suas implantações para certificar-se de que tenha toda a conectividade de rede necessária desde o início.
+Lembre-se de que você não pode adicionar tooan adicional de NICs existentes VM, você deve criar todas as NICs de hello quando você implanta Olá VM. Tome cuidado ao planejar sua toomake implantações se você tem conectividade de rede todos os Olá necessário desde o início de saudação.
 

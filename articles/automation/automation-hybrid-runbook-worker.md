@@ -1,6 +1,6 @@
 ---
-title: "Hybrid Runbook Workers da Automação do Azure | Microsoft Docs"
-description: "Este artigo fornece informações sobre como instalar e usar Hybrid Runbook Worker, que é um recurso da Automação do Azure que permite que você execute runbooks em máquinas no seu datacenter local ou provedor de nuvem."
+title: "aaaAzure automação Hybrid Runbook Workers | Microsoft Docs"
+description: "Este artigo fornece informações sobre como instalar e usar Hybrid Runbook Worker, que é um recurso de automação do Azure que permite toorun runbooks em computadores no seu datacenter local ou o provedor de nuvem."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,160 +14,160 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 67aa0f407fd669df559ce1a8d411650158462aef
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ccee35e8324149a79ff692a867e5ce7801299bcb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Automatizar recursos em seu data center ou nuvem com Hybrid Runbook Worker
-Os runbooks na Automação do Azure não podem acessar recursos em outras nuvens ou no seu ambiente local, já que eles são executados na nuvem do Azure.  O recurso Hybrid Runbook Worker da Automação do Azure permite executar runbooks diretamente no computador que hospeda a função e em recursos no ambiente para gerenciar esses recursos locais. Os runbooks são armazenados e gerenciados na Automação do Azure e entregues a um ou mais computadores designados.  
+Runbooks na automação do Azure não pode acessar recursos em outras nuvens ou em seu ambiente local, já que são executados na nuvem do Azure de saudação.  Olá Hybrid Runbook Worker recurso de automação do Azure permite toorun runbooks diretamente no computador de saudação hospeda função hello e com base nos recursos em Olá ambiente toomanage esses recursos locais. Runbooks são armazenados e gerenciados na automação do Azure e, em seguida, entregue tooone ou mais computadores designados.  
 
-Essa funcionalidade está ilustrada na imagem a seguir:<br>  
+Essa funcionalidade é ilustrada no Olá a imagem a seguir:<br>  
 
 ![Visão geral do Runbook Worker Híbrido](media/automation-offering-get-started/automation-infradiagram-networkcomms.png)
 
-Para obter uma visão geral técnica das considerações sobre implantação e função do Hybrid Runbook Worker, consulte [Visão geral da arquitetura automação](automation-offering-get-started.md#automation-architecture-overview).    
+Para obter uma visão geral técnica de saudação Hybrid Runbook Worker função e considerações de implantação, consulte [visão geral da arquitetura automação](automation-offering-get-started.md#automation-architecture-overview).    
 
 ## <a name="hybrid-runbook-worker-groups"></a>Grupos de Runbook Worker Híbrido
-Cada Runbook Worker Híbrido é membro de um grupo de Runbook Worker Híbrido que você especifica ao instalar o agente.  Um grupo pode conter um único agente, mas você pode instalar vários agentes em um grupo para ter alta disponibilidade.
+Cada Hybrid Runbook Worker é membro de um grupo do Hybrid Runbook Worker que você especifica ao instalar o agente de saudação.  Um grupo pode conter um único agente, mas você pode instalar vários agentes em um grupo para ter alta disponibilidade.
 
-Quando você inicia um runbook em um Runbook Worker Híbrido, deve especificar o grupo no qual ele será executado.  Os membros do grupo determinarão qual trabalhador atenderá a solicitação.  Você não pode especificar um trabalhador específico.
+Quando você iniciar um runbook em um trabalho de Runbook híbrido, você especificar o grupo de saudação que é executado.  membros de saudação do grupo de saudação determinam qual trabalho serviços de solicitação de saudação.  Você não pode especificar um trabalhador específico.
 
-## <a name="relationship-to-service-management-automation"></a>Relação com o Service Management Automation
-O [SMA (Service Management Automation)](https://technet.microsoft.com/library/dn469260.aspx) permite que você execute os mesmos runbooks com suporte da Automação do Azure em seu data center local. O SMA geralmente é implantado junto com o Pacote do Microsoft Azure, pois este contém uma interface gráfica para gerenciamento de SMA. Ao contrário da Automação do Azure, o SMA requer uma instalação local que inclui servidores Web para hospedar a API, um banco de dados para conter runbooks e a configuração do SMA e Trabalhadores de Runbook para executar trabalhos de runbook. A Automação do Azure fornece esses serviços na nuvem e requer apenas que você mantenha os Runbook Workers Híbridos no seu ambiente local.
+## <a name="relationship-tooservice-management-automation"></a>Relação tooService automação de gerenciamento
+[Service Management Automation (SMA)](https://technet.microsoft.com/library/dn469260.aspx) permite que você toorun Olá mesmo runbooks de automação do Azure no seu data center local com suporte. O SMA geralmente é implantado junto com o Pacote do Microsoft Azure, pois este contém uma interface gráfica para gerenciamento de SMA. Ao contrário de automação do Azure, SMA requer uma instalação local que inclui Olá toohost de servidores da web API, runbooks de toocontain um banco de dados e configuração do SMA e trabalhos de runbook do Runbook Workers tooexecute. Automação do Azure fornece esses serviços na nuvem de saudação e requer apenas toomaintain Olá Hybrid Runbook Workers em seu ambiente local.
 
-Se você for um usuário existente do SMA, pode mover seus runbooks para a Automação do Azure para serem usados com o Runbook Worker Híbrido sem alterações, supondo que eles executem sua própria autenticação aos recursos, como descrito em [Executar runbooks em um Hybrid Runbook Worker](automation-hrw-run-runbooks.md).  Os runbooks em SMA são executados no contexto da conta de serviço no servidor trabalhador que pode fornecer a autenticação para os runbooks.
+Se você for um usuário existente do SMA, você pode mover seu toobe de automação de tooAzure runbooks usado com Hybrid Runbook Worker sem alterações, supondo que eles executam seus próprios tooresources autenticação conforme descrito em [executar runbooks em um Runbook híbrido Trabalho](automation-hrw-run-runbooks.md).  Runbooks no SMA executadas no contexto de Olá Olá da conta de serviço no servidor de trabalho de saudação que pode fornecer a que a autenticação para Olá runbooks.
 
-Você pode usar os critérios a seguir para determinar se a Automação do Azure com Runbook Worker Híbrido ou o Service Management Automation é mais adequado às suas necessidades.
+Você pode usar o hello toodetermine critérios a seguir se a automação do Azure com o operador de Runbook híbrido ou Service Management Automation é mais apropriada para suas necessidades.
 
-* O SMA requer uma instalação local de seus componentes subjacentes que estão conectados ao Pacote do Microsoft Azure se uma interface de gerenciamento gráfico for necessária. Haverá necessidade de mais recursos locais, com custos mais altos de manutenção do que a Automação do Azure, que só precisa de um agente instalado nos trabalhos de runbook locais. Os agentes são gerenciados pelo Operations Management Suite, que reduz ainda mais seus custos de manutenção.
-* A Automação do Azure armazena seus runbooks na nuvem e os entrega a Hybrid Runbooks Workers locais. Se a sua política de segurança não permite esse comportamento, você deve usar o SMA.
+* SMA requer uma instalação local de seus componentes subjacentes que estão conectados tooWindows pacote do Azure se uma interface gráfica de gerenciamento é necessária. Haverá necessidade de mais recursos locais, com custos mais altos de manutenção do que a Automação do Azure, que só precisa de um agente instalado nos trabalhos de runbook locais. agentes de saudação são gerenciados pelo Operations Management Suite, reduzindo os custos de manutenção.
+* Automação do Azure armazena seus runbooks na nuvem hello e entrega local tooon Hybrid Runbook Workers. Se a sua política de segurança não permite esse comportamento, você deve usar o SMA.
 * O SMA está incluído no System Center; logo, ele exige uma licença do System Center 2012 R2. A Automação do Azure se baseia em um modelo de assinatura em camadas.
 * A Automação do Azure tem recursos avançados, tais como runbooks gráficos, que não estão disponíveis no SMA.
 
-## <a name="installing-the-windows-hybrid-runbook-worker"></a>Instalação do Hybrid Runbook Worker do Windows 
+## <a name="installing-hello-windows-hybrid-runbook-worker"></a>Instalando Olá Windows Hybrid Runbook Worker 
 
-Para instalar e configurar um Hybrid Runbook Worker do Windows, há dois métodos disponíveis.  O método recomendado é usar um runbook de Automação para automatizar completamente o processo necessário para configurar um computador com Windows.  O segundo método é seguir um procedimento passo a passo para instalar e configurar a função manualmente.  
+tooinstall e configurar um Hybrid Runbook Worker do Windows, há dois métodos disponíveis.  Olá recomendado método é usar uma automação de runbook toocompletely automatizar o processo de saudação necessário tooconfigure um computador com Windows.  Olá segundo método é após uma instalação de toomanually procedimento passo a passo e configurar a função hello.  
 
 > [!NOTE]
-> Para gerenciar a configuração de seus servidores que dão suporte à função Hybrid Runbook Worker com o DSC (Configuração de Estado Desejado), você precisará adicioná-los como nós DSC.  Para saber mais sobre a integração deles para gerenciamento com DSC, confira [Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md).           
+> configuração de saudação toomanage dos seus servidores com suporte a função de operador de Runbook híbrido Olá com a configuração de estado desejado (DSC), você precisa tooadd-los como nós de DSC.  Para saber mais sobre a integração deles para gerenciamento com DSC, confira [Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md).           
 ><br>
->Se você habilitar a [solução de Gerenciamento de atualização](../operations-management-suite/oms-solution-update-management.md), qualquer computador com Windows conectado ao seu espaço de trabalho do OMS será automaticamente configurado como um Hybrid Runbook Worker para oferecer suporte a runbooks incluídos nessa solução.  No entanto, ele não estará registrado com nenhum grupo Hybrid Worker que você já tenha definido em sua Conta de automação.  O computador pode ser adicionado a um grupo Hybrid Runbook Worker na sua Conta de automação para dar suporte a runbooks de automação enquanto você estiver usando a mesma conta para a solução e para a associação de grupo do Hybrid Runbook Worker.  Essa funcionalidade foi adicionada à versão 7.2.12024.0 do Hybrid Runbook Worker.  
+>Se você habilitar Olá [solução de gerenciamento de atualizações](../operations-management-suite/oms-solution-update-management.md), qualquer computador com Windows conectado tooyour espaço de trabalho do OMS é configurado automaticamente com runbooks Hybrid Runbook Worker toosupport incluído nesta solução.  No entanto, ele não estará registrado com nenhum grupo Hybrid Worker que você já tenha definido em sua Conta de automação.  Olá computador pode ser adicionado grupo do Hybrid Runbook Worker tooa na sua conta de automação toosupport runbooks de automação enquanto você estiver usando Olá a mesma conta para solução de saudação e associação de grupo do Hybrid Runbook Worker.  Essa funcionalidade foi adicionada tooversion 7.2.12024.0 de saudação Hybrid Runbook Worker.  
 
-Examine as seguintes informações sobre [requisitos de hardware e software](automation-offering-get-started.md#hybrid-runbook-worker) e [informações para preparar sua rede](automation-offering-get-started.md#network-planning) antes de começar a implantar um Hybrid Runbook Worker.  Depois de você implantar com êxito um runbook worker, leia [Executar runbooks em um Hybrid Runbook Worker](automation-hrw-run-runbooks.md) para aprender a configurar seus runbooks para automatizar processos em seu datacenter local ou em outro ambiente de nuvem.  
+Olá revisar informações sobre Olá a seguir [requisitos de hardware e software](automation-offering-get-started.md#hybrid-runbook-worker) e [informações para preparar a sua rede](automation-offering-get-started.md#network-planning) antes de você começar a implantar um Hybrid Runbook Worker.  Depois que você implantou com êxito um runbook worker, examinar [executar runbooks em um trabalho de Runbook híbrido](automation-hrw-run-runbooks.md) toolearn como tooconfigure tooautomate seus runbooks processa em seu datacenter local ou em outro ambiente de nuvem.  
  
 ### <a name="automated-deployment"></a>Implantação automatizada
 
-Execute as seguintes etapas para automatizar a instalação e configuração da função do Hybrid Worker do Windows.  
+Executar Olá seguinte as etapas de instalação de saudação do tooautomate e a configuração da função de operador de híbrido do Windows hello.  
 
-1. Baixe o script *New-OnPremiseHybridWorker.ps1* da [Galeria do PowerShell](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.0/DisplayScript) diretamente do computador que executa a função Hybrid Runbook Worker ou de outro computador no seu ambiente e copie-o para o trabalho.  
+1. Baixar Olá *New-OnPremiseHybridWorker.ps1* script hello [Galeria do PowerShell](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.0/DisplayScript) diretamente do computador Olá executando a função de operador de Runbook híbrido hello ou de outro computador na sua ambiente e copie-o trabalho de toohello.  
 
-    O script *New-OnPremiseHybridWorker.ps1* requer os seguintes parâmetros durante a execução:
+    Olá *OnPremiseHybridWorker.ps1 novo* Olá parâmetros a seguir durante a execução do script requer:
 
-  * *AutomationAccountName* (obrigatório) ‑ o nome de sua conta de Automação.  
-  * *ResourceGroupName* (obrigatório) ‑ o nome do grupo de recursos associado à conta de Automação.  
-  * *HybridGroupName* (obrigatório) - o nome de um grupo de do Hybrid Runbook Worker que você especificará como um destino para os runbooks com suporte neste cenário. 
-  *  *SubscriptionID* (obrigatório) - a Id da Assinatura do Azure que contém sua conta de automação.
-  *  *WorkspaceName* (opcional) ‑ o nome de espaço de trabalho do OMS.  Se você não tiver um espaço de trabalho do OMS, o script criará e configurará um.  
+  * *AutomationAccountName* (obrigatório) - nome de saudação da sua conta de automação.  
+  * *ResourceGroupName* (obrigatório) - nome Olá Olá do grupo de recursos associado à sua conta de automação.  
+  * *HybridGroupName* (obrigatório) - nome de saudação de um grupo de trabalho de Runbook híbrido que você especificar como um destino para runbooks Olá dando suporte a esse cenário. 
+  *  *SubscriptionID* (obrigatório) - Olá Id de assinatura do Azure que sua conta de automação está em.
+  *  *Nomedoespaçodetrabalho* (opcional) - Olá OMS nome do espaço de trabalho.  Se você não tiver um espaço de trabalho do OMS, o script hello cria e configura um.  
 
      > [!NOTE]
-     > No momento, as únicas regiões de Automação com suporte para integração com o OMS são: **Sudeste da Austrália**, **Leste dos EUA 2**, **Sudeste Asiático** e **Europa Ocidental**.  Se sua conta de Automação não estiver em uma dessas regiões, o script criará o espaço de trabalho do OMS, mas ele avisará que não é possível vinculá-los.
+     > No momento Olá somente regiões de automação com suporte para a integração com o OMS são - **Sudeste da Austrália**, **Leste dos EUA 2**, **Sudeste da Ásia**, e **Oeste Europa**.  Se sua conta de automação não está em uma dessas regiões, script hello cria um espaço de trabalho do OMS, mas ela avisará que ela não é possível vinculá-los juntos.
      > 
-2. Em seu computador, abra o **Windows PowerShell** na tela **Inicial** no modo de Administrador.  
-3. No shell de linha de comando do PowerShell, navegue até a pasta que contém o script baixado e execute-o alterando os valores dos parâmetros *-AutomationAccountName*, *-ResourceGroupName*, *-HybridGroupName*, *-SubscriptionId* e *-WorkspaceName*.
+2. Em seu computador, inicie **do Windows PowerShell** de saudação **iniciar** tela no modo de administrador.  
+3. Olá shell de linha de comando do PowerShell, navegar toohello pasta, que contém o script hello baixado e executá-lo alterando valores hello parâmetros *- AutomationAccountName*, *- ResourceGroupName* , *- HybridGroupName*, *- SubscriptionId*, e *- WorkspaceName*.
 
      > [!NOTE] 
-     > Você deverá se autenticar com o Azure depois de executar o script.  Você **deve** entrar com uma conta que seja membro da função Administradores de Assinatura e coadministrador da assinatura.  
+     > Você está tooauthenticate solicitado com o Azure depois de executar o script hello.  Você **deve** entrar com uma conta que seja membro da função de administradores de assinatura hello e coadministrador da assinatura de saudação.  
      >  
     
         .\New-OnPremiseHybridWorker.ps1 -AutomationAccountName <NameofAutomationAccount> `
         -ResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
         -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfOMSWorkspace>
 
-4. Será solicitado que você concorde em instalar o **NuGet** e se autentique as credenciais do Azure.<br><br> ![Execução do script New-OnPremiseHybridWorker](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
+4. São solicitadas tooagree tooinstall **NuGet** e são solicitado tooauthenticate com suas credenciais do Azure.<br><br> ![Execução do script New-OnPremiseHybridWorker](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
 
-5. Depois que o script for concluído, a folha dos Grupos do Hybrid Worker mostrará o novo grupo e o número de membros ou, se for um grupo existente, o número de membros será aumentado.  Você pode selecionar o grupo da lista na folha **Grupos do Hybrid Worker** e no bloco **Hybrid Workers**.  Na folha **Hybrid Workers**, você verá cada membro do grupo listado.  
+5. Após a conclusão do script hello, folha de grupos de trabalho híbrida Olá mostrará Olá novo grupo e o número de membros ou se um grupo existente, o número de saudação de membros é incrementado.  Você pode selecionar o grupo de saudação na lista Olá Olá **grupos de trabalho híbrida** folha e selecione Olá **Hybrid Workers** lado a lado.  Em Olá **Hybrid Workers** folha, verá que cada membro do grupo de saudação listado.  
 
 ### <a name="manual-deployment"></a>Implantação manual 
-Execute as duas primeiras etapas uma vez para seu ambiente de Automação e depois repita as etapas restantes para cada computador de trabalho.
+Executa Olá duas primeiras etapas de uma vez para o seu ambiente de automação e repita Olá restantes etapas para cada computador de trabalho.
 
 #### <a name="1-create-operations-management-suite-workspace"></a>1. Criar o espaço de trabalho do Operations Management Suite
 Se você ainda não tiver um espaço de trabalho do Operations Management Suite, crie um usando as instruções em [Gerenciar seu espaço de trabalho](../log-analytics/log-analytics-manage-access.md). Você pode usar um espaço de trabalho existente se já tiver um.
 
-#### <a name="2-add-automation-solution-to-operations-management-suite-workspace"></a>2. Adicionar solução de Automação ao espaço de trabalho do Operations Management Suite
-As soluções adicionam funcionalidade ao Operations Management Suite.  A solução de Automação adiciona a funcionalidade da Automação do Azure, incluindo o suporte ao Hybrid Runbook Worker.  Quando você adicionar a solução ao espaço de trabalho, ele enviará automaticamente os componentes de trabalho ao computador do agente que você instalará na próxima etapa.
+#### <a name="2-add-automation-solution-toooperations-management-suite-workspace"></a>2. Adicionar a solução de automação tooOperations espaço de trabalho do pacote de gerenciamento
+As soluções adicionam funcionalidade tooOperations Management Suite.  solução de automação de saudação adiciona a funcionalidade para automação do Azure incluindo suporte para operador de Runbook híbrido.  Quando você adicionar espaço de trabalho do hello solução tooyour, ele envia automaticamente trabalho componentes toohello computador do agente que você instalará na próxima etapa de saudação.
 
-Siga as instruções em [Para adicionar uma solução usando a Galeria de Soluções](../log-analytics/log-analytics-add-solutions.md) para adicionar a solução **Automação** ao espaço de trabalho do Operations Management Suite.
+Siga as instruções de saudação em [tooadd uma solução usando a Galeria de soluções Olá](../log-analytics/log-analytics-add-solutions.md) tooadd Olá **automação** espaço de trabalho solução tooyour Operations Management Suite.
 
-#### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Instalar o Microsoft Monitoring Agent
-O Microsoft Monitoring Agent conecta os computadores ao Operations Management Suite.  Quando você instala o agente no computador local e o conecta ao espaço de trabalho, ele baixa automaticamente os componentes necessários para o Hybrid Runbook Worker.
+#### <a name="3-install-hello-microsoft-monitoring-agent"></a>3. Instalar Olá Microsoft Monitoring Agent
+Olá Microsoft Monitoring Agent se conecta computadores tooOperations Management Suite.  Quando você instala o agente de saudação em seu computador local e conecte-o espaço de trabalho tooyour, ele baixará automaticamente componentes de Olá necessários para o operador de Runbook híbrido.
 
-Siga as instruções em [Conectar computadores com Windows ao Log Analytics](../log-analytics/log-analytics-windows-agents.md) para instalar o agente no computador local.  Você poderá repetir esse processo em vários computadores para adicionar vários trabalhos ao ambiente.
+Siga as instruções de saudação em [Windows conectar computadores tooLog análise](../log-analytics/log-analytics-windows-agents.md) agente de saudação tooinstall no computador do local de saudação.  Você pode repetir esse processo para tooadd de vários computadores tooyour ambiente com vários operadores.
 
-Quando o agente tiver se conectado com êxito ao Operations Management Suite, ele será listado na guia **Fontes Conectadas** do painel **Configurações** do Operations Management Suite.  Você pode verificar se o agente baixou corretamente a solução de Automação quando ele tiver uma pasta chamada **AzureAutomationFiles** em C:\Arquivos de Programas\Microsoft Monitoring Agent\Agent.  Para confirmar a versão do Hybrid Runbook Worker, você pode navegar até C:\Arquivos de Programa\Microsoft Monitoring Agent\Agent\AzureAutomation\ e anotar a subpasta da \\*versão*.   
+Quando o agente Olá se conectou com êxito tooOperations Management Suite, ele será listado em Olá **fontes conectadas** guia da saudação Operations Management Suite **configurações** painel.  Você pode verificar que o agente Olá baixou solução de automação de saudação corretamente quando ele tem uma pasta chamada **AzureAutomationFiles** em C:\Program Files\Microsoft monitoramento Agent\Agent.  tooconfirm Olá versão Olá Hybrid Runbook Worker, você pode navegar Olá de monitoramento Agent\Agent\AzureAutomation\ e observe tooC:\Program Files\Microsoft \\ *versão* subpasta.   
 
-#### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4. Instalar o ambiente de runbook e conectá-lo à Automação do Azure
-Quando você adiciona um agente ao Operations Management Suite, a solução de Automação envia por push o módulo **HybridRegistration** do PowerShell que contém o cmdlet **Add-HybridRunbookWorker**.  Você pode usar esse cmdlet para instalar o ambiente de runbook no computador e registrá-lo na Automação do Azure.
+#### <a name="4-install-hello-runbook-environment-and-connect-tooazure-automation"></a>4. Instalar o ambiente de runbook hello e conecte-se tooAzure automação
+Quando você adicionar um agente tooOperations Management Suite, Olá solução de automação envia Olá **HybridRegistration** módulo do PowerShell, que contém a saudação **Add-HybridRunbookWorker** cmdlet.  Usar este ambiente de runbook cmdlet tooinstall Olá Olá computador e registrá-lo na automação do Azure.
 
-Abra uma sessão do PowerShell no modo de Administrador e execute os comandos a seguir para importar o módulo.
+Abra uma sessão do PowerShell no modo de administrador e execute Olá módulo de saudação tooimport comandos a seguir.
 
     cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\HybridRegistration"
     Import-Module HybridRegistration.psd1
 
-Em seguida, execute o cmdlet **Add-HybridRunbookWorker** usando a seguinte sintaxe:
+Em seguida, execute Olá **Add-HybridRunbookWorker** cmdlet usando Olá sintaxe a seguir:
 
     Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 
-Você pode obter as informações necessárias para esse cmdlet na folha **Gerenciar Chaves** no portal do Azure.  Abra esta folha selecionando a opção **Chaves** na folha **Configurações** na sua conta de automação.
+Você pode obter informações de saudação necessárias para este cmdlet do hello **gerenciar chaves** folha em Olá portal do Azure.  Abra esta folha selecionando Olá **chaves** opção de saudação **configurações** folha em sua conta de automação.
 
 ![Visão geral do Runbook Worker Híbrido](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
-* **GroupName** é o nome do grupo de Runbook Worker Híbrido. Quando esse grupo já existe na conta de automação, o computador atual é adicionado a ele.  Se ele não existir, será adicionado.
-* **EndPoint** é o campo **URL** na folha **Gerenciar Chaves**.
-* **Token** é a **Chave de Acesso Primária** na folha **Gerenciar Chaves**.  
+* **GroupName** é Olá nome de grupo do Hybrid Runbook Worker do hello. Se esse grupo já existe na conta de automação Olá, o computador atual Olá é adicionado tooit.  Se ele não existir, será adicionado.
+* **Ponto de extremidade** é hello **URL** campo Olá **gerenciar chaves** folha.
+* **Token** é hello **chave de acesso primária** em Olá **gerenciar chaves** folha.  
 
-Use a opção **-Verbose** com **Add-HybridRunbookWorker** para receber informações detalhadas sobre a instalação.
+Saudação de uso **-Verbose** alternar com **Add-HybridRunbookWorker** tooreceive informações detalhadas sobre instalação hello.
 
 #### <a name="5-install-powershell-modules"></a>5. Instalar módulos do PowerShell
-Os Runbooks podem usar qualquer uma das atividades e cmdlets definidos nos módulos instalados em seu ambiente de Automação do Azure.  No entanto, esses módulos não são implantados automaticamente em computadores locais, portanto, você deve instalá-los manualmente.  A exceção é o módulo do Azure que é instalado por padrão, fornecendo acesso a cmdlets a todos os serviços e atividades do Azure da Automação do Azure.
+Runbooks pode usar qualquer uma das atividades de saudação e cmdlets definidos em módulos Olá instalados em seu ambiente de automação do Azure.  Esses módulos não são computadores locais tooon automaticamente implantado, você deve instalá-los manualmente.  exceção de saudação é hello módulo do Azure, que é instalado por padrão, fornecendo acesso toocmdlets para todos os serviços do Azure e as atividades de automação do Azure.
 
-Como a principal finalidade do recurso Runbook Worker Híbrido é gerenciar recursos locais, você provavelmente precisará instalar os módulos que dão suporte a esses recursos.  Veja [Instalar Módulos](http://msdn.microsoft.com/library/dd878350.aspx) para obter informações sobre como instalar os módulos do Windows PowerShell.  Os módulos instalados devem estar em um local referenciado pela variável de ambiente PSModulePath, para que eles sejam importados automaticamente pelo Hybrid Worker.  Para saber mais, veja [Modificando o caminho de instalação do PSModulePath](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx). 
+Como objetivo principal de saudação do recurso do Hybrid Runbook Worker Olá recursos locais toomanage, você provavelmente precisa módulos de saudação tooinstall que dão suporte a esses recursos.  Você pode consultar muito[instalar módulos](http://msdn.microsoft.com/library/dd878350.aspx) para obter informações sobre como instalar os módulos do Windows PowerShell.  Módulos instalados devem estar em um local referenciado pela variável de ambiente PSModulePath, para que eles são importados automaticamente pelo trabalhador híbrido de saudação.  Para obter mais informações, consulte [Olá modificando o caminho de instalação PSModulePath](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx). 
 
 ## <a name="removing-hybrid-runbook-worker"></a>Removendo o Hybrid Runbook Worker 
-Você pode remover um ou mais Trabalhadores de Runbook Híbridos de um grupo ou remover o grupo, dependendo dos seus requisitos.  Para remover um Hybrid Runbook Worker de um computador local, execute as etapas a seguir.
+Você pode remover um ou mais trabalhadores de Runbook híbrido de um grupo ou você pode remover o grupo de hello, dependendo dos seus requisitos.  tooremove um Hybrid Runbook Worker em um computador local, execute Olá etapas a seguir.
 
-1. No portal do Azure, abra sua Conta de Automação.  
-2. Na folha **Configurações**, selecione **Teclas** e anote os valores para o campo **URL** e **Tecla de Acesso Primária**.  Você precisará dessas informações para a próxima etapa.
-3. Abra uma sessão do PowerShell no modo de Administrador e execute o comando a seguir ‑ `Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>`.  Use a opção **-Verbose** para obter um log detalhado do processo de remoção.
+1. No portal do Azure de Olá, navegue tooyour conta de automação.  
+2. De saudação **configurações** folha, selecione **chaves** e observe os valores de saudação para o campo **URL** e **chave de acesso primário**.  Você precisará dessas informações para a próxima etapa de saudação.
+3. Abra uma sessão do PowerShell no modo de administrador e execute a seguinte Olá command - `Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>`.  Saudação de uso **-Verbose** alternar para um log detalhado do processo de remoção de saudação.
 
 > [!NOTE]
-> Isso não remove o Microsoft Monitoring Agent do computador, apenas a funcionalidade e a configuração da função do Hybrid Runbook Worker.  
+> Isso não remove o hello Microsoft Monitoring Agent computador hello, apenas a funcionalidade de saudação e a configuração da função de operador de Runbook híbrido hello.  
 
 ## <a name="remove-hybrid-worker-groups"></a>Remover grupos do Hybrid Worker
-Para remover um grupo, primeiro você precisa remover o Hybrid Runbook Worker de cada computador membro do grupo usando o procedimento mostrado anteriormente e, em seguida, executar as seguintes etapas para remover o grupo.  
+tooremove um grupo, você primeiro precisa tooremove Olá Hybrid Runbook Worker de cada computador que seja membro do grupo de saudação usando Olá procedimento mostrado anteriormente e, em seguida, você pode executar Olá grupo de saudação do tooremove as etapas a seguir.  
 
-1. Abra a conta de Automação no Portal do Azure.
-2. Selecione o bloco **Grupos Hybrid Worker** e, na folha **Grupos Hybrid Worker**, selecione o grupo que deseja excluir.  Depois de selecionar o grupo específico, a folha de propriedades do **grupo Hybrid Worker** é exibida.<br> ![Folha do grupo Hybrid Runbook Worker](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)   
-3. Na folha de propriedades do grupo selecionado, clique em **Excluir**.  Uma mensagem será exibida solicitando que você confirme a ação. Selecione **Sim** se tiver certeza de que deseja continuar.<br> ![Caixa de diálogo de confirmação de exclusão de grupo](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)<br> Esse processo pode levar vários segundos e você pode acompanhar o progresso no menu **Notificações**.  
+1. Abra conta de automação Olá no hello portal do Azure.
+2. Selecione Olá **híbrida grupos de trabalho** lado a lado e em Olá **híbrida grupos de trabalho** folha, grupo de saudação selecione desejar toodelete.  Depois de selecionar um grupo específico de hello, Olá **grupo do Hybrid worker** folha de propriedades é exibida.<br> ![Folha do grupo Hybrid Runbook Worker](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)   
+3. Na folha de propriedades de saudação para o grupo selecionado de saudação, clique em **excluir**.  Será exibida uma mensagem perguntando você tooconfirm esta ação, selecione **Sim** se tiver certeza de que deseja tooproceed.<br> ![Caixa de diálogo de confirmação de exclusão de grupo](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)<br> Esse processo pode levar vários segundos toocomplete e você pode acompanhar seu progresso em **notificações** menu hello.  
 
 ## <a name="troubleshooting"></a>Solucionar problemas 
-O Hybrid Runbook Worker depende do Microsoft Monitoring Agent para se comunicar com sua conta de Automação para registrar o worker, receber trabalhos de runbook e relatar status. Se o registro do worker falhar, aqui estão algumas das possíveis causas do erro:  
+Olá Hybrid Runbook Worker depende Olá toocommunicate Microsoft Monitoring Agent com o trabalho de saudação automação conta tooregister, recebe trabalhos de runbook e status do relatório. Se o registro do trabalhador Olá falhar, aqui estão algumas das possíveis causas para o erro hello:  
 
-1. O Hybrid Worker está usando um proxy ou firewall.  
-    Verifique se o computador tem acesso de saída para *.azure-automation.net na porta 443.  
+1. hybrid worker de saudação estiver atrás de um proxy ou firewall.  
+    Verifique se Olá tem too*.azure-automation.net de acesso de saída na porta 443.  
 
-2. O computador em que o Hybrid Worker está em execução tem menos que os [requisitos](automation-offering-get-started.md#hybrid-runbook-worker) mínimos de hardware.  
-    Os computadores que executam o Hybrid Runbook Worker devem atender aos requisitos mínimos de hardware antes de serem designados para hospedar esse recurso. Caso contrário, dependendo da utilização de recursos de outros processos em segundo plano e da contenção provocada por runbooks durante a execução, o computador ficará sobrecarregados e causará atrasos de trabalho de runbook ou tempos limite.
-   Confirme se o computador designado para executar o recurso Hybrid Runbook Worker atende aos requisitos mínimos de hardware.  Se isso acontecer, monitore a utilização de CPU e memória para determinar qualquer correlação entre o desempenho de processos do Hybrid Runbook Worker e o Windows.  Se não houver memória ou pressão da CPU, isso pode indicar a necessidade de atualizar ou adicionar mais processadores ou aumentar a memória para eliminar o afunilamento de recursos e resolver o erro. Como alternativa, selecione um recurso de computação diferente que consiga dar suporte aos requisitos mínimos e ajuste a escala quando a demanda da carga de trabalho indicar que um aumento é necessário.
+2. Olá hybrid worker de saudação do computador está em execução no possui menos que o hardware mínimo Olá [requisitos](automation-offering-get-started.md#hybrid-runbook-worker).  
+    Computadores que executam o hello Hybrid Runbook Worker devem atender Olá requisitos mínimos de hardware antes de designar a ele toohost esse recurso. Caso contrário, dependendo da utilização de recursos de saudação de outros processos em segundo plano e a contenção provocada por runbooks durante a execução, o computador de hello serão fiquem sobrecarregados e causar tempos limites ou atrasos de trabalho de runbook.
+   Verifique computador Olá designado de recurso de Hybrid Runbook Worker Olá toorun atende aos requisitos mínimos de hardware de saudação.  Se isso acontecer, monitore toodetermine de utilização de CPU e memória correlação entre desempenho de saudação de processos de trabalho de Runbook híbrido e Windows.  Se não houver memória ou a pressão da CPU, isso pode indicar Olá necessidade tooupgrade ou adicione mais processadores ou aumento de memória tooaddress Olá afunilamento de recurso e resolver o erro de saudação. Como alternativa, selecione um recurso de computação diferentes que pode dar suporte aos requisitos mínimos de hello e escala quando a carga de trabalho indica que um aumento é necessário.
     
-3. O serviço Microsoft Monitoring Agent não está em execução.  
-    Se o serviço do Windows Microsoft Monitoring Agent não estiver em execução, impedirá o Hybrid Runbook Worker de se comunicar com a Automação do Azure.  Verifique se o agente está em execução digitando o seguinte comando no PowerShell: `get-service healthservice`.  Se o serviço for interrompido, digite o seguinte comando no PowerShell para iniciar o serviço: `start-service healthservice`.  
+3. Olá serviço Microsoft Monitoring Agent não está em execução.  
+    Se Olá serviço do Microsoft Windows de agente de monitoramento não está em execução, isso impede Olá Hybrid Runbook Worker de se comunicar com a automação do Azure.  Verifique se está executando agente Olá inserindo Olá comando do PowerShell a seguir: `get-service healthservice`.  Se Olá serviço for interrompido, digite Olá comando no serviço de saudação toostart PowerShell a seguir: `start-service healthservice`.  
 
-4. No log de eventos **Logs de Aplicativos e Serviços\Operations Manager**, você verá evento 4502 e EventMessage contendo **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** com a seguinte descrição: *O certificado apresentado pelo serviço <wsid>.oms.opinsights.azure.com não foi emitido por uma autoridade de certificação usada para serviços da Microsoft. Entre em contato com seu administrador de rede para ver se há um proxy em execução que intercepte a comunicação TLS/SSL. O artigo KB3126513 tem informações adicionais sobre solução de problemas de conectividade.*
-    Isso poderá ocorrer se seu proxy ou firewall de rede estiver bloqueando a comunicação com o Microsoft Azure.  Verifique se o computador tem acesso de saída para *.azure-automation.net na porta 443.
+4. Em hello **aplicativo e o Gerenciador de serviços de Logs\Operations** log de eventos, consulte o evento 4502 e EventMessage contendo **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**com hello descrição a seguir: *certificado Olá apresentado pelo serviço Olá <wsid>. oms.opinsights.azure.com não foi emitido por uma autoridade de certificação usada para serviços da Microsoft. Entre em contato com seu toosee do administrador de rede se eles estiverem executando um proxy que intercepta comunicação TLS/SSL. artigo Olá KB3126513 tem informações adicionais de solução de problemas para problemas de conectividade.*
+    Isso pode ser causado por seu proxy ou rede firewall blockking comunicação tooMicrosoft do Azure.  Verifique se Olá tem acesso de saída too*.azure-automation.net nas portas 443.
 
-Os logs são armazenados localmente em cada hybrid worker, em C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.  Você pode verificar se há algum aviso ou eventos de erro gravados nos logs de eventos **Logs de Aplicativos e Serviços\Microsoft-SMA\Operações** e **Logs de Aplicativos e Serviços\Operations Manager** que indiquem um problema de conectividade ou outro problema que esteja afetando a integração da função de Automação do Azure ou um problema ao executar operações normais.  
+Os logs são armazenados localmente em cada hybrid worker, em C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.  Você pode verificar se há qualquer aviso ou eventos de erro gravados toohello **aplicativos e serviços Logs\Microsoft-SMA\Operations** e **aplicativo e o Gerenciador de serviços de Logs\Operations** log de eventos indica uma conectividade ou outros problemas que afetam a integração de saudação função tooAzure automação ou problema ao executar operações normais.  
 
 ## <a name="next-steps"></a>Próximas etapas
-Leia [Executar runbooks em um Hybrid Runbook Worker](automation-hrw-run-runbooks.md) para aprender a configurar seus runbooks para automatizar processos em seu datacenter local ou em outro ambiente de nuvem.
+Revisão [executar runbooks em um trabalho de Runbook híbrido](automation-hrw-run-runbooks.md) toolearn como tooconfigure tooautomate seus runbooks processa em seu datacenter local ou em outro ambiente de nuvem.

@@ -1,6 +1,6 @@
 ---
-title: Criar um balanceador de carga interno - Modelo do Azure | Microsoft Docs
-description: Saiba como criar um balanceador de carga interno no Gerenciador de Recursos usando um modelo
+title: aaaCreate um balanceador de carga interno - modelo do Azure | Microsoft Docs
+description: Saiba como o toocreate um interno balanceador usando um modelo no Gerenciador de recursos de carga
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: 5e0278cf5c605298932d6ac55d147a1c43fd9d23
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3ffa8178b863367cd79e2bc2b7ce4e45b23267e5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Criar um balanceador de carga interno usando um modelo
 
@@ -31,22 +31,22 @@ ms.lasthandoff: 07/11/2017
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../azure-resource-manager/resource-manager-deployment-model.md).  Este artigo aborda usando o modelo de implantação do Gerenciador de Recursos, que a Microsoft recomenda para a maioria das novas implantações em vez de do [modelo de implantação clássico](load-balancer-get-started-ilb-classic-ps.md).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../azure-resource-manager/resource-manager-deployment-model.md).  Este artigo aborda usando o modelo de implantação do hello Gerenciador de recursos, a Microsoft recomenda para a maioria das novas implantações em vez da saudação [modelo de implantação clássico](load-balancer-get-started-ilb-classic-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
-## <a name="deploy-the-template-by-using-click-to-deploy"></a>Implantar o modelo usando o clique para implantar
+## <a name="deploy-hello-template-by-using-click-toodeploy"></a>Implantar o modelo de saudação usando clique toodeploy
 
-O modelo de exemplo disponível no repositório público usa um arquivo de parâmetro que contém os valores padrão usados para gerar o cenário descrito acima. Para implantar esse modelo usando a opção de clique para implantar, acesse [este link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer), clique em **Implantar no Azure**, substitua os valores de parâmetro padrão, se necessário, e siga as instruções no portal.
+Olá modelo de exemplo disponível no repositório público Olá usa um arquivo de parâmetro que contém cenário saudação padrão valores usados toogenerate Olá descrito acima. toodeploy usando esse modelo clique toodeploy, execute [este link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer), clique em **implantar tooAzure**, substitua os valores de parâmetro de padrão de saudação se necessário e siga as instruções de saudação no portal de saudação.
 
-## <a name="deploy-the-template-by-using-powershell"></a>Implantar o modelo usando o PowerShell
+## <a name="deploy-hello-template-by-using-powershell"></a>Implante o modelo de saudação usando o PowerShell
 
-Para implantar o modelo baixado usando o PowerShell, faça o seguinte.
+modelo de saudação toodeploy baixados usando o PowerShell, execute as etapas de saudação abaixo.
 
-1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](/powershell/azure/overview) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
-2. Baixe o arquivo de parâmetros no disco local.
-3. Edite o arquivo e salve-o.
-4. Execute o cmdlet **New-AzureRmResourceGroupDeployment** para criar um grupo de recursos usando o modelo.
+1. Se você nunca usou o Azure PowerShell, consulte [como tooInstall e configurar o Azure PowerShell](/powershell/azure/overview) e siga as instruções Olá todos os toohello de maneira Olá terminar toosign no Azure e selecione sua assinatura.
+2. Baixe o disco local do tooyour do arquivo hello parâmetros.
+3. Edite o arquivo hello e salvá-lo.
+4. Executar Olá **AzureRmResourceGroupDeployment novo** Olá de cmdlet toocreate um grupo de recursos usando o modelo.
 
     ```azurecli
     New-AzureRmResourceGroupDeployment -Name TestRG -Location westus `
@@ -54,23 +54,23 @@ Para implantar o modelo baixado usando o PowerShell, faça o seguinte.
         -TemplateParameterFile 'C:\temp\azuredeploy.parameters.json'
     ```
 
-## <a name="deploy-the-template-by-using-the-azure-cli"></a>Implantar o modelo usando a CLI do Microsoft Azure
+## <a name="deploy-hello-template-by-using-hello-azure-cli"></a>Implantar o modelo hello usando Olá CLI do Azure
 
-Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
+modelo de saudação toodeploy usando Olá CLI do Azure, siga as etapas de saudação abaixo.
 
-1. Se você nunca usou a CLI do Azure, veja [Instalar e configurar a CLI do Azure](../cli-install-nodejs.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
-2. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
+1. Se você nunca tiver usado a CLI do Azure, consulte [instalar e configurar Olá CLI do Azure](../cli-install-nodejs.md) e siga as instruções de saudação toohello ponto em que você selecione sua conta do Azure e assinatura.
+2. Executar Olá **modo de configuração do azure** modo do Gerenciador de tooResource do comando tooswitch, conforme mostrado abaixo.
 
     ```azurecli
     azure config mode arm
     ```
 
-    Este é o resultado esperado para o comando descrito acima:
+    Aqui está a saída Olá esperado para o comando de saudação acima:
 
         info:    New mode is arm
 
-3. Abra o arquivo de parâmetro, selecione o seu conteúdo e salve-o em um arquivo em seu computador. Para este exemplo, salvamos o arquivo de parâmetros em *parameters.json*.
-4. Execute o comando **azure group deployment create** para implantar o novo balanceador de carga interno usando o modelo e os arquivos de parâmetro baixados e modificados acima. A lista exibida após a saída explicar os parâmetros usados.
+3. Abra o arquivo de parâmetro hello, selecione seu conteúdo e salve-o arquivo tooa no seu computador. Neste exemplo, nós salvamos o arquivo de parâmetros Olá muito*parameters.json*.
+4. Executar Olá **criar implantação de grupo do azure** toodeploy Olá novo balanceador de carga interno usando o modelo de saudação e o parâmetro de comando arquivos que você baixou e modificado acima. lista de saudação mostrada após a saída de hello explica parâmetros Olá usados.
 
     ```azurecli
     azure group create --name TestRG --location westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json --parameters-file parameters.json

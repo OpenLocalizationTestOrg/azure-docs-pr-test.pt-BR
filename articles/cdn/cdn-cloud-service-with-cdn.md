@@ -1,6 +1,6 @@
 ---
-title: "Integrar um serviço de nuvem do Azure com a CDN do Azure | Microsoft Docs"
-description: "Aprenda como implantar um serviço de nuvem que serve o conteúdo de um ponto de extremidade CDN do Azure integrado"
+title: "aaaIntegrate um serviço de nuvem do Azure com o Azure CDN | Microsoft Docs"
+description: "Saiba como toodeploy um serviço de nuvem que serve o conteúdo de um ponto de extremidade CDN do Azure integrado"
 services: cdn, cloud-services
 documentationcenter: .net
 author: zhangmanling
@@ -14,18 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: f2849fe25fd0d5b3dc26598ffba7591cb7433161
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f20d60b0b5edc133adf06d010633a15f62e2b8de
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="intro"></a> Integrar um serviço de nuvem à CDN do Azure
-Um serviço de nuvem pode ser integrado com o CDN do Azure, fornecendo qualquer conteúdo do local do serviço de nuvem. Esta abordagem lhe dá as seguintes vantagens:
+Um serviço de nuvem pode ser integrado com a CDN do Azure, que serve o conteúdo do local do serviço de nuvem hello. Isso proporciona abordagem Olá vantagens a seguir:
 
 * Implantar e atualizar, de maneira fácil, imagens, scripts e folhas de estilo nos diretórios de projetos de seu serviço de nuvem
-* Atualizar de maneira fácil os pacotes NuGet em seu serviço de nuvem, como as versões jQuery ou Bootstrap
-* Gerenciar seu aplicativo Web e o conteúdo fornecido por CDN por meio da mesma interface do Visual Studio
+* Atualizar facilmente os pacotes do NuGet Olá em seu serviço de nuvem, como jQuery ou versões de inicialização
+* Gerenciar seu aplicativo Web o servido de CDN conteúdo e todos os do hello mesma interface do Visual Studio
 * Fluxo de trabalho de implantação unificado para seu aplicativo Web e o conteúdo fornecido por CDN
 * Integrar agrupamento e minificação ASP.NET à CDN do Azure
 
@@ -35,22 +35,22 @@ Neste tutorial, você aprenderá a:
 * [Integrar um ponto de extremidade da CDN do Azure a seu serviço de nuvem e fornecer conteúdo estático em suas páginas Web por meio da CDN do Azure](#deploy)
 * [Definir configurações de cache para conteúdo estático em seu serviço de nuvem](#caching)
 * [Fornecer conteúdo por ações do controlador na CDN do Azure](#controller)
-* [Fornecer conteúdo agrupado e minificado por meio da CDN do Azure enquanto preserva a experiência de depuração de script no Visual Studio](#bundling)
+* [Sirvam agrupados e minimizada conteúdo por meio do Azure CDN enquanto preserva a experiência no Visual Studio de depuração de script hello](#bundling)
 * [Configurar o fallback de seus scripts e CSS quando a CDN do Azure estiver offline](#fallback)
 
 ## <a name="what-you-will-build"></a>O que você compilará
-Você implantará uma função Web de serviço de nuvem usando o modelo ASP.NET MVC padrão, adicionará código para fornecer conteúdo de uma CDN do Azure integrada, como uma imagem, resultados de ação do controlador e os arquivos JavaScript e CSS padrão, e também escreverá código para configurar o mecanismo de fallback para grupos fornecidos caso o CDN esteja offline.
+Você implantar uma função Web de serviço de nuvem usando o padrão de saudação modelo do ASP.NET MVC, adicionar conteúdo tooserve do código de uma CDN do Azure integrados, como uma imagem, resultados de ação do controlador e saudação padrão arquivos JavaScript e CSS e também gravar saudação de tooconfigure de código mecanismo de fallback para pacotes atendidas no evento de saudação que Olá CDN está offline.
 
 ## <a name="what-you-will-need"></a>O que será necessário
-Este tutorial tem os seguintes pré-requisitos:
+Este tutorial tem Olá pré-requisitos a seguir:
 
 * Uma [conta do Microsoft Azure](/account/)
 * Visual Studio 2015 com [SDK do Azure](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)
 
 > [!NOTE]
-> Você de uma conta do Azure para concluir este tutorial:
+> Você precisa de uma conta do Azure toocomplete neste tutorial:
 > 
-> * Você pode [abrir uma conta do Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/) - Você obtém créditos que podem ser usados para experimentar serviços pagos do Azure e, mesmo após eles serem utilizados, você pode manter a conta e utilizar os serviços gratuitos do Azure, como os Sites.
+> * Você pode [abrir uma conta do Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/) -você obtém créditos você pode usar tootry out paga serviços do Azure e mesmo depois que eles são usados até você pode manter a conta de saudação e usar serviços do Azure, como sites de livre.
 > * Você pode [ativar benefícios para assinantes do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) - Todos os meses, sua assinatura do MSDN oferece créditos que podem ser usados para serviços pagos do Azure.
 > 
 > 
@@ -58,121 +58,121 @@ Este tutorial tem os seguintes pré-requisitos:
 <a name="deploy"></a>
 
 ## <a name="deploy-a-cloud-service"></a>Implantar um serviço de nuvem
-Nesta seção, você vai implantar o modelo de aplicativo MVC ASP.NET padrão no Visual Studio 2015 para uma função de Web do serviço de nuvem e, em seguida, integrá-la a um novo ponto de extremidade CDN. Siga as instruções abaixo:
+Nesta seção, você implantar o modelo de aplicativo do ASP.NET MVC na função de Web do serviço de nuvem do Visual Studio 2015 tooa de padrão de saudação e, em seguida, integrá-lo com um novo ponto de extremidade CDN. Siga as instruções de saudação abaixo:
 
-1. No Visual Studio 2015, crie um novo serviço de nuvem do Azure na barra de menu acessando **Arquivo > Novo > Projeto > Nuvem > Serviço de Nuvem do Azure**. Dê um nome a ele e clique em **OK**.
+1. No Visual Studio 2015, crie um novo serviço de nuvem do Azure na barra de menus Olá indo muito**arquivo > Novo > projeto > nuvem > serviço de nuvem do Azure**. Dê um nome a ele e clique em **OK**.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG)
-2. Selecione **Função Web ASP.NET** e clique no botão **>**. Clique em OK.
+2. Selecione **função Web ASP.NET** e clique em Olá  **>**  botão. Clique em OK.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-2-select-role.PNG)
 3. Selecione **MVC** e clique em **OK**.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-3-mvc-template.PNG)
-4. Agora, publique esta função Web em um serviço de nuvem do Azure. Clique com o botão direito do mouse no projeto do serviço de nuvem e selecione **Publicar**.
+4. Agora, publica este tooan de função Web serviço de nuvem do Azure. Projeto de serviço de nuvem hello e selecione **publicar**.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-4-publish-a.png)
-5. Se você ainda não entrou no Microsoft Azure, clique em **Adicionar uma conta...** na lista suspensa e clique no item de menu **Adicionar uma conta**.
+5. Se você ainda não entrou no Microsoft Azure, clique em Olá **adicionar uma conta...**  Olá suspensa e clique em **adicionar uma conta** item de menu.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-5-publish-signin.png)
-6. Na página de entrada, entre com a conta da Microsoft que você utilizou para ativar a conta do Azure.
+6. Em Olá página de entrada, entrar com hello conta da Microsoft usada tooactivate sua conta do Azure.
 7. Após ter entrado, clique em **Avançar**.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-6-publish-signedin.png)
-8. Se você ainda não tiver criado uma conta de armazenamento ou um serviço de nuvem, o Visual Studio o ajudará a criar ambos. Na caixa de diálogo **Criar Serviço de Nuvem e Conta** , digite o nome do serviço desejado e selecione a região desejada. Em seguida, clique em **Criar**.
+8. Se você ainda não tiver criado uma conta de armazenamento ou um serviço de nuvem, o Visual Studio o ajudará a criar ambos. Em Olá **criar serviço de nuvem e conta** caixa de diálogo, nome do tipo hello serviço desejado e região desejada Olá select. Em seguida, clique em **Criar**.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-7-publish-createserviceandstorage.png)
-9. Na página de configurações de publicação, verifique a configuração e clique em **Publicar**.
+9. No hello página de configurações de publicação, verifique se a configuração de saudação e clique em **publicar**.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png)
    
    > [!NOTE]
-   > O processo de publicação para serviços de nuvem leva muito tempo. A opção Habilitar Implantação da Web para todas as funções pode acelerar muito a depuração do serviço de nuvem fornecendo atualizações rápidas (mas temporárias) para suas funções Web. Para saber mais sobre esta opção, consulte [Publicando um Serviço de Nuvem usando as Ferramentas do Azure](http://msdn.microsoft.com/library/ff683672.aspx).
+   > o processo de publicação Olá para serviços de nuvem demora muito. Olá habilitar a implantação da Web para a opção de todas as funções pode tornar a depuração muito mais rápido de serviço de nuvem, fornecendo atualizações rápida (mas temporária) tooyour funções da Web. Para obter mais informações sobre essa opção, consulte [publicando um serviço de nuvem usando ferramentas do Azure Olá](http://msdn.microsoft.com/library/ff683672.aspx).
    > 
    > 
    
-    Quando o **Log de atividades do Microsoft Azure** mostrar que o status da publicação é **Concluído**, crie um ponto de extremidade CDN que esteja integrado a esse serviço de nuvem.
+    Olá quando **Log de atividades do Microsoft Azure** mostra que o status de publicação está **concluído**, você criará um ponto de extremidade CDN que esteja integrado com esse serviço de nuvem.
    
    > [!WARNING]
-   > Se após a publicação o serviço de nuvem implantado exibir uma tela de erro, provavelmente é porque o serviço de nuvem que você implantou está usando um [SO convidado que não inclui o .NET 4.5.2](../cloud-services/cloud-services-guestos-update-matrix.md#news-updates).  Você pode contornar esse problema [Implantando o .NET 4.5.2 como uma tarefa de inicialização](../cloud-services/cloud-services-dotnet-install-dotnet.md).
+   > Se, após a publicação, o serviço de nuvem Olá implantado exibe uma tela de erro, é provável que porque está usando o serviço de nuvem Olá que você implantou um [sistema operacional que não inclui o .NET 4.5.2](../cloud-services/cloud-services-guestos-update-matrix.md#news-updates).  Você pode contornar esse problema [Implantando o .NET 4.5.2 como uma tarefa de inicialização](../cloud-services/cloud-services-dotnet-install-dotnet.md).
    > 
    > 
 
 ## <a name="create-a-new-cdn-profile"></a>Criar um novo perfil CDN
-Um perfil CDN é um conjunto de pontos de extremidade CDN.  Cada perfil contém um ou mais pontos de extremidade CDN.  Você pode usar vários perfis para organizar seus pontos de extremidade CDN por domínio de Internet, aplicativo Web ou algum outro critério.
+Um perfil CDN é um conjunto de pontos de extremidade CDN.  Cada perfil contém um ou mais pontos de extremidade CDN.  Você poderá toouse tooorganize de vários perfis seus pontos de extremidade CDN, o domínio da internet, aplicativo web ou algum outro critério.
 
 > [!TIP]
-> Se já tiver um perfil CDN que deseja usar para este tutorial, vá para [Criar um novo ponto de extremidade CDN](#create-a-new-cdn-endpoint).
+> Se você já tiver um perfil CDN que você deseja toouse para este tutorial, vá muito[criar um novo ponto de extremidade CDN](#create-a-new-cdn-endpoint).
 > 
 > 
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
 ## <a name="create-a-new-cdn-endpoint"></a>Criar um novo ponto de extremidade CDN
-**Para criar um novo ponto de extremidade CDN para sua conta de armazenamento**
+**toocreate um novo ponto de extremidade CDN para sua conta de armazenamento**
 
-1. No [Portal de Gerenciamento do Azure](https://portal.azure.com), navegue até o seu perfil CDN.  Você pode ter fixado ao painel na etapa anterior.  Se não, você poderá encontrá-lo clicando em **Procurar**, em **Perfis CDN** e clicando no perfil ao qual você pretende adicionar o ponto de extremidade.
+1. Em Olá [Portal de gerenciamento](https://portal.azure.com), navegar tooyour perfil CDN.  Você pode ter-fixado toohello painel na etapa anterior hello.  Se você não, você pode encontrá-lo clicando **procurar**, em seguida, **perfis CDN**, e clicando no perfil Olá planejar tooadd seu ponto de extremidade.
    
-    A folha do perfil CDN é exibida.
+    folha de perfil CDN Olá aparece.
    
     ![Perfil CDN][cdn-profile-settings]
-2. Clique no botão **Adicionar Ponto de Extremidade** .
+2. Clique em Olá **Adicionar ponto de extremidade** botão.
    
     ![Adicionar botão de ponto de extremidade][cdn-new-endpoint-button]
    
-    A folha **Adicionar um ponto de extremidade** é exibida.
+    Olá **adicionar um ponto de extremidade** folha é exibida.
    
     ![Adicionar folha de ponto de extremidade][cdn-add-endpoint]
-3. Insira um **Nome** para esse ponto de extremidade CDN.  Esse nome será usado para acessar os recursos armazenados em cache no domínio `<EndpointName>.azureedge.net`.
-4. No menu suspenso **Tipo de origem** , selecione *Serviço de nuvem*.  
-5. No menu suspenso **Nome do host de origem** , selecione Serviço de nuvem.
-6. Mantenha os padrões para **Caminho de origem**, **Cabeçalho de host de origem** e **Porta de protocolo/origem**.  Você deve especificar pelo menos um protocolo (HTTP ou HTTPS).
-7. Clique no botão **Adicionar** para criar um novo ponto de extremidade.
-8. Depois que o ponto de extremidade é criado, ele aparece em uma lista de pontos de extremidade do perfil. O modo de exibição de lista mostra a URL a ser usada para acessar o conteúdo armazenado em cache, bem como o domínio de origem.
+3. Insira um **Nome** para esse ponto de extremidade CDN.  Esse nome será usado tooaccess seus recursos armazenados em cache no domínio Olá `<EndpointName>.azureedge.net`.
+4. Em Olá **tipo de origem** lista suspensa, selecione *serviço de nuvem*.  
+5. Em Olá **nome de host de origem** lista suspensa, selecione o seu serviço de nuvem.
+6. Mantenha os padrões de saudação para **caminho de origem**, **cabeçalho de host de origem**, e **porta de origem/protocolo**.  Você deve especificar pelo menos um protocolo (HTTP ou HTTPS).
+7. Clique em Olá **adicionar** toocreate botão Olá novo ponto de extremidade.
+8. Depois que o ponto de extremidade de saudação é criado, ele aparece em uma lista de pontos de extremidade para o perfil de saudação. modo de exibição de lista Olá mostra Olá URL toouse tooaccess em cache o conteúdo, bem como domínio de origem de saudação.
    
     ![Ponto de extremidade CDN][cdn-endpoint-success]
    
    > [!NOTE]
-   > O ponto de extremidade não estará imediatamente disponível para uso.  Pode levar até 90 minutos para que o registro seja propagado pela rede CDN. Os usuários que tentarem usar imediatamente o nome de domínio CDN poderão receber o código de status 404 até que o conteúdo esteja disponível pela CDN.
+   > ponto de extremidade de saudação não estará imediatamente disponível para uso.  Pode demorar até minutos too90 para Olá toopropagate de registro por meio da rede CDN hello. Os usuários que tente imediatamente o nome de domínio toouse Olá CDN podem receber o código de status 404 até que o conteúdo de saudação está disponível por meio de saudação CDN.
    > 
    > 
 
-## <a name="test-the-cdn-endpoint"></a>Testar o ponto de extremidade CDN
-Quando o status da publicação for **Concluído**, abra uma janela do navegador e vá para **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. Em minha configuração, essa URL é:
+## <a name="test-hello-cdn-endpoint"></a>Saudação de teste ponto de extremidade CDN
+Quando a saudação status de publicação é **concluído**, abra uma janela do navegador e navegue muito**http://<cdnName>*.azureedge.net/Content/bootstrap.css**. Em minha configuração, essa URL é:
 
     http://camservice.azureedge.net/Content/bootstrap.css
 
-Que corresponde à seguinte URL de origem no ponto de extremidade da CDN:
+Que corresponde a toohello URL de origem no ponto de extremidade CDN Olá a seguir:
 
     http://camcdnservice.cloudapp.net/Content/bootstrap.css
 
-Quando você navega para **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**, dependendo do navegador, receberá uma solicitação para baixar ou abrir o bootstrap.css proveniente de seu aplicativo Web publicado.
+Quando você navega muito**http://*&lt;cdnName >*.azureedge.net/Content/bootstrap.css**, dependendo de seu navegador, será toodownload solicitada ou abra Olá bootstrap.css que origem do seu aplicativo Web publicado.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
 De maneira semelhante, você pode acessar qualquer URL acessível publicamente em **http://*&lt;nomedoServiço>*.cloudapp.net/**, diretamente de seu ponto de extremidade CDN. Por exemplo:
 
-* Um arquivo .js do caminho /Script
-* Qualquer arquivo de conteúdo do caminho /Content
+* Um arquivo. js do caminho de /Script Olá
+* Qualquer arquivo de conteúdo de saudação /Content caminho
 * Qualquer controller/action
-* Se cadeias de consulta estiverem habilitadas em seu ponto de extremidade da CDN, qualquer URL com cadeias de consulta
+* Se a cadeia de caracteres de consulta hello está habilitada no ponto de extremidade CDN, qualquer URL com cadeias de caracteres de consulta
 
-Na verdade, com a configuração acima, você pode hospedar todo o serviço de nuvem por meio de **http://*&lt;nome_da_CDN>*.azureedge.net/**. Se navegar até **http://camservice.azureedge.net/**, eu obtenho o resultado da ação de Home/Index.
+Na verdade, com hello acima de configuração, você pode hospedar o serviço de nuvem inteiro de saudação do  **http://*&lt;cdnName >*.azureedge.net/**. Se navegar muito**http://camservice.azureedge.net/ * *, obter resultado de ação de saudação da casa/índice.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
-No entanto, isso não significa que sempre é uma boa ideia fornecer um serviço de nuvem inteiro por meio da CDN do Azure. 
+Isso não significa, no entanto, que é sempre uma boa ideia tooserve um serviço de nuvem inteira por meio da CDN do Azure. 
 
-Uma CDN com otimização de entrega estática não acelera, necessariamente, a entrega de ativos dinâmicos que não devem ser armazenados em cache ou são atualizados com muita frequência, pois a CDN deve efetuar pull de uma nova versão do ativo do servidor de origem com bastante frequência. Para este cenário, você pode habilitar a otimização [DSA](cdn-dynamic-site-acceleration.md) (aceleração de site dinâmico), em seu ponto de extremidade da CDN, que usa várias técnicas para acelerar a entrega de ativos dinâmicos não armazenáveis em cache. 
+Um CDN com otimização de entrega estático não necessariamente acelerar a entrega de ativos dinâmicos que não devem toobe armazenado em cache ou são atualizados com muita frequência, desde que Olá CDN deve puxar uma nova versão do ativo de saudação do servidor de origem Olá frequentemente. Para este cenário, você pode habilitar [aceleração de Site dinâmico](cdn-dynamic-site-acceleration.md) otimização (DSA) no ponto de extremidade CDN que usa vários toospeed técnicas a entrega de ativos dinâmicos não armazenável em cache. 
 
-Se você tem um site com uma mistura de conteúdo estático e dinâmico, você pode escolher distribuir o conteúdo estático da CDN com um tipo de otimização estática (por exemplo, a entrega da Web geral) e distribuir o conteúdo dinâmico diretamente do servidor de origem ou por meio de um ponto de extremidade de CDN com otimização DSA ativada de acordo com cada caso. Para isso, você já viu como acessar arquivos de conteúdo individuais do ponto de extremidade CDN. Você verá como fornecer uma ação de controlador específica por meio de um ponto de extremidade de CDN específico em Fornecer conteúdo por meio de ações do controlador na CDN do Azure.
+Se você tiver um site com uma mistura de conteúdo estático e dinâmico, você pode escolher tooserve seu conteúdo estático de CDN com um tipo de otimização estáticas (por exemplo, entrega geral web) e o conteúdo dinâmico tooserve diretamente do servidor de origem hello, ou por meio de uma CDN ponto de extremidade com otimização de DSA ativado caso a caso. toothat final, você já viu como arquivos de conteúdo individuais tooaccess do ponto de extremidade CDN hello. Vou mostrar como tooserve uma ação do controlador específico por meio de um ponto de extremidade CDN específico no servir conteúdo de ações do controlador por meio da CDN do Azure.
 
-A alternativa é determinar que conteúdo fornecer por meio da CDN do Azure caso a caso, em seu serviço de nuvem. Para isso, você já viu como acessar arquivos de conteúdo individuais do ponto de extremidade CDN. Você verá como fornecer uma ação de controlador específica por meio do ponto de extremidade CDN em [Fornecer conteúdo por meio de ações do controlador por meio da CDN do Azure](#controller).
+alternativa de saudação é toodetermine que conteúdo tooserve da CDN do Azure em uma base por caso no serviço de nuvem. toothat final, você já viu como arquivos de conteúdo individuais tooaccess do ponto de extremidade CDN hello. Vou mostrar como tooserve uma ação do controlador específico por meio de Olá ponto de extremidade CDN na [oferecer conteúdo de ações do controlador por meio do Azure CDN](#controller).
 
 <a name="caching"></a>
 
 ## <a name="configure-caching-options-for-static-files-in-your-cloud-service"></a>Configurar opções de cache para arquivos estáticos em seu serviço de nuvem
-Com a integração da CDN do Azure a seu serviço de nuvem, você pode especificar como quer que o conteúdo estático seja armazenado em cache no ponto de extremidade da CDN. Para fazer isso, abra *Web.config* em seu projeto de função Web (por exemplo, FunçãodaWeb1) e adicione um elemento `<staticContent>` a `<system.webServer>`. O XML configura o cache para expirar em 3 dias.  
+Com a integração do Azure CDN no serviço de nuvem, você pode especificar como deseja estático toobe conteúdo armazenado em cache no ponto de extremidade CDN hello. toodo isso, abra *Web. config* de sua função Web do projeto (por exemplo, WebRole1) e adicionar um `<staticContent>` elemento muito`<system.webServer>`. Olá XML abaixo configura Olá cache tooexpire em 3 dias.  
 
     <system.webServer>
       <staticContent>
@@ -181,7 +181,7 @@ Com a integração da CDN do Azure a seu serviço de nuvem, você pode especific
       ...
     </system.webServer>
 
-Após você ter feito isso, todos os arquivos estáticos do serviço de nuvem obedecerão à mesma regra do seu cache de CDN. Para ter um controle mais granular das configurações de cache, adicione um arquivo *Web.config* a uma pasta e adicione suas configurações. Por exemplo, adicione um arquivo *Web.config* à pasta *\Content* e substitua o conteúdo pelo seguinte XML:
+Quando você faz isso, todos os arquivos estáticos em seu serviço de nuvem observará Olá mesma regra em seu cache CDN. Para ter um controle mais granular das configurações de cache, adicione um arquivo *Web.config* a uma pasta e adicione suas configurações. Por exemplo, adicionar um *Web. config* arquivo toohello *\Content* pasta e substitua Olá conteúdo com hello XML a seguir:
 
     <?xml version="1.0"?>
     <configuration>
@@ -192,26 +192,26 @@ Após você ter feito isso, todos os arquivos estáticos do serviço de nuvem ob
       </system.webServer>
     </configuration>
 
-Esta configuração faz com que todos os arquivos estáticos da pasta *\Content* sejam armazenados em cache por 15 dias.
+Essa configuração faz com que todos os arquivos estáticos do hello *\Content* toobe pasta armazenada em cache por 15 dias.
 
-Para saber mais sobre como configurar o elemento `<clientCache>`, consulte [Cache do cliente&lt;clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache).
+Para obter mais informações sobre como Olá tooconfigure `<clientCache>` elemento, consulte [Cache do cliente &lt;clientCache >](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache).
 
-Em [Fornecer conteúdo por meio de ações do controlador por meio da CDN do Azure](#controller), eu também mostrarei como você pode definir as configurações de cache para os resultados de ações do controlados no cache de CDN.
+Em [oferecer conteúdo de ações do controlador por meio do Azure CDN](#controller), também mostrarei como você pode definir configurações de cache para resultados de ação do controlador no hello cache CDN.
 
 <a name="controller"></a>
 
 ## <a name="serve-content-from-controller-actions-through-azure-cdn"></a>Fornecer conteúdo por meio de ações do controlador por meio da CDN do Azure
-Quando você integra uma função Web de um serviço de nuvem à CDN do Azure, é relativamente fácil fornecer conteúdo por meio de ações do controlador por meio da CDN do Azure. Além de fornecer o serviço de nuvem diretamente da CDN do Azure (demonstrado acima), [Maarten Balliauw](https://twitter.com/maartenballiauw) mostra como fazer isso com um divertido controlador MemeGenerator em [Reduzindo a latência na Web com a CDN do Azure](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN). Eu vou somente reproduzir isso aqui.
+Quando você integra uma função de Web do serviço de nuvem com o Azure CDN, é relativamente fácil tooserve conteúdo de ações do controlador por meio de saudação do Azure CDN. Diferente que atende a sua nuvem de serviço diretamente por meio do Azure CDN (mostrado acima), [Maarten Balliauw](https://twitter.com/maartenballiauw) mostra como toodo com divertido controlador MemeGenerator [reduzindo a latência em Olá web com hello CDN do Azure ](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN). Eu vou somente reproduzir isso aqui.
 
-Suponha que, em seu serviço de nuvem, você queira gerar memes com base em uma imagem de Chuck Norris jovem (foto de [Alan Light](http://www.flickr.com/photos/alan-light/218493788/)) como esta:
+Suponha que no seu serviço de nuvem você deseja memes toogenerate com base em uma imagem Chuck Norris jovens (foto por [Alan Light](http://www.flickr.com/photos/alan-light/218493788/)) esta aparência:
 
 ![](media/cdn-cloud-service-with-cdn/cdn-5-memegenerator.PNG)
 
-Você tem uma ação `Index` simples que permite que os clientes especifiquem os superlativos na imagem e gera o meme quando eles postam a ação. Como se trata de Chuck Norris, você esperaria que esta página se tornasse extremamente popular globalmente. Este é um bom exemplo do fornecimento de conteúdo semidinâmico com a CDN do Azure.
+Você tem um simples `Index` ação que permite que os clientes de saudação toospecify superlativos de saudação na imagem hello, gera Olá meme depois que eles lançar toohello ação. Como é Chuck Norris, você esperaria toobecome essa página totalmente populares globalmente. Este é um bom exemplo do fornecimento de conteúdo semidinâmico com a CDN do Azure.
 
-Siga as etapas acima para configurar esta ação do controlador:
+Siga as etapas de saudação acima toosetup esta ação de controlador:
 
-1. Na pasta *\Controllers*, crie um novo arquivo .cs chamado *MemeGeneratorController.cs* e substitua o conteúdo pelo código a seguir. Certifique-se de substituir a porção destacada pelo nome de sua CDN.  
+1. Em Olá *\Controllers* pasta, crie um novo arquivo. cs chamado *MemeGeneratorController.cs* e substituir Olá conteúdo com hello código a seguir. Ser-se parte destacada Olá de tooreplace com seu nome CDN.  
    
         using System;
         using System.Collections.Generic;
@@ -255,7 +255,7 @@ Siga as etapas acima para configurar esta ação do controlador:
                         return new HttpStatusCodeResult(HttpStatusCode.NotFound);
                     }
    
-                    if (Debugger.IsAttached) // Preserve the debug experience
+                    if (Debugger.IsAttached) // Preserve hello debug experience
                     {
                         return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
                     }
@@ -308,13 +308,13 @@ Siga as etapas acima para configurar esta ação do controlador:
                 }
             }
         }
-2. Clique com o botão direito na ação `Index()` padrão e selecione **Adicionar Exibição**.
+2. Clique com botão direito no padrão de saudação `Index()` ação e selecione **adicionar exibição**.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-6-addview.PNG)
-3. Aceite as configurações acima e clique em **Adicionar**.
+3. Aceite as configurações de saudação abaixo e clique em **adicionar**.
    
    ![](media/cdn-cloud-service-with-cdn/cdn-7-configureview.PNG)
-4. Abra o novo *Views\MemeGenerator\Index.cshtml* e substitua o conteúdo pelo HTML simples a seguir para enviar os superlativos:
+4. Olá abrir nova *Views\MemeGenerator\Index.cshtml* e substitua conteúdo Olá Olá HTML simple a seguir para enviar superlativos hello:
    
         <h2>Meme Generator</h2>
    
@@ -325,9 +325,9 @@ Siga as etapas acima para configurar esta ação do controlador:
             <br />
             <input class="btn" type="submit" value="Generate meme" />
         </form>
-5. Publique o serviço de nuvem novamente e navegue até **http://*&lt;NomedoServiço>*.cloudapp.net/MemeGenerator/Index** em seu navegador.
+5. Publicar novamente o serviço de nuvem hello e navegue muito**http://*&lt;serviceName >*.cloudapp.net/MemeGenerator/Index** em seu navegador.
 
-Quando você envia os valores de formulário a `/MemeGenerator/Index`, o método de ação `Index_Post` retorna um link para o método de ação `Show` com o respectivo identificador de entrada. Quando clicar em senha, você chegará ao seguinte código:  
+Quando você enviar valores de formulário Olá muito`/MemeGenerator/Index`, Olá `Index_Post` método de ação retorna um link toohello `Show` método de ação com o identificador de entrada respectivos hello. Quando você clica em um link de hello, atingir Olá código a seguir:  
 
     [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
     public ActionResult Show(string id)
@@ -338,7 +338,7 @@ Quando você envia os valores de formulário a `/MemeGenerator/Index`, o método
             return new HttpStatusCodeResult(HttpStatusCode.NotFound);
         }
 
-        if (Debugger.IsAttached) // Preserve the debug experience
+        if (Debugger.IsAttached) // Preserve hello debug experience
         {
             return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
         }
@@ -348,35 +348,35 @@ Quando você envia os valores de formulário a `/MemeGenerator/Index`, o método
         }
     }
 
-Se o seu depurador local estiver anexado, você terá a experiência de depuração normal com um redirecionamento local. Se estiver sendo executado no serviço de nuvem, será redirecionado para:
+Se o depurador local estiver conectado, você obterá Olá experiência de depuração normal com um local de redirecionamento. Se ele estiver em execução no serviço de nuvem hello, ele será redirecionado para:
 
     http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
-Que corresponde ao seguinte URL de origem no ponto de extremidade da CDN:
+Que corresponde a toohello URL de origem no ponto de extremidade CDN a seguir:
 
     http://<youCloudServiceName>.cloudapp.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
 
-Você então pode usar o atributo `OutputCacheAttribute` no método `Generate` para especificar como o resultado da ação deve ser armazenado em cache, e a CDN do Azure seguirá a especificação. O código abaixo especifica uma validade de cache de 1 hora (3.600 segundos).
+Você pode usar Olá `OutputCacheAttribute` atributo Olá `Generate` toospecify de método como resultado da ação Olá deve ser armazenada em cache, que aceita a CDN do Azure. código de saudação abaixo especificar uma expiração de cache de 1 hora (3.600 segundos).
 
     [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
 
-Da mesma forma, você pode fornecer conteúdo de qualquer ação de controlador no serviço de nuvem por meio da CDN do Azure, com a opção de cache desejada.
+Da mesma forma, você pode servir o conteúdo de qualquer ação do controlador em seu serviço de nuvem por meio de seu CDN do Azure, com a opção de cache de saudação desejada.
 
-Na próxima seção, eu mostrarei como fornecer o CSS e scripts agrupados e minificados por meio da CDN do Azure.
+Na próxima seção, Olá, mostrarei como tooserve Olá agrupadas e minimizada CSS por meio da CDN do Azure e scripts.
 
 <a name="bundling"></a>
 
 ## <a name="integrate-aspnet-bundling-and-minification-with-azure-cdn"></a>Integrar agrupamento e minificação ASP.NET à CDN do Azure
-Scripts e folhas de estilo CSS são alterados com pouca frequência e são candidatos ideais para o cache da CDN do Azure. Fornecer toda a função Web por meio da CDN do Azure é a maneira mais fácil de integrar agrupamento e minificação à CDN do Azure. No entanto, como talvez você não queira fazer isso, eu vou mostrar como fazê-lo enquanto preserva a experiência do desenvolvedor desejada de agrupamento e minificação ASP.NET, como:
+Folhas de estilo CSS e scripts alterados com frequência e são fortes candidatas à saudação cache de CDN do Azure. Atendendo Olá toda função Web por meio de seu Azure CDN é toointegrate de maneira mais fácil de saudação empacotamento e minimização com CDN do Azure. No entanto, você não pode desejar toodo isso, mostrarei como toodo, preservando Olá desejado develper experiência de ASP.NET empacotamento e minimização, como:
 
 * Ótima experiência no modo de depuração
 * Implantação simplificada
-* Atualizações imediatas para clientes para atualizações de versão de script/CSS
+* Atualizações imediatas tooclients para atualizações de versão de script/CSS
 * Mecanismo de fallback quando ocorre falha em seu ponto de extremidade CDN
 * Minimizar modificações de código
 
-No projeto **FunçãoDaWeb1** criado em [Integrar um ponto de extremidade da CDN do Azure ao seu site do Azure e fornecer conteúdo estático em suas páginas Web na CDN do Azure](#deploy), abra *App_Start\BundleConfig.cs* e examine as chamadas de método `bundles.Add()`.
+Em Olá **WebRole1** projeto que você criou no [integrar um ponto de extremidade CDN do Azure com seu site do Azure e servir conteúdo estático das páginas da Web do Azure CDN](#deploy), abra *App_Start\ BundleConfig.cs* e dar uma olhada Olá `bundles.Add()` chamadas de método.
 
     public static void RegisterBundles(BundleCollection bundles)
     {
@@ -385,23 +385,23 @@ No projeto **FunçãoDaWeb1** criado em [Integrar um ponto de extremidade da CDN
         ...
     }
 
-A primeira instrução `bundles.Add()` adiciona um grupo de script ao diretório virtual `~/bundles/jquery`. Depois, abra *Views\Shared\_Layout.cshtml* para ver como a marcação do grupo de script é renderizada. Você deve encontrar a seguinte linha de código Razor:
+Olá primeiro `bundles.Add()` instrução adiciona um pacote de script no diretório virtual Olá `~/bundles/jquery`. Em seguida, abra *exibições \ compartilhadas\_cshtml* toosee como marca de pacote de script hello é renderizada. Você deve ser capaz de toofind Olá seguinte linha de código Razor:
 
     @Scripts.Render("~/bundles/jquery")
 
-Quando for executado na função Web do Azure, este código Razor renderizará uma marca `<script>` para o grupo de script semelhante à seguinte:
+Quando esse código Razor é executado na função de Web do Azure hello, ele processará uma `<script>` marca Olá script a seguir toohello semelhante pacote:
 
     <script src="/bundles/jquery?v=FVs3ACwOLIVInrAl5sdzR2jrCDmVOWFbZMY6g6Q0ulE1"></script>
 
-No entanto, quando for executado no Visual Studio digitando `F5`, ele renderizará cada arquivo de script do grupo individualmente (no caso acima, somente o arquivo de script está no grupo):
+No entanto, quando ele é executado no Visual Studio digitando `F5`, ele processará individualmente a cada arquivo de script no pacote de saudação (no caso de Olá acima, somente um arquivo de script está no pacote de saudação):
 
     <script src="/Scripts/jquery-1.10.2.js"></script>
 
-Isso permite que você depure o código JavaScript em seu ambiente de desenvolvimento enquanto reduz conexões clientes simultâneas (agrupamento) e melhora o desempenho do download de arquivos (minificação) em produção. É um ótimo recurso a ser preservado com a integração à CDN do Azure. Além disso, como o grupo renderizado já contém uma cadeia da versão gerada automaticamente, é aconselhável replicar essa funcionalidade para que sempre que você atualizar sua versão do jQuery por meio do NuGet, ela possa ser atualizada no lado do cliente assim que possível.
+Isso permite que você toodebug Olá código JavaScript do ambiente de desenvolvimento (agrupamento) de conexões de cliente simultâneas e melhorando arquivo download desempenho (minimização) em produção. É toopreserve um ótimo recurso com integração do Azure CDN. Além disso, desde que o pacote de saudação renderizada já contém uma cadeia de caracteres de versão gerado automaticamente, você deseja tooreplicate funcionalidade assim Olá sempre que você atualize sua versão de jQuery através do NuGet, ele pode ser atualizado no lado do cliente hello, assim como é possível.
 
-Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto de extremidade CDN.
+Siga as próximas etapas Olá toointegration ASP.NET empacotamento e minimização com seu ponto de extremidade CDN.
 
-1. Em *App_Start\BundleConfig.cs*, modifique os métodos `bundles.Add()` para usar um [Construtor de pacotes](http://msdn.microsoft.com/library/jj646464.aspx) diferente, um que especifique um endereço CDN. Para fazer isso, substitua a `RegisterBundles` definição do método pelo seguinte código:  
+1. Em *App_Start\BundleConfig.cs*, modificar Olá `bundles.Add()` métodos toouse outro [construtor pacote](http://msdn.microsoft.com/library/jj646464.aspx), que especifica um endereço CDN. toodo Olá isso, substitua `RegisterBundles` definição de método com hello código a seguir:  
    
         public static void RegisterBundles(BundleCollection bundles)
         {
@@ -416,8 +416,8 @@ Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto
             bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")).Include(
                         "~/Scripts/jquery.validate*"));
    
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+            // Use hello development version of Modernizr toodevelop with and learn from. Then, when you're
+            // ready for production, use hello build tool at http://modernizr.com toopick only hello tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")).Include(
                         "~/Scripts/modernizr-*"));
    
@@ -430,27 +430,27 @@ Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto
                         "~/Content/site.css"));
         }
    
-    Substitua `<yourCDNName>` pelo nome da sua CDN do Azure.
+    Ser tooreplace se `<yourCDNName>` com nome de saudação do seu CDN do Azure.
    
-    De maneira simples, você está definindo `bundles.UseCdn = true` e adicionou uma URL da CDN criada cuidadosamente a cada grupo. Por exemplo, o primeiro construtor do código:
+    Em palavras simples, você está definindo `bundles.UseCdn = true` e adicionados a um pacote de tooeach URL CDN concebido cuidadosamente. Por exemplo, Olá primeiro construtor no código hello:
    
         new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery"))
    
-    é igual a:
+    Olá igual é:
    
         new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?v=<W.X.Y.Z>"))
    
-    Este construtor instrui o agrupamento e minificação ASP.NET a renderizar arquivos de script individuais quando depurados localmente, mas usar o endereço CDN especificado para acessar o script em questão. No entanto, observe duas importantes características dessa URL da CDN criada cuidadosamente:
+    Este construtor informa ASP.NET empacotamento e minimização toorender arquivos de script individuais quando depurado localmente, mas use Olá especificado script tooaccess de saudação do endereço CDN em questão. No entanto, observe duas importantes características dessa URL da CDN criada cuidadosamente:
    
-   * A origem do URL da CDN é `http://<yourCloudService>.cloudapp.net/bundles/jquery?v=<W.X.Y.Z>`, que é na realidade o diretório virtual do grupo de scripts em seu serviço de nuvem.
-   * Como você está usando um construtor CDN, a marcação do script CDN para o grupo não contém mais a cadeia da versão gerada automaticamente na URL renderizada. Você deve gerar manualmente uma cadeia de versão única sempre que o grupo de scripts for modificado para gerar uma perda de cache em sua CDN do Azure. Ao mesmo tempo, essa cadeia de versão única deve permanecer constante ao longo da vida útil da implantação para maximizar as ocorrências no cache na CDN do Azure após a implantação do grupo.
-   * A cadeia de consulta v=<W.X.Y.Z> efetua pull em *Properties\AssemblyInfo.cs* no projeto da função Web. Você pode ter um fluxo de trabalho de implantação que inclua o incremento da versão de assembly sempre que você publicar no Azure. Ou pode apenar modificar *Properties\AssemblyInfo.cs* em seu projeto para incrementar automaticamente a cadeia da versão sempre que compilar, usando o caractere curinga “*”. Por exemplo:
+   * saudação de origem para esta URL CDN é `http://<yourCloudService>.cloudapp.net/bundles/jquery?v=<W.X.Y.Z>`, que é realmente Olá diretório virtual do pacote de script hello em seu serviço de nuvem.
+   * Como você está usando o construtor CDN, Olá marca de script CDN para o pacote de saudação não contém Olá gerado automaticamente a cadeia de caracteres de versão no hello renderizado URL. Você deve gerar uma cadeia de caracteres de versão exclusivo manualmente sempre que o pacote de script hello é modificado tooforce perder um cache em seu CDN do Azure. AT Olá mesmo tempo, essa cadeia de caracteres de versão exclusivo deve permanecem constante durante a vida Olá Olá implantação toomaximize de acertos do cache em seu CDN do Azure após a implantação do pacote de saudação.
+   * Olá a cadeia de caracteres de consulta v = < w.x.y. z > recebimentos de *Properties\AssemblyInfo.cs* em seu projeto de função Web. Você pode ter um fluxo de trabalho de implantação que inclui incrementando a versão do assembly hello toda vez que você publicar tooAzure. Ou, você pode modificar apenas *Properties\AssemblyInfo.cs* em sua cadeia de versão do projeto tooautomatically incremento Olá sempre que você criar, usando o caractere curinga de saudação ' *'. Por exemplo:
      
         [assembly: AssemblyVersion("1.0.0.*")]
      
-     Qualquer outra estratégia para simplificar a geração de uma cadeia única para a vida útil de uma implantação funcionará aqui.
-2. Publique o serviço de nuvem novamente e acesse a página inicial.
-3. Exiba o código HTML da página. Você deverá ver a URL da CDN renderizada, com uma cadeia de versão única sempre que republicar mudanças em seu serviço de nuvem. Por exemplo:  
+     Qualquer outra estratégia toostreamline gerar uma cadeia de caracteres exclusiva durante saudação de uma implantação funcionará aqui.
+2. Republicar Olá nuvem acesso e serviço Olá página inicial.
+3. Saudação de modo de exibição código HTML para a página de saudação. Você deve ser capaz de toosee Olá URL CDN renderizado com uma cadeia de caracteres de versão exclusivo toda vez que você publicar novamente o serviço de nuvem tooyour alterações. Por exemplo:  
    
         ...
    
@@ -465,8 +465,8 @@ Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto
         <script src="http://camservice.azureedge.net/bundles/bootstrap?v=1.0.0.25449"></script>
    
         ...
-4. No Visual Studio, depure o serviço de nuvem no Visual Studio digitando `F5`.,
-5. Exiba o código HTML da página. Você ainda verá cada arquivo de script renderizado individualmente, para que possa ter uma experiência de depuração consistente no Visual Studio.  
+4. No Visual Studio, depurar o serviço em nuvem no Visual Studio Olá digitando `F5`.,
+5. Saudação de modo de exibição código HTML para a página de saudação. Você ainda verá cada arquivo de script renderizado individualmente, para que possa ter uma experiência de depuração consistente no Visual Studio.  
    
         ...
    
@@ -487,11 +487,11 @@ Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto
 <a name="fallback"></a>
 
 ## <a name="fallback-mechanism-for-cdn-urls"></a>Mecanismo de fallback para URLs da CDN
-Quando seu ponto de extremidade da CDN do Azure falhar por qualquer motivo, é melhor que sua página da Web seja inteligente o suficiente para acessar o servidor Web de origem como a opção de fallback para carregar JavaScript ou Bootstrap. Perder imagens do site devido à indisponibilidade da CDN já é grave, mas perder funcionalidades fundamentais da página fornecidas por seus scripts e folhas de estilo é ainda muito mais.
+Quando o ponto de extremidade CDN do Azure falha por algum motivo, você deseja que sua página da Web toobe inteligente suficiente tooaccess seu servidor da Web de origem como opção de fallback Olá para carregar JavaScript ou inicialização. É grave o suficiente toolose imagens no seu site devido a indisponibilidade de tooCDN, mas a funcionalidade de página fundamental de toolose muito mais grave fornecidos por seus scripts e folhas de estilo.
 
-A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contém uma propriedade chamada [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) que permite que você configure o mecanismo de fallback para falha da CDN. Para usar essa propriedade, siga as etapas abaixo:
+Olá [pacote](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) classe contém uma propriedade chamada [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) que habilita o mecanismo de fallback tooconfigure Olá para falha CDN. toouse essa propriedade, siga Olá etapas abaixo:
 
-1. No projeto de função Web, abra *App_Start\BundleConfig.cs*, onde você adicionou uma URL da CDN a cada [Construtor de grupo](http://msdn.microsoft.com/library/jj646464.aspx) e faça as seguintes alterações em destaque para adicionar um mecanismo de fallback aos grupos padrão:  
+1. No seu projeto de função Web, abra *App_Start\BundleConfig.cs*, em que você adicionou uma URL de CDN em cada [construtor pacote](http://msdn.microsoft.com/library/jj646464.aspx)e faça o seguinte Olá realçado altera tooadd toohello de mecanismo de fallback pacotes padrão:  
    
         public static void RegisterBundles(BundleCollection bundles)
         {
@@ -508,8 +508,8 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
                         { CdnFallbackExpression = "$.validator" }
                         .Include("~/Scripts/jquery.validate*"));
    
-            // Use the development version of Modernizr to develop with and learn from. Then, when you&#39;re
-            // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+            // Use hello development version of Modernizr toodevelop with and learn from. Then, when you&#39;re
+            // ready for production, use hello build tool at http://modernizr.com toopick only hello tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer"))
                         { CdnFallbackExpression = "window.Modernizr" }
                         .Include("~/Scripts/modernizr-*"));
@@ -525,19 +525,19 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
                         "~/Content/site.css"));
         }
    
-    Quando `CdnFallbackExpression` não é nulo, o script é injetado no HTML para testar se o grupo é carregado com sucesso e, se não, acessar o grupo diretamente por meio do servidor Web de origem. Esta propriedade precisa ser definida como uma expressão JavaScript que testa se o grupo CDN respectivo é carregado corretamente. A expressão necessária para testar cada grupo difere de acordo com o conteúdo. Para os grupos padrão acima:
+    Quando `CdnFallbackExpression` é não nulo, script é injetado tootest Olá HTML se o pacote de saudação é carregado com êxito e, se não, acessar Olá pacote diretamente do servidor de Web de origem hello. Essa propriedade deve toobe tooa JavaScript expressão de conjunto testa se o respectivo pacote CDN Olá é carregado corretamente. expressão de saudação necessário tootest difere de cada pacote de conteúdo de acordo toohello. Para pacotes de padrão de saudação acima:
    
    * `window.jquery` é definido em jquery-{version}.js
    * `$.validator` é definido em jquery.validate.js
    * `window.Modernizr` é definido em modernizer-{version}.js
    * `$.fn.modal` é definido em bootstrap.js
      
-     Você pode ter notado que não defini CdnFallbackExpression para o grupo `~/Cointent/css` . Isso ocorre porque no momento há um [bug no System.Web.Optimization](https://aspnetoptimization.codeplex.com/workitem/104) que injeta uma marcação `<script>` para o CSS de fallback em vez da marcação `<link>` esperada.
+     Você deve ter notado que eu não definiu CdnFallbackExpression para Olá `~/Cointent/css` pacote. Isso ocorre porque atualmente não há uma [bug na otimização](https://aspnetoptimization.codeplex.com/workitem/104) que insere um `<script>` marca Olá esperado do CSS fallback em vez da saudação `<link>` marca.
      
      Há, no entanto, um bom [Fallback de Grupo de Estilo](https://github.com/EmberConsultingGroup/StyleBundleFallback) oferecido pelo [Ember Consulting Group](https://github.com/EmberConsultingGroup).
-2. Para usar a solução alternativa para CSS, crie um novo arquivo .cs na pasta *App_Start* de seu projeto de função Web, nomeie esse arquivo como *StyleBundleExtensions.cs* e substitua seu conteúdo pelo [código do GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs).
-3. Em *App_Start\StyleFundleExtensions.cs*, renomeie o namespace como nome da sua função Web (por exemplo, **FunçãoDaWeb1**).
-4. Volte para e `App_Start\BundleConfig.cs` modifique a última `bundles.Add` instrução com o seguinte código em destaque:  
+2. solução alternativa de saudação toouse para CSS, crie um novo arquivo. cs no seu projeto de função Web *App_Start* pasta chamada *StyleBundleExtensions.cs*e substituir seu conteúdo com hello [código de GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs).
+3. Em *App_Start\StyleFundleExtensions.cs*, renomeie o nome da função do hello namespace tooyour da Web (por exemplo, **WebRole1**).
+4. Voltar muito`App_Start\BundleConfig.cs` e modificar Olá última `bundles.Add` instrução com hello código realçado a seguir:  
    
         bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
             <mark>.IncludeFallback("~/Content/css", "sr-only", "width", "1px")</mark>
@@ -545,9 +545,9 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
                   "~/Content/bootstrap.css",
                   "~/Content/site.css"));
    
-    Este novo método de extensão usa a mesma ideia para injetar script no HTML para verificar o DOM para um nome de classe, nome de regra e valor de regra correspondente no grupo CSS, e retorna ao servidor Web original se não encontrar um resultado correspondente.
-5. Publique o serviço de nuvem novamente e acesse a página inicial.
-6. Exiba o código HTML da página. Você deve encontrar scripts injetados semelhantes ao seguinte:    
+    Esse novo método de extensão usa Olá ideia mesmo tooinject script hello HTML toocheck Olá DOM para Olá um nome de classe correspondente, o nome da regra e o valor de regra definida no hello CSS pacote e o servidor vão toohello back origem Web se ele falhar toofind correspondência de saudação.
+5. Publica serviço de nuvem Olá novamente e acesso Olá home page.
+6. Saudação de modo de exibição código HTML para a página de saudação. Você deve encontrar injetado scripts semelhantes toohello seguinte:    
    
         ...
    
@@ -584,14 +584,14 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
    
         ...
 
-    Observe que o script injetado para o grupo CSS ainda contém o excedente errante da propriedade `CdnFallbackExpression` na linha:
+    Observe que o script inserido para o pacote CSS Olá ainda contém vestígios errôneo de saudação do hello `CdnFallbackExpression` propriedade na linha de saudação:
 
         }())||document.write('<script src="/Content/css"><\/script>');</script>
 
-    Mas como a primeira parte da expressão || sempre retornará o valor verdadeiro (na linha diretamente acima), a função document.write() nunca será executada.
+    Mas como a primeira parte Olá Olá | | expressão sempre retornará verdadeira (na linha de saudação diretamente acima), a função de Document hello nunca será executado.
 
 ## <a name="more-information"></a>Mais informações
-* [Visão geral da Rede de Distribuição de Conteúdo (CDN) do Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
+* [Visão geral de hello Azure Content Delivery Network (CDN)](http://msdn.microsoft.com/library/azure/ff919703.aspx)
 * [Usando o Azure CDN](cdn-create-new-endpoint.md)
 * [Agrupamento e minificação ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 

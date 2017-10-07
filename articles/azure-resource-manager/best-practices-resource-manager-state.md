@@ -1,6 +1,6 @@
 ---
-title: Passar valores complexos entre modelos do Azure | Microsoft Docs
-description: Mostra abordagens recomendadas para usar objetos complexos para compartilhar dados de estado com modelos e modelos vinculados do Azure Resource Manager.
+title: valores complexos de aaaPass entre modelos do Azure | Microsoft Docs
+description: Mostra recomendado abordagens para usar dados de estado de tooshare objetos complexos com modelos de Gerenciador de recursos do Azure e vinculado.
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 ms.author: tomfitz
-ms.openlocfilehash: 23cc4321159a87b61c177b11381646af8bd9eb35
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 72df1dee351446cea6ce15269e6db288b1f1db79
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="share-state-to-and-from-azure-resource-manager-templates"></a>Compartilha o estado dos e para os modelos do Azure Resource Manager
-Este tópico mostra as melhores práticas para gerenciar e compartilhar o estado em modelos. Os parâmetros e variáveis mostrados neste tópico são exemplos dos tipos de objetos que você pode definir para organizar seus requisitos de implantação convenientemente. A partir desses exemplos, você pode implementar seus próprios objetos com valores de propriedade que façam sentido para o seu ambiente.
+# <a name="share-state-tooand-from-azure-resource-manager-templates"></a>Tooand de estado de compartilhamento de modelos do Gerenciador de recursos do Azure
+Este tópico mostra as melhores práticas para gerenciar e compartilhar o estado em modelos. Olá parâmetros e variáveis mostrados neste tópico são exemplos de tipo de saudação de objetos que você pode definir tooconveniently organizar seus requisitos de implantação. A partir desses exemplos, você pode implementar seus próprios objetos com valores de propriedade que façam sentido para o seu ambiente.
 
-Este tópico faz parte de um whitepaper mais amplo. Para ler o artigo completo, baixe as [Considerações e práticas comprovadas dos modelos do Resource Manager da mais alta qualidade](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+Este tópico faz parte de um whitepaper mais amplo. baixar tooread Olá completo papel, [World classe recurso Gerenciador de modelos de considerações e práticas comprovadas](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 ## <a name="provide-standard-configuration-settings"></a>Fornecer configurações padrão
-Em vez de oferecer um modelo que fornece flexibilidade total e inúmeras variações, o normal é fornecer uma seleção de configurações conhecidas. Na verdade, os usuários podem selecionar tamanhos de camiseta padrão, como área restrita, pequeno, médio e grande. Outros exemplos de tamanhos de camiseta são ofertas de produtos, como community edition ou enterprise edition. Em outros casos, podem se tratar de configurações de uma tecnologia específicas para uma determinada carga de trabalho - como mapear/reduzir ou no SQL.
+Em vez de oferecer um modelo que oferece total flexibilidade e inúmeras variações, um padrão comum é tooprovide uma seleção de configurações conhecidas. Na verdade, os usuários podem selecionar tamanhos de camiseta padrão, como área restrita, pequeno, médio e grande. Outros exemplos de tamanhos de camiseta são ofertas de produtos, como community edition ou enterprise edition. Em outros casos, podem se tratar de configurações de uma tecnologia específicas para uma determinada carga de trabalho - como mapear/reduzir ou no SQL.
 
-Com objetos complexos, você pode criar variáveis que contenham coleções de dados, às vezes conhecidos como "conjunto de propriedades", e usar esses dados para orientar a declaração de recurso em seu modelo. Essa abordagem fornece boas configurações conhecidas, de tamanhos variados que são pré-configurados para os clientes. Sem configurações conhecidas, os usuários do modelo devem determinar o tamanho do cluster por conta própria, levar em consideração restrições de recursos de plataforma e fazer cálculos para identificar o particionamento resultante de contas de armazenamento e outros recursos (devido a restrições de recursos e de tamanho do cluster). Além de criar uma experiência melhor para o cliente, é mais fácil dar suporte a algumas configurações conhecidas que podem ajudá-lo a oferecer um nível maior de densidade.
+Com objetos complexos, você pode criar variáveis que contêm conjuntos de dados, às vezes conhecidos como "recipientes de propriedade" e usar essa declaração de recurso Olá dados toodrive em seu modelo. Essa abordagem fornece boas configurações conhecidas, de tamanhos variados que são pré-configurados para os clientes. Sem configurações conhecidas, os usuários do modelo de saudação devem determinar dimensionamento do cluster em seu próprios, fator em restrições de recursos de plataforma e fazer matemática tooidentify Olá resultante de contas de armazenamento e outros recursos de particionamento (devido tamanho toocluster e restrições de recursos). Além disso toomaking uma melhor experiência de cliente hello, algumas configurações conhecidas são toosupport mais fácil e podem ajudar a fornecer um nível mais alto de densidade.
 
-O exemplo a seguir mostra como definir variáveis que contêm objetos complexos para representar coleções de dados. As coleções definem os valores que são usados para o tamanho da máquina virtual, as configurações de rede, as configurações de sistema operacional e as configurações de disponibilidade.
+Olá mostrado no exemplo a seguir como toodefine variáveis que contêm objetos complexos para representar os conjuntos de dados. coleções de saudação definem valores que são usados para o tamanho da máquina virtual, as configurações de rede, configurações do sistema operacional e configurações de disponibilidade.
 
     "variables": {
       "tshirtSize": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
@@ -109,9 +109,9 @@ O exemplo a seguir mostra como definir variáveis que contêm objetos complexos 
       }
     }
 
-Observe que a variável **tshirtSize** concatena o tamanho de camiseta que você forneceu através de um parâmetro (**Small**, **Medium**, **Large**) ao texto **tshirtSize**. Você usa essa variável para recuperar a variável de objeto complexo associada para o tamanho de camiseta.
+Observe que Olá **tshirtSize** variável concatena o tamanho de camisa Olá fornecido por meio de um parâmetro (**pequeno**, **médio**, **grande**) texto toohello **tshirtSize**. Você pode usar essa variável de objeto complexo associado Olá tooretrieve variável para que o tamanho do camisa.
 
-Você pode fazer referência a essas variáveis posteriormente no modelo. A capacidade de fazer referência a variáveis nomeadas e às suas propriedades simplifica a sintaxe de modelo e facilita o entendimento do contexto. O exemplo a seguir define um recurso para implantar usando os objetos mostrados anteriormente para definir valores. Por exemplo, o tamanho da VM é definido pela recuperação do valor de `variables('tshirtSize').vmSize`, enquanto o valor do tamanho do disco é recuperado de `variables('tshirtSize').diskSize`. Além disso, o URI de um modelo vinculado é definido com o valor de `variables('tshirtSize').vmTemplate`.
+Você pode fazer referência a essas variáveis posteriormente no modelo de saudação. Olá capacidade tooreference chamado variáveis e suas propriedades simplifica a sintaxe do modelo hello e torna fácil toounderstand contexto. saudação de exemplo a seguir define toodeploy um recurso por meio de objetos de saudação mostrados anteriormente tooset valores. Por exemplo, Olá tamanho da VM é definido pela recuperação do valor de saudação de `variables('tshirtSize').vmSize` enquanto o valor de saudação para o tamanho do disco Olá é recuperado do `variables('tshirtSize').diskSize`. Além disso, Olá URI para um modelo vinculado é definido com valor de saudação para `variables('tshirtSize').vmTemplate`.
 
     "name": "master-node",
     "type": "Microsoft.Resources/deployments",
@@ -166,23 +166,23 @@ Você pode fazer referência a essas variáveis posteriormente no modelo. A capa
       }
     }
 
-## <a name="pass-state-to-a-template"></a>Passar o estado para um modelo
+## <a name="pass-state-tooa-template"></a>Passar o modelo de tooa de estado
 Você pode compartilhar o estado em um modelo por meio de parâmetros fornecidos diretamente durante a implantação.
 
-A tabela a seguir lista os parâmetros normalmente usados em modelos.
+Olá tabela parâmetros de listas usadas nos modelos a seguir.
 
 | Nome | Valor | Descrição |
 | --- | --- | --- |
-| location |Cadeia de caracteres de uma lista restrita de regiões do Azure |O local onde os recursos são implantados. |
-| storageAccountNamePrefix |Cadeia de caracteres |Nome DNS exclusivo da conta de armazenamento na qual são colocados os discos da VM |
-| domainName |Cadeia de caracteres |Nome de domínio da VM jumpbox publicamente acessível no formato: **{domainName}.{local}.cloudapp.com** Por exemplo: **nomedomeudomínio.westus.cloudapp.azure.com** |
-| adminUsername |Cadeia de caracteres |Nome de usuário das VMs |
-| adminPassword |Cadeia de caracteres |A senha das VMs |
-| tshirtSize |Cadeia de caracteres de uma lista restrita de tamanhos de camiseta oferecidos |O tamanho da unidade de escala nomeada para provisionamento. Por exemplo, "Pequeno", "Médio", "Grande" |
-| virtualNetworkName |Cadeia de caracteres |Nome da rede virtual que o consumidor deseja usar. |
-| enableJumpbox |Cadeia de caracteres de uma lista restrita (habilitada/desabilitada) |Parâmetro que identifica se um Jumpbox será habilitado para o ambiente. Valores: "habilitado", "desabilitado" |
+| location |Cadeia de caracteres de uma lista restrita de regiões do Azure |local de saudação onde os recursos de saudação são implantados. |
+| storageAccountNamePrefix |Cadeia de caracteres |Nome DNS exclusivo para Olá conta de armazenamento em que os discos da VM Olá são colocados |
+| domainName |Cadeia de caracteres |Nome de domínio do hello jumpbox VM publicamente acessível no formato Olá: **{domainName}. { local}.cloudapp.com** por exemplo: **mydomainname.westus.cloudapp.azure.com** |
+| adminUsername |Cadeia de caracteres |Nome de usuário para Olá VMs |
+| adminPassword |Cadeia de caracteres |Senha de saudação VMs |
+| tshirtSize |Cadeia de caracteres de uma lista restrita de tamanhos de camiseta oferecidos |Olá denominado tooprovision de tamanho de unidade de escala. Por exemplo, "Pequeno", "Médio", "Grande" |
+| virtualNetworkName |Cadeia de caracteres |Nome de rede virtual Olá Olá consumidor deseja toouse. |
+| enableJumpbox |Cadeia de caracteres de uma lista restrita (habilitada/desabilitada) |Parâmetro identifica se tooenable um jumpbox para o ambiente de saudação. Valores: "habilitado", "desabilitado" |
 
-O parâmetro **tshirtSize** usado na seção anterior é definido como:
+Olá **tshirtSize** parâmetro usado na seção anterior Olá é definido como:
 
     "parameters": {
       "tshirtSize": {
@@ -194,21 +194,21 @@ O parâmetro **tshirtSize** usado na seção anterior é definido como:
           "Large"
         ],
         "metadata": {
-          "Description": "T-shirt size of the MongoDB deployment"
+          "Description": "T-shirt size of hello MongoDB deployment"
         }
       }
     }
 
 
-## <a name="pass-state-to-linked-templates"></a>Passar o estado para modelos vinculados
-Ao conectar-se aos modelos vinculados, geralmente você utilizará uma combinação de variáveis estáticas e geradas.
+## <a name="pass-state-toolinked-templates"></a>Passar modelos de toolinked de estado
+Ao se conectar toolinked modelos, você geralmente usa uma combinação de estático e gerado variáveis.
 
 ### <a name="static-variables"></a>Variáveis estáticas
-Variáveis estáticas geralmente são usadas para fornecer valores de base, como URLs, que são usados em um modelo.
+Variáveis estáticas geralmente são valores de base de tooprovide usadas, como URLs, que são usados em um modelo.
 
-No trecho do modelo a seguir, `templateBaseUrl` especifica o local raiz do modelo no GitHub. A próxima linha cria uma nova variável `sharedTemplateUrl` , que concatena o URL base com o nome conhecido do modelo de recursos compartilhados. Abaixo dessa linha, uma variável de objeto complexo é usada para armazenar um tamanho de camiseta, em que o URL base é concatenado ao local do modelo de configuração conhecido e armazenado na propriedade `vmTemplate` .
+Em Olá seguinte trecho do modelo, `templateBaseUrl` Especifica o local de raiz de saudação para modelo Olá no GitHub. linha seguinte Olá cria uma nova variável `sharedTemplateUrl` que concatena a URL base Olá com nome conhecido de saudação do modelo de recursos compartilhados hello. Abaixo da linha, uma variável de objeto complexo toostore usado um tamanho de camisa, onde é URL base Olá toohello concatenado conhecido local do modelo de configuração e armazenadas em Olá `vmTemplate` propriedade.
 
-O benefício desta abordagem é que, se o local do modelo for alterado, você só precisará alterar a variável estática em um único lugar, que a passará para os modelos vinculados.
+benefício de saudação dessa abordagem é que se Olá modelo local será alterado, basta variável estática do hello toochange em um único local, que passa em modelos Olá vinculado.
 
     "variables": {
       "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
@@ -230,13 +230,13 @@ O benefício desta abordagem é que, se o local do modelo for alterado, você s�
     }
 
 ### <a name="generated-variables"></a>Variáveis geradas
-Além de variáveis estáticas, diversas variáveis são geradas dinamicamente. Esta seção identifica alguns dos tipos comuns de variáveis geradas.
+Em variáveis de toostatic de adição, diversas variáveis são geradas dinamicamente. Esta seção identifica alguns dos tipos comuns de saudação de variáveis gerados.
 
 #### <a name="tshirtsize"></a>tshirtSize
-Você está familiarizado com essa variável gerada dos exemplos acima.
+Você está familiarizado com essa variável gerado de exemplos de saudação acima.
 
 #### <a name="networksettings"></a>networkSettings
-Em um modelo de capacidade, recurso ou solução de escopo completa, os modelos vinculados normalmente criam recursos que existem em uma rede. Uma abordagem simples é usar um objeto complexo para armazenar as configurações de rede e passá-las para modelos vinculados.
+Em uma saudação de capacidade, recurso ou modelo de solução de ponta a ponta no escopo, vinculados modelos normalmente criam recursos que existem em uma rede. Uma abordagem simples é toouse as configurações de rede objeto complexo toostore e passá-las toolinked modelos.
 
 Um exemplo de configurações de rede de comunicação pode ser visto abaixo.
 
@@ -258,7 +258,7 @@ Um exemplo de configurações de rede de comunicação pode ser visto abaixo.
     }
 
 #### <a name="availabilitysettings"></a>availabilitySettings
-Recursos criados em modelos vinculados geralmente são colocados em um conjunto de disponibilidade. No exemplo a seguir, o nome do conjunto de disponibilidade é especificado e também a contagem de domínios de falha e de atualização para uso.
+Recursos criados em modelos vinculados geralmente são colocados em um conjunto de disponibilidade. Em Olá exemplo a seguir, Olá nome do conjunto de disponibilidade for especificado e também Olá domínio de falha e toouse de contagem de domínio de atualização.
 
     "availabilitySetSettings": {
       "name": "pgsqlAvailabilitySet",
@@ -266,10 +266,10 @@ Recursos criados em modelos vinculados geralmente são colocados em um conjunto 
       "udCount": 5
     }
 
-Se precisar de vários conjuntos de disponibilidade (por exemplo, um para nós mestres e outro para nós de dados), você pode usar um nome como um prefixo, especificar vários conjuntos de disponibilidade ou seguir o modelo mostrado anteriormente para a criação de uma variável para um tamanho de camiseta específico.
+Se você precisar de vários conjuntos de disponibilidade (por exemplo, um de nós mestres) e outro para os nós de dados, você pode usar um nome como um prefixo, especifique vários conjuntos de disponibilidade ou siga modelo Olá mostrado anteriormente para a criação de uma variável para um tamanho de camisa específico.
 
 #### <a name="storagesettings"></a>storageSettings
-Detalhes de armazenamento geralmente são compartilhados com modelos vinculados. No exemplo abaixo, um objeto *storageSettings* fornece detalhes sobre os nomes de contêiner e da conta de armazenamento.
+Detalhes de armazenamento geralmente são compartilhados com modelos vinculados. No exemplo abaixo, a saudação um *storageSettings* objeto fornece detalhes sobre Olá nomes de conta e o contêiner de armazenamento.
 
     "storageSettings": {
         "vhdStorageAccountName": "[parameters('storageAccountName')]",
@@ -278,9 +278,9 @@ Detalhes de armazenamento geralmente são compartilhados com modelos vinculados.
     }
 
 #### <a name="ossettings"></a>osSettings
-Com modelos vinculados, você precisa passar configurações do sistema operacional para vários tipos de nós em todos os tipos de configuração diferentes conhecidos. Um objeto complexo é uma maneira fácil de armazenar e compartilhar informações de sistema operacional e também torna mais fácil dar suporte a várias opções de sistema operacional para implantação.
+Com modelos vinculados, talvez seja necessário toopass configurações de sistema operacional toovarious tipos de nós em todos os tipos de configuração diferentes. Um objeto complexo é uma informações do sistema operacional toostore e compartilhamento de maneira fácil e também torna mais fácil toosupport várias opções de sistema operacional para implantação.
 
-O exemplo a seguir mostra um objeto para *osSettings*:
+Olá, exemplo a seguir mostra um objeto para *osSettings*:
 
     "osSettings": {
       "imageReference": {
@@ -292,7 +292,7 @@ O exemplo a seguir mostra um objeto para *osSettings*:
     }
 
 #### <a name="machinesettings"></a>machineSettings
-Variável gerada, *machineSettings* é um objeto complexo que contém uma mistura de variáveis principais para criar uma VM. As variáveis incluem o nome de usuário e a senha do administrador, um prefixo para os nomes das VMs e uma referência de imagem do sistema operacional.
+Variável gerada, *machineSettings* é um objeto complexo que contém uma mistura de variáveis principais para criar uma VM. variáveis de saudação incluem o nome de usuário administrador e senha, um prefixo para nomes VM hello e uma referência de imagem do sistema operacional.
 
     "machineSettings": {
         "adminUsername": "[parameters('adminUsername')]",
@@ -306,17 +306,17 @@ Variável gerada, *machineSettings* é um objeto complexo que contém uma mistur
         }
     },
 
-Observe que *osImageReference* recupera os valores da variável *osSettings* definida no modelo principal. Isso significa que você pode alterar facilmente o sistema operacional de uma VM — completamente ou com base na preferência de um consumidor de modelo.
+Observe que *osImageReference* recupera Olá valores de saudação *osSettings* variável definida no modelo principal hello. Isso significa que você pode facilmente alterar o sistema operacional de saudação para uma VM — completamente ou com base na preferência de saudação de um consumidor de modelo.
 
 #### <a name="vmscripts"></a>vmScripts
-O objeto *vmScripts* contém detalhes sobre os scripts a serem baixados e executados em uma instância de VM, incluindo referências externas e internas. Referências externas incluem a infraestrutura.
-Referências internas incluem o software instalado e a configuração.
+Olá *vmScripts* contém detalhes sobre toodownload de scripts de saudação do objeto e executar em uma instância VM, incluindo referências externas e internas. Fora de referências incluem infraestrutura hello.
+Referências internas incluem hello instalado software instalado e configuração.
 
-Você usa a propriedade *scriptsToDownload* para listar os scripts a serem baixados na VM. Esse objeto também contém referências aos argumentos de linha de comando de diferentes tipos de ações. Essas ações incluem a execução da instalação padrão para cada nó individual, uma instalação que é executada depois que todos os nós são implantados e quaisquer scripts adicionais que possam ser específicos de um determinado modelo.
+Use Olá *scriptsToDownload* toodownload toohello VM de scripts de saudação do toolist de propriedade. Esse objeto também contém argumentos de linha de toocommand de referências para diferentes tipos de ações. Essas ações incluem executar saudação padrão instalação para cada nó individual, uma instalação que é executado depois que todos os nós são implantados e quaisquer scripts adicionais que podem ser tooa específico, considerando o modelo.
 
-Este exemplo é de um modelo usado para implantar MongoDB, que requer um arbitrador para oferecer alta disponibilidade. O *arbiterNodeInstallCommand* foi adicionado a *vmScripts* para instalar o arbitrador.
+Este exemplo é de um toodeploy MongoDB, que exige uma arbitrador toodeliver alta disponibilidade do modelo usado. Olá *arbiterNodeInstallCommand* foi adicionado muito*vmScripts* tooinstall arbitrador de saudação.
 
-A seção de variáveis é onde você encontra as variáveis que definem o texto específico para executar o script com os valores adequados.
+seção de variáveis de saudação é onde você pode encontrar variáveis Olá que definem o script de saudação de tooexecute Olá texto específico com valores adequados hello.
 
     "vmScripts": {
         "scriptsToDownload": [
@@ -330,9 +330,9 @@ A seção de variáveis é onde você encontra as variáveis que definem o texto
 
 
 ## <a name="return-state-from-a-template"></a>Retornar o estado de um modelo
-Você pode não só passar dados para um modelo, mas também pode compartilhar dados de volta para o modelo de chamada. Na seção **outputs** de um modelo vinculado, você pode fornecer os pares de chave-valor que podem ser consumidos pelo modelo de origem.
+Não só pode transmitir dados em um modelo, você também pode compartilhar dados toohello back chamada modelo. Em Olá **gera** seção de um modelo vinculado, você pode fornecer os pares chave/valor que podem ser consumidos pelo modelo de origem de saudação.
 
-O exemplo a seguir mostra como passar o endereço IP privado gerado em um modelo vinculado.
+Olá exemplo a seguir mostra como toopass Olá endereço IP privado gerado em um modelo vinculado.
 
     "outputs": {
         "masterip": {
@@ -341,11 +341,11 @@ O exemplo a seguir mostra como passar o endereço IP privado gerado em um modelo
          }
     }
 
-No modelo principal, você pode usar esses dados com a seguinte sintaxe:
+No modelo principal do hello, você pode usar esses dados com hello sintaxe a seguir:
 
     "[reference('master-node').outputs.masterip.value]"
 
-Você pode usar essa expressão na seção de saídas ou na seção de recursos do modelo principal. Não é possível usar a expressão na seção de variáveis porque ela se baseia no estado de tempo de execução. Para retornar esse valor do modelo principal, use:
+Você pode usar essa expressão em Olá saídas seção ou seção de recursos de saudação do modelo principal hello. Você não pode usar a expressão Olá na seção de variáveis de saudação porque ele se baseia no estado de tempo de execução de saudação. tooreturn este valor de modelo principal hello, use:
 
     "outputs": {
       "masterIpAddress": {
@@ -353,10 +353,10 @@ Você pode usar essa expressão na seção de saídas ou na seção de recursos 
         "type": "string"
       }
 
-Para obter um exemplo de como usar a seção de saídas de um modelo vinculado para retornar discos de dados para uma máquina virtual, consulte [Criando vários discos de dados para uma Máquina Virtual](resource-group-create-multiple.md).
+Para um exemplo de como usar o hello gera seção um modelo vinculado tooreturn de discos de dados para uma máquina virtual, consulte [criando vários discos de dados para uma máquina Virtual](resource-group-create-multiple.md).
 
 ## <a name="define-authentication-settings-for-virtual-machine"></a>Definir configurações de autenticação para uma máquina virtual
-Você pode usar o mesmo padrão mostrado anteriormente para definições de configuração, com o fim de especificar as configurações de autenticação para uma máquina virtual. Você cria um parâmetro para passar o tipo de autenticação.
+Você pode usar o hello mesmo padrão mostrado anteriormente configurações toospecify Olá autenticação as definições de configuração para uma máquina virtual. Você pode criar um parâmetro para passar no tipo de saudação de autenticação.
 
     "parameters": {
       "authenticationType": {
@@ -372,7 +372,7 @@ Você pode usar o mesmo padrão mostrado anteriormente para definições de conf
       }
     }
 
-Adicione variáveis para os tipos de autenticação diferentes, bem como uma variável para armazenar qual tipo é usado para essa implantação com base no valor do parâmetro.
+Você adicionar variáveis de saudação diferentes tipos de autenticação e uma variável toostore o tipo usado para essa implantação com base no valor de saudação do parâmetro hello.
 
     "variables": {
       "osProfile": "[variables(concat('osProfile', parameters('authenticationType')))]",
@@ -400,7 +400,7 @@ Adicione variáveis para os tipos de autenticação diferentes, bem como uma var
       }
     }
 
-Ao definir a máquina virtual, você define o **osProfile** para a variável que criou.
+Ao definir a máquina virtual de saudação, você definir Olá **osProfile** toohello variável que você criou.
 
     {
       "type": "Microsoft.Compute/virtualMachines",
@@ -410,5 +410,5 @@ Ao definir a máquina virtual, você define o **osProfile** para a variável que
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre as seções do modelo, confira [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md)
-* Para ver as funções que estão disponíveis em um modelo, confira [Funções do modelo do Azure Resource Manager](resource-group-template-functions.md)
+* toolearn sobre seções de saudação do modelo hello, consulte [criação de modelos de Gerenciador de recursos do Azure](resource-group-authoring-templates.md)
+* toosee Olá funções que estão disponíveis em um modelo, consulte [funções de modelo do Gerenciador de recursos do Azure](resource-group-template-functions.md)

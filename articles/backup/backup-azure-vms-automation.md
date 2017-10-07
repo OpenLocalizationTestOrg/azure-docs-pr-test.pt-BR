@@ -1,6 +1,6 @@
 ---
-title: Implantar e gerenciar backups para VMs implantadas com o Gerenciador de Recursos usando o PowerShell | Microsoft Docs
-description: Use o PowerShell para implantar e gerenciar backups no Azure para VMs implantadas com o Gerenciador de Recursos
+title: aaaDeploy e gerenciar backups para VMs implantadas pelo Gerenciador de recursos usando o PowerShell | Microsoft Docs
+description: Use o PowerShell toodeploy e gerenciar backups no Azure para VMs implantadas pelo Gerenciador de recursos
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -15,42 +15,42 @@ ms.workload: storage-backup-recovery
 ms.date: 08/28/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 861346a50df6641abb9e454644228146e14b4078
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 486fb3ae1902403fe6bf303df57244b76677ab17
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Usar os cmdlets AzureRM.RecoveryServices.Backup para fazer backup de máquinas virtuais
+# <a name="use-azurermrecoveryservicesbackup-cmdlets-tooback-up-virtual-machines"></a>Use AzureRM.RecoveryServices.Backup cmdlets tooback backup de máquinas virtuais
 > [!div class="op_single_selector"]
 > * [Gerenciador de Recursos](backup-azure-vms-automation.md)
 > * [Clássico](backup-azure-vms-classic-automation.md)
 >
 >
 
-Este artigo mostra como usar os cmdlets do Azure PowerShell para fazer backup e recuperar uma VM (máquina virtual) do Azure de um cofre dos Serviços de Recuperação. Um cofre dos Serviços de Recuperação é um recurso do Azure Resource Manager usado para proteger dados e ativos nos serviços de Backup do Azure e do Azure Site Recovery. Você pode usar um cofre dos Serviços de Recuperação para proteger as VMs implantadas no Azure Service Manager, bem como as VMs implantadas no Azure Resource Manager.
+Este artigo mostra como toouse tooback de cmdlets do PowerShell do Azure backup e recuperar uma máquina virtual (VM) do Azure de serviços de recuperação de um cofre. Um cofre de serviços de recuperação é um recurso do Gerenciador de recursos do Azure e é usado tooprotect dados e ativos nos serviços de Backup do Azure e o Azure Site Recovery. Você pode usar um cofre de serviços de recuperação tooprotect VMs implantadas pelo Gerenciador de serviço do Azure e máquinas virtuais implantadas pelo Gerenciador de recursos do Azure.
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo destina-se a VMs criadas usando o modelo do Resource Manager.
+> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo é para uso com máquinas virtuais criadas usando o modelo do Gerenciador de recursos de saudação.
 >
 >
 
-Ele guiará você sobre como usar o PowerShell para proteger uma VM e como restaurar dados de um ponto de recuperação.
+Este artigo orienta você a usar PowerShell tooprotect uma VM e restaurar dados de um ponto de recuperação.
 
 ## <a name="concepts"></a>Conceitos
-Se você não estiver familiarizado com o serviço de Backup do Azure, para ter uma visão geral do serviço, confira [O que é o Backup do Azure?](backup-introduction-to-azure-backup.md) Antes de começar, é importante ter noções básicas sobre os pré-requisitos necessários para trabalhar com o Backup do Azure e as limitações da atual solução de backup de VM.
+Se você não estiver familiarizado com hello serviço Backup do Azure, para obter uma visão geral do serviço Olá, confira [o que é o Backup do Azure?](backup-introduction-to-azure-backup.md) Antes de começar, certifique-se de que abrangem essentials Olá sobre Olá pré-requisitos necessários toowork com o Backup do Azure e Olá limitações da solução atual de backup de VM hello.
 
-Para usar efetivamente o PowerShell, é necessário compreender a hierarquia de objetos e de onde começar.
+toouse PowerShell efetivamente, é necessário toounderstand Olá hierarquia de objetos e de onde toostart.
 
 ![Hierarquia de objetos dos Serviços de Recuperação](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-Para exibir a referência do cmdlet AzureRm.RecoveryServices.Backup do PowerShell, veja [Backup do Azure – cmdlets dos Serviços de Recuperação](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup) na biblioteca do Azure.
+Olá tooview Referência de cmdlet do AzureRm.RecoveryServices.Backup PowerShell, consulte Olá [Backup do Azure - Cmdlets dos serviços de recuperação](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup) em Olá biblioteca do Azure.
 
 ## <a name="setup-and-registration"></a>Configuração e registro
-Para começar:
+toobegin:
 
-1. [Baixe a versão mais recente do PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (a versão mínima necessária é: 1.4.0)
-2. Localize os cmdlets do PowerShell do Backup do Azure disponíveis digitando o seguinte comando:
+1. [Baixar a versão mais recente de saudação do PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (Olá versão mínima necessária é: 1.4.0)
+2. Localize os cmdlets do PowerShell do Azure Backup Olá disponíveis digitando o comando a seguir de saudação:
 
 ```
 PS C:\> Get-Command *azurermrecoveryservices*
@@ -87,7 +87,7 @@ Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      Az
 ```
 
 
-As seguintes tarefas podem ser automatizadas com o PowerShell:
+Olá tarefas a seguir pode ser automatizada com o PowerShell:
 
 * Criar um cofre dos Serviços de Recuperação
 * Fazer backup de VMs do Azure
@@ -96,24 +96,24 @@ As seguintes tarefas podem ser automatizadas com o PowerShell:
 * Restaurar uma VM do Azure
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
-As etapas a seguir orientarão você durante a criação de um cofre dos Serviços de Recuperação. Um cofre dos Serviços de Recuperação é diferente de um cofre de Backup.
+Olá etapas levá-lo na criação de um cofre de serviços de recuperação. Um cofre dos Serviços de Recuperação é diferente de um cofre de Backup.
 
-1. Se você estiver usando um Backup do Azure pela primeira vez, deverá usar o cmdlet **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** para registrar o provedor do Serviço de Recuperação do Azure com sua assinatura.
+1. Se você estiver usando o Backup do Azure para Olá primeira vez, você deve usar o hello  **[registro AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**  provedor de serviço de recuperação do Azure do cmdlet tooregister Olá com sua assinatura.
 
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-2. O cofre dos Serviços de Recuperação é um recurso do Resource Manager e, portanto, você precisará colocá-lo em um grupo de recursos. Você pode usar um grupo de recursos existente ou criar um grupo de recursos com o cmdlet **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)**. Ao criar um grupo de recursos, especifique o nome e o local para o grupo de recursos.  
+2. Olá Cofre de serviços de recuperação é um recurso do Gerenciador de recursos, portanto, você precisa tooplace-lo em um grupo de recursos. Você pode usar um grupo de recursos existente ou criar um grupo de recursos com hello  **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)**  cmdlet. Ao criar um grupo de recursos, especifique o nome de saudação e local para o grupo de recursos de saudação.  
 
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
     ```
-3. Use o cmdlet **[New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)** para criar um cofre dos Serviços de Recuperação. Lembre-se de especificar o mesmo local para o cofre usado para o grupo de recursos.
+3. Saudação de uso  **[New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)**  cmdlet toocreate Olá Cofre de serviços de recuperação. Certifique-se de que toospecify Olá mesmo local para o cofre Olá que foi usada para o grupo de recursos de saudação.
 
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-4. Especifique o tipo de redundância de armazenamento a usar. Você pode usar o [Armazenamento com Redundância Local (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) ou o [Armazenamento com Redundância Geográfica (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). O exemplo a seguir mostra que a opção BackupStorageRedundancy para o testvault está definida como GeoRedundant.
+4. Especificar o tipo de saudação do toouse de redundância de armazenamento; Você pode usar [armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) ou [Geo redundante GRS (armazenamento)](../storage/common/storage-redundancy.md#geo-redundant-storage). Olá exemplo a seguir mostra Olá - BackupStorageRedundancy opção testvault é definida tooGeoRedundant.
 
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testvault"
@@ -121,14 +121,14 @@ As etapas a seguir orientarão você durante a criação de um cofre dos Serviç
     ```
 
    > [!TIP]
-   > Muitos cmdlets do Backup do Azure exigem o objeto do cofre dos Serviços de Recuperação como entrada. Por esse motivo, pode ser útil armazenar o objeto do cofre dos Serviços de Recuperação de backup em uma variável.
+   > Muitos cmdlets do Backup do Azure exigem Olá objeto de Cofre de serviços de recuperação como entrada. Por esse motivo, é conveniente toostore Olá serviços de recuperação de Backup cofre objeto em uma variável.
    >
    >
 
-## <a name="view-the-vaults-in-a-subscription"></a>Exibir os cofres em uma assinatura
-Use **[Get-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault)** para exibir a lista de todos os cofres da assinatura atual. Você pode usar esse comando para verificar se um novo cofre foi criado ou para ver quais cofres estão disponíveis na assinatura.
+## <a name="view-hello-vaults-in-a-subscription"></a>Exibição Olá cofres em uma assinatura
+Use  **[Get-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault)**  tooview lista de saudação de todos os cofres na assinatura atual hello. Você pode usar este toocheck de comando que foi criado um novo cofre ou toosee Olá cofres disponíveis na assinatura de saudação.
 
-Execute o comando Get-AzureRmRecoveryServicesVault para exibir todos os cofres na assinatura. O exemplo a seguir mostra as informações exibidas para cada cofre.
+Execute o comando hello, Get-AzureRmRecoveryServicesVault tooview todos os cofres na assinatura de saudação. Olá exemplo a seguir mostra informações de saudação exibidas para cada compartimento.
 
 ```
 PS C:\> Get-AzureRmRecoveryServicesVault
@@ -143,19 +143,19 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 
 ## <a name="back-up-azure-vms"></a>Fazer backup de VMs do Azure
-Use um cofre dos Serviços de Recuperação para proteger as máquinas virtuais. Antes de aplicar a proteção, defina o contexto de cofre (o tipo de dados protegidos no cofre) e verifique a política de proteção. A política de proteção é a agenda de quando o trabalho de backup é executado e de quanto tempo cada instantâneo de backup é mantido.
+Use um tooprotect de Cofre de serviços de recuperação de suas máquinas virtuais. Antes de aplicar proteção Olá, definir o contexto de Cofre de saudação (tipo de saudação dos dados protegidos no cofre Olá) e verifique se a diretiva de proteção de saudação. diretiva de proteção de saudação é agendar Olá executar trabalhos de backup hello e quanto tempo cada instantâneo de backup é mantido.
 
 ### <a name="set-vault-context"></a>Definir o contexto de cofre
-Antes de habilitar a proteção em uma VM, use **[Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** para definir o contexto de cofre. Depois que o contexto de cofre é definido, ele se aplica a todos os cmdlets subsequentes. O exemplo a seguir define o contexto de cofre para o cofre, *testvault*.
+Antes de habilitar a proteção em uma máquina virtual, use  **[conjunto AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)**  tooset contexto de Cofre de saudação. Depois que o contexto de cofre Olá for definido, ela se aplica a cmdlets subsequentes tooall. Olá, exemplo a seguir define Olá contexto de cofre para o cofre hello, *testvault*.
 
 ```
 PS C:\> Get-AzureRmRecoveryServicesVault -Name "testvault" | Set-AzureRmRecoveryServicesVaultContext
 ```
 
 ### <a name="create-a-protection-policy"></a>Crie uma política de proteção
-Quando você cria um cofre dos Serviços de Recuperação, ele vem com proteção e políticas de retenção padrão. A política de proteção padrão dispara um trabalho de backup diariamente em um horário especificado. A política de retenção padrão retém o ponto de recuperação diário por 30 dias. Você pode usar a política padrão para proteger rapidamente sua VM e editá-la posteriormente com detalhes diferentes.
+Quando você cria um cofre dos Serviços de Recuperação, ele vem com proteção e políticas de retenção padrão. política de proteção padrão Olá dispara um trabalho de backup diariamente em um horário especificado. política de retenção padrão Olá retém o ponto de recuperação diário Olá por 30 dias. Você pode usar o padrão de saudação política tooquickly proteger sua VM e Editar política de hello mais tarde com detalhes diferentes.
 
-Use **[Get-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupprotectionpolicy)** para exibir as políticas de proteção disponíveis no cofre. Você pode usar este cmdlet para obter uma política específica ou para exibir as políticas associadas a um tipo de carga de trabalho. O exemplo a seguir obtém as políticas para o tipo de carga de trabalho, AzureVM.
+Use  **[Get-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupprotectionpolicy)**  tooview políticas de proteção de saudação no cofre hello. Você pode usar este cmdlet tooget uma política específica ou políticas de saudação tooview associadas com um tipo de carga de trabalho. saudação de exemplo a seguir obtém as políticas para o tipo de carga de trabalho, AzureVM.
 
 ```
 PS C:\> Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
@@ -165,11 +165,11 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 ```
 
 > [!NOTE]
-> O fuso horário do campo BackupTime no PowerShell é UTC. No entanto, quando o tempo de backup é mostrado no Portal do Azure, o horário é ajustado para seu fuso horário local.
+> fuso horário de saudação do campo de BackupTime Olá no PowerShell é UTC. No entanto, quando o tempo de backup de saudação é mostrado no hello portal do Azure, o tempo de saudação é fuso horário local do tooyour ajustada.
 >
 >
 
-Uma política de proteção de backup está associada a pelo menos uma política de retenção. A política de retenção define por quanto tempo um ponto de recuperação é mantido até ser excluído. Use **[Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject)** para exibir a política de retenção padrão.  Da mesma forma, você pode usar **[Get-AzureRmRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupschedulepolicyobject)** para obter a política de agendamento padrão. O cmdlet **[New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)** cria um objeto do PowerShell que mantém as informações da política de backup. Os objetos de política de retenção e agendamento são usados como entradas para o cmdlet **[New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**. O exemplo a seguir armazena a política de agendamento e a política de retenção em variáveis. O exemplo usa essas variáveis para definir os parâmetros ao criar uma política de proteção, *NewPolicy*.
+Uma política de proteção de backup está associada a pelo menos uma política de retenção. A política de retenção define por quanto tempo um ponto de recuperação é mantido até ser excluído. Use  **[Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject)**  política de retenção tooview saudação padrão.  Da mesma forma, você pode usar  **[Get-AzureRmRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupschedulepolicyobject)**  política ao agendar tooobtain saudação padrão. Olá  **[New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  cmdlet cria um objeto do PowerShell que contém informações de política de backup. Olá objetos de política de retenção e agendamento são usados como entradas toohello  **[New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  cmdlet. Olá exemplo a seguir armazena política ao agendar hello e política de retenção de saudação em variáveis. exemplo Hello usa esses parâmetros de saudação toodefine variáveis ao criar uma política de proteção, *NewPolicy*.
 
 ```
 PS C:\> $schPol = Get-AzureRmRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
@@ -182,16 +182,16 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 
 
 ### <a name="enable-protection"></a>Habilitar proteção
-Depois de definir a política de proteção de backup, você deve habilitar a política para um item. Use **[Enable-AzureRmRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/enable-azurermrecoveryservicesbackupprotection)** para habilitar a proteção. Habilitar a proteção envolve dois objetos – o item e a política. Depois de a política ter sido associada ao cofre, o fluxo de trabalho de backup será disparado no momento definido no agendamento da política.
+Depois que você definiu a diretiva de proteção de backup hello, você deve habilitar política de saudação para um item. Use  **[habilitar AzureRmRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/enable-azurermrecoveryservicesbackupprotection)**  tooenable proteção. Habilitar a proteção requer dois objetos - item hello e política de saudação. Depois que a política Olá foi associada ao Cofre hello, fluxo de trabalho de backup Olá é acionado em tempo de saudação definido na agenda de diretiva de saudação.
 
-O exemplo a seguir habilita a proteção para o item, V2VM, usando a política, NewPolicy. Para habilitar a proteção em VMs do Resource Manager não criptografadas
+Olá exemplo habilita proteção Olá item, V2VM, usando a política de hello, NewPolicy a seguir. proteção de saudação tooenable em VMs do Gerenciador de recursos não criptografado
 
 ```
 PS C:\> $pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 PS C:\> Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
 ```
 
-Para habilitar a proteção em VMs criptografadas (criptografadas usando BEK e KEK), você precisa conceder permissão para o serviço de Backup do Azure ler as chaves e os segredos do cofre de chaves.
+proteção Olá tooenable criptografado VMs (criptografadas usando BEK e KEK), chaves de tooread permissão do serviço de Backup do Azure de saudação toogive e segredos do Cofre de chaves.
 
 ```
 PS C:\> Set-AzureRmKeyVaultAccessPolicy -VaultName "KeyVaultName" -ResourceGroupName "RGNameOfKeyVault" -PermissionsToKeys backup,get,list -PermissionsToSecrets get,list -ServicePrincipalName 262044b1-e2ce-469f-a196-69ab7ada62d3
@@ -199,7 +199,7 @@ PS C:\> $pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 PS C:\> Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
 ```
 
-Para habilitar a proteção em VMs criptografadas (criptografadas usando apenas BEK), você precisa dar permissão de serviço de Backup do Azure para ler segredos do cofre de chaves.
+proteção Olá tooenable criptografado VMs (criptografadas usando apenas o BEK), toogive hello Azure Backup service permissão tooread segredos do Cofre de chaves.
 
 ```
 PS C:\> Set-AzureRmKeyVaultAccessPolicy -VaultName "KeyVaultName" -ResourceGroupName "RGNameOfKeyVault" -PermissionsToSecrets backup,get,list -ServicePrincipalName 262044b1-e2ce-469f-a196-69ab7ada62d3
@@ -208,7 +208,7 @@ PS C:\> Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM"
 ```
 
 > [!NOTE]
-> Se você estiver usando a nuvem do Azure Governamental, use o valor ff281ffe-705c-4f53-9f37-a40e6f2c68f3 para o parâmetro **-ServicePrincipalName** no cmdlet [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
+> Se você estiver usando a nuvem do Azure Government hello, use Olá ff281ffe-705c-4f53-9f37-a40e6f2c68f3 de valor para o parâmetro hello **- ServicePrincipalName** na [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet .
 >
 >
 
@@ -220,9 +220,9 @@ PS C:\> Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V1VM"
 ```
 
 ### <a name="modify-a-protection-policy"></a>Modificar uma política de proteção
-Para modificar a política de proteção, use [Set-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/set-azurermrecoveryservicesbackupprotectionpolicy) para modificar os objetos SchedulePolicy ou RetentionPolicy.
+política de proteção Olá toomodify, use [AzureRmRecoveryServicesBackupProtectionPolicy conjunto](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/set-azurermrecoveryservicesbackupprotectionpolicy) toomodify Olá SchedulePolicy ou política de retenção objetos.
 
-O exemplo a seguir altera retenção de ponto de recuperação para 365 dias.
+Olá, exemplo a seguir altera dias de too365 retenção do ponto de recuperação hello.
 
 ```
 PS C:\> $retPol = Get-AzureRmRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM"
@@ -232,7 +232,7 @@ PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -Policy $pol  -Retenti
 ```
 
 ## <a name="trigger-a-backup"></a>Disparar um backup
-Você pode usar **[Backup-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)** para disparar um trabalho de backup. Se esse é o backup inicial, ele é um backup completo. Os backups posteriores fazem uma cópia incremental. Você deve usar **[Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** para definir o contexto de cofre antes de disparar o trabalho de backup. O exemplo a seguir pressupõe que o contexto de cofre foi definido.
+Você pode usar  **[Backup AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)**  tootrigger um trabalho de backup. Se for backup inicial Olá, é um backup completo. Os backups posteriores fazem uma cópia incremental. Ser toouse se  **[conjunto AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)**  tooset contexto de cofre Olá antes de disparar o trabalho de backup hello. saudação de exemplo a seguir pressupõe que o cofre contexto foi definido.
 
 ```
 PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
@@ -244,12 +244,12 @@ V2VM              Backup               InProgress            4/23/2016 5:00:30 P
 ```
 
 > [!NOTE]
-> O fuso horário dos campos StartTime e EndTime mostrado no PowerShell é UTC. No entanto, quando a hora é exibida no Portal do Azure, ela é ajustada para seu fuso horário local.
+> fuso horário de saudação de campos de StartTime e EndTime Olá no PowerShell é UTC. No entanto, quando o tempo de saudação é mostrado no portal do Azure de saudação, tempo de saudação é fuso horário local do tooyour ajustada.
 >
 >
 
 ## <a name="monitoring-a-backup-job"></a>Monitoramento de um trabalho de backup
-Você pode monitorar operações de longa duração, como trabalhos de backup, sem usar o Portal do Azure. Para obter o status de um trabalho em andamento, use o cmdlet **[Get-AzureRmRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjob)**. Esse cmdlet obtém os trabalhos de backup para um cofre específico, o qual está especificado no contexto de cofre. O exemplo a seguir obtém o status de um trabalho em andamento como uma matriz e armazena o status na variável $joblist.
+Você pode monitorar as operações de execução longa, como trabalhos de backup, sem usar Olá portal do Azure. status de saudação tooget de um trabalho em andamento, use Olá  **[Get-AzureRmRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjob)**  cmdlet. Esse cmdlet obtém os trabalhos de backup da saudação para um cofre específico e que os está especificado no contexto de cofre hello. Olá exemplo a seguir obtém o status de saudação de um trabalho em andamento como uma matriz e armazena status Olá na Olá $joblist variável.
 
 ```
 PS C:\> $joblist = Get-AzureRmRecoveryservicesBackupJob –Status "InProgress"
@@ -259,35 +259,35 @@ WorkloadName     Operation            Status               StartTime            
 V2VM             Backup               InProgress            4/23/2016 5:00:30 PM           cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
-Em vez de sondar esses trabalhos para conclusão (o que é um código adicional desnecessário), é mais simples usar o cmdlet **[Wait-AzureRmRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/wait-azurermrecoveryservicesbackupjob)**. Esse cmdlet pausa a execução até que o trabalho seja concluído ou o valor de tempo limite especificado seja atingido.
+Em vez de sondagem esses trabalhos para conclusão - que é desnecessário código adicional - use Olá  **[espera AzureRmRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/wait-azurermrecoveryservicesbackupjob)**  cmdlet. Esse cmdlet pausa a execução de saudação até Olá trabalho for concluído ou Olá especificado, o valor de tempo limite é atingido.
 
 ```
 PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 ```
 
 ## <a name="restore-an-azure-vm"></a>Restaurar uma VM do Azure
-Há uma diferença importante entre a restauração de uma máquina virtual usando o portal do Azure e a restauração de uma máquina virtual usando o PowerShell. Com o PowerShell, a operação de restauração é concluída quando são criadas as informações dos discos e de configuração do ponto de recuperação.
+Há uma diferença importante entre hello restaurar uma máquina virtual usando Olá portal do Azure e restaurar uma máquina virtual usando o PowerShell. Com o PowerShell, operação de restauração de saudação é concluída após a criação de discos de saudação e informações de configuração de ponto de recuperação de saudação.
 
 > [!NOTE]
-> A operação de restauração não cria uma máquina virtual.
+> operação de restauração Olá não cria uma máquina virtual.
 >
 >
 
-Para criar uma máquina virtual do disco, consulte a seção [Criar a VM de discos armazenados](backup-azure-vms-automation.md#create-a-vm-from-stored-disks). As etapas básicas para restaurar uma VM do Azure são:
+toocreate uma máquina virtual do disco, consulte a seção Olá [criar hello VM dos discos armazenados](backup-azure-vms-automation.md#create-a-vm-from-stored-disks). as etapas básicas de saudação toorestore uma VM do Azure são:
 
-* Selecione a VM
+* Selecione Olá VM
 * Escolha um ponto de recuperação
-* Restaure os discos
-* Crie a VM de discos armazenados
+* Restaurar discos Olá
+* Criar hello VM de discos armazenados
 
-O gráfico a seguir mostra a hierarquia de objetos do RecoveryServicesVault até o BackupRecoveryPoint.
+Olá gráfico a seguir mostra hierarquia de objetos de saudação do hello RecoveryServicesVault para baixo toohello BackupRecoveryPoint.
 
 ![Hierarquia de objetos dos Serviços de Recuperação mostrando BackupContainer](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
 
-Para restaurar dados de backup, identifique o item de backup e o ponto de recuperação que mantém os dados pontuais. Use o cmdlet **[Restore-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/restore-azurermrecoveryservicesbackupitem)** para restaurar dados do cofre para a conta do cliente.
+toorestore os dados de backup, identificar o item de backup hello e ponto de recuperação de saudação que contém dados de point-in-time de saudação. Saudação de uso  **[restauração AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/restore-azurermrecoveryservicesbackupitem)**  cmdlet toorestore dados Olá cofre conta toohello do cliente.
 
-### <a name="select-the-vm"></a>Selecione a VM
-Para obter o objeto do PowerShell que identifica o item correto de backup, comece do contêiner no cofre e desça progressivamente na hierarquia de objetos. Para selecionar o contêiner que representa a VM, use o cmdlet **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)** e o redirecione para o cmdlet **[Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)**.
+### <a name="select-hello-vm"></a>Selecione Olá VM
+objeto do PowerShell Olá tooget que identifica o direito de saudação item de backup, iniciar do contêiner de saudação no cofre hello e trabalhar abaixo da hierarquia de objetos de saudação. contêiner de saudação tooselect que representa o hello VM, use Olá  **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)**  cmdlet e redirecione que toohello  **[ Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)**  cmdlet.
 
 ```
 PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" –Status "Registered" -FriendlyName "V2VM"
@@ -295,9 +295,9 @@ PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem –Container $namedC
 ```
 
 ### <a name="choose-a-recovery-point"></a>Escolha um ponto de recuperação
-Use o cmdlet **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)** para listar todos os pontos de recuperação para o item de backup. Em seguida, escolha o ponto de recuperação a ser restaurado. Se você não tiver certeza de qual ponto de recuperação será usado, é uma boa prática escolher o mais recente ponto RecoveryPointType = AppConsistent na lista.
+Saudação de uso  **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)**  toolist cmdlet pontos de recuperação todos para fazer backup do item hello. Em seguida, escolha Olá toorestore de ponto de recuperação. Se você não tiver certeza de qual toouse de ponto de recuperação, é uma boa prática toochoose hello mais recente RecoveryPointType = AppConsistent ponto na lista de saudação.
 
-No script a seguir, a variável **$rp** é uma matriz de pontos de recuperação dos últimos sete dias para o item de backup selecionado. A matriz é classificada em ordem inversa de tempo com o último ponto de recuperação no índice 0. Use a indexação de matriz padrão do PowerShell para selecionar o ponto de recuperação. No exemplo, $rp[0] seleciona o último ponto de recuperação.
+Em Olá script a seguir, Olá variável, **$rp**, é uma matriz de pontos de recuperação para fazer backup do item selecionado Olá da saudação últimos sete dias. matriz de saudação é classificada em ordem inversa de tempo com o último ponto de recuperação Olá no índice 0. Use o padrão matriz do PowerShell a indexação de ponto de recuperação toopick hello. No exemplo hello, $rp [0] seleciona o último ponto de recuperação hello.
 
 ```
 PS C:\> $startDate = (Get-Date).AddDays(-7)
@@ -319,10 +319,10 @@ BackupManagementType        : AzureVM
 
 
 
-### <a name="restore-the-disks"></a>Restaure os discos
-Use o cmdlet **[Restore-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/restore-azurermrecoveryservicesbackupitem)** para restaurar os dados de backup e a configuração de um item de backup para um ponto de recuperação. Depois de ter identificado um ponto de recuperação, use-o como o valor do parâmetro **-RecoveryPoint**. No código de exemplo anterior, **$rp [0]** foi o ponto de recuperação a ser usado. No código de exemplo abaixo, **$rp [0]** é o ponto de recuperação a ser usado para a restauração do disco.
+### <a name="restore-hello-disks"></a>Restaurar discos Olá
+Saudação de uso  **[restauração AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/restore-azurermrecoveryservicesbackupitem)**  toorestore cmdlet dados do item de um backup e configuração tooa ponto de recuperação. Depois de ter identificado um ponto de recuperação, usá-lo como valor Olá para Olá **- RecoveryPoint** parâmetro. No código de exemplo anterior hello, **$rp [0]** foi Olá toouse de ponto de recuperação. Em Olá código de exemplo a seguir **$rp [0]** é Olá toouse de ponto de recuperação para restaurar o disco de saudação.
 
-Para restaurar as informações de discos e de configuração:
+discos de saudação toorestore e informações de configuração:
 
 ```
 PS C:\> $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG"
@@ -332,30 +332,30 @@ WorkloadName     Operation          Status               StartTime              
 V2VM              Restore           InProgress           4/23/2016 5:00:30 PM                        cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
-Use o cmdlet **[Wait-AzureRmRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/wait-azurermrecoveryservicesbackupjob)** para aguardar a conclusão do trabalho de Restauração.
+Saudação de uso  **[espera AzureRmRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/wait-azurermrecoveryservicesbackupjob)**  toowait cmdlet para Olá toocomplete de trabalho de restauração.
 
 ```
 PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $restorejob -Timeout 43200
 ```
 
-Após a conclusão do trabalho de Restauração, use o cmdlet **[Get-AzureRmRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjobdetails)** para obter os detalhes da operação de restauração. A propriedade JobDetails tem as informações necessárias para recompilar a VM.
+Depois de concluído o trabalho de restauração hello, use Olá  **[Get-AzureRmRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjobdetails)**  detalhes de saudação do cmdlet tooget de saudação de operação de restauração. Olá JobDetails propriedade tem Olá toorebuild necessário de informações Olá VM.
 
 ```
 PS C:\> $restorejob = Get-AzureRmRecoveryServicesBackupJob -Job $restorejob
 PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
 ```
 
-Depois de restaurar os discos, vá para a próxima seção para criar a VM.
+Depois que você restaurar discos hello, vá Olá de toocreate de seção próximo do toohello VM.
 
 ## <a name="create-a-vm-from-restored-disks"></a>Criar uma máquina virtual de discos restaurados
-Depois de ter restaurado os discos, use estas etapas para criar e configurar uma máquina virtual do disco.
+Depois de ter restaurado os discos Olá, use essas etapas toocreate e configurar a máquina virtual de saudação do disco.
 
 > [!NOTE]
-> Para criar VMs criptografadas de discos restaurados, a função do Azure deverá ter permissão para executar a ação **Microsoft.KeyVault/vaults/deploy/action**. Se sua função não tem essa permissão, crie uma função personalizada com esta ação. Para obter mais informações, veja [Funções personalizadas no RBAC do Azure](../active-directory/role-based-access-control-custom-roles.md).
+> toocreate criptografados VMs de discos restaurados, a função do Azure deve ter a ação de saudação do tooperform de permissão, **Microsoft.KeyVault/vaults/deploy/action**. Se sua função não tem essa permissão, crie uma função personalizada com esta ação. Para obter mais informações, veja [Funções personalizadas no RBAC do Azure](../active-directory/role-based-access-control-custom-roles.md).
 >
 >
 
-1. Consulte as propriedades do disco restaurado para obter os detalhes do trabalho.
+1. Saudação de consulta restaurado propriedades do disco para obter detalhes do trabalho hello.
 
   ```
   PS C:\> $properties = $details.properties
@@ -364,7 +364,7 @@ Depois de ter restaurado os discos, use estas etapas para criar e configurar uma
   PS C:\> $blobName = $properties["Config Blob Name"]
   ```
 
-2. Defina o contexto do armazenamento do Azure e restaure o arquivo de configuração JSON.
+2. Definir contexto do armazenamento do Azure hello e restaurar o arquivo de configuração JSON hello.
 
     ```
     PS C:\> Set-AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName "testvault"
@@ -373,13 +373,13 @@ Depois de ter restaurado os discos, use estas etapas para criar e configurar uma
     PS C:\> $obj = ((Get-Content -Path $destination_path -Raw -Encoding Unicode)).TrimEnd([char]0x00) | ConvertFrom-Json
     ```
 
-3. Use o arquivo de configuração JSON para criar a configuração da VM.
+3. Use configuração de VM Olá JSON configuração arquivo toocreate hello.
 
     ```
    PS C:\> $vm = New-AzureRmVMConfig -VMSize $obj.'properties.hardwareProfile'.vmSize -VMName "testrestore"
     ```
 
-4. Anexe o disco do sistema operacional e os discos de dados. Dependendo da configuração de suas VMs, clique no link para exibir os cmdlets do respectivos relevante: 
+4. Anexe o disco do sistema operacional hello e discos de dados. Dependendo da configuração de saudação das suas máquinas virtuais, clique nos cmdlets do respectivos de tooview Olá link relevante: 
     - [Máquinas virtuais não gerenciados, não criptografado](#non-managed-non-encrypted-vms)
     - [Máquinas virtuais não gerenciados, criptografados (BEK)](#non-managed-encrypted-vms-bek-only)
     - [Máquinas virtuais não gerenciados, criptografados (BEK e KEK)](#non-managed-encrypted-vms-bek-and-kek)
@@ -388,7 +388,7 @@ Depois de ter restaurado os discos, use estas etapas para criar e configurar uma
     
     #### <a name="non-managed-non-encrypted-vms"></a>VMs não criptografadas não gerenciadas
 
-    Use a amostra a seguir para VMs não criptografadas não gerenciadas.
+    Use Olá exemplo a seguir para VMs não gerenciado, não criptografado.
 
     ```
     PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
@@ -401,7 +401,7 @@ Depois de ter restaurado os discos, use estas etapas para criar e configurar uma
 
     #### <a name="non-managed-encrypted-vms-bek-only"></a>VMs criptografadas e não gerenciadas (apenas BEK)
 
-    Para VMs criptografadas e não gerenciadas (criptografadas usando apenas BEK), você precisa restaurar o segredo para o cofre de chaves para poder anexar discos. Para obter mais informações, consulte o artigo [Restaurar uma máquina virtual criptografada de um ponto de recuperação do Backup do Azure](backup-azure-restore-key-secret.md). O exemplo a seguir mostra como anexar discos de dados e de SO a VMs criptografadas.
+    Para VMs não gerenciados, criptografadas (criptografadas usando apenas o BEK), você precisa cofre da chave secreta toohello toorestore Olá antes de você pode anexar discos. Para obter mais informações, consulte o artigo Olá [restaurar uma máquina virtual criptografada de um ponto de recuperação de Backup do Azure](backup-azure-restore-key-secret.md). saudação de exemplo a seguir mostra como tooattach SO e discos de dados para criptografada VMs.
 
     ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -416,7 +416,7 @@ Depois de ter restaurado os discos, use estas etapas para criar e configurar uma
 
     #### <a name="non-managed-encrypted-vms-bek-and-kek"></a>VMs criptografadas e não gerenciadas (BEK e KEK)
 
-    Para VMs criptografadas e não gerenciadas (criptografadas usando BEK e KEK), você precisa restaurar a chave e o segredo para o cofre de chaves para poder anexar discos. Para obter mais informações, consulte o artigo [Restaurar uma máquina virtual criptografada de um ponto de recuperação do Backup do Azure](backup-azure-restore-key-secret.md). O exemplo a seguir mostra como anexar discos de dados e de SO a VMs criptografadas.
+    Para VMs não gerenciados, criptografadas (criptografadas usando BEK e KEK), você precisa toorestore chave de saudação e cofre da chave secreta toohello antes de você pode anexar discos. Para obter mais informações, consulte o artigo Olá [restaurar uma máquina virtual criptografada de um ponto de recuperação de Backup do Azure](backup-azure-restore-key-secret.md). saudação de exemplo a seguir mostra como tooattach SO e discos de dados para criptografada VMs.
 
     ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -432,7 +432,7 @@ Depois de ter restaurado os discos, use estas etapas para criar e configurar uma
 
     #### <a name="managed-non-encrypted-vms"></a>VMs não criptografadas gerenciadas
 
-    Para VMs não criptografadas gerenciadas, você precisará criar discos gerenciados no armazenamento de blobs e, em seguida, anexar os discos. Para obter informações detalhadas, consulte o artigo [Anexar um disco de dados a uma VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md). O código de exemplo a seguir mostra como anexar os discos de dados a VMs não criptografadas gerenciadas.
+    Para VMs gerenciadas não criptografado, você precisa toocreate gerenciado discos do armazenamento de blob e, em seguida, anexar discos hello. Para obter informações detalhadas, consulte o artigo Olá [anexar um disco de dados tooa VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md). Olá, código de exemplo a seguir mostra como tooattach Olá discos de dados para VMs gerenciadas não criptografado.
 
     ```
     PS C:\> $storageType = "StandardLRS"
@@ -453,7 +453,7 @@ Depois de ter restaurado os discos, use estas etapas para criar e configurar uma
 
     #### <a name="managed-encrypted-vms-bek-and-kek"></a>VMs criptografadas e gerenciadas (BEK e KEK)
 
-    Para VMs criptografadas e gerenciadas (criptografadas usando BEK e KEK), você precisará criar discos gerenciados do armazenamento de blobs e, em seguida, anexar os discos. Para obter informações detalhadas, consulte o artigo [Anexar um disco de dados a uma VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md). O código de exemplo a seguir mostra como anexar os discos de dados a VMs criptografadas gerenciadas.
+    Para VMs criptografadas gerenciadas (criptografadas usando BEK e KEK), você precisa toocreate gerenciado discos do armazenamento de blob e, em seguida, anexar discos hello. Para obter informações detalhadas, consulte o artigo Olá [anexar um disco de dados tooa VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md). Olá código exemplo a seguir mostra como tooattach Olá discos de dados para VMs criptografadas gerenciadas.
 
      ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -475,7 +475,7 @@ Depois de ter restaurado os discos, use estas etapas para criar e configurar uma
      }
     ```
 
-5. Defina as configurações de Rede.
+5. Defina as configurações de rede hello.
 
     ```
     PS C:\> $nicName="p1234"
@@ -484,11 +484,11 @@ Depois de ter restaurado os discos, use estas etapas para criar e configurar uma
     PS C:\> $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName "test" -Location "WestUS" -SubnetId $vnet.Subnets[$subnetindex].Id -PublicIpAddressId $pip.Id
     PS C:\> $vm=Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
     ```
-6. Crie a máquina virtual.
+6. Crie a máquina virtual de saudação.
 
     ```    
     PS C:\> New-AzureRmVM -ResourceGroupName "test" -Location "WestUS" -VM $vm
     ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Se você preferir usar o PowerShell para interagir com os recursos do Azure, confira o artigo do PowerShell, [Implantar e gerenciar Backup do Windows Server](backup-client-automation.md). Se você gerencia backups do DPM, consulte o artigo [Implantar e gerenciar o backup do DPM](backup-dpm-automation.md). Esses dois artigos têm uma versão para implantações do Resource Manager, bem como para implantações do modelo Clássico.  
+Se você preferir toouse PowerShell tooengage com os recursos do Azure, consulte o artigo do PowerShell hello, [implantar e gerenciar o Backup do Windows Server](backup-client-automation.md). Se você gerenciar backups do DPM, consulte o artigo Olá [implantar e gerenciar o Backup do DPM](backup-dpm-automation.md). Esses dois artigos têm uma versão para implantações do Resource Manager, bem como para implantações do modelo Clássico.  

@@ -1,6 +1,6 @@
 ---
-title: Criar um front-end da Web para seu aplicativo do Azure Service Fabric usando ASP.NET Core | Microsoft Docs
-description: "Exponha seu aplicativo do Service Fabric na Web usando um projeto de ASP.NET Core a e comunicação entre serviços via Service Remoting."
+title: aaaCreate um front-end da web para seu aplicativo do Azure Service Fabric usando o ASP.NET Core | Microsoft Docs
+description: "Expor web Service Fabric application toohello por meio de um projeto do ASP.NET Core e comunicação entre serviços por meio de comunicação remota do serviço."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,82 +14,82 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/01/2017
 ms.author: vturecek
-ms.openlocfilehash: b19aaa652f2c15573ded632ca1348e1a6752f080
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0c4454d6cac4c2e343bd6e93e56d3d2f0ebfc4ba
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Compilar um serviço Web front-end para seu aplicativo usando ASP.NET Core
-Por padrão, os serviços do Azure Service Fabric não fornecem uma interface pública para a Web. Para expor a funcionalidade do aplicativo para clientes HTTP, você precisa criar um projeto Web para atuar como um ponto de entrada e, depois, se comunicar nele com os serviços individuais.
+Por padrão, os serviços do Azure Service Fabric não fornecem uma web toohello de interface pública. tooexpose clientes de tooHTTP de funcionalidade do aplicativo, você tem toocreate web tooact como um ponto de entrada do projeto e comunicar-se de tooyour há serviços individuais.
 
-Neste tutorial, continuamos de onde paramos no tutorial [Criando seu primeiro aplicativo no Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md) e adicionamos um serviço Web do ASP.NET Core antes do serviço de contador com estado. Se ainda não tiver feito isso, volte e percorra esse tutorial primeiro.
+Neste tutorial, podemos escolher onde é deixada no hello [criando seu primeiro aplicativo no Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md) tutorial e adicionar um serviço da web ASP.NET Core na frente do serviço de monitoração de estado do contador hello. Se ainda não tiver feito isso, volte e percorra esse tutorial primeiro.
 
 ## <a name="set-up-your-environment-for-aspnet-core"></a>Configurar o ambiente para o ASP.NET Core
 
-É necessário o Visual Studio 2017 para acompanhar este tutorial. Qualquer edição será suficiente. 
+É necessário o Visual Studio de 2017 toofollow junto com este tutorial. Qualquer edição será suficiente. 
 
  - [Instalar o Visual Studio 2017](https://www.visualstudio.com/)
 
-Para desenvolver aplicativos ASP.NET Core do Service Fabric, você deve ter as seguintes cargas de trabalho instaladas:
+aplicativos do ASP.NET Core Service Fabric toodevelop, você deve ter Olá instaladas de cargas de trabalho a seguir:
  - **Desenvolvimento do Azure** (em *Web e Nuvem*)
  - **Desenvolvimento do ASP.NET e para a Web** (em *Web e Nuvem*)
  - **Desenvolvimento de plataforma cruzada do .NET Core** (em *Outros Conjuntos de Ferramentas*)
 
 >[!Note] 
->As ferramentas do .NET Core para Visual Studio 2015 não estão sendo mais atualizadas. No entanto, se você ainda estiver usando o Visual Studio 2015, precisará ter as [Ferramentas do .NET Core VS 2015 Versão Prévia 2](https://www.microsoft.com/net/download/core) instaladas.
+>Olá ferramentas .NET Core para Visual Studio 2015 não serão mais sendo atualizadas, no entanto, se você ainda estiver usando o Visual Studio 2015, você precisa toohave [.NET Core VS 2015 Tooling Preview 2](https://www.microsoft.com/net/download/core) instalado.
 
-## <a name="add-an-aspnet-core-service-to-your-application"></a>Adicionar um serviço ASP.NET Core ao seu aplicativo
-O ASP.NET Core é uma estrutura de desenvolvimento Web leve entre plataformas que permite a criação de uma interface do usuário Web e APIs Web modernas. 
+## <a name="add-an-aspnet-core-service-tooyour-application"></a>Adicionar um aplicativo do ASP.NET Core serviço tooyour
+ASP.NET Core é uma estrutura de desenvolvimento de web leve e várias plataformas, você pode usar a interface da web modernos toocreate e APIs da web. 
 
-Vamos adicionar um projeto de API Web do ASP.NET a nosso aplicativo existente.
+Vamos adicionar um aplicativo do ASP.NET Web API projeto tooour existente.
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse em **Serviços** no projeto de aplicativo e escolha **Adicionar > Novo Serviço do Fabric Service**.
+1. No Gerenciador de soluções, clique com botão direito **serviços** dentro Olá projeto de aplicativo e escolha **Adicionar > novo serviço do Service Fabric**.
    
-    ![Adicionando um novo serviço a um aplicativo existente][vs-add-new-service]
-2. Na página **Criar um Serviço**, escolha **ASP.NET Core** e dê um nome a ele.
+    ![Adicionando um novo aplicativo de serviço tooan existente][vs-add-new-service]
+2. Em Olá **criar um serviço** escolha **ASP.NET Core** e dê a ele um nome.
    
-    ![Escolhendo um serviço Web ASP.NET no diálogo Novo serviço][vs-new-service-dialog]
+    ![Escolhendo um serviço web ASP.NET na caixa de diálogo Olá de novo serviço][vs-new-service-dialog]
 
-3. A próxima página fornece um conjunto de modelos de projeto do ASP.NET Core. Observe que essas são as mesmas opções que você veria se você tivesse criado um projeto do ASP.NET Core fora de um aplicativo do Service Fabric, com uma pequena quantidade de código adicional para registrar o serviço com o tempo de execução do Service Fabric. Neste tutorial, escolhemos **API Web**. No entanto, você pode aplicar os mesmos conceitos para compilar um aplicativo Web completo.
+3. próxima página de saudação fornece um conjunto de ASP.NET Core modelos de projeto. Observe que esses são Olá mesmo opções que você veria se você criou um projeto do ASP.NET Core fora de um aplicativo de malha do serviço, com uma pequena quantidade de código adicional tooregister Olá serviço com tempo de execução do Service Fabric hello. Neste tutorial, escolhemos **API Web**. No entanto, você pode aplicar Olá mesmo conceitos toobuilding um aplicativo web completo.
    
     ![Escolhendo o tipo de projeto do ASP.NET][vs-new-aspnet-project-dialog]
    
-    Depois de criar o projeto de API Web, você deverá ter dois serviços no aplicativo. Durante a criação do aplicativo, você pode adicionar mais serviços exatamente da mesma forma. Cada um pode seu próprio controle de versão e ser atualizado de forma independente.
+    Depois de criar o projeto de API Web, você deverá ter dois serviços no aplicativo. Enquanto você continua toobuild seu aplicativo, você pode adicionar mais serviços em exatamente Olá mesma maneira. Cada um pode seu próprio controle de versão e ser atualizado de forma independente.
 
-## <a name="run-the-application"></a>Executar o aplicativo
-Para ter uma ideia do que fizemos, vamos implantar o novo aplicativo e examinar o comportamento padrão apresentado pelo modelo de API Web do ASP.NET Core.
+## <a name="run-hello-application"></a>Executar o aplicativo hello
+tooget uma ideia do que já fizemos, vamos implantar Olá novo aplicativo e execute uma olhada no comportamento padrão Olá Olá modelo de API da Web do ASP.NET Core fornece.
 
-1. Pressione F5 no Visual Studio para depurar o aplicativo.
-2. Quando a implantação for concluída, o Visual Studio iniciará um navegador na raiz do serviço de API Web ASP.NET. O modelo da API Web ASP.NET Core não fornece um comportamento padrão para a raiz; portanto, você deverá receber um erro 404 no navegador.
-3. Adicione `/api/values` ao local no navegador. Isso invocará o método `Get` no ValuesController no modelo de API Web. Ele retorna a resposta padrão fornecida pelo modelo – uma matriz JSON que contém duas cadeias de caracteres:
+1. Pressione F5 no Visual Studio toodebug Olá aplicativo.
+2. Quando a implantação for concluída, o Visual Studio inicia raiz de toohello um navegador de saudação serviço de API da Web ASP.NET. modelo de API da Web do ASP.NET Core Olá não fornece o comportamento padrão raiz Olá, então você deve ver um erro 404 no navegador de saudação.
+3. Adicionar `/api/values` toohello local no navegador de saudação. Isso chama Olá `Get` método hello ValuesController no modelo de API da Web hello. Ele retorna a resposta padrão Olá fornecida pelo modelo hello – uma matriz JSON que contém duas cadeias de caracteres:
    
     ![Valores padrão retornados do modelo de API Web do ASP.NET Core][browser-aspnet-template-values]
    
-    Ao final do tutorial, esta página mostrará o valor mais recente do contador de nosso serviço com estado, em vez das cadeias de caracteres padrão.
+    Por fim de saudação do tutorial do hello, essa página mostrará valor mais recente do contador de saudação de nosso serviço com monitoração de estado, em vez de saudação cadeias de caracteres padrão.
 
-## <a name="connect-the-services"></a>Conectar os serviços
-O Service Fabric fornece total flexibilidade na comunicação com Reliable Services. Em um único aplicativo, você pode ter serviços acessíveis por meio de TCP, outros serviços acessíveis por meio de uma API REST HTTP e ainda outros serviços que são acessíveis por meio de soquetes da Web. Para saber mais sobre as opções disponíveis e as compensações envolvidas, confira [Comunicação com os serviços](service-fabric-connect-and-communicate-with-services.md). Neste tutorial, usamos a [Comunicação Remota do Serviço do Service Fabric](service-fabric-reliable-services-communication-remoting.md), fornecida no SDK.
+## <a name="connect-hello-services"></a>Conectar os serviços de saudação
+O Service Fabric fornece total flexibilidade na comunicação com Reliable Services. Em um único aplicativo, você pode ter serviços acessíveis por meio de TCP, outros serviços acessíveis por meio de uma API REST HTTP e ainda outros serviços que são acessíveis por meio de soquetes da Web. Para obter informações sobre opções de saudação disponíveis e compensações de saudação envolvidas, consulte [se comunicar com serviços](service-fabric-connect-and-communicate-with-services.md). Neste tutorial, usamos [serviço de comunicação remota do serviço de malha](service-fabric-reliable-services-communication-remoting.md), fornecido no hello SDK.
 
-Na abordagem da Comunicação Remota do Serviço (modelada em chamadas de procedimento remoto ou RPCs), você define uma interface para atuar como o contrato público do serviço. Em seguida, você usa essa interface para gerar uma classe proxy para interação com o serviço.
+Olá abordagem de comunicação remota do serviço (modelada em chamadas de procedimento remoto ou RPCs), você definirá uma interface tooact como contrato público de Olá para o serviço de saudação. Em seguida, você deve usar toogenerate essa interface uma classe proxy para interagir com o serviço de saudação.
 
-### <a name="create-the-remoting-interface"></a>Criar a interface de comunicação remota
-Vamos começar criando a interface para atuar como o contrato entre o serviço com estado e outros serviços, neste caso, o projeto Web ASP.NET Core. Essa interface deve ser compartilhada por todos os serviços que a usam para fazer chamadas RPC. Portanto, nós a criaremos em seu próprio projeto de Biblioteca de Classes.
+### <a name="create-hello-remoting-interface"></a>Criar interface de comunicação remota Olá
+Vamos começar criando Olá interface tooact como Olá contrato entre o serviço com monitoração de estado hello e outros serviços nesse caso Olá projeto da web de ASP.NET Core. Esta interface deve ser compartilhada por todos os serviços que usam as chamadas RPC toomake, portanto, criaremos em seu próprio projeto de biblioteca de classes.
 
 1. No Gerenciador de Soluções, clique com o botão direito do mouse na solução e escolha **Adicione** > **Novo Projeto**.
 
-2. Escolha a entrada do **Visual C#** no painel de navegação esquerdo e selecione o modelo **Biblioteca de Classes**. Verifique se a versão do .NET Framework está definida como **4.5.2**.
+2. Escolha Olá **Visual C#** entrada hello esquerda do painel de navegação e, em seguida, selecione Olá **biblioteca de classes** modelo. Certifique-se de que essa versão do .NET Framework hello está definido muito**4.5.2**.
    
     ![Criando um projeto de interface para o serviço com estado][vs-add-class-library-project]
 
-3. Instale o pacote NuGet **Microsoft.ServiceFabric.Services.Remoting**. Pesquise **Microsoft.ServiceFabric.Services.Remoting** no gerenciador de pacotes NuGet e instale-o para todos os projetos na solução que usam a Comunicação Remota do Serviço, incluindo:
-   - O projeto de Biblioteca de Classes que contém a interface do serviço
-   - O projeto de Serviço com Estado
-   - O projeto de serviço Web ASP.NET Core
+3. Instalar Olá **Microsoft.ServiceFabric.Services.Remoting** pacote NuGet. Procurar **Microsoft.ServiceFabric.Services.Remoting** em Olá NuGet Gerenciador de pacote e instalá-lo para todos os projetos na solução de saudação que usam a comunicação remota do serviço, incluindo:
+   - projeto de biblioteca de classes Olá que contém a interface do serviço Olá
+   - projeto de serviço de monitoração de estado de saudação
+   - Olá projeto de serviço web ASP.NET Core
    
-    ![Adicionar o pacote NuGet de serviços][vs-services-nuget-package]
+    ![Adicionar o pacote do NuGet serviços Olá][vs-services-nuget-package]
 
-4. Na biblioteca de classes, crie uma interface com um único método, `GetCountAsync` e estenda a interface por meio do `Microsoft.ServiceFabric.Services.Remoting.IService`. A interface de comunicação remota deve derivar dessa interface para indicar que ela é uma interface da Comunicação Remota do Serviço.
+4. Na biblioteca de classes do hello, criar uma interface com um único método, `GetCountAsync`, e estender a interface de saudação do `Microsoft.ServiceFabric.Services.Remoting.IService`. interface de comunicação remota Olá deve derivar de tooindicate essa interface que é uma interface de comunicação remota do serviço.
    
     ```c#
     using Microsoft.ServiceFabric.Services.Remoting;
@@ -106,13 +106,13 @@ Vamos começar criando a interface para atuar como o contrato entre o serviço c
     }
     ```
 
-### <a name="implement-the-interface-in-your-stateful-service"></a>Implemente a interface em seu serviço com estado
-Agora que definimos a interface, precisamos implementá-la no serviço com estado.
+### <a name="implement-hello-interface-in-your-stateful-service"></a>Implementar interface Olá em seu serviço com monitoração de estado
+Agora que definimos interface Olá, é necessário tooimplement-lo no serviço com monitoração de estado hello.
 
-1. Em seu serviço com estado, adicione uma referência ao projeto de biblioteca de classes que contém a interface.
+1. Em seu serviço com monitoração de estado, adicione um projeto de biblioteca de classe toohello de referência que contém a interface hello.
    
-    ![Adicionando uma referência ao projeto de biblioteca de classes ao serviço com estado][vs-add-class-library-reference]
-2. Localize a classe que herda de `StatefulService`, como `MyStatefulService`, e a estenda para implementar a interface `ICounter`.
+    ![Adicionando um projeto de biblioteca de classes de toohello de referência no serviço com monitoração de estado Olá][vs-add-class-library-reference]
+2. Localize Olá classe que herda de `StatefulService`, como `MyStatefulService`e estendê-lo Olá tooimplement `ICounter` interface.
    
     ```c#
     using MyStatefulService.Interface;
@@ -124,7 +124,7 @@ Agora que definimos a interface, precisamos implementá-la no serviço com estad
          ...
     }
     ```
-3. Agora, implemente o método único definido na interface `ICounter`, `GetCountAsync`.
+3. Agora implementar Olá único método que é definido em Olá `ICounter` interface `GetCountAsync`.
    
     ```c#
     public async Task<long> GetCountAsync()
@@ -140,15 +140,15 @@ Agora que definimos a interface, precisamos implementá-la no serviço com estad
     }
     ```
 
-### <a name="expose-the-stateful-service-using-a-service-remoting-listener"></a>Expor o serviço com estado usando um ouvinte de comunicação remota do serviço
-Com a interface `ICounter` implementada, a etapa final é abrir o canal de comunicação da Comunicação Remota do Serviço. Para serviços com estado, o Service Fabric fornece um método substituível chamado `CreateServiceReplicaListeners`. Com esse método, você pode especificar um ou mais ouvintes de comunicação, com base no tipo de comunicação que você deseja habilitar para o serviço.
+### <a name="expose-hello-stateful-service-using-a-service-remoting-listener"></a>Expor Olá serviço com monitoração de estado usando um ouvinte de comunicação remota do serviço
+Com hello `ICounter` interface implementada, a etapa final Olá é o canal de comunicação tooopen Olá comunicação remota do serviço. Para serviços com estado, o Service Fabric fornece um método substituível chamado `CreateServiceReplicaListeners`. Com esse método, você pode especificar um ou mais ouvintes de comunicação, com base no tipo de saudação de comunicação que você deseja tooenable para seu serviço.
 
 > [!NOTE]
-> O método equivalente para abrir um canal de comunicação para serviços sem estado é chamado `CreateServiceInstanceListeners`.
+> método equivalente Hello para abertura de um serviço de toostateless de canal de comunicação é chamado `CreateServiceInstanceListeners`.
 
-Nesse caso, substituímos o método `CreateServiceReplicaListeners` existente e fornecemos uma instância do `ServiceRemotingListener`, que cria um ponto de extremidade RPC que pode ser chamado por clientes por meio do `ServiceProxy`.  
+Nesse caso, podemos substituir Olá `CreateServiceReplicaListeners` método e fornecer uma instância de `ServiceRemotingListener`, que cria um ponto de extremidade RPC que é chamado de clientes por meio de `ServiceProxy`.  
 
-O método de extensão `CreateServiceRemotingListener` na interface `IService` permite que você crie facilmente um `ServiceRemotingListener` com todas as configurações padrão. Para usar esse método de extensão, verifique se você importou o namespace `Microsoft.ServiceFabric.Services.Remoting.Runtime`. 
+Olá `CreateServiceRemotingListener` método de extensão no hello `IService` interface permite que você tooeasily criar um `ServiceRemotingListener` com todas as configurações padrão. toouse esse método de extensão, certifique-se de ter Olá `Microsoft.ServiceFabric.Services.Remoting.Runtime` namespace importado. 
 
 ```c#
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
@@ -167,14 +167,14 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 ```
 
 
-### <a name="use-the-serviceproxy-class-to-interact-with-the-service"></a>Usar a classe ServiceProxy para interagir com o serviço
-Agora, nosso serviço com estado está pronto para receber o tráfego de outros serviços na RPC. Assim, tudo o que resta é adicionar o código para se comunicar com ele a partir do serviço Web ASP.NET.
+### <a name="use-hello-serviceproxy-class-toointeract-with-hello-service"></a>Use Olá ServiceProxy classe toointeract com o serviço de saudação
+Nosso serviço com monitoração de estado está agora pronto tooreceive tráfego de outros serviços RPC. Portanto tudo o que permanece é adicionando Olá código toocommunicate com ele da saudação serviço web ASP.NET.
 
-1. Em seu projeto ASP.NET, adicione uma referência à biblioteca de classes que contém a interface `ICounter` .
+1. No seu projeto do ASP.NET, adicionar uma biblioteca de classes de toohello de referência que contém Olá `ICounter` interface.
 
-2. Anteriormente, você adicionou o pacote NuGet **Microsoft.ServiceFabric.Services.Remoting** ao projeto ASP.NET. Esse pacote fornece a classe `ServiceProxy`, que você usa para fazer chamadas RPC ao serviço com estado. Verifique se o pacote NuGet está instalado no projeto de serviço Web ASP.NET Core.
+2. Anteriormente você adicionou Olá **Microsoft.ServiceFabric.Services.Remoting** NuGet pacote toohello ASP.NET projeto. Esse pacote fornece Olá `ServiceProxy` classe que você use toomake RPC chama o serviço de monitoração de estado de toohello. Certifique-se de que instalar o pacote de NuGet em Olá projeto de serviço web ASP.NET Core.
 
-4. Na pasta **Controladores**, abra a classe `ValuesController`. Observe que o método `Get` atualmente retorna somente uma matriz de cadeia de caracteres codificados "value1" e "value2", que coincide com o que vimos anteriormente no navegador. Substitua essa implementação pelo seguinte código:
+4. Em Olá **controladores** pasta, abra Olá `ValuesController` classe. Observe que Olá `Get` método atualmente apenas retorna uma matriz de cadeia de caracteres codificada de "value1" e "value2" – que coincide com o que vimos anteriormente no navegador de saudação. Substitua esta implementação Olá código a seguir:
    
     ```c#
     using MyStatefulService.Interface;
@@ -195,46 +195,46 @@ Agora, nosso serviço com estado está pronto para receber o tráfego de outros 
     }
     ```
    
-    A primeira linha de código é a principal. Para criar o proxy ICounter para o serviço com estado, você precisa fornecer duas informações: uma ID de partição e o nome do serviço.
+    Olá primeira linha de código é chave Olá um. toocreate Olá ICounter serviço proxy de toohello com monitoração de estado, você precisa tooprovide duas informações: um nome de identificação e hello de partição do serviço de saudação.
    
-    Você pode usar o particionamento para dimensionar serviços com estado dividindo seu estado em diferentes recipientes com base em uma chave definida por você, como ID de cliente ou CEP. Em nosso aplicativo comum, o serviço com estado tem somente uma partição, portanto, a chave não importa. Qualquer chave que você fornecer levará até a mesma partição. Confira [Como particionar Reliable Services do Service Fabric](service-fabric-concepts-partitioning.md)para saber mais sobre como particionar seu serviço.
+    Você pode usar serviços com monitoração de estado do particionamento tooscale dividindo seu estado em diferentes segmentos, com base em uma chave que você define, como uma ID de cliente ou código postal. Em nosso aplicativo trivial, serviço com monitoração de estado Olá tem apenas uma partição, portanto chave Olá não importa. Qualquer chave que você fornecer levará toohello mesma partição. toolearn mais sobre o particionamento de serviços, consulte [como toopartition serviços confiável do serviço do Fabric](service-fabric-concepts-partitioning.md).
    
-    O nome do serviço é um URI de malha:/&lt;application_name&gt;/&lt;service_name&gt;.
+    nome do serviço Olá é um URI de malha de formulário Olá: /&lt;application_name&gt;/&lt;service_name&gt;.
    
-    Com esses dois tipos de informação, o Service Fabric pode identificar exclusivamente o computador para o qual as solicitações devem ser enviadas. A classe `ServiceProxy` também cuidará da situação no caso de a máquina que hospeda a partição do serviço com estado falhar e outra máquina tiver que ser promovida em seu lugar. Essa abstração torna a escrita de código do cliente para lidar com outros serviço bem mais simples.
+    Com esses dois tipos de informações, o Service Fabric pode identificar exclusivamente máquina Olá que solicitações devem ser enviadas para. Olá `ServiceProxy` classe também perfeitamente manipula caso Olá onde Olá máquina que hospeda a partição de serviço com monitoração de estado de saudação falhar e outra máquina deve ser promovido tootake seu lugar. Essa abstração torna a gravação Olá toodeal de código de cliente com outros serviços muito mais simples.
    
-    Assim que tivermos o proxy, podemos simplesmente chamar o método `GetCountAsync` e retornar seu resultado.
+    Assim que tivermos proxy Olá, podemos simplesmente chamar Olá `GetCountAsync` método e retorna seu resultado.
 
-5. Pressione F5 novamente para executar o aplicativo modificado. Como antes, o Visual Studio inicia o navegador automaticamente na raiz do projeto Web. Adicione o caminho "api/values" e você deve ver o valor atual do contador retornado.
+5. Pressione F5 novamente toorun Olá modificou o aplicativo. Como antes, o Visual Studio automaticamente inicia raiz de toohello de navegador de saudação do projeto da web de saudação. Adicionar caminho de "api/valores" Olá, e você verá o valor de contador atual Olá retornado.
    
-    ![O valor do contador com estado exibido no navegador][browser-aspnet-counter-value]
+    ![valor do contador com monitoração de estado de saudação exibida no navegador Olá][browser-aspnet-counter-value]
    
-    Atualize o navegador periodicamente para ver o valor do contador de atualização.
+    Atualize o navegador de saudação periodicamente toosee Olá contador valor atualização.
 
 ## <a name="kestrel-and-weblistener"></a>Kestrel e WebListener
 
-O servidor Web do ASP.NET Core padrão, conhecido como Kestrel, [não tem suporte no momento para lidar com o tráfego direto da Internet](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel). Como resultado, o modelo de serviço sem estado do ASP.NET Core do Service Fabric usa o [WebListener](https://docs.microsoft.com/aspnet/core/fundamentals/servers/weblistener) por padrão. 
+Olá padrão ASP.NET web server Core, conhecido como Kestrel, for [atualmente não há suporte para o tratamento do tráfego de internet direto](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel). Como resultado, hello modelo de serviço sem monitoração de estado do ASP.NET Core para Service Fabric usa [WebListener](https://docs.microsoft.com/aspnet/core/fundamentals/servers/weblistener) por padrão. 
 
-Para saber mais sobre Kestrel e WebListener nos serviços do Service Fabric, consulte [ASP.NET Core em Serviços Confiáveis do Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md).
+toolearn mais sobre Kestrel e WebListener em serviços do Service Fabric, consulte muito[ASP.NET Core em serviços confiável do serviço do Fabric](service-fabric-reliable-services-communication-aspnetcore.md).
 
-## <a name="connecting-to-a-reliable-actor-service"></a>Conectando-se a um serviço do Reliable Actor
-Este tutorial se concentra em adicionar um front-end da Web que se comunique com um serviço com estado. No entanto, você pode seguir um modelo muito semelhante ao conversar com atores. Quando você cria um projeto do Reliable Actor, o Visual Studio gera automaticamente um projeto de interface para você. Você pode usar essa interface para gerar um proxy de ator no projeto Web para se comunicar com o ator. O canal de comunicação é fornecido automaticamente. Assim, não é necessário fazer nada equivalente a estabelecer um `ServiceRemotingListener` , como foi feito para o serviço com estado neste tutorial.
+## <a name="connecting-tooa-reliable-actor-service"></a>Conectar-se o serviço de Reliable Actor tooa
+Este tutorial se concentra em adicionar um front-end da Web que se comunique com um serviço com estado. No entanto, você pode seguir um tooactors de tootalk modelo muito semelhantes. Quando você cria um projeto do Reliable Actor, o Visual Studio gera automaticamente um projeto de interface para você. Você pode usar esse toogenerate interface um proxy de ator em Olá web projeto toocommunicate com ator hello. o canal de comunicação Olá é fornecido automaticamente. Portanto, você não precisa toodo qualquer coisa que é equivalente tooestablishing um `ServiceRemotingListener` como você fez para o serviço com monitoração de estado Olá neste tutorial.
 
 ## <a name="how-web-services-work-on-your-local-cluster"></a>Como os serviços Web funcionam no cluster local
-Em geral, você pode implantar exatamente o mesmo aplicativo do Service Fabric em um cluster com vários computadores implantados no cluster local e ter a certeza de que ele funciona como esperado. Isso ocorre porque o cluster local é simplesmente uma configuração de cinco nós recolhidos em um único computador.
+Em geral, você pode implantar exatamente Olá mesmo do Service Fabric application tooa com vários computadores de cluster que você implantou no cluster local e estar altamente seguro de que ele funciona conforme o esperado. Isso ocorre porque o cluster local é simplesmente uma configuração de cinco nós que é recolhida tooa único computador.
 
-No entanto, quando se trata de serviços Web, há uma nuance essencial. Quando o cluster fica atrás de um balanceador de carga, como é o caso no Azure, você deve garantir que os serviços Web são implantados em todos os computadores, já que o balanceador de carga simplesmente faz round-robin com o tráfego entre os computadores. Isso pode ser feito configurando `InstanceCount` do serviço para o valor especial “-1”.
+No entanto, quando se trata de tooweb serviços, há um nuance chave. Quando o cluster fica atrás de um balanceador de carga, como faz no Azure, você deve garantir que os serviços web são implantados em todos os computadores desde o balanceador de carga Olá simplesmente alternadas tráfego entre máquinas hello. Você pode fazer isso definindo Olá `InstanceCount` para valor especial de toohello do serviço de saudação de "-1".
 
-Por outro lado, quando você executa um serviço Web localmente, você precisa garantir que apenas uma instância de serviço esteja em execução. Caso contrário, você terá conflitos de vários processos que estão escutando o mesmo caminho e a mesma porta. Como resultado, a contagem de instâncias de serviço Web deve ser definida como "1" para implantações locais.
+Por outro lado, quando você executa um serviço web localmente, você precisa tooensure que apenas uma instância do serviço de saudação está em execução. Caso contrário, execute em conflitos de vários processos que estão escutando Olá mesmo caminho e a porta. Como resultado, contagem de instâncias de serviço Olá web deve ser definida muito "1" para implantações de locais.
 
-Para saber como configurar valores diferentes para um ambiente diferente, confira [Gerenciar parâmetros de aplicativo para vários ambientes](service-fabric-manage-multiple-environment-app-configuration.md).
+toolearn como valores diferentes de tooconfigure para outro ambiente, consulte [gerenciar parâmetros do aplicativo para vários ambientes](service-fabric-manage-multiple-environment-app-configuration.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você tem um front-end da Web configurado para o aplicativo com o ASP.NET Core, saiba mais sobre o [ASP.NET Core nos Reliable Services do Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md) para obter uma compreensão detalhada de como o ASP.NET Core funciona com o Service Fabric.
 
-Em seguida, [saiba mais sobre a comunicação com os serviços](service-fabric-connect-and-communicate-with-services.md) em geral para ter uma ideia completo de como a comunicação do serviço funciona no Service Fabric.
+Em seguida, [saber mais sobre a comunicação com serviços](service-fabric-connect-and-communicate-with-services.md) em geral tooget a conclusão de imagem do serviço como a comunicação funciona na malha do serviço.
 
-Assim que você tiver uma boa compreensão de como a comunicação do serviço funciona, [cria um cluster no Azure e implanta o aplicativo na nuvem](service-fabric-cluster-creation-via-portal.md).
+Depois de você ter um bom entendimento de como funciona a comunicação de serviço, [criar um cluster no Azure e implantar sua nuvem de toohello aplicativo](service-fabric-cluster-creation-via-portal.md).
 
 <!-- Image References -->
 

@@ -1,6 +1,6 @@
 ---
-title: "Criar tíquete ou caso de suporte para o StorSimple série 8000 | Microsoft Docs"
-description: "Saiba como registrar uma solicitação de suporte e iniciar uma sessão de suporte em seu dispositivo StorSimple da série 8000."
+title: "aaaCreate tíquete de suporte ou caso para StorSimple série 8000 | Microsoft Docs"
+description: "Saiba como toolog suporte a solicitação e iniciar uma sessão de suporte em seu dispositivo da série StorSimple 8000."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,105 +14,105 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: alkohli;
-ms.openlocfilehash: 4b5a14237ce79100f980b2186b2c3c887abaa296
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 832e3ac739dafa6dd8c24aaea38aef9c6f1b27b4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="contact-microsoft-support"></a>Contatar o Suporte da Microsoft
 
-O Gerenciador de Dispositivos StorSimple fornece a capacidade de **fazer uma nova solicitação de suporte** na folha de resumo de serviço. Se tiver problemas com sua solução StorSimple, você poderá criar uma solicitação de serviço de suporte técnico. Em uma sessão online com seu engenheiro de suporte, talvez você precise iniciar uma sessão de suporte em seu dispositivo StorSimple. Este artigo orienta você sobre:
+Olá Gerenciador de dispositivos de StorSimple fornece a capacidade de saudação muito**uma nova solicitação de suporte de log** na folha de resumo de serviço hello. Se tiver problemas com sua solução StorSimple, você poderá criar uma solicitação de serviço de suporte técnico. Em uma sessão online com seu engenheiro de suporte, talvez seja necessário também toostart uma sessão de suporte em seu dispositivo StorSimple. Este artigo orienta você sobre:
 
-* Como criar uma solicitação de suporte.
-* Como gerenciar o ciclo de vida de uma solicitação de suporte de dentro do portal.
-* Como iniciar uma sessão de suporte na interface do Windows PowerShell de seu dispositivo StorSimple.
+* Como solicitar toocreate de suporte.
+* Como toomanage suporte à solicitação do ciclo de vida de dentro do portal de saudação.
+* Como toostart uma sessão de suporte na Olá a interface do Windows PowerShell de seu dispositivo StorSimple.
 
-Examine os [SLAs e informações de suporte ao StorSimple 8000 Series](https://msdn.microsoft.com/library/mt433077.aspx) antes de criar uma solicitação de suporte.
+Saudação de revisão [SLAs de suporte de série StorSimple 8000 e informações](https://msdn.microsoft.com/library/mt433077.aspx) antes de criar uma solicitação de suporte.
 
 ## <a name="create-a-support-request"></a>Criar uma solicitação de suporte
 
-Dependendo do seu [plano de suporte](https://azure.microsoft.com/support/plans/), você pode criar tíquetes de suporte para um problema no seu dispositivo StorSimple diretamente da folha de resumo do serviço do Gerenciador de Dispositivos do StorSimple. Execute as seguintes etapas para criar uma solicitação de suporte:
+Dependendo de sua [plano de suporte](https://azure.microsoft.com/support/plans/), você pode criar tíquetes de suporte para um problema no dispositivo StorSimple diretamente da lâmina do resumo de serviço do Gerenciador de dispositivos do StorSimple hello. Execute Olá etapas toocreate uma solicitação de suporte a seguir:
 
-#### <a name="to-create-a-support-request"></a>Para criar uma solicitação de suporte
+#### <a name="toocreate-a-support-request"></a>toocreate uma solicitação de suporte
 
-1. Vá até o seu serviço do Gerenciador de Dispositivos StorSimple. Nas configurações de resumo de serviço, vá até a seção **SUPORTE + SOLUÇÃO DE PROBLEMAS** e, em seguida, clique em **Nova solicitação de suporte**.
+1. Acesse o serviço de Gerenciador de dispositivos de StorSimple tooyour. Nas configurações de resumo de folha do serviço hello, ir muito**suporte + solução de problemas** seção e, em seguida, clique em **nova solicitação de suporte**.
      
     ![Contate o Suporte da MS por meio do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport1.png)
    
-2. Na folha **Nova solicitação de suporte**, selecione **Noções Básicas**. Na folha **Básico**, execute as seguintes etapas:
-   1. Na lista suspensa **Tipo de problema**, selecione **Técnico**.
-   2. O tipo de **Assinatura**, **Serviço** e o **Recurso** (serviço de Gerenciador de Dispositivos StorSimple) atuais são automaticamente escolhidos. 
-   3. Selecione um **Plano de suporte** na lista suspensa se você tiver vários planos associados à sua assinatura. É necessário um plano de suporte pago para habilitar o Suporte Técnico.
+2. Em Olá **nova solicitação de suporte** folha, selecione **Noções básicas de**. Em Olá **Noções básicas sobre** folha, Olá seguintes etapas:
+   1. De saudação **emitir tipo** lista suspensa, selecione **técnico**.
+   2. Olá atual **assinatura**, **Service** tipo e hello **recurso** (serviço de Gerenciador de dispositivos do StorSimple) são escolhidos automaticamente. 
+   3. Selecione um **plano de suporte** na lista suspensa de Olá se você tiver vários planos associados à sua assinatura. É necessário um tooenable do plano de suporte pago suporte técnico.
    4. Clique em **Avançar**.
 
        ![Contate o Suporte da MS por meio do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
 
-3. Na folha **Nova solicitação de suporte**, selecione **Etapa 2 Problema**. Na folha **Problema**, execute as seguintes etapas:
+3. Em Olá **nova solicitação de suporte** folha, selecione **etapa 2 problema**. Em Olá **problema** folha, Olá seguintes etapas:
     
-    1. Escolha a **Gravidade**.
-    2. Especifique se o problema está relacionado ao dispositivo ou ao serviço do Gerenciador de Dispositivos do StorSimple.
-    3. Escolha uma **Categoria** para este problema e forneça mais **Detalhes** sobre ele.
-    4. Forneça a data de início e a hora para o problema.
-    5. Em **Upload do arquivo**, clique no ícone de pasta para procurar o pacote de suporte.
+    1. Escolha Olá **severidade**.
+    2. Especifique se o problema de saudação está dispositivo toohello relacionados ou hello serviço do Gerenciador de dispositivos do StorSimple.
+    3. Escolha um **categoria** para este problema e fornecer mais **detalhes** sobre o problema de saudação.
+    4. Fornece Olá data e hora inicial para o problema de saudação.
+    5. Em Olá **carregamento do arquivo**, clique em pacote de suporte do hello pasta ícone toobrowse tooyour.
     6. Marque **Compartilhar informações de diagnóstico**.
     7. Clique em **Avançar**.
 
        ![Contate o Suporte da MS por meio do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
 
-4. Na folha **Nova solicitação de suporte**, clique em **Etapa 3 Informações de contato**. Na folha **Informações de contato**, execute as seguintes etapas:
+4. Em Olá **nova solicitação de suporte** folha, clique em **informações de contato de 3 etapa**. Em Olá **informações de contato** folha, Olá seguintes etapas:
 
-    1. Nas **Opções de contato**, forneça seu método de contato preferencial (telefone ou email) e o idioma. O tempo de resposta é selecionado automaticamente com base em seu plano de assinatura.
-    2. Nas Informações de contato, informe seu nome, email, contato opcional e país. Marque a caixa de seleção **Salvar alterações de contato para futuras solicitações de suporte** .
+    1. Em Olá **opções de contato**, forneça seu método de contato preferencial (telefone ou email) e Olá idioma. tempo de resposta de saudação é selecionado automaticamente com base em seu plano de assinatura.
+    2. Informações de contato hello, forneça nome, email, entre em contato com opcional, país. Selecione Olá **salvar alterações de contato para futuras solicitações de suporte** caixa de seleção.
     3. Clique em **Criar**.
    
         ![Contate o Suporte da MS por meio do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 
-    O Microsoft Support usará essas informações para entrar em contato com você para obter mais informações, diagnóstico e resolução.
-Depois que você enviar sua solicitação, um engenheiro de Suporte entrará em contato com você assim que possível para prosseguir com sua solicitação.
+    Microsoft Support usará este tooreach informações out tooyou para obter mais informações, diagnóstico e resolução.
+Depois que você enviou a solicitação, um engenheiro de suporte entrará em contato com você assim que possível tooproceed com sua solicitação.
 
 ## <a name="manage-a-support-request"></a>Gerenciar uma solicitação de suporte
 
-Depois de criar um tíquete de suporte, você pode gerenciar o ciclo de vida do tíquete de dentro do portal.
+Depois de criar um tíquete de suporte, você pode gerenciar o ciclo de vida de saudação de tíquete de saudação de dentro do portal de saudação.
 
-#### <a name="to-manage-your-support-requests"></a>Para gerenciar suas solicitações de suporte
+#### <a name="toomanage-your-support-requests"></a>solicitações de suporte do seu toomanage
 
-1. Para acessar a página de ajuda e suporte navegue até **Procurar -> Ajuda + suporte**.
+1. tooget toohello ajuda e suporte a página, navegar muito**procurar > Ajuda + suporte**.
 
     ![Gerenciar solicitações de suporte](./media/storsimple-8000-contact-microsoft-support/managesupport1.png)
 
-2. Uma listagem tabular de Todas as solicitações de suporte é exibida na folha **Ajuda + suporte**.
+2. Uma listagem tabular de todo o suporte Olá solicitações é exibido no hello **ajuda + suporte** folha.
 
     ![Gerenciar solicitações de suporte](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
 
-3. Selecione e clique em uma solicitação de suporte. Você pode exibir o status e os detalhes para esta solicitação. Clique em **+ Nova mensagem** se desejar acompanhar esta solicitação.
+3. Selecione e clique em uma solicitação de suporte. Você pode exibir o status de saudação e detalhes de saudação para esta solicitação. Clique em **+ nova mensagem** se desejar toofollow nessa solicitação.
 
     ![Gerenciar solicitações de suporte](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
 
 ## <a name="start-a-support-session-in-windows-powershell-for-storsimple"></a>Iniciar uma sessão de suporte no Windows PowerShell para StorSimple
 
-Para solucionar problemas que possam ocorrer com o dispositivo StorSimple, você precisará contatar a equipe de Suporte da Microsoft. O Suporte da Microsoft talvez precise usar uma sessão de suporte para fazer logon em seu dispositivo.
+tootroubleshoot quaisquer problemas que você pode experimentar com o dispositivo StorSimple hello, você precisará tooengage com a equipe do Microsoft Support hello. Talvez seja necessário toouse um toolog de sessão de suporte no dispositivo tooyour Microsoft Support.
 
-Execute as seguintes etapas para iniciar uma sessão de suporte:
+Executar o seguinte Olá etapas toostart uma sessão de suporte:
 
-#### <a name="to-start-a-support-session"></a>Para iniciar uma sessão de suporte
+#### <a name="toostart-a-support-session"></a>toostart uma sessão de suporte
 
-1. Acesse o dispositivo diretamente usando o console serial ou por meio de uma sessão de telnet de um computador remoto. Para fazer isso, execute as etapas em [Usar o PuTTY para conectar-se ao console serial do dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
-2. Na sessão que será aberta, pressione a tecla **Enter** para obter um prompt de comando.
-3. No menu do console serial, escolha a opção 1, **Efetuar login com acesso total**.
-4. No prompt, digite a seguinte senha:
+1. Dispositivo de saudação do acesso diretamente usando o console serial hello ou através de uma sessão telnet de um computador remoto. toodo etapas seguir, Olá [console serial do dispositivo Use PuTTY tooconnect toohello](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+2. Na sessão de saudação que é aberta, pressione Olá **Enter** tooget chave um prompt de comando.
+3. No menu do console serial hello, selecione a opção 1, **entrar com acesso completo**.
+4. No prompt de hello, digite Olá senha a seguir:
    
     `Password1`
-5. No prompt, digite o seguinte comando:
+5. No prompt de hello, digite Olá comando a seguir:
    
     `Enable-HcsSupportAccess`
-6. Uma cadeia de caracteres criptografada será apresentada a você. Copie a cadeia de caracteres para um editor de texto como o Bloco de Notas.
-7. Salve a cadeia de caracteres e envie-a em uma mensagem de email ao Suporte da Microsoft.
+6. Uma cadeia de caracteres criptografada será apresentada tooyou. Copie a cadeia de caracteres para um editor de texto como o Bloco de Notas.
+7. Salve esta cadeia de caracteres e enviá-los em uma mensagem de email tooMicrosoft suporte.
 
 > [!IMPORTANT]
-> Você pode desabilitar o acesso ao suporte executando `Disable-HcsSupportAccess`. O dispositivo StorSimple também tentará desabilitar o acesso ao suporte oito horas após a sessão ser iniciada. É uma prática recomendada alterar as credenciais de seu dispositivo StorSimple após iniciar uma sessão de suporte.
+> Você pode desabilitar o acesso ao suporte executando `Disable-HcsSupportAccess`. o dispositivo StorSimple Olá também tentará toodisable o acesso ao suporte 8 horas após Olá sessão foi iniciada. É um toochange de prática recomendada credenciais depois de iniciar uma sessão de suporte de seu dispositivo StorSimple.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como [diagnosticar e resolver problemas relacionados ao dispositivo StorSimple da série 8000](storsimple-troubleshoot-deployment.md)
+Saiba como muito[diagnosticar e resolver o dispositivo da série StorSimple 8000 de tooyour relacionados problemas](storsimple-troubleshoot-deployment.md)

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de distribuição global do Azure Cosmos DB para a API de Tabela | Microsoft Docs"
-description: "Saiba como configurar a distribuição global do Azure Cosmos DB usando a API de Tabela."
+title: "tutorial de distribuição global aaaAzure Cosmos DB para a tabela de API | Microsoft Docs"
+description: "Saiba como distribuição global usando o banco de dados do Azure Cosmos toosetup Olá API de tabela."
 services: cosmos-db
 keywords: "distribuição global, Tabela"
 documentationcenter: 
@@ -15,38 +15,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 63c9e530a4982e2e6e478fea56e015fc77851e1d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d2a995e09c37f9449856aef2ab707e95eb8a540c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-table-api"></a>Como configurar a distribuição global do Azure Cosmos DB usando a API de Tabela
+# <a name="how-toosetup-azure-cosmos-db-global-distribution-using-hello-table-api"></a>Como a distribuição global usando o banco de dados do Azure Cosmos toosetup Olá API de tabela
 
-Neste artigo, mostraremos como usar o Portal do Azure para configurar a distribuição global do Azure Cosmos DB e, depois, conectar-se usando a API de Tabela (visualização).
+Neste artigo, mostramos como toouse Olá distribuição global do banco de dados do Azure Cosmos toosetup portal do Azure e, em seguida, conecte-se usando Olá API de tabela (visualização).
 
-Este artigo aborda as seguintes tarefas: 
+Este artigo aborda Olá tarefas a seguir: 
 
 > [!div class="checklist"]
-> * Configurar a distribuição global usando o Portal do Azure
-> * Configurar a distribuição global usando a [API de Tabela](table-introduction.md)
+> * Configurar a distribuição global usando Olá portal do Azure
+> * Configurar a distribuição global usando Olá [API de tabela](table-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Conectar-se a uma região preferencial usando a API de Tabela
+## <a name="connecting-tooa-preferred-region-using-hello-table-api"></a>Conectar-se a região preferida tooa usando Olá API de tabela
 
-Para aproveitar a [distribuição global](distribute-data-globally.md), os aplicativos cliente podem especificar a lista de preferências ordenadas de regiões a serem usadas para executar operações de documento. Isso pode ser feito definindo o valor de configuração `TablePreferredLocations` na configuração do aplicativo para a visualização do SDK do Armazenamento do Azure. Com base na configuração da conta do Azure Cosmos DB, na disponibilidade regional atual e na lista de preferências especificada, o ponto de extremidade mais adequado será escolhido pelo SDK de Armazenamento do Azure para executar operações de gravação e leitura.
+Em ordem tootake aproveitar [distribuição global](distribute-data-globally.md), aplicativos cliente podem especificar Olá ordenados lista de preferência de regiões toobe usada tooperform operações de documento. Isso pode ser feito por configuração Olá `TablePreferredLocations` valor de configuração na configuração de aplicativo hello para visualização Olá SDK de armazenamento do Azure. Com base na configuração de conta do banco de dados do Azure Cosmos hello, disponibilidade regional atual e a lista de preferência de saudação especificado, Olá ponto de extremidade mais ideal será escolhido por hello Azure Storage SDK tooperform gravam e operações de leitura.
 
-O `TablePreferredLocations` deve conter uma lista separada por vírgulas de locais (hospedagem múltipla) preferenciais para leituras. Cada instância do cliente pode especificar um subconjunto dessas regiões na ordem preferida para leituras de baixa latência. As regiões devem ser nomeadas usando seus [nomes de exibição](https://msdn.microsoft.com/library/azure/gg441293.aspx), por exemplo, `West US`.
+Olá `TablePreferredLocations` deve conter uma lista separada por vírgulas de locais (múltipla) preferenciais para leituras. Cada instância de cliente pode especificar um subconjunto dessas regiões Olá preferido para leituras de baixa latência. regiões de saudação devem ser nomeados usando seus [exibir nomes](https://msdn.microsoft.com/library/azure/gg441293.aspx), por exemplo, `West US`.
 
-Todas as leituras serão enviadas para a primeira região disponível na lista `TablePreferredLocations`. Se a solicitação falhar, o cliente não fará o envio para a próxima região da lista, e assim por diante.
+Todas as leituras serão enviadas toohello primeira região disponível em Olá `TablePreferredLocations` lista. Se Olá solicitação falhar, o cliente Olá falhar para baixo próxima região do hello lista toohello e assim por diante.
 
-Os SDKs tentarão ler apenas das regiões especificadas em `TablePreferredLocations`. Desse modo, se a Conta do Banco de Dados estiver disponível em três regiões, por exemplo, mas o cliente especificar apenas duas das regiões de não gravação para `TablePreferredLocations`, nenhuma leitura será atendida fora da região de gravação, mesmo no caso de failover.
+Olá SDK somente tentará tooread de regiões de saudação especificado em `TablePreferredLocations`. Portanto, por exemplo, se Olá conta de banco de dados está disponível em três regiões, mas o cliente Olá especifica apenas duas das Olá regiões não-gravação para `TablePreferredLocations`, e nenhuma leitura será servida fora da região de gravação hello, mesmo no caso de saudação de failover.
 
-O SDK enviará automaticamente todas as gravações para a região de gravação atual.
+Olá SDK enviará automaticamente todas as gravações toohello gravação região atual.
 
-Se a propriedade `TablePreferredLocations` não estiver definida, todas as solicitações serão atendidas na região de gravação atual.
+Se hello `TablePreferredLocations` propriedade não for definida, todas as solicitações serão atendidas a partir de região de gravação atual hello.
 
 ```xml
     <appSettings>
@@ -54,17 +54,17 @@ Se a propriedade `TablePreferredLocations` não estiver definida, todas as solic
     </appSettings>
 ```
 
-Assim, concluímos este tutorial. Aprenda a gerenciar a consistência de sua conta globalmente replicada lendo [Níveis de consistência no Azure Cosmos DB](consistency-levels.md). E para saber mais sobre como a replicação de banco de dados global funciona no Azure Cosmos DB, veja [Distribuir dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
+Assim, concluímos este tutorial. Você pode aprender como toomanage Olá consistência da sua conta global replicada lendo [níveis de consistência no banco de dados do Azure Cosmos](consistency-levels.md). E para saber mais sobre como a replicação de banco de dados global funciona no Azure Cosmos DB, veja [Distribuir dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você fez o seguinte:
+Neste tutorial, você fez a seguir hello:
 
 > [!div class="checklist"]
-> * Configurar a distribuição global usando o Portal do Azure
-> * Configurar a distribuição global usando a API do DocumentDB
+> * Configurar a distribuição global usando Olá portal do Azure
+> * Configurar a distribuição global usando Olá APIs do DocumentDB
 
-Agora você pode prosseguir para o próximo tutorial e aprender a desenvolver localmente usando o emulador local do Azure Cosmos DB.
+Você pode continuar toolearn tutorial do próximo toohello como toodevelop localmente usando Olá emulador local do banco de dados do Azure Cosmos.
 
 > [!div class="nextstepaction"]
-> [Desenvolver localmente com o emulador](local-emulator.md)
+> [Desenvolva localmente com o emulador de saudação](local-emulator.md)

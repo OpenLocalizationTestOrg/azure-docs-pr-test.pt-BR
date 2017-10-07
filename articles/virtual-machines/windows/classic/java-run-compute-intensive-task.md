@@ -1,6 +1,6 @@
 ---
-title: Aplicativo Java que requer muitos recursos computacionais em uma VM | Microsoft Docs
-description: "Saiba como criar uma máquina virtual do Azure que execute aplicativos Java que requerem muitos recursos computacionais e podem ser monitorados por outro aplicativo Java."
+title: "aplicativo em uma máquina virtual Java que utiliza a aaaCompute | Microsoft Docs"
+description: "Saiba como toocreate uma máquina virtual do Azure que executa um aplicativo de Java com computação intensiva que pode ser monitorado por outro aplicativo de Java."
 services: virtual-machines-windows
 documentationcenter: java
 author: rmcmurray
@@ -15,104 +15,104 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 8c51c0bb37e25ad61fe58a85dd641dabe0a1958c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 02a198802a8d78bd444cd5a9197a78cb94f48e3b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Como executar uma tarefa com uso intenso de computação no Java em uma máquina virtual
+# <a name="how-toorun-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Como toorun uma computação intensa de tarefas em Java em uma máquina virtual
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda usando o modelo de implantação clássico hello. A Microsoft recomenda que mais novas implantações de usam o modelo do Gerenciador de recursos de saudação.
 
-Com o Azure, você pode usar uma máquina virtual para lidar com tarefas de computação intensiva. Por exemplo, uma máquina virtual pode lidar com tarefas e fornecer resultados às máquinas dos clientes ou aos aplicativos móveis. Depois de ler este artigo, você terá um entendimento de como criar uma máquina virtual que executa um aplicativo Java de computação intensiva que pode ser monitorado por outro aplicativo Java.
+Com o Azure, você pode usar tarefas de computação intensa de toohandle uma máquina virtual. Por exemplo, uma máquina virtual pode lidar com tarefas e fornecer máquinas de tooclient resultados ou aplicativos móveis. Depois de ler este artigo, você terá uma compreensão de como toocreate uma máquina virtual que executa um aplicativo de Java com computação intensiva que pode ser monitorado por outro aplicativo de Java.
 
-Este tutorial supõe que você sabe como criar aplicativos de console Java, pode importar bibliotecas para o seu aplicativo Java e pode gerar um arquivo Java (JAR). Nenhum conhecimento do Microsoft Azure é assumido.
+Este tutorial presume que você sabe como aplicativos de console de Java toocreate, pode importar um aplicativo de Java tooyour bibliotecas e pode gerar um JAR (Java archive). Nenhum conhecimento do Microsoft Azure é assumido.
 
 Você aprenderá:
 
-* Como criar uma máquina virtual que já tenha um JDK (Java Development Kit) instalado.
-* Fazer logon remotamente na máquina virtual.
-* Como criar um espaço de nomes de barramento de serviço.
-* Como criar um aplicativo Java que executa uma tarefa de computação intensiva.
-* Como criar um aplicativo Java que monitora o andamento da tarefa de computação intensiva.
-* Como executar os aplicativos Java.
-* Como parar os aplicativos Java.
+* Como toocreate uma máquina virtual com um Java Development Kit (JDK) já instalado.
+* Como tooremotely fazem logon na máquina virtual de tooyour.
+* Como toocreate um serviço de barramento de namespace.
+* Como toocreate um aplicativo Java que executa uma tarefa de computação intensa.
+* Como toocreate um aplicativo Java que monitora Olá progresso da tarefa de computação intensiva hello.
+* Como toorun Olá aplicativos Java.
+* Como toostop Olá aplicativos Java.
 
-Este tutorial usará o problema do Caixeiro Viajante para a tarefa de computação intensiva. Este é um exemplo do aplicativo Java que executa a tarefa de computação intensiva.
+Este tutorial usará Olá problema do Caixeiro Viajante para tarefas de computação intensa hello. a seguir Olá é um exemplo de tarefa de computação intensa do hello Java aplicativo em execução hello.
 
 ![Solucionador de problemas do Caixeiro Viajante][solver_output]
 
-Este é um exemplo do aplicativo Java que monitora a tarefa de computação intensiva.
+a seguir Olá é um exemplo de hello Java aplicativo hello com computação intensiva a tarefa de monitoramento.
 
 ![Cliente de problemas do Caixeiro Viajante][client_output]
 
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
-## <a name="to-create-a-virtual-machine"></a>Para criar uma máquina virtual
-1. Faça logon no [portal clássico do Azure](https://manage.windowsazure.com).
+## <a name="toocreate-a-virtual-machine"></a>toocreate uma máquina virtual
+1. Faça logon no toohello [portal clássico do Azure](https://manage.windowsazure.com).
 2. Clique em **Nova**, clique em **Computação**, clique em **Máquina virtual** e, em seguida, clique em **Da Galeria**.
-3. Na caixa de diálogo **Seleção de imagem da máquina virtual**, selecione **JDK 7 Windows Server 2012**.
-   Observe que o **JDK 6 Windows Server 2012** está disponível caso você tenha aplicativos legados que ainda não estejam prontos para serem executados no JDK 7.
+3. Em Olá **select de imagem de máquina Virtual** caixa de diálogo, selecione **JDK 7 Windows Server 2012**.
+   Observe que **JDK 6 Windows Server 2012** está disponível caso você tenha aplicativos herdados que ainda não estão pronto toorun JDK 7.
 4. Clique em **Avançar**.
-5. Na caixa de diálogo **Configuração da máquina virtual** :
-   1. Especifique um nome para a máquina virtual.
-   2. Especifique o tamanho a ser usado para a máquina virtual.
-   3. Digite um nome para o administrador no campo **Nome do Usuário** . Lembre-se do nome e da senha que você digitará a seguir, você irá usá-los ao fazer logon remotamente na máquina virtual.
-   4. Digite uma senha no campo **Nova senha** e insira-a novamente no campo **Confirmar**. Esta é a senha da conta do Administrador.
+5. Em Olá **configuração de máquina Virtual** caixa de diálogo:
+   1. Especifique um nome para a máquina virtual de saudação.
+   2. Especifique Olá toouse de tamanho da máquina virtual de saudação.
+   3. Insira um nome para o administrador de saudação em Olá **nome de usuário** campo. Guarde essa senha de nome e hello que entrará em seguida, você usará-los quando você fazer logon remotamente na máquina virtual de toohello.
+   4. Digite uma senha na Olá **nova senha** campo e insira-a novamente no hello **confirmar** campo. Isso é a senha da conta de administrador hello.
    5. Clique em **Avançar**.
-6. Na próxima caixa de diálogo **Configuração da máquina virtual** :
-   1. Para **Serviço de Nuvem**, use o padrão **Criar um novo serviço de nuvem**.
-   2. O valor de **Nome DNS do Serviço de Nuvem** deve ser exclusivo no cloudapp.net. Se necessário, modifique esse valor para que o Azure indique que ele é exclusivo.
+6. Em Olá próximo **configuração de máquina Virtual** caixa de diálogo:
+   1. Para **serviço de nuvem**, use o padrão de saudação **criar um novo serviço de nuvem**.
+   2. Olá valor **nome DNS do serviço de nuvem** devem ser exclusivas em c. Se necessário, modifique esse valor para que o Azure indique que ele é exclusivo.
    3. Especifique uma região, um grupo de afinidade ou uma rede virtual. Para o objetivo deste tutorial, especifique uma região, como **Oeste dos Estados Unidos**.
    4. Para **Conta de Armazenamento**, selecione **Usar uma conta de armazenamento gerada automaticamente**.
    5. Para **Conjunto de Disponibilidade**, selecione **(Nenhum)**.
    6. Clique em **Avançar**.
-7. Na caixa de diálogo **Configuração da máquina virtual** final:
-   1. Aceite as entradas de ponto de extremidade padrão.
+7. No final da saudação **configuração de máquina Virtual** caixa de diálogo:
+   1. Aceite entradas de ponto de extremidade padrão hello.
    2. Clique em **Concluído**.
 
-## <a name="to-remotely-log-in-to-your-virtual-machine"></a>Para fazer logon remotamente na máquina virtual
-1. Faça logon no [portal clássico do Azure](https://manage.windowsazure.com).
+## <a name="tooremotely-log-in-tooyour-virtual-machine"></a>log tooremotely na máquina virtual de tooyour
+1. Faça logon no toohello [portal clássico do Azure](https://manage.windowsazure.com).
 2. Clique em **Máquinas Virtuais**.
-3. Clique no nome da máquina virtual na qual você deseja fazer logon.
+3. Clique Olá nome da máquina virtual Olá que você deseja toolog no.
 4. Clique em **Conectar**.
-5. Responda às solicitações conforme necessário para se conectar à máquina virtual. Quando for solicitado o nome do administrador e a senha, use os valores que você forneceu quando criou a máquina virtual.
+5. Responda toohello prompts como máquina de virtual toohello tooconnect necessários. Quando solicitado para Olá administrador nome e senha, use valores hello fornecida quando você criou a máquina virtual de saudação.
 
-Observe que a funcionalidade do Service Bus do Azure requer que o certificado de Baltimore CyberTrust Root seja instalado como parte do armazenamento **cacerts** do JRE. Este certificado é automaticamente incluído no Java Runtime Environment (JRE) usado por este tutorial. Se você não tem este certificado no armazenamento **cacerts** do JRE, consulte [Adicionar um certificado no repositório de certificados de autoridade de certificação Java][add_ca_cert] para obter informações sobre como adicioná-lo (bem como informações sobre como exibir os certificados no seu armazenamento cacerts).
+Observe que Olá funcionalidade do barramento de serviço do Azure requer Olá Baltimore CyberTrust Root certificado toobe instalado como parte do seu JRE **cacerts** armazenar. Esse certificado é incluído automaticamente em Olá Java Runtime Environment (JRE) usado por este tutorial. Se você não tem esse certificado em seu JRE **cacerts** de armazenamento, consulte [adicionando um toohello certificado repositório de certificados de autoridade de certificação de Java] [ add_ca_cert] para obter informações sobre como adicioná-lo (bem como informações sobre como visualizar certificados Olá em seu repositório cacerts).
 
-## <a name="how-to-create-a-service-bus-namespace"></a>Como criar um namespace do barramento de serviço
-Para começar a usar filas do Barramento de Serviço no Azure, primeiro crie um namespace de serviço. Um namespace de serviço fornece um contêiner de controle para endereçamento dos recursos do Barramento de Serviço em seu aplicativo.
+## <a name="how-toocreate-a-service-bus-namespace"></a>Como o namespace de barramento toocreate um serviço
+filas de toobegin usando o barramento de serviço no Azure, você deve primeiro criar um namespace de serviço. Um namespace de serviço fornece um contêiner de controle para endereçamento dos recursos do Barramento de Serviço em seu aplicativo.
 
-Para criar um namespace de serviço:
+toocreate um namespace de serviço:
 
-1. Faça logon no [portal clássico do Azure](https://manage.windowsazure.com).
-2. No painel de navegação esquerdo inferior do portal clássico do Azure, clique em **Barramento de Serviço, Controle de Acesso e Caching**.
-3. No painel superior esquerdo do portal clássico do Azure, clique no nó de **Barramento de Serviço** e, em seguida, clique no botão **Novo**.  
+1. Faça logon no toohello [portal clássico do Azure](https://manage.windowsazure.com).
+2. No painel de navegação inferior esquerda Olá de saudação portal clássico do Azure, clique **barramento de serviço, controle de acesso e cache**.
+3. No painel superior esquerdo de saudação do hello portal clássico do Azure, clique em Olá **Service Bus** nó e, em seguida, clique em Olá **novo** botão.  
    ![Captura de tela do nó do Service Bus][svc_bus_node]
-4. Na caixa de diálogo **Criar um novo namespace de serviço**, digite um **Namespace** e, em seguida, para verificar se ele é exclusivo, clique no botão **Verificar Disponibilidade**.  
+4. Em Olá **criar um novo Namespace de serviço** caixa de diálogo, digite um **Namespace**, e, em seguida, clique em toomake-se de que ele seja exclusivo, o **Verificar disponibilidade** botão.  
    ![Criar uma captura de tela do novo Namespace][create_namespace]
-5. Depois de verificar se o nome do namespace está disponível, escolha o país ou a região na qual o namespace deve estar hospedado e, em seguida, clique no botão **Criar Namespace** .  
+5. Depois de verificar se o nome do namespace hello está disponível, escolha o país ou região em que o namespace deve ser hospedado e, em seguida, clique em Olá **criar Namespace** botão.  
    
-   O namespace que você criou aparecerá no portal clássico do Azure e demorará algum tempo para ser ativado. Aguarde até que o status esteja **Ativo** para passar à próxima etapa.
+   Olá namespace criado será exibida no portal clássico do Azure de saudação e entra em um momento tooactivate. Aguarde até que o status de saudação **Active** antes de continuar com a próxima etapa de saudação.
 
-## <a name="obtain-the-default-management-credentials-for-the-namespace"></a>Obter as Credenciais de gerenciamento padrão do namespace
-A fim de executar operações de gerenciamento, como criar uma fila no novo namespace, você precisar obter as credenciais de gerenciamento para o namespace.
+## <a name="obtain-hello-default-management-credentials-for-hello-namespace"></a>Obter Olá gerenciamento de credenciais padrão para o namespace de saudação
+Em operações de gerenciamento de tooperform ordem, como a criação de uma fila, no novo namespace de hello, você precisa ter credenciais de gerenciamento de saudação do tooobtain para o namespace.
 
-1. No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis.
+1. No painel de navegação esquerdo hello, clique em Olá **Service Bus** nó para exibir a lista de saudação de namespaces disponíveis.
    ![Captura de tela de namespaces disponíveis][avail_namespaces]
-2. Selecione o namespace que você acabou de criar na lista exibida.
+2. Selecione o namespace de saudação que você acabou de criar na lista Olá mostrada.
    ![Captura de tela da lista de namespaces][namespace_list]
-3. O painel direito **Propriedades** listará as propriedades do novo namespace.
+3. Olá direito **propriedades** painel lista as propriedades de saudação para o novo namespace.
    ![Captura de tela do painel Propriedades][properties_pane]
-4. A **Chave padrão** está oculta. Clique no botão **Exibir** para exibir as credenciais de segurança.
+4. Olá **chave padrão** está oculto. Clique em Olá **exibição** botão credenciais de segurança toodisplay hello.
    ![Captura de tela da chave padrão][default_key]
-5. Anote o **Emissor Padrão** e a **Chave Padrão**, pois você usará essas informações abaixo para executar operações com o namespace.
+5. Anote Olá **emissor padrão** e hello **chave padrão** como você usará essas informações abaixo tooperform operações com o namespace.
 
-## <a name="how-to-create-a-java-application-that-performs-a-compute-intensive-task"></a>Como criar um aplicativo Java que executa uma tarefa de computação intensiva
-1. Na sua máquina de desenvolvimento (que não tem de ser a máquina virtual que você criou), faça o download do [Azure SDK para Java](https://azure.microsoft.com/develop/java/).
-2. Crie um aplicativo de console Java usando o código de exemplo no final desta seção. Neste tutorial, usaremos **TSPSolver.java** como o nome do arquivo Java. Modifique os espaços reservados **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace** do barramento de serviço e os valores **Emissor Padrão** e **Chave Padrão**, respectivamente.
-3. Depois de codificar, exporte o aplicativo para um arquivo executável Java (JAR) e empacote as bibliotecas necessárias para o JAR gerado. Neste tutorial, usaremos **TSPSolver.jar** como o nome do arquivo JAR gerado.
+## <a name="how-toocreate-a-java-application-that-performs-a-compute-intensive-task"></a>Como toocreate um aplicativo Java que executa uma tarefa de computação intensa
+1. No computador de desenvolvimento (que não tem a máquina virtual do toobe Olá que você criou), download Olá [SDK do Azure para Java](https://azure.microsoft.com/develop/java/).
+2. Crie um aplicativo de console de Java usando o código de exemplo hello final Olá desta seção. Neste tutorial, vamos usar **TSPSolver.java** como nome de arquivo hello Java. Modificar Olá **sua\_service\_barramento\_namespace**, **sua\_service\_barramento\_proprietário**e **seu\_service\_barramento\_chave** toouse de espaços reservados para o barramento de serviço **namespace**, **emissor padrão** e  **Chave padrão** valores, respectivamente.
+3. Depois de codificar, exportação Olá aplicativo tooa executável JAR (Java archive) e saudação de pacote necessários bibliotecas em Olá gerado JAR. Neste tutorial, vamos usar **TSPSolver.jar** como nome do JAR Olá gerado.
 
 <p/>
 
@@ -131,7 +131,7 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 
     public class TSPSolver {
 
-        //  Value specifying how often to provide an update to the console.
+        //  Value specifying how often tooprovide an update toohello console.
         private static long loopCheck = 100000000;  
 
         private static long nTimes = 0, nLoops=0;
@@ -235,12 +235,12 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 
                 service = ServiceBusService.create(config);
 
-                int numCities = 10;  // Use as the default, if no value is specified at command line.
+                int numCities = 10;  // Use as hello default, if no value is specified at command line.
                 if (args.length != 0)
                 {
                     if (args[0].toLowerCase().compareTo("createqueue")==0)
                     {
-                        // No processing to occur other than creating the queue.
+                        // No processing toooccur other than creating hello queue.
                         QueueInfo queueInfo = new QueueInfo("TSPQueue");
 
                         service.createQueue(queueInfo);
@@ -252,7 +252,7 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 
                     if (args[0].toLowerCase().compareTo("deletequeue")==0)
                     {
-                        // No processing to occur other than deleting the queue.
+                        // No processing toooccur other than deleting hello queue.
                         service.deleteQueue("TSPQueue");
 
                         System.out.println("Queue named TSPQueue was deleted.");
@@ -261,7 +261,7 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
                     }
 
                     // Neither creating or deleting a queue.
-                    // Assume the value passed in is the number of cities to solve.
+                    // Assume hello value passed in is hello number of cities toosolve.
                     numCities = Integer.valueOf(args[0]);  
                 }
 
@@ -299,9 +299,9 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 
 
 
-## <a name="how-to-create-a-java-application-that-monitors-the-progress-of-the-compute-intensive-task"></a>Como criar um aplicativo Java que monitora o andamento da tarefa de computação intensiva
-1. Na sua máquina de desenvolvimento, crie um aplicativo de console Java usando o código de exemplo no final desta seção. Neste tutorial, usaremos **TSPClient.java** como o nome do arquivo Java. Conforme mostrado anteriormente, modifique os espaços reservados **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace** do barramento de serviço e os valores **Emissor Padrão** e **Chave Padrão**, respectivamente.
-2. Exporte o aplicativo para um JAR executável e empacote as bibliotecas necessárias para o JAR gerado. Neste tutorial, usaremos **TSPClient.jar** como o nome do arquivo JAR gerado.
+## <a name="how-toocreate-a-java-application-that-monitors-hello-progress-of-hello-compute-intensive-task"></a>Como toocreate um aplicativo Java que monitora Olá progresso da tarefa de computação intensiva Olá
+1. No computador de desenvolvimento, crie um aplicativo de console Java usando o código de exemplo hello final Olá desta seção. Neste tutorial, vamos usar **TSPClient.java** como nome de arquivo hello Java. Como mostrado anteriormente, modificar Olá **sua\_serviço\_barramento\_namespace**, **sua\_service\_barramento\_proprietário**, e **seu\_service\_barramento\_chave** toouse de espaços reservados para o barramento de serviço **namespace**, **emissor padrão**e **chave padrão** valores, respectivamente.
+2. Exportar Olá aplicativo tooa executável JAR e saudação de pacote necessários bibliotecas em Olá gerado JAR. Neste tutorial, vamos usar **TSPClient.jar** como nome do JAR Olá gerado.
 
 <p/>
 
@@ -340,7 +340,7 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 
                     BrokeredMessage message;
 
-                    int waitMinutes = 3;  // Use as the default, if no value is specified at command line.
+                    int waitMinutes = 3;  // Use as hello default, if no value is specified at command line.
                     if (args.length != 0)
                     {
                         waitMinutes = Integer.valueOf(args[0]);  
@@ -366,7 +366,7 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
                         if (null != message && null != message.getMessageId())
                         {
 
-                            // Display the queue message.
+                            // Display hello queue message.
                             byte[] b = new byte[200];
 
                             System.out.print("From queue: ");
@@ -383,7 +383,7 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
                             System.out.println();
                             if (s.compareTo("Complete") == 0)
                             {
-                                // No more processing to occur.
+                                // No more processing toooccur.
                                 date = new Date();
                                 System.out.println("Finished at " + dateFormat.format(date) + ".");
                                 break;
@@ -391,7 +391,7 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
                         }
                         else
                         {
-                            // The queue is empty.
+                            // hello queue is empty.
                             System.out.println("Queue is empty. Sleeping for another " + waitString);
                             Thread.sleep(60000 * waitMinutes);
                         }
@@ -415,14 +415,14 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 
     }
 
-## <a name="how-to-run-the-java-applications"></a>Como executar os aplicativos Java.
-Execute o aplicativo que exija muita computação, primeiro para criar a fila, depois para solucionar o Problema do Caixeiro Viajante, que adicionará a melhor rota atual para a fila do barramento de serviço. Enquanto o aplicativo que exige muita computação está em execução (ou depois), execute o cliente para exibir os resultados da fila do barramento de serviço.
+## <a name="how-toorun-hello-java-applications"></a>Como toorun Olá aplicativos Java
+Executar aplicativos de computação intensiva hello, primeira fila de saudação toocreate, em seguida, toosolve Olá problema Saleseman viajando, que adicionará Olá atual melhor rota toohello fila do service bus. Durante a saudação aplicativos de computação intensiva está em execução (ou posteriormente), execução Olá cliente toodisplay resulta da fila do barramento de serviço hello.
 
-### <a name="to-run-the-compute-intensive-application"></a>Executar o aplicativo exige computação intensiva
-1. Faça logon na máquina virtual.
+### <a name="toorun-hello-compute-intensive-application"></a>aplicativos de computação intensiva Olá toorun
+1. Faça logon na máquina virtual de tooyour.
 2. Crie uma pasta onde você executará seu aplicativo. Por exemplo, **c:\TSP**.
-3. Copie **TSPSolver.jar** para **c:\TSP**,
-4. Crie um arquivo chamado **c:\TSP\cities.txt** com o conteúdo abaixo.
+3. Cópia **TSPSolver.jar** muito**c:\TSP**,
+4. Crie um arquivo chamado **c:\TSP\cities.txt** com hello conteúdo a seguir.
    
         City_1, 1002.81, -1841.35
         City_2, -953.55, -229.6
@@ -474,44 +474,44 @@ Execute o aplicativo que exija muita computação, primeiro para criar a fila, d
         City_48, 363.68, 768.21
         City_49, -120.3, -463.13
         City_50, 588.51, 679.33
-5. Em um prompt de comando, altere os diretórios para c:\TSP.
-6. Certifique-se de que a pasta da lixeira do JRE está na variável de ambiente PATH.
-7. Você precisará criar a fila do barramento de serviço antes de executar as permutas de solver TSP. Execute o seguinte comando para criar a fila do barramento de serviço.
+5. Em um prompt de comando, altere os diretórios tooc:\TSP.
+6. Verifique a pasta bin de saudação do JRE é na variável de ambiente PATH hello.
+7. Você precisará fila do barramento de serviço toocreate Olá antes de executar permutações de solver TSP hello. Execute Olá fila do barramento de serviço do comando toocreate Olá a seguir.
    
         java -jar TSPSolver.jar createqueue
-8. Agora que a fila está criada, você pode executar as permutas de solver TSP. Por exemplo, execute o seguinte comando para executar o solver para 8 cidades.
+8. Agora que hello fila é criada, você pode executar permutações de solver TSP hello. Por exemplo, execute Olá solver de saudação do comando toorun para cidades de 8 a seguir.
    
         java -jar TSPSolver.jar 8
    
-   Se você não especificar um número, ele será executado para 10 cidades. Como localiza rotas atuais mais curtas, o solver as adicionará à fila.
+   Se você não especificar um número, ele será executado para 10 cidades. Como solver Olá localiza rotas menores atuais, ele adicionará toohello fila.
 
 > [!NOTE]
-> Quanto maior o número que você especificar, por mais tempo o solver será executado. Por exemplo, a execução de 14 cidades pode levar vários minutos, e a execução de 15 cidades pode levar várias horas. Aumentar para 16 ou mais cidades pode resultar em dias de tempo de execução (acabando em semanas, meses e anos). Isso ocorre porque o rápido aumento do número de permutas avaliadas pelo solver, como o número de cidades, aumenta.
+> Olá maior Olá número que você especificar, mais solver de Olá Olá será executado. Por exemplo, a execução de 14 cidades pode levar vários minutos, e a execução de 15 cidades pode levar várias horas. Aumentando too16 ou cidades mais pode resultar em dias de tempo de execução (eventualmente semanas, meses e anos). Isso é devido toohello rápido aumento no número de saudação de permutações avaliada pelo solver hello como Olá aumento do número de cidades.
 > 
 > 
 
-### <a name="how-to-run-the-monitoring-client-application"></a>Como executar o aplicativo cliente de monitoramento
-1. Faça logon no computador onde você executará o aplicativo cliente. Ele não precisa estar na mesma máquina executando o aplicativo **TSPSolver** , embora possa ser.
+### <a name="how-toorun-hello-monitoring-client-application"></a>Como toorun Olá monitoramento do aplicativo cliente
+1. Faça logon na máquina tooyour onde você executa o aplicativo de cliente hello. Não é necessário toobe Olá mesma máquina executando Olá **TSPSolver** aplicativo, embora ele possa ser.
 2. Crie uma pasta onde você executará seu aplicativo. Por exemplo, **c:\TSP**.
-3. Copie **TSPClient.jar** para **c:\TSP**,
-4. Certifique-se de que a pasta da lixeira do JRE está na variável de ambiente PATH.
-5. Em um prompt de comando, altere os diretórios para c:\TSP.
-6. Execute o comando a seguir.
+3. Cópia **TSPClient.jar** muito**c:\TSP**,
+4. Verifique a pasta bin de saudação do JRE é na variável de ambiente PATH hello.
+5. Em um prompt de comando, altere os diretórios tooc:\TSP.
+6. Execute Olá comando a seguir.
    
         java -jar TSPClient.jar
    
-    Como opção, especifique o número de minutos de suspensão entre a verificação da fila passando um argumento de linha de comando. O período de suspensão padrão para a verificação da fila é de 3 minutos, que será usado se nenhum argumento de linha de comando for transmitido para **TSPClient**. Se você quiser usar um valor diferente para o intervalo de suspensão, como um minuto, por exemplo, execute o comando a seguir.
+    Opcionalmente, especifique o número de saudação de toosleep minutos entre a verificação de fila hello, passando um argumento de linha de comando. Olá período de espera padrão para a verificação de fila de saudação é 3 minutos, que é usado se nenhum argumento de linha de comando é passado muito**TSPClient**. Se você quiser toouse um valor diferente para o intervalo de suspensão de saudação, por exemplo, um minuto, execute Olá comando a seguir.
    
         java -jar TSPClient.jar 1
    
-    O cliente será executado até ver a mensagem de uma fila "Concluído". Observe que, se executar várias ocorrências do solver sem executar o cliente, você precisará executar o cliente várias vezes para esvaziar completamente a fila. Também é possível excluir a fila e depois criá-la novamente. Para excluir a fila, execute o comando do **TSPSolver** (não **TSPClient**) a seguir.
+    cliente Olá será executado até que ele vê uma mensagem da fila de "Completo". Observe que, se você executar várias ocorrências do solver Olá sem executar o cliente hello, talvez seja necessário cliente de saudação toorun fila de saudação vazio toocompletely várias vezes. Como alternativa, você pode excluir fila hello e, em seguida, crie-o novamente. fila de Olá toodelete, execute o seguinte de saudação **TSPSolver** (não **TSPClient**) comando.
    
         java -jar TSPSolver.jar deletequeue
    
-    O solver será executado até terminar de examinar todas as rotas.
+    o solver Olá será executado até terminar de examinar todas as rotas.
 
-## <a name="how-to-stop-the-java-applications"></a>Como parar os aplicativos Java.
-Para os aplicativos solver e de cliente, é possível pressionar **Ctrl+C** para sair se você quiser encerrar antes da conclusão normal.
+## <a name="how-toostop-hello-java-applications"></a>Como toostop Olá aplicativos Java
+Para o solver hello e aplicativos cliente, você pode pressionar **Ctrl + C** tooexit se você quiser tooend toonormal anterior conclusão.
 
 [solver_output]:media/java-run-compute-intensive-task/WA_JavaTSPSolver.png
 [client_output]:media/java-run-compute-intensive-task/WA_JavaTSPClient.png

@@ -1,6 +1,6 @@
 ---
-title: "Documentação da Cobrança do Azure - Tutoriais, Referência de API | Microsoft Docs"
-description: "Aprenda a compreender sua cobrança do Azure, bem como gerenciar e monitorar o uso e os custos. Tutoriais, perguntas frequentes, referências de API e outras documentações."
+title: "aaaAzure documentação de cobrança - tutoriais, referência de API | Microsoft Docs"
+description: "Saiba como toounderstand sua cobrança do Azure, bem como gerenciar e monitorar o uso e os custos. Tutoriais, perguntas frequentes, referências de API e outras documentações."
 services: billing
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: f9d8cecf45e40909e39f894c62bcc572b610b014
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 663ea1a4526ed897e963d3daa9ed41a7bdbabef0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-billing-documentation"></a>Documentação da Cobrança do Azure
 
-Aprenda a compreender sua cobrança do Azure e a monitorar o uso e os custos. Tutoriais, perguntas frequentes, referências de API e outras documentações mostram como gerenciar sua conta.
+Saiba como toounderstand sua cobrança e monitorar o uso e os custos do Azure. Tutoriais, perguntas frequentes, referências de API e outras documentações mostram como toomanage sua conta.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -125,7 +125,7 @@ Aprenda a compreender sua cobrança do Azure e a monitorar o uso e os custos. Tu
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Aprenda a usar as APIs</h3>
+                        <h3>Saiba toouse Olá APIs</h3>
                         <p><a href="/azure/billing-usage-rate-card-overview">Visão geral da API</a></p>
                         <p><a href="/azure/billing-usage-rate-card-partner-solution-cloudcruiser">Solução de parceiro: Cloud Cruiser</a></p>
                         <p><a href="/azure/billing-usage-rate-card-partner-solution-cloudyn">Solução de parceiro: Cloudyn</a></p>

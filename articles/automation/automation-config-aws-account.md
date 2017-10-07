@@ -1,6 +1,6 @@
 ---
-title: "Configurar a Autenticação com o Amazon Web Services | Microsoft Docs"
-description: "Este artigo descreve como criar e validar uma credencial do AWS para runbooks na Automação do Azure que gerenciam recursos do AWS."
+title: "aaaConfigure autenticação com o Amazon Web Services | Microsoft Docs"
+description: "Este artigo descreve como toocreate e validar uma credencial AWS para runbooks na automação do Azure gerenciar recursos AWS."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -15,28 +15,28 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/14/2017
 ms.author: magoedte
-ms.openlocfilehash: 81e5e5d56a7e6149409e11aca2e5fdf28d6a7134
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1e312df2422d9da3cd3331fe01aeaa3a43c8b9d4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="authenticate-runbooks-with-amazon-web-services"></a>Autenticar runbooks com o Amazon Web Services
 A automação de tarefas comuns com recursos do AWS (Amazon Web Services) pode ser realizada com runbooks de Automação no Azure.  Você pode automatizar muitas tarefas no AWS usando runbooks de Automação, assim como faz com recursos no Azure.  Bastam duas coisas:
 
-* Uma assinatura do AWS e um conjunto de credenciais.  Especificamente, sua Chave Secreta e sua Chave de Acesso do AWS.  Para saber mais, leia o artigo [Usando credenciais do AWS](http://docs.aws.amazon.com/powershell/latest/userguide/specifying-your-aws-credentials.html).
-* Uma assinatura do Azure e uma conta de Automação.  Para saber mais sobre como configurar uma conta de Automação do Azure, leia o artigo [Configurar uma conta Executar como do Azure](automation-sec-configure-azure-runas-account.md).  
+* Uma assinatura do AWS e um conjunto de credenciais.  Especificamente, sua Chave Secreta e sua Chave de Acesso do AWS.  Para obter mais informações, consulte o artigo Olá [usando as credenciais do AWS](http://docs.aws.amazon.com/powershell/latest/userguide/specifying-your-aws-credentials.html).
+* Uma assinatura do Azure e uma conta de Automação.  Para obter mais informações sobre como configurar uma conta de automação do Azure, consulte o artigo Olá [configurar Azure conta executar como](automation-sec-configure-azure-runas-account.md).  
 
-Para a autenticação com o AWS, você deve especificar um conjunto de credenciais do AWS para autenticar seus runbooks em execução da Automação do Azure. Se já tiver criado uma conta de Automação e quiser usá-la para a autenticação com o AWS, você poderá executar as etapas na seção a seguir.  Se quiser dedicar uma conta para runbooks voltados para recursos do AWS, primeiro crie uma nova [conta de automação](automation-offering-get-started.md) (pule a opção para criar uma entidade de serviço) e siga as etapas abaixo.
+tooauthenticate com AWS, você deve especificar um conjunto de AWS credenciais tooauthenticate seus runbooks em execução de automação do Azure. Se você já tiver uma conta de automação criada e você desejar toouse que tooauthenticate com AWS, você pode seguir etapas Olá Olá seção a seguir.  Se você quiser toodedicated uma conta para recursos AWS direcionando runbooks, você deve primeiro criar um novo [conta de automação](automation-offering-get-started.md) (ignorar Olá opção toocreate uma entidade de serviço) e, em seguida, siga as etapas de saudação abaixo.
 
 ## <a name="configure-automation-account"></a>Configurar conta de Automação
-Para que a Automação do Azure se comunique com o AWS, primeiro você precisará recuperar suas credenciais do AWS e armazená-las como ativos na Automação do Azure.  Execute as etapas a seguir registradas no documento do AWS [Gerenciamento de Chaves de Acesso para sua conta do AWS](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) para criar uma Chave de Acesso e copie a **ID da Chave de Acesso** e a **Chave de Acesso do Segredo** (opcionalmente, baixe o arquivo de chave para armazená-lo em um lugar seguro).
+Para toocommunicate de automação do Azure com AWS, você primeiro precisa tooretrieve suas credenciais AWS e armazená-los como ativos na automação do Azure.  Executar Olá seguindo as etapas documentadas no documento AWS Olá [gerenciar chaves de acesso para sua conta AWS](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) toocreate uma chave de acesso e cópia Olá **ID da chave de acesso** e **chave de acesso do segredo** (opcionalmente baixar o arquivo de chave toostore-lo em um lugar seguro).
 
-Após criar e copiar as chaves de segurança do AWS, você precisará criar um ativo de Credencial com uma conta de Automação do Azure para armazená-las com segurança e fazer referência a elas com seus runbooks.  Siga as etapas na seção **Como criar uma credencial nova** no artigo [Ativos de credenciais na Automação do Azure](automation-credentials.md#to-create-a-new-credential-asset-with-the-azure-portal) e insira as seguintes informações:
+Depois de ter criado e copiado suas chaves de segurança AWS, é necessário toocreate um ativo de credencial com uma toosecurely de conta de automação do Azure armazená-los e referenciá-las com seus runbooks.  Siga as etapas de saudação na seção Olá **toocreate uma nova credencial** em Olá [credencial ativos na automação do Azure](automation-credentials.md#to-create-a-new-credential-asset-with-the-azure-portal) artigo e digite Olá informações a seguir:
 
-1. Na caixa **Nome**, digite **AWScred** ou um valor apropriado seguindo seus padrões de nomenclatura.  
-2. Na caixa **Nome de usuário**, digite a **ID de acesso** e a **Chave de Acesso do Segredo** nas caixas **Senha** e **Confirmar senha**.   
+1. Em Olá **nome** , digite **AWScred** ou um valor apropriado aos padrões de nomenclatura a seguir.  
+2. Em Olá **nome de usuário** digite sua **ID de acesso** e seu **chave secreta do acesso** em hello **senha** e **confirmar senha** caixa.   
 
 ## <a name="next-steps"></a>Próximas etapas
-* Examine o artigo sobre solução [Automatização da implantação de uma VM no Amazon Web Services](automation-scenario-aws-deployment.md) para saber como criar runbooks para automatizar tarefas no AWS.
+* Artigo de solução de saudação Reivew [automatizar a implantação de uma VM no Amazon Web Services](automation-scenario-aws-deployment.md) toolearn como toocreate runbooks tooautomate as tarefas em AWS.
 

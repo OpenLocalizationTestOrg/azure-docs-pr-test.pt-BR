@@ -1,5 +1,5 @@
 ---
-title: "Azure Data Factory - Referência de Script do JSON | Microsoft Docs"
+title: "aaaAzure Data Factory - referência de script JSON | Microsoft Docs"
 description: Oferece esquemas JSON para entidades do Data Factory.
 services: data-factory
 documentationcenter: 
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 805106c0a5cdbff1f143f22a2ae59f6d2a0bf126
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 813fd752bb0ecb1b513d022b9f302325105dac31
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Referência de Script do JSON
 Este artigo fornece esquemas JSON e exemplos para definir entidades do Azure Data Factory (pipeline, atividade, conjunto de dados e serviço vinculado).  
 
 ## <a name="pipeline"></a>Pipeline 
-A estrutura geral de uma definição de pipeline é a seguinte: 
+estrutura de alto nível Olá para uma definição de pipeline é o seguinte: 
 
 ```json
 {
@@ -38,22 +38,22 @@ A estrutura geral de uma definição de pipeline é a seguinte:
 } 
 ```
 
-A tabela a seguir descreve as propriedades na definição de JSON de pipeline:
+Tabela a seguir descreve as propriedades de saudação no pipeline de saudação definição JSON:
 
 | Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
-| name | Nome do pipeline. Especifique um nome que representa a ação que a atividade ou o pipeline é configurado para executar<br/><ul><li>Número máximo de caracteres: 260</li><li>Deve começar com uma letra, um número ou um sublinhado (_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Sim |
-| Descrição |Texto que descreve para que a atividade ou o pipeline é usado | Não |
+| name | Nome do pipeline de saudação. Especifique um nome que representa a ação Olá Olá atividade ou pipeline é toodo configurado<br/><ul><li>Número máximo de caracteres: 260</li><li>Deve começar com uma letra, um número ou um sublinhado (_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Sim |
+| description |Texto que descreve quais atividade hello ou pipeline é usado para | Não |
 | atividades | Contém uma lista de atividades. | Sim |
-| iniciar |Data e hora de início para o pipeline. Deve estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41. <br/><br/>É possível especificar uma hora local, por exemplo, EST. Aqui está um exemplo: `2016-02-27T06:00:00**-05:00`, que é 6 AM EST.<br/><br/>As propriedades de início e término especificam o período ativo para o pipeline. Fatias de saída são produzidas somente nesse período ativo. |Não<br/><br/>Se você especificar um valor para a propriedade final, será necessário especificar um valor para a propriedade inicial.<br/><br/>Os horários de início e fim podem estar vazios para criar um pipeline. Você deve especificar ambos os valores para definir um período ativo de execução do pipeline. Se não especificar os horários de início e fim ao criar um pipeline, você poderá defini-los depois usando o cmdlet Set-AzureRmDataFactoryPipelineActivePeriod. |
-| end |Data e hora de término para o pipeline. Se especificado, deve estar no formato ISO. Por exemplo: 2014-10-14T17:32:41. <br/><br/>É possível especificar uma hora local, por exemplo, EST. Veja este exemplo: `2016-02-27T06:00:00**-05:00`, que é 6 AM EST.<br/><br/>Para executar o pipeline indefinidamente, especifique 9999-09-09 como o valor da propriedade end. |Não <br/><br/>Se você especificar um valor para a propriedade inicial, será necessário especificar um valor para a propriedade final.<br/><br/>Confira as observações para a propriedade **iniciar** . |
-| isPaused |Se definido como verdadeiro, o pipeline não é executado. Valor padrão = falso. Você pode usar essa propriedade para habilitar ou desabilitar. |Não |
-| pipelineMode |O método de agendamento é executado para o pipeline. Os valores permitidos são: scheduled (padrão), onetime.<br/><br/>'Scheduled' indica que o pipeline será executado em um intervalo de tempo especificado de acordo com seu período ativo (hora de início e término). “Onetime” indica que o pipeline é executado apenas uma vez. Pipelines Onetime não podem ser modificados e atualizados depois de criados atualmente. Confira [Pipeline avulso](data-factory-create-pipelines.md#onetime-pipeline) para obter detalhes sobre a configuração única. |Não |
-| expirationTime |Duração de tempo após a criação pela qual o pipeline é válido e deve permanecer provisionado. Se não houver execuções ativas, com falha ou pendentes, o pipeline será excluído automaticamente depois de atingir o tempo de expiração. |Não |
+| iniciar |Data-hora de início para o pipeline de saudação. Deve estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41. <br/><br/>É possível toospecify a hora local, por exemplo um tempo estimado. Aqui está um exemplo: `2016-02-27T06:00:00**-05:00`, que é 6 AM EST.<br/><br/>Hello propriedades de início e término juntas especificam o período ativo para o pipeline de saudação. Fatias de saída são produzidas somente nesse período ativo. |Não<br/><br/>Se você especificar um valor para a propriedade end hello, você deve especificar o valor para a propriedade de início de saudação.<br/><br/>Olá horários de início e término podem ser vazio toocreate um pipeline. Você deve especificar os dois valores tooset um período ativo para Olá toorun de pipeline. Se você não especificar horários de início e término durante a criação de um pipeline, você pode defini-las usando o cmdlet Olá AzureRmDataFactoryPipelineActivePeriod conjunto mais tarde. |
+| end |Data-hora de término para o pipeline de saudação. Se especificado, deve estar no formato ISO. Por exemplo: 2014-10-14T17:32:41. <br/><br/>É possível toospecify a hora local, por exemplo um tempo estimado. Aqui está um exemplo: `2016-02-27T06:00:00**-05:00`, que é 6 AM EST.<br/><br/>pipeline de saudação toorun indefinidamente, especificar 9999-09-09 como valor de saudação para a propriedade end hello. |Não <br/><br/>Se você especificar um valor para a propriedade de início Olá, você deve especificar o valor para a propriedade end hello.<br/><br/>Consulte as observações para Olá **iniciar** propriedade. |
+| isPaused |Se o conjunto tootrue Olá pipeline não é executado. Valor padrão = falso. Você pode usar essa propriedade tooenable ou desabilitar. |Não |
+| pipelineMode |método Hello para o agendamento é executado para o pipeline de saudação. Os valores permitidos são: scheduled (padrão), onetime.<br/><br/>'Agendado' indica que esse pipeline Olá é executado em um intervalo de tempo especificado de acordo com o período ativo de tooits (hora de início e de término). 'Única' indica que esse pipeline Olá é executado apenas uma vez. Pipelines Onetime não podem ser modificados e atualizados depois de criados atualmente. Confira [Pipeline avulso](data-factory-create-pipelines.md#onetime-pipeline) para obter detalhes sobre a configuração única. |Não |
+| expirationTime |Duração de tempo após a criação para o qual Olá pipeline é válido e deve permanecer provisionado. Se ele não tem qualquer ativo, falha, ou pendente é executado, o pipeline de saudação será excluído automaticamente depois que ele atinge o tempo de expiração de saudação. |Não |
 
 
 ## <a name="activity"></a>Atividade 
-A estrutura de alto nível de uma atividade dentro de uma definição de pipeline (elemento atividades) é a seguinte:
+estrutura de alto nível Olá para uma atividade dentro de uma definição de pipeline (elemento de atividades) é o seguinte:
 
 ```json
 {
@@ -76,46 +76,46 @@ A estrutura de alto nível de uma atividade dentro de uma definição de pipelin
 }
 ```
 
-A tabela a seguir descreve as propriedades na definição de JSON de atividade:
+Tabela a seguir descrevem as propriedades de hello atividade Olá definição JSON:
 
 | Marca | Descrição | Obrigatório |
 | --- | --- | --- |
-| name |Nome da atividade. Especifique um nome que representa a ação que a atividade é configurada para executar<br/><ul><li>Número máximo de caracteres: 260</li><li>Deve começar com uma letra, um número ou um sublinhado (_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Sim |
-| description |Texto que descreve qual a utilidade da atividade. |Sim |
-| type |Especifica o tipo da atividade. Consulte as seções [ARMAZENAMENTOS DE DADOS](#data-stores) e [ATIVIDADES DE TRANSFORMAÇÃO DE DADOS](#data-transformation-activities) para obter diferentes tipos de atividade. |Sim |
-| inputs |Tabelas de entrada utilizadas pela atividade<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Sim |
-| outputs |Tabelas de saída utilizadas pela atividade.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Sim |
-| linkedServiceName |Nome do serviço vinculado usado pela atividade. <br/><br/>Uma atividade pode exigir que você especifique o serviço vinculado que é vinculado ao ambiente de computação necessário. |Sim para atividades de HDInsight, atividades de Azure Machine Learning e Atividade de Procedimento Armazenado. <br/><br/>Não para todas as outros |
-| typeProperties |As propriedades na seção typeProperties dependem do tipo de atividade. |Não |
-| policy |Políticas que afetam o comportamento de tempo de execução da atividade. Se não for especificado, as políticas padrão serão utilizadas. |Não |
-| agendador |A propriedade "scheduler" é usada para definir o agendamento desejado para a atividade. Suas sub-propriedades são aquelas na [propriedade de disponibilidade em um conjunto de dados](data-factory-create-datasets.md#dataset-availability). |Não |
+| name |Nome da atividade de saudação. Especifique um nome que representa a ação de hello atividade Olá configurado toodo<br/><ul><li>Número máximo de caracteres: 260</li><li>Deve começar com uma letra, um número ou um sublinhado (_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Sim |
+| description |Texto que descreve quais hello atividade é usada. |Sim |
+| type |Especifica o tipo de saudação da atividade de saudação. Consulte Olá [REPOSITÓRIOS de dados](#data-stores) e [atividades de TRANSFORMAÇÃO de dados](#data-transformation-activities) seções para diferentes tipos de atividades. |Sim |
+| inputs |Tabelas de entrada usadas pela atividade Olá<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Sim |
+| outputs |Tabelas de saída usadas pela atividade de saudação.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Sim |
+| linkedServiceName |Nome do serviço de saudação vinculado usado pela atividade de saudação. <br/><br/>Uma atividade pode exigir que você especifique que o serviço Olá vinculado que vincula o ambiente de computação necessária toohello. |Sim para atividades de HDInsight, atividades de Azure Machine Learning e Atividade de Procedimento Armazenado. <br/><br/>Não para todas as outros |
+| typeProperties |Propriedades na seção de typeProperties Olá dependem do tipo de atividade de saudação. |Não |
+| policy |Diretivas que afetam o comportamento de tempo de execução de saudação da atividade de saudação. Se não for especificado, as políticas padrão serão utilizadas. |Não |
+| agendador |propriedade "Agendador" é usado toodefine desejado de agendamento para a atividade de saudação. Seus subpropriedades são Olá mesmo Olá na Olá [propriedade de disponibilidade em um conjunto de dados](data-factory-create-datasets.md#dataset-availability). |Não |
 
 ### <a name="policies"></a>Políticas
-As políticas afetam o comportamento de tempo de execução de uma atividade, especialmente quando a divisão de uma tabela é processada. A tabela a seguir fornece os detalhes.
+Políticas afetam o comportamento de tempo de execução de saudação de uma atividade, especialmente quando Olá fatia de uma tabela é processada. Olá, a tabela a seguir fornece detalhes de saudação.
 
 | Propriedade | Valores permitidos | Valor Padrão | Descrição |
 | --- | --- | --- | --- |
-| simultaneidade |Inteiro  <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções de atividade paralela que podem ocorrer em divisões diferentes. Por exemplo, se uma atividade precisa passar por um grande conjunto de dados disponíveis, ter um valor de concorrência maior acelera o processamento de dados. |
-| executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a ordem das divisões de dados que estão sendo processadas.<br/><br/>Por exemplo, se houver duas fatias (uma ocorre às 16h e a outra às 17h),e ambas estiverem com a execução pendente. Se você definir executionPriorityOrder como NewestFirst, a divisão às 17h será processada primeiro. De modo semelhante, se você definir executionPriorityORder como OldestFIrst, a fatia às 16h será processada. |
-| tentar novamente |Número inteiro<br/><br/>O valor máximo pode ser 10 |0 |Número de novas tentativas antes do processamento de dados da divisão ser marcado como Com falha. A execução da atividade para uma divisão de dados é repetida até a contagem de repetição especificada. A nova tentativa é feita logo após a falha. |
-| Tempo limite |TimeSpan |00:00:00 |Tempo limite para a atividade. Exemplo: 00:10:00 (implica o tempo limite de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite será infinito.<br/><br/>Se o tempo de processamento de dados em uma divisão exceder o valor de tempo limite, ele será cancelado e o sistema tentará repetir o processamento. O número de repetições depende da propriedade de repetição. Quando atingir o tempo limite, o status será TimedOut. |
-| atrasar |TimeSpan |00:00:00 |Especifique o atraso antes do processamento de dados da divisão começar.<br/><br/>A execução da atividade de uma fatia de dados será iniciada após o atraso passar do tempo de execução esperado.<br/><br/>Exemplo: 00:10:00 (implica um atraso de 10 minutos) |
-| longRetry |Inteiro <br/><br/>Valor máximo: 10 |1 |O número de tentativas repetidas longas antes que a execução da divisão falhe.<br/><br/>Tentativas de longRetry são espaçadas por longRetryInterval. Portanto, se você precisar especificar um tempo entre tentativas de repetição, use longRetry. Se Retry e longRetry forem especificados, cada tentativa de longRetry incluirá tentativas de Retry, e o número máximo de tentativas será Retry * longRetry.<br/><br/>Por exemplo, se tivermos as seguintes configurações na política de atividade:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Presumindo que haja apenas uma fatia para execução (o status é Aguardando) e a execução da atividade sempre falhe. Inicialmente haveria três tentativas consecutivas de execução. Após cada tentativa, o status de divisão seria Retry. Depois das três primeiras tentativas, o status da divisão seria LongRetry.<br/><br/>Depois de uma hora (ou seja, valor de longRetryInteval), deve haver outro conjunto de três tentativas consecutivas de execução. Depois disso, o status da divisão seria Com falha e não haveria nova tentativa. Portanto, em geral, foram feitas seis tentativas.<br/><br/>Se qualquer execução for bem-sucedida, o status da fatia seria Ready e não haverá mais nenhuma tentativa.<br/><br/>longRetry pode ser usado em situações em que dados dependentes chegam em horários não determinísticos ou o ambiente geral está instável onde o processamento de dados ocorre. Nesses casos, fazer novas tentativas uma após a outra pode não ajudar e fazer isso após um intervalo de tempo resulta na saída desejada.<br/><br/>Advertência: não defina valores altos para longRetry ou longRetryInterval. Normalmente, os valores mais altos implicam outros problemas sistêmicos. |
-| longRetryInterval |TimeSpan |00:00:00 |O intervalo entre tentativas de repetição longa |
+| simultaneidade |Inteiro  <br/><br/>Valor máximo: 10 |1 |Número de execuções concorrentes da atividade de saudação.<br/><br/>Ele determina o número de saudação de execuções de atividade paralela que pode ocorrer em intervalos diferentes. Por exemplo, se precisar de uma atividade toogo por meio de um grande conjunto de dados disponíveis, ter um valor maior da simultaneidade acelera o processamento de dados de saudação. |
+| executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a saudação ordenação de fatias de dados que estão sendo processadas.<br/><br/>Por exemplo, se houver duas fatias (uma ocorre às 16h e a outra às 17h),e ambas estiverem com a execução pendente. Se você definir Olá executionPriorityOrder toobe NewestFirst, a fatia Olá às 17H é processada primeiro. Da mesma forma se você definir Olá executionPriorityORder toobe OldestFIrst, em seguida, Olá fatia às 16: 00 é processada. |
+| tentar novamente |Número inteiro<br/><br/>O valor máximo pode ser 10 |0 |Número de tentativas antes do processamento de dados de saudação de fatia Olá é marcado como falha. A execução da atividade para uma fatia de dados é repetida backup toohello especificado contagem de repetição. repetição de saudação é feita logo após a falha de saudação. |
+| Tempo limite |TimeSpan |00:00:00 |Tempo limite para a atividade de saudação. Exemplo: 00:10:00 (implica o tempo limite de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite de saudação é infinito.<br/><br/>Se o tempo de processamento de dados de saudação em uma fatia exceder o valor de tempo limite de Olá, é cancelada e sistema Olá tentativas de processamento de saudação tooretry. o número de tentativas Olá depende da propriedade de repetição de saudação. Quando o tempo limite ocorre, o status de saudação é definido tooTimedOut. |
+| atrasar |TimeSpan |00:00:00 |Especifique o intervalo de saudação antes do processamento de dados de saudação fatia começar.<br/><br/>execução de saudação da atividade de uma fatia de dados é iniciada depois Olá atraso é passado Olá esperado tempo de execução.<br/><br/>Exemplo: 00:10:00 (implica um atraso de 10 minutos) |
+| longRetry |Inteiro <br/><br/>Valor máximo: 10 |1 |número de saudação de repetição longa tentativas antes da execução da fatia Olá falhou.<br/><br/>Tentativas de longRetry são espaçadas por longRetryInterval. Portanto, se você precisar toospecify um tempo entre tentativas de repetição, use longRetry. Se Retry e longRetry forem especificados, cada tentativa de longRetry inclui novas tentativas e Olá o número máximo de tentativas é repetir * longRetry.<br/><br/>Por exemplo, se tivermos Olá configurações na política de atividade Olá a seguir:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Pressupomos que haja apenas um tooexecute de fatia (status está esperando) e a execução da atividade Olá falha sempre. Inicialmente haveria três tentativas consecutivas de execução. Após cada tentativa, o status da fatia Olá deve ser Retry. Depois de tentativas primeiro 3 estão acima, o status da fatia Olá deve ser LongRetry.<br/><br/>Depois de uma hora (ou seja, valor de longRetryInteval), deve haver outro conjunto de três tentativas consecutivas de execução. Depois disso, o status da fatia Olá deve ser Failed e nenhuma outra tentativa será feita. Portanto, em geral, foram feitas seis tentativas.<br/><br/>Se qualquer execução for bem-sucedida, o status da fatia Olá seria pronto e não tentativa de nenhuma outra tentativa.<br/><br/>longRetry pode ser usado em situações em que dados dependentes chegam em momentos não determinística ou hello ambiente geral é instável em ocorre o processamento de dados. Nesses casos, não pode ajudar a fazer tentativas após o outro e fazer isso após um intervalo de resultados de tempo de saudação desejado de saída.<br/><br/>Advertência: não defina valores altos para longRetry ou longRetryInterval. Normalmente, os valores mais altos implicam outros problemas sistêmicos. |
+| longRetryInterval |TimeSpan |00:00:00 |atraso de saudação entre as tentativas de repetição longa |
 
 ### <a name="typeproperties-section"></a>Seção typeProperties
-A seção typeProperties é diferente para cada tipo de atividade. Atividades de transformação possuem apenas as propriedades de tipo. Consulte [ATIVIDADES DE TRANSFORMAÇÃO DE DADOS](#data-transformation-activities) neste artigo para obter exemplos de JSON que definem atividades de transformação em um pipeline. 
+seção de typeProperties Olá é diferente para cada atividade. Atividades de transformação tem apenas as propriedades de tipo hello. Consulte [ATIVIDADES DE TRANSFORMAÇÃO DE DADOS](#data-transformation-activities) neste artigo para obter exemplos de JSON que definem atividades de transformação em um pipeline. 
 
-A **atividade de cópia** possui duas subseções na seção typeProperties: **fonte** e **coletor**. Consulte a seção [ARMAZENAMENTOS DE DADOS](#data-stores) neste artigo para exemplos de JSON que mostram como usar um armazenamento de dados como uma fonte e/ou coletor. 
+**Atividade de cópia** tem duas subseções na seção de typeProperties Olá: **fonte** e **coletor**. Consulte [REPOSITÓRIOS de dados](#data-stores) seção neste artigo para JSON exemplos que mostram como toouse um dados armazenados como uma origem e/ou o coletor. 
 
 ### <a name="sample-copy-pipeline"></a>Pipeline de cópia de exemplo
-No pipeline de exemplo a seguir, há uma atividade do tipo **Cópia** in the **atividades** . Neste exemplo, a [Atividade de cópia](data-factory-data-movement-activities.md) copia dados de um Armazenamento de Blobs do Azure para um banco de dados SQL do Azure. 
+Olá pipeline de exemplo a seguir, há uma atividade do tipo **cópia** em Olá **atividades** seção. Neste exemplo, Olá [atividade de cópia](data-factory-data-movement-activities.md) copia dados de um banco de dados de SQL do Azure de tooan do armazenamento de BLOBs do Azure. 
 
 ```json
 {
   "name": "CopyPipeline",
   "properties": {
-    "description": "Copy data from a blob to Azure SQL table",
+    "description": "Copy data from a blob tooAzure SQL table",
     "activities": [
       {
         "name": "CopyFromBlobToSQL",
@@ -154,18 +154,18 @@ No pipeline de exemplo a seguir, há uma atividade do tipo **Cópia** in the **a
 } 
 ```
 
-Observe os seguintes pontos:
+Observe Olá pontos a seguir:
 
-* Na seção de atividades, há apenas uma atividade cujo **tipo** é definido como **Copy**.
-* A entrada da atividade é definida como **InputDataset** e a saída da atividade é definida como **OutputDataset**.
-* Na seção **typeProperties**, **BlobSource** é especificado como o tipo de origem e **SqlSink** é especificado como o tipo de coletor.
+* Na seção de atividades hello, há apenas uma atividade cuja **tipo** está definido muito**cópia**.
+* Entrada para atividade de saudação é definida muito**InputDataset** e de saída para o conjunto de hello atividade é muito**OutputDataset**.
+* Em Olá **typeProperties** seção, **BlobSource** é especificado como tipo de fonte hello e **SqlSink** é especificado como tipo de coletor de saudação.
 
-Consulte a seção [ARMAZENAMENTOS DE DADOS](#data-stores) neste artigo para exemplos de JSON que mostram como usar um armazenamento de dados como uma fonte e/ou coletor.    
+Consulte [REPOSITÓRIOS de dados](#data-stores) seção neste artigo para JSON exemplos que mostram como toouse um dados armazenados como uma origem e/ou o coletor.    
 
-Para obter uma explicação completa da criação desse pipeline, confira [Tutorial: copiar dados de Armazenamento de Blobs para o Banco de Dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+Para obter uma explicação completa de criar esse pipeline, consulte [Tutorial: copiar dados de armazenamento de Blob tooSQL banco de dados](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 ### <a name="sample-transformation-pipeline"></a>Pipeline de transformação de exemplo
-No pipeline de exemplo a seguir, há uma atividade do tipo **HDInsightHive** in the **atividades** . Neste exemplo, a [atividade de Hive do HDInsight](data-factory-hive-activity.md) transforma os dados de um Armazenamento de Blobs do Azure executando um arquivo de script do Hive em um cluster Hadoop do HDInsight do Azure. 
+Olá pipeline de exemplo a seguir, há uma atividade do tipo **HDInsightHive** em Olá **atividades** seção. Neste exemplo, Olá [atividade Hive do HDInsight](data-factory-hive-activity.md) transforma os dados de um armazenamento de BLOBs do Azure executando um arquivo de script do Hive em um cluster de Hadoop de HDInsight do Azure. 
 
 ```json
 {
@@ -212,37 +212,37 @@ No pipeline de exemplo a seguir, há uma atividade do tipo **HDInsightHive** in 
 }
 ```
 
-Observe os seguintes pontos: 
+Observe Olá pontos a seguir: 
 
-* Na seção de atividades, há apenas uma atividade cujo **tipo** é definido como **HDInsightHive**.
-* O arquivo de script do Hive, **partitionweblogs.hql**, é armazenado na conta de armazenamento do Azure (especificada pelo scriptLinkedService chamado **AzureStorageLinkedService**) e na pasta **script** no contêiner **adfgetstarted**.
-* A seção **defines`${hiveconf:partitionedtable}` é usada para especificar as configurações de tempo de execução passadas para o script do hive como valores de configuração de Hive (por exemplo,** , `${hiveconf:inputtable}`).
+* Na seção de atividades hello, há apenas uma atividade cuja **tipo** está definido muito**HDInsightHive**.
+* arquivo de script do Hive Hello, **partitionweblogs.hql**, é armazenado no hello conta de armazenamento do Azure (especificado por scriptLinkedService hello, chamado **AzureStorageLinkedService**) e em  **script** pasta no contêiner Olá **adfgetstarted**.
+* Olá **define** seção é toospecify usadas configurações de tempo de execução de saudação que são passadas script do hive toohello como valores de configuração do Hive (por exemplo `${hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
 Consulte [ATIVIDADES DE TRANSFORMAÇÃO DE DADOS](#data-transformation-activities) neste artigo para obter exemplos de JSON que definem atividades de transformação em um pipeline.
 
-Para obter uma explicação completa da criação desse pipeline, confira [Tutorial: criar seu primeiro pipeline para processar dados usando o cluster Hadoop](data-factory-build-your-first-pipeline.md). 
+Para obter uma explicação completa de criar esse pipeline, consulte [Tutorial: Crie sua primeira pipeline tooprocess de dados usando o cluster Hadoop](data-factory-build-your-first-pipeline.md). 
 
 ## <a name="linked-service"></a>Serviço vinculado
-A estrutura de alto nível de uma definição de um serviço vinculado é a seguinte:
+estrutura de alto nível Olá para uma definição de serviço vinculado é o seguinte:
 
 ```json
 {
-    "name": "<name of the linked service>",
+    "name": "<name of hello linked service>",
     "properties": {
-        "type": "<type of the linked service>",
+        "type": "<type of hello linked service>",
         "typeProperties": {
         }
     }
 }
 ```
 
-A tabela a seguir descreve as propriedades na definição de JSON de atividade:
+Tabela a seguir descrevem as propriedades de hello atividade Olá definição JSON:
 
 | Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- | 
-| name | Nome do serviço vinculado. | Sim | 
-| properties - type | Tipo de serviço vinculado. Por exemplo: Armazenamento do Azure, Banco de Dados SQL do Azure. |
-| typeProperties | A seção typeProperties possui elementos que são diferentes para cada armazenamento de dados ou ambiente de computação. Consulte a seção [armazenamentos de dados](#datastores) para saber sobre todos os serviços vinculados de repositório de dados e [ambientes de computação](#compute-environments) para os serviços vinculados à computação |   
+| name | Nome do serviço de saudação vinculado. | Sim | 
+| properties - type | Serviço vinculado do tipo de saudação. Por exemplo: Armazenamento do Azure, Banco de Dados SQL do Azure. |
+| typeProperties | seção de typeProperties Olá tem elementos que são diferentes para cada repositório de dados ou ambiente de computação. Consulte [repositórios de dados](#datastores) seção de todos os dados de saudação serviços vinculados da loja e [ambientes de computação](#compute-environments) para Olá todos os serviços vinculados de computação |   
 
 ## <a name="dataset"></a>Conjunto de dados 
 Um conjunto de dados no Azure Data Factory é definido da seguinte maneira:
@@ -252,12 +252,12 @@ Um conjunto de dados no Azure Data Factory é definido da seguinte maneira:
     "name": "<name of dataset>",
     "properties": {
         "type": "<type of dataset: AzureBlob, AzureSql etc...>",
-        "external": <boolean flag to indicate external data. only for input datasets>,
-        "linkedServiceName": "<Name of the linked service that refers to a data store.>",
+        "external": <boolean flag tooindicate external data. only for input datasets>,
+        "linkedServiceName": "<Name of hello linked service that refers tooa data store.>",
         "structure": [
             {
-                "name": "<Name of the column>",
-                "type": "<Name of the type>"
+                "name": "<Name of hello column>",
+                "type": "<Name of hello type>"
             }
         ],
         "typeProperties": {
@@ -265,8 +265,8 @@ Um conjunto de dados no Azure Data Factory é definido da seguinte maneira:
             "<type specific property 2>": "<value 2>",
         },
         "availability": {
-            "frequency": "<Specifies the time unit for data slice production. Supported frequency: Minute, Hour, Day, Week, Month>",
-            "interval": "<Specifies the interval within the defined frequency. For example, frequency set to 'Hour' and interval set to 1 indicates that new data slices should be produced hourly>"
+            "frequency": "<Specifies hello time unit for data slice production. Supported frequency: Minute, Hour, Day, Week, Month>",
+            "interval": "<Specifies hello interval within hello defined frequency. For example, frequency set too'Hour' and interval set too1 indicates that new data slices should be produced hourly>"
         },
        "policy":
         {      
@@ -275,28 +275,28 @@ Um conjunto de dados no Azure Data Factory é definido da seguinte maneira:
 }
 ```
 
-A tabela a seguir descreve as propriedades no JSON acima:   
+Olá, a tabela a seguir descreve as propriedades no hello acima JSON:   
 
 | Propriedade | Descrição | Obrigatório | Padrão |
 | --- | --- | --- | --- |
-| name | Nome do conjunto de dados. Confira [Azure Data Factory - Regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura. |Sim |ND |
-| type | Tipo de conjunto de dados. Especifique um dos tipos com suporte no Azure Data Factory (por exemplo: AzureBlob, AzureSqlTable). Consulte a seção [ARMAZENAMENTOS DE DADOS](#data-stores) para saber sobre todos os tipos de conjunto de dados e armazenamento de dados com suporte da data factory. | 
-| estrutura | Esquema do conjunto de dados. Ela contém colunas, seus tipos, etc. | Não |ND |
-| typeProperties | Propriedades que correspondem ao tipo selecionado. Consulte a seção [ARMAZENAMENTOS DE DADOS](#data-stores) para saber quais são os tipos com suporte e suas propriedades. |Sim |ND |
-| externo | Sinalizador booliano para especificar se um conjunto de dados é explicitamente produzido por um pipeline de data factory ou não. |Não |false |
-| disponibilidade | Define a janela de processamento ou o modelo de fatiamento para a produção de conjunto de dados. Para obter detalhes sobre o modelo de divisão do conjunto de dados, consulte o artigo [Agendamento e Execução](data-factory-scheduling-and-execution.md) . |Sim |ND |
-| policy |Define os critérios ou a condição que as fatias de conjunto de dados devem atender. <br/><br/>Para obter detalhes, consulte a seção [Política do Conjunto de Dados](#Policy) . |Não |ND |
+| name | Nome do conjunto de dados de saudação. Confira [Azure Data Factory - Regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura. |Sim |ND |
+| type | Tipo de conjunto de dados de saudação. Especifique um dos tipos de saudação com suporte pela fábrica de dados do Azure (por exemplo: AzureBlob, AzureSqlTable). Consulte [REPOSITÓRIOS de dados](#data-stores) seção Olá a todos os repositórios de dados e tipos de conjunto de dados com suporte pela fábrica de dados. | 
+| estrutura | Esquema de conjunto de dados de saudação. Ela contém colunas, seus tipos, etc. | Não |ND |
+| typeProperties | Propriedades correspondentes toohello tipo selecionado. Consulte a seção [ARMAZENAMENTOS DE DADOS](#data-stores) para saber quais são os tipos com suporte e suas propriedades. |Sim |ND |
+| externo | Booliano sinalizador toospecify se um conjunto de dados explicitamente produzido por um pipeline da fábrica de dados ou não. |Não |false |
+| disponibilidade | Define Olá processamento Olá dividindo o modelo para conjunto de dados de produção de hello ou janela. Para obter detalhes sobre o dataset Olá dividindo o modelo, consulte [de agendamento e execução](data-factory-scheduling-and-execution.md) artigo. |Sim |ND |
+| policy |Define os critérios de saudação ou condição Olá que devem ser atendidos por fatias de conjunto de dados de saudação. <br/><br/>Para obter detalhes, consulte a seção [Política do Conjunto de Dados](#Policy) . |Não |ND |
 
-Cada coluna na seção **structure** contém as seguintes propriedades:
+Cada coluna no hello **estrutura** seção contém Olá propriedades a seguir:
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| name |Nome da coluna. |Sim |
-| type |Tipo de dados da coluna.  |Não |
-| culture |Cultura baseada em .NET a ser usada quando o tipo é especificado e é o tipo .NET `Datetime` ou `Datetimeoffset`. O padrão é `en-us`. |Não |
-| formato |O formato de cadeia de caracteres a ser usado quando o tipo é especificado e é o tipo .NET `Datetime` ou `Datetimeoffset`. |Não |
+| name |Nome da coluna de saudação. |Sim |
+| type |Tipo de dados da coluna de saudação.  |Não |
+| culture |.NET com base em cultura toobe usado quando o tipo é especificado e é o tipo .NET `Datetime` ou `Datetimeoffset`. O padrão é `en-us`. |Não |
+| formato |Formatar toobe de cadeia de caracteres usada quando o tipo é especificado e é o tipo .NET `Datetime` ou `Datetimeoffset`. |Não |
 
-No exemplo a seguir, o conjunto de dados tem três colunas: `slicetimestamp`, `projectname` e `pageviews`, sendo dos seguintes tipos: String, String e Decimal, respectivamente.
+Olá exemplo a seguir, Olá dataset tem três colunas `slicetimestamp`, `projectname`, e `pageviews` e eles são do tipo: cadeia de caracteres, cadeia de caracteres e decimais respectivamente.
 
 ```json
 structure:  
@@ -307,17 +307,17 @@ structure:
 ]
 ```
 
-A tabela a seguir descreve as propriedades que você pode usar na seção de **availability**:
+Olá tabela a seguir descreve as propriedades você pode usar em Olá **disponibilidade** seção:
 
 | Propriedade | Descrição | Obrigatório | Padrão |
 | --- | --- | --- | --- |
-| frequência |Especifica a unidade de tempo para a produção da fatia de conjunto de dados.<br/><br/><b>Frequência com suporte</b>: Minuto, Hora, Dia, Semana, Mês |Sim |ND |
-| intervalo |Especifica um multiplicador para frequência<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida.<br/><br/>Se você precisa que o conjunto de dados seja dividido por hora, defina <b>Frequência</b> como <b>Hora</b> e <b>intervalo</b> como <b>1</b>.<br/><br/><b>Observação:</b>: caso você especifique a frequência como minuto, recomendamos que defina o intervalo como não inferior a 15 |Sim |ND |
-| estilo |Especifica se a fatia deve ser produzida no início/término do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se a frequência for definida como Mês e o estilo como EndOfInterval, a fatia será produzida no último dia do mês. Se o estilo for definido como StartOfInterval, a fatia será produzida no primeiro dia do mês.<br/><br/>Se a frequência for definida como Dia e o estilo como EndOfInterval, a fatia será produzida na última hora do dia.<br/><br/>Se a Frequência for definida como Hora e o estilo como EndOfInterval, a fatia será produzida ao final da hora. Por exemplo, para uma fatia de período 13h – 14h, a fatia é produzida às 14h. |Não |EndOfInterval |
-| anchorDateTime |Define a posição absoluta no tempo usada pelo agendador para computar limites de fatia do conjunto de dados. <br/><br/><b>Observação:</b> se AnchorDateTime tiver partes de datas mais granulares do que a frequência, as partes mais granulares serão ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> for <b>por hora</b> (frequência: hora e intervalo: 1) e o <b>AnchorDateTime</b> contiver <b>minutos e segundos</b>, as partes <b>minutos e segundos</b> do AnchorDateTime serão ignoradas. |Não |01/01/0001 |
-| deslocamento |O período de tempo no qual o início e o término de todas as fatias de conjunto de dados são deslocados. <br/><br/><b>Observação:</b> se anchorDateTime e o deslocamento forem especificados, o resultado será um deslocamento combinado. |Não |ND |
+| frequência |Especifica a unidade de tempo de saudação de produção de fatia do conjunto de dados.<br/><br/><b>Frequência com suporte</b>: Minuto, Hora, Dia, Semana, Mês |Sim |ND |
+| intervalo |Especifica um multiplicador para frequência<br/><br/>"Intervalo de frequência x" determina com que frequência hello fatia é produzida.<br/><br/>Se você precisar hello toobe de conjunto de dados dividido por hora, defina <b>frequência</b> muito<b>hora</b>, e <b>intervalo</b> muito<b>1</b>.<br/><br/><b>Observação</b>: se você especificar a frequência como minuto, recomendamos que você defina Olá intervalo toono menor que 15 |Sim |ND |
+| estilo |Especifica se a fatia Olá deve ser produzida no hello início/término do intervalo de saudação.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Quando frequência é definida tooMonth e o estilo definido tooEndOfInterval, fatia de saudação é produzida no último dia do mês de saudação. Se o estilo de saudação é definido tooStartOfInterval, Olá fatia é produzida no hello primeiro dia do mês.<br/><br/>Quando frequência é definida tooDay e o estilo definido tooEndOfInterval, fatia de Olá é produzida no hello última hora do dia de saudação.<br/><br/>Quando frequência é definida tooHour e o estilo definido tooEndOfInterval, fatia de Olá é produzida no final de saudação de hora hello. Por exemplo, para uma fatia de período de 1 PM – 14: 00, a fatia de saudação é produzida às 14: 00. |Não |EndOfInterval |
+| anchorDateTime |Define a posição absoluta Olá no tempo usado pelos limites de fatia do Agendador toocompute conjunto de dados. <br/><br/><b>Observação</b>: se Olá AnchorDateTime tem partes de data mais granulares do que a frequência de hello, hello partes mais granulares são ignoradas. <br/><br/>Por exemplo, se hello <b>intervalo</b> é <b>por hora</b> (frequência: hora e intervalo: 1) e hello <b>AnchorDateTime</b> contém <b>minutos e segundos</b>, em seguida, Olá <b>minutos e segundos</b> partes da saudação AnchorDateTime são ignoradas. |Não |01/01/0001 |
+| deslocamento |O intervalo de tempo pelo qual saudação inicial e final de todas as fatias de conjunto de dados são transferidos. <br/><br/><b>Observação</b>: se anchorDateTime e o deslocamento forem especificados, o resultado de saudação é shift Olá combinado. |Não |ND |
 
-A seção de disponibilidade a seguir especifica que o conjunto de dados de saída é produzido por hora (ou) o conjunto de dados de entrada está disponível por hora:
+Olá seção de disponibilidade a seguir especifica esse conjunto de dados de saída de saudação é produzido por hora (ou) entrada conjunto de dados está disponível por hora:
 
 ```json
 "availability":    
@@ -327,12 +327,12 @@ A seção de disponibilidade a seguir especifica que o conjunto de dados de saí
 }
 ```
 
-A seção **política** na definição do conjunto de dados define os critérios ou a condição que as divisões de conjunto de dados devem atender.
+Olá **política** seção na definição de conjunto de dados define os critérios de saudação ou condição Olá Olá fatias de conjunto de dados deve ser atendidos.
 
-| Nome da política | Descrição | Aplicado a | Obrigatório | Padrão |
+| Nome da política | Descrição | Aplicado muito| Obrigatório | Padrão |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB |Valida que os dados em um **blob do Azure** atendem aos requisitos de tamanho mínimo (em megabytes). |blob do Azure |Não |ND |
-| minimumRows |Valida que os dados em um **Banco de Dados SQL do Azure** ou uma **tabela do Azure** contêm o número mínimo de linhas. |<ul><li>Banco de Dados SQL do Azure</li><li>tabela do Azure</li></ul> |Não |ND |
+| minimumSizeMB |Valida que dados Olá em um **BLOBs do Azure** Olá de atende aos requisitos de tamanho mínimo (em megabytes). |Blob do Azure |Não |ND |
+| minimumRows |Valida que dados Olá em um **banco de dados do SQL Azure** ou um **tabela do Azure** contém o número mínimo de saudação de linhas. |<ul><li>Banco de Dados SQL do Azure</li><li>tabela do Azure</li></ul> |Não |ND |
 
 **Exemplo:**
 
@@ -347,24 +347,24 @@ A seção **política** na definição do conjunto de dados define os critérios
 }
 ```
 
-A menos que um conjunto de dados seja produzido pela Azure Data Factory, ele deverá ser marcado como **externo**. Essa configuração geralmente se aplica às entradas da primeira atividade em um pipeline, a menos que uma atividade ou pipeline encadeamento esteja sendo usado.
+A menos que um conjunto de dados seja produzido pela Azure Data Factory, ele deverá ser marcado como **externo**. Essa configuração geralmente se aplica a toohello entradas da primeira atividade em um pipeline, a menos que uma atividade ou o encadeamento de pipeline está sendo usado.
 
-| name | Descrição | Obrigatório | Valor Padrão |
+| Nome | Descrição | Obrigatório | Valor Padrão |
 | --- | --- | --- | --- |
-| dataDelay |Tempo para esperar a verificação na disponibilidade dos dados externos de uma determinada divisão. Por exemplo, se os dados estiverem disponíveis por hora, a verificação para ver se os dados externos estão disponíveis e se a fatia correspondente está Pronta pode ser atrasada usando dataDelay.<br/><br/>Aplica-se apenas à hora atual.  Por exemplo, se agora forem 13hs e se esse valor for 10 minutos, a validação começará às 13:10hs.<br/><br/>Essa configuração não afeta fatias no passado (fatias com hora de término da fatia + dataDelay < Agora são processadas sem demora).<br/><br/>Um horário superior a 23:59 horas precisa ser especificado usando o formato `day.hours:minutes:seconds`. Por exemplo, para especificar 24 horas, não use 24:00:00; em vez disso, use 1.00:00:00. Se você usar 24:00:00, isso será tratado como 24 dias (24.00:00:00). Para 1 dia e 4 horas, especifique 1:04:00:00. |Não |0 |
-| retryInterval |O tempo de espera entre uma falha e a próxima tentativa de repetição. Se uma tentativa falhar, a próxima tentativa será após retryInterval. <br/><br/>Se agora for 1:00 PM, iniciaremos a primeira tentativa. Se a duração para concluir a primeira verificação de validação for 1 minuto e a operação tiver falhado, a próxima repetição será 1:00 + 1 min (duração) + 1min (intervalo de repetição) = 1:02. <br/><br/>Para fatias no passado, não haverá nenhum atraso. A repetição acontece imediatamente. |Não |00:01:00 (1 minuto) |
-| retryTimeout |O tempo limite para cada tentativa de repetição.<br/><br/>Se essa propriedade for definida para 10 minutos, a validação precisará ser concluída em 10 minutos. Se demorar mais de 10 minutos para executar a validação, a repetição atingirá o tempo limite.<br/><br/>Se todas as tentativas para a validação excederem o tempo limite, a fatia será marcada como TimedOut. |Não |00:10:00 (10 minutos) |
-| maximumRetry |Número de vezes para verificar a disponibilidade dos dados externos. O valor máximo permitido é 10. |Não |3 |
+| dataDelay |Seleção de saudação toodelay tempo na disponibilidade de saudação de dados externa Olá Olá considerando a fatia. Por exemplo, se dados saudação estão disponíveis por hora, dados externos do Olá Olá seleção toosee estão disponíveis e fatia correspondente hello está pronto pode ser atrasado usando dataDelay.<br/><br/>Aplica-se somente toohello a hora atual.  Por exemplo, se for 1:00 PM agora e esse valor é 10 minutos, validação Olá inicia às 13:10.<br/><br/>Essa configuração não afeta fatias Olá passado (fatias com hora de término da fatia + dataDelay < agora) são processados sem atraso.<br/><br/>Tempo maior que 23:59 horas necessário toospecified usando Olá `day.hours:minutes:seconds` formato. Por exemplo, toospecify 24 horas, não use 24:00:00; em vez disso, use 1.00:00:00. Se você usar 24:00:00, isso será tratado como 24 dias (24.00:00:00). Para 1 dia e 4 horas, especifique 1:04:00:00. |Não |0 |
+| retryInterval |tempo de espera de saudação entre uma falha e hello próxima tentativa. Se uma tentativa falhar, a próxima tentativa de saudação é após retryInterval. <br/><br/>Se for 1:00 PM agora, começamos Olá primeira tentativa. Se Olá duração toocomplete Olá primeira verificação de validação é 1 minuto e Falha na operação de hello, Olá próxima tentativa é às 1:00 + 1 min (duração) + 1min (intervalo de repetição) = 1:02 PM. <br/><br/>Para fatias Olá anterior, não há nenhum atraso. repetição de saudação ocorre imediatamente. |Não |00:01:00 (1 minuto) |
+| retryTimeout |Olá tempo limite para cada tentativa de repetição.<br/><br/>Se essa propriedade for definida too10 minutos, Olá toobe de necessidades de validação concluída em 10 minutos. Se demorar mais de validação de saudação do tooperform de 10 minutos, Olá novamente o tempo limite.<br/><br/>Se todas as tentativas de validação de saudação expira, fatia hello está marcada como TimedOut. |Não |00:10:00 (10 minutos) |
+| maximumRetry |Número de vezes toocheck para disponibilidade de saudação de dados externos de saudação. Olá permitido valor máximo é 10. |Não |3 |
 
 
 ## <a name="data-stores"></a>ARMAZENAMENTOS DE DADOS
-A seção [serviço vinculado](#linked-service) forneceu descrições para elementos JSON que são comuns a todos os tipos de serviços vinculados. Esta seção fornece detalhes sobre os elementos JSON específicos para cada armazenamento de dados.
+Olá [serviço vinculado](#linked-service) descrições de seção fornecida para elementos JSON que são tipos comuns de tooall de serviços vinculados. Esta seção fornece detalhes sobre os elementos JSON que são específicos tooeach repositório de dados.
 
-A seção [Conjunto de dados](#dataset) forneceu descrições para elementos JSON que são comuns a todos os tipos de conjuntos de dados. Esta seção fornece detalhes sobre os elementos JSON específicos para cada armazenamento de dados.
+Olá [Dataset](#dataset) descrições de seção fornecida para elementos JSON que são tipos comuns de tooall de conjuntos de dados. Esta seção fornece detalhes sobre os elementos JSON que são específicos tooeach repositório de dados.
 
-A seção [Atividade](#activity) forneceu descrições para elementos JSON que são comuns a todos os tipos de atividades. Esta seção fornece detalhes sobre os elementos JSON que são específicos para cada armazenamento de dados quando ele é usado como um fonte/coletor em uma atividade de cópia.  
+Olá [atividade](#activity) descrições de seção fornecida para elementos JSON que são tipos de tooall comuns de atividades. Esta seção fornece detalhes sobre os elementos JSON que são específicos tooeach repositório de dados quando ele é usado como um fonte/coletor em uma atividade de cópia.  
 
-Clique no link para o armazenamento no qual você está interessado em ver os esquemas JSON para o serviço vinculado, conjunto de dados e a fonte/coletor para a atividade de cópia.
+Clique Olá link armazenamento Olá você está interessado em esquemas JSON toosee Olá para o serviço vinculado, o conjunto de dados e Olá fonte/coletor de atividade de cópia de saudação.
 
 | Categoria | Armazenamento de dados 
 |:--- |:--- |
@@ -404,11 +404,11 @@ Clique no link para o armazenamento no qual você está interessado em ver os es
 Há dois tipos de serviços vinculados: serviço vinculado do Armazenamento do Azure e serviço vinculado do Armazenamento do Azure SAS.
 
 #### <a name="azure-storage-linked-service"></a>Serviço vinculado de armazenamento do Azure
-Para vincular uma conta de armazenamento do Azure ao data factory usando a **chave de conta**, crie um serviço vinculado do Armazenamento do Azure. Para definir um serviço vinculado do Armazenamento do Azure, defina o **tipo** do serviço vinculado para **AzureStorage**. Em seguida, você pode especificar as seguintes propriedades na seção **typeProperties**:  
+toolink sua fábrica de dados de tooa da conta de armazenamento do Azure usando Olá **chave de conta**, crie um serviço vinculado do armazenamento do Azure. toodefine um armazenamento do Azure vinculada serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**AzureStorage**. Em seguida, você pode especificar propriedades no Olá a seguir **typeProperties** seção:  
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| connectionString |Especifique as informações necessárias para se conectar ao armazenamento do Azure para a propriedade connectionString. |Sim |
+| connectionString |Especifique informações necessárias tooconnect tooAzure armazenamento para a propriedade connectionString de saudação. |Sim |
 
 ##### <a name="example"></a>Exemplo  
 
@@ -425,11 +425,11 @@ Para vincular uma conta de armazenamento do Azure ao data factory usando a **cha
 ```
 
 #### <a name="azure-storage-sas-linked-service"></a>Serviço vinculado de SAS de Armazenamento do Azure
-O serviço vinculado de SAS de armazenamento do Azure permite que você vincule uma conta de armazenamento do Azure ao Azure Data Factory usando uma SAS (Assinatura de Acesso Compartilhado). Isso fornece ao data factory acesso restrito/acesso total, com limite de tempo/recursos específicos (blob/contêiner) no armazenamento. Para vincular uma conta de Armazenamento do Azure ao data factory usando a Assinatura de Acesso Compartilhado, crie um serviço vinculado de SAS do Armazenamento do Azure. Para definir um serviço vinculado de SAS do Armazenamento do Azure, defina o **type** do serviço vinculado para **AzureStorageSas**. Em seguida, você pode especificar as seguintes propriedades na seção **typeProperties**:   
+Olá SAS de armazenamento do Azure vinculada serviço permite que você toolink uma conta de armazenamento do Azure tooan data factory do Azure usando uma assinatura de acesso compartilhado (SAS). Ele fornece fábrica de dados Olá com acesso restrito/limite de tempo específicos/tooall recursos (blob/contêiner) no armazenamento de saudação. toolink sua fábrica de dados de tooa da conta de armazenamento do Azure usando a assinatura de acesso compartilhado, crie um serviço de SAS do armazenamento do Azure vinculado. toodefine um SAS de armazenamento do Azure vinculada serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**o AzureStorageSas**. Em seguida, você pode especificar propriedades no Olá a seguir **typeProperties** seção:   
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| sasUri |Especificar o URI de Assinatura de Acesso Compartilhado para os recursos de Armazenamento do Azure, como blob, contêiner ou tabela. |Sim |
+| sasUri |Especifica os recursos de armazenamento do Azure do URI de assinatura de acesso compartilhado toohello como blob, contêiner ou tabela. |Sim |
 
 ##### <a name="example"></a>Exemplo
 
@@ -448,15 +448,15 @@ O serviço vinculado de SAS de armazenamento do Azure permite que você vincule 
 Para obter mais informações sobre esses serviços vinculados, consulte o artigo [Conector de Armazenamento de Blobs do Azure](data-factory-azure-blob-connector.md#linked-service-properties). 
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados de Blob do Azure, defina o **type** do conjunto de dados para **AzureBlob**. Em seguida, especifique as seguintes propriedades específicas do Blob do Azure na seção **typeProperties**: 
+toodefine um conjunto de dados de Blob do Azure, Olá conjunto **tipo** do conjunto de dados de saudação muito**AzureBlob**. Em seguida, especifique Olá seguintes propriedades específicas de BLOBs do Azure no hello **typeProperties** seção: 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| folderPath |Caminho para o contêiner e a pasta no armazenamento de blob. Exemplo: myblobcontainer\myblobfolder\ |Sim |
-| fileName |O nome do blob. fileName é opcional e diferencia maiúsculas de minúsculas.<br/><br/>Caso você especifique um nome de arquivo, a atividade (incluindo Cópia) funcionará no Blob específico.<br/><br/>Quando fileName não for especificado, a Cópia incluirá todos os Blobs do folderPath para o conjunto de dados de entrada.<br/><br/>Quando fileName não for especificado para um conjunto de dados de saída, o nome do arquivo gerado estaria no seguinte formato: Data.<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
-| partitionedBy |partitionedBy é uma propriedade opcional. Você pode usá-lo para especificar um folderPath dinâmico e o nome de arquivo para dados de série temporal. Por exemplo, folderPath pode ser parametrizado para cada hora dos dados. |Não |
-| formato | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. |Não |
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis com suporte são **Ideal** e **O mais rápido**. Para saber mais, confira [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) (Formatos de arquivo e de compactação no Azure Data Factory). |Não |
+| folderPath |Contêiner de toohello do caminho e a pasta no armazenamento de blob hello. Exemplo: myblobcontainer\myblobfolder\ |Sim |
+| fileName |Nome do blob hello. fileName é opcional e diferencia maiúsculas de minúsculas.<br/><br/>Se você especificar um nome de arquivo, hello atividade (incluindo cópia) funciona em Olá Blob específico.<br/><br/>Quando o nome de arquivo não for especificado, cópia inclui todos os Blobs no folderPath Olá para o conjunto de dados de entrada.<br/><br/>Quando o nome de arquivo não for especificado para um conjunto de dados de saída, nome de saudação do arquivo hello gerado seria em Olá seguindo este formato: dados. <Guid>. txt (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
+| partitionedBy |partitionedBy é uma propriedade opcional. Você pode usar-ele toospecify um dinâmico folderPath e filename para dados de série temporal. Por exemplo, folderPath pode ser parametrizado para cada hora dos dados. |Não |
+| formato | Olá, tipos de formato a seguir têm suporte: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Saudação de conjunto **tipo** propriedade em formato tooone desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser muito**copiar arquivos como-é** entre repositórios baseada em arquivo (cópia binário), ignore a seção de formato de saudação em ambas as definições de conjunto de dados de entrada e saída. |Não |
+| compactação | Especifica tipo de saudação e nível de compactação de dados de saudação. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis com suporte são **Ideal** e **O mais rápido**. Para saber mais, confira [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) (Formatos de arquivo e de compactação no Azure Data Factory). |Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -488,11 +488,11 @@ Para definir um conjunto de dados de Blob do Azure, defina o **type** do conjunt
 Para obter mais informações, consulte o artigo [Conector de Blob do Azure](data-factory-azure-blob-connector.md#dataset-properties).
 
 ### <a name="blobsource-in-copy-activity"></a>BlobSource na Atividade de Cópia
-Se você estiver copiando dados de um Armazenamento de Blobs do Azure, defina o **source type** da atividade de cópia para **BlobSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados de um armazenamento de BLOBs do Azure, defina Olá **tipo de fonte** de hello atividade de cópia muito**BlobSource**e especificar propriedades no Olá a seguir * * fonte * * seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| recursiva |Indica se os dados são lidos recursivamente por meio de subpastas ou somente da pasta especificada. |True (valor padrão), False |Não |
+| recursiva |Indica se os dados saudação é lida recursivamente de subpastas de saudação ou somente de pasta especificado hello. |True (valor padrão), False |Não |
 
 #### <a name="example-blobsource"></a>Exemplo: BlobSource**
 ```json
@@ -531,11 +531,11 @@ Se você estiver copiando dados de um Armazenamento de Blobs do Azure, defina o 
 }
 ```
 ### <a name="blobsink-in-copy-activity"></a>BlobSink na Atividade de Cópia
-Se você estiver copiando dados para um Armazenamento de Blobs do Azure, defina o **sink type** da atividade de cópia para **BlobSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados tooan armazenamento de BLOBs do Azure, defina Olá **tipo de coletor** de hello atividade de cópia muito**BlobSink**e especificar propriedades no Olá a seguir **coletor** seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| copyBehavior |Define o comportamento de cópia quando a origem é BlobSource ou FileSystem. |<b>PreserveHierarchy:</b> preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><br/><b>FlattenHierarchy:</b> todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm o nome gerado automaticamente. <br/><br/><b>MergeFiles (padrão)</b>: mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome do arquivo mesclado será o nome especificado; caso contrário, será o nome de arquivo gerado automaticamente. |Não |
+| copyBehavior |Define o comportamento de cópia de saudação quando origem Olá é BlobSource ou sistema de arquivos. |<b>PreserveHierarchy</b>: preserva Olá hierarquia de arquivos na pasta de destino de saudação. caminho relativo do Hello arquivo toosource da pasta de origem é idêntico toohello o caminho relativo da pasta de tootarget do arquivo de destino.<br/><br/><b>FlattenHierarchy</b>: todos os arquivos da pasta de origem Olá estão em Olá primeiro níveis da pasta de destino. os arquivos de destino de saudação têm nome gerado automaticamente. <br/><br/><b>MergeFiles (padrão):</b> mescla todos os arquivos Olá pasta tooone do arquivo de origem. Se Olá nome de arquivo/Blob for especificado, o nome de arquivo mesclado de Olá seria nome especificado do hello. Caso contrário, seriam nome de arquivo gerado automaticamente. |Não |
 
 #### <a name="example-blobsink"></a>Exemplo: BlobSink
 
@@ -581,19 +581,19 @@ Para obter mais informações, consulte o artigo [Conector de Blob do Azure](dat
 ## <a name="azure-data-lake-store"></a>Repositório Azure Data Lake
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do Azure Data Lake Store, defina o tipo do serviço vinculado para **AzureDataLakeStore**e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine um serviço de repositório Azure Data Lake vinculado, tipo de saudação do conjunto de saudação serviço vinculado muito**AzureDataLakeStore**e especificar propriedades no Olá a seguir **typeProperties** seção:  
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **AzureDataLakeStore** | Sim |
-| dataLakeStoreUri | Especifica informações sobre a conta do Repositório Data Lake do Azure. Ele está no seguinte formato: `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | Sim |
-| subscriptionId | Id de assinatura do Azure ao qual pertence Data Lake Store. | Obrigatório para coletor |
-| resourceGroupName | Nome do grupo de recursos do Azure ao qual pertence Data Lake Store. | Obrigatório para coletor |
-| servicePrincipalId | Especifique a ID do cliente do aplicativo. | Sim (para autenticação de entidade de serviço) |
-| servicePrincipalKey | Especifique a chave do aplicativo. | Sim (para autenticação de entidade de serviço) |
-| locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-lo focalizando o canto superior direito do portal do Azure. | Sim (para autenticação de entidade de serviço) |
-| authorization | Clique no botão **Autorizar** no **Editor do Data Factory** e insira as suas credenciais, que atribui a URL de autorização gerada automaticamente a essa propriedade. | Sim (para autenticação de credenciais de usuário)|
-| sessionId | A ID de sessão OAuth da sessão de autorização OAuth. Cada ID da sessão é exclusiva e pode ser usado somente uma vez. Essa configuração é gerada automaticamente quando você usa o Editor do Data Factory. | Sim (para autenticação de credenciais de usuário) |
+| type | propriedade de tipo Hello deve ser definida como: **AzureDataLakeStore** | Sim |
+| dataLakeStoreUri | Especifique informações sobre Olá conta do repositório Azure Data Lake. É no hello formato a seguir: `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | Sim |
+| subscriptionId | Assinatura do Azure Id toowhich repositório Data Lake pertence. | Obrigatório para coletor |
+| resourceGroupName | Toowhich de nome de grupo de recursos do Azure repositório Data Lake pertence. | Obrigatório para coletor |
+| servicePrincipalId | Especifique a ID do cliente. do aplicativo hello | Sim (para autenticação de entidade de serviço) |
+| servicePrincipalKey | Especifique a chave de aplicativo hello. | Sim (para autenticação de entidade de serviço) |
+| locatário | Especifique as informações de locatário hello (ID de locatário ou de nome de domínio) em que o aplicativo reside. Você pode recuperá-la por focalização mouse Olá no canto superior direito Olá Olá portal do Azure. | Sim (para autenticação de entidade de serviço) |
+| autorização | Clique em **autorizar** botão Olá **Editor da fábrica de dados** e insira suas credenciais que atribui a propriedade de toothis de URL Olá autorização gerado automaticamente. | Sim (para autenticação de credenciais de usuário)|
+| sessionId | Id de sessão do OAuth da sessão de autorização de OAuth hello. Cada ID da sessão é exclusiva e pode ser usado somente uma vez. Essa configuração é gerada automaticamente quando você usa o Editor do Data Factory. | Sim (para autenticação de credenciais de usuário) |
 
 #### <a name="example-using-service-principal-authentication"></a>Exemplo: usando a autenticação da entidade de serviço
 ```json
@@ -631,15 +631,15 @@ Para definir um serviço vinculado do Azure Data Lake Store, defina o tipo do se
 Para saber mais, consulte o artigo [Conector do Azure Data Lake Store](data-factory-azure-datalake-connector.md#linked-service-properties). 
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do Azure Data Lake Store, defina o **type** do conjunto de dados para **AzureDataLakeStore** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um conjunto de dados do repositório Azure Data Lake conjunto Olá **tipo** do conjunto de dados de saudação muito**AzureDataLakeStore**e especifique Olá seguintes propriedades em Olá **typeProperties**seção: 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| folderPath |Caminho para o contêiner e a pasta no repositório do Azure Data Lake. |Sim |
-| fileName |O nome do arquivo no repositório Azure Data Lake. fileName é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Caso você especifique um nome de arquivo, a atividade (incluindo Cópia) funcionará no arquivo específico.<br/><br/>Quando fileName não for especificado, a Cópia incluirá todos os arquivos do folderPath para o conjunto de dados de entrada.<br/><br/>Quando fileName não for especificado para um conjunto de dados de saída, o nome do arquivo gerado estaria no seguinte formato: Data<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
-| partitionedBy |partitionedBy é uma propriedade opcional. Você pode usá-lo para especificar um folderPath dinâmico e o nome de arquivo para dados de série temporal. Por exemplo, folderPath pode ser parametrizado para cada hora dos dados. |Não |
-| formato | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. |Não |
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis com suporte são **Ideal** e **O mais rápido**. Para saber mais, confira [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) (Formatos de arquivo e de compactação no Azure Data Factory). |Não |
+| folderPath |Contêiner de toohello do caminho e a pasta em hello Azure Data Lake armazenam. |Sim |
+| fileName |Nome do arquivo hello no armazenamento do Azure Data Lake hello. fileName é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Se você especificar um nome de arquivo, atividade de saudação (incluindo cópia) funciona em arquivos específicos da saudação.<br/><br/>Quando o nome de arquivo não for especificado, a cópia inclui todos os arquivos no folderPath Olá para o conjunto de dados de entrada.<br/><br/>Quando o nome de arquivo não for especificado para um conjunto de dados de saída, nome de saudação do arquivo hello gerado seria em Olá seguindo este formato: dados. <Guid>. txt (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
+| partitionedBy |partitionedBy é uma propriedade opcional. Você pode usar-ele toospecify um dinâmico folderPath e filename para dados de série temporal. Por exemplo, folderPath pode ser parametrizado para cada hora dos dados. |Não |
+| formato | Olá, tipos de formato a seguir têm suporte: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Saudação de conjunto **tipo** propriedade em formato tooone desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser muito**copiar arquivos como-é** entre repositórios baseada em arquivo (cópia binário), ignore a seção de formato de saudação em ambas as definições de conjunto de dados de entrada e saída. |Não |
+| compactação | Especifica tipo de saudação e nível de compactação de dados de saudação. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis com suporte são **Ideal** e **O mais rápido**. Para saber mais, confira [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) (Formatos de arquivo e de compactação no Azure Data Factory). |Não |
 
 #### <a name="example"></a>Exemplo
 ```json
@@ -676,13 +676,13 @@ Para definir um conjunto de dados do Azure Data Lake Store, defina o **type** do
 Para saber mais, consulte o artigo [Conector do Azure Data Lake Store](data-factory-azure-datalake-connector.md#dataset-properties). 
 
 ### <a name="azure-data-lake-store-source-in-copy-activity"></a>Fonte do Azure Data Lake Store na Atividade de Cópia
-Se você estiver copiando dados de um Azure Data Lake Store, defina o **source type** da atividade de cópia para **AzureDataLakeStoreSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados de um repositório Azure Data Lake, defina Olá **tipo de fonte** de hello atividade de cópia muito**AzureDataLakeStoreSource**e especificar propriedades no Olá a seguir **fonte**  seção:
 
-**AzureDataLakeStoreSource** dá suporte à seção **typeProperties** das seguintes propriedades:
+**AzureDataLakeStoreSource** dá suporte a saudação seguintes propriedades **typeProperties** seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| recursiva |Indica se os dados são lidos recursivamente por meio de subpastas ou somente da pasta especificada. |True (valor padrão), False |Não |
+| recursiva |Indica se os dados saudação é lida recursivamente de subpastas de saudação ou somente de pasta especificado hello. |True (valor padrão), False |Não |
 
 #### <a name="example-azuredatalakestoresource"></a>Exemplo: AzureDataLakeStoreSource
 
@@ -725,11 +725,11 @@ Se você estiver copiando dados de um Azure Data Lake Store, defina o **source t
 Para saber mais, consulte o artigo [Conector do Azure Data Lake Store](data-factory-azure-datalake-connector.md#copy-activity-properties).
 
 ### <a name="azure-data-lake-store-sink-in-copy-activity"></a>Coletor do Azure Data Lake Store na Atividade de Cópia
-Se você estiver copiando dados para um Azure Data Lake Store, defina o **sink type** da atividade de cópia para **AzureDataLakeStoreSink** e especifique as propriedades a seguir na seção **sink**:
+Se você estiver copiando o repositório de dados tooan Azure Data Lake, defina Olá **tipo de coletor** de hello atividade de cópia muito**AzureDataLakeStoreSink**e especificar propriedades no Olá a seguir **coletor**seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| copyBehavior |Especifica o comportamento da cópia. |<b>PreserveHierarchy:</b> preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><br/><b>FlattenHierarchy:</b> todos os arquivos da pasta de origem são criados no primeiro nível da pasta de destino. Os arquivos de destino são criados com o nome gerado automaticamente.<br/><br/><b>MergeFiles:</b> mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome do arquivo mesclado será o nome especificado; caso contrário, será o nome de arquivo gerado automaticamente. |Não |
+| copyBehavior |Especifica o comportamento de cópia de saudação. |<b>PreserveHierarchy</b>: preserva Olá hierarquia de arquivos na pasta de destino de saudação. caminho relativo do Hello arquivo toosource da pasta de origem é idêntico toohello o caminho relativo da pasta de tootarget do arquivo de destino.<br/><br/><b>FlattenHierarchy</b>: todos os arquivos da pasta de origem Olá são criados no primeiro nível saudação da pasta de destino. arquivos de destino de saudação são criados com o nome gerado automaticamente.<br/><br/><b>MergeFiles</b>: mescla todos os arquivos Olá pasta tooone do arquivo de origem. Se Olá nome de arquivo/Blob for especificado, o nome de arquivo mesclado de Olá seria nome especificado do hello. Caso contrário, seriam nome de arquivo gerado automaticamente. |Não |
 
 #### <a name="example-azuredatalakestoresink"></a>Exemplo: AzureDataLakeStoreSink
 ```json
@@ -777,11 +777,11 @@ Para saber mais, consulte o artigo [Conector do Azure Data Lake Store](data-fact
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB  
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do Azure Cosmos DB, defina o **type** do serviço vinculado como **DocumentDb** e especifique as seguintes propriedades na seção **typeProperties**:  
+toodefine um banco de dados do Azure Cosmos o serviço saudação do conjunto vinculado **tipo** de saudação serviço vinculado muito**DocumentDb**e especificar propriedades no Olá a seguir **typeProperties** seção:  
 
 | **Propriedade** | **Descrição** | **Obrigatório** |
 | --- | --- | --- |
-| connectionString |Especifique as informações necessárias para se conectar ao banco de dados do Azure Cosmos DB. |Sim |
+| connectionString |Especifique o banco de dados do banco de dados do Cosmos tooconnect tooAzure as informações necessárias. |Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -799,11 +799,11 @@ Para definir um serviço vinculado do Azure Cosmos DB, defina o **type** do serv
 Para obter mais informações, consulte o artigo [Conector do Azure Cosmos DB](data-factory-azure-documentdb-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do Azure Cosmos DB, defina o **type** do conjunto de dados como **DocumentDbCollection** e especifique as seguintes propriedades na seção **typeProperties**: 
+toodefine um conjunto de dados do banco de dados do Azure Cosmos conjunto Olá **tipo** do conjunto de dados de saudação muito**DocumentDbCollection**e especifique Olá seguintes propriedades em Olá **typeProperties** seção: 
 
 | **Propriedade** | **Descrição** | **Obrigatório** |
 | --- | --- | --- |
-| collectionName |Nome da coleção do Azure Cosmos DB. |Sim |
+| collectionName |Nome do hello Azure Cosmos DB coleção. |Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -827,13 +827,13 @@ Para definir um conjunto de dados do Azure Cosmos DB, defina o **type** do conju
 Para obter mais informações, consulte o artigo [Conector do Azure Cosmos DB](data-factory-azure-documentdb-connector.md#dataset-properties).
 
 ### <a name="azure-cosmos-db-collection-source-in-copy-activity"></a>Fonte de coleta do Azure Cosmos DB na Atividade de Cópia
-Se você estiver copiando dados de um Azure Cosmos DB, defina o **source type** da atividade de cópia como **DocumentDbCollectionSource** e especifique as seguintes propriedades na seção **source**:
+Se você estiver copiando dados de um banco de dados do Azure Cosmos, defina Olá **tipo de fonte** de hello atividade de cópia muito**DocumentDbCollectionSource**e especificar propriedades no Olá a seguir **fonte** seção:
 
 
 | **Propriedade** | **Descrição** | **Valores permitidos** | **Obrigatório** |
 | --- | --- | --- | --- |
-| query |Especifique a consulta para ler dados. |Cadeia de consulta com suporte no Azure Cosmos DB. <br/><br/>Exemplo: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificada, a instrução SQL executada será: `select <columns defined in structure> from mycollection` |
-| nestingSeparator |Caractere especial para indicar que o documento está aninhado |Qualquer caractere. <br/><br/>O Azure Cosmos DB é um repositório NoSQL para documentos JSON, em que estruturas aninhadas são permitidas. O Azure Data Factory permite que o usuário indique a hierarquia via nestingSeparator, que é "." nos exemplos acima. Com o separador, a atividade de cópia vai gerar o objeto "Name" com três elementos filhos First, Middle e Last, de acordo com "Name.First", "Name.Middle" e "Name.Last" na definição da tabela. |Não |
+| query |Especifica Olá consulta tooread dados. |Cadeia de consulta com suporte no Azure Cosmos DB. <br/><br/>Exemplo: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificado, Olá instrução SQL executada:`select <columns defined in structure> from mycollection` |
+| nestingSeparator |Caractere especial tooindicate que Olá documento está aninhado |Qualquer caractere. <br/><br/>O Azure Cosmos DB é um repositório NoSQL para documentos JSON, em que estruturas aninhadas são permitidas. A fábrica de dados do Azure permite que a hierarquia de toodenote de usuário por meio de nestingSeparator, que é "." em hello acima exemplos. Separador hello, atividade de cópia Olá irá gerar objeto de "Nome" hello com elementos de três filhos too"Name.First primeiro, intermediária e último, acordo", "Name.Middle" e ". Sobrenome" hello definição da tabela. |Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -874,13 +874,13 @@ Se você estiver copiando dados de um Azure Cosmos DB, defina o **source type** 
 ```
 
 ### <a name="azure-cosmos-db-collection-sink-in-copy-activity"></a>Coletor para coleta do Azure Cosmos DB na Atividade de Cópia
-Se você estiver copiando dados para um Azure Cosmos DB, defina o **sink type** da atividade de cópia como **DocumentDbCollectionSink** e especifique as seguintes propriedades na seção **sink**:
+Se você estiver copiando dados tooAzure Cosmos banco de dados, definir Olá **tipo de coletor** de hello atividade de cópia muito**DocumentDbCollectionSink**e especificar propriedades no Olá a seguir **coletor**seção:
 
 | **Propriedade** | **Descrição** | **Valores permitidos** | **Obrigatório** |
 | --- | --- | --- | --- |
-| nestingSeparator |Um caractere especial no nome da coluna de fonte para indicar que esse documento aninhado é necessário. <br/><br/>No exemplo acima: `Name.First` na tabela de saída produz a seguinte estrutura JSON no documento do Cosmos DB:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Caractere que é usado para separar os níveis de aninhamento.<br/><br/>O valor padrão é `.` (ponto). |Caractere que é usado para separar os níveis de aninhamento. <br/><br/>O valor padrão é `.` (ponto). |
-| writeBatchSize |Número de solicitações paralelas ao serviço Azure Cosmos DB para criar documentos.<br/><br/>Você pode ajustar o desempenho ao copiar dados de/para o Azure Cosmos DB usando essa propriedade. Você pode esperar um melhor desempenho ao aumentar writeBatchSize, pois mais solicitações paralelas para o Azure Cosmos DB são enviadas. No entanto, será necessário evitar a limitação que pode gerar a mensagem de erro: "A taxa de solicitação é grande".<br/><br/>A limitação é decida por uma série de fatores, incluindo o tamanho dos documentos, o número de termos incluídos, a política de indexação da coleção de destino, etc. Para operações de cópia, você pode usar uma coleção melhor (por exemplo, S3) para ter mais taxa de transferência disponível (solicitação de 2.500 unidades/segundo). |Número inteiro |Não (padrão: 5) |
-| writeBatchTimeout |Tempo de espera para a operação ser concluída antes de atingir o tempo limite. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
+| nestingSeparator |Um caractere especial em Olá fonte coluna Nome tooindicate que aninhada documento é necessário. <br/><br/>Por exemplo acima: `Name.First` na saída de hello tabela produz Olá estrutura JSON no documento de banco de dados do Cosmos Olá a seguir:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Caractere usado tooseparate níveis de aninhamento.<br/><br/>O valor padrão é `.` (ponto). |Caractere usado tooseparate níveis de aninhamento. <br/><br/>O valor padrão é `.` (ponto). |
+| writeBatchSize |Número de paralelo solicitações tooAzure documentos de toocreate do serviço de banco de dados do Cosmos.<br/><br/>Você pode ajustar o desempenho de saudação ao copiar dados de banco de dados do Azure Cosmos usando essa propriedade. Você pode esperar um desempenho melhor quando você aumenta writeBatchSize porque mais solicitações paralelas tooAzure Cosmos banco de dados são enviados. No entanto, você precisará tooavoid limitação que pode gerar a mensagem de saudação do erro: "Solicitação de taxa for grande".<br/><br/>A limitação é decida por uma série de fatores, incluindo o tamanho dos documentos, o número de termos incluídos, a política de indexação da coleção de destino, etc. Para operações de cópia, você pode usar uma saudação de toohave de coleção (por exemplo, S3) melhor taxa de transferência mais disponível (2.500 solicitação unidades/segundo). |Número inteiro |Não (padrão: 5) |
+| writeBatchTimeout |Tempo de espera para Olá operação toocomplete antes de expirar. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -902,7 +902,7 @@ Se você estiver copiando dados para um Azure Cosmos DB, defina o **sink type** 
                 },
                 "translator": {
                     "type": "TabularTranslator",
-                    "ColumnMappings": "FirstName: Name.First, MiddleName: Name.Middle, LastName: Name.Last, BusinessEntityID: BusinessEntityID, PersonType: PersonType, NameStyle: NameStyle, Title: Title, Suffix: Suffix"
+                    "ColumnMappings": "FirstName: Name.First, MiddleName: Name.Middle, LastName: Name.Last, BusinessEntityID: BusinessEntityID, PersonType: PersonType, NameStyle: NameStyle, title: aaaTitle, Suffix: Suffix"
                 }
             },
             "inputs": [{
@@ -927,11 +927,11 @@ Para obter mais informações, consulte o artigo [Conector do Azure Cosmos DB](d
 ## <a name="azure-sql-database"></a>Banco de Dados SQL do Azure
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do Banco de Dados SQL do Azure, defina o **type** do serviço vinculado para **AzureSqlDatabase** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine um banco de dados do SQL Azure vinculado serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**AzureSqlDatabase**e especificar propriedades no Olá a seguir **typeProperties**seção:  
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| connectionString |Especifique as informações necessárias para se conectar à instância do Banco de Dados SQL Azure para a propriedade connectionString. |Sim |
+| connectionString |Especifique informações necessárias a instância de banco de dados do Azure SQL toohello tooconnect para a propriedade connectionString de saudação. |Sim |
 
 #### <a name="example"></a>Exemplo
 ```json
@@ -949,11 +949,11 @@ Para definir um serviço vinculado do Banco de Dados SQL do Azure, defina o **ty
 Para obter mais informações, consulte o artigo [Conector de SQL do Azure](data-factory-azure-sql-connector.md#linked-service-properties). 
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do Banco de Dados SQL do Azure, defina o **type** do conjunto de dados para **AzureSqlTable** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um conjunto de dados do banco de dados SQL, Olá conjunto **tipo** do conjunto de dados de saudação muito**AzureSqlTable**e especifique Olá seguintes propriedades em Olá **typeProperties** seção: 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tableName |Nome da tabela ou exibição na instância do Banco de Dados SQL Azure à qual o serviço vinculado se refere. |Sim |
+| tableName |Nome da tabela de saudação ou exibição na instância de banco de dados do Azure SQL Olá que serviço vinculado refere-se a. |Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -984,14 +984,14 @@ Para definir um conjunto de dados do Banco de Dados SQL do Azure, defina o **typ
 Para obter mais informações, consulte o artigo [Conector de SQL do Azure](data-factory-azure-sql-connector.md#dataset-properties). 
 
 ### <a name="sql-source-in-copy-activity"></a>Origem do SQL na atividade de cópia
-Se você estiver copiando dados de um Banco de Dados SQL do Azure, defina o **source type** da atividade de cópia para **SqlSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados de um banco de dados do SQL Azure, defina Olá **tipo de fonte** de hello atividade de cópia muito**SqlSource**e especificar propriedades no Olá a seguir **fonte** seção:
 
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| SqlReaderQuery |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Exemplo: `select * from MyTable`. |Não |
-| sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê os dados da tabela de origem. |Nome do procedimento armazenado. |Não |
-| storedProcedureParameters |Parâmetros para o procedimento armazenado. |Pares de nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não |
+| SqlReaderQuery |Use dados de tooread Olá consulta personalizada. |Cadeia de caracteres de consulta SQL. Exemplo: `select * from MyTable`. |Não |
+| sqlReaderStoredProcedureName |Nome da saudação procedimento armazenado que lê dados da tabela de origem hello. |Nome da saudação de procedimento armazenado. |Não |
+| storedProcedureParameters |Parâmetros de saudação de procedimento armazenado. |Pares de nome/valor. Nomes e o uso de maiusculas e minúsculas dos parâmetros devem corresponder a nomes de saudação e uso de maiusculas e minúsculas dos parâmetros de procedimento armazenado de saudação. |Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -1038,17 +1038,17 @@ Se você estiver copiando dados de um Banco de Dados SQL do Azure, defina o **so
 Para obter mais informações, consulte o artigo [Conector de SQL do Azure](data-factory-azure-sql-connector.md#copy-activity-properties). 
 
 ### <a name="sql-sink-in-copy-activity"></a>Coletor do SQL na Atividade de Cópia
-Se você estiver copiando dados para um Banco de Dados SQL do Azure, defina o **sink type** da atividade de cópia para **SqlSink** e especifique as propriedades a seguir na seção **sink**:
+Se você estiver copiando dados tooAzure banco de dados SQL, definir Olá **tipo de coletor** de hello atividade de cópia muito**SqlSink**e especificar propriedades no Olá a seguir **coletor** seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
-| writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
-| sqlWriterCleanupScript |Especifique uma consulta da Atividade de Cópia a executar para que os dados de uma fatia específica sejam removidos. |Uma instrução de consulta. |Não |
-| sliceIdentifierColumnName |Especifique um nome de coluna para a Atividade de Cópia a preencher com o identificador de fatias gerado automaticamente, que é usado para limpar os dados de uma fatia específica ao executar novamente. |Nome de uma coluna com tipo de dados de binário (32). |Não |
-| sqlWriterStoredProcedureName |Nome do procedimento armazenado que upserts (atualiza/insere) na tabela de destino. |Nome do procedimento armazenado. |Não |
-| storedProcedureParameters |Parâmetros para o procedimento armazenado. |Pares de nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não |
-| sqlWriterTableType |Especifique um nome do tipo de tabela a ser usado no procedimento armazenado. A atividade de cópia disponibiliza aqueles dados sendo movidos em uma tabela temporária com esse tipo de tabela. O código de procedimento armazenado pode mesclar os dados sendo copiados com dados existentes. |Um nome de tipo de tabela. |Não |
+| writeBatchTimeout |Tempo de espera para Olá toocomplete de operação de inserção de lote antes de expirar. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
+| writeBatchSize |Insere dados na tabela do SQL hello quando o tamanho do buffer de saudação atingir writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
+| sqlWriterCleanupScript |Especifique uma consulta para a atividade de cópia tooexecute, de modo que os dados de uma fatia específica é limpa. |Uma instrução de consulta. |Não |
+| sliceIdentifierColumnName |Especifique um nome de coluna para a atividade de cópia toofill com identificador de fatia gerado automaticamente, que é usado tooclean os dados de uma fatia específica quando executada novamente. |Nome de uma coluna com tipo de dados de binário (32). |Não |
+| sqlWriterStoredProcedureName |Nome do hello procedimento armazenado dados upserts (atualizações/inserções) na tabela de destino de saudação. |Nome da saudação de procedimento armazenado. |Não |
+| storedProcedureParameters |Parâmetros de saudação de procedimento armazenado. |Pares de nome/valor. Nomes e o uso de maiusculas e minúsculas dos parâmetros devem corresponder a nomes de saudação e uso de maiusculas e minúsculas dos parâmetros de procedimento armazenado de saudação. |Não |
+| sqlWriterTableType |Especifique um toobe de nome de tipo de tabela usado no procedimento armazenado de saudação. Atividade de cópia disponibiliza dados Olá movidos em uma tabela temporária com esse tipo de tabela. Código do procedimento armazenado, em seguida, pode mesclar dados de saudação sejam copiados com os dados existentes. |Um nome de tipo de tabela. |Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -1098,11 +1098,11 @@ Para obter mais informações, consulte o artigo [Conector de SQL do Azure](data
 ## <a name="azure-sql-data-warehouse"></a>SQL Data Warehouse do Azure
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do SQL Data Warehouse do Azure, defina o **type** do serviço vinculado para **AzureSqlDW** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine um Azure SQL Data Warehouse vinculado serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**AzureSqlDW**e especificar propriedades no Olá a seguir **typeProperties**seção:  
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| connectionString |Especifique as informações necessárias para se conectar à instância do SQL Data Warehouse do Azure para a propriedade connectionString. |Sim |
+| connectionString |Especifique informações necessárias a instância do tooconnect toohello Azure SQL Data Warehouse para a propriedade connectionString de saudação. |Sim |
 
 
 
@@ -1123,11 +1123,11 @@ Para definir um serviço vinculado do SQL Data Warehouse do Azure, defina o **ty
 Para obter mais informações, consulte o artigo [Conector do SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties). 
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do SQL Data Warehouse do Azure, defina o **type** do conjunto de dados para **AzureSqlDWTable** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um conjunto de dados do Azure SQL Data Warehouse, Olá conjunto **tipo** do conjunto de dados de saudação muito**AzureSqlDWTable**e especifique Olá seguintes propriedades em Olá **typeProperties**seção: 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tableName |Nome da tabela ou exibição no banco de dados SQL Data Warehouse do Azure ao qual o serviço vinculado se refere. |Sim |
+| tableName |Nome da tabela de saudação ou exibição no banco de dados de Data warehouse do SQL Azure de saudação que Olá serviço vinculado refere-se a. |Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -1159,14 +1159,14 @@ Para definir um conjunto de dados do SQL Data Warehouse do Azure, defina o **typ
 Para obter mais informações, consulte o artigo [Conector do SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md#dataset-properties). 
 
 ### <a name="sql-dw-source-in-copy-activity"></a>Origem do SQL DW na Atividade de Cópia
-Se você estiver copiando dados de um SQL Data Warehouse do Azure, defina o **source type** da atividade de cópia para **SqlDWSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados de Data warehouse do SQL Azure, defina Olá **tipo de fonte** de hello atividade de cópia muito**SqlDWSource**e especificar propriedades no Olá a seguir **fonte**seção:
 
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| SqlReaderQuery |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: `select * from MyTable`. |Não |
-| sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê os dados da tabela de origem. |Nome do procedimento armazenado. |Não |
-| storedProcedureParameters |Parâmetros para o procedimento armazenado. |Pares de nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não |
+| SqlReaderQuery |Use dados de tooread Olá consulta personalizada. |Cadeia de caracteres de consulta SQL. Por exemplo: `select * from MyTable`. |Não |
+| sqlReaderStoredProcedureName |Nome da saudação procedimento armazenado que lê dados da tabela de origem hello. |Nome da saudação de procedimento armazenado. |Não |
+| storedProcedureParameters |Parâmetros de saudação de procedimento armazenado. |Pares de nome/valor. Nomes e o uso de maiusculas e minúsculas dos parâmetros devem corresponder a nomes de saudação e uso de maiusculas e minúsculas dos parâmetros de procedimento armazenado de saudação. |Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -1214,19 +1214,19 @@ Se você estiver copiando dados de um SQL Data Warehouse do Azure, defina o **so
 Para obter mais informações, consulte o artigo [Conector do SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties). 
 
 ### <a name="sql-dw-sink-in-copy-activity"></a>Coletor do SQL DW na Atividade de Cópia
-Se você estiver copiando dados de um SQL Data Warehouse do Azure, defina o **sink type** da atividade de cópia para **SqlDWSink** e especifique as propriedades a seguir na seção **sink**:
+Se você estiver copiando dados tooAzure SQL Data Warehouse, defina Olá **tipo de coletor** de hello atividade de cópia muito**SqlDWSink**e especificar propriedades no Olá a seguir **coletor** seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| sqlWriterCleanupScript |Especifique uma consulta da Atividade de Cópia a executar para que os dados de uma fatia específica sejam removidos. |Uma instrução de consulta. |Não |
-| allowPolyBase |Indica se o PolyBase (quando aplicável) deve ser utilizado em vez do mecanismo BULKINSERT. <br/><br/> **Usar o PolyBase é a maneira recomendada para carregar dados no SQL Data Warehouse.** |True  <br/>False (padrão) |Não |
-| polyBaseSettings |Um grupo de propriedades que pode ser especificado quando a propriedade **allowPolybase** está definida como **true**. |&nbsp; |Não |
-| rejectValue |Especifica o número ou o percentual de linhas que podem ser rejeitadas antes de a consulta falhar. <br/><br/>Saiba mais sobre as opções de rejeição do PolyBase na seção **Argumentos** do tópico [CRIAR TABELA EXTERNA (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) . |0 (padrão), 1, 2, … |Não |
-| rejectType |Especifica se a opção rejectValue é especificada como um valor literal ou um percentual. |Valor (padrão), Percentual |Não |
-| rejectSampleValue |Determina o número de linhas a serem recuperadas antes de o PolyBase recalcular o percentual de linhas rejeitadas. |1, 2, … |Sim, se **rejectType** for **percentual** |
-| useTypeDefault |Especifica como tratar valores ausentes nos arquivos de texto delimitados quando PolyBase recupera dados do arquivo de texto.<br/><br/>Saiba mais sobre essa propriedade na seção Argumentos em [CRIAR FORMATO DE ARQUIVO EXTERNO (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |True, False (padrão) |Não |
-| writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize |Inteiro (número de linhas) |Não (padrão: 10000) |
-| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
+| sqlWriterCleanupScript |Especifique uma consulta para a atividade de cópia tooexecute, de modo que os dados de uma fatia específica é limpa. |Uma instrução de consulta. |Não |
+| allowPolyBase |Indica se toouse PolyBase (quando aplicável) em vez de mecanismo BULKINSERT. <br/><br/> **Usar o PolyBase é hello recomendado a maneira como os dados tooload no SQL Data Warehouse.** |Verdadeiro <br/>False (padrão) |Não |
+| polyBaseSettings |Um grupo de propriedades que podem ser especificadas ao hello **allowPolybase** propriedade for definida muito**true**. |&nbsp; |Não |
+| rejectValue |Especifica o número de saudação ou a porcentagem de linhas que pode ser rejeitada antes Olá consulta falhe. <br/><br/>Saiba mais sobre do PolyBase Olá rejeitar opções Olá **argumentos** seção [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) tópico. |0 (padrão), 1, 2, … |Não |
+| rejectType |Especifica se a opção de rejectValue de saudação é especificada como um valor literal ou uma porcentagem. |Valor (padrão), Percentual |Não |
+| rejectSampleValue |Determina o número de saudação de linhas tooretrieve antes Olá PolyBase recalcula a porcentagem de saudação de linhas rejeitadas. |1, 2, … |Sim, se **rejectType** for **percentual** |
+| useTypeDefault |Especifica como toohandle faltando valores delimitados por arquivos de texto quando PolyBase recupera dados do arquivo de texto de saudação.<br/><br/>Saiba mais sobre essa propriedade da seção argumentos Olá [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |True, False (padrão) |Não |
+| writeBatchSize |Insere dados na tabela do SQL hello quando o tamanho do buffer de saudação atingir writeBatchSize |Inteiro (número de linhas) |Não (padrão: 10000) |
+| writeBatchTimeout |Tempo de espera para Olá toocomplete de operação de inserção de lote antes de expirar. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -1277,12 +1277,12 @@ Para obter mais informações, consulte o artigo [Conector do SQL Data Warehouse
 ## <a name="azure-search"></a>Pesquisa do Azure
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do Azure Search, defina o **type** do serviço vinculado para **AzureSearch**e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine uma pesquisa do Azure vinculada serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**AzureSearch**e especificar propriedades no Olá a seguir **typeProperties** seção:  
 
 | Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
-| url | URL para o serviço Azure Search. | Sim |
-| chave | Chave de administração para o serviço Azure Search. | Sim |
+| url | URL de saudação serviço de pesquisa do Azure. | Sim |
+| chave | Chave de administração de saudação serviço de pesquisa do Azure. | Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -1302,12 +1302,12 @@ Para definir um serviço vinculado do Azure Search, defina o **type** do serviç
 Para obter mais informações, consulte o artigo [Conector do Azure Search](data-factory-azure-search-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do Azure Search, defina o **type** do conjunto de dados para **AzureSearchIndex** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um conjunto de dados de pesquisa do Azure, Olá conjunto **tipo** do conjunto de dados de saudação muito**AzureSearchIndex**e especifique Olá seguintes propriedades em Olá **typeProperties** seção : 
 
 | Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
-| type | A propriedade type deve ser definida como: **AzureSearchIndex**.| Sim |
-| indexName | Nome do índice do Azure Search. O Data Factory não cria o índice. O índice deve existir no Azure Search. | Sim |
+| type | propriedade do tipo Hello deve ser definida muito**AzureSearchIndex**.| Sim |
+| indexName | Nome do índice de pesquisa do Azure hello. Fábrica de dados não cria o índice de saudação. Olá índice deve existir na pesquisa do Azure. | Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -1331,12 +1331,12 @@ Para definir um conjunto de dados do Azure Search, defina o **type** do conjunto
 Para obter mais informações, consulte o artigo [Conector do Azure Search](data-factory-azure-search-connector.md#dataset-properties).
 
 ### <a name="azure-search-index-sink-in-copy-activity"></a>Coletor do Índice do Azure Search na Atividade de Cópia
-Se você estiver copiando dados para um índice do Azure Search, defina o **sink type** da atividade de cópia para **AzureSearchIndexSink** e especifique as propriedades a seguir na seção **sink**:
+Se você estiver copiando o índice de pesquisa do Azure tooan dados, definir Olá **tipo de coletor** de hello atividade de cópia muito**AzureSearchIndexSink**e especificar propriedades no Olá a seguir **coletor**seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Especifica se deve mesclar ou substituir quando já existe um documento no índice. | Merge (padrão)<br/>Carregar| Não |
-| WriteBatchSize | Carrega dados para o índice do Azure Search quando o tamanho do buffer atinge writeBatchSize. | 1 a 1.000. O valor padrão é 1000. | Não |
+| WriteBehavior | Especifica se toomerge ou substituição quando um documento já existe no índice de saudação. | Merge (padrão)<br/>Carregar| Não |
+| WriteBatchSize | Carrega dados no índice de pesquisa do Azure hello quando o tamanho do buffer de saudação atingir writeBatchSize. | 1 too1, 000. O valor padrão é 1000. | Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -1389,12 +1389,12 @@ Para obter mais informações, consulte o artigo [Conector do Azure Search](data
 Há dois tipos de serviços vinculados: serviço vinculado do Armazenamento do Azure e serviço vinculado do Armazenamento do Azure SAS.
 
 #### <a name="azure-storage-linked-service"></a>Serviço vinculado de armazenamento do Azure
-Para vincular uma conta de armazenamento do Azure ao data factory usando a **chave de conta**, crie um serviço vinculado do Armazenamento do Azure. Para definir um serviço vinculado do Armazenamento do Azure, defina o **tipo** do serviço vinculado para **AzureStorage**. Em seguida, você pode especificar as seguintes propriedades na seção **typeProperties**:  
+toolink sua fábrica de dados de tooa da conta de armazenamento do Azure usando Olá **chave de conta**, crie um serviço vinculado do armazenamento do Azure. toodefine um armazenamento do Azure vinculada serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**AzureStorage**. Em seguida, você pode especificar propriedades no Olá a seguir **typeProperties** seção:  
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type |A propriedade type deve ser definida como: **AzureStorage** |Sim |
-| connectionString |Especifique as informações necessárias para se conectar ao armazenamento do Azure para a propriedade connectionString. |Sim |
+| type |propriedade de tipo Hello deve ser definida como: **AzureStorage** |Sim |
+| connectionString |Especifique informações necessárias tooconnect tooAzure armazenamento para a propriedade connectionString de saudação. |Sim |
 
 **Exemplo:**  
 
@@ -1411,12 +1411,12 @@ Para vincular uma conta de armazenamento do Azure ao data factory usando a **cha
 ```
 
 #### <a name="azure-storage-sas-linked-service"></a>Serviço vinculado de SAS de Armazenamento do Azure
-O serviço vinculado de SAS de armazenamento do Azure permite que você vincule uma conta de armazenamento do Azure ao Azure Data Factory usando uma SAS (Assinatura de Acesso Compartilhado). Isso fornece ao data factory acesso restrito/acesso total, com limite de tempo/recursos específicos (blob/contêiner) no armazenamento. Para vincular uma conta de Armazenamento do Azure ao data factory usando a Assinatura de Acesso Compartilhado, crie um serviço vinculado de SAS do Armazenamento do Azure. Para definir um serviço vinculado de SAS do Armazenamento do Azure, defina o **type** do serviço vinculado para **AzureStorageSas**. Em seguida, você pode especificar as seguintes propriedades na seção **typeProperties**:   
+Olá SAS de armazenamento do Azure vinculada serviço permite que você toolink uma conta de armazenamento do Azure tooan data factory do Azure usando uma assinatura de acesso compartilhado (SAS). Ele fornece fábrica de dados Olá com acesso restrito/limite de tempo específicos/tooall recursos (blob/contêiner) no armazenamento de saudação. toolink sua fábrica de dados de tooa da conta de armazenamento do Azure usando a assinatura de acesso compartilhado, crie um serviço de SAS do armazenamento do Azure vinculado. toodefine um SAS de armazenamento do Azure vinculada serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**o AzureStorageSas**. Em seguida, você pode especificar propriedades no Olá a seguir **typeProperties** seção:   
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type |A propriedade type deve ser definida como: **AzureStorageSas** |Sim |
-| sasUri |Especificar o URI de Assinatura de Acesso Compartilhado para os recursos de Armazenamento do Azure, como blob, contêiner ou tabela. |Sim |
+| type |propriedade de tipo Hello deve ser definida como: **o AzureStorageSas** |Sim |
+| sasUri |Especifica os recursos de armazenamento do Azure do URI de assinatura de acesso compartilhado toohello como blob, contêiner ou tabela. |Sim |
 
 **Exemplo:**
 
@@ -1435,11 +1435,11 @@ O serviço vinculado de SAS de armazenamento do Azure permite que você vincule 
 Para obter mais informações sobre esses serviços vinculados, consulte o artigo [Conector de Armazenamento de Tabelas do Azure](data-factory-azure-table-connector.md#linked-service-properties). 
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados da Tabela do Azure, defina o **type** do conjunto de dados para **AzureTable** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um conjunto de dados de tabela do Azure, Olá conjunto **tipo** do conjunto de dados de saudação muito**AzureTable**e especifique Olá seguintes propriedades em Olá **typeProperties** seção: 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tableName |Nome da tabela na instância do Banco de Dados da Tabela do Azure à qual o serviço vinculado se refere. |Sim. Quando um nome de tabela é especificado sem uma azureTableSourceQuery, todos os registros da tabela são copiados para o destino. Se uma azureTableSourceQuery também for especificada, os registros da tabela que atende à consulta são copiados para o destino. |
+| tableName |Nome da tabela de saudação na instância de banco de dados de tabela do Azure Olá que serviço vinculado refere-se a. |Sim. Quando um nome de tabela é especificado sem um azureTableSourceQuery, todos os registros da tabela de saudação são copiados toohello destino. Se um azureTableSourceQuery também for especificado, registros da tabela de saudação que atenda a consulta de saudação são copiados toohello destino. |
 
 #### <a name="example"></a>Exemplo
 
@@ -1471,12 +1471,12 @@ Para definir um conjunto de dados da Tabela do Azure, defina o **type** do conju
 Para obter mais informações sobre esses serviços vinculados, consulte o artigo [Conector de Armazenamento de Tabelas do Azure](data-factory-azure-table-connector.md#dataset-properties). 
 
 ### <a name="azure-table-source-in-copy-activity"></a>Origem da Tabela do Azure na Atividade de Cópia
-Se você estiver copiando dados de um Armazenamento de Tabelas do Azure, defina o **source type** da atividade de cópia para **AzureTableSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados de armazenamento de tabela do Azure, defina Olá **tipo de fonte** de hello atividade de cópia muito**AzureTableSource**e especificar propriedades no Olá a seguir **fonte**seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| AzureTableSourceQuery |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta de tabela do Azure. Veja exemplos na próxima seção. |Não. Quando um nome de tabela é especificado sem uma azureTableSourceQuery, todos os registros da tabela são copiados para o destino. Se uma azureTableSourceQuery também for especificada, os registros da tabela que atende à consulta são copiados para o destino. |
-| azureTableSourceIgnoreTableNotFound |Indique se assimilar a exceção da tabela não existe. |TRUE<br/>FALSE |Não |
+| AzureTableSourceQuery |Use dados de tooread Olá consulta personalizada. |Cadeia de caracteres de consulta de tabela do Azure. Consulte os exemplos na próxima seção, Olá. |Não. Quando um nome de tabela é especificado sem um azureTableSourceQuery, todos os registros da tabela de saudação são copiados toohello destino. Se um azureTableSourceQuery também for especificado, registros da tabela de saudação que atenda a consulta de saudação são copiados toohello destino. |
+| azureTableSourceIgnoreTableNotFound |Indique se a exceção de Olá de assimilação da tabela não existe. |TRUE<br/>FALSE |Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -1524,16 +1524,16 @@ Se você estiver copiando dados de um Armazenamento de Tabelas do Azure, defina 
 Para obter mais informações sobre esses serviços vinculados, consulte o artigo [Conector de Armazenamento de Tabelas do Azure](data-factory-azure-table-connector.md#copy-activity-properties). 
 
 ### <a name="azure-table-sink-in-copy-activity"></a>Coletor da Tabela do Azure na Atividade de Cópia
-Se você estiver copiando dados para um Armazenamento de Tabelas do Azure, defina o **sink type** da atividade de cópia para **AzureTableSink** e especifique as propriedades a seguir na seção **sink**:
+Se você estiver copiando dados tooAzure armazenamento de tabela, definir Olá **tipo de coletor** de hello atividade de cópia muito**AzureTableSink**e especificar propriedades no Olá a seguir **coletor** seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| azureTableDefaultPartitionKeyValue |Valor de chave de partição padrão que pode ser utilizado pelo coletor. |Um valor de cadeia de caracteres. |Não |
-| azureTablePartitionKeyName |Especifique o nome da coluna cujos valores são usados como chaves de partição. Se não especificado, AzureTableDefaultPartitionKeyValue será utilizado como a chave da partição. |Um nome de coluna. |Não |
-| azureTableRowKeyName |Especifique o nome da coluna cujos valores são usados como chaves de linha. Se não especificado, um GUID é usado para cada linha. |Um nome de coluna. |Não |
-| azureTableInsertType |O modo para inserir dados na tabela do Azure.<br/><br/>Essa propriedade controla se linhas existentes na tabela de saída com a partição correspondente e as chaves de linha terão seus valores substituídos ou mesclados. <br/><br/>Para saber mais sobre como essas configurações (mesclagem e substituição) funcionam, consulte os tópicos [Inserir ou Mesclar Entidade](https://msdn.microsoft.com/library/azure/hh452241.aspx) e [Inserir ou Substituir Entidade](https://msdn.microsoft.com/library/azure/hh452242.aspx). <br/><br> Essa configuração se aplica ao nível de linha e não ao nível de tabela e nenhuma das opções excluirá as linhas na tabela de saída que não existirem na entrada. |mesclar (padrão)<br/>substituir |Não |
-| writeBatchSize |Insere dados na tabela do Azure quando o writeBatchSize ou writeBatchTimeout for atingido. |Inteiro (número de linhas) |Não (padrão: 10000) |
-| writeBatchTimeout |Insere dados na tabela do Azure quando o writeBatchSize ou writeBatchTimeout for atingido |TimeSpan<br/><br/>Exemplo: "00:20:00" (20 minutos) |Não (padrão para 90 seg. de valor de tempo padrão de cliente de armazenamento) |
+| azureTableDefaultPartitionKeyValue |Partição chave valor padrão que pode ser usado pelo coletor de saudação. |Um valor de cadeia de caracteres. |Não |
+| azureTablePartitionKeyName |Especifique o nome da coluna Olá cujos valores são usados como chaves de partição. Se não especificado, AzureTableDefaultPartitionKeyValue será usado como chave de partição hello. |Um nome de coluna. |Não |
+| azureTableRowKeyName |Especifique o nome da coluna Olá cujos valores de coluna são usados como chave de linha. Se não especificado, um GUID é usado para cada linha. |Um nome de coluna. |Não |
+| azureTableInsertType |dados de tooinsert de modo de saudação na tabela do Azure.<br/><br/>Essa propriedade controla se as linhas existentes na tabela de saída de hello com correspondência de chaves de partição e de linha têm seus valores substituídos ou mesclados. <br/><br/>toolearn sobre como essas configurações (mesclagem e substituir) funcionam, consulte [inserir ou mesclar entidade](https://msdn.microsoft.com/library/azure/hh452241.aspx) e [inserir ou substituir entidade](https://msdn.microsoft.com/library/azure/hh452242.aspx) tópicos. <br/><br> Essa configuração se aplica no nível de linha hello, não os nível de tabela Olá, e nenhuma opção exclui linhas na tabela de saída de saudação que não existem na entrada hello. |mesclar (padrão)<br/>substituir |Não |
+| writeBatchSize |Insere dados em Olá tabela do Azure quando Olá writeBatchSize ou writeBatchTimeout é atingido. |Inteiro (número de linhas) |Não (padrão: 10000) |
+| writeBatchTimeout |Insere dados na Olá tabela do Azure quando Olá writeBatchSize ou writeBatchTimeout é atingido |timespan<br/><br/>Exemplo: "00:20:00" (20 minutos) |Não (valor de tempo limite padrão de cliente de toostorage padrão 90 segundos) |
 
 #### <a name="example"></a>Exemplo
 
@@ -1583,15 +1583,15 @@ Para obter mais informações sobre esses serviços vinculados, consulte o artig
 ## <a name="amazon-redshift"></a>Amazon RedShift
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do Amazon Redshift, defina o **type** do serviço vinculado para **AmazonRedshift** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine um Amazon Redshift o serviço saudação do conjunto vinculado **tipo** de saudação serviço vinculado muito**AmazonRedshift**e especificar propriedades no Olá a seguir **typeProperties**seção:  
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| server |Endereço IP ou nome do host do servidor Amazon Redshift. |Sim |
-| porta |O número da porta TCP usada pelo servidor Amazon Redshift para ouvir conexões de cliente. |Não, valor padrão: 5439 |
-| database |Nome do banco de dados do Amazon Redshift. |Sim |
-| Nome de Usuário |Nome de usuário que tem acesso ao banco de dados. |Sim |
-| Senha |Senha para a conta de usuário. |Sim |
+| server |IP endereço ou nome de host do servidor do Amazon Redshift hello. |Sim |
+| porta |número de saudação de porta TCP Olá Olá Amazon Redshift server usa toolisten para conexões de cliente. |Não, valor padrão: 5439 |
+| database |Nome do banco de dados do Amazon Redshift hello. |Sim |
+| Nome de Usuário |Nome de usuário que tem o banco de dados do access toohello. |Sim |
+| Senha |Senha da conta de usuário de saudação. |Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -1614,11 +1614,11 @@ Para definir um serviço vinculado do Amazon Redshift, defina o **type** do serv
 Para obter mais informações, consulte o artigo [Conector do Amazon Redshift](#data-factory-amazon-redshift-connector.md#linked-service-properties). 
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do Amazon Redshift, defina o **type** do conjunto de dados para **RelationalTable** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um conjunto de dados do Amazon Redshift conjunto Olá **tipo** do conjunto de dados de saudação muito**RelationalTable**e especifique Olá seguintes propriedades em Olá **typeProperties** seção: 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tableName |Nome da tabela na instância do banco de dados do Amazon Redshift à qual o serviço vinculado se refere. |Não (se **query** de **RelationalSource** for especificado) |
+| tableName |Nome de tabela Olá Olá Amazon Redshift banco de dados do qual o serviço vinculado se refere. |Não (se **query** de **RelationalSource** for especificado) |
 
 
 #### <a name="example"></a>Exemplo
@@ -1643,11 +1643,11 @@ Para definir um conjunto de dados do Amazon Redshift, defina o **type** do conju
 Para obter mais informações, consulte o artigo [Conector do Amazon Redshift](#data-factory-amazon-redshift-connector.md#dataset-properties).
 
 ### <a name="relational-source-in-copy-activity"></a>Origem Relacional na Atividade de Cópia 
-Se você estiver copiando dados de um Amazon Redshift, defina o **source type** da atividade de cópia para **RelationalSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados do Amazon Redshift, defina Olá **tipo de fonte** de hello atividade de cópia muito**RelationalSource**e especificar propriedades no Olá a seguir **fonte** seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| query |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: `select * from MyTable`. |Não (se **tableName** de **dataset** for especificado) |
+| query |Use dados de tooread Olá consulta personalizada. |Cadeia de caracteres de consulta SQL. Por exemplo: `select * from MyTable`. |Não (se **tableName** de **dataset** for especificado) |
 
 #### <a name="example"></a>Exemplo
 
@@ -1695,17 +1695,17 @@ Para obter mais informações, consulte o artigo [Conector do Amazon Redshift](#
 ## <a name="ibm-db2"></a>IBM DB2
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do IBM DB2, defina o **type** do serviço vinculado para **OnPremisesDB2** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine um IBM DB2 vinculada serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**OnPremisesDB2**e especificar propriedades no Olá a seguir **typeProperties** seção:  
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| server |Nome do servidor DB2. |Sim |
-| database |Nome do banco de dados DB2. |Sim |
-| schema |Nome do esquema no banco de dados. O nome do esquema diferencia maiúsculas de minúsculas. |Não |
-| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados DB2. Os valores possíveis são: Anonymous, Basic e Windows. |Sim |
+| server |Nome do servidor de saudação DB2. |Sim |
+| database |Nome do banco de dados de saudação DB2. |Sim |
+| schema |Nome do esquema de saudação no banco de dados de saudação. nome do esquema Olá diferencia maiusculas de minúsculas. |Não |
+| authenticationType |Tipo de autenticação usado o banco de dados do DB2 tooconnect toohello. Os valores possíveis são: Anonymous, Basic e Windows. |Sim |
 | Nome de Usuário |Especifique o nome de usuário se você estiver usando a autenticação Basic ou Windows. |Não |
-| Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Não |
-| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados DB2 local. |Sim |
+| Senha |Especifique a senha da conta de usuário de saudação especificado para nome de usuário de saudação. |Não |
+| gatewayName |Nome do gateway Olá Olá serviço da fábrica de dados deve usar o banco de dados do tooconnect toohello local DB2. |Sim |
 
 #### <a name="example"></a>Exemplo
 ```json
@@ -1728,11 +1728,11 @@ Para definir um serviço vinculado do IBM DB2, defina o **type** do serviço vin
 Para obter mais informações, consulte o artigo [Conector do IBM DB2](#data-factory-onprem-db2-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do DB2, defina o **type** do conjunto de dados para **RelationalTable** e especifique as propriedades a seguir na seção **typeProperties**:
+conjunto de dados toodefine um DB2, Olá conjunto **tipo** do conjunto de dados de saudação muito**RelationalTable**e especifique Olá Olá propriedades a seguir **typeProperties** seção:
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tableName |Nome da tabela na instância do Banco de Dados DB2 à qual o serviço vinculado se refere. O tableName diferencia maiúsculas de minúsculas. |Não (se **query** de **RelationalSource** for especificado) 
+| tableName |Nome da tabela de saudação na instância de banco de dados DB2 Olá que serviço vinculado refere-se a. Olá tableName diferencia maiusculas de minúsculas. |Não (se **query** de **RelationalSource** for especificado) 
 
 #### <a name="example"></a>Exemplo
 ```json
@@ -1761,12 +1761,12 @@ Para definir um conjunto de dados do DB2, defina o **type** do conjunto de dados
 Para obter mais informações, consulte o artigo [Conector do IBM DB2](#data-factory-onprem-db2-connector.md#dataset-properties).
 
 ### <a name="relational-source-in-copy-activity"></a>Origem Relacional na Atividade de Cópia
-Se você estiver copiando dados do IBM DB2, defina o **source type** da atividade de cópia para **RelationalSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados do IBM DB2, defina Olá **tipo de fonte** de hello atividade de cópia muito**RelationalSource**e especificar propriedades no Olá a seguir **fonte** seção:
 
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| query |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: `"query": "select * from "MySchema"."MyTable""`. |Não (se **tableName** de **dataset** for especificado) |
+| query |Use dados de tooread Olá consulta personalizada. |Cadeia de caracteres de consulta SQL. Por exemplo: `"query": "select * from "MySchema"."MyTable""`. |Não (se **tableName** de **dataset** for especificado) |
 
 #### <a name="example"></a>Exemplo
 ```json
@@ -1811,17 +1811,17 @@ Para obter mais informações, consulte o artigo [Conector do IBM DB2](#data-fac
 ## <a name="mysql"></a>MySQL
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do MySQL, defina o **type** do serviço vinculado para **OnPremisesMySql** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine um MySQL vinculados serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**OnPremisesMySql**e especificar propriedades no Olá a seguir **typeProperties** seção:  
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| server |Nome do servidor MySQL. |Sim |
-| database |Nome do banco de dados MySQL. |Sim |
-| schema |Nome do esquema no banco de dados. |Não |
-| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados MySQL. Os valores possíveis são: `Basic`. |Sim |
-| Nome de Usuário |Especifique o nome de usuário para se conectar ao banco de dados MySQL. |Sim |
-| Senha |Especifique a senha da conta de usuário que você especificou. |Sim |
-| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados MySQL local. |Sim |
+| server |Nome do servidor MySQL de saudação. |Sim |
+| database |Nome do banco de dados do hello MySQL. |Sim |
+| schema |Nome do esquema de saudação no banco de dados de saudação. |Não |
+| authenticationType |Tipo de autenticação usado o banco de dados do tooconnect toohello MySQL. Os valores possíveis são: `Basic`. |Sim |
+| Nome de Usuário |Especifique o banco de dados do usuário nome tooconnect toohello MySQL. |Sim |
+| Senha |Especifique a senha da conta de usuário de saudação especificado. |Sim |
+| gatewayName |Nome do gateway Olá Olá serviço da fábrica de dados deve usar o banco de dados do tooconnect toohello local MySQL. |Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -1846,11 +1846,11 @@ Para definir um serviço vinculado do MySQL, defina o **type** do serviço vincu
 Para obter mais informações, consulte o artigo [Conector do MySQL](data-factory-onprem-mysql-connector.md#linked-service-properties). 
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do MySQL, defina o **type** do conjunto de dados para **RelationalTable** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um conjunto de dados MySQL, Olá conjunto **tipo** do conjunto de dados de saudação muito**RelationalTable**e especifique Olá seguintes propriedades em Olá **typeProperties** seção: 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tableName |Nome da tabela na instância do Banco de Dados MySQL à qual o serviço vinculado se refere. |Não (se **query** de **RelationalSource** for especificado) |
+| tableName |Nome da tabela de saudação em Olá instância de banco de dados MySQL serviço vinculado refere-se a. |Não (se **query** de **RelationalSource** for especificado) |
 
 #### <a name="example"></a>Exemplo
 
@@ -1879,12 +1879,12 @@ Para definir um conjunto de dados do MySQL, defina o **type** do conjunto de dad
 Para obter mais informações, consulte o artigo [Conector do MySQL](data-factory-onprem-mysql-connector.md#dataset-properties). 
 
 ### <a name="relational-source-in-copy-activity"></a>Origem Relacional na Atividade de Cópia
-Se você estiver copiando dados de um banco de dados do MySQL, defina o **source type** da atividade de cópia para **RelationalSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados de um banco de dados MySQL, defina Olá **tipo de fonte** de hello atividade de cópia muito**RelationalSource**e especificar propriedades no Olá a seguir **fonte** seção:
 
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| query |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: `select * from MyTable`. |Não (se **tableName** de **dataset** for especificado) |
+| query |Use dados de tooread Olá consulta personalizada. |Cadeia de caracteres de consulta SQL. Por exemplo: `select * from MyTable`. |Não (se **tableName** de **dataset** for especificado) |
 
 
 #### <a name="example"></a>Exemplo
@@ -1933,13 +1933,13 @@ Para obter mais informações, consulte o artigo [Conector do MySQL](data-factor
 ## <a name="oracle"></a>Oracle 
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do Oracle, defina o **type** do serviço vinculado para **OnPremisesOracle** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine um Oracle o serviço saudação do conjunto vinculado **tipo** de saudação serviço vinculado muito**OnPremisesOracle**e especificar propriedades no Olá a seguir **typeProperties** seção:  
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| driverType | Especifique qual driver a ser usado para copiar dados de/para o banco de dados Oracle. Valores permitidos são **Microsoft** ou **ODP** (padrão). Consulte [suporte para instalação e da versão](#supported-versions-and-installation) seção detalhes do driver. | Não |
-| connectionString | Especifique as informações necessárias para se conectar à instância do Banco de Dados Oracle para a propriedade connectionString. | Sim |
-| gatewayName | Nome do gateway usado para conectar o servidor Oracle local |Sim |
+| driverType | Especifique quais dados do driver toouse toocopy de / tooOracle banco de dados. Valores permitidos são **Microsoft** ou **ODP** (padrão). Consulte [suporte para instalação e da versão](#supported-versions-and-installation) seção detalhes do driver. | Não |
+| connectionString | Especifique informações necessárias a instância de banco de dados Oracle toohello tooconnect para a propriedade connectionString de saudação. | Sim |
+| gatewayName | Nome do gateway de saudação que é usado tooconnect toohello servidor Oracle local |Sim |
 
 #### <a name="example"></a>Exemplo
 ```json
@@ -1959,11 +1959,11 @@ Para definir um serviço vinculado do Oracle, defina o **type** do serviço vinc
 Para obter mais informações, consulte o artigo [Conector do Oracle](data-factory-onprem-oracle-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do Oracle, defina o **type** do conjunto de dados para **OracleTable** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um conjunto de dados Oracle, Olá conjunto **tipo** do conjunto de dados de saudação muito**OracleTable**e especifique Olá seguintes propriedades em Olá **typeProperties** seção: 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tableName |Nome da tabela no Banco de Dados Oracle à qual o serviço vinculado se refere. |Não (se **oracleReaderQuery** de **OracleSource** for especificado) |
+| tableName |Nome da tabela de saudação na Olá banco de dados Oracle que Olá serviço vinculado refere-se a. |Não (se **oracleReaderQuery** de **OracleSource** for especificado) |
 
 #### <a name="example"></a>Exemplo
 
@@ -1996,11 +1996,11 @@ Para definir um conjunto de dados do Oracle, defina o **type** do conjunto de da
 Para obter mais informações, consulte o artigo [Conector do Oracle](data-factory-onprem-oracle-connector.md#dataset-properties).
 
 ### <a name="oracle-source-in-copy-activity"></a>Origem do Oracle na Atividade de Cópia
-Se você estiver copiando dados de um Banco de Dados SQL do Azure, defina o **source type** da atividade de cópia para **OracleSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados de um banco de dados Oracle, defina Olá **tipo de fonte** de hello atividade de cópia muito**OracleSource**e especificar propriedades no Olá a seguir **fonte** seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| oracleReaderQuery |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: `select * from MyTable` <br/><br/>Se não for especificada, a instrução SQL executada será: `select * from MyTable` |Não (se **tableName** de **dataset** for especificado) |
+| oracleReaderQuery |Use dados de tooread Olá consulta personalizada. |Cadeia de caracteres de consulta SQL. Por exemplo: `select * from MyTable` <br/><br/>Se não for especificado, Olá instrução SQL executada:`select * from MyTable` |Não (se **tableName** de **dataset** for especificado) |
 
 #### <a name="example"></a>Exemplo
 
@@ -2048,14 +2048,14 @@ Se você estiver copiando dados de um Banco de Dados SQL do Azure, defina o **so
 Para obter mais informações, consulte o artigo [Conector do Oracle](data-factory-onprem-oracle-connector.md#copy-activity-properties).
 
 ### <a name="oracle-sink-in-copy-activity"></a>Coletor do Oracle na Atividade de Cópia
-Se você estiver copiando dados para um banco de dados do Oracle, defina o **source type** da atividade de cópia para **OracleSink** e especifique as propriedades a seguir na seção **sink**:
+Se você estiver copiando o banco de dados do Oracle data tooam, defina Olá **tipo de coletor** de hello atividade de cópia muito**OracleSink**e especificar propriedades no Olá a seguir **coletor** seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
-| writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 100) |
-| sqlWriterCleanupScript |Especifique uma consulta da Atividade de Cópia a executar para que os dados de uma fatia específica sejam removidos. |Uma instrução de consulta. |Não |
-| sliceIdentifierColumnName |Especifique o nome de coluna para a Atividade de Cópia a ser preenchido com o identificador de fatia gerado automaticamente, que é usado para limpar dados de uma fatia específica quando executado novamente. |Nome de uma coluna com tipo de dados de binário (32). |Não |
+| writeBatchTimeout |Tempo de espera para Olá toocomplete de operação de inserção de lote antes de expirar. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
+| writeBatchSize |Insere dados na tabela do SQL hello quando o tamanho do buffer de saudação atingir writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 100) |
+| sqlWriterCleanupScript |Especifique uma consulta para a atividade de cópia tooexecute, de modo que os dados de uma fatia específica é limpa. |Uma instrução de consulta. |Não |
+| sliceIdentifierColumnName |Especifique o nome de coluna para a atividade de cópia toofill com identificador de fatia gerado automaticamente, que é usado tooclean os dados de uma fatia específica quando executada novamente. |Nome de uma coluna com tipo de dados de binário (32). |Não |
 
 #### <a name="example"></a>Exemplo
 ```json
@@ -2102,17 +2102,17 @@ Para obter mais informações, consulte o artigo [Conector do Oracle](data-facto
 ## <a name="postgresql"></a>PostgreSQL
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do PostgreSQL, defina o **type** do serviço vinculado para **OnPremisesPostgreSql** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine um PostgreSQL vinculado serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**OnPremisesPostgreSql**e especificar propriedades no Olá a seguir **typeProperties**seção:  
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| server |Nome do servidor PostgreSQL. |Sim |
-| database |Nome do banco de dados PostgreSQL. |Sim |
-| schema |Nome do esquema no banco de dados. O nome do esquema diferencia maiúsculas de minúsculas. |Não |
-| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados PostgreSQL. Os valores possíveis são: Anonymous, Basic e Windows. |Sim |
+| server |Nome do servidor do hello PostgreSQL. |Sim |
+| database |Nome do banco de dados PostgreSQL hello. |Sim |
+| schema |Nome do esquema de saudação no banco de dados de saudação. nome do esquema Olá diferencia maiusculas de minúsculas. |Não |
+| authenticationType |Tipo de autenticação usado o banco de dados PostgreSQL toohello tooconnect. Os valores possíveis são: Anonymous, Basic e Windows. |Sim |
 | Nome de Usuário |Especifique o nome de usuário se você estiver usando a autenticação Basic ou Windows. |Não |
-| Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Não |
-| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados PostgreSQL local. |Sim |
+| Senha |Especifique a senha da conta de usuário de saudação especificado para nome de usuário de saudação. |Não |
+| gatewayName |Nome do gateway Olá Olá serviço da fábrica de dados deve usar tooconnect toohello local banco de dados PostgreSQL. |Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -2136,11 +2136,11 @@ Para definir um serviço vinculado do PostgreSQL, defina o **type** do serviço 
 Para obter mais informações, consulte o artigo [Conector do PostgreSQL](data-factory-onprem-postgresql-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do PostgreSQL, defina o **type** do conjunto de dados para **RelationalTable** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um conjunto de dados PostgreSQL, Olá conjunto **tipo** do conjunto de dados de saudação muito**RelationalTable**e especifique Olá seguintes propriedades em Olá **typeProperties** seção: 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tableName |Nome da tabela na instância do banco de dados PostgreSQL à qual o serviço vinculado se refere. O tableName diferencia maiúsculas de minúsculas. |Não (se **query** de **RelationalSource** for especificado) |
+| tableName |Nome da tabela de saudação em Olá instância de banco de dados PostgreSQL serviço vinculado refere-se a. Olá tableName diferencia maiusculas de minúsculas. |Não (se **query** de **RelationalSource** for especificado) |
 
 #### <a name="example"></a>Exemplo
 ```json
@@ -2168,12 +2168,12 @@ Para definir um conjunto de dados do PostgreSQL, defina o **type** do conjunto d
 Para obter mais informações, consulte o artigo [Conector do PostgreSQL](data-factory-onprem-postgresql-connector.md#dataset-properties).
 
 ### <a name="relational-source-in-copy-activity"></a>Origem Relacional na Atividade de Cópia
-Se você estiver copiando dados de um banco de dados do PostgreSQL, defina o **source type** da atividade de cópia para **RelationalSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados de um banco de dados PostgreSQL, defina Olá **tipo de fonte** de hello atividade de cópia muito**RelationalSource**e especificar propriedades no Olá a seguir **fonte**seção:
 
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| query |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: "query": "select * from \"MySchema\".\"MyTable\"". |Não (se **tableName** de **dataset** for especificado) |
+| query |Use dados de tooread Olá consulta personalizada. |Cadeia de caracteres de consulta SQL. Por exemplo: "query": "select * from \"MySchema\".\"MyTable\"". |Não (se **tableName** de **dataset** for especificado) |
 
 #### <a name="example"></a>Exemplo
 
@@ -2221,17 +2221,17 @@ Para obter mais informações, consulte o artigo [Conector do PostgreSQL](data-f
 
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do SAP Business Warehouse (BW), defina o **type** do serviço vinculado para **SapBw** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine um SAP Business Warehouse (BW) o serviço saudação do conjunto vinculado **tipo** de saudação serviço vinculado muito**SapBw**e especificar propriedades no Olá a seguir **typeProperties**seção:  
 
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-server | Nome do servidor no qual reside a instância do SAP BW. | string | Sim
-systemNumber | Número de sistema do sistema SAP BW. | Número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim
-clientId | ID de Cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma cadeia de caracteres. | Sim
-Nome de Usuário | Nome do usuário que tem acesso ao servidor SAP | string | Sim
-Senha | Senha do usuário. | string | Sim
-gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP BW. | string | Sim
-encryptedCredential | A cadeia de caracteres de credencial criptografada. | string | Não
+server | Nome do servidor de saudação no qual Olá SAP BW instância reside. | string | Sim
+systemNumber | Número de sistema de saudação sistema SAP BW. | Número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim
+clientId | ID do cliente do cliente Olá Olá sistema SAP W. | Número decimal de três dígitos representado como uma cadeia de caracteres. | Sim
+Nome de Usuário | Nome de usuário de saudação que tem acesso toohello SAP server | string | Sim
+Senha | Senha do usuário hello. | string | Sim
+gatewayName | Nome do gateway Olá Olá serviço da fábrica de dados deve usar a instância de SAP BW tooconnect toohello local. | string | Sim
+encryptedCredential | cadeia de caracteres de credencial Olá criptografado. | string | Não
 
 #### <a name="example"></a>Exemplo
 
@@ -2255,7 +2255,7 @@ encryptedCredential | A cadeia de caracteres de credencial criptografada. | stri
 Para obter mais informações, consulte o artigo [Conector do SAP Business Warehouse](data-factory-sap-business-warehouse-connector.md#linked-service-properties). 
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir o conjunto de dados do SAP BW defina o **type** do conjunto de dados como **RelationalTable**. Não há propriedades específicas ao tipo com suporte para o conjunto de dados do SAP BW do tipo **RelationalTable**.  
+toodefine um conjunto de dados do SAP BW, Olá conjunto **tipo** do conjunto de dados de saudação muito**RelationalTable**. Não existem propriedades específicas do tipo de suporte para o conjunto de dados de SAP BW de saudação do tipo **RelationalTable**.  
 
 #### <a name="example"></a>Exemplo
 
@@ -2277,12 +2277,12 @@ Para definir o conjunto de dados do SAP BW defina o **type** do conjunto de dado
 Para obter mais informações, consulte o artigo [Conector do SAP Business Warehouse](data-factory-sap-business-warehouse-connector.md#dataset-properties). 
 
 ### <a name="relational-source-in-copy-activity"></a>Origem Relacional na Atividade de Cópia
-Se você estiver copiando dados de um banco de dados do SAP Business Warehouse, defina o **source type** da atividade de cópia para **RelationalSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados do SAP Business Warehouse, defina Olá **tipo de fonte** de hello atividade de cópia muito**RelationalSource**e especificar propriedades no Olá a seguir **fonte**seção:
 
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| query | Especifica a consulta MDX para ler dados da instância do SAP BW. | Consulta MDX. | Sim |
+| query | Especifica Olá MDX consulta tooread dados da instância do SAP BW hello. | Consulta MDX. | Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -2331,16 +2331,16 @@ Para obter mais informações, consulte o artigo [Conector do SAP Business Wareh
 ## <a name="sap-hana"></a>SAP HANA
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do SAP HANA, defina o **type** do serviço vinculado para **SapHana** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine um SAP HANA vinculado serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**SapHana**e especificar propriedades no Olá a seguir **typeProperties** seção:  
 
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-server | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver usando uma porta personalizada, especifique `server:port`. | string | Sim
+server | Nome do servidor de saudação no qual Olá SAP HANA instância reside. Se o servidor estiver usando uma porta personalizada, especifique `server:port`. | string | Sim
 authenticationType | Tipo de autenticação. | cadeia de caracteres. "Básico" ou "Windows" | Sim 
-Nome de Usuário | Nome do usuário que tem acesso ao servidor SAP | string | Sim
-Senha | Senha do usuário. | string | Sim
-gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP HANA. | string | Sim
-encryptedCredential | A cadeia de caracteres de credencial criptografada. | string | Não
+Nome de Usuário | Nome de usuário de saudação que tem acesso toohello SAP server | string | Sim
+Senha | Senha do usuário hello. | string | Sim
+gatewayName | Nome do gateway Olá Olá serviço da fábrica de dados deve usar a instância de SAP HANA tooconnect toohello local. | string | Sim
+encryptedCredential | cadeia de caracteres de credencial Olá criptografado. | string | Não
 
 #### <a name="example"></a>Exemplo
 
@@ -2363,7 +2363,7 @@ encryptedCredential | A cadeia de caracteres de credencial criptografada. | stri
 Para obter mais informações, consulte o artigo [Conector do SAP HANA](data-factory-sap-hana-connector.md#linked-service-properties).
  
 ### <a name="dataset"></a>Conjunto de dados
-Para definir o conjunto de dados do SAP HANA defina o **type** do conjunto de dados como **RelationalTable**. Não há propriedades específicas ao tipo com suporte para o conjunto de dados do SAP HANA do tipo **RelationalTable**. 
+toodefine um conjunto de dados do SAP HANA, Olá conjunto **tipo** do conjunto de dados de saudação muito**RelationalTable**. Não existem propriedades específicas do tipo de suporte para o dataset do SAP HANA saudação do tipo **RelationalTable**. 
 
 #### <a name="example"></a>Exemplo
 
@@ -2385,11 +2385,11 @@ Para definir o conjunto de dados do SAP HANA defina o **type** do conjunto de da
 Para obter mais informações, consulte o artigo [Conector do SAP HANA](data-factory-sap-hana-connector.md#dataset-properties). 
 
 ### <a name="relational-source-in-copy-activity"></a>Origem Relacional na Atividade de Cópia
-Se você estiver copiando dados de um armazenamento de dados do SAP HANA, defina o **source type** da atividade de cópia para **RelationalSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados de um repositório de dados do SAP HANA, defina Olá **tipo de fonte** de hello atividade de cópia muito**RelationalSource**e especificar propriedades no Olá a seguir **fonte**seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| query | Especifica a consulta SQL para ler dados da instância do SAP HANA. | Consulta SQL. | Sim |
+| query | Especifica Olá SQL consulta tooread dados da instância do SAP HANA hello. | Consulta SQL. | Sim |
 
 
 #### <a name="example"></a>Exemplo
@@ -2441,19 +2441,19 @@ Para obter mais informações, consulte o artigo [Conector do SAP HANA](data-fac
 ## <a name="sql-server"></a>SQL Server
 
 ### <a name="linked-service"></a>Serviço vinculado
-Você cria um serviço vinculado do tipo **OnPremisesSqlServer** para vincular um banco de dados do SQL Server local a um data factory. A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do SQL Server local.
+Criar um serviço vinculado do tipo **OnPremisesSqlServer** toolink uma fábrica de dados tooa de banco de dados do local do SQL Server. Olá a tabela a seguir fornece uma descrição para o serviço vinculado do SQL Server do JSON elementos tooon local específico.
 
-A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do SQL Server.
+Olá, a tabela a seguir fornece uma descrição para o JSON de elementos específico tooSQL serviço do servidor vinculado.
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| type |A propriedade type deve ser definida como: **OnPremisesSqlServer**. |Sim |
-| connectionString |Especifique as informações de connectionString necessárias para conexão com o banco de dados do SQL Server local usando a autenticação do SQL ou então a autenticação do Windows. |Sim |
-| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados do SQL Server local. |Sim |
+| type |propriedade de tipo Hello deve ser definida como: **OnPremisesSqlServer**. |Sim |
+| connectionString |Especifica informações de connectionString necessárias tooconnect toohello no SQL Server banco de dados local usando a autenticação do Windows ou autenticação do SQL. |Sim |
+| gatewayName |Nome do gateway Olá Olá serviço da fábrica de dados deve usar o banco de dados do tooconnect toohello no local do SQL Server. |Sim |
 | Nome de Usuário |Especifique o nome de usuário se você estiver usando a Autenticação do Windows. Exemplo: **domainname\\username**. |Não |
-| Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Não |
+| Senha |Especifique a senha da conta de usuário de saudação especificado para nome de usuário de saudação. |Não |
 
-Criptografe as credenciais usando o cmdlet **New-AzureRmDataFactoryEncryptValue** e use-as na cadeia de conexão, como mostrado no seguinte exemplo (propriedade **EncryptedCredential**):  
+Você pode criptografar credenciais usando Olá **New-AzureRmDataFactoryEncryptValue** cmdlet e usá-los na cadeia de caracteres de conexão hello, conforme mostrado no exemplo a seguir de saudação (**EncryptedCredential** propriedade):  
 
 ```json
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -2476,7 +2476,7 @@ Criptografe as credenciais usando o cmdlet **New-AzureRmDataFactoryEncryptValue*
 ```
 #### <a name="example-json-for-using-windows-authentication"></a>Exemplo: JSON para usar Autenticação Windows
 
-Se o nome de usuário e a senha forem especificados, o gateway os usará para representar a conta de usuário especificada para se conectar ao banco de dados SQL Server local. Caso contrário, o gateway se conectará ao SQL Server diretamente com o contexto de segurança do Gateway (a sua conta de inicialização).
+Se o nome de usuário e senha forem especificados, gateway usa tooimpersonate Olá dados do usuário especificado conta tooconnect toohello local do SQL Server. Caso contrário, o gateway conecta toohello do SQL Server diretamente com o contexto de segurança de saudação do Gateway (sua conta de inicialização).
 
 ```json
 {
@@ -2496,11 +2496,11 @@ Se o nome de usuário e a senha forem especificados, o gateway os usará para re
 Para obter mais informações, consulte o artigo [Conector de SQL Server](data-factory-sqlserver-connector.md#linked-service-properties). 
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do SQL Server, defina o **type** do conjunto de dados para **SqlServerTable** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um conjunto de dados do SQL Server, Olá conjunto **tipo** do conjunto de dados de saudação muito**SqlServerTable**e especifique Olá seguintes propriedades em Olá **typeProperties** seção: 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tableName |Nome da tabela ou exibição na instância do Banco de Dados SQL Server à qual o serviço vinculado se refere. |Sim |
+| tableName |Nome da tabela de saudação ou exibição na instância de banco de dados do SQL Server Olá que serviço vinculado refere-se a. |Sim |
 
 #### <a name="example"></a>Exemplo
 ```json
@@ -2531,23 +2531,23 @@ Para definir um conjunto de dados do SQL Server, defina o **type** do conjunto d
 Para obter mais informações, consulte o artigo [Conector de SQL Server](data-factory-sqlserver-connector.md#dataset-properties). 
 
 ### <a name="sql-source-in-copy-activity"></a>Origem do SQL na Atividade de Cópia
-Se você estiver copiando dados de um banco de dados SQL do Azure, defina o **source type** da atividade de cópia para **SqlSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados de um banco de dados do SQL Server, defina Olá **tipo de fonte** de hello atividade de cópia muito**SqlSource**e especificar propriedades no Olá a seguir **fonte** seção:
 
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| SqlReaderQuery |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: `select * from MyTable`. Pode fazer referência a várias tabelas do banco de dados referenciado pelo conjunto de dados de entrada. Se não for especificada, a instrução SQL que é executada é: select from MyTable. |Não |
-| sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê os dados da tabela de origem. |Nome do procedimento armazenado. |Não |
-| storedProcedureParameters |Parâmetros para o procedimento armazenado. |Pares de nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não |
+| SqlReaderQuery |Use dados de tooread Olá consulta personalizada. |Cadeia de caracteres de consulta SQL. Por exemplo: `select * from MyTable`. Pode fazer referência a várias tabelas de banco de dados de saudação referenciado pelo conjunto de dados de entrada hello. Se não for especificado, Olá instrução SQL executada: selecione MyTable. |Não |
+| sqlReaderStoredProcedureName |Nome da saudação procedimento armazenado que lê dados da tabela de origem hello. |Nome da saudação de procedimento armazenado. |Não |
+| storedProcedureParameters |Parâmetros de saudação de procedimento armazenado. |Pares de nome/valor. Nomes e o uso de maiusculas e minúsculas dos parâmetros devem corresponder a nomes de saudação e uso de maiusculas e minúsculas dos parâmetros de procedimento armazenado de saudação. |Não |
 
-Se **sqlReaderQuery** for especificado para SqlSource, a Atividade de Cópia executará essa consulta na fonte do Banco do SQL Server para obter os dados.
+Se hello **sqlReaderQuery** é especificada para Olá SqlSource, hello atividade de cópia executa esta consulta em relação aos dados de Olá Olá banco de dados do SQL Server fonte tooget.
 
-Como alternativa, você pode especificar um procedimento armazenado especificando o **sqlReaderStoredProcedureName** e o **storedProcedureParameters** (se o procedimento armazenado usa parâmetros).
+Como alternativa, você pode especificar um procedimento armazenado especificando Olá **sqlReaderStoredProcedureName** e **storedProcedureParameters** (se hello procedimento armazenado usa parâmetros).
 
-Se você não especificar sqlReaderQuery nem sqlReaderStoredProcedureName, as colunas definidas na seção de estrutura serão usadas para criar uma consulta seleção a ser executada no Banco de Dados SQL Server. Se a definição de conjunto de dados não tem a estrutura, todas as colunas serão selecionadas da tabela.
+Se você não especificar sqlReaderQuery ou sqlReaderStoredProcedureName, colunas de Olá definidas na seção de estrutura hello são usada toobuild toorun uma consulta select contra Olá banco de dados do SQL Server. Se definição de conjunto de dados de saudação não tem estrutura Olá, todas as colunas da tabela de hello estão selecionadas.
 
 > [!NOTE]
-> Quando você usa **sqlReaderStoredProcedureName**, ainda é necessário especificar um valor para a propriedade **tableName** no JSON do conjunto de dados. Contudo, não há nenhuma validação executada nessa tabela.
+> Quando você usa **sqlReaderStoredProcedureName**, você ainda precisa toospecify um valor para Olá **tableName** propriedade no conjunto de dados Olá JSON. Contudo, não há nenhuma validação executada nessa tabela.
 
 
 #### <a name="example"></a>Exemplo
@@ -2592,27 +2592,27 @@ Se você não especificar sqlReaderQuery nem sqlReaderStoredProcedureName, as co
 }
 ```
 
-Neste exemplo, **sqlReaderQuery** é especificada para SqlSource. A Atividade de Cópia executa essa consulta na fonte do Banco de Dados do SQL Server para obter os dados. Como alternativa, você pode especificar um procedimento armazenado especificando o **sqlReaderStoredProcedureName** e o **storedProcedureParameters** (se o procedimento armazenado usa parâmetros). A sqlReaderQuery pode fazer referência a várias tabelas no banco de dados referenciado pelo conjunto de dados de entrada. A propriedade não se limita apenas à tabela definida como typeProperty de tableName do conjunto de dados.
+Neste exemplo, **sqlReaderQuery** é especificado para Olá SqlSource. Hello atividade de cópia executa esta consulta Olá dados do banco de dados do SQL Server origem tooget hello. Como alternativa, você pode especificar um procedimento armazenado especificando Olá **sqlReaderStoredProcedureName** e **storedProcedureParameters** (se hello procedimento armazenado usa parâmetros). Olá sqlReaderQuery pode fazer referência a várias tabelas no banco de dados de saudação referenciado pelo conjunto de dados de entrada hello. Ele não é limitado tooonly Olá definido como Olá typeProperty de tableName do conjunto de dados.
 
-Se você não especificar sqlReaderQuery nem sqlReaderStoredProcedureName, as colunas definidas na seção de estrutura serão usadas para criar uma consulta seleção a ser executada no Banco de Dados SQL Server. Se a definição de conjunto de dados não tem a estrutura, todas as colunas serão selecionadas da tabela.
+Se você não especificar sqlReaderQuery ou sqlReaderStoredProcedureName, colunas de Olá definidas na seção de estrutura hello são usada toobuild toorun uma consulta select contra Olá banco de dados do SQL Server. Se definição de conjunto de dados de saudação não tem estrutura Olá, todas as colunas da tabela de hello estão selecionadas.
 
 Para obter mais informações, consulte o artigo [Conector de SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties). 
 
 ### <a name="sql-sink-in-copy-activity"></a>Coletor do Sql na Atividade de Cópia
-Se você estiver copiando dados para um banco de dados SQL Server, defina o **sink type** da atividade de cópia para **SqlSink** e especifique as propriedades a seguir na seção **sink**:
+Se você estiver copiando o banco de dados do SQL Server data tooa, defina Olá **tipo de coletor** de hello atividade de cópia muito**SqlSink**e especificar propriedades no Olá a seguir **coletor** seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
-| writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
-| sqlWriterCleanupScript |Especifique a consulta para a Atividade de Cópia a ser executada para que os dados de uma fatia especifica sejam removidos. Para saber mais, confira a seção de [repetição](#repeatability-during-copy) . |Uma instrução de consulta. |Não |
-| sliceIdentifierColumnName |Especifique o nome de coluna para a Atividade de Cópia a ser preenchido com o identificador de fatia gerado automaticamente, que é usado para limpar dados de uma fatia específica quando executado novamente. Para saber mais, confira a seção de [repetição](#repeatability-during-copy) . |Nome de uma coluna com tipo de dados de binário (32). |Não |
-| sqlWriterStoredProcedureName |Nome do procedimento armazenado que upserts (atualiza/insere) na tabela de destino. |Nome do procedimento armazenado. |Não |
-| storedProcedureParameters |Parâmetros para o procedimento armazenado. |Pares de nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não |
-| sqlWriterTableType |Especifique o nome do tipo de tabela a ser usado no procedimento armazenado. A atividade de cópia disponibiliza aqueles dados sendo movidos em uma tabela temporária com esse tipo de tabela. O código de procedimento armazenado pode mesclar os dados sendo copiados com dados existentes. |Um nome de tipo de tabela. |Não |
+| writeBatchTimeout |Tempo de espera para Olá toocomplete de operação de inserção de lote antes de expirar. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
+| writeBatchSize |Insere dados na tabela do SQL hello quando o tamanho do buffer de saudação atingir writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
+| sqlWriterCleanupScript |Especifique a consulta para a atividade de cópia tooexecute, de modo que os dados de uma fatia específica é limpa. Para saber mais, confira a seção de [repetição](#repeatability-during-copy) . |Uma instrução de consulta. |Não |
+| sliceIdentifierColumnName |Especifique o nome de coluna para a atividade de cópia toofill com identificador de fatia gerado automaticamente, que é usado tooclean os dados de uma fatia específica quando executada novamente. Para saber mais, confira a seção de [repetição](#repeatability-during-copy) . |Nome de uma coluna com tipo de dados de binário (32). |Não |
+| sqlWriterStoredProcedureName |Nome do hello procedimento armazenado dados upserts (atualizações/inserções) na tabela de destino de saudação. |Nome da saudação de procedimento armazenado. |Não |
+| storedProcedureParameters |Parâmetros de saudação de procedimento armazenado. |Pares de nome/valor. Nomes e o uso de maiusculas e minúsculas dos parâmetros devem corresponder a nomes de saudação e uso de maiusculas e minúsculas dos parâmetros de procedimento armazenado de saudação. |Não |
+| sqlWriterTableType |Especifique toobe de nome de tipo de tabela usado no procedimento armazenado de saudação. Atividade de cópia disponibiliza dados Olá movidos em uma tabela temporária com esse tipo de tabela. Código do procedimento armazenado, em seguida, pode mesclar dados de saudação sejam copiados com os dados existentes. |Um nome de tipo de tabela. |Não |
 
 #### <a name="example"></a>Exemplo
-O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída e agendada para ser executada a cada hora. Na definição de JSON do pipeline, o tipo de **fonte** está definido como **BlobSource** e o tipo de **coletor** está definido como **SqlSink**.
+pipeline de saudação contém uma atividade de cópia que esteja configurado toouse esses conjuntos de dados de entrada e saídos e toorun agendado a cada hora. Na definição JSON de pipeline hello, Olá **fonte** tipo está definido muito**BlobSource** e **coletor** tipo está definido muito**SqlSink**.
 
 ```json
 {
@@ -2660,17 +2660,17 @@ Para obter mais informações, consulte o artigo [Conector de SQL Server](data-f
 ## <a name="sybase"></a>Sybase
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do Sybase, defina o **type** do serviço vinculado para **OnPremisesSybase** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine um Sybase vinculado serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**OnPremisesSybase**e especificar propriedades no Olá a seguir **typeProperties** seção:  
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| server |Nome do servidor do Sybase. |Sim |
-| database |Nome do banco de dados do Sybase. |Sim |
-| schema |Nome do esquema no banco de dados. |Não |
-| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados Sybase. Os valores possíveis são: Anonymous, Basic e Windows. |Sim |
+| server |Nome do servidor do Sybase hello. |Sim |
+| database |Nome do banco de dados do Sybase hello. |Sim |
+| schema |Nome do esquema de saudação no banco de dados de saudação. |Não |
+| authenticationType |Tipo de autenticação usado o banco de dados do Sybase tooconnect toohello. Os valores possíveis são: Anonymous, Basic e Windows. |Sim |
 | Nome de Usuário |Especifique o nome de usuário se você estiver usando a autenticação Basic ou Windows. |Não |
-| Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Não |
-| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados local do Sybase. |Sim |
+| Senha |Especifique a senha da conta de usuário de saudação especificado para nome de usuário de saudação. |Não |
+| gatewayName |Nome do gateway Olá Olá serviço da fábrica de dados deve usar o banco de dados Sybase local de toohello de tooconnect. |Sim |
 
 #### <a name="example"></a>Exemplo
 ```json
@@ -2694,11 +2694,11 @@ Para definir um serviço vinculado do Sybase, defina o **type** do serviço vinc
 Para obter mais informações, consulte o artigo [Conector do Sybase](data-factory-onprem-sybase-connector.md#linked-service-properties). 
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do Sybase, defina o **type** do conjunto de dados para **RelationalTable** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um conjunto de dados Sybase, Olá conjunto **tipo** do conjunto de dados de saudação muito**RelationalTable**e especifique Olá seguintes propriedades em Olá **typeProperties** seção: 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tableName |Nome da tabela na instância do banco de dados Sybase à qual o serviço vinculado se refere. |Não (se **query** de **RelationalSource** for especificado) |
+| tableName |Nome da tabela de saudação em Olá instância de banco de dados Sybase serviço vinculado refere-se a. |Não (se **query** de **RelationalSource** for especificado) |
 
 #### <a name="example"></a>Exemplo
 
@@ -2728,12 +2728,12 @@ Para definir um conjunto de dados do Sybase, defina o **type** do conjunto de da
 Para obter mais informações, consulte o artigo [Conector do Sybase](data-factory-onprem-sybase-connector.md#dataset-properties). 
 
 ### <a name="relational-source-in-copy-activity"></a>Origem Relacional na Atividade de Cópia
-Se você estiver copiando dados de um banco de dados do Sybase, defina o **source type** da atividade de cópia para **RelationalSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados de um banco de dados Sybase, defina Olá **tipo de fonte** de hello atividade de cópia muito**RelationalSource**e especificar propriedades no Olá a seguir **fonte** seção:
 
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| query |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: `select * from MyTable`. |Não (se **tableName** de **dataset** for especificado) |
+| query |Use dados de tooread Olá consulta personalizada. |Cadeia de caracteres de consulta SQL. Por exemplo: `select * from MyTable`. |Não (se **tableName** de **dataset** for especificado) |
 
 #### <a name="example"></a>Exemplo
 
@@ -2780,15 +2780,15 @@ Para obter mais informações, consulte o artigo [Conector do Sybase](data-facto
 ## <a name="teradata"></a>Teradata
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do Teradata, defina o **type** do serviço vinculado para **OnPremisesTeradata** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine um Teradata vinculado serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**OnPremisesTeradata**e especificar propriedades no Olá a seguir **typeProperties** seção:  
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| server |Nome do servidor Teradata. |Sim |
-| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados Teradata. Os valores possíveis são: Anonymous, Basic e Windows. |Sim |
+| server |Nome do servidor de Teradata hello. |Sim |
+| authenticationType |Tipo de autenticação usado o banco de dados do tooconnect toohello Teradata. Os valores possíveis são: Anonymous, Basic e Windows. |Sim |
 | Nome de Usuário |Especifique o nome de usuário se você estiver usando a autenticação Basic ou Windows. |Não |
-| Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Não |
-| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados Teradata local. |Sim |
+| Senha |Especifique a senha da conta de usuário de saudação especificado para nome de usuário de saudação. |Não |
+| gatewayName |Nome do gateway Olá Olá serviço da fábrica de dados deve usar o banco de dados do tooconnect toohello local Teradata. |Sim |
 
 #### <a name="example"></a>Exemplo
 ```json
@@ -2810,7 +2810,7 @@ Para definir um serviço vinculado do Teradata, defina o **type** do serviço vi
 Para obter mais informações, consulte o artigo [Conector do Teradata](data-factory-onprem-teradata-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir o conjunto de dados do Blobo do Teradata defina o **type** do conjunto de dados como **RelationalTable**. Atualmente, não há nenhuma propriedade do tipo com suporte para o conjunto de dados Teradata. 
+toodefine um conjunto de dados de Teradata Blob, Olá conjunto **tipo** do conjunto de dados de saudação muito**RelationalTable**. No momento, não há nenhuma propriedade de tipo com suporte para o conjunto de dados de Teradata hello. 
 
 #### <a name="example"></a>Exemplo
 ```json
@@ -2839,11 +2839,11 @@ Para definir o conjunto de dados do Blobo do Teradata defina o **type** do conju
 Para obter mais informações, consulte o artigo [Conector do Teradata](data-factory-onprem-teradata-connector.md#dataset-properties).
 
 ### <a name="relational-source-in-copy-activity"></a>Origem Relacional na Atividade de Cópia
-Se você estiver copiando dados de um banco de dados do Teradata, defina o **source type** da atividade de cópia para **RelationalSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados de um banco de dados Teradata, defina Olá **tipo de fonte** de hello atividade de cópia muito**RelationalSource**e especificar propriedades no Olá a seguir **fonte**seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| query |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: `select * from MyTable`. |Sim |
+| query |Use dados de tooread Olá consulta personalizada. |Cadeia de caracteres de consulta SQL. Por exemplo: `select * from MyTable`. |Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -2894,17 +2894,17 @@ Para obter mais informações, consulte o artigo [Conector do Teradata](data-fac
 
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do Cassandra, defina o **type** do serviço vinculado para **OnPremisesCassandra** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine um Cassandra vinculado serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**OnPremisesCassandra**e especificar propriedades no Olá a seguir **typeProperties** seção:  
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| host |Um ou mais endereços IP ou nomes de host dos servidores Cassandra.<br/><br/>Especifique uma lista separada por vírgulas de endereços IP ou nomes de host para se conectar simultaneamente a todos os servidores. |Sim |
-| porta |A porta TCP usada pelo servidor Cassandra para ouvir conexões de cliente. |Não, valor padrão: 9042 |
+| host |Um ou mais endereços IP ou nomes de host dos servidores Cassandra.<br/><br/>Especifique uma lista separada por vírgulas de endereços IP ou host nomes tooconnect tooall servidores simultaneamente. |Sim |
+| porta |Olá porta TCP que Olá servidor Cassandra usa toolisten para conexões de cliente. |Não, valor padrão: 9042 |
 | authenticationType |Básica, ou Anônima |Sim |
-| Nome de Usuário |Especifique o nome de usuário da conta de usuário. |Sim, se authenticationType for definida como Básica. |
-| Senha |Especifique a senha para a conta de usuário. |Sim, se authenticationType for definida como Básica. |
-| gatewayName |O nome do gateway que é usado para se conectar ao servidor Cassandra local. |Sim |
-| encryptedCredential |Credencial criptografada pelo gateway. |Não |
+| Nome de Usuário |Especifique o nome de usuário para a conta de usuário de saudação. |Sim, se authenticationType é definido tooBasic. |
+| Senha |Especifique a senha da conta de usuário de saudação. |Sim, se authenticationType é definido tooBasic. |
+| gatewayName |nome de saudação do gateway de saudação que é usado tooconnect toohello Cassandra banco de dados no local. |Sim |
+| encryptedCredential |Credencial criptografada pelo gateway hello. |Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -2928,12 +2928,12 @@ Para definir um serviço vinculado do Cassandra, defina o **type** do serviço v
 Para obter mais informações, consulte o artigo [Conector do Cassandra](data-factory-onprem-cassandra-connector.md#linked-service-properties). 
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do Cassandra, defina o **type** do conjunto de dados para **CassandraTable** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um conjunto de dados Cassandra, Olá conjunto **tipo** do conjunto de dados de saudação muito**CassandraTable**e especifique Olá seguintes propriedades em Olá **typeProperties** seção: 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| keyspace |Nome do keyspace ou do esquema no banco de dados Cassandra. |Sim (se a **consulta** para **CassandraSource** não estiver definida). |
-| tableName |Nome da tabela no banco de dados Cassandra. |Sim (se a **consulta** para **CassandraSource** não estiver definida). |
+| keyspace |Nome da saudação keyspace ou esquema Cassandra banco de dados. |Sim (se a **consulta** para **CassandraSource** não estiver definida). |
+| tableName |Nome da tabela de saudação no banco de dados Cassandra. |Sim (se a **consulta** para **CassandraSource** não estiver definida). |
 
 #### <a name="example"></a>Exemplo
 
@@ -2966,12 +2966,12 @@ Para definir um conjunto de dados do Cassandra, defina o **type** do conjunto de
 Para obter mais informações, consulte o artigo [Conector do Cassandra](data-factory-onprem-cassandra-connector.md#dataset-properties). 
 
 ### <a name="cassandra-source-in-copy-activity"></a>Origem do Cassandra na Atividade de Cópia
-Se você estiver copiando dados do Cassandra, defina o **source type** da atividade de cópia para **CassandraSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados de Cassandra, defina Olá **tipo de fonte** de hello atividade de cópia muito**CassandraSource**e especificar propriedades no Olá a seguir **fonte** seção :
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| query |Utiliza a consulta personalizada para ler os dados. |Consulta SQL-92 ou consulta CQL. Veja [Referência ao CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Ao usar a consulta SQL, especifique **keyspace name.table name** para representar a tabela que deseja consultar. |Não (se tableName e keyspace no conjunto de dados estiverem definidos). |
-| consistencyLevel |O nível de consistência especifica quantas réplicas devem responder a uma solicitação de leitura antes de retornar dados ao aplicativo cliente. O Cassandra verifica o número especificado de réplicas de dados atender à solicitação de leitura. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Confira [Configuring data consistency (Configurando a consistência de dados)](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) para obter detalhes. |Não. O valor padrão é ONE. |
+| query |Use dados de tooread Olá consulta personalizada. |Consulta SQL-92 ou consulta CQL. Veja [Referência ao CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Ao usar a consulta SQL, especifique **keyspace name.table nome** toorepresent Olá tabela tooquery. |Não (se tableName e keyspace no conjunto de dados estiverem definidos). |
+| consistencyLevel |nível de consistência de saudação especifica quantas réplicas deve responder a solicitação de leitura de tooa antes de retornar o aplicativo de cliente de toohello de dados. Verificações de Cassandra Olá número especificado de réplicas para a solicitação de leitura de saudação do toosatisfy de dados. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Confira [Configuring data consistency (Configurando a consistência de dados)](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) para obter detalhes. |Não. O valor padrão é ONE. |
 
 #### <a name="example"></a>Exemplo
   
@@ -2984,7 +2984,7 @@ Se você estiver copiando dados do Cassandra, defina o **source type** da ativid
         "description": "pipeline with copy activity",
         "activities": [{
             "name": "CassandraToAzureBlob",
-            "description": "Copy from Cassandra to an Azure blob",
+            "description": "Copy from Cassandra tooan Azure blob",
             "type": "Copy",
             "inputs": [{
                 "name": "CassandraInput"
@@ -3021,18 +3021,18 @@ Para obter mais informações, consulte o artigo [Conector do Cassandra](data-fa
 ## <a name="mongodb"></a>MongoDB
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do MongoDB, defina o **type** do serviço vinculado para **OnPremisesMongoDB** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine um MongoDB vinculado serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**OnPremisesMongoDB**e especificar propriedades no Olá a seguir **typeProperties** seção:  
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| server |Endereço IP ou nome do host do servidor MongoDB. |Sim |
-| porta |A porta TCP usada pelo servidor MongoDB para ouvir conexões de cliente. |Opcional, valor padrão: 27017 |
+| server |IP endereço ou nome de host do servidor do MongoDB hello. |Sim |
+| porta |Porta TCP que Olá MongoDB server usa toolisten para conexões de cliente. |Opcional, valor padrão: 27017 |
 | authenticationType |Básica ou Anônima. |Sim |
-| Nome de Usuário |Conta de usuário para acessar o MongoDB. |Sim (se a autenticação básica for usada). |
-| Senha |Senha do usuário. |Sim (se a autenticação básica for usada). |
-| authSource |Nome do banco de dados MongoDB que você deseja usar para verificar suas credenciais para autenticação. |Opcional (se a autenticação básica for usada). Padrão: usa a conta de administrador e o banco de dados especificado usando a propriedade databaseName. |
-| databaseName |Nome do banco de dados MongoDB que você deseja acessar. |Sim |
-| gatewayName |Nome do gateway que acessa o armazenamento de dados. |Sim |
+| Nome de Usuário |Conta de usuário tooaccess MongoDB. |Sim (se a autenticação básica for usada). |
+| Senha |Senha do usuário hello. |Sim (se a autenticação básica for usada). |
+| authSource |Nome do banco de dados do MongoDB Olá que você deseja toouse toocheck suas credenciais para autenticação. |Opcional (se a autenticação básica for usada). padrão: usa a conta de administrador hello e banco de dados de saudação especificado usando a propriedade databaseName. |
+| databaseName |Nome do banco de dados do MongoDB Olá que você deseja tooaccess. |Sim |
+| gatewayName |Nome do gateway de saudação que acessa o repositório de dados de saudação. |Sim |
 | encryptedCredential |Credencial criptografada pelo gateway. |Opcional |
 
 #### <a name="example"></a>Exemplo
@@ -3044,11 +3044,11 @@ Para definir um serviço vinculado do MongoDB, defina o **type** do serviço vin
         "type": "OnPremisesMongoDb",
         "typeProperties": {
             "authenticationType": "<Basic or Anonymous>",
-            "server": "< The IP address or host name of the MongoDB server >",
-            "port": "<The number of the TCP port that the MongoDB server uses to listen for client connections.>",
+            "server": "< hello IP address or host name of hello MongoDB server >",
+            "port": "<hello number of hello TCP port that hello MongoDB server uses toolisten for client connections.>",
             "username": "<username>",
             "password": "<password>",
-            "authSource": "< The database that you want to use to check your credentials for authentication. >",
+            "authSource": "< hello database that you want toouse toocheck your credentials for authentication. >",
             "databaseName": "<database name>",
             "gatewayName": "<onpremgateway>"
         }
@@ -3059,11 +3059,11 @@ Para definir um serviço vinculado do MongoDB, defina o **type** do serviço vin
 Para obter mais informações, consulte o artigo [Conector do MongoDB](data-factory-on-premises-mongodb-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do MongoDB, defina o **type** do conjunto de dados para **MongoDbCollection** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um conjunto de dados do MongoDB, Olá conjunto **tipo** do conjunto de dados de saudação muito**MongoDbCollection**e especifique Olá seguintes propriedades em Olá **typeProperties** seção: 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| collectionName |Nome da coleção no banco de dados MongoDB. |Sim |
+| collectionName |Nome da coleção de saudação no banco de dados do MongoDB. |Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -3088,11 +3088,11 @@ Para definir um conjunto de dados do MongoDB, defina o **type** do conjunto de d
 Para obter mais informações, consulte o artigo [Conector do MongoDB](data-factory-on-premises-mongodb-connector.md#dataset-properties).
 
 #### <a name="mongodb-source-in-copy-activity"></a>Origem do MongoDB na Atividade de Cópia
-Se você estiver copiando dados do MongoDB, defina o **source type** da atividade de cópia para **MongoDbSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados do MongoDB, defina Olá **tipo de fonte** de hello atividade de cópia muito**MongoDbSource**e especificar propriedades no Olá a seguir **fonte** seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| query |Utiliza a consulta personalizada para ler os dados. |Cadeia de consulta SQL-92. Por exemplo: `select * from MyTable`. |Não (se **collectionName** de **dataset** for especificado) |
+| query |Use dados de tooread Olá consulta personalizada. |Cadeia de consulta SQL-92. Por exemplo: `select * from MyTable`. |Não (se **collectionName** de **dataset** for especificado) |
 
 #### <a name="example"></a>Exemplo
 
@@ -3142,12 +3142,12 @@ Para obter mais informações, consulte o artigo [Conector do MongoDB](data-fact
 
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do Amazon S3, defina o **type** do serviço vinculado para **AwsAccessKey** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine um S3 Amazon vinculado serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**AwsAccessKey**e especificar propriedades no Olá a seguir **typeProperties** seção :  
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| accessKeyID |ID da chave de acesso secreta. |string |Sim |
-| secretAccessKey |A chave de acesso do secreta em si. |Cadeia de caracteres secreta criptografada |Sim |
+| accessKeyID |ID da chave de acesso ao segredo hello. |string |Sim |
+| secretAccessKey |chave de acesso ao segredo Olá em si. |Cadeia de caracteres secreta criptografada |Sim |
 
 #### <a name="example"></a>Exemplo
 ```json
@@ -3166,20 +3166,20 @@ Para definir um serviço vinculado do Amazon S3, defina o **type** do serviço v
 Para obter mais informações, consulte o artigo [Conector do Amazon S3](data-factory-amazon-simple-storage-service-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do Amazon S3, defina o **type** do conjunto de dados para **AmazonS3** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um S3 Amazon o conjunto de dados, conjunto Olá **tipo** do conjunto de dados de saudação muito**AmazonS3**e especifique Olá seguintes propriedades em Olá **typeProperties** seção: 
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| bucketName |O nome do bucket S3. |string |Sim |
-| chave |A chave do objeto S3. |string |Não |
-| prefixo |Prefixo da chave do objeto S3. Objetos cujas chaves começam com esse prefixo serão selecionados. Aplica-se apenas quando a chave está vazia. |string |Não |
-| version |A versão do objeto S3 se o controle de versão do S3 está habilitado. |string |Não |
-| formato | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. |Não | |
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis com suporte são **Ideal** e **Mais rápido**. Para obter mais informações, consulte [Formatos de arquivo e de compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não | |
+| bucketName |nome de bucket Olá S3. |Cadeia de caracteres |Sim |
+| chave |chave do objeto Olá S3. |Cadeia de caracteres |Não |
+| prefixo |Prefixo da chave do objeto Olá S3. Objetos cujas chaves começam com esse prefixo serão selecionados. Aplica-se apenas quando a chave está vazia. |string |Não |
+| version |versão de saudação do objeto de S3 se o controle de versão S3 estiver habilitado. |Cadeia de caracteres |Não |
+| formato | Olá, tipos de formato a seguir têm suporte: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Saudação de conjunto **tipo** propriedade em formato tooone desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser muito**copiar arquivos como-é** entre repositórios baseada em arquivo (cópia binário), ignore a seção de formato de saudação em ambas as definições de conjunto de dados de entrada e saída. |Não | |
+| compactação | Especifica tipo de saudação e nível de compactação de dados de saudação. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. níveis de saudação com suporte são: **ideal** e **mais rápido**. Para saber mais, confira [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) (Formatos de arquivo e de compactação no Azure Data Factory). |Não | |
 
 
 > [!NOTE]
-> bucketName + chave especifica a localização do objeto S3 em que bucket é o contêiner raiz para objetos S3 e a chave é o caminho completo para o objeto S3.
+> bucketName + chave especifica o local de saudação do objeto Olá S3 onde bucket é recipiente raiz Olá S3 objetos e a chave é Olá caminho completo tooS3 objeto.
 
 #### <a name="example-sample-dataset-with-prefix"></a>Exemplo: Conjunto de dados de exemplo com o prefixo
 
@@ -3230,31 +3230,31 @@ Para definir um conjunto de dados do Amazon S3, defina o **type** do conjunto de
 ```
 
 #### <a name="example-dynamic-paths-for-s3"></a>Exemplo: Caminhos dinâmicos para S3
-No exemplo, usamos valores fixos para as propriedades de chave e bucketName no conjunto de dados do Amazon S3.
+Exemplo hello, usamos valores fixos para propriedades de chave e bucketName no conjunto de dados Olá Amazon S3.
 
 ```json
 "key": "testFolder/test.orc",
 "bucketName": "<S3 bucket name>",
 ```
 
-Você pode fazer com que o Data Factory calcule a chave e bucketName dinamicamente em tempo de execução usando variáveis de sistema como SliceStart.
+Você pode fazer com que o Data Factory calcular chave hello e bucketName dinamicamente em tempo de execução usando variáveis de sistema como SliceStart.
 
 ```json
 "key": "$$Text.Format('{0:MM}/{0:dd}/test.orc', SliceStart)"
 "bucketName": "$$Text.Format('{0:yyyy}', SliceStart)"
 ```
 
-Você pode fazer o mesmo para a propriedade de prefixo de um conjunto de dados do Amazon S3. Veja [Funções e variáveis do sistema do Data Factory](data-factory-functions-variables.md) para obter uma lista das funções e variáveis com suporte.
+Você pode fazer Olá mesmo para a propriedade de prefixo de saudação de um conjunto de dados do Amazon S3. Veja [Funções e variáveis do sistema do Data Factory](data-factory-functions-variables.md) para obter uma lista das funções e variáveis com suporte.
 
 Para obter mais informações, consulte o artigo [Conector do Amazon S3](data-factory-amazon-simple-storage-service-connector.md#dataset-properties).
 
 ### <a name="file-system-source-in-copy-activity"></a>Origem do Sistema de Arquivos na Atividade de Cópia
-Se você estiver copiando dados do Amazon S3, defina o **source type** da atividade de cópia para **FileSystemSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados do Amazon S3, defina Olá **tipo de fonte** de hello atividade de cópia muito**FileSystemSource**e especificar propriedades no Olá a seguir **fonte** seção :
 
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| recursive |Especifica se devemos listar recursivamente objetos S3 no diretório. |true/false |Não |
+| recursiva |Especifica se a lista de toorecursively S3 objetos no diretório de saudação. |true/false |Não |
 
 
 #### <a name="example"></a>Exemplo
@@ -3306,16 +3306,16 @@ Para obter mais informações, consulte o artigo [Conector do Amazon S3](data-fa
 
 
 ### <a name="linked-service"></a>Serviço vinculado
-Você pode vincular um sistema de arquivos local ao Azure Data Factory com o serviço vinculado do **Servidor de Arquivos Local**. A tabela a seguir fornece descrições dos elementos JSON específicos para o serviço vinculado do Servidor de Arquivos Local.
+Você pode vincular uma fábrica de dados do Azure local arquivo sistema tooan com hello **o servidor de arquivos local** serviço vinculado. Olá a tabela a seguir fornece descrições dos elementos JSON que são específico toohello serviço vinculado de servidor de arquivos local.
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| type |Verifique se a propriedade de tipo foi definida como **OnPremisesFileServer**. |Sim |
-| host |Especifica o caminho raiz da pasta que você deseja copiar. Use o caractere de escape ‘ \ ’ para caracteres especiais na cadeia de caracteres. Confira [Definições de conjunto de dados e serviço vinculado de exemplo](#sample-linked-service-and-dataset-definitions) para obter exemplos. |Sim |
-| userid |Especifique a ID do usuário que tem acesso ao servidor. |Não (se você escolher encryptedcredential) |
-| Senha |Especifique a senha para o usuário (userid). |Não (se você escolher encryptedcredential |
-| encryptedCredential |Especifique as credenciais criptografadas que você pode obter executando o cmdlet New-AzureRmDataFactoryEncryptValue. |Não (se você optar por especificar userid e password em texto sem formatação) |
-| gatewayName |Especifica o nome do gateway que o Data Factory deve usar para se conectar ao servidor de arquivos local. |Sim |
+| type |Verifique se a propriedade de tipo hello está definida muito**OnPremisesFileServer**. |Sim |
+| host |Especifica o caminho de raiz de saudação da pasta Olá que você deseja toocopy. Use o caractere de escape de saudação ' \ ' para caracteres especiais na cadeia de caracteres de saudação. Confira [Definições de conjunto de dados e serviço vinculado de exemplo](#sample-linked-service-and-dataset-definitions) para obter exemplos. |Sim |
+| userid |Especifique a ID de saudação do usuário de saudação que tem acesso toohello server. |Não (se você escolher encryptedcredential) |
+| Senha |Especifique a senha de saudação para usuário hello (userid). |Não (se você escolher encryptedcredential |
+| encryptedCredential |Especifique credenciais Olá criptografado que você pode obter executando Olá AzureRmDataFactoryEncryptValue novo cmdlet. |Não (se você escolher toospecify ID de usuário e senha em texto sem formatação) |
+| gatewayName |Especifica o nome de saudação do gateway de saudação que Data Factory deve usar o servidor de arquivos tooconnect toohello local. |Sim |
 
 #### <a name="sample-folder-path-definitions"></a>Exemplos de definições de caminho de pasta 
 | Cenário | Host em definição de serviço vinculado | folderPath em definição de conjunto de dados |
@@ -3360,16 +3360,16 @@ Você pode vincular um sistema de arquivos local ao Azure Data Factory com o ser
 Para obter mais informações, consulte o [artigo Conector do Sistema de Arquivos](data-factory-onprem-file-system-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do Sistema de Arquivos, defina o **type** do conjunto de dados para **FileShare** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um conjunto de dados do sistema de arquivos, Olá conjunto **tipo** do conjunto de dados de saudação muito**FileShare**e especifique Olá seguintes propriedades em Olá **typeProperties** seção: 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| folderPath |Especifica o subcaminho para a pasta. Use o caractere de escape ‘\’ para caracteres especiais na cadeia de caracteres. Confira [Definições de conjunto de dados e serviço vinculado de exemplo](#sample-linked-service-and-dataset-definitions) para obter exemplos.<br/><br/>Você pode combinar essa propriedade com **partitionBy** para ter caminhos de pastas com base na fatia de data/hora de início/término. |Sim |
-| fileName |Especifique o nome do arquivo no **folderPath** se quiser que a tabela se refira a um arquivo específico na pasta. Se você não especificar algum valor para essa propriedade, a tabela apontará para todos os arquivos na pasta.<br/><br/>Quando o fileName não for especificado para um conjunto de dados de saída, o nome do arquivo gerado será no seguinte formato: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
-| fileFilter |Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no folderPath em vez de todos os arquivos. <br/><br/>Os valores permitidos são: `*` (vários caracteres) e `?` (um único caractere).<br/><br/>Exemplo 1: "fileFilter": "*.log"<br/>Exemplo 2: "fileFilter": 2016-1-?.txt"<br/><br/>Observe que fileFilter é aplicável a um conjunto de dados FileShare de entrada. |Não |
-| partitionedBy |Você pode usar partitionedBy para especificar um folderPath/fileName dinâmico para dados de série temporal. Um exemplo é folderPath parametrizado para cada hora dos dados. |Não |
-| formato | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. |Não |
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos compatíveis são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**; e os níveis permitidos são: **Ideal** e **Mais rápido**. confira [Formatos de arquivo e de compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| folderPath |Especifica a pasta de toohello subcaminho hello. Use o caractere de escape de saudação ' \' para caracteres especiais na cadeia de caracteres de saudação. Confira [Definições de conjunto de dados e serviço vinculado de exemplo](#sample-linked-service-and-dataset-definitions) para obter exemplos.<br/><br/>Você pode combinar essa propriedade com **partitionBy** toohave caminhos de pastas com base na fatia datas / horas de início/término. |Sim |
+| fileName |Especifique o nome de saudação do arquivo de saudação em Olá **folderPath** se você quiser Olá tabela toorefer tooa arquivo específico na pasta hello. Se você não especificar qualquer valor para essa propriedade, a tabela de saudação aponta tooall arquivos na pasta hello.<br/><br/>Quando o nome de arquivo não for especificado para um conjunto de dados de saída, o nome de saudação do arquivo hello gerado está em Olá formato a seguir: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
+| fileFilter |Especifique um filtro toobe usado tooselect um subconjunto de arquivos no hello folderPath em vez de todos os arquivos. <br/><br/>Os valores permitidos são: `*` (vários caracteres) e `?` (um único caractere).<br/><br/>Exemplo 1: "fileFilter": "*.log"<br/>Exemplo 2: "fileFilter": 2016-1-?.txt"<br/><br/>Observe que fileFilter é aplicável a um conjunto de dados FileShare de entrada. |Não |
+| partitionedBy |Você pode usar partitionedBy toospecify um dinâmico folderPath/nome do arquivo de dados da série temporal. Um exemplo é folderPath parametrizado para cada hora dos dados. |Não |
+| formato | Olá, tipos de formato a seguir têm suporte: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Saudação de conjunto **tipo** propriedade em formato tooone desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser muito**copiar arquivos como-é** entre repositórios baseada em arquivo (cópia binário), ignore a seção de formato de saudação em ambas as definições de conjunto de dados de entrada e saída. |Não |
+| compactação | Especifica tipo de saudação e nível de compactação de dados de saudação. Os tipos compatíveis são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**; e os níveis permitidos são: **Ideal** e **Mais rápido**. confira [Formatos de arquivo e de compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
 > [!NOTE]
 > Você não pode usar fileName e fileFilter simultaneamente.
@@ -3434,11 +3434,11 @@ Para definir um conjunto de dados do Sistema de Arquivos, defina o **type** do c
 Para obter mais informações, consulte o [artigo Conector do Sistema de Arquivos](data-factory-onprem-file-system-connector.md#dataset-properties).
 
 ### <a name="file-system-source-in-copy-activity"></a>Origem do Sistema de Arquivos na Atividade de Cópia
-Se você estiver copiando dados do Sistema de Arquivos, defina o **source type** da atividade de cópia para **FileSystemSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados de sistema de arquivos, defina Olá **tipo de fonte** de hello atividade de cópia muito**FileSystemSource**e especificar propriedades no Olá a seguir **fonte** seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| recursiva |Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. |True, False (padrão) |Não |
+| recursiva |Indica se os dados saudação é lida recursivamente de subpastas de saudação ou somente de pasta especificado hello. |True, False (padrão) |Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -3484,11 +3484,11 @@ Se você estiver copiando dados do Sistema de Arquivos, defina o **source type**
 Para obter mais informações, consulte o [artigo Conector do Sistema de Arquivos](data-factory-onprem-file-system-connector.md#copy-activity-properties).
 
 ### <a name="file-system-sink-in-copy-activity"></a>Coletor do Sistema de Arquivos na Atividade de Cópia
-Se você estiver copiando dados para um Sistema de Arquivos, defina o **sink type** da atividade de cópia para **FileSystemSink** e especifique as propriedades a seguir na seção **sink**:
+Se você estiver copiando dados tooFile sistema, definir Olá **tipo de coletor** de hello atividade de cópia muito**FileSystemSink**e especificar propriedades no Olá a seguir **coletor** seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| copyBehavior |Define o comportamento de cópia quando a origem é BlobSource ou FileSystem. |**PreserveHierarchy:** preserva a hierarquia de arquivos na pasta de destino. Ou seja, o caminho relativo do arquivo de origem para a pasta de origem é o mesmo que o caminho relativo do arquivo de destino para a pasta de destino.<br/><br/>**FlattenHierarchy:** todos os arquivos da pasta de origem estarão no primeiro nível da pasta de destino. Os arquivos de destino são criados com um nome gerado automaticamente.<br/><br/>**MergeFiles**: mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/nome do blob for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, ele será um nome de arquivo gerado automaticamente. |Não |
+| copyBehavior |Define o comportamento de cópia de saudação quando origem Olá é BlobSource ou sistema de arquivos. |**PreserveHierarchy:** preserva a hierarquia de arquivo hello na pasta de destino de saudação. Ou seja, caminho relativo do Olá Olá arquivo toohello origem da pasta de origem é Olá igual Olá o caminho relativo da pasta de destino toohello do arquivo de destino hello.<br/><br/>**FlattenHierarchy:** todos os arquivos da pasta de origem Olá são criados no primeiro nível saudação da pasta de destino. arquivos de destino de saudação são criados com um nome gerado automaticamente.<br/><br/>**MergeFiles:** mescla todos os arquivos Olá pasta tooone do arquivo de origem. Se o nome do blob/nome de arquivo hello for especificado, o nome mesclado Olá é nome especificado da saudação. Caso contrário, ele será um nome de arquivo gerado automaticamente. |Não |
 auto-
 
 #### <a name="example"></a>Exemplo
@@ -3539,19 +3539,19 @@ Para obter mais informações, consulte o [artigo Conector do Sistema de Arquivo
 ## <a name="ftp"></a>FTP
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do FTP, defina o **type** do serviço vinculado para **FtpServer** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine um FTP o serviço saudação do conjunto vinculado **tipo** de saudação serviço vinculado muito**FtpServer**e especificar propriedades no Olá a seguir **typeProperties** seção:  
 
 | Propriedade | Descrição | Obrigatório | Padrão |
 | --- | --- | --- | --- |
-| host |Nome ou endereço IP do servidor FTP |Sim |&nbsp; |
+| host |Nome ou endereço IP do servidor FTP de saudação |Sim |&nbsp; |
 | authenticationType |Especificar tipo de autenticação |Sim |Básica, Anônima |
-| Nome de Usuário |Usuário que tem acesso ao servidor FTP |Não |&nbsp; |
-| Senha |Senha do usuário (nome de usuário) |Não |&nbsp; |
-| encryptedCredential |Credencial criptografada para acessar o servidor FTP |Não |&nbsp; |
-| gatewayName |Nome do Gateway de Gerenciamento de Dados para se conectar a um servidor FTP local |Não |&nbsp; |
-| porta |Porta na qual o servidor FTP está escutando |Não |21 |
-| enableSsl |Especifique se deseja usar o canal FTP sobre SSL/TLS |Não |verdadeiro |
-| enableServerCertificateValidation |Especifique se deseja habilitar a validação do certificado SSL do servidor ao usar o canal FTP sobre SSL/TLS |Não |verdadeiro |
+| Nome de Usuário |Usuário que tem acesso toohello FTP servidor |Não |&nbsp; |
+| Senha |Senha do usuário da saudação (nome de usuário) |Não |&nbsp; |
+| encryptedCredential |Servidor FTP credencial criptografada tooaccess Olá |Não |&nbsp; |
+| gatewayName |Nome da saudação Data Management Gateway gateway tooconnect tooan servidor FTP local |Não |&nbsp; |
+| porta |Porta na qual Olá FTP server está escutando |Não |21 |
+| enableSsl |Especifique se toouse FTP por canal SSL/TLS |Não |verdadeiro |
+| enableServerCertificateValidation |Especifique se o servidor de tooenable SSL a validação de certificado ao usar o FTP no canal SSL/TLS |Não |verdadeiro |
 
 #### <a name="example-using-anonymous-authentication"></a>Exemplo: Usando a autenticação anônima
 
@@ -3625,16 +3625,16 @@ Para definir um serviço vinculado do FTP, defina o **type** do serviço vincula
 Para obter mais informações, consulte o artigo [Conector do FTP](data-factory-ftp-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do FTP, defina o **type** do conjunto de dados para **FileShare** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um FTP de conjunto de dados, conjunto Olá **tipo** do conjunto de dados de saudação muito**FileShare**e especifique Olá seguintes propriedades em Olá **typeProperties** seção: 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| folderPath |Subcaminho para a pasta. Use o caractere de escape ' \ ' para caracteres especiais na cadeia de caracteres. Confira [Definições de conjunto de dados e serviço vinculado de exemplo](#sample-linked-service-and-dataset-definitions) para obter exemplos.<br/><br/>Você pode combinar essa propriedade com **partitionBy** para ter caminhos de pastas com base na fatia de data/hora de início/término. |Sim 
-| fileName |Especifique o nome do arquivo no **folderPath** se quiser que a tabela se refira a um arquivo específico na pasta. Se você não especificar algum valor para essa propriedade, a tabela apontará para todos os arquivos na pasta.<br/><br/>Quando o fileName não for especificado para um conjunto de dados de saída, o nome do arquivo gerado será no seguinte formato: <br/><br/>Data.<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
-| fileFilter |Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no folderPath em vez de todos os arquivos.<br/><br/>Os valores permitidos são: `*` (vários caracteres) e `?` (um único caractere).<br/><br/>Exemplo 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter é aplicável a um conjunto de dados FileShare de entrada. Essa propriedade não tem suporte com HDFS. |Não |
-| partitionedBy |partitionedBy pode usado para especificar um filename, folderPath dinâmico para dados de série temporal. Por exemplo, folderPath parametrizado para cada hora dos dados. |Não |
-| formato | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. |Não |
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos compatíveis são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**; e os níveis permitidos são: **Ideal** e **Mais rápido**. Para saber mais, confira [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) (Formatos de arquivo e de compactação no Azure Data Factory). |Não |
+| folderPath |Subpasta toohello mais recente para o caminho. Use o caractere de escape ' \ ' para caracteres especiais na cadeia de caracteres de saudação. Confira [Definições de conjunto de dados e serviço vinculado de exemplo](#sample-linked-service-and-dataset-definitions) para obter exemplos.<br/><br/>Você pode combinar essa propriedade com **partitionBy** toohave caminhos de pastas com base na fatia datas / horas de início/término. |Sim 
+| fileName |Especifique o nome de saudação do arquivo de saudação em Olá **folderPath** se você quiser Olá tabela toorefer tooa arquivo específico na pasta hello. Se você não especificar qualquer valor para essa propriedade, a tabela de saudação aponta tooall arquivos na pasta hello.<br/><br/>Quando o nome de arquivo não for especificado para um conjunto de dados de saída, o nome de saudação do arquivo hello gerado aparecerá em Olá esse formato a seguir: <br/><br/>Data.<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
+| fileFilter |Especifique um filtro toobe usado tooselect um subconjunto de arquivos no hello folderPath em vez de todos os arquivos.<br/><br/>Os valores permitidos são: `*` (vários caracteres) e `?` (um único caractere).<br/><br/>Exemplo 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter é aplicável a um conjunto de dados FileShare de entrada. Essa propriedade não tem suporte com HDFS. |Não |
+| partitionedBy |partitionedBy pode ser usado toospecify um folderPath dinâmico, nome de arquivo para dados de série temporal. Por exemplo, folderPath parametrizado para cada hora dos dados. |Não |
+| formato | Olá, tipos de formato a seguir têm suporte: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Saudação de conjunto **tipo** propriedade em formato tooone desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser muito**copiar arquivos como-é** entre repositórios baseada em arquivo (cópia binário), ignore a seção de formato de saudação em ambas as definições de conjunto de dados de entrada e saída. |Não |
+| compactação | Especifica tipo de saudação e nível de compactação de dados de saudação. Os tipos compatíveis são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**; e os níveis permitidos são: **Ideal** e **Mais rápido**. Para saber mais, confira [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) (Formatos de arquivo e de compactação no Azure Data Factory). |Não |
 | useBinaryTransfer |Especifique se deve usar o modo de transferência Binário. True para o modo binário e ASCII false. Valor padrão: True. Essa propriedade só pode ser usada quando o tipo de serviço vinculado associado for do tipo: FtpServer. |Não |
 
 > [!NOTE]
@@ -3649,7 +3649,7 @@ Para definir um conjunto de dados do FTP, defina o **type** do conjunto de dados
         "type": "FileShare",
         "linkedServiceName": "FTPLinkedService",
         "typeProperties": {
-            "folderPath": "<path to shared folder>",
+            "folderPath": "<path tooshared folder>",
             "fileName": "test.csv",
             "useBinaryTransfer": true
         },
@@ -3665,11 +3665,11 @@ Para definir um conjunto de dados do FTP, defina o **type** do conjunto de dados
 Para obter mais informações, consulte o artigo [Conector do FTP](data-factory-ftp-connector.md#dataset-properties).
 
 ### <a name="file-system-source-in-copy-activity"></a>Origem do Sistema de Arquivos na Atividade de Cópia
-Se você estiver copiando dados do FTP, defina o **source type** da atividade de cópia para **FileSystemSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados de um servidor FTP, defina Olá **tipo de fonte** de hello atividade de cópia muito**FileSystemSource**e especificar propriedades no Olá a seguir **fonte** seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| recursiva |Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. |True, False (padrão) |Não |
+| recursiva |Indica se os dados saudação é lida recursivamente de subpastas de saudação ou somente de pasta especificado hello. |True, False (padrão) |Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -3717,17 +3717,17 @@ Para obter mais informações, consulte o artigo [Conector do FTP](data-factory-
 ## <a name="hdfs"></a>HDFS
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do HDFS, defina o **type** do serviço vinculado para **Hdfs** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine um HDFS o serviço saudação do conjunto vinculado **tipo** de saudação serviço vinculado muito**Hdfs**e especificar propriedades no Olá a seguir **typeProperties** seção:  
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| type |A propriedade type deve ser definida como: **Hdfs** |Sim |
-| Url |URL para o HDFS |Sim |
-| authenticationType |Anônimo ou Windows. <br><br> Para usar **autenticação Kerberos** com o conector HDFS, veja [esta seção](#use-kerberos-authentication-for-hdfs-connector) para configurar seu ambiente local adequadamente. |Sim |
+| type |propriedade de tipo Hello deve ser definida como: **Hdfs** |Sim |
+| Url |URL toohello HDFS |Sim |
+| authenticationType |Anônimo ou Windows. <br><br> toouse **a autenticação Kerberos** para conector HDFS, consulte muito[nesta seção](#use-kerberos-authentication-for-hdfs-connector) tooset seu ambiente local adequadamente. |Sim |
 | userName |Nome de usuário para a autenticação do Windows. |Sim (para a Autenticação do Windows) |
 | Senha |Senha para a autenticação do Windows. |Sim (para a Autenticação do Windows) |
-| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao HDFS. |Sim |
-| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) da credencial de acesso. |Não |
+| gatewayName |Nome do gateway Olá Olá serviço da fábrica de dados deve usar tooconnect toohello HDFS. |Sim |
+| encryptedCredential |[Novo AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) saída de credencial de acesso de saudação. |Não |
 
 #### <a name="example-using-anonymous-authentication"></a>Exemplo: Usando a autenticação anônima
 
@@ -3767,15 +3767,15 @@ Para definir um serviço vinculado do HDFS, defina o **type** do serviço vincul
 Para obter mais informações, consulte o artigo [Conector do HDFS](#data-factory-hdfs-connector.md#linked-service-properties). 
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do HDFS, defina o **type** do conjunto de dados para **FileShare** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um conjunto de dados do HDFS, Olá conjunto **tipo** do conjunto de dados de saudação muito**FileShare**e especifique Olá seguintes propriedades em Olá **typeProperties** seção: 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| folderPath |Caminho para a pasta. Exemplo: `myfolder`<br/><br/>Use o caractere de escape ' \ ' para caracteres especiais na cadeia de caracteres. Por exemplo: para pasta\subpasta, especifique a pasta\\\\subpasta e para d:\pastadeexemplo, especifique d:\\\\pastadeexemplo.<br/><br/>Você pode combinar essa propriedade com **partitionBy** para ter caminhos de pastas com base na fatia de data/hora de início/término. |Sim |
-| fileName |Especifique o nome do arquivo no **folderPath** se quiser que a tabela se refira a um arquivo específico na pasta. Se você não especificar algum valor para essa propriedade, a tabela apontará para todos os arquivos na pasta.<br/><br/>Quando o fileName não for especificado para um conjunto de dados de saída, o nome do arquivo gerado será no seguinte formato: <br/><br/>Data<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
-| partitionedBy |partitionedBy pode usado para especificar um filename, folderPath dinâmico para dados de série temporal. Exemplo: folderPath parametrizado para cada hora dos dados. |Não |
-| formato | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. |Não |
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis com suporte são **Ideal** e **O mais rápido**. Para saber mais, confira [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) (Formatos de arquivo e de compactação no Azure Data Factory). |Não |
+| folderPath |Pasta de toohello de caminho. Exemplo: `myfolder`<br/><br/>Use o caractere de escape ' \ ' para caracteres especiais na cadeia de caracteres de saudação. Por exemplo: para pasta\subpasta, especifique a pasta\\\\subpasta e para d:\pastadeexemplo, especifique d:\\\\pastadeexemplo.<br/><br/>Você pode combinar essa propriedade com **partitionBy** toohave caminhos de pastas com base na fatia datas / horas de início/término. |Sim |
+| fileName |Especifique o nome de saudação do arquivo de saudação em Olá **folderPath** se você quiser Olá tabela toorefer tooa arquivo específico na pasta hello. Se você não especificar qualquer valor para essa propriedade, a tabela de saudação aponta tooall arquivos na pasta hello.<br/><br/>Quando o nome de arquivo não for especificado para um conjunto de dados de saída, o nome de saudação do arquivo hello gerado aparecerá em Olá esse formato a seguir: <br/><br/>Data<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
+| partitionedBy |partitionedBy pode ser usado toospecify um folderPath dinâmico, nome de arquivo para dados de série temporal. Exemplo: folderPath parametrizado para cada hora dos dados. |Não |
+| formato | Olá, tipos de formato a seguir têm suporte: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Saudação de conjunto **tipo** propriedade em formato tooone desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser muito**copiar arquivos como-é** entre repositórios baseada em arquivo (cópia binário), ignore a seção de formato de saudação em ambas as definições de conjunto de dados de entrada e saída. |Não |
+| compactação | Especifica tipo de saudação e nível de compactação de dados de saudação. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis com suporte são **Ideal** e **O mais rápido**. Para saber mais, confira [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) (Formatos de arquivo e de compactação no Azure Data Factory). |Não |
 
 > [!NOTE]
 > filename e fileFilter não podem ser usados simultaneamente.
@@ -3803,13 +3803,13 @@ Para definir um conjunto de dados do HDFS, defina o **type** do conjunto de dado
 Para obter mais informações, consulte o artigo [Conector do HDFS](#data-factory-hdfs-connector.md#dataset-properties). 
 
 ### <a name="file-system-source-in-copy-activity"></a>Origem do Sistema de Arquivos na Atividade de Cópia
-Se você estiver copiando dados do HDFS, defina o **source type** da atividade de cópia para **FileSystemSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados do HDFS, defina Olá **tipo de fonte** de hello atividade de cópia muito**FileSystemSource**e especificar propriedades no Olá a seguir **fonte** seção:
 
-**FileSystemSource** suporta as seguintes propriedades:
+**FileSystemSource** dá suporte a saudação propriedades a seguir:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| recursiva |Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. |True, False (padrão) |Não |
+| recursiva |Indica se os dados saudação é lida recursivamente de subpastas de saudação ou somente de pasta especificado hello. |True, False (padrão) |Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -3853,26 +3853,26 @@ Para obter mais informações, consulte o artigo [Conector do HDFS](#data-factor
 
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do SFTP, defina o **type** do serviço vinculado para **Sftp** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine um SFTP vinculado serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**Sftp**e especificar propriedades no Olá a seguir **typeProperties** seção:  
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- | --- |
-| host | Nome ou endereço IP do servidor SFTP. |Sim |
-| porta |Porta na qual o servidor SFTP está escutando. O valor padrão é: 21 |Não |
-| authenticationType |Especifique o tipo de autenticação. Valores permitidos: **Básica**, **SshPublicKey**. <br><br> Consulte as seções [Usando a autenticação Básica](#using-basic-authentication) e [Usando autenticação de chave pública SSH](#using-ssh-public-key-authentication) para ver mais propriedades e amostras do JSON, respectivamente. |Sim |
-| skipHostKeyValidation | Especifique se deseja ignorar a validação da chave de host. | Não. O valor padrão: false |
-| hostKeyFingerprint | Especifique a impressão digital da chave de host. | Sim se o `skipHostKeyValidation` estiver definido como false.  |
-| gatewayName |Nome do Gateway de Gerenciamento de Dados para se conectar a um servidor SFTP local. | Sim se estiver copiando dados de um servidor SFTP local. |
-| encryptedCredential | Credencial criptografada para acessar o servidor SFTP. Gerado automaticamente quando você especifica a autenticação Básica (nome de usuário + senha) ou autenticação SshPublicKey (nome de usuário + conteúdo ou caminho da chave privada) no assistente de cópia ou na caixa de diálogo de pop-up do ClickOnce. | Não. Aplique somente quando estiver copiando dados de um servidor SFTP local. |
+| host | Nome ou endereço IP do servidor SFTP hello. |Sim |
+| porta |Porta na qual Olá SFTP server está escutando. valor padrão de saudação é: 21 |Não |
+| authenticationType |Especifique o tipo de autenticação. Valores permitidos: **Básica**, **SshPublicKey**. <br><br> Consulte também[usando a autenticação básica](#using-basic-authentication) e [usando SSH autenticação de chave pública](#using-ssh-public-key-authentication) seções em mais propriedades e exemplos JSON, respectivamente. |Sim |
+| skipHostKeyValidation | Especifique se tooskip validação de chave do host. | Não. Olá valor padrão: false |
+| hostKeyFingerprint | Especifique a impressão digital de saudação da chave de host hello. | Sim se hello `skipHostKeyValidation` é definido toofalse.  |
+| gatewayName |Nome da saudação Data Management Gateway tooconnect tooan local do servidor SFTP. | Sim se estiver copiando dados de um servidor SFTP local. |
+| encryptedCredential | Servidor SFTP saudação do tooaccess credencial criptografada. Gerado automaticamente quando você especificar a autenticação básica (nome de usuário + senha) ou parâmetros SshPublicKey (nome de usuário + caminho da chave privado ou conteúdo) no diálogo de pop-up de ClickOnce de assistente ou saudação de cópia. | Não. Aplique somente quando estiver copiando dados de um servidor SFTP local. |
 
 #### <a name="example-using-basic-authentication"></a>Exemplo: Usando a autenticação básica
 
-Para usar a autenticação Básica, defina `authenticationType` como `Basic` e especifique as propriedades a seguir, além das genéricas do conector SFTP apresentadas na última seção:
+Definir toouse a autenticação básica, `authenticationType` como `Basic`e especifique Olá seguintes propriedades além Olá conector SFTP genérico aqueles introduzidos na última seção do hello:
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- | --- |
-| Nome de Usuário | Usuário que tem acesso ao servidor SFTP. |Sim |
-| Senha | Senha do usuário (nome de usuário). | Sim |
+| Nome de Usuário | Usuário que possui o servidor do acesso toohello SFTP. |Sim |
+| Senha | Senha do usuário da saudação (nome de usuário). | Sim |
 
 ```json
 {
@@ -3916,14 +3916,14 @@ Para usar a autenticação Básica, defina `authenticationType` como `Basic` e e
 
 #### <a name="using-ssh-public-key-authentication"></a>Usando a autenticação de chave pública SSH:**
 
-Para usar a autenticação Básica, defina `authenticationType` como `SshPublicKey` e especifique as propriedades a seguir, além das genéricas do conector SFTP apresentadas na última seção:
+Definir toouse a autenticação básica, `authenticationType` como `SshPublicKey`e especifique Olá seguintes propriedades além Olá conector SFTP genérico aqueles introduzidos na última seção do hello:
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- | --- |
-| Nome de Usuário |Usuário que tem acesso ao servidor SFTP |Sim |
-| privateKeyPath | Especifique, para o arquivo de chave privada, um caminho absoluto que esse gateway possa acessar. | Especifique `privateKeyPath` ou `privateKeyContent`. <br><br> Aplique somente quando estiver copiando dados de um servidor SFTP local. |
-| privateKeyContent | Uma cadeia de caracteres serializada do conteúdo da chave privada. O Assistente de Cópia pode ler o arquivo de chave privada e extrair o conteúdo da chave privada automaticamente. Se você estiver usando qualquer outra ferramenta/SDK, use a propriedade privateKeyPath em seu lugar. | Especifique `privateKeyPath` ou `privateKeyContent`. |
-| Senha | Especifique a senha/frase secreta para descriptografar a chave particular se o arquivo de chave for protegido por uma frase secreta. | Sim, se o arquivo de chave privada for protegido por uma frase secreta. |
+| Nome de Usuário |Usuário que tem acesso toohello SFTP servidor |Sim |
+| privateKeyPath | Especifique o caminho absoluto toohello arquivo de chave privada pode acessar o gateway. | Especifique a saudação `privateKeyPath` ou `privateKeyContent`. <br><br> Aplique somente quando estiver copiando dados de um servidor SFTP local. |
+| privateKeyContent | Uma cadeia de caracteres serializada de conteúdo da chave privada hello. Olá Assistente para cópia pode ler o arquivo de chave privada hello e extrair o conteúdo da chave privada Olá automaticamente. Se você estiver usando qualquer outra ferramenta/SDK, use a propriedade de privateKeyPath de saudação em vez disso. | Especifique a saudação `privateKeyPath` ou `privateKeyContent`. |
+| Senha | Especifique Olá senha/frase toodecrypt Olá privada chave de acesso de se o arquivo de chave Olá estiver protegido por uma frase secreta. | Sim, se o arquivo de chave privada Olá é protegido por uma frase secreta. |
 
 ```json
 {
@@ -3956,7 +3956,7 @@ Para usar a autenticação Básica, defina `authenticationType` como `SshPublicK
             "port": 22,
             "authenticationType": "SshPublicKey",
             "username": "xxx",
-            "privateKeyContent": "<base64 string of the private key content>",
+            "privateKeyContent": "<base64 string of hello private key content>",
             "passPhrase": "xxx",
             "skipHostKeyValidation": true
         }
@@ -3967,16 +3967,16 @@ Para usar a autenticação Básica, defina `authenticationType` como `SshPublicK
 Para obter mais informações, consulte o artigo [Conector do SFTP](data-factory-sftp-connector.md#linked-service-properties). 
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do SFTP, defina o **type** do conjunto de dados para **FileShare** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um conjunto de dados SFTP, Olá conjunto **tipo** do conjunto de dados de saudação muito**FileShare**e especifique Olá seguintes propriedades em Olá **typeProperties** seção: 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| folderPath |Subcaminho para a pasta. Use o caractere de escape ' \ ' para caracteres especiais na cadeia de caracteres. Confira [Definições de conjunto de dados e serviço vinculado de exemplo](#sample-linked-service-and-dataset-definitions) para obter exemplos.<br/><br/>Você pode combinar essa propriedade com **partitionBy** para ter caminhos de pastas com base na fatia de data/hora de início/término. |Sim |
-| fileName |Especifique o nome do arquivo no **folderPath** se quiser que a tabela se refira a um arquivo específico na pasta. Se você não especificar algum valor para essa propriedade, a tabela apontará para todos os arquivos na pasta.<br/><br/>Quando o fileName não for especificado para um conjunto de dados de saída, o nome do arquivo gerado será no seguinte formato: <br/><br/>Data.<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
-| fileFilter |Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no folderPath em vez de todos os arquivos.<br/><br/>Os valores permitidos são: `*` (vários caracteres) e `?` (um único caractere).<br/><br/>Exemplo 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter é aplicável a um conjunto de dados FileShare de entrada. Essa propriedade não tem suporte com HDFS. |Não |
-| partitionedBy |partitionedBy pode usado para especificar um filename, folderPath dinâmico para dados de série temporal. Por exemplo, folderPath parametrizado para cada hora dos dados. |Não |
-| formato | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. |Não |
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis com suporte são **Ideal** e **O mais rápido**. Para saber mais, confira [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) (Formatos de arquivo e de compactação no Azure Data Factory). |Não |
+| folderPath |Subpasta toohello mais recente para o caminho. Use o caractere de escape ' \ ' para caracteres especiais na cadeia de caracteres de saudação. Confira [Definições de conjunto de dados e serviço vinculado de exemplo](#sample-linked-service-and-dataset-definitions) para obter exemplos.<br/><br/>Você pode combinar essa propriedade com **partitionBy** toohave caminhos de pastas com base na fatia datas / horas de início/término. |Sim |
+| fileName |Especifique o nome de saudação do arquivo de saudação em Olá **folderPath** se você quiser Olá tabela toorefer tooa arquivo específico na pasta hello. Se você não especificar qualquer valor para essa propriedade, a tabela de saudação aponta tooall arquivos na pasta hello.<br/><br/>Quando o nome de arquivo não for especificado para um conjunto de dados de saída, o nome de saudação do arquivo hello gerado aparecerá em Olá esse formato a seguir: <br/><br/>Data.<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
+| fileFilter |Especifique um filtro toobe usado tooselect um subconjunto de arquivos no hello folderPath em vez de todos os arquivos.<br/><br/>Os valores permitidos são: `*` (vários caracteres) e `?` (um único caractere).<br/><br/>Exemplo 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter é aplicável a um conjunto de dados FileShare de entrada. Essa propriedade não tem suporte com HDFS. |Não |
+| partitionedBy |partitionedBy pode ser usado toospecify um folderPath dinâmico, nome de arquivo para dados de série temporal. Por exemplo, folderPath parametrizado para cada hora dos dados. |Não |
+| formato | Olá, tipos de formato a seguir têm suporte: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Saudação de conjunto **tipo** propriedade em formato tooone desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser muito**copiar arquivos como-é** entre repositórios baseada em arquivo (cópia binário), ignore a seção de formato de saudação em ambas as definições de conjunto de dados de entrada e saída. |Não |
+| compactação | Especifica tipo de saudação e nível de compactação de dados de saudação. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis com suporte são **Ideal** e **O mais rápido**. Para saber mais, confira [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) (Formatos de arquivo e de compactação no Azure Data Factory). |Não |
 | useBinaryTransfer |Especifique se deve usar o modo de transferência Binário. True para o modo binário e ASCII false. Valor padrão: True. Essa propriedade só pode ser usada quando o tipo de serviço vinculado associado for do tipo: FtpServer. |Não |
 
 > [!NOTE]
@@ -3991,7 +3991,7 @@ Para definir um conjunto de dados do SFTP, defina o **type** do conjunto de dado
         "type": "FileShare",
         "linkedServiceName": "SftpLinkedService",
         "typeProperties": {
-            "folderPath": "<path to shared folder>",
+            "folderPath": "<path tooshared folder>",
             "fileName": "test.csv"
         },
         "external": true,
@@ -4006,11 +4006,11 @@ Para definir um conjunto de dados do SFTP, defina o **type** do conjunto de dado
 Para obter mais informações, consulte o artigo [Conector do SFTP](data-factory-sftp-connector.md#dataset-properties). 
 
 ### <a name="file-system-source-in-copy-activity"></a>Origem do Sistema de Arquivos na Atividade de Cópia
-Se você estiver copiando dados de uma origem do SFTP, defina o **source type** da atividade de cópia para **FileSystemSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados de uma fonte SFTP, defina Olá **tipo de fonte** de hello atividade de cópia muito**FileSystemSource**e especificar propriedades no Olá a seguir **fonte** seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| recursiva |Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. |True, False (padrão) |Não |
+| recursiva |Indica se os dados saudação é lida recursivamente de subpastas de saudação ou somente de pasta especificado hello. |True, False (padrão) |Não |
 
 
 
@@ -4060,23 +4060,23 @@ Para obter mais informações, consulte o artigo [Conector do SFTP](data-factory
 ## <a name="http"></a>HTTP
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do HTTP, defina o **type** do serviço vinculado para **Http** e especifique as propriedades a seguir na seção **typeProperties**:  
+serviço saudação do conjunto vinculado do toodefine um HTTP **tipo** de saudação serviço vinculado muito**Http**e especificar propriedades no Olá a seguir **typeProperties** seção:  
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| url | URL base para o Servidor Web | Sim |
-| authenticationType | Especifica o tipo de autenticação. Os valores permitidos são: **Anônimo**, **Básico**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Consulte as seções abaixo desta tabela para mais propriedades e amostras JSON para esses tipos de autenticação, respectivamente. | Sim |
-| enableServerCertificateValidation | Especifique se deseja habilitar a validação do certificado SSL do servidor se a origem for um servidor Web HTTPS | Não, o padrão é true |
-| gatewayName | Nome do Gateway de Gerenciamento de Dados para se conectar a uma origem HTTP local. | Sim se estiver copiando dados de uma origem HTTP local. |
-| encryptedCredential | Credencial criptografada para acessar o ponto de extremidade HTTP. Gerado automaticamente quando você configura as informações de autenticação no assistente de cópia ou a caixa de diálogo pop-up do ClickOnce. | Não. Aplique somente quando estiver copiando dados de um servidor HTTP local. |
+| url | Base de URL toohello servidor Web | Sim |
+| authenticationType | Especifica o tipo de autenticação de saudação. Os valores permitidos são: **Anônimo**, **Básico**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Consulte toosections abaixo da tabela em mais propriedades e exemplos JSON para esses tipos de autenticação, respectivamente. | Sim |
+| enableServerCertificateValidation | Especifique se tooenable servidor SSL a validação de certificado se origem for o servidor da Web HTTPS | Não, o padrão é true |
+| gatewayName | Nome da saudação Data Management Gateway tooconnect tooan origem HTTP no local. | Sim se estiver copiando dados de uma origem HTTP local. |
+| encryptedCredential | Credencial criptografada tooaccess Olá ponto de extremidade HTTP. Gerado automaticamente quando você configura as informações de autenticação de saudação no diálogo de pop-up de ClickOnce de assistente ou saudação de cópia. | Não. Aplique somente quando estiver copiando dados de um servidor HTTP local. |
 
 #### <a name="example-using-basic-digest-or-windows-authentication"></a>Exemplo: Usando a autenticação Básica, Digest ou Windows
-Defina `authenticationType` como `Basic`, `Digest` ou `Windows` e especifique as propriedades a seguir, além das genéricas do conector HTTP apresentadas acima:
+Definir `authenticationType` como `Basic`, `Digest`, ou `Windows`e especifique Olá seguintes propriedades além Olá conector HTTP genérico aqueles introduzido acima:
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| Nome de Usuário | Nome de usuário para acessar o ponto de extremidade HTTP. | Sim |
-| Senha | Senha do usuário (nome de usuário). | Sim |
+| Nome de Usuário | Nome de usuário tooaccess Olá ponto de extremidade HTTP. | Sim |
+| Senha | Senha do usuário da saudação (nome de usuário). | Sim |
 
 ```json
 {
@@ -4095,22 +4095,22 @@ Defina `authenticationType` como `Basic`, `Digest` ou `Windows` e especifique as
 
 #### <a name="example-using-clientcertificate-authentication"></a>Exemplo: Usando a autenticação ClientCertificate
 
-Para usar a autenticação Básica, defina `authenticationType` como `ClientCertificate` e especifique as propriedades a seguir, além das genéricas do conector HTTP apresentadas acima:
+Definir toouse a autenticação básica, `authenticationType` como `ClientCertificate`e especifique Olá seguintes propriedades além Olá conector HTTP genérico aqueles introduzido acima:
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| embeddedCertData | O conteúdo codificado na Base64 de dados binários do arquivo Personal Information Exchange (PFX). | Especifique `embeddedCertData` ou `certThumbprint`. |
-| certThumbprint | A impressão digital do certificado que foi instalado no repositório de certificados do computador do gateway. Aplique somente ao copiar dados de uma origem HTTP local. | Especifique `embeddedCertData` ou `certThumbprint`. |
-| Senha | Senha associada ao certificado. | Não |
+| embeddedCertData | conteúdo codificado com Base64 Olá de dados binários do arquivo de troca de informações pessoais (PFX) hello. | Especifique a saudação `embeddedCertData` ou `certThumbprint`. |
+| certThumbprint | Olá a impressão digital do certificado Olá foi instalado no repositório de certificados do computador do gateway. Aplique somente ao copiar dados de uma origem HTTP local. | Especifique a saudação `embeddedCertData` ou `certThumbprint`. |
+| Senha | Senha associada com o certificado de saudação. | Não |
 
-Se você usar `certThumbprint` para autenticação e o certificado estiver instalado no armazenamento pessoal do computador local, você precisará conceder a permissão de leitura para o serviço de gateway:
+Se você usar `certThumbprint` para certificado de autenticação e hello está instalado no repositório pessoal de saudação do computador local hello, você precisa que o serviço de gateway do toogrant Olá permissão de leitura toohello:
 
-1. Iniciar o MMC (Console de Gerenciamento Microsoft). Adicionar o snap-in **Certificados**, que tem como destino o **Computador Local**.
+1. Iniciar o MMC (Console de Gerenciamento Microsoft). Adicionar Olá **certificados** snap-in que Olá destinos **computador Local**.
 2. Expanda **Certificados**, **Pessoal** e clique em **Certificados**.
-3. Clique com o botão direito do mouse no certificado do repositório pessoal e selecione **Todas as Tarefas**->**Gerenciar Chaves Particulares...**
-3. Na guia **Segurança**, adicione a conta de usuário sob a qual o serviço de Host de Gateway de Gerenciamento de Dados está em execução com o acesso de leitura para o certificado.  
+3. Certificado de saudação do armazenamento pessoal hello e selecione **todas as tarefas**->**gerenciar chaves particulares...**
+3. Em Olá **segurança** guia, adicione a conta de usuário Olá sob a qual o serviço de Host do Gateway de gerenciamento de dados está em execução com certificado de toohello Olá acesso de leitura.  
 
-**Exemplo: usando o certificado do cliente:** Esse serviço vinculado vincula seu data factory a um servidor Web HTTP local. Ele usa um certificado do cliente instalado no computador com o Gateway de Gerenciamento de Dados instalado.
+**Exemplo: usando o certificado de cliente:** isso vinculado links serviço seu servidor de web data factory tooan locais HTTP. Ele usa um certificado de cliente é instalado na máquina de saudação com Gateway de gerenciamento de dados instalado.
 
 ```json
 {
@@ -4128,7 +4128,7 @@ Se você usar `certThumbprint` para autenticação e o certificado estiver insta
 ```
 
 #### <a name="example-using-client-certificate-in-a-file"></a>Exemplo: usando o certificado do cliente em um arquivo
-Esse serviço vinculado vincula seu data factory a um servidor Web HTTP local. Ele usa um certificado do cliente no computador com o Gateway de Gerenciamento de Dados instalado.
+Isso vinculado links serviço seu servidor de web data factory tooan locais HTTP. Ele usa um arquivo de certificado de cliente no computador de saudação com Gateway de gerenciamento de dados instalado.
 
 ```json
 {
@@ -4148,18 +4148,18 @@ Esse serviço vinculado vincula seu data factory a um servidor Web HTTP local. E
 Para obter mais informações, consulte o artigo [Conector do HTTP](data-factory-http-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do HDFS, defina o **type** do conjunto de dados para **Http** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um HTTP de conjunto de dados, conjunto Olá **tipo** do conjunto de dados de saudação muito**Http**e especifique Olá seguintes propriedades em Olá **typeProperties** seção: 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando o caminho não for especificado, apenas a URL especificada na definição do serviço vinculado será usada. <br><br> Para construir um URL dinâmico, você pode usar [funções de Data Factory e variáveis de sistema](data-factory-functions-variables.md), Exemplo: `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"`. | Não |
+| relativeUrl | Um relativa URL toohello de recursos que contém dados de saudação. Quando não for especificado, somente URL Olá especificado na definição de serviço vinculada de saudação é usado. <br><br> URL do tooconstruct dinâmico, você pode usar [funções da fábrica de dados e variáveis de sistema](data-factory-functions-variables.md), exemplo: `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"`. | Não |
 | requestMethod | Método Http. Os valores permitidos são **GET** ou **POST**. | Não. O padrão é `GET`. |
 | additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não |
 | requestBody | O corpo da solicitação HTTP. | Não |
-| formato | Se você quiser simplesmente **recuperar os dados do ponto de extremidade HTTP como estão** sem analisá-los, ignore estas configurações de formato. <br><br> Se você quiser analisar o conteúdo da resposta HTTP durante a cópia, há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Não |
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis com suporte são **Ideal** e **O mais rápido**. Para saber mais, confira [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) (Formatos de arquivo e de compactação no Azure Data Factory). |Não |
+| formato | Se você quiser toosimply **recuperar dados de saudação do ponto de extremidade HTTP como-é** sem analisá-lo, ignore essa configuração de formato. <br><br> Se você quiser resposta HTTP de saudação tooparse conteúdo durante a cópia, Olá tipos de formato a seguir têm suporte: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Não |
+| compactação | Especifica tipo de saudação e nível de compactação de dados de saudação. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis com suporte são **Ideal** e **O mais rápido**. Para saber mais, confira [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) (Formatos de arquivo e de compactação no Azure Data Factory). |Não |
 
-#### <a name="example-using-the-get-default-method"></a>Exemplo: usando o método GET (padrão)
+#### <a name="example-using-hello-get-default-method"></a>Exemplo: usando o método do hello GET (padrão)
 
 ```json
 {
@@ -4180,7 +4180,7 @@ Para definir um conjunto de dados do HDFS, defina o **type** do conjunto de dado
 }
 ```
 
-#### <a name="example-using-the-post-method"></a>Exemplo: usando o método POST
+#### <a name="example-using-hello-post-method"></a>Exemplo: usando o método POST de saudação
 
 ```json
 {
@@ -4204,11 +4204,11 @@ Para definir um conjunto de dados do HDFS, defina o **type** do conjunto de dado
 Para obter mais informações, consulte o artigo [Conector do HTTP](data-factory-http-connector.md#dataset-properties).
 
 ### <a name="http-source-in-copy-activity"></a>Origem do HTTP na Atividade de Cópia
-Se você estiver copiando dados de uma origem do HTTP, defina o **source type** da atividade de cópia para **HttpSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados de uma fonte HTTP, defina Olá **tipo de fonte** de hello atividade de cópia muito**HttpSource**e especificar propriedades no Olá a seguir **fonte** seção:
 
 | Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | O tempo limite (TimeSpan) para a solicitação HTTP obter uma resposta. É o tempo limite para obter uma resposta e não o tempo limite para ler dados de resposta. | Não. Valor padrão: 00:01:40 |
+| httpRequestTimeout | Olá tempo limite (TimeSpan) para tooget de solicitação HTTP Olá uma resposta. É Olá timeout tooget uma resposta não Olá timeout tooread dados de resposta. | Não. Valor padrão: 00:01:40 |
 
 
 #### <a name="example"></a>Exemplo
@@ -4222,7 +4222,7 @@ Se você estiver copiando dados de uma origem do HTTP, defina o **source type** 
         "description": "pipeline with copy activity",
         "activities": [{
             "name": "HttpSourceToAzureBlob",
-            "description": "Copy from an HTTP source to an Azure blob",
+            "description": "Copy from an HTTP source tooan Azure blob",
             "type": "Copy",
             "inputs": [{
                 "name": "HttpSourceDataInput"
@@ -4258,16 +4258,16 @@ Para obter mais informações, consulte o artigo [Conector do HTTP](data-factory
 ## <a name="odata"></a>OData
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do OData, defina o **type** do serviço vinculado para **OData** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine OData vinculado serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**OData**e especificar propriedades no Olá a seguir **typeProperties** seção:  
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| url |URL do serviço OData. |Sim |
-| authenticationType |Tipo de autenticação usada para se conectar ao armazenamento de dados OData. <br/><br/> Para o OData de nuvem, os valores possíveis são Anônimo, Básico e OAuth (observe que o Azure Data Factory dá suporte no momento apenas a OAuth baseado no Azure Active Directory). <br/><br/> Para OData local, os valores possíveis são Anonymous, Basic e Windows. |Sim |
+| url |URL da saudação serviço OData. |Sim |
+| authenticationType |Tipo de autenticação usado tooconnect toohello OData source. <br/><br/> Para o OData de nuvem, os valores possíveis são Anônimo, Básico e OAuth (observe que o Azure Data Factory dá suporte no momento apenas a OAuth baseado no Azure Active Directory). <br/><br/> Para OData local, os valores possíveis são Anonymous, Basic e Windows. |Sim |
 | Nome de Usuário |Especifique o nome de usuário se você estiver usando a autenticação Básica. |Sim (apenas se você estiver usando a autenticação Básica) |
-| Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Sim (apenas se você estiver usando a autenticação Básica) |
-| authorizedCredential |Se você estiver usando OAuth, clique no botão **Autorizar** no Editor ou Assistente de Cópia do Data Factory e digite suas credenciais. O valor dessa propriedade será gerado automaticamente. |Sim (apenas se você estiver usando a autenticação OAuth) |
-| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao serviço OData local. Só especifique se você estiver copiando dados da fonte OData local. |Não |
+| Senha |Especifique a senha da conta de usuário de saudação especificado para nome de usuário de saudação. |Sim (apenas se você estiver usando a autenticação Básica) |
+| authorizedCredential |Se você estiver usando o OAuth, clique em **autorizar** botão no hello Assistente para cópia de fábrica de dados ou no Editor e insira suas credenciais, valor Olá dessa propriedade será gerado automaticamente. |Sim (apenas se você estiver usando a autenticação OAuth) |
+| gatewayName |Nome do gateway Olá Olá serviço da fábrica de dados deve usar um serviço OData do tooconnect toohello local. Só especifique se você estiver copiando dados da fonte OData local. |Não |
 
 #### <a name="example---using-basic-authentication"></a>Exemplo - Usando a autenticação básica
 ```json
@@ -4329,7 +4329,7 @@ Para definir um serviço vinculado do OData, defina o **type** do serviço vincu
         {
             "url": "<endpoint of cloud OData source, for example, https://<tenant>.crm.dynamics.com/XRMServices/2011/OrganizationData.svc>",
             "authenticationType": "OAuth",
-            "authorizedCredential": "<auto generated by clicking the Authorize button on UI>"
+            "authorizedCredential": "<auto generated by clicking hello Authorize button on UI>"
         }
     }
 }
@@ -4338,11 +4338,11 @@ Para definir um serviço vinculado do OData, defina o **type** do serviço vincu
 Para obter mais informações, consulte o artigo [Conector do OData](data-factory-odata-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do OData, defina o **type** do conjunto de dados para **ODataResource** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um conjunto de dados OData, Olá conjunto **tipo** do conjunto de dados de saudação muito**ODataResource**e especifique Olá seguintes propriedades em Olá **typeProperties** seção: 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| caminho |Caminho para o recurso OData |Não |
+| path |Caminho toohello recurso do OData |Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -4373,11 +4373,11 @@ Para definir um conjunto de dados do OData, defina o **type** do conjunto de dad
 Para obter mais informações, consulte o artigo [Conector do OData](data-factory-odata-connector.md#dataset-properties).
 
 ### <a name="relational-source-in-copy-activity"></a>Origem Relacional na Atividade de Cópia
-Se você estiver copiando dados de uma origem de OData, defina o **source type** da atividade de cópia para **RelationalSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados de uma fonte OData, defina Olá **tipo de fonte** de hello atividade de cópia muito**RelationalSource**e especificar propriedades no Olá a seguir **fonte** seção:
 
 | Propriedade | Descrição | Exemplo | Obrigatório |
 | --- | --- | --- | --- |
-| query |Utiliza a consulta personalizada para ler os dados. |"?$select=Name, Description&$top=5" |Não |
+| query |Use dados de tooread Olá consulta personalizada. |"?$select=Name, Description&$top=5" |Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -4428,16 +4428,16 @@ Para obter mais informações, consulte o artigo [Conector do OData](data-factor
 
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do ODBC, defina o **type** do serviço vinculado para **OnPremisesOdbc** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine ODBC vinculado serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**OnPremisesOdbc**e especificar propriedades no Olá a seguir **typeProperties** seção:  
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| connectionString |A parte da credencial que não está relacionada ao acesso da cadeia de conexão e uma credencial criptografada opcional. Veja os exemplos nas seções a seguir. |Sim |
-| credencial |A parte da credencial de acesso da cadeia de conexão especificada no formato propriedade-valor específico do driver. Exemplo: "Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;". |Não |
-| authenticationType |Tipo de autenticação usado para se conectar ao armazenamento de dados ODBC. Os valores possíveis são: Anonymous e Basic. |Sim |
+| connectionString |Olá credencial de acesso não parte de cadeia de caracteres de conexão hello e opcional criptografados credencial. Consulte exemplos Olá seções a seguir. |Sim |
+| credencial |parte de credencial de acesso Olá de cadeia de caracteres de conexão de saudação especificada no formato de valor de propriedade específica do driver. Exemplo: "Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;". |Não |
+| authenticationType |Tipo de autenticação usado o repositório de dados ODBC tooconnect toohello. Os valores possíveis são: Anonymous e Basic. |Sim |
 | Nome de Usuário |Especifique o nome de usuário se você estiver usando a autenticação Básica. |Não |
-| Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Não |
-| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao armazenamento de dados ODBC. |Sim |
+| Senha |Especifique a senha da conta de usuário de saudação especificado para nome de usuário de saudação. |Não |
+| gatewayName |Nome do gateway Olá Olá serviço da fábrica de dados deve usar armazenamento de dados ODBC tooconnect toohello. |Sim |
 
 #### <a name="example---using-basic-authentication"></a>Exemplo - Usando a autenticação básica
 
@@ -4457,7 +4457,7 @@ Para definir um serviço vinculado do ODBC, defina o **type** do serviço vincul
 }
 ```
 #### <a name="example---using-basic-authentication-with-encrypted-credentials"></a>Exemplo - Usando a autenticação básica com credenciais criptografadas
-Você pode criptografar as credenciais usando o cmdlet [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) (versão 1.0 do Azure PowerShell) ou [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (versão 0.9 ou anterior do Azure PowerShell).  
+Você pode criptografar credenciais Olá Olá [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) cmdlet (1.0 versão do Azure PowerShell) ou [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0,9 versão ou anterior do hello PowerShell do Azure).  
 
 ```json
 {
@@ -4493,11 +4493,11 @@ Você pode criptografar as credenciais usando o cmdlet [New-AzureRMDataFactoryEn
 Para obter mais informações, consulte o artigo [Conector do ODBC](data-factory-odbc-connector.md#linked-service-properties). 
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do ODBC, defina o **type** do conjunto de dados para **RelationalTable** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um conjunto de dados ODBC, Olá conjunto **tipo** do conjunto de dados de saudação muito**RelationalTable**e especifique Olá seguintes propriedades em Olá **typeProperties** seção: 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tableName |Nome da tabela no repositório de dados ODBC. |Sim |
+| tableName |Nome da tabela de saudação no repositório de dados ODBC hello. |Sim |
 
 
 #### <a name="example"></a>Exemplo
@@ -4528,11 +4528,11 @@ Para definir um conjunto de dados do ODBC, defina o **type** do conjunto de dado
 Para obter mais informações, consulte o artigo [Conector do ODBC](data-factory-odbc-connector.md#dataset-properties). 
 
 ### <a name="relational-source-in-copy-activity"></a>Origem Relacional na Atividade de Cópia
-Se você estiver copiando dados de um armazenamento de dados do ODBC, defina o **source type** da atividade de cópia para **RelationalSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados de um repositório de dados ODBC, defina Olá **tipo de fonte** de hello atividade de cópia muito**RelationalSource**e especificar propriedades no Olá a seguir **fonte** seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| query |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: `select * from MyTable`. |Sim |
+| query |Use dados de tooread Olá consulta personalizada. |Cadeia de caracteres de consulta SQL. Por exemplo: `select * from MyTable`. |Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -4582,14 +4582,14 @@ Para obter mais informações, consulte o artigo [Conector do ODBC](data-factory
 
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado da Salesforce, defina o **type** do serviço vinculado para **Salesforce** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine Salesforce o serviço saudação do conjunto vinculado **tipo** de saudação serviço vinculado muito**Salesforce**e especificar propriedades no Olá a seguir **typeProperties** seção:  
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| environmentUrl | Especifica a URL da instância do Salesforce. <br><br> – O padrão é "https://login.salesforce.com". <br> – Para copiar dados da área restrita, especifique "https://test.salesforce.com". <br> – Para copiar dados do domínio personalizado, especifique, por exemplo, "https://[domínio].my.salesforce.com". |Não |
-| Nome de Usuário |Especifique um nome de usuário para a conta de usuário. |Sim |
-| Senha |Especifique um senha para a conta de usuário. |Sim |
-| securityToken |Especifique um token de segurança para a conta de usuário. Veja [Obter token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para ver instruções sobre como redefinir/obter o token de segurança. Para saber mais sobre os tokens de segurança em geral, veja [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Segurança e a API). |Sim |
+| environmentUrl | Especifique a instância de URL da equipe de vendas de saudação. <br><br> – O padrão é "https://login.salesforce.com". <br> -toocopy dados de área restrita, especifique "https://test.salesforce.com". <br> -toocopy dados do domínio personalizado, especificar, por exemplo, "https://[domain].my.salesforce.com". |Não |
+| Nome de Usuário |Especifique um nome de usuário para a conta de usuário de saudação. |Sim |
+| Senha |Especifique uma senha para a conta de usuário de saudação. |Sim |
+| securityToken |Especifique um token de segurança para a conta de usuário de saudação. Consulte [obter token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para obter instruções sobre como tooreset/obter um token de segurança. em geral, consulte toolearn sobre tokens de segurança [API de segurança e hello](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -4610,11 +4610,11 @@ Para definir um serviço vinculado da Salesforce, defina o **type** do serviço 
 Para obter mais informações, consulte o artigo [Conector da Salesforce](data-factory-salesforce-connector.md#linked-service-properties). 
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados da Salesforce, defina o **type** do conjunto de dados para **RelationalTable** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um conjunto de dados do Salesforce, Olá conjunto **tipo** do conjunto de dados de saudação muito**RelationalTable**e especifique Olá seguintes propriedades em Olá **typeProperties** seção: 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tableName |Nome da tabela no Salesforce. |Não (se uma **consulta** de **RelationalSource** for especificada) |
+| tableName |Nome da tabela de saudação na equipe de vendas. |Não (se uma **consulta** de **RelationalSource** for especificada) |
 
 #### <a name="example"></a>Exemplo
 
@@ -4646,11 +4646,11 @@ Para definir um conjunto de dados da Salesforce, defina o **type** do conjunto d
 Para obter mais informações, consulte o artigo [Conector da Salesforce](data-factory-salesforce-connector.md#dataset-properties). 
 
 ### <a name="relational-source-in-copy-activity"></a>Origem Relacional na Atividade de Cópia
-Se você estiver copiando dados da Salesforce, defina o **source type** da atividade de cópia para **RelationalSource** e especifique as propriedades a seguir na seção **source**:
+Se você estiver copiando dados do Salesforce, defina Olá **tipo de fonte** de hello atividade de cópia muito**RelationalSource**e especificar propriedades no Olá a seguir **fonte** seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| query |Utiliza a consulta personalizada para ler os dados. |Uma consulta SQL-92 ou uma consulta [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Por exemplo: `select * from MyTable__c`. |Não (se **tableName** do **conjunto de dados** for especificado) |
+| query |Use dados de tooread Olá consulta personalizada. |Uma consulta SQL-92 ou uma consulta [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Por exemplo: `select * from MyTable__c`. |Não (se hello **tableName** de saudação **dataset** for especificado) |
 
 #### <a name="example"></a>Exemplo  
 
@@ -4665,7 +4665,7 @@ Se você estiver copiando dados da Salesforce, defina o **source type** da ativi
         "description": "pipeline with copy activity",
         "activities": [{
             "name": "SalesforceToAzureBlob",
-            "description": "Copy from Salesforce to an Azure blob",
+            "description": "Copy from Salesforce tooan Azure blob",
             "type": "Copy",
             "inputs": [{
                 "name": "SalesforceInput"
@@ -4698,18 +4698,18 @@ Se você estiver copiando dados da Salesforce, defina o **source type** da ativi
 ```
 
 > [!IMPORTANT]
-> A parte "__c" do Nome da API é necessária para qualquer objeto personalizado.
+> parte "__c" Olá Olá nome da API é necessária para qualquer objeto personalizado.
 
 Para obter mais informações, consulte o artigo [Conector da Salesforce](data-factory-salesforce-connector.md#copy-activity-properties). 
 
 ## <a name="web-data"></a>Dados da Web 
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado da Web, defina o **type** do serviço vinculado para **Web** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine uma Web vinculado serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**Web**e especificar propriedades no Olá a seguir **typeProperties** seção:  
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| Url |URL para a origem da Web |Sim |
+| Url |Origem da URL toohello da Web |Sim |
 | authenticationType |Anônima. |Sim |
  
 
@@ -4732,13 +4732,13 @@ Para definir um serviço vinculado da Web, defina o **type** do serviço vincula
 Para obter mais informações, consulte o artigo [Conector da Tabela da Web](data-factory-web-table-connector.md#linked-service-properties). 
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados da Web, defina o **type** do conjunto de dados para **WebTable** e especifique as propriedades a seguir na seção **typeProperties**: 
+toodefine um conjunto de dados da Web, Olá conjunto **tipo** do conjunto de dados de saudação muito**WebTable**e especifique Olá seguintes propriedades em Olá **typeProperties** seção: 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type |tipo do conjunto de dados. Deve ser definido como **WebTable** |Sim |
-| path |Uma URL relativa para o recurso que contém a tabela. |Não. Quando o caminho não for especificado, apenas a URL especificada na definição do serviço vinculado será usada. |
-| índice |O índice da tabela no recurso. Confira a seção [Obter índice de uma tabela em uma página HTML](#get-index-of-a-table-in-an-html-page) a fim de ver as etapas para obter o índice de uma tabela em uma página HTML. |Sim |
+| type |Tipo de conjunto de dados de saudação. deve ser definido muito**WebTable** |Sim |
+| path |Um relativa URL toohello de recursos que contém a tabela de saudação. |Não. Quando não for especificado, somente URL Olá especificado na definição de serviço vinculada de saudação é usado. |
+| índice |índice de saudação da tabela de saudação no recurso de saudação. Consulte [índice de obtenção de uma tabela em uma página HTML](#get-index-of-a-table-in-an-html-page) seção de índice de toogetting de etapas de uma tabela em uma página HTML. |Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -4764,7 +4764,7 @@ Para definir um conjunto de dados da Web, defina o **type** do conjunto de dados
 Para obter mais informações, consulte o artigo [Conector da Tabela da Web](data-factory-web-table-connector.md#dataset-properties). 
 
 ### <a name="web-source-in-copy-activity"></a>Origem da Web na Atividade de Cópia
-Se você estiver copiando dados de uma tabela da web, defina o **source type** de atividade de cópia para **WebSource**. Atualmente, quando a origem na atividade de cópia é do tipo **WebSource**, não há suporte para propriedades adicionais.
+Se você estiver copiando dados de uma tabela da web, defina Olá **tipo de fonte** de hello atividade de cópia muito**WebSource**. Atualmente, quando a fonte de saudação na atividade de cópia é do tipo **WebSource**, sem propriedades adicionais são suportadas.
 
 #### <a name="example"></a>Exemplo
 
@@ -4777,7 +4777,7 @@ Se você estiver copiando dados de uma tabela da web, defina o **source type** d
         "description": "pipeline with copy activity",
         "activities": [{
             "name": "WebTableToAzureBlob",
-            "description": "Copy from a Web table to an Azure blob",
+            "description": "Copy from a Web table tooan Azure blob",
             "type": "Copy",
             "inputs": [{
                 "name": "WebTableInput"
@@ -4811,7 +4811,7 @@ Se você estiver copiando dados de uma tabela da web, defina o **source type** d
 Para obter mais informações, consulte o artigo [Conector da Tabela da Web](data-factory-web-table-connector.md#copy-activity-properties). 
 
 ## <a name="compute-environments"></a>AMBIENTES DE COMPUTAÇÃO
-A tabela a seguir lista os ambientes de computação com suporte do Data Factory e as atividades de transformação que podem ser executadas neles. Clique no link para a computação a qual você está interessado em ver os esquemas JSON para o serviço vinculado para vinculá-lo a um data factory. 
+Olá tabela a seguir lista os ambientes de computação de saudação suportados por Data Factory e hello atividades de transformação que podem ser executados neles. Clique Olá link para a computação Olá você está interessado em esquemas JSON toosee Olá para o serviço vinculado toolink-tooa fábrica de dados. 
 
 | Ambiente de computação | Atividades |
 | --- | --- |
@@ -4823,24 +4823,24 @@ A tabela a seguir lista os ambientes de computação com suporte do Data Factory
 | [Banco de Dados SQL do Azure](#azure-sql-database-1), [SQL Data Warehouse do Azure](#azure-sql-data-warehouse-1), [SQL Server](#sql-server-1) |[Procedimento armazenado](#stored-procedure-activity) |
 
 ## <a name="on-demand-azure-hdinsight-cluster"></a>Cluster HDInsight do Azure sob demanda
-O serviço Azure Data Factory pode criar automaticamente um cluster HDInsight sob demanda baseado em Windows/Linux para processar dados. O cluster é criado na mesma região que a conta de armazenamento (propriedade linkedServiceName em JSON) associada ao cluster. Você pode executar as seguintes atividades de transformação nesse serviço vinculado: [atividade personalizada do .NET](#net-custom-activity), [atividade de Hive](#hdinsight-hive-activity), [Pig activity] (#hdinsight-pig-activity, [atividade MapReduce](#hdinsight-mapreduce-activity), [atividade de transmissão do Hadoop](#hdinsight-streaming-activityd), [atividade Spark](#hdinsight-spark-activity). 
+Olá serviço fábrica de dados do Azure pode criar automaticamente um dados sob demanda baseados no Windows/Linux de tooprocess de cluster HDInsight. Olá cluster é criado no hello mesma região da conta de armazenamento da saudação (propriedade linkedServiceName em JSON de saudação) associado com cluster hello. Você pode executar Olá seguintes atividades de transformação nesse serviço vinculado: [atividade personalizada do .NET](#net-custom-activity), [atividade de Hive](#hdinsight-hive-activity), [atividade de Pig] (#-pig-atividade de hdinsight, [atividade MapReduce ](#hdinsight-mapreduce-activity), [Hadoop streaming atividade](#hdinsight-streaming-activityd), [despertar atividade](#hdinsight-spark-activity). 
 
 ### <a name="linked-service"></a>Serviço vinculado 
-A tabela a seguir fornece as descrições das propriedades usadas na definição de JSON do Azure de um serviço vinculado do HDInsight sob demanda.
+Olá, a tabela a seguir fornece descrições para propriedades de saudação usadas na definição do hello Azure JSON de um serviço de vinculado do HDInsight sob demanda.
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| type |A propriedade de tipo deve ser configurada como **HDInsightOnDemand**. |Sim |
-| clusterSize |Número de nós de trabalho/dados no cluster. O cluster HDInsight é criado com 2 nós principais juntamente com o número de nós de trabalho que você especifica para esta propriedade. Os nós são do tamanho Standard_D3 que tem 4 núcleos; portanto, um cluster de 4 nós de trabalho usa 24 núcleos (4\*4 = 16 núcleos para nós de trabalho + 2\*4 = 8 núcleos para nós de cabeçalho). Veja [Criar clusters do Hadoop baseados em Linux no HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para obter detalhes sobre a camada Standard_D3. |Sim |
-| timeToLive |O tempo ocioso permitido para o cluster HDInsight sob demanda. Especifica quanto tempo o cluster HDInsight sob demanda permanece ativo após a conclusão de uma atividade executada se não há nenhum outro trabalho ativo no cluster.<br/><br/>Por exemplo, se uma execução de atividade demora 6 minutos e o timetolive é definido como 5 minutos, o cluster fica ativo durante 5 minutos após a execução de 6 minutos de execução da atividade. Se outra atividade é executada com a janela de 6 minutos, ela é processada pelo mesmo cluster.<br/><br/>A criação de um cluster HDInsight sob demanda é uma operação cara (pode demorar um pouco) e, portanto, use essa configuração conforme o necessário para melhorar o desempenho de um data factory com a reutilização de um cluster HDInsight sob demanda.<br/><br/>Se você definir o valor de timetolive como 0, o cluster é excluído assim que a atividade executada é processada. Por outro lado, se você definir um valor alto, o cluster pode permanecer ocioso desnecessariamente resultando em altos custos. Portanto, é importante que você defina o valor apropriado com base em suas necessidades.<br/><br/>Vários pipelines podem compartilhar a mesma instância do cluster do HDInsight sob demanda se o valor da propriedade timetolive estiver definido corretamente |Sim |
-| version |Versão do cluster HDInsight Para obter detalhes, confira [Versões com suporte do HDInsight no Azure Data Factory](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Não |
-| linkedServiceName |Serviço vinculado do Armazenamento do Azure a ser usado pelo cluster sob demanda para armazenar e processar dados. <p>Atualmente, não é possível criar um cluster HDInsight sob demanda que use um Azure Data Lake Store como o armazenamento. Se você quiser armazenar os dados resultantes do processamento do HDInsight em um Azure Data Lake Store, use uma Atividade de Cópia para copiar os dados do Armazenamento de Blobs do Azure para o Azure Data Lake Store.</p>  | Sim |
-| additionalLinkedServiceNames |Especifica as contas de armazenamento adicionais para o serviço vinculado do HDInsight para que o serviço do Data Factory possa registrá-los em seu nome. |Não |
+| type |propriedade do tipo Hello deve ser definida muito**HDInsightOnDemand**. |Sim |
+| clusterSize |Número de nós de dados do trabalhador em cluster hello. cluster do HDInsight Olá é criado com 2 nós de cabeçalho junto com o número de saudação de nós de trabalho que você especifica para esta propriedade. nós Olá são de tamanho Standard_D3 que tem 4 núcleos, assim, um cluster de nó do 4 operador leva 24 núcleos (4\*4 = 16 núcleos para nós de trabalho, mais 2\*4 = 8 núcleos para nós de cabeçalho). Consulte [Hadoop baseado em Linux criar clusters de HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para obter detalhes sobre a camada de saudação Standard_D3. |Sim |
+| timeToLive |Olá permitido tempo ocioso do cluster do HDInsight sob demanda hello. Especifica quanto tempo cluster do HDInsight sob demanda Olá permanece ativo após a conclusão de uma atividade executar se não houver nenhum outro trabalho ativo no cluster hello.<br/><br/>Por exemplo, se uma atividade executar levar 6 minutos e timetolive é definir too5 minutos, Olá cluster permanece ativo por 5 minutos após a saudação 6 minutos de processamento de execução da atividade hello. Se outra execução da atividade é executada com uma janela de 6 minutos hello, ela é processada pelo Olá mesmo cluster.<br/><br/>A criação de um cluster do HDInsight sob demanda é uma operação cara (pode demorar um pouco), então use essa configuração como desempenho tooimprove necessários de uma fábrica de dados com a reutilização de um cluster do HDInsight sob demanda.<br/><br/>Se você definir timetolive valor too0, cluster Olá é excluído, assim como hello atividade executada em processados. Em Olá outro lado, se você definir um valor alto, cluster Olá pode permanecer ocioso desnecessariamente, resultando em altos custos. Portanto, é importante que você defina o valor apropriado de saudação com base em suas necessidades.<br/><br/>Vários pipelines podem compartilhar Olá a mesma instância de cluster do HDInsight sob demanda Olá se o valor da propriedade timetolive hello está definido corretamente |Sim |
+| version |Versão do cluster do HDInsight hello. Para obter detalhes, confira [Versões com suporte do HDInsight no Azure Data Factory](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Não |
+| linkedServiceName |Armazenamento do Azure vinculada toobe de serviço usado pelo cluster sob demanda de saudação para armazenar e processar dados. <p>No momento, você não pode criar um cluster HDInsight sob demanda que usa um repositório Azure Data Lake como armazenamento hello. Se desejar que os dados de resultado de saudação toostore do HDInsight de processamento em um repositório Azure Data Lake, use um atividade de cópia toocopy Olá os dados de armazenamento de BLOBs do Azure de saudação toohello repositório Azure Data Lake.</p>  | Sim |
+| additionalLinkedServiceNames |Especifica o serviço vinculado de contas de armazenamento adicionais para Olá HDInsight para que o serviço do Data Factory Olá pode registrá-los em seu nome. |Não |
 | osType |Tipo do sistema operacional. Valores permitidos são: Windows (padrão) e Linux |Não |
-| hcatalogLinkedServiceName |O nome do serviço vinculado do SQL Azure que aponta para o banco de dados HCatalog. O cluster HDInsight sob demanda é criado usando o banco de dados SQL do Azure como o metastore. |Não |
+| hcatalogLinkedServiceName |nome de saudação do vinculado do SQL Azure ponto toohello HCatalog banco de dados do serviço. cluster do HDInsight sob demanda Olá é criado usando o banco de dados do SQL Azure hello como Olá metastore. |Não |
 
 ### <a name="json-example"></a>Exemplo de JSON
-O JSON a seguir define um serviço vinculado HDInsight sob demanda baseado em Linux. O serviço Data Factory cria automaticamente um cluster HDInsight **baseado em Linux** ao processar uma fatia de dados. 
+Olá JSON a seguir define um serviço vinculado do HDInsight de sob demanda com base em Linux. Olá serviço da fábrica de dados cria automaticamente um **baseados em Linux** cluster HDInsight durante o processamento de uma fatia de dados. 
 
 ```json
 {
@@ -4861,18 +4861,18 @@ O JSON a seguir define um serviço vinculado HDInsight sob demanda baseado em Li
 Para obter mais informações, consulte o artigo [Serviços vinculados de computação](data-factory-compute-linked-services.md). 
 
 ## <a name="existing-azure-hdinsight-cluster"></a>Cluster Azure HDInsight existente
-Você pode criar um serviço vinculado Azure HDInsight para registrar seu próprio cluster HDInsight com o Data Factory. Você pode executar as seguintes atividades de transformação de dados nesse serviço vinculado: [atividade personalizada do .NET](#net-custom-activity), [atividade de Hive](#hdinsight-hive-activity), [Pig activity] (#hdinsight-pig-activity, [atividade MapReduce](#hdinsight-mapreduce-activity), [atividade de transmissão do Hadoop](#hdinsight-streaming-activityd), [atividade Spark](#hdinsight-spark-activity). 
+Você pode criar um tooregister de serviço vinculado do Azure HDInsight seu próprio cluster HDInsight com a fábrica de dados. Você pode executar Olá atividades de transformação de dados a seguir sobre esse serviço vinculado: [atividade personalizada do .NET](#net-custom-activity), [atividade de Hive](#hdinsight-hive-activity), [atividade de Pig] (#-pig-atividade de hdinsight, [MapReduce atividade](#hdinsight-mapreduce-activity), [Hadoop streaming atividade](#hdinsight-streaming-activityd), [despertar atividade](#hdinsight-spark-activity). 
 
 ### <a name="linked-service"></a>Serviço vinculado
-A tabela a seguir fornece as descrições das propriedades usadas na definição de JSON do Azure de um serviço vinculado do Azure HDInsight.
+Olá, a tabela a seguir fornece descrições para propriedades de saudação usadas na definição do hello Azure JSON de um serviço vinculado do HDInsight do Azure.
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| type |A propriedade de tipo deve ser configurada como **HDInsight**. |Sim |
-| clusterUri |A URI do cluster HDInsight. |Sim |
-| Nome de Usuário |Especifique o nome do usuário a ser usado para se conectar a um cluster HDInsight existente. |Sim |
-| Senha |Especifique a senha para a conta de usuário. |Sim |
-| linkedServiceName | Nome do serviço vinculado do Armazenamento do Azure que faz referência ao Armazenamento de Blobs usado pelo cluster HDInsight. <p>No momento, você não pode especificar um serviço vinculado do Azure Data Lake Store para essa propriedade. Você pode acessar dados no Azure Data Lake Store usando scripts Hive/Pig se o cluster HDInsight tiver acesso ao Data Lake Store. </p>  |Sim |
+| type |propriedade do tipo Hello deve ser definida muito**HDInsight**. |Sim |
+| clusterUri |Olá URI do cluster do HDInsight hello. |Sim |
+| Nome de Usuário |Especifique o nome Olá Olá usuário toobe usado cluster do HDInsight tooconnect tooan existente. |Sim |
+| Senha |Especifique a senha da conta de usuário de saudação. |Sim |
+| linkedServiceName | Nome do serviço vinculado do armazenamento do Azure que se refere o armazenamento de BLOBs do Azure toohello de saudação usado por Olá cluster HDInsight. <p>No momento, você não pode especificar um serviço vinculado do Azure Data Lake Store para essa propriedade. Você pode acessar dados em Olá repositório Azure Data Lake de scripts de Pig/Hive se o cluster do HDInsight Olá tem acesso toohello repositório Data Lake. </p>  |Sim |
 
 Para conferir as versões de clusters HDInsight com suporte, veja [Versões do HDInsight com suporte](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). 
 
@@ -4894,18 +4894,18 @@ Para conferir as versões de clusters HDInsight com suporte, veja [Versões do H
 ```
 
 ## <a name="azure-batch"></a>Lote do Azure
-Você pode criar um serviço vinculado de Lote do Azure para registrar um pool de lote de máquinas virtuais (VMs) com uma fábrica de dados. Você pode executar atividades personalizadas do .NET usando o Lote do Azure ou o Azure HDInsight. Você pode executar uma [atividade personalizada do .NET](#net-custom-activity) neste serviço vinculado. 
+Você pode criar um pool de lote de máquinas virtuais (VMs) de um tooregister de serviço vinculado do Azure Batch com uma fábrica de dados. Você pode executar atividades personalizadas do .NET usando o Lote do Azure ou o Azure HDInsight. Você pode executar uma [atividade personalizada do .NET](#net-custom-activity) neste serviço vinculado. 
 
 ### <a name="linked-service"></a>Serviço vinculado
-A tabela a seguir fornece as descrições das propriedades usadas na definição de JSON do Azure de um serviço vinculado do Lote do Azure.
+Olá, a tabela a seguir fornece descrições para propriedades de saudação usadas na definição do hello Azure JSON de um serviço vinculado do Azure Batch.
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| type |A propriedade de tipo deve ser definida como **AzureBatch**. |Sim |
-| accountName |Nome da conta do Lote do Azure. |Sim |
-| accessKey |Tecla de acesso para a conta do Lote do Azure. |Sim |
-| poolName |Nome do pool de máquinas virtuais. |Sim |
-| linkedServiceName |Nome do serviço vinculado do Armazenamento do Azure associado ao serviço vinculado de Lote do Azure. Esse serviço vinculado é usado para arquivos de teste necessários para executar a atividade e armazenar os logs de execução da atividade. |Sim |
+| type |propriedade do tipo Hello deve ser definida muito**AzureBatch**. |Sim |
+| accountName |Nome da saudação conta de lote do Azure. |Sim |
+| accessKey |Chave de acesso para Olá conta de lote do Azure. |Sim |
+| poolName |Nome do pool de saudação de máquinas virtuais. |Sim |
+| linkedServiceName |Nome do serviço vinculado do armazenamento do Azure associada ao serviço vinculado do Azure Batch de saudação. Esse serviço vinculado é usado para arquivos de teste toorun atividade de saudação e armazenar os logs de execução de atividade Olá necessários. |Sim |
 
 
 #### <a name="json-example"></a>Exemplo de JSON
@@ -4926,16 +4926,16 @@ A tabela a seguir fornece as descrições das propriedades usadas na definição
 ```
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
-Criar um serviço vinculado do Azure Machine Learning para registrar um ponto de extremidade de pontuação do lote de Machine Learning com um data factory. Duas atividades de transformação de dados podem ser executadas neste serviço vinculado: [Atividade de Execução de Lote de Machine Learning](#machine-learning-batch-execution-activity), [Atividade de Atualização de Recursos de Machine Learning](#machine-learning-update-resource-activity). 
+Você cria um tooregister de serviço vinculado do aprendizado de máquina do Azure para um ponto de extremidade com uma fábrica de dados de pontuação do lote de aprendizado de máquina. Duas atividades de transformação de dados podem ser executadas neste serviço vinculado: [Atividade de Execução de Lote de Machine Learning](#machine-learning-batch-execution-activity), [Atividade de Atualização de Recursos de Machine Learning](#machine-learning-update-resource-activity). 
 
 ### <a name="linked-service"></a>Serviço vinculado
-A tabela a seguir fornece as descrições das propriedades usadas na definição de JSON do Azure de um serviço vinculado do Azure Machine Learning.
+Olá, a tabela a seguir fornece descrições para propriedades de saudação usadas na definição do hello Azure JSON de um serviço vinculado do aprendizado de máquina do Azure.
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| type |A propriedade de tipo deve ser configurada como **AzureML**. |Sim |
-| mlEndpoint |A URL de pontuação do lote. |Sim |
-| apiKey |A API do modelo de espaço de trabalho publicada. |Sim |
+| Tipo |propriedade de tipo Hello deve ser definida como: **AzureML**. |Sim |
+| mlEndpoint |URL de pontuação de lote de saudação. |Sim |
+| apiKey |Olá publicados API do modelo de espaço de trabalho. |Sim |
 
 #### <a name="json-example"></a>Exemplo de JSON
 
@@ -4953,25 +4953,25 @@ A tabela a seguir fornece as descrições das propriedades usadas na definição
 ```
 
 ## <a name="azure-data-lake-analytics"></a>Análise Azure Data Lake
-Você cria um serviço vinculado da **Análise Azure Data Lake** para vincular um serviço de computação da Análise do Azure Data Lake a um Azure Data Factory antes de usar a atividade do [U-SQL da Análise Data Lake](data-factory-usql-activity.md) em um pipeline.
+Você cria um **análise Azure Data Lake** vinculado serviço toolink uma análise do Azure Data Lake computação serviço tooan data factory do Azure antes de usar o hello [atividade U-SQL do Data Lake análise](data-factory-usql-activity.md) em um pipeline .
 
 ### <a name="linked-service"></a>Serviço vinculado
 
-A tabela a seguir fornece as descrições das propriedades usadas na definição de JSON de um serviço vinculado do Azure Data Lake Analytics. 
+Olá, a tabela a seguir fornece descrições para propriedades de saudação usadas na definição de JSON de saudação de um serviço vinculado de análise do Azure Data Lake. 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| Tipo |A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. |Sim |
+| Tipo |propriedade de tipo Hello deve ser definida como: **AzureDataLakeAnalytics**. |Sim |
 | accountName |Nome da conta da Análise Azure Data Lake. |Sim |
 | dataLakeAnalyticsUri |URI da Análise Azure Data Lake. |Não |
-| autorização |O código de autorização é recuperado automaticamente depois de clicar no botão **Autorizar** no Editor do Data Factory e concluir o logon OAuth. |Sim |
-| subscriptionId |Id de assinatura do Azure |Não (se não for especificado, a assinatura do Data Factory é usada). |
-| resourceGroupName |Nome do grupo de recursos do Azure |Não (se não for especificado, o grupo de recursos do Data Factory é usado). |
-| sessionId |ID da sessão de autorização OAuth. Cada ID da sessão é exclusiva e pode ser usado somente uma vez. A ID é gerada automaticamente quando o Editor do Data Factory é usado. |Sim |
+| autorização |Código de autorização é recuperado automaticamente depois de clicar em **autorizar** botão hello Editor da fábrica de dados e logon do OAuth Olá concluído. |Sim |
+| subscriptionId |Id de assinatura do Azure |Não (se não especificado, a assinatura de saudação fábrica de dados é usada). |
+| resourceGroupName |Nome do grupo de recursos do Azure |Não (se não especificado, o grupo de recursos de saudação fábrica de dados é usada). |
+| sessionId |id de sessão da sessão de autorização de OAuth hello. Cada ID da sessão é exclusiva e pode ser usado somente uma vez. Quando você usa Olá Editor da fábrica de dados, essa ID é gerada automaticamente. |Sim |
 
 
 #### <a name="json-example"></a>Exemplo de JSON
-O exemplo a seguir fornece uma definição de JSON para um serviço vinculado da Análise Azure Data Lake.
+saudação de exemplo a seguir fornece a definição de JSON para um serviço vinculado de análise do Azure Data Lake.
 
 ```json
 {
@@ -4991,14 +4991,14 @@ O exemplo a seguir fornece uma definição de JSON para um serviço vinculado da
 ```
 
 ## <a name="azure-sql-database"></a>Banco de Dados SQL do Azure
-Você pode criar um serviço vinculado SQL do Azure e usá-lo com a [Atividade de Procedimento Armazenado](#stored-procedure-activity) para invocar um procedimento armazenado de um pipeline do Data Factory. 
+Criar um serviço vinculado do SQL Azure e usá-lo com hello [atividade de procedimento armazenado](#stored-procedure-activity) tooinvoke um procedimento armazenado de um pipeline da fábrica de dados. 
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do Banco de Dados SQL do Azure, defina o **type** do serviço vinculado para **AzureSqlDatabase** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine um banco de dados do SQL Azure vinculado serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**AzureSqlDatabase**e especificar propriedades no Olá a seguir **typeProperties**seção:  
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| connectionString |Especifique as informações necessárias para se conectar à instância do Banco de Dados SQL Azure para a propriedade connectionString. |Sim |
+| connectionString |Especifique informações necessárias a instância de banco de dados do Azure SQL toohello tooconnect para a propriedade connectionString de saudação. |Sim |
 
 #### <a name="json-example"></a>Exemplo de JSON
 
@@ -5017,14 +5017,14 @@ Para definir um serviço vinculado do Banco de Dados SQL do Azure, defina o **ty
 Confira o artigo [Conector SQL do Azure](data-factory-azure-sql-connector.md#linked-service-properties) para saber mais sobre esse serviço vinculado.
 
 ## <a name="azure-sql-data-warehouse"></a>SQL Data Warehouse do Azure
-Você pode criar um serviço vinculado do SQL Data Warehouse do Azure e usá-lo com a [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) para invocar um procedimento armazenado de um pipeline do Data Factory. 
+Criar um serviço vinculado do Azure SQL Data Warehouse e usá-lo com hello [atividade de procedimento armazenado](data-factory-stored-proc-activity.md) tooinvoke um procedimento armazenado de um pipeline da fábrica de dados. 
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do SQL Data Warehouse do Azure, defina o **type** do serviço vinculado para **AzureSqlDW** e especifique as propriedades a seguir na seção **typeProperties**:  
+toodefine um Azure SQL Data Warehouse vinculado serviço, Olá conjunto **tipo** de saudação serviço vinculado muito**AzureSqlDW**e especificar propriedades no Olá a seguir **typeProperties**seção:  
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| connectionString |Especifique as informações necessárias para se conectar à instância do SQL Data Warehouse do Azure para a propriedade connectionString. |Sim |
+| connectionString |Especifique informações necessárias a instância do tooconnect toohello Azure SQL Data Warehouse para a propriedade connectionString de saudação. |Sim |
 
 #### <a name="json-example"></a>Exemplo de JSON
 
@@ -5043,22 +5043,22 @@ Para definir um serviço vinculado do SQL Data Warehouse do Azure, defina o **ty
 Para obter mais informações, consulte o artigo [Conector do SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties). 
 
 ## <a name="sql-server"></a>SQL Server 
-Você pode criar um serviço vinculado do SQL Server e usá-lo com a [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) para invocar um procedimento armazenado de um pipeline do Data Factory. 
+Criar um serviço vinculado do SQL Server e usá-lo com hello [atividade de procedimento armazenado](data-factory-stored-proc-activity.md) tooinvoke um procedimento armazenado de um pipeline da fábrica de dados. 
 
 ### <a name="linked-service"></a>Serviço vinculado
-Você cria um serviço vinculado do tipo **OnPremisesSqlServer** para vincular um banco de dados do SQL Server local a um data factory. A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do SQL Server local.
+Criar um serviço vinculado do tipo **OnPremisesSqlServer** toolink uma fábrica de dados tooa de banco de dados do local do SQL Server. Olá a tabela a seguir fornece uma descrição para o serviço vinculado do SQL Server do JSON elementos tooon local específico.
 
-A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do SQL Server.
+Olá, a tabela a seguir fornece uma descrição para o JSON de elementos específico tooSQL serviço do servidor vinculado.
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| type |A propriedade type deve ser definida como: **OnPremisesSqlServer**. |Sim |
-| connectionString |Especifique as informações de connectionString necessárias para conexão com o banco de dados do SQL Server local usando a autenticação do SQL ou então a autenticação do Windows. |Sim |
-| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados do SQL Server local. |Sim |
+| type |propriedade de tipo Hello deve ser definida como: **OnPremisesSqlServer**. |Sim |
+| connectionString |Especifica informações de connectionString necessárias tooconnect toohello no SQL Server banco de dados local usando a autenticação do Windows ou autenticação do SQL. |Sim |
+| gatewayName |Nome do gateway Olá Olá serviço da fábrica de dados deve usar o banco de dados do tooconnect toohello no local do SQL Server. |Sim |
 | Nome de Usuário |Especifique o nome de usuário se você estiver usando a Autenticação do Windows. Exemplo: **domainname\\username**. |Não |
-| Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Não |
+| Senha |Especifique a senha da conta de usuário de saudação especificado para nome de usuário de saudação. |Não |
 
-Criptografe as credenciais usando o cmdlet **New-AzureRmDataFactoryEncryptValue** e use-as na cadeia de conexão, como mostrado no seguinte exemplo (propriedade **EncryptedCredential**):  
+Você pode criptografar credenciais usando Olá **New-AzureRmDataFactoryEncryptValue** cmdlet e usá-los na cadeia de caracteres de conexão hello, conforme mostrado no exemplo a seguir de saudação (**EncryptedCredential** propriedade):  
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -5081,7 +5081,7 @@ Criptografe as credenciais usando o cmdlet **New-AzureRmDataFactoryEncryptValue*
 ```
 #### <a name="example-json-for-using-windows-authentication"></a>Exemplo: JSON para usar Autenticação Windows
 
-Se o nome de usuário e a senha forem especificados, o gateway os usará para representar a conta de usuário especificada para se conectar ao banco de dados SQL Server local. Caso contrário, o gateway se conectará ao SQL Server diretamente com o contexto de segurança do Gateway (a sua conta de inicialização).
+Se o nome de usuário e senha forem especificados, gateway usa tooimpersonate Olá dados do usuário especificado conta tooconnect toohello local do SQL Server. Caso contrário, o gateway conecta toohello do SQL Server diretamente com o contexto de segurança de saudação do Gateway (sua conta de inicialização).
 
 ```json
 {
@@ -5104,31 +5104,31 @@ Para obter mais informações, consulte o artigo [Conector de SQL Server](data-f
 
 Atividade | Descrição
 -------- | -----------
-[Atividade de Hive do HDInsight](#hdinsight-hive-activity) | A atividade de Hive do HDInsight em um pipeline de Data Factory executa consultas de Hive em seu próprio cluster ou no cluster sob demanda do HDInsight baseado em Windows/Linux. 
-[Atividade de Pig do HDInsight](#hdinsight-pig-activity) | A atividade de Pig do HDInsight em um pipeline de Data Factory executa consultas de Pig em seu próprio cluster ou no cluster sob demanda do HDInsight baseado em Windows/Linux.
-[Atividade de MapReduce do HDInsight](#hdinsight-mapreduce-activity) | A atividade de MapReduce do HDInsight em um pipeline do Data Factory executa programas MapReduce no seu próprio cluster HDInsight baseado em Windows/Linux, ou em um sob demanda.
-[Atividade de Streaming do HDInsight](#hdinsight-streaming-activity) | A Atividade de Streaming do HDInsight em um pipeline do Data Factory executa programas de Transmissão do Hadoop em seu próprio ou cluster HDInsight sob demanda baseado no Windows/Linux.
-[Atividade do HDInsight Spark](#hdinsight-spark-activity) | A atividade do HDInsight Spark em um pipeline do Data Factory executa programas do Spark em seu próprio cluster HDInsight. 
-[Atividade de Execução em Lote do Machine Learning](#machine-learning-batch-execution-activity) | O Azure Data Factory permite que você crie facilmente pipelines que usam o serviço Web do Azure Machine Learning publicado para a análise preditiva. Usando a Atividade de Execução em Lote em um pipeline do Azure Data Factory, você pode invocar um serviço Web do Machine Learning para fazer previsões sobre dados em lote. 
-[Atividade do Recurso de Atualização do Machine Learning](#machine-learning-update-resource-activity) | Ao longo do tempo, os modelos de previsão nos testes de pontuação do Machine Learning precisam ser readaptados usando novos conjuntos de dados de entrada. Depois de concluir o novo treinamento, você deseja atualizar o serviço Web de pontuação com o modelo do Machine Learning readaptado. Você pode usar a Atividade de Recurso de Atualização para atualizar o serviço Web com o modelo recém-adaptado.
-[Atividade de Procedimento Armazenado](#stored-procedure-activity) | Você pode usar a atividade de Procedimento Armazenado em um pipeline de Data Factory para invocar um procedimento armazenado em um dos seguintes armazenamentos de dados: Banco de Dados SQL do Azrue, SQL Data Warehouse do Azure, Banco de Dados SQL Server na sua empresa ou uma VM do Azure. 
+[Atividade de Hive do HDInsight](#hdinsight-hive-activity) | Hello atividade Hive do HDInsight em um pipeline da fábrica de dados executa consultas de Hive por conta própria ou cluster do HDInsight baseados no Windows/Linux sob demanda. 
+[Atividade de Pig do HDInsight](#hdinsight-pig-activity) | Hello atividade de Pig de HDInsight em um pipeline da fábrica de dados executa consultas de Pig por conta própria ou cluster do HDInsight baseados no Windows/Linux sob demanda.
+[Atividade de MapReduce do HDInsight](#hdinsight-mapreduce-activity) | Hello atividade MapReduce do HDInsight em um pipeline da fábrica de dados executa programas de MapReduce por conta própria ou cluster do HDInsight baseados no Windows/Linux sob demanda.
+[Atividade de Streaming do HDInsight](#hdinsight-streaming-activity) | Hello atividade de transmissão do HDInsight em um pipeline da fábrica de dados executa programas de transmissão do Hadoop por conta própria ou cluster do HDInsight baseados no Windows/Linux sob demanda.
+[Atividade do HDInsight Spark](#hdinsight-spark-activity) | Hello atividade de HDInsight Spark em um pipeline da fábrica de dados executa programas Spark no seu próprio cluster HDInsight. 
+[Atividade de Execução em Lote do Machine Learning](#machine-learning-batch-execution-activity) | Habilita de fábrica de dados do Azure tooeasily você criar pipelines que usam o aprendizado de máquina publicado web service para análise preditiva. Usando hello atividade de execução em lote em um pipeline da fábrica de dados do Azure, você pode invocar um toomake previsões do aprendizado de máquina web serviço nos dados de saudação em lote. 
+[Atividade do Recurso de Atualização do Machine Learning](#machine-learning-update-resource-activity) | Ao longo do tempo, modelos de previsão de saudação em Olá aprendizado de máquina experiências de pontuação necessário toobe treinados novamente usando novos conjuntos de dados de entrada. Depois que você treinamento, você deseja tooupdate Olá pontuação serviço web com hello treinados novamente o modelo de aprendizado de máquina. Você pode usar o hello serviço web do atividade do recurso de atualização tooupdate Olá com modelo Olá recentemente treinado.
+[Atividade de Procedimento Armazenado](#stored-procedure-activity) | Você pode usar a atividade de procedimento armazenado de saudação em um pipeline de fábrica de dados tooinvoke um procedimento armazenado em uma saudação armazenamentos de dados a seguir: Azure SQL Database, Azure SQL Data Warehouse, banco de dados do SQL Server em sua empresa ou de uma VM do Azure. 
 [Atividade de U-SQL do Data Lake Analytics](#data-lake-analytics-u-sql-activity) | A atividade de U-SQL do Data Lake Analytics executa um script U-SQL em um cluster do Azure Data Lake Analytics.  
-[Atividade personalizada do .NET](#net-custom-activity) | Se precisar transformar dados de uma maneira que não tenha suporte do Data Factory, você poderá criar uma atividade personalizada com sua própria lógica de processamento de dados e usar a atividade no pipeline. Você pode configurar a atividade personalizada do .NET para que seja executada usando um serviço de Lote do Azure ou um cluster do Azure HDInsight. 
+[Atividade personalizada do .NET](#net-custom-activity) | Se você precisar tootransform dados de forma que não é suportada pela fábrica de dados, você pode criar uma atividade personalizada com sua própria lógica de processamento de dados e usar atividade Olá no pipeline de saudação. Você pode configurar Olá personalizado .NET atividade toorun usando um serviço de lote do Azure ou um cluster Azure HDInsight. 
 
      
 ## <a name="hdinsight-hive-activity"></a>Atividade de Hive do HDInsight
-Você pode especificar as seguintes propriedades em uma definição de JSON de atividade do Hive. A propriedade type para a atividade deve ser: **HDInsightHive**. Você deve primeiro criar um serviço vinculado do HDInsight e especificar o nome dele como um valor para a propriedade **linkedServiceName**. As propriedades a seguir possuem suporte na seção **typeProperties** quando você define o tipo de atividade para HDInsightHive:
+Você pode especificar Olá seguintes propriedades em uma definição de JSON da atividade de Hive. a propriedade de tipo Hello atividade Olá deve ser: **HDInsightHive**. Você deve primeiro criar um serviço vinculado do HDInsight e especificar o nome de saudação-lo como um valor para Olá **linkedServiceName** propriedade. Olá propriedades a seguir têm suporte no hello **typeProperties** seção quando você define o tipo de saudação do tooHDInsightHive de atividade:
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| script |Especifique o script de Hive embutido |Não |
-| script path |Armazene o script de Hive em um armazenamento de blob do Azure e forneça o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. As duas não podem ser usadas juntas. O nome do arquivo diferencia maiúsculas de minúsculas. |Não |
-| defines |Especifique parâmetros como pares chave/valor para referenciar dentro do script de Hive usando 'hiveconf' |Não |
+| script |Especifique o script de Hive Olá embutido |Não |
+| caminho do script |Saudação de repositório Hive script em um armazenamento de BLOBs do Azure e fornecer Olá caminho toohello arquivo. Use a propriedade 'script' ou 'scriptPath'. As duas não podem ser usadas juntas. nome do arquivo Hello diferencia maiusculas de minúsculas. |Não |
+| define |Especifique parâmetros como pares chave/valor para fazer referência a no script do Hive hello usando 'hiveconf' |Não |
 
-Essas propriedades de tipo são específicas para a atividade de Hive. Outras propriedades (fora da seção typeProperties) possuem suporte para todas as atividades.   
+Essas propriedades de tipo são específico toohello atividade de Hive. Há suporte para todas as atividades de outras propriedades (fora de saudação typeProperties seção).   
 
 ### <a name="json-example"></a>Exemplo de JSON
-O JSON a seguir define uma atividade de Hive do HDInsight em um pipeline.  
+Olá JSON a seguir define uma atividade de HDInsight Hive em um pipeline.  
 
 ```json
 {
@@ -5163,15 +5163,15 @@ O JSON a seguir define uma atividade de Hive do HDInsight em um pipeline.
 Para saber mais, consulte o artigo [Atividade de Hive](data-factory-hive-activity.md). 
 
 ## <a name="hdinsight-pig-activity"></a>Atividade de Pig do HDInsight
-Você pode especificar as seguintes propriedades em uma definição de JSON de atividade de Pig. A propriedade type para a atividade deve ser: **HDInsightPig**. Você deve primeiro criar um serviço vinculado do HDInsight e especificar o nome dele como um valor para a propriedade **linkedServiceName**. As propriedades a seguir possuem suporte na seção **typeProperties** quando você define o tipo de atividade para HDInsightPig: 
+Você pode especificar Olá seguintes propriedades em uma definição de JSON da atividade de Pig. a propriedade de tipo Hello atividade Olá deve ser: **HDInsightPig**. Você deve primeiro criar um serviço vinculado do HDInsight e especificar o nome de saudação-lo como um valor para Olá **linkedServiceName** propriedade. Olá propriedades a seguir têm suporte no hello **typeProperties** seção quando você define o tipo de saudação do tooHDInsightPig de atividade: 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| script |Especificar o script de Pig embutido |Não |
-| caminho do script |Armazenar o script de Pig em um armazenamento de blob do Azure e fornecer o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. As duas não podem ser usadas juntas. O nome do arquivo diferencia maiúsculas de minúsculas. |Não |
-| define |Especificar parâmetros como pares chave/valor para referenciar dentro do script de Pig |Não |
+| script |Especificar Olá Pig script embutido |Não |
+| caminho do script |Armazenar o script de Pig de saudação em um armazenamento de BLOBs do Azure e fornecer Olá caminho toohello arquivo. Use a propriedade 'script' ou 'scriptPath'. As duas não podem ser usadas juntas. nome do arquivo Hello diferencia maiusculas de minúsculas. |Não |
+| define |Especifique parâmetros como pares chave/valor para fazer referência a no script de Pig de saudação |Não |
 
-Essas propriedades de tipo são específicas para a atividade de Pig. Outras propriedades (fora da seção typeProperties) possuem suporte para todas as atividades.   
+Essas propriedades de tipo são específico toohello atividade de Pig. Há suporte para todas as atividades de outras propriedades (fora de saudação typeProperties seção).   
 
 ### <a name="json-example"></a>Exemplo de JSON
 
@@ -5215,14 +5215,14 @@ Essas propriedades de tipo são específicas para a atividade de Pig. Outras pro
 Para saber mais, consulte o artigo [Atividade de Pig](#data-factory-pig-activity.md). 
 
 ## <a name="hdinsight-mapreduce-activity"></a>Atividade de MapReduce do HDInsight
-Você pode especificar as seguintes propriedades em uma definição de JSON de Atividade MapReduce. A propriedade type para a atividade deve ser: **HDInsightMapReduce**. Você deve primeiro criar um serviço vinculado do HDInsight e especificar o nome dele como um valor para a propriedade **linkedServiceName**. As propriedades a seguir possuem suporte na seção **typeProperties** quando você define o tipo de atividade para HDInsightMapReduce: 
+Você pode especificar Olá seguintes propriedades em uma definição de JSON da atividade MapReduce. a propriedade de tipo Hello atividade Olá deve ser: **HDInsightMapReduce**. Você deve primeiro criar um serviço vinculado do HDInsight e especificar o nome de saudação-lo como um valor para Olá **linkedServiceName** propriedade. Olá propriedades a seguir têm suporte no hello **typeProperties** seção quando você define o tipo de saudação do tooHDInsightMapReduce de atividade: 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| jarLinkedService | Nome do serviço vinculado do Armazenamento do Azure que contém o arquivo JAR. | Sim |
-| jarFilePath | Caminho para o arquivo JAR no Armazenamento do Azure. | Sim | 
-| className | Nome da classe principal no arquivo JAR. | Sim | 
-| argumentos | Uma lista de argumentos separados por vírgulas para o programa MapReduce. Em tempo de execução, você verá alguns argumentos extras (por exemplo: mapreduce.job.tags) da estrutura MapReduce. Para diferenciar seus argumentos com os argumentos MapReduce, considere usar opção e valor como argumentos, conforme mostrado no exemplo a seguir (- s, --input - output etc... são opções seguidas imediatamente por seus valores) | Não | 
+| jarLinkedService | Nome do hello vinculado de serviço para Olá armazenamento do Azure que contém o arquivo JAR de saudação. | Sim |
+| jarFilePath | Caminho toohello JAR arquivo no armazenamento do Azure de saudação. | Sim | 
+| className | Nome da classe principal do hello no arquivo JAR de saudação. | Sim | 
+| argumentos | Uma lista de argumentos separados por vírgulas para programas de MapReduce hello. Em tempo de execução, você ver alguns argumentos adicionais (por exemplo: mapreduce.job.tags) da estrutura de MapReduce hello. toodifferentiate seus argumentos com argumentos de MapReduce hello, considere o uso de opção e valor como argumentos conforme mostrado no exemplo a seguir de saudação (- s, - entrada, --saída etc., são imediatamente seguidas por seus valores de opções) | Não | 
 
 ### <a name="json-example"></a>Exemplo de JSON
 
@@ -5230,7 +5230,7 @@ Você pode especificar as seguintes propriedades em uma definição de JSON de A
 {
     "name": "MahoutMapReduceSamplePipeline",
     "properties": {
-        "description": "Sample Pipeline to Run a Mahout Custom Map Reduce Jar. This job calculates an Item Similarity Matrix to determine the similarity between two items",
+        "description": "Sample Pipeline tooRun a Mahout Custom Map Reduce Jar. This job calculates an Item Similarity Matrix toodetermine hello similarity between two items",
         "activities": [
             {
                 "type": "HDInsightMapReduce",
@@ -5260,7 +5260,7 @@ Você pode especificar as seguintes propriedades em uma definição de JSON de A
                     "interval": 1
                 },
                 "name": "MahoutActivity",
-                "description": "Custom Map Reduce to generate Mahout result",
+                "description": "Custom Map Reduce toogenerate Mahout result",
                 "linkedServiceName": "HDInsightLinkedService"
             }
         ],
@@ -5273,21 +5273,21 @@ Você pode especificar as seguintes propriedades em uma definição de JSON de A
 Para saber mais, consulte o artigo [Atividade MapReduce](data-factory-map-reduce.md). 
 
 ## <a name="hdinsight-streaming-activity"></a>Atividade de Streaming do HDInsight
-Você pode especificar as seguintes propriedades em uma definição de JSON de Atividade de Transmissão do Hadoop. A propriedade type para a atividade deve ser: **HDInsightStreaming**. Você deve primeiro criar um serviço vinculado do HDInsight e especificar o nome dele como um valor para a propriedade **linkedServiceName**. As propriedades a seguir possuem suporte na seção **typeProperties** quando você define o tipo de atividade para HDInsightStreaming: 
+Você pode especificar Olá seguintes propriedades em uma definição de Hadoop Streaming JSON da atividade. a propriedade de tipo Hello atividade Olá deve ser: **HDInsightStreaming**. Você deve primeiro criar um serviço vinculado do HDInsight e especificar o nome de saudação-lo como um valor para Olá **linkedServiceName** propriedade. Olá propriedades a seguir têm suporte no hello **typeProperties** seção quando você define o tipo de saudação do tooHDInsightStreaming de atividade: 
 
 | Propriedade | Descrição | 
 | --- | --- |
-| mapper | Nome do executável mapeador. No exemplo, cat.exe é o executável do mapeador.| 
-| reducer | Nome do executável redutor. No exemplo, wc.exe é o executável do redutor. | 
-| input | Arquivo de entrada (incluindo a localização) do mapeador. No exemplo: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample é o contêiner de blob, example/data/Gutenberg é a pasta e davinci.txt é o blob. |
-| output | Arquivo de saída (incluindo a localização) do redutor. A saída do trabalho de Transmissão do Hadoop é gravada no local especificado para essa propriedade. |
-| filePaths | Caminhos para os executáveis do mapeador e do redutor. No exemplo: "adfsample/example/apps/wc.exe", adfsample é o contêiner de blob, example/apps é a pasta e wc.exe é o executável. | 
-| fileLinkedService | Serviço vinculado do Armazenamento do Azure que representa o armazenamento do Azure que contém os arquivos especificados na seção filePaths. | 
-| argumentos | Uma lista de argumentos separados por vírgulas para o programa MapReduce. Em tempo de execução, você verá alguns argumentos extras (por exemplo: mapreduce.job.tags) da estrutura MapReduce. Para diferenciar seus argumentos com os argumentos MapReduce, considere usar opção e valor como argumentos, conforme mostrado no exemplo a seguir (- s, --input - output etc... são opções seguidas imediatamente por seus valores) | 
-| getDebugInfo | Um elemento opcional. Quando ela é definida como Falha, os logs são baixados somente em caso de falha de execução. Quando ela é definida como Todos, os logs sempre são baixados, não importa o status de execução. | 
+| mapper | Nome do executável do mapeador de saudação. Exemplo hello, cat.exe é executável do mapeador de saudação.| 
+| reducer | Nome de saudação do executável do Redutor. Exemplo hello, wc.exe é Redutor de saudação executável. | 
+| input | Arquivo de entrada (incluindo local) para o mapeador de saudação. No exemplo hello: "wasb<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample é o contêiner de blob hello, example/data/Gutenberg é a pasta de saudação e davinci.txt é Olá blob. |
+| output | Arquivo de saída (incluindo local) para Redutor hello. saída de saudação do trabalho de transmissão do Hadoop Olá é gravada toohello local especificado para esta propriedade. |
+| filePaths | Caminhos para executáveis do mapeador e Redutor hello. No exemplo hello: "adfsample/example/apps/wc.exe", adfsample é o contêiner de blob hello, example/apps é a pasta hello e wc.exe é hello executável. | 
+| fileLinkedService | Serviço vinculado do armazenamento do Azure que representa Olá armazenamento do Azure que contém arquivos de saudação especificados na seção de filePaths hello. | 
+| argumentos | Uma lista de argumentos separados por vírgulas para programas de MapReduce hello. Em tempo de execução, você ver alguns argumentos adicionais (por exemplo: mapreduce.job.tags) da estrutura de MapReduce hello. toodifferentiate seus argumentos com argumentos de MapReduce hello, considere o uso de opção e valor como argumentos conforme mostrado no exemplo a seguir de saudação (- s, - entrada, --saída etc., são imediatamente seguidas por seus valores de opções) | 
+| getDebugInfo | Um elemento opcional. Quando estiver definido como tooFailure, Olá logs são baixadas apenas em caso de falha. Quando estiver definido como tooAll, logs são sempre baixados independentemente do status de execução de saudação. | 
 
 > [!NOTE]
-> Você deve especificar um conjunto de dados de saída da Atividade de Transmissão do Hadoop para a propriedade **outputs** . Esse conjunto de dados é apenas um conjunto fictício exigido para direcionar o agendamento de pipeline (a cada hora, diariamente, etc.). Se a atividade não aceita uma entrada, você pode ignorar a especificação de um conjunto de dados de entrada para a atividade para a propriedade **inputs**.  
+> Você deve especificar um conjunto de dados de saída para hello Hadoop Streaming Activity para Olá **gera** propriedade. Este conjunto de dados pode ser um dataset fictício que é necessário toodrive Olá pipeline agenda (por hora, diariamente, etc.). Se a atividade de saudação não tem uma entrada, você pode ignorar especificando um conjunto de dados de entrada para a atividade de saudação para Olá **entradas** propriedade.  
 
 ## <a name="json-example"></a>Exemplo de JSON
 
@@ -5337,18 +5337,18 @@ Você pode especificar as seguintes propriedades em uma definição de JSON de A
 Para saber mais, consulte o artigo [Atividade de Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md). 
 
 ## <a name="hdinsight-spark-activity"></a>Atividade do HDInsight Spark
-Você pode especificar as seguintes propriedades em uma definição de JSON de Atividade de Spark. A propriedade type para a atividade deve ser: **HDInsightSpark**. Você deve primeiro criar um serviço vinculado do HDInsight e especificar o nome dele como um valor para a propriedade **linkedServiceName**. As propriedades a seguir possuem suporte na seção **typeProperties** quando você define o tipo de atividade para HDInsightSpark: 
+Você pode especificar Olá seguintes propriedades em uma definição de JSON da atividade Spark. a propriedade de tipo Hello atividade Olá deve ser: **HDInsightSpark**. Você deve primeiro criar um serviço vinculado do HDInsight e especificar o nome de saudação-lo como um valor para Olá **linkedServiceName** propriedade. Olá propriedades a seguir têm suporte no hello **typeProperties** seção quando você define o tipo de saudação do tooHDInsightSpark de atividade: 
 
 | Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
-| rootPath | O contêiner de Blob do Azure e a pasta que contém o arquivo Spark. O nome do arquivo diferencia maiúsculas de minúsculas. | Sim |
-| entryFilePath | Caminho relativo à pasta raiz do código/pacote Spark. | Sim |
+| rootPath | contêiner de BLOBs do Azure Hello e pasta que contém o arquivo do Spark hello. nome do arquivo Hello diferencia maiusculas de minúsculas. | Sim |
+| entryFilePath | Pasta de raiz de toohello de caminho relativo da saudação Spark/pacote de código. | Sim |
 | className | Classe principal de Java/Spark do aplicativo | Não | 
-| argumentos | Uma lista de argumentos de linha de comando para o programa Spark. | Não | 
-| proxyUser | A conta de usuário a ser representada para execução do programa Spark | Não | 
+| argumentos | Uma lista de programas de Spark toohello argumentos de linha de comando. | Não | 
+| proxyUser | programa de saudação usuário conta tooimpersonate tooexecute Olá Spark | Não | 
 | sparkConfig | Propriedades de configuração do Spark. | Não | 
-| getDebugInfo | Especifica quando os arquivos de log do Spark são copiados no armazenamento do Azure usado pelo cluster HDInsight (ou) especificado por sparkJobLinkedService. Valores permitidos: Nenhum, Sempre ou Falha. Valor padrão: Nenhum. | Não | 
-| sparkJobLinkedService | O serviço vinculado ao Armazenamento do Azure que contém o arquivo de trabalho, dependências e os logs do Spark.  Se você não especificar um valor para essa propriedade, o armazenamento associado ao cluster HDInsight será usado. | Não |
+| getDebugInfo | Especifica quando arquivos de log do Spark Olá são copiado toohello usado pelo cluster do HDInsight de armazenamento do Azure (ou) especificado por sparkJobLinkedService. Valores permitidos: Nenhum, Sempre ou Falha. Valor padrão: Nenhum. | Não | 
+| sparkJobLinkedService | Olá serviço vinculado do armazenamento do Azure que contém o arquivo de trabalho do Spark hello, dependências e logs.  Se você não especificar um valor para essa propriedade, armazenamento de saudação associado com o cluster HDInsight é usado. | Não |
 
 ### <a name="json-example"></a>Exemplo de JSON
 
@@ -5378,31 +5378,31 @@ Você pode especificar as seguintes propriedades em uma definição de JSON de A
     }
 }
 ```
-Observe os seguintes pontos: 
+Observe Olá pontos a seguir: 
 
-- A propriedade **type** é definida como **HDInsightSpark**.
-- O **rootPath** é definido como **adfspark\\pyFiles**, onde adfspark é o contêiner de Blob do Azure e pyFiles é a pasta de arquivos nesse contêiner. Neste exemplo, o Armazenamento de Blobs do Azure é aquele que está associado ao cluster Spark. Você pode carregar o arquivo em um Armazenamento do Azure diferente. Se você fizer isso, crie um serviço vinculado do Armazenamento do Azure para vincular essa conta de armazenamento ao data factory. Em seguida, especifique o nome do serviço vinculado como um valor para a propriedade **sparkJobLinkedService**. Consulte [Propriedades de Atividade Spark](#spark-activity-properties) para obter detalhes sobre essa propriedade e outras propriedades às quais a atividade Spark dá suporte.
-- O **entryFilePath** é definido como **test.py**, que é o arquivo Python. 
-- A propriedade **getDebugInfo** é definida como **Always**, o que significa que os arquivos de log são gerados sempre (sucesso ou falha).  
+- Olá **tipo** propriedade for definida muito**HDInsightSpark**.
+- Olá **rootPath** está definido muito**adfspark\\pyFiles** onde adfspark é o contêiner de BLOBs do Azure hello e pyFiles é a pasta bem no contêiner. Neste exemplo, Olá armazenamento de BLOBs do Azure é hello que está associado ao cluster do Spark hello. Você pode carregar Olá arquivo tooa armazenamento do Azure diferente. Se você fizer isso, crie um toolink de serviço vinculado do armazenamento do Azure essa fábrica de dados de toohello de conta de armazenamento. Em seguida, especifique o nome de Olá de serviço de Olá vinculado como um valor para Olá **sparkJobLinkedService** propriedade. Consulte [propriedades da atividade Spark](#spark-activity-properties) para obter detalhes sobre essa propriedade e outras propriedades com suporte hello atividade Spark.
+- Olá **entryFilePath** está definida toohello **test.py**, que é o arquivo de python hello. 
+- Olá **getDebugInfo** propriedade for definida muito**sempre**, que significa que os arquivos de log Olá sempre são gerados (sucesso ou falha).  
 
     > [!IMPORTANT]
-    > É recomendável que você não defina essa propriedade como Always em um ambiente de produção a menos que você esteja solucionando um problema. 
-- A seção **outputs** possui um conjunto de dados de saída. Você deve especificar um conjunto de dados de saída mesmo que o programa spark não produza nenhuma saída. O conjunto de dados de saída orienta o agendamento para o pipeline (por hora, diariamente, etc.).
+    > É recomendável que você não defina essa propriedade tooAlways em um ambiente de produção, a menos que você estiver solucionando um problema. 
+- Olá **gera** seção tem um conjunto de dados de saída. Você deve especificar um conjunto de dados de saída, mesmo que o programa de spark Olá não produz nenhuma saída. Olá dataset unidades Olá agenda para o pipeline de saudação (por hora, diariamente, etc.).
 
-Para obter mais informações sobre a atividade, consulte o artigo [Atividade Spark](data-factory-spark.md).  
+Para obter mais informações sobre a atividade de hello, consulte [Spark atividade](data-factory-spark.md) artigo.  
 
 ## <a name="machine-learning-batch-execution-activity"></a>Atividade de Execução em Lote de Machine Learning
-Você pode especificar as seguintes propriedades em uma definição de JSON de Atividade de Execução de Lote do Azure ML. A propriedade type para a atividade deve ser: **AzureMLBatchExecution**. Você deve primeiro criar um serviço vinculado do Azure Machine Learning e especificar o nome dele como um valor para a propriedade **linkedServiceName**. As propriedades a seguir possuem suporte na seção **typeProperties** quando você define o tipo de atividade para AzureMLBatchExecution:
+Você pode especificar Olá seguintes propriedades em uma definição de JSON da atividade de execução em lote do Azure ML. a propriedade de tipo Hello atividade Olá deve ser: **AzureMLBatchExecution**. Você deve criar uma primeiro o serviço vinculado de aprendizado de máquina do Azure e especificar o nome de Olá-lo como um valor para Olá **linkedServiceName** propriedade. Olá propriedades a seguir têm suporte no hello **typeProperties** seção quando você define o tipo de saudação do tooAzureMLBatchExecution de atividade:
 
 Propriedade | Descrição | Obrigatório 
 -------- | ----------- | --------
-webServiceInput | O conjunto de dados a ser passado como entrada para o serviço Web Azure ML. Esse conjunto de dados também deve ser incluído nas entradas para a atividade. |Use webServiceInput ou webServiceInputs. | 
-webServiceInputs | Especifica os conjuntos de dados a serem passados como entradas para o serviço Web do Azure ML. Se o serviço Web receber várias entradas, use a propriedade webServiceInputs em vez de usar a propriedade webServiceInput. Os conjuntos de dados referenciados por **webServiceInputs** também devem ser incluídos nas **entradas** da Atividade. | Use webServiceInput ou webServiceInputs. | 
-webServiceOutputs | Os conjuntos de dados que são atribuídos como saídas para o serviço Web do Azure ML. O serviço Web retorna dados de saída neste conjunto de dados. | Sim | 
-globalParameters | Especifica valores para parâmetros de serviço Web nesta seção. | Não | 
+webServiceInput | Olá dataset toobe passado como entrada para Olá serviço de web do ML do Azure. Este conjunto de dados também deve ser incluído em entradas de saudação para atividade de saudação. |Use webServiceInput ou webServiceInputs. | 
+webServiceInputs | Especifique toobe de conjuntos de dados passadas como entradas para Olá serviço de web do ML do Azure. Se o serviço web de saudação pega várias entradas, use a propriedade de webServiceInputs de saudação em vez de usar a propriedade de webServiceInput hello. Conjuntos de dados que são referenciados por Olá **webServiceInputs** também deve ser incluído no hello atividade **entradas**. | Use webServiceInput ou webServiceInputs. | 
+webServiceOutputs | Olá conjuntos de dados que são atribuídos como saídas para serviço de web hello ML do Azure. Olá web service retorna dados de saída neste conjunto de dados. | Sim | 
+globalParameters | Especifica valores para parâmetros de serviço da web hello nesta seção. | Não | 
 
 ### <a name="json-example"></a>Exemplo de JSON
-Neste exemplo, a atividade possui o conjunto de dados **MLSqlInput** como entrada e **MLSqlOutput** como a saída. O **MLSqlInput** é passado como uma entrada para o serviço Web usando a propriedade JSON **webServiceInput**. O **MLSqlOutput** é passado como uma entrada para o serviço Web usando a propriedade JSON **webServiceOutputs**. 
+Neste exemplo, a atividade de saudação tem Olá dataset **MLSqlInput** como entrada e **MLSqlOutput** como saída de hello. Olá **MLSqlInput** é passado como um serviço web de entrada toohello por usando Olá **webServiceInput** propriedade JSON. Olá **MLSqlOutput** é passado como um serviço de Web saída toohello por usando Olá **webserviceoutputs na** propriedade JSON. 
 
 ```json
 {
@@ -5442,21 +5442,21 @@ Neste exemplo, a atividade possui o conjunto de dados **MLSqlInput** como entrad
 }
 ```
 
-No exemplo do JSON, o serviço Web do Machine Learning implantado usa um módulo leitor e gravador para ler/gravar dados de/para um Banco de Dados SQL do Azure. Este serviço Web expõe os seguintes quatro parâmetros: Nome do servidor de banco de dados, Nome do banco de dados, Nome de conta de usuário do servidor e Senha de conta de usuário do servidor.
+No exemplo JSON hello, Olá implantado aprendizado de máquina do Azure Web serviço usa um leitor e um gravador módulo tooread/gravação de dados de / tooan banco de dados do SQL Azure. Esse serviço da Web expõe Olá quatro parâmetros a seguir: nome do servidor, nome do banco de dados, nome de conta de usuário do servidor e senha de conta de usuário do servidor de banco de dados.
 
 > [!NOTE]
-> Apenas as entradas e saídas da atividade AzureMLBatchExecution podem ser passadas como parâmetros para o serviço Web. Por exemplo, no trecho JSON acima, MLSqlInput é uma entrada para a atividade de AzureMLBatchExecution, que é passada como entrada para o serviço Web através do parâmetro webServiceInput.
+> Somente entradas e saídas da atividade de AzureMLBatchExecution Olá podem ser passadas como parâmetros toohello serviço da Web. Por exemplo, Olá acima trecho JSON, MLSqlInput é uma entrada toohello AzureMLBatchExecution atividade, que é passada como um serviço Web de entrada toohello por meio do parâmetro webServiceInput.
 
 ## <a name="machine-learning-update-resource-activity"></a>Atividade de Atualização de Recursos do Machine Learning
-Você pode especificar as seguintes propriedades em uma definição de JSON de Atualização de Recursos do Azure ML. A propriedade type para a atividade deve ser: **AzureMLUpdateResource**. Você deve primeiro criar um serviço vinculado do Azure Machine Learning e especificar o nome dele como um valor para a propriedade **linkedServiceName**. As propriedades a seguir possuem suporte na seção **typeProperties** quando você define o tipo de atividade para AzureMLUpdateResource:
+Você pode especificar Olá propriedades em uma definição de JSON da atividade do Azure ML atualização recursos a seguir. a propriedade de tipo Hello atividade Olá deve ser: **AzureMLUpdateResource**. Você deve criar uma primeiro o serviço vinculado de aprendizado de máquina do Azure e especificar o nome de Olá-lo como um valor para Olá **linkedServiceName** propriedade. Olá propriedades a seguir têm suporte no hello **typeProperties** seção quando você define o tipo de saudação do tooAzureMLUpdateResource de atividade:
 
 Propriedade | Descrição | Obrigatório 
 -------- | ----------- | --------
-trainedModelName | Nome do modelo treinado novamente. | Sim |  
-trainedModelDatasetName | O conjunto de dados apontando para o arquivo iLearner retornado pela operação de novos treinamentos. | Sim | 
+trainedModelName | Nome da saudação treinados novamente o modelo. | Sim |  
+trainedModelDatasetName | Conjunto de dados apontando toohello arquivo iLearner retornado por Olá treinar novamente a operação. | Sim | 
 
 ### <a name="json-example"></a>Exemplo de JSON
-O pipeline tem duas atividades: **AzureMLBatchExecution** e **AzureMLUpdateResource**. A atividade de Execução em lote do AM do Azure usa os dados de treinamento como entrada e produz um arquivo iLearner como saída. A atividade invoca o serviço Web de treinamento (experimento de treinamento exposto como um serviço Web) com os dados de treinamento de entrada e recebe o arquivo ilearner do serviço Web. O placeholderBlob é apenas um conjunto de dados de saída fictício necessário ao serviço Azure Data Factory para executar o pipeline.
+pipeline de saudação tem duas atividades: **AzureMLBatchExecution** e **AzureMLUpdateResource**. Hello atividade de execução de lote do ML do Azure usa dados de treinamento hello como entrada e produz um arquivo iLearner como saída. atividade de Olá chama o serviço web de treinamento hello (experiência de treinamento exposto como um serviço da web) com dados de treinamento de entrada hello e recebe o arquivo ilearner de saudação do hello webservice. Olá placeholderBlob é apenas um saída fictício conjunto de dados que é exigido pelo pipeline de saudação do hello Azure Data Factory serviço toorun.
 
 
 ```json
@@ -5515,16 +5515,16 @@ O pipeline tem duas atividades: **AzureMLBatchExecution** e **AzureMLUpdateResou
 ```
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Atividade do U-SQL da Análise Data Lake
-Você pode especificar as seguintes propriedades em uma definição de JSON de atividade de U-SQL. A propriedade type para a atividade deve ser: **DataLakeAnalyticsU-SQL**. Você deve primeiro criar um serviço vinculado do Azure Data Lake Analytics e especificar o nome dele como um valor para a propriedade **linkedServiceName**. As propriedades a seguir possuem suporte na seção **typeProperties** quando você define o tipo de atividade para DataLakeAnalyticsU-SQL: 
+Você pode especificar Olá propriedades em uma definição de JSON da atividade U-SQL a seguir. a propriedade de tipo Hello atividade Olá deve ser: **DataLakeAnalyticsU SQL**. Você deve criar um serviço vinculado de análise do Azure Data Lake e especificar o nome de Olá-lo como um valor para Olá **linkedServiceName** propriedade. Olá propriedades a seguir têm suporte no hello **typeProperties** seção quando você definir o tipo de saudação da atividade tooDataLakeAnalyticsU-SQL: 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| scriptPath |Caminho para a pasta que contém o script U-SQL. O nome do arquivo diferencia maiúsculas de minúsculas. |Não (se você usar o script) |
-| scriptLinkedService |Serviço vinculado que vincula o armazenamento que contém o script para a fábrica de dados |Não (se você usar o script) |
+| scriptPath |Toofolder de caminho que contém o script hello U-SQL. Nome do arquivo hello diferencia maiusculas de minúsculas. |Não (se você usar o script) |
+| scriptLinkedService |Serviço vinculado que vincula o armazenamento de saudação que contém a fábrica de dados Olá script toohello |Não (se você usar o script) |
 | script |Especificar script embutido em vez de especificar scriptPath e scriptLinkedService. Por exemplo: "script": "CREATE DATABASE test". |Não (se você usar scriptPath e scriptLinkedService) |
-| degreeOfParallelism |O número máximo de nós usados simultaneamente para executar o trabalho. |Não |
-| prioridade |Determina quais trabalhos de todos os que estão na fila devem ser selecionados para serem executados primeiro. Quanto menor o número, maior a prioridade. |Não |
-| parameters |Parâmetros do script U-SQL |Não |
+| degreeOfParallelism |número máximo de saudação de nós usados simultaneamente toorun trabalho de saudação. |Não |
+| prioridade |Determina quais trabalhos entre todos os que estão na fila devem ser selecionada toorun primeiro. Olá Olá número menor, Olá Olá prioridade. |Não |
+| parâmetros |Parâmetros de script hello U-SQL |Não |
 
 ### <a name="json-example"></a>Exemplo de JSON
 
@@ -5582,22 +5582,22 @@ Você pode especificar as seguintes propriedades em uma definição de JSON de a
 Para saber mais, consulte [Atividade de U-SQL no Data Lake Analytics](data-factory-usql-activity.md). 
 
 ## <a name="stored-procedure-activity"></a>Atividade de Procedimento Armazenado
-Você pode especificar as seguintes propriedades em uma definição de JSON de Atividade de Procedimento de Armazenado. A propriedade type para a atividade deve ser: **SqlServerStoredProcedure**. Você deve primeiro criar um dos serviços vinculados a seguir e especificar o nome do serviço vinculado como um valor para a propriedade **linkedServiceName**.
+Você pode especificar Olá seguintes propriedades em uma definição de JSON de atividade de procedimento armazenado. a propriedade de tipo Hello atividade Olá deve ser: **SqlServerStoredProcedure**. Você deve criar uma saudação serviços vinculados a seguir e especificar o nome de saudação do serviço Olá vinculado como um valor para hello **linkedServiceName** propriedade:
 
 - SQL Server 
 - Banco de Dados SQL do Azure
 - SQL Data Warehouse do Azure
 
-As propriedades a seguir possuem suporte na seção **typeProperties** quando você define o tipo de atividade para SqlServerStoredProcedure:
+Olá propriedades a seguir têm suporte no hello **typeProperties** seção quando você define o tipo de saudação do tooSqlServerStoredProcedure de atividade:
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| storedProcedureName |Especifique o nome do procedimento armazenado no banco de dados SQL do Azure ou SQL Data Warehouse do Azure que é representado pelo serviço vinculado utilizado pela tabela de saída. |Sim |
-| storedProcedureParameters |Especifique valores para parâmetros de procedimento armazenado. Se você precisar passar null para um parâmetro, use a sintaxe: "param1": null (todas as letras minúsculas). Veja o exemplo a seguir para saber mais sobre como usar essa propriedade. |Não |
+| storedProcedureName |Especifique o nome de saudação do procedimento de Olá armazenado no banco de dados do SQL Azure hello ou Azure SQL Data Warehouse que é representado pelo serviço Olá vinculado que Olá usos da tabela de saída. |Sim |
+| storedProcedureParameters |Especifique valores para parâmetros de procedimento armazenado. Se você precisar toopass nulo para um parâmetro, use a sintaxe de saudação: "param1": null (todas as letras minúsculas). Consulte Olá toolearn de exemplo sobre como usar essa propriedade a seguir. |Não |
 
-Se você especificar um conjunto de dados de entrada, ele deverá estar disponível (no status 'Pronto') para a atividade de procedimento armazenado a ser executada. O conjunto de dados de entrada não pode ser consumido no procedimento armazenado como um parâmetro. Ele só é usado para verificar a dependência antes de iniciar a atividade de procedimento armazenado. Você deve especificar um conjunto de dados de saída para uma atividade de procedimento armazenado. 
+Se você especificar um conjunto de dados de entrada, ele deve estar disponível (em status 'Pronto') para Olá armazenados toorun de atividade de procedimento. Olá conjunto de dados de entrada não pode ser consumido no procedimento Olá armazenado como um parâmetro. É apenas dependência de saudação toocheck usado antes de atividade de procedimento armazenado de saudação inicial. Você deve especificar um conjunto de dados de saída para uma atividade de procedimento armazenado. 
 
-O conjunto de dados de saída especifica a **agenda** da atividade de procedimento armazenado (por hora, semana, mês, etc.). O conjunto de dados de saída deve usar um **serviço vinculado** que se refere a um Banco de Dados SQL do Azure, ou SQL Data Warehouse do Azure, ou um Banco de Dados SQL Server no qual você quer que o procedimento armazenado seja executado. O conjunto de dados de saída pode servir como uma maneira de passar o resultado do procedimento armazenado para processamento posterior de outra atividade ([atividades de encadeamento](data-factory-scheduling-and-execution.md##multiple-activities-in-a-pipeline)) no pipeline. No entanto, o Data Factory não trava automaticamente a saída de um procedimento armazenado para esse conjunto de dados. É o procedimento armazenado que grava em uma tabela SQL para a qual o conjunto de dados de saída aponta. Em alguns casos, o conjunto de dados de saída pode ser um **conjunto de dados fictício**, que é usado apenas para especificar o agendamento para execução da atividade de procedimento armazenado.  
+Conjunto de dados de saída especifica Olá **agenda** para Olá armazenados atividade de procedimento (por hora, semanalmente, mensalmente, etc.). Olá conjunto de dados de saída deve usar um **serviço vinculado** que se refere a tooan banco de dados do SQL Azure ou um Azure SQL Data Warehouse ou um banco de dados do SQL Server no qual você deseja Olá toorun do procedimento armazenado. Olá conjunto de dados de saída pode servir como um resultado do modo toopass Olá do procedimento armazenado de saudação para processamento subsequente por outra atividade ([encadeamento atividades](data-factory-scheduling-and-execution.md##multiple-activities-in-a-pipeline)) no pipeline de saudação. No entanto, fábrica de dados não gravará automaticamente saída Olá de um conjunto de dados do procedimento armazenado toothis. É Olá tabela gravações tooa SQL que Olá pontos do conjunto de dados de saída de procedimento armazenado. Em alguns casos, o conjunto de dados de saída de hello pode ser um **conjunto de dados fictício**, que é usado somente para atividade de procedimento armazenado de agendamento de saudação toospecify para executar a saudação.  
 
 ### <a name="json-example"></a>Exemplo de JSON
 
@@ -5628,15 +5628,15 @@ O conjunto de dados de saída especifica a **agenda** da atividade de procedimen
 Para saber mais, consulte o artigo [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md). 
 
 ## <a name="net-custom-activity"></a>Atividade personalizada do .NET
-Você pode especificar as seguintes propriedades em uma definição de JSON de atividade personalizada de .NET. A propriedade type para a atividade deve ser: **DotNetActivity**. Você deve primeiro criar um serviço vinculado do Azure HDInsight ou um serviço vinculado do Lote do Azure e especificar o nome do serviço vinculado como um valor para a propriedade **linkedServiceName**. As propriedades a seguir possuem suporte na seção **typeProperties** quando você define o tipo de atividade para DotNetActivity:
+Você pode especificar Olá seguintes propriedades em uma atividade personalizada do .NET definição JSON. a propriedade de tipo Hello atividade Olá deve ser: **DotNetActivity**. Você deve criar um serviço vinculado do HDInsight do Azure ou um lote do Azure vinculado de serviço e especifique o nome de saudação do serviço vinculado de saudação como um valor para Olá **linkedServiceName** propriedade. Olá propriedades a seguir têm suporte no hello **typeProperties** seção quando você define o tipo de saudação do tooDotNetActivity de atividade:
  
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| AssemblyName | Nome do assembly. No exemplo, é: **MyDotnetActivity.dll**. | Sim |
-| EntryPoint |Nome da classe que implementa a interface IDotNetActivity. No exemplo, é: **MyDotNetActivityNS.MyDotNetActivity** onde MyDotNetActivityNS é o namespace e MyDotNetActivity é a classe.  | Sim | 
-| PackageLinkedService | Nome do serviço vinculado do Armazenamento do Azure que aponta para o armazenamento de blobs que contém o arquivo zip da atividade personalizada. No exemplo, é: **AzureStorageLinkedService**.| Sim |
-| PackageFile | Nome do arquivo zip. No exemplo, é: **customactivitycontainer/MyDotNetActivity.zip**. | Sim |
-| extendedProperties | Propriedades estendidas que você pode definir e passar para o código .NET. Neste exemplo, a variável **SliceStart** é definida para um valor baseado na variável de sistema SliceStart. | Não | 
+| AssemblyName | Nome do assembly hello. Exemplo hello, ele é: **MyDotnetActivity.dll**. | Sim |
+| EntryPoint |Nome da classe de saudação que implementa a interface de IDotNetActivity hello. Exemplo hello, ele é: **MyDotNetActivityNS.MyDotNetActivity** onde MyDotNetActivityNS é o namespace de saudação e MyDotNetActivity é a classe de saudação.  | Sim | 
+| PackageLinkedService | Nome da saudação serviço vinculado do armazenamento do Azure que aponta toohello armazenamento de blob que contém o arquivo de zip hello atividade personalizado. Exemplo hello, ele é: **AzureStorageLinkedService**.| Sim |
+| PackageFile | Nome do arquivo zip de saudação. Exemplo hello, ele é: **customactivitycontainer/MyDotNetActivity.zip**. | Sim |
+| extendedProperties | Propriedades estendidas que você pode definir e passar em código .NET de toohello. Neste exemplo, Olá **SliceStart** variável estiver definida como valor tooa com base na variável de sistema SliceStart hello. | Não | 
 
 ### <a name="json-example"></a>Exemplo de JSON
 
@@ -5688,7 +5688,7 @@ Você pode especificar as seguintes propriedades em uma definição de JSON de a
 Para saber informações detalhadas, consulte o artigo [Usar atividades personalizadas no Data Factory](data-factory-use-custom-activities.md). 
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte os seguintes tutoriais: 
+Consulte Olá tutoriais a seguir: 
 
 - [Tutorial: Criar um pipeline com uma atividade de cópia](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Tutorial: Criar um pipeline com uma atividade de hive](data-factory-build-your-first-pipeline-using-editor.md)

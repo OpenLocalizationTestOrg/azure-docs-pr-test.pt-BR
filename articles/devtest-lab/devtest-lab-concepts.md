@@ -1,6 +1,6 @@
 ---
-title: Conceitos do DevTest Labs | Microsoft Docs
-description: "Aprenda os conceitos básicos do DevTest Labs e como ele pode facilitar a criação, o gerenciamento e o monitoramento de máquinas virtuais do Azure"
+title: "conceitos de laboratórios aaaDevTest | Microsoft Docs"
+description: "Aprenda os conceitos básicos de saudação do DevTest Labs e como ele pode tornar fácil toocreate, gerenciar e monitorar as máquinas virtuais do Azure"
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,77 +14,77 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-ms.openlocfilehash: 1caea59e71126e934e2e52a1ad7f533ffa7d4b03
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d9f1d948002c4d3121e5bdd4e65eb8b54cd91f9c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="devtest-labs-concepts"></a>Conceitos dos Laboratórios de Desenvolvimento/Teste
 ## <a name="overview"></a>Visão geral
-A lista a seguir contém as principais definições e conceitos dos Laboratórios de Desenvolvimento/Teste:
+Olá lista a seguir contém definições e principais conceitos do DevTest Labs:
 
 ## <a name="labs"></a>Laboratórios
-Um laboratório é a infraestrutura que abrange um grupo de recursos, como VMs (máquinas virtuais), que permite melhor gerenciar esses recursos especificando limites e cotas.
+Um laboratório é a infraestrutura de saudação que abrange um grupo de recursos, como máquinas virtuais (VMs), que lhe permite melhor gerenciar esses recursos, especificando limites e cotas.
 
 ## <a name="virtual-machine"></a>Máquina virtual
-Uma VM do Azure é um dos vários tipos de [recursos de computação sob demanda escalonáveis](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm) oferecidos pelo Azure. As VMs do Azure lhe oferecem a flexibilidade da virtualização sem a necessidade de comprar e manter o hardware físico que a executa, embora você ainda precise manter a VM executando determinadas tarefas como configurar, corrigir e instalar o software que será executado nela.
+Uma VM do Azure é um dos vários tipos de [recursos de computação sob demanda escalonáveis](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm) oferecidos pelo Azure. Dê de VMs do Azure Olá flexibilidade da virtualização sem a necessidade de toobuy e manter o hardware físico de saudação que executa, embora ainda seja necessário toomaintain Olá VM executando determinadas tarefas, como configurar, corrigir e instalar o software de saudação que será executado nele.
 
 [Visão geral das máquinas virtuais do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) fornece informações sobre o que você deve considerar antes de criar uma VM, como criá-la e como gerenciá-la.
 
 ## <a name="claimable-vm"></a>VM Declarável
-Uma VM Declarável do Azure é uma máquina virtual que está disponível para uso por qualquer usuário do laboratório com permissões. Um administrador de laboratório pode preparar VMs com artefatos e imagens base específicas e salvá-los em um pool compartilhado. Em seguida, um usuário de laboratório poderá declarar uma VM de trabalho do pool quando precisar de uma com essa configuração específica.
+Uma VM Declarável do Azure é uma máquina virtual que está disponível para uso por qualquer usuário do laboratório com permissões. Um administrador de laboratório pode preparar as máquinas virtuais com artefatos e imagens específicas de base e salvá-los pool tooa compartilhado. Um usuário de laboratório, em seguida, pode solicitar um VM do pool de saudação do trabalho quando eles precisarem de um com essa configuração específica.
 
-Uma VM que não é declarável não é atribuída a nenhum usuário específico inicialmente, mas será mostrada na lista de todos os usuários em “Máquinas virtuais declaráveis”. Depois de uma VM é declarada por um usuário, ela é movida para cima em sua área “Minhas máquinas virtuais” e não é mais declarável por nenhum outro usuário.
+Uma VM que está claimable não está atribuída inicialmente tooany determinado usuário, mas será exibido na lista de todos os usuários em "Máquinas de virtuais Claimable". Depois de uma VM é solicitada por um usuário, ele é movido para cima tootheir área de "Minhas máquinas virtuais" e não está mais claimable por nenhum outro usuário.
 
 ## <a name="environment"></a>Ambiente
-No DevTest Labs, um ambiente refere-se a uma coleção de recursos do Azure em um laboratório. [Esta postagem de blog](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/) discute como criar ambientes de várias VMs dos modelos do Azure Resource Manager.
+DevTest Labs, um ambiente refere-se tooa coleção de recursos do Azure em um laboratório. [Esta postagem de blog](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/) discute como ambientes de várias VMs toocreate de seus modelos do Gerenciador de recursos do Azure.
 
 ## <a name="base-images"></a>Imagens base
-Imagens base são imagens de VM com todas as ferramentas e configurações pré-instaladas e configuradas para criar uma VM rapidamente. Você pode provisionar uma VM escolhendo uma base existente e adicionando um artefato para instalar o agente de teste. Você pode salvar a VM provisionada como base para que a base possa ser usada sem precisar reinstalar o agente de teste para cada provisionamento da VM.
+Imagens de base são imagens VM com todas as ferramentas de saudação e configurações pré-instalado e configurado tooquickly criar uma máquina virtual. Você pode provisionar uma VM escolhendo uma base existente e adicionando um artefato tooinstall seu agente de teste. Você pode, em seguida, salve Olá provisionado VM como uma base de dados de forma que hello base pode ser usada sem a necessidade de agente de teste de saudação tooreinstall para cada configuração de VM hello.
 
 ## <a name="artifacts"></a>Artefatos
-Artefatos são usados para implantar e configurar seu aplicativo após o provisionamento de uma VM. Os artefatos podem ser:
+Artefatos são usado toodeploy e configurar seu aplicativo depois que uma VM é provisionada. Os artefatos podem ser:
 
-* Ferramentas que você deseja instalar na VM, por exemplo, agentes, Fiddler e Visual Studio.
-* Ações que você deseja executar na VM - como clonar um repositório.
-* Aplicativos que você deseja testar.
+* Ferramentas que você deseja tooinstall em Olá VM - como agentes, Fiddler e Visual Studio.
+* Ações que você deseja toorun em Olá VM - como clonar um repositório.
+* Aplicativos que você deseja tootest.
 
-Os artefatos são arquivos JSON do [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) que contêm instruções para realizar a implantação e aplicar a configuração.
+Artefatos de [do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) arquivos JSON que contêm a implantação de tooperform instruções e aplicam a configuração.
 
 ## <a name="artifact-repositories"></a>Repositórios de artefatos
-Repositórios de artefatos são repositórios git nos quais os artefatos são verificados. Os repositórios de artefato podem ser adicionados a vários laboratórios da sua organização, permitindo a reutilização e compartilhamento.
+Repositórios de artefatos são repositórios git nos quais os artefatos são verificados. Repositórios de artefato podem ser adicionados toomultiple labs em sua organização, permitindo a reutilização e compartilhamento.
 
 ## <a name="formulas"></a>Fórmulas
-Além de fornecerem as imagens base, as fórmulas também fornecem um mecanismo para provisionamento rápido de VMs. Uma fórmula em Laboratórios de Desenvolvimento/Teste é uma lista de valores de propriedade padrão usados para criar uma VM de laboratório.
-Com fórmulas, VMs com o mesmo conjunto de propriedades - como a imagem de base, tamanho de máquina virtual, rede virtual e artefatos - podem ser criadas sem a necessidade de especificar essas propriedades a cada vez. Ao criar uma máquina virtual a partir de uma fórmula, os valores padrão poderão ser usados como são ou modificados.
+Fórmulas em imagens de toobase adição, fornecem um mecanismo para provisionamento rápido de máquina virtual. Uma fórmula em DevTest Labs é uma lista de toocreate usados os valores de propriedade padrão um laboratório de VM.
+Com fórmulas, VMs com hello mesmo conjunto de propriedades, como a imagem base, tamanho VM, rede virtual e artefatos - pode ser criado sem a necessidade de toospecify as propriedades de cada vez. Ao criar uma máquina virtual de uma fórmula, os valores padrão de saudação podem ser usados como-é ou modificado.
 
 ## <a name="policies"></a>Políticas
-Políticas ajudam no controle de custos em seu laboratório. Por exemplo, você pode criar uma política para desligar automaticamente máquinas virtuais com base em uma agenda definida.
+Políticas ajudam no controle de custos em seu laboratório. Por exemplo, você pode criar um tooautomatically política desligar VMs com base em um agendamento definido.
 
 ## <a name="caps"></a>Limites
-Limites são um mecanismo usado para minimizar o desperdício em seu laboratório. Por exemplo, você pode definir um limite para restringir o número de VMs que podem ser criados por usuário ou em um laboratório.
+Caps é mecanismo toominimize perda no laboratório. Por exemplo, você pode definir um número de saudação do cap toorestrict de máquinas virtuais que podem ser criados por usuário ou em um laboratório.
 
 ## <a name="security-levels"></a>Níveis de segurança
-O acesso de segurança é determinado pelo RBAC (controle de acesso baseado em função) do Azure. Para entender como funciona o acesso, é importante entender as diferenças entre um escopo, uma permissão e uma função, conforme definido pelo RBAC.
+O acesso de segurança é determinado pelo RBAC (controle de acesso baseado em função) do Azure. toounderstand acessar como funciona, ele ajuda a toounderstand Olá diferenças uma permissão, a função e um escopo conforme definido pelo RBAC.
 
-* Permissão – uma permissão é um acesso definido para uma ação específica (por exemplo, acesso de leitura para todas as máquinas virtuais).
-* Função – uma função é um conjunto de permissões que podem ser agrupadas e atribuídas a um usuário. Por exemplo, a função *proprietário da assinatura* tem acesso a todos os recursos dentro de uma assinatura.
-* Escopo – um escopo é um nível na hierarquia de um recurso do Azure, como um grupo de recursos, um único laboratório ou toda a assinatura.
+* Permissão - uma permissão é uma ação de específico de tooa (máquinas virtuais de acesso de leitura, por exemplo, tooall) de acesso definidas.
+* Função – uma função é um conjunto de permissões que podem ser agrupados e tooa usuário atribuído. Por exemplo, Olá *proprietário da assinatura* função tem acesso tooall recursos dentro de uma assinatura.
+* Escopo - um escopo é um nível na hierarquia de saudação de um recurso do Azure, como um grupo de recursos, um laboratório único ou a assinatura inteira Olá.
 
-Dentro do escopo do DevTest Labs, há dois tipos de funções para definir permissões de usuário: usuário de laboratório e proprietário de laboratório.
+No escopo de saudação do DevTest Labs, há dois tipos de permissões de usuário toodefine funções: usuário de laboratório e de proprietário de laboratório.
 
-* Proprietário de laboratório – um proprietário de laboratório tem acesso a qualquer recurso no laboratório. Portanto, um proprietário de laboratório pode modificar políticas, ler e gravar quaisquer máquinas virtuais, alterar a rede virtual e assim por diante.
+* Proprietário do laboratório - um proprietário de laboratório tem os recursos de tooany de acesso no laboratório de saudação. Portanto, o proprietário de um laboratório pode modificar políticas, ler e gravar todas as máquinas virtuais, altere a rede virtual Olá e assim por diante.
 * Usuário de laboratório – um usuário de laboratório pode exibir todos os recursos de laboratório, como VMs, políticas e redes virtuais, mas não pode modificar políticas ou as VMs criadas por outros usuários.
 
-Para ver como criar funções personalizadas no DevTest Labs, e você pode aprender como fazer isso neste artigo, [Grant user permissions to specific lab policies (Conceder permissões de usuário para políticas específicas do laboratório)](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
+toosee como funções personalizadas toocreate DevTest Labs, consulte o artigo toohello, [conceder permissões de usuário políticas de laboratório toospecific](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
 
-Como os escopos são hierárquicos, quando um usuário tem permissões em um determinado escopo, ele recebe essas permissões automaticamente em cada escopo de nível inferior que está englobado. Por exemplo, se um usuário recebe a função de proprietário da assinatura, ele tem acesso a todos os recursos em uma assinatura, o que inclui todas as máquinas virtuais, todas as redes virtuais e todos os laboratórios. Portanto, um proprietário de assinatura herda automaticamente a função de proprietário de laboratório. No entanto, o oposto não é verdadeiro. O proprietário de um laboratório tem acesso a um laboratório, que é um escopo menor que o nível de assinatura. Portanto, um proprietário de laboratório não pode ver máquinas virtuais, redes virtuais ou recursos que estão fora do laboratório.
+Como os escopos são hierárquicos, quando um usuário tem permissões em um determinado escopo, ele recebe essas permissões automaticamente em cada escopo de nível inferior que está englobado. Por exemplo, se um usuário está atribuído toohello do proprietário da assinatura, eles têm recursos tooall acesso em uma assinatura, que incluem todas as máquinas virtuais, todas as redes virtuais e todos os laboratórios. Portanto, um proprietário da assinatura herda automaticamente a função hello do proprietário do laboratório. No entanto, Olá oposta não é true. O proprietário de um laboratório tem laboratório tooa de acesso, que é um escopo de menor nível de assinatura de saudação. Portanto, um proprietário de laboratório não será capaz de toosee máquinas de virtuais ou redes virtuais ou todos os recursos que estão fora do laboratório de saudação.
 
 ## <a name="azure-resource-manager-templates"></a>Modelos do Gerenciador de Recursos do Azure
-Todos os conceitos discutidos neste artigo podem ser configurados usando modelos do Azure Resource Manager, que lhe permitem definir a infraestrutura/configuração de sua solução do Azure e implantá-la repetidamente em um estado consistente.
+Todos Olá conceitos abordados neste artigo podem ser configurados usando modelos do Azure Resource Manager, que lhe permitem definem Olá infraestrutura/de configuração de sua solução do Azure e repetidamente implantação-lo em um estado consistente.
 
-[Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) descreve a estrutura de um modelo do Azure Resource Manager e as propriedades que estão disponíveis nas diferentes seções de um modelo.
+[Entender a estrutura de saudação e a sintaxe de modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) descreve Olá estrutura de um Gerenciador de recursos do Azure modelo e hello as propriedades que estão disponíveis em diferentes seções Olá de um modelo.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

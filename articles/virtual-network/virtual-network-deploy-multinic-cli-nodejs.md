@@ -1,6 +1,6 @@
 ---
-title: "Criar uma máquina virtual com várias NICs - 1.0 da CLI do Azure | Microsoft Docs"
-description: "Saiba como criar uma VM com várias NICs usando a CLI do Azure 1.0."
+title: "aaaCreate uma VM com várias NICs - 1.0 da CLI do Azure | Microsoft Docs"
+description: "Saiba como toocreate uma VM com várias NICs usando Olá 1.0 da CLI do Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,32 +16,32 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b95bcb38664718bf25ec6981c803415790c6da3d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 07c660b632bcdc004365a6f910ecf8a5c13cbc6d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-vm-with-multiple-nics-using-the-azure-cli-10"></a>Criar uma VM com várias NICs usando a CLI do Azure 1.0
+# <a name="create-a-vm-with-multiple-nics-using-hello-azure-cli-10"></a>Criar uma VM com várias NICs usando Olá 1.0 da CLI do Azure
 
 [!INCLUDE [virtual-network-deploy-multinic-arm-selectors-include.md](../../includes/virtual-network-deploy-multinic-arm-selectors-include.md)]
 
 [!INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md).  Este artigo aborda usando o modelo de implantação do Gerenciador de Recursos, que a Microsoft recomenda para a maioria das novas implantações em vez de do [modelo de implantação clássico](virtual-network-deploy-multinic-classic-cli.md).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md).  Este artigo aborda usando o modelo de implantação do hello Gerenciador de recursos, a Microsoft recomenda para a maioria das novas implantações em vez da saudação [modelo de implantação clássico](virtual-network-deploy-multinic-classic-cli.md).
 >
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-As etapas a seguir usam um grupo de recursos chamado *IaaSStory* para os servidores Web e o grupo de recursos e *IaaSStory-BackEnd* para os servidores DB. Você pode concluir esta tarefa usando a CLI do Azure 1.0 (este artigo) ou a [CLI do Azure 2.0](virtual-network-deploy-static-pip-arm-cli.md). Os valores em "" para as variáveis nas etapas a seguir criam recursos com as configurações do cenário. Altere os valores para adequá-los ao seu ambiente.
+Olá, etapas a seguir usam um grupo de recursos denominado *IaaSStory* para servidores WEB hello e um grupo de recursos denominado *back-end IaaSStory* para servidores de saudação banco de dados. Você pode concluir essa tarefa usando Olá CLI do Azure 1.0 (Este artigo) ou hello [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md). Olá valores em "" para variáveis de saudação nas etapas Olá seguir criar recursos com as configurações do cenário de saudação. Altere os valores hello, conforme apropriado para seu ambiente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de criar os servidores DB, você precisa criar o grupo de recursos *IaaSStory* com todos os recursos necessários para este cenário. Para criar esses recursos, siga estas etapas:
+Antes de criar hello servidores de banco de dados, você precisa Olá toocreate *IaaSStory* grupo de recursos com todos os recursos necessários de saudação para esse cenário. concluir a esses recursos, toocreate Olá seguintes etapas:
 
-1. Navegue até [a página do modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
-2. Na página do modelo, à direita do **Grupo de recursos pai**, clique em **Implantar no Azure**.
-3. Caso necessário, altere os valores de parâmetro e siga as etapas no Portal de visualização do Azure para implantar o grupo de recursos.
+1. Navegue muito[página de modelo Olá](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
+2. Na página de modelo hello, toohello à direita do **o grupo de recursos pai**, clique em **implantar tooAzure**.
+3. Se necessário, altere os valores de parâmetro hello, siga as etapas de Olá no grupo de recursos de saudação do hello visualização do Azure toodeploy portal.
 
 > [!IMPORTANT]
 > Verifique se os nomes da conta de armazenamento são exclusivos. Você não pode ter nomes de conta de armazenamento duplicados no Azure.
@@ -49,17 +49,17 @@ Antes de criar os servidores DB, você precisa criar o grupo de recursos *IaaSSt
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-## <a name="create-the-back-end-vms"></a>Criar VMs de back-end
-As VMs de back-end dependem da criação dos seguintes recursos:
+## <a name="create-hello-back-end-vms"></a>Criar hello VMs de back-end
+Olá que VMs de back-end dependem de criação de saudação do hello recursos a seguir:
 
-* **Conta de armazenamento para discos de dados**. Para obter um melhor desempenho, os discos de dados dos servidores de banco de dados usam a tecnologia SDD (unidade de estado sólido), que requer uma conta de Armazenamento Premium. Verifique se o local do Azure no qual você vai implantar é compatível com o Armazenamento Premium.
+* **Conta de armazenamento para discos de dados**. Para obter melhor desempenho, os discos de dados Olá em servidores de banco de dados de saudação usará tecnologia SSD (unidade) de estado sólido, que requer uma conta de armazenamento premium. Verifique se Olá local do Azure que você implantar o armazenamento do premium toosupport.
 * **NICs**. Cada VM tem duas NICs, uma para acesso ao banco de dados e outra para gerenciamento.
-* **Conjunto de disponibilidade**. Todos os servidores de banco de dados são adicionados a um conjunto de disponibilidade único, para garantir que pelo menos uma das VMs está ativa e em execução durante a manutenção.
+* **Conjunto de disponibilidade**. Todos os servidores de banco de dados serão adicionados tooa único conjunto de disponibilidade, tooensure pelo menos uma das VMs hello está em execução durante a manutenção.
 
 ### <a name="step-1---start-your-script"></a>Etapa 1 – Iniciar o script
-Você pode baixar o script bash completo usado [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-cli.sh). Realize os procedimentos abaixo para alterar o script para funcionar em seu ambiente.
+Você pode baixar o script de bash completo Olá usado [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-cli.sh). Siga as próximas etapas, Olá toochange Olá script toowork em seu ambiente.
 
-1. Altere os valores das variáveis a seguir com base no grupo de recursos existente implantado acima, no tópico [Pré-requisitos](#Prerequisites).
+1. Alterar valores de saudação das variáveis de saudação abaixo com base em seu grupo de recursos existente implantado acima em [pré-requisitos](#Prerequisites).
 
     ```azurecli
     existingRGName="IaaSStory"
@@ -68,7 +68,7 @@ Você pode baixar o script bash completo usado [aqui](https://raw.githubusercont
     backendSubnetName="BackEnd"
     remoteAccessNSGName="NSG-RemoteAccess"
     ```
-2. Altere os valores das variáveis a seguir de acordo com os valores que deseja usar na implantação do back-end.
+2. Alterar Olá valores de variáveis de saudação abaixo com base nos valores hello, você deseja toouse para sua implantação de back-end.
 
     ```azurecli
     backendRGName="IaaSStory-Backend"
@@ -90,7 +90,7 @@ Você pode baixar o script bash completo usado [aqui](https://raw.githubusercont
     numberOfVMs=2
     ```
 
-3. Recuperar a ID para a sub-rede `BackEnd` onde as VMs serão criadas. Você precisa fazer isso, pois as NICs a serem associadas a esta sub-rede estão em um grupo de recursos diferente.
+3. Recuperar a ID de saudação do hello `BackEnd` sub-rede onde Olá VMs será criado. É necessário toodo isso como Olá NICs toobe associado toothis sub-rede estão em um grupo de recursos diferente.
 
     ```azurecli
     subnetId="$(azure network vnet subnet show --resource-group $existingRGName \
@@ -100,10 +100,10 @@ Você pode baixar o script bash completo usado [aqui](https://raw.githubusercont
     ```
 
    > [!TIP]
-   > O primeiro comando acima usa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) e [manipulação de cadeia de caracteres](http://tldp.org/LDP/abs/html/string-manipulation.html) (mais especificamente, a remoção de subcadeia de caracteres).
+   > Olá primeiro comando acima usa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) e [manipulação de cadeia de caracteres](http://tldp.org/LDP/abs/html/string-manipulation.html) (mais especificamente, a remoção de subcadeia de caracteres).
    >
 
-4. Recuperar a ID para o NSG `NSG-RemoteAccess` . Você precisa fazer isso, pois as NICs a serem associadas a este NSG estão em um grupo de recursos diferente.
+4. Recuperar a ID de saudação do hello `NSG-RemoteAccess` NSG. É necessário toodo isso como Olá toobe de NICs associados toothis NSG estão em um grupo de recursos diferente.
 
     ```azurecli
     nsgId="$(azure network nsg show --resource-group $existingRGName \
@@ -113,13 +113,13 @@ Você pode baixar o script bash completo usado [aqui](https://raw.githubusercont
 
 ### <a name="step-2---create-necessary-resources-for-your-vms"></a>Etapa 2 – Criar recursos necessários para as VMs
 
-1. Crie um novo grupo de recursos para todos os recursos de back-end. Observe o uso da variável `$backendRGName` para o nome do grupo de recursos e `$location` para a região do Azure.
+1. Crie um novo grupo de recursos para todos os recursos de back-end. Aviso uso Olá Olá `$backendRGName` variável do nome de grupo de recurso Olá, e `$location` para Olá região do Azure.
 
     ```azurecli
     azure group create $backendRGName $location
     ```
 
-2. Crie uma conta de armazenamento Premium para o sistema operacional e discos de dados a ser usada por suas VMs.
+2. Crie uma conta de armazenamento premium para Olá SO e toobe de discos de dados usados por suas máquinas virtuais.
 
     ```azurecli
     azure storage account create $prmStorageAccountName \
@@ -128,7 +128,7 @@ Você pode baixar o script bash completo usado [aqui](https://raw.githubusercont
         --type PLRS
     ```
 
-3. Criar um conjunto de disponibilidade para as VMs.
+3. Crie uma conjunto de disponibilidade para Olá VMs.
 
     ```azurecli
     azure availset create --resource-group $backendRGName \
@@ -136,9 +136,9 @@ Você pode baixar o script bash completo usado [aqui](https://raw.githubusercont
         --name $avSetName
     ```
 
-### <a name="step-3---create-the-nics-and-back-end-vms"></a>Etapa 3: criar NICs e VMs de back-end
+### <a name="step-3---create-hello-nics-and-back-end-vms"></a>Etapa 3 – crie VMs de back-end e NICs Olá
 
-1. Inicie um loop para criar várias VMs, com base em variáveis `numberOfVMs` .
+1. Iniciar um loop toocreate várias VMs, com base em Olá `numberOfVMs` variáveis.
 
     ```azurecli
     for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
@@ -158,7 +158,7 @@ Você pode baixar o script bash completo usado [aqui](https://raw.githubusercont
         --subnet-id $subnetId
     ```
 
-3. Para cada VM, crie uma NIC para acesso remoto. Observe que o parâmetro `--network-security-group` , usado para associar a NIC a um NSG.
+3. Para cada VM, crie uma NIC para acesso remoto. Saudação de aviso `--network-security-group` parâmetro usado tooassociate Olá NIC tooan NSG.
 
     ```azurecli
     nic2Name=$nicNamePrefix$suffixNumber-RA
@@ -172,7 +172,7 @@ Você pode baixar o script bash completo usado [aqui](https://raw.githubusercont
         --network-security-group-id $nsgId
     ```
 
-4. Crie a VM.
+4. Crie hello VM.
 
     ```azurecli
     azure vm create --resource-group $backendRGName \
@@ -191,7 +191,7 @@ Você pode baixar o script bash completo usado [aqui](https://raw.githubusercont
         --admin-password $password
     ```
 
-5. Para cada VM, criar dois discos de dados e encerre o loop com o comando `done` .
+5. Para cada VM, criar discos de dados e loop de saudação do final com hello `done` comando.
 
     ```azurecli
     azure vm disk attach-new --resource-group $backendRGName \
@@ -212,10 +212,10 @@ Você pode baixar o script bash completo usado [aqui](https://raw.githubusercont
         done
     ```
 
-### <a name="step-4---run-the-script"></a>Etapa 4 – Executar o script
-Agora que você baixou e alterou o script de acordo com suas necessidades, execute o script para criar VMs do banco de dados de back-end com várias NICs.
+### <a name="step-4---run-hello-script"></a>Etapa 4: executar o script de saudação
+Agora que você baixou e alterado script hello com base em suas necessidades, executadas Olá Olá de toocreate script final VMs de banco de dados com várias NICs.
 
-1. Salve seu script e execute-o em seu terminal **Bash** . A saída inicial será exibida, conforme mostrado abaixo:
+1. Salve seu script e execute-o em seu terminal **Bash** . Você verá uma saída de inicial hello, conforme mostrado abaixo.
    
         info:    Executing command group create
         info:    Getting resource group IaaSStory-Backend
@@ -232,13 +232,13 @@ Agora que você baixou e alterou o script de acordo com suas necessidades, execu
         info:    Creating storage account
         info:    storage account create command OK
         info:    Executing command availset create
-        info:    Looking up the availability set "ASDB"
+        info:    Looking up hello availability set "ASDB"
         info:    Creating availability set "ASDB"
         info:    availset create command OK
         info:    Executing command network nic create
-        info:    Looking up the network interface "NICDB1-DA"
+        info:    Looking up hello network interface "NICDB1-DA"
         info:    Creating network interface "NICDB1-DA"
-        info:    Looking up the network interface "NICDB1-DA"
+        info:    Looking up hello network interface "NICDB1-DA"
         data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB1-DA
         data:    Name                            : NICDB1-DA
         data:    Type                            : Microsoft.Network/networkInterfaces
@@ -254,9 +254,9 @@ Agora que você baixou e alterou o script de acordo com suas necessidades, execu
         data:
         info:    network nic create command OK
         info:    Executing command network nic create
-        info:    Looking up the network interface "NICDB1-RA"
+        info:    Looking up hello network interface "NICDB1-RA"
         info:    Creating network interface "NICDB1-RA"
-        info:    Looking up the network interface "NICDB1-RA"
+        info:    Looking up hello network interface "NICDB1-RA"
         data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB1-RA
         data:    Name                            : NICDB1-RA
         data:    Type                            : Microsoft.Network/networkInterfaces
@@ -273,34 +273,34 @@ Agora que você baixou e alterou o script de acordo com suas necessidades, execu
         data:
         info:    network nic create command OK
         info:    Executing command vm create
-        info:    Looking up the VM "DB1"
-        info:    Using the VM Size "Standard_DS3"
-        info:    The [OS, Data] Disk or image configuration requires storage account
-        info:    Looking up the storage account wtestvnetstorageprm
-        info:    Looking up the availability set "ASDB"
+        info:    Looking up hello VM "DB1"
+        info:    Using hello VM Size "Standard_DS3"
+        info:    hello [OS, Data] Disk or image configuration requires storage account
+        info:    Looking up hello storage account wtestvnetstorageprm
+        info:    Looking up hello availability set "ASDB"
         info:    Found an Availability set "ASDB"
-        info:    Looking up the NIC "NICDB1-DA"
-        info:    Looking up the NIC "NICDB1-RA"
+        info:    Looking up hello NIC "NICDB1-DA"
+        info:    Looking up hello NIC "NICDB1-RA"
         info:    Creating VM "DB1"
-2. Depois de alguns minutos, a execução será encerrada e você verá o restante da saída conforme mostrado abaixo.
+2. Após alguns minutos, execução Olá terminará e você verá restante Olá Olá saída conforme mostrado abaixo.
    
         info:    vm create command OK
         info:    Executing command vm disk attach-new
-        info:    Looking up the VM "DB1"
-        info:    Looking up the storage account wtestvnetstorageprm
+        info:    Looking up hello VM "DB1"
+        info:    Looking up hello storage account wtestvnetstorageprm
         info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk1-1.vhd
         info:    Updating VM "DB1"
         info:    vm disk attach-new command OK
         info:    Executing command vm disk attach-new
-        info:    Looking up the VM "DB1"
-        info:    Looking up the storage account wtestvnetstorageprm
+        info:    Looking up hello VM "DB1"
+        info:    Looking up hello storage account wtestvnetstorageprm
         info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk1-2.vhd
         info:    Updating VM "DB1"
         info:    vm disk attach-new command OK
         info:    Executing command network nic create
-        info:    Looking up the network interface "NICDB2-DA"
+        info:    Looking up hello network interface "NICDB2-DA"
         info:    Creating network interface "NICDB2-DA"
-        info:    Looking up the network interface "NICDB2-DA"
+        info:    Looking up hello network interface "NICDB2-DA"
         data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB2-DA
         data:    Name                            : NICDB2-DA
         data:    Type                            : Microsoft.Network/networkInterfaces
@@ -316,9 +316,9 @@ Agora que você baixou e alterou o script de acordo com suas necessidades, execu
         data:
         info:    network nic create command OK
         info:    Executing command network nic create
-        info:    Looking up the network interface "NICDB2-RA"
+        info:    Looking up hello network interface "NICDB2-RA"
         info:    Creating network interface "NICDB2-RA"
-        info:    Looking up the network interface "NICDB2-RA"
+        info:    Looking up hello network interface "NICDB2-RA"
         data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB2-RA
         data:    Name                            : NICDB2-RA
         data:    Type                            : Microsoft.Network/networkInterfaces
@@ -335,25 +335,25 @@ Agora que você baixou e alterou o script de acordo com suas necessidades, execu
         data:
         info:    network nic create command OK
         info:    Executing command vm create
-        info:    Looking up the VM "DB2"
-        info:    Using the VM Size "Standard_DS3"
-        info:    The [OS, Data] Disk or image configuration requires storage account
-        info:    Looking up the storage account wtestvnetstorageprm
-        info:    Looking up the availability set "ASDB"
+        info:    Looking up hello VM "DB2"
+        info:    Using hello VM Size "Standard_DS3"
+        info:    hello [OS, Data] Disk or image configuration requires storage account
+        info:    Looking up hello storage account wtestvnetstorageprm
+        info:    Looking up hello availability set "ASDB"
         info:    Found an Availability set "ASDB"
-        info:    Looking up the NIC "NICDB2-DA"
-        info:    Looking up the NIC "NICDB2-RA"
+        info:    Looking up hello NIC "NICDB2-DA"
+        info:    Looking up hello NIC "NICDB2-RA"
         info:    Creating VM "DB2"
         info:    vm create command OK
         info:    Executing command vm disk attach-new
-        info:    Looking up the VM "DB2"
-        info:    Looking up the storage account wtestvnetstorageprm
+        info:    Looking up hello VM "DB2"
+        info:    Looking up hello storage account wtestvnetstorageprm
         info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk2-1.vhd
         info:    Updating VM "DB2"
         info:    vm disk attach-new command OK
         info:    Executing command vm disk attach-new
-        info:    Looking up the VM "DB2"
-        info:    Looking up the storage account wtestvnetstorageprm
+        info:    Looking up hello VM "DB2"
+        info:    Looking up hello storage account wtestvnetstorageprm
         info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk2-2.vhd
         info:    Updating VM "DB2"
         info:    vm disk attach-new command OK

@@ -1,5 +1,5 @@
 ---
-title: "Introdução ao Azure Cosmos DB | Microsoft Docs"
+title: aaaIntroduction tooAzure Cosmos DB | Microsoft Docs
 description: "Saiba mais sobre o Azure Cosmos DB. Este multimodelo de banco de dados distribuído globalmente foi criado para alta disponibilidade, escalabilidade elástica e baixa latência."
 services: cosmos-db
 author: mimig1
@@ -15,32 +15,32 @@ ms.topic: get-started-article
 ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: c9d04ae0bc11b99f893e5f003f136fbfe0dfccc9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f2acbe99f425b2f07a62bbbb4324aa48f1037481
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
+# <a name="welcome-tooazure-cosmos-db"></a>Bem-vindo tooAzure Cosmos DB
 
-O BD Cosmos do Azure é o multimodelo de banco de dados distribuído globalmente da Microsoft. Com o clique de um botão, o BD Cosmos do Azure permite que você dimensione a taxa de transferência e o armazenamento de maneira elástica e independente em qualquer número de regiões geográficas do Azure. Ele oferece garantias de taxa de transferência, disponibilidade, latência e consistência com [SLAs](https://aka.ms/acdbsla) (contratos de nível de serviço) abrangentes, algo que nenhum outro serviço de banco de dados pode oferecer.
+O BD Cosmos do Azure é o multimodelo de banco de dados distribuído globalmente da Microsoft. Olá clicando em um botão, o banco de dados do Azure Cosmos lhe permite tooelastically e independentemente taxa de transferência de escala e o armazenamento em qualquer número de regiões geográficas do Azure. Ele oferece garantias de taxa de transferência, disponibilidade, latência e consistência com [SLAs](https://aka.ms/acdbsla) (contratos de nível de serviço) abrangentes, algo que nenhum outro serviço de banco de dados pode oferecer.
 
 ![O Azure Cosmos DB é um serviço de banco de dados distribuído globalmente pela Microsoft com escala horizontal elástica, baixa latência garantida, cinco modelos de consistência e SLAs de garantia abrangente](./media/introduction/azure-cosmos-db.png)
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Soluções que se beneficiam do Azure Cosmos DB
 
-Qualquer [Web, celular, jogos e aplicativos de IoT](use-cases.md) que precisam lidar com grandes quantidades de leituras e gravações em uma escala [global](distribute-data-globally.md) com baixo tempo de resposta para uma variedade de dados se beneficiará da disponibilidade, alta taxa de transferência, baixa latência e consistência ajustável [garantida](https://azure.microsoft.com/support/legal/sla/cosmos-db/) do Azure Cosmos DB.
+Qualquer [web, móveis, jogos e aplicativos de IoT](use-cases.md) que precisam de toohandle grandes quantidades de leituras e gravações em um [global](distribute-data-globally.md) dimensionar com baixo tempo de resposta para uma variedade de dados se beneficiarão do Azure Cosmos DB [garantia](https://azure.microsoft.com/support/legal/sla/cosmos-db/) disponibilidade, alta taxa de transferência, baixa latência e consistência ajustável.
 
 ## <a name="key-capabilities"></a>Principais recursos
-Como um serviço de banco de dados distribuído globalmente, o Azure fornece Cosmos DB fornece as seguintes funcionalidades para ajudá-lo a criar aplicativos altamente responsivos e escalonáveis:
+Como um serviço de banco de dados globalmente distribuído, o banco de dados do Azure Cosmos fornece Olá toohelp recursos criar aplicativos escalonáveis e altamente responsivos a seguir:
 
 * **Distribuição global turnkey**
-    * Você pode [distribuir seus dados](distribute-data-globally.md) para qualquer número de [regiões do Azure](https://azure.microsoft.com/regions/), com o [clique de um botão](tutorial-global-distribution-documentdb.md). Isso permite que você coloque seus dados onde os usuários estão, garantindo a menor latência possível aos seus clientes. 
-    * Ao usar as APIs de hospedagem múltipla do Azure Cosmos DB, o aplicativo sempre sabe onde é a região mais próxima e enviará solicitações para o data center mais próximo. Tudo isso é possível sem alterações de configuração. Você define sua região de gravação e quantas regiões de leitura do seu jeito e o resto é feito para você.
+    * Você pode [distribuir os dados](distribute-data-globally.md) tooany o número de [regiões do Azure](https://azure.microsoft.com/regions/), com hello [clique de um botão](tutorial-global-distribution-documentdb.md). Isso permite que você tooput seus dados em que os usuários, garantindo a menor latência possível de saudação tooyour clientes. 
+    * APIs de hospedagem múltipla, Olá aplicativo sempre usando o Azure Cosmos DB sabe onde hello mais próximo da região é e enviará solicitações toohello mais próximo do Centro de dados. Tudo isso é possível sem alterações de configuração, defina sua região de gravação e como muitos leiam regiões conforme desejar e Olá resto é feito para você.
 
 * **Vários modelos de dados e APIs populares para acessar e consultar dados**
-    * O modelo de dados com base em atom-record-sequence (ARS) onde o Azure Cosmos DB é criado, se baseia nos vários modelos de dados e oferece suporte nativo, incluindo, mas não limitado ao documento, gráfico, valor de chave, tabela e modelos de dados de colunas.
-    * APIs para os seguintes modelos de dados são compatíveis com SDKs disponíveis em vários idiomas:
+    * modelo de dados com base em do atom--sequência de registro (ARS) Hello Azure Cosmos DB é criado no modo nativo oferece suporte a vários modelos de dados, incluindo, mas não limitado toodocument, gráfico, chave-valor, tabela e modelos de dados de colunas.
+    * APIs de saudação modelos de dados a seguir têm suporte com SDKs disponíveis em vários idiomas:
         * [API do DocumentDB](documentdb-introduction.md)
         * [API do MongoDB](mongodb-introduction.md)
         * [API de Tabela](table-introduction.md)
@@ -49,19 +49,19 @@ Como um serviço de banco de dados distribuído globalmente, o Azure fornece Cos
 
 * **Dimensionar elasticamente a taxa de transferência e o armazenamento sob demanda, em todo o mundo**
     * Dimensione facilmente a taxa de transferência do banco de dados em uma granularidade [por segundo](request-units.md) e altere-a sempre que desejar. 
-    * Dimensione o tamanho do armazenamento [de forma transparente e automática](partition-data.md) para cobrir a seus requisitos de tamanho agora e para sempre.
+    * Dimensionar o tamanho do armazenamento [transparente e automática](partition-data.md) toohandle seus requisitos de tamanho agora e para sempre.
 
 * **Criar aplicativos altamente responsivos e críticos**
-    * O Azure Cosmos DB garante aos seus clientes uma baixa latência de ponta a ponta no 99º percentil. 
-    * Para um item típico de 1 KB, o Cosmos BD garante a latência de ponta a ponta de leituras em até 10 ms e gravações indexadas em até 15 ms no 99º percentil, na mesma região do Azure. As latências medianas são significativamente menores (abaixo de 5 ms).
+    * Banco de dados do Azure Cosmos garante a baixa latência de ponta a ponta em Olá 99th clientes de tooits percentual. 
+    * Para um item KB 1 típico, Cosmos DB garante latência de ponta a ponta de leituras em 10 ms e indexadas gravações em 15 ms no percentual de 99th hello, Olá no mesmo região do Azure. latências mediano Olá são significativamente menores (menos de 5 ms).
 
 * **Garantir disponibilidade "sempre ativa"**
     * Disponibilidade de 99,99% em uma única região.
-    * Implante em qualquer número de[regiões do Azure](https://azure.microsoft.com/regions) para uma maior disponibilidade.
+    * Implantar o número de tooany de [regiões do Azure](https://azure.microsoft.com/regions) para maior disponibilidade.
     * [Simule uma falha](regional-failover.md) de uma ou mais regiões com a garantia de nenhuma perda de dados. 
 
-* **Escrever aplicativos distribuídos globalmente, da maneira correta**
-    * Cinco [modelos de consistência](consistency-levels.md) oferecem um espectro de consistência forte semelhante ao SQL até uma consistência eventual semelhante ao NoSQL e tudo o que há entre elas. 
+* **Gravar aplicativos distribuídos globalmente, hello diretas**
+    * Cinco [modelos de consistência](consistency-levels.md) modelos oferecem uma gama de consistência forte do tipo SQL todos Olá consistência eventual tooNoSQL maneira semelhante e cada coisa entre. 
   
 * **Garantia do dinheiro de volta**
     * Agilidade nos seus dados ou o seu dinheiro de volta. 
@@ -69,15 +69,15 @@ Como um serviço de banco de dados distribuído globalmente, o Azure fornece Cos
 
 * **Sem gerenciamento de esquema/índice de banco de dados**
     * Pare de se preocupar sobre como manter o esquema e os índices do seu banco de dados em sincronia com o esquema do seu aplicativo. Somos livres de esquema. 
-    * O mecanismo de banco de dados do Azure Cosmos DB é completamente independente de esquema: ele indexa automaticamente todos os dados que ingere sem a necessidade de qualquer esquema ou índice e proporciona consultas incrivelmente rápidas. 
+    * Mecanismo de banco de dados do Azure Cosmos DB é completamente independente de esquema – ele indexa automaticamente todos os dados de saudação que consome sem a necessidade de qualquer esquema ou índices e serve consultas rápidas impressionante. 
 
 * **Baixo custo de propriedade**
-    * Cinco a dez vezes [mais econômico](https://aka.ms/cosmos-db-tco-paper) que uma solução não gerenciada.
+    * Cinco vezes tooten [mais econômica](https://aka.ms/cosmos-db-tco-paper) que uma solução não gerenciada.
     * Três vezes mais barato do que o DynamoDB.
 
 ## <a name="capability-comparison"></a>Comparação de funcionalidade
 
-O Azure Cosmos DB fornece as melhores funcionalidades de bancos de dados relacionais e não relacionais.
+Banco de dados Cosmos do Azure fornece recursos de melhor Olá de bancos de dados relacionais e não relacionais.
 
 | Funcionalidades | Bancos de dados relacionais   | Bancos de dados não relacionais (NoSQL) |    Azure Cosmos DB |
 | --- | --- | --- | --- |

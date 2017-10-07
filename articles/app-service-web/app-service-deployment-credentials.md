@@ -1,6 +1,6 @@
 ---
-title: "Credenciais de implantação do Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Saiba como usar as credenciais de implantação do Serviço de Aplicativo do Azure."
+title: "aaaAzure credenciais de implantação do serviço de aplicativo | Microsoft Docs"
+description: "Saiba como toouse Olá credenciais de implantação do serviço de aplicativo do Azure."
 services: app-service
 documentationcenter: 
 author: dariagrigoriu
@@ -13,45 +13,45 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 86a2cd8ae9f97c606a378452e44eec8941700531
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d6f9f5cc1b62a17c42643266f4c9490f827c63f1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar as credenciais de implantação do Serviço de Aplicativo do Azure
-O [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) oferece suporte a dois tipos de credenciais para a [implantação local do Git](app-service-deploy-local-git.md) e a [implantação de FTP/S](app-service-deploy-ftp.md). Elas não são as mesmas credenciais do Azure Active Directory.
+O [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) oferece suporte a dois tipos de credenciais para a [implantação local do Git](app-service-deploy-local-git.md) e a [implantação de FTP/S](app-service-deploy-ftp.md). Eles não são Olá mesmo que suas credenciais do Active Directory do Azure.
 
-* **Credenciais de nível de usuário**: um conjunto de credenciais para toda a conta do Azure. Ele pode ser usado para implantar no Serviço de Aplicativo para qualquer aplicativo e em qualquer assinatura que a conta do Azure tem permissão para acessar. Esses são os conjuntos de credenciais padrão que você configura nos **Serviços de Aplicativos** > **&lt;nome_do_aplicativo>** > **Credenciais de implantação**. Esse também é o conjunto padrão exibido no portal da interface gráfica do usuário (como **Visão geral** e **Propriedades** da [folha de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources) do seu aplicativo).
+* **Credenciais de usuário de nível**: um conjunto de credenciais para toda a conta do Azure hello. Ele pode ser usado toodeploy tooApp serviço para qualquer aplicativo, em qualquer assinatura, Olá conta do Azure tem permissão tooaccess. Esses são o conjunto de credenciais do saudação padrão que você configurar no **serviços de aplicativos** > **&lt;app_name >** > **decredenciaisdeimplantação**. Isso também é Olá conjunto padrão que é exposto no portal de saudação GUI (como Olá **visão geral** e **propriedades** do seu aplicativo [folha de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources)).
 
     > [!NOTE]
-    > Ao delegar acesso a recursos do Azure por meio de RBAC (Controle de Acesso Baseado em Função) ou permissões de coadministrador, cada usuário do Azure que está recebendo acesso a um aplicativo pode usar suas próprias credenciais no escopo do usuário até que o acesso seja revogado. Essas credenciais de implantação não devem ser compartilhadas com outros usuários do Azure.
+    > Quando você delegar acesso tooAzure recursos por meio do controle de acesso com base da função (RBAC) ou permissões de coadministrador, cada usuário do Azure que recebe acesso tooan aplicativo pode usar suas credenciais de nível de usuário pessoais até que o acesso é revogado. Essas credenciais de implantação não devem ser compartilhadas com outros usuários do Azure.
     >
     >
 
-* **Credenciais de nível de aplicativo**: um conjunto de credenciais para cada aplicativo. Podem ser usadas para implantar nesse aplicativo somente. As credenciais para cada aplicativo são geradas automaticamente na criação do aplicativo e são encontradas no aplicativo de publicação do perfil. Não é possível configurar manualmente as credenciais, mas é possível redefini-las para um aplicativo a qualquer momento.
+* **Credenciais de nível de aplicativo**: um conjunto de credenciais para cada aplicativo. Ele pode ser usado toodeploy toothat somente do aplicativo. credenciais de saudação para cada aplicativo é gerado automaticamente na criação do aplicativo e se encontra em um aplicativo hello perfil de publicação. Você não pode configurar manualmente as credenciais do hello, mas você pode redefini-los para um aplicativo a qualquer momento.
 
     > [!NOTE]
-    > Para conceder a alguém o acesso a essas credenciais por meio do RBAC (Controle de Acesso Baseado em Função), você precisa torná-lo colaborador ou conceder a ele uma função superior no Aplicativo Web. Os leitores não têm permissão para publicar e, portanto, não podem acessar essas credenciais.
+    > Em ordem toogive alguém acessar credenciais toothese por meio de funções com base em acesso RBAC (controle), você precisa toomake-los Colaborador ou superior no hello aplicativo Web. Os leitores não são permitidos toopublish e, portanto, não é possível acessar essas credenciais.
     >
     >
 
 ## <a name="userscope"></a>Definir e redefinir credenciais de usuário
 
-Você pode configurar as credenciais de usuário na [folha de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources) de qualquer aplicativo. Independentemente de para qual aplicativo você configura essas credenciais, elas se aplicam a todos os aplicativos e a todas as assinaturas na conta do Azure. 
+Você pode configurar as credenciais de usuário na [folha de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources) de qualquer aplicativo. Independentemente em qual aplicativo você configurar essas credenciais, ela se aplica a aplicativos tooall e para todas as assinaturas do Azure da conta. 
 
-Para configurar as credenciais de usuário:
+tooconfigure suas credenciais de nível de usuário:
 
-1. No [Portal do Azure](https://portal.azure.com), clique em Serviço de Aplicativo > **&lt;qualquer_aplicativo>** > **Credenciais de implantação**.
+1. Em Olá [portal do Azure](https://portal.azure.com), clique em serviço de aplicativo >  **&lt;any_app >** > **credenciais de implantação**.
 
     > [!NOTE]
-    > No portal, você deve ter pelo menos um aplicativo antes de poder acessar a folha de credenciais de implantação. No entanto, com a [CLI do Azure](app-service-web-app-azure-resource-manager-xplat-cli.md), é possível configurar credenciais de usuário sem um aplicativo existente.
+    > No portal de saudação, você deve ter pelo menos um aplicativo antes de poder acessar a folha de credenciais de implantação hello. No entanto, com hello [CLI do Azure](app-service-web-app-azure-resource-manager-xplat-cli.md), você pode configurar credenciais de nível de usuário sem um aplicativo existente.
 
-2. Configure o nome de usuário e a senha e, em seguida, clique em **Salvar**.
+2. Configurar Olá nome de usuário e senha e, em seguida, clique em **salvar**.
 
     ![](./media/app-service-deployment-credentials/deployment_credentials_configure.png)
 
-Depois que você tiver configurado suas credenciais de implantação, é possível encontrar o nome de usuário de implantação do *Git* na **Visão geral** de seu aplicativo,
+Depois que você tiver definido suas credenciais de implantação, você pode encontrar hello *Git* nome de usuário de implantação em seu aplicativo **visão geral**,
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
@@ -60,36 +60,36 @@ e o nome de usuário de implantação de *FTP* nas **Propriedades** de seu aplic
 ![](./media/app-service-deployment-credentials/deployment_credentials_properties.png)
 
 > [!NOTE]
-> O Azure não mostra sua senha de implantação de usuário. Se você esquecer a senha, não é possível recuperá-la. No entanto, você pode redefinir suas credenciais seguindo as etapas nesta seção.
+> O Azure não mostra sua senha de implantação de usuário. Se você esquecer a senha de hello, não é possível recuperá-la. No entanto, você pode redefinir suas credenciais, seguindo as etapas de saudação nesta seção.
 >
 >  
 
 ## <a name="appscope"></a>Definir e redefinir credenciais de aplicativo
-Para cada aplicativo no Serviço de Aplicativo, suas credenciais de aplicativo são armazenadas no perfil de publicação XML.
+Para cada aplicativo no serviço de aplicativo, suas credenciais de nível de aplicativo são armazenadas no hello perfil de publicação de XML.
 
-Para definir e redefinir credenciais de aplicativo:
+credenciais de nível de aplicativo de saudação tooget:
 
-1. No [Portal do Azure](https://portal.azure.com), clique em Serviço de Aplicativo > **&lt;qualquer_aplicativo>** > **Visão geral**.
+1. Em Olá [portal do Azure](https://portal.azure.com), clique em serviço de aplicativo >  **&lt;any_app >** > **visão geral**.
 
 2. Clique em **...Mais** > **Obter perfil de publicação** e inicie o download de um arquivo .PublishSettings.
 
     ![](./media/app-service-deployment-credentials/publish_profile_get.png)
 
-3. Abra o arquivo .PublishSettings e localize a marca `<publishProfile>` com o atributo `publishMethod="FTP"`. Em seguida, obtenha seus atributos `userName` e `password`.
-Essas são as credenciais de aplicativo.
+3. Olá aberto. PublishSettings de arquivos e localizar Olá `<publishProfile>` marca com atributo Olá `publishMethod="FTP"`. Em seguida, obtenha seus atributos `userName` e `password`.
+São as credenciais de nível de aplicativo hello.
 
     ![](./media/app-service-deployment-credentials/publish_profile_editor.png)
 
-    Assim como as credenciais de usuário, o nome de usuário de implantação de FTP está no formato `<app_name>\<username>` e o nome de usuário de implantação do Git é apenas o `<username>` sem o `<app_name>\` precedente.
+    Credenciais de usuário de nível toohello semelhante, nome de usuário de implantação Olá FTP está no formato de saudação do `<app_name>\<username>`, e o nome de usuário de implantação de Git Olá é apenas `<username>` sem saudação anterior `<app_name>\`.
 
-Para redefinir as credenciais de aplicativo:
+credenciais de nível de aplicativo de saudação tooreset:
 
-1. No [Portal do Azure](https://portal.azure.com), clique em Serviço de Aplicativo > **&lt;qualquer_aplicativo>** > **Visão geral**.
+1. Em Olá [portal do Azure](https://portal.azure.com), clique em serviço de aplicativo >  **&lt;any_app >** > **visão geral**.
 
-2. Clique em **...Mais** > **Redefinir perfil de publicação**. Clique em **Sim** para confirmar a redefinição.
+2. Clique em **...Mais** > **Redefinir perfil de publicação**. Clique em **Sim** tooconfirm Olá redefinir.
 
-    A ação de redefinição invalida quaisquer arquivos .PublishSettings baixados anteriormente.
+    a ação reset Olá invalida qualquer baixados anteriormente. Arquivos PublishSettings.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como usar essas credenciais para implantar seu aplicativo do [Git local](app-service-deploy-local-git.md) ou usando [FTP/S](app-service-deploy-ftp.md).
+Descubra como toouse toodeploy essas credenciais seu aplicativo do [Git local](app-service-deploy-local-git.md) ou usando [FTP/S](app-service-deploy-ftp.md).

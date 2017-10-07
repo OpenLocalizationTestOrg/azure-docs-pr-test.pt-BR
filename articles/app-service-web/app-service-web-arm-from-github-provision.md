@@ -1,6 +1,6 @@
 ---
-title: "Implantar um aplicativo Web vinculado a um repositório GitHub | Microsoft Docs"
-description: "Use um modelo do Azure Resource Manager para implantar um aplicativo Web que contém um projeto de um repositório GitHub."
+title: "aaaDeploy um aplicativo web que é vinculado repositório do GitHub tooa | Microsoft Docs"
+description: "Use um modelo de Gerenciador de recursos do Azure toodeploy um aplicativo web que contém um projeto de um repositório do GitHub."
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: cephalin
-ms.openlocfilehash: 77064802814296d0c21f004534e4264d2f97252e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8b23416c4c06a60991517e6ee4cd82bebc5a9d73
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-a-web-app-linked-to-a-github-repository"></a>Implantar um aplicativo Web vinculado a um repositório GitHub
-Neste tópico, você aprenderá a criar um modelo do Azure Resource Manager que implanta um aplicativo Web vinculado a um projeto em um repositório GitHub. Você aprenderá como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
+# <a name="deploy-a-web-app-linked-tooa-github-repository"></a>Implantar um repositório GitHub do web app vinculado tooa
+Neste tópico, você aprenderá como toocreate um modelo do Gerenciador de recursos do Azure que implanta um aplicativo web que é vinculado tooa projeto em um repositório do GitHub. Você aprenderá como toodefine quais recursos são implantados e como toodefine parâmetros que são especificados quando a implantação de saudação for executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo toomeet seus requisitos.
 
-Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
-Para obter o modelo completo, consulte [Modelo de aplicativo Web vinculado ao GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.json).
+Para o modelo do hello completa, consulte [modelo vinculado de aplicativo da Web de tooGitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.json).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="what-you-will-deploy"></a>O que você implantará
-Com esse modelo, você implantará um aplicativo Web que contém o código de um projeto no GitHub.
+Com esse modelo, você implantará um aplicativo web que contém o código de saudação de um projeto no GitHub.
 
-Para executar a implantação automaticamente, clique no seguinte botão:
+toorun Olá implantação automaticamente, clique em Olá botão a seguir:
 
-[![Implantar no Azure](./media/app-service-web-arm-from-github-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
+[![Implantar tooAzure](./media/app-service-web-arm-from-github-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
 
-## <a name="parameters"></a>Parâmetros
+## <a name="parameters"></a>parâmetros
 [!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
 ### <a name="repourl"></a>repoURL
-A URL para o repositório GitHub que contém o projeto a ser implantado. Esse parâmetro contém um valor padrão, mas esse valor é destinado apenas a mostrar como fornecer a URL para o repositório. Você pode usar esse valor ao testar o modelo, mas será conveniente fornecer a URL de seu próprio repositório ao trabalhar com o modelo.
+Olá URL para o repositório do GitHub que contém a saudação toodeploy de projeto. Este parâmetro contém um valor padrão, mas esse valor é somente pretendido tooshow você como tooprovide Olá URL para o repositório. Você pode usar esse valor quando o teste Olá modelo, mas você desejará tooprovide Olá URL seu próprio repositório ao trabalhar com o modelo de saudação.
 
     "repoURL": {
         "type": "string",
@@ -48,23 +48,23 @@ A URL para o repositório GitHub que contém o projeto a ser implantado. Esse pa
     }
 
 ### <a name="branch"></a>branch
-A ramificação do repositório a ser usada ao implantar o aplicativo. O valor padrão é o mestre, mas você pode fornecer o nome de qualquer ramificação no repositório que deseja implantar.
+ramificação de saudação do hello repositório toouse ao implantar o aplicativo hello. é o valor padrão de saudação mestre, mas você pode fornecer o nome de saudação do qualquer branch no repositório de saudação que você deseja toodeploy.
 
     "branch": {
         "type": "string",
         "defaultValue": "master"
     }
 
-## <a name="resources-to-deploy"></a>Recursos a implantar
+## <a name="resources-toodeploy"></a>Recursos toodeploy
 [!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 ### <a name="web-app"></a>Aplicativo Web
-Cria o aplicativo Web vinculado ao projeto no GitHub. 
+Cria um aplicativo web de saudação que é vinculado toohello projeto no GitHub. 
 
-Especifique o nome do aplicativo Web por meio do parâmetro **siteName** e o local do aplicativo Web por meio do parâmetro **siteLocation**. No elemento **dependsOn** , o modelo define o aplicativo Web como dependente do plano de hospedagem do serviço. Como depende do plano de hospedagem, o aplicativo Web não é criado até a conclusão da criação do plano de hospedagem. O elemento **dependsOn** só é usado para especificar a ordem de implantação. Se você não marcar o aplicativo Web como dependente do plano de hospedagem, o Azure Resource Manager tentará criar ambos os recursos ao mesmo tempo e você receberá um erro se o aplicativo Web for criado antes do plano de hospedagem.
+Especifique nome de saudação do Olá web aplicativo por meio de saudação **siteName** parâmetro e o local de saudação do aplicativo web de saudação por meio de saudação **siteLocation** parâmetro. Em Olá **dependsOn** elemento, o modelo de saudação define Olá web aplicativo como dependente de serviço Olá plano de hospedagem. Porque ele é dependente de saudação plano de hospedagem, Olá web app não é criado até concluir a saudação plano de hospedagem está sendo criado. Olá **dependsOn** elemento é apenas uma ordem de implantação toospecify usado. Se você não marcar Olá web aplicativo como dependente de plano de hospedagem hello, o Azure Resource Manager tentará toocreate ambos os recursos no hello mesmo tempo e você poderá receber um erro se Olá web app for criado antes de saudação plano de hospedagem.
 
-O aplicativo Web também tem um recurso filho que é definido na seção de **recursos** a seguir. Esse recurso filho define o controle do código-fonte para o projeto implantado com o aplicativo Web. Nesse modelo, o controle do código-fonte está vinculado a um repositório GitHub específico. O repositório GitHub é definido com o código **"RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git"** Você poderá embutir a URL do repositório quando quiser criar um modelo que implanta repetidamente um único projeto, exigindo o número mínimo de parâmetros.
-Em vez de embutir a URL do repositório, você pode adicionar um parâmetro para a URL do repositório e usar esse valor para a propriedade **RepoUrl** .
+Olá web aplicativo também tem um recurso filho que é definido em **recursos** seção abaixo. Este recurso filho define o controle de origem para projeto Olá implantado com o aplicativo web de saudação. Neste modelo, o controle de origem de saudação será vinculado tooa determinado repositório do GitHub. repositório do GitHub Olá é definido com o código de saudação **"RepoUrl": "https://github.com/davidebbo-test/Mvc52Application.git"** pode embutir Olá URL do repositório quando desejar toocreate um modelo que implanta repetidamente um único projeto, exigindo o número mínimo de saudação de parâmetros.
+Em vez de embutir em código Olá URL do repositório, você pode adicionar um parâmetro de URL do repositório hello e use esse valor para Olá **RepoUrl** propriedade.
 
     {
       "apiVersion": "2015-08-01",
@@ -94,7 +94,7 @@ Em vez de embutir a URL do repositório, você pode adicionar um parâmetro para
       ]
     }
 
-## <a name="commands-to-run-deployment"></a>Comandos para executar a implantação
+## <a name="commands-toorun-deployment"></a>Implantação de toorun de comandos
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
@@ -109,7 +109,7 @@ Em vez de embutir a URL do repositório, você pode adicionar um parâmetro para
     az group deployment create -g {resource-group-name} --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json --parameters '@azuredeploy.parameters.json'
 
 > [!NOTE] 
-> Para obter o conteúdo dos parâmetros no arquivo JSON, veja [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.parameters.json).
+> Para obter conteúdo do arquivo JSON de parâmetros hello, consulte [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.parameters.json).
 >
 >
 

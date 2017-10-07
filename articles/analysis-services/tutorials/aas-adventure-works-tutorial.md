@@ -1,6 +1,6 @@
 ---
-title: Tutorial da Adventure Works do Azure Analysis Services | Microsoft Docs
-description: Apresenta o tutorial da Adventure Works para o Azure Analysis Services
+title: AAA "Azure Analysis Services Adventure Works Tutorial | Microsoft Docs"
+description: "Apresenta um tutorial do Adventure Works Olá para o Azure Analysis Services"
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -15,67 +15,67 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 06/01/2017
 ms.author: owend
-ms.openlocfilehash: 257e0bc442f29bfe6683fb0511deac50d92c1720
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 2df8b3ab4e8c4ffbe0086418d60fd2e2abd35e7d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services – tutorial da Adventure Works
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-Este tutorial fornece lições sobre como criar e implantar um modelo tabular no nível de compatibilidade 1.400 usando [SSDT (SQL Server Data Tools)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
+Este tutorial fornece lições sobre como toocreate e implantar um modelo de tabela no nível de compatibilidade Olá 1400 usando [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
-Se você estiver pouco familiarizado com o Analysis Services e a modelagem tabular, concluir este tutorial é a maneira mais rápida de aprender a criar e a implantar um modelo tabular básico. Uma vez satisfeitos todos o pré-requisitos, ele deverá levar cerca de duas ou três horas para ser concluído.  
+Se você estiver novos serviços tooAnalysis e modelagem de tabela, concluir este tutorial é toolearn de maneira mais rápida de saudação como toocreate e implantar um modelo de tabela básico. Quando tiver Olá pré-requisitos no local, ele deve levar entre dois toocomplete de horas toothree.  
   
 ## <a name="what-you-learn"></a>O que você aprenderá   
   
--   Como criar um novo projeto de modelo tabular no **nível de compatibilidade 1.400** no SSDT.
+-   Como toocreate um novo modelo tabular do projeto em Olá **o nível de compatibilidade 1400** no SSDT.
   
--   Como importar dados de um banco de dados relacional para um projeto de modelo tabular.  
+-   Como tooimport dados de um banco de dados relacional em um projeto de modelo de tabela.  
   
--   Como criar e gerenciar relações entre tabelas no modelo.  
+-   Como toocreate e gerenciar relações entre tabelas no modelo de saudação.  
   
--   Como criar colunas calculadas, medidas e indicadores chave de desempenho que ajudam os usuários a analisar as métricas de negócios críticas.  
+-   Como toocreate calculada colunas, medidas e indicadores chave de desempenho que ajudam os usuários analisam métricas comerciais críticas.  
   
--   Como criar e gerenciar perspectivas e hierarquias que ajudam os usuários a procurar dados de modelo mais facilmente, fornecendo pontos de vista específicos de aplicativos e de negócios.  
+-   Como toocreate e gerenciar perspectivas e hierarquias que ajudam os usuários mais facilmente procurar dados de modelo, fornecendo pontos de vista específicos do aplicativo e de negócios.  
   
--   Como criar partições que dividem dados de tabela em partes lógicas menores que podem ser processadas independentemente de outras partições.  
+-   Como toocreate as partições que dividem dados de tabela em partes lógicas menores que podem ser processadas de forma independente de outras partições.  
   
--   Como proteger os dados e objetos de modelo criando funções com membros de usuário.  
+-   Como toosecure modelo de objetos e dados criando funções com membros de usuário.  
   
--   Como implantar um modelo tabular para um servidor do **Azure Analysis Services** ou um servidor local do SQL Server 2017 Analysis Services.  
+-   Como toodeploy um modelo de tabela tooan **Azure Analysis Services** servidor ou um servidor do SQL Server de 2017 Analysis Services local.  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
-Para concluir este tutorial, você precisará:  
+toocomplete neste tutorial, você precisa:  
   
--   Uma instância do Azure Analysis Services ou SQL Server 2017 Analysis Services na qual implantar seu modelo. Inscreva-se para uma [avaliação gratuita do Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) e [crie um servidor](../analysis-services-create-server.md). Ou então, inscreva-se e baixe o [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp). 
+-   Um Azure Analysis Services ou o Analysis Services do SQL Server de 2017 instância toodeploy seu modelo. Inscreva-se para uma [avaliação gratuita do Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) e [crie um servidor](../analysis-services-create-server.md). Ou então, inscreva-se e baixe o [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp). 
 
--   Um SQL Server Data Warehouse ou SQL Data Warehouse do Azure com o [banco de dados de exemplo AdventureWorksDW2014](http://go.microsoft.com/fwlink/?LinkID=335807). Esse banco de dados de exemplo inclui os dados necessários para concluir este tutorial. Baixe as [edições gratuitas do SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads). Ou então, inscreva-se para uma [avaliação gratuita do Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/). 
+-   Um Data Warehouse do SQL Server ou o Azure SQL Data Warehouse com hello [banco de dados de exemplo AdventureWorksDW2014](http://go.microsoft.com/fwlink/?LinkID=335807). Este banco de dados de exemplo inclui Olá dados necessário toocomplete neste tutorial. Baixe as [edições gratuitas do SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads). Ou então, inscreva-se para uma [avaliação gratuita do Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/). 
 
-    **Importante:** se você instalou o banco de dados de exemplo em um SQL Server local e você está implantando seu modelo em um servidor do Azure Analysis Services, um [gateway de dados local](../analysis-services-gateway.md) é necessário.
+    **Importante:** se você instalar o banco de dados de exemplo hello em um SQL Server local e implantar o servidor do modelo tooan Azure Analysis Services, uma [gateway de dados no local](../analysis-services-gateway.md) é necessária.
 
--   A versão mais recente do [SSDT (SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx).
+-   versão mais recente de saudação do [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
 
--   A versão mais recente do [SSMS (SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)).    
+-   versão mais recente de saudação do [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).    
 
 -   Um aplicativo cliente como [Power BI Desktop](https://powerbi.microsoft.com/desktop/) ou Excel. 
 
 ## <a name="scenario"></a>Cenário  
-Esse tutorial se baseia na Adventure Works Cycles, uma empresa fictícia. A Adventure Works é uma empresa multinacional de grande porte de manufatura, que produz e distribui bicicletas, peças e acessórios para mercados comerciais na América do Norte, Europa e Ásia. A empresa emprega 500 trabalhadores. Além disso, a Adventure Works emprega várias equipes regionais de vendas em toda a sua base de mercado. Seu projeto deve criar um modelo tabular para usuários de vendas e marketing analisarem dados de vendas pela Internet no banco de dados AdventureWorksDW.  
+Esse tutorial se baseia na Adventure Works Cycles, uma empresa fictícia. A Adventure Works é uma empresa de fabricação grande, empresa multinacional que produz e distribui Bicicletas, peças e mercados de toocommercial Acessórios na América do Norte, Europa e Ásia. Olá emprega 500 funcionários. Além disso, a Adventure Works emprega várias equipes regionais de vendas em toda a sua base de mercado. O projeto está toocreate um modelo de tabela para os usuários de vendas e marketing tooanalyze dados de vendas pela Internet no banco de dados do hello AdventureWorksDW.  
   
-Para concluir o tutorial, você deverá concluir várias lições. Em cada lição, há tarefas. A conclusão de cada tarefa na ordem é necessária para concluir a lição. Embora em uma lição específica possam existir várias tarefas que geram um resultado semelhante, o modo como você conclui cada tarefa é ligeiramente diferente. Este método mostra que geralmente há mais de uma maneira de concluir uma tarefa e de desafiar você usando as habilidades aprendidas em tarefas e lições anteriores.  
+tutorial de saudação toocomplete, você deve concluir várias lições. Em cada lição, há tarefas. Conclusão de cada tarefa na ordem é necessária para concluir a lição hello. Embora em uma lição específica possam existir várias tarefas que geram um resultado semelhante, o modo como você conclui cada tarefa é ligeiramente diferente. Esse método mostra normalmente, há mais de uma maneira toocomplete uma tarefa e toochallenge você usar as habilidades você aprendeu em tarefas e lições anteriores.  
   
-A finalidade das lições é orientá-lo na criação de um modelo tabular básico usando muitos dos recursos incluídos no SSDT. Já que cada lição faz uso do conteúdo da lição anterior, você deve concluir as lições em ordem.
+Olá finalidade lições Olá é tooguide você pelo processo de criação de um modelo de tabela básico usando muitos dos recursos de saudação incluído no SSDT. Porque cada lição é criada na lição anterior Olá, você deve concluir as lições Olá na ordem.
   
-Este tutorial não fornece lições sobre como gerenciar um servidor no portal do Azure, gerenciar um servidor ou banco de dados usando o SSMS ou usando um aplicativo cliente para procurar dados de modelo. 
+Este tutorial não fornece lições sobre como gerenciar um servidor no portal do Azure, gerenciar um servidor ou banco de dados usando o SSMS, ou usando um cliente de dados de modelo do aplicativo toobrowse. 
 
 
 ## <a name="lessons"></a>Lições  
-Este tutorial inclui as seguintes lições:  
+Este tutorial inclui Olá lições a seguir:  
   
-|Lição|Tempo estimado para conclusão|  
+|Lição|Tempo estimado toocomplete|  
 |----------|------------------------------|  
 |[1 - Criar um novo projeto de modelo tabular](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)|10 minutos|  
 |[2 - Obter dados](../tutorials/aas-lesson-2-get-data.md)|10 minutos|  
@@ -92,9 +92,9 @@ Este tutorial inclui as seguintes lições:
 |[13 - Implantar](../tutorials/aas-lesson-13-deploy.md)|5 minutos|  
   
 ## <a name="supplemental-lessons"></a>Lições suplementares  
-Essas lições não são necessárias para concluir este tutorial, mas podem ser úteis para uma melhor compreensão dos recursos avançados de criação de modelo tabular.  
+Nestas lições não são tutorial de saudação toocomplete necessária, mas podem ser útil para melhor compreensão advanced criação de modelo tabular recursos.  
   
-|Lição|Tempo estimado para conclusão|  
+|Lição|Tempo estimado toocomplete|  
 |----------|------------------------------|  
 |[Linhas de Detalhes](../tutorials/aas-supplemental-lesson-detail-rows.md)|10 minutos|
 |[Segurança dinâmica](../tutorials/aas-supplemental-lesson-dynamic-security.md)|30 minutos|
@@ -102,7 +102,7 @@ Essas lições não são necessárias para concluir este tutorial, mas podem ser
 
   
 ## <a name="next-steps"></a>Próximas etapas  
-Para uma introdução, veja [Lição 1: criar um novo projeto de modelo tabular](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
+tooget iniciado, consulte [lição 1: criar um novo projeto de modelo de tabela](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
   
   

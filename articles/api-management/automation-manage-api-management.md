@@ -1,6 +1,6 @@
 ---
-title: "Gerenciar o Gerenciamento de API do Azure usando a Automação do Azure"
-description: "Saiba mais sobre como o serviço de Automação do Azure pode ser usado para gerenciar o Gerenciamento de API do Azure."
+title: "aaaManage gerenciamento de API do Azure usando a automação do Azure"
+description: "Saiba mais sobre como Olá serviço de automação do Azure pode ser usado toomanage gerenciamento de API do Azure."
 services: api-management, automation
 documentationcenter: 
 author: csand-msft
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 73a1135482b88ea7c228bc8b228d47c57b2e70a4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 05b8e3cad786fa701feb88f7b6d9629f16686d15
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>Gerenciando o Gerenciamento de API do Azure usando a Automação do Azure
-Este guia apresentará o serviço de Automação do Azure e como ele pode ser usado para simplificar o gerenciamento do Gerenciamento de API.
+Este guia apresentará toohello serviço de automação do Azure e como ela pode ser usado toosimplify gerenciamento do gerenciamento de API do Azure.
 
 ## <a name="what-is-azure-automation"></a>O que é Automação do Azure?
-[Automação do Azure](https://azure.microsoft.com/services/automation/) é um serviço do Azure para simplificar o gerenciamento de nuvem por meio da automação de processo. Com o uso da Automação do Azure, as tarefas manuais, repetidas, de execução longa e propensas a erros podem ser automatizadas para aumentar a confiabilidade, a eficiência e o tempo de retorno para sua organização.
+[Automação do Azure](https://azure.microsoft.com/services/automation/) é um serviço do Azure para simplificar o gerenciamento de nuvem por meio da automação de processo. Usando a automação do Azure, as tarefas manuais repetidas, demoradas e propensas a erros podem ser toovalue de tempo para a sua organização, eficiência e confiabilidade de tooincrease automatizada.
 
-A Automação do Azure fornece um mecanismo de execução de fluxo de trabalho altamente confiável e altamente disponível que é dimensionado para atender às suas necessidades. Na Automação do Azure, processos podem ser inicializados manualmente, por sistemas de terceiros ou em intervalos agendados para que as tarefas acontecem exatamente quando necessário.
+Automação do Azure fornece um mecanismo de execução de fluxo de trabalho altamente confiável e altamente disponível que dimensiona toomeet suas necessidades. Na Automação do Azure, os processos podem ser inicializados manualmente por sistemas de terceiros ou a intervalos agendados para que as tarefas aconteçam exatamente quando necessário.
 
-Reduza o custo operacional e libere a equipe de TI e DevOps para se concentrar no trabalho que agrega valor de negócios, transferindo as tarefas de gerenciamento de nuvem para serem executadas automaticamente pela Automação do Azure.
+Reduzir a sobrecarga operacional e liberar IT e DevOps equipe toofocus no trabalho que adiciona valor comercial, movendo o toobe de tarefas de gerenciamento de nuvem executados automaticamente pela automação do Azure.
 
 ## <a name="how-can-azure-automation-help-manage-azure-api-management"></a>Como a Automação do Azure ajudar a gerenciar o Gerenciamento de API?
-O Gerenciamento de API pode ser gerenciado na Automação do Azure usando a [cmdlets do Windows PowerShell para a API de Gerenciamento de API](https://azure.microsoft.com/updates/full-set-of-windows-powershell-cmdlets-for-azure-api-management-api/). Dentro de Automação do Azure, você pode escrever scripts de fluxo de trabalho do PowerShell para executar muitas de suas tarefas de Gerenciamento de API usando os cmdlets. Você também pode combinar esses cmdlets na Automação do Azure com os cmdlets para outros serviços do Azure, para automatizar tarefas complexas nos serviços do Azure e sistemas de terceiros.
+Gerenciamento de API podem ser gerenciado na automação do Azure usando Olá [cmdlets do Windows PowerShell para a API de gerenciamento de API do Azure](https://azure.microsoft.com/updates/full-set-of-windows-powershell-cmdlets-for-azure-api-management-api/). Na automação do Azure você pode escrever tooperform de scripts de fluxo de trabalho do PowerShell, muitas das tarefas de gerenciamento de API usando cmdlets de saudação. Esses cmdlets na automação do Azure com os cmdlets de saudação para outros serviços do Azure, as tarefas complexas tooautomate também podem ser emparelhados por serviços do Azure e 3º sistemas de terceiros.
 
 Aqui estão alguns exemplos de uso do Gerenciamento de API com Automação:
 
 * [Gerenciamento de API do Azure – Usando o PowerShell para backup e restauração](https://blogs.msdn.microsoft.com/katriend/2015/10/02/azure-api-management-using-powershell-for-backup-and-restore/)
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode ser usada para gerenciar o Gerenciamento de API do Azure, siga estes links para obter mais informações.
+Agora que você aprendeu as Noções básicas de saudação de automação do Azure e como ela pode ser usado toomanage gerenciamento de API do Azure, siga essas toolearn links mais.
 
-* Veja o [tutorial de introdução](../automation/automation-first-runbook-graphical.md)da Automação do Azure.
+* Consulte Olá automação do Azure [tutorial de Introdução](../automation/automation-first-runbook-graphical.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "Atualização de firmware do dispositivo com o Hub IoT do Azure (Node) | Microsoft Docs"
-description: "Como usar o gerenciamento de dispositivos no Hub IoT do Azure para iniciar uma atualização de firmware do dispositivo. Use os SDKs do IoT do Azure para Node.js para implementar um aplicativo de dispositivo simulado e um aplicativo de serviço que dispara a atualização do firmware."
+title: "atualização de firmware aaaDevice com o Azure IoT Hub (nó) | Microsoft Docs"
+description: "Como atualizar o gerenciamento de dispositivos de toouse no Azure IoT Hub tooinitiate um firmware do dispositivo. Você pode usar hello Azure IoT SDKs para Node. js tooimplement um aplicativo de dispositivo simulado e um aplicativo de serviço que dispara a atualização de firmware de saudação."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -14,55 +14,55 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2017
 ms.author: juanpere
-ms.openlocfilehash: 350cf1cbec8847d1bbf29814435502af6f098e54
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 99d4b369e7aba334bf713e0c657e6e5d227fb691
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>Usar o gerenciamento de dispositivos para iniciar uma atualização de firmware do dispositivo (Node/Node)
+# <a name="use-device-management-tooinitiate-a-device-firmware-update-nodenode"></a>Use o gerenciamento de dispositivo tooinitiate uma atualização de firmware do dispositivo (nó nó)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 ## <a name="introduction"></a>Introdução
-No tutorial [Introdução ao gerenciamento de dispositivo][lnk-dm-getstarted], você viu como usar os primitivos [dispositivo gêmeo][lnk-devtwin] e [métodos diretos][lnk-c2dmethod] para reiniciar remotamente um dispositivo. Este tutorial usa os mesmos primitivos do Hub IoT, fornece orientações e mostra como fazer uma atualização de firmware simulada de ponta a ponta.  Esse padrão é usado na implementação da atualização de firmware para o dispositivo de exemplo Intel Edison.
+Em Olá [Introdução ao gerenciamento de dispositivo] [ lnk-dm-getstarted] tutorial, você viu como Olá toouse [duas dispositivo] [ lnk-devtwin] e [direto métodos] [ lnk-c2dmethod] tooremotely primitivos reinicializar um dispositivo. Este tutorial usa Olá mesmas primitivas de IoT Hub e fornece diretrizes e mostra como toodo uma ponta a ponta simulados atualização de firmware.  Esse padrão é usado na implementação de atualização de firmware de saudação para exemplo de dispositivo Intel Edison hello.
 
 Este tutorial mostra como:
 
-* Criar um aplicativo de console Node.js que chama o método direto firmwareUpdate no aplicativo de dispositivo simulado por meio do Hub IoT.
-* Criar um aplicativo de dispositivo simulado que implementa um método direto **firmwareUpdate**. Esse método inicia um processo de várias etapas que aguarda o download, baixa e aplica a imagem do firmware. Durante cada etapa da atualização, o dispositivo usa as propriedades relatadas para informar sobre o progresso.
+* Crie um aplicativo de console Node. js que chama o método direto do hello firmwareUpdate no aplicativo do dispositivo simulado Olá por meio de seu hub IoT.
+* Criar um aplicativo de dispositivo simulado que implementa um método direto **firmwareUpdate**. Esse método inicia um processo de vários estágio que aguarda a imagem do firmware toodownload hello, baixa a imagem do firmware hello e finalmente se aplica a imagem do firmware hello. Durante cada fase da atualização hello, Olá dispositivo usa Olá relatado propriedades tooreport em andamento.
 
-Ao fim deste tutorial, você terá dois aplicativos de console do Node.js:
+No final da saudação deste tutorial, você tem dois aplicativos de console Node. js:
 
-**dmpatterns_fwupdate_service.js**, que chama um método direto no aplicativo do dispositivo simulado, exibe a resposta e periodicamente (a cada 500 ms) exibe as propriedades relatadas atualizadas.
+**dmpatterns_fwupdate_service.js**, que chama um método direto no aplicativo do dispositivo simulado hello, exibe a resposta hello e periodicamente (cada 500 ms) exibe Olá atualizado relatado propriedades.
 
-**dmpatterns_fwupdate_device.js**, que se conecta ao seu Hub IoT com a identidade do dispositivo criada anteriormente, recebe um método direto firmwareUpdate, é executado por meio de um processo de vários estados para simular uma atualização de firmware, incluindo: aguardar o download da imagem, baixar a nova imagem e aplicar a imagem.
+**dmpatterns_fwupdate_device.js**, que conecta o hub IoT de tooyour com a identidade do dispositivo Olá criada anteriormente, recebe um método firmwareUpdate, é executado por meio de um processo de vários estados toosimulate uma atualização de firmware, incluindo: aguardando Olá Baixar imagem, baixando a nova imagem de saudação e finalmente aplicar imagem de saudação.
 
-Para concluir este tutorial, você precisará do seguinte:
+toocomplete neste tutorial, você precisa Olá a seguir:
 
-* Node.js versão 0.12.x ou posterior. <br/>  [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
+* Node.js versão 0.12.x ou posterior. <br/>  [Preparar o ambiente de desenvolvimento] [ lnk-dev-setup] descreve como tooinstall Node. js para este tutorial no Windows ou Linux.
 * Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
-Consulte o artigo [Introdução ao gerenciamento de dispositivo](iot-hub-node-node-device-management-get-started.md) para criar seu hub IoT e obter a cadeia de conexão dele.
+Siga Olá [Introdução ao gerenciamento de dispositivo](iot-hub-node-node-device-management-get-started.md) artigo toocreate seu hub IoT e obter sua cadeia de caracteres de conexão de IoT Hub.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Disparar uma atualização de firmware remoto no dispositivo usando um método direto
-Nesta seção, você criará um aplicativo do console Node.js que inicia uma atualização remota de firmware em um dispositivo. O aplicativo utiliza um método direto para iniciar a atualização e usa consultas em dispositivos gêmeos para receber periodicamente o status da atualização do firmware ativo.
+## <a name="trigger-a-remote-firmware-update-on-hello-device-using-a-direct-method"></a>Disparar uma atualização de firmware remota no dispositivo hello usando um método direto
+Nesta seção, você criará um aplicativo do console Node.js que inicia uma atualização remota de firmware em um dispositivo. aplicativo Hello usa uma atualização de saudação do método direto tooinitiate e usa dispositivo duas consultas tooperiodically obter status de saudação de atualização de firmware active hello.
 
-1. Crie uma pasta vazia denominada **triggerfwupdateondevice**.  Na pasta **triggerfwupdateondevice**, crie um arquivo package.json usando o comando a seguir no prompt de comando.  Aceite todos os padrões:
+1. Crie uma pasta vazia denominada **triggerfwupdateondevice**.  Em Olá **triggerfwupdateondevice** pasta, crie um arquivo Package. JSON usando Olá comando no prompt de comando a seguir.  Aceite todos os padrões de saudação:
    
     ```
     npm init
     ```
-2. No prompt de comando na pasta **triggerfwupdateondevice**, execute o seguinte comando para instalar os pacotes do SDK do Dispositivo **azure-iot-hub** e **azure-iot-device-mqtt**:
+2. O prompt de comando no hello **triggerfwupdateondevice** pasta, execute Olá Olá de tooinstall de comando a seguir **hub de iot do azure** e **azure iot-dispositivo mqtt** dispositivo Pacotes do SDK:
    
     ```
     npm install azure-iothub --save
     ```
-3. Usando um editor de texto, crie um arquivo **dmpatterns_getstarted_service.js** na pasta **triggerfwupdateondevice**.
-4. Adicione as seguintes instruções "require" no início do arquivo **dmpatterns_getstarted_service.js**:
+3. Usando um editor de texto, crie um **dmpatterns_getstarted_service.js** arquivo hello **triggerfwupdateondevice** pasta.
+4. Adicionar instruções no início de saudação do hello seguinte Olá 'requer' **dmpatterns_getstarted_service.js** arquivo:
    
     ```
     'use strict';
@@ -70,7 +70,7 @@ Nesta seção, você criará um aplicativo do console Node.js que inicia uma atu
     var Registry = require('azure-iothub').Registry;
     var Client = require('azure-iothub').Client;
     ```
-5. Adicione as seguintes declarações de variável e substitua os valores de espaço reservado:
+5. Adicione Olá declarações de variáveis a seguir e substitua os valores de espaço reservado de saudação:
    
     ```
     var connectionString = '{device_connectionstring}';
@@ -78,7 +78,7 @@ Nesta seção, você criará um aplicativo do console Node.js que inicia uma atu
     var client = Client.fromConnectionString(connectionString);
     var deviceToUpdate = 'myDeviceId';
     ```
-6. Adicione a seguinte função para localizar e exibir o valor da propriedade relatada firmwareUpdate.
+6. Adicionar a seguinte Olá toofind de função e exibe valor Olá Olá firmwareUpdate relatados de propriedade.
    
     ```
     var queryTwinFWUpdateReported = function() {
@@ -91,7 +91,7 @@ Nesta seção, você criará um aplicativo do console Node.js que inicia uma atu
         });
     };
     ```
-7. Adicione a seguinte função para invocar o método firmwareUpdate para reiniciar o dispositivo de destino:
+7. Adicione Olá função tooinvoke Olá firmwareUpdate método tooreboot Olá dispositivo de destino a seguir:
    
     ```
     var startFirmwareUpdateDevice = function() {
@@ -110,40 +110,40 @@ Nesta seção, você criará um aplicativo do console Node.js que inicia uma atu
    
       client.invokeDeviceMethod(deviceToUpdate, methodParams, function(err, result) {
         if (err) {
-          console.error('Could not start the firmware update on the device: ' + err.message)
+          console.error('Could not start hello firmware update on hello device: ' + err.message)
         } 
       });
     };
     ```
-8. Por fim, adicione a seguinte função ao código para iniciar a sequência de atualização do firmware e começar a mostrar periodicamente as propriedades relatadas:
+8. Finalmente, a seguir Olá Adicionar função sequência de atualização de firmware do toocode toostart hello e iniciar periodicamente mostrando Olá relatado propriedades:
    
     ```
     startFirmwareUpdateDevice();
     setInterval(queryTwinFWUpdateReported, 500);
     ```
-9. Salve e feche o arquio **dmpatterns_fwupdate_service.js**.
+9. Salve e feche o hello **dmpatterns_fwupdate_service.js** arquivo.
 
 [!INCLUDE [iot-hub-device-firmware-update](../../includes/iot-hub-device-firmware-update.md)]
 
-## <a name="run-the-apps"></a>Executar os aplicativos
-Agora você está pronto para executar os aplicativos.
+## <a name="run-hello-apps"></a>Executar aplicativos Olá
+Agora você está pronto toorun Olá aplicativos.
 
-1. No prompt de comando da pasta **manageddevice**, execute o seguinte comando para iniciar a escutar o método direto de reinicialização.
+1. No prompt de comando de saudação de saudação **manageddevice** pasta, execute Olá toobegin comando escuta para o método direto de reinicialização Olá a seguir.
    
     ```
     node dmpatterns_fwupdate_device.js
     ```
-2. No prompt de comando da pasta **triggerfwupdateondevice**, execute o seguinte comando para disparar a reinicialização e a consulta remota para o dispositivo gêmeo localizar o tempo de reinicialização mais recente.
+2. No prompt de comando de saudação de saudação **triggerfwupdateondevice** pasta, execute Olá após o comando tootrigger Olá remoto reinicializar e consultar para saudação do hello dispositivo duas toofind reinicialize última hora.
    
     ```
     node dmpatterns_fwupdate_service.js
     ```
-3. Você verá a resposta do dispositivo para o método direto no console.
+3. Consulte o hello dispositivo resposta toohello método direto no console de saudação.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você usou um método direto para disparar uma atualização remota de firmware em um dispositivo e utilizou as propriedades relatadas para acompanhar o andamento da atualização do firmware.
+Neste tutorial, você usou um método direto de tootrigger remoto atualização de firmware em um dispositivo e Olá usado o progresso de saudação de toofollow propriedades de atualização de firmware de saudação relatado.
 
-Para saber como estender sua solução de IoT e agendar chamadas de método em vários dispositivos, confira o tutorial [Agendar e difundir trabalhos][lnk-tutorial-jobs].
+toolearn como tooextend seu método de solução e agenda IoT chama em vários dispositivos, consulte Olá [agenda e trabalhos de difusão] [ lnk-tutorial-jobs] tutorial.
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md

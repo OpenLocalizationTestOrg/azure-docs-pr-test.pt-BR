@@ -1,6 +1,6 @@
 ---
-title: "Trabalhando com a biblioteca de cliente gerenciado dos Aplicativos Móveis do Serviço de Aplicativo (Windows | Microsoft Docs"
-description: "Saiba como usar um cliente do .NET para os Aplicativos Móveis do Serviço de Aplicativo do Azure com aplicativos do Windows e Xamarin."
+title: "aaaWorking com hello aplicativos móveis do aplicativo de serviço gerenciado de biblioteca de cliente (Windows | Microsoft Docs"
+description: "Saiba como toouse um cliente .NET para aplicativos móveis de serviço de aplicativo do Azure com aplicativos do Windows e Xamarin."
 services: app-service\mobile
 documentationcenter: 
 author: ggailey777
@@ -14,24 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: glenga
-ms.openlocfilehash: 5f4cc3e97ba7adde2aaac471951a3130d79910f6
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b056e606b19406398f5b6faabb0931ad651125e4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Como usar o cliente gerenciado para Aplicativos Móveis do Azure
+# <a name="how-toouse-hello-managed-client-for-azure-mobile-apps"></a>Como toouse Olá gerenciada do cliente para aplicativos móveis do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 ## <a name="overview"></a>Visão geral
-Este guia mostra como executar cenários comuns usando a biblioteca de cliente gerenciado para os Aplicativos Móveis do Serviço de Aplicativo do Azure em aplicativos do Windows e Xamarin. Se você for iniciante nos Aplicativos Móveis, primeiro conclua o tutorial [Início rápido dos Aplicativos Móveis do Azure][1] . Neste guia, abordaremos o SDK gerenciado do lado do cliente. Para saber mais sobre os SDKs no lado do servidor para Aplicativos Móveis, veja a documentação do [SDK do .NET Server][2] ou do [SDK do Servidor Node.js][3].
+Este guia mostra como os cenários comuns de tooperform usando Olá gerenciados biblioteca de cliente para aplicativos do Azure aplicativo serviços móveis aplicativos para Windows e Xamarin. Se você estiver tooMobile de novos aplicativos, você deve considerar primeiro Olá Concluindo [início rápido de aplicativos do Azure Mobile] [ 1] tutorial. Este guia, vamos nos concentrar em saudação do cliente gerenciado SDK. toolearn mais sobre hello SDKs do lado do servidor para aplicativos móveis, consulte a documentação Olá Olá [SDK do .NET Server] [ 2] ou [Node. js servidor SDK] [ 3].
 
 ## <a name="reference-documentation"></a>Documentação de referência
-A documentação de referência para o SDK do cliente está localizada aqui: [Referência do cliente .NET dos Aplicativos Móveis do Azure][4].
-Você também pode encontrar vários exemplos de cliente no [Repositório GitHub Azure-Samples][5].
+Olá documentação de referência do SDK do cliente hello está localizada aqui: [referência de cliente .NET de aplicativos móveis do Azure][4].
+Você também pode encontrar vários exemplos de cliente em Olá [repositório GitHub de exemplos do Azure][5].
 
 ## <a name="supported-platforms"></a>Plataformas com suporte
-A plataforma .NET dá suporte às seguintes plataformas:
+Olá plataforma .NET oferece suporte a saudação plataformas a seguir:
 
 * Versões de Xamarin Android para API 19 a 24 (KitKat usando Nougat)
 * Versões de Xamarin iOS para versões 8.0 e posteriores do iOS
@@ -39,12 +39,12 @@ A plataforma .NET dá suporte às seguintes plataformas:
 * Windows Phone 8,1
 * Windows Phone 8.0, exceto para aplicativos Silverlight
 
-A autenticação de "fluxo de servidor" usa um modo de exibição da Web para a interface do usuário apresentada.  Se o dispositivo não for capaz de apresentar uma interface do usuário do modo de exibição da Web, outros métodos de autenticação serão necessários.  Esse SDK, portanto, não é adequado para relógios ou dispositivos similarmente restritos.
+autenticação de "server-fluxo" Hello usa WebView para Olá apresentado da interface do usuário.  Se o dispositivo de saudação não for capaz de toopresent uma UI WebView, outros métodos de autenticação são necessários.  Esse SDK, portanto, não é adequado para relógios ou dispositivos similarmente restritos.
 
 ## <a name="setup"></a>Configuração e Pré-requisitos
-Supomos que você já criou e publicou o projeto de back-end do Aplicativo Móvel, que inclui pelo menos uma tabela.  No código usado neste tópico, a tabela é denominada `TodoItem` e tem as seguintes colunas: `Id`, `Text` e `Complete`. Essa tabela é a mesma tabela criada ao concluir o [Início rápido dos Aplicativos Móveis do Azure][1].
+Supomos que você já criou e publicou o projeto de back-end do Aplicativo Móvel, que inclui pelo menos uma tabela.  No código de saudação usado neste tópico, a tabela de saudação é denominada `TodoItem` e ele tem Olá colunas a seguir: `Id`, `Text`, e `Complete`. Esta tabela é hello mesma tabela criada quando você concluir o [início rápido de aplicativos do Azure Mobile][1].
 
-O tipo em C# do lado do cliente tipado correspondente é a seguinte classe:
+Olá digitado cliente tipo correspondente no c# é Olá classe a seguir:
 
 ```
 public class TodoItem
@@ -59,36 +59,36 @@ public class TodoItem
 }
 ```
 
-[JsonPropertyAttribute][6] é usada para definir o mapeamento de *PropertyName* entre o campo de cliente e o campo de tabela.
+Olá [JsonPropertyAttribute] [ 6] é usado toodefine hello *PropertyName* mapeamento entre os campos de cliente hello e Olá tabela.
 
-Para saber como criar tabelas no back-end de Aplicativos Móveis, veja os tópicos [SDK do .NET Server][7] ou [SDK do Servidor Node.js][8]. Se você tiver criado o back-end do Aplicativo Móvel no portal do Azure usando o Início Rápido, também poderá usar a configuração **Tabelas Fáceis** no [portal do Azure].
+toolearn como toocreate tabelas em seu back-end de aplicativos móveis, consulte Olá [tópico sobre o SDK do .NET Server] [ 7] ou hello [tópico sobre o SDK do servidor Node.js] [ 8] . Se você tiver criado seu back-end do aplicativo móvel no hello Azure portal usando Olá início rápido, você também pode usar o hello **tabelas fácil** definindo no hello [portal do Azure].
 
-### <a name="how-to-install-the-managed-client-sdk-package"></a>Como instalar o pacote SDK do cliente gerenciado
-Use um dos métodos a seguir para instalar o pacote SDK do cliente gerenciado para Aplicativos Móveis do [NuGet][9]:
+### <a name="how-to-install-hello-managed-client-sdk-package"></a>Como: instalar Olá gerenciados pacote do SDK de cliente
+Usar um dos Olá Olá de tooinstall métodos a seguir gerenciados pacote do SDK de cliente para aplicativos móveis do [NuGet][9]:
 
-* No **Visual Studio**, clique com o botão direito do mouse no projeto, clique em **Gerenciar Pacotes NuGet**, pesquise pelo pacote `Microsoft.Azure.Mobile.Client` e clique em **Instalar**.
-* No **Xamarin Studio**, clique com o botão direito do mouse no projeto, clique em **Adicionar** > **Adicionar Pacotes NuGet**, pesquise pelo pacote `Microsoft.Azure.Mobile.Client ` e clique em **Adicionar Pacote**.
+* **O Visual Studio** seu projeto, clique **gerenciar pacotes NuGet**, pesquise Olá `Microsoft.Azure.Mobile.Client` do pacote e, em seguida, clique em **instalar**.
+* **Xamarin Studio** seu projeto, clique **adicionar** > **adicionar pacotes do NuGet**, pesquise Olá `Microsoft.Azure.Mobile.Client `do pacote e, em seguida, clique em **adicionar Pacote**.
 
-No arquivo de atividade principal, lembre-se de adicionar a seguinte instrução **using** :
+No arquivo principal de atividade, lembre-se a seguir Olá tooadd **usando** instrução:
 
 ```
 using Microsoft.WindowsAzure.MobileServices;
 ```
 
 ### <a name="symbolsource"></a>Como trabalhar com símbolos de depuração no Visual Studio
-Os símbolos para o namespace Microsoft.Azure.Mobile estão disponíveis em [SymbolSource][10].  Veja as [instruções do SymbolSource][11] para integrar o SymbolSource ao Visual Studio.
+símbolos de Olá Olá Microsoft.Azure.Mobile namespace estão disponíveis em [SymbolSource][10].  Consulte toothe [SymbolSource instruções] [ 11] toointegrate SymbolSource com o Visual Studio.
 
-## <a name="create-client"></a>Criar o cliente dos Aplicativos Móveis
-O código a seguir cria o objeto [MobileServiceClient][12] usado para acessar o back-end do seu Aplicativo Móvel.
+## <a name="create-client"></a>Crie saudação do cliente de aplicativos móveis
+Olá, código a seguir cria Olá [MobileServiceClient] [ 12] objeto que é usado tooaccess seu back-end do aplicativo móvel.
 
 ```
 var client = new MobileServiceClient("MOBILE_APP_URL");
 ```
 
-No código anterior, substitua `MOBILE_APP_URL` pela URL do back-end do Aplicativo Móvel, que está localizada na folha de back-end de seu Aplicativo Móvel no [portal do Azure]. O objeto MobileServiceClient deve ser um singleton.
+Olá anterior do código, substitua `MOBILE_APP_URL` com URL de saudação do back-end de aplicativo móvel Olá, que se encontra na folha para seu back-end do aplicativo móvel no hello [portal do Azure]. objeto MobileServiceClient de saudação deve ser um singleton.
 
 ## <a name="work-with-tables"></a>Trabalhar com tabelas
-A seção a seguir fornece detalhes sobre como pesquisar e recuperar registros e modificar os dados na tabela.  Os seguintes tópicos são abordados:
+Olá detalhes da seção a seguir como toosearch e recuperar os registros e modificar dados de saudação na tabela de saudação.  Olá seguintes tópicos é abordado:
 
 * [Criar uma referência de tabela](#instantiating)
 * [Consultar dados](#querying)
@@ -102,27 +102,27 @@ A seção a seguir fornece detalhes sobre como pesquisar e recuperar registros e
 * [Atualizando dados](#updating)
 * [Excluindo dados](#deleting)
 * [Resolução de Conflitos e Simultaneidade Otimista](#optimisticconcurrency)
-* [Associação a uma Interface de Usuário do Windows](#binding)
-* [Alterando o Tamanho da Página](#pagesize)
+* [Associação tooa Interface de usuário do Windows](#binding)
+* [Olá alterar tamanho da página](#pagesize)
 
 ### <a name="instantiating"></a>Como criar uma referência de tabela
-Todos os códigos que acessam e modificam dados em uma tabela de back-end chamam funções no objeto `MobileServiceTable` . Obtenha uma referência à tabela chamando o método [GetTable] da seguinte maneira:
+Todos os códigos de saudação que acessa ou modificam dados em uma tabela de back-end chama funções em Olá `MobileServiceTable` objeto. Obter uma tabela de referência toohello Olá chamada [GetTable] método, da seguinte maneira:
 
 ```
 IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
 ```
 
-O objeto retornado usa o modelo de serialização tipado. Também há suporte para um modelo de serialização não tipado. O exemplo abaixo [cria uma referência para uma tabela não tipada]:
+Olá retornou objeto usa o modelo de serialização do tipo de saudação. Também há suporte para um modelo de serialização não tipado. O exemplo a seguir [cria uma tabela sem tipo de referência de tooan]:
 
 ```
 // Get an untyped table reference
 IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");
 ```
 
-Em consultas não tipadas, você deve especificar a cadeia de caracteres de consulta OData subjacente.
+Consultas sem tipo, você deve especificar Olá subjacente a cadeia de caracteres de consulta OData.
 
 ### <a name="querying"></a>Como consultar dados do seu Aplicativo Móvel
-Esta seção descreve como emitir consultas para o back-end do Aplicativo Móvel, que inclui as seguintes funcionalidades:
+Esta seção descreve como as consultas tooissue toohello aplicativo móvel back-end, que inclui a saudação funcionalidade a seguir:
 
 * [Filtrar dados retornados](#filtering)
 * [Classificar dados retornados](#sorting)
@@ -131,10 +131,10 @@ Esta seção descreve como emitir consultas para o back-end do Aplicativo Móvel
 * [Pesquisar dados por ID](#lookingup)
 
 > [!NOTE]
-> Um tamanho de página controlado por servidor é usado para impedir que todas as linhas sejam retornadas.  A paginação impede que as solicitações padrão de grandes conjuntos de dados prejudiquem o serviço.  Para retornar mais de 50 linhas, use os métodos `Skip` e `Take`, conforme descrito em [Retornar dados em páginas](#paging).
+> Um tamanho de página orientado para servidor é imposta tooprevent todas as linhas sejam retornadas.  Paginação impede que solicitações de padrão para grandes conjuntos de dados comprometendo o serviço de saudação.  tooreturn mais de 50 linhas, use Olá `Skip` e `Take` método, conforme descrito em [retornar dados em páginas](#paging).
 
 ### <a name="filtering"></a>Como filtrar dados retornados
-O código a seguir ilustra como filtrar dados incluindo uma cláusula `Where` em uma consulta. Ele retorna todos os itens de `todoTable`, cuja propriedade `Complete` é igual a `false`. A função [Where] aplica um predicado de filtragem de linha à consulta na tabela.
+Olá código a seguir ilustra como dados toofilter, incluindo um `Where` cláusula em uma consulta. Retorna todos os itens do `todoTable` cujo `Complete` propriedade é igual muito`false`. Olá [onde] função aplica uma predicado de consulta de saudação na tabela de saudação de filtragem de linha.
 
 ```
 // This query filters out completed TodoItems and items without a timestamp.
@@ -143,13 +143,13 @@ List<TodoItem> items = await todoTable
     .ToListAsync();
 ```
 
-Você pode exibir o URI da solicitação enviado ao back-end usando um software de inspeção de mensagem, como as ferramentas de desenvolvedor do navegador ou o [Fiddler]. Se você examinar o URI, verá que a própria cadeia de caracteres da consulta está sendo modificada:
+Você pode exibir hello URI de back-end toohello de solicitação enviada hello usando software de inspeção de mensagem, como ferramentas de desenvolvedor do navegador ou [Fiddler]. Se você observar o URI de solicitação hello, observe que a cadeia de caracteres de consulta de saudação é modificada:
 
 ```
 GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1
 ```
 
-Essa solicitação de OData é convertida em uma consulta SQL pelo SDK do Servidor:
+Essa solicitação OData é convertida em uma consulta SQL por Olá SDK do servidor:
 
 ```
 SELECT *
@@ -157,7 +157,7 @@ SELECT *
     WHERE ISNULL(complete, 0) = 0
 ```
 
-A função passada para o método `Where` pode ter um número arbitrário de condições.
+Olá função que é passada toohello `Where` método pode ter um número arbitrário de condições.
 
 ```
 // This query filters out completed TodoItems where Text isn't null
@@ -166,7 +166,7 @@ List<TodoItem> items = await todoTable
     .ToListAsync();
 ```
 
-Esse exemplo deve ser convertido em uma consulta SQL pelo SDK do Servidor:
+Este exemplo deve ser convertido em uma consulta SQL por Olá SDK do servidor:
 
 ```
 SELECT *
@@ -184,9 +184,9 @@ List<TodoItem> items = await todoTable
     .ToListAsync();
 ```
 
-Os dois métodos são equivalentes e podem ser usados de maneira intercambiável.  A opção anterior&mdash;de concatenar vários predicados em uma consulta&mdash;é mais compacta e recomendada.
+Olá dois métodos são equivalentes e podem ser usados alternadamente.  Olá opção&mdash;da concatenação de vários predicados em uma consulta&mdash;é mais compacto e recomendado.
 
-A cláusula `Where` dá suporte a operações que são convertidas para o subconjunto OData. As operações incluem:
+Olá `Where` cláusula dá suporte a operações que ser convertido em um subconjunto de OData hello. As operações incluem:
 
 * Operadores relacionais (==,!=, <, <=, >, >=),
 * Operadores aritméticos (+, -, /, *, %),
@@ -196,10 +196,10 @@ A cláusula `Where` dá suporte a operações que são convertidas para o subcon
 * Propriedades de acesso de um objeto e
 * Expressões que combinam qualquer uma dessas operações.
 
-Ao considerar o que é compatível com o SDK do Servidor, você pode consultar a [Documentação do OData v3].
+Quando considerando o que Olá servidor SDK dá suporte a, você pode considerar Olá [OData v3 documentação].
 
 ### <a name="sorting"></a>Como classificar dados retornados
-O código a seguir ilustra como classificar dados incluindo uma função [OrderBy] ou [OrderByDescending] na consulta. Ele retorna os itens da `todoTable` classificada em ordem crescente pelo campo `Text`.
+Olá código a seguir ilustra como dados toosort, incluindo um [OrderBy] ou [OrderByDescending] função na consulta de saudação. Retorna os itens do `todoTable` classificada em ordem crescente por Olá `Text` campo.
 
 ```
 // Sort items in ascending order by Text field
@@ -214,41 +214,41 @@ List<TodoItem> items = await query.ToListAsync();
 ```
 
 ### <a name="paging"></a>Como retornar dados em páginas
-Por padrão, o back-end retorna apenas as primeiras 50 linhas. Você pode aumentar o número de linhas retornadas chamando o método [Take] . Use `Take` juntamente com o método [Ignorar] para solicitar uma "página" específica do conjunto de dados total retornado pela consulta. A consulta a seguir, quando executada, retorna os três itens principais na tabela.
+Por padrão, Olá back-end retorna apenas Olá primeiras 50 linhas. Você pode aumentar o número de saudação de linhas retornados pela chamada hello [levar] método. Use `Take` juntamente com hello [ignorar] método toorequest uma "página específica" do conjunto de dados total Olá retornada pela consulta hello. Olá consulta a seguir, quando executada, retorna Olá três principais itens na tabela de saudação.
 
 ```
-// Define a filtered query that returns the top 3 items.
+// Define a filtered query that returns hello top 3 items.
 MobileServiceTableQuery<TodoItem> query = todoTable.Take(3);
 List<TodoItem> items = await query.ToListAsync();
 ```
 
-A consulta revisada a seguir ignora os três primeiros resultados e retorna os três seguintes. Essa consulta produz a segunda "página" de dados, onde o tamanho da página é de três itens.
+ignora a seguinte consulta revisada Olá Olá três primeiros resultados e retorna Olá três resultados. Essa consulta gera Olá segunda "página" de dados, onde o tamanho da página Olá é três itens.
 
 ```
-// Define a filtered query that skips the top 3 items and returns the next 3 items.
+// Define a filtered query that skips hello top 3 items and returns hello next 3 items.
 MobileServiceTableQuery<TodoItem> query = todoTable.Skip(3).Take(3);
 List<TodoItem> items = await query.ToListAsync();
 ```
 
-O método [IncludeTotalCount] solicita a contagem total de *todos* os registros que seriam retornados, ignorando cláusulas de paginação/limite especificadas:
+Olá [IncludeTotalCount] método solicita a contagem total de saudação para *todos os* Olá registros que teriam sido retornados, ignorando qualquer cláusula de paginação/limite especificada:
 
 ```
 query = query.IncludeTotalCount();
 ```
 
-Em um aplicativo de verdade, você pode usar consultas semelhantes ao exemplo anterior com um controle de paginação ou interface do usuário semelhante para navegar entre páginas.
+Em um aplicativo do mundo real, você pode usar consultas toohello semelhante anterior de exemplo com um controle de pager ou a interface de usuário comparável para navegar entre páginas.
 
 > [!NOTE]
-> Para substituir o limite de 50 linhas em um back-end do Aplicativo Móvel, você também deve aplicar o [EnableQueryAttribute] ao método GET público e especificar o comportamento de paginação. Quando aplicado ao método, o seguinte define o máximo de linhas retornadas para 1000:
+> limite de 50 linhas toooverride Olá em um back-end do aplicativo móvel, você deve aplicar Olá [EnableQueryAttribute] toohello público método GET e especifique o comportamento de paginação hello. Quando o método de toohello aplicada, Olá a seguir define too1000 o máximo de linhas retornadas:
 >
 > `[EnableQuery(MaxTop=1000)]`
 
 
 ### <a name="selecting"></a>Como selecionar colunas específicas
-Você pode especificar qual conjunto de propriedades incluir nos resultados adicionando uma cláusula [Select] à sua consulta. Por exemplo, o código a seguir mostra como selecionar apenas um campo e também como selecionar e formatar vários campos:
+Você pode especificar qual conjunto de propriedades tooinclude em Olá resultados adicionando um [selecione] consulta de tooyour cláusula. Olá, por exemplo, o seguinte código mostra como tooselect apenas um campo e também como tooselect e vários campos de formato:
 
 ```
-// Select one field -- just the Text
+// Select one field -- just hello Text
 MobileServiceTableQuery<TodoItem> query = todoTable
                 .Select(todoItem => todoItem.Text);
 List<string> items = await query.ToListAsync();
@@ -261,7 +261,7 @@ MobileServiceTableQuery<TodoItem> query = todoTable
 List<string> items = await query.ToListAsync();
 ```
 
-Todas as funções descritas até agora são aditivas e, portanto, podemos continuar a encadeá-las. Cada chamada encadeada afeta mais a consulta. Mais um exemplo:
+Todos os Olá funções descritas até agora são aditivas, portanto, pode manter encadeamento-los. Cada chamada encadeada afeta mais consulta hello. Mais um exemplo:
 
 ```
 MobileServiceTableQuery<TodoItem> query = todoTable
@@ -273,34 +273,34 @@ List<string> items = await query.ToListAsync();
 ```
 
 ### <a name="lookingup"></a>Como pesquisar dados pela ID
-A função [LookupAsync] pode ser usada para procurar objetos do banco de dados com uma ID específica.
+Olá [LookupAsync] função pode ser usado toolook objetos de banco de dados de saudação com uma ID específica
 
 ```
-// This query filters out the item with the ID of 37BBF396-11F0-4B39-85C8-B319C729AF6D
+// This query filters out hello item with hello ID of 37BBF396-11F0-4B39-85C8-B319C729AF6D
 TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
 ```
 
 ### <a name="untypedqueries"></a>Como executar consultas sem tipo
-Ao executar uma consulta usando um objeto de tabela sem tipo, você deve especificar expressamente a cadeia de consulta OData chamando [ReadAsync], como no exemplo a seguir:
+Ao executar uma consulta usando um objeto de tabela sem tipo, você deve especificar explicitamente a cadeia de caracteres de consulta de OData Olá chamando [ReadAsync], conforme mostrado no exemplo a seguir de saudação:
 
 ```
 // Lookup untyped data using OData
 JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$orderby=text");
 ```
 
-Você recupera valores JSON que podem ser usados como um recipiente de propriedades. Para obter mais informações sobre JToken e Newtonsoft Json.NET, confira o site [Json.NET] .
+Você recupera valores JSON que podem ser usados como um recipiente de propriedades. Para obter mais informações sobre JToken e Newtonsoft Json.NET, consulte Olá [Json.NET] site.
 
 ### <a name="inserting"></a>Como inserir dados em um back-end do Aplicativo Móvel
-Todos os tipos de cliente devem conter um membro chamado **Id**, que é por padrão uma cadeia de caracteres. Essa **Id** é necessária para executar operações CRUD para sincronização offline. O código a seguir ilustra como usar o método [InsertAsync] para inserir novas linhas em uma tabela. O parâmetro contém os dados a serem inseridos como um objeto .NET.
+Todos os tipos de cliente devem conter um membro chamado **Id**, que é por padrão uma cadeia de caracteres. Isso **Id** é necessário para executar operações CRUD e para sincronização offline. Olá código a seguir ilustra como Olá toouse [InsertAsync] método tooinsert novas linhas em uma tabela. parâmetro Hello contém Olá dados toobe inserido como um objeto .NET.
 
 ```
 await todoTable.InsertAsync(todoItem);
 ```
 
-Se um valor exclusivo de ID personalizada não é incluído no `todoItem` durante uma inserção, um GUID é gerado pelo servidor.
-Você poderá recuperar a Id gerada ao inspecionar o objeto após o retorno da chamada.
+Se um valor de ID exclusivo personalizado não será incluído no hello `todoItem` durante uma inserção, um GUID gerado pelo servidor de saudação.
+Você pode recuperar Olá Id gerada inspecionando o objeto Olá depois Olá chamada retorna.
 
-Para inserir dados não tipados, você pode tirar proveito do Json.NET:
+tooinsert sem tipo de dados, você pode tirar proveito do Json.NET:
 
 ```
 JObject jo = new JObject();
@@ -320,13 +320,13 @@ var inserted = await table.InsertAsync(jo);
 ```
 
 ### <a name="working-with-id-values"></a>Trabalhando com valores de ID
-Os Aplicativos Móveis dão suporte a valores exclusivos e personalizados de cadeia de caracteres para a coluna **id** da tabela. Um valor de cadeia de caracteres permite que aplicativos usem valores personalizados, como endereços de email ou nomes de usuário para a ID.  IDs de cadeia de caracteres fornecem os seguintes benefícios:
+Aplicativos móveis dá suporte a valores de cadeia de caracteres personalizada exclusivo para a tabela de saudação **id** coluna. Um valor de cadeia de caracteres permite que aplicativos toouse de valores personalizados, como endereços de email ou nomes de usuário para ID de saudação.  IDs de cadeia de caracteres fornecem Olá benefícios a seguir:
 
-* As IDs são geradas sem fazer uma varredura no banco de dados.
-* Os registros são mais fáceis de mesclar a partir de tabelas ou bancos de dados diferentes.
+* IDs são gerados sem fazer um banco de dados de toohello de ida e volta.
+* Os registros são toomerge mais fácil de tabelas diferentes ou bancos de dados.
 * Os valores de IDs podem integrar-se melhor a uma lógica do aplicativo.
 
-Quando um valor de ID de cadeia de caracteres não está definido em um registro inserido, o back-end do Aplicativo Móvel gera um valor exclusivo para a ID. Você pode usar o método [Guid.NewGuid] para gerar seus próprios valores de ID, seja no cliente ou no back-end.
+Quando um valor de ID de cadeia de caracteres não está definido em um registro inserido, o back-end de aplicativo móvel hello gera um valor exclusivo para a ID. Você pode usar o hello [Guid.NewGuid] toogenerate método sua própria ID de valores, no cliente de saudação ou em Olá back-end.
 
 ```
 JObject jo = new JObject();
@@ -334,13 +334,13 @@ jo.Add("id", Guid.NewGuid().ToString("N"));
 ```
 
 ### <a name="modifying"></a>Como modificar dados em um back-end de Aplicativo Móvel
-O código a seguir ilustra como usar o método [UpdateAsync] para atualizar um registro existente com a mesma ID com novas informações. O parâmetro contém os dados a serem atualizados como um objeto .NET.
+Olá código a seguir ilustra como Olá toouse [UpdateAsync] método tooupdate um registro existente com hello mesmo ID com novas informações. parâmetro Hello contém Olá dados toobe atualizada como um objeto .NET.
 
 ```
 await todoTable.UpdateAsync(todoItem);
 ```
 
-Para atualizar dados não tipados, você pode tirar proveito do [Json.NET] da seguinte forma:
+tooupdate sem tipo de dados, você pode tirar proveito do [Json.NET] da seguinte maneira:
 
 ```
 JObject jo = new JObject();
@@ -350,16 +350,16 @@ jo.Add("Complete", false);
 var inserted = await table.UpdateAsync(jo);
 ```
 
-Um campo `id` deve ser especificado ao fazer uma atualização. O back-end usa o campo `id` para identificar a linha a ser atualizada. O campo `id` pode ser obtido do resultado da chamada `InsertAsync`. Quando você tenta atualizar um item sem fornecer o valor `id`, uma `ArgumentException` é gerada.
+Um campo `id` deve ser especificado ao fazer uma atualização. Olá back-end usa Olá `id` tooidentify campo qual linha tooupdate. Olá `id` campo pode ser obtido dos resultados de saudação do hello `InsertAsync` chamar. Um `ArgumentException` é gerado se você tentar tooupdate um item sem fornecer Olá `id` valor.
 
 ### <a name="deleting"></a>Como excluir dados em um back-end do Aplicativo Móvel
-O código a seguir ilustra como usar o método [DeleteAsync] para excluir uma instância existente. A instância é identificada pelo campo `id` definido em `todoItem`.
+Olá código a seguir ilustra como Olá toouse [DeleteAsync] método toodelete uma instância existente. Olá instância é identificada por Olá `id` campo de conjunto de saudação `todoItem`.
 
 ```
 await todoTable.DeleteAsync(todoItem);
 ```
 
-Para excluir dados não tipados, você pode tirar proveito do Json.NET da seguinte forma:
+toodelete sem tipo de dados, você pode tirar proveito do Json.NET da seguinte maneira:
 
 ```
 JObject jo = new JObject();
@@ -367,14 +367,14 @@ jo.Add("id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 await table.DeleteAsync(jo);
 ```
 
-Quando você faz uma solicitação de exclusão, uma ID deve ser especificada. Outras propriedades não são passadas para o serviço ou são ignoradas no serviço. O resultado de uma chamada de `DeleteAsync` geralmente é `null`. A ID a ser passada pode ser obtida do resultado da chamada de `InsertAsync` . Um `MobileServiceInvalidOperationException` é gerado quando você tenta excluir um item sem especificar o campo `id`.
+Quando você faz uma solicitação de exclusão, uma ID deve ser especificada. Outras propriedades não são passadas para o serviço de toohello ou são ignoradas no serviço de saudação. Olá o resultado de uma `DeleteAsync` costuma ser chamada `null`. Olá ID toopass no pode ser obtido de resultado de saudação da saudação `InsertAsync` chamar. Um `MobileServiceInvalidOperationException` é gerada quando você tentar toodelete um item sem especificar Olá `id` campo.
 
 ### <a name="optimisticconcurrency"></a>Como usar a simultaneidade otimista para resolução de conflitos
-Dois ou mais clientes podem gravar alterações no mesmo item ao mesmo tempo. Sem detecção de conflito, a última gravação substituiria as atualizações anteriores. **Controle de simultaneidade otimista** pressupõe que cada transação possa ser confirmada e, portanto, não usa nenhum recurso de bloqueio.  Antes de confirmar uma transação, o controle de simultaneidade otimista verifica se nenhuma outra transação modificou os dados. Se os dados foram modificados, a transação de confirmação será revertida.
+Dois ou mais clientes podem gravar alterações toohello mesmo item no hello mesmo tempo. Sem detecção de conflito, a última gravação do hello substituiria todas as atualizações anteriores. **Controle de simultaneidade otimista** pressupõe que cada transação possa ser confirmada e, portanto, não usa nenhum recurso de bloqueio.  Antes de confirmar uma transação, o controle de simultaneidade otimista verifica que nenhuma outra transação ter modificado os dados de saudação. Se dados saudação tem sido modificados, Olá confirmando a transação será revertida.
 
-Os Aplicativos Móveis dão suporte ao controle de simultaneidade otimista acompanhando as alterações em cada item na coluna de propriedades do sistema `version` definida para cada tabela no back-end do Aplicativo Móvel. Cada vez que um registro é atualizado, os Aplicativos Móveis definem a propriedade `version` desse registro como um novo valor. Durante cada solicitação de atualização, a propriedade `version` do registro incluído na solicitação é comparada à mesma propriedade do registro no servidor. Se a versão transmitida com a solicitação não corresponder ao back-end, a biblioteca de cliente gerará uma exceção `MobileServicePreconditionFailedException<T>` . O tipo incluído com a exceção é o registro do back-end que contém a versão do registro dos servidores. O aplicativo poderá, então, usar essas informações para decidir se deve executar a solicitação de atualização novamente com o valor de `version` correto do back-end para confirmar as alterações.
+Aplicativos móveis dá suporte ao controle de simultaneidade otimista rastreando o item de tooeach de alterações usando Olá `version` coluna de propriedade do sistema que é definida para cada tabela em seu back-end do aplicativo móvel. Cada vez que um registro é atualizado, os aplicativos móveis define Olá `version` propriedade para que registre tooa novo valor. Durante cada solicitação de atualização, Olá `version` propriedade de registro de saudação incluído na solicitação de saudação é toohello em comparação com o mesma propriedade de registro de saudação no servidor de saudação. Se a versão passada com hello solicitação não corresponde a saudação back-end, biblioteca de saudação do cliente gera um `MobileServicePreconditionFailedException<T>` exceção. tipo de saudação incluído com a exceção de saudação é registro Olá Olá versão back-end que contém Olá servidores de registro de saudação. Olá aplicativo pode usar este toodecide informações se solicitação de atualização de saudação tooexecute novamente com hello correto `version` valor de alterações de toocommit de back-end de saudação.
 
-Define uma coluna na classe da tabela para a propriedade do sistema `version` para habilitar a simultaneidade otimista. Por exemplo:
+Definir uma coluna na classe de tabela Olá para Olá `version` simultaneidade otimista de tooenable de propriedade de sistema. Por exemplo:
 
 ```
 public class TodoItem
@@ -393,14 +393,14 @@ public class TodoItem
 }
 ```
 
-Aplicativos que usam tabelas não tipadas habilitam a simultaneidade otimista definindo o sinalizador `Version` nas `SystemProperties` da tabela da seguinte maneira.
+Aplicativos que usam tabelas sem tipo habilitar simultaneidade otimista por configuração Olá `Version` sinalizador no `SystemProperties` de saudação de tabela da seguinte maneira.
 
 ```
 //Enable optimistic concurrency by retrieving version
 todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 ```
 
-Além de habilitar a simultaneidade otimista, você também deve capturar a exceção `MobileServicePreconditionFailedException<T>` em seu código ao chamar [UpdateAsync].  Resolva o conflito aplicando a `version` correta ao registro atualizado e chame [UpdateAsync] com o registro resolvido. O código a seguir mostra como resolver um conflito de gravação quando detectado:
+Em adição tooenabling a simultaneidade otimista, você deve também captura Olá `MobileServicePreconditionFailedException<T>` exceção em seu código ao chamar [UpdateAsync].  Resolva o conflito de saudação aplicando Olá correto `version` toothe atualizou o registro e chamada [UpdateAsync] com hello resolveu o registro. saudação de código a seguir mostra como tooresolve um conflito de gravação uma vez detectado:
 
 ```
 private async void UpdateToDoItem(TodoItem item)
@@ -409,7 +409,7 @@ private async void UpdateToDoItem(TodoItem item)
 
     try
     {
-        //update at the remote table
+        //update at hello remote table
         await todoTable.UpdateAsync(item);
     }
     catch (MobileServicePreconditionFailedException<TodoItem> writeException)
@@ -419,8 +419,8 @@ private async void UpdateToDoItem(TodoItem item)
 
     if (exception != null)
     {
-        // Conflict detected, the item has changed since the last query
-        // Resolve the conflict between the local and server item
+        // Conflict detected, hello item has changed since hello last query
+        // Resolve hello conflict between hello local and server item
         await ResolveConflict(item, exception.Item);
     }
 }
@@ -428,7 +428,7 @@ private async void UpdateToDoItem(TodoItem item)
 
 private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 {
-    //Ask user to choose the resoltion between versions
+    //Ask user toochoose hello resoltion between versions
     MessageDialog msgDialog = new MessageDialog(
         String.Format("Server Text: \"{0}\" \nLocal Text: \"{1}\"\n",
         serverItem.Text, localItem.Text),
@@ -441,11 +441,11 @@ private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 
     localBtn.Invoked = async (IUICommand command) =>
     {
-        // To resolve the conflict, update the version of the item being committed. Otherwise, you will keep
+        // tooresolve hello conflict, update hello version of hello item being committed. Otherwise, you will keep
         // catching a MobileServicePreConditionFailedException.
         localItem.Version = serverItem.Version;
 
-        // Updating recursively here just in case another change happened while the user was making a decision
+        // Updating recursively here just in case another change happened while hello user was making a decision
         UpdateToDoItem(localItem);
     };
 
@@ -458,10 +458,10 @@ private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 }
 ```
 
-Para obter mais informações, confira o tópico [Sincronização de Dados Offline nos Aplicativos Móveis do Azure] .
+Para obter mais informações, consulte Olá [sincronização de dados Offline em aplicativos móveis do Azure] tópico.
 
-### <a name="binding"></a>Como: associar dados dos Aplicativos Móveis a uma interface do usuário do Windows
-Esta seção mostra como exibir os objetos de dados retornados usando elementos da interface do usuário em um aplicativo do Windows.  O exemplo de código a seguir associa a origem da lista a uma consulta de itens incompletos. O [MobileServiceCollection] cria uma coleção de associações com reconhecimento de Aplicativos Móveis.
+### <a name="binding"></a>Como: interface de usuário do Windows de tooa de dados de aplicativos móveis de ligação
+Esta seção mostra como toodisplay retornados objetos de dados usando os elementos de interface do usuário em um aplicativo do Windows.  O exemplo de código a seguir associa toohello fonte da lista de saudação com uma consulta para itens incompletos. O [MobileServiceCollection] cria uma coleção de associações com reconhecimento de Aplicativos Móveis.
 
 ```
 // This query filters out completed TodoItems.
@@ -469,15 +469,15 @@ MobileServiceCollection<TodoItem, TodoItem> items = await todoTable
     .Where(todoItem => todoItem.Complete == false)
     .ToCollectionAsync();
 
-// itemsControl is an IEnumerable that could be bound to a UI list control
+// itemsControl is an IEnumerable that could be bound tooa UI list control
 IEnumerable itemsControl  = items;
 
-// Bind this to a ListBox
+// Bind this tooa ListBox
 ListBox lb = new ListBox();
 lb.ItemsSource = items;
 ```
 
-Alguns controles no tempo de execução gerenciado dão suporte a uma interface chamada [ISupportIncrementalLoading]. Essa interface permite que os controles solicitem dados adicionais quando o usuário rola. Há suporte interno para essa interface para aplicativos universais do Windows via [MobileServiceIncrementalLoadingCollection], que processa as chamadas automaticamente por meio dos controles. Use `MobileServiceIncrementalLoadingCollection` em aplicativos do Windows, da seguinte maneira:
+Alguns controles em Olá gerenciados suporte de tempo de execução chamada de uma interface [ISupportIncrementalLoading]. Essa interface permite que os controles toorequest dados extras ao usuário Olá rolar. Não há suporte interno para esta interface para aplicativos universais do Windows por meio de [MobileServiceIncrementalLoadingCollection], que controla automaticamente as chamadas de controles de saudação. Use `MobileServiceIncrementalLoadingCollection` em aplicativos do Windows, da seguinte maneira:
 
 ```
 MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
@@ -487,19 +487,19 @@ ListBox lb = new ListBox();
 lb.ItemsSource = items;
 ```
 
-Para usar a nova coleção nos aplicativos do Windows Phone 8 e do “Silverlight”, use os métodos da extensão `ToCollection` em `IMobileServiceTableQuery<T>` e `IMobileServiceTable<T>`. Para carregar dados, chame `LoadMoreItemsAsync()`.
+toouse Olá nova coleção de aplicativos do Windows Phone 8 e "Silverlight", use Olá `ToCollection` métodos de extensão em `IMobileServiceTableQuery<T>` e `IMobileServiceTable<T>`. dados de tooload, chame `LoadMoreItemsAsync()`.
 
 ```
 MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 await items.LoadMoreItemsAsync();
 ```
 
-Quando usa a coleção criada chamando `ToCollectionAsync` ou `ToCollection`, você obtém uma coleção que pode ser vinculada a controles da interface do usuário.  Essa coleção tem reconhecimento de paginação.  Como a coleção está carregando dados da rede, o carregamento às vezes falha. Para lidar com essas falhas, substitua o método `OnException` na `MobileServiceIncrementalLoadingCollection` para tratar das exceções resultantes de chamadas para `LoadMoreItemsAsync`.
+Quando você usa a coleção de saudação criada chamando `ToCollectionAsync` ou `ToCollection`, você obtém uma coleção que pode ser associado tooUI controles.  Essa coleção tem reconhecimento de paginação.  Desde que a coleção de saudação está carregando os dados da rede, às vezes, há falha no carregamento. toohandle essas falhas, substituir Olá `OnException` método `MobileServiceIncrementalLoadingCollection` toohandle exceções resultantes de chamadas muito`LoadMoreItemsAsync`.
 
-Pense que sua tabela tem muitos campos, mas você só deseja exibir alguns deles em seu controle. Você pode usar as diretrizes contidas na seção anterior "[Selecionar colunas específicas](#selecting)" para selecionar colunas específicas a serem exibidas na interface do usuário.
+Considere se sua tabela possui muitos campos, mas deseja toodisplay apenas algumas no seu controle. Você poderá usar orientação Olá Olá anterior a seção "[selecionar colunas específicas](#selecting)" tooselect toodisplay de colunas específicas em Olá da interface do usuário.
 
-### <a name="pagesize"></a>Alterar o Tamanho da página
-Os Aplicativos Móveis do Azure retornam, no máximo, 50 itens por solicitação por padrão.  Você pode alterar o tamanho de paginação aumentando o tamanho máximo da página no cliente e no servidor.  Para aumentar o tamanho da página solicitada, especifique `PullOptions` ao usar `PullAsync()`:
+### <a name="pagesize"></a>Saudação de alterar o tamanho de página
+Os Aplicativos Móveis do Azure retornam, no máximo, 50 itens por solicitação por padrão.  Você pode alterar o tamanho de paginação Olá aumentando o tamanho máximo da página de saudação em Olá cliente e servidor.  tooincrease Olá tamanho da página solicitada, especificar `PullOptions` ao usar `PullAsync()`:
 
 ```
 PullOptions pullOptions = new PullOptions
@@ -508,45 +508,45 @@ PullOptions pullOptions = new PullOptions
     };
 ```
 
-Supondo que você deixou o `PageSize` igual ou maior a 100 no servidor, uma solicitação retorna até 100 itens.
+Supondo que você fez Olá `PageSize` tooor igual maior que 100 no servidor de saudação, uma solicitação retorna até 100 itens.
 
 ## <a name="#offlinesync"></a>Trabalhar com tabelas offline
-Tabelas offline usam um armazenamento local do SQLite para armazenamento de dados para uso no modo offline.  Todas as operações da tabela são executadas no armazenamento local do SQLite em vez de no armazenamento do servidor remoto.  Para criar uma tabela offline, primeiro, prepare seu projeto:
+Tabelas offline usam um local SQLite armazenar toostore dados para uso quando estiver offline.  Tabela de todas as operações são feitas em relação a saudação SQLite local armazenar em vez de armazenamento de servidor remoto hello.  toocreate uma tabela offline, primeiro prepare seu projeto:
 
-1. No Visual Studio, clique com o botão direito do mouse na solução > **Gerenciar Pacotes NuGet para a Solução...**, procure e instale o pacote NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore** para todos os projetos na solução.
-2. (Opcional) Para dar suporte a dispositivos Windows, instale um dos seguintes pacotes de tempo de execução do SQLite:
+1. No Visual Studio, clique com botão direito solução hello > **gerenciar pacotes NuGet para solução...** , em seguida, procurar e instalar o **Microsoft.Azure.Mobile.Client.SQLiteStore** pacote NuGet para todos os projetos na solução de saudação.
+2. Dispositivos do Windows toosupport (opcional), instale um dos Olá SQLite pacotes de tempo de execução a seguir:
 
    * **Tempo de Execução do Windows 8.1**: instale o [SQLite para Windows 8.1][3].
    * **Windows Phone 8.1**: instale o [SQLite para Windows Phone 8.1][4].
-   * **Plataforma Universal do Windows**: instale o [SQLite para a Plataforma Universal do Windows][5].
-3. (Opcional). Para dispositivos Windows, clique com botão direito do mouse em **Referências** > **Adicionar Referência…**, expanda a pasta **Windows** > **Extensões**, habilite o SDK do **SQLite para Windows** apropriado junto com o SDK do **Tempo de Execução do Visual C++ 2013 para Windows**.
-    Os nomes do SDK do SQLite variam ligeiramente de acordo com cada plataforma Windows.
+   * **Plataforma universal do Windows** instalar [SQLite para Olá Universal do Windows][5].
+3. (Opcional). Para dispositivos do Windows, clique em **referências** > **adicionar referência...** , expanda Olá **Windows** pasta > **extensões**, habilite Olá apropriado **SQLite para Windows** SDK junto com hello  **Visual C++ 2013 em tempo de execução para o Windows** SDK.
+    Hello nomes SQLite SDK variam ligeiramente em cada plataforma do Windows.
 
-Antes que uma referência de tabela possa ser criada, o armazenamento local precisa ser preparado:
+Antes de uma referência de tabela pode ser criada, deve ser preparado repositório local hello:
 
 ```
 var store = new MobileServiceSQLiteStore(Constants.OfflineDbPath);
 store.DefineTable<TodoItem>();
 
-//Initializes the SyncContext using the default IMobileServiceSyncHandler.
+//Initializes hello SyncContext using hello default IMobileServiceSyncHandler.
 await this.client.SyncContext.InitializeAsync(store);
 ```
 
-A inicialização do armazenamento normalmente é feita imediatamente depois que o cliente é criado.  O **OfflineDbPath** deve ser um nome de arquivo adequado para uso em todas as plataformas que tem suporte.  Se o caminho for um caminho totalmente qualificado (ou seja, começa com uma barra invertida), então, ele será usado.  Se o caminho não for totalmente qualificado, o arquivo será colocado em um local específico da plataforma.
+Inicialização do repositório normalmente é feita imediatamente após o cliente Olá é criado.  Olá **OfflineDbPath** deve ser um nome de arquivo adequado para uso em todas as plataformas que você oferece suporte.  Se o caminho de saudação é um caminho totalmente qualificado (ou seja, ele começa com uma barra), em seguida, ele será usado.  Se o caminho de saudação não está totalmente qualificado, o arquivo de saudação é colocado em um local específico da plataforma.
 
-* Para dispositivos Android e iOS, o caminho padrão é a pasta "Arquivos pessoais".
-* Para dispositivos Windows, o caminho padrão é a pasta "AppData" específica do aplicativo.
+* Para dispositivos iOS e Android, o caminho de padrão de saudação é hello "pessoal pasta"arquivos.
+* Para dispositivos do Windows, o caminho de padrão de saudação é pasta de "AppData" hello específicas do aplicativo.
 
-Uma referência de tabela pode ser obtida usando o método `GetSyncTable<>`:
+Uma referência de tabela pode ser obtida usando Olá `GetSyncTable<>` método:
 
 ```
 var table = client.GetSyncTable<TodoItem>();
 ```
 
-Você não precisa se autenticar para usar uma tabela offline.  Você precisa se autenticar apenas quando estiver se comunicando com o serviço de back-end.
+Não é necessário tooauthenticate toouse uma tabela offline.  Você só precisa tooauthenticate quando você está se comunicando com o serviço de back-end de saudação.
 
 ### <a name="syncoffline"></a>Sincronizando uma tabela Offline
-Tabelas off-line não são sincronizadas com o back-end, por padrão.  A sincronização é dividida em duas partes.  Você pode enviar alterações separadamente de download de novos itens.  Este é um método de sincronização típico:
+Tabelas offline não são sincronizadas com hello back-end por padrão.  A sincronização é dividida em duas partes.  Você pode enviar alterações separadamente de download de novos itens.  Este é um método de sincronização típico:
 
 ```
 public async Task SyncAsync()
@@ -558,7 +558,7 @@ public async Task SyncAsync()
         await this.client.SyncContext.PushAsync();
 
         await this.todoTable.PullAsync(
-            //The first parameter is a query name that is used internally by the client SDK to implement incremental sync.
+            //hello first parameter is a query name that is used internally by hello client SDK tooimplement incremental sync.
             //Use a different query name for each unique query in your program
             "allTodoItems",
             this.todoTable.CreateQuery());
@@ -571,15 +571,15 @@ public async Task SyncAsync()
         }
     }
 
-    // Simple error/conflict handling. A real application would handle the various errors like network conditions,
-    // server conflicts and others via the IMobileServiceSyncHandler.
+    // Simple error/conflict handling. A real application would handle hello various errors like network conditions,
+    // server conflicts and others via hello IMobileServiceSyncHandler.
     if (syncErrors != null)
     {
         foreach (var error in syncErrors)
         {
             if (error.OperationKind == MobileServiceTableOperationKind.Update && error.Result != null)
             {
-                //Update failed, reverting to server's copy.
+                //Update failed, reverting tooserver's copy.
                 await error.CancelAndUpdateItemAsync(error.Result);
             }
             else
@@ -594,69 +594,69 @@ public async Task SyncAsync()
 }
 ```
 
-Se o primeiro argumento para `PullAsync` for nulo, a sincronização incremental não será usado.  Todas as operações de sincronização recuperam todos os registros.
+Se Olá primeiro argumento muito`PullAsync` for nulo, a sincronização incremental não é usado.  Todas as operações de sincronização recuperam todos os registros.
 
-O SDK executa um `PushAsync()` implícito antes de extrair os registros.
+Olá SDK executa implícita `PushAsync()` antes de extrair os registros.
 
-Manipulação de conflito ocorre em um método `PullAsync()`.  Você pode lidar com conflitos da mesma maneira que com tabelas on-line.  O conflito é produzido quando `PullAsync()` é chamado em vez de durante a inserção, atualização ou exclusão. Se vários conflitos ocorrerem, eles serão agrupados em uma única MobileServicePushFailedException.  Gerenciar cada falha separadamente.
+Manipulação de conflito ocorre em um método `PullAsync()`.  Pode lidar com conflitos no hello mesma maneira que as tabelas online.  conflito de saudação é produzido quando `PullAsync()` é chamado em vez de durante a saudação insert, update ou delete. Se vários conflitos ocorrerem, eles serão agrupados em uma única MobileServicePushFailedException.  Gerenciar cada falha separadamente.
 
 ## <a name="#customapi"></a>Trabalhar com uma API personalizada
-Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma inserção, atualização, exclusão ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON.
+Uma API personalizada permite que você toodefine pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeiam tooan inserir, atualizar, excluir ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON.
 
-Você pode chamar uma API personalizada chamando um dos métodos [InvokeApiAsync] no cliente. Por exemplo, a seguinte linha de código envia uma solicitação POST à API **completeAll** no back-end:
+Chamar uma API personalizada chamando uma saudação [InvokeApiAsync] métodos no cliente de saudação. Por exemplo, Olá linha de código a seguir envia um toohello de solicitação POST **completeAll** API em Olá back-end:
 
 ```
 var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Net.Http.HttpMethod.Post, null);
 ```
 
-Essa forma é uma chamada de método tipada e exige que o tipo de retorno **MarkAllResult** seja definido. Os dois métodos, tipado e não tipado, são aceitos.
+Este formulário é uma chamada de método com tipo e requer que Olá **MarkAllResult** retornar o tipo é definido. Os dois métodos, tipado e não tipado, são aceitos.
 
-O método InvokeApiAsync() precede '/api /' para a API que você deseja chamar, a menos que a API comece com '/'.
+Olá InvokeApiAsync() método precede '/ api /' toohello API que você deseja toocall, a menos que Olá API começa com um '/'.
 Por exemplo:
 
-* `InvokeApiAsync("completeAll",...)` chama /api/completeAll no back-end
-* `InvokeApiAsync("/.auth/me",...)` chama /.auth/me no back-end
+* `InvokeApiAsync("completeAll",...)`chama /api/completeAll Olá back-end
+* `InvokeApiAsync("/.auth/me",...)`chama /.auth/me Olá back-end
 
-Você pode usar InvokeApiAsync para chamar qualquer API Web, incluindo as que não são definidas com aplicativos móveis do Azure.  Ao usar InvokeApiAsync(), os cabeçalhos apropriados, incluindo os cabeçalhos de autenticação, são enviados com a solicitação.
+Você pode usar InvokeApiAsync toocall qualquer WebAPI, incluindo os que não estão definidas WebAPIs com aplicativos móveis do Azure.  Quando você usa InvokeApiAsync(), os cabeçalhos apropriados de hello, incluindo os cabeçalhos de autenticação, são enviados com a solicitação de saudação.
 
 ## <a name="authentication"></a>Autenticar usuários
-Os Aplicativos Móveis dão suporte à autenticação e à autorização de usuários de aplicativo, usando vários provedores de identidade externos: Facebook, Google, Conta da Microsoft, Twitter e o Azure Active Directory. Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a identidade de usuários autenticados para implementar regras de autorização em scripts do servidor. Para obter mais informações, consulte o tutorial [Adicionar autenticação ao seu aplicativo].
+Os Aplicativos Móveis dão suporte à autenticação e à autorização de usuários de aplicativo, usando vários provedores de identidade externos: Facebook, Google, Conta da Microsoft, Twitter e o Azure Active Directory. Você pode definir permissões de acesso a tabelas toorestrict para operações específicas de tooonly autenticado usuários. Você também pode usar a identidade Olá usuários autenticados tooimplement de regras de autorização nos scripts de servidor. Para obter mais informações, consulte o tutorial Olá [adicionar autenticação tooyour aplicativo].
 
-Dois fluxos de autenticação têm suporte: fluxo *gerenciado pelo cliente* e fluxo *gerenciado pelo servidor*. O fluxo gerenciado pelo servidor fornece a experiência de autenticação mais simples, pois depende da interface de autenticação da web do provedor. O fluxo gerenciado pelo cliente permite uma integração mais profunda com recursos específicos ao dispositivo pois depende dos SDKs específicos ao provedor e ao dispositivo.
+Dois fluxos de autenticação têm suporte: fluxo *gerenciado pelo cliente* e fluxo *gerenciado pelo servidor*. fluxo gerenciado pelo servidor de saudação fornece experiência de autenticação mais simples de Olá, como ele se baseia na interface de autenticação do provedor de saudação da web. fluxo de cliente gerenciado Olá permite integração mais profunda com recursos específicos do dispositivo como depende dos SDKs de específico do dispositivo específico do provedor.
 
 > [!NOTE]
 > Recomendamos o uso de um fluxo gerenciado pelo cliente em seus aplicativos de produção.
 
-Para configurar a autenticação, você precisa registrar seu aplicativo com um ou mais provedores de identidade.  O provedor de identidade gera uma ID de cliente e um segredo do cliente para seu aplicativo.  Esses valores são definidos no seu back-end para habilitar a autenticação/autorização de Serviço de Aplicativo do Azure.  Para saber mais, siga as instruções detalhadas no tutorial [Adicionar autenticação ao seu aplicativo].
+tooset a autenticação, você deve registrar seu aplicativo com um ou mais provedores de identidade.  provedor de identidade Hello gera uma ID de cliente e um segredo do cliente para seu aplicativo.  Esses valores, em seguida, são definidos no seu tooenable de back-end do serviço de aplicativo do Azure autenticação/autorização.  Para obter mais informações, execute as instruções detalhadas de saudação do tutorial [adicionar autenticação tooyour aplicativo].
 
-Os tópicos a seguir são abordados nesta seção:
+Olá seguintes tópicos é abordado nesta seção:
 
 * [Autenticação gerenciada pelo cliente](#clientflow)
 * [Autenticação gerenciada pelo servidor](#serverflow)
-* [Armazenando o token de autenticação em cache](#caching)
+* [Token de autenticação do cache Olá](#caching)
 
 ### <a name="clientflow"></a>Autenticação gerenciada pelo cliente
-Seu aplicativo pode entrar em contato de forma independente com o provedor de identidade e fornecer o token retornado durante o login com seu backend. Esse fluxo de cliente permite que você forneça uma experiência de logon único aos usuários ou recupere dados adicionais do usuário do provedor de identidade. É melhor usar a autenticação de fluxo de cliente do que usar um fluxo de servidor, já que o SDK do provedor de identidade fornece uma aparência mais nativa do UX e permite uma maior personalização.
+Seu aplicativo pode independentemente entre em contato com o provedor de identidade hello e forneça token retornado Olá durante o logon com seu back-end. Esse fluxo de cliente permite que você tooprovide uma experiência de logon único para usuários ou dados de usuário adicionais tooretrieve saudação do provedor de identidade. Autenticação de cliente de fluxo é preferencial toousing um fluxo de servidor como o provedor de identidade Olá SDK fornece uma aparência UX mais nativa e permite a personalização adicional.
 
-Veja exemplos para os seguintes padrões de autenticação de fluxo de cliente:
+Exemplos são fornecidos para Olá padrões de autenticação de cliente de fluxo a seguir:
 
 * [Biblioteca de Autenticação do Active Directory](#adal)
 * [Facebook ou Google](#client-facebook)
 * [Live SDK](#client-livesdk)
 
-#### <a name="adal"></a>Autenticar usuários com a Active Directory Authentication Library
-Você pode usar a ADAL (Biblioteca de autenticação do Active Directory) para iniciar a autenticação do usuário a partir do cliente usando a autenticação do Azure Active Directory.
+#### <a name="adal"></a>Autenticar usuários com hello biblioteca de autenticação do Active Directory
+Você pode usar a autenticação de usuário de tooinitiate de biblioteca de autenticação do Active Directory (ADAL) de saudação do cliente hello usando a autenticação do Active Directory do Azure.
 
-1. Configure o seu back-end de aplicativo móvel para entrada no AAD seguindo o tutorial [Como configurar o Serviço de Aplicativo para logon no Active Directory] . Complete a etapa opcional de registrar um aplicativo cliente nativo.
-2. No Visual Studio ou Xamarin Studio, abra o projeto e adicione uma referência ao pacote NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory` . Ao pesquisar, inclua versões de pré-lançamento.
-3. Adicione o código a seguir ao seu aplicativo, de acordo com a plataforma que você está usando. Em cada um, faça as seguintes substituições:
+1. Configurar seu back-end do aplicativo móvel para o logon do AAD pela seguinte Olá [como tooconfigure aplicativo de serviço de logon do Active Directory] tutorial. Torne-se toocomplete Olá opcional de registro de um aplicativo cliente nativo.
+2. No Visual Studio ou no Xamarin Studio, abra seu projeto e adicione uma referência toothe `Microsoft.IdentityModel.CLients.ActiveDirectory` pacote NuGet. Ao pesquisar, inclua versões de pré-lançamento.
+3. Adicione Olá aplicativo tooyour de código a seguir, de acordo com a plataforma toohello que você está usando. Em cada um, verifique Olá substituições a seguir:
 
-   * Substitua **INSERT-AUTHORITY-HERE** pelo nome do locatário no qual o aplicativo foi provisionado. O formato deve ser https://login.microsoftonline.com/contoso.onmicrosoft.com. Esse valor pode ser copiado da guia Domínio no Azure Active Directory no [portal clássico do Azure].
-   * Substitua **INSERT-RESOURCE-ID-HERE** pela ID do cliente do seu back-end de aplicativo móvel. Você pode obter a ID do cliente na guia **Avançadas** em **Configurações do Azure Active Directory** no portal.
-   * Substitua **INSERT-CLIENT-ID-HERE** pela ID do cliente copiada do aplicativo cliente nativo.
-   * Substitua **INSERT-REDIRECT-URI-HERE** pelo ponto de extremidade */.auth/login/done* do site, usando o esquema HTTPS. Esse valor deve ser similar a *https://contoso.azurewebsites.net/.auth/login/done*.
+   * Substituir **aqui de autoridade de inserção** com o nome de saudação do locatário Olá no qual você provisionou o seu aplicativo. O formato deve ser https://login.microsoftonline.com/contoso.onmicrosoft.com. Esse valor pode ser copiado de guia de saudação do domínio no Active Directory do Azure no hello [portal clássico do Azure].
+   * Substituir **inserir recursos-ID aqui** com a ID de cliente Olá para o back-end do aplicativo móvel. Você pode obter a ID do cliente Olá de Olá **avançado** guia **configurações do Active Directory do Azure** no portal de saudação.
+   * Substituir **aqui INSERT-CLIENT-ID** com a ID de cliente Olá você copiou do aplicativo cliente nativo de saudação.
+   * Substituir **INSERT-REDIRECT-URI-aqui** com seu site */.auth/login/done* ponto de extremidade, usando o esquema do hello HTTPS. Esse valor deve ser semelhante muito*https://contoso.azurewebsites.net/.auth/login/done*.
 
-     Veja a seguir o código necessário para cada plataforma:
+     código de saudação necessário para cada plataforma segue:
 
      **Windows:**
 
@@ -760,12 +760,12 @@ Você pode usar a ADAL (Biblioteca de autenticação do Active Directory) para i
     ```
 
 #### <a name="client-facebook"></a>Entrada única usando um token do Facebook ou do Google
-Você pode usar o fluxo de cliente como mostra este trecho de código para o Facebook ou o Google.
+Você pode usar fluxo de saudação do cliente, conforme mostrado neste trecho para o Facebook ou Google.
 
 ```
 var token = new JObject();
 // Replace access_token_value with actual value of your access token obtained
-// using the Facebook or Google SDK.
+// using hello Facebook or Google SDK.
 token.Add("access_token", "access_token_value");
 
 private MobileServiceUser user;
@@ -777,7 +777,7 @@ private async Task AuthenticateAsync()
         try
         {
             // Change MobileServiceAuthenticationProvider.Facebook
-            // to MobileServiceAuthenticationProvider.Google if using Google auth.
+            // tooMobileServiceAuthenticationProvider.Google if using Google auth.
             user = await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
             message = string.Format("You are now logged in - {0}", user.UserId);
         }
@@ -793,10 +793,10 @@ private async Task AuthenticateAsync()
 }
 ```
 
-#### <a name="client-livesdk"></a>Logon único usando a Conta da Microsoft com o Live SDK
-Para autenticar usuários, você deverá registrar seu aplicativo na Central de desenvolvedores da conta da Microsoft. Configure os detalhes do registro no back-end do Aplicativo Móvel. Para criar um registro de conta da Microsoft e conectá-lo ao back-end do Aplicativo Móvel., conclua as etapas em [Registrar seu aplicativo para usar um logon de conta da Microsoft]. Se você tiver as versões da Windows Store e do Windows Phone 8/Silverlight de seu aplicativo, registre a versão da Windows Store primeiro.
+#### <a name="client-livesdk"></a>O logon único usando Microsoft Account com hello Live SDK
+tooauthenticate usuários, você deve registrar seu aplicativo no hello conta da Microsoft Developer Center. Configure os detalhes do registro no back-end do Aplicativo Móvel. toocreate Microsoft registro de conta e conecte-o back-end de aplicativo móvel tooyour, Olá concluir as etapas em [registrar seu aplicativo toouse um logon de conta Microsoft]. Se você tiver versões da Windows Store e Windows Phone do Silverlight/8 do seu aplicativo, registre a versão de armazenamento do Windows hello primeiro.
 
-O código a seguir é autenticado usando o Live SDK e usa o token retornado para entrar no back-end do seu Aplicativo Móvel.
+Olá código a seguir autentica usando o Live SDK e usa Olá retornada token toosign no back-end de aplicativo móvel tooyour.
 
 ```
 private LiveConnectSession session;
@@ -804,28 +804,28 @@ private LiveConnectSession session;
 private async System.Threading.Tasks.Task AuthenticateAsync()
 {
 
-    // Get the URL the Mobile App backend.
+    // Get hello URL hello Mobile App backend.
     var serviceUrl = App.MobileService.ApplicationUri.AbsoluteUri;
 
-    // Create the authentication client for Windows Store using the service URL.
+    // Create hello authentication client for Windows Store using hello service URL.
     LiveAuthClient liveIdClient = new LiveAuthClient(serviceUrl);
-    //// Create the authentication client for Windows Phone using the client ID of the registration.
+    //// Create hello authentication client for Windows Phone using hello client ID of hello registration.
     //LiveAuthClient liveIdClient = new LiveAuthClient(clientId);
 
     while (session == null)
     {
-        // Request the authentication token from the Live authentication service.
-        // The wl.basic scope should always be requested.  Other scopes can be added
+        // Request hello authentication token from hello Live authentication service.
+        // hello wl.basic scope should always be requested.  Other scopes can be added
         LiveLoginResult result = await liveIdClient.LoginAsync(new string[] { "wl.basic" });
         if (result.Status == LiveConnectSessionStatus.Connected)
         {
             session = result.Session;
 
-            // Get information about the logged-in user.
+            // Get information about hello logged-in user.
             LiveConnectClient client = new LiveConnectClient(session);
             LiveOperationResult meResult = await client.GetAsync("me");
 
-            // Use the Microsoft account auth token to sign in to App Service.
+            // Use hello Microsoft account auth token toosign in tooApp Service.
             MobileServiceUser loginResult = await App.MobileService
                 .LoginWithMicrosoftAccountAsync(result.Session.AuthenticationToken);
 
@@ -847,10 +847,10 @@ private async System.Threading.Tasks.Task AuthenticateAsync()
 }
 ```
 
-Para saber mais, confira a documentação do [SDK do Windows Live] .
+Para obter mais informações, consulte Olá [Windows Live SDK] documentação.
 
 ### <a name="serverflow"></a>Autenticação gerenciada pelo servidor
-Depois de registrar seu provedor de identidade, chame o método [LoginAsync] no [MobileServiceClient] com o valor [MobileServiceAuthenticationProvider] de seu provedor. Por exemplo, o código a seguir inicia uma entrada de fluxo do servidor usando o Facebook.
+Depois que você registrou o seu provedor de identidade, chamar hello [LoginAsync] método hello [MobileServiceClient] com hello [MobileServiceAuthenticationProvider] valor do provedor. Por exemplo, hello código a seguir inicia um servidor fluxo-entrar usando o Facebook.
 
 ```
 private MobileServiceUser user;
@@ -878,12 +878,12 @@ private async System.Threading.Tasks.Task Authenticate()
 }
 ```
 
-Se você estiver usando um provedor de identidade além do Facebook, altere o valor [MobileServiceAuthenticationProvider] para o valor de seu provedor.
+Se você estiver usando um provedor de identidade diferente do Facebook, altere o valor de saudação do [MobileServiceAuthenticationProvider] toohello valor para o seu provedor.
 
-Em um fluxo de servidor, o Serviço de Aplicativo do Azure gerencia o fluxo de autenticação OAuth exibindo a página de entrada do provedor selecionado.  Depois que o provedor de identidade retorna, o Serviço de Aplicativo do Azure gera um token de autenticação do Serviço de Aplicativo. O método [LoginAsync] retorna um [MobileServiceUser], que fornece a [UserId] do usuário autenticado e o [MobileServiceAuthenticationToken] como um JWT (token da Web JSON). Esse token pode ser armazenado em cache e reutilizado até que expire. Para obter mais informações, consulte [Armazenando o token de autenticação em cache](#caching).
+Em um fluxo de servidor, do serviço de aplicativo do Azure gerencia o fluxo de autenticação OAuth Olá exibindo Olá página de entrada do provedor selecionado hello.  Uma vez retorna de provedor de identidade hello, serviço de aplicativo do Azure gera um token de autenticação do serviço de aplicativo. Olá [LoginAsync] método retorna um [MobileServiceUser], que fornece os dois Olá [UserId] de saudação autenticado o usuário e Olá [ MobileServiceAuthenticationToken], como um JSON web token (JWT). Esse token pode ser armazenado em cache e reutilizado até que expire. Para obter mais informações, consulte [token de autenticação do Caching Olá](#caching).
 
-### <a name="caching"></a>Armazenando o token de autenticação em cache
-Em alguns casos, a chamada para o método de logon pode ser evitada após a primeira autenticação bem-sucedida armazenando o token de autenticação do provedor.  Os aplicativos da Windows Store e UWP podem usar [PasswordVault] para armazenar em cache o token de autenticação atual após uma conexão bem-sucedida, da seguinte maneira:
+### <a name="caching"></a>Token de autenticação do cache Olá
+Em alguns casos, o método de logon do hello chamada toohello pode ser evitado após uma autenticação bem-sucedida primeiro Olá armazenando o token de autenticação de saudação do provedor de saudação.  Os aplicativos da Windows Store e UWP podem usar [PasswordVault] toocache um token de autenticação atual após um bem-sucedida entrar, da seguinte maneira:
 
 ```
 await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
@@ -893,53 +893,53 @@ vault.Add(new PasswordCredential("Facebook", client.currentUser.UserId,
     client.currentUser.MobileServiceAuthenticationToken));
 ```
 
-O valor de UserId é armazenado como o UserName da credencial e o token é armazenado como a Senha. Em inicializações subsequentes, você pode verificar o **PasswordVault** para ter acesso às credenciais armazenadas em cache. O exemplo a seguir usa as credenciais armazenadas em cache quando elas forem encontradas e tenta autenticar novamente com o back-end:
+Olá UserId valor é armazenado como Olá nome de usuário da credencial hello e token Olá é hello armazenado como Olá senha. Em iniciante subsequentes, você pode verificar Olá **PasswordVault** para credenciais armazenadas em cache. Olá exemplo a seguir usa credenciais armazenadas em cache quando eles são encontrados e caso contrário, as tentativas tooauthenticate novamente com hello back-end:
 
 ```
-// Try to retrieve stored credentials.
+// Try tooretrieve stored credentials.
 var creds = vault.FindAllByResource("Facebook").FirstOrDefault();
 if (creds != null)
 {
-    // Create the current user from the stored credentials.
+    // Create hello current user from hello stored credentials.
     client.currentUser = new MobileServiceUser(creds.UserName);
     client.currentUser.MobileServiceAuthenticationToken =
         vault.Retrieve("Facebook", creds.UserName).Password;
 }
 else
 {
-    // Regular login flow and cache the token as shown above.
+    // Regular login flow and cache hello token as shown above.
 }
 ```
 
-Quando você faz o logoff de um usuário, também deve remover a credencial armazenada, da seguinte maneira:
+Quando você sair de um usuário, você também deve remover credencial Olá armazenado, da seguinte maneira:
 
 ```
 client.Logout();
 vault.Remove(vault.Retrieve("Facebook", client.currentUser.UserId));
 ```
 
-Os aplicativos Xamarin usam as APIs [Xamarin.Auth] para armazenar com segurança as credenciais em um objeto **Account** . Para obter um exemplo de como usar essas APIs, confira o arquivo de código [AuthStore.cs] no [exemplo de compartilhamento de fotos de ContosoMoments](https://github.com/azure-appservice-samples/ContosoMoments).
+Saudação de usar aplicativos Xamarin [Xamarin.Auth] credenciais do repositório de APIs toosecurely em uma **conta** objeto. Para obter um exemplo de como usar essas APIs, consulte Olá [AuthStore.cs] arquivo de código no hello [ContosoMoments foto compartilhamento exemplo](https://github.com/azure-appservice-samples/ContosoMoments).
 
-Quando você usa a autenticação gerenciada pelo cliente, também pode armazenar em cache o token de acesso obtido de seu provedor, como o Facebook ou Twitter. Esse token pode ser fornecido para solicitar um novo token de autenticação a partir do back-end, da seguinte maneira:
+Quando você usar a autenticação de cliente gerenciado, você também pode armazenar o token de acesso de saudação obtido do provedor como o Facebook ou Twitter. Esse token pode ser fornecido toorequest um novo token de autenticação de back-end hello, da seguinte maneira:
 
 ```
 var token = new JObject();
 // Replace <your_access_token_value> with actual value of your access token
 token.Add("access_token", "<your_access_token_value>");
 
-// Authenticate using the access token.
+// Authenticate using hello access token.
 await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 ```
 
 ## <a name="pushnotifications"></a>Notificações por Push
-Os tópicos a seguir abordam Notificações por Push:
+Olá tópicos a seguir cobrem as notificações por Push:
 
 * [Registrar notificações por push](#register-for-push)
 * [Obter um SID do pacote da Windows Store](#package-sid)
 * [Registrar com modelos de Plataforma cruzada](#register-xplat)
 
 ### <a name="register-for-push"></a>Como se registrar para receber notificações por push
-O cliente de Aplicativos Móveis permite que você se registrar para notificações por push com Hubs de Notificação do Azure. Ao se registrar, você obtém um identificador obtido do PNS (Serviço de Notificação por Push) específico da plataforma. Então fornece este valor, juntamente com quaisquer marcas, no momento em que cria o registro. O seguinte código registra seu aplicativo do Windows para notificações de push no WNS (Serviço de Notificação do Windows):
+cliente de aplicativos móveis Olá permite tooregister para notificações de push com Hubs de notificação do Azure. Ao registrar, você obter um identificador obtidos específico da plataforma Olá serviço de notificação por Push (PNS). Você fornecer esse valor junto com todas as marcas, em seguida, quando você criar o registro de saudação. Olá código a seguir registra seu aplicativo do Windows para notificações por push com hello serviço de notificação do Windows (WNS):
 
 ```
 private async void InitNotificationsAsync()
@@ -947,43 +947,43 @@ private async void InitNotificationsAsync()
     // Request a push notification channel.
     var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
-    // Register for notifications using the new channel.
+    // Register for notifications using hello new channel.
     await MobileService.GetPush().RegisterNativeAsync(channel.Uri, null);
 }
 ```
 
-Se você estiver enviando WNS, DEVERÁ [obter um SID do pacote da Windows Store](#package-sid).  Para saber mais sobre os aplicativos do Windows, inclusive como se registrar para obter registros de modelo, confira [Adicionar notificações por push ao seu aplicativo].
+Se você estiver enviando por push tooWNS, você deve [obter um SID do pacote da Windows Store](#package-sid).  Para obter mais informações sobre aplicativos do Windows, inclusive como tooregister para registros de modelo, consulte [adicionar push notificações tooyour aplicativo].
 
-A solicitação de marcas do cliente não tem suporte.  As solicitações de marca são descartadas silenciosamente do registro.
-Se você deseja registrar seu dispositivo com marcas, crie uma API personalizada que usa a API de Hubs de Notificação para realizar o registro em seu nome.  [Chame a API Personalizada](#customapi) em vez do método `RegisterNativeAsync()`.
+Não há suporte para solicitar marcas de cliente hello.  As solicitações de marca são descartadas silenciosamente do registro.
+Se você quiser tooregister seu dispositivo com marcas, crie uma API personalizada que usa o registro de Olá Olá API de Hubs de notificação tooperform em seu nome.  [Chamar hello API personalizada](#customapi) em vez da saudação `RegisterNativeAsync()` método.
 
 ### <a name="package-sid"></a>Como obter um SID do pacote da Windows Store
-Um SID de pacote é necessário para habilitar notificações por push em aplicativos da Windows Store.  Registre seu aplicativo na Windows Store para receber um SID do pacote.
+Um SID de pacote é necessário para habilitar notificações por push em aplicativos da Windows Store.  tooreceive um pacote SID, registrar seu aplicativo com hello da Windows Store.
 
-Para obter esse valor:
+tooobtain este valor:
 
-1. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse no projeto do aplicativo da Windows Store, clique em **Armazenar** > **Associar Aplicativo à Store...**.
-2. No assistente, clique em **Avançar**, entre com sua conta da Microsoft, digite um nome para seu aplicativo em **Reservar um novo nome de aplicativo** e clique em **Reservar**.
-3. Depois que o registro do aplicativo for criado com êxito, selecione o nome do aplicativo, clique em **Avançar** e em **Associar**.
-4. Faça logon na [Central de Desenvolvimento do Windows] usando a sua Conta da Microsoft. Em **Meus aplicativos**, clique no registro de aplicativo que você criou.
-5. Clique em **Gerenciamento de aplicativos** > **Identidade de aplicativos** e, em seguida, role para baixo até encontrar o **SID do Pacote**.
+1. No Visual Studio Solution Explorer, projeto de aplicativo da Windows Store com o botão direito hello, clique em **repositório** > **associar aplicativo hello repositório...** .
+2. No Assistente de saudação, clique em **próximo**, entrar com sua conta da Microsoft, digite um nome para seu aplicativo na **reservar um novo nome de aplicativo**, em seguida, clique em **reserva**.
+3. Após o registro do aplicativo hello nome do aplicativo foi criado com êxito, selecione hello, clique em **próximo**e, em seguida, clique em **associar**.
+4. Faça logon no toohello [Centro de desenvolvimento do Windows] usando sua Account da Microsoft. Em **meus aplicativos**, clique em um registro de aplicativo hello criado.
+5. Clique em **gerenciamento de aplicativo** > **identidade de aplicativo**e, em seguida, role para baixo toofind seu **SID do pacote**.
 
-Muitos usos do SID do pacote o tratam como um URI; nesse caso, você precisa usar *ms-app://* como o esquema. Anote a versão do SID do pacote formado pela concatenação desse valor como um prefixo.
+Muitos usos do SID do pacote hello tratá-lo como um URI, caso em que você precisa toouse *ms-app: / /* como esquema de saudação. Anote a versão de saudação do seu pacote SID formado pela concatenação esse valor como um prefixo.
 
-Os aplicativos Xamarin exigem mais código para poder registrar um aplicativo em execução nas plataformas iOS ou Android. Para saber mais, confira o tópico para sua plataforma:
+Aplicativos Xamarin exigem algumas tooregister capaz de toobe código adicional um aplicativo em execução em plataformas Android ou iOS hello. Para obter mais informações, consulte o tópico de saudação para sua plataforma:
 
 * [Xamarin.Android](app-service-mobile-xamarin-android-get-started-push.md#add-push)
 * [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started-push.md#add-push-notifications-to-your-app)
 
-### <a name="register-xplat"></a>Como registrar modelos de envio por push para enviar notificações entre plataformas
-Para registrar modelos, use o método `RegisterAsync()` com os modelos, da seguinte maneira:
+### <a name="register-xplat"></a>Como: notificações de plataforma cruzada do registro por push modelos toosend
+modelos de tooregister, use Olá `RegisterAsync()` método com modelos de hello, da seguinte maneira:
 
 ```
 JObject templates = myTemplates();
 MobileService.GetPush().RegisterAsync(channel.Uri, templates);
 ```
 
-Seus modelos devem ser do tipo `JObject` e podem conter vários modelos no seguinte formato JSON:
+Os modelos devem ser `JObject` tipos e pode conter vários modelos em Olá formato JSON a seguir:
 
 ```
 public JObject myTemplates()
@@ -1008,25 +1008,25 @@ public JObject myTemplates()
 }
 ```
 
-O método **RegisterAsync()** também aceita Blocos Secundários:
+Olá método **RegisterAsync()** também aceita blocos secundário:
 
 ```
 MobileService.GetPush().RegisterAsync(string channelUri, JObject templates, JObject secondaryTiles);
 ```
 
-Todas as marcações são retiradas durante o registro para segurança. Para adicionar marcas a instalações ou modelos dentro de instalações, confira [Trabalhar com o SDK do servidor de back-end do .NET para Aplicativos Móveis do Azure].
+Todas as marcações são retiradas durante o registro para segurança. tooadd marcas tooinstallations ou modelos dentro de instalações, consulte [trabalhar com o servidor de back-end .NET Olá SDK para aplicativos móveis do Azure].
 
-Para enviar notificações usando esses modelos registrados, consulte as [APIs dos Hubs de Notificação].
+notificações de toosend utilizando esses modelos registrados, consulte toohello [APIs de Hubs de notificação].
 
 ## <a name="misc"></a>Tópicos Diversos
 ### <a name="errors"></a>Como tratar erros
-Quando ocorre um erro no back-end, o SDK do cliente dispara uma `MobileServiceInvalidOperationException`.  O seguinte exemplo mostra como manipular uma exceção que é retornada pelo back-end:
+Quando ocorre um erro no back-end do hello, cliente Olá SDK gera um `MobileServiceInvalidOperationException`.  A exemplo a seguir mostra como uma exceção que é retornado pelo back-end de saudação do toohandle:
 
 ```
 private async void InsertTodoItem(TodoItem todoItem)
 {
-    // This code inserts a new TodoItem into the database. When the operation completes
-    // and App Service has assigned an Id, the item is added to the CollectionView
+    // This code inserts a new TodoItem into hello database. When hello operation completes
+    // and App Service has assigned an Id, hello item is added toohello CollectionView
     try
     {
         await todoTable.InsertAsync(todoItem);
@@ -1039,10 +1039,10 @@ private async void InsertTodoItem(TodoItem todoItem)
 }
 ```
 
-Outro exemplo de lidar com condições de erro pode ser encontrado no [exemplo de arquivos de Aplicativos Móveis]. O exemplo de [LoggingHandler] fornece um manipulador de representante de registro em log para registrar as solicitações que estão sendo feitas no back-end.
+Outro exemplo de lidar com condições de erro pode ser encontrado no hello [exemplo de arquivos de aplicativos móveis]. O [LoggingHandler] exemplo fornece um delegado de registro em log solicitações de saudação do manipulador toolog sendo feitas toohello back-end.
 
 ### <a name="headers"></a>Como personalizar cabeçalhos de solicitação
-Para dar suporte ao seu cenário específico de aplicativo, convém personalizar a comunicação com o back-end do Aplicativo Móvel. Por exemplo, convém adicionar um cabeçalho personalizado para cada solicitação de saída, ou até mesmo alterar códigos de status de respostas. Você pode usar um [DelegatingHandler]personalizado, como no exemplo abaixo:
+toosupport seu cenário de aplicativo específico, talvez seja necessário toocustomize comunicação com o back-end de aplicativo móvel hello. Por exemplo, você pode desejar tooadd uma solicitação de saída de cabeçalho personalizado tooevery ou até mesmo alterar códigos de status de respostas. Você pode usar um personalizado [DelegatingHandler], conforme mostrado no exemplo a seguir de saudação:
 
 ```
 public async Task CallClientWithHandler()
@@ -1058,15 +1058,15 @@ public class MyHandler : DelegatingHandler
     protected override async Task<HttpResponseMessage>
         SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {
-        // Change the request-side here based on the HttpRequestMessage
+        // Change hello request-side here based on hello HttpRequestMessage
         request.Headers.Add("x-my-header", "my value");
 
-        // Do the request
+        // Do hello request
         var response = await base.SendAsync(request, cancellationToken);
 
-        // Change the response-side here based on the HttpResponseMessage
+        // Change hello response-side here based on hello HttpResponseMessage
 
-        // Return the modified response
+        // Return hello modified response
         return response;
     }
 }
@@ -1092,20 +1092,20 @@ public class MyHandler : DelegatingHandler
 [11]: http://www.symbolsource.org/Public/Wiki/Using
 [12]: https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
-[Adicionar autenticação ao seu aplicativo]: app-service-mobile-windows-store-dotnet-get-started-users.md
-[Sincronização de Dados Offline nos Aplicativos Móveis do Azure]: app-service-mobile-offline-data-sync.md
-[Adicionar notificações por push ao seu aplicativo]: app-service-mobile-windows-store-dotnet-get-started-push.md
-[Registrar seu aplicativo para usar um logon de conta da Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Como configurar o Serviço de Aplicativo para logon no Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[adicionar autenticação tooyour aplicativo]: app-service-mobile-windows-store-dotnet-get-started-users.md
+[sincronização de dados Offline em aplicativos móveis do Azure]: app-service-mobile-offline-data-sync.md
+[adicionar push notificações tooyour aplicativo]: app-service-mobile-windows-store-dotnet-get-started-push.md
+[registrar seu aplicativo toouse um logon de conta Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
+[como tooconfigure aplicativo de serviço de logon do Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/en-us/library/azure/dn250636(v=azure.10).aspx
 [MobileServiceIncrementalLoadingCollection]: https://msdn.microsoft.com/en-us/library/azure/dn268408(v=azure.10).aspx
 [MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider(v=azure.10).aspx
 [MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser(v=azure.10).aspx
-[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken(v=azure.10).aspx
+[ MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken(v=azure.10).aspx
 [GetTable]: https://msdn.microsoft.com/en-us/library/azure/jj554275(v=azure.10).aspx
-[cria uma referência para uma tabela não tipada]: https://msdn.microsoft.com/en-us/library/azure/jj554278(v=azure.10).aspx
+[cria uma tabela sem tipo de referência de tooan]: https://msdn.microsoft.com/en-us/library/azure/jj554278(v=azure.10).aspx
 [DeleteAsync]: https://msdn.microsoft.com/en-us/library/azure/dn296407(v=azure.10).aspx
 [IncludeTotalCount]: https://msdn.microsoft.com/en-us/library/azure/dn250560(v=azure.10).aspx
 [InsertAsync]: https://msdn.microsoft.com/en-us/library/azure/dn296400(v=azure.10).aspx
@@ -1115,28 +1115,28 @@ public class MyHandler : DelegatingHandler
 [OrderBy]: https://msdn.microsoft.com/en-us/library/azure/dn250572(v=azure.10).aspx
 [OrderByDescending]: https://msdn.microsoft.com/en-us/library/azure/dn250568(v=azure.10).aspx
 [ReadAsync]: https://msdn.microsoft.com/en-us/library/azure/mt691741(v=azure.10).aspx
-[Take]: https://msdn.microsoft.com/en-us/library/azure/dn250574(v=azure.10).aspx
-[Select]: https://msdn.microsoft.com/en-us/library/azure/dn250569(v=azure.10).aspx
-[Ignorar]: https://msdn.microsoft.com/en-us/library/azure/dn250573(v=azure.10).aspx
+[levar]: https://msdn.microsoft.com/en-us/library/azure/dn250574(v=azure.10).aspx
+[selecione]: https://msdn.microsoft.com/en-us/library/azure/dn250569(v=azure.10).aspx
+[ignorar]: https://msdn.microsoft.com/en-us/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/en-us/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
-[Where]: https://msdn.microsoft.com/en-us/library/azure/dn250579(v=azure.10).aspx
+[onde]: https://msdn.microsoft.com/en-us/library/azure/dn250579(v=azure.10).aspx
 [portal do Azure]: https://portal.azure.com/
 [portal clássico do Azure]: https://manage.windowsazure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/en-us/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
-[Central de Desenvolvimento do Windows]: https://dev.windows.com/en-us/overview
+[Centro de desenvolvimento do Windows]: https://dev.windows.com/en-us/overview
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
-[SDK do Windows Live]: https://msdn.microsoft.com/en-us/library/bb404787.aspx
+[Windows Live SDK]: https://msdn.microsoft.com/en-us/library/bb404787.aspx
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
-[APIs dos Hubs de Notificação]: https://msdn.microsoft.com/library/azure/dn495101.aspx
-[exemplo de arquivos de Aplicativos Móveis]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
+[APIs de Hubs de notificação]: https://msdn.microsoft.com/library/azure/dn495101.aspx
+[exemplo de arquivos de aplicativos móveis]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
 [LoggingHandler]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files/blob/master/src/client/MobileAppsFilesSample/Helpers/LoggingHandler.cs#L63
 
 <!-- External URLs -->
-[Documentação do OData v3]: http://www.odata.org/documentation/odata-version-3-0/
+[OData v3 documentação]: http://www.odata.org/documentation/odata-version-3-0/
 [Fiddler]: http://www.telerik.com/fiddler
 [Json.NET]: http://www.newtonsoft.com/json
 [Xamarin.Auth]: https://components.xamarin.com/view/xamarin.auth/

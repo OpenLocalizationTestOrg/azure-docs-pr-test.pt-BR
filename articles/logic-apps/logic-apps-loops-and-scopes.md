@@ -1,6 +1,6 @@
 ---
-title: "Criar loops e escopos ou retirar dados de lote em fluxos de trabalho - Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Criar loops para iterar por meio de dados, as ações de grupo em escopos, ou retirar dados de lote para iniciar mais fluxos de trabalho em Aplicativos Lógicos do Azure."
+title: "aaaCreate loops e os escopos ou debatch dados em fluxos de trabalho - os aplicativos lógicos do Azure | Microsoft Docs"
+description: "Criar loops tooiterate pelos dados, agrupar ações em escopos, ou debatch toostart dados mais fluxos de trabalho em aplicativos do Azure lógica."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 413a2ba9107ca259ed577825bf0a17ff5622f1ac
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e612ec2e83541f028916a07bf12c44e7b1f57ad1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Loops, Escopos e Debatch dos Aplicativos Lógicos
   
-Os Aplicativos Lógicos fornecem várias maneiras de trabalhar com matrizes, coleções, lotes e loops em um fluxo de trabalho.
+Lógica de aplicativos fornece um número de maneiras toowork com matrizes, coleções, lotes e loops dentro de um fluxo de trabalho.
   
 ## <a name="foreach-loop-and-arrays"></a>Matrizes e loop ForEach
   
-Os Aplicativos Lógicos permitem que você faça um loop em um conjunto de dados e execute uma ação para cada item.  Isso é possível por meio da ação `foreach` .  No designer, você pode especificar a adição de um loop for each.  Depois de selecionar a matriz em que você deseja iterar, você poderá começar a adicionar ações.  No momento, você está limitado a apenas uma ação por loop foreach, mas essa restrição será eliminada nas próximas semanas.  Uma vez no loop, você poderá começar a especificar o que deve ocorrer em cada valor da matriz.
+Lógica de aplicativos permite que você tooloop em um conjunto de dados e executar uma ação para cada item.  Isso é possível por meio de saudação `foreach` ação.  No designer de saudação, você pode especificar tooadd um loop for each.  Depois de selecionar a matriz de saudação que desejar tooiterate sobre, você pode começar a adicionar ações.  Atualmente você está limitado tooonly uma ação por loop foreach, mas essa restrição será eliminada em hello em semanas.  Uma vez em loop hello, você pode começar toospecify o que deve ocorrer a cada valor de matriz de saudação.
 
 Se você estiver usando o modo de exibição de código, poderá especificar um loop for each como o abaixo.  Este é um exemplo de um loop for each que envia um email para cada endereço de email com 'microsoft.com':
 
@@ -66,11 +66,11 @@ Se você estiver usando o modo de exibição de código, poderá especificar um 
 }
 ```
   
-  Uma ação `foreach` pode iterar em matrizes até 5.000 linhas.  Por padrão, cada iteração será executada paralelamente.  
+  Um `foreach` ação pode iterar em matrizes de too5, linhas, 000.  Por padrão, cada iteração será executada paralelamente.  
 
 ### <a name="sequential-foreach-loops"></a>Loops ForEach sequenciais
 
-Para habilitar um loop foreach para ser executado sequencialmente, a opção de operação `Sequential` deve ser adicionada.
+tooenable um tooexecute de loop foreach em sequência, Olá `Sequential` deve ser adicionada a opção de operação.
 
 ``` json
 "forEach_email": {
@@ -83,9 +83,9 @@ Para habilitar um loop foreach para ser executado sequencialmente, a opção de 
   
 ## <a name="until-loop"></a>Loop Until
   
-  Você pode executar uma ação ou uma série de ações até que uma condição seja atendida.  O cenário mais comum para isso é chamar um ponto de extremidade até você chegar à resposta que está procurando.  No designer, você pode especificar a adição de um loop until.  Depois de adicionar ações dentro do loop, você poderá definir a condição de saída, bem como os limites do loop.  Há um atraso de um minuto entre os ciclos de loop.
+  Você pode executar uma ação ou uma série de ações até que uma condição seja atendida.  Olá cenário mais comum para isso é chamar um ponto de extremidade até obter resposta de saudação que você está procurando.  No designer de saudação, você pode especificar tooadd um até que o loop.  Depois de adicionar as ações Olá loop, você pode definir a condição de saída de hello, bem como Olá limites do loop.  Há um atraso de um minuto entre os ciclos de loop.
   
-  Se você estiver usando o modo de exibição de código, poderá especificar um loop unitl como o abaixo.  Este é um exemplo de chamada a um ponto de extremidade HTTP até que o corpo da resposta tenha o valor 'Concluído'.  Ele será concluído quando a 
+  Se você estiver usando o modo de exibição de código, poderá especificar um loop unitl como o abaixo.  Este é um exemplo de como chamar um ponto de extremidade HTTP até que o corpo da resposta Olá tem valor de saudação 'Concluído'.  Ele será concluído quando a 
   
   * Resposta HTTP tiver o status 'Concluído'
   * Ele tentou por uma hora
@@ -117,9 +117,9 @@ Para habilitar um loop foreach para ser executado sequencialmente, a opção de 
   
 ## <a name="spliton-and-debatching"></a>SplitOn e debatching
 
-Às vezes, um gatilho pode receber uma matriz de itens nos quais deseja fazer debatch e iniciar um fluxo de trabalho por item.  Isso pode ser feito por meio do comando `spliton` .  Por padrão, se o gatilho swagger especificar uma carga que seja uma matriz, um `spliton` será adicionado e iniciará uma execução por item.  SplitOn só pode ser adicionado a um gatilho.  Isso pode ser manualmente configurado ou substituído na exibição de código de definição.  Atualmente, o SplitOn pode fazer debatch em matrizes de até 5.000 itens.  Você não pode ter um `spliton` e também implementar o padrão de resposta síncrona.  Qualquer fluxo de trabalho chamado com uma ação `response` além de `spliton` será executado de forma assíncrona e enviará uma resposta `202 Accepted` imediata.  
+Às vezes, um gatilho pode ser uma matriz de itens que você deseja toodebatch e iniciar um fluxo de trabalho por item.  Isso pode ser feito por meio de saudação `spliton` comando.  Por padrão, se o gatilho swagger especificar uma carga que seja uma matriz, um `spliton` será adicionado e iniciará uma execução por item.  SplitOn só pode ser adicionado tooa gatilho.  Isso pode ser manualmente configurado ou substituído na exibição de código de definição.  No momento SplitOn pode debatch matrizes de too5, 000 itens.  Você não pode ter um `spliton` e também implementa o padrão de resposta síncrona de saudação.  Qualquer fluxo de trabalho chamado que tem um `response` ação além disso muito`spliton` serão executados de forma assíncrona e enviar imediato `202 Accepted` resposta.  
 
-SplitOn pode ser especificado no modo de exibição de código como o exemplo a seguir.  Isso recebe uma matriz de itens e faz debatch em cada linha.
+SplitOn pode ser especificado no modo de exibição de código como Olá exemplo a seguir.  Isso recebe uma matriz de itens e faz debatch em cada linha.
 
 ```
 {
@@ -139,7 +139,7 @@ SplitOn pode ser especificado no modo de exibição de código como o exemplo a 
 
 ## <a name="scopes"></a>Escopos
 
-É possível agrupar uma série de ações usando um escopo.  Isso é particularmente útil para implementar o tratamento de exceções.  No designer, você pode adicionar um novo escopo e começar a adicionar ações dentro dele.  É possível definir escopos no modo de exibição de código semelhante ao seguinte:
+É possível toogroup uma série de ações usando um escopo.  Isso é particularmente útil para implementar o tratamento de exceções.  No designer de saudação, você pode adicionar um novo escopo e começar a adicionar as ações dentro dele.  Você pode definir escopos na visualização de código como Olá a seguir:
 
 
 ```

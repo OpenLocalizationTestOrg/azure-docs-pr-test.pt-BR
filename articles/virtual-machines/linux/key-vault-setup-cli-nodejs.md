@@ -1,6 +1,6 @@
 ---
-title: Configurar o Key Vault para VMs do Linux com o CLI do Azure 1.0 | Microsoft Docs
-description: "Como configurar o Key Vault para uso com uma máquina virtual do Azure Resource Manager com a CLI do Azure 1.0."
+title: aaaSet o Cofre de chaves para VMs do Linux com hello 1.0 da CLI do Azure | Microsoft Docs
+description: "Como tooset o Cofre de chaves para uso com uma máquina virtual de Gerenciador de recursos do Azure com hello 1.0 da CLI do Azure."
 services: virtual-machines-linux
 documentationcenter: 
 author: singhkays
@@ -15,30 +15,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
-ms.openlocfilehash: fed612a354d45f34619f2a66bd40d78740c43ac7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 275022e4e7e26d7363784c289dd7512047c07bad
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager-with-the-azure-cli-10"></a>Configurar o Key Vault para máquinas virtuais no Azure Resource Manager com a CLI do Azure 1.0
-Na pilha do Azure Resource Manager, os certificados/segredos são modelados como recursos que são fornecidos pelo provedor de recursos do Key Vault. Para saber mais sobre o Cofre de Chaves do Azure, consulte [O que é o Cofre de Chaves do Azure?](../../key-vault/key-vault-whatis.md) Para que um Cofre de Chaves seja usado com máquinas virtuais do Azure Resource Manager, a propriedade *EnabledForDeployment* no Cofre de Chaves deverá ser definida como true. Você pode fazer isso em vários clientes. Este artigo mostra como configurar o Key Vault para uso com as máquinas virtuais do Azure.
+# <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager-with-hello-azure-cli-10"></a>Configurar o Cofre de chaves para as máquinas virtuais no Gerenciador de recursos do Azure com hello 1.0 da CLI do Azure
+Na pilha do Gerenciador de recursos do Azure hello, segredos/certificados são modelados como recursos que são fornecidos pelo provedor de recursos de saudação do Cofre de chaves. toolearn mais sobre o Cofre de chaves do Azure, consulte [o que é o Azure Key Vault?](../../key-vault/key-vault-whatis.md) Em ordem para o Cofre de chaves toobe usado com máquinas virtuais do Gerenciador de recursos do Azure, Olá *EnabledForDeployment* propriedade no cofre de chaves deve ser definida como tootrue. Você pode fazer isso em vários clientes. Este artigo mostra como tooset o Cofre de chaves para uso com as máquinas virtuais do Azure.
 
-## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
-Você pode concluir a tarefa usando uma das seguintes versões da CLI
+## <a name="cli-versions-toocomplete-hello-task"></a>Tarefa de saudação do CLI versões toocomplete
+Você pode concluir tarefa hello usando uma saudação seguir versões da CLI
 
-- [CLI 1.0 do Azure](#quick-commands) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos (este artigo)
-- [CLI do Azure 2.0](../windows/key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – nossa próxima geração de CLI para o modelo de implantação do resource manager
+- [1.0 de CLI do Azure](#quick-commands) – nosso CLI para Olá clássico e o recurso de gerenciamento modelos de implantação (Este artigo)
+- [2.0 do CLI do Azure](../windows/key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) -nossa próxima geração CLI para o modelo de implantação do gerenciamento de recursos de saudação
 
-## <a name="use-cli-10-to-set-up-key-vault"></a>Usar a CLI 1.0 para configurar o Key Vault
-Para criar um cofre de chaves usando a CLI (interface de linha de comando), consulte [Gerenciar Cofre da Chave usando a CLI](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault).
+## <a name="use-cli-10-tooset-up-key-vault"></a>Usar CLI 1.0 tooset o Cofre de chaves
+toocreate um cofre de chaves usando a interface de linha de comando da saudação (CLI), consulte [Gerenciar cofre de chaves usando a CLI](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault).
 
-Para a CLI 1.0, você precisa criar o Key Vault antes de atribuir a política de implantação. Você pode atribuir a diretiva usando o seguinte comando:
+CLI 1.0, você deve ter um cofre de chaves toocreate Olá antes de atribuir a política de implantação de saudação. Você pode atribuir política hello usando Olá comando a seguir:
 
     azure keyvault set-policy ContosoKeyVault –enabled-for-deployment true
 
-## <a name="use-templates-to-set-up-key-vault"></a>Usar modelos para configurar o Cofre de Chaves
-Ao usar um modelo, você precisa definir a propriedade `enabledForDeployment` como `true` para o recurso de Cofre de Chaves.
+## <a name="use-templates-tooset-up-key-vault"></a>Usar modelos tooset o Cofre de chaves
+Quando você usa um modelo, você precisa Olá tooset `enabledForDeployment` propriedade muito`true` para Olá recurso de Cofre de chaves.
 
     {
       "type": "Microsoft.KeyVault/vaults",

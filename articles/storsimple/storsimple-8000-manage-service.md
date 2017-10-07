@@ -1,6 +1,6 @@
 ---
-title: "Implantar o serviço do Gerenciador de Dispositivos do StorSimple no Azure | Microsoft Docs"
-description: "Explica como criar e excluir o serviço Gerenciador de Dispositivo do StorSimple no Portal do Azure, além de descrever como gerenciar a chave de registro do serviço."
+title: "Olá aaaDeploy serviço do Gerenciador de dispositivos do StorSimple no Azure | Microsoft Docs"
+description: "Explica como toocreate e delete Olá serviço do Gerenciador de dispositivos do StorSimple no hello portal do Azure e descreve como toomanage Olá a chave de registro de serviço."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,101 +14,101 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 22bb4a32f006d7e49356743c2a87eb622a61d18e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b84a907d6b735c8fee7bdc51f9c0074857297d2a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implantar o serviço do Gerenciador de Dispositivos do StorSimple para dispositivos StorSimple da série 8000
+# <a name="deploy-hello-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implantar o serviço do Gerenciador de dispositivos de StorSimple Olá para dispositivos da série StorSimple 8000
 
 ## <a name="overview"></a>Visão geral
 
-O serviço Gerenciador de Dispositivo do StorSimple é executado no Microsoft Azure e se conecta a vários dispositivos StorSimple. Depois de criar o serviço, você pode usá-lo para gerenciar todos os dispositivos que estão conectados ao serviço do Gerenciador de Dispositivos do StorSimple de um local único e central, minimizando assim a carga administrativa.
+saudação de serviço do Gerenciador de dispositivos do StorSimple é executado no Microsoft Azure e conecta dispositivos de StorSimple toomultiple. Depois de criar o serviço hello, você pode usá-lo toomanage todos os dispositivos de saudação que são conectado toohello Gerenciador de dispositivos do StorSimple do serviço de um único local central, minimizando a carga administrativa.
 
-Este tutorial descreve as etapas necessárias para a criação, exclusão e migração do serviço e o gerenciamento da chave de Registro do serviço. As informações contidas neste artigo aplicam-se apenas a dispositivos StorSimple da série 8000. Para obter mais informações sobre Matrizes Virtual do StorSimple, acesse [Implantar um serviço do Gerenciador de Dispositivos do StorSimple para sua Matriz Virtual do StorSimple](storsimple-virtual-array-manage-service.md).
+Este tutorial descreve etapas Olá necessárias para Olá criação, exclusão, a migração do serviço de saudação e gerenciamento de saudação da chave de registro do serviço de saudação. informações de saudação contidas neste artigo são aplicável somente dispositivos da série tooStorSimple 8000. Para obter mais informações sobre matrizes Virtual StorSimple, vá muito[implantar um serviço de Gerenciador de dispositivos de StorSimple para sua matriz Virtual StorSimple](storsimple-virtual-array-manage-service.md).
 
 ## <a name="create-a-service"></a>Criar um serviço
-Para criar um serviço do Gerenciador de Dispositivos do StorSimple, você precisa ter:
+toocreate um serviço de Gerenciador de dispositivos de StorSimple, você precisa toohave:
 
 * Uma assinatura com um Enterprise Agreement
 * Uma conta de armazenamento ativa do Microsoft Azure
-* As informações de cobrança que são usadas para gerenciamento de acesso
+* Olá informações de cobrança que são usadas para gerenciamento de acesso
 
-Somente as assinaturas com um Contrato Enterprise são permitidas. Não há suporte para assinaturas do Microsoft Sponsorship no Portal do Azure, as que eram permitidas no Portal Clássico do Azure. Você verá a seguinte mensagem ao usar uma assinatura sem suporte:
+São permitidas somente Olá assinaturas com um Enterprise Agreement. Não há suporte para assinaturas do Microsoft Sponsorship que eram permitidas no hello portal clássico do Azure no portal do Azure de saudação. Você verá Olá mensagem a seguir ao usar uma assinatura sem suporte:
 
 ![Assinatura inválida](./media/storsimple-8000-manage-service/subscription-not-valid.jpg)
 
-Também é possível optar por gerar uma conta de armazenamento padrão ao criar o serviço.
+Além disso, é possível toogenerate uma conta de armazenamento padrão ao criar serviço hello.
 
-Um único serviço pode gerenciar vários dispositivos. No entanto, um dispositivo não pode abranger vários serviços. Uma grande empresa pode ter várias instâncias do serviço para trabalhar com diferentes assinaturas, organizações ou até mesmo locais de implantação. 
+Um único serviço pode gerenciar vários dispositivos. No entanto, um dispositivo não pode abranger vários serviços. Uma grande empresa pode ter vários toowork de instâncias de serviço com diferentes assinaturas, organizações ou mesmo regiões de implantação. 
 
 > [!NOTE]
-> Você precisa de instâncias separadas do serviço Gerenciador de Dispositivo do StorSimple para gerenciar as Matrizes Virtuais e os dispositivos da série 8000 do StorSimple.
+> Você precisa de instâncias separadas de dispositivos da série StorSimple 8000 Gerenciador de dispositivos do StorSimple service toomanage e matrizes de Virtual do StorSimple.
 
-Execute as etapas a seguir para criar um serviço.
+Execute Olá etapas toocreate um serviço a seguir.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-8000-create-new-service.md)]
 
 
-Os atributos a seguir existem para cada serviço do Gerenciador de Dispositivos do StorSimple:
+Para cada serviço de Gerenciador de dispositivos de StorSimple, Olá atributos a seguir existe:
 
-* **Nome** – O nome que foi atribuído ao serviço do Gerenciador de Dispositivos do StorSimple quando ele foi criado. **O nome do serviço não pode ser alterado depois que o serviço é criado. O mesmo ocorre para outras entidades como dispositivos, volumes, contêineres de volume e políticas de backup, os quais não podem ser renomeados no Portal do Azure.**
-* **Status**: o status do serviço, que pode ser **Ativo**, **Criando** ou **Online**.
-* **Local** : a localização geográfica em que o dispositivo StorSimple será implantado.
-* **Assinatura** : a assinatura de cobrança associada ao seu serviço.
+* **Nome** – nome hello que foi atribuído o serviço do Gerenciador de dispositivos de StorSimple tooyour quando ele foi criado. **nome do serviço Olá não pode ser alterado depois que o serviço Olá é criado. Isso também é verdadeiro para outras entidades, como os dispositivos, volumes, contêineres de volume e políticas de backup que não podem ser renomeadas no hello portal do Azure.**
+* **Status** – Olá status do serviço de saudação, que pode ser **Active**, **criando**, ou **Online**.
+* **Local** – Olá localização geográfica na qual Olá StorSimple dispositivo será implantado.
+* **Assinatura** – hello cobrança de assinatura que está associada ao seu serviço.
 
-## <a name="move-a-service-to-azure-portal"></a>Mover um serviço para o Portal do Azure
-O StorSimple da série 8000 agora pode ser gerenciado no Portal do Azure. Se já tiver um serviço para gerenciar os dispositivos StorSimple, recomendamos movê-lo para o Portal do Azure. O Portal Clássico do Azure para o serviço do StorSimple Manager não estará disponível após 30 de setembro de 2017.
+## <a name="move-a-service-tooazure-portal"></a>Mover um portal tooAzure
+Série StorSimple 8000 agora pode ser gerenciado no hello portal do Azure. Se você tiver um serviço toomanage Olá StorSimple os dispositivos existentes, é recomendável que você mova seu toohello service portal do Azure. Olá portal clássico do Azure para Olá serviço StorSimple Manager não está disponível após 30 de setembro de 2017.
 
-A opção para migrar para o portal do Azure está disponível em fases. Se você não vir uma opção para migrar para o portal do Azure, mas quiser mover e analisar o impacto da migração conforme documentado nas [Considerações sobre a transição](#considerations-for-transition), pode [enviar uma solicitação](https://aka.ms/ss8000-cx-signup).
+Olá opção toomigrate toohello portal do Azure está disponível em fases. Se você não vir um portal de tooAzure toomigrate opção, mas você deseja toomove e examinou o impacto de saudação da migração conforme documentado no hello [considerações sobre a transição](#considerations-for-transition), você pode [enviar uma solicitação](https://aka.ms/ss8000-cx-signup).
 
 ### <a name="considerations-for-transition"></a>Considerações sobre a transição
 
-Analise o impacto da migração para o novo Portal do Azure antes de mover o serviço.
+Analisar o impacto de saudação de migração toohello novo portal do Azure antes de mover o serviço de saudação.
 
 #### <a name="before-you-transition"></a>Antes da transição
 
-* Seu dispositivo executa a Atualização 3.0 ou posterior. Se seu dispositivo executar uma versão mais antiga, instale as atualizações mais recentes. Para obter mais informações, acesse [Instalar a Atualização 4](storsimple-8000-install-update-4.md). Se usar um Dispositivo de Nuvem StorSimple (8010/8020), crie um novo dispositivo de nuvem com Atualização 4.0. 
+* Seu dispositivo executa a Atualização 3.0 ou posterior. Se seu dispositivo está executando uma versão mais antiga, instale as atualizações mais recentes de saudação. Para obter mais informações, vá muito[instalar atualização 4](storsimple-8000-install-update-4.md). Se usar um Dispositivo de Nuvem StorSimple (8010/8020), crie um novo dispositivo de nuvem com Atualização 4.0. 
 
-* Depois de realizar a transição para o novo Portal do Azure, não será possível usar o Portal Clássico do Azure para gerenciar seu dispositivo StorSimple.
+* Quando estiver toohello transição novo portal do Azure, você não pode usar Olá toomanage de portal clássico do Azure em seu dispositivo StorSimple.
 
-* A transição ocorre sem interrupções e não há nenhum tempo de inatividade para o dispositivo.
+* transição de saudação é interrupções e não há nenhum tempo de inatividade para dispositivo hello.
 
-* Todos os Gerenciadores de Dispositivos do StorSimple na assinatura especificada são transferidos.
+* Todos os gerenciadores de dispositivo StorSimple Olá em Olá especificado assinatura são transferidas.
 
-#### <a name="during-the-transition"></a>Durante a transição
+#### <a name="during-hello-transition"></a>Durante a transição de saudação
 
-* Não é possível gerenciar o dispositivo no portal.
-* Operações como backups agendados e em camadas continuam a ocorrer.
-* Não exclua os Gerenciadores de Dispositivos do StorSimple antigos enquanto a transição estiver em andamento.
+* Você não pode gerenciar seu dispositivo do portal de saudação.
+* As operações, como backups agendados e camadas continuar toooccur.
+* Não exclua Olá antigo gerenciadores de dispositivos de StorSimple enquanto transição hello está em andamento.
 
-#### <a name="after-the-transition"></a>Após a transição
+#### <a name="after-hello-transition"></a>Após a transição de saudação
 
-* Não será mais possível gerenciar seus dispositivos no Portal Clássico.
+* Você não poderá mais gerenciar seus dispositivos no portal clássico do hello.
 
-* Não haverá suporte para os cmdlets do PowerShell do ASM (Gerenciamento de Serviços do Azure) existentes. Atualize os scripts para gerenciar seus dispositivos por meio do Azure Resource Manager.
+* Não há suporte para os cmdlets do PowerShell do Azure Service Management (ASM) existentes Hello. Atualize Olá scripts toomanage seus dispositivos por meio de saudação do Azure Resource Manager.
 
-* A configuração do serviço e do dispositivo é mantida. Todos os volumes e backups também são transferidos para o Portal do Azure.
+* A configuração do serviço e do dispositivo é mantida. Todos os volumes e backups também são toohello transição portal do Azure.
 
 ### <a name="begin-transition"></a>Iniciar a transição
 
-Execute as seguintes etapas para realizar a transição do seu serviço para o Portal do Azure.
+Execute Olá seguindo as etapas tootransition toohello seu serviço portal do Azure.
 
-1. Acesse o serviço do StorSimple Manager no portal clássico.
+1. Acesse o serviço StorSimple Manager existente tooyour no portal clássico do hello.
 
-2. Você verá uma notificação informando que o serviço do Gerenciador de Dispositivos de StorSimple agora está disponível no Portal do Azure. Observe que, no portal do Azure, o serviço é referido como o serviço do Gerenciador de Dispositivos do StorSimple.
+2. Você verá uma notificação informando que o serviço do Gerenciador de dispositivos de StorSimple Olá agora está disponível no hello portal do Azure. Observe que, Olá portal do Azure, serviço de saudação é tooas chamado serviço de Gerenciador de dispositivos do StorSimple.
 
     ![Notificação de migração](./media/storsimple-8000-manage-service/service-transition1.jpg)
 
-    1. Não deixe de analisar o impacto total da migração.
-    2. Revise a lista de Gerenciadores de Dispositivos do StorSimple que serão movidos do portal clássico.
+    1. Certifique-se de que você leu o impacto total de saudação da migração.
+    2. Examine a lista de saudação de gerenciadores de dispositivo StorSimple que serão movidos no portal clássico do hello.
 
-3. Clique em **Migrar**. A transição será iniciada e levará alguns minutos para ser concluída.
+3. Clique em **Migrar**. transição de saudação inicia e leva toocomplete de alguns minutos.
 
-Quando a transição for concluída, você poderá gerenciar seus dispositivos por meio do serviço do Gerenciador de Dispositivos do StorSimple no Portal do Azure.
+Após a conclusão da transição hello, você pode gerenciar seus dispositivos por meio de saudação de serviço do Gerenciador de dispositivos do StorSimple no hello portal do Azure.
 
-No Portal do Azure, há suporte para apenas dispositivos StorSimple que executam a Atualização 3.0 e superior. Os dispositivos que executam versões mais antigas têm suporte limitado. A tabela a seguir resume quais operações têm suporte para dispositivos que executam versões anteriores à Atualização 3.0, depois da migração do portal clássico para o Portal do Azure.
+Em Olá portal do Azure, Olá somente dispositivos de StorSimple executando Update 3.0 e superior têm suporte. dispositivos de saudação que estão executando versões mais antigas têm suporte limitado. Olá summrizes tabela quais operações são suportadas em dispositivo Olá executando versios anterior tooUpdate 3.0, depois que você migrou do hello clássico toohello portal do Azure a seguir.
 
 | Operação                                                                                                                       | Suportado      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
@@ -123,10 +123,10 @@ No Portal do Azure, há suporte para apenas dispositivos StorSimple que executam
 | Fazer um backup manual                                                                                                            | Não             |
 | Realizar um backup agendado                                                                                                         | Não aplicável |
 | Restaurar de um conjunto de backup                                                                                                        | Não             |
-| Clonar para um dispositivo que executa a Atualização 3.0 e posterior <br> O dispositivo de origem executa uma versão anterior à Atualização 3.0.                                | Sim            |
-| Clonar para um dispositivo que executa uma versão anterior à Atualização 3.0                                                                          | Não             |
-| Failover como dispositivo de origem <br> (de um dispositivo que executa uma versão anterior à Atualização 3.0 para um dispositivo que executa a Atualização 3.0 e posterior)                                                               | Sim            |
-| Failover como dispositivo de destino <br> (para um dispositivo que executa uma versão de software anterior à Atualização 3.0)                                                                                   | Não             |
+| Clonar tooa dispositivos que executam a atualização 3.0 e posterior <br> dispositivo de origem Hello está sendo executado tooUpdate anterior da versão 3.0.                                | Sim            |
+| Clonar tooa dispositivo executando versões anteriores tooUpdate 3.0                                                                          | Não             |
+| Failover como dispositivo de origem <br> (de um dispositivo executando versão anterior tooUpdate 3.0 tooa dispositivo executando atualização 3.0 e posterior)                                                               | Sim            |
+| Failover como dispositivo de destino <br> (dispositivo tooa executando tooUpdate anterior do software versão 3.0)                                                                                   | Não             |
 | Limpar um alerta                                                                                                                  | Sim            |
 | Exibir políticas de backup, catálogo de backup, volumes, contêineres de volume, gráficos de monitoramento, trabalhos e alertas criados no portal clássico | Sim            |
 | Ativar e desativar controladores de dispositivo                                                                                              | Sim            |
@@ -134,53 +134,53 @@ No Portal do Azure, há suporte para apenas dispositivos StorSimple que executam
 
 ## <a name="delete-a-service"></a>Excluir um serviço
 
-Antes de excluir um serviço, verifique se nenhum dispositivo conectado está usando ele. Se o serviço estiver em uso, desative os dispositivos conectados. A operação de desativação desfaz a conexão entre o dispositivo e o serviço, mas preserva os dados do dispositivo na nuvem.
+Antes de excluir um serviço, verifique se nenhum dispositivo conectado está usando ele. Se o serviço de saudação está em uso, desative os dispositivos de saudação conectado. Olá desativar operação sever conexão Olá entre dispositivo hello e serviço hello, mas preservar os dados do dispositivo Olá na nuvem hello.
 
 > [!IMPORTANT]
-> Depois que um serviço é excluído, a operação não pode ser revertida. Qualquer dispositivo que usava o serviço precisará ser redefinido para as configurações de fábrica para poder ser usado com outro serviço. Nesse cenário, os dados locais no dispositivo, bem como a configuração, serão perdidos.
+> Depois que um serviço é excluído, operação Olá não pode ser revertida. Qualquer dispositivo que esteja usando o serviço de saudação precisa toobe redefinição toofactory padrões antes que ele pode ser usado com outro serviço. Nesse cenário, os dados de locais de saudação em dispositivo hello, bem como configuração Olá, será perdido.
 
-Execute as etapas a seguir para excluir um serviço.
+Execute Olá etapas toodelete um serviço a seguir.
 
-### <a name="to-delete-a-service"></a>Para excluir um serviço
+### <a name="toodelete-a-service"></a>toodelete um serviço
 
-1. Pesquise o serviço que você deseja excluir. Clique no ícone **Recursos** e insira os termos apropriados para pesquisar. Nos resultados da pesquisa, clique no serviço que você deseja excluir.
+1. Pesquisa para o serviço de saudação você deseja toodelete. Clique em **recursos** ícone e, em seguida, entrada hello toosearch termos apropriado. Nos resultados da pesquisa hello, clique em serviço Olá deseja toodelete.
 
-    ![Pesquise o serviço a ser excluído](./media/storsimple-8000-manage-service/deletessdevman1.png)
+    ![Toodelete do serviço de pesquisa](./media/storsimple-8000-manage-service/deletessdevman1.png)
 
-2. Isso levará você para a folha do serviço do Gerenciador de Dispositivos do StorSimple. Clique em **Excluir**.
+2. Isso leva folha de serviço do Gerenciador de dispositivos de StorSimple toohello. Clique em **Excluir**.
 
     ![Excluir serviço](./media/storsimple-8000-manage-service/deletessdevman2.png)
 
-3. Clique em **Sim** na notificação de confirmação. Pode levar alguns minutos para que o serviço seja excluído.
+3. Clique em **Sim** na notificação de confirmação de saudação. Ele pode levar alguns minutos para Olá serviço toobe excluído.
 
     ![Confirmar exclusão](./media/storsimple-8000-manage-service/deletessdevman3.png)
 
-## <a name="get-the-service-registration-key"></a>Obtenha a chave de registro do serviço
+## <a name="get-hello-service-registration-key"></a>Obter chave de registro de serviço Olá
 
-Depois de ter criado um serviço com êxito, você precisará registrar o dispositivo StorSimple no serviço. Para registrar seu primeiro dispositivo StorSimple, será necessária a chave de registro do serviço. Para registrar dispositivos adicionais em um serviço StorSimple existente, você precisará da chave de registro e da chave de criptografia de dados de serviço (que é gerada durante o registro do primeiro dispositivo). Para obter mais informações sobre a chave de criptografia dos dados de serviço, consulte [Segurança do StorSimple](storsimple-8000-security.md). Você pode obter a chave de registro acessando **Chaves** na folha do Gerenciador de Dispositivos do StorSimple.
+Depois que você criou com êxito um serviço, você precisará tooregister seu dispositivo StorSimple com o serviço de saudação. tooregister seu dispositivo StorSimple primeiro, será necessário Olá o chave de registro de serviço. tooregister dispositivos adicionais com um serviço StorSimple existente, é necessário chave de registro hello e chave criptografia de dados de serviço de saudação (que é gerado no primeiro dispositivo de saudação durante o registro). Para obter mais informações sobre a chave de criptografia de dados de serviço hello, consulte [segurança de StorSimple](storsimple-8000-security.md). Você pode obter a chave de registro Olá acessando **chaves** na sua folha de Gerenciador de dispositivos do StorSimple.
 
-Execute as etapas a seguir para obter a chave de registro do serviço.
+Execute Olá etapas tooget Olá chave de registro a seguir.
 
 [!INCLUDE [storsimple-8000-get-service-registration-key](../../includes/storsimple-8000-get-service-registration-key.md)]
 
-Mantenha a chave de registro do serviço em local seguro. Você precisará dessa chave, bem como da chave de criptografia dos dados de serviço, para registrar dispositivos adicionais nesse serviço. Depois de obter a chave de registro do serviço, você deverá configurar o dispositivo usando a Interface do Windows PowerShell para StorSimple.
+Mantenha a chave de registro do serviço de saudação em um local seguro. Você precisará essa chave, bem como chave de criptografia de dados de serviço hello, tooregister de dispositivos adicionais com este serviço. Depois de obter a chave de registro de serviço hello, você deve configurar seu dispositivo por meio de saudação do Windows PowerShell para StorSimple interface.
 
-Para obter detalhes sobre como usar essa chave de registro, consulte [Etapa 3: Configurar e registrar o dispositivo por meio do Windows PowerShell para StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+Para obter detalhes sobre como toouse essa chave de registro, consulte [etapa 3: configurar e registrar o dispositivo Olá por meio do Windows PowerShell para StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
-## <a name="regenerate-the-service-registration-key"></a>Regenerar a chave de registro do serviço
-Você precisará regenerar uma chave de registro do serviço se for necessário realizar a rotação de chave ou se a lista de administradores de serviço tiver mudado. Quando você regenera a chave, a nova chave é usada somente para registrar dispositivos subsequentes. Os dispositivos que já foram registrados não serão afetados por esse processo.
+## <a name="regenerate-hello-service-registration-key"></a>Regenerar chave de registro de serviço Olá
+É necessário tooregenerate uma chave de registro de serviço se for necessário tooperform a rotação de chaves ou se a lista de saudação de administradores de serviço foi alterada. Quando você regenerar chave Olá, a nova chave de saudação é usado apenas para registrar dispositivos subsequentes. dispositivos de saudação que já foram registrados não são afetados por esse processo.
 
-Execute as etapas a seguir para regenerar uma chave de registro de serviço.
+Execute Olá etapas tooregenerate uma chave de registro de serviço a seguir.
 
-### <a name="to-regenerate-the-service-registration-key"></a>Para regenerar a chave de registro de serviço
-1. No **Gerenciador de Dispositivo do StorSimple**, acesse **Gerenciamento&gt;** **Chaves**.
+### <a name="tooregenerate-hello-service-registration-key"></a>chave de registro tooregenerate Olá
+1. Em Olá **Gerenciador de dispositivos de StorSimple** folha, ir muito**gerenciamento &gt;**  **chaves**.
     
     ![Folha Chaves](./media/storsimple-8000-manage-service/regenregkey2.png)
 
-2. Na folha **Chaves**, clique em **Regenerar**.
+2. Em Olá **chaves** folha, clique em **regenerar**.
 
     ![Clique em regenerar](./media/storsimple-8000-manage-service/regenregkey3.png)
-3. Na folha **Regenerar chave de registro do serviço**, revise a ação necessária quando as chaves forem geradas novamente. Todos os dispositivos subsequentes registrados com esse serviço usarão a nova chave de Registro. Clique em **Regenerar** para confirmar. Você será notificado quando a regeneração for concluída.
+3. Em Olá **regenerar chave de registro** folha, examine Olá necessária uma ação quando hello chaves são geradas novamente. Todos os dispositivos de saudação subsequentes que são registrados com este serviço usarem nova chave de registro hello. Clique em **regenerar** tooconfirm. Você será notificado depois que a regeneração Olá for concluída.
 
     ![Confirmar a regeneração](./media/storsimple-8000-manage-service/regenregkey4.png)
 
@@ -190,71 +190,71 @@ Execute as etapas a seguir para regenerar uma chave de registro de serviço.
 
 
 
-## <a name="change-the-service-data-encryption-key"></a>Alterar a chave de criptografia de dados do serviço
-As chaves de criptografia de dados de serviço são usadas para criptografar dados confidenciais, como credenciais de conta de armazenamento, que são enviadas de seu serviço StorSimple Manager ao dispositivo StorSimple. Você precisará alterar essas chaves periodicamente se sua organização de TI tiver uma política de rotação de chave nos dispositivos de armazenamento. O processo de alteração de chave pode ser ligeiramente diferente dependendo se há um só ou vários dispositivos gerenciados pelo serviço StorSimple Manager. Para obter mais informações, acesse [Segurança e proteção de dados do StorSimple](storsimple-8000-security.md).
+## <a name="change-hello-service-data-encryption-key"></a>Alterar a chave de criptografia de dados de serviço Olá
+Chaves de criptografia de dados de serviço são dados confidenciais do cliente de tooencrypt usadas, como credenciais de conta de armazenamento, que são enviadas de seu dispositivo do StorSimple Manager serviço toohello StorSimple. Você precisará toochange essas chaves periodicamente se sua organização de TI tiver uma política de rotação de chaves em dispositivos de armazenamento de saudação. Olá processo de alteração de chave pode ser ligeiramente diferente dependendo se há um único ou vários dispositivos gerenciados pelo Olá serviço StorSimple Manager. Para obter mais informações, vá muito[StorSimple segurança e proteção de dados](storsimple-8000-security.md).
 
-A alteração da chave de criptografia de dados de serviço é um processo de três etapas:
+Alterar chave de criptografia de dados para serviço Olá é um processo de 3 etapas:
 
-1. Usando scripts do Windows PowerShell para o Azure Resource Manager, autorize um dispositivo a alterar a chave de criptografia de dados de serviço.
-2. Usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados de serviço.
-3. Se você tiver mais de um dispositivo StorSimple, atualize a chave de criptografia de dados de serviço nos outros dispositivos.
+1. Usando scripts do Windows PowerShell para o Gerenciador de recursos do Azure, autorize a chave de criptografia de dados de serviço um dispositivo toochange hello.
+2. Usando o Windows PowerShell para StorSimple, inicie a alteração de criptografia de dados chave serviço hello.
+3. Se você tiver mais de um dispositivo StorSimple, atualize a chave de criptografia de dados de serviço de saudação em Olá outros dispositivos.
 
-### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>Etapa 1: use um script do Windows PowerShell para autorizar um dispositivo a alterar a chave de criptografia de dados de serviço
-Normalmente, o administrador do dispositivo solicita que o administrador do serviço autorize um dispositivo a alterar as chaves de criptografia de dados de serviço. O administrador do serviço então autoriza o dispositivo a alterar a chave.
+### <a name="step-1-use-windows-powershell-script-tooauthorize-a-device-toochange-hello-service-data-encryption-key"></a>Etapa 1: Usar o Windows PowerShell script tooAuthorize uma chave de criptografia do dispositivo toochange Olá serviço dados
+Normalmente, administrador do dispositivo Olá solicita esse administrador de serviço Olá autorizar chaves de criptografia de dados de serviço para toochange um dispositivo. administrador de serviço Hello, então, autorizará chave de Olá Olá dispositivo toochange.
 
-Esta etapa é executada usando o script baseado no Azure Resource Manager. O administrador de serviços pode selecionar um dispositivo qualificado para receber a autorização. O dispositivo é então autorizado a iniciar o processo de alteração da chave de criptografia de dados de serviço. 
+Esta etapa é executada usando hello Azure Resource Manager com base em script. administrador de serviço Olá pode selecionar um dispositivo que é qualificado toobe autorizado. dispositivo Olá é, em seguida, o processo de alteração da chave de criptografia de dados do serviço de saudação toostart autorizados. 
 
-Para obter mais informações sobre como usar o script, acesse [Authorize-ServiceEncryptionRollover.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Authorize-ServiceEncryptionRollover.ps1)
+Para obter mais informações sobre como usar o script hello, ir muito[ServiceEncryptionRollover.ps1 autorizar](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Authorize-ServiceEncryptionRollover.ps1)
 
-#### <a name="which-devices-can-be-authorized-to-change-service-data-encryption-keys"></a>Quais dispositivos podem ser autorizados a alterar as chaves de criptografia de dados de serviço?
-Um dispositivo deve atender aos seguintes critérios para que possa ser autorizado a iniciar as alterações da chave de criptografia de dados de serviço:
+#### <a name="which-devices-can-be-authorized-toochange-service-data-encryption-keys"></a>Quais dispositivos podem ser autorizados toochange chaves de criptografia de dados de serviço?
+Um dispositivo deve atender aos Olá critérios a seguir para que possa ser alterações de criptografia de dados chave serviço tooinitiate autorizados:
 
-* O dispositivo deve estar online para ser qualificado para autorização da alteração da chave de criptografia de dados de serviço.
-* Você pode autorizar o mesmo dispositivo novamente após 30 minutos, caso a alteração de chave não tenha sido iniciada.
-* Você pode autorizar um dispositivo diferente, desde que a alteração de chave não tenha sido iniciada pelo dispositivo autorizado anteriormente. Depois que o novo dispositivo tiver sido autorizado, o dispositivo antigo não poderá iniciar a alteração.
-* Não é possível autorizar um dispositivo enquanto a substituição da chave de criptografia de dados de serviço estiver em andamento.
-* Você pode autorizar um dispositivo quando alguns dos dispositivos registrados no serviço tiverem substituído a criptografia, enquanto outros não. 
+* dispositivo de saudação deve ser on-line toobe qualificado para autorização de alteração de chave de criptografia de dados de serviço.
+* Você pode autorizar Olá mesmo dispositivo novamente após 30 minutos se a alteração da chave de saudação não foi iniciado.
+* Você pode autorizar um dispositivo diferente, desde que a alteração da chave Olá não foi iniciada pelo dispositivo anteriormente autorizado hello. Depois que o novo dispositivo de saudação tiver sido autorizado, dispositivo antigo Olá não pode iniciar a alteração hello.
+* Não é possível autorizar um dispositivo, enquanto Olá substituição de chave de criptografia de dados de serviço hello está em andamento.
+* Você pode autorizar um dispositivo quando alguns dispositivos Olá registrados com o serviço de saudação tiveram substituído Olá criptografia enquanto outros não. 
 
-### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Etapa 2: Usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados de serviço
-Essa etapa é executada na interface do Windows PowerShell para StorSimple no dispositivo StorSimple autorizado.
+### <a name="step-2-use-windows-powershell-for-storsimple-tooinitiate-hello-service-data-encryption-key-change"></a>Etapa 2: Usar o Windows PowerShell para StorSimple tooinitiate Olá serviço criptografia chave alteração de dados
+Esta etapa é executada no saudação do Windows PowerShell para StorSimple interface Olá autorizado dispositivo StorSimple.
 
 > [!NOTE]
-> Nenhuma operação poderá ser executada no Portal do Azure do serviço do StorSimple Manager até que a substituição de chave esteja concluída.
+> Nenhuma operação pode ser executada no hello portal do Azure do seu serviço StorSimple Manager até que a substituição de chave Olá é concluída.
 > 
 > 
 
-Se você estiver usando o console serial do dispositivo para se conectar à interface do Windows PowerShell, execute as etapas a seguir.
+Se você estiver usando a interface do hello dispositivo console serial tooconnect toohello do Windows PowerShell, execute Olá etapas a seguir.
 
-#### <a name="to-initiate-the-service-data-encryption-key-change"></a>Para iniciar a alteração da chave de criptografia de dados de serviço
-1. Selecione a Opção 1 para fazer logon com acesso completo.
-2. No prompt de comando, digite:
+#### <a name="tooinitiate-hello-service-data-encryption-key-change"></a>alteração da chave de criptografia de dados de serviço do tooinitiate Olá
+1. Selecione a opção 1 toolog com acesso completo.
+2. No prompt de comando hello, digite:
    
      `Invoke-HcsmServiceDataEncryptionKeyChange`
-3. Depois que o cmdlet tiver sido concluído com êxito, você receberá uma nova chave de criptografia de dados de serviço. Copie e salve essa chave para uso na etapa 3 deste processo. Essa chave será usada para atualizar todos os dispositivos restantes registrados no serviço StorSimple Manager.
+3. Depois que o cmdlet Olá for concluída com êxito, você obterá uma nova chave de criptografia de dados de serviço. Copie e salve essa chave para uso na etapa 3 deste processo. Esta chave será usada tooupdate Olá todos os demais dispositivos registrados com o serviço StorSimple Manager hello.
    
    > [!NOTE]
    > Esse processo deve ser iniciado em quatro horas, a contar da autorização de um dispositivo StorSimple.
    > 
    > 
    
-   Essa nova chave é então enviada ao serviço para ser enviada por push a todos os dispositivos que são registrados no serviço. Um alerta aparecerá no painel de serviço. O serviço desabilitará todas as operações nos dispositivos registrados e o administrador do dispositivo precisará atualizar a chave de criptografia de dados de serviço nos outros dispositivos. No entanto, as E/Ss (hosts que enviam dados à nuvem) não serão interrompidas.
+   Essa nova chave é enviada toohello toobe enviada por push tooall Olá dispositivos de serviço que são registrados com o serviço de saudação. Um alerta aparecerá no painel de serviço hello. serviço Olá desabilitará todas as operações de Olá Olá registrado dispositivos e administrador do dispositivo hello, em seguida, será necessário chave de criptografia de dados tooupdate Olá serviço em Olá outros dispositivos. No entanto, hello e/SS (hosts que enviam dados na nuvem toohello) não serão interrompidas.
    
-   Se você tiver um único dispositivo registrado no serviço, o processo de substituição agora está concluído e a próxima etapa poderá ser ignorada. Se você tiver vários dispositivos registrados em seu serviço, passe para a etapa 3.
+   Se você tiver um único dispositivo registrado tooyour serviço, o processo de substituição Olá agora está concluído e você pode ignorar Olá próxima etapa. Se você tiver vários serviços de tooyour registrados de dispositivos, vá toostep 3.
 
-### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>Etapa 3: Atualizar a chave de criptografia de dados de serviço em outros dispositivos StorSimple
-Essas etapas devem ser executadas na interface do Windows PowerShell de seu dispositivo StorSimple, caso você tenha vários dispositivos registrados no serviço StorSimple Manager. A chave que você obteve na Etapa 2 deve ser usada para atualizar todos os demais dispositivos StorSimple registrados com o serviço do StorSimple Manager.
+### <a name="step-3-update-hello-service-data-encryption-key-on-other-storsimple-devices"></a>Etapa 3: Atualize a chave de criptografia de dados de serviço de saudação em outros dispositivos de StorSimple
+Essas etapas devem ser executadas na interface do Windows PowerShell de saudação do seu dispositivo StorSimple, se você tiver vários dispositivos registrados tooyour StorSimple Manager service. chave de saudação que você obteve na etapa 2 deve ser usado tooupdate todos Olá restante do dispositivo StorSimple registrado com hello serviço StorSimple Manager.
 
-Execute as etapas a seguir para atualizar a criptografia de dados de serviço no seu dispositivo.
+Execute Olá criptografia de dados de serviço do etapas tooupdate Olá a seguir em seu dispositivo.
 
-#### <a name="to-update-the-service-data-encryption-key"></a>Para atualizar a chave de criptografia de dados de serviço
-1. Use o Windows PowerShell para StorSimple para se conectar ao console. Selecione a Opção 1 para fazer logon com acesso completo.
-2. No prompt de comando, digite:
+#### <a name="tooupdate-hello-service-data-encryption-key"></a>chave de criptografia de dados de serviço do tooupdate Olá
+1. Use o Windows PowerShell para StorSimple tooconnect toohello console. Selecione a opção 1 toolog com acesso completo.
+2. No prompt de comando hello, digite:
    
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
-3. Forneça a chave de criptografia de dados de serviço que você obteve na [Etapa 2: Usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados de serviço](#to-initiate-the-service-data-encryption-key-change).
+3. Forneça Olá serviço dados chave de criptografia que você obteve na [etapa 2: usar o Windows PowerShell para StorSimple tooinitiate Olá serviço alteração criptografia de dados chave](#to-initiate-the-service-data-encryption-key-change).
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre o [processo de implantação do StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
+* Saiba mais sobre Olá [o processo de implantação StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 * [Saiba mais sobre como gerenciar sua conta de armazenamento do StorSimple](storsimple-8000-manage-storage-accounts.md).
-* Saiba mais sobre como [usar o serviço StorSimple Device Manager para administrar dispositivos StorSimple](storsimple-8000-manager-service-administration.md).
+* Saiba mais sobre como muito[use Olá tooadminister de serviço do Gerenciador de dispositivos de StorSimple seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

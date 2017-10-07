@@ -1,6 +1,6 @@
 ---
-title: "Usar os Modos de Exibição do Ambari para trabalhar com o Hive no HDInsight (Hadoop) – Azure | Microsoft Docs"
-description: "Saiba como usar o Modo de Exibição do Hive em seu navegador da Web para enviar consultas do Hive. O Modo de exibição do Hive faz parte da Interface de Usuário da Web do Ambari fornecida com o cluster HDInsight baseado em Linux."
+title: "aaaUse Ambari exibições toowork com Hive no HDInsight (Hadoop) - Azure | Microsoft Docs"
+description: "Saiba como toouse Olá Hive exibição de suas consultas de Hive do toosubmit de navegador da web. Olá exibição Hive faz parte da saudação de que interface do usuário do Ambari Web fornecido com seu cluster HDInsight baseados em Linux."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,50 +16,50 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
-ms.openlocfilehash: 80df3da4d62feb814ea2dd97c96e57954093c5c5
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f9a77b652e70d34a0ff9165fbb8c2e16d3401ae0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-the-hive-view-with-hadoop-in-hdinsight"></a>Use o Modo de Exibição do Hive com o Hadoop no HDInsight.
+# <a name="use-hello-hive-view-with-hadoop-in-hdinsight"></a>Use Olá exibição Hive com Hadoop no HDInsight
 
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Aprenda a executar consultas do Hive usando a Exibição do Hive do Ambari. O Ambari é um utilitário de monitoramento e de gerenciamento fornecido com clusters HDInsight baseados em Linux. Um dos recursos fornecidos pelo Ambari é uma interface de usuário da Web que pode ser usada para executar consultas do Hive.
+Saiba como toorun Hive consultas usando o modo de exibição de Hive do Ambari. O Ambari é um utilitário de monitoramento e de gerenciamento fornecido com clusters HDInsight baseados em Linux. Um dos recursos de saudação fornecidos por meio do Ambari é uma interface de usuário da Web que pode ser usado toorun consultas de Hive.
 
 > [!NOTE]
-> O Ambari possui muitos recursos que não são abordados neste documento. Para saber mais, confira [Gerenciar clusters HDInsight usando a interface do usuário da Web do Ambari](hdinsight-hadoop-manage-ambari.md).
+> O Ambari possui muitos recursos que não são abordados neste documento. Para obter mais informações, consulte [HDInsight gerenciar clusters usando Olá da interface do usuário do Ambari Web](hdinsight-hadoop-manage-ambari.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Criar um cluster HDInsight baseado em Linux. Para saber mais sobre como criar um cluster, confira [Introdução ao HDInsight baseado no Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 > [!IMPORTANT]
-> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> etapas de saudação neste documento exigem um cluster HDInsight que usa o Linux. Linux é Olá sistema operacional somente de usado no HDInsight versão 3.4 ou posterior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="open-the-hive-view"></a>Abrir o modo de exibição Hive
+## <a name="open-hello-hive-view"></a>Abrir modo de exibição de Hive Olá
 
-Você pode abrir os Modos de exibição do Ambari do portal do Azure; selecione seu cluster HDInsight e escolha **Modos de exibição do Ambari** na seção **Links Rápidos**.
+Você pode Ambari exibições de saudação portal do Azure; Selecione seu cluster HDInsight e, em seguida, selecione **Ambari exibições** de saudação **Links rápidos** seção.
 
-![seção de links rápidos do portal](./media/hdinsight-hadoop-use-hive-ambari-view/quicklinks.png)
+![seção de links rápidos do portal de saudação](./media/hdinsight-hadoop-use-hive-ambari-view/quicklinks.png)
 
-Na lista de exibições, selecione __Exibição de Hive__.
+Saudação de modos de exibição, selecione lista Olá __exibição Hive__.
 
-![A exibição de Hive selecionada](./media/hdinsight-hadoop-use-hive-ambari-view/select-hive-view.png)
+![Olá Hive exibição selecionada](./media/hdinsight-hadoop-use-hive-ambari-view/select-hive-view.png)
 
 > [!NOTE]
-> Ao acessar o Ambari, você receberá uma solicitação para se autenticar no site. Insira o nome da conta e senha de administrador (o padrão é `admin`) que você usou ao criar o cluster.
+> Ao acessar o Ambari, será solicitada tooauthenticate toohello site. Digite Olá administrador (padrão `admin`) conta de nome e a senha usada ao criar hello cluster.
 
-Você deverá ver uma página semelhante à seguinte imagem:
+Você verá um toohello semelhante página imagem a seguir:
 
-![Imagem da planilha de consulta para a exibição de Hive](./media/hdinsight-hadoop-use-hive-ambari-view/ambari-hive-view.png)
+![Imagem da planilha de consulta Olá para o modo de exibição do hello Hive](./media/hdinsight-hadoop-use-hive-ambari-view/ambari-hive-view.png)
 
 ## <a name="hivequery"></a>Executar uma consulta
 
-Use as seguintes etapas da exibição do Hive para executar uma consulta do Hive.
+toorun uma consulta de hive, use Olá seguindo as etapas da exibição de Hive hello.
 
-1. Da guia __Consulta__, cole as seguintes instruções HiveQL na planilha:
+1. De saudação __consulta__ guia, cole Olá HiveQL instruções a seguir na planilha de saudação:
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -69,100 +69,100 @@ Use as seguintes etapas da exibição do Hive para executar uma consulta do Hive
     SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
     ```
 
-    As instruções executam as seguintes ações:
+    Essas instruções executam Olá ações a seguir:
 
-   * `DROP TABLE` – exclui a tabela e o arquivo de dados, caso a tabela já exista.
+   * `DROP TABLE`-Exclui a tabela hello e arquivo de dados hello, no caso de Olá tabela já existir.
 
    * `CREATE EXTERNAL TABLE` – cria uma nova tabela "externa" no Hive.
-   As tabelas externas armazenam apenas a definição da tabela no Hive. Os dados são mantidos no local original.
+   Tabelas externas armazenam a definição da tabela somente Olá no Hive. dados de saudação são deixados no local original hello.
 
-   * `ROW FORMAT` – o modo como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
+   * `ROW FORMAT`-Como dados de saudação são formatados. Nesse caso, os campos de saudação em cada log são separados por um espaço.
 
-   * `STORED AS TEXTFILE LOCATION` – informa ao Hive o local em que os dados são armazenados e se estão armazenados como texto.
+   * `STORED AS TEXTFILE LOCATION`-Onde Olá dados são armazenados e que ela é armazenada como texto.
 
-   * `SELECT` – seleciona uma contagem de todas as linhas em que a coluna t4 contém o valor [ERROR].
+   * `SELECT`-Seleciona uma contagem de todas as linhas em que coluna t4 contém valor Olá [Erro].
 
      > [!NOTE]
-     > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa. Por exemplo, um processo de carregamento de dados automatizados ou por outra operação MapReduce. Remover uma tabela externa *não* exclui os dados, somente a definição de tabela.
+     > Tabelas externas devem ser usadas quando você espera Olá toobe de dados subjacentes atualizado por uma fonte externa. Por exemplo, um processo de carregamento de dados automatizados ou por outra operação MapReduce. Descartar uma tabela externa *não* excluir dados hello, definição de tabela Olá somente.
 
     > [!IMPORTANT]
-    > Deixe a seleção __Banco de dados__ em __padrão__. Os exemplos neste documento usam o banco de dados padrão incluído no HDInsight.
+    > Deixe Olá __banco de dados__ seleção em __padrão__. exemplos de saudação neste documento usam banco de dados de padrão de saudação incluído no HDInsight.
 
-2. Para iniciar a consulta, use o botão **Executar** abaixo da planilha. Ele fica laranja e o texto é alterado para **Parar**.
+2. consulta de saudação toostart, use Olá **Execute** botão abaixo planilha hello. Ele transforma laranja e hello alterações de texto muito**parar**.
 
-3. Depois que a consulta for concluída, a seção **Resultados** exibirá os resultados da operação. O texto a seguir é o resultado da consulta:
+3. Quando tiver terminado de consulta hello, Olá **resultados** guia exibe os resultados de saudação da operação de saudação. Olá texto a seguir é o resultado de saudação de consulta de saudação:
 
         sev       cnt
         [ERROR]   3
 
-    A guia **Logs** pode ser usada para exibir as informações de log criadas pelo trabalho.
+    Olá **Logs** guia pode ser usado tooview informações de log de Olá criadas pelo trabalho de saudação.
 
    > [!TIP]
-   > O diálogo suspenso **Salvar resultados** no canto superior esquerdo da seção **Resultados do Processo de Consulta** permite que você baixe ou salve os resultados.
+   > Olá **salvar resultados** caixa de diálogo lista suspensa na Olá superior esquerdo da saudação **resultados do processo de consulta** seção permite que você toodownload ou salvar os resultados.
 
-4. Selecione as quatro primeiras linhas dessa consulta e escolha **Executar**. Observe que não há resultados quando o trabalho é concluído. O uso do botão **Executar** quando parte da consulta está selecionada executa apenas as instruções escolhidas. Nesse caso, a seleção não incluiu a instrução final que recupera linhas da tabela. Se escolher apenas essa linha e usar **Executar**, você verá os resultados esperados.
+4. Selecione Olá quatro primeiras linhas dessa consulta, em seguida, selecione **Execute**. Observe que não há nenhum resultado quando Olá trabalho é concluído. Usando Olá **Execute** botão quando parte de consulta de saudação é selecionado, somente é executado Olá instruções selecionadas. Nesse caso, a seleção de saudação não incluir instrução final de saudação que recupera linhas da tabela de saudação. Se você selecionar apenas a linha e usar **Execute**, você deve ver os resultados de saudação esperado.
 
-5. Para adicionar uma planilha, use o botão **Nova Planilha** na parte inferior do **Editor de Consultas**. Na nova planilha, digite as seguintes instruções HiveQL:
+5. tooadd uma planilha, use Olá **nova planilha** botão na parte inferior de saudação do hello **Editor de consultas**. Na nova planilha de hello, digite Olá HiveQL instruções a seguir:
 
     ```hiveql
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
     INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
     ```
 
-  As instruções executam as seguintes ações:
+  Essas instruções executam Olá ações a seguir:
 
-   * **CREATE TABLE IF NOT EXISTS** - cria uma tabela, se ela ainda não existir. Como a palavra-chave **EXTERNAL** não é usada, uma tabela interna é criada. Uma tabela interna é armazenada no data warehouse do Hive e é totalmente gerenciada pelo Hive. Diferentemente de tabelas externas, o descarte de uma tabela interna excluirá também os dados subjacentes.
+   * **CREATE TABLE IF NOT EXISTS** - cria uma tabela, se ela ainda não existir. Desde Olá **externo** palavra-chave não for usado, uma tabela interna é criada. Uma tabela interna é armazenada no data warehouse do hello Hive e é totalmente gerenciada pelo Hive. Ao contrário das tabelas externas, descartar uma tabela interna exclui dados subjacentes Olá também.
 
-   * **STORES AS ORC** : armazena os dados no formato ORC (Optimized Row Columnar). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
+   * **ARMAZENADOS como ORC** -armazena dados de saudação em formato de linha de otimização Colunar (ORC). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
 
-   * **INSERT OVERWRITE ... SELECT** – seleciona linhas da tabela **log4jLogs** que contêm `[ERROR]` e insere os dados na tabela **errorLogs**.
+   * **INSERT OVERWRITE ... Selecione** -seleciona linhas de saudação **log4jLogs** tabela que contêm `[ERROR]`, e, em seguida, insere Olá dados em Olá **em decorrência** tabela.
 
-     Use o botão **Executar** para executar essa consulta. A guia **Resultados** não contém nenhuma informação quando a consulta retorna zero linhas. O status deve mostrar **SUCCEEDED** após a conclusão da consulta.
+     Saudação de uso **Execute** botão toorun esta consulta. Olá **resultados** guia não contém todas as informações quando Olá consulta retorna zero linhas. Olá status deve aparecer como **êxito** após a conclusão da consulta de saudação.
 
 ### <a name="visual-explain"></a>Explicação visual
 
-Para exibir uma visualização do plano de consulta, selecione a guia **Explicação Visual** abaixo da planilha.
+toodisplay uma visualização de saudação do plano de consulta, selecione Olá **explicam Visual** guia abaixo planilha hello.
 
-O modo de exibição **Explicação Visual** da consulta pode ser útil na compreensão do fluxo de consultas complexas. Você pode exibir um equivalente textual desse modo de exibição usando o botão **Explicar** no Editor de Consultas.
+Olá **explicam Visual** exibição de consulta Olá pode ser útil na compreensão do fluxo de saudação de consultas complexas. Você pode exibir um equivalente textual deste modo de exibição usando Olá **explicar** botão Olá Editor de consultas.
 
 ### <a name="tez-ui"></a>Interface de usuário do Tez
 
-Para exibir a interface do usuário do Tez para a consulta, selecione a guia **Tez** abaixo da planilha.
+toodisplay hello Tez UI para consulta hello, selecione Olá **Tez** guia abaixo planilha hello.
 
 > [!IMPORTANT]
-> O Tez não é usado para resolver todas as consultas. Muitas consultas de Hive podem ser resolvidas sem usar o Tez. 
+> Tez é tooresolve não usado em todas as consultas. Muitas consultas de Hive podem ser resolvidas sem usar o Tez. 
 
-Se o Tez foi usado para resolver a consulta, o DAG (gráfico acíclico dirigido) é exibido. Se você quiser exibir o DAG de consultas executadas anteriormente ou depurar o processo do Tez, use [Modo de Exibição do Tez exibição](hdinsight-debug-ambari-tez-view.md) .
+Se tiver sido Tez consulta tooresolve usado Olá Olá gráfico acíclico direcionado (DAG) é exibido. Se você quiser Olá tooview DAG para consultas que você executou no hello anterior ou depura Olá Tez processo, use Olá [Tez exibição](hdinsight-debug-ambari-tez-view.md) em vez disso.
 
 ## <a name="view-job-history"></a>Exibir histórico de trabalho
 
-A guia __Trabalhos__ exibe um histórico das consultas de Hive.
+Olá __trabalhos__ guia exibe um histórico das consultas de Hive.
 
-![Imagem do histórico de trabalhos](./media/hdinsight-hadoop-use-hive-ambari-view/job-history.png)
+![Imagem do histórico do trabalho Olá](./media/hdinsight-hadoop-use-hive-ambari-view/job-history.png)
 
 ## <a name="database-tables"></a>Tabelas de banco de dados
 
-Você pode usar a guia __tabelas__ para trabalhar com tabelas em um banco de dados de Hive.
+Você pode usar o hello __tabelas__ guia toowork com as tabelas em um banco de dados de Hive.
 
-![Imagem da guia tabelas](./media/hdinsight-hadoop-use-hive-ambari-view/tables.png)
+![Imagem da guia de tabelas Olá](./media/hdinsight-hadoop-use-hive-ambari-view/tables.png)
 
 ## <a name="saved-queries"></a>Consultas salvas
 
-Na guia consulta você pode, opcionalmente, salvar consultas. Uma vez salva, você pode reutilizar a consulta por meio da guia __Consultas Salvas__.
+Guia de consulta Olá, opcionalmente, é possível salvar consultas. Uma vez salvo, você pode reutilizar a consulta de saudação do hello __consultas salvas__ guia.
 
 ![Imagem da guia Consultas Salvas](./media/hdinsight-hadoop-use-hive-ambari-view/saved-queries.png)
 
 ## <a name="user-defined-functions"></a>Funções definidas pelo usuário
 
-O Hive também pode ser estendido por meio de UDFs (funções definidas pelo usuário). As UDF permitem que você implemente funcionalidade ou lógica que não é facilmente modelada em HiveQL.
+O Hive também pode ser estendido por meio de UDFs (funções definidas pelo usuário). Um UDF permite funcionalidade tooimplement ou lógica que não é modelada facilmente no estilo.
 
-A guia UDF na parte superior da exibição do Hive permite que você declare e salve um conjunto de UDFs. Essas UDFs podem ser usadas com o **Editor de Consultas**.
+Olá guia UDF na parte superior de saudação do hello Hive exibição permite toodeclare e salvar um conjunto de UDFs. Esses UDFs podem ser usados com hello **Editor de consultas**.
 
 ![Imagem da guia UDF](./media/hdinsight-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
-Depois de adicionar uma UDF ao Modo de Exibição do Hive, um botão **Inserir udfs** será exibido na parte inferior do **Editor de Consultas**. Ao selecionar essa entrada, uma lista suspensa de UDFs definidas na Exibição do Hive será exibida. A seleção de uma UDF adiciona instruções HiveQL à sua consulta para habilitar a UDF.
+Depois que você adicionou um toohello UDF exibição Hive, um **inserir udfs** botão é exibido na parte inferior de saudação do hello **Editor de consultas**. Selecionar essa entrada exibe uma lista de lista suspensa de Olá UDFs definidos no hello exibição Hive. Selecionar um UDF adiciona HiveQL instruções tooyour consulta tooenable Olá UDF.
 
-Por exemplo, se você tiver definido uma UDF com as seguintes propriedades:
+Por exemplo, se você tiver definido um UDF com hello propriedades a seguir:
 
 * Nome de recurso: myudfs
 
@@ -172,23 +172,23 @@ Por exemplo, se você tiver definido uma UDF com as seguintes propriedades:
 
 * Nome de classe da  UDF: com.myudfs.Awesome
 
-O botão **Inserir udfs** exibe uma entrada denominada **myudfs**, com outra lista suspensa para cada UDF definida para esse recurso. Nesse caso, **myawesomeudf**. A seleção dessa entrada adiciona o seguinte ao início da consulta:
+Usando Olá **inserir udfs** botão exibe uma entrada de chamada **myudfs**, com outra lista suspensa para cada UDF é definido para esse recurso. Nesse caso, **myawesomeudf**. Selecionar essa entrada adiciona Olá toohello início da consulta Olá a seguir:
 
 ```hiveql
 add jar /myudfs.jar;
 create temporary function myawesomeudf as 'com.myudfs.Awesome';
 ```
 
-Você pode usar a UDF em sua consulta. Por exemplo: `SELECT myawesomeudf(name) FROM people;`.
+Em seguida, você pode usar o hello UDF em sua consulta. Por exemplo: `SELECT myawesomeudf(name) FROM people;`.
 
-Para saber mais sobre como usar UDFs com o Hive no HDInsight, consulte os seguintes documentos:
+Para obter mais informações sobre como usar UDFs com Hive no HDInsight, consulte Olá documentos a seguir:
 
 * [Usando o Python com o Hive e com o Pig no HDInsight](hdinsight-python.md)
-* [Como adicionar UDF personalizadas do Hive no HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Como tooadd uma tooHDInsight UDF Hive personalizada](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 ## <a name="hive-settings"></a>Configurações do Hive
 
-A opção Configurações pode ser usada para alterar várias configurações de Hive. Por exemplo, alterar o mecanismo de execução para o Hive de Tez (o padrão) para MapReduce.
+As configurações podem ser usada toochange várias configurações de Hive. Por exemplo, alterando o mecanismo de execução Olá para o Hive de tooMapReduce Tez (padrão de saudação).
 
 ## <a id="nextsteps"></a>Próximas etapas
 

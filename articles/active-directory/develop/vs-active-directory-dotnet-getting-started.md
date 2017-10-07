@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao Azure AD em projetos do Visual Studio MVC | Microsoft Docs"
-description: "Como começar a usar o Active Directory do Azure em projetos do MVC após a conexão ou criação de um AD do Azure usando os serviços conectados do Visual Studio"
+title: aaaGet iniciado com o Azure AD em projetos MVC do Visual Studio | Microsoft Docs
+description: "Como tooget iniciado usando o Active Directory do Azure em projetos MVC após a conexão tooor criando um AD do Azure usando o Visual Studio conectada a serviços"
 services: active-directory
 documentationcenter: 
 author: kraigb
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: c4d49cfc9887e422b3eaed2b96348c99eca48881
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 807824dd6e4e57e443f8a7322cf2e5326384316d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="getting-started-with-azure-active-directory-and-visual-studio-connected-services-mvc-projects"></a>Introdução ao Active Directory do Azure e aos serviços conectados do Visual Studio (Projetos do MVC)
 > [!div class="op_single_selector"]
@@ -28,11 +28,11 @@ ms.lasthandoff: 08/29/2017
 > 
 > 
 
-## <a name="requiring-authentication-to-access-controllers"></a>Exigir autenticação para acessar os controladores
-Todos os controladores em seu projeto foram marcados com o atributo **Autorizar** . Este atributo exige que o usuário seja autenticado antes de acessar esses controladores. Para permitir que o controlador seja acessado anonimamente, remova este atributo do controlador. Se desejar definir as permissões em um nível mais granular, aplique o atributo a cada método que necessita de autorização em vez de aplicá-lo à classe do controlador.
+## <a name="requiring-authentication-tooaccess-controllers"></a>Controladores de tooaccess que requer autenticação
+Todos os controladores em seu projeto foram adornados com hello **autorizar** atributo. Este atributo requer Olá toobe de usuário autenticado antes de acessar esses controladores. tooallow Olá controlador toobe acessada anonimamente, remova este atributo do controlador de saudação. Se quiser tooset Olá permissões em um nível mais granular, aplica o método hello de tooeach de atributo que requer autorização, em vez de aplicá-lo a classe do controlador toohello.
 
 ## <a name="adding-signin--signout-controls"></a>Adicionar controles de SignIn / SignOut
-Para adicionar controles SignIn/SignOut à exibição, é possível usar a exibição parcial **_LoginPartial.cshtml** para adicionar a funcionalidade a uma das exibições. Veja um exemplo da funcionalidade adicionada à visualização standard**_Layout.cshtml**. (Observe o último elemento no div com classe navbar-collapse):
+Olá tooadd SignIn/SignOut controla a exibição de tooyour, você pode usar o hello **loginpartial. cshtml** exibição parcial tooadd Olá funcionalidade tooone de seus modos de exibição. Aqui está um exemplo do padrão de toohello adicionada funcionalidade Olá **cshtml** exibição. (Observe o último elemento Olá Olá div com classe navbar-recolher):
 
 <pre>
     &lt;!DOCTYPE html&gt; 

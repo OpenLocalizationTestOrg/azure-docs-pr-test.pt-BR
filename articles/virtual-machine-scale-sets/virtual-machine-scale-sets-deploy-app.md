@@ -1,6 +1,6 @@
 ---
-title: "Implantar um aplicativo em conjuntos de escala de máquina virtual"
-description: "Use as extensões para implantar um aplicativo nos Conjuntos de Dimensionamento de Máquinas Virtuais do Azure."
+title: "Define aaaDeploy um aplicativo em escala de máquinas virtuais"
+description: "Use extensões toodepoy um aplicativo em conjuntos de escala de máquina Virtual do Azure."
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: thraka
@@ -15,53 +15,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: adegeo
-ms.openlocfilehash: fa7d9d3bef4cb326844ede76171e8c566e87116b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 5f3988b9511d80370a8be1fc042c21fee212506e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implantar o aplicativo em conjuntos de dimensionamento de máquinas virtuais
 
-Este artigo descreve diferentes maneiras de instalar software no momento em que o conjunto de dimensionamento é provisionado.
+Este artigo descreve as diferentes maneiras de como definir o software tooinstall escala de saudação do tempo de saudação é provisionado.
 
-Pode ser necessário revisar o artigo [Visão geral do design do conjunto de dimensionamento](virtual-machine-scale-sets-design-overview.md), o qual descreve alguns dos limites impostos pelos conjuntos de dimensionamento de máquinas virtuais.
+Talvez você queira Olá tooreview [visão geral do Design definir escala](virtual-machine-scale-sets-design-overview.md) artigo, que descreve alguns dos limites de saudação impostos por conjuntos de escala de máquina virtual.
 
 ## <a name="capture-and-reuse-an-image"></a>Capturar e reutilizar uma imagem
 
-É possível utilizar uma máquina virtual que você tem no Azure para preparar uma imagem base para o conjunto de dimensionamento. Esse processo cria um disco gerenciado na sua conta de armazenamento, o qual é possível referenciar como a imagem base para o conjunto de dimensionamento. 
+Você pode usar uma máquina virtual que no Azure tooprepare uma imagem de base para a escala configurou. Esse processo cria um disco gerenciado na sua conta de armazenamento, você pode fazer referência como imagem de base Olá para o conjunto de escala. 
 
-Execute as seguintes etapas:
+Olá seguintes etapas:
 
 1. Crie uma Máquina Virtual do Azure
    * [Linux][linux-vm-create]
    * [Windows][windows-vm-create]
 
-2. Acesse remotamente a máquina virtual e personalize o sistema de acordo com seu interesse.
+2. Remoto em Olá a máquina virtual e personalizar a preferência de tooyour sistema hello.
 
-   Se você quiser, é possível instalar o aplicativo agora. No entanto, saiba que ao instalar o aplicativo agora, a atualização do seu aplicativo poderá ficar mais complicada porque talvez seja necessário removê-lo primeiro. Em vez disso, é possível utilizar esta etapa para instalar quaisquer pré-requisitos que possam ser necessários ao aplicativo, como um tempo de execução específico ou recurso do sistema operacional.
+   Se você quiser, é possível instalar o aplicativo agora. No entanto, saiba que ao instalar seu aplicativo agora, você pode fazer upgrade do seu aplicativo mais complicado porque talvez seja necessário tooremove-lo primeiro. Em vez disso, você pode usar essa etapa tooinstall todos os pré-requisitos que seu aplicativo pode ser necessário, como um recurso de tempo de execução ou sistema operacional específico.
 
-3. Siga o tutorial "capturar uma máquina" tanto para [Linux][linux-vm-capture] como para [Windows][windows-vm-capture].
+3. Siga hello "capturar uma máquina" tutorial para o [Linux] [ linux-vm-capture] ou [Windows][windows-vm-capture].
 
-4. Crie um [Conjunto de Dimensionamento de Máquinas Virtuais][vmss-create] com o URI de imagem capturado na etapa anterior.
+4. Criar um [conjunto de escala de máquinas virtuais] [ vmss-create] com hello capturados na etapa anterior de saudação do URI da imagem.
 
 Para obter mais informações, consulte [Visão geral do Managed Disks](../virtual-machines/windows/managed-disks-overview.md) e [Utilizar discos de dados anexados](virtual-machine-scale-sets-attached-disks.md).
 
-## <a name="install-when-the-scale-set-is-provisioned"></a>Instalar quando o conjunto de dimensionamento é provisionado
+## <a name="install-when-hello-scale-set-is-provisioned"></a>Instalar ao conjunto de escala de saudação é provisionado
 
-As extensões da máquina virtual podem ser aplicadas a um conjunto de dimensionamento de máquinas virtuais. Com uma extensão da máquina virtual, é possível personalizar as máquinas virtuais em um conjunto de dimensionamento como um grupo inteiro. Para obter mais informações, consulte [Extensões da máquina virtual](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Extensões de máquinas virtuais podem ser aplicadas tooa conjunto de escalas da máquina virtual. Com uma extensão de máquina virtual, você pode personalizar máquinas virtuais de saudação em uma escala definida como um grupo inteiro. Para obter mais informações, consulte [Extensões da máquina virtual](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Há três extensões principais que podem ser utilizadas, dependendo se o sistema operacional é baseado no Linux ou baseado no Windows.
 
 ### <a name="windows"></a>Windows
 
-Para um sistema operacional baseado no Windows, utilize a extensão de **Script personalizado v1.8** ou a extensão **DSC do PowerShell**.
+Para um sistema operacional baseado no Windows, use o hello **v 1.8 de Script personalizado** extensão ou hello **PowerShell DSC** extensão.
 
 #### <a name="custom-script"></a>Custom Script
 
-A extensão de script personalizado executa um script em cada instância da máquina virtual no conjunto de dimensionamento. Um arquivo de configuração ou variável indica quais arquivos são baixados para a máquina virtual e, em seguida, o comando é executado. Você pode usar isso para executar um instalador, um script, um arquivo em lotes, quaisquer executáveis, por exemplo.
+saudação de extensão do Script personalizado executa um script em cada instância de máquina virtual no conjunto de escala de saudação. Um arquivo de configuração ou variável indica quais arquivos são baixados toohello VM e, em seguida, o comando é executado. Você pode usar este toorun um instalador, um script, um arquivo em lotes, qualquer executável por exemplo.
 
-O PowerShell utiliza uma tabela de hash para as configurações. Esse exemplo configura a extensão de script personalizado para executar um script do PowerShell que instala o IIS.
+PowerShell usa uma tabela de hash para configurações de saudação. Este exemplo configura Olá script personalizado extensão toorun um script do PowerShell que instala o IIS.
 
 ```powershell
 # Setup extension configuration hashtable variable
@@ -70,20 +70,20 @@ $customConfig = @{
   "commandToExecute" = "PowerShell -ExecutionPolicy Unrestricted .\install-iis.ps1 >> `"%TEMP%\StartupLog.txt`" 2>&1";
 };
 
-# Add the extension to the config
+# Add hello extension toohello config
 Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig -Publisher Microsoft.Compute -Type CustomScriptExtension -TypeHandlerVersion 1.8 -Name "customscript1" -Setting $customConfig
 
-# Send the new config to Azure
+# Send hello new config tooAzure
 Update-AzureRmVmss -ResourceGroupName $rg -Name "MyVmssTest143"  -VirtualMachineScaleSet $vmssConfig
 ```
 
 >[!IMPORTANT]
->Utilize a opção `-ProtectedSetting` para as configurações que podem conter informações confidenciais.
+>Saudação de uso `-ProtectedSetting` alternar para as configurações que podem conter informações confidenciais.
 
 ---------
 
 
-A CLI do Azure utiliza um arquivo json para as configurações. Esse exemplo configura a extensão de script personalizado para executar um script do PowerShell que instala o IIS. Salve o arquivo json a seguir como _settings.json_.
+CLI do Azure usa um arquivo json para configurações de saudação. Este exemplo configura Olá script personalizado extensão toorun um script do PowerShell que instala o IIS. Salvar Olá arquivo json como a seguir _settings.json_.
 
 ```json
 {
@@ -101,13 +101,13 @@ az vmss extension set --publisher Microsoft.Compute --version 1.8 --name CustomS
 ```
 
 >[!IMPORTANT]
->Utilize a opção `--protected-settings` para as configurações que podem conter informações confidenciais.
+>Saudação de uso `--protected-settings` alternar para as configurações que podem conter informações confidenciais.
 
 ### <a name="powershell-dsc"></a>DSC do PowerShell
 
-Você pode utilizar DSC do PowerShell para personalizar as instâncias das VMs do conjunto de dimensionamento. A extensão **DSC** publicada pelo **Microsoft.Powershell** implanta e executa a configuração DSC fornecida em cada instância da máquina virtual. Um arquivo de configuração ou variável informa a extensão onde o pacote *.zip* está e qual a combinação _script-function_ a executar.
+Você pode usar instâncias de vm do conjunto de escala do DSC do PowerShell toocustomize hello. Olá **DSC** extensão publicada por **PowerShell** implanta e executa a configuração de DSC Olá fornecido em cada instância de máquina virtual. Um arquivo de configuração ou variável informa extensão Olá onde *. zip* pacote for e que _função script_ toorun de combinação.
 
-O PowerShell utiliza uma tabela de hash para as configurações. Esse exemplo implanta um pacote de DSC que instala o IIS.
+PowerShell usa uma tabela de hash para configurações de saudação. Esse exemplo implanta um pacote de DSC que instala o IIS.
 
 ```powershell
 # Setup extension configuration hashtable variable
@@ -120,19 +120,19 @@ $dscConfig = @{
   };
 }
 
-# Add the extension to the config
+# Add hello extension toohello config
 Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig -Publisher Microsoft.Powershell -Type DSC -TypeHandlerVersion 2.24 -Name "dsc1" -Setting $dscConfig
 
-# Send the new config to Azure
+# Send hello new config tooAzure
 Update-AzureRmVmss -ResourceGroupName $rg -Name "myscaleset1"  -VirtualMachineScaleSet $vmssConfig
 ```
 
 >[!IMPORTANT]
->Utilize a opção `-ProtectedSetting` para as configurações que podem conter informações confidenciais.
+>Saudação de uso `-ProtectedSetting` alternar para as configurações que podem conter informações confidenciais.
 
 -----------
 
-A CLI do Azure utiliza um json para as configurações. Esse exemplo implanta um pacote de DSC que instala o IIS. Salve o arquivo json a seguir como _settings.json_.
+CLI do Azure usa json para configurações de saudação. Esse exemplo implanta um pacote de DSC que instala o IIS. Salvar Olá arquivo json como a seguir _settings.json_.
 
 ```json
 {
@@ -152,17 +152,17 @@ az vmss extension set --publisher Microsoft.Powershell --version 2.24 --name DSC
 ```
 
 >[!IMPORTANT]
->Utilize a opção `--protected-settings` para as configurações que podem conter informações confidenciais.
+>Saudação de uso `--protected-settings` alternar para as configurações que podem conter informações confidenciais.
 
 ### <a name="linux"></a>Linux
 
-O Linux pode utilizar a extensão de **Script personalizado v2.0** ou usar a **inicialização de nuvem** durante a criação.
+Linux pode usar qualquer Olá **v 2.0 do Script personalizado** extensão ou use **init nuvem** durante a criação.
 
-O script personalizado é uma extensão simples que baixa arquivos para as instâncias da máquina virtual e executa um comando.
+Script personalizado é uma extensão simple que instâncias de máquina virtual de toohello arquivos de baixa e executa um comando.
 
 #### <a name="custom-script"></a>Custom Script
 
-Salve o arquivo json a seguir como _settings.json_.
+Salvar Olá arquivo json como a seguir _settings.json_.
 
 ```json
 {
@@ -174,20 +174,20 @@ Salve o arquivo json a seguir como _settings.json_.
 }
 ```
 
-Utilize a CLI do Azure para adicionar essa extensão a um conjunto de dimensionamento de máquinas virtuais existentes. Cada máquina virtual no conjunto de dimensionamento executa automaticamente a extensão.
+Use Olá CLI do Azure tooadd este tooan de extensão existente do conjunto de escalas da máquina virtual. Cada máquina virtual em escala Olá definidas automaticamente execuções Olá extensão.
 
 ```azurecli
 az vmss extension set --publisher Microsoft.Azure.Extensions --version 2.0 --name CustomScript --resource-group myResourceGroup --vmss-name myScaleSet --settings @settings.json
 ```
 
 >[!IMPORTANT]
->Utilize a opção `--protected-settings` para as configurações que podem conter informações confidenciais.
+>Saudação de uso `--protected-settings` alternar para as configurações que podem conter informações confidenciais.
 
 #### <a name="cloud-init"></a>Inicialização de nuvem
 
-A inicialização de nuvem é utilizada quando o conjunto de dimensionamento é criado. Primeiro, crie um arquivo local chamado _cloud-init.txt_ e adicione sua configuração a esse aquivo. Por exemplo, consulte [essas linhas gerais](https://gist.github.com/Thraka/27bd66b1fb79e11904fb62b7de08a8a6#file-cloud-init-txt)
+Nuvem Init é usado quando o conjunto de escala Olá é criado. Primeiro, crie um arquivo local chamado _init.txt nuvem_ e adicione tooit sua configuração. Por exemplo, consulte [essas linhas gerais](https://gist.github.com/Thraka/27bd66b1fb79e11904fb62b7de08a8a6#file-cloud-init-txt)
 
-Utilize a CLI do Azure para criar um conjunto de dimensionamento. O `--custom-data` campo aceita o nome de arquivo de um script de inicialização de nuvem.
+Olá Use CLI do Azure toocreate uma escala definida. Olá `--custom-data` campo aceita o nome de arquivo hello de um script de inicialização de nuvem.
 
 ```azurecli
 az vmss create \
@@ -202,22 +202,22 @@ az vmss create \
 
 ## <a name="how-do-i-manage-application-updates"></a>Como gerenciar atualizações de aplicativos?
 
-Se o aplicativo foi implantado através de uma extensão, altere a definição da extensão de alguma forma. Essa alteração faz com que a extensão seja reimplantada a todas as instâncias das máquina virtuais. Algo **deverá** ser alterado sobre a extensão, como renomear um arquivo referenciado, caso contrário, o Azure não reconhecerá que a extensão foi alterada.
+Se você implantou seu aplicativo por meio de uma extensão, altere a definição de extensão de saudação de alguma forma. Essa alteração faz com que as instâncias de máquina virtual Olá extensão toobe reimplantado tooall. Algo **deve** alterado sobre extensão hello, como renomear um arquivo referenciado, caso contrário, faz do Azure não veja que Olá extensão foi alterada.
 
-Se o aplicativo foi incorporado em sua própria imagem do sistema operacional, utilize uma pipeline de implantação automatizada para atualizações do aplicativo. Projete sua arquitetura para facilitar a troca rápida de um conjunto de dimensionamento em etapas na produção. Um bom exemplo dessa abordagem é o [trabalho de driver do Azure Spinnaker](https://github.com/spinnaker/deck/tree/master/app/scripts/modules/azure) - [http://www.spinnaker.io/](http://www.spinnaker.io/).
+Se você implantadas aplicativo hello na sua própria imagem do sistema operacional, use um pipeline de implantação automática para atualizações de aplicativos. Crie seu toofacilitate arquitetura rápida de troca de uma escala de preparada definido em produção. Um bom exemplo dessa abordagem é hello [trabalho do Azure Spinnaker driver](https://github.com/spinnaker/deck/tree/master/app/scripts/modules/azure) - [http://www.spinnaker.io/](http://www.spinnaker.io/).
 
-[Packer](https://www.packer.io/) e [Terraform](https://www.terraform.io/) suportam o Azure Resource Manager para que seja possível definir suas imagens "como código" e compilá-las no Azure, então, utilize o VHD no seu conjunto de dimensionamento. No entanto, isso seria problemático para imagens do marketplace, nas quais extensões/scripts personalizados se tornam mais importantes, já que você não manipula diretamente os bits do marketplace.
+[Packer](https://www.packer.io/) e [Terraform](https://www.terraform.io/) suporte do Azure Resource Manager, para que você também pode definir suas imagens "de código" e criá-las no Azure, em seguida, usar Olá VHD em seu conjunto de escala. No entanto, isso seria problemático para imagens do marketplace, nas quais extensões/scripts personalizados se tornam mais importantes, já que você não manipula diretamente os bits do marketplace.
 
 ## <a name="what-happens-when-a-scale-set-scales-out"></a>O que acontece quando um conjunto de dimensionamento é escalado horizontalmente?
-Quando você adiciona uma ou mais máquinas virtuais a um conjunto de dimensionamento, o aplicativo é instalado automaticamente. Por exemplo, se o conjunto de dimensionamento tiver extensões definidas, elas serão executadas em uma nova máquina virtual sempre que for criada. Se o conjunto de dimensionamento for baseado em uma imagem personalizada, qualquer nova máquina virtual será uma cópia da imagem personalizada de origem. Se as máquinas virtuais do conjunto de dimensionamento forem hosts de contêineres, então, será possível ter o código de inicialização para carregar os contêineres em uma extensão de script personalizada. Ou, uma extensão poderá instalar um agente que se registre com um orquestrador de cluster, como o Serviço de Contêiner do Azure.
+Quando você adiciona um ou mais conjuntos de escala tooa de máquinas virtuais, o aplicativo hello é instalado automaticamente. Para exemplo se o conjunto de escala Olá tem extensões definidas, eles executados em uma nova máquina virtual sempre que ela é criada. Se o conjunto de escala Olá baseia-se em uma imagem personalizada, qualquer nova máquina virtual é uma cópia da imagem personalizada do hello fonte. Se Olá máquinas de virtuais de conjunto de escala são hosts de contêiner, você pode ter contêineres de saudação do tooload de código de inicialização em uma extensão de Script personalizado. Ou, uma extensão poderá instalar um agente que se registre com um orquestrador de cluster, como o Serviço de Contêiner do Azure.
 
 
 ## <a name="how-do-you-roll-out-an-os-update-across-update-domains"></a>Como você implementa uma atualização de SO em domínios de atualização?
-Suponha que você deseja atualizar a imagem do seu SO enquanto mantém o conjunto de dimensionamento de máquinas virtuais em execução. O PowerShell e a CLI do Azure podem atualizar as imagens da máquina virtual, uma máquina virtual de cada vez. O artigo [Atualizar um conjunto de dimensionamento de máquinas virtuais](./virtual-machine-scale-sets-upgrade-scale-set.md) também fornece mais informações sobre quais opções estão disponíveis para executar uma atualização do sistema operacional através de um conjunto de dimensionamento de máquinas virtuais.
+Suponha que você queira tooupdate sua imagem de sistema operacional, mantendo a escala de máquinas virtuais de saudação definido em execução. PowerShell e hello CLI do Azure podem atualizar imagens de máquinas virtuais hello, uma máquina virtual por vez. Olá [atualizar um conjunto de escala de máquinas virtuais](./virtual-machine-scale-sets-upgrade-scale-set.md) artigo também fornece informações adicionais sobre quais opções estão disponível tooperform atualizar um sistema operacional em um conjunto de escala de máquina virtual.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Utilizar o PowerShell para gerenciar seu conjunto de dimensionamento.](virtual-machine-scale-sets-windows-manage.md)
+* [Use o PowerShell toomanage seu conjunto de escala.](virtual-machine-scale-sets-windows-manage.md)
 * [Criar um modelo de conjunto de dimensionamento.](virtual-machine-scale-sets-mvss-start.md)
 
 

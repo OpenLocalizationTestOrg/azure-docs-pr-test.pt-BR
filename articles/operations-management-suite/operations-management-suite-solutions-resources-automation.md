@@ -1,6 +1,6 @@
 ---
-title: "Recursos de Automação do Azure em soluções do OMS | Microsoft Docs"
-description: "Soluções em OMS normalmente incluirão runbooks na automação do Azure para automatizar processos, como a coleta e o processamento de dados de monitoramento.  Este artigo descreve como incluir runbooks e seus recursos relacionados em uma solução."
+title: "recursos de automação de aaaAzure em soluções do OMS | Microsoft Docs"
+description: "Soluções do OMS normalmente incluirá runbooks na automação do Azure tooautomate processos, como a coleta e processamento de dados de monitoramento.  Este artigo descreve como tooinclude runbooks e seus recursos relacionados em uma solução."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,42 +15,42 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1909183a33ed03d8165671cff25cc8b83b77733
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 82a156f89bf77ce25e52e5e4596261ec07a24dae
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="adding-azure-automation-resources-to-an-oms-management-solution-preview"></a>Adição de recursos de Automação do Azure a uma solução de gerenciamento do OMS (Preview)
+# <a name="adding-azure-automation-resources-tooan-oms-management-solution-preview"></a>Adicionando a solução de gerenciamento de OMS para tooan de recursos automação do Azure (visualização)
 > [!NOTE]
-> Esta é uma documentação preliminar para criar soluções de gerenciamento no OMS, que estão atualmente em visualização. Os esquemas descritos a seguir estão sujeitos a alterações.   
+> Esta é uma documentação preliminar para criar soluções de gerenciamento no OMS, que estão atualmente em visualização. Qualquer esquema descrita abaixo é toochange de assunto.   
 
 
-[Soluções de gerenciamento em OMS](operations-management-suite-solutions.md) normalmente incluirão runbooks na automação do Azure para automatizar processos, como a coleta e o processamento de dados de monitoramento.  Além de runbooks, contas de automação incluem ativos, como variáveis e agendas que dão suporte a runbooks usados na solução.  Este artigo descreve como incluir runbooks e seus recursos relacionados em uma solução.
+[Soluções de gerenciamento do OMS](operations-management-suite-solutions.md) geralmente inclui runbooks na automação do Azure tooautomate processos, como a coleta e processamento de dados de monitoramento.  Além disso toorunbooks, contas de automação inclui ativos como variáveis e agendas que dão suporte a runbooks Olá usado na solução de saudação.  Este artigo descreve como tooinclude runbooks e seus recursos relacionados em uma solução.
 
 > [!NOTE]
-> Os exemplos neste artigo usam parâmetros e variáveis que são necessários ou comuns para as soluções de gerenciamento e estão descritos em [Creating management solutions in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) (Criando soluções de gerenciamento no OMS (Operations Management Suite)) 
+> Olá exemplos neste artigo usam parâmetros e variáveis que são ambos soluções toomanagement necessárias ou comuns e descritos na [criando soluções de gerenciamento no OMS Operations Management Suite ()](operations-management-suite-solutions-creating.md) 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo pressupõe que você já esteja familiarizado com as informações a seguir.
+Este artigo pressupõe que você já estiver familiarizado com hello informações a seguir.
 
-- Como [criar uma solução de gerenciamento](operations-management-suite-solutions-creating.md).
-- A estrutura de um [arquivo de solução](operations-management-suite-solutions-solution-file.md).
-- Como [criar modelos do Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+- Como muito[criar uma solução de gerenciamento](operations-management-suite-solutions-creating.md).
+- Olá a estrutura de um [arquivo de solução](operations-management-suite-solutions-solution-file.md).
+- Como muito[criar modelos do Gerenciador de recursos](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## <a name="automation-account"></a>Conta de automação
-Todos os recursos na Automação do Azure estão contidos em um [Conta de automação](../automation/automation-security-overview.md#automation-account-overview).  Conforme descrito no [espaço de trabalho OMS e conta de automação](operations-management-suite-solutions.md#oms-workspace-and-automation-account), a conta de automação não está incluída na solução de gerenciamento, mas deve existir antes que a solução seja instalada.  Se ela não estiver disponível, a instalação da solução falhará.
+Todos os recursos na Automação do Azure estão contidos em um [Conta de automação](../automation/automation-security-overview.md#automation-account-overview).  Conforme descrito em [OMS espaço de trabalho e a conta de automação](operations-management-suite-solutions.md#oms-workspace-and-automation-account) Olá conta de automação não está incluído na solução de gerenciamento de hello, mas deve existir antes de saudação solução estiver instalada.  Se não estiver disponível, Olá solução instalação falhará.
 
-O nome de cada recurso de Automação inclui o nome de sua conta de Automação.  Isso é feito na solução com o parâmetro **accountName**, conforme descrito no exemplo a seguir de um recurso de runbook.
+nome de saudação de cada recurso de automação inclui nome de saudação de sua conta de automação.  Isso é feito na solução de saudação com hello **accountName** parâmetro como Olá exemplo de um recurso de runbook a seguir.
 
     "name": "[concat(parameters('accountName'), '/MyRunbook'))]"
 
 
 ## <a name="runbooks"></a>Runbooks
-Você deve incluir todos os runbooks usados pela solução no arquivo de solução para que eles sejam criados quando a solução for instalada.  No entanto, você não pode incluir o corpo do runbook no modelo, de modo que é preciso publicar o runbook em um local público onde ele possa ser acessado por qualquer usuário que esteja instalando sua solução.
+Você deve incluir todos os runbooks usados pela solução de saudação no arquivo de solução Olá para que eles são criados quando Olá solução estiver instalada.  Você não pode conter o corpo de saudação do runbook Olá no modelo de saudação, para que você deve publicar Olá runbook tooa local público em que ele possa ser acessado por qualquer usuário que instalar sua solução.
 
-Os recursos do [runbook de Automação do Azure](../automation/automation-runbook-types.md) têm o tipo **Microsoft.Automation/automationAccounts/runbooks** e a estrutura a seguir. Isso inclui variáveis e parâmetros comuns para que você possa copiar e colar este trecho de código em seu arquivo de solução e alterar os nomes de parâmetro. 
+[Runbook de automação do Azure](../automation/automation-runbook-types.md) recursos têm um tipo de **Microsoft.Automation/automationAccounts/runbooks** e ter Olá estrutura a seguir. Isso inclui variáveis e parâmetros comuns, para que você pode copiar e colar este trecho de código em seu arquivo de solução e altere os nomes de parâmetro hello. 
 
     {
         "name": "[concat(parameters('accountName'), '/', variables('Runbook').Name)]",
@@ -73,21 +73,21 @@ Os recursos do [runbook de Automação do Azure](../automation/automation-runboo
     }
 
 
-As propriedades dos runbooks são descritas na tabela a seguir.
+Propriedades de saudação para runbooks são descritas Olá a tabela a seguir.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| runbookType |Especifica os tipos de runbook. <br><br> Script – Script do PowerShell <br>PowerShell – Fluxo de trabalho do PowerShell <br> GraphPowerShell – Runbook de script do PowerShell gráfico <br> GraphPowerShellWorkflow – Runbook de fluxo de trabalho do PowerShell gráfico |
-| logProgress |Especifica se [registros de progresso](../automation/automation-runbook-output-and-messages.md) devem ser gerados para o runbook. |
-| logVerbose |Especifica se [registros detalhados](../automation/automation-runbook-output-and-messages.md) devem ser gerados para o runbook. |
-| Descrição |Descrição opcional para o runbook. |
-| publishContentLink |Especifica o conteúdo do runbook. <br><br>uri – URI do conteúdo do runbook.  Ele será um arquivo .ps1 para runbooks do PowerShell e Script e um arquivo de runbook gráfico exportado para um runbook gráfico.  <br> versão – a versão do runbook para seu próprio acompanhamento. |
+| runbookType |Especifica os tipos de saudação de runbook hello. <br><br> Script – Script do PowerShell <br>PowerShell – Fluxo de trabalho do PowerShell <br> GraphPowerShell – Runbook de script do PowerShell gráfico <br> GraphPowerShellWorkflow – Runbook de fluxo de trabalho do PowerShell gráfico |
+| logProgress |Especifica se [registros de progresso](../automation/automation-runbook-output-and-messages.md) devem ser gerados para Olá runbook. |
+| logVerbose |Especifica se [registros detalhados](../automation/automation-runbook-output-and-messages.md) devem ser gerados para Olá runbook. |
+| description |Descrição opcional para o runbook hello. |
+| publishContentLink |Especifica o conteúdo de saudação do runbook hello. <br><br>URI - Uri toohello conteúdo de runbook hello.  Ele será um arquivo .ps1 para runbooks do PowerShell e Script e um arquivo de runbook gráfico exportado para um runbook gráfico.  <br> versão - versão de runbook Olá para o seu próprio controle. |
 
 
 ## <a name="automation-jobs"></a>Trabalhos de automação
-Quando você inicia um runbook na Automação do Azure, isso cria um trabalho de automação.  Você pode adicionar um recurso de trabalho de automação à solução para iniciar um runbook automaticamente quando a solução de gerenciamento for instalada.  Esse método normalmente é usado para iniciar runbooks que são usados para a configuração inicial da solução.  Para iniciar um runbook em intervalos regulares, crie um [agendamento](#schedules) e um [agendamento de trabalho](#job-schedules)
+Quando você inicia um runbook na Automação do Azure, isso cria um trabalho de automação.  Você pode adicionar um automação trabalho tooyour solução tooautomatically início um runbook quando a solução de gerenciamento de saudação está instalada.  Esse método é geralmente usados toostart runbooks que são usados para a configuração inicial de solução de saudação.  toostart um runbook em intervalos regulares, criar um [agenda](#schedules) e um [agenda de trabalho](#job-schedules)
 
-Os recursos de trabalho têm o tipo **Microsoft.Automation/automationAccounts/jobs** e a estrutura a seguir.  Isso inclui variáveis e parâmetros comuns para que você possa copiar e colar este trecho de código em seu arquivo de solução e alterar os nomes de parâmetro. 
+Recursos de trabalho têm um tipo de **Microsoft.Automation/automationAccounts/jobs** e ter Olá estrutura a seguir.  Isso inclui variáveis e parâmetros comuns, para que você pode copiar e colar este trecho de código em seu arquivo de solução e altere os nomes de parâmetro hello. 
 
     {
       "name": "[concat(parameters('accountName'), '/', parameters('Runbook').JobGuid)]",
@@ -109,20 +109,20 @@ Os recursos de trabalho têm o tipo **Microsoft.Automation/automationAccounts/jo
       }
     }
 
-As propriedades dos trabalhos de automação são descritas na tabela a seguir.
+Propriedades de saudação para trabalhos de automação são descritas Olá a tabela a seguir.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| runbook |Entidade de único nome com o nome do runbook a ser iniciado. |
-| parameters |Entidade para cada valor de parâmetro exigido pelo runbook. |
+| runbook |Entidade de nome único com o nome de saudação do hello runbook toostart. |
+| parâmetros |Entidade para cada valor de parâmetro exigido pelo runbook hello. |
 
-O trabalho inclui o nome do runbook e valores de parâmetro a ser enviado para o runbook.  O trabalho deve [depender](operations-management-suite-solutions-solution-file.md#resources) do runbook que está sendo iniciado, uma vez que o runbook deve ser criado antes do trabalho.  Caso tenha vários runbooks que devam ser iniciados, você pode definir a ordem deles com um trabalho que dependa de qualquer outro trabalho que deva ser executado primeiro.
+trabalho de saudação inclui nome do runbook hello e qualquer toobe de valores de parâmetro enviado toohello runbook.  trabalho de saudação deve [dependem](operations-management-suite-solutions-solution-file.md#resources) runbook Olá que ele está sendo iniciado desde Olá runbook deve ser criado antes do trabalho de saudação.  Caso tenha vários runbooks que devam ser iniciados, você pode definir a ordem deles com um trabalho que dependa de qualquer outro trabalho que deva ser executado primeiro.
 
-O nome de um recurso de trabalho deve conter um GUID que normalmente é atribuído por um parâmetro.  Você pode ler mais sobre os parâmetros GUID em [Criando soluções no OMS (Operations Management Suite)](operations-management-suite-solutions-solution-file.md#parameters).  
+nome de saudação de um recurso de trabalho deve conter um GUID que normalmente é atribuído por um parâmetro.  Você pode ler mais sobre os parâmetros GUID em [Criando soluções no OMS (Operations Management Suite)](operations-management-suite-solutions-solution-file.md#parameters).  
 
 
 ## <a name="certificates"></a>Certificados
-Os [certificados de Automação do Azure](../automation/automation-certificates.md) têm o tipo **Microsoft.Automation/automationAccounts/certificates** e a estrutura a seguir. Isso inclui variáveis e parâmetros comuns para que você possa copiar e colar este trecho de código em seu arquivo de solução e alterar os nomes de parâmetro. 
+[Certificados de automação do Azure](../automation/automation-certificates.md) têm um tipo de **Microsoft.Automation/automationAccounts/certificates** e ter Olá estrutura a seguir. Isso inclui variáveis e parâmetros comuns, para que você pode copiar e colar este trecho de código em seu arquivo de solução e altere os nomes de parâmetro hello. 
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Certificate').Name)]",
@@ -140,17 +140,17 @@ Os [certificados de Automação do Azure](../automation/automation-certificates.
 
 
 
-As propriedades dos recursos de Certificado são descritas na tabela a seguir.
+Propriedades de saudação para recursos de certificados são descritas Olá a tabela a seguir.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| base64Value |O valor de base 64 do certificado. |
-| impressão digital |A impressão digital do certificado. |
+| base64Value |Valor de base 64 para o certificado de saudação. |
+| impressão digital |Impressão digital do certificado de saudação. |
 
 
 
 ## <a name="credentials"></a>Credenciais
-As [credenciais de Automação do Azure](../automation/automation-credentials.md) têm o tipo **Microsoft.Automation/automationAccounts/credentials** e a estrutura a seguir.  Isso inclui variáveis e parâmetros comuns para que você possa copiar e colar este trecho de código em seu arquivo de solução e alterar os nomes de parâmetro. 
+[As credenciais de automação do Azure](../automation/automation-credentials.md) têm um tipo de **Microsoft.Automation/automationAccounts/credentials** e ter Olá estrutura a seguir.  Isso inclui variáveis e parâmetros comuns, para que você pode copiar e colar este trecho de código em seu arquivo de solução e altere os nomes de parâmetro hello. 
 
 
     {
@@ -167,16 +167,16 @@ As [credenciais de Automação do Azure](../automation/automation-credentials.md
       }
     }
 
-As propriedades dos recursos de Credencial são descritas na tabela a seguir.
+Propriedades de saudação para recursos de credencial são descritas Olá a tabela a seguir.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| userName |Nome de usuário da credencial. |
-| Senha |Senha da credencial. |
+| userName |Nome de usuário para credencial hello. |
+| Senha |Senha da credencial de saudação. |
 
 
 ## <a name="schedules"></a>Agendas
-Os [agendamentos de Automação do Azure](../automation/automation-schedules.md) têm o tipo **Microsoft.Automation/automationAccounts/schedules** e a estrutura a seguir. Isso inclui variáveis e parâmetros comuns para que você possa copiar e colar este trecho de código em seu arquivo de solução e alterar os nomes de parâmetro. 
+[Agendas de automação do Azure](../automation/automation-schedules.md) têm um tipo de **Microsoft.Automation/automationAccounts/schedules** e ter Olá Olá estrutura a seguir. Isso inclui variáveis e parâmetros comuns, para que você pode copiar e colar este trecho de código em seu arquivo de solução e altere os nomes de parâmetro hello. 
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Schedule').Name)]",
@@ -195,26 +195,26 @@ Os [agendamentos de Automação do Azure](../automation/automation-schedules.md)
       }
     }
 
-As propriedades de recursos de agendamento são descritas na tabela a seguir.
+Propriedades de saudação para recursos de agendamento são descritas Olá a tabela a seguir.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Descrição |Descrição opcional para o agendamento. |
-| startTime |Especifica a hora de início de uma agenda como um objeto DateTime. Uma cadeia de caracteres pode ser fornecida se ele for convertido em um DateTime válido. |
-| isEnabled |Especifica se o agendamento está habilitado. |
-| intervalo |O tipo de intervalo para o agendamento.<br><br>dia<br>hora |
-| frequência |Frequência em que o agendamento deve ser disparado em número de dias ou horas. |
+| description |Descrição opcional para a agenda de saudação. |
+| startTime |Especifica a hora de início de saudação de uma agenda como um objeto DateTime. Uma cadeia de caracteres pode ser fornecida se ele puder ser convertido tooa DateTime válido. |
+| isEnabled |Especifica se Olá agenda está habilitada. |
+| intervalo |tipo de saudação do intervalo de agendamento de saudação.<br><br>dia<br>hora |
+| frequência |Frequência de Olá agenda deve ser disparada no número de dias ou horas. |
 
-Os agendamentos devem ter um horário de início com um valor posterior ao horário atual.  Você não pode fornecer esse valor com uma variável, uma vez que não teria como saber quando ele vai ser instalado.
+As agendas devem ter uma hora de início com um valor maior que Olá hora atual.  Você não pode fornecer esse valor com uma variável, desde que você teria que não há como saber quando ele é toobe será instalado.
 
-Use uma das duas estratégias a seguir ao usar os recursos de agendamento em uma solução.
+Use uma das duas estratégias a seguir ao usar os recursos de agendamento em uma solução de saudação.
 
-- Use um parâmetro para o horário de início do agendamento.  Essa ação solicitará que o usuário forneça um valor quando instalar a solução.  Caso tenha vários agendamentos, você poderá usar um único valor de parâmetro para mais de um deles.
-- Crie os agendamentos usando um runbook que comece quando a solução é instalada.  Isso elimina a necessidade de o usuário especificar um horário, mas você não pode incluir o agendamento na sua solução, de modo que ele será removido quando a solução for removida.
+- Use um parâmetro de hora de início de saudação da agenda de saudação.  Essa ação solicitará Olá usuário tooprovide um valor ao instalar a solução de saudação.  Caso tenha vários agendamentos, você poderá usar um único valor de parâmetro para mais de um deles.
+- Crie agendas hello usando um runbook que é iniciado quando Olá solução estiver instalada.  Isso elimina a necessidade de saudação do hello usuário toospecify uma hora, mas você não pode conter agenda Olá em sua solução para que ela será removida quando a solução de saudação é removida.
 
 
 ### <a name="job-schedules"></a>Agendas de trabalho
-Os recursos de agendamento vinculam um runbook a um agendamento.  Eles têm o tipo **Microsoft.Automation/automationAccounts/jobSchedules** e a estrutura a seguir.  Isso inclui variáveis e parâmetros comuns para que você possa copiar e colar este trecho de código em seu arquivo de solução e alterar os nomes de parâmetro. 
+Os recursos de agendamento vinculam um runbook a um agendamento.  Eles têm um tipo de **Microsoft.Automation/automationAccounts/jobSchedules** e ter Olá Olá estrutura a seguir.  Isso inclui variáveis e parâmetros comuns, para que você pode copiar e colar este trecho de código em seu arquivo de solução e altere os nomes de parâmetro hello. 
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Schedule').LinkGuid)]",
@@ -238,17 +238,17 @@ Os recursos de agendamento vinculam um runbook a um agendamento.  Eles têm o ti
     }
 
 
-As propriedades dos agendamentos de trabalho são descritas na tabela a seguir.
+Propriedades de saudação para agendas de trabalho são descritas Olá a tabela a seguir.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| nome do agendamento |Entidade de único **nome** com o nome do agendamento. |
-| nome do runbook  |Uma entidade com **nome** único com o nome do runbook.  |
+| nome do agendamento |Único **nome** entidade com o nome de saudação da agenda de saudação. |
+| nome do runbook  |Único **nome** entidade com o nome de saudação do runbook hello.  |
 
 
 
-## <a name="variables"></a>Variáveis
-As [variáveis de Automação do Azure](../automation/automation-variables.md) têm o tipo **Microsoft.Automation/automationAccounts/variables** e a estrutura a seguir.  Isso inclui variáveis e parâmetros comuns para que você possa copiar e colar este trecho de código em seu arquivo de solução e alterar os nomes de parâmetro.
+## <a name="variables"></a>variáveis
+[As variáveis de automação do Azure](../automation/automation-variables.md) têm um tipo de **Microsoft.Automation/automationAccounts/variables** e ter Olá estrutura a seguir.  Isso inclui variáveis e parâmetros comuns, para que você pode copiar e colar este trecho de código em seu arquivo de solução e altere os nomes de parâmetro hello.
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Variable').Name)]",
@@ -265,31 +265,31 @@ As [variáveis de Automação do Azure](../automation/automation-variables.md) t
       }
     }
 
-As propriedades dos recursos de variáveis são descritas na tabela a seguir.
+Propriedades de saudação para recursos variáveis são descritas Olá a tabela a seguir.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Descrição | Descrição opcional para a variável. |
-| isEncrypted | Especifica se a variável deve ser criptografada. |
-| Tipo | Essa propriedade atualmente está sem efeito.  O tipo de dados da variável será determinado pelo valor inicial. |
-| value | Valor da variável. |
+| description | Descrição opcional para a variável de saudação. |
+| isEncrypted | Especifica se a variável de saudação deve ser criptografado. |
+| type | Essa propriedade atualmente está sem efeito.  tipo de dados de saudação da variável Olá será determinado pelo valor de saudação inicial. |
+| valor | Valor de variável de saudação. |
 
 > [!NOTE]
-> Atualmente, a propriedade **type** não tem efeito sobre a variável que está sendo criada.  O tipo de dados para a variável será determinado pelo valor.  
+> Olá **tipo** propriedade atualmente não tem nenhum efeito na variável hello está sendo criado.  saudação de tipo de dados para a variável de saudação será determinado pelo valor de saudação.  
 
-Se você definir o valor inicial da variável, ele deverá ser definido como o tipo de dados correto.  A tabela a seguir fornece os diferentes tipos de dados permitidos e sua sintaxe.  Observe que os valores em JSON devem sempre ser colocados entre aspas com caracteres especiais entre aspas.  Por exemplo, um valor de cadeia de caracteres deve ser especificado por aspas em volta da cadeia de caracteres (usando o caractere de escape \\) enquanto um valor numérico deve ser especificado por um conjunto de aspas.
+Se você definir o valor inicial de saudação de variável Olá, ela deve ser definida como Olá tipo de dados correto.  Olá, a tabela a seguir fornece Olá diferentes tipos de dados permitidos e sua sintaxe.  Observe que os valores em JSON são esperados tooalways ser colocado entre aspas com caracteres especiais entre aspas hello.  Por exemplo, um valor de cadeia de caracteres deve ser especificado pela cadeia de caracteres hello aspas (usando o caractere de escape de saudação (\\)) enquanto um valor numérico deve ser especificado com um conjunto de aspas.
 
-| Tipo de dados | Descrição | Exemplo | É resolvido desta forma |
+| Tipo de dados | Descrição | Exemplo | Resolve muito|
 |:--|:--|:--|:--|
 | string   | Coloque o valor entre aspas duplas.  | "\"Olá, Mundo\"" | "Olá, Mundo" |
 | numérico  | Valor numérico com aspas simples.| "64" | 64 |
 | Booliano  | **true** ou **false** entre aspas.  Observe que esse valor deve estar em minúsculas. | "true" | verdadeiro |
-| datetime | Valor de data serializada.<br>Você pode usar o cmdlet ConvertTo-Json no PowerShell para gerar esse valor para uma determinada data.<br>Exemplo: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| datetime | Valor de data serializada.<br>Você pode usar o cmdlet ConvertTo-Json Olá toogenerate PowerShell esse valor para uma determinada data.<br>Exemplo: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Módulos
-Sua solução de gerenciamento não precisa definir [módulos globais](../automation/automation-integration-modules.md) usados pelos seus runbooks porque eles sempre estarão disponíveis na conta de Automação.  Você precisa incluir um recurso para qualquer outro módulo usado pelos seus runbooks.
+Sua solução de gerenciamento não precisa toodefine [módulos global](../automation/automation-integration-modules.md) usado por seus runbooks porque sempre estarão disponíveis em sua conta de automação.  É necessário tooinclude um recurso para qualquer outro módulo usado por seus runbooks.
 
-Os [módulos de integração](../automation/automation-integration-modules.md) têm o tipo **Microsoft.Automation/automationAccounts/modules** e a estrutura a seguir.  Isso inclui variáveis e parâmetros comuns para que você possa copiar e colar este trecho de código em seu arquivo de solução e alterar os nomes de parâmetro.
+[Módulos de integração](../automation/automation-integration-modules.md) têm um tipo de **Microsoft.Automation/automationAccounts/modules** e ter Olá estrutura a seguir.  Isso inclui variáveis e parâmetros comuns, para que você pode copiar e colar este trecho de código em seu arquivo de solução e altere os nomes de parâmetro hello.
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Module').Name)]",
@@ -305,35 +305,35 @@ Os [módulos de integração](../automation/automation-integration-modules.md) t
     }
 
 
-As propriedades dos recursos de módulo são descritas na tabela a seguir.
+Propriedades de saudação para recursos do módulo são descritas Olá a tabela a seguir.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| contentLink |Especifica o conteúdo do módulo. <br><br>uri – Uri para o conteúdo do módulo.  Ele será um arquivo .ps1 para runbooks do PowerShell e Script e um arquivo de runbook gráfico exportado para um runbook gráfico.  <br> version – a versão do módulo para seu próprio acompanhamento. |
+| contentLink |Especifica o conteúdo de saudação do módulo de saudação. <br><br>URI - Uri toohello conteúdo Olá módulo.  Ele será um arquivo .ps1 para runbooks do PowerShell e Script e um arquivo de runbook gráfico exportado para um runbook gráfico.  <br> versão - versão do módulo de saudação para seu próprio controle. |
 
-O runbook deve depender do recurso de módulo para garantir que ele seja criado antes do runbook.
+Olá runbook deve depender Olá tooensure de recurso de módulo que foi criado antes de runbook hello.
 
 ### <a name="updating-modules"></a>Atualizando módulos
-Se você atualizar uma solução de gerenciamento que inclui um runbook que usa um agendamento e a nova versão da solução tiver um novo módulo usado pelo runbook, o runbook poderá usar a versão antiga do módulo.  Você deve incluir os seguintes runbooks em sua solução e criar um trabalho para executá-los antes de quaisquer outros runbooks.  Isso garantirá que todos os módulos estejam atualizados como necessário antes que os runbooks sejam carregados.
+Se você atualizar uma solução de gerenciamento que inclui um runbook que usa uma agenda e Olá nova versão da solução tem um novo módulo usado por esse runbook, runbook Olá pode usar a versão antiga saudação do módulo de saudação.  Você deve incluir Olá runbooks em sua solução a seguir e criar um trabalho toorun-as antes de quaisquer outros runbooks.  Isso garantirá que todos os módulos são atualizados como Olá necessária antes de carregar os runbooks.
 
-* [Update-ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/DisplayScript) garantirá que todos os módulos usados por runbooks em sua solução tenham a versão mais recente.  
-* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/DisplayScript) registrará novamente todos os recursos de agendamento para garantir que os runbooks vinculados a eles usem os módulos mais recentes.
+* [Atualização ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/DisplayScript) garantirá que todos os módulos de saudação usados por runbooks em sua solução estão na versão mais recente hello.  
+* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/DisplayScript) registrar novamente todos Olá agenda recursos tooensure Olá runbooks vinculados toothem com módulos mais recentes do uso hello.
 
 
 
 
 ## <a name="sample"></a>Amostra
-A seguir está um exemplo de uma solução que inclua que inclui os seguintes recursos:
+A seguir está um exemplo de uma solução que incluem que inclui Olá recursos a seguir:
 
 - Runbook.  É um exemplo de runbook armazenado em um repositório público do GitHub.
-- O trabalho de Automação que inicia o runbook quando a solução é instalada.
-- O agendamento e o agendamento de trabalho para iniciar o runbook em intervalos regulares.
+- Trabalho de automação que inicia o runbook hello quando Olá solução estiver instalada.
+- Agenda e trabalho de agendamento toostart Olá runbook em intervalos regulares.
 - Certificado.
 - Credencial.
 - Variável.
-- Módulo.  Esse é o [módulo OMSIngestionAPI](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) para gravar dados no Log Analytics. 
+- Módulo.  Isso é hello [OMSIngestionAPI módulo](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) para gravar dados tooLog análise. 
 
-O exemplo usa [parâmetros de solução padrão](operations-management-suite-solutions-solution-file.md#parameters) variáveis que normalmente seriam usados em uma solução em vez de embutir valores nas definições de recurso.
+Olá exemplo usa [parâmetros de solução padrão](operations-management-suite-solutions-solution-file.md#parameters) variáveis que normalmente seriam usados em uma solução como oposição toohardcoding valores nas definições de recursos de saudação.
 
 
     {
@@ -409,14 +409,14 @@ O exemplo usa [parâmetros de solução padrão](operations-management-suite-sol
         "scheduleLinkGuid": {
           "type": "string",
           "metadata": {
-            "description": "GUID for the schedule link to runbook.",
+            "description": "GUID for hello schedule link toorunbook.",
             "control": "guid"
           }
         },
         "runbookJobGuid": {
           "type": "string",
           "metadata": {
-            "description": "GUID for the runbook job.",
+            "description": "GUID for hello runbook job.",
             "control": "guid"
           }
         }
@@ -650,4 +650,4 @@ O exemplo usa [parâmetros de solução padrão](operations-management-suite-sol
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Adicione um modo de exibição à sua solução](operations-management-suite-solutions-resources-views.md) para visualizar os dados coletados.
+* [Adicionar uma solução do modo de exibição tooyour](operations-management-suite-solutions-resources-views.md) toovisualize coletados dados.

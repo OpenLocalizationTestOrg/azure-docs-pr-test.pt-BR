@@ -1,6 +1,6 @@
 ---
-title: Criar uma rede virtual - CLI do Azure 2.0 | Microsoft Docs
-description: Saiba como criar uma rede virtual usando a CLI do Azure 2.0.
+title: aaaCreate uma rede virtual - 2.0 do CLI do Azure | Microsoft Docs
+description: "Saiba como toocreate usando uma rede virtual Olá 2.0 do CLI do Azure."
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -16,25 +16,25 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c7d7b3543f488aedff1ea2c68a2b497e0ca744af
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e79b7fe780fc81f4866f810d830824e43a5a43b2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-virtual-network-using-the-azure-cli-20"></a>Criar uma rede virtual usando a CLI do Azure 2.0
+# <a name="create-a-virtual-network-using-hello-azure-cli-20"></a>Criar uma rede virtual usando Olá 2.0 do CLI do Azure
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-O Azure tem dois modelos de implantação: Azure Resource Manager e clássico. A Microsoft recomenda criar recursos por meio do modelo de implantação do Gerenciador de Recursos. Para saber mais sobre as diferenças entre os dois modelos, leia o artigo [Entender os modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md).
+O Azure tem dois modelos de implantação: Azure Resource Manager e clássico. A Microsoft recomenda a criação de recursos por meio do modelo de implantação do Gerenciador de recursos de saudação. mais sobre toolearn Olá diferenças entre modelos de saudação dois ler Olá [modelos de implantação do Azure entender](../azure-resource-manager/resource-manager-deployment-model.md) artigo.
 
-## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
-Você pode concluir a tarefa usando uma das seguintes versões da CLI:
+## <a name="cli-versions-toocomplete-hello-task"></a>Tarefa de saudação do CLI versões toocomplete
+Você pode concluir a tarefa hello usando uma saudação versões da CLI a seguir:
 
-- [CLI do Azure 1.0](virtual-networks-create-vnet-cli-nodejs.md) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos
-- [CLI do Azure 2.0](#create-a-virtual-network) – nossa CLI da próxima geração para o modelo de implantação do resource manager (este artigo)
+- [1.0 de CLI do Azure](virtual-networks-create-vnet-cli-nodejs.md) – nosso CLI para modelos de implantação de gerenciamento de recursos e clássico de Olá
+- [2.0 do CLI do Azure](#create-a-virtual-network) -nossa próxima geração CLI para modelo de implantação de gerenciamento de recursos de saudação (Este artigo)'
  
-    Você também pode criar uma rede virtual por meio do Gerenciador de Recursos usando outras ferramentas ou criar uma rede virtual por meio do modelo de implantação clássico, selecionando uma opção diferente na seguinte lista:
+    Você também pode criar uma rede virtual por meio de Gerenciador de recursos usando outras ferramentas ou criar uma rede virtual por meio do modelo de implantação clássico Olá selecionando uma opção diferente de saudação lista a seguir:
 
 > [!div class="op_single_selector"]
 > * [Portal](virtual-networks-create-vnet-arm-pportal.md)
@@ -50,11 +50,11 @@ Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Para criar uma rede virtual usando a CLI do Azure 2.0, conclua as seguintes etapas:
+toocreate usando uma rede virtual Olá 2.0 do CLI do Azure, Olá concluir as etapas a seguir:
 
-1. Instale e configure a versão mais recente da [CLI do Azure 2.0](/cli/azure/install-az-cli2) e faça logon na conta do Azure usando [az login](/cli/azure/#login).
+1. Instalar e configurar hello mais recente [2.0 do CLI do Azure](/cli/azure/install-az-cli2) e fazer logon na conta do Azure usando o tooan [logon az](/cli/azure/#login).
 
-2. Crie um grupo de recursos para sua VNet usando o comando [az group create](/cli/azure/group#create) com os argumentos `--name` e `--location`:
+2. Criar um grupo de recursos para sua VNet usando Olá [criar grupo az](/cli/azure/group#create) com hello `--name` e `--location` argumentos:
 
     ```azurecli
     az group create --name TestRG --location centralus
@@ -105,20 +105,20 @@ Para criar uma rede virtual usando a CLI do Azure 2.0, conclua as seguintes etap
 
     Parâmetros usados:
 
-    - `--name TestVNet`: nome da VNet a ser criada.
-    - `--resource-group TestRG`: o nome do grupo de recursos que controla o recurso. 
-    - `--location centralus`: o local no qual deseja implantar.
-    - `--address-prefix 192.168.0.0/16`: o bloco e prefixo de endereço.  
-    - `--subnet-name FrontEnd`: o nome da sub-rede.
-    - `--subnet-prefix 192.168.1.0/24`: o bloco e prefixo de endereço.
+    - `--name TestVNet`: Nome da saudação VNet toobe criado.
+    - `--resource-group TestRG`: # Olá recurso nome de grupo que controla o recurso de saudação. 
+    - `--location centralus`: Olá local no qual toodeploy.
+    - `--address-prefix 192.168.0.0/16`: Olá prefixo de endereço e o bloco.  
+    - `--subnet-name FrontEnd`: nome de saudação da sub-rede de saudação.
+    - `--subnet-prefix 192.168.1.0/24`: Olá prefixo de endereço e o bloco.
 
-    Para listar as informações básicas para usar no comando seguinte, você pode consultar a VNet usando um [filtro de consulta](/cli/azure/query-az-cli2):
+    toolist Olá informações básicas toouse em Olá próximo comando, você pode consultar Olá VNet usando um [filtro de consulta](/cli/azure/query-az-cli2):
 
     ```azurecli
     az network vnet list --query '[?name==`TestVNet`].{Where:location,Name:name,Group:resourceGroup}' -o table
     ```
 
-    Que produz esta saída:
+    Quais Olá produz saída a seguir:
 
         Where      Name      Group
 
@@ -154,11 +154,11 @@ Para criar uma rede virtual usando a CLI do Azure 2.0, conclua as seguintes etap
     Parâmetros usados:
 
     - `--address-prefix 192.168.2.0/24`: bloco CIDR da sub-rede.
-    - `--name BackEnd`: nome da nova sub-rede.
-    - `--resource-group TestRG`: o grupo de recursos.
-    - `--vnet-name TestVNet`: o nome da VNet proprietária.
+    - `--name BackEnd`: Nome da nova subrede hello.
+    - `--resource-group TestRG`: o grupo de recursos hello.
+    - `--vnet-name TestVNet`: nome de saudação do hello proprietária da rede virtual.
 
-5. Consulte as propriedades da nova VNet:
+5. Propriedades de saudação de consulta de Olá nova rede virtual:
 
     ```azurecli
     az network vnet show \
@@ -174,7 +174,7 @@ Para criar uma rede virtual usando a CLI do Azure 2.0, conclua as seguintes etap
 
         TestVNet  centralus  TestRG   Succeeded              2
 
-6. Consulte as propriedades das sub-redes:
+6. Propriedades de saudação de consulta de sub-redes hello:
 
     ```azurecli
     az network vnet subnet list \
@@ -193,8 +193,8 @@ Para criar uma rede virtual usando a CLI do Azure 2.0, conclua as seguintes etap
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como se conectar:
+Saiba como tooconnect:
 
-- Uma VM (máquina virtual) em uma rede virtual lendo o artigo [Criar uma VM Linux](../virtual-machines/linux/quick-create-cli.md). Em vez de criar uma rede virtual e sub-rede nas etapas dos artigos, você pode selecionar uma rede virtual e uma sub-rede existente para se conectar a uma VM.
-- A rede virtual para outras redes virtuais, lendo o artigo [Conectar VNets](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
-- A rede virtual para uma rede local usando uma VPN (rede privada virtual) site a site ou um circuito ExpressRoute. Saiba como lendo [Conectar uma VNet a uma rede local usando uma VPN site a site](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) e [Vincular uma VNet a um circuito ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
+- Uma rede virtual de tooa de máquina virtual (VM) lendo Olá [criar uma VM do Linux](../virtual-machines/linux/quick-create-cli.md) artigo. Em vez de criar uma rede virtual e a sub-rede nas etapas de saudação de artigos hello, você pode selecionar uma rede virtual existente e a sub-rede tooconnect uma VM.
+- Olá redes virtuais de tooother de rede virtual lendo Olá [VNets conectar](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) artigo.
+- Olá rede virtual tooan na rede local usando uma rede privada virtual (VPN) site a site ou um circuito de rota expressa. Saiba como lendo Olá [conectar uma rede de local de tooan de rede virtual usando uma VPN site a site](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) e [vincular um circuito de rota expressa do tooan de VNet](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).

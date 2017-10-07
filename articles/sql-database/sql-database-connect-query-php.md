@@ -1,6 +1,6 @@
 ---
-title: Usar PHP para consultar o Banco de Dados SQL do Azure | Microsoft Docs
-description: "Este tópico mostra como usar o PHP para criar um programa que se conecta a um banco de dados SQL do Azure e consultá-lo usando instruções Transact-SQL."
+title: aaaUse PHP tooquery banco de dados do SQL Azure | Microsoft Docs
+description: "Este tópico mostra como toouse PHP toocreate um programa que se conecta tooan banco de dados do SQL Azure e a consulta usando instruções Transact-SQL."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -15,51 +15,51 @@ ms.devlang: php
 ms.topic: hero-article
 ms.date: 08/08/2017
 ms.author: carlrab
-ms.openlocfilehash: 3a43472ad2be4a0fd6f7126f72433acd8b5f25fd
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 5fc49dcc42ab07cc1bec554be39bdf08dbd6f75e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-php-to-query-an-azure-sql-database"></a>Usar PHP para consultar um banco de dados SQL do Azure
+# <a name="use-php-tooquery-an-azure-sql-database"></a>Usar PHP tooquery um banco de dados do SQL Azure
 
-Este tutorial de início rápido demonstra como usar o [PHP](http://php.net/manual/en/intro-whatis.php) para criar um programa para se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.
+Este tutorial de início rápido demonstra como toouse [PHP](http://php.net/manual/en/intro-whatis.php) toocreate tooan de tooconnect um programa SQL do Azure do banco de dados e usar dados de tooquery de instruções Transact-SQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial de início rápido, tenha o seguinte:
+toocomplete rápido nesse tutorial de início, verifique se você tem o seguinte hello:
 
-- Um banco de dados SQL do Azure. Este início rápido usa os recursos criados em um destes inícios rápidos: 
+- Um banco de dados SQL do Azure. Esse início rápido usa recursos de saudação criados em um desses inícios rápidos: 
 
    - [Criar Banco de dados - Portal](sql-database-get-started-portal.md)
    - [Criar Banco de dados - CLI](sql-database-get-started-cli.md)
    - [Criar Banco de dados - PowerShell](sql-database-get-started-powershell.md)
 
-- Uma [regra de firewall no nível de servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público do computador usado neste tutorial de início rápido.
+- Um [regra de firewall de nível de servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público de saudação do computador Olá usar para este tutorial de início rápido.
 
 - Você instalou o PHP e o software relacionado para seu sistema operacional.
 
-    - **MacOS**: instale o Homebrew e o PHP, instale o driver ODBC e o SQLCMD e, em seguida, instale o Driver PHP para SQL Server. Consulte [Etapas 1.2, 1.3 e 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/).
-    - **Ubuntu**: instale o PHP e outros pacotes necessários e, em seguida, instale o Driver PHP para SQL Server. Consulte [Etapas 1.2 e 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
-    - **Windows**: instale a versão mais recente do PHP para IIS Express, a versão mais recente dos Drivers da Microsoft para SQL Server no IIS Express, Chocolatey, o driver ODBC e SQLCMD. Consulte [Etapas 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).    
+    - **MacOS**: instalar o Homebrew PHP, instale o driver ODBC hello e SQLCMD e, em seguida, instale Olá PHP Driver for SQL Server. Consulte [Etapas 1.2, 1.3 e 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/).
+    - **Ubuntu**: instalar o PHP e outros necessários pacotes e, em seguida, instalar Olá Driver do PHP para SQL Server. Consulte [Etapas 1.2 e 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
+    - **Windows**: instalar a versão mais recente saudação do PHP para o IIS Express, a versão mais recente Olá dos Drivers da Microsoft para SQL Server no IIS Express, Chocolatey, o driver ODBC hello e SQLCMD. Consulte [Etapas 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).    
 
 ## <a name="sql-server-connection-information"></a>Informações de conexão do servidor SQL
 
-Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor, nome do banco de dados e informações de logon nos próximos procedimentos.
+Obter Olá conexão informações necessárias tooconnect toohello SQL Azure banco de dados. Será necessário o nome totalmente qualificado do servidor de saudação, nome do banco de dados e informações de logon em procedimentos Avançar hello.
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
-3. Na página **Visão geral** do banco de dados, examine o nome totalmente qualificado do servidor, como mostrado na imagem a seguir. Você pode passar o mouse sobre o nome do servidor para abrir a opção **Clique para copiar**.  
+1. Faça logon no toohello [portal do Azure](https://portal.azure.com/).
+2. Selecione **bancos de dados SQL** no menu esquerdo do hello e clique em seu banco de dados em Olá **bancos de dados SQL** página. 
+3. Em Olá **visão geral** página do banco de dados, examine Olá nome totalmente qualificado do servidor conforme Olá a imagem a seguir. Você pode focalizar Olá toobring de nome de servidor backup Olá **clique toocopy** opção.  
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Se você se esquecer das informações de logon do servidor, navegue até a página do servidor do Banco de Dados SQL para exibir o nome de administrador do servidor e, se necessário, redefinir a senha.     
+4. Se você esquecer suas informações de logon de servidor, navegar toohello banco de dados do SQL server página tooview Olá administrador nome do servidor e, se necessário, Redefinir senha hello.     
     
-## <a name="insert-code-to-query-sql-database"></a>Inserir código para consultar o banco de dados SQL
+## <a name="insert-code-tooquery-sql-database"></a>Insira o banco de dados SQL do código tooquery
 
 1. Em seu editor de texto favorito, crie um novo arquivo, **sqltest.php**.  
 
-2. Substitua o conteúdo pelo código a seguir e adicione os valores apropriados para seu servidor, banco de dados, usuário e senha.
+2. Substitua o conteúdo de saudação com hello seguinte código e adicionar os valores apropriados para seu servidor, banco de dados, usuário e senha hello.
 
    ```PHP
    <?php
@@ -69,7 +69,7 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
        "Uid" => "your_username",
        "PWD" => "your_password"
    );
-   //Establishes the connection
+   //Establishes hello connection
    $conn = sqlsrv_connect($serverName, $connectionOptions);
    $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
            FROM [SalesLT].[ProductCategory] pc
@@ -86,15 +86,15 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
    ?>
    ```
 
-## <a name="run-the-code"></a>Executar o código
+## <a name="run-hello-code"></a>Executar o código de saudação
 
-1. No prompt de comando, execute estes comandos:
+1. No prompt de comando hello, execute Olá comandos a seguir:
 
    ```php
    php sqltest.php
    ```
 
-2. Verifique se as 20 linhas superiores são retornadas e, em seguida, feche a janela do aplicativo.
+2. Verifique se que 20 linhas de saudação principais são retornadas e, em seguida, feche a janela do aplicativo hello.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Projetar seu primeiro banco de dados SQL do Azure](sql-database-design-first-database.md)

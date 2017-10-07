@@ -1,5 +1,5 @@
 ---
-title: "Perguntas frequentes sobre o Catálogo de Dados do Azure | Microsoft Docs"
+title: "Perguntas frequentes do catálogo de dados de aaaAzure | Microsoft Docs"
 description: "Perguntas frequentes sobre o Catálogo de Dados do Azure, incluindo recursos para descoberta de fontes de dados, anotação e gerenciamento."
 services: data-catalog
 documentationcenter: 
@@ -15,31 +15,31 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.openlocfilehash: 11e4bc7e71b4a94c3a0eda4275745b1beb44974d
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 03f9f4b801640b2e14232c62c8fc168e42e2c393
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Perguntas frequentes sobre o Catálogo de Dados do Azure
-Este artigo apresenta respostas para perguntas frequentes relacionadas ao serviço de Catálogo de Dados do Azure.
+Este artigo fornece respostas toofrequently frequentes perguntas relacionadas toohello serviço de catálogo de dados do Azure.
 
 ## <a name="what-is-azure-data-catalog"></a>O que é o Catálogo de Dados do Azure?
-O Catálogo de Dados é um serviço totalmente gerenciado hospedado no Microsoft Azure que atua como um sistema de registro e descoberta para fontes de dados da empresa. Com o Catálogo de Dados, qualquer usuário, de analistas a cientistas de dados e desenvolvedores, pode registrar, descobrir, entender e consumir fontes de dados.
+O Catálogo de Dados é um serviço totalmente gerenciado hospedado no Microsoft Azure que atua como um sistema de registro e descoberta para fontes de dados da empresa. Com o catálogo de dados, qualquer usuário, os cientistas de toodata analistas e desenvolvedores, pode registrar, descobrir, entender e consumir fontes de dados.
 
 ## <a name="what-customer-challenges-does-it-solve"></a>Quais desafios do cliente ele resolve?
-O Catálogo de Dados enfrenta o desafio de descoberta de fonte de dados e os "dados escuros" para que os usuários possam descobrir e entender as fontes de dados da empresa.
+Endereços do catálogo de dados Olá desafios de descoberta de fonte de dados e "dados escuros" para que os usuários podem descobrir e entender as fontes de dados empresariais.
 
 ## <a name="what-are-its-target-audiences"></a>Quais são seus públicos-alvo?
 O Catálogo de Dados é desenvolvido para usuários técnicos e não técnicos, incluindo:
 
-* Desenvolvedores de dados e profissionais de BI e análises: pessoas responsáveis por produzir dados e conteúdo de análises para outras pessoas consumirem.
-* Administradores de dados: pessoas que têm conhecimento sobre os dados, o que eles significam e como devem ser usado.
-* Consumidores de dados: pessoas que precisam ser capazes de descobrir, entender e conectar-se aos dados necessários com facilidade para fazerem seu trabalho usando a ferramenta de sua preferência.
-* TI central: pessoas que precisam tornar centenas de fontes de dados detectáveis por usuários de negócios e que precisam supervisionar a maneira como os dados estão sendo usados e por quem.
+* Os desenvolvedores de dados e profissionais de BI e análise: quem é responsável por produzir dados e análise de conteúdo para outros tooconsume.
+* Administradores de dados: as pessoas que têm conhecimento Olá Olá dados, o que significa e como ele é pretendido toobe usado.
+* Os consumidores de dados: pessoas que precisa tooeasily de toobe capaz de descobrir, entender e conectar dados toohello precisam toodo seu trabalho, usando a ferramenta Olá de sua escolha.
+* Central IT: pessoas que precisam de toomake centenas de fontes de dados podem ser descobertos por usuários de negócios e que precisam de supervisão toomaintain sobre como os dados estão sendo usados e por quem.
 
 ## <a name="what-is-its-availability-by-region"></a>Qual é a disponibilidade por região?
-No momento, os serviços de Catálogo de Dados estão disponíveis nos seguintes datacenters:
+Serviços de catálogo de dados estão disponíveis atualmente no hello centros de dados a seguir:
 
 * Oeste dos EUA
 * Leste dos EUA
@@ -48,28 +48,28 @@ No momento, os serviços de Catálogo de Dados estão disponíveis nos seguintes
 * Leste da Austrália
 * Sudeste Asiático
 
-## <a name="what-are-its-limits-on-the-number-of-data-assets"></a>Quais são os limites ao número de ativos de dados?
-A Edição Gratuita do Catálogo de Dados está limitada a 5 mil ativos de dados registrados.
+## <a name="what-are-its-limits-on-hello-number-of-data-assets"></a>Quais são seus limites no número de saudação de ativos de dados?
+Olá, edição gratuita do catálogo de dados é limitado too5, ativos de dados registrado, 000.
 
-A Edição Standard do Catálogo de Dados do Azure dá suporte a até 100 mil ativos de dados registrados.
+Olá edição Standard do catálogo de dados oferece suporte ao backup too100, 000 ativos de dados registrados.
 
 ## <a name="what-are-its-supported-data-source-and-asset-types"></a>Quais são os tipos de ativos e fonte de dados com suporte?
 Para obter uma lista de fontes de dados com suporte no momento, consulte [DSR do Catálogo de Dados](data-catalog-dsr.md).
 
 ## <a name="how-do-i-request-support-for-another-data-source"></a>Como fazer para solicitar suporte para outra fonte de dados?
-Para enviar solicitações de recurso e outros comentários, acesse o [Fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+toosubmit recurso solicitações e outros comentários, vá toohello [Fórum do catálogo de dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## <a name="how-do-i-get-started-with-data-catalog"></a>Como fazer para usar o Catálogo de Dados?
-É a melhor maneira de começar é acessando a [Introdução ao Catálogo de Dados](data-catalog-get-started.md). Este artigo é uma visão geral de ponta a ponta dos recursos no serviço.
+Olá tooget de maneira melhor de Introdução está indo muito[guia de Introdução ao catálogo de dados](data-catalog-get-started.md). Este artigo é uma visão geral dos recursos de saudação do serviço hello.
 
 ## <a name="how-do-i-register-my-data"></a>Como fazer para registrar meus dados?
-Para registrar seus dados no Catálogo de Dados:
-1. No portal do Catálogo de Dados do Azure, na área **Publicar**, inicie a ferramenta de registro do Catálogo de Dados do Azure. 
-2. No aplicativo de publicação do Catálogo de Dados, entre com as mesmas credenciais usadas para acessar o portal do Catálogo de Dados.
-3. Selecione a fonte de dados e os ativos específicos que você deseja registrar.
+tooregister seus dados no catálogo de dados:
+1. No portal do catálogo de dados do Azure de hello, na Olá **publicar** área, a ferramenta de registro do início Olá Data Catalog do Azure. 
+2. Em Olá catálogo de dados a publicação de aplicativo, entrar com hello mesmo credenciais que você use tooaccess Olá portal do catálogo de dados.
+3. Selecione a fonte de dados de saudação e ativos específicos de saudação que você deseja tooregister.
 
 ## <a name="what-properties-does-it-extract-for-data-assets-that-are-registered"></a>Quais propriedades ele extrai para ativos de dados que são registrados?
-As propriedades específicas diferem de uma fonte de dados para outra, porém, em geral, o serviço de publicação do Catálogo de Dados extrai as seguintes informações:
+propriedades específicas de saudação diferem da fonte de toodata de fonte de dados, mas, em geral, a saudação serviço de publicação do catálogo de dados extrai Olá informações a seguir:
 
 * Nome do ativo
 * Tipo de Ativo
@@ -79,52 +79,52 @@ As propriedades específicas diferem de uma fonte de dados para outra, porém, e
 * Descrição do atributo/coluna
 
 > [!IMPORTANT]
-> O registro de ativos de dados com o Catálogo de Dados não move nem copia seus dados para a nuvem. Registrar os ativos de uma fonte de dados copia os metadados dos ativos para o Azure, mas os dados permanecem no local da fonte de dados existente. A exceção a essa regra é se você optar pelo upload dos registros de versão prévia ou de um perfil de dados ao registrar os ativos. Quando você inclui uma versão prévia, até 20 registros são copiados de cada ativo e armazenados como um instantâneo no Catálogo de Dados. Quando você inclui um perfil de dados, informações agregadas são calculadas e incluídas nos metadados armazenados no catálogo. As informações agregadas podem incluir o tamanho de tabelas, o percentual de valores nulos por coluna ou os valores mínimos, máximos e médios para as colunas. 
+> Registrando ativos de dados com o catálogo de dados não mova ou copie toohello seus dados na nuvem. Registro de recursos de uma fonte de dados cópias Olá tooAzure de metadados de ativos, mas dados saudação permanecem no local de fonte de dados existente do hello. regra de toothis Olá exceção é se você escolher registros de visualização de tooupload ou um perfil de dados quando você registrar ativos hello. Quando você inclui uma visualização, o too20 registros são copiados de cada ativo e armazenados como um instantâneo no catálogo de dados. Quando você incluir um perfil de dados, informações agregadas são calculadas e incluídas nos metadados de saudação que são armazenados no catálogo de saudação. Agregar informações pode incluir Olá tamanho das tabelas, Olá a porcentagem de valores nulos por coluna ou Olá mínimo, máximo e médio valores para colunas. 
 >
 >
 
 > [!NOTE]
-> Para fontes de dados como SQL Server Analysis Services que têm uma propriedade **Description** de primeira classe, o aplicativo de publicação do Catálogo de Dados extrai esse valor da propriedade. Para bancos de dados relacionais do SQL Server, que não têm uma propriedade **Description** de primeira classe, o aplicativo de publicação do Catálogo de Dados extrai o valor da propriedade estendida **ms_description** para objetos e colunas. Para saber mais, confira [Como usar propriedades estendidas em objetos de banco de dados](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> Para fontes de dados, como SQL Server Analysis Services que têm uma primeira classe **descrição** propriedade Olá publicar o aplicativo extrai valor da propriedade do catálogo de dados. Para bancos de dados relacionais do SQL Server, que não têm uma primeira classe **descrição** propriedade Olá aplicativo de publicação do catálogo de dados extrai o valor de saudação de saudação **ms_description** propriedade estendida para objetos e colunas. Para saber mais, confira [Como usar propriedades estendidas em objetos de banco de dados](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 >
 >
 
-## <a name="how-long-should-it-take-for-newly-registered-assets-to-appear-in-the-catalog"></a>Quanto tempo deverá levar para ativos recém-registrados aparecerem no catálogo?
-Depois de registrar os ativos no Catálogo de Dados, poderá haver um período de espera de 5 a 10 segundos para eles aparecerem no portal do Catálogo de Dados.
+## <a name="how-long-should-it-take-for-newly-registered-assets-tooappear-in-hello-catalog"></a>Quanto tempo deve leva para tooappear ativos registrados recentemente no catálogo Olá?
+Depois de registrar ativos no catálogo de dados, pode haver um período de 5 segundos too10 antes de aparecerem no portal do catálogo de dados de saudação.
 
-## <a name="how-do-i-annotate-and-enrich-the-metadata-for-my-registered-data-assets"></a>Como fazer para anotar e enriquecer os metadados para meus ativos de dados registrados?
-A maneira mais simples de fornecer metadados para ativos registrados é selecionar o ativo no portal do Catálogo de Dados e inserir os valores no painel de propriedades ou no painel de esquema do objeto selecionado.
+## <a name="how-do-i-annotate-and-enrich-hello-metadata-for-my-registered-data-assets"></a>Como anotar e enriquecer Olá metadados para Meus ativos de dados registrados?
+tooprovide metadados de maneira mais simples Olá para ativos registrados tooselect Olá ativo no portal do catálogo de dados hello e digite os valores de Olá no painel de propriedades de saudação ou esquema para o objeto selecionado hello.
 
-Você também pode fornecer alguns metadados, como marcas e especialistas, durante o processo de registro. Os valores fornecidos no serviço de publicação do Catálogo de Dados aplicam-se a todos os ativos que estiverem sendo registrados no momento. Para exibir os objetos recém-registrados no portal para anotação adicional, selecione o botão **Exibir Portal** na tela final do aplicativo de publicação do Catálogo de Dados.
+Você também pode fornecer alguns metadados, como marcas e os especialistas durante o processo de registro de saudação. valores de Olá que você fornecer em Olá serviço de publicação do catálogo de dados se aplicam a ativos de tooall que está sendo registrados no momento. Olá tooview objetos registrado recentemente no portal de saudação para anotação adicional, selecione Olá **exibição Portal** botão na tela final de saudação do hello aplicativo de publicação do catálogo de dados.
 
 ## <a name="how-do-i-delete-my-registered-data-objects"></a>Como fazer para excluir meus objetos de dados registrados?
-Você pode excluir um objeto do Catálogo de Dados selecionando-o no portal e clicando no botão **Excluir**. Remover o objeto remove seus metadados de Catálogo de Dados, mas não afeta a fonte de dados subjacente.
+Você pode excluir um objeto do catálogo de dados selecionando o objeto Olá no portal de saudação e, em seguida, clicando em Olá **excluir** botão. Remover objeto de saudação remove os metadados de catálogo de dados, mas não afeta a fonte de dados subjacente hello.
 
 ## <a name="what-is-an-expert"></a>O que é um especialista?
-Especialista é uma pessoa que tem uma perspectiva bem informada sobre um objeto de dados. Um objeto pode ter muitos especialistas. Um especialista não precisa ser o "proprietário" de um objeto, ele simplesmente é alguém que sabe como os dados podem e devem ser usados.
+Especialista é uma pessoa que tem uma perspectiva bem informada sobre um objeto de dados. Um objeto pode ter muitos especialistas. Um especialista não precisa toobe hello "proprietário" de um objeto, mas é simplesmente uma pessoa que sabe como dados saudação podem e deve ser usado.
 
-## <a name="how-do-i-share-information-with-the-data-catalog-team-if-i-encounter-problems"></a>Como fazer para compartilhar informações com a equipe do Catálogo de Dados se eu encontrar problemas?
-Para relatar problemas, compartilhar informações e fazer perguntas, acesse o [fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+## <a name="how-do-i-share-information-with-hello-data-catalog-team-if-i-encounter-problems"></a>Como faço para compartilhar informações com a equipe do catálogo de dados Olá se encontrar problemas?
+problemas de tooreport, compartilhar informações e fazer perguntas, vá toohello [Fórum do catálogo de dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
-## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>O catálogo funciona com outra fonte de dados em eu que tenha interesse?
-Estamos trabalhando ativamente para adicionar mais fontes de dados ao Catálogo de Dados. Se você quiser ver uma fonte de dados específica com suporte, sugira-a (ou manifeste seu apoio, se ela já tiver sido sugerida) acessando o [Fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+## <a name="does-hello-catalog-work-with-another-data-source-that-im-interested-in"></a>Olá trabalho de catálogo com outra fonte de dados que tenho interesse em?
+Estamos trabalhando ativamente na adição de mais tooData de fontes de dados catálogo. Se você quiser toosee uma fonte de dados específico com suporte, sugere (ou o suporte de voz, se ele já foi sugerido) por vai toohello [Fórum do catálogo de dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
-## <a name="how-is-azure-data-catalog-related-to-the-data-catalog-in-power-bi-for-office-365"></a>Como o Catálogo de Dados do Azure está relacionado ao Catálogo de Dados no Power BI para Office 365?
-Pense no Catálogo de Dados do Azure como uma evolução do Catálogo de Dados no Power BI. A partir do primeiro semestre de 2017, o Catálogo de Dados do Azure será usado para habilitar o compartilhamento e a descoberta de consultas no Excel 2016 e no Power Query para Excel. Recursos do Catálogo de Dados do Excel estão disponíveis para usuários com licenças do Power BI Pro.
+## <a name="how-is-azure-data-catalog-related-toohello-data-catalog-in-power-bi-for-office-365"></a>Como é o catálogo de dados do Azure relacionados toohello catálogo de dados no Power BI para Office 365?
+Você pode pensar no catálogo de dados do Azure como uma evolução do hello catálogo de dados no Power BI. A partir da primavera de 2017, o Data Catalog do Azure é usado tooenable Olá compartilhamento e descoberta de consultas no Excel 2016 e Power Query para Excel. Recursos do catálogo de dados no Excel são toousers disponíveis com licenças do Power BI Pro.
 
-## <a name="what-permissions-do-i-need-to-register-assets-with-data-catalog"></a>De quais permissões eu preciso para registrar ativos no Catálogo de Dados?
-Para executar a ferramenta de registro do Catálogo de Dados, você precisa de permissões na fonte de dados que lhe permitam ler os metadados da fonte. Para incluir também uma versão prévia, você deve ter permissões para ler os dados dos objetos que estão sendo registrados.
+## <a name="what-permissions-do-i-need-tooregister-assets-with-data-catalog"></a>O que fazem permissões preciso tooregister ativos no catálogo de dados?
+ferramenta de registro do toorun Olá catálogo de dados, você precisa de permissões na fonte de dados de saudação que permite que você tooread Olá metadados da fonte de saudação. tooalso incluem uma visualização, você deve ter permissões que permitem que você tooread em dados de saudação de objetos de saudação que está sendo registrados.
 
 ## <a name="will-data-catalog-be-made-available-for-on-premises-deployment-as-well"></a>O Catálogo de Dados será disponibilizado para implantação local também?
-O Catálogo de Dados é um serviço de nuvem que pode funcionar com fontes de dados locais e na nuvem para oferecer uma solução de descoberta de fonte de dados híbrida. No momento, não há planos para uma versão do serviço do Catálogo de Dados que seja executada localmente.
+Catálogo de dados é um serviço de nuvem que possa funcionar com toodeliver de fontes de dados de nuvem e local de uma solução de descoberta de fonte de dados. Atualmente, não há nenhum plano para uma versão do hello serviço Catálogo de dados que é executado no local.
 
-## <a name="can-i-extract-more-or-richer-metadata-from-the-data-sources-i-register"></a>Posso extrair mais metadados ou metadados mais avançados das fontes de dados que eu registro?
-Estamos trabalhando ativamente para expandir os recursos do Catálogo de Dados. Se você quiser ter metadados adicionais extraídos da fonte de dados durante o registro, sugira-os (ou voto neles, se já tiverem sido sugeridos) no [Fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). No futuro, permitiremos que terceiros adicionem novos tipos de fonte de dados por meio de uma API de extensibilidade.
+## <a name="can-i-extract-more-or-richer-metadata-from-hello-data-sources-i-register"></a>Pode extrair metadados mais ou mais avançados de fontes de dados Olá que registrar?
+Estamos trabalhando ativamente tooexpand recursos de saudação do catálogo de dados. Se você quiser toohave metadados adicionais extraídos da fonte de dados Olá durante o registro, sugerir (ou voto para ele, se ele já foi sugerido) Olá [Fórum do catálogo de dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Olá futuras, podemos permitirá terceira partes tooadd novos tipos de dados por meio de uma API de extensibilidade.
 
-## <a name="how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>Como fazer para restringir a visibilidade dos ativos de dados registrados para que apenas determinadas pessoas possam descobri-los?
-Selecione os ativos de dados no Catálogo de Dados e, em seguida, clique no botão **Apropriar-se**. Os proprietários dos ativos de dados no Catálogo de Dados podem alterar as configurações de visibilidade para permitir que todos os usuários descubram os ativos de sua propriedade ou restringir a visibilidade a usuários específicos.
+## <a name="how-do-i-restrict-hello-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>Como restringir a visibilidade de saudação de ativos de dados registrado, para que somente algumas pessoas podem descobri-los?
+Selecione os ativos de dados Olá no hello catálogo de dados e clique em Olá **Take Ownership** botão. Os proprietários de ativos de dados no catálogo de dados podem alterar a visibilidade de saudação configurações tooeither permitir Olá de toodiscover todos os usuários ativos de propriedade ou impedir que os usuários toospecific de visibilidade.
 
-## <a name="how-do-i-update-the-registration-for-a-data-asset-so-that-changes-in-the-data-source-are-reflected-in-the-catalog"></a>Como fazer para atualizar o registro para um ativo de dados para que as alterações na fonte de dados reflitam-se no catálogo?
-Para atualizar os metadados para ativos de dados que já estão registrados no catálogo, basta registrar novamente a fonte de dados que contém os ativos. Todas as alterações à fonte de dados, como colunas adicionadas ou removidas de tabelas ou exibições, serão atualizadas no catálogo, mas quaisquer anotações fornecidas pelos usuários serão mantidas.
+## <a name="how-do-i-update-hello-registration-for-a-data-asset-so-that-changes-in-hello-data-source-are-reflected-in-hello-catalog"></a>Como atualizar registro Olá para um ativo de dados para que as alterações na fonte de dados de saudação são refletidas no catálogo de saudação?
+tooupdate Olá metadados para os ativos de dados que já estão registrados no catálogo hello, simplesmente registrar novamente o fonte de dados de saudação que contém ativos de saudação. Todas as alterações na fonte de dados hello, como colunas que estão sendo adicionadas ou removidas de tabelas ou exibições, são atualizadas no catálogo hello, mas qualquer anotações fornecidas por usuários são mantidas.
 
 ## <a name="my-question-isnt-answered-here-where-can-i-go-for-answers"></a>Minha dúvida não é respondida aqui. Como posso obter respostas?
-Acesse o [fórum Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). As perguntas feitas serão posteriormente incluídas aqui.
+Vá toohello [Fórum do catálogo de dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). As perguntas feitas serão posteriormente incluídas aqui.

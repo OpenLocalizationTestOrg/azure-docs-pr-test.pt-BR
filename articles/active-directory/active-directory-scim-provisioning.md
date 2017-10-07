@@ -1,6 +1,6 @@
 ---
-title: "Usar o sistema para gerenciamento de identidade de domínio cruzado provisiona automaticamente usuários e grupos do Azure Active Directory a aplicativos | Microsoft Docs"
-description: "O Azure Active Directory pode provisionar automaticamente usuários e grupos a qualquer repositório de identidades ou aplicativos que seja administrado por um serviço Web com a interface definida na especificação do protocolo SCIM."
+title: "aaaUsing sistema para o gerenciamento de identidade de domínio cruzado provisionar automaticamente os usuários e grupos do Active Directory do Azure tooapplications | Microsoft Docs"
+description: "Active Directory do Azure podem provisionar automaticamente os usuários e grupos tooany aplicativo ou a identidade do repositório que é apoiado por um serviço web com interface Olá definido na especificação do protocolo SCIM de saudação"
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
@@ -16,81 +16,81 @@ ms.date: 07/28/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;oldportal
-ms.openlocfilehash: 91978cee88d55c99bcb63c63cdaf01581ae84668
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 43045c97e68d0d22db598dcb5ec23481c4e97718
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Usar o sistema de gerenciamento de identidade de domínio cruzado para provisionar automaticamente usuários e grupos do Azure Active Directory a aplicativos
+# <a name="using-system-for-cross-domain-identity-management-tooautomatically-provision-users-and-groups-from-azure-active-directory-tooapplications"></a>Usando o sistema de gerenciamento de identidade de domínio cruzado tooautomatically provisionar os usuários e grupos do Active Directory do Azure tooapplications
 
 ## <a name="overview"></a>Visão geral
-O Azure Active Directory (Azure AD) pode provisionar automaticamente usuários e grupos para qualquer repositório de identidades ou aplicativos que seja administrado por um serviço Web com a interface definida na [especificação do protocolo Sistema de Gerenciamento de Identidade entre Domínios (SCIM) 2.0](https://tools.ietf.org/html/draft-ietf-scim-api-19). O Azure Active Directory pode enviar solicitações para criar, modificar ou excluir usuários e grupos atribuídos ao serviço Web. O serviço Web pode então converter essas solicitações em operações no repositório de identidades de destino. 
+Azure Active Directory (AD do Azure) podem provisionar automaticamente os usuários e grupos tooany aplicativo ou a identidade do repositório que é apoiado por um serviço web com interface Olá definido no hello [sistema de gerenciamento de identidade de domínio cruzado (SCIM) 2.0 especificação de protocolo](https://tools.ietf.org/html/draft-ietf-scim-api-19). Active Directory do Azure pode enviar solicitações toocreate, modificar ou excluir o serviço de web de toohello atribuído de usuários e grupos. serviço web de Hello, em seguida, pode traduzir essas solicitações em operações no repositório de identidades de destino hello. 
 
 > [!IMPORTANT]
-> A Microsoft recomenda que você gerencie o Azure AD usando o [Centro de administração do AD do Azure](https://aad.portal.azure.com) no portal do Azure em vez de usar o portal clássico do Azure mencionado neste artigo. 
+> A Microsoft recomenda que você gerencie o AD do Azure usando Olá [Centro de administração do AD do Azure](https://aad.portal.azure.com) em Olá portal do Azure em vez de usar Olá portal clássico do Azure mencionado neste artigo. 
 
 
 
 ![][0]
-*Figura 1: Provisionando do Azure Active Directory a um repositório de identidades por meio de um serviço Web*
+*Figura 1: Provisionamento do repositório de identidades do Active Directory do Azure tooan por meio de um serviço web*
 
-Esse recurso pode ser usado juntamente com o recurso "traga seu próprio aplicativo" no Azure AD para habilitar o logon único e o provisionamento automático de usuário de aplicativos que forneçam ou comecem com um serviço Web SCIM.
+Esse recurso pode ser usado em conjunto com a funcionalidade de "traga seu próprio aplicativo" hello no AD do Azure tooenable-logon único e provisionamento para aplicativos que fornecem ou são apoiados por um serviço da web SCIM de usuário automático.
 
 Há dois casos de uso para utilizar SCIM no Azure Active Directory:
 
-* **Provisionamento de usuários e grupos a aplicativos que dão suporte a SCIM** Aplicativos que dão suporte a SCIM 2.0 e usam tokens de portador OAuth para autenticação funcionam com o Azure AD sem necessidade de configuração.
-* **Criar a sua própria solução de provisionamento para aplicativos que dão suporte a outro provisionamento baseado em API** para aplicativos não SCIM, você pode criar um ponto de extremidade SCIM para converter entre o ponto de extremidade SCIM do Azure AD e qualquer API à qual o aplicativo dê suporte para provisionamento de usuários. Para ajudá-lo a desenvolver um ponto de extremidade SCIM, fornecemos bibliotecas Common Language Infrastructure (CLI) com exemplos de código que mostram como fornecer um ponto de extremidade SCIM e converter mensagens SCIM.  
+* **Provisionamento de usuários e grupos tooapplications que oferecem suporte a SCIM** aplicativos que suportam SCIM 2.0 e usar os tokens de portador OAuth para autenticação funciona com o AD do Azure sem configuração.
+* **Criar sua própria solução de provisionamento para aplicativos que oferecem suporte a outros provisionamento baseado em API** para aplicativos não-SCIM, você pode criar um tootranslate de ponto de extremidade SCIM entre o ponto de extremidade do hello SCIM do AD do Azure e oferece suporte a qualquer API Olá aplicativo para provisionamento do usuário. toohelp desenvolver um ponto de extremidade SCIM, fornecemos bibliotecas de infraestrutura de linguagem comum (CLI) junto com exemplos de código que mostram como toodo fornecem um ponto de extremidade SCIM e traduzir mensagens SCIM.  
 
-## <a name="provisioning-users-and-groups-to-applications-that-support-scim"></a>Provisionamento de usuários e grupos a aplicativos que dão suporte a SCIM
-O Azure AD pode ser configurado para provisionar automaticamente usuários e grupos atribuídos a aplicativos que implementam um serviço Web de [Sistema de Gerenciamento de Identidade entre Domínios 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) e aceitam tokens de portador OAuth para autenticação. Dentro da especificação SCIM 2.0, os aplicativos devem satisfazer estes requisitos:
+## <a name="provisioning-users-and-groups-tooapplications-that-support-scim"></a>Provisionamento de usuários e grupos tooapplications que oferecem suporte a SCIM
+O AD do Azure pode ser configurado tooautomatically atribuído de provisionar usuários e grupos tooapplications que implementam um [sistema para o gerenciamento de identidade de domínio cruzado 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) serviço web e aceitar os tokens de portador OAuth para autenticação . Aplicativos dentro da especificação de saudação SCIM 2.0 devem atender a esses requisitos:
 
-* Dar suporte à criação de usuários e/ou grupos, de acordo com a seção 3.3 do protocolo SCIM.  
-* Dar suporte à modificação de usuários e/ou grupos com solicitações de patch, de acordo com a seção 3.5.2 do protocolo SCIM.  
-* Dar suporte à recuperação de um recurso conhecido, de acordo com a seção 3.4.1 do protocolo SCIM.  
-* Dar suporte a consultas de usuários e/ou grupos, de acordo com a seção 3.4.2 do protocolo SCIM.  Por padrão, os usuários são consultados por externalId e os grupos são consultados por displayName.  
-* Dar suporte a consultas de usuário por ID e pelo gerenciador, de acordo com a seção 3.4.2 do protocolo SCIM.  
-* Dar suporte a consultas de grupos por ID e por membro, de acordo com a seção 3.4.2 do protocolo SCIM.  
-* Aceitar tokens de portador OAuth para autorização, de acordo com a seção 2.1 do protocolo SCIM.
+* Oferece suporte à criação de usuários e/ou grupos, de acordo com a seção 3.3 da saudação protocolo SCIM.  
+* Dá suporte à modificação de usuários e/ou grupos com solicitações de patch de acordo com a seção 3.5.2 Olá protocolo SCIM.  
+* Dá suporte à recuperação de um recurso conhecido de acordo com a seção 3.4.1 Olá protocolo SCIM.  
+* Oferece suporte ao consultar os usuários e/ou grupos, de acordo com a seção 3.4.2 Olá protocolo SCIM.  Por padrão, os usuários são consultados por externalId e os grupos são consultados por displayName.  
+* Dá suporte à consulta de usuário por ID e pelo Gerenciador de acordo com a seção 3.4.2 Olá protocolo SCIM.  
+* Oferece suporte ao consultar grupos por ID e por membro de acordo com a seção 3.4.2 Olá protocolo SCIM.  
+* Aceita tokens de portador OAuth para autorização de acordo com a seção 2.1 de saudação protocolo SCIM.
 
 Verifique com o seu provedor de aplicativo ou na documentação do seu provedor de aplicativo as declarações de compatibilidade com esses requisitos.
 
 ### <a name="getting-started"></a>Introdução
-Os aplicativos que dão suporte ao perfil SCIM descrito neste artigo podem ser conectados ao Azure Active Directory usando o recurso de "aplicativo não galeria" na galeria de aplicativos do Azure AD. Uma vez conectado, o Azure AD executa um processo de sincronização a cada 20 minutos, em que ele consulta o ponto de extremidade SCIM do aplicativo para os usuários e grupos atribuídos e os cria ou modifica de acordo com os detalhes da atribuição.
+Aplicativos que dão suporte ao perfil SCIM Olá descrito neste artigo podem ser conectado tooAzure do Active Directory usando o recurso de "não Galeria aplicativo hello" na Galeria de aplicativos de saudação do AD do Azure. Depois de conectado, o Azure AD executa um processo de sincronização a cada 20 minutos em que ele consulta o ponto de extremidade do aplicativo hello SCIM para atribuídas a usuários e grupos e cria ou modifica-los de acordo com toohello detalhes da atribuição.
 
-**Para conectar um aplicativo que dê suporte a SCIM:**
+**tooconnect um aplicativo que oferece suporte a SCIM:**
 
-1. Entre no [Portal do Azure](https://portal.azure.com). 
-2. Navegue até **Azure Active Directory > Aplicativos empresariais e selecione **Novo aplicativo > Todos > Aplicativo inexistente na galeria**.
-3. Insira um nome para seu aplicativo e clique no ícone **Adicionar** para criar um objeto de aplicativo.
+1. Entrar muito[Olá portal do Azure](https://portal.azure.com). 
+2. Procurar muito * * Active Directory do Azure > aplicativos da empresa e selecione **novo aplicativo > todos os > aplicativo Galeria não**.
+3. Insira um nome para seu aplicativo e clique em **adicionar** ícone toocreate um objeto de aplicativo.
     
   ![][1]
   *Figura 2: Galeria de aplicativos do Azure AD*
     
-4. Na tela de resultados, selecione a guia **Provisionamento** na coluna esquerda.
-5. No menu **Modo de Provisionamento**, selecione **Automático**.
+4. Na tela de resultante hello, selecione Olá **provisionamento** guia na coluna esquerda hello.
+5. Em Olá **modo de provisionamento** menu, selecione **automática**.
     
   ![][2]
-  *Figura 3: Configurar o provisionamento no Portal do Azure*
+  *Figura 3: Configurar o provisionamento em Olá portal do Azure*
     
-6. No campo **URL do locatário** , insira a URL do ponto de extremidade do SCIM do aplicativo. Exemplo: https://api.contoso.com/scim/v2/
-7. Se o ponto de extremidade SCIM exigir um token de portador OAuth de um emissor diferente do Azure AD, copie o token de portador OAuth necessário para o campo opcional **Token Secreto**. Se esse campo estiver em branco, o Azure AD incluiu um token de portador OAuth emitido do Azure AD com cada solicitação. Aplicativos que usam o Azure AD como provedor de identidade podem validar esse token emitido pelo Azure AD.
-8. Clique no botão **Testar conectividade** o Azure Active Directory tente se conectar ao ponto de extremidade do SCIM. Se as tentativas falharem, as informações de erro serão exibidas.  
-9. Se as tentativas de conexão ao aplicativo forem bem-sucedidas, clique em **Salvar** para salvar as credenciais de administrador.
-10. Na seção **Mapeamento**, há dois conjuntos selecionáveis de mapeamentos de atributos: um para objetos de usuário e outro para objetos de grupo. Selecione cada um para revisar os atributos que são sincronizados do Azure Active Directory para seu aplicativo. Os atributos selecionados como propriedades **Correspondentes** serão usados para fazer a correspondência entre os usuários e os grupos no seu aplicativo para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
+6. Em Olá **URL do locatário** , digite a URL de saudação do ponto de extremidade do aplicativo hello SCIM. Exemplo: https://api.contoso.com/scim/v2/
+7. Se o ponto de extremidade do hello SCIM requer um token de portador OAuth de um emissor que não sejam do AD do Azure, Olá cópia necessário token de portador OAuth em Olá opcional **segredo do Token** campo. Se esse campo estiver em branco, o Azure AD incluiu um token de portador OAuth emitido do Azure AD com cada solicitação. Aplicativos que usam o Azure AD como provedor de identidade podem validar esse token emitido pelo Azure AD.
+8. Clique em Olá **Conexão de teste** botão toohave Active Directory do Azure tentativa tooconnect toohello SCIM ponto de extremidade. Se Olá tentativas falharem, informações de erro são exibidas.  
+9. Se tiver êxito Olá tentativas tooconnect toohello aplicativo, clique em **salvar** toosave credenciais de administrador de saudação.
+10. Em Olá **mapeamentos** seção, há dois conjuntos selecionáveis de mapeamentos de atributos: um para objetos de usuário e outro para objetos de grupo. Selecione cada um atributos de saudação de tooreview que são sincronizados do Active Directory do Azure tooyour aplicativo. Olá atributos selecionados como **correspondência** propriedades são usadas toomatch Olá usuários e grupos em seu aplicativo para operações de atualização. Selecione Olá toocommit de botão de salvar as alterações.
 
     >[!NOTE]
-    >Opcionalmente, você pode desabilitar a sincronização dos objetos de grupo desabilitando o mapeamento "grupos". 
+    >Opcionalmente, você pode desabilitar a sincronização de objetos de grupo desabilitando hello "grupos" mapeamento. 
 
-11. Em **Configurações**, o campo **Escopo** define quais usuários e/ou grupos são sincronizados. Selecionar "Sincronizar apenas usuários e grupos atribuídos" (recomendado) sincroniza somente usuários e grupos atribuídos na guia **Usuários e grupos**.
-12. Depois que a configuração estiver concluída, altere o **Status de provisionamento** para **Ligado**.
-13. Clique em **Salvar** para iniciar o serviço de provisionamento do Azure AD. 
-14. Caso esteja sincronizando apenas usuários e grupos atribuídos (recomendado), certifique-se de selecionar a guia **Usuários e grupos** e designar os usuários e/ou grupos que você deseja sincronizar.
+11. Em **configurações**, Olá **escopo** campo define quais usuários e/ou grupos são sincronizados. Selecionar "Sincronização atribuído apenas usuários e grupos" (recomendado) sincronizará apenas os usuários e grupos atribuídos no hello **usuários e grupos** guia.
+12. Depois que a configuração estiver concluída, alterar Olá **Status de provisionamento** muito**em**.
+13. Clique em **salvar** toostart Olá serviço de provisionamento do AD do Azure. 
+14. Se sincronizar apenas atribuídas a usuários e grupos (recomendados), ser se Olá de tooselect **usuários e grupos** guia e atribua usuários hello e/ou grupos que você deseja toosync.
 
-Depois de iniciada a sincronização inicial, você pode usar a guia **Logs de auditoria** para monitorar o progresso, que mostra todas as ações executadas pelo serviço de provisionamento em seu aplicativo. Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [Relatando o provisionamento automático de conta de usuário](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Depois que a sincronização inicial Olá foi iniciado, você pode usar o hello **logs de auditoria** guia toomonitor progresso, que mostra todas as ações executadas pelo Olá provisionar um serviço em seu aplicativo. Para obter mais informações sobre como o provisionamento de saudação do AD do Azure tooread registra, consulte [relatórios sobre o provisionamento de conta de usuário automático](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 >[!NOTE]
->Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 20 minutos, desde que o serviço esteja em execução. 
+>a sincronização inicial Olá leva tooperform mais que as sincronizações subsequentes, que ocorrem aproximadamente a cada 20 minutos desde que o serviço hello está sendo executado. 
 
 
 ## <a name="building-your-own-provisioning-solution-for-any-application"></a>Criando sua própria solução de provisionamento para qualquer aplicativo
@@ -98,82 +98,82 @@ Ao criar um serviço Web SCIM que interaja com o Active Directory do Azure, voc�
 
 Veja como ele funciona:
 
-1. O AD do Azure fornece uma biblioteca CLI denominada [Microsoft.SystemForCrossDomainIdentityManagement](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/). Os desenvolvedores e integradores de sistema podem usar essa biblioteca para criar e implantar um ponto de extremidade de serviço Web baseado em SCIM capaz de conectar o AD do Azure ao repositório de identidades de qualquer aplicativo.
-2. Os mapeamentos são implementados no serviço Web para mapear o esquema de usuário padronizado para o esquema de usuário e o protocolo exigido pelo aplicativo.
-3. A URL do ponto de extremidade é registrada no AD do Azure como parte de um aplicativo personalizado na galeria de aplicativos.
-4. Os usuários e grupos são atribuídos a esse aplicativo no AD do Azure. Na atribuição, eles são colocados em uma fila para serem sincronizados com o aplicativo de destino. O processo de sincronização que trata a fila é executado a cada 20 minutos.
+1. O AD do Azure fornece uma biblioteca CLI denominada [Microsoft.SystemForCrossDomainIdentityManagement](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/). Os desenvolvedores e integradores de sistema podem usar essa toocreate de biblioteca e implantar uma empresa de serviço web baseado em SCIM capaz de se conectar o armazenamento de identidade do aplicativo do AD do Azure tooany.
+2. Mapeamentos de são implementados no Olá web serviço toomap Olá usuário padronizado toohello usuário esquema e o protocolo exigido pelo aplicativo hello.
+3. URL de ponto de extremidade Hello está registrado no AD do Azure como parte de um aplicativo personalizado na Galeria de aplicativo hello.
+4. Usuários e grupos são atribuídos toothis aplicativo no AD do Azure. Após a atribuição, eles são colocados em um aplicativo de destino toohello fila toobe sincronizado. processo de sincronização de Olá tratamento fila Olá é executado a cada 20 minutos.
 
 ### <a name="code-samples"></a>Exemplos de código
-Para facilitar esse processo, será fornecido um conjunto de [exemplos de código](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) que cria um ponto de extremidade de serviço Web SCIM e demonstra o provisionamento automático. Um dos exemplos é de um provedor que mantém um arquivo com linhas de valores separados por vírgula representando usuários e grupos.  O outro é de um provedor que opera no serviço de Gerenciamento de Acesso e Identidade do Amazon Web Services.  
+toomake esse processo, um conjunto de [exemplos de código](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) são fornecidas que criar um ponto de extremidade de serviço do SCIM web e demonstre o provisionamento automático. Um dos exemplos é de um provedor que mantém um arquivo com linhas de valores separados por vírgula representando usuários e grupos.  Olá outros é de um provedor que opera no serviço de gerenciamento de acesso e identidade do Amazon Web Services hello.  
 
 **Pré-requisitos**
 
 * Visual Studio 2013 ou posterior.
 * [SDK do Azure para .NET](https://azure.microsoft.com/downloads/)
-* Computador com Windows que ofereça suporte à estrutura ASP.NET 4.5 a ser usado como o ponto de extremidade SCIM. Esse computador deve poder ser acessado da nuvem
+* Computador Windows que dá suporte a saudação ASP.NET framework 4.5 toobe usado como Olá ponto de extremidade SCIM. Esta máquina deve ser acessível da nuvem de saudação
 * [Uma assinatura do Azure com uma versão de avaliação ou licenciada do Azure AD Premium](https://azure.microsoft.com/services/active-directory/)
-* O exemplo do Amazon AWS requer bibliotecas do [Kit de Ferramentas do AWS para Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). Para obter mais informações, consulte o arquivo LEIAME incluído no exemplo.
+* exemplo de AWS Amazon Hello requer bibliotecas do hello [AWS Kit de ferramentas do Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). Para obter mais informações, consulte Olá Leiame arquivo incluído com o exemplo hello.
 
 ### <a name="getting-started"></a>Introdução
-A maneira mais fácil de implementar um ponto de extremidade SCIM que possa aceitar solicitações de provisionamento do AD do Azure é criando e implantando o exemplo de código que gera os usuários provisionados em um arquivo CSV (valores separados por vírgula).
+Olá tooimplement de maneira mais fácil solicitações de um ponto de extremidade SCIM pode aceitar a configuração do AD do Azure é toobuild e implantar o exemplo de código de saudação que gera o arquivo de valores separados por vírgulas (CSV) de tooa Olá usuários provisionados.
 
-**Para criar um exemplo de ponto de extremidade SCIM:**
+**toocreate um ponto de extremidade SCIM de exemplo:**
 
-1. Baixe o pacote de exemplo de códigos de [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
-2. Descompacte o pacote e coloque-o no seu computador com Windows em um local como C:\AzureAD-BYOA-Provisioning-Samples\.
-3. Nessa pasta, inicie a solução FileProvisioningAgent no Visual Studio.
-4. Selecione **Ferramentas > Gerenciador de Pacotes de Biblioteca > Console do Gerenciador de Pacotes** e execute os seguintes comandos para o projeto FileProvisioningAgent resolver as referências de solução:
+1. Baixar pacote de exemplo de código Olá em [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
+2. Descompacte o pacote hello e colocá-lo em seu computador Windows em um local como C:\AzureAD-BYOA-Provisioning-Samples\.
+3. Nessa pasta, inicie a solução de FileProvisioningAgent Olá no Visual Studio.
+4. Selecione **Ferramentas > Gerenciador de biblioteca de pacote > Package Manager Console**e executar Olá comandos Olá FileProvisioningAgent projeto tooresolve Olá solução referências a seguir:
   ```` 
    Install-Package Microsoft.SystemForCrossDomainIdentityManagement
    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
    Install-Package Microsoft.Owin.Diagnostics
    Install-Package Microsoft.Owin.Host.SystemWeb
   ````
-5. Compile o projeto FileProvisioningAgent.
-6. Inicie o aplicativo Prompt de Comando no Windows (como administrador) e use o comando **cd** para alterar o diretório para a sua pasta **\AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug**.
-7. Execute o seguinte comando, substituindo <ip-address> pelo endereço IP ou pelo nome de domínio do computador com Windows:
+5. Compile o projeto de FileProvisioningAgent de saudação.
+6. Iniciar o aplicativo do Prompt de comando Olá no Windows (como administrador) e usar Olá **cd** comando toochange Olá diretório tooyour **\AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug** pasta.
+7. Execute Olá comando a seguir, substituindo < endereço ip > pelo nome de domínio ou endereço IP de saudação do computador do Windows hello:
   ````   
    FileAgnt.exe http://<ip-address>:9000 TargetFile.csv
   ````
-8. No Windows, em **Configurações do Windows > Configurações de Rede e Internet**, selecione o **Firewall do Windows > Configurações Avançadas** e crie uma **Regra de Entrada** que permita acesso de entrada na porta 9000.
-9. Se o computador com Windows estiver atrás de um roteador, precisará ser configurado para executar a Network Access Translation entre sua porta 9000 exposta à Internet e a porta 9000 no computador com Windows. Isso é necessário para que o AD do Azure possa acessar esse ponto de extremidade na nuvem.
+8. No Windows em **configurações do Windows > configurações de Internet e rede**, selecione Olá **Firewall do Windows > Configurações avançadas**e criar um **regra de entrada** que permite acesso de entrada tooport 9000.
+9. Se o computador do Windows hello estiver atrás de um roteador, Olá roteador necessidades toobe configurado tooperform conversão de acesso de rede entre sua porta 9000 que é toohello exposto à internet e porta 9000 no computador do Windows hello. Isso é necessário para o AD do Azure toobe capaz de tooaccess esse ponto de extremidade na nuvem hello.
 
-**Para registrar o exemplo de ponto de extremidade SCIM no AD do Azure:**
+**tooregister Olá exemplo SCIM ponto de extremidade no AD do Azure:**
 
-1. Entre no [Portal do Azure](https://portal.azure.com). 
-2. Navegue até **Azure Active Directory > Aplicativos empresariais e selecione **Novo aplicativo > Todos > Aplicativo inexistente na galeria**.
-3. Insira um nome para seu aplicativo e clique no ícone **Adicionar** para criar um objeto de aplicativo. O objeto de aplicativo criado destina-se a representar o aplicativo de destino para o qual você estará provisionando e implementando o logon único, e não apenas o ponto de extremidade SCIM.
-4. Na tela de resultados, selecione a guia **Provisionamento** na coluna esquerda.
-5. No menu **Modo de Provisionamento**, selecione **Automático**.
+1. Entrar muito[Olá portal do Azure](https://portal.azure.com). 
+2. Procurar muito * * Active Directory do Azure > aplicativos da empresa e selecione **novo aplicativo > todos os > aplicativo Galeria não**.
+3. Insira um nome para seu aplicativo e clique em **adicionar** ícone toocreate um objeto de aplicativo. objeto de aplicativo Hello criado é aplicativo de destino de saudação toorepresent pretendido você seria provisionamento tooand implementação de ponto de extremidade SCIM Olá único de logon para o e não apenas.
+4. Na tela de resultante hello, selecione Olá **provisionamento** guia na coluna esquerda hello.
+5. Em Olá **modo de provisionamento** menu, selecione **automática**.
     
   ![][2]
-  *Figura 4: Configurar o provisionamento no Portal do Azure*
+  *Figura 4: Configurar o provisionamento em Olá portal do Azure*
     
-6. No campo **URL do locatário**, insira a URL exposta à Internet e a porta do seu ponto de extremidade SCIM. Isso seria algo como http://testmachine.contoso.com:9000 or http://<ip-address>:9000/, em que <ip-address> é o endereço IP exposto na Internet.  
-7. Se o ponto de extremidade SCIM exigir um token de portador OAuth de um emissor diferente do Azure AD, copie o token de portador OAuth necessário para o campo opcional **Token Secreto**. Se esse campo for deixado em branco, o Azure AD incluirá um token de portador OAuth emitido do Azure AD com cada solicitação. Aplicativos que usam o Azure AD como provedor de identidade podem validar esse token emitido pelo Azure AD.
-8. Clique no botão **Testar conectividade** o Azure Active Directory tente se conectar ao ponto de extremidade do SCIM. Se as tentativas falharem, as informações de erro serão exibidas.  
-9. Se as tentativas de conexão ao aplicativo forem bem-sucedidas, clique em **Salvar** para salvar as credenciais de administrador.
-10. Na seção **Mapeamento**, há dois conjuntos selecionáveis de mapeamentos de atributos: um para objetos de usuário e outro para objetos de grupo. Selecione cada um para revisar os atributos que são sincronizados do Azure Active Directory para seu aplicativo. Os atributos selecionados como propriedades **Correspondentes** serão usados para fazer a correspondência entre os usuários e os grupos no seu aplicativo para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
-11. Em **Configurações**, o campo **Escopo** define quais usuários e/ou grupos são sincronizados. Selecionar "Sincronizar apenas usuários e grupos atribuídos" (recomendado) sincroniza somente usuários e grupos atribuídos na guia **Usuários e grupos**.
-12. Depois que a configuração estiver concluída, altere o **Status de provisionamento** para **Ligado**.
-13. Clique em **Salvar** para iniciar o serviço de provisionamento do Azure AD. 
-14. Caso esteja sincronizando apenas usuários e grupos atribuídos (recomendado), certifique-se de selecionar a guia **Usuários e grupos** e designar os usuários e/ou grupos que você deseja sincronizar.
+6. Em Olá **URL do locatário** digite Olá expostos à internet URL e a porta de seu ponto de extremidade SCIM. Isso seria algo como http://testmachine.contoso.com:9000 ou http://<ip-address>:9000/, onde < endereço ip > é Olá internet expostos IP endereço.  
+7. Se o ponto de extremidade do hello SCIM requer um token de portador OAuth de um emissor que não sejam do AD do Azure, Olá cópia necessário token de portador OAuth em Olá opcional **segredo do Token** campo. Se esse campo for deixado em branco, o Azure AD incluirá um token de portador OAuth emitido do Azure AD com cada solicitação. Aplicativos que usam o Azure AD como provedor de identidade podem validar esse token emitido pelo Azure AD.
+8. Clique em Olá **Conexão de teste** botão toohave Active Directory do Azure tentativa tooconnect toohello SCIM ponto de extremidade. Se Olá tentativas falharem, informações de erro são exibidas.  
+9. Se tiver êxito Olá tentativas tooconnect toohello aplicativo, clique em **salvar** toosave credenciais de administrador de saudação.
+10. Em Olá **mapeamentos** seção, há dois conjuntos selecionáveis de mapeamentos de atributos: um para objetos de usuário e outro para objetos de grupo. Selecione cada um atributos de saudação de tooreview que são sincronizados do Active Directory do Azure tooyour aplicativo. Olá atributos selecionados como **correspondência** propriedades são usadas toomatch Olá usuários e grupos em seu aplicativo para operações de atualização. Selecione Olá toocommit de botão de salvar as alterações.
+11. Em **configurações**, Olá **escopo** campo define quais usuários e/ou grupos são sincronizados. Selecionar "Sincronização atribuído apenas usuários e grupos" (recomendado) sincronizará apenas os usuários e grupos atribuídos no hello **usuários e grupos** guia.
+12. Depois que a configuração estiver concluída, alterar Olá **Status de provisionamento** muito**em**.
+13. Clique em **salvar** toostart Olá serviço de provisionamento do AD do Azure. 
+14. Se sincronizar apenas atribuídas a usuários e grupos (recomendados), ser se Olá de tooselect **usuários e grupos** guia e atribua usuários hello e/ou grupos que você deseja toosync.
 
-Depois de iniciada a sincronização inicial, você pode usar a guia **Logs de auditoria** para monitorar o progresso, que mostra todas as ações executadas pelo serviço de provisionamento em seu aplicativo. Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [Relatando o provisionamento automático de conta de usuário](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Depois que a sincronização inicial Olá foi iniciado, você pode usar o hello **logs de auditoria** guia toomonitor progresso, que mostra todas as ações executadas pelo Olá provisionar um serviço em seu aplicativo. Para obter mais informações sobre como o provisionamento de saudação do AD do Azure tooread registra, consulte [relatórios sobre o provisionamento de conta de usuário automático](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
 
-A etapa final da verificação do exemplo é abrir o arquivo TargetFile.csv da pasta \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug no seu computador com Windows. Depois que o processo de provisionamento é executado, esse arquivo mostra os detalhes de todos os usuários e grupos provisionados e atribuídos.
+a etapa final Olá verificar exemplo hello é tooopen Olá arquivo TargetFile.csv na pasta de \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug Olá no seu computador Windows. Após a saudação processo de provisionamento é executada, esse arquivo mostra detalhes de saudação de todos os atribuídos e provisionado usuários e grupos.
 
 ### <a name="development-libraries"></a>Bibliotecas de desenvolvimento
-Para desenvolver seu próprio serviço Web em conformidade com a especificação do SCIM, em primeiro lugar, familiarize-se com as seguintes bibliotecas fornecidas pela Microsoft, que ajudam a acelerar o processo de desenvolvimento: 
+toodevelop seu próprio serviço da web que está em conformidade com a especificação de SCIM toohello, primeiro você se familiarizar com hello bibliotecas a seguir fornecido pela Microsoft toohelp acelerar o processo de desenvolvimento de saudação: 
 
-1. As bibliotecas Common Language Infrastructure (CLI) são oferecidas para uso com linguagens que se baseiam na infraestrutura em questão, como C#. Uma dessas bibliotecas, [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), declara uma interface, Microsoft.SystemForCrossDomainIdentityManagement.IProvider, mostrada na ilustração a seguir: Um desenvolvedor que usa as bibliotecas implementa essa interface com uma classe que pode ser referenciada, de modo genérico, como provedor. As bibliotecas permitem que o desenvolvedor implante um serviço Web que esteja em conformidade com a especificação de SCIM. O serviço Web pode ser hospedado em Serviços de Informações da Internet ou pode ser qualquer assembly executável de Common Language Infrastructure. A solicitação é convertida em chamadas aos métodos do provedor, que podem ser programadas pelo desenvolvedor para operar em algum repositório de identidades.
+1. As bibliotecas Common Language Infrastructure (CLI) são oferecidas para uso com linguagens que se baseiam na infraestrutura em questão, como C#. Uma dessas bibliotecas, [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), declara uma interface, Microsoft.SystemForCrossDomainIdentityManagement.IProvider, mostrada na ilustração a seguir de saudação: um usando bibliotecas de saudação do desenvolvedor deve implementar essa interface com uma classe que pode ser chamada, genericamente, como um provedor. bibliotecas de saudação habilitar Olá desenvolvedor toodeploy um serviço web que está em conformidade com a especificação de SCIM toohello. serviço web de saudação ou pode ser hospedado em serviços de informações da Internet ou de qualquer assembly executável do Common Language Infrastructure. Solicitação é convertida em métodos do provedor de toohello chamadas, que poderiam ser programados Olá toooperate de desenvolvedor em algum armazenamento de identidade.
   
   ![][3]
   
-2. [Manipuladores de ExpressRoute](http://expressjs.com/guide/routing.html) estão disponíveis para análise de objetos de solicitação node.js que representam chamadas (como definido pela especificação do SCIM) feitas para um serviço Web node.js.   
+2. [Express manipuladores de rotas](http://expressjs.com/guide/routing.html) estão disponíveis para analisar objetos de solicitação de Node. js que representam chamadas (conforme definido pela especificação de SCIM de saudação), feitas serviço de web tooa Node. js.   
 
 ### <a name="building-a-custom-scim-endpoint"></a>Criando um ponto de extremidade SCIM personalizado
-Usando as bibliotecas CLI, os desenvolvedores podem hospedar seus serviços em qualquer assembly executável da Common Language Infrastructure ou nos Serviços de Informações da Internet. Veja um exemplo de código para hospedar um serviço em um assembly executável no endereço http://localhost:9000: 
+Usando bibliotecas de CLI hello, os desenvolvedores que usam essas bibliotecas podem hospedar seus serviços de qualquer assembly do Common Language Infrastructure executável, ou em serviços de informações da Internet. Aqui está o código de exemplo para hospedar um serviço em um assembly executável, no endereço Olá http://localhost:9000: 
 
     private static void Main(string[] arguments)
     {
@@ -244,7 +244,7 @@ Usando as bibliotecas CLI, os desenvolvedores podem hospedar seus serviços em q
     }
     }
 
-Esse serviço deve ter um endereço HTTP e um certificado de autenticação de servidor do qual a autoridade de certificação raiz é uma destas: 
+Esse serviço deve ter um HTTP endereço e servidor de certificado de autenticação de quais hello autoridade de certificação raiz é um dos seguinte hello: 
 
 * CNNIC
 * Comodo
@@ -256,13 +256,13 @@ Esse serviço deve ter um endereço HTTP e um certificado de autenticação de s
 * Verisign
 * WoSign
 
-Um certificado de autenticação de servidor pode ser associado a uma porta em um host do Windows usando o utilitário de shell de rede: 
+Um certificado de autenticação de servidor pode ser associado tooa porta em um host do Windows usando o utilitário de shell de rede Olá: 
 
     netsh http add sslcert ipport=0.0.0.0:443 certhash=0000000000003ed9cd0c315bbb6dc1c08da5e6 appid={00112233-4455-6677-8899-AABBCCDDEEFF}  
 
-Aqui, o valor fornecido para o argumento certhash é a impressão digital do certificado, enquanto o valor fornecido para o argumento appid é um identificador global exclusivo arbitrário.  
+Aqui, o valor de Olá fornecido para o argumento de certhash Olá é impressão digital de saudação do certificado Olá, enquanto o valor de Olá fornecido para o argumento de appid Olá é um identificador global exclusivo arbitrário.  
 
-Para hospedar o serviço nos Serviços de Informações da Internet, um desenvolvedor cria um assembly de biblioteca de códigos da CLA com uma classe chamada Startup no namespace padrão do assembly.  Veja um exemplo dessa classe: 
+serviço de saudação toohost em serviços de informações da Internet, um desenvolvedor criaria um assembly de biblioteca de código CLA com uma classe chamada inicialização no espaço para nome padrão de saudação do assembly hello.  Veja um exemplo dessa classe: 
 
     public class Startup
     {
@@ -293,11 +293,11 @@ Para hospedar o serviço nos Serviços de Informações da Internet, um desenvol
     }
 
 ### <a name="handling-endpoint-authentication"></a>Manipulando a autenticação do ponto de extremidade
-As solicitações do Active Directory do Azure incluem um token de portador do OAuth 2.0.   Qualquer serviço que recebe a solicitação deve autenticar o emissor como sendo o Azure Active Directory em nome do locatário esperado do Azure Active Directory, para acesso ao serviço Web Graph do Azure Active Directory.  No token, o emissor é identificado por uma declaração de iss, como "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Neste exemplo, o endereço base do valor da declaração, https://sts.windows.net, identifica o Azure Active Directory como o emissor, enquanto o segmento do endereço relativo, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, é um identificador exclusivo do locatário do Azure Active Directory em nome do qual o token foi emitido.  Se o token tiver sido emitido para acessar um serviço Web Graph do Azure Active Directory, o identificador desse serviço, 00000002-0000-0000-c000-000000000000, deverá estar no valor da declaração aud do token.  
+As solicitações do Active Directory do Azure incluem um token de portador do OAuth 2.0.   Qualquer solicitação de saudação serviço receptor deve autenticar emissor hello como sendo o Active Directory do Azure em nome do locatário do Active Directory do Azure Olá esperado, para acesso toohello serviço de web do Azure Active Directory Graph.  Token Olá, emissor de saudação é identificado por uma declaração de iss, como "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Neste exemplo, o endereço de base de saudação do valor de declaração hello, https://sts.windows.net, identifica o Active Directory do Azure como Olá emissor, enquanto o segmento de endereço relativo, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, hello é um identificador exclusivo do hello Azure Active Locatário de diretório em nome do qual Olá token foi emitido.  Se Olá token foi emitido para acessar o serviço web do Azure Active Directory Graph hello, em seguida, identificador Olá desse serviço, 00000002-0000-0000-c000-000000000000, deve ser no valor de saudação do aud do token de saudação de declaração.  
 
-Os desenvolvedores que usam as bibliotecas CLA fornecidas pela Microsoft para criação de um serviço SCIM podem autenticar solicitações do Azure Active Directory usando o pacote Microsoft.Owin.Security.ActiveDirectory seguindo estas etapas: 
+Os desenvolvedores que usam bibliotecas CLA Olá fornecidas pela Microsoft para a criação de um serviço SCIM podem autenticar solicitações do Azure Active Directory usando o pacote do ActiveDirectory Olá seguindo estas etapas: 
 
-1. Em um provedor, implemente a propriedade Microsoft.SystemForCrossDomainIdentityManagement.IProvider.StartupBehavior fazendo com que ela retorne um método a ser chamado sempre que o serviço é iniciado: 
+1. Em um provedor implementa a propriedade de Microsoft.SystemForCrossDomainIdentityManagement.IProvider.StartupBehavior de saudação fazendo com que ele retornar um toobe método chamado sempre que o serviço Olá é iniciado: 
 
   ````
     public override Action\<Owin.IAppBuilder, System.Web.Http.HttpConfiguration.HttpConfiguration\> StartupBehavior
@@ -315,7 +315,7 @@ Os desenvolvedores que usam as bibliotecas CLA fornecidas pela Microsoft para cr
     }
   ````
 
-2. Adicione o código a seguir ao método para que as solicitações a qualquer um dos pontos de extremidade do serviço sejam autenticados como sendo um token emitido pelo Azure Active Directory em nome de um locatário especificado para acesso ao serviço Web Graph do Azure AD: 
+2. Adicione Olá após código toothat método toohave tooany qualquer solicitação de pontos de extremidade do serviço Olá autenticado como bearing um token emitido pelo Active Directory do Azure em nome de um locatário especificado, para acesso toohello serviço de web do Azure AD Graph: 
 
   ````
     private void OnServiceStartup(
@@ -340,7 +340,7 @@ Os desenvolvedores que usam as bibliotecas CLA fornecidas pela Microsoft para cr
       WindowsAzureActiveDirectoryBearerAuthenticationOptions authenticationOptions =
         new WindowsAzureActiveDirectoryBearerAuthenticationOptions()    {
         TokenValidationParameters = tokenValidationParameters,
-        Tenant = "03F9FCBC-EA7B-46C2-8466-F81917F3C15E" // Substitute the appropriate tenant’s 
+        Tenant = "03F9FCBC-EA7B-46C2-8466-F81917F3C15E" // Substitute hello appropriate tenant’s 
                                                       // identifier for this one.  
       };
 
@@ -350,11 +350,11 @@ Os desenvolvedores que usam as bibliotecas CLA fornecidas pela Microsoft para cr
 
 
 ## <a name="user-and-group-schema"></a>Esquema de usuários e grupos
-O Azure Active Directory pode provisionar dois tipos de recurso aos serviços Web SCIM.  Esses tipos de recurso são usuários e grupos.  
+Active Directory do Azure pode provisionar os dois tipos de recursos tooSCIM serviços da web.  Esses tipos de recurso são usuários e grupos.  
 
-Os recursos de usuário são identificados pelo identificador do esquema, urn:ietf:params:scim:schemas:extension:enterprise:2.0:User, que está incluído nesta especificação de protocolo: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  O mapeamento padrão dos atributos de usuários no Active Directory do Azure para os atributos dos recursos urn:ietf:params:scim:schemas:extension:enterprise:2.0:User é fornecido na tabela 1, abaixo.  
+Recursos do usuário são identificados pelo identificador do esquema hello, urn: ietf:params:scim:schemas:extension:enterprise:2.0:User, que está incluído nesta especificação de protocolo: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  mapeamento de padrão de saudação de atributos de saudação de usuários em atributos do Active Directory do Azure toohello de recursos de urn: ietf:params:scim:schemas:extension:enterprise:2.0:User é fornecido na tabela 1, abaixo.  
 
-Os recursos de grupo são identificados pelo identificador do esquema, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  A tabela 2 abaixo mostra o mapeamento padrão de atributos de grupos no Azure Active Directory para os atributos de recursos de http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
+Recursos do grupo são identificados pelo identificador do esquema hello, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Tabela 2, abaixo, o mapeamento de padrão mostra Olá de atributos de saudação de grupos de atributos do Active Directory do Azure toohello de recursos de http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>Tabela 1: Mapeamento padrão de atributo do usuário
 | Usuário do Active Directory do Azure | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |
@@ -388,17 +388,17 @@ Os recursos de grupo são identificados pelo identificador do esquema, http://sc
 | proxyAddresses |emails[type eq "other"].Value |
 
 ## <a name="user-provisioning-and-de-provisioning"></a>Provisionamento e desprovisionamento de usuários
-A seguinte ilustração mostra as mensagens que o Azure Active Directory envia a um serviço SCIM para gerenciar o ciclo de vida de um usuário em outro repositório de identidades. O diagrama também mostra como um serviço SCIM implementado usando as bibliotecas CLI fornecidas pela Microsoft para a criação de tais serviços converte as solicitações em chamadas para os métodos de um provedor.  
+Olá mensagens de saudação do ilustração mostra que o Active Directory do Azure envia tooa SCIM serviço toomanage saudação do ciclo de vida de um usuário em outro repositório de identidade a seguir. diagrama de saudação também mostra como um serviço SCIM implementado usando bibliotecas CLI Olá fornecido pela Microsoft para criar que tais serviços essas solicitações se traduz em métodos de toohello chamadas de um provedor.  
 
 ![][4]
 *Figura 5: Sequência de provisionamento e desprovisionamento de usuário*
 
-1. O Azure Active Directory consulta o serviço para procurar um usuário com um valor de atributo externalId correspondente ao valor de atributo mailNickname de um usuário no Azure AD. A consulta é expressa como solicitação HTTP como no exemplo, na qual jyoung é o exemplo de um mailNickname de um usuário no Azure Active Directory: 
+1. Consultas do Active Directory do Azure Olá serviço para um usuário com um valor de atributo externalId correspondência do valor de atributo de mailNickname Olá de um usuário no AD do Azure. Olá consulta é expressa como uma solicitação do protocolo HTTP (Hypertext Transfer), como neste exemplo, no qual jyoung é um exemplo de um mailNickname de um usuário no Active Directory do Azure: 
   ````
     GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
     Authorization: Bearer ...
   ````
-  Se o serviço foi criado usando as bibliotecas Common Language Infrastructure fornecidas pela Microsoft para implementação de serviços SCIM, a solicitação é convertida em uma chamada ao método Query do provedor de serviços.  Veja a assinatura desse método: 
+  Se serviço Olá foi criado usando bibliotecas de Common Language Infrastructure Olá fornecidas pela Microsoft para a implementação de serviços SCIM, em seguida, solicitação Olá é convertida em toohello uma chamada de método de consulta do provedor do serviço de saudação.  Aqui está a assinatura de saudação do método: 
   ````
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
@@ -410,7 +410,7 @@ A seguinte ilustração mostra as mensagens que o Azure Active Directory envia a
       Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters parameters, 
       string correlationIdentifier);
   ````
-  Veja a definição da interface Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters: 
+  Esta é a definição de saudação da interface de Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters hello: 
   ````
     public interface IQueryParameters: 
       Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
@@ -446,14 +446,14 @@ A seguinte ilustração mostra as mensagens que o Azure Active Directory envia a
         Equals
     }
   ````
-  No exemplo a seguir de uma consulta para um usuário com um valor fornecido para o atributo externalId, os valores dos argumentos passados para o método Query são: 
+  Em Olá seguindo o exemplo de uma consulta para um usuário com um valor especificado para o atributo de externalId hello, valores de argumentos Olá passados toohello método de consulta são: 
   * parameters.AlternateFilters.Count: 1
   * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
   * parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
   * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
   * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
-2. Se a resposta a uma consulta ao serviço Web para procurar um usuário com um valor de atributo externalId que corresponda ao valor de atributo mailNickname de um usuário não retornar nenhum usuário, o Azure Active Directory solicitará que o serviço provisione um usuário correspondente ao usuário no Azure Active Directory.  Veja um exemplo de tal solicitação: 
+2. Se Olá resposta tooa toohello web serviço de consulta para um usuário com um valor de atributo externalId que coincide com o valor do atributo mailNickname Olá de um usuário não retornar todos os usuários, Active Directory do Azure solicita que provisão de serviço Olá um usuário correspondente toohello um no Active Directory do Azure.  Veja um exemplo de tal solicitação: 
   ````
     POST https://.../scim/Users HTTP/1.1
     Authorization: Bearer ...
@@ -484,7 +484,7 @@ A seguinte ilustração mostra as mensagens que o Azure Active Directory envia a
       "department":null,
       "manager":null}
   ````
-  As bibliotecas Common Language Infrastructure fornecidas pela Microsoft para implementação dos serviços SCIM convertem essa solicitação em uma chamada ao método Create do provedor de serviços.  O método Create tem essa assinatura: 
+  bibliotecas de Common Language Infrastructure Olá fornecidas pela Microsoft para a implementação de serviços SCIM significa que a solicitação toohello uma chamada de método de criação de saudação do provedor de.  método Create da saudação tem essa assinatura: 
   ````
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
@@ -494,14 +494,14 @@ A seguinte ilustração mostra as mensagens que o Azure Active Directory envia a
       Microsoft.SystemForCrossDomainIdentityManagement.Resource resource, 
       string correlationIdentifier);
   ````
-  Em uma solicitação para provisionar um usuário, o valor do argumento de recurso é uma instância da classe Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser, definida na biblioteca Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  Se a solicitação de provisionamento de usuário for bem-sucedida, a implementação do método deverá retornar uma instância da classe Microsoft.SystemForCrossDomainIdentityManagement. Classe Core2EnterpriseUser, com o valor da propriedade Identifier definido como o identificador exclusivo do usuário recentemente provisionado.  
+  Em uma solicitação tooprovision um usuário, o valor de saudação do argumento de recurso Olá é uma instância de saudação Microsoft.SystemForCrossDomainIdentityManagement. Classe Core2EnterpriseUser, definida na biblioteca de Microsoft.SystemForCrossDomainIdentityManagement.Schemas hello.  Se o usuário de Olá Olá solicitação tooprovision for bem-sucedida, em seguida, hello implementação do método hello é tooreturn esperada uma instância do hello Microsoft.SystemForCrossDomainIdentityManagement. Classe Core2EnterpriseUser, com valor de saudação da propriedade do identificador de Olá definir toohello o identificador exclusivo do usuário recentemente provisionados hello.  
 
-3. Para atualizar um usuário conhecido que existe em um repositório de identidades administrado por um SCIM, o Azure Active Directory prossegue solicitando o estado atual desse usuário no serviço com uma solicitação como: 
+3. tooupdate um usuário conhecido tooexist em um repositório de identidade apoiado por um SCIM, Active Directory do Azure continua solicitando o estado atual de saudação do usuário do serviço de saudação com uma solicitação, como: 
   ````
     GET ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
   ````
-  Em um serviço criado usando as bibliotecas Common Language Infrastructure fornecidas pela Microsoft para implementação de serviços SCIM, a solicitação é convertida em uma chamada ao método Retrieve do provedor de serviços.  Veja a assinatura do método Retrieve: 
+  Em um serviço criado usando bibliotecas de Common Language Infrastructure Olá fornecidas pela Microsoft para a implementação de serviços SCIM, a solicitação de saudação é convertida em toohello uma chamada de método de recuperação de saudação do provedor de.  Aqui está a assinatura de saudação do método de recuperação hello: 
   ````
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.Resource and 
@@ -529,19 +529,19 @@ A seguinte ilustração mostra as mensagens que o Azure Active Directory envia a
           { get; set; }
     }
   ````
-  No exemplo de uma solicitação para recuperar o estado atual de um usuário, os valores das propriedades do objeto fornecidos como o valor do argumento de parâmetros são: 
+  No exemplo de saudação do estado atual de saudação do tooretrieve solicitação de um usuário, valores hello das propriedades de saudação do objeto de saudação fornecido como valor de saudação do argumento de parâmetros de saudação são: 
   
   * Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
   * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-4. Se um atributo de referência deve ser atualizado, o Azure Active Directory consulta o serviço para determinar se o valor atual do atributo de referência no repositório de identidades administrado pelo serviço já corresponde ou não ao valor desse atributo no Azure Active Directory. Para usuários, o único atributo no qual o valor atual é consultado dessa forma é o atributo de gerenciador. Veja o exemplo de uma solicitação para determinar se o atributo de gerenciador de um objeto de usuário específico atualmente tem um determinado valor: 
+4. Se um atributo de referência for toobe atualizado, em seguida, Active Directory do Azure consultas Olá serviço toodetermine ou não hello atual valor do atributo de referência de saudação no repositório de identidades Olá apoiado por serviço Olá já corresponde o valor de saudação do atributo no Active Directory do Azure. Para usuários, Olá somente de quais hello valor atual é consultado dessa maneira é Olá manager atributo. Aqui está um exemplo de uma solicitação toodetermine se o atributo de gerente de saudação de um objeto específico do usuário atualmente tem um determinado valor: 
   ````
     GET ~/scim/Users?filter=id eq 54D382A4-2050-4C03-94D1-E769F1D15682 and manager eq 2819c223-7f76-453a-919d-413861904646&attributes=id HTTP/1.1
     Authorization: Bearer ...
   ````
-  O valor do parâmetro de consulta de atributos, id, significa que, se existir um objeto de usuário que atenda à expressão fornecida como o valor do parâmetro de consulta de filtro, o serviço deverá responder com um recurso urn:ietf:params:scim:schemas:core:2.0:User ou urn:ietf:params:scim:schemas:extension:enterprise:2.0:User, incluindo apenas o valor do atributo id desse recurso.  O valor do atributo **id** é do conhecimento do solicitante. Ele é incluído no valor do parâmetro de consulta de filtro; a finalidade de solicitá-lo, na verdade, é solicitar uma representação mínima de um recurso que atenda à expressão de filtro como uma indicação da existência ou não de tal objeto.   
+  Olá valor de parâmetro de consulta de atributos hello, id, significa que se existe um objeto de usuário que satisfaz a expressão Olá fornecido como valor de saudação do parâmetro de consulta de filtro de saudação, serviço Olá é esperado toorespond com um urn: ietf:params:scim:schemas: núcleo: 2.0:User ou urn: ietf:params:scim:schemas:extension:enterprise:2.0:User recursos, incluindo apenas o valor de saudação do atributo de id do recurso.  Olá valor Olá **id** atributo conhecido toohello solicitante. Ele está incluído no valor de saudação do parâmetro de consulta de filtro Olá; Olá finalidade pedindo a ela é realmente toorequest uma representação mínima de um recurso que satisfazem a expressão de filtro hello como uma indicação de se qualquer tal objeto existente.   
 
-  Se o serviço foi criado usando as bibliotecas Common Language Infrastructure fornecidas pela Microsoft para implementação de serviços SCIM, a solicitação é convertida em uma chamada ao método Query do provedor de serviços. O valor das propriedades do objeto fornecido como o valor do argumento de parâmetros é: 
+  Se serviço Olá foi criado usando bibliotecas de Common Language Infrastructure Olá fornecidas pela Microsoft para a implementação de serviços SCIM, em seguida, solicitação Olá é convertida em toohello uma chamada de método de consulta do provedor do serviço de saudação. valor de saudação das propriedades de saudação do objeto de saudação fornecido como valor de saudação do argumento de parâmetros de saudação são da seguinte maneira: 
   
   * parameters.AlternateFilters.Count: 2
   * parameters.AlternateFilters.ElementAt(x).AttributePath: "id"
@@ -553,9 +553,9 @@ A seguinte ilustração mostra as mensagens que o Azure Active Directory envia a
   * parameters.RequestedAttributePaths.ElementAt(0): "id"
   * parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-  Aqui, o valor do índice x pode ser 0 e o valor do índice y pode ser 1, ou o valor de x pode ser 1 e o valor de y pode ser 0, dependendo da ordem das expressões do parâmetro do filtro de consulta.   
+  Aqui, valor de saudação do índice Olá x pode ser 0 e valor Olá Olá índice y pode ser 1, ou Olá valor x pode ser 1 e valor Olá y pode ser 0, dependendo da ordem de saudação de expressões de saudação do parâmetro de consulta de filtro de saudação.   
 
-5. Veja um exemplo de uma solicitação do Azure Active Directory a um serviço SCIM para atualizar um usuário: 
+5. Aqui está um exemplo de uma solicitação de tooupdate de serviço do Active Directory do Azure tooan SCIM um usuário: 
   ````
     PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
@@ -575,7 +575,7 @@ A seguinte ilustração mostra as mensagens que o Azure Active Directory envia a
                 "$ref":"http://.../scim/Users/2819c223-7f76-453a-919d-413861904646",
                 "value":"2819c223-7f76-453a-919d-413861904646"}]}]}
   ````
-  As bibliotecas Common Language Infrastructure fornecidas pela Microsoft para implementação dos serviços SCIM convertem a solicitação em uma chamada ao método Update do provedor de serviços. Veja a assinatura do método Update: 
+  bibliotecas do Microsoft Common Language Infrastructure Olá para implementar serviços SCIM converterá solicitação Olá em toohello uma chamada de método de atualização do provedor do serviço hello. Aqui está a assinatura Olá Olá método de atualização: 
   ````
     // System.Threading.Tasks.Tasks and 
     // System.Collections.Generic.IReadOnlyCollection<T>
@@ -656,7 +656,7 @@ A seguinte ilustração mostra as mensagens que o Azure Active Directory envia a
       { get; set; }
     }
   ````
-    No exemplo de uma solicitação para atualizar um usuário, o objeto fornecido como valor do argumento de patch tem estes valores de propriedade: 
+    No exemplo hello de uma solicitação de tooupdate um usuário, o objeto de saudação fornecido como valor de saudação do argumento de patch Olá tem esses valores de propriedade: 
   
   * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
   * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
@@ -667,12 +667,12 @@ A seguinte ilustração mostra as mensagens que o Azure Active Directory envia a
   * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
   * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value: 2819c223-7f76-453a-919d-413861904646
 
-6. Para desprovisionar um usuário de um repositório de identidades administrado por um serviço SCIM, o Azure AD envia uma solicitação como esta: 
+6. um usuário de um repositório de identidade de provisionar toode apoiado por um serviço SCIM, AD do Azure envia uma solicitação, como: 
   ````
     DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
   ````
-  Se o serviço tiver sido criado usando as bibliotecas Common Language Infrastructure fornecidas pela Microsoft para implementação de serviços SCIM, a solicitação é convertida em uma chamada ao método Delete do provedor de serviços.   Esse método tem esta assinatura: 
+  Se o serviço de saudação foi criado usando bibliotecas de Common Language Infrastructure Olá fornecidas pela Microsoft para a implementação de serviços SCIM, em seguida, solicitação Olá é convertida em toohello uma chamada de método de exclusão de saudação do provedor de.   Esse método tem esta assinatura: 
   ````
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
@@ -682,29 +682,29 @@ A seguinte ilustração mostra as mensagens que o Azure Active Directory envia a
         resourceIdentifier, 
       string correlationIdentifier);
   ````
-  O objeto fornecido como valor do argumento resourceIdentifier tem estes valores de propriedade no exemplo de uma solicitação para desprovisionar um usuário: 
+  objeto Olá fornecido como valor de saudação do argumento de resourceIdentifier Olá tem esses valores de propriedade no exemplo hello de uma solicitação toode-provisionar um usuário: 
   
   * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
   * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 ## <a name="group-provisioning-and-de-provisioning"></a>Provisionamento e desprovisionamento de grupo
-A seguinte ilustração mostra as mensagens que o Azure AD envia a um serviço SCIM para gerenciar o ciclo de vida de um grupo em outro repositório de identidades.  Essas mensagens são diferentes das mensagens pertencentes aos usuários em três aspectos: 
+Olá mensagens de saudação do ilustração mostra que AcD Azure envia tooa SCIM serviço toomanage saudação do ciclo de vida de um grupo em outro repositório de identidade a seguir.  Essas mensagens são diferentes de mensagens de saudação pertencente toousers de três maneiras: 
 
-* O esquema de um recurso de grupo é identificado como http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
-* As solicitações para recuperar grupos estipulam que o atributo de membros deve ser excluído de qualquer recurso fornecido em resposta à solicitação.  
-* As solicitações para determinar se um atributo de referência tem um determinado valor são sobre o atributo de membros.  
+* esquema de saudação de um recurso de grupo é identificada como http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
+* Solicitações tooretrieve grupos estipulam atributo Olá membros é toobe excluído de qualquer recurso fornecido na solicitação de toohello de resposta.  
+* Toodetermine solicitações se um atributo de referência tem um determinado valor são solicitações sobre o atributo de membros de saudação.  
 
 ![][5]
 *Figura 6: sequência de provisionamento e desprovisionamento de grupo*
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-* [Automatizar o provisionamento/desprovisionamento de usuários para aplicativos SaaS](active-directory-saas-app-provisioning.md)
+* [Automatizar o provisionamento de usuário/desprovisionamento tooSaaS aplicativos](active-directory-saas-app-provisioning.md)
 * [Personalizando os mapeamentos de atributos para provisionamento de usuários](active-directory-saas-customizing-attribute-mappings.md)
 * [Escrevendo expressões para mapeamentos de atributo](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Filtros de escopo para provisionamento de usuários](active-directory-saas-scoping-filters.md)
 * [Notificações de provisionamento de conta](active-directory-saas-account-provisioning-notifications.md)
-* [Lista de tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS](active-directory-saas-tutorial-list.md)
 
 <!--Image references-->
 [0]: ./media/active-directory-scim-provisioning/scim-figure-1.PNG

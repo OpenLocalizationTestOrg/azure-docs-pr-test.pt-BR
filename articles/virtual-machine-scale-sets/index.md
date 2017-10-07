@@ -1,6 +1,6 @@
 ---
-title: "Documentação dos conjuntos de dimensionamento de máquinas virtuais - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba como usar os Conjuntos de Dimensionamento de Máquinas Virtuais para criar VMs do Windows ou do Linux de dimensionamento automático para computação de grande porte, big data e soluções contidas."
+title: "aaaAzure documentação de conjuntos de escala de máquina Virtual - tutoriais, referência de API | Microsoft Docs"
+description: "Saiba como toouse conjuntos de escala de máquinas virtuais toocreate dimensionamento automático Windows ou Linux VMs de computação intensa, dados grandes e soluções em contêineres."
 services: virtual-machine-scale-sets
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: c03fc321082b8be9044faf0e57e2f26ddc22c243
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7f4a4812e2ba44cabfd54bc25fa3b66a04c5bbe8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Documentação dos Conjuntos de Dimensionamento de Máquina Virtual
 
-Saiba como usar os Conjuntos de Dimensionamento de Máquinas Virtuais para implantar e gerenciar um conjunto de VMs do Windows ou do Linux de dimensionamento automático idênticas. A documentação mostra como usar Conjuntos de Dimensionamento para dar suporte a serviços destinados a computação de grande porte, big data e soluções contidas.
+Saiba como a escala de máquina Virtual toouse define toodeploy e gerenciar um conjunto de idênticos, o dimensionamento automático Windows ou Linux VMs. Documentação mostra como os serviços de toouse toosupport de conjuntos de escala que soluções em contêineres, dados grandes e computação intensa de destino.
 
 <ul class="panelContent cardsFTitle">
     <li>

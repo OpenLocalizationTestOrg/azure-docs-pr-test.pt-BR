@@ -1,6 +1,6 @@
 ---
-title: "Guia técnico de previsão de demanda em energia | Microsoft Docs"
-description: "Um guia técnico para o Modelo de Solução com o Microsoft Cortana Intelligence para previsão de demanda de energia"
+title: "aaaDemand previsão na guia técnico de energia | Microsoft Docs"
+description: "Um guia técnico toohello modelo de solução com o Microsoft Cortana inteligência para previsão de vendas de energia."
 services: cortana-analytics
 documentationcenter: 
 author: yijichen
@@ -14,226 +14,225 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: c3bbef8fee018dc54e7d3edb86e3f9434999bdae
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c97b7c19c9e3a317aecc329e61a0692d2f1ec53e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guia técnico para o Modelo de Solução do Cortana Intelligence para previsão de demanda em energia
+# <a name="technical-guide-toohello-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guia técnico toohello Cortana inteligência de solução de modelo de previsão de vendas de energia
 ## <a name="overview"></a>**Visão geral**
-Os Modelos de Solução foram projetados para acelerar o processo de criação de uma demonstração E2E sobre o Cortana Intelligence Suite. Um modelo implantado provisionará à sua assinatura os componentes necessários do Cortana Intelligence e estabelecerá as relações entre eles. Ele também alimenta o pipeline de dados com amostras de dados geradas em um aplicativo de simulação de dados. Baixe o simulador de dados do link fornecido e instale-o em seu computador local. Consulte o arquivo readme.txt para obter instruções sobre o uso do simulador. Os dados gerados pelo simulador hidratarão o pipeline de dados e começarão a gerar previsões de aprendizado de máquina, que poderão ser visualizadas no painel do Power BI.
+Modelos de solução são projetados tooaccelerate processo de saudação da criação de uma demonstração E2E sobre o pacote de inteligência do Cortana. Um modelo implantado provisionará sua assinatura com o componente necessário do Cortana inteligência e criar relações de saudação entre. Ele também sementes de pipeline de saudação de dados com dados de exemplo obtendo gerados a partir de um aplicativo de simulação de dados. Baixar simulador de dados de saudação do link Olá fornecido e instalá-lo em seu computador local, consulte o arquivo Leiame. txt de toohello para obter instruções sobre como usar o simulador de saudação. Dados gerados a partir de simulador hello serão alimentar pipeline de dados hello e começar a gerar a previsão de aprendizado de máquina que, em seguida, pode ser visualizado no painel do Power BI hello.
 
-O modelo de solução pode ser encontrado [aqui](https://gallery.cortanaintelligence.com/SolutionTemplate/Demand-Forecasting-for-Energy-1)
+o modelo de solução Olá pode ser encontrado [aqui](https://gallery.cortanaintelligence.com/SolutionTemplate/Demand-Forecasting-for-Energy-1)
 
-O processo de implantação guiará você pelas diversas etapas para configurar as credenciais da sua solução. Registre essas credenciais, como o nome da solução, o nome de usuário e a senha fornecidos durante a implantação.
+o processo de implantação Olá orientará tooset de várias etapas as credenciais de sua solução. Certifique-se de que registrar essas credenciais como nome da solução, o nome de usuário e a senha fornecidos durante a implantação de saudação.
 
-A meta deste documento é explicar a arquitetura de referência e os diferentes componentes provisionados em sua assinatura como parte deste Modelo de Solução. O documento também fala sobre como substituir as amostras de dados por dados reais, para que você possa ver informações/previsões obtidas de seus próprios dados. Além disso, o documento discute as partes do Modelo de Solução que precisarão ser modificadas caso você queira personalizar a solução com seus próprios dados. As instruções sobre como criar o painel do Power BI para esse Modelo de Solução serão fornecidas ao final.
+meta de saudação deste documento é arquitetura de referência tooexplain hello e diferentes componentes provisionados em sua assinatura como parte desse modelo de solução. documento de saudação também fala sobre como tooreplace Olá dados de exemplo, com dados reais de seus próprios toobe toosee capaz de insights/previsões você ganha dados. Além disso, Olá documento fala sobre partes de saudação do hello modelo de solução que seria necessário toobe modificado se você quiser solução de saudação do toocustomize com seus próprios dados. São fornecidas instruções sobre como toobuild hello o painel do Power BI para este modelo de solução final hello.
 
 ## <a name="big-picture"></a>**Visão global**
 ![](media/cortana-analytics-technical-guide-demand-forecast/ca-topologies-energy-forecasting.png)
 
 ### <a name="architecture-explained"></a>Arquitetura explicada
-Quando a solução for implantada, diversos serviços do Azure no Cortana Analytics Suite serão ativados (*ou seja,* o Hub de Eventos, o Stream Analytics, o HDInsight, o Data Factory, o Machine Learning, *etc.*). O diagrama da arquitetura acima mostra, em alto nível, como o Modelo de Solução de Previsão de demanda para energia é criado de ponta a ponta. Você poderá investigar esses serviços clicando neles no diagrama de modelo de solução criado com a implantação da solução. As seções a seguir descrevem cada parte.
+Quando Olá solução for implantada, vários serviços do Azure no Cortana Analytics Suite são ativados (*ou seja,* o Hub de Eventos, o Stream Analytics, o HDInsight, o Data Factory, o Machine Learning, *etc.*). diagrama de arquitetura de saudação acima mostra, em um nível alto, como Olá previsão de demanda para o modelo de solução de energia é construída de ponta a ponta. Você será capaz de tooinvestigate esses serviços clicando neles em Olá diagrama do modelo de solução criado com a implantação de saudação de solução de saudação. Olá seções a seguir descreve cada parte.
 
 ## <a name="data-source-and-ingestion"></a>**Fonte de dados e ingestão**
 ### <a name="synthetic-data-source"></a>Fonte de dados sintética
-Para esse modelo, a fonte de dados usada é gerada de um aplicativo da área de trabalho que você baixará e executará localmente após a implantação bem-sucedida. Você encontrará as instruções para baixar e instalar esse aplicativo na barra de propriedades, quando selecionar o primeiro nó chamado Simulador de Dados de Previsão de Energia no diagrama do modelo de solução. Esse aplicativo alimenta o serviço [Hub de Eventos do Azure](#azure-event-hub) com pontos de dados, ou eventos, que serão usados no restante do fluxo da solução.
+Fonte usada é gerado para esses dados de saudação do modelo de um aplicativo de área de trabalho que você irá baixar e executar localmente após a implantação bem-sucedida. Você encontrará toodownload de instruções hello e instalar este aplicativo na barra de propriedades hello quando você seleciona o primeiro nó de saudação chamado simulador de dados de previsão de energia no diagrama de modelo de solução de saudação. Este aplicativo feeds Olá [Hub de eventos do Azure](#azure-event-hub) serviço com pontos de dados ou eventos, que serão usados no restante de saudação do fluxo de solução de saudação.
 
-O aplicativo de geração de eventos só preencherá o Hub de Eventos do Azure enquanto ele estiver em execução no computador.
+aplicativo de geração de eventos Hello populará hello Azure Hub de eventos apenas enquanto ele está em execução no seu computador.
 
 ### <a name="azure-event-hub"></a>Hub de Eventos do Azure
-O serviço [Hub de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/) é o destinatário da entrada fornecida pela Fonte de Dados Sintética descrita acima.
+Olá [Hub de eventos do Azure](https://azure.microsoft.com/services/event-hubs/) service é o destinatário de saudação de entrada hello fornecido pelo Olá sintética fonte de dados descrito acima.
 
 ## <a name="data-preparation-and-analysis"></a>**Preparação e análise de dados**
 ### <a name="azure-stream-analytics"></a>Stream Analytics do Azure
-O serviço [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/) é usado para fornecer uma análise quase em tempo real no fluxo de entrada do serviço [Hub de Eventos do Azure](#azure-event-hub) e para publicar os resultados em um painel do [Power BI](https://powerbi.microsoft.com), bem como para arquivar todos os eventos brutos de entrada no serviço [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) para um processamento posterior pelo serviço [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
+Olá [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/) service é usado tooprovide próximo a análise em tempo real no fluxo de entrada de saudação do hello [Hub de eventos do Azure](#azure-event-hub) de serviço e publicar os resultados em um [doPowerBI](https://powerbi.microsoft.com) dashboard, bem como arquivamento todos bruto toohello de eventos de entrada [armazenamento do Azure](https://azure.microsoft.com/services/storage/) serviço para processamento posterior por Olá [do Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) serviço.
 
 ### <a name="hd-insights-custom-aggregation"></a>Agregação personalizada do HDInsight
-O serviço Azure HDInsight é usado para executar scripts do [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) (orquestrados pelo Azure Data Factory), de modo a fornecer agregações nos eventos brutos arquivados usando o serviço Stream Analytics do Azure.
+Olá serviço Azure HD Insight é usado toorun [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts (gerenciados pelo Azure Data Factory) tooprovide agregações em eventos brutos Olá foram arquivados usando o serviço do Azure Stream Analytics hello.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-O serviço [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) é usado (orquestrado pelo Azure Data Factory) para fazer previsões sobre o consumo futuro de energia de uma região específica com base nos dados recebidos.
+Olá [aprendizado de máquina do Azure](https://azure.microsoft.com/services/machine-learning/) serviço é usado (orquestrada pelo Azure Data Factory) toomake de previsão no consumo de energia futuras de uma determinada região Olá entrada recebidas.
 
 ## <a name="data-publishing"></a>**Publicação de dados**
 ### <a name="azure-sql-database-service"></a>Serviço Banco de Dados SQL do Azure
-O serviço [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) é usado para armazenar (gerenciado pelo Azure Data Factory) as previsões recebidas pelo serviço Azure Machine Learning que serão consumidas no painel do [Power BI](https://powerbi.microsoft.com).
+Olá [banco de dados do SQL Azure](https://azure.microsoft.com/services/sql-database/) service é previsões de saudação toostore usado (gerenciado pelo Azure Data Factory) recebidas por Olá service de aprendizado de máquina do Azure que será consumido no hello [Power BI](https://powerbi.microsoft.com) painel.
 
 ## <a name="data-consumption"></a>**Consumo de dados**
 ### <a name="power-bi"></a>Power BI
-O serviço [Power BI](https://powerbi.microsoft.com) é usado para mostrar um painel que contém as agregações fornecidas pelo serviço [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/), bem como os resultados das previsões de demanda no [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) que foram produzidos usando o serviço [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/). Para obter instruções sobre como criar o painel do Power BI para esse Modelo de Solução, consulte a seção abaixo.
+Olá [Power BI](https://powerbi.microsoft.com) service é usado tooshow um painel que contém as agregações fornecidas pelo Olá [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) serviço, bem como a demanda prever os resultados armazenados em [SQL Azure Banco de dados](https://azure.microsoft.com/services/sql-database/) que foram produzidas usando Olá [aprendizado de máquina do Azure](https://azure.microsoft.com/services/machine-learning/) serviço. Para obter instruções sobre como toobuild hello o painel do Power BI para este modelo de solução, consulte a seção de toohello abaixo.
 
-## <a name="how-to-bring-in-your-own-data"></a>**Como inserir seus próprios dados**
-Esta seção descreve como inserir seus próprios dados no Azure e quais áreas exigiriam alterações nos dados trazidos para essa arquitetura.
+## <a name="how-toobring-in-your-own-data"></a>**Como toobring em seus próprios dados**
+Esta seção descreve como toobring tooAzure seus próprios dados e áreas que exigiria alterações de dados de saudação trazer para essa arquitetura.
 
-É improvável que algum conjunto de dados que você coloque corresponda ao conjunto de dados usado para esse modelo de solução. Compreender seus dados e os requisitos será fundamental para a forma como você modificará esse modelo para que ele funcione com seus próprios dados. Se esta for sua primeira experiência com o serviço Azure Machine Learning, você poderá obter uma introdução a ele usando o exemplo em [Como criar sua primeira experiência](machine-learning/machine-learning-create-experiment.md).
+É improvável que qualquer conjunto de dados que você coloque corresponderia a saudação de conjunto de dados usado para esse modelo de solução. Noções básicas sobre seus dados e os requisitos serão fundamental como modificar esse modelo toowork com seus próprios dados. Se esse for o primeiro toohello de exposição service de aprendizado de máquina do Azure, você pode obter uma introdução tooit usando o exemplo hello [como toocreate sua primeira experiência](machine-learning/machine-learning-create-experiment.md).
 
-As seções a seguir discutirão as seções do modelo que exigirão modificações quando um novo conjunto de dados for introduzido.
+Olá seções a seguir sobre seções de saudação do modelo de saudação que exigem modificações quando um novo conjunto de dados é apresentado.
 
 ### <a name="azure-event-hub"></a>Hub de Eventos do Azure
-O serviço [Hub de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/) é muito genérico, já que esses dados podem ser publicados no hub no formato CSV ou JSON. Não ocorrerá qualquer processamento especial no Hub de Eventos do Azure, mas é importante que você compreenda os dados inseridos nele.
+Olá [Hub de eventos do Azure](https://azure.microsoft.com/services/event-hubs/) serviço é muito genérico, de modo que os dados podem ser publicados toohello hub no formato CSV ou JSON. Não há processamento especial ocorre no hello Hub de eventos do Azure, mas é importante que entender dados de saudação são alimentados nele.
 
-Este documento não descreve como ingerir seus dados, mas é possível enviar com facilidade eventos ou dados para um Hub de Eventos do Azure usando a [API do Hub de Eventos](event-hubs/event-hubs-programming-guide.md).
+Este documento descreve como tooingest seus dados, mas um pode facilmente enviar eventos ou dados tooan Hub de eventos do Azure, usando Olá [API de Hub de eventos](event-hubs/event-hubs-programming-guide.md).
 
 ### <a name="azure-stream-analytics"></a>Stream Analytics do Azure
-O serviço [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/) é usado para fornecer uma análise quase em tempo real ao ler os fluxos de dados e produzir como saída dados para várias fontes.
+Olá [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) serviço é usado tooprovide próximo a análise em tempo real lendo de fluxos de dados e gerando o número de tooany de dados de fontes.
 
-Para o Modelo de Solução de Previsão de demanda para energia, a consulta do Stream Analytics do Azure é formada por duas subconsultas, cada uma consumindo eventos do serviço Hub de Eventos do Azure e produzindo saídas para dois locais distintos. Essas saídas são formadas por um conjunto de dados do Power BI e em um local do Armazenamento do Azure.
+Para Olá previsão de demanda para o modelo de solução de energia, hello Azure Stream Analytics consulta consiste em duas subconsultas, cada consome eventos de saudação serviço Hub de eventos do Azure como entradas e saídas tootwo distintos locais de ter. Essas saídas são formadas por um conjunto de dados do Power BI e em um local do Armazenamento do Azure.
 
-A consulta [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/) pode ser encontrada:
+Olá [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) consulta pode ser encontrada:
 
-* Entrando no [portal de gerenciamento do Azure](https://manage.windowsazure.com/)
-* Localizando os trabalhos do Stream Analytics ![](media/cortana-analytics-technical-guide-demand-forecast/icon-stream-analytics.png) que foram gerados durante a implantação da solução. Um serve para enviar dados ao armazenamento de blobs (por exemplo, mytest1streaming432822asablob) e o outro é para publicar dados no Power BI (por exemplo, mytest1streaming432822asapbi).
+* Fazer logon no hello [portal de gerenciamento do Azure](https://manage.windowsazure.com/)
+* Localizando trabalhos do stream analytics Olá ![](media/cortana-analytics-technical-guide-demand-forecast/icon-stream-analytics.png) que foram geradas quando Olá solução foi implantada. Uma é para enviar por push o armazenamento tooblob de dados (por exemplo, mytest1streaming432822asablob) e Olá outros uma é para enviar dados tooPower BI (por exemplo, mytest1streaming432822asapbi).
 * Seleção
 
-  * ***INPUTS*** para exibir a entrada da consulta
-  * ***QUERY*** para exibir a consulta
-  * ***OUTPUTS*** para exibir as diferentes saídas
+  * ***ENTRADAS*** tooview Olá entrada da consulta
+  * ***CONSULTA*** tooview Olá consulta
+  * ***GERA*** tooview Olá saídas diferentes
 
-As informações sobre a criação da consulta do Stream Analytics do Azure podem ser encontradas em [Stream Analytics Query Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) , no MSDN.
+Informações sobre a construção de consulta do Stream Analytics do Azure podem ser encontradas no hello [referência de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx) no MSDN.
 
-Nesta solução, o trabalho do Stream Analytics do Azure que produz como saída um conjunto de dados com informações de análise quase em tempo real sobre o fluxo de dados de entrada para um painel do Power BI, é fornecido como parte desse modelo de solução. Como há um conhecimento implícito sobre o formato de dados de entrada, essas consultas precisariam ser alteradas com base em seu formato de dados.
+Nesta solução, Olá trabalho do Stream Analytics do Azure que produz o conjunto de dados com informações de análise em tempo real sobre Olá entrada dados fluxo tooa painel do Power BI quase é fornecido como parte desse modelo de solução. Porque não há conhecimento implícito sobre o formato de dados de entrada de hello, essas consultas precisaria toobe alterado com base no seu formato de dados.
 
-O outro trabalho do Stream Analytics do Azure produz todos os eventos do [Hub de Eventos](https://azure.microsoft.com/services/event-hubs/) no [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) e, portanto, não exige alteração, independentemente do formato dos dados, já que as informações completas do evento são transmitidas para o armazenamento.
+Olá outro trabalho do Stream Analytics do Azure gera todos os [Hub de eventos](https://azure.microsoft.com/services/event-hubs/) eventos [armazenamento do Azure](https://azure.microsoft.com/services/storage/) e, portanto, não requer nenhuma alteração, independentemente de seu formato de dados, como informações de evento completa de saudação são transmitidas toostorage.
 
 ### <a name="azure-data-factory"></a>Fábrica de dados do Azure
-O serviço [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) orquestra a movimentação e o processamento dos dados. No Modelo de Previsão de Demanda para Solução de Energia, o data factory é composto por 12 [pipelines](data-factory/data-factory-create-pipelines.md) que movem e processam os dados usando diversas tecnologias.
+Olá [do Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) orquestrada pelo serviço movimentação hello e processamento de dados. Em hello previsão de demanda para dados de saudação do modelo de solução de energia fábrica é composta por doze [pipelines](data-factory/data-factory-create-pipelines.md) que mover e processar dados hello usando diversas tecnologias.
 
-  Você pode acessar seu data factory abrindo o nó Data Factory na parte inferior do diagrama do modelo de solução criado com a implantação da solução. Você será levado ao data factory no portal de gerenciamento do Azure. Se você encontrar erros em seus conjuntos de dados, poderá ignorá-los, já que eles ocorrem porque a implantação do data factory foi anterior ao início do gerador de dados. Esses erros não impedem o funcionamento do seu data factory.
+  Você pode acessar sua fábrica de dados abrindo o nó de fábrica de dados Olá na parte inferior de saudação do diagrama de modelo de solução Olá criado com a implantação de saudação de solução de saudação. Isso levará você toohello fábrica de dados em seu portal de gerenciamento do Azure. Se você encontrar erros em seus conjuntos de dados, você pode ignorar os conforme forem devido a fábrica toodata que está sendo implantada antes de gerador de dados Olá foi iniciado. Esses erros não impedem o funcionamento do seu data factory.
 
-Esta seção analisa os [pipelines](data-factory/data-factory-create-pipelines.md) e as [atividades](data-factory/data-factory-create-pipelines.md) necessários contidos no [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/). A seguir, o modo de exibição de diagrama da solução.
+Esta seção discute Olá necessário [pipelines](data-factory/data-factory-create-pipelines.md) e [atividades](data-factory/data-factory-create-pipelines.md) contidos em Olá [do Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/). Abaixo está o modo de exibição de diagrama de saudação de solução de saudação.
 
 ![](media/cortana-analytics-technical-guide-demand-forecast/ADF2.png)
 
-Cinco dos pipelines desse data factory contêm scripts do [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) usados para particionar e agregar os dados. Quando observado o contrário, os scripts estarão localizados na conta do [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) criada durante a instalação. A localização deles será: demandforecasting\\\\script\\\\hive\\\\ (ou https://[nome da sua solução].blob.core.windows.net/demandforecasting).
+Cinco pipelines de saudação desta fábrica contêm [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts que são usado toopartition e dados agregados de saudação. Quando observado, scripts Olá estará localizados em Olá [armazenamento do Azure](https://azure.microsoft.com/services/storage/) conta criada durante a instalação. A localização deles será: demandforecasting\\\\script\\\\hive\\\\ (ou https://[nome da sua solução].blob.core.windows.net/demandforecasting).
 
-Da mesma forma como nas consultas do [Stream Analytics do Azure](#azure-stream-analytics-1), os scripts do [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) têm um conhecimento implícito sobre o formato dos dados de entrada. Essas consultas precisariam ser alteradas com base em seu formato de dados e nos requisitos da [engenharia de recursos](machine-learning/machine-learning-feature-selection-and-engineering.md).
+Semelhante toohello [Azure Stream Analytics](#azure-stream-analytics-1) consultas, o [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts tem conhecimento implícito sobre o formato de dados de entrada de saudação, essas consultas precisaria toobe alterado com base em seu formato de dados e [recurso engenharia](machine-learning/machine-learning-feature-selection-and-engineering.md) requisitos.
 
 #### <a name="aggregatedemanddatato1hrpipeline"></a>*AggregateDemandDataTo1HrPipeline*
-Esse [pipeline](data-factory/data-factory-create-pipelines.md) contém uma única atividade – uma atividade [HDInsightHive](data-factory/data-factory-hive-activity.md) usando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um script do [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) para agregar os dados transmitidos sob demanda a cada 10 segundos no nível da subestação ao nível da região por hora e colocá-los no [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) por meio do trabalho do Stream Analytics do Azure.
+Isso [pipeline](data-factory/data-factory-create-pipelines.md) pipeline contém uma única atividade - um [HDInsightHive](data-factory/data-factory-hive-activity.md) atividade usando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)Olá tooaggregate de script a cada 10 segundos de dados no nível de região de nível toohourly Subestação demanda de streaming e colocar em [armazenamento do Azure](https://azure.microsoft.com/services/storage/) por meio do trabalho do Stream Analytics do Azure hello.
 
 O script do [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) para essa tarefa de particionamento é ***AggregateDemandRegion1Hr.hql***
 
 #### <a name="loadhistorydemanddatapipeline"></a>*LoadHistoryDemandDataPipeline*
 Esse [pipeline](data-factory/data-factory-create-pipelines.md) contém duas atividades:
 
-* A atividade [HDInsightHive](data-factory/data-factory-hive-activity.md) usando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um script do Hive para agregar os dados de demanda de histórico por hora no nível da subestação ao nível da região por hora e colocá-los no Armazenamento do Azure durante o trabalho do Stream Analytics do Azure
-* [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) que move os dados agregados do Blob de Armazenamento do Azure para o Banco de Dados SQL do Azure provisionado como parte da instalação do modelo de solução.
+* [HDInsightHive](data-factory/data-factory-hive-activity.md) atividade usando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um Hive script tooaggregate Olá por hora por demanda dados de histórico no nível de região de nível toohourly Subestação e colocado no armazenamento do Azure durante a saudação do Azure Trabalho do Stream Analytics
+* [Cópia](https://msdn.microsoft.com/library/azure/dn835035.aspx) atividade que move Olá dados agregados de armazenamento do Azure blob toohello banco de dados SQL que foi configurado como parte da instalação do modelo de solução de saudação.
 
-O script do [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) para essa tarefa é ***AggregateDemandHistoryRegion.hql***.
+Olá [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script para esta tarefa é ***AggregateDemandHistoryRegion.hql***.
 
 #### <a name="mlscoringregionxpipeline"></a>*MLScoringRegionXPipeline*
-Esses [pipelines](data-factory/data-factory-create-pipelines.md) contêm várias atividades cujos resultados finais são as previsões pontuadas do experimento do Azure Machine Learning associadas a esse modelo de solução. Eles são quase idênticos, exceto pelo fato de que cada um trata apenas da região diferente, que está sendo concluída por uma RegionID diferente passada no pipeline do ADF e no script do Hive para cada região.  
-As atividades contidas aqui são:
+Essas [pipelines](data-factory/data-factory-create-pipelines.md) conter várias atividades e cujo resultado final é Olá pontuada de previsões de experiência de aprendizado de máquina do Azure Olá associado a esse modelo de solução. Eles são quase idênticos, exceto pelo fato de cada um deles só trata Olá uma região diferente que está sendo feita por diferente RegionID passado no pipeline ADF hello e script de hive Olá para cada região.  
+Olá atividades contidas neste são:
 
-* A atividade [HDInsightHive](data-factory/data-factory-hive-activity.md) usando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um script do Hive para realizar as agregações e os recursos de engenharia necessários para o experimento do Azure Machine Learning. Os scripts do Hive para essa tarefa são os respectivos ***PrepareMLInputRegionX.hql***.
-* A atividade [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx), que move os resultados da atividade [HDInsightHive](data-factory/data-factory-hive-activity.md) para um único Azure Storage Blob, que pode ser acessado pela atividade [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx).
-* 
-            [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) , que chama o experimento do Azure Machine Learning, que faz com que os resultados sejam colocados em um único blob de Armazenamento do Azure.
+* [HDInsightHive](data-factory/data-factory-hive-activity.md) atividade usando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um Hive script tooperform agregações e recursos de engenharia necessária para Olá experiência de aprendizado de máquina do Azure. Olá scripts de Hive para essa tarefa são respectivos ***PrepareMLInputRegionX.hql***.
+* [Cópia](https://msdn.microsoft.com/library/azure/dn835035.aspx) atividade que move os resultados de saudação do hello [HDInsightHive](data-factory/data-factory-hive-activity.md) atividade tooa único armazenamento do Azure blob que pode ser acessado por Olá [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) atividade.
+* [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) atividade que chama a experiência de aprendizado de máquina do Azure Olá que resulta em Olá resultados sejam colocadas em um único blob de armazenamento do Azure.
 
 #### <a name="copyscoredresultregionxpipeline"></a>*CopyScoredResultRegionXPipeline*
-Esses [pipelines](data-factory/data-factory-create-pipelines.md) contêm uma única atividade – uma atividade [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) que move os resultados do experimento do Azure Machine Learning do respectivo ***MLScoringRegionXPipeline*** para o Banco de Dados SQL do Azure que foi provisionado como parte da instalação do modelo de solução.
+Essas [pipelines](data-factory/data-factory-create-pipelines.md) contenha uma única atividade - um [cópia](https://msdn.microsoft.com/library/azure/dn835035.aspx) atividade que move os resultados de saudação do hello experiência de aprendizado de máquina do Azure do respectivos de saudação ***MLScoringRegionXPipeline *** toohello banco de dados SQL que foi configurado como parte da instalação do modelo de solução de saudação.
 
 #### <a name="copyaggdemandpipeline"></a>*CopyAggDemandPipeline*
-Esses [pipelines](data-factory/data-factory-create-pipelines.md) contêm uma única atividade – uma atividade [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) que move os dados de demanda contínua agregados do ***LoadHistoryDemandDataPipeline*** para o Banco de Dados SQL do Azure que foi provisionado como parte da instalação do modelo de solução.
+Isso [pipelines](data-factory/data-factory-create-pipelines.md) contenha uma única atividade - um [cópia](https://msdn.microsoft.com/library/azure/dn835035.aspx) atividade que move Olá agregados dados demanda em andamento de ***LoadHistoryDemandDataPipeline*** toohello do Azure Banco de dados SQL que foi configurado como parte da instalação do modelo de solução de saudação.
 
 #### <a name="copyregiondatapipeline-copysubstationdatapipeline-copytopologydatapipeline"></a>*CopyRegionDataPipeline, CopySubstationDataPipeline, CopyTopologyDataPipeline*
-Esses [pipelines](data-factory/data-factory-create-pipelines.md) contêm uma única atividade – uma atividade [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) que move os dados de referência da Região/Subestação/Geotopologia que são carregados no Azure Storage Blob como parte da instalação do modelo de solução para o Banco de Dados SQL que foi provisionado como parte da instalação do modelo de solução.
+Essas [pipelines](data-factory/data-factory-create-pipelines.md) contenha uma única atividade - um [cópia](https://msdn.microsoft.com/library/azure/dn835035.aspx) atividade que move os dados de referência de saudação do Subestação/região/Topologygeo que são carregados tooAzure blob de armazenamento como parte da solução Olá instalação de modelo toohello banco de dados SQL que foi configurado como parte da instalação do modelo de solução de saudação.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-O experimento do [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) usado para esse modelo de solução fornece a previsão de demanda da região. O experimento é específico ao conjunto de dados consumido e, portanto, exigirá modificação ou substituição específica para os dados trazidos.
+Olá [aprendizado de máquina do Azure](https://azure.microsoft.com/services/machine-learning/) experimentar usado para este modelo de solução fornece a previsão de saudação de demanda de região. experiência de saudação é consumido de conjunto de dados toohello específico e, portanto, exigirá modificação ou substituição de dados toohello específico que são colocados no.
 
 ## <a name="monitor-progress"></a>**Monitorar o progresso**
-Depois que o Gerador de Dados é iniciado, o pipeline começa a obter os hidratados e os diferentes componentes de sua solução começam a entrar em ação seguindo os comandos emitidos pelo Data Factory. Há duas maneiras possíveis de monitorar o pipeline.
+Quando Olá gerador de dados é iniciado, pipeline hello começa tooget serializado e hello diferentes componentes de sua solução iniciar iniciar em ação comandos a seguir Olá emitidos por Olá fábrica de dados. Há duas maneiras que você pode monitorar o pipeline de saudação.
 
-1. Verificar os dados do Armazenamento de Blobs do Azure
+1. Verifique se os dados de saudação do armazenamento de BLOBs do Azure.
 
-    Um dos trabalhos do Stream Analytics grava os dados brutos de entrada no armazenamento de blobs. Se você clicar no componente **Armazenamento de Blobs do Azure** de sua solução na tela na qual implantou a solução com êxito e clicar em **Abrir** no painel à direita, irá para o [Portal de Gerenciamento do Azure](https://portal.azure.com). Uma vez lá, clique em **Blobs**. No painel seguinte, você verá uma lista de Contêineres. Clique em **"energysadata"**. No painel seguinte, você verá a pasta **"demandongoing"**. Dentro da pasta rawdata, você verá pastas com nomes como date=2016-01-28 etc. Caso você visualize essas pastas, isso indica que os dados brutos estão sendo gerados com êxito no computador e armazenados no armazenamento de blobs. Você deverá ver arquivos com tamanhos finitos em MB nessas pastas.
-2. Verifique os dados do Banco de Dados SQL do Azure.
+    Um trabalho do Stream Analytics Olá grava Olá entrada dados tooblob um armazenamento bruto. Se você clicar em **armazenamento de BLOBs do Azure** componente da sua solução Olá tela você solução Olá implantado com êxito e, em seguida, clique em **abrir** no painel direito da saudação, levará toohello [Portal de gerenciamento do azure](https://portal.azure.com). Uma vez lá, clique em **Blobs**. No painel de Avançar hello, você verá uma lista de contêineres. Clique em **"energysadata"**. No painel de Avançar hello, você verá Olá **"demandongoing"** pasta. Pasta de dados brutos hello, você verá pastas com nomes como data = 2016-01-28 etc. Se você ver essas pastas, indica que dados brutos de saudação são com êxito sendo gerados no seu computador e armazenados no armazenamento de blob. Você deverá ver arquivos com tamanhos finitos em MB nessas pastas.
+2. Verifique se os dados de saudação do banco de dados do SQL Azure.
 
-    A última etapa do pipeline é gravar dados (por exemplo, previsões do aprendizado de máquina) no Banco de Dados SQL. Talvez seja necessário esperar até duas horas no máximo para que os dados apareçam no Banco de Dados SQL. Uma forma de monitorar o volume de dados disponível no Banco de Dados SQL é pelo [portal de gerenciamento do Azure](https://manage.windowsazure.com/). No painel à esquerda, localize BANCOS DE DADOS SQL![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png) e clique. Em seguida, localize seu banco de dados (ou seja, demo123456db) e clique nele. Na próxima página, na seção **"Conectar seu banco de dados"**, clique em **"Executar Consultas Transact-SQL em seu Banco de Dados SQL"**.
+    Olá última etapa do pipeline de saudação é toowrite dados (por exemplo, as previsões do aprendizado de máquina) no banco de dados SQL. Você pode ter toowait um máximo de 2 horas para Olá dados tooappear no banco de dados do SQL. Uma maneira toomonitor a quantidade de dados está disponível no banco de dados SQL é por meio de [portal de gerenciamento do Azure](https://manage.windowsazure.com/). No painel esquerdo do hello Localize bancos de dados SQL![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png) e clique nele. Em seguida, localize seu banco de dados (ou seja, demo123456db) e clique nele. Na próxima página Olá em **"Conectar tooyour database"** seção, clique em **"Consultas de execução Transact-SQL no banco de dados SQL"**.
 
-    Aqui, você poderá clicar em Nova Consulta e consultar o número de linhas (por exemplo, "select count(*) de DemandRealHourly)". À medida que seu banco de dados cresce, o número de linhas na tabela aumenta).
-3. Verifique os dados no painel do Power BI.
+    Aqui, você pode clicar em nova consulta e consultar Olá número de linhas (por exemplo, "select count(*) de DemandRealHourly)" como seu banco de dados cresce, Olá número de linhas na tabela de saudação aumentará.)
+3. Verifique se os dados de saudação do painel do Power BI.
 
-    Você pode configurar o painel de afunilamento do Power BI para monitorar os dados brutos de entrada. Siga as instruções na seção "Painel do Power BI".
+    Você pode configurar o Power BI afunilamento painel toomonitor Olá entrados dados brutos. Siga a instrução Olá Olá seção "Painel do Power BI".
 
 ## <a name="power-bi-dashboard"></a>**Painel do Power BI**
 ### <a name="overview"></a>Visão geral
-Esta seção descreve como configurar o painel do Power BI para visualizar os dados em tempo real do Stream Analytics do Azure (afunilamento), bem como os resultados de previsão do Aprendizado de Máquina do Azure (dados em lote/caminho frio).
+Esta seção descreve como tooset o Power BI painel toovisualize seus dados em tempo real do Azure fluxo analytics (afunilamento), como previsão bem como resultados de aprendizado de máquina do Azure (caminho frio).
 
 ### <a name="setup-hot-path-dashboard"></a>Configurar o painel de afunilamento
-As etapas a seguir mostrarão como visualizar a saída de dados em tempo real de trabalhos do Stream Analytics gerados no momento da implantação da solução. Será necessária uma conta do [Power BI online](http://www.powerbi.com/) para executar as etapas a seguir. Se não tiver uma conta, você poderá [criar uma](https://powerbi.microsoft.com/pricing).
+Olá etapas a seguir irá guiá-lo como toovisualize em tempo real de saída de dados de análise de fluxo de trabalhos que foram gerados em tempo de saudação da implantação da solução. Um [Power BI online](http://www.powerbi.com/) conta é necessário tooperform Olá etapas a seguir. Se não tiver uma conta, você poderá [criar uma](https://powerbi.microsoft.com/pricing).
 
 1. Adicione a saída do Power BI ao Stream Analytics (ASA).
 
-   * Você precisará seguir as instruções em [Stream Analytics do Azure e Power BI: um painel de análise em tempo real para a visibilidade em tempo real dos dados de streaming](stream-analytics/stream-analytics-power-bi-dashboard.md) para configurar a saída do seu trabalho do Stream Analytics do Azure como seu painel do Power BI.
-   * Localize o trabalho do stream analytics em seu [portal de gerenciamento do Azure](https://manage.windowsazure.com). O nome do trabalho deve ser: NomeSolução+"trabalhostreaming"+número aleatório+"asapbi" (ou seja, demostreamingjob123456asapbi).
-   * Adicione uma saída do Power BI para o trabalho do ASA. Defina o **Alias de Saída** como **‘PBIoutput’**. Defina o **Nome do Conjunto de Dados** e o **Nome da Tabela** como **‘EnergyStreamData’**. Depois de adicionar a saída, clique em **"Iniciar"** na parte inferior da página para iniciar o trabalho do Stream Analytics. Você deverá receber uma mensagem de confirmação (*por exemplo*, "Iniciando o trabalho do stream analytics myteststreamingjob12345asablob com êxito").
-2. Faça logon no [Power BI online](http://www.powerbi.com)
+   * Você precisará de instruções Olá toofollow [Stream Analytics do Azure e Power BI: um painel de análise em tempo real para visibilidade em tempo real do fluxo de dados](stream-analytics/stream-analytics-power-bi-dashboard.md) tooset a saída de saudação do seu trabalho do Stream Analytics do Azure como a potência Painel BI.
+   * Localize o trabalho do stream analytics Olá no seu [portal de gerenciamento do Azure](https://manage.windowsazure.com). nome de saudação do trabalho Olá deve ser: YourSolutionName + streamingjob"" + o número aleatório + "asapbi" (ou seja, demostreamingjob123456asapbi).
+   * Adicione uma saída do Power BI para o trabalho ASA hello. Saudação de conjunto **Alias de saída** como **'PBIoutput'**. Defina o **Nome do Conjunto de Dados** e o **Nome da Tabela** como **‘EnergyStreamData’**. Depois que você adicionou a saída de hello, clique em **"Iniciar"** na parte inferior de saudação do trabalho do Stream Analytics do hello página toostart Olá. Você deverá receber uma mensagem de confirmação (*por exemplo*, "Iniciando o trabalho do stream analytics myteststreamingjob12345asablob com êxito").
+2. Faça logon no muito[online para o Power BI](http://www.powerbi.com)
 
-   * Na seção Conjuntos de Dados do painel esquerdo em Meu Espaço de Trabalho, você deverá ver um novo conjunto de dados no painel esquerdo do Power BI. Esses são os dados de streaming enviados do Stream Analytics do Azure na etapa anterior.
-   * Verifique se o painel ***Visualizações*** está aberto e se é mostrado no lado direito da tela.
-3. Crie o bloco "Demanda por Carimbo de Data/Hora":
+   * Em Olá seção de conjuntos de dados do painel da esquerda no meu espaço de trabalho, você deve ser capaz de toosee um novo mostrando de conjunto de dados no painel esquerdo de saudação do Power BI. Isso é hello fluxo de dados que enviados por push do Azure Stream Analytics na etapa anterior hello.
+   * Verifique se Olá ***visualizações*** painel está aberto e é exibido no lado direito da tela hello.
+3. Crie hello "Demanda pelo carimbo de hora" lado a lado:
 
-   * Clique no conjunto de dados **'EnergyStreamData'** na seção Conjuntos de Dados do painel à esquerda.
+   * Clique em conjunto de dados **'EnergyStreamData'** em Olá seção de conjuntos de dados do painel da esquerda.
    * Clique no ícone **"Gráfico de Linhas"**![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic8.png).
    * Clique em 'EnergyStreamData' no painel **Campos** .
    * Clique em **“Timestamp”** e verifique se isso é exibido em "Eixo". Clique em **"Carregar"** e verifique se isso é exibido em "Valores".
-   * Clique em **SALVAR** na parte superior e nomeie o relatório como "EnergyStreamDataReport". O relatório chamado "EnergyStreamDataReport" será exibido na seção Relatórios do painel Navegador à esquerda.
-   * Clique no ícone **"Fixação Visual"**![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic6.png) no canto superior direito deste gráfico de linha; uma janela "Fixar no Painel" pode aparecer para que você escolha um painel. Selecione "EnergyStreamDataReport" e clique em "Fixar".
-   * Passe o mouse sobre esse bloco no painel, clique no ícone "editar" no canto superior direito para alterar seu título para "Demandar por Carimbo de Data/Hora"
-4. Crie outros blocos de painel com base em conjuntos de dados apropriados. A exibição final do painel é mostrada abaixo.
+   * Clique em **salvar** Olá superior e nome do relatório de saudação como "EnergyStreamDataReport". relatório de saudação denominado "EnergyStreamDataReport" será mostrado na seção de relatórios no painel de navegação da saudação esquerda.
+   * Clique em **"Pin Visual"** ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic6.png) ícone no canto superior direito do gráfico de linhas, uma janela de "Pin tooDashboard" poderá aparecer para você toochoose um painel. Selecione "EnergyStreamDataReport" e clique em "Fixar".
+   * Passe o mouse Olá sobre esse bloco no painel de saudação, clique em "Editar" ícone no canto superior direito toochange seu título como "Demanda pelo carimbo de hora"
+4. Crie outros blocos de painel com base em conjuntos de dados apropriados. Olá final de exibição de painel é mostrado abaixo.
      ![](media/cortana-analytics-technical-guide-demand-forecast/PBIFullScreen.png)
 
 ### <a name="setup-cold-path-dashboard"></a>Configurar o painel de caminho frio
-No pipeline de dados de caminho frio, o principal objetivo é obter a previsão de demanda de cada região. O Power BI se conecta a um banco de dados SQL do Azure como fonte de dados, onde os resultados de previsão são armazenados.
+No pipeline de dados frios caminho, a saudação principal objetivo é previsão de demanda de saudação do tooget de cada região. Power BI se conecta a banco de dados do SQL Azure tooan como sua fonte de dados, onde os resultados da previsão Olá são armazenados.
 
 > [!NOTE]
-> 1) Demora algumas horas para coletar resultados de previsão suficientes para o painel. Recomendamos o início desse processo duas a três horas após a inicialização do gerador de dados. 2) Nesta etapa, o pré-requisito é baixar e instalar o software gratuito [Power BI desktop](https://powerbi.microsoft.com/desktop).
+> 1) Levará alguns toocollect de horas resultados de previsão suficiente para o painel de saudação. Recomendamos que você inicia esse processo 2 a 3 horas depois almoçar gerador de dados hello. 2) nessa etapa, pré-requisito Olá é toodownload e instale o software livre de saudação [Power BI desktop](https://powerbi.microsoft.com/desktop).
 >
 >
 
-1. Obtenha as credenciais do banco de dados.
+1. Obtenha as credenciais de banco de dados de saudação.
 
-   Você precisará do **nome do servidor de banco de dados, nome do banco de dados, nome de usuário e senha** antes de passar para as próximas etapas. Veja algumas etapas para mostrar como encontrá-las.
+   Você precisará **nome do servidor, o nome do banco de dados, o nome de usuário e senha de banco de dados** antes de mover toonext etapas. Aqui estão Olá etapas tooguide você como toofind-los.
 
-   * Quando **"Banco de Dados SQL do Azure"** ficar verde no diagrama do modelo da solução, clique nele e em **"Abrir"**. Você será orientado até o Portal de Gerenciamento do Azure, e sua página de informações do banco de dados também será aberta.
-   * Na página, você pode encontrar uma seção "Banco de dados". Ela lista o banco de dados que você criou. O nome de seu banco de dados deve ser **"Nome Solução + Número Aleatório + db"** (por exemplo, "meuteste12345db").
-   * Clique em seu banco de dados e, no novo painel pop-up, você encontrará o nome do servidor de banco de dados na parte superior. O nome do servidor de banco de dados deve ser **“Nome da Solução + Número Aleatório + 'database.windows.net,1433'”** (por exemplo, “mytest12345.database.windows.net,1433”).
-   * O **nome de usuário** e a **senha** do banco de dados são iguais ao nome de usuário e a senha previamente gravados durante a implantação da solução.
-2. Atualizar a fonte de dados do arquivo de dados em lote (caminho frio) do Power BI
+   * Quando **"Banco de Dados SQL do Azure"** ficar verde no diagrama do modelo da solução, clique nele e em **"Abrir"**. Você será guiado tooAzure portal de gerenciamento e a página de informações do banco de dados será aberta também.
+   * Na página de saudação, você pode encontrar uma seção de "Database". Ele lista o banco de dados de saudação que você criou. nome de saudação do seu banco de dados deve ser **"O nome da solução + número aleatório + 'db'"** (por exemplo, "mytest12345db").
+   * Clique em seu banco de dados, em Olá novo que pop-out do painel, você pode encontrar o nome do seu servidor de banco de dados na parte superior da saudação. O nome do servidor de banco de dados deve ser **“Nome da Solução + Número Aleatório + 'database.windows.net,1433'”** (por exemplo, “mytest12345.database.windows.net,1433”).
+   * O banco de dados **nome de usuário** e **senha** são Olá mesmo Olá nome de usuário e senha registrada anteriormente durante a implantação da solução de saudação.
+2. Atualizar fonte de dados de saudação do caminho de frios Olá arquivo do Power BI
 
-   * Verifique se você instalou a versão mais recente do [Power BI desktop](https://powerbi.microsoft.com/desktop).
-   * Na pasta **"DemandForecastingDataGeneratorv1.0"** que você baixou, clique duas vezes no arquivo **"Power BI Template\DemandForecastPowerBI.pbix"**. As visualizações inicias se baseiam em dados fictícios. **Observação:** se você vir uma mensagem de erro, verifique se instalou a versão mais recente do Power BI Desktop.
+   * Verifique se você instalou a versão mais recente de saudação do [Power BI desktop](https://powerbi.microsoft.com/desktop).
+   * Em Olá **"DemandForecastingDataGeneratorv1.0"** pasta baixado, clique duas vezes em Olá **'Power BI Template\DemandForecastPowerBI.pbix'** arquivo. visualizações de saudação inicial se baseiam em dados fictícios. **Observação:** se você vir um erro manipulá, verifique se você instalou a versão mais recente de saudação do Power BI Desktop.
 
-     Depois de abri-lo, na parte superior do arquivo, clique em **’Editar Consultas’**. Na janela pop-up, clique duas vezes em **’Fonte’** no painel à direita.
+     Quando você abri-lo, na parte superior de saudação do arquivo hello, clique em **editar consultas**. Olá pop-out da janela, clique duas vezes em **'Source'** no painel à direita da saudação.
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic1.png)
-   * Na janela aberta, substitua **"Servidor"** e **"Banco de Dados"** por seus próprios nomes do servidor e do banco de dados e clique em **"OK"**. Para o nome do servidor, especifique a porta 1433 (**NomeSolução.database.windows.net, 1433**). Ignore as mensagens de aviso que aparecem na tela.
-   * Na próxima janela aberta, você verá duas opções no painel à esquerda (**Windows** e **Banco de Dados**). Clique em **"Banco de Dados"**, preencha o **"Nome de usuário"** e a **"Senha"** (são o nome de usuário e a senha inseridos quando você implantou pela primeira vez a solução e criou um Banco de Dados SQL do Azure). Em ***Selecione o nível no qual aplicar essas configurações***, marque a opção do nível do banco de dados. Clique em **"Conectar"**.
-   * Depois de ser guiado de volta à página anterior, feche a janela. Será exibida uma mensagem - clique em **Aplicar**. Por fim, clique no botão **Salvar** para salvar as alterações. Seu arquivo do Power BI agora estabeleceu uma conexão com o servidor. Se suas visualizações estiverem vazias, limpe as seleções nas visualizações para visualizar todos os dados clicando no ícone de borracha no canto superior direito das legendas. Use o botão de atualização para refletir os novos dados nas visualizações. Inicialmente, você só verá os dados de propagação em suas visualizações, já que a atualização do Data Factory está agendada para a cada três horas. Após três horas, você verá novas previsões refletidas nas visualizações quando atualizar os dados.
-3. (Opcional) Publique o painel de caminho frio no [Power BI online](http://www.powerbi.com/). Observe que esta etapa precisa de uma conta do Power BI (ou de uma conta do Office 365).
+   * Olá pop-out de janela, substitua **"Server"** e **"Database"** com seus próprios nomes de servidor e banco de dados e clique **"Okey"**. Para o nome do servidor, certifique-se de especificar a porta 1433 hello (**YourSolutionName.database.windows.net, 1433**). Ignore mensagens de aviso de saudação que aparecem na tela hello.
+   * No pop-Olá próxima janela, você verá duas opções no painel esquerdo da saudação (**Windows** e **banco de dados**). Clique em **"Database"**, preencha o **"Username"** e **"Senha"** (Olá nome de usuário e a senha inseridas quando você primeiro implantou solução hello e criado um Azure SQL database). Em ***selecione qual nível tooapply essas configurações***, marque a opção de nível de banco de dados. Clique em **"Conectar"**.
+   * Uma vez página anterior toohello back interativa, feche a janela de saudação. Será exibida uma mensagem - clique em **Aplicar**. Por fim, clique em Olá **salvar** botão toosave alterações de saudação. O arquivo do Power BI agora estabeleceu servidor toohello de conexão. Se suas visualizações estiverem vazias, verifique se que você limpar todos os dados de saudação seleções Olá em Olá visualizações toovisualize Olá borracha ícone no canto superior direito de saudação de legendas de saudação. Use Olá atualização botão tooreflect novos dados em visualizações de saudação. Inicialmente, você só verá Olá semente dados em suas visualizações como fábrica de dados Olá é agendado toorefresh cada três horas. Depois de 3 horas, você verá novas previsões refletidas nas visualizações, quando você atualizar os dados de saudação.
+3. (Opcional) Publicar o painel do caminho frios Olá muito[Power BI online](http://www.powerbi.com/). Observe que esta etapa precisa de uma conta do Power BI (ou de uma conta do Office 365).
 
-   * Clique em **"Publicar"** e, depois de alguns segundos, será exibida uma janela mostrando "Êxito ao publicar no Power BI!". com uma marca de seleção verde. Clique no link abaixo "Abrir demoprediction.pbix abrir no Power BI". Para obter instruções detalhadas, consulte [Publicar do Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
-   * Para criar um novo painel: clique no sinal **+** ao lado da seção **Painéis** no painel à esquerda. Insira o nome "Demonstração de previsão de demanda" para esse novo painel.
-   * Depois de abrir o relatório, clique em ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic6.png) para fixar todas as visualizações no painel. Para obter instruções detalhadas, confira [Fixar um bloco em um painel do Power BI por meio de um relatório](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
-     Vá para a página do painel e ajuste o tamanho e o local de suas visualizações e edite os títulos delas. Para obter instruções detalhadas sobre como editar seus blocos, confira [Editar um bloco — redimensionar, mover, renomear, fixar, excluir, adicionar hiperlink](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Veja um painel de exemplo com algumas visualizações de caminho frio fixadas nele.
+   * Clique em **"Publicar"** e depois de alguns minutos uma janela aparece exibindo "Publicando tooPower BI sucesso!" com uma marca de seleção verde. Clique o link da saudação abaixo "Demoprediction.pbix abrir no Power BI". toofind obter instruções, consulte [publicar por meio do Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
+   * toocreate um novo painel: clique Olá  **+**  entrar próximo toothe **painéis** seção no painel esquerdo da saudação. Insira o nome de hello "Demonstração de previsão de demanda" para esse novo painel.
+   * Depois de abrir o relatório de saudação, clique em ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic6.png) toopin todas as visualizações tooyour painel. toofind obter instruções, consulte [fixar um painel do Power BI de tooa lado a lado de um relatório](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
+     Acesse a página do painel toohello e ajustar o tamanho de saudação e o local de suas visualizações e editar seus títulos. toofind instruções detalhadas sobre como tooedit seus blocos, consulte [editar um bloco, redimensionar, mover, renomear, fixar, excluir, Adicionar hiperlink](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Aqui está um exemplo de painel com alguns tooit de visualizações fixadas caminho frios.
 
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic7.png)
-4. (Opcional) Agendar a atualização da fonte de dados.
+4. (Opcional) Agendar atualização Olá da fonte de dados.
 
-   * Para agendar a atualização dos dados, passe o mouse sobre o conjunto de dados **EnergyBPI-Final**, clique em ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic3.png) e escolha **Agendar Atualização**.
-     **Observação:** se for exibida uma mensagem de aviso, clique em **Editar Credenciais** e verifique se suas credenciais do banco de dados são iguais às descritas na etapa 1.
+   * tooschedule atualização de dados hello, passe o mouse sobre Olá **EnergyBPI Final** conjunto de dados, clique em ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic3.png) e, em seguida, escolha **agendar atualização**.
+     **Observação:** se você vir Massagem um aviso, clique em **Editar credenciais** e verifique se suas credenciais de banco de dados são Olá mesmo daqueles descritos na etapa 1.
 
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic4.png)
-   * Expanda a seção **Agendar Atualização** . Ative "manter os dados atualizados".
-   * Agende a atualização com base em suas necessidades. Para saber mais, consulte [Atualizar dados no Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/).
+   * Expanda Olá **agendar atualização** seção. Ative "manter os dados atualizados".
+   * Agendar a atualização de saudação com base em suas necessidades. toofind obter mais informações, consulte [de atualização de dados no Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/).
 
-## <a name="how-to-delete-your-solution"></a>**Como excluir a solução**
-Não se esqueça de parar o gerador de dados quando não estiver usando ativamente a solução, pois a execução dele incorrerá em custos mais altos. Se não estiver usando a solução, exclua-a. A exclusão da solução excluirá todos os componentes provisionados em sua assinatura quando você implantou a solução. Para excluir a solução, clique com botão no nome da solução no painel esquerdo do modelo de solução e clique em Excluir.
+## <a name="how-toodelete-your-solution"></a>**Como toodelete sua solução**
+Certifique-se de que você interrompa o gerador de dados hello quando usando ativamente a solução de saudação como executar gerador de dados Olá incorrerá em custos mais altos. Exclua solução Olá se não estiver usando. A exclusão de sua solução excluirá todos os componentes de saudação provisionados em sua assinatura quando você implantou a solução de saudação. solução de saudação do toodelete clique em seu nome da solução no painel esquerdo de saudação do modelo de solução de saudação e clique em Excluir.
 
 ## <a name="cost-estimation-tools"></a>**Ferramentas de estimativa de custo**
-As duas ferramentas a seguir estão disponíveis para ajudar você a entender melhor os custos totais envolvidos do Modelo de Solução de Previsão de demanda para energia em sua assinatura:
+Olá duas ferramentas a seguir estão disponível toohelp você entender melhor os custos totais envolvido na execução Olá previsão de demanda para o modelo de solução de energia em sua assinatura:
 
 * [Ferramenta Calculadora de Preço do Microsoft Azure (online)](https://azure.microsoft.com/pricing/calculator/)
 * [Ferramenta Calculadora de Preço do Microsoft Azure (área de trabalho)](http://www.microsoft.com/download/details.aspx?id=43376)

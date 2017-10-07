@@ -1,6 +1,6 @@
 ---
-title: Criar uma regra personalizada no Azure IoT Suite | Microsoft Docs
-description: "Como criar uma regra personalizada em uma solução pré-configurada do IoT Suite."
+title: aaaCreate uma regra personalizada no Azure IoT Suite | Microsoft Docs
+description: "Como toocreate uma regra personalizada em um conjunto de IoT pré-configurado solução."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,56 +15,56 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: d58c27234ea05a82aaa3e8d72f70c1449980df09
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 6c5bb2ca54f3f17b99ad482e727c8e9fa28d7fe5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-custom-rule-in-the-remote-monitoring-preconfigured-solution"></a>Criar uma regra personalizada na solução pré-configurada de monitoramento remota
+# <a name="create-a-custom-rule-in-hello-remote-monitoring-preconfigured-solution"></a>Criar uma regra personalizada no hello solução pré-configurada de monitoramento remoto
 
 ## <a name="introduction"></a>Introdução
 
-Nas soluções pré-configuradas, você pode configurar [regras que serão disparadas quando um valor de telemetria de um dispositivo atingir um limite específico][lnk-builtin-rule]. [Usar telemetria dinâmica com a solução pré-configurada de monitoramento remoto][lnk-dynamic-telemetry] descreve como você pode adicionar valores personalizados de telemetria, como *ExternalTemperature*, à sua solução. Este artigo mostra como criar uma regra personalizada para tipos de telemetria dinâmicos na sua solução.
+Em soluções de saudação pré-configurados, você pode configurar [regras disparam quando uma telemetria de valor para um dispositivo atinge um limite específico][lnk-builtin-rule]. [Usar a telemetria dinâmica com hello solução pré-configurada de monitoramento remoto] [ lnk-dynamic-telemetry] descreve como você pode adicionar valores de telemetria personalizada, como *ExternalTemperature* tooyour solução. Este artigo mostra como os tipos de regra personalizada de toocreate de telemetria dinâmica em sua solução.
 
-Este tutorial usa um dispositivo simulado Node.js simples para gerar telemetria dinâmica a ser enviada ao back-end da solução pré-configurada. Você então adiciona regras personalizadas à solução **RemoteMonitoring** do Visual Studio e implanta esse back-end personalizado na sua assinatura do Azure.
+Este tutorial usa um simples Node. js dispositivo simulado toogenerate telemetria dinâmico toosend toohello solução pré-configurada back-end. Adicione regras personalizadas no hello **RemoteMonitoring** solução do Visual Studio e implantar esse tooyour de back-end personalizado assinatura do Azure.
 
-Para concluir este tutorial, você precisará:
+toocomplete neste tutorial, você precisa:
 
 * Uma assinatura ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk_free_trial].
-* [Node.js][lnk-node] versão 0.12.x ou posterior para criar um dispositivo simulado.
-* Visual Studio 2015 ou Visual Studio 2017 para modificar o back-end da solução pré-configurada com suas novas regras.
+* [Node.js] [ lnk-node] versão 0.12.x ou posterior toocreate um dispositivo simulado.
+* Visual Studio 2015 ou Visual Studio de 2017 toomodify Olá pré-configurado solução novamente terminar com as regras de novo.
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
-Faça uma anotação com o nome da solução que você escolheu para sua implantação. Você precisará do nome dessa solução mais tarde neste tutorial.
+Anote Olá solução nome escolhido para sua implantação. Você precisará do nome dessa solução mais tarde neste tutorial.
 
 [!INCLUDE [iot-suite-send-external-temperature](../../includes/iot-suite-send-external-temperature.md)]
 
-Você pode interromper o aplicativo de console do Node.js quando tiver confirmado que ele está enviando a telemetria de **ExternalTemperature** para a solução pré-configurada. Mantenha a janela do console aberta, porque você executará o aplicativo de console do Node.js novamente depois de adicionar a regra personalizada à solução.
+Você pode interromper o aplicativo de console do Node. js hello quando você tiver verificado que está enviando **ExternalTemperature** toohello telemetria pré-configurado solução. Janela de console Olá mantenha aberta porque você executa esse aplicativo de console do Node. js novamente depois que você adicionar Olá regra personalizada toohello solução.
 
 ## <a name="rule-storage-locations"></a>Locais de armazenamento de regras
 
 As informações sobre as regras são mantidas em dois locais:
 
-* Tabela **DeviceRulesNormalizedTable** – essa tabela armazena uma referência normalizada para as regras definidas pelo portal de solução. Quando o portal de solução exibe as regras do dispositivo, ele consulta esta tabela para obter as definições de regras.
-* Blob de **DeviceRules** – esse blob armazena todas as regras definidas para todos os dispositivos registrados e é definido como uma entrada de referência para os trabalhos do Stream Analytics do Azure.
+* **DeviceRulesNormalizedTable** tabela – esta tabela armazena um normalizado toohello regras definidas pelo portal de solução de saudação de referência. Quando o portal de solução de saudação exibe as regras de dispositivo, ele consulta esta tabela para definições de regra de saudação.
+* **DeviceRules** blob – esse blob armazena todas as regras de saudação definidas para todos os dispositivos registrados e são definidos como trabalhos referência toohello entrada Stream Analytics do Azure.
  
-Quando você atualiza uma regra existente ou define uma nova regra no portal de solução, a tabela e o blob são atualizados para refletirem as alterações. A definição de regra exibida no portal vem do armazenamento da tabela e a definição da regra referenciada pelos trabalhos do Stream Analytics vem do blob. 
+Quando você atualiza uma regra existente ou define uma nova regra no portal de solução de hello, tabela hello e blob são atualizados tooreflect Olá alterações. regra Olá definição exibido no portal de saudação vem do repositório de tabela hello e regra Olá definição referenciada por trabalhos do Stream Analytics Olá vem do blob de saudação. 
 
-## <a name="update-the-remotemonitoring-visual-studio-solution"></a>Atualizar a solução RemoteMonitoring do Visual Studio
+## <a name="update-hello-remotemonitoring-visual-studio-solution"></a>Atualizar solução de RemoteMonitoring Visual Studio Olá
 
-As etapas a seguir mostram como modificar a solução RemoteMonitoring do Visual Studio para incluir uma nova regra que usa a telemetria de **ExternalTemperature** enviada do dispositivo simulado:
+Olá etapas a seguir mostram como toomodify Olá RemoteMonitoring Visual Studio solução tooinclude uma nova regra que usa Olá **ExternalTemperature** telemetria enviada do dispositivo simulado hello:
 
-1. Caso ainda não o tenha feito, faça um clone do repositório **azure-iot-remote-monitoring** em um local adequado na sua máquina local usando o seguinte comando Git:
+1. Se você ainda não tiver feito isso, Olá clone **azure-iot-monitoramento remoto** local do repositório tooa adequado em seu computador local usando Olá Git comando a seguir:
 
     ```
     git clone https://github.com/Azure/azure-iot-remote-monitoring.git
     ```
 
-2. No Visual Studio, abra o arquivo RemoteMonitoring.sln da sua cópia local do repositório **azure-iot-remote-monitoring**.
+2. No Visual Studio, abra o arquivo de RemoteMonitoring.sln de saudação da sua cópia local da saudação **azure-iot-monitoramento remoto** repositório.
 
-3. Abra o arquivo Infrastructure\Models\DeviceRuleBlobEntity.cs e adicione uma propriedade **ExternalTemperature** da seguinte maneira:
+3. Abra o arquivo hello Infrastructure\Models\DeviceRuleBlobEntity.cs e adicione um **ExternalTemperature** propriedade da seguinte maneira:
 
     ```csharp
     public double? Temperature { get; set; }
@@ -72,7 +72,7 @@ As etapas a seguir mostram como modificar a solução RemoteMonitoring do Visual
     public double? ExternalTemperature { get; set; }
     ```
 
-4. No mesmo arquivo, adicione uma propriedade **ExternalTemperatureRuleOutput** da seguinte maneira:
+4. Em Olá mesmo arquivo, adicione uma **ExternalTemperatureRuleOutput** propriedade da seguinte maneira:
 
     ```csharp
     public string TemperatureRuleOutput { get; set; }
@@ -80,7 +80,7 @@ As etapas a seguir mostram como modificar a solução RemoteMonitoring do Visual
     public string ExternalTemperatureRuleOutput { get; set; }
     ```
 
-5. Abra o arquivo Infrastructure\Models\DeviceRuleDataFields.cs e adicione a seguinte propriedade **ExternalTemperature** após a propriedade **Humidity** existente:
+5. Abra o arquivo de saudação Infrastructure\Models\DeviceRuleDataFields.cs e adicione o seguinte Olá **ExternalTemperature** propriedade após Olá existente **umidade** propriedade:
 
     ```csharp
     public static string ExternalTemperature
@@ -89,7 +89,7 @@ As etapas a seguir mostram como modificar a solução RemoteMonitoring do Visual
     }
     ```
 
-6. No mesmo arquivo, atualize o método **_availableDataFields** para incluir **ExternalTemperature** da seguinte maneira:
+6. No hello mesmo arquivo, atualizar Olá **_availableDataFields** método tooinclude **ExternalTemperature** da seguinte maneira:
 
     ```csharp
     private static List<string> _availableDataFields = new List<string>
@@ -98,7 +98,7 @@ As etapas a seguir mostram como modificar a solução RemoteMonitoring do Visual
     };
     ```
 
-7. Abra o arquivo Infrastructure\Repository\DeviceRulesRepository.cs e modifique o método **BuildBlobEntityListFromTableRows** da seguinte maneira:
+7. Abra o arquivo hello Infrastructure\Repository\DeviceRulesRepository.cs e modifique Olá **BuildBlobEntityListFromTableRows** método da seguinte maneira:
 
     ```csharp
     else if (rule.DataField == DeviceRuleDataFields.Humidity)
@@ -113,29 +113,29 @@ As etapas a seguir mostram como modificar a solução RemoteMonitoring do Visual
     }
     ```
 
-## <a name="rebuild-and-redeploy-the-solution"></a>Recompile e reimplante a solução.
+## <a name="rebuild-and-redeploy-hello-solution"></a>Recompilar e reimplantar a solução de saudação.
 
-Agora, você pode implantar a solução atualizada para sua assinatura do Azure.
+Agora você pode implantar Olá atualizado solução tooyour assinatura do Azure.
 
-1. Abra um prompt de comando elevado e navegue até a raiz da sua cópia local do repositório azure-iot-remote-monitoring.
+1. Abra um prompt de comando com privilégios elevados e navegue toohello raiz de sua cópia local do repositório de monitoramento do azure-iot-remoto Olá.
 
-2. Para implantar a solução atualizada, execute o seguinte comando, substituindo **{nome da implantação}** pelo nome da implantação de solução pré-configurada que você anotou anteriormente:
+2. toodeploy sua solução atualizada, execute Olá a seguir de comando substituindo **{nome da implantação}** com nome de saudação da sua implantação de solução pré-configurada que você anotou anteriormente:
 
     ```
     build.cmd cloud release {deployment name}
     ```
 
-## <a name="update-the-stream-analytics-job"></a>Atualizar o trabalho do Stream Analytics
+## <a name="update-hello-stream-analytics-job"></a>Atualizar o trabalho de análise de fluxo de saudação
 
-Quando a implantação for concluída, você poderá atualizar o trabalho do Stream Analytics para usar novas definições de regras.
+Quando Olá implantação estiver concluída, você pode atualizar Olá Stream Analytics trabalho toouse Olá novas definições de regra.
 
-1. No Portal do Azure, navegue até o grupo de recursos que contém os recursos de solução pré-configurada. Esse grupo de recursos tem o mesmo nome que você especificou para a solução durante a implantação.
+1. No portal do Azure de Olá, navegue toohello grupo de recursos que contém seus recursos de solução pré-configurada. Este grupo de recursos tem Olá mesmo nome que você especificou para Olá solução durante a implantação de saudação.
 
-2. Navegue até o trabalho do Stream Analytics {nome da implantação}-Rules. 
+2. Navegue toohello {nome da implantação}-trabalho de análise de fluxo de regras. 
 
-3. Clique em **Parar** para interromper a execução do trabalho do Stream Analytics. (Você deve aguardar a interrupção do trabalho para editar a consulta).
+3. Clique em **parar** trabalho de análise de fluxo de Olá toostop seja executado. (Você deve aguardar Olá toostop de trabalho de streaming antes de poder editar consulta Olá).
 
-4. Clique em **Consulta**. Edite a consulta para incluir a instrução **SELECT** para **ExternalTemperature**. O exemplo a seguir mostra a consulta completa com a nova instrução **SELECT**:
+4. Clique em **Consulta**. Editar saudação do hello consulta tooinclude **selecione** instrução **ExternalTemperature**. Olá exemplo a seguir mostra a consulta completa Olá com hello novo **selecione** instrução:
 
     ```
     WITH AlarmsData AS 
@@ -190,39 +190,39 @@ Quando a implantação for concluída, você poderá atualizar o trabalho do Str
     FROM AlarmsData
     ```
 
-5. Clique em **Salvar** para alterar a consulta de regra atualizada.
+5. Clique em **salvar** toochange Olá atualizar pesquisa de regra.
 
-6. Clique em **Iniciar** para iniciar a execução do trabalho do Stream Analytics novamente.
+6. Clique em **iniciar** toostart trabalho de análise de fluxo de saudação executando novamente.
 
-## <a name="add-your-new-rule-in-the-dashboard"></a>Adicionar sua nova regra no painel de controle
+## <a name="add-your-new-rule-in-hello-dashboard"></a>Adicionar nova regra no painel de saudação
 
-Agora, você pode adicionar a regra **ExternalTemperature** a um dispositivo no painel de solução.
+Agora você pode adicionar Olá **ExternalTemperature** dispositivo de tooa de regra no painel de solução de saudação.
 
-1. Navegue até o portal de solução.
+1. Navegue toohello portal de solução.
 
-2. Navegue até o painel **Dispositivos**.
+2. Navegue toohello **dispositivos** painel.
 
-3. Localize o dispositivo personalizado que você criou que envia a telemetria de **ExternalTemperature** e, no painel **Detalhes do Dispositivo**, clique em **Adicionar Regra**.
+3. Localizar dispositivo personalizado do hello criado que envia **ExternalTemperature** telemetria e Olá **detalhes do dispositivo** do painel, clique em **Adicionar regra**.
 
 4. Selecione **ExternalTemperature** no **Campo de Dados**.
 
-5. Defina o **Limite** como 56. Em seguida, clique em **Salvar e exibir regras**.
+5. Definir **limite** too56. Em seguida, clique em **Salvar e exibir regras**.
 
-6. Retorne ao painel para visualizar o histórico de alarme.
+6. Retorna o histórico de alarme toohello painel tooview hello.
 
-7. Na janela do console que você deixou aberta, inicie o aplicativo de console do Node.js para começar a enviar os dados de telemetria de **ExternalTemperature**.
+7. Na janela de console Olá é deixada aberta, iniciar o envio do aplicativo toobegin do hello Node. js console **ExternalTemperature** os dados de telemetria.
 
-8. Observe que a tabela **Histórico do Alarme** mostra novos alarmes quando a nova regra é acionada.
+8. Observe que Olá **histórico de alarme** tabela mostra alarmes novo quando a nova regra de saudação é disparada.
  
 ## <a name="additional-information"></a>Informações adicionais
 
-Alterar o operador **>** é mais complexo e vai além das etapas descritas neste tutorial. Embora você possa alterar o trabalho do Stream Analytics para usar qualquer operador que você queira, refletir esse operador no portal de solução é uma tarefa mais complexa. 
+Operador de saudação alteração  **>**  é mais complexa e vai além da saudação etapas descritas neste tutorial. Embora seja possível alterar toouse de trabalho do Stream Analytics Olá qualquer operador que você deseja, refletir esse operador no portal de solução de saudação é uma tarefa mais complexa. 
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você já viu como criar regras personalizadas, você pode saber mais sobre as soluções pré-configuradas:
+Agora que você viu como toocreate de regras personalizadas, você pode aprender mais sobre as soluções de saudação pré-configurados:
 
-- [Conectar um aplicativo lógico à solução pré-configurada de monitoramento remoto do Azure IoT Suite][lnk-logic-app]
-- [Metadados de informações de dispositivo na solução pré-configurada de monitoramento remoto][lnk-devinfo].
+- [Conecte-se a solução de monitoramento do Azure IoT Suite remoto pré-configurado do aplicativo lógico tooyour][lnk-logic-app]
+- [Metadados de informações de dispositivo no monitoramento remoto de saudação pré-configurado solução][lnk-devinfo].
 
 [lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 

@@ -1,6 +1,6 @@
 ---
-title: "Gerenciar servidores e cofres de Backup do Azure usando o modelo de implantação clássico | Microsoft Docs"
-description: Use este tutorial para aprender a gerenciar servidores e cofres de Backup do Azure.
+title: "os cofres de Backup do Azure aaaManage e servidores do Azure usando o modelo de implantação clássico Olá | Microsoft Docs"
+description: Use este tutorial toolearn como toomanage Backup do Azure cofres e servidores.
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -14,79 +14,79 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: markgal;
-ms.openlocfilehash: 91451b2cdc42ed05ef7c1ba9c66ad5b4b45dd788
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 6c38b04f4a76604bfd639a9b2d58237ce44e2386
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>Gerenciar servidores e cofres de Backup do Azure usando o modelo de implantação clássico
+# <a name="manage-azure-backup-vaults-and-servers-using-hello-classic-deployment-model"></a>Gerenciar servidores usando o modelo de implantação clássico hello e cofres de Backup do Azure
 > [!div class="op_single_selector"]
 > * [Gerenciador de Recursos](backup-azure-manage-windows-server.md)
 > * [Clássico](backup-azure-manage-windows-server-classic.md)
 >
 >
 
-Neste artigo, você encontra uma visão geral das tarefas de gerenciamento de backup disponíveis no portal clássico do Azure e o agente de Backup do Microsoft Azure.
+Neste artigo, você encontrará uma visão geral de tarefas de gerenciamento de backup de Olá disponíveis por meio de saudação portal clássico do Azure e o agente de Backup do Microsoft Azure hello.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda usando o modelo de implantação clássico hello. A Microsoft recomenda que mais novas implantações de usam o modelo do Gerenciador de recursos de saudação.
 
 > [!IMPORTANT]
-> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> Após 15 de outubro de 2017, você não poderá usar o PowerShell para criar os Cofres do Backup. **Em 1º de novembro de 2017**:
->- Todos os Cofres do Backup restantes serão atualizados automaticamente para os cofres dos Serviços de Recuperação.
->- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
+> Agora você pode atualizar seu cofres dos serviços de tooRecovery de cofres de Backup. Para obter detalhes, consulte o artigo Olá [atualizar um tooa de Cofre de Backup Cofre de serviços de recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva tooupgrade cofres de serviços tooRecovery os cofres de Backup.<br/> Após 15 de outubro de 2017, você não pode usar o PowerShell toocreate os cofres de Backup. **Em 1º de novembro de 2017**:
+>- Todos os cofres de Backup restantes serão automaticamente atualizados tooRecovery cofres de serviços.
+>- Você não será capaz de tooaccess os dados de backup no portal clássico do hello. Em vez disso, use Olá tooaccess portal do Azure os dados de backup em cofres de serviços de recuperação.
 >
 
 ## <a name="management-portal-tasks"></a>Tarefas do portal de gerenciamento
-1. Entre no [Portal de Gerenciamento](https://manage.windowsazure.com).
-2. Clique em **Serviços de Recuperação**, em seguida, clique no nome do cofre de backup para exibir a página de Início Rápido.
+1. Entrar toohello [Portal de gerenciamento](https://manage.windowsazure.com).
+2. Clique em **dos serviços de recuperação**, clique em nome de saudação da página de início rápido do Cofre de backup tooview hello.
 
     ![Serviços de Recuperação](./media/backup-azure-manage-windows-server-classic/rs-left-nav.png)
 
-Selecionando as opções na parte superior da página Início Rápido, você pode ver as tarefas de gerenciamento disponíveis.
+Selecionando opções de saudação na parte superior de saudação da página de início rápido do hello, você pode ver tarefas de gerenciamento disponíveis hello.
 
 ![Gerenciar guias](./media/backup-azure-manage-windows-server-classic/qs-page.png)
 
 ### <a name="dashboard"></a>Painel
-Clique em **Painel** para ver a visão geral do uso para o servidor. A **visão geral de uso** inclui:
+Selecione **painel** toosee visão geral de uso de saudação para o servidor de saudação. Olá **visão geral de uso** inclui:
 
-* O número de Windows Servers registrados na nuvem
-* O número de máquinas virtuais do Azure protegidas na nuvem
-* O armazenamento total consumido no Azure
-* O status de trabalhos recentes
+* número de saudação de servidores Windows registrados toocloud
+* número de saudação de máquinas virtuais do Azure protegidas na nuvem
+* armazenamento total de saudação consumido no Azure
+* status de saudação de trabalhos recentes
 
-Na parte inferior do Painel, você pode executar as seguintes tarefas:
+Na parte inferior de saudação do hello painel, você pode executar Olá tarefas a seguir:
 
-* **Gerenciar certificado** - se um certificado tiver sido usado para registrar o servidor, então use isso para atualizar o certificado. Se estiver usando as credenciais do cofre, não use **Gerenciar certificados**.
-* **Excluir** - exclui o cofre de backup atual. Se não estiver sendo usado um cofre de backup, você poderá excluir para liberar mais espaço de armazenamento. **Excluir** é ativado somente depois que todos os servidores registrados foram excluídos do cofre.
+* **Gerenciar certificado** - se um certificado foi usado tooregister Olá servidor, use este certificado de saudação tooupdate. Se estiver usando as credenciais do cofre, não use **Gerenciar certificados**.
+* **Excluir** -Cofre de backup atual de saudação exclusões. Se já não estiver sendo usado um cofre de backup, você pode excluir toofree o espaço de armazenamento. **Excluir** só estará habilitada após a exclusão de todos os servidores registrados do cofre hello.
 
 ![Tarefas do painel Backup](./media/backup-azure-manage-windows-server-classic/dashboard-tasks.png)
 
 ## <a name="registered-items"></a>Itens registrados
-Selecione **Itens registrados** para exibir os nomes dos servidores registrados para o cofre.
+Selecione **itens registrados** nomes de saudação do tooview de servidores de saudação que são registrados toothis cofre.
 
 ![Itens registrados](./media/backup-azure-manage-windows-server-classic/registered-items.png)
 
-O filtro **Tipo** tem como padrão a Máquina Virtual do Azure. Para exibir os nomes dos servidores registrados neste cofre, selecione **Windows Server** no menu suspenso.
+Olá **tipo** filtrar padrões tooAzure Máquina Virtual. nomes de Olá tooview de servidores Olá cofre toothis registrado, selecione **do Windows server** de saudação menu suspenso.
 
-A partir daqui, você pode executar as seguintes tarefas:
+Aqui você pode executar Olá tarefas a seguir:
 
-* **Permitir Novo Registro** - quando essa opção estiver selecionada para um servidor, você poderá usar o **Assistente de Registro** no agente de Backup do Microsoft Azure local para registrar o servidor com o cofre de backup uma segunda vez. Talvez você precise registrar novamente devido a um erro no certificado ou se um servidor tiver que ser refeito.
-* **Excluir** - Exclui um servidor do cofre de backup. Todos os dados armazenados associados ao servidor serão excluídos imediatamente.
+* **Permitir novo registro** - quando essa opção é selecionada para um servidor que você pode usar Olá **Assistente de registro** em Olá Microsoft Azure Backup agent tooregister Olá servidor local com o Cofre de backup Olá uma segunda vez . Talvez seja necessário toore registro devido a erro tooan no certificado de saudação ou se um servidor tiver toobe recriado.
+* **Excluir** -exclui um servidor do Cofre de backup hello. Todos os dados de saudação armazenado associados ao servidor de saudação são excluídos imediatamente.
 
     ![Tarefas de itens registrados](./media/backup-azure-manage-windows-server-classic/registered-items-tasks.png)
 
 ## <a name="protected-items"></a>Itens protegidos
-Clique em **Itens Protegidos** para ver os itens que foram colocados no backup dos servidores.
+Selecione **itens protegidos** tooview itens de saudação que foi feitos um backup de servidores de saudação.
 
 ![Itens protegidos](./media/backup-azure-manage-windows-server-classic/protected-items.png)
 
 ## <a name="configure"></a>Configurar
-Na guia **Configurar** , você pode selecionar a opção de redundância de armazenamento apropriada. O melhor momento para selecionar a opção de redundância de armazenamento é logo após a criação de um cofre e antes de qualquer computador ser registrado nele.
+De saudação **configurar** guia, você pode selecionar a opção de redundância de armazenamento apropriado hello. Olá melhor tempo tooselect Olá redundância opção de armazenamento é logo após a criação de um cofre e antes de todas as máquinas tooit registrado.
 
 > [!WARNING]
-> Depois que um item tiver sido registrado no cofre, a opção de redundância de armazenamento será bloqueada e não poderá ser modificada.
+> Depois que um item tiver sido registrado toohello cofre, opção de redundância de armazenamento hello está bloqueada e não pode ser modificada.
 >
 >
 
@@ -96,11 +96,11 @@ Confira este artigo para saber mais sobre a [redundância de armazenamento](../s
 
 ## <a name="microsoft-azure-backup-agent-tasks"></a>Tarefas do agente de Backup do Microsoft Azure
 ### <a name="console"></a>Console
-Abra o **agente de Backup do Microsoft Azure** (você poderá localizá-lo procurando *Backup do Microsoft Azure*em seu computador).
+Olá abrir **Microsoft Azure Backup agent** (você pode encontrar pesquisando seu computador para *Backup do Microsoft Azure*).
 
 ![Agente de backup](./media/backup-azure-manage-windows-server-classic/snap-in-search.png)
 
-Na guia **Ações** , disponibilizada à direita do console do agente de backup, você pode executar as seguintes tarefas de gerenciamento:
+De saudação **ações** disponíveis em Olá direita do console do agente de backup Olá executar Olá tarefas de gerenciamento a seguir:
 
 * Registrar Servidor
 * Agendar backup
@@ -110,75 +110,75 @@ Na guia **Ações** , disponibilizada à direita do console do agente de backup,
 ![Ações do console do agente](./media/backup-azure-manage-windows-server-classic/console-actions.png)
 
 > [!NOTE]
-> Para **Recuperar Dados**, consulte [Restaurar arquivos para um computador cliente Windows ou um servidor Windows](backup-azure-restore-windows-server.md).
+> muito**recuperar dados**, consulte [restaurar arquivos tooa Windows server ou o computador de cliente do Windows](backup-azure-restore-windows-server.md).
 >
 >
 
 ### <a name="modify-an-existing-backup"></a>Modificar um backup existente
-1. No agente de Backup do Microsoft Azure, clique em **Agendar Backup**.
+1. No agente de Backup do Microsoft Azure Olá clique **agendamento de Backup**.
 
     ![Agendar um Backup do Windows Server](./media/backup-azure-manage-windows-server-classic/schedule-backup.png)
-2. No **Assistente de Agendamento de Backup**, deixe a opção **Fazer alterações aos itens ou horários de backup** selecionada e clique em **Avançar**.
+2. Em Olá **Assistente de agendamento de Backup** deixe Olá **fazer alterações toobackup itens ou horários** opção está selecionada e clique em **próximo**.
 
     ![Modificar um backup agendado](./media/backup-azure-manage-windows-server-classic/modify-or-stop-a-scheduled-backup.png)
-3. Se quiser adicionar ou alterar itens, na tela **Selecionar Itens para Backup**, clique em **Adicionar Itens**.
+3. Se você quiser tooadd ou alterar itens na Olá **selecionar itens tooBackup** tela clique **adicionar itens**.
 
-    Você também pode definir **Configurações de Exclusão** nesta página do assistente. Se você quiser excluir arquivos ou tipos de arquivo, leia o procedimento para adicionar [configurações de exclusão](#exclusion-settings).
-4. Selecione os arquivos e as pastas dos quais você deseja fazer backup e clique em **OK**.
+    Você também pode definir **configurações de exclusão** desta página no Assistente de saudação. Se você quiser tooexclude arquivos ou tipos de arquivo de leitura procedimento Olá para adicionar [configurações de exclusão](#exclusion-settings).
+4. Selecione arquivos hello e pastas que deseja tooback backup e clique **Okey**.
 
     ![Adicionar Itens](./media/backup-azure-manage-windows-server-classic/add-items-modify.png)
-5. Especifique o **agendamento de backup** e clique em **Avançar**.
+5. Especifique a saudação **agendamento de backup** e clique em **próximo**.
 
     Você pode agendar backups diários (no máximo três vezes por dia) ou backups semanais.
 
     ![Especificar o agendamento do Backup](./media/backup-azure-manage-windows-server-classic/specify-backup-schedule-modify-close.png)
 
    > [!NOTE]
-   > A especificação do agendamento de backup é explicada em detalhes neste [artigo](backup-azure-backup-cloud-as-tape.md).
+   > Especificar o agendamento de backup Olá é explicado em detalhes nesta [artigo](backup-azure-backup-cloud-as-tape.md).
    >
    >
-6. Selecione a **Política de Retenção** para a cópia de backup e clique em **Avançar**.
+6. Selecione Olá **política de retenção** para cópia de backup hello e clique em **próximo**.
 
     ![Selecionar a política de retenção](./media/backup-azure-manage-windows-server-classic/select-retention-policy-modify.png)
-7. Na tela **Confirmação**, examine as informações e clique em **Concluir**.
-8. Depois que o assistente terminar de criar o **agendamento de backup**, clique em **Fechar**.
+7. Em Olá **confirmação** tela hello Revise as informações e clique em **concluir**.
+8. Depois que a conclusão do Assistente de saudação criando Olá **agendamento de backup**, clique em **fechar**.
 
-    Depois de modificar a proteção, é possível confirmar se os backups estão sendo acionados corretamente acessando a guia **Trabalhos** e confirmando se as alterações são refletidas nos trabalhos de backup.
+    Depois de modificar a proteção, você pode confirmar que os backups provocarem corretamente pelo vai toohello **trabalhos** guia e confirmando que as alterações sejam refletidas no hello trabalhos de backup.
 
 ### <a name="enable-network-throttling"></a>Habilitar a limitação de rede
-O agente de Backup do Azure fornece uma guia Limitação, que permite controlar como a largura de banda é usada durante a transferência de dados. Esse controle pode ser útil se você precisa fazer backup de dados durante o horário de expediente, mas não quer que o processo de backup interfira no outro tráfego de Internet. A limitação da transferência de dados aplica-se a atividades de backup e restauração.  
+Agente de Backup do Azure Olá fornece uma guia de limitação que permite que você toocontrol como largura de banda de rede é usada durante a transferência de dados. Este controle pode ser útil se você precisar tooback os dados durante o horário de trabalho, mas não quiser Olá toointerfere de processo de backup com outro tráfego de internet. Transferência de limitação de dados aplica tooback backup e atividades de restauração.  
 
-Para habilitar a limitação:
+tooenable limitação:
 
-1. No **agente de backup**, clique em **Alterar Propriedades**.
-2. Marque a caixa de seleção **Habilitar limitação de uso de largura de banda da Internet para operações de backup** .
+1. Em Olá **agente de Backup**, clique em **alterar propriedades**.
+2. Selecione Olá **habilitar limitação para operações de backup do uso de largura de banda de internet** caixa de seleção.
 
     ![Limitação de rede](./media/backup-azure-manage-windows-server-classic/throttling-dialog.png)
-3. Depois de habilitar a limitação, especifique a largura de banda permitida para a transferência de dados de backup durante as **Horas úteis** e **Horas não úteis**.
+3. Depois que você habilitou a limitação, especificar Olá permitido largura de banda para transferir dados de backup durante **horas de trabalho** e **horas não úteis**.
 
-    Os valores de largura de banda começam em 512 quilobytes por segundo (Kbps) e podem ir até 1023 megabytes por segundo (Mbps). Você também pode indicar o início e o término das **Horas úteis**e quais dias da semana são considerados dias úteis. O tempo fora das Horas úteis indicadas é considerado como hora não útil.
+    os valores de largura de banda Olá começam em 512 quilobytes por segundo (Kbps) e podem subir too1023 megabytes por segundo (Mbps). Você também pode designar início hello e Concluir para **horas de trabalho**, e quais dias da semana Olá são considerados trabalho dias. tempo de saudação fora Olá designado de horas de trabalho é considerado toobe horas de folga.
 4. Clique em **OK**.
 
 ## <a name="exclusion-settings"></a>Configurações de Exclusão
-1. Abra o **agente de Backup do Microsoft Azure** (você poderá localizá-lo procurando *Backup do Microsoft Azure*em seu computador).
+1. Olá abrir **Microsoft Azure Backup agent** (você pode encontrar pesquisando seu computador para *Backup do Microsoft Azure*).
 
     ![Abrir agente de backup](./media/backup-azure-manage-windows-server-classic/snap-in-search.png)
-2. No agente de Backup do Microsoft Azure, clique em **Agendar Backup**.
+2. No agente de Backup do Microsoft Azure Olá clique **agendamento de Backup**.
 
     ![Agendar um Backup do Windows Server](./media/backup-azure-manage-windows-server-classic/schedule-backup.png)
-3. No Assistente de Agendamento de Backup, deixe a opção **Fazer alterações aos itens ou horários de backup** selecionada e clique em **Avançar**.
+3. No Assistente de agendamento de Backup de saudação deixe Olá **fazer alterações toobackup itens ou horários** opção está selecionada e clique em **próximo**.
 
     ![Modificar um agendamento](./media/backup-azure-manage-windows-server-classic/modify-or-stop-a-scheduled-backup.png)
 4. Clique em **Configurações de Exclusões**.
 
-    ![Selecione itens a serem excluídos](./media/backup-azure-manage-windows-server-classic/exclusion-settings.png)
+    ![Selecione os itens tooexclude](./media/backup-azure-manage-windows-server-classic/exclusion-settings.png)
 5. Clique em **Adicionar Exclusão**.
 
     ![Adicionar exclusões](./media/backup-azure-manage-windows-server-classic/add-exclusion.png)
-6. Selecione o local e clique em **OK**.
+6. Selecione Olá e, em seguida, clique em **Okey**.
 
     ![Selecionar um local para exclusão](./media/backup-azure-manage-windows-server-classic/exclusion-location.png)
-7. Adicione a extensão de arquivo no campo **Tipo de Arquivo** .
+7. Adicionar extensão de arquivo hello em Olá **tipo de arquivo** campo.
 
     ![Excluir por tipo de arquivo](./media/backup-azure-manage-windows-server-classic/exclude-file-type.png)
 
@@ -186,15 +186,15 @@ Para habilitar a limitação:
 
     ![Exemplo de tipo de arquivo](./media/backup-azure-manage-windows-server-classic/exclude-mp3.png)
 
-    Para adicionar outra extensão, clique em **Adicionar Exclusão** e insira outra extensão do tipo de arquivo (adicionando uma extensão .jpeg).
+    tooadd outra extensão, clique em **Adicionar exclusão** e insira outra extensão de tipo de arquivo (Adicionar uma extensão. JPEG).
 
     ![Outro exemplo de tipo de arquivo](./media/backup-azure-manage-windows-server-classic/exclude-jpg.png)
-8. Quando tiver adicionado todas as extensões, clique em **OK**.
-9. Prossiga com o Assistente de Agendamento de Backup clicando em **Avançar** até a **página Confirmação** e clique em **Concluir**.
+8. Quando você tiver adicionado todas as extensões de saudação, clique em **Okey**.
+9. Continuar por Olá Assistente de agendamento de Backup clicando em **próximo** até Olá **página de confirmação**, em seguida, clique em **concluir**.
 
     ![Confirmação de exclusão](./media/backup-azure-manage-windows-server-classic/finish-exclusions.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Restaurar o Windows Server ou o Windows Client do Azure](backup-azure-restore-windows-server.md)
-* Para saber mais sobre o Backup do Azure, confira [Visão geral do backup do Azure](backup-introduction-to-azure-backup.md)
-* Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
+* toolearn mais sobre o Backup do Azure, consulte [visão geral do Backup do Azure](backup-introduction-to-azure-backup.md)
+* Visite Olá [Fórum de Backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)

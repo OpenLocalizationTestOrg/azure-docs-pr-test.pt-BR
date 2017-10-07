@@ -1,6 +1,6 @@
 ---
-title: "Considerações de design da identidade híbrida do Azure Active Directory - determinar os requisitos de proteção de dados | Microsoft Docs"
-description: "Ao planejar sua solução de identidade híbrida, identifique os requisitos de proteção de dados de seus negócios e quais opções estão disponíveis para melhor atender a esses requisitos."
+title: "aaaAzure considerações de design do Active Directory híbrida identidade - determinar requisitos de proteção de dados | Microsoft Docs"
+description: "Ao planejar sua solução de identidade híbrida, identificar os requisitos de proteção de dados de saudação para seu negócio e quais opções estão disponível toobest atenderem esses requisitos."
 documentationcenter: 
 services: active-directory
 author: billmath
@@ -14,68 +14,68 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 96bf9d4c26a22f718c29804c11681199e775f589
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 189abf9affbc2894c322f362d84222d4e33d472e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Planejar para aumentar a segurança de dados usando solução de identidade forte
-A primeira etapa para proteger os dados é identificar quem pode acessar os dados e, como parte desse processo, você precisa ter uma solução de identidade que pode se integrar ao seu sistema para fornecer recursos de autenticação e autorização. Autenticação e autorização são frequentemente confundidos um com o outro e suas funções são mal compreendidas. Na verdade, são bastante diferentes, como mostrado na seguinte figura:
+Olá primeira etapa tooprotect Olá dados são identificar quem pode acessar os dados e como parte desse processo, você precisa toohave uma solução de identidade que pode se integra com os recursos de autenticação e autorização de tooprovide do sistema. Autenticação e autorização são frequentemente confundidos um com o outro e suas funções são mal compreendidas. Na realidade, são bastante diferentes, conforme mostrado na figura a saudação abaixo:
 
 ![](./media/hybrid-id-design-considerations/mobile-devicemgt-lifecycle.png)
 
 **Estágios do ciclo de vida de gerenciamento de dispositivo móvel**
 
-Ao planejar sua solução de identidade híbrida, você deve compreender os requisitos de proteção de dados de seus negócios e quais opções estão disponíveis para melhor atender a esses requisitos.
+Ao planejar sua solução de identidade híbrida, você deve entender os requisitos de proteção de dados Olá para sua empresa e quais opções estão disponível toobest atenderem a esses requisitos.
 
 > [!NOTE]
-> Depois de concluir o planejamento de segurança de dados, reveja [Determinar os requisitos de autenticação multifator](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md) para garantir que suas seleções sobre os requisitos de autenticação multifator não foram afetadas por decisões tomadas nesta seção.
+> Depois de concluir o planejamento de segurança de dados, examine [determinar os requisitos de autenticação multifator](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md) tooensure se suas seleções em relação aos requisitos de autenticação multifator não foram afetadas por decisões Olá Você fez nesta seção.
 > 
 > 
 
 ## <a name="determine-data-protection-requirements"></a>Determinar os requisitos para proteção de dados
-Na era da mobilidade, a maioria das empresas têm uma meta em comum: permitir que os usuários sejam produtivos em seus dispositivos móveis no local ou remotamente em qualquer lugar a fim de aumentar a produtividade. Embora isso seja um objetivo comum, as empresas que têm essa exigência também se preocupam com a quantidade de ameaças que devem ser reduzidas para proteger os dados da empresa e manter a privacidade do usuário. Cada empresa pode ter requisitos diferentes em relação a isso; as regras de conformidade diferentes que variam de acordo com o setor em que atua a empresa levam a decisões de design diferentes. 
+Na era Olá de mobilidade, a maioria das empresas têm uma meta comum: habilitar seu toobe usuários produtivo em seus dispositivos móveis ao local ou remotamente em qualquer lugar na produtividade do tooincrease de ordem. Enquanto isso poderia ser um objetivo comum, as empresas que têm esse requisito também será preocupação, relativa à quantidade de saudação de ameaças que devem ser reduzidos em ordem tookeep dados da empresa seguros e manter a privacidade do usuário. Cada empresa terá requisitos diferentes em relação a isso; regras de conformidade diferente que variam de acordo empresa de saudação do setor toowhich está atuando vai levar toodifferent decisões de design. 
 
-No entanto, há alguns aspectos de segurança que devem ser explorados e validados independentemente do setor, que são explicados na próxima seção.
+No entanto, há alguns aspectos de segurança que devem ser explorados e validados, independentemente do setor hello, que são explicados na próxima seção, Olá.
 
 ## <a name="data-protection-paths"></a>Caminhos de proteção de dados
 ![](./media/hybrid-id-design-considerations/data-protection-paths.png)
 
 **Caminhos de proteção de dados**
 
-No diagrama acima, o componente de identidade será o primeiro a ser verificado antes que os dados sejam acessados. No entanto, esses dados podem estar em estados diferentes no tempo em que ele foi acessado. Cada número nesse diagrama representa um caminho no qual dados podem estar localizados em algum momento. Esses números são explicados abaixo:
+Olá acima diagrama, o componente de identidade Olá será Olá primeiro um toobe verificado antes que os dados são acessados. No entanto, esses dados podem ser em diferentes estados durante o tempo de saudação que foi acessado. Cada número nesse diagrama representa um caminho no qual dados podem estar localizados em algum momento. Esses números são explicados abaixo:
 
-1. Proteção de dados no nível do dispositivo.
+1. Proteção de dados no nível do dispositivo de saudação.
 2. Proteção de dados em trânsito.
 3. Proteção de dados em repouso no local.
-4. Proteção de dados em repouso na nuvem.
+4. Proteção de dados em repouso na nuvem hello.
 
-Embora os controles técnicos que permitem que a TI proteja os dados em cada uma dessas fases não sejam oferecidos diretamente pela solução de identidade híbrida, é necessário que a solução de identidade híbrida seja capaz de aproveitar os recursos de gerenciamento de identidade locais e na nuvem para identificar o usuário antes de conceder acesso aos dados. Quando planejar sua solução de identidade híbrida, verifique se as seguintes perguntas são respondidas de acordo com os requisitos da sua organização:
+Embora os controles técnicos de saudação que permitirão IT tooprotect Olá próprios dados em cada um desses fases diretamente não são oferecidos pela solução de identidade híbrida Olá, é necessário que solução de identidade híbrida Olá é capaz de aproveitar locais e identidade gerenciamento usuário recursos de nuvem tooidentify Olá antes de conceder acessar toohello dados. Ao planejar sua solução de identidade híbrida Certifique-se de que Olá a seguir são responder perguntas de acordo com os requisitos da organização tooyour:
 
 ## <a name="data-protection-at-rest"></a>Proteção de dados em repouso
-Independentemente de onde os dados estão em repouso (dispositivo, nuvem ou local), é importante realizar uma avaliação para entender as necessidades da organização em relação a isso. Para essa área, verifique se as seguintes perguntas são feitas:
+Independentemente de onde os dados de saudação estiverem em repouso (dispositivo, nuvem ou local), é importante tooperform uma organização de saudação avaliação toounderstand precisa nesse sentido. Para essa área, certifique-se de que Olá perguntas a seguir são frequentes:
 
-* Sua empresa precisa proteger os dados em repouso?
-  * Em caso afirmativo, a solução de identidade híbrida é capaz de se integrar à sua infraestrutura local atual?
-  * Em caso afirmativo, a solução de identidade híbrida é capaz de se integrar às cargas de trabalho localizadas na nuvem?
-* O gerenciamento de identidades de nuvem é capaz de proteger as credenciais do usuário e outros dados armazenados na nuvem?
+* Sua empresa precisa tooprotect dados em repouso?
+  * Em caso afirmativo, é toointegrate capaz de solução Olá de identidade híbrida com sua infraestrutura local atual?
+  * Em caso afirmativo, é toointegrate capaz de solução Olá de identidade híbrida com suas cargas de trabalho localizadas na nuvem Olá?
+* É Olá nuvem identity management tooprotect capaz de saudação credenciais do usuário e outros dados armazenados na nuvem Olá?
 
 ## <a name="data-protection-in-transit"></a>Proteção de dados em trânsito
-Dados em trânsito entre o dispositivo e o datacenter ou entre o dispositivo e a nuvem devem ser protegidos. No entanto, estar em trânsito não significa necessariamente em um processo de comunicação com um componente fora do seu serviço de nuvem; ele também se move internamente, como entre duas redes virtuais. Para essa área, verifique se as seguintes perguntas são feitas:
+Dados em trânsito entre dispositivo hello e Olá datacenter ou entre dispositivos hello e nuvem Olá devem ser protegidos. No entanto, estar em trânsito não significa necessariamente em um processo de comunicação com um componente fora do seu serviço de nuvem; ele também se move internamente, como entre duas redes virtuais. Para essa área, certifique-se de que Olá perguntas a seguir são frequentes:
 
-* Sua empresa precisa proteger os dados em trânsito?
-  * Em caso afirmativo, a solução de identidade híbrida é capaz de se integrar a controles de segurança como SSL/TLS?
-* O gerenciamento de identidades de nuvem mantém o tráfego para e no armazenamento de diretório (em e entre datacenters) assinado?
+* Sua empresa precisa tooprotect dados em trânsito?
+  * Em caso afirmativo, é toointegrate capaz de solução Olá de identidade híbrida com controles de seguros, como SSL/TLS?
+* Gerenciamento de identidades de nuvem Olá manter Olá tráfego tooand Olá repositório de diretório (dentro e entre data centers) assinado?
 
 ## <a name="compliance"></a>Conformidade
-A legislação e a conformidade regulatória variará de acordo com a indústria a que sua empresa pertence. As empresas em indústrias muito reguladas devem lidar com questões de gerenciamento de identidades relacionadas a problemas de conformidade. Leis americanas como a Sarbanes-Oxley (SOX), a Health Insurance Portability and Accountability Act (HIPAA), a Gramm-Leach-Bliley Act (GLBA) e a Payment Card Industry Data Security Standard (PCI DSS) são muito rígidas em relação a identidade e acesso. A solução de identidade híbrida que sua empresa adotar deve ter os recursos principais que atenderão às exigências de uma ou mais dessas leis. Para essa área, verifique se as seguintes perguntas são feitas:
+Normas, as leis e requisitos de conformidade normativa irão variar de acordo setor toohello que sua empresa pertence. As empresas em setores regulamentadas alta devem tratar problemas de toocompliance relacionados de preocupações de gerenciamento de identidades. Regulamentações como Sarbanes-Oxley (SOX), Olá Health Insurance Portability e Accountability Act (HIPAA), Olá Gramm-Leach-Bliley Act (GLBA) e Olá Payment Card Industry Data Security Standard (PCI DSS) são muito estrita sobre identidade e acesso. solução de identidade híbrida de saudação que sua empresa adotará deve ter Olá principais recursos que atenderá Olá necessidades de um ou mais essas normas. Para essa área, certifique-se de que Olá perguntas a seguir são frequentes:
 
-* A solução de identidade híbrida está em conformidade com as exigências regulatórias para a sua empresa?
-* A solução de identidade híbrida tem recursos internos que permitem que sua empresa seja compatível com esses requisitos regulatórios? 
+* Solução de identidade híbrida Olá é compatível com os requisitos normativos Olá para sua empresa?
+* Solução de identidade faz Olá híbrida desenvolveu nos recursos que habilitam toobe compatíveis normativa requisitos da sua empresa? 
 
 > [!NOTE]
-> Faça anotações de cada resposta e entenda o raciocínio por trás da resposta. [Definir a estratégia de proteção de dados definir](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) ultrapassará as opções disponíveis e vantagens/desvantagens de cada opção.  Ao responder essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
+> Verifique se anotações tootake de cada resposta e entender Olá lógica por trás da resposta de saudação. [Definir a estratégia de proteção de dados](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) irá Olá opções disponíveis e as vantagens/desvantagens de cada opção.  Ao responder essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
 > 
 > 
 

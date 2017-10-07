@@ -1,6 +1,6 @@
 ---
-title: "Elemento de interface do usuário FileUpload de aplicativo gerenciado do Azure | Microsoft Docs"
-description: "Descreve o elemento Microsoft.Common.FileUpload da interface do usuário para aplicativos gerenciados do Azure"
+title: "elemento de interface do usuário carregamento de arquivos de aplicativo gerenciado aaaAzure | Microsoft Docs"
+description: "Descreve Olá elemento Microsoft.Common.FileUpload da interface do usuário para aplicativos gerenciados do Azure"
 services: azure-resource-manager
 documentationcenter: na
 author: tabrezm
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
-ms.openlocfilehash: 217e9e63eb7cd198f70cee42b418867df9f1f993
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7af5bec992e3f120afb1bdf56d8b4c19a8e5e834
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elemento de interface do usuário Microsoft.Common.FileUpload
-Um controle que permite a um usuário especificar um ou mais arquivos a carregar. Use esse elemento ao [criar um Aplicativo Gerenciado do Azure](managed-application-publishing.md).
+Um controle que permite que um usuário toospecify um ou mais arquivos tooupload. Use esse elemento ao [criar um Aplicativo Gerenciado do Azure](managed-application-publishing.md).
 
 ## <a name="ui-sample"></a>Exemplo de interface do usuário
 ![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
@@ -47,21 +47,21 @@ Um controle que permite a um usuário especificar um ou mais arquivos a carregar
 ```
 
 ## <a name="remarks"></a>Comentários
-- `constraints.accept`Especifica os tipos de arquivos que são mostrados no diálogo do arquivo do navegador. Consulte a [especificação do HTML5](http://www.w3.org/TR/html5/forms.html#attr-input-accept) para obter os valores permitidos. O valor padrão é **null**.
-- Se `options.multiple` é definido como **true**, o usuário pode selecionar mais de um arquivo no diálogo do arquivo do navegador. O valor padrão é **false**.
-- Esse elemento dá suporte ao carregamento de arquivos em dois modos com base no valor de `options.uploadMode`. Se **file** for especificado, a saída conterá o conteúdo do arquivo como um blob. Se **url** for especificado, o arquivo será carregado em um local temporário e a saída conterá a URL do blob. Blobs temporários serão limpos após 24 horas. O valor padrão é **file**.
-- O valor de `options.openMode` determina como o arquivo é lido. Se o arquivo deve ser texto sem formatação, especifique **text**; caso contrário, especifique **binary**. O valor padrão é **text**.
-- Se `options.uploadMode` é definido como **file** e `options.openMode` é definido como **binary**, a saída é codificada em base64.
-- `options.encoding`Especifica a codificação a ser usada para ler o arquivo. O valor padrão é **UTF-8**e é usado apenas quando `options.openMode` é definido como **text**.
+- `constraints.accept`Especifica os tipos de saudação de arquivos que são mostrados na caixa de diálogo do navegador de saudação do arquivo. Consulte Olá [especificação de HTML5](http://www.w3.org/TR/html5/forms.html#attr-input-accept) para os valores permitidos. valor padrão de saudação é **nulo**.
+- Se `options.multiple` está definido muito**true**, usuário Olá é permitido tooselect mais de um arquivo na caixa de diálogo do navegador de saudação do arquivo. valor padrão de saudação é **false**.
+- Esse elemento oferece suporte ao carregar arquivos em dois modos com base no valor de saudação do `options.uploadMode`. Se **arquivo** for especificado, saída de hello contém o conteúdo de saudação do arquivo hello como um blob. Se **url** for especificado, arquivo hello local temporário tooa carregado e saída de hello contém a URL de saudação do blob de saudação. Blobs temporários serão limpos após 24 horas. valor padrão de saudação é **arquivo**.
+- Olá valor `options.openMode` determina como o arquivo de saudação é lido. Especifique se o arquivo de saudação toobe esperado um texto sem formatação, **texto**; caso contrário, especifique **binário**. valor padrão de saudação é **texto**.
+- Se `options.uploadMode` está definido muito**arquivo** e `options.openMode` está definido muito**binário**, saída de hello é codificado na base64.
+- `options.encoding`Especifica o toouse codificação Olá ao ler o arquivo hello. valor padrão de saudação é **UTF-8**e é usado apenas quando `options.openMode` está definido muito**texto**.
 
 ## <a name="sample-output"></a>Saída de exemplo
-Se options.multiple for false e options.uploadMode for file, a saída conterá o conteúdo do arquivo como uma cadeia de caracteres JSON:
+Se options.multiple for false e options.uploadMode é o arquivo, a saída contém conteúdo de saudação do arquivo hello como uma cadeia de caracteres JSON:
 
 ```json
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 ```
 
-Se options.multiple for true e options.uploadMode for file, a saída conterá o conteúdo do arquivo como uma matriz JSON:
+Se options.multiple for verdadeira and'options.uploadMode é um arquivo, a saída contém conteúdo Olá arquivos hello como uma matriz JSON:
 
 ```json
 [
@@ -87,10 +87,10 @@ Se options.multiple for true e options.uploadMode for url, a saída conterá a U
 ]
 ```
 
-Ao testar um CreateUiDefinition, alguns navegadores (como o Google Chrome) truncam URLs geradas pelo elemento Microsoft.Common.FileUpload no console do navegador. Talvez seja necessário clicar com o botão direito do mouse em links individuais para copiar as URLs completas.
+Ao testar um CreateUiDefinition, alguns navegadores (como Google Chrome) truncam URLs geradas por elemento de Microsoft.Common.FileUpload Olá no console do navegador hello. Talvez seja necessário tooright clique links individuais toocopy Olá completo URLs.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados do Azure](managed-application-overview.md).
-* Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* Para aplicativos de toomanaged uma introdução, consulte [visão geral de aplicativos gerenciados do Azure](managed-application-overview.md).
+* Para definições de interface do usuário de toocreating uma introdução, consulte [guia de Introdução ao CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de interface do usuário, consulte [Elementos de CreateUiDefinition](managed-application-createuidefinition-elements.md).

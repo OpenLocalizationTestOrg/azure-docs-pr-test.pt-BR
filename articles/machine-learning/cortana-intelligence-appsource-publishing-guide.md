@@ -1,6 +1,6 @@
 ---
-title: "Guia de publicação do AppSource do Cortana Intelligence | Microsoft Docs"
-description: "Como um Microsoft Partner, aqui estão todas as etapas necessárias a serem seguidas para publicar sua solução do Cortana Intelligence para AppSource."
+title: "Guia de publicação de inteligência AppSource aaaCortana | Microsoft Docs"
+description: "Como Microsoft Partner, aqui estão todas as etapas de saudação precisar toofollow toopublish sua tooAppSource de solução de inteligência do Cortana."
 services: machine-learning
 documentationcenter: 
 author: AnupamMicrosoft
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: 9f867641b77c8148c1d6cbf2913da9c1f5ce5b71
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 66f26016b5eb709c567e9829aa787ca926e13d9d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Guia de publicação do AppSource do Cortana Intelligence
 
 ## <a name="overview"></a>Visão geral
-O AppSource é o destino único para BDMs (Business Decision Makers) para descobrir e experimentar de forma transparente aplicativos/soluções de negócios criados pelos parceiros e avaliados pela Microsoft. Assista [este vídeo](https://youtu.be/hpq_Y9LuIB8) para saber como funciona o AppSource. 
+AppSource é único destino Olá Business decisão responsáveis pelas toodiscover e tente perfeitamente soluções/aplicativos de negócios criados por parceiros e avaliadas pela Microsoft. Inspecionar [este vídeo](https://youtu.be/hpq_Y9LuIB8) toolearn como AppSource funciona. 
 
 Como um Microsoft Partner, realmente é possível obter benefícios da publicação no AppSource se:
 - Desenvolver um aplicativo/solução inteligente utilizando o [Cortana Intelligence Suite](https://azure.microsoft.com/en-us/suites/cortana-intelligence-suite/?cdn=disable).
@@ -31,19 +31,19 @@ Como um Microsoft Partner, realmente é possível obter benefícios da publicaç
 
 Dê uma olhada nas [soluções Cortana Intelligence](https://appsource.microsoft.com/en-us/marketplace/apps?product=cortana-intelligence&page=1) que já estão publicadas no AppSource. 
 
-Este artigo irá percorrer as etapas para obter a solução do Cortana Intelligence de um parceiro publicada na AppSource
+Este artigo guiará Olá etapas tooget um parceiro da solução de inteligência Cortana publicado tooAppSource
 
 ## <a name="getting-started"></a>Introdução
-1. No [Guia de Benefícios da Comunidade de Parceiros](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Partner%20Community%20Benefits%20Guide%20-%20Cloud%20and%20Enterprise.pdf) (PDF), consulte a página 9 para ser listado como um parceiro de Análise Avançada.
-1. Preencha o formulário [Enviar seu aplicativo](https://appsource.microsoft.com/en-us/partners/list-an-app).
+1. Em Olá [parceiro comunidade benefícios guia](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Partner%20Community%20Benefits%20Guide%20-%20Cloud%20and%20Enterprise.pdf) (PDF), consulte a página 9 tooget listado como um parceiro de análise avançada.
+1. Olá completa [enviar seu aplicativo](https://appsource.microsoft.com/en-us/partners/list-an-app) formulário.
 
-    Para a pergunta *"Escolha os produtos para os quais seu aplicativo foi criado*", marque a caixa de seleção **Outros** e liste "Cortana Intelligence" no controle de edição.
-1. Antes que um aplicativo do Cortana Intelligence possa ser integrado no AppSource, o aplicativo deverá ser certificado pela equipe de Tecnologia de Solução de Parceiro do Cortana Intelligence. Para que esse processo seja iniciado, compartilhe dos detalhes do seu aplicativo preenchendo o formulário de pesquisa em [Avaliação de soluções do Cortana Intelligence para publicação do AppSource](https://aka.ms/cisappsrceval). Esse site é protegido por senha e o site possui instruções sobre como obter a senha.
+    Pergunta Olá *"escolher produtos de saudação que seu aplicativo é criado para*", verifique Olá **outros** controle de edição de caixa de seleção e lista "Inteligência Cortana" hello.
+1. Antes de um aplicativo de inteligência de Cortana pode obter tooAppSource incorporados, devem obter certificado pela equipe de tecnologia de solução de parceiro do Cortana inteligência. tooget que o processo foi iniciado, pesquisa de compartilhamento gentilmente detalhes sobre o seu aplicativo com o preenchimento de formulário em [avaliação de solução de inteligência de Cortana para publicação AppSource](https://aka.ms/cisappsrceval). Este site está protegido por senha e site Olá tem instruções sobre como tooget Olá senha.
 
 ## <a name="solution-evaluation-criteria"></a>Critérios de avaliação da solução
-Aqui está a lista de critérios que o aplicativo precisa atender
-1. O aplicativo deve endereçar um problema de caso de uso comercial específico dentro de uma determinada área funcional de maneira repetida com configurações mínimas para proposições de valores predefinidas implementáveis dentro de um curto período de tempo.
-1. A solução deve utulizar pelo menos um dos seguintes componentes:
+Aqui está a lista Olá de critérios Olá aplicativo necessidades toomeet
+1. Aplicativo precisa tooaddress problema específico de negócios usar maiusculas dentro de uma determinada área funcional de forma repetida com as configurações mínimas para propostas de valor predefinido implementável em um curto período.
+1. Solução deve usar pelo menos um dos Olá componentes a seguir:
 
     - HDInsight
     - Machine Learning
@@ -55,64 +55,64 @@ Aqui está a lista de critérios que o aplicativo precisa atender
     - Microsoft R Server autônomo
     - Serviços do R em SQL 2016 ou HDInsight Premium
 1. A solução deve gerar pelo menos US$ 1000 por mês por cliente usando DPOR/CSP.
-1. A solução deve usar logon único federado do Azure Active Directory (SSO federado AAD) com permissão habilitada para autenticação de usuários e controles de acesso a recursos. Será necessário mostrar à equipe de avaliação que sua solução é SSO federado AAD habilitado, antes que seu aplicativo possa ser integrado ao AppSource.
+1. Solução deve usar o logon único do Active Directory do Azure federado hello (AAD SSO federado) habilitada para autenticação de usuário e controles de acesso de recursos de autorização. Você precisará tooshow toohello avaliação equipe que sua solução seja AAD federado SSO habilitado antes de seu aplicativo pode ser incorporada tooAppSource.
 
-     Para ver o que significa ser SSO federado AAD habilitado, procure posicionar 02:35 em [A experiência de avaliação do AppSource passa pelo](https://aka.ms/trialexperienceforwebapps) vídeo. Se o seu aplicativo ainda não estiver habilitado com SSO federado AAD, segue aqui alguma documentação sobre isso
+     toosee o que significa toobe AAD federado SSO habilitado, busca tooposition 02:35 em [AppSource experiência de avaliação percorrer](https://aka.ms/trialexperienceforwebapps) vídeo. Se o seu aplicativo ainda não estiver habilitado com SSO federado AAD, segue aqui alguma documentação sobre isso
    1. [Entrar com um clique](https://identity.microsoft.com/Landing?ru=https://identity.microsoft.com/).
    1. [Integrar aplicativos com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application).
      
-1. Utilize o Power BI na sua solução: opcional, mas altamente recomendado, uma vez que comprovadamente irá gerar maior número de clientes potenciais.
+1. Usar o Power BI em sua solução: opcional, mas altamente recomendado, pois ela é aprovada toogenerate quanto maior o número de clientes potenciais.
 
 ## <a name="devcenter-account-setup"></a>Configuração da conta do DevCenter
-Este é o processo de registro de sua empresa para tornar-se um editor com a Microsoft. Se você já é um editor registrado com uma conta do DevCenter existente, compartilhe o ID do email associado à sua conta do DevCenter. Depois que a solicitação for aprovada para publicação, você obterá acesso à documentação completa sobre o [perfil do editor de Gerenciamento do Portal do Cloud](https://cloudpartner.azure.com/#documentation/manage-publisher-profile)
+Esse é o processo de saudação do registro toobecome sua empresa um publicador com a Microsoft. Se você já for um editor registrado com uma conta existente do DevCenter, compartilhe Olá ID de email associado à sua conta DevCenter. Depois que a solicitação for aprovada para publicação, você obterá acesso toofull documentação [nuvem Portal gerenciar perfil do publicador](https://cloudpartner.azure.com/#documentation/manage-publisher-profile)
 
-Se você não tiver uma conta, a seguir são apresentadas as principais etapas para configurar uma conta do DevCenter.
+Se você não tiver um, abaixo é Olá principais etapas toosetup uma conta DevCenter.
 1. Crie uma conta da Microsoft [aqui](https://signup.live.com/signup.aspx).
-1. Vá para a [página de registro](http://go.microsoft.com/fwlink/?LinkId=615100) do Microsoft DevCenter e clique em "criar conta".
-1. Quando solicitado, utilize o código fornecido. Se você não possuir um código, contate [appsourcecissupport@microsoft.com](mailto:appsourcecissupport@microsoft.com?subject=Request%20for%20promotion-code%20for%20DevCenter%20account%20setup).
-1. Selecione o [país/região](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees) de sua residência ou onde sua empresa está localizada. **Essas informações não poderão ser alteradas posteriormente.**
-1. Selecione o [tipo de conta de desenvolvedor](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees) Para AppSource, selecione **Empresa**. Para uma conta de empresa, faça a revisão dessas [diretrizes](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account).
-1. Digite as informações de contato que deseja usar para sua conta de desenvolvedor.
-Para obter instruções passo a passo detalhadas sobre como configurar a conta do DevCenter, consulte as instruções [aqui](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration).
+1. Vá toohello Microsoft DevCenter [página de registro](http://go.microsoft.com/fwlink/?LinkId=615100) e clique em "inscrever-se".
+1. Quando solicitado para pagamento, use o código de saudação que fornecemos tooyou. Se você não possuir um código, contate [appsourcecissupport@microsoft.com](mailto:appsourcecissupport@microsoft.com?subject=Request%20for%20promotion-code%20for%20DevCenter%20account%20setup).
+1. Selecione Olá [país/região](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees) em que você reside ou onde a sua empresa está localizada. **Você não será capaz de toochange isso mais tarde.**
+1. Selecione o [tipo de conta de desenvolvedor](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees) Para AppSource, selecione **Empresa**. Para uma conta da empresa, ser tooreview-se de que eles [diretrizes](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account).
+1. Insira as informações de contato Olá desejar toouse para sua conta de desenvolvedor.
+Para obter instruções detalhadas passo a passo sobre como toosetup DevCenter conta, consulte as instruções de saudação [aqui](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration).
 
 ## <a name="provide-info-for-microsoft-sellers"></a>Forneça informações aos vendedores da Microsoft
-Uma das principais proposições de valor do AppSource para parceiros é poder colaborar com os Vendedores da Microsoft no posicionamento de aplicativos de parceiros ao alcance de potenciais clientes.
+Uma saudação principais propostas de valor de AppSource para parceiros é toocollaborate capaz de toobe com Microsoft Sellers no posicionamento de aplicativos de parceiro na frente de clientes potenciais.
 
-Preencha as [Informações da Solução de Parceiro para Vendedores da Microsoft](https://aka.ms/aapartnerappinfo) e envie-o para [appsourcecissupport@microsoft.com](mailto:appsourcecissupport@microsoft.com?subject=Request%20publisher%20account%20creation%20for%20%3cPartner%20Name%3e%20and%20whitelist%20owner/contributer%20AAD/MSA%20email%20IDs). Essa é uma etapa necessária para que um aplicativo do Cortana Intelligence seja aprovado para publicação.
+Preencher [informações de solução de parceiro para o Microsoft Sellers](https://aka.ms/aapartnerappinfo) e enviá-lo muito[appsourcecissupport@microsoft.com](mailto:appsourcecissupport@microsoft.com?subject=Request%20publisher%20account%20creation%20for%20%3cPartner%20Name%3e%20and%20whitelist%20owner/contributer%20AAD/MSA%20email%20IDs). Essa é uma etapa necessária para um tooget do aplicativo de inteligência de Cortana aprovada para publicação.
 
 ## <a name="build-a-compelling-customer-walkthrough-on-appsource"></a>Desenvolva um passo a passo atraente do cliente no AppSource
-Primeiro, consulte a [Otimização de Inventário do Neal Analytics](https://appsource.microsoft.com/en-us/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome) no AppSource. Cada entrada de aplicativo no AppSource possui título, resumo (máximo de 100 caracteres), descrição (máximo de 1300 caracteres), imagens, vídeos (opcional), documentos em pdf, além do ponto de entrada para uma experiência de avaliação. Os parceiros devem aproveitar tudo isso para criar uma experiência atraente do cliente.
+Primeiro, consulte a [Otimização de Inventário do Neal Analytics](https://appsource.microsoft.com/en-us/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome) no AppSource. Cada entrada de aplicativo no AppSource possui título, resumo (máximo de 100 caracteres), descrição (máximo de 1300 caracteres), imagens, vídeos (opcional), documentos em pdf, além do ponto de entrada para uma experiência de avaliação. Os parceiros devem utilizar todos esses toobuild uma ótima experiência de cliente.
 
-Os parceiros devem pensar sobre o conteúdo que incluíram no AppSource como uma orquestração de vendas de ponta a ponta. Os clientes leem o título e a descrição para compreender a proposição de valor e, em seguida, passam por imagens e vídeos para entender o que é a solução. Estudos de caso ajudam clientes potenciais a verem como os clientes existentes estão agregando valor. 
+Os parceiros devem pensar em conteúdo Olá que eles colocados nos AppSource como uma orquestração de vendas tooend final. Os clientes ler Olá título e descrição toounderstand Olá proposta de valor e, em seguida, passar por toounderstand imagens e vídeos que solução Olá é sobre. Estudos de caso ajudam clientes potenciais a verem como os clientes existentes estão agregando valor. 
 
-Tudo isso deve fazer com que o cliente sinta-se interessado e queira saber mais. Pense nisso como uma apresentação baseada em plataformas de lançamento, em que um competente profissional de vendas técnicas acompanharia os novos clientes. O formato sugerido da descrição é dividir o texto em sub-seções com base em proposições de valor, cada um destacado com um subtítulo. 
+Isso deve tornar o cliente Olá fique interessado e que desejam tooknow mais. Pense nisso como tom apresentação de coleções com base em que um boa técnico vendedor deve percorrer novos clientes de saudação. Olá sugerido de formato de descrição é toobreak o texto de saudação em subseções com base em propostas de valor, cada um com realçado com um subtítulo. 
 
-Geralmente, os visitantes verificam rapidamente o campo "Resumo da oferta" e os subtítulos para obter o conteúdo de endereço do aplicativo e o porquê eles devem considerar o aplicativo apenas diante de um rápido olhar. Portanto, é importante chamar a atenção do usuário e apresentar-lhe uma razão para ler e obter as especificidades.
+Visitantes visão geral sobre hello "oferecem resumo" campo e subtítulos tooget essência de qual aplicativo hello endereços e por que eles devem considerar o aplicativo hello em apenas uma visão rápida. Portanto, é importante tooget Olá atenção usuário conceder a eles tooread um motivo em especificações de saudação tooget.
 
 Veja o que esses parceiros fizeram.
 - [Otimização de Inventário do Neal Analytics](https://appsource.microsoft.com/en-us/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview)
 - [Personalização de Varejo Plexure](https://appsource.microsoft.com/en-us/product/web-apps/plexure.c82dc2fc-817b-487e-ae83-1658c1bc8ff2?tab=Overview)
 - [Serviços ao Cidadão AvePoint](https://appsource.microsoft.com/en-us/product/web-apps/avepoint.7738ac97-fd40-4ed3-aaab-327c3e0fe0b3?tab=Overview)
 
-O ato final de vendas é mostrar uma demonstração do aplicativo/solução que apresente como a proposta de valor é entregue. É exatamente isso que espera-se de uma experiência de avaliação do cliente no AppSource. Uma boa demonstração irá fazer o seguinte:
-- Resumir brevemente a proposição de valor do aplicativo e listar as pessoas dentro da empresa do cliente que podem interagir com a solução
-- Contar uma história e definir o contexto sobre um cliente de exemplo lidando com problemas específicos
-- Explique como a situação geralmente pode ser devolvida e impactar o cliente (antes) vs o quê aconteceria se a solução estiver em uso. Isso poderá ser mostrado utilizando painéis de controle do PowerBI, etc.
-- Resumir como a solução é realizada utilizando qualquer algoritmo de Machine Learning específico, etc.
+Olá final de vendas é tooshow uma demonstração de Olá/solução de aplicativo mostrando como proposta de valor de saudação é entregue. É exatamente isso que espera-se de uma experiência de avaliação do cliente no AppSource. Uma boa demonstração fará a seguir hello:
+- Novamente, resumir proposição de valor de saudação do aplicativo hello resumindo e listar personas hello dentro da empresa do cliente Olá que interage com a solução de saudação
+- Informe um contexto de saudação história e conjuntos sobre um cliente de exemplo lidar com problemas específicos
+- Explique como situação Olá geralmente pode devolve e impacto sobre o cliente de saudação (VS antes) o que aconteceria se solução hello está em uso. Isso poderá ser mostrado utilizando painéis de controle do PowerBI, etc.
+- Resuma como solução Olá torna acontecer usando qualquer algoritmo de aprendizado de máquina específico etc.
 
-O conteúdo que está sendo adicionado no AppSource deve ser de alta qualidade e suficientemente reunido para habilitar o seguinte:
-- Uma pessoa de vendas técnicas do parceiro deve utilizá-lo para sua orquestração de vendas. As equipes de vendas utilizando esses recursos significa o sinal positivo de que você pode esperar que as pessoas de vendas da MS também podem fazer o mesmo. Isso permitirá que o ponto de contato do cliente seja capaz de retransmitir consistentemente a mesma história a seus colegas de equipe e superiores para obter o orçamento e as aprovações, antes que um acordo de compra possa ser feito.
-- Um cliente que visita o site de forma orgânica pode passar pelo conteúdo por si só e se sentir animado para responder de volta à comunicação do parceiro para avançar com os próximos passos.
+conteúdo de saudação que está sendo adicionado em AppSource deve ser de alta qualidade e junção backup suficiente seguinte de saudação tooenable:
+- Uma pessoa de vendas técnicas do parceiro deve utilizá-lo para sua orquestração de vendas. As equipes de vendas usá-lo é um sinal que você pode esperar o pessoal de vendas MS, além de ser capaz de toodo Olá mesmo. Isso permitirá que o ponto de contato de cliente saudação do toobe tooconsistently capaz de retransmissão mesmo artigo tootheir dos membros da equipe e orçamento de tooget no-break e aprovações superior antes de uma oferta de compra pode ser feita.
+- Um cliente visitando o site Olá organicamente pode percorrer Olá conteúdo todos por si mesmos e acha que toorespond felizes toopartner back comunicação toomove prosseguir com as próximas etapas.
 
-É por isso que os parceiros devem pensar no conteúdo que colocam no AppSource como uma orquestração de vendas de ponta a ponta. Com base na linha da história e nos recursos a serem exibidos na experiência de avaliação, o tipo de oferta pode ser decidido.
+Que é por parceiros devem pensar Olá conteúdo eles colocados nos AppSource como uma orquestração de vendas tooend final. Com base na linha de texto de saudação e toobe recursos mostrados na experiência de avaliação, tipo de oferta pode decidir.
 
-## <a name="publish-your-app-on-the-publishing-portal"></a>Publicar seu aplicativo no portal de publicação
-Nesse caso, avaliamos as etapas acima para sua aplicação, você terá acesso ao portal de publicação e poderá consultar [Como publicar uma oferta do Cortana Intelligence via Portal do Cloud Partner](https://cloudpartner.azure.com/#documentation/cloud-partner-portal-publish-cortana-intelligence-app) para obter instruções detalhadas sobre as próximas etapas.
+## <a name="publish-your-app-on-hello-publishing-portal"></a>Publicar seu aplicativo no portal de publicação Olá
+Quando avaliamos Olá acima etapas para o seu aplicativo, você obterá o portal de publicação do acesso toohello e pode ver [como toopublish um Cortana Intelligence oferecem por meio do Portal de parceiros de nuvem](https://cloudpartner.azure.com/#documentation/cloud-partner-portal-publish-cortana-intelligence-app) para obter instruções detalhadas sobre as próximas etapas.
 
-Se você precisar de informações sobre qualquer um dos campos, envie um email <appsourcecissupport@microsoft.com>.
+Se você precisar obter informações sobre qualquer um dos campos de hello, email < appsourcecissupport@microsoft.com >.
 ## <a name="my-app-is-published-on-appsource---now-what"></a>Meu aplicativo é publicado no AppSource - e agora?
 Em primeiro lugar, parabéns por ter publicado o seu aplicativo.
-O nível de retornos que você obtém ao publicar seu aplicativo no AppSource depende muito de como você influencia o público-alvo. Consulte [Hacking de crescimento de seu aplicativo Cortana Intelligence no AppSource ](http://aka.ms/aagrowthhackguide) para obter mais detalhes sobre como é possível maximizar os retornos.
+nível de saudação de retorna que obter de publicar seu aplicativo em AppSource muito depende de como influenciam o público-alvo hello. Consulte [hackers crescimento de seu aplicativo de inteligência de Cortana em AppSource](http://aka.ms/aagrowthhackguide) para obter mais detalhes de como você pode maximizar Olá retorna.
 
-Se você tiver quaisquer dúvidas ou sugestões, contate-nos em <appsourcecissupport@microsoft.com>.
+Se você tiver dúvidas ou sugestões, gentilmente chegar toous em < appsourcecissupport@microsoft.com >.
 

@@ -1,6 +1,6 @@
 ---
-title: "Próximas etapas da criação do projeto no Service Fabric | Microsoft Docs"
-description: "Este artigo contém links para um conjunto de tarefas básicas de desenvolvimento para o Service Fabric"
+title: "etapas de criação de projeto Avançar malha aaaService | Microsoft Docs"
+description: "Este artigo contém o conjunto de tooa de links de tarefas básicas de desenvolvimento para a malha do serviço"
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,64 +14,64 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: rwike77
-ms.openlocfilehash: 74019850c507902d9ef7ec47a364fff234aaf32b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 45598bfabedf280fba8af449ef920f40b409a609
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>O seu aplicativo do Service Fabric e as próximas etapas
-O seu aplicativo do Service Fabric do Azure foi criado. Este artigo descreve a composição do seu projeto e algumas das próximas etapas possíveis.
+O seu aplicativo do Service Fabric do Azure foi criado. Este artigo descreve a composição de saudação do seu projeto e algumas das próximas etapas possíveis.
 
 ## <a name="your-application"></a>Seu aplicativo
-Cada novo aplicativo inclui um projeto de aplicativo. Pode haver um ou dois projetos adicionais dependendo do tipo de serviço escolhido.
+Cada novo aplicativo inclui um projeto de aplicativo. Pode haver um ou dois projetos adicionais, dependendo do tipo de saudação do serviço escolhido.
 
-### <a name="the-application-project"></a>O projeto de aplicativo
-O projeto de aplicativo consiste em:
+### <a name="hello-application-project"></a>projeto de aplicativo Hello
+projeto de aplicativo Hello consiste em:
 
-* Um conjunto de referências para os serviços que compõem o aplicativo.
-* Três perfis de publicação, (Local de 1 Nó, Local de 5 Nós e Nuvem) que você pode usar para atualizar as preferências para trabalhar com ambientes diferentes, como preferências relacionadas a um ponto de extremidade do cluster e se realizará ou não implantações de atualização por padrão.
-* Três arquivos de parâmetro de aplicativos (os mesmos que acima) que você pode usar para atualizar as configurações do aplicativo específicas do ambiente, como o número de partições a criar para um serviço.
-* Um script de implantação que você pode usar para implantar o aplicativo na linha de comando ou como parte de uma pipeline de implantação e integração contínua automatizada.
-* O manifesto do aplicativo, que o descreve. Você pode encontrar o manifesto na pasta ApplicationPackageRoot.
+* Um conjunto de serviços de toohello de referências que compõem seu aplicativo.
+* Três publicar perfis (1-nó Local, 5-nó Local e nuvem) que você pode usar toomaintain preferências para trabalhar com diferentes ambientes – como ponto de extremidade de cluster de tooa relacionados preferências e se tooperform atualizar implantações por padrão.
+* Três arquivos de parâmetro aplicativo (o mesmo que acima) que você pode usar configurações de aplicativo específico do ambiente toomaintain, como o número de saudação de toocreate de partições para um serviço.
+* Um script de implantação que você pode usar toodeploy seu aplicativo de linha de comando hello ou como parte de um pipeline de implantação e a integração contínuo automatizado.
+* manifesto de aplicativo Hello, que descreve o aplicativo hello. Você pode encontrar hello manifesto na pasta de ApplicationPackageRoot hello.
 
 ### <a name="stateless-service"></a>Serviço sem estado
-Ao adicionar um novo serviço sem estado, o Visual Studio adiciona à sua solução um projeto de serviço que inclua um tipo descendente de `StatelessService`. O serviço incrementa uma variável local em um contador.
+Quando você adiciona um novo serviço sem monitoração de estado, o Visual Studio adiciona uma solução de tooyour de projeto de serviço que inclui um tipo que descendem do `StatelessService`. serviço de saudação incrementa uma variável local em um contador.
 
 ### <a name="stateful-service"></a>Serviço com estado
-Ao adicionar um novo serviço com estado, o Visual Studio adiciona à sua solução um projeto de serviço que inclua um tipo descendente de `StatefulService`. O serviço incrementa um contador em seu método `RunAsync` e armazena o resultado em um `ReliableDictionary`.
+Quando você adiciona um novo serviço com monitoração de estado, o Visual Studio adiciona uma solução de tooyour de projeto de serviço que inclui um tipo que descendem do `StatefulService`. Olá, serviço incrementa um contador em seu `RunAsync` método e armazena o resultado da saudação em um `ReliableDictionary`.
 
 ### <a name="actor-service"></a>Serviço de ator
-Ao adicionar um novo reliable actor, o Visual Studio adiciona dois projetos à sua solução: um projeto de ator e um projeto de interface.
+Quando você adiciona um novo ator confiável, o Visual Studio adiciona o Gerenciador de tooyour dois projetos: um projeto de ator e um projeto de interface.
 
-O projeto de ator fornece métodos para a configuração e a obtenção do valor de um contador mantido de forma confiável no estado do ator. O projeto de interface fornece uma interface que outros serviços podem usar para invocar o ator.
+projeto de ator Olá fornece métodos para a configuração e Obtendo o valor de saudação de um contador que é confiável persistente em estado de saudação do ator. Olá interface projeto fornece uma interface que outros serviços podem usar o ator de saudação tooinvoke.
 
 ### <a name="stateless-web-api"></a>API Web sem monitoração de estado
-O projeto de API da Web sem monitoração de estado fornece um serviço Web básico que você pode usar para abrir o aplicativo para clientes externos. Para ter mais informações sobre como o projeto é estruturado, consulte [Serviços da API Web do Service Fabric com a auto-hospedagem OWIN](service-fabric-reliable-services-communication-webapi.md).
+projeto de API da Web sem monitoração de estado Olá fornece básico que você pode usar tooopen seus clientes de tooexternal do aplicativo de serviço web. Para obter mais informações sobre como o projeto de saudação estruturado, consulte [serviços de API da Web do serviço do Fabric com OWIN auto-hospedagem](service-fabric-reliable-services-communication-webapi.md).
 
 
 ### <a name="aspnet-core"></a>Núcleo do ASP.NET
-O SDK do Service Fabric fornece o mesmo conjunto de modelos do ASP.NET Core que está disponível para projetos do ASP.NET Core autônomos: vazio, [API Web][aspnet-webapi] e [Aplicativo Web][aspnet-webapp].
+Olá SDK do Service Fabric fornece Olá mesmo conjunto de modelos do ASP.NET Core que estão disponíveis para projetos do ASP.NET Core de autônomo: vazio, [API da Web][aspnet-webapi], e [aplicativo Web][aspnet-webapp].
 
 ### <a name="guest-executables-and-guest-containers"></a>Executáveis de convidado e contêineres de convidado
 
-Um 'convidado' do Service Fabric é um serviço que não é compilado com os modelos de programação da plataforma. Você pode empacotar os binários de um convidado [diretamente no pacote de aplicativos](service-fabric-deploy-existing-app.md) ou então [por meio de uma imagem de contêiner](service-fabric-deploy-container.md). Em ambos os casos, o Visual Studio cria os artefatos necessários na pasta **ApplicationPackageRoot** do projeto do aplicativo. O Visual Studio não criará um novo projeto de serviço porque o código já existe em outro lugar. Se você deseja gerenciar seus projetos de convidado junto com o projeto de aplicativo do Service Fabric, você pode adicioná-los à mesma solução do Visual Studio.
+Um serviço de malha 'Convidado' é um serviço que não é compilado com modelos de programação da plataforma hello. Você pode empacotar binários Olá para o convidado ou [diretamente no pacote de aplicativo hello](service-fabric-deploy-existing-app.md) ou [por meio de uma imagem de contêiner](service-fabric-deploy-container.md). Em ambos os casos, o Visual Studio cria Olá artefatos necessários no hello **ApplicationPackageRoot** pasta do projeto de aplicativo hello. Visual Studio não irá criar um novo projeto de serviço porque o código Olá já existe em outro lugar. Se você quiser toomanage seu convidado projetos junto com o projeto de aplicativo do Service Fabric hello, você pode adicioná-los toohello mesma solução do Visual Studio.
 
 ## <a name="next-steps"></a>Próximas etapas
 ### <a name="create-an-azure-cluster"></a>Criar um cluster do Azure
-O SDK do Service Fabric fornece um cluster local para desenvolvimento e teste. Para criar um cluster no Azure, veja [Configurar um cluster do Service Fabric do Portal do Azure][create-cluster-in-portal].
+Olá SDK do Service Fabric fornece um cluster local para desenvolvimento e teste. toocreate um cluster no Azure, consulte [Configurando um cluster do Service Fabric do portal do Azure de saudação][create-cluster-in-portal].
 
-### <a name="publish-your-application-to-azure"></a>Publicar seu aplicativo no Azure
-Você pode publicar o seu aplicativo diretamente do Visual Studio para um cluster do Azure. Para saber como, consulte [Publicar seu aplicativo no Azure][publish-app-to-azure].
+### <a name="publish-your-application-tooazure"></a>Publicar seu aplicativo tooAzure
+Você pode publicar seu aplicativo diretamente do Visual Studio tooan cluster do Azure. como fazer isso, consulte toolearn [publicar seu aplicativo tooAzure][publish-app-to-azure].
 
-### <a name="use-service-fabric-explorer-to-visualize-your-cluster"></a>Usar o Explorador do Service Fabric para visualizar o seu cluster
-O Explorador do Service Fabric oferece uma maneira fácil de visualizar o seu cluster, incluindo aplicativos implantados e layout físico. Para saber mais, veja [Visualizar o cluster com o Service Fabric Explorer][visualize-with-sfx].
+### <a name="use-service-fabric-explorer-toovisualize-your-cluster"></a>Usar o Gerenciador do Service Fabric toovisualize seu cluster
+Service Fabric Explorer oferece uma maneira fácil toovisualize seu cluster, incluindo aplicativos implantados e layout físico. mais, consulte toolearn [visualizando o cluster usando o Gerenciador do Service Fabric][visualize-with-sfx].
 
 ### <a name="version-and-upgrade-your-services"></a>Versão e atualização de serviços
-O Service Fabric permite controle de versão independente e atualização de serviços independentes em um aplicativo. Para saber mais, consulte [Controlar a versão e atualizar seus serviços][app-upgrade-tutorial].
+O Service Fabric permite controle de versão independente e atualização de serviços independentes em um aplicativo. mais, consulte toolearn [controle de versão e atualizar seus serviços][app-upgrade-tutorial].
 
 ### <a name="configure-continuous-integration-with-visual-studio-team-services"></a>Configurar a integração contínua com o Visual Studio Team Services
-Para saber como configurar um processo de integração contínua para seu aplicativo do Service Fabric, confira [Configurar a integração contínua com o Visual Studio Team Services][ci-with-vso].
+toolearn como você pode configurar um processo de integração contínua para seu aplicativo de malha do serviço, consulte [configurar a integração contínua com o Visual Studio Team Services][ci-with-vso].
 
 <!-- Links -->
 [add-web-frontend]: service-fabric-add-a-web-frontend.md

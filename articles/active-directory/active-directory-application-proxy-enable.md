@@ -1,6 +1,6 @@
 ---
-title: "Proxy do aplicativo do Azure AD – introdução à instalação do conector | Microsoft Docs"
-description: Ative o Proxy de Aplicativo no Portal do Azure e instale os Conectores para o proxy reverso.
+title: "Introdução aaaAzure App Proxy AD - instalar o conector | Microsoft Docs"
+description: "Ativar o Proxy de aplicativo no portal do Azure de saudação e instalar Olá conectores de proxy reverso hello."
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -15,94 +15,94 @@ ms.date: 08/02/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 77acb23f33fd656a12c27107cb159613a8b2aec4
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: ea79ffa92fa223584be04f49019fd31a0bfd8358
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-application-proxy-and-install-the-connector"></a>Introdução ao Proxy de Aplicativo e instale o conector
-Este artigo orienta você pelas etapas para habilitar o Proxy de Aplicativo do Microsoft Azure AD para seu diretório de nuvem no Azure AD.
+# <a name="get-started-with-application-proxy-and-install-hello-connector"></a>Introdução ao Proxy de aplicativo e instalar o conector Olá
+Este artigo orienta Olá etapas tooenable Proxy de aplicativo do Microsoft Azure AD para seu diretório na nuvem no Azure AD.
 
-Se você ainda não conhece os benefícios de produtividade e segurança que o Proxy de Aplicativo traz para sua organização, saiba mais sobre [Como fornecer acesso remoto seguro a aplicativos locais](active-directory-application-proxy-get-started.md).
+Se você não tiver ainda traz Proxy de aplicativo com reconhecimento de benefícios de segurança e a produtividade de saudação organização tooyour, saiba mais sobre [como tooprovide proteger o acesso remoto aplicativos locais tooon](active-directory-application-proxy-get-started.md).
 
 ## <a name="application-proxy-prerequisites"></a>Pré-requisitos de Proxy de aplicativo
-Antes de habilitar e usar os serviços de Proxy de aplicativo, você precisa ter:
+Antes de habilitar e usar os serviços de Proxy de aplicativo, você precisa toohave:
 
 * Uma [assinatura premium ou básica](active-directory-editions.md) do Microsoft Azure AD e um diretório do Azure AD do qual você seja administrador global.
-* Um servidor executando o Windows Server 2012 R2 ou 2016, em que você pode instalar o Conector de Proxy de Aplicativo. O servidor precisa ser capaz de se conectar aos serviços do Proxy de Aplicativo na nuvem e aos aplicativos locais que você está publicando.
-  * Para fazer logon único em seus aplicativos publicados usando a Delegação restrita de Kerberos, esse computador deve ser ingressado no mesmo domínio do AD que os aplicativos que você está publicando. Para obter mais informações, consulte [KCD para logon único com o Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md).
+* Um servidor executando o Windows Server 2012 R2 ou 2016, no qual você pode instalar Olá conector de Proxy de aplicativo. servidor de saudação precisa toobe tooconnect capaz de toohello serviços de Proxy do aplicativo na nuvem hello e Olá aplicativos que você está publicando locais.
+  * Para tooyour de logon único usando a delegação restrita de Kerberos, os aplicativos publicados nesta máquina deve ser domínio no domínio Olá mesmo AD como aplicativos de saudação que você está publicando. Para obter mais informações, consulte [KCD para logon único com o Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md).
 
-Se a sua organização usa servidores proxy para se conectar à Internet, leia [Trabalhar com servidores proxy locais existentes](application-proxy-working-with-proxy-servers.md) para obter detalhes de como configurá-los antes de começar com o Proxy de Aplicativo.
+Se sua organização usa o proxy de leitura da internet, servidores tooconnect toohello [funcionam com existente de servidores proxy no local](application-proxy-working-with-proxy-servers.md) para obter detalhes sobre como tooconfigure-los antes de obtém Introdução ao Proxy de aplicativo.
 
 ## <a name="open-your-ports"></a>Abrir as portas
 
-Para preparar o ambiente para o proxy de aplicativo do Azure AD, primeiro você precisa habilitar a comunicação com data centers do Azure. Se houver um firewall no caminho, verifique se o ele está aberto para que o Conector possa fazer solicitações HTTPS (TCP) para o Proxy de Aplicativo.
+tooprepare seu ambiente para o Proxy de aplicativo do AD do Azure, primeiro é necessário tooenable comunicação tooAzure data centers. Se houver um firewall no caminho de saudação, certifique-se de que ele está aberto para que Olá que conector pode tornar HTTPS (TCP) solicita toohello Proxy de aplicativo.
 
-1. Abra as seguintes portas para o tráfego de **saída**:
+1. Seguir Olá abrir portas muito**saída** tráfego:
 
    | Número da porta | Como ele é usado |
    | --- | --- |
-   | 80 | Baixando as CRLs (listas de certificados revogados) ao validar o certificado SSL |
-   | 443 | Toda a comunicação de saída com o serviço do proxy de aplicativo |
+   | 80 | Baixando a revogação de certificado CRLs (listas) ao validar o certificado SSL Olá |
+   | 443 | Toda a comunicação com hello serviço Proxy de aplicativo |
 
-   Se o firewall impõe o tráfego de acordo com os usuários originadores, abra essas portas para o tráfego proveniente dos serviços do Windows que são executados como um serviço de rede.
+   Se o firewall reforça o tráfego de acordo com os usuários de toooriginating, abra essas portas para o tráfego dos serviços do Windows que são executados como um serviço de rede.
 
    > [!IMPORTANT]
-   > A tabela reflete os requisitos de porta para as versões do conector 1.5.132.0 e mais recentes. Se você ainda tem uma versão mais antiga do conector, também precisa habilitar as seguintes portas, além da 80 e da 443: 5671, 8080, 9090-9091, 9350, 9352, 10100 – 10120.
+   > tabela Olá reflete os requisitos de porta de saudação para versões do conector 1.5.132.0 e mais recente. Se você ainda tiver uma versão mais antiga do conector, você precisa também Olá tooenable seguintes portas em adição too80 e 443:5671, 8080, 9090-9091, 9350, 9352, 10100 – 10120.
    >
-   >Para obter informações sobre como atualizar os conectores para a versão mais recente, consulte [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-understand-connectors.md#automatic-updates).
+   >Para obter informações sobre como atualizar sua versão mais recente do toohello de conectores, consulte [conectores de Proxy de aplicativo do AD do Azure entender](application-proxy-understand-connectors.md#automatic-updates).
 
-2. Se seu firewall ou proxy permitir lista de permissões de DNS, você poderá adicionar as conexões a msappproxy.net e servicebus.windows.net à lista de permissões. Caso contrário, precisa permitir o acesso aos [Intervalos de IP do DataCenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados a cada semana.
+2. Se o firewall ou proxy permite que a lista branca DNS, você pode n e t e toomsappproxy.net de conexões da lista de permissões. Se não, você precisa tooallow acesso toohello [intervalos de IP de DataCenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), que é atualizado a cada semana.
 
-3. A Microsoft usa quatro endereços para verificar os certificados. Permita o acesso às URLs a seguir se você ainda não tiver feito isso para outros produtos:
+3. A Microsoft usa certificados de tooverify quatro endereços. Permitir acesso toohello URLs a seguir se você ainda não tiver feito isso para outros produtos:
    * mscrl.microsoft.com:80
    * crl.microsoft.com:80
    * ocsp.msocsp.com:80
    * www.microsoft.com:80
 
-4. O conector deve acessar login.windows.net e login.microsoftonline.net para o processo de registro.
+4. O conector precisa de acesso toologin.windows.net e login.microsoftonline.net para o processo de registro de saudação.
 
-5. Use a [Ferramenta de Teste de Portas do Conector de Proxy de Aplicativo Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) para verificar se o conector pode alcançar o serviço Proxy de Aplicativo. No mínimo, verifique se a região EUA Central e a região mais próxima de você tem todas as marcas de seleção verdes. Além disso, um número maior de marcas de seleção verdes significa maior resiliência.
+5. Saudação de uso [ferramenta de teste das portas conector do Azure AD aplicativo Proxy](https://aadap-portcheck.connectorporttest.msappproxy.net/) tooverify que seu conector possa acessar o serviço de Proxy de aplicativo hello. No mínimo, certifique-se de que que a região do hello centro dos EUA e Olá região mais próxima tooyou tenham todas as marcas de seleção verdes. Além disso, um número maior de marcas de seleção verdes significa maior resiliência.
 
 ## <a name="install-and-register-a-connector"></a>Instalar e registrar um conector
-1. Entre como administrador no [Portal do Azure](https://portal.azure.com/).
-2. O diretório atual é exibido sob seu nome de usuário no canto superior direito. Se você precisar alterar os diretórios, selecione esse ícone.
-3. Vá para **Azure Active Directory** > **Proxy de Aplicativo**.
+1. Entrar como um administrador no hello [portal do Azure](https://portal.azure.com/).
+2. O diretório atual aparece em seu nome de usuário no canto superior direito da saudação. Se você precisar toochange diretórios, selecione esse ícone.
+3. Vá muito**Active Directory do Azure** > **Proxy de aplicativo**.
 
-   ![Navegue até o Proxy de Aplicativo](./media/active-directory-application-proxy-enable/app_proxy_navigate.png)
+   ![Navegue tooApplication Proxy](./media/active-directory-application-proxy-enable/app_proxy_navigate.png)
 
 4. Selecione **Baixar o Conector**.
 
    ![Baixar o Conector](./media/active-directory-application-proxy-enable/download_connector.png)
 
-5. Execute **AADApplicationProxyConnectorInstaller.exe** no servidor que você preparou de acordo com os pré-requisitos.
-6. Siga as instruções no Assistente para instalar. Durante a instalação, é solicitado que você registre o conector com o Proxy de Aplicativo do seu locatário do Azure AD.
+5. Executar **AADApplicationProxyConnectorInstaller.exe** no servidor de saudação você preparou acordo toohello pré-requisitos.
+6. Siga as instruções de Olá Olá Assistente tooinstall. Durante a instalação, você está tooregister solicitadas Olá conector com hello Proxy de aplicativo do seu locatário do AD do Azure.
 
    * Forneça suas credenciais de administrador global do AD do Azure. Seu locatário de administrador global pode ser diferente das suas credenciais do Microsoft Azure.
-   * Verifique se o administrador que registra o Conector está no mesmo diretório onde você habilitou o serviço Proxy de Aplicativo. Por exemplo, se o domínio de locatário for contoso.com, o administrador deve ser admin@contoso.com ou qualquer outro alias nesse domínio.
-   * Se a **Configuração de Segurança Aprimorada do IE** estiver **Ativada** no servidor em que você está instalando o conector, a tela de registro poderá não ser vista. Siga as instruções na mensagem de erro para obter o acesso. Certifique-se de que a Segurança Melhorada do Internet Explorer está desativada.
+   * Verifique se o administrador Olá Olá de registros Olá conector está no mesmo diretório onde você habilitou Olá serviço Proxy de aplicativo. Por exemplo, se o domínio de locatário Olá for contoso.com, Olá administrador deve ser admin@contoso.com ou qualquer outro alias nesse domínio.
+   * Se **configuração de segurança aprimorada do IE** está definido muito**em** no servidor de saudação onde você está instalando o conector hello, você poderá não ver a tela de registro hello. acesso de tooget, siga as instruções de saudação na mensagem de erro de saudação. Certifique-se de que a Segurança Melhorada do Internet Explorer está desativada.
 
 Para fins de alta disponibilidade, você deve implantar pelo menos dois conectores. Cada conector deve ser registrado separadamente.
 
-## <a name="test-that-the-connector-installed-correctly"></a>Testar se o conector foi instalado corretamente
+## <a name="test-that-hello-connector-installed-correctly"></a>Testar esse conector Olá instalado corretamente
 
-Você pode confirmar se um novo conector foi instalado corretamente verificando-o no Portal do Azure ou em seu servidor. 
+Você pode confirmar que um novo conector instalado corretamente verificando-lo em qualquer Olá portal do Azure ou em seu servidor. 
 
-No Portal do Azure, entre em seu locatário e navegue até **Azure Active Directory** > **Proxy do Aplicativo**. Todos os seus conectores e grupos de conector são exibidos nesta página. Selecione um conector para ver os respectivos detalhes ou mova-o para um grupo de conector diferente. 
+Olá portal do Azure, entrar tooyour locatário e navegue muito**Active Directory do Azure** > **Proxy de aplicativo**. Todos os seus conectores e grupos de conector são exibidos nesta página. Selecione um conector toosee seus detalhes ou mova-o para um grupo diferente. 
 
-Em seu servidor, verifique a lista de serviços ativos para o conector e o atualizador do conector. Os dois serviços devem iniciar a execução imediatamente, caso contrário, ative-os: 
+No seu servidor, verifique a lista de saudação de serviços de ativo para o conector hello e atualizador do conector de saudação. dois serviços de saudação devem iniciar a execução imediatamente, mas se não, ligá-los: 
 
    * **Conector de Proxy de Aplicativo do Microsoft AAD** habilita a conectividade
 
-   * O **Atualizador de conector do Proxy de Aplicativo do Microsoft AAD** é um serviço de atualização automática. O atualizador verifica novas versões do conector e o atualiza conforme necessário.
+   * O **Atualizador de conector do Proxy de Aplicativo do Microsoft AAD** é um serviço de atualização automática. atualizador de saudação verifica novas versões do conector hello e atualizações Olá conector conforme necessário.
 
    ![Serviços do Conector de Proxy de Aplicativo - captura de tela](./media/active-directory-application-proxy-enable/app_proxy_services.png)
 
-Para saber mais sobre conectores e como eles permanecem atualizados, veja [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-understand-connectors.md).
+Para obter informações sobre como eles permanecem backup toodate e conectores, consulte [conectores de Proxy de aplicativo do AD do Azure entender](application-proxy-understand-connectors.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora você está pronto para [Publicar aplicativos com o Proxy de Aplicativo](application-proxy-publish-azure-portal.md).
+Agora você está pronto muito[publicar aplicativos com Proxy de aplicativo](application-proxy-publish-azure-portal.md).
 
-Se você tem aplicativos que estão em redes separadas ou em locais diferentes, use grupos de conector para organizar os diferentes conectores em unidades lógicas. Saiba mais sobre como [Trabalhar com conectores de Proxy de Aplicativo](active-directory-application-proxy-connectors-azure-portal.md).
+Se você tiver aplicativos que estão em redes separadas ou em locais diferentes, use conectores diferentes do conector grupos tooorganize Olá em unidades lógicas. Saiba mais sobre como [Trabalhar com conectores de Proxy de Aplicativo](active-directory-application-proxy-connectors-azure-portal.md).

@@ -1,6 +1,6 @@
 ---
 title: "Dispositivo simulado e Gateway do IoT do Azure - Lição 4: armazenamento de tabelas | Microsoft Docs"
-description: Salve mensagens da NUC da Intel para o hub IoT, grave-as no Armazenamento de Tabelas do Azure e, em seguida, leia-as na nuvem.
+description: "Salvar mensagens de hub do Intel NUC tooyour IoT, gravá-los tooAzure o armazenamento de tabela e, em seguida, lê-los da nuvem de saudação."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,36 +17,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: de5fae794c195132e2a487c0095845c756aa28e3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 43e299d63bbbe10d4d867af25e700c3a7cc07c53
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="read-messages-persisted-in-azure-table-storage"></a>Ler mensagens mantidas no Armazenamento de Tabelas do Azure
 
 ## <a name="what-you-will-do"></a>O que você fará
 
-- Execute o aplicativo de exemplo de gateway no gateway que envia mensagens ao Hub IoT.
-- Execute um código de exemplo no computador host para ler mensagens no seu Armazenamento de Tabelas do Azure.
+- Execute o aplicativo de exemplo hello gateway no gateway que envia o hub de IoT tooyour mensagens.
+- Execute o código de exemplo em suas mensagens de tooread do computador host no seu armazenamento de tabela do Azure.
 
-Se você tiver problemas, procure as soluções na [página de solução de problemas](iot-hub-gateway-kit-c-sim-troubleshooting.md).
+Se você tiver problemas, procure por soluções em Olá [página de solução de problemas](iot-hub-gateway-kit-c-sim-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>O que você aprenderá
 
-Como usar a ferramenta gulp para executar o código de exemplo para ler mensagens no Armazenamento de Tabelas do Azure.
+Como Olá toouse gulp ferramenta toorun Olá exemplo tooread mensagens de código em seu armazenamento de tabela do Azure.
 
 ## <a name="what-you-need"></a>O que você precisa
 
-Você realizou as seguintes tarefas com êxito:
+Você tem êxito Olá seguintes tarefas:
 
-- [O aplicativo de funções do Azure e a conta de armazenamento do Azure foram criados](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md).
-- [Executar o aplicativo de exemplo do gateway](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md).
+- [Criado Olá aplicativo de função do Azure e a conta de armazenamento do Azure Olá](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md).
+- [Execute o aplicativo de exemplo hello gateway](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md).
 - [Ler mensagens do Hub IoT](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md).
 
 ## <a name="get-your-azure-storage-connection-strings"></a>Obtenha cadeias de conexão do armazenamento do Azure
 
-No início desta lição, você criou com êxito uma conta de armazenamento do Azure. Para obter a cadeia de conexão da conta de armazenamento do Azure, execute os seguintes comandos:
+No início desta lição, você criou com êxito uma conta de armazenamento do Azure. cadeia de conexão tooget Olá Olá do Azure da conta de armazenamento, execute Olá comandos a seguir:
 
 * Liste todas suas contas de armazenamento.
 
@@ -60,13 +60,13 @@ az storage account list -g iot-gateway --query [].name
 az storage account show-connection-string -g iot-gateway -n {storage name}
 ```
 
-Use `iot-gateway` como o valor de `{resource group name}` se não tiver alterado o valor na Lição 2.
+Use `iot-gateway` como valor de saudação do `{resource group name}` se você não alterar o valor de saudação na lição 2.
 
-## <a name="configure-the-device-connection"></a>Configurar a conexão do dispositivo
+## <a name="configure-hello-device-connection"></a>Configurar conexão do dispositivo Olá
 
-Atualize o arquivo `config-azure.json` para que o código de exemplo executado no computador host possa ler mensagens no Armazenamento de Tabelas do Azure. Para configurar a conexão do dispositivo, siga estas etapas:
+Saudação de atualização `config-azure.json` arquivos de forma que o código de exemplo hello que é executado no computador de host Olá pode ler a mensagem em seu armazenamento de tabela do Azure. tooconfigure Olá conexão do dispositivo, siga estas etapas:
 
-1. Abra o arquivo de configuração do dispositivo `config-azure.json` executando os seguintes comandos:
+1. Arquivo de configuração de dispositivo aberto Olá `config-azure.json` executando Olá comandos a seguir:
 
    ```bash
    # For Windows command prompt
@@ -77,26 +77,26 @@ Atualize o arquivo `config-azure.json` para que o código de exemplo executado n
 
    ![configuração](media/iot-hub-gateway-kit-lessons/lesson4/config_azure.png)
 
-2. Substitua `[Azure storage connection string]` pela cadeia de conexão do armazenamento do Azure que você obteve.
+2. Substituir `[Azure storage connection string]` com hello cadeia de caracteres de conexão de armazenamento do Azure que você obteve.
 
    `[IoT hub connection string]` já deve ter sido substituído na seção [Ler mensagens do Hub IoT do Azure](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md), na Lição 3.
 
 ## <a name="read-messages-in-your-azure-table-storage"></a>Ler mensagens no Armazenamento de Tabelas do Azure
 
-Execute o aplicativo de exemplo no gateway e leia as mensagens de armazenamento de tabelas do Azure executando o seguinte comando:
+Execute o aplicativo de exemplo hello gateway e ler mensagens de armazenamento de tabela do Azure por Olá comando a seguir:
 
 ```bash
 gulp run --table-storage
 ```
 
-O Hub IoT dispara o aplicativo de Funções do Azure para salvar a mensagem no Armazenamento de Tabelas do Azure quando a nova mensagem chega.
-O comando `gulp run` executa o aplicativo de exemplo no gateway que envia mensagens ao Hub IoT. Com o parâmetro `table-storage`, ele também gera um processo filho para receber a mensagem salva no Armazenamento de Tabelas do Azure.
+O hub IoT dispara a mensagem de toosave do aplicativo de função do Azure em seu armazenamento de tabela do Azure quando a nova mensagem chega.
+Olá `gulp run` comando executa o aplicativo de exemplo do gateway que envia o hub de IoT tooyour mensagens. Com `table-storage` parâmetro, ela também gera uma saudação de tooreceive do processo filho salva a mensagem em seu armazenamento de tabela do Azure.
 
-As mensagens que estão sendo enviadas e recebidas são todas exibidas instantaneamente na mesma janela de console no computador host. A instância do aplicativo de exemplo será encerrada automaticamente em 40 segundos.
+mensagens de saudação que estão sendo enviadas e recebidos são todos Olá exibidos imediatamente na mesma janela do console Olá computador host. instância de aplicativo de exemplo Hello será encerrado automaticamente em 40 segundos.
 
    ![leitura de gulp](media/iot-hub-gateway-kit-lessons/lesson4/gulp_run_read_table_simudev.png)
 
 
 ## <a name="summary"></a>Resumo
 
-Você executou o código de exemplo para ler as mensagens no Armazenamento de Tabelas do Azure salvas pelo aplicativo de Funções do Azure.
+Executar mensagens de saudação tooread do código de exemplo hello em seu armazenamento de tabela do Azure salvo pelo seu aplicativo de função do Azure.

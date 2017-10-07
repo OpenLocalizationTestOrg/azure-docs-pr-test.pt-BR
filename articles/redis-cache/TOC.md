@@ -33,18 +33,18 @@
 ###[Provedor de estado de sessão](cache-aspnet-session-state-provider.md)
 ###[Provedor de cache de saída](cache-aspnet-output-cache-provider.md)
 ## Gerenciar
-###[Configurar no portal](cache-configure.md)
+###[Configurar no portal de saudação](cache-configure.md)
 ###[Configurar a replicação geográfica](cache-how-to-geo-replication.md)
 ###[Importação/Exportação de dados](cache-how-to-import-export-data.md)
 ###[Reboot](cache-administration.md#reboot)
 ###[Agendar atualizações](cache-administration.md#schedule-updates)
 ## Monitorar e solucionar problemas
-###[Monitorar no portal](cache-how-to-monitor.md)
+###[Monitorar no portal de saudação](cache-how-to-monitor.md)
 ###[Solucionar problemas de cache](cache-how-to-troubleshoot.md)
 ###[Definir alertas para exceções](cache-how-to-monitor.md#operations-and-alerts)
 ## Escala
-###[Atualizar para um tamanho e uma camada diferentes](cache-how-to-scale.md)
-###[Usar o cluster do Redis para reduzir horizontalmente/expandir](cache-how-to-premium-clustering.md)
+###[Atualizar um tamanho diferente tooa e camada](cache-how-to-scale.md)
+###[Use o Redis cluster tooscale de entrada/saída](cache-how-to-premium-clustering.md)
 ## Integrar com Spring Boot
 ###[Usar um aplicativo Inicializador Spring Boot com o Cache Redis](cache-java-spring-boot-initializer-with-redis-cache.md)
 

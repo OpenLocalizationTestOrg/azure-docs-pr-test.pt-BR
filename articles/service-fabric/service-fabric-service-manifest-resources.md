@@ -1,6 +1,6 @@
 ---
-title: "Especificando pontos de extremidade de serviço do Service Fabric | Microsoft Docs"
-description: "Como descrever os recursos de ponto de extremidade em um manifesto do serviço, incluindo como configurar pontos de extremidade HTTPS"
+title: "pontos de extremidade de serviço de malha do serviço aaaSpecifying | Microsoft Docs"
+description: "Como os recursos de ponto de extremidade toodescribe em um serviço de manifesto, incluindo como tooset pontos de extremidade HTTPS"
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: subramar
-ms.openlocfilehash: 08141edfbc8be9bf7bf303419e1e482d5f884860
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a4ebee353ce5cf86583673674246094f03f368be
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos em um manifesto do serviço
 ## <a name="overview"></a>Visão geral
-O manifesto do serviço permite que os recursos usados pelo serviço sejam declarados/alterados sem alterar o código compilado. O Azure Service Fabric dá suporte à configuração dos recursos de ponto de extremidade para o serviço. O acesso aos recursos que são especificados no manifesto do serviço pode ser controlado por meio do SecurityGroup no manifesto do aplicativo. A declaração de recursos permite que esses recursos sejam alterados no momento da implantação, o que significa que o serviço não precisa apresentar um novo mecanismo de configuração. A definição de esquema para o arquivo ServiceManifest.xml é instalada com o SDK e as ferramentas do Service Fabric em *C:\Arquivos de Programas\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+manifesto do serviço Olá permite que os recursos que são usados por Olá serviço toobe declarado/alterado sem alterar o código de saudação compilado. Malha do serviço do Azure dá suporte à configuração de recursos de ponto de extremidade para o serviço de saudação. Olá acessar toohello os recursos que são especificados no manifesto do serviço Olá podem ser controlados por meio de Olá SecurityGroup no manifesto de aplicativo hello. declaração de saudação de recursos permite que esses toobe recursos alterados no momento da implantação, o que significa que o serviço de saudação não precisa toointroduce um novo mecanismo de configuração. Olá definição de esquema de arquivo ServiceManifest.xml de saudação é instalada com hello SDK do Service Fabric e ferramentas muito*C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ## <a name="endpoints"></a>Pontos de extremidade
-Quando um recurso de ponto de extremidade é definido no manifesto do serviço, o Service Fabric atribui portas do intervalo de portas reservadas do aplicativo quando uma porta não é explicitamente especificada. Por exemplo, examine o ponto de extremidade *ServiceEndpoint1* especificado no trecho de manifesto fornecido após este parágrafo. Além disso, os serviços também podem solicitar uma porta específica em um recurso. As réplicas do serviço em execução em nós diferentes do cluster podem receber números de porta diferentes, enquanto as réplicas do mesmo serviço em execução no mesmo nó compartilham a porta. As réplicas de serviço podem usar essas portas conforme a necessidade para replicação e escuta de solicitações de clientes.
+Quando um recurso de ponto de extremidade é definido no manifesto do serviço hello, o Service Fabric atribui portas do intervalo de portas de aplicativo hello reservado quando uma porta não for especificada explicitamente. Por exemplo, procure no ponto de extremidade Olá *ServiceEndpoint1* especificado no fragmento de manifesto Olá fornecido após este parágrafo. Além disso, os serviços também podem solicitar uma porta específica em um recurso. Réplicas de serviço em execução em nós de cluster diferente podem ser atribuídas diferentes números de porta, enquanto as réplicas de um serviço em execução no Olá a mesma porta de saudação do compartilhamento de nó. réplicas de serviço Olá podem usar essas portas conforme necessário para a replicação e escutar solicitações de clientes.
 
 ```xml
 <Resources>
@@ -37,10 +37,10 @@ Quando um recurso de ponto de extremidade é definido no manifesto do serviço, 
 </Resources>
 ```
 
-Consulte [Configurando o Reliable Services com estado](service-fabric-reliable-services-configuration.md) para ler mais sobre como fazer referência a pontos de extremidade por meio do arquivo de configurações do pacote de configuração (settings.xml).
+Consulte também[configuração com monitoração de estado confiável dos serviços](service-fabric-reliable-services-configuration.md) tooread mais sobre como fazer referência a pontos de extremidade do arquivo de configurações de pacote de configuração de saudação (settings.xml).
 
 ## <a name="example-specifying-an-http-endpoint-for-your-service"></a>Exemplo: especificando um ponto de extremidade HTTP para o serviço
-O manifesto do serviço a seguir define um recurso de ponto de extremidade TCP e dois recursos de ponto de extremidade HTTP no elemento &lt;Recursos&gt;.
+Olá manifesto de serviço a seguir define um recurso de ponto de extremidade TCP e dois recursos de ponto de extremidade HTTP no hello &lt;recursos&gt; elemento.
 
 A ACL é automaticamente aplicada aos pontos de extremidade HTTP pelo Service Fabric.
 
@@ -52,8 +52,8 @@ A ACL é automaticamente aplicada aos pontos de extremidade HTTP pelo Service Fa
                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
-    <!-- This is the name of your ServiceType.
-         This name must match the string used in the RegisterServiceType call in Program.cs. -->
+    <!-- This is hello name of your ServiceType.
+         This name must match hello string used in hello RegisterServiceType call in Program.cs. -->
     <StatefulServiceType ServiceTypeName="Stateful1Type" HasPersistedState="true" />
   </ServiceTypes>
 
@@ -66,22 +66,22 @@ A ACL é automaticamente aplicada aos pontos de extremidade HTTP pelo Service Fa
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
+  <!-- Config package is hello contents of hello Config directoy under PackageRoot that contains an
        independently updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
   <Resources>
     <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port number on which to
+      <!-- This endpoint is used by hello communication listener tooobtain hello port number on which to
            listen. Note that if your service is partitioned, this port is shared with
            replicas of different partitions that are placed in your code. -->
       <Endpoint Name="ServiceEndpoint1" Protocol="http"/>
       <Endpoint Name="ServiceEndpoint2" Protocol="http" Port="80"/>
       <Endpoint Name="ServiceEndpoint3" Protocol="https"/>
 
-      <!-- This endpoint is used by the replicator for replicating the state of your service.
-           This endpoint is configured through the ReplicatorSettings config section in the Settings.xml
-           file under the ConfigPackage. -->
+      <!-- This endpoint is used by hello replicator for replicating hello state of your service.
+           This endpoint is configured through hello ReplicatorSettings config section in hello Settings.xml
+           file under hello ConfigPackage. -->
       <Endpoint Name="ReplicatorEndpoint" />
     </Endpoints>
   </Resources>
@@ -89,14 +89,14 @@ A ACL é automaticamente aplicada aos pontos de extremidade HTTP pelo Service Fa
 ```
 
 ## <a name="example-specifying-an-https-endpoint-for-your-service"></a>Exemplo: especificando um ponto de extremidade HTTPS para o serviço
-O protocolo HTTPS fornece autenticação de servidor e também é usado para criptografar a comunicação cliente-servidor. Para habilitar o HTTPS em seu serviço do Service Fabric, especifique o protocolo na seção *Recursos -> Pontos de Extremidade -> Ponto de Extremidade* do manifesto do serviço, conforme mostrado anteriormente para o ponto de extremidade *ServiceEndpoint3*.
+Olá protocolo HTTPS fornece autenticação de servidor e também é usada para criptografar a comunicação cliente-servidor. tooenable HTTPS no serviço do Service Fabric, especificar o protocolo de saudação em Olá *recursos -> pontos de extremidade -> ponto de extremidade* seção saudação do manifesto do serviço, conforme mostrado anteriormente para o ponto de extremidade Olá *ServiceEndpoint3* .
 
 > [!NOTE]
 > O protocolo de um serviço não pode ser alterado durante a atualização do aplicativo. Se ele for alterado durante a atualização, será uma alteração significativa.
 > 
 > 
 
-Este está um exemplo de ApplicationManifest que precisa ser definido para HTTPS. Deve ser fornecida impressão digital para seu certificado. O EndpointRef é uma referência a EndpointResource no ServiceManifest, para o qual você definiu o protocolo HTTPS. Você pode adicionar mais de um EndpointCertificate.  
+Aqui está um exemplo ApplicationManifest que você precisa tooset para HTTPS. impressão digital de saudação do certificado deve ser fornecido. Olá EndpointRef é tooEndpointResource uma referência em ServiceManifest, para que você definir o protocolo HTTPS de saudação. Você pode adicionar mais de um EndpointCertificate.  
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -110,8 +110,8 @@ Este está um exemplo de ApplicationManifest que precisa ser definido para HTTPS
     <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
     <Parameter Name="Stateful1_TargetReplicaSetSize" DefaultValue="3" />
   </Parameters>
-  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion
-       should match the Name and Version attributes of the ServiceManifest element defined in the
+  <!-- Import hello ServiceManifest from hello ServicePackage. hello ServiceManifestName and ServiceManifestVersion
+       should match hello Name and Version attributes of hello ServiceManifest element defined in the
        ServiceManifest.xml file. -->
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Stateful1Pkg" ServiceManifestVersion="1.0.0" />
@@ -121,11 +121,11 @@ Este está um exemplo de ApplicationManifest que precisa ser definido para HTTPS
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>
-    <!-- The section below creates instances of service types when an instance of this
+    <!-- hello section below creates instances of service types when an instance of this
          application type is created. You can also create one or more instances of service type by using the
          Service Fabric PowerShell module.
 
-         The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
+         hello attribute ServiceTypeName below must match hello name defined in hello imported ServiceManifest.xml file. -->
     <Service Name="Stateful1">
       <StatefulService ServiceTypeName="Stateful1Type" TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]" MinReplicaSetSize="[Stateful1_ ]">
         <UniformInt64Partition PartitionCount="[Stateful1_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
@@ -140,11 +140,11 @@ Este está um exemplo de ApplicationManifest que precisa ser definido para HTTPS
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Substituição dos pontos de extremidade em ServiceManifest.xml
 
-No ApplicationManifest, adicione uma seção ResourceOverrides que será uma irmã da seção ConfigOverrides. Nessa seção, você pode especificar a substituição da seção Pontos de extremidade na seção de recursos especificada no Manifesto do serviço.
+Em Olá ApplicationManifest adicione uma seção de ResourceOverrides que será uma seção de tooConfigOverrides irmão. Nesta seção, você pode especificar Olá substituição para a seção de pontos de extremidade de saudação na seção de recursos de saudação especificada no manifesto do serviço de saudação.
 
-Para substituir o Ponto de extremidade no ServiceManifest usando ApplicationParameters, altere o ApplicationManifest da seguinte forma:
+Em ordem toooverride ponto de extremidade no ServiceManifest usando o altere ApplicationParameters Olá ApplicationManifest como a seguir:
 
-Na seção ServiceManifestImport, adicione uma nova seção "ResourceOverrides"
+Em Olá seção servicemanifestimport ao adicionar uma nova seção "ResourceOverrides"
 
 ```xml
 <ServiceManifestImport>
@@ -162,7 +162,7 @@ Na seção ServiceManifestImport, adicione uma nova seção "ResourceOverrides"
   </ServiceManifestImport>
 ```
 
-Nos Parâmetros, adicione o seguinte:
+Em Olá que adicionar parâmetros abaixo:
 
 ```xml
   <Parameters>
@@ -174,17 +174,17 @@ Nos Parâmetros, adicione o seguinte:
   </Parameters>
 ```
 
-Agora, durante e implantação do aplicativo, você pode passar esses valores como ApplicationParameters, por exemplo:
+Ao implantar o aplicativo hello agora você pode transmitir esses valores como ApplicationParameters por exemplo:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Observação: se os valores fornecidos para o ApplicationParameters estiverem vazios, volte para o valor padrão fornecido no ServiceManifest para o EndPointName correspondente.
+Observação: Se os valores hello fornecem para Olá ApplicationParameters está vazia voltarmos padrão toohello valor fornecido no hello ServiceManifest para Olá correspondente EndPointName.
 
 Por exemplo:
 
-Se estiver no ServiceManifest especificado
+Se estiver no hello ServiceManifest especificado
 
 ```xml
   <Resources>
@@ -194,6 +194,6 @@ Se estiver no ServiceManifest especificado
   </Resources>
 ```
 
-E o valor de Port1 e Protocol1 para parâmetros do Aplicativo for nulo ou vazio. A porta ainda é decidida pelo ServiceFabric. E o protocolo será tcp.
+Olá Port1 e valor Protocol1 parâmetros do aplicativo é nulo ou vazio. porta Olá ainda é decidida por ServiceFabric. E Olá protocolo tcp.
 
-Vamos supor que você especifica um valor incorreto. Por exemplo, para Porta você especificou um valor de cadeia de caracteres "Foo" em vez de um int.  O comando New-ServiceFabricApplication falhará com um erro: o parâmetro de substituição com o nome 'ServiceEndpoint1', atributo 'Port1' na seção 'ResourceOverrides' é inválido. O valor especificado é 'Foo', e exige 'int'.
+Vamos supor que você especifica um valor incorreto. Por exemplo, para Porta você especificou um valor de cadeia de caracteres "Foo" em vez de um int.  Novo ServiceFabricApplication comando falhará com um erro: parâmetro de substituição de saudação com nome 'ServiceEndpoint1' do atributo 'Port1' na seção 'ResourceOverrides' é inválido. valor de saudação especificado é 'Foo' e necessária é 'int'.

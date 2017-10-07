@@ -1,6 +1,6 @@
 ---
-title: "Documentação dos Serviços de Nuvem do Azure - Tutoriais, Referência de API | Microsoft Docs"
-description: "Os tutoriais, as referências de API e outras documentações mostram como usar os Serviços de Nuvem para hospedar e executar aplicativos de nuvem e APIs altamente disponíveis e escalonáveis."
+title: "aaaAzure documentação de serviços de nuvem - tutoriais, referência de API | Microsoft Docs"
+description: "Tutoriais, referências de API e outras documentações mostram como toouse toohost de serviços de nuvem e executar aplicativos de nuvem altamente disponível e escalonável e APIs."
 services: cloud-services
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 16bbb9953db91bfe031e5e87e14aac84d32799b3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 80793de5a66c9f125c23caf2664fbf08015298ab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="cloud-services-documentation"></a>Documentação dos Serviços de Nuvem
 
-Saiba como usar os Serviços de Nuvem para hospedar e executar aplicativos de nuvem e APIs altamente disponíveis, escalonáveis.  Os tutoriais, as referências de API e outras documentações mostram como gerenciar hosts de máquina virtual e configurar, aplicar patches e instalar o software.
+Saiba como toouse nuvem toohost e executar aplicativos de nuvem altamente disponível, escalonável e APIs de serviços.  Tutoriais, referências de API e outras documentações mostram como toomanage máquina virtual hospeda e configurar, patch e instalar o software.
 
 <ul class="panelContent cardsFTitle">
     <li>

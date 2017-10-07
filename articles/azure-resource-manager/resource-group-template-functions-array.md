@@ -1,6 +1,6 @@
 ---
-title: "Funções de modelo do Azure Resource Manager – matrizes e objetos | Microsoft Docs"
-description: "Descreve as funções a serem usadas em um modelo do Azure Resource Manager para trabalhar com matrizes e objetos."
+title: "modelo do Gerenciador de recursos de aaaAzure funções - matrizes e objetos | Microsoft Docs"
+description: "Descreve Olá toouse de funções em um modelo do Gerenciador de recursos do Azure para trabalhar com objetos e matrizes."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: 0bd9ec41761c9ce575f3bcf4d1f8e8578b83e01c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e5f1a9b2a71039562eae7e48c2474a1fa59a7bea
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funções de matriz e objeto para modelos do Azure Resource Manager 
 
@@ -42,20 +42,20 @@ O Resource Manager fornece diversas funções para trabalhar com matrizes e obje
 * [take](#take)
 * [union](#union)
 
-Para obter uma matriz de valores de cadeia de caracteres delimitada por um valor, confira [split](resource-group-template-functions-string.md#split).
+tooget uma matriz de valores de cadeia de caracteres delimitada por um valor, consulte [dividir](resource-group-template-functions-string.md#split).
 
 <a id="array" />
 
-## <a name="array"></a>matriz
+## <a name="array"></a>array
 `array(convertToArray)`
 
-Converte o valor em uma matriz.
+Converte Olá valor tooan matriz.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Sim |int, string, array ou object |O valor a ser convertido em uma matriz. |
+| convertToArray |Sim |int, string, array ou object |matriz de tooan tooconvert do valor Hello. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -63,7 +63,7 @@ Uma matriz.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte exemplo mostra como usar a função array com tipos diferentes.
+Olá exemplo a seguir mostra como toouse Olá a função de matriz com tipos diferentes.
 
 ```json
 {
@@ -102,7 +102,7 @@ O seguinte exemplo mostra como usar a função array com tipos diferentes.
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -115,22 +115,22 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="coalesce"></a>coalesce
 `coalesce(arg1, arg2, arg3, ...)`
 
-Retorna o primeiro valor não nulo dos parâmetros. Cadeias de caracteres vazias, matrizes vazias e objetos vazios não são nulos.
+Retorna o primeiro valor não nulo de parâmetros de saudação. Cadeias de caracteres vazias, matrizes vazias e objetos vazios não são nulos.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |int, string, array ou object |O primeiro valor para testar se é nulo. |
-| argumentos adicionais |Não |int, string, array ou object |Valores adicionais para testar se são nulos. |
+| arg1 |Sim |int, string, array ou object |Olá primeiro tootest de valor para null. |
+| argumentos adicionais |Não |int, string, array ou object |Tootest valores adicionais para null. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-O valor dos primeiros parâmetros não nulos, que pode ser uma cadeia de caracteres, inteiro, matriz ou objeto. Null se todos os parâmetros forem nulos. 
+valor de saudação do hello primeiro parâmetros não nulos, que pode ser uma cadeia de caracteres, int, matriz ou objeto. Null se todos os parâmetros forem nulos. 
 
 ### <a name="example"></a>Exemplo
 
-O exemplo a seguir mostra a saída de diferentes usos de coalesce.
+Olá, exemplo a seguir mostra saída Olá usa diferentes de adesão.
 
 ```json
 {
@@ -176,7 +176,7 @@ O exemplo a seguir mostra a saída de diferentes usos de coalesce.
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -191,23 +191,23 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="concat"></a>concat
 `concat(arg1, arg2, arg3, ...)`
 
-Combina várias matrizes e retorna a matriz concatenada, ou combina vários valores de cadeia de caracteres e retorna a matriz concatenada. 
+Combina vários conjuntos e retorna Olá concatenado matriz, ou combina vários valores de cadeia de caracteres e retorna a cadeia de caracteres hello concatenado. 
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz ou cadeia de caracteres |A primeira matriz ou cadeia de caracteres para concatenação. |
+| arg1 |Sim |matriz ou cadeia de caracteres |Olá primeira matriz ou cadeia de caracteres para concatenação. |
 | argumentos adicionais |Não |matriz ou cadeia de caracteres |Matrizes ou cadeias de caractere adicionais em ordem sequencial para concatenação. |
 
-Essa função pode conter qualquer número de argumentos e pode aceitar cadeias de caracteres ou matrizes como parâmetros.
+Essa função pode conter qualquer número de argumentos e pode aceitar cadeias de caracteres ou matrizes de parâmetros de saudação.
 
 ### <a name="return-value"></a>Valor de retorno
 Uma cadeia de caracteres ou matriz de valores concatenados.
 
 ### <a name="example"></a>Exemplo
 
-O próximo exemplo mostra como combinar duas matrizes.
+saudação de exemplo a seguir mostra como toocombine duas matrizes.
 
 ```json
 {
@@ -242,13 +242,13 @@ O próximo exemplo mostra como combinar duas matrizes.
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | retorno | Matriz | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-O exemplo a seguir mostra como combinar dois valores de cadeia de caracteres e retornar uma cadeia de caracteres concatenada.
+saudação de exemplo a seguir mostra como toocombine dois valores de cadeia de caracteres e retorna uma cadeia de caracteres concatenada.
 
 ```json
 {
@@ -270,7 +270,7 @@ O exemplo a seguir mostra como combinar dois valores de cadeia de caracteres e r
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -287,16 +287,16 @@ Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cade
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| contêiner |Sim |matriz, objeto ou cadeia de caracteres |O valor que contém o valor a ser encontrado. |
-| itemToFind |Sim |string ou int |O valor a ser encontrado. |
+| contêiner |Sim |matriz, objeto ou cadeia de caracteres |valor de saudação que contém Olá toofind de valor. |
+| itemToFind |Sim |string ou int |Olá toofind de valor. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-**True** se o item for encontrado; caso contrário, **False**.
+**True** se o item de saudação for encontrado; caso contrário, **False**.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte exemplo mostra como usar contains com tipos diferentes:
+Olá exemplo a seguir mostra como toouse contém com tipos diferentes:
 
 ```json
 {
@@ -347,7 +347,7 @@ O seguinte exemplo mostra como usar contains com tipos diferentes:
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -363,14 +363,14 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="createarray"></a>createarray
 `createArray (arg1, arg2, arg3, ...)`
 
-Cria uma matriz de parâmetros.
+Cria uma matriz de parâmetros de saudação.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |String, Inteiro, Matriz ou Objeto |O primeiro valor na matriz. |
-| argumentos adicionais |Não |String, Inteiro, Matriz ou Objeto |Valores adicionais na matriz. |
+| arg1 |Sim |String, Inteiro, Matriz ou Objeto |primeiro valor na matriz Olá Olá. |
+| argumentos adicionais |Não |String, Inteiro, Matriz ou Objeto |Valores adicionais na matriz de saudação. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -378,7 +378,7 @@ Uma matriz.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte exemplo mostra como usar createArray com tipos diferentes:
+Olá mostrado no exemplo a seguir como toouse createArray com tipos diferentes:
 
 ```json
 {
@@ -417,7 +417,7 @@ O seguinte exemplo mostra como usar createArray com tipos diferentes:
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -438,15 +438,15 @@ Determina se uma matriz, objeto ou uma cadeia de caracteres está vazio.
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Sim |matriz, objeto ou cadeia de caracteres |O valor a ser verificado, caso esteja vazio. |
+| itemToTest |Sim |matriz, objeto ou cadeia de caracteres |Olá toocheck valor se ele estiver vazio. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Retorna **True** se o valor é vazio; caso contrário, **False**.
+Retorna **True** se o valor de saudação está vazio; caso contrário, **False**.
 
 ### <a name="example"></a>Exemplo
 
-O exemplo a seguir verifica se uma matriz, um objeto e uma cadeia de caracteres estão vazios.
+saudação de exemplo a seguir verifica se uma matriz, objeto e a cadeia de caracteres estão vazios.
 
 ```json
 {
@@ -485,7 +485,7 @@ O exemplo a seguir verifica se uma matriz, um objeto e uma cadeia de caracteres 
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -498,21 +498,21 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="first"></a>first
 `first(arg1)`
 
-Retorna o primeiro elemento da matriz ou o primeiro caractere da cadeia de caracteres.
+Retorna Olá primeiro elemento da matriz de saudação ou o primeiro caractere da cadeia de caracteres de saudação.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o primeiro elemento ou caractere. |
+| arg1 |Sim |matriz ou cadeia de caracteres |Olá valor tooretrieve Olá primeiro elemento ou um caractere. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-O tipo (cadeia de caracteres, inteiro, matriz ou objeto) do primeiro elemento em uma matriz ou o primeiro caractere de uma cadeia de caracteres.
+tipo de saudação (string, int, matriz ou objeto) do primeiro elemento Olá em uma matriz, ou o primeiro caractere de saudação de uma cadeia de caracteres.
 
 ### <a name="example"></a>Exemplo
 
-O exemplo a seguir mostra como usar a primeira função com uma matriz e cadeia de caracteres.
+Olá exemplo a seguir mostra como toouse Olá primeira função com uma matriz e a cadeia de caracteres.
 
 ```json
 {
@@ -539,7 +539,7 @@ O exemplo a seguir mostra como usar a primeira função com uma matriz e cadeia 
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -551,23 +551,23 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="intersection"></a>interseção
 `intersection(arg1, arg2, arg3, ...)`
 
-Retorna uma única matriz ou objeto com os elementos comuns dos parâmetros.
+Retorna uma matriz ou objeto com elementos comuns Olá de parâmetros de saudação.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |objeto ou matriz |O primeiro valor a ser usado para localizar elementos comuns. |
-| arg2 |Sim |objeto ou matriz |O segundo valor a ser usado para localizar elementos comuns. |
-| argumentos adicionais |Não |objeto ou matriz |Os valores adicionais a serem usados para localizar elementos comuns. |
+| arg1 |Sim |objeto ou matriz |Olá primeiro toouse de valor para a localização de elementos comuns. |
+| arg2 |Sim |objeto ou matriz |Olá segundo toouse de valor para a localização de elementos comuns. |
+| argumentos adicionais |Não |objeto ou matriz |Toouse valores adicionais para a localização de elementos comuns. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma matriz ou objeto com os elementos comuns.
+Uma matriz ou objeto com elementos comuns hello.
 
 ### <a name="example"></a>Exemplo
 
-O exemplo a seguir mostra como usar a interseção com matrizes e objetos:
+saudação de exemplo a seguir mostra como a interseção de toouse com matrizes e objetos:
 
 ```json
 {
@@ -606,7 +606,7 @@ O exemplo a seguir mostra como usar a interseção com matrizes e objetos:
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -623,16 +623,16 @@ Retorna um objeto JSON.
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |cadeia de caracteres |O valor a ser convertido para JSON. |
+| arg1 |Sim |string |Olá valor tooconvert tooJSON. |
 
 
 ### <a name="return-value"></a>Valor de retorno
 
-O objeto JSON de cadeia de caracteres especificada, ou um objeto vazio quando **nulo** for especificado.
+objeto JSON de saudação do hello especificado a cadeia de caracteres ou um objeto vazio quando **nulo** for especificado.
 
 ### <a name="example"></a>Exemplo
 
-O exemplo a seguir mostra como usar a interseção com matrizes e objetos:
+saudação de exemplo a seguir mostra como a interseção de toouse com matrizes e objetos:
 
 ```json
 {
@@ -653,7 +653,7 @@ O exemplo a seguir mostra como usar a interseção com matrizes e objetos:
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -665,21 +665,21 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="last"></a>last
 `last (arg1)`
 
-Retorna o último elemento da matriz ou o último caractere da cadeia de caracteres.
+Retorna Olá último elemento da matriz de saudação ou o último caractere da cadeia de caracteres de saudação.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o último elemento ou caractere. |
+| arg1 |Sim |matriz ou cadeia de caracteres |Olá valor tooretrieve Olá último elemento ou um caractere. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-O tipo (cadeia de caracteres, inteiro, matriz ou objeto) do último elemento em uma matriz ou o último caractere de uma cadeia de caracteres.
+tipo de saudação (string, int, matriz ou objeto) do hello último elemento em uma matriz, ou o último caractere saudação de uma cadeia de caracteres.
 
 ### <a name="example"></a>Exemplo
 
-O exemplo a seguir mostra como usar a última função com uma matriz e cadeia de caracteres.
+Olá exemplo a seguir mostra como toouse Olá última função com uma matriz e a cadeia de caracteres.
 
 ```json
 {
@@ -706,7 +706,7 @@ O exemplo a seguir mostra como usar a última função com uma matriz e cadeia d
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -718,13 +718,13 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="length"></a>length
 `length(arg1)`
 
-Retorna o número de elementos em uma matriz ou os caracteres em uma cadeia de caracteres.
+Retorna o número de saudação de elementos em uma matriz ou uma cadeia de caracteres.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz ou cadeia de caracteres |A matriz a ser usada para obter o número de elementos ou a cadeia de caracteres a ser usada para obter o número de caracteres. |
+| arg1 |Sim |matriz ou cadeia de caracteres |Olá toouse de matriz para obter o número de saudação de elementos ou Olá toouse de cadeia de caracteres para obter o número de saudação de caracteres. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -732,7 +732,7 @@ Um inteiro.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte exemplo mostra como usar length com uma matriz e cadeia de caracteres:
+Olá mostrado no exemplo a seguir como comprimento toouse com uma matriz e a cadeia de caracteres:
 
 ```json
 {
@@ -766,14 +766,14 @@ O seguinte exemplo mostra como usar length com uma matriz e cadeia de caracteres
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
 
-Essa função pode ser usada com uma matriz para especificar o número de iterações durante a criação de recursos. No exemplo a seguir, o parâmetro **siteNames** faz referência a uma matriz de nomes a serem usados durante a criação de sites da web.
+Você pode usar essa função com um número de saudação do toospecify de matriz de iterações ao criar recursos. Em Olá exemplo a seguir, Olá parâmetro **siteNames** faz referência a matriz de tooan de toouse nomes durante a criação de sites da web de saudação.
 
 ```json
 "copy": {
@@ -789,21 +789,21 @@ Para saber mais sobre como usar essa função com uma matriz, confira [Criar vá
 ## <a name="min"></a>Min
 `min(arg1)`
 
-Retorna o valor mínimo de uma matriz de inteiros ou uma lista de inteiros separados por vírgulas.
+Retorna Olá valor mínimo de uma matriz de inteiros ou uma lista separada por vírgulas de números inteiros.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor mínimo. |
+| arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |Olá coleção tooget Olá valor mínimo. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Um inteiro que representa o valor mínimo.
+Um inteiro que representa o valor mínimo de saudação.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte exemplo mostra como usar min com uma matriz e uma lista de inteiros:
+Olá mostrado no exemplo a seguir como min toouse com uma matriz e uma lista de números inteiros:
 
 ```json
 {
@@ -829,7 +829,7 @@ O seguinte exemplo mostra como usar min com uma matriz e uma lista de inteiros:
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -841,21 +841,21 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="max"></a>max
 `max(arg1)`
 
-Retorna o valor máximo de uma matriz de inteiros ou uma lista de inteiros separados por vírgulas.
+Retorna Olá valor máximo de uma matriz de inteiros ou uma lista separada por vírgulas de números inteiros.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor máximo. |
+| arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |Olá coleção tooget Olá valor máximo. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Um inteiro que representa o valor máximo.
+Um inteiro que representa o valor máximo de saudação.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte exemplo mostra como usar max com uma matriz e uma lista de inteiros:
+Olá mostrado no exemplo a seguir como toouse max com uma matriz e uma lista de números inteiros:
 
 ```json
 {
@@ -881,7 +881,7 @@ O seguinte exemplo mostra como usar max com uma matriz e uma lista de inteiros:
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -899,8 +899,8 @@ Cria uma matriz de inteiros a partir de um inteiro inicial e contendo um número
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| startingInteger |Sim |int |O primeiro inteiro na matriz. |
-| numberofElements |Sim |int |O número de inteiros na matriz. |
+| startingInteger |Sim |int |primeiro inteiro na matriz Olá Olá. |
+| numberofElements |Sim |int |número de saudação de inteiros na matriz de saudação. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -908,7 +908,7 @@ Uma matriz de inteiros.
 
 ### <a name="example"></a>Exemplo
 
-O exemplo a seguir mostra como usar a função range:
+saudação de exemplo a seguir mostra como toouse Olá função range:
 
 ```json
 {
@@ -934,7 +934,7 @@ O exemplo a seguir mostra como usar a função range:
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -945,14 +945,14 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="skip"></a>skip
 `skip(originalValue, numberToSkip)`
 
-Retorna uma matriz com todos os elementos após o número especificado na matriz, ou retorna uma cadeia de caracteres com todos os caracteres após o número especificado na cadeia de caracteres.
+Retorna uma matriz com todos os elementos de saudação depois Olá número especificado na matriz hello, ou retorna uma cadeia de caracteres com todos os caracteres de saudação depois Olá número especificado na cadeia de caracteres de saudação.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres a ser usada para ignorar. |
-| numberToSkip |Sim |int |O número de elementos ou caracteres a ser ignorado. Se esse valor for 0 ou menos, todos os elementos ou caracteres no valor serão retornados. Se for maior que o tamanho da matriz ou cadeia de caracteres, uma matriz ou cadeia de caracteres vazia será retornada. |
+| originalValue |Sim |matriz ou cadeia de caracteres |Olá toouse matriz ou cadeia de caracteres para ignorar. |
+| numberToSkip |Sim |int |número de saudação de elementos ou caracteres tooskip. Se esse valor for 0 ou menos, todos os elementos de hello ou caracteres no valor de saudação são retornados. Se for maior do que o tamanho de cadeia de caracteres ou matriz Olá Olá, uma matriz vazia ou cadeia de caracteres é retornada. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -960,7 +960,7 @@ Uma matriz ou cadeia de caracteres.
 
 ### <a name="example"></a>Exemplo
 
-O exemplo a seguir ignora o número especificado de elementos na matriz e o número especificado de caracteres em uma cadeia de caracteres.
+Olá seguindo o exemplo ignora Olá número especificado de elementos na matriz de saudação e Olá número especificado de caracteres em uma cadeia de caracteres.
 
 ```json
 {
@@ -1002,7 +1002,7 @@ O exemplo a seguir ignora o número especificado de elementos na matriz e o núm
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -1014,14 +1014,14 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="take"></a>take
 `take(originalValue, numberToTake)`
 
-Retorna uma matriz com o número especificado de elementos desde o início da matriz, ou uma cadeia de caracteres com o número especificado de caracteres desde o início da cadeia de caracteres.
+Retorna uma matriz com hello número especificado de elementos de Olá início da matriz hello, ou uma cadeia de caracteres com hello número especificado de caracteres do início de saudação de cadeia de caracteres de saudação.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres da qual extrair os elementos. |
-| numberToTake |Sim |int |O número de elementos ou caracteres a ser extraído. Se esse valor for 0 ou menos, uma matriz ou cadeia de caracteres vazia será retornada. Se for maior que o tamanho da matriz ou cadeia de caracteres especificada, todos os elementos da matriz ou cadeia de caracteres serão retornados. |
+| originalValue |Sim |matriz ou cadeia de caracteres |Olá cadeia ou matriz de elementos de saudação tootake do. |
+| numberToTake |Sim |int |número de saudação de elementos ou caracteres tootake. Se esse valor for 0 ou menos, uma matriz ou cadeia de caracteres vazia será retornada. Se for maior do que o comprimento de saudação do hello considerando a cadeia de caracteres ou matriz, todos os elementos de saudação na cadeia de caracteres ou matriz hello serão retornados. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1029,7 +1029,7 @@ Uma matriz ou cadeia de caracteres.
 
 ### <a name="example"></a>Exemplo
 
-O exemplo a seguir extrai o número especificado de elementos da matriz e de caracteres de uma cadeia de caracteres.
+Olá seguindo o exemplo usa Olá número especificado de elementos da matriz hello e caracteres de uma cadeia de caracteres.
 
 ```json
 {
@@ -1071,7 +1071,7 @@ O exemplo a seguir extrai o número especificado de elementos da matriz e de car
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -1083,15 +1083,15 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="union"></a>union
 `union(arg1, arg2, arg3, ...)`
 
-Retorna uma única matriz ou objeto com todos os elementos dos parâmetros. Valores duplicados ou chaves só são incluídos uma vez.
+Retorna uma matriz ou objeto com todos os elementos de parâmetros de saudação. Valores duplicados ou chaves só são incluídos uma vez.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |objeto ou matriz |O primeiro valor a ser usado para unir elementos. |
-| arg2 |Sim |objeto ou matriz |O segundo valor a ser usado para unir elementos. |
-| argumentos adicionais |Não |objeto ou matriz |Valores adicionais a serem usados para unir elementos. |
+| arg1 |Sim |objeto ou matriz |Olá toouse valor primeiro para ingressar em elementos. |
+| arg2 |Sim |objeto ou matriz |Olá toouse valor segundo para ingressar em elementos. |
+| argumentos adicionais |Não |objeto ou matriz |Toouse valores adicionais para ingressar em elementos. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1099,7 +1099,7 @@ Uma matriz ou objeto.
 
 ### <a name="example"></a>Exemplo
 
-O exemplo a seguir mostra como usar a union com matrizes e objetos:
+saudação de exemplo a seguir mostra como união toouse com matrizes e objetos:
 
 ```json
 {
@@ -1138,7 +1138,7 @@ O exemplo a seguir mostra como usar a union com matrizes e objetos:
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -1146,8 +1146,8 @@ A saída do exemplo anterior com os valores padrão é:
 | arrayOutput | Matriz | ["one", "two", "three", "four"] |
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
-* Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
-* Para ver como implantar o modelo que você criou, veja [Implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
+* Para obter uma descrição das seções de saudação em um modelo do Gerenciador de recursos do Azure, consulte [modelos de autoria do Azure Resource Manager](resource-group-authoring-templates.md).
+* toomerge vários modelos, consulte [usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
+* tooiterate um número de vezes especificado durante a criação de um tipo de recurso, consulte [criar várias instâncias de recursos no Gerenciador de recursos do Azure](resource-group-create-multiple.md).
+* toosee como modelo de saudação toodeploy que você criou, consulte [implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
 

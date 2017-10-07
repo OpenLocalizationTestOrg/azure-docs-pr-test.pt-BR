@@ -1,6 +1,6 @@
 ---
-title: "Políticas de restrição de acesso do Gerenciamento de API do Azure | Microsoft Docs"
-description: "Saiba mais sobre as políticas de restrição de acesso disponíveis para uso no Gerenciamento de API do Azure."
+title: "políticas de restrição de acesso de gerenciamento de API aaaAzure | Microsoft Docs"
+description: "Saiba mais sobre políticas de restrição de acesso de saudação disponíveis para uso no gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 4c9991baf3fbcf3b8ea01f8dd573e2336db88b68
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0ef368c2781d9a5cf9eaaa41a47489c904ed3198
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso do Gerenciamento de API
-Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
+Este tópico fornece uma referência para Olá políticas de gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="AccessRestrictionPolicies"></a> Políticas de restrição de acesso  
   
@@ -33,14 +33,14 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   [Restringir IP do autor da chamada](api-management-access-restriction-policies.md#RestrictCallerIPs) - Filtra (permite/recusa) chamadas de endereços IP específicos e/ou intervalos de endereços.  
   
--   [Definir a cota de uso por assinatura](api-management-access-restriction-policies.md#SetUsageQuota) - Permite que você aplique uma cota renovável ou permanente de volume de chamada e/ou largura de banda, baseado em assinatura.  
+-   [Definir a cota de uso por assinatura](api-management-access-restriction-policies.md#SetUsageQuota) -permite que você tooenforce uma vida útil ou renovável chamada volume e/ou a largura de banda de cota, em uma base por assinatura.  
   
--   [Definir a cota de uso por chave](#SetUsageQuotaByKey) - Permite que você aplique uma cota renovável ou permanente de volume de chamada e/ou largura de banda, baseado em chave.  
+-   [Definir a cota de uso pela chave](#SetUsageQuotaByKey) -permite que você tooenforce uma vida útil ou renovável chamada volume e/ou a largura de banda de cota, em uma base por chave.  
   
 -   [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) - Impõe a existência e a validade de JWT extraída de um cabeçalho HTTP especificado ou um parâmetro de consulta especificado.  
   
 ##  <a name="CheckHTTPHeader"></a> Verificar cabeçalho HTTP  
- Use a política `check-header` para impor que uma solicitação tem um cabeçalho HTTP especificado. Você pode, opcionalmente, verificar se o cabeçalho tem um valor específico ou procurar um intervalo de valores permitidos. Se a verificação falhar, a política encerrará o processamento da solicitação e retornará a mensagem de erro e código de status HTTP especificada pela política.  
+ Saudação de uso `check-header` tooenforce de política que uma solicitação tem um cabeçalho HTTP especificado. Opcionalmente, você pode verificar toosee se o cabeçalho de saudação tem um valor específico ou para um intervalo de valores permitidos. Se Olá verificação falhar, política de saudação termina o processamento da solicitação e retorna Olá HTTP status código e mensagem de erro especificada por política hello.  
   
 ### <a name="policy-statement"></a>Declaração de política  
   
@@ -64,31 +64,31 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |Nome|Descrição|Obrigatório|  
 |----------|-----------------|--------------|  
 |check-header|Elemento raiz.|Sim|  
-|valor|Valor do cabeçalho HTTP permitido. Quando vários elementos de valor são especificados, a verificação é considerada um sucesso se qualquer um dos valores é uma correspondência.|Não|  
+|valor|Valor do cabeçalho HTTP permitido. Quando forem especificados vários elementos de valor, seleção de saudação é considerada um sucesso se qualquer um dos valores de saudação é uma correspondência.|Não|  
   
 ### <a name="attributes"></a>Atributos  
   
 |Nome|Descrição|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|failed-check-error-message|A mensagem de erro para retornar no corpo da resposta HTTP se o cabeçalho não existe ou tem um valor inválido. Esta mensagem deve conter quaisquer caracteres especiais adequadamente seguidos por caracteres de escape.|Sim|N/D|  
-|failed-check-httpcode|O código de status HTTP para retornar se o cabeçalho não existir ou tiver um valor inválido.|Sim|N/D|  
-|header-name|O nome do cabeçalho HTTP para verificar.|Sim|N/D|  
-|ignore-case|Pode ser definido como True ou False. Se definido como True, maiúsculas e minúsculas são ignoradas quando o valor do cabeçalho é comparado com o conjunto de valores aceitáveis.|Sim|N/D|  
+|failed-check-error-message|Tooreturn de mensagem de erro no corpo de resposta HTTP de saudação se o cabeçalho de saudação não existe ou tem um valor inválido. Esta mensagem deve conter quaisquer caracteres especiais adequadamente seguidos por caracteres de escape.|Sim|N/D|  
+|failed-check-httpcode|Tooreturn do código de HTTP Status se o cabeçalho de saudação não existe ou tem um valor inválido.|Sim|N/D|  
+|header-name|nome de saudação do hello toocheck do cabeçalho HTTP.|Sim|N/D|  
+|ignore-case|Pode ser definido tooTrue ou False. Se o conjunto tooTrue caso é ignorado quando o valor do cabeçalho Olá é comparado com o conjunto de saudação de valores aceitáveis.|Sim|N/D|  
   
 ### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+ Essa política pode ser usada em Olá após diretiva [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Seções de política:** de entrada, de saída  
   
 -   **Escopos de política:** global, produto, API, operação  
   
 ##  <a name="LimitCallRate"></a> Limitar a taxa de chamadas por assinatura  
- A política `rate-limit` impede picos de uso da API para cada assinatura, limitando a taxa de chamadas para um número especificado por um período de tempo especificado. Quando essa política é disparada, o chamador recebe um código de status de resposta `429 Too Many Requests`.  
+ Olá `rate-limit` política impede o uso da API picos em uma base por assinatura, limitando Olá chamar tooa taxa especificada número por um período de tempo especificado. Quando essa política é acionada chamador Olá recebe um `429 Too Many Requests` código de status de resposta.  
   
 > [!IMPORTANT]
 >  Essa política pode ser usada apenas uma vez por cada documento de política.  
 >   
->  As [expressões de política](api-management-policy-expressions.md) não podem ser usadas em nenhum dos atributos de política para essa política.  
+>  [Expressões de política](api-management-policy-expressions.md) não pode ser usado em qualquer um dos atributos de política Olá para esta política.  
   
 ### <a name="policy-statement"></a>Declaração de política  
   
@@ -119,26 +119,26 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |Nome|Descrição|Obrigatório|  
 |----------|-----------------|--------------|  
 |set-limit|Elemento raiz.|Sim|  
-|api|Adicione um ou mais desses elementos para impor um limite de taxa de chamadas para as APIs dentro do produto. Limites de taxa de chamadas à API e ao produto são aplicados de forma independente.|Não|  
-|operation|Adicione um ou mais desses elementos para impor um limite de taxa de chamadas para as operações dentro de uma API. Limites de taxa de chamadas à API, operação e produto são aplicados de forma independente.|Não|  
+|api|Adicione um ou mais desses elementos tooimpose um limite de taxa de chamada nas APIs no produto hello. Limites de taxa de chamadas à API e ao produto são aplicados de forma independente.|Não|  
+|operation|Adicione um ou mais desses elementos tooimpose um limite de taxa de chamada nas operações em uma API. Limites de taxa de chamadas à API, operação e produto são aplicados de forma independente.|Não|  
   
 ### <a name="attributes"></a>Atributos  
   
 |Nome|Descrição|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|name|O nome da API para a qual aplicar o limite de taxa.|Sim|N/D|  
-|chamadas|O número total máximo de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period`.|Sim|N/D|  
-|renewal-period|O período de tempo, em segundos, durante o qual uma cota reinicia.|Sim|N/D|  
+|name|nome de Olá do hello API para o limite de taxa que tooapply Olá.|Sim|N/D|  
+|chamadas|Olá número total máximo de chamadas permitidas durante o intervalo de tempo de saudação especificado no hello `renewal-period`.|Sim|N/D|  
+|renewal-period|saudação do período de tempo em segundos após o qual hello cota é redefinida.|Sim|N/D|  
   
 ### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+ Essa política pode ser usada em Olá após diretiva [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Seções de política:** de entrada  
   
 -   **Escopos de política:** produto  
   
 ##  <a name="LimitCallRateByKey"></a> Limitar a taxa de chamadas por chave  
- A política `rate-limit-by-key` impede picos de uso da API para cada chave, limitando a taxa de chamadas para um número especificado por um período de tempo especificado. A chave pode ter um valor de cadeia de caracteres arbitrária e geralmente é fornecida usando uma expressão de política. A condição de incremento opcional pode ser adicionada para especificar quais solicitações devem ser contadas para obtenção do limite. Quando essa política é disparada, o chamador recebe um código de status de resposta `429 Too Many Requests`.  
+ Olá `rate-limit-by-key` política impede o uso da API picos em uma base por chave limitando Olá chamar tooa taxa especificada número por um período de tempo especificado. chave de saudação pode ter um valor de cadeia de caracteres arbitrária e normalmente é fornecido usando uma expressão de política. Condição de incremento opcional pode ser adicionada toospecify as solicitações que devem ser contadas até o limite de saudação. Quando essa política é acionada chamador Olá recebe um `429 Too Many Requests` código de status de resposta.  
   
  Para obter mais informações e exemplos dessa política, consulte [Limitação de solicitação avançada com o Gerenciamento de API do Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
   
@@ -156,7 +156,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 ```  
   
 ### <a name="example"></a>Exemplo  
- No exemplo a seguir, o limite de taxa é codificado pelo endereço IP do chamador.  
+ Em Olá exemplo a seguir, o limite de taxa de saudação é codificado por endereço IP do chamador Olá.  
   
 ```xml  
 <policies>  
@@ -183,20 +183,20 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |Nome|Descrição|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|chamadas|O número total máximo de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period`.|Sim|N/D|  
-|counter-key|A chave a ser usada para a política de limite de taxa.|Sim|N/D|  
-|increment-condition|A expressão booliana que especifica se a solicitação deve ser contabilizada para a cota (`true`).|Não|N/D|  
-|renewal-period|O período de tempo, em segundos, durante o qual uma cota reinicia.|Sim|N/D|  
+|chamadas|Olá número total máximo de chamadas permitidas durante o intervalo de tempo de saudação especificado no hello `renewal-period`.|Sim|N/D|  
+|counter-key|Olá toouse chave para política de limite de taxa de saudação.|Sim|N/D|  
+|increment-condition|expressão booleana Hello, especificando se a solicitação Olá deve ser contabilizada em direção a cota de saudação (`true`).|Não|N/D|  
+|renewal-period|saudação do período de tempo em segundos após o qual hello cota é redefinida.|Sim|N/D|  
   
 ### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+ Essa política pode ser usada em Olá após diretiva [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Seções de política:** de entrada  
   
 -   **Escopos de política:** global, produto, API, operação  
   
 ##  <a name="RestrictCallerIPs"></a> Restringir IPs do chamador  
- A política `ip-filter` filtra (permite/recusa) chamadas de endereços IP específicos e/ou intervalos de endereços.  
+ Olá `ip-filter` política filtros de chamadas (permite/recusa) de endereços IP específicos e/ou intervalos de endereços.  
   
 ### <a name="policy-statement"></a>Declaração de política  
   
@@ -221,30 +221,30 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |Nome|Descrição|Obrigatório|  
 |----------|-----------------|--------------|  
 |ip-filter|Elemento raiz.|Sim|  
-|endereço|Especifica um único endereço IP no qual filtrar.|Pelo menos um elemento `address` ou `address-range` é necessário.|  
-|address-range from="address" to="address"|Especifica um intervalo de endereços IP nos quais filtrar.|Pelo menos um elemento `address` ou `address-range` é necessário.|  
+|endereço|Especifica um único endereço IP no qual toofilter.|Pelo menos um elemento `address` ou `address-range` é necessário.|  
+|address-range from="address" to="address"|Especifica um intervalo de endereços IP no qual toofilter.|Pelo menos um elemento `address` ou `address-range` é necessário.|  
   
 ### <a name="attributes"></a>Atributos  
   
 |Nome|Descrição|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|address-range from="address" to="address"|Um intervalo de endereços IP aos quais o acesso será permitido ou negado.|Necessário quando o elemento `address-range` é usado.|N/D|  
-|ip-filter action="allow &#124; forbid"|Especifica se chamadas para os endereços IP e intervalos de endereços IP especificados devem ou não ser permitidas.|Sim|N/D|  
+|address-range from="address" to="address"|Um intervalo de IP endereços tooallow ou negar acesso.|Necessário quando hello `address-range` elemento é usado.|N/D|  
+|ip-filter action="allow &#124; forbid"|Especifica se chamadas devem ser permitidas ou não para Olá especificado intervalos e endereços IP.|Sim|N/D|  
   
 ### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+ Essa política pode ser usada em Olá após diretiva [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Seções de política:** de entrada  
   
 -   **Escopos de política:** global, produto, API, operação  
   
 ##  <a name="SetUsageQuota"></a> Definir a cota de uso por assinatura  
- A política `quota` impõe uma cota renovável ou de tempo de vida de volume de chamadas e/ou largura de banda, para cada assinatura.  
+ Olá `quota` política impõe uma vida útil ou renovável chamada volume e/ou a largura de banda de cota, em uma base por assinatura.  
   
 > [!IMPORTANT]
 >  Essa política pode ser usada apenas uma vez por cada documento de política.  
 >   
->  As [expressões de política](api-management-policy-expressions.md) não podem ser usadas em nenhum dos atributos de política para essa política.  
+>  [Expressões de política](api-management-policy-expressions.md) não pode ser usado em qualquer um dos atributos de política Olá para esta política.  
   
 ### <a name="policy-statement"></a>Declaração de política  
   
@@ -275,34 +275,34 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |Nome|Descrição|Obrigatório|  
 |----------|-----------------|--------------|  
 |quota|Elemento raiz.|Sim|  
-|api|Adicione um ou mais desses elementos para impor uma cota para as APIs dentro do produto. Cotas de API e produto são aplicadas de forma independente.|Não|  
-|operation|Adicione um ou mais desses elementos para impor uma cota para as operações dentro de uma API. Cotas de operações, APIs e produtos são aplicadas de forma independente.|Não|  
+|api|Adicione um ou mais desses elementos tooimpose uma cota nas APIs no produto hello. Cotas de API e produto são aplicadas de forma independente.|Não|  
+|operation|Adicione um ou mais desses elementos tooimpose uma cota nas operações em uma API. Cotas de operações, APIs e produtos são aplicadas de forma independente.|Não|  
   
 ### <a name="attributes"></a>Atributos  
   
 |Nome|Descrição|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|name|O nome da API ou operação à qual a cota se aplica.|Sim|N/D|  
-|largura de banda|O número total máximo de kilobytes permitidos durante o intervalo de tempo especificado no `renewal-period`.|`calls` ou `bandwidth` ou ainda ambos juntos devem ser especificados.|N/D|  
-|chamadas|O número total máximo de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period`.|`calls` ou `bandwidth` ou ainda ambos juntos devem ser especificados.|N/D|  
-|renewal-period|O período de tempo, em segundos, durante o qual uma cota reinicia.|Sim|N/D|  
+|name|nome de saudação do hello API ou operação para o qual Olá cota se aplica.|Sim|N/D|  
+|largura de banda|Olá número máximo total de quilobytes permitidos durante o intervalo de tempo de saudação especificado no hello `renewal-period`.|`calls` ou `bandwidth` ou ainda ambos juntos devem ser especificados.|N/D|  
+|chamadas|Olá número total máximo de chamadas permitidas durante o intervalo de tempo de saudação especificado no hello `renewal-period`.|`calls` ou `bandwidth` ou ainda ambos juntos devem ser especificados.|N/D|  
+|renewal-period|saudação do período de tempo em segundos após o qual hello cota é redefinida.|Sim|N/D|  
   
 ### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+ Essa política pode ser usada em Olá após diretiva [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Seções de política:** de entrada  
   
 -   **Escopos de política:** produto  
   
 ##  <a name="SetUsageQuotaByKey"></a> Definir uma cota de uso por chave  
- A política `quota-by-key` impõe uma cota renovável ou de tempo de vida de volume de chamadas e/ou largura de banda, para cada chave. A chave pode ter um valor de cadeia de caracteres arbitrária e geralmente é fornecida usando uma expressão de política. A condição de incremento opcional pode ser adicionada para especificar quais solicitações devem ser contadas para obtenção da cota.  
+ Olá `quota-by-key` política impõe uma vida útil ou renovável chamada volume e/ou a largura de banda de cota, em uma base por chave. chave de saudação pode ter um valor de cadeia de caracteres arbitrária e normalmente é fornecido usando uma expressão de política. Condição de incremento opcional pode ser adicionada toospecify as solicitações que devem ser contadas em direção a cota de saudação.  
   
  Para obter mais informações e exemplos dessa política, consulte [Limitação de solicitação avançada com o Gerenciamento de API do Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
   
 > [!IMPORTANT]
 >  Essa política pode ser usada apenas uma vez por cada documento de política.  
 >   
->  As [expressões de política](api-management-policy-expressions.md) não podem ser usadas em nenhum dos atributos de política para essa política.  
+>  [Expressões de política](api-management-policy-expressions.md) não pode ser usado em qualquer um dos atributos de política Olá para esta política.  
   
 ### <a name="policy-statement"></a>Declaração de política  
   
@@ -316,7 +316,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 ```  
   
 ### <a name="example"></a>Exemplo  
- No exemplo a seguir, a cota é codificada pelo endereço IP do chamador.  
+ Em Olá exemplo a seguir, cota Olá é inserida pelo endereço IP do chamador hello.  
   
 ```xml  
 <policies>  
@@ -342,33 +342,33 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |Nome|Descrição|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|largura de banda|O número total máximo de kilobytes permitidos durante o intervalo de tempo especificado no `renewal-period`.|`calls` ou `bandwidth` ou ainda ambos juntos devem ser especificados.|N/D|  
-|chamadas|O número total máximo de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period`.|`calls` ou `bandwidth` ou ainda ambos juntos devem ser especificados.|N/D|  
-|counter-key|A chave a ser usada para a política de cota.|Sim|N/D|  
-|increment-condition|A expressão booliana que especifica se a solicitação deve ser contabilizada para a cota (`true`)|Não|N/D|  
-|renewal-period|O período de tempo, em segundos, durante o qual uma cota reinicia.|Sim|N/D|  
+|largura de banda|Olá número máximo total de quilobytes permitidos durante o intervalo de tempo de saudação especificado no hello `renewal-period`.|`calls` ou `bandwidth` ou ainda ambos juntos devem ser especificados.|N/D|  
+|chamadas|Olá número total máximo de chamadas permitidas durante o intervalo de tempo de saudação especificado no hello `renewal-period`.|`calls` ou `bandwidth` ou ainda ambos juntos devem ser especificados.|N/D|  
+|counter-key|Olá toouse chave para a política de cota de saudação.|Sim|N/D|  
+|increment-condition|expressão booleana Hello, especificando se a solicitação Olá deve ser contabilizada em direção a cota de saudação (`true`)|Não|N/D|  
+|renewal-period|saudação do período de tempo em segundos após o qual hello cota é redefinida.|Sim|N/D|  
   
 ### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+ Essa política pode ser usada em Olá após diretiva [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Seções de política:** de entrada  
   
 -   **Escopos de política:** global, produto, API, operação  
   
 ##  <a name="ValidateJWT"></a> Validar JWT  
- A política `validate-jwt` impõe a existência e a validade de um JWT extraído de um Cabeçalho HTTP ou um parâmetro de consulta especificado.  
+ Olá `validate-jwt` política impõe a existência e a validade de um JWT extraído de um determinado cabeçalho HTTP ou um parâmetro de consulta especificado.  
   
 > [!IMPORTANT]
->  A política `validate-jwt` requer que a declaração registrada `exp` seja incluída no token JWT, a menos que o atributo `require-expiration-time` seja especificado e definido como `false`.  
-> A política `validate-jwt` dá suporte aos algoritmos de assinatura HS256 e RS256. Para HS256, a chave deve ser fornecida embutida na política no formato codificado em base64. Para RS256, a chave deve ser fornecida por meio de um ponto de extremidade de configuração de Open ID.  
+>  Olá `validate-jwt` política requer que Olá `exp` declaração registrada é incluído (s) no token JWT hello, a menos que `require-expiration-time` atributo for especificado e definido muito`false`.  
+> Olá `validate-jwt` diretiva dá suporte a algoritmos de assinatura HS256 e RS256. Para HS256 chave Olá deve ser fornecido embutido na política de saudação no formulário do hello codificado na base64. RS256 chave Olá tem toobe fornecer por meio de um ponto de extremidade de configuração do Open ID.  
   
 ### <a name="policy-statement"></a>Declaração de política  
   
 ```xml  
 <validate-jwt   
-    header-name="name of http header containing the token (use query-parameter-name attribute if the token is passed in the URL)"   
-    failed-validation-httpcode="http status code to return on failure"   
-    failed-validation-error-message="error message to return on failure"   
+    header-name="name of http header containing hello token (use query-parameter-name attribute if hello token is passed in hello URL)"   
+    failed-validation-httpcode="http status code tooreturn on failure"   
+    failed-validation-error-message="error message tooreturn on failure"   
     require-expiration-time="true|false"
     require-scheme="scheme"
     require-signed-tokens="true|false"   
@@ -386,13 +386,13 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
     <!-- if there are multiple possible issuers, then add additional issuer elements -->  
   </issuers>  
   <required-claims>  
-    <claim name="name of the claim as it appears in the token" match="all|any">  
-      <value>claim value as it is expected to appear in the token</value>  
+    <claim name="name of hello claim as it appears in hello token" match="all|any">  
+      <value>claim value as it is expected tooappear in hello token</value>  
       <!-- if there is more than one allowed values, then add additional value elements -->  
     </claim>  
     <!-- if there are multiple possible allowed values, then add additional value elements -->  
   </required-claims>  
-  <openid-config url="full URL of the configuration endpoint, e.g. https://login.constoso.com/openid-configuration" />  
+  <openid-config url="full URL of hello configuration endpoint, e.g. https://login.constoso.com/openid-configuration" />  
   <zumo-master-key id="key identifier">key value</zumo-master-key>  
 </validate-jwt>  
   
@@ -449,11 +449,11 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 </validate-jwt>  
 ```  
   
-#### <a name="authorize-access-to-operations-based-on-token-claims"></a>Autorizar o acesso para operações baseadas em declarações de token  
- Este exemplo mostra como usar a política [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) para pré-autorizar o acesso a operações baseadas em declarações de token. Para ver uma demonstração da configuração e do uso dessa política, consulte [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Abordagem da Nuvem Episódio 177: Mais Recursos de Gerenciamento de API com Vlad Vinogradsky) e avance para 13:50. Avance para 15:00 para ver as diretivas configuradas no editor de diretiva e, em seguida, 18:50 para uma demonstração de como chamar uma operação do portal do desenvolvedor com e sem o token de autorização necessário.  
+#### <a name="authorize-access-toooperations-based-on-token-claims"></a>Autorizar toooperations de acesso baseado em declarações de token  
+ Este exemplo mostra como Olá toouse [validar JWT](api-management-access-restriction-policies.md#ValidateJWT) política toopre-autorizar toooperations de acesso baseado em declarações de token. Para ver uma demonstração de como configurar e usar essa política, consulte [nuvem abrangem episódio 177: mais recursos de gerenciamento de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e Avançar too13:50. Avanço too15:00 toosee políticas de saudação configuradas no editor de diretiva de saudação e, em seguida, too18:50 para ver uma demonstração de como chamar uma operação do portal do desenvolvedor do hello com e sem Olá necessário token de autorização.  
   
 ```xml  
-<!-- Copy the following snippet into the inbound section at the api (or higher) level to pre-authorize access to operations based on token claims -->  
+<!-- Copy hello following snippet into hello inbound section at hello api (or higher) level toopre-authorize access toooperations based on token claims -->  
 <set-variable name="signingKey" value="insert signing key here" />  
 <choose>  
   <when condition="@(context.Request.Method.Equals("patch",StringComparison.OrdinalIgnoreCase))">  
@@ -495,31 +495,31 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |Elemento|Descrição|Obrigatório|  
 |-------------|-----------------|--------------|  
 |validate-jwt|Elemento raiz.|Sim|  
-|públicos-alvo|Contém uma lista de declarações de público-alvo aceitáveis que podem estar presentes no token. Se vários valores de público-alvo estiverem presentes, cada valor será tentado até que todos sejam esgotados (nesse caso, a validação falhará) ou até obter êxito. Pelo menos um público-alvo deve ser especificado.|Não|  
-|issuer-signing-keys|Uma lista de chaves de segurança codificadas em Base64 usadas para validar tokens assinados. Se várias chaves de segurança estiverem presentes, cada chave será tentada até que todas sejam esgotadas (nesse caso, a validação falhará) ou até obter êxito (útil para substituição de token). Elementos-chave têm um atributo `id` opcional usado para correspondência com a declaração `kid`.|Não|  
-|emissores|Uma lista de entidades aceitáveis que emitiram o token. Se vários valores de emissor estiverem presentes, cada valor será tentado até que todos sejam esgotados (nesse caso, a validação falhará) ou até obter êxito.|Não|  
-|openid-config|O elemento usado para especificar um ponto de extremidade de configuração de Open ID em conformidade do qual chaves de assinatura e emissor podem ser obtidos.|Não|  
-|required-claims|Contém uma lista de declarações cuja presença é esperada no token para que ele possa ser considerado válido. Quando o atributo `match` é definido como `all`, cada valor de declaração na política deve estar presente no token para que a validação seja bem-sucedida. Quando o atributo `match` é definido como `any`, pelo menos uma declaração deve estar presente no token para que a validação seja bem-sucedida.|Não|  
+|públicos-alvo|Contém uma lista de declarações de público aceitáveis que podem estar presentes no token de saudação. Se vários valores de público-alvo estiverem presentes, cada valor será tentado até que todos sejam esgotados (nesse caso, a validação falhará) ou até obter êxito. Pelo menos um público-alvo deve ser especificado.|Não|  
+|issuer-signing-keys|Uma lista de segurança codificada em Base64 chaves usadas toovalidate assinado tokens. Se várias chaves de segurança estiverem presentes, cada chave será tentada até que todas sejam esgotadas (nesse caso, a validação falhará) ou até obter êxito (útil para substituição de token). Elementos chave têm um recurso opcional `id` toomatch atributo usado contra `kid` de declaração.|Não|  
+|emissores|Uma lista de entidades aceitáveis que emitiu o token de saudação. Se vários valores de emissor estiverem presentes, cada valor será tentado até que todos sejam esgotados (nesse caso, a validação falhará) ou até obter êxito.|Não|  
+|openid-config|elemento de saudação usado para especificar um compatível com Open ID configuração ponto de extremidade do qual as chaves e o emissor de assinatura pode ser obtido.|Não|  
+|required-claims|Contém uma lista de declarações esperadas toobe presente no token Olá para ele toobe considerado válido. Olá quando `match` atributo está definido muito`all` cada valor de declaração na diretiva Olá deve estar presente no token Olá para toosucceed de validação. Olá quando `match` atributo está definido muito`any` pelo menos uma declaração deve estar presente no token Olá para toosucceed de validação.|Não|  
 |zumo-master-key|Chave mestra para tokens emitidos pelos Serviços Móveis do Azure|Não|  
   
 ### <a name="attributes"></a>Atributos  
   
 |Nome|Descrição|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|clock-skew|Período de tempo. Fornece alguma pequena reserva caso a declaração de expiração do token esteja presente no token e seja após a data/hora atual.|Não|0 segundos|  
-|failed-validation-error-message|Mensagem de erro para retornar no corpo da resposta HTTP se o JWT não passar na validação. Esta mensagem deve conter quaisquer caracteres especiais adequadamente seguidos por caracteres de escape.|Não|A mensagem de erro padrão depende do problema de validação, por exemplo, "O JWT não está presente."|  
-|failed-validation-httpcode|O código de status HTTP para retornar se o JWT não passar na validação.|Não|401|  
-|header-name|O nome do cabeçalho HTTP contendo o token.|`header-name` ou `query-paremeter-name` deve ser especificado; mas não ambos.|N/D|  
-|ID|O atributo `id` no elemento `key` permite que você especifique a cadeia de caracteres cuja correspondência será verificada em relação à declaração `kid` no token (se presente) para descobrir a chave apropriada a ser usada para validação de assinatura.|Não|N/D|  
-|match|O atributo `match` no elemento `claim` especifica se todos os valores de declaração na política devem estar presentes no token para que a validação seja bem-sucedida. Os valores possíveis são:<br /><br /> -                          `all` – todos os valores de declaração na política devem estar presentes no token para que a validação seja bem-sucedida.<br /><br /> -                          `any` – pelo menos um valor de declaração na política deve estar presente no token para que a validação seja bem-sucedida.|Não|tudo|  
-|query-paremeter-name|O nome do parâmetro de consulta que contém o token.|`header-name` ou `query-paremeter-name` deve ser especificado; mas não ambos.|N/D|  
-|require-expiration-time|Booliano. Especifica se uma declaração de expiração é necessária no token.|Não|verdadeiro|
-|require-scheme|O nome do esquema do token, por exemplo, "Portador". Quando esse atributo for definido, a política garantirá que o esquema especificado esteja presente no valor do cabeçalho de Autorização.|Não|N/D|
-|require-signed-tokens|Booliano. Especifica se é necessário que um determinado token seja assinado.|Não|verdadeiro|  
-|url|URL ponto de extremidade de configuração de Open ID da qual é possível obter os metadados de configuração de Open ID. Para o Azure Active Directory, use a seguinte URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituindo o seu nome de locatário do diretório, por exemplo, `contoso.onmicrosoft.com`.|Sim|N/D|  
+|clock-skew|Período de tempo. Fornece alguma reserva pequena no caso de declaração de expiração do token hello está presente no token hello e passou Olá atual data / hora.|Não|0 segundos|  
+|failed-validation-error-message|Tooreturn de mensagem de erro no corpo de resposta HTTP de saudação se Olá JWT não passar na validação. Esta mensagem deve conter quaisquer caracteres especiais adequadamente seguidos por caracteres de escape.|Não|A mensagem de erro padrão depende do problema de validação, por exemplo, "O JWT não está presente."|  
+|failed-validation-httpcode|Tooreturn do código de HTTP Status se Olá JWT não passa na validação.|Não|401|  
+|header-name|nome de saudação do cabeçalho de saudação HTTP contém Olá token.|`header-name` ou `query-paremeter-name` deve ser especificado; mas não ambos.|N/D|  
+|ID|Olá `id` atributo Olá `key` elemento permite toospecify Olá cadeia de caracteres será comparada à `kid` toofind de token (se houver) Olá out Olá toouse de chave apropriado para a validação de assinatura de declaração.|Não|N/D|  
+|match|Olá `match` atributo Olá `claim` elemento Especifica se cada valor de declaração na diretiva Olá deve estar presente no token Olá para toosucceed de validação. Os valores possíveis são:<br /><br /> -                          `all`-cada valor de declaração na diretiva Olá deve estar presente no token Olá para toosucceed de validação.<br /><br /> -                          `any`-pelo menos uma declaração de valor deve estar presente no token Olá para toosucceed de validação.|Não|tudo|  
+|query-paremeter-name|nome de Olá Olá Olá do parâmetro de consulta contém o token de saudação.|`header-name` ou `query-paremeter-name` deve ser especificado; mas não ambos.|N/D|  
+|require-expiration-time|Booliano. Especifica se uma declaração de expiração é necessária no token de saudação.|Não|verdadeiro|
+|require-scheme|Olá, por exemplo, o nome do esquema de token Olá, "Portador". Quando esse atributo é definido, política de saudação garantirá que especificado o esquema está presente no valor do cabeçalho de autorização de saudação.|Não|N/D|
+|require-signed-tokens|Booliano. Especifica se um token é necessário toobe assinado.|Não|verdadeiro|  
+|url|URL ponto de extremidade de configuração de Open ID da qual é possível obter os metadados de configuração de Open ID. Active Directory do Azure use Olá URL a seguir: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituindo o nome do locatário de diretório, por exemplo, `contoso.onmicrosoft.com`.|Sim|N/D|  
   
 ### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+ Essa política pode ser usada em Olá após diretiva [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Seções de política:** de entrada  
   

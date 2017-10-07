@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory B2C: introdução às políticas personalizadas | Microsoft Docs"
-description: "Como começar a usar as políticas personalizadas do Azure Active Directory B2C"
+description: "Como tooget iniciado com as políticas personalizadas do Azure Active Directory B2C"
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja
@@ -14,79 +14,79 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.openlocfilehash: 4f14dbf4b66f10290cd4f98d56a005f97cc6a207
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 5ee133806395cddf18682769a6cad149889d82d1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: introdução às políticas personalizadas
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Depois que você concluir as etapas descritas neste artigo, a política personalizada dará suporte à inscrição ou conexão da “conta local” usando um endereço de email e uma senha. Você também preparará o ambiente para adicionar provedores de identidade (como Facebook ou Azure Active Directory). Recomendamos que você conclua estas etapas antes de ler sobre outros usos da Estrutura de Experiência de Identidade do Azure AD (Active Directory) B2C.
+Depois de concluir as etapas de saudação neste artigo, a política personalizada oferecerá suporte a "conta local" inscrever-se ou entrar por meio de um endereço de email e senha. Você também preparará o ambiente para adicionar provedores de identidade (como Facebook ou Azure Active Directory). Recomendamos que você toocomplete estas etapas antes de ler sobre outros usos de saudação do Framework de experiência de identidade de B2C do Azure Active Directory (AD do Azure).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de prosseguir, verifique se você tem um locatário do Azure AD B2C, que é um contêiner para todos os seus usuários, aplicativos, políticas e muito mais. Se você ainda não tiver um, será necessário [criar um locatário do Azure AD B2C](active-directory-b2c-get-started.md). Recomendamos que todos os desenvolvedores concluam os passo a passos de política interna do Azure AD B2C e configurem seus aplicativos com políticas internas antes de continuar. Seus aplicativos funcionarão com dois tipos de políticas assim que você fizer uma simples alteração no nome da política para invocar a política personalizada.
+Antes de prosseguir, verifique se você tem um locatário do Azure AD B2C, que é um contêiner para todos os seus usuários, aplicativos, políticas e muito mais. Se você não tiver um já, será necessário muito[criar um locatário Azure AD B2C](active-directory-b2c-get-started.md). É altamente incentivamos Olá toocomplete de todos os desenvolvedores do Azure AD B2C explicações passo a passo de política interna e configurar seus aplicativos com políticas internas antes de continuar. Seus aplicativos funcionará com os dois tipos de políticas quando você fizer uma alteração secundária toohello política nome tooinvoke Olá política personalizada.
 
 >[!NOTE]
->Para acessar a edição da política personalizada você precisa de uma assinatura válida do Azure vinculada ao seu locatário. Se você não [vinculou seu locatário do Azure AD B2C a uma assinatura do Azure](active-directory-b2c-how-to-enable-billing.md), ou se sua assinatura do Azure está desabilitada, o botão Estrutura de Experiência de Identidade não estará disponível.
+>edição de política personalizada tooaccess, é necessário um locatário tooyour vinculado de assinatura do Azure válida. Se você ainda não [vinculado sua tooan de locatário do Azure AD B2C assinatura do Azure](active-directory-b2c-how-to-enable-billing.md) ou sua assinatura do Azure está desabilitada, Olá identidade experiência Framework botão não estará disponível.
 
-## <a name="add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies"></a>Adicionar chaves de criptografia e de assinatura ao seu locatário do B2C para serem usadas por políticas personalizadas
+## <a name="add-signing-and-encryption-keys-tooyour-b2c-tenant-for-use-by-custom-policies"></a>Adicionar assinatura e criptografia locatário tooyour B2C de chaves para uso por políticas personalizadas
 
-1. Abra a folha **Estrutura de Experiência de Identidade** em suas configurações de locatário do Azure AD B2C.
-2. Selecione **Chaves de Política** para exibir as chaves disponíveis no seu locatário.
+1. Olá abrir **identidade experiência Framework** folha em suas configurações de locatário do Azure AD B2C.
+2. Selecione **chaves política** tooview chaves de saudação disponíveis em seu locatário.
 3. Crie a B2C_1A_TokenSigningKeyContainer, se não existir:<br>
     a. Selecione **Adicionar**. <br>
     b. Selecione **Gerar**.<br>
     c. Para o **Nome**, use `TokenSigningKeyContainer`. <br> 
-    O prefixo `B2C_1A_` pode ser adicionado automaticamente.<br>
+    prefixo de saudação `B2C_1A_` podem ser adicionadas automaticamente.<br>
     d. Para o **Tipo de chave**, use **RSA**.<br>
-    e. Para as **Datas**, use os padrões. <br>
+    e. Para **datas**, usar padrões de saudação. <br>
     f. Para o **Uso da chave**, use **Assinatura**.<br>
     g. Selecione **Criar**.<br>
 4. Crie a B2C_1A_TokenEncryptionKeyContainer, se não existir:<br>
  a. Selecione **Adicionar**.<br>
  b. Selecione **Gerar**.<br>
  c. Para o **Nome**, use `TokenEncryptionKeyContainer`. <br>
-   O prefixo `B2C_1A`_ pode ser adicionado automaticamente.<br>
+   prefixo de saudação `B2C_1A`_ podem ser adicionadas automaticamente.<br>
  d. Para o **Tipo de chave**, use **RSA**.<br>
- e. Para as **Datas**, use os padrões.<br>
+ e. Para **datas**, usar padrões de saudação.<br>
  f. Para o **Uso da chave**, use **Criptografia**.<br>
  g. Selecione **Criar**.<br>
 5. Crie o B2C_1A_FacebookSecret. <br>
-Se você já tiver um segredo do aplicativo Facebook, adicione-o como uma chave de política para o seu locatário. Caso contrário, você deve criar a chave com um valor de espaço reservado para que suas políticas passem na validação.<br>
+Se você já tiver um segredo do aplicativo Facebook, adicioná-lo como um locatário tooyour chave de política. Caso contrário, você deve criar chave Olá com um valor de espaço reservado para que as políticas sejam aprovados.<br>
  a. Selecione **Adicionar**.<br>
  b. Para as **Opções**, use **Manual**.<br>
  c. Para o **Nome**, use `FacebookSecret`. <br>
- O prefixo `B2C_1A_` pode ser adicionado automaticamente.<br>
- d. Na caixa **Segredo**, insira seu FacebookSecret de developers.facebook.com ou `0` como um espaço reservado. *Esse não é a sua ID do aplicativo Facebook.* <br>
+ prefixo de saudação `B2C_1A_` podem ser adicionadas automaticamente.<br>
+ d. Em Olá **segredo** , digite sua FacebookSecret de developers.facebook.com ou `0` como um espaço reservado. *Esse não é a sua ID do aplicativo Facebook.* <br>
  e. Para o **Uso da chave**, use **Assinatura**. <br>
  f. Selecione **Criar** e confirme a criação.
 
 ## <a name="register-identity-experience-framework-applications"></a>Registrar aplicativos do Identity Experience Framework
 
-O Azure AD B2C exige o registro de dois aplicativos adicionais que são usados pelo mecanismo para a inscrição e conexão de usuários.
+B2C do AD do Azure requer tooregister dois aplicativos adicionais que são usados por Olá mecanismo toosign backup e entre os usuários.
 
 >[!NOTE]
->Você deve criar dois aplicativos que permitam a entrada usando contas locais: IdentityExperienceFramework (um aplicativo Web) e ProxyIdentityExperienceFramework (um aplicativo nativo) com permissão delegada do aplicativo IdentityExperienceFramework. As contas locais só existem em seu locatário. Seus usuários entram com uma combinação exclusiva de endereço de email/senha para acessar seus aplicativos registrados por locatário.
+>Você deve criar dois aplicativos que permitem entrar usando contas locais: IdentityExperienceFramework (um aplicativo web) e ProxyIdentityExperienceFramework (um aplicativo nativo) com recebido permissão do aplicativo de IdentityExperienceFramework hello. As contas locais só existem em seu locatário. Os usuários se inscrever com um tooaccess de combinação de endereço e senha de email exclusivo seus aplicativos de locatário registrado.
 
-### <a name="create-the-identityexperienceframework-application"></a>Criar o aplicativo IdentityExperienceFramework
+### <a name="create-hello-identityexperienceframework-application"></a>Criar aplicativo de IdentityExperienceFramework hello
 
-1. No [Portal do Azure](https://portal.azure.com), alterne para o [contexto do locatário do Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md).
-2. Abra a folha do **Azure Active Directory** (não a folha do **Azure AD B2C**). Talvez seja necessário selecionar **Mais Serviços** para localizá-la.
+1. Em Olá [portal do Azure](https://portal.azure.com), alternar para Olá [contexto do seu locatário do Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md).
+2. Olá abrir **Active Directory do Azure** folha (Olá não **do Azure AD B2C** folha). Talvez seja necessário tooselect **mais serviços** toofind-lo.
 3. Selecione **Registros do Aplicativo**.
 4. Selecione **Novo registro de aplicativo**.
    * Para o **Nome**, use `IdentityExperienceFramework`.
    * Para o **Tipo de aplicativo**, use **Aplicativo Web/API**.
    * Para a **URL de Entrada**, use `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, em que `yourtenant` é o nome de domínio do seu locatário do Azure AD B2C.
 5. Selecione **Criar**.
-6. Depois de concluir, selecione o aplicativo recém-criado **IdentityExperienceFramework**.<br>
+6. Quando ele é criado, selecione o aplicativo hello recém-criado **IdentityExperienceFramework**.<br>
    * Selecione **Propriedades**.<br>
-   * Copie a ID do aplicativo e salve-a para mais tarde.
+   * Copie a ID do aplicativo hello e salvá-lo para mais tarde.
 
-### <a name="create-the-proxyidentityexperienceframework-application"></a>Criar o aplicativo ProxyIdentityExperienceFramework
+### <a name="create-hello-proxyidentityexperienceframework-application"></a>Criar aplicativo de ProxyIdentityExperienceFramework hello
 
 1. Selecione **Registros do Aplicativo**.
 1. Selecione **Novo registro de aplicativo**.
@@ -94,44 +94,44 @@ O Azure AD B2C exige o registro de dois aplicativos adicionais que são usados p
    * Para o **Tipo de aplicativo**, use **Nativo**.
    * Para a **URI de Redirecionamento**, use `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, em que `yourtenant` é o seu locatário do Azure AD B2C.
 1. Selecione **Criar**.
-1. Depois de ele ter sido criado, selecione o aplicativo **ProxyIdentityExperienceFramework**.<br>
+1. Depois de ele ter sido criado, selecione o aplicativo hello **ProxyIdentityExperienceFramework**.<br>
    * Selecione **Propriedades**. <br>
-   * Copie a ID do aplicativo e salve-a para mais tarde.
+   * Copie a ID do aplicativo hello e salvá-lo para mais tarde.
 1. Selecione **Permissões necessárias**.
 1. Selecione **Adicionar**.
 1. Selecione **Selecionar uma API**.
-1. Pesquise o nome IdentityExperienceFramework. Selecione **IdentityExperienceFramework** nos resultados e, em seguida, clique em **Selecionar**.
-1. Marque a caixa de seleção ao lado de **Acessar IdentityExperienceFramework** e, em seguida, clique em **Selecionar**.
+1. Pesquisar por nome hello IdentityExperienceFramework. Selecione **IdentityExperienceFramework** Olá resultados e, em seguida, clique em **selecione**.
+1. Selecione caixa de seleção Olá Avançar muito**acesso IdentityExperienceFramework**e, em seguida, clique em **selecione**.
 1. Selecione **Concluído**.
 1. Selecione **Conceder Permissões** e, em seguida, confirme selecionando **Sim**.
 
 ## <a name="download-starter-pack-and-modify-policies"></a>Baixar o pacote de início e modificar políticas
 
-Políticas personalizadas são um conjunto de arquivos XML que precisam ser carregados no locatário do Azure AD B2C. Fornecemos starter packs para você começar a trabalhar rapidamente. Cada pacote de início da lista a seguir contém o menor número de perfis de técnicos e jornadas do usuário necessárias para alcançar os cenários descritos:
- * LocalAccounts. Habilita o uso somente de contas locais.
- * SocialAccounts. Habilita o uso somente de contas sociais (ou federadas).
- * **SocialAndLocalAccounts**. Usaremos esse arquivo no passo a passo.
+Políticas personalizadas são um conjunto de arquivos XML que precisam de locatário de tooyour do Azure AD B2C toobe carregado. Fornecemos starter pacotes tooget sobre rapidamente. Cada pacote de inicializador Olá lista a seguir contém o menor número Olá perfis técnicos e Jornadas de usuário necessária cenários de saudação tooachieve descritos:
+ * LocalAccounts. Permite o uso de saudação do somente para contas locais.
+ * SocialAccounts. Permite o uso de saudação somente contas social (ou federado).
+ * **SocialAndLocalAccounts**. Usamos este arquivo hello passo a passo.
  * SocialAndLocalAccountsWithMFA. As opções de Autenticação Multifator, local e social estão incluídas aqui.
 
 Cada pacote de início contém:
 
-* O [arquivo base](active-directory-b2c-overview-custom.md#policy-files) da política. São necessárias algumas modificações na base.
-* O [arquivo de extensão](active-directory-b2c-overview-custom.md#policy-files) da política.  Esse arquivo é o local em que a maioria das alterações de configuração é feita.
+* Olá [arquivo base](active-directory-b2c-overview-custom.md#policy-files) da política de saudação. Algumas modificações são necessária toohello base.
+* Olá [arquivo de extensão](active-directory-b2c-overview-custom.md#policy-files) da política de saudação.  Esse arquivo é o local em que a maioria das alterações de configuração é feita.
 * [Arquivos de terceira parte confiável](active-directory-b2c-overview-custom.md#policy-files) são os arquivos específicos de tarefa, chamados pelo aplicativo.
 
 >[!NOTE]
->Caso seu editor de XML dê suporte à validação, valide os arquivos em relação ao esquema XML TrustFrameworkPolicy_0.3.0.0.xsd, localizado no diretório raiz do pacote de início. A validação de esquema XML identifica erros antes do upload.
+>Se seu editor de XML compatível com a validação, valide os arquivos de saudação com base no esquema de XML TrustFrameworkPolicy_0.3.0.0.xsd Olá que está localizado no diretório raiz de saudação do pacote de inicializador de saudação. A validação de esquema XML identifica erros antes do upload.
 
  Vamos começar:
 
-1. Baixe o active-directory-b2c-custom-policy-starterpack do GitHub. [Baixe o arquivo .zip](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) ou execute
+1. Baixe o active-directory-b2c-custom-policy-starterpack do GitHub. [Baixe o arquivo. zip de saudação](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) ou execute
 
     ```console
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
-2. Abra a pasta SocialAndLocalAccounts.  O arquivo base (TrustFrameworkBase.xml) dessa pasta contém o conteúdo necessário para contas locais e sociais/corporativas. O conteúdo social não interfere nas etapas para ativação das contas locais.
+2. Abra a pasta de SocialAndLocalAccounts hello.  arquivo base Hello (TrustFrameworkBase.xml) nessa pasta contém conteúdo necessário para contas locais e social/corporativa. conteúdo social Olá não interfere nas etapas Olá para colocar as contas locais em execução.
 3. Abra o TrustFrameworkBase.xml. Se você precisar de um editor de XML, [experimente o Visual Studio Code](https://code.visualstudio.com/download), um editor de plataforma cruzada leve.
-4. No elemento raiz `TrustFrameworkPolicy`, atualize os atributos `TenantId` e `PublicPolicyUri`, substituindo `yourtenant.onmicrosoft.com` pelo nome de domínio do seu locatário do Azure AD B2C:
+4. Na raiz da saudação `TrustFrameworkPolicy` elemento, Olá atualização `TenantId` e `PublicPolicyUri` atributos, substituindo `yourtenant.onmicrosoft.com` com o nome de domínio de saudação do seu locatário do Azure AD B2C:
    ```xml
     <TrustFrameworkPolicy
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -143,54 +143,54 @@ Cada pacote de início contém:
     PublicPolicyUri="http://yourtenant.onmicrosoft.com">
     ```
    >[!NOTE]
-   >`PolicyId` é o nome da política que você vê no portal e o nome pelo qual este arquivo de política é referenciado por outros arquivos de política.
+   >`PolicyId`é o nome hello da política que você vê no portal de saudação e o nome de Olá pelo qual este arquivo de política é referenciado por outros arquivos de política.
 
-5. Salve o arquivo.
-6. Abra o TrustFrameworkExtensions.xml. Faça as mesmas duas alterações, substituindo `yourtenant.onmicrosoft.com` pelo seu locatário do Azure AD B2C. Faça a mesma substituição no elemento `<TenantId>` para um total de três alterações. Salve o arquivo.
-7. Abra o SignUpOrSignIn.xml. Faça as mesmas alterações, substituindo `yourtenant.onmicrosoft.com` pelo seu locatário do Azure AD B2C em três locais. Salve o arquivo.
-8. Abra a os arquivos de redefinição de senha e edição de perfil. Faça as mesmas alterações substituindo `yourtenant.onmicrosoft.com` pelo seu locatário do Azure AD B2C em três locais em cada arquivo. Salve os arquivos.
+5. Salve o arquivo hello.
+6. Abra o TrustFrameworkExtensions.xml. Alterar Olá mesmo dois substituindo `yourtenant.onmicrosoft.com` com seu locatário do Azure AD B2C. Verifique Olá mesmo substituição em Olá `<TenantId>` elemento para um total de três alterações. Salve o arquivo hello.
+7. Abra o SignUpOrSignIn.xml. Alterar Olá mesmo substituindo `yourtenant.onmicrosoft.com` com seu locatário do Azure AD B2C em três locais. Salve o arquivo hello.
+8. Redefinição de senha Olá aberto e perfil Editar arquivos. Alterar Olá mesmo substituindo `yourtenant.onmicrosoft.com` com seu locatário do Azure AD B2C em três locais em cada arquivo. Salve arquivos hello.
 
-### <a name="add-the-application-ids-to-your-custom-policy"></a>Adicionar as IDs do Aplicativo à política personalizada
-Adicione as IDs de aplicativo ao arquivo de extensões (`TrustFrameworkExtensions.xml`):
+### <a name="add-hello-application-ids-tooyour-custom-policy"></a>Adicionar política personalizada do hello aplicativo IDs tooyour
+Adicione o arquivo de extensões do hello aplicativo IDs toohello (`TrustFrameworkExtensions.xml`):
 
-1. No arquivo de extensões (TrustFrameworkExtensions.xml), localize o elemento `<TechnicalProfile Id="login-NonInteractive">`.
-2. Substitua ambas as instâncias de `IdentityExperienceFrameworkAppId` pela ID do aplicativo do aplicativo Identity Experience Framework criado anteriormente. Aqui está um exemplo:
+1. No arquivo de extensões de saudação (TrustFrameworkExtensions.xml), localizar o elemento de saudação `<TechnicalProfile Id="login-NonInteractive">`.
+2. Substitua as duas instâncias de `IdentityExperienceFrameworkAppId` com ID de aplicativo de saudação do hello application Framework de experiência de identidade que você criou anteriormente. Aqui está um exemplo:
 
    ```xml
    <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
    ```
-3. Substitua ambas as instâncias de `ProxyIdentityExperienceFrameworkAppId` pela ID do aplicativo do aplicativo Estrutura de Experiência de Identidade de Proxy que você criou anteriormente.
+3. Substitua as duas instâncias de `ProxyIdentityExperienceFrameworkAppId` com ID de aplicativo de saudação do hello application Framework de experiência de identidade de Proxy que você criou anteriormente.
 4. Salve o arquivo de extensões.
 
-## <a name="upload-the-policies-to-your-tenant"></a>Carregar as políticas no locatário
+## <a name="upload-hello-policies-tooyour-tenant"></a>Carregar o locatário do hello políticas tooyour
 
-1. No [Portal do Azure](https://portal.azure.com), alterne para o [contexto do seu locatário do Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e abra a folha do **Azure AD B2C**.
+1. Em Olá [portal do Azure](https://portal.azure.com), alternar para Olá [contexto do seu locatário do Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md)e abra hello **do Azure AD B2C** folha.
 2. Selecione **Estrutura de Experiência de Identidade**.
 3. Selecione **Carregar Política**.
 
     >[!WARNING]
-    >Os arquivos da política personalizada devem ser carregados na seguinte ordem:
+    >arquivos de política personalizada de saudação devem ser carregados no hello ordem a seguir:
 
 1. Carregue o TrustFrameworkBase.xml.
 2. Carregue o TrustFrameworkExtensions.xml.
 3. Carregue o SignUpOrSignin.xml.
 4. Carregue os outros arquivos de política.
 
-Quando um arquivo é carregado, o nome do arquivo de política é precedido por `B2C_1A_`.
+Quando um arquivo é carregado, o nome de saudação do arquivo de política de saudação é anexado com `B2C_1A_`.
 
-## <a name="test-the-custom-policy-by-using-run-now"></a>Testar a política personalizada usando a opção Executar Agora
+## <a name="test-hello-custom-policy-by-using-run-now"></a>Testar a política personalizada do hello usando Executar agora
 
-1. Abra as **Configurações do Azure AD B2C** e acesse a **Estrutura de Experiência de Identidade**.
+1. Abra **configurações do Azure AD B2C** e vá muito**identidade experiência Framework**.
 
    >[!NOTE]
-   >A **Executar Agora** exige que pelo menos um aplicativo esteja previamente registrado no locatário. Os aplicativos devem ser registrados no locatário do B2C, seja pelo uso da seleção de menu **Aplicativos** no Azure AD B2C ou pelo uso da Estrutura de Experiência de Identidade para invocar tanto as políticas internas quanto as personalizadas. Somente um registro por aplicativo é necessário.<br><br>
-   Para saber como registrar aplicativos, confira os artigos [Introdução](active-directory-b2c-get-started.md) ou [Registro do aplicativo](active-directory-b2c-app-registration.md) do Azure AD B2C.  
+   >**Executar agora** requer pelo menos um aplicativo toobe pré-registrado no locatário hello. Aplicativos devem ser registrados no locatário Olá B2C usando Olá **aplicativos** seleção de menu no Azure AD B2C ou usando Olá identidade experiência Framework tooinvoke políticas internas e personalizadas. Somente um registro por aplicativo é necessário.<br><br>
+   toolearn como tooregister aplicativos, consulte hello Azure AD B2C [começar](active-directory-b2c-get-started.md) artigo ou hello [registro do aplicativo](active-directory-b2c-app-registration.md) artigo.  
 
-2. Abra a B2C_1A_signup_signin, a política personalizada da RP (terceira parte confiável) que você carregou. Selecione **Executar Agora**.
+2. Abra B2C_1A_signup_signin, Olá política personalizada do terceira parte confiável (RP) que você carregou. Selecione **Executar Agora**.
 
-3. Você deverá conseguir se inscrever usando um endereço de email.
+3. Você deve ser capaz de toosign usando um endereço de email.
 
-4. Entre com a mesma conta para confirmar que você tem a configuração correta.
+4. Entrar com hello mesma conta tooconfirm tiver Olá configuração correta.
 
 >[!NOTE]
 >Uma causa comum de falha de entrada é um aplicativo IdentityExperienceFramework configurado incorretamente.
@@ -199,21 +199,21 @@ Quando um arquivo é carregado, o nome do arquivo de política é precedido por 
 ## <a name="next-steps"></a>Próximas etapas
 
 ### <a name="add-facebook-as-an-identity-provider"></a>Adicionar o Facebook como um provedor de identidade
-Para configurar o Facebook:
+tooset o Facebook:
 1. [Configurar um aplicativo do Facebook em developers.facebook.com](active-directory-b2c-setup-fb-app.md).
-2. [Adicionar o segredo do aplicativo Facebook ao seu locatário do Azure AD B2C](#add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies).
-3. No arquivo de política TrustFrameworkExtensions, substitua o valor de `client_id` pela ID do aplicativo Facebook:
+2. [Adicionar Olá Facebook aplicativo tooyour segredo do Azure AD B2C locatário](#add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies).
+3. No arquivo de política de TrustFrameworkExtensions hello, substitua o valor de saudação do `client_id` com a ID do aplicativo Facebook hello:
 
    ```xml
    <TechnicalProfile Id="Facebook-OAUTH">
      <Metadata>
-     <!--Replace the value of client_id in this technical profile with the Facebook app ID"-->
+     <!--Replace hello value of client_id in this technical profile with hello Facebook app ID"-->
        <Item Key="client_id">00000000000000</Item>
    ```
-4. Carregue o arquivo de política de TrustFrameworkExtensions.xml em seu locatário.
-5. Teste usando **Executar Agora** ou invocando a política diretamente do seu aplicativo registrado.
+4. Carregar o locatário do hello TrustFrameworkExtensions.xml política arquivo tooyour.
+5. Teste usando **executar agora** ou invocando política Olá diretamente do seu aplicativo registrado.
 
 ### <a name="add-azure-active-directory-as-an-identity-provider"></a>Adicionar o Azure Active Directory como um provedor de identidade
-O arquivo base usado neste guia de introdução já contém uma parte do conteúdo de que você precisa para adicionar outros provedores de identidade. Para obter informações sobre como configurar conexões, consulte o artigo [Azure Active Directory B2C: entrar usando contas do Azure AD](active-directory-b2c-setup-aad-custom.md).
+o arquivo de base Olá usado neste guia de Introdução ao obter já contém Olá conteúdo que você precisa para adicionar outros provedores de identidade. Para obter informações sobre como configurar logons, consulte Olá [do Azure Active Directory B2C: entrar usando contas do AD do Azure](active-directory-b2c-setup-aad-custom.md) artigo.
 
-Para obter uma visão geral sobre políticas personalizadas no Azure AD B2C que usam a Estrutura de Experiência de Identidade, consulte o artigo [Azure Active Directory B2C: políticas personalizadas](active-directory-b2c-overview-custom.md). 
+Para obter uma visão geral de políticas personalizadas no Azure AD B2C que usam saudação do Framework de experiência de identidade, consulte Olá [do Azure Active Directory B2C: políticas personalizadas](active-directory-b2c-overview-custom.md) artigo. 

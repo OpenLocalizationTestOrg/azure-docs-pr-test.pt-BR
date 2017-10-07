@@ -1,6 +1,6 @@
 ---
-title: "Exibição da topologia do Observador de rede do Azure - CLI do Azure | Microsoft Docs"
-description: Este artigo descreve como usar a CLI do Azure para consultar a sua topologia de rede.
+title: topologia do observador de rede do Azure aaaView - CLI do Azure | Microsoft Docs
+description: Este artigo descreve como toouse CLI do Azure tooquery a topologia de rede.
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 5be8e103f9a1f32117a4ed3be73bff021db1186d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: afa7e7dd844ecb2ab4c616ba99fa0a433f1e4ade
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="view-network-watcher-topology-with-azure-cli"></a>Como exibir a topologia do Observador de rede com a CLI do Azure
 
@@ -28,39 +28,39 @@ ms.lasthandoff: 07/11/2017
 > - [CLI 2.0](network-watcher-topology-cli.md)
 > - [API REST](network-watcher-topology-rest.md)
 
-O recurso de topologia do Observador de rede fornece uma representação visual dos recursos de rede em uma assinatura. No portal, essa visualização é apresentada para você automaticamente. As informações que seguem a visualização de topologia no portal podem ser recuperadas por meio do PowerShell.
-Esse recurso torna as informações de topologia mais versáteis, já que os dados podem ser consumidos por outras ferramentas para criar a visualização.
+recurso de topologia de saudação do observador de rede fornece uma representação visual dos recursos de rede de saudação em uma assinatura. No portal de hello, essa visualização é apresentada tooyou automaticamente. informações de Olá por trás de exibição de topologia Olá no portal de saudação podem ser recuperadas por meio do PowerShell.
+Esse recurso cria informações de topologia hello mais versátil como Olá dados podem ser consumidos por outros toobuild ferramentas out visualização hello.
 
 Este artigo usa a CLI 1.0 do Azure para plataforma cruzada, que está disponível para Windows, Mac e Linux. Atualmente, o Observador de Rede usa a CLI 1.0 do Azure para dar suporte à CLI.
 
-A interconexão é modelada em duas relações.
+interconexão de saudação é modelada em duas relações.
 
 - **Confinamento** - exemplo: a VNet contém uma sub-rede que contém uma NIC
 - **Associados** - exemplo: a NIC está associada a uma VM
 
-A lista a seguir contém propriedades que são retornadas ao consultar a REST API de topologia.
+Olá lista a seguir é propriedades que são retornadas ao consultar Olá API de REST de topologia.
 
-* **nome** - o nome do recurso
-* **ID** - o URI do recurso.
-* **local** - o local onde o recurso existe.
-* **associações** - uma lista de associações para o objeto referenciado.
-    * **nome** - o nome do recurso referenciado.
-    * **resourceId** -o ID do recurso é o URI do recurso referenciado na associação.
-    * **associationType** - a relação entre o objeto filho e pai faz referência a esse valor. Os valores válidos são **Contém** ou **Associado**.
+* **nome** - Olá nome do recurso de saudação
+* **ID** -Olá uri do recurso de saudação.
+* **local** -Olá localização onde o recurso de saudação.
+* **associações** -uma lista de associações toohello Referência de objeto.
+    * **nome** -nome de saudação do hello referenciado recursos.
+    * **resourceId** -Olá resourceId é o uri de saudação do recurso Olá referenciado na associação de saudação.
+    * **associationType** -relação Olá entre o objeto do hello filho e pai Olá faz referência a esse valor. Os valores válidos são **Contém** ou **Associado**.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Nesse cenário, você deve usar o cmdlet `network watcher topology` para recuperar as informações de topologia. Também há um artigo sobre [Como recuperar a topologia de rede com a REST API](network-watcher-topology-rest.md).
+Nesse cenário, você usa Olá `network watcher topology` informações de topologia do cmdlet tooretrieve hello. Também há um artigo sobre como muito[recuperar a topologia de rede com a API REST](network-watcher-topology-rest.md).
 
-Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede.
+Este cenário pressupõe que você já seguiu etapas Olá [criar um observador de rede](network-watcher-create.md) toocreate um observador de rede.
 
 ## <a name="scenario"></a>Cenário
 
-O cenário abordado neste artigo recupera a resposta de topologia para um grupo de recursos determinado.
+cenário de saudação abordado neste artigo recupera a resposta de topologia de saudação um determinado grupo de recursos.
 
 ## <a name="retrieve-topology"></a>Como recuperar a topologia
 
-O cmdlet `network watcher topology` recupera a topologia para um grupo de recursos determinado. Adicione o argumento "--json" para exibir a saída no formato json
+Olá `network watcher topology` cmdlet recupera a topologia de saudação um determinado grupo de recursos. Adicione o argumento hello "– json" tooview Olá oput no formato json
 
 ```azurecli
 azure network watcher topology -g resourceGroupName -n networkWatcherName -r topologyResourceGroupName --json
@@ -68,7 +68,7 @@ azure network watcher topology -g resourceGroupName -n networkWatcherName -r top
 
 ## <a name="results"></a>Resultados
 
-Os resultados retornados têm uma propriedade de nome "Recursos", que contêm o corpo da resposta json para o cmdlet `network watcher topology`.  A resposta contém os recursos no grupo de segurança de rede e suas associações (ou seja, Contém e Associado).
+Olá resultados retornados tem uma propriedade de nome "recursos", que contém o corpo da resposta json Olá para Olá `network watcher topology` cmdlet.  resposta de saudação contém recursos Olá Olá grupo de segurança de rede e suas associações (ou seja, Contains, associado).
 
 ```json
 {
@@ -113,4 +113,4 @@ Os resultados retornados têm uma propriedade de nome "Recursos", que contêm o 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre as regras de segurança que são aplicadas aos recursos de rede no artigo [Visão geral de exibição do grupo de segurança](network-watcher-security-group-view-overview.md)
+Saiba mais sobre as regras de segurança de saudação que são recursos de rede aplicada tooyour visitando [visão geral de exibição de grupo de segurança](network-watcher-security-group-view-overview.md)

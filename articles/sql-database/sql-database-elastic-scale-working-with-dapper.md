@@ -1,5 +1,5 @@
 ---
-title: "Usando a biblioteca de cliente de banco de dados elástico com o Dapper | Microsoft Docs"
+title: "biblioteca de cliente de banco de dados Elástico aaaUsing com Dapper | Microsoft Docs"
 description: "Usar a biblioteca de cliente de banco de dados elástico com Dapper."
 services: sql-database
 documentationcenter: 
@@ -14,55 +14,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: f0efd37a39c1a60eee7b47304483c27727ca8833
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c22ece2a977265e93850f0ad3f3ca48f0a8733ac
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Usando a biblioteca de cliente do banco de dados elástico com Dapper
-Este documento é destinado aos desenvolvedores que usam Dapper na criação de aplicativos, mas que também desejam adotar as [ferramentas de banco de dados elástico](sql-database-elastic-scale-introduction.md) para criar aplicativos de aplicativos que implementam a fragmentação para escalar horizontalmente sua camada de dados.  Este documento ilustra as alterações em aplicativos baseados em Dapper que são necessários para integrar as ferramentas de banco de dados elástico. Nosso foco é em criar o gerenciamento de fragmento de banco de dados elástico e roteamento dependente de dados com o Dapper. 
+Este documento é para desenvolvedores que dependem de aplicativos toobuild Dapper, mas também quer tooembrace [ferramentas de banco de dados Elástico](sql-database-elastic-scale-introduction.md) toocreate aplicativos que implementam a camada de dados de fragmentação tooscale-out.  Este documento ilustra as alterações de saudação em aplicativos baseados em Dapper que são necessária toointegrate com ferramentas de banco de dados Elástico. Nosso foco está na composição de dados dependentes e gerenciamento de fragmento de banco de dados Elástico Olá roteamento com Dapper. 
 
 **Código de exemplo**: [ferramentas de banco de dados elástico para o Banco de Dados SQL do Azure - integração com o Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
-É muito fácil integrar o **Dapper** e **DapperExtensions** com a biblioteca de cliente de banco de dados elástico do Banco de Dados SQL do Azure. Seus aplicativos podem usar roteamento dependente de dados alterando a criação e abertura de novos objetos [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) para usar a chamada [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) na [biblioteca de cliente](http://msdn.microsoft.com/library/azure/dn765902.aspx). Isso limita as alterações em seu aplicativo apenas quando novas conexões forem criadas e abertas. 
+Integrando **Dapper** e **DapperExtensions** com hello biblioteca de cliente do banco de dados Elástico de banco de dados do SQL Azure é fácil. Os aplicativos podem usar dados dependentes de roteamento alterando criação hello e abertura de novos [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) Olá de toouse objetos [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) chamar de saudação [cliente biblioteca](http://msdn.microsoft.com/library/azure/dn765902.aspx). Isso limita as alterações no seu tooonly de aplicativo em que novas conexões são criadas e abertos. 
 
 ## <a name="dapper-overview"></a>Visão geral do Dapper
-**Dapper** é um mapeador relacional de objetos. Ele mapeia objetos .NET a partir de seu aplicativo para um banco de dados relacional (e vice-versa). A primeira parte do código de exemplo ilustra como você pode integrar a biblioteca de cliente do banco de dados elástico com aplicativos baseados em Dapper. A segunda parte do código de exemplo ilustra como integrar ao usar o Dapper e as DapperExtensions.  
+**Dapper** é um mapeador relacional de objetos. Ele mapeia objetos do .NET Framework do aplicativo tooa banco de dados relacional (e vice-versa). a primeira parte Olá Olá códigos de exemplo ilustra como você pode integrar a biblioteca de cliente do banco de dados Elástico Olá com aplicativos baseados em Dapper. Olá segunda parte do código de exemplo hello ilustra como toointegrate ao usar Dapper e DapperExtensions.  
 
-A funcionalidade do mapeador em Dapper fornece métodos de extensão em conexões de banco de dados que simplificam o envio de instruções T-SQL para execução ou consulta ao banco de dados. Por exemplo, o Dapper torna mais fácil mapear entre seus objetos .NET e os parâmetros de instruções SQL por chamadas **Execute** ou para consumir os resultados de suas consultas SQL em objetos .NET usando chamadas **Query** no Dapper. 
+funcionalidade de mapeador de saudação em Dapper fornece métodos de extensão em conexões de banco de dados que simplificam enviando instruções T-SQL para execução ou consultar banco de dados de saudação. Por exemplo, Dapper torna fácil toomap entre seus objetos .NET e os parâmetros de saudação de instruções SQL para **Execute** chamadas ou resultados de saudação tooconsume de suas consultas SQL em objetos .NET usando **consulta**chamadas de Dapper. 
 
-Ao usar DapperExtensions, você não precisa fornecer as instruções SQL. Métodos de extensão, como **GetList** ou **Insert** através da conexão de banco de dados cria as instruções SQL nos bastidores.
+Ao usar DapperExtensions, você não precisa mais instruções de SQL tooprovide hello. Métodos de extensões como **GetList** ou **inserir** pela conexão de banco de dados de saudação criar hello instruções SQL em segundo plano da saudação.
 
-Outro benefício do Dapper e também das DapperExtensions é que o aplicativo controla a criação da conexão de banco de dados. Isso ajuda a interagir com a biblioteca de cliente de banco de dados elástico que intermedia as conexões com base no mapeamento de shardlets para bancos de dados.
+Outro benefício de Dapper e também DapperExtensions é controles de aplicativo Olá Olá criação de conexão de banco de dados de saudação. Isso ajuda a interagir com a biblioteca de cliente do banco de dados Elástico Olá qual agentes com base no mapeamento de saudação do toodatabases shardlets de conexões de banco de dados.
 
-Para obter os assemblies do Dapper, consulte [Dapper dot net](http://www.nuget.org/packages/Dapper/). Para ver as extensões do Dapper, consulte [DapperExtensions](http://www.nuget.org/packages/DapperExtensions).
+tooget Olá Dapper módulos (assemblies), consulte [Dapper dot net](http://www.nuget.org/packages/Dapper/). Para as extensões de saudação Dapper, consulte [DapperExtensions](http://www.nuget.org/packages/DapperExtensions).
 
-## <a name="a-quick-look-at-the-elastic-database-client-library"></a>Uma olhada rápida pela biblioteca de cliente de banco de dados elástico
-Com a biblioteca de cliente do banco de dados elástico, você definir partições de dados do aplicativo chamados *shardlets*, mapeá-las para bancos de dados e identificá-las por *chaves de fragmentação*. Você pode ter quantos bancos de dados conforme necessário e distribuir seu shardlets entre esses bancos de dados. O mapeamento de valores chave de fragmentação para os bancos de dados é armazenado por um mapa de fragmentos fornecido pelas APIs da biblioteca. Essa funcionalidade é chamada de **gerenciamento de mapa de fragmentos**. O mapa do fragmento também serve como o agente de conexões de banco de dados para solicitações que carregam uma chave de fragmentação. Essa funcionalidade é conhecida como **Roteamento dependente de dados**.
+## <a name="a-quick-look-at-hello-elastic-database-client-library"></a>Uma visão geral de biblioteca de cliente do banco de dados Elástico Olá
+Com a biblioteca de cliente do banco de dados Elástico Olá, você definir partições de dados do aplicativo chamados *shardlets* , mapeá-los toodatabases e identificá-los por *as chaves de fragmentação*. Você pode ter quantos bancos de dados conforme necessário e distribuir seu shardlets entre esses bancos de dados. mapeamento de saudação de bancos de dados de toohello de valores de chave fragmentação é armazenado por um mapa do fragmento fornecido pelas APIs da biblioteca hello. Essa funcionalidade é chamada de **gerenciamento de mapa de fragmentos**. mapa do fragmento Olá também serve como agente de saudação de conexões de banco de dados para solicitações que contêm uma chave de fragmentação. Esse recurso é chamado de tooas **roteamento dependente de dados**.
 
 ![Mapas de fragmentos e roteamento dependente de dados][1]
 
-O gerenciador de mapa de fragmentos protege os usuários contra exibições inconsistentes em dados de shardlet que podem ocorrer quando as operações de gerenciamento simultâneo de shardlet ocorrem nos bancos de dados. Para fazer isso, os mapas de fragmento intermediam as conexões de banco de dados para um aplicativo criado com a biblioteca. Quando as operações de gerenciamento de fragmentação podem afetar o shardlet, isso permite que a funcionalidade de mapa do fragmento elimine automaticamente uma conexão de banco de dados. 
+Gerenciador do mapa de fragmentos Olá protege os usuários contra modos de exibição inconsistente em dados de shardlet que podem ocorrer quando as operações de gerenciamento de shardlet simultâneas estão ocorrendo nos bancos de dados de saudação. toodo Olá assim, mapas de fragmento broker conexões de banco de dados Olá para um aplicativo compilado com a biblioteca de saudação. Olá shardlet podem afetar as operações de gerenciamento de fragmento, permite que kill do hello fragmento mapa funcionalidade tooautomatically uma conexão de banco de dados. 
 
-Em vez de usar a maneira tradicional de criar conexões para Dapper, precisamos usar o método [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn824099.aspx). Isso garante que todos as validações ocorram e as conexões são gerenciadas corretamente quando os dados se movem entre os fragmentos.
+Em vez de usar conexões de toocreate de maneira tradicional de saudação para Dapper, precisamos Olá toouse [OpenConnectionForKey método](http://msdn.microsoft.com/library/azure/dn824099.aspx). Isso garante que todas as validações de saudação ocorre e conexões são gerenciadas corretamente quando nenhum dado é movido entre fragmentos.
 
 ### <a name="requirements-for-dapper-integration"></a>Requisitos para a integração do Dapper
-Ao trabalhar com a biblioteca de cliente do banco de dados elástico e de APIs do Dapper, queremos manter as seguintes propriedades:
+Ao trabalhar com a biblioteca de cliente do banco de dados Elástico hello e Olá APIs Dapper, queremos Olá tooretain propriedades a seguir:
 
-* **Escala horizontal**: queremos adicionar ou remover bancos de dados da camada de dados do aplicativo fragmentado, conforme necessário para as demandas de capacidade do aplicativo. 
-* **Consistência**: como nosso aplicativo é dimensionado com o uso de fragmentação, precisamos executar roteamento dependente de dados. Queremos usar os recursos de roteamento dependentes de dados da biblioteca para fazer isso. Queremos reter especialmente a validação e garantir a consistência fornecida pelas conexões intermediadas por meio do gerenciador de mapa de fragmentos para evitar corrompimento ou resultados de consulta incorretos. Isso garante que conexões para um determinado shardlet sejam rejeitadas ou interrompidas se (por exemplo) o shardlet é movido num momento para um fragmento diferente usando APIs de divisão/mesclagem.
-* **Mapeamento de objetos**: queremos manter a conveniência dos mapeamentos fornecidos pelo Dapper para converter entre classes no aplicativo e as estruturas de banco de dados subjacente. 
+* **Expansão**: deseja tooadd ou remover bancos de dados Olá da camada de dados do aplicativo fragmentados Olá conforme necessário para atender às demandas de capacidade de saudação do aplicativo hello. 
+* **Consistência**: desde que o aplicativo é expandido usando a fragmentação, precisamos de roteamento dependente de dados do tooperform. Queremos toouse Olá dados dependentes capacidades de roteamento de saudação biblioteca toodo assim. Em particular, queremos que a validação de saudação tooretain e garante a consistência fornecida pelas conexões que são orientadas por meio do Gerenciador do mapa de fragmentos Olá nos resultados de consulta incorreto ou corrupção de tooavoid de ordem. Isso garante que tooa conexões dado shardlet são rejeitadas ou interrompido se (por exemplo) Olá shardlet está sendo movido tooa fragmento diferente usando APIs de divisão/mesclagem.
+* **Mapeamento de objeto**: queremos tooretain conveniência de saudação de mapeamentos de saudação fornecidos pelo tootranslate Dapper entre classes no aplicativo hello e hello subjacente estruturas de banco de dados. 
 
-A seção a seguir fornece diretrizes para esses requisitos de aplicativos com base em **Dapper** e **DapperExtensions**.
+Olá, seção a seguir fornece orientação para esses requisitos para aplicativos com base em **Dapper** e **DapperExtensions**.
 
 ## <a name="technical-guidance"></a>Orientações técnicas
 ### <a name="data-dependent-routing-with-dapper"></a>Roteamento dependente de dados com Dapper
-Com Dapper, o aplicativo é geralmente responsável por criar e abrir as conexões de banco de dados subjacente. Fornecendo um tipo T pelo aplicativo, o Dapper retorna resultados da consulta como coleções .NET do tipo T. O Dapper executa o mapeamento das linhas de resultado do T-SQL para os objetos do tipo T. Da mesma forma, o Dapper mapeia objetos .NET em valores ou parâmetros SQL para instruções de linguagem de manipulação de dados (DML). O Dapper oferece essa funcionalidade por meio de métodos de extensão no objeto [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) normal por meio de bibliotecas do Cliente SQL do ADO .NET. A conexão do SQL retornada por APIs de escala elástica para DDR também são objetos regulares da [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx). Isso nos permite usar extensões Dapper diretamente no tipo retornado pela API de DDR da biblioteca de cliente, pois ele também é uma conexão SQL Client simples.
+Com Dapper, o aplicativo hello é geralmente, responsável por criar e abrir Olá conexões toohello subjacente do banco de dados. Dado um tipo T pelo aplicativo hello, Dapper retorna resultados da consulta como coleções de .NET do tipo T. Dapper executa o mapeamento de saudação de objetos Olá T-SQL resultado linhas toohello do tipo T. Da mesma forma, Dapper mapeia objetos .NET em valores SQL ou parâmetros para instruções de DML (linguagem) de manipulação de dados. Dapper oferece essa funcionalidade por meio de métodos de extensão em Olá regular [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) objeto das bibliotecas de cliente de SQL do ADO .NET hello. Olá conexão SQL retornado pelo Olá APIs de dimensionamento Elástico para DDR também são regular [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) objetos. Isso nos permite toodirectly use Dapper extensões sobre o tipo de saudação retornado pela API de DDR da biblioteca de cliente hello, como também é uma conexão de cliente SQL simple.
 
-Essas observações simplificam o uso de conexões intermediadas pela biblioteca de cliente de banco de dados elástico para Dapper.
+Essas observações tornam toouse simples conexões orientadas pela biblioteca de cliente do banco de dados Elástico Olá para Dapper.
 
-Este exemplo de código (do exemplo que acompanha este artigo) ilustra a abordagem em que a chave de fragmentação é fornecida pelo aplicativo para a biblioteca para intermediar a conexão para o fragmento correto.   
+Este exemplo de código (de saudação que acompanha o exemplo) ilustra a abordagem de saudação onde chave de fragmentação de saudação é fornecido por Olá aplicativo toohello biblioteca toobroker Olá conexão toohello direita fragmento.   
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                      key: tenantId1, 
@@ -77,15 +77,15 @@ Este exemplo de código (do exemplo que acompanha este artigo) ilustra a abordag
                         );
     }
 
-A chamada para a API [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) substitui a criação e a abertura padrão de uma conexão de cliente SQL. A chamada [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) usa os argumentos que são necessários para roteamento dependente de dados com escala elástica: 
+Olá chamada toohello [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) API substitui a criação de padrão de saudação e abertura de uma conexão de cliente SQL. Olá [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) chamada utiliza argumentos de saudação que são necessários para encaminhamento dependente de dados: 
 
-* o mapa do fragmento para acessar as interfaces de roteamento dependente de dados
-* a chave de fragmentação para identificar o shardlet
-* as credenciais (nome de usuário e senha) para conectar-se ao fragmento
+* tooaccess de mapa do fragmento Olá Olá interfaces de roteamento dependente de dados
+* Olá fragmentação tooidentify chave Olá shardlet
+* fragmento de toohello de tooconnect Olá credenciais (nome de usuário e senha)
 
-o objeto do mapa do fragmento cria uma conexão para o fragmento que mantém o shardlet para a chave de fragmentação determinada. As APIs de cliente do banco de dados elástico também marca a conexão para implementar suas garantias de consistência. Uma vez que a chamada para [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) retorna um objeto de conexão do Cliente SQL regular, a chamada subsequente para o método de extensão **Execute** do Dapper segue a prática padrão do Dapper.
+objeto de mapa do fragmento Olá cria um fragmento de toohello de conexão que contém o shardlet Olá para Olá recebe a chave de fragmentação. APIs de cliente de banco de dados Elástico Olá também marca Olá conexão tooimplement garante sua consistência. Desde Olá chamar muito[OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) retorna um objeto de conexão SQL Client regular, Olá chamada subsequente toohello **Execute** método de extensão de maneira Dapper Olá Dapper padrão prática.
 
-As consultas funcionam praticamente da mesma forma — você primeiro abre a conexão usando [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) na API do cliente. Em seguida, você deve usar os métodos de extensão Dapper regulares para mapear os resultados da consulta SQL nos objetos .NET:
+Consultas de trabalho muito Olá mesmo maneira - você primeiro abre Olá conexão usando [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) da API do cliente hello. Em seguida, usar o hello regular extensão Dapper métodos toomap Olá resultados sua consulta SQL em objetos .NET:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId1, 
@@ -105,12 +105,12 @@ As consultas funcionam praticamente da mesma forma — você primeiro abre a con
             }
     }
 
-Observe que o bloco **using** com a conexão DDR abrange todas as operações de banco de dados dentro do bloco para o único fragmento em que tenantId1 é mantido. A consulta retorna apenas os blogs armazenados no fragmento atual, mas não os arquivos armazenados em quaisquer outros fragmentos. 
+Observe que Olá **usando** bloco com escopos de conexão de DDR Olá todas as operações de banco de dados dentro de saudação bloco toohello um fragmento onde tenantId1 é mantida. consulta de saudação somente retorna blogs armazenado no fragmento atual hello, mas não Olá arquivos armazenados em quaisquer outros fragmentos. 
 
 ## <a name="data-dependent-routing-with-dapper-and-dapperextensions"></a>Roteamento dependente de dados com Dapper e DapperExtensions
-O Dapper vem com um ecossistema de extensões adicionais que podem fornecer mais conveniência e abstração do banco de dados ao desenvolver aplicativos de banco de dados. O DapperExtensions é um exemplo. 
+Dapper vem com um ecossistema de extensões adicionais que podem fornecer mais conveniência e a abstração de banco de dados de saudação ao desenvolver aplicativos de banco de dados. O DapperExtensions é um exemplo. 
 
-O uso do DapperExtensions em seu aplicativo não muda como conexões de banco de dados são criadas e gerenciadas. Ainda é responsabilidade do aplicativo abrir conexões, e objetos de conexão do Cliente SQL regulares são aguardados pelos métodos de extensão. Podemos usar a [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) conforme descrito acima. Como mostram os exemplos de código a seguir, a única alteração é que não temos de escrever as instruções T-SQL:
+O uso do DapperExtensions em seu aplicativo não muda como conexões de banco de dados são criadas e gerenciadas. Ainda é conexões de tooopen de responsabilidade do aplicativo hello e objetos de conexão SQL Client regulares são esperados pelos métodos de extensão de saudação. Podemos contar com hello [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) conforme descrito acima. Como Olá exemplos de código seguintes mostram, Olá única alteração é que não temos mais toowrite instruções de saudação T-SQL:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId2, 
@@ -121,7 +121,7 @@ O uso do DapperExtensions em seu aplicativo não muda como conexões de banco de
            sqlconn.Insert(blog);
     }
 
-E aqui está o exemplo de código para a consulta: 
+E aqui está o exemplo de código Olá para consulta hello: 
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId2, 
@@ -138,9 +138,9 @@ E aqui está o exemplo de código para a consulta:
     }
 
 ### <a name="handling-transient-faults"></a>Tratamento de falhas transitórias
-A equipe Microsoft Patterns & Practices publicou o [Bloco de aplicativos de tratamento de falhas transitórias](http://msdn.microsoft.com/library/hh680934.aspx) para ajudar os desenvolvedores de aplicativos a atenuarem condições de falha transitória comuns encontradas durante a execução na nuvem. Para obter mais informações, consulte [Perseverança, segredo de todos os triunfos: usando o bloco de aplicativos de tratamento de falhas temporárias](http://msdn.microsoft.com/library/dn440719.aspx).
+Olá Microsoft Patterns & Practices equipe Olá publicado [Transient Fault Handling Application Block](http://msdn.microsoft.com/library/hh680934.aspx) os desenvolvedores de aplicativos toohelp reduzir condições comuns de falha transitória durante a execução na nuvem hello. Para obter mais informações, consulte [Perseverance, o segredo de todos os Triumphs: usando Olá Transient Fault Handling Application Block](http://msdn.microsoft.com/library/dn440719.aspx).
 
-O código de exemplo se baseia na biblioteca de falha transitória para proteger contra falhas transitórias. 
+exemplo de código Hello depende Olá falhas transitórias biblioteca tooprotect contra falhas transitórias. 
 
     SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
     {
@@ -152,16 +152,16 @@ O código de exemplo se baseia na biblioteca de falha transitória para proteger
           }
     });
 
-**SqlDatabaseUtils.SqlRetryPolicy** no código acima é definido como um **SqlDatabaseTransientErrorDetectionStrategy** com uma contagem de repetições de 10, com tempo de espera de 5 segundos entre as tentativas. Se você estiver usando transações, certifique-se de que o escopo de repetição volta para o início da transação no caso de uma falha temporária.
+**SqlDatabaseUtils.SqlRetryPolicy** Olá código acima é definido como um **SqlDatabaseTransientErrorDetectionStrategy** com uma contagem de repetição de 10 e 5 segundos tempo de espera entre as repetições. Se você estiver usando transações, certifique-se de que o escopo de repetição vai voltar toohello início da transação Olá no caso de saudação de uma falha temporária.
 
 ## <a name="limitations"></a>Limitações
-As abordagens descritas neste documento envolvem algumas limitações:
+abordagens de saudação descritas neste documento envolvem algumas limitações:
 
-* O código de exemplo para este documento demonstra como gerenciar o esquema em fragmentos.
-* Recebida uma solicitação, pressupomos que todo o processamento de seu banco de dados está contido em um único fragmento como identificado pela chave de fragmentação fornecida pela solicitação. No entanto, esse pressuposto não é sempre mantido, por exemplo, quando não é possível disponibilizar uma chave de fragmentação. Para resolver isso, a biblioteca de cliente do banco de dados elástico inclui a [classe MultiShardQuery](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardexception.aspx). A classe implementa uma abstração de conexão para consultas em vários fragmentos. O uso da MultiShardQuery em combinação com Dapper está além do escopo deste documento.
+* código de exemplo Hello para este documento demonstra como esquema toomanage em fragmentos.
+* Recebe uma solicitação, vamos supor que todo o processamento de seu banco de dados está contido em um único fragmento conforme identificado pela chave de fragmentação Olá fornecida por solicitação hello. No entanto, essa suposição sempre mantém, por exemplo, quando não é possível toomake uma chave de fragmentação disponível. tooaddress, Olá biblioteca de cliente do banco de dados Elástico inclui Olá [MultiShardQuery classe](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardexception.aspx). classe Olá implementa uma abstração de conexão para consultas em vários fragmentos. Usar MultiShardQuery em combinação com Dapper está além do escopo deste documento hello.
 
 ## <a name="conclusion"></a>Conclusão
-Aplicativos que usam Dapper e DapperExtensions podem aproveitar facilmente as ferramentas de banco de dados elástico para o Banco de Dados SQL do Azure. Através das etapas descritas neste documento, esses aplicativos podem usar funcionalidade da ferramenta para roteamento dependente de dados alterando a criação e abertura de novos objetos [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) para usar a chamada [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) da biblioteca de cliente de banco de dados elástico. Isso limita as alterações de aplicativo necessárias para os locais onde as novas conexões são criadas e abertas. 
+Aplicativos que usam Dapper e DapperExtensions podem aproveitar facilmente as ferramentas de banco de dados elástico para o Banco de Dados SQL do Azure. Por meio de Olá as etapas descritas neste documento, esses aplicativos podem usar recurso da ferramenta Olá para dados dependentes de roteamento alterando criação hello e abertura de novos [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) Olá de toouse objetos [ OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) chamada da biblioteca de cliente do banco de dados Elástico hello. Isso limita Olá aplicativo alterações toothose necessário locais onde novas conexões são criadas e abertos. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

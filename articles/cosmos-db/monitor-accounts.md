@@ -1,6 +1,6 @@
 ---
-title: "Monitorar solicitações e o armazenamento do Azure Cosmos DB | Microsoft Docs"
-description: "Saiba como monitorar sua conta do Azure Cosmos DB para verificar métricas de desempenho, como solicitações e erros de servidor, além de métricas de uso, como consumo de armazenamento."
+title: "aaaMonitor banco de dados do Azure Cosmos solicitações e armazenamento | Microsoft Docs"
+description: "Saiba como toomonitor seu banco de dados do Azure Cosmos a conta para métricas de desempenho, como erros de servidor e as solicitações e métricas de uso, como o consumo de armazenamento."
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -14,113 +14,113 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: mimig
-ms.openlocfilehash: 0ca652d31d6c50124f87916b4486d8279075f106
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: aea029d10717236a573a080dab9d06d87f97f318
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-azure-cosmos-db-requests-usage-and-storage"></a>Monitorar solicitações, o uso e o armazenamento do Azure Cosmos DB
-Monitore suas contas do Azure Cosmos DB no [portal do Azure](https://portal.azure.com/). Para cada conta do Azure Cosmos DB, tanto as métricas de desempenho, como solicitações e erros de servidor, quanto as métricas de uso, como consumo de armazenamento, estão disponíveis.
+Você pode monitorar suas contas do banco de dados do Azure Cosmos no hello [portal do Azure](https://portal.azure.com/). Para cada conta do Azure Cosmos DB, tanto as métricas de desempenho, como solicitações e erros de servidor, quanto as métricas de uso, como consumo de armazenamento, estão disponíveis.
 
-As métricas podem ser examinadas na folha da Conta, na nova folha de Métricas o no Azure Monitor.
+As métricas podem ser examinadas na folha de conta hello, nova folha de métricas hello, ou no Monitor do Azure.
 
-## <a name="view-performance-metrics-on-the-metrics-blade"></a>Visualizar métricas de desempenho na folha de Métricas
-1. No [portal do Azure](https://portal.azure.com/), clique em **Mais Serviços**, role até **Bancos de Dados**, clique em **Azure Cosmos DB** e, em seguida, clique no nome da conta do Azure Cosmos DB cujas métricas de desempenho você deseja exibir.
-2. No menu de recursos, em **Monitoramento**, clique em **Métricas**.
+## <a name="view-performance-metrics-on-hello-metrics-blade"></a>Métricas de desempenho do modo de exibição na folha de métricas de saudação
+1. Em Olá [portal do Azure](https://portal.azure.com/), clique em **mais serviços**, role muito**bancos de dados**, clique em **o banco de dados do Azure Cosmos**e clique em nome de saudação do hello Conta de banco de dados do Cosmos do Azure para o qual você gostaria que tooview métricas de desempenho.
+2. No menu de recurso hello, em **monitoramento**, clique em **métricas**.
 
-A folha de Métricas é aberta e você pode selecionar a coleção para examinar. Examine as métricas de Disponibilidade, Solicitações, Produtividade e Armazenamento e compare-as com os SLAs do Azure Cosmos DB.
+folha de métricas de saudação abre e você pode selecionar Olá coleção tooreview. Você pode revisar as métricas de disponibilidade, solicitações, taxa de transferência e armazenamento e compará-los SLAs de banco de dados de Cosmos toohello do Azure.
 
 ## <a name="view-performance-metrics-by-using-azure-monitoring"></a>Exibir métricas de desempenho usando o Azure Monitor
-1. No [Portal do Azure](https://portal.azure.com/), clique em **Monitorar** na barra de navegação.
-2. No menu de recursos, clique em **Métricas**.
-3. Na janela **Monitorar – Métricas**, no menu suspenso **Grupo de recursos**, selecione o grupo de recursos associado à conta do Azure Cosmos DB que você deseja monitorar. 
-4. No menu suspenso **Recursos**, selecione a conta de banco de dados para monitorar.
-5. Na lista de **Métricas disponíveis**, selecione as métricas para exibir. Use o botão CTRL para selecionar várias métricas. 
+1. Em Olá [portal do Azure](https://portal.azure.com/), clique em **Monitor** em Olá Jumpbar.
+2. No menu de recursos de saudação, clique em **métricas**.
+3. Em Olá **Monitor - métricas** janela no hello **esource grupo** menu suspenso, o grupo de recursos de saudação selecione associado à conta do banco de dados do Azure Cosmos Olá que deseja toomonitor. 
+4. Em Olá **recurso** menu suspenso, selecione Olá toomonitor de conta de banco de dados.
+5. Na lista de saudação do **métricas disponíveis**, selecione Olá toodisplay de métricas. Use Olá CTRL toomulti botão Selecionar. 
 
-    As métricas são exibidas na janela **Plotar**. 
+    Suas métricas são exibidas na Olá **plotar** janela. 
 
-## <a name="view-performance-metrics-on-the-account-blade"></a>Visualizar métricas de desempenho na folha de contas
-1. No [portal do Azure](https://portal.azure.com/), clique em **Mais Serviços**, role até **Bancos de Dados**, clique em **Azure Cosmos DB** e, em seguida, clique no nome da conta do Azure Cosmos DB cujas métricas de desempenho você deseja exibir.
-2. A lente de **Monitoramento** exibe os seguintes blocos por padrão:
+## <a name="view-performance-metrics-on-hello-account-blade"></a>Métricas de desempenho do modo de exibição na folha de conta Olá
+1. Em Olá [portal do Azure](https://portal.azure.com/), clique em **mais serviços**, role muito**bancos de dados**, clique em **o banco de dados do Azure Cosmos**e clique em nome de saudação do hello Conta de banco de dados do Cosmos do Azure para o qual você gostaria que tooview métricas de desempenho.
+2. Olá **monitoramento** Lente exibe Olá blocos a seguir por padrão:
    
-   * Solicitações totais para o dia de hoje.
+   * Total de solicitações para Olá dia atual.
    * Armazenamento usado.
    
-   Se sua tabela exibir **Não há dados disponíveis** e você acreditar que há dados no banco de dados, confira a seção [Solucionando problemas](#troubleshooting) .
+   Se sua tabela exibe **nenhum dado disponível** e você acredita que tem dados no banco de dados, consulte Olá [solução de problemas](#troubleshooting) seção.
    
-   ![Captura de tela da lente de Monitoramento que mostra as solicitações e o uso de armazenamento](./media/monitor-accounts/documentdb-total-requests-and-usage.png)
-3. Clicar no bloco **Solicitações** ou **Cota de Uso** abre uma folha detalhada de **Métrica**.
-4. A folha **Métrica** mostra detalhes das métricas que você selecionou.  Na parte superior da folha há um gráfico de solicitações por hora e, abaixo dele, há uma tabela que mostra os valores de agregação para solicitações limitadas e totais.  A folha Métrica também exibe a lista de alertas que foram definidos, filtrados para as métricas que aparecem na folha de métricas atual (desse modo, se você possui um determinado número de alertas, você verá apenas aqueles relevantes apresentados aqui).   
+   ![Captura de tela de Lente de monitoramento de saudação que mostra solicitações Olá Olá uso e armazenamento](./media/monitor-accounts/documentdb-total-requests-and-usage.png)
+3. Clicando em Olá **solicitações** ou **cota de uso** bloco abre um detalhadas **métrica** folha.
+4. Olá **métrica** folha mostra detalhes sobre as métricas de saudação que você selecionou.  Olá parte superior da folha de saudação está um gráfico de solicitações no gráfico a cada hora e abaixo que é a tabela que mostra os valores de agregação para solicitações limitadas e total.  Olá folha de métricas também mostra Olá lista de alertas que foram toohello definido, filtrada métricas que aparecem na folha de métricas atual hello (dessa forma, se você tiver um número de alertas, você só verá Olá aqueles relevantes apresentadas aqui).   
    
-   ![Captura de tela da folha Métricas que inclui solicitações limitadas](./media/monitor-accounts/documentdb-metric-blade.png)
+   ![Captura de tela da folha de métricas de saudação que inclui limitadas solicitações](./media/monitor-accounts/documentdb-metric-blade.png)
 
-## <a name="customize-performance-metric-views-in-the-portal"></a>Personalizar exibições de métricas de desempenho no portal
-1. Para personalizar as métricas exibidas em um gráfico específico, clique no gráfico para abri-l-o na folha **Métrica** e clique em **Editar gráfico**.  
-   ![Captura de tela dos controles da folha Métricas, com Editar gráfico realçado](./media/monitor-accounts/madocdb3.png)
-2. Na folha **Editar Gráfico** , há opções para modificar as métricas que são exibidas no gráfico, além de seu intervalo de tempo.  
-   ![Captura de tela da folha Editar gráfico](./media/monitor-accounts/madocdb4.png)
-3. Para alterar as métricas exibidas na parte, basta marcar ou desmarcar as métricas de desempenho disponíveis e clicar em **OK** na parte inferior da folha.  
-4. Para alterar o intervalo de tempo, escolha um intervalo diferente (por exemplo, **Personalizado**) e clique em **OK** na parte inferior da folha.  
+## <a name="customize-performance-metric-views-in-hello-portal"></a>Personalizar os modos de exibição de métrica de desempenho no portal de saudação
+1. métricas de saudação toocustomize exibidos em um gráfico específico, clique em Olá gráfico tooopen no hello **métrica** folha e depois clique em **Editar gráfico**.  
+   ![Captura de tela de controles de folha de métricas de hello, com editar gráfico realçado](./media/monitor-accounts/madocdb3.png)
+2. Em Olá **Editar gráfico** folha, há métricas de saudação do toomodify opções exibem no gráfico de hello, bem como o intervalo de tempo.  
+   ![Captura de tela da folha de editar gráfico Olá](./media/monitor-accounts/madocdb4.png)
+3. métricas de saudação toochange exibidas na parte Olá, basta selecionar ou limpar métricas de desempenho disponíveis hello e, em seguida, clique em **Okey** na parte inferior da saudação da folha de saudação.  
+4. Olá toochange intervalo de tempo, escolha um intervalo diferente (por exemplo, **personalizado**) e, em seguida, clique em **Okey** na parte inferior da saudação da folha de saudação.  
    
-   ![Captura de tela da parte do Intervalo de Tempo da folha Editar gráfico mostrando como inserir um intervalo de tempo personalizado](./media/monitor-accounts/madocdb5.png)
+   ![Captura de tela da parte de intervalo de tempo de saudação do mostrando de folha de editar gráfico hello como tooenter um intervalo de tempo personalizado](./media/monitor-accounts/madocdb5.png)
 
-## <a name="create-side-by-side-charts-in-the-portal"></a>Criar gráficos lado a lado no portal
-O Portal do Azure permite que você crie gráficos de métricas lado a lado.  
+## <a name="create-side-by-side-charts-in-hello-portal"></a>Criar gráficos lado a lado no portal de saudação
+Olá Portal do Azure permite que você os gráficos métrica toocreate lado a lado.  
 
-1. Primeiramente, clique com o botão direito do mouse no gráfico que você deseja copiar e escolha **Personalizar**.
+1. Primeiro, clique no gráfico de saudação você deseja toocopy e selecione **personalizar**.
    
-   ![Captura de tela do gráfico Total de Solicitações com a opção Personalizar realçada](./media/monitor-accounts/madocdb6.png)
-2. Clique em **Clonar** no menu para copiar a parte e clique em **Personalização concluída**.
+   ![Captura de tela de gráfico do Total de solicitações de saudação com a opção de personalizar Olá realçada](./media/monitor-accounts/madocdb6.png)
+2. Clique em **Clone** Olá parte do menu toocopy hello e, em seguida, clique em **feito personalizando**.
    
-   ![Captura de tela do gráfico Total de Solicitações com as opções de personalização Clonar e Concluído realçadas](./media/monitor-accounts/madocdb7.png)  
+   ![Tela de captura do gráfico do Total de solicitações de saudação com hello Clone e feito Personalizando opções realçadas](./media/monitor-accounts/madocdb7.png)  
 
-Agora, você pode tratar essa parte como qualquer outra parte de métrica, personalizando as métricas e o intervalo de tempo exibidos na parte.  Fazendo isso, você pode ver um gráfico com duas métricas diferentes lado a lado simultaneamente.  
-    ![Captura de tela do gráfico Total de Solicitações e o novo gráfico Total de solicitações na última hora](./media/monitor-accounts/madocdb8.png)  
+Agora você pode tratar essa parte como qualquer outra parte métrica, personalizando o intervalo de métricas e a hora de saudação exibido na parte de saudação.  Ao fazer isso, você pode ver dois diferentes métricas gráfico-lado a lado no hello simultaneamente.  
+    ![Captura de tela de gráfico do Total de solicitações de saudação e Olá novas solicitações de Total após a hora de gráfico](./media/monitor-accounts/madocdb8.png)  
 
-## <a name="set-up-alerts-in-the-portal"></a>Configurar alertas no Portal
-1. No [portal do Azure](https://portal.azure.com/), clique em **Mais Serviços**, em **Azure Cosmos DB** e no nome da conta do Azure Cosmos DB para a qual você deseja configurar alertas de métricas de desempenho.
-2. No menu de recursos, clique em **Regras de Alerta** para abrir a folha Regras de alerta.  
-   ![Captura de tela da parte de Regras de alerta selecionada](./media/monitor-accounts/madocdb10.5.png)
-3. Na folha **Regras de alerta**, clique em **Adicionar Alerta**.  
-   ![Captura de tela da folha Regras de Alerta, com o botão Adicionar alerta realçado](./media/monitor-accounts/madocdb11.png)
-4. Na lâmina **Adicionar uma regra de alerta** , especifique:
+## <a name="set-up-alerts-in-hello-portal"></a>Configurar alertas no portal de saudação
+1. Em Olá [portal do Azure](https://portal.azure.com/), clique em **mais serviços**, clique em **o banco de dados do Azure Cosmos**e então clique Olá nome da conta de banco de dados do Azure Cosmos Olá para o qual você gostaria que toosetup alertas de métrica de desempenho.
+2. No menu de recursos de saudação, clique em **regras de alerta** tooopen folha de regras de alerta de saudação.  
+   ![Captura de tela de saudação alerta regras parte selecionada](./media/monitor-accounts/madocdb10.5.png)
+3. Em Olá **regras de alerta** folha, clique em **adicionar alerta**.  
+   ![Captura de tela da folha de regras de alerta hello, com o botão Adicionar alerta Olá realçado](./media/monitor-accounts/madocdb11.png)
+4. Em Olá **adicionar uma regra de alerta** folha, especifique:
    
-   * O nome da regra de alerta que você está configurando.
-   * Uma descrição da nova regra de alerta.
-   * A métrica para a regra de alerta.
-   * A condição, o limite e o período que determinam quando o alerta é ativado. Por exemplo, uma contagem de erros de servidor superior a cinco nos últimos 15 minutos.
-   * Se o administrador de serviços e seus coadministradores recebem ou não emails quando o alerta é enviado.
+   * nome de saudação da regra de alerta Olá que você está configurando.
+   * Uma descrição da nova regra de alerta de saudação.
+   * Olá métrica para a regra de alerta de saudação.
+   * condição de Hello, limite e o período que determinam quando o alerta Olá ativa. Por exemplo, um erro de servidor contagem maior que 5 sobre Olá últimos 15 minutos.
+   * Olá se o administrador de serviço e coadministrators são enviados por email quando Olá alerta será acionado.
    * Endereços de email adicionais para notificações de alerta.  
-     ![Captura de tela da folha da regra Adicionar um alerta](./media/monitor-accounts/madocdb12.png)
+     ![Captura de tela de saudação Adicionar folha de uma regra de alerta](./media/monitor-accounts/madocdb12.png)
 
 ## <a name="monitor-azure-cosmos-db-programatically"></a>Monitorar o Azure Cosmos DB de forma programática
-As métricas no nível da conta disponíveis no portal, como o uso de armazenamento da conta e o total de solicitações, não estão disponíveis por meio das APIs do DocumentDB. No entanto, você pode recuperar os dados de uso no nível da coleção usando as APIs do DocumentDB. Para recuperar os dados do nível de coleção, faça o seguinte:
+Olá métricas de nível de conta disponíveis no portal de hello, como o uso do armazenamento de conta e total de solicitações, não estão disponíveis por meio de saudação APIs do DocumentDB. No entanto, você pode recuperar dados de uso no nível de coleção hello usando Olá APIs do DocumentDB. dados de nível de coleção tooretrieve, Olá a seguir:
 
-* Para usar a API REST, [execute um GET na coleção](https://msdn.microsoft.com/library/mt489073.aspx). As informações de cota e de uso da coleção são retornadas nos cabeçalhos x-ms-resource-quota e x-ms-resource-usage na resposta.
-* Para usar o SDK do .NET, use o método [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx), que retorna uma [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx) que contém diversas propriedades de uso como **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage** e muito mais.
+* Olá toouse API REST, [executar GET em coleção Olá](https://msdn.microsoft.com/library/mt489073.aspx). informações de cota e uso de saudação de coleção Olá são retornadas nos cabeçalhos de x-ms-resource-quota e x-ms-resource-usage Olá em resposta hello.
+* Olá toouse SDK .NET, use Olá [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) método, que retorna um [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx) que contém um número de propriedades de uso como  **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage**e muito mais.
 
-Para acessar outras métricas, use o [SDK do Azure Monitor](https://www.nuget.org/packages/Microsoft.Azure.Insights). As definições de métricas disponíveis podem ser recuperadas chamando:
+tooaccess de métricas adicionais, use Olá [SDK do Azure Monitor](https://www.nuget.org/packages/Microsoft.Azure.Insights). As definições de métricas disponíveis podem ser recuperadas chamando:
 
     https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metricDefinitions?api-version=2015-04-08
 
-As consultas para recuperar métricas individuais usam o seguinte formato:
+Consultas tooretrieve métricas individuais use Olá formato a seguir:
 
     https://management.azure.com/subscriptions/{SubecriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
 
-Para saber mais, confira [Retrieving Resource Metrics via the Azure Monitor REST API (Recuperação de métricas de recursos por meio da API REST do Azure Monitor)](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/02/23/retrieving-resource-metrics-via-the-azure-insights-api/). Observe que "Azure Inights" foi renomeado para "Azure Monitor".  Esta entrada de blog refere-se ao nome mais antigo.
+Para obter mais informações, consulte [recuperar métricas de recursos por meio de saudação API REST do Azure Monitor](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/02/23/retrieving-resource-metrics-via-the-azure-insights-api/). Observe que "Azure Inights" foi renomeado para "Azure Monitor".  Essa entrada de blog refere-se o nome anterior toohello.
 
 ## <a name="troubleshooting"></a>Solucionar problemas
-Se seus blocos de monitoramento exibirem a mensagem **Não há dados disponíveis** e você enviou solicitações ou adicionou dados ao banco de dados recentemente, é possível editar o bloco para refletir o uso recente.
+Se o monitoramento blocos exibição Olá **nenhum dado disponível** mensagem e você recentemente feitas solicitações ou adicionado dados toohello banco de dados, você pode editar o uso do bloco tooreflect Olá recente hello.
 
-### <a name="edit-a-tile-to-refresh-current-data"></a>Editar um bloco para atualizar os dados atuais
-1. Para personalizar as métricas exibidas em uma parte específica, clique no gráfico para abri-lo na folha **Métrica** e clique em **Editar Gráfico**.  
-   ![Captura de tela dos controles da folha Métricas, com Editar gráfico realçado](./media/monitor-accounts/madocdb3.png)
-2. Na folha **Editar Gráfico**, na seção **Intervalo de Tempo**, clique em **última hora** e em **OK**.  
-   ![Captura de tela da folha Editar Gráfico com a última hora selecionada](./media/monitor-accounts/documentdb-no-available-data-past-hour.png)
+### <a name="edit-a-tile-toorefresh-current-data"></a>Editar um toorefresh de bloco de dados atual
+1. métricas de saudação toocustomize que exibem uma parte específica, clique em saudação do hello gráfico tooopen **métrica** folha e depois clique em **Editar gráfico**.  
+   ![Captura de tela de controles de folha de métricas de hello, com editar gráfico realçado](./media/monitor-accounts/madocdb3.png)
+2. Em Olá **Editar gráfico** folha em Olá **intervalo de tempo** seção, clique em **última hora**e, em seguida, clique em **Okey**.  
+   ![Captura de tela da folha de editar gráfico Olá com a última hora selecionada](./media/monitor-accounts/documentdb-no-available-data-past-hour.png)
 3. Seu bloco agora deve ser atualizado para mostrar seus dados atuais e o uso.  
-   ![Captura de tela de atualizada do bloco Total de solicitações na última hora atualizado](./media/monitor-accounts/documentdb-no-available-data-fixed.png)
+   ![Captura de tela de saudação atualizada Total de solicitações após o bloco de hora](./media/monitor-accounts/documentdb-no-available-data-fixed.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre o planejamento de capacidade do Azure Cosmos DB, consulte a [calculadora do planejador de capacidade do Azure Cosmos DB](https://www.documentdb.com/capacityplanner).
+toolearn mais sobre o planejamento de capacidade do banco de dados do Azure Cosmos, consulte Olá [Calculadora de Planejador de capacidade do banco de dados do Azure Cosmos](https://www.documentdb.com/capacityplanner).
 

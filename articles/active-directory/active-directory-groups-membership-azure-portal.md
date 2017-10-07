@@ -1,6 +1,6 @@
 ---
-title: Gerenciar os grupos aos quais seu grupo pertence no Azure Active Directory | Microsoft Docs
-description: "Os grupos podem conter outros grupos no Azure Active Directory. Veja como gerenciar essas associações."
+title: "grupos de saudação aaaManage seu grupo pertence tooin Active Directory do Azure | Microsoft Docs"
+description: "Os grupos podem conter outros grupos no Azure Active Directory. Aqui está como toomanage essas associações."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -15,33 +15,33 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08e04a6590176c4084ca47b4bd6cbb22500eca2d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d0a0a1967084de0968e1e802559f9cdfd7ca6ae4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant"></a>Gerenciar a quais grupos um grupo pertence no seu locatário do Azure Active Directory
-Os grupos podem conter outros grupos no Azure Active Directory. Veja como gerenciar essas associações.
+# <a name="manage-toowhich-groups-a-group-belongs-in-your-azure-active-directory-tenant"></a>Gerenciar grupos de toowhich que pertence a um grupo no seu locatário do Active Directory do Azure
+Os grupos podem conter outros grupos no Azure Active Directory. Aqui está como toomanage essas associações.
 
-## <a name="how-do-i-find-the-groups-my-group-is-a-member-of"></a>Como localizo os grupos dos quais meu grupo é um membro?
-1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
-2. Escolha **Mais serviços**, insira **Usuários e grupos** na caixa de texto e selecione **Enter**.
+## <a name="how-do-i-find-hello-groups-my-group-is-a-member-of"></a>Como localizar grupos Olá que meu grupo é membro?
+1. Entrar toohello [portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global para o diretório de saudação.
+2. Selecione **mais serviços**, digite **usuários e grupos** Olá caixa de texto e, em seguida, selecione **Enter**.
 
    ![Abrir o gerenciamento de usuários](./media/active-directory-groups-membership-azure-portal/search-user-management.png)
-3. Na folha **Usuários e grupos**, escolha **Todos os grupos**.
+3. Em Olá **usuários e grupos** folha, selecione **todos os grupos de**.
 
-   ![Abrir a folha de grupos](./media/active-directory-groups-membership-azure-portal/view-groups-blade.png)
-4. Na folha **Usuários e grupos - Todos os grupos** , escolha um grupo.
-5. Na folha **Grupo – *nomedogrupo*** selecione **Associações de grupo** .
+   ![Folha de grupos de saudação de abertura](./media/active-directory-groups-membership-azure-portal/view-groups-blade.png)
+4. Em Olá **usuários e grupos - todos os grupos** folha, selecione um grupo.
+5. Em Olá **grupo - *groupname***  folha, selecione **as associações de grupo**.
 
-   ![Abrir a folha de associações de grupo](./media/active-directory-groups-membership-azure-portal/group-membership-blade.png)
-6. Para adicionar seu grupo como membro de outro grupo, na folha **Grupo - Associações de grupo**, selecione o comando **Adicionar**.
-7. Selecione um grupo na folha **Selecionar Grupo** e pressione o botão **Selecionar** na parte inferior da folha. Você só pode adicionar o grupo a um grupo por vez. A caixa **Usuário** filtra a exibição com base na correspondência de sua entrada com qualquer parte de um nome de usuário ou dispositivo. Caracteres curinga não são aceitos nessa caixa.
+   ![Folha de associações de grupo abertura Olá](./media/active-directory-groups-membership-azure-portal/group-membership-blade.png)
+6. tooadd seu grupo como membro de outro grupo, em Olá **grupo - as associações de grupo** folha, selecione Olá **adicionar** comando.
+7. Selecione um grupo de saudação **Selecionar grupo** folha e, em seguida, selecione Olá **selecione** botão na parte inferior da saudação da folha de saudação. Você pode adicionar o grupo tooonly um grupo por vez. Olá **usuário** caixa filtra Olá com base na correspondência de sua parte de tooany de entrada de um nome de usuário ou dispositivo de exibição. Caracteres curinga não são aceitos nessa caixa.
 
    ![Adicionar uma associação de grupo](./media/active-directory-groups-membership-azure-portal/add-group-membership.png)
-8. Para remover seu grupo como um membro de outro grupo, na folha **Grupo - Associações de grupo** , escolha um grupo.
-9. Na folha ***groupname***, selecione o comando **Remover** e confirme sua escolha no prompt.
+8. tooremove seu grupo como membro de outro grupo, em Olá **grupo - as associações de grupo** folha, selecione um grupo.
+9. Em Olá ***groupname*** folha, selecione Olá **remover** de comando e confirme sua escolha no prompt de saudação.
 
    ![comando remover associação](./media/active-directory-groups-membership-azure-portal/remove-group-membership.png)
 10. Quando terminar de alterar as associações de grupo para o grupo, escolha **Salvar**.

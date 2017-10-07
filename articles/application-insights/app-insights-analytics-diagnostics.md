@@ -1,5 +1,5 @@
 ---
-title: "Diagnóstico inteligente de alterações no desempenho do aplicativo Web no Azure Application Insights | Microsoft Docs"
+title: "diagnóstico aaaSmart das alterações de desempenho de aplicativo web no Azure Application Insights | Microsoft Docs"
 description: "Diagnóstico automático de picos ou etapas em telemetria de desempenho do seu aplicativo Web."
 services: application-insights
 documentationcenter: 
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
 ms.author: cfreeman
-ms.openlocfilehash: 5e53bc714d89bf6204681349e7890e0b8fbc7046
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8891762c4a4bfdb08b647fe3b702349eb30ec9c0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="diagnose-sudden-changes-in-your-app-telemetry"></a>Diagnosticar alterações repentinas na telemetria do aplicativo
 
 *Esse recurso está em visualização.*
 
-Faça o diagnóstico de alterações repentinas no uso ou no desempenho do seu aplicativo Web com um único clique! O recurso Smart Diagnostics está disponível sempre que você cria um gráfico no [Analytics](app-insights-analytics.md) em [Application Insights](app-insights-overview.md). Sempre que houver uma alteração incomum de tendência dos seus resultados, como um pico ou um DIP, o Diagnóstico Inteligente identificará um padrão de dimensões e valores relacionados que poderão explicar a alteração. Isso ajuda a diagnosticar rapidamente o problema. 
+Faça o diagnóstico de alterações repentinas no uso ou no desempenho do seu aplicativo Web com um único clique! recurso de diagnóstico inteligente de saudação está disponível sempre que você cria um gráfico de tempo em [análise](app-insights-analytics.md) na [Application Insights](app-insights-overview.md). Sempre que houver uma alteração incomum de tendência de saudação de resultados, como um aumento ou um dip, diagnóstico inteligente identifica um padrão de dimensões e valores relacionados que possam explicar a alteração de saudação. Isso ajuda você a diagnosticar o problema de saudação rapidamente. 
 
-Nesse exemplo, o Diagnóstico Inteligente identificou um padrão de valores de propriedade relacionado à alteração e destaca a diferença entre resultados com e sem esse padrão:
+Neste exemplo, diagnóstico inteligente identificou um padrão de valores de propriedade associados a alteração hello e realça Olá diferença entre os resultados com e sem esse padrão:
 
 ![resultado de diagnóstico analítico de exemplo](./media/app-insights-analytics-diagnostics/analytics-result.png)
  
@@ -36,47 +36,47 @@ Nesse exemplo, o Diagnóstico Inteligente identificou um padrão de valores de p
  
     ![ponto de pico](./media/app-insights-analytics-diagnostics/peak.png)
 
-    O diagnóstico leva alguns segundos para descobrir um padrão.
+    Diagnóstico leva alguns segundos toodiscover um padrão.
 
-3. A guia Resultados do Diagnóstico mostra um padrão que pode explicar a descontinuidade dos dados.
+3. Guia de resultados do diagnóstico de saudação mostra um padrão que pode explicar descontinuidade seus dados.
 
     ![result](./media/app-insights-analytics-diagnostics/result.png)
  
-    O texto mostra os valores de dimensão que parecem estar relacionados com a mudança. Nesse exemplo, isso está associado a uma solicitação específica e uma versão específica do navegador.
+    texto de saudação mostra os valores de dimensão Olá exibidos toocorrelate com shift hello. Nesse exemplo, isso está associado a uma solicitação específica e uma versão específica do navegador.
 
-    Observe também os dois componentes do gráfico, com o filtro verdadeiro e falso. O componente falso mostra uma tendência inalterada. Em outras palavras, não há alteração nos resultados da telemetria se excluímos a combinação de dimensões problemática identificada pelo Diagnóstico. Em contrapartida, os resultados dentro dessa combinação apresenta uma alteração dramática dentro da área de investigação destacada. Isso mostra que o Diagnóstico encontrou uma combinação de propriedades que explica a alteração.
+    Observe também componentes Olá dois de gráfico hello, com hello filtro true e false. componente de saudação false mostra uma tendência inalterada. Em outras palavras, não há nenhuma alteração nos resultados de telemetria hello, se excluímos combinação problemático Olá dimensões diagnóstico identificou. Por outro lado, os resultados de saudação em combinação mostram uma alteração radical na área de saudação realçada da investigação. Isso mostra que o diagnóstico encontrou uma combinação das propriedades que explica a alteração de saudação.
 
-4.  Se o padrão for complexo, será necessário passar o mouse sobre **Mostrar tudo** para visualizar as dimensões.
+4.  Se o padrão de saudação é complexo, você precisa toohover pela **Mostrar tudo** toosee dimensões de saudação.
 
     ![mostrar tudo](./media/app-insights-analytics-diagnostics/show-all.png)
  
-5.  Caso o Diagnóstico não encontre nenhum padrão significativo a ser notificado, a página "nenhum resultado" será apresentada. Nesse momento, você pode alterar sua consulta. Por exemplo, você pode restringir o intervalo de tempo e o agrupamento na consulta do Analytics para uma análise mais detalhada e resultados potencialmente melhores.
+5.  No caso de diagnóstico não localiza toonotify nenhum padrão significativo sobre Olá que será exibida a página 'Nenhum resultado'. Nesse momento, você pode alterar sua consulta. Por exemplo, você pode restringir o intervalo de tempo de saudação e agrupamento na consulta de análise, para uma análise adicional e potencialmente melhores resultados.
 
-Tendo o conhecimento de que uma página específica do seu site tem um problema em um navegador específico, você pode ir diretamente para a página do problema e investigar as alterações recentes.
+Armado com conhecimento de saudação que uma página específica do site tem um problema em um navegador específico, você pode agora vá reta toohello problema página e investigar alterações recentes.
 
-## <a name="try-the-demo"></a>Experimente a demonstração
+## <a name="try-hello-demo"></a>Experimente Olá demonstração
 
-[Clique aqui para ver uma demonstração](https://analytics.applicationinsights.io/demo?q=H4sIAAAAAAAAA3VSTY%2FTQAy991dYPXWlLf0QIO2KIiGWA3duiMPsxEnMzhe2p6WIH48nVUsuGylRNPOe3%2FOzN5vFZgPfRhL4VZHPIGM%2BCdgHdESgpMjOKx0RnsgNKYuSF%2BjRaWUE7xKMGIoBgTpMSv2Z0jBxOWc1QBWEPjM4EMUCP2uc0A3x8E5HKMi%2BEQNC7oHRbIgKdJWdUk5vmr9PvdkArildit%2Fcrk0lBDjnyhBzk%2FKVxdTy0QhNY6RhDPYqdlCy9XMV96NjBZc68IH8y6Tzuf01iZxeIZ%2FI5DqMOYmaQQRXNUdz6qGb5WOdSKEXnOozHtEFK%2Bh0qnq5YQzGF9DcoinoqbcigkO0NOZRNGOZaaBkMuat5xznFOtULKhG%2BdrGlVDhy%2B8SMlsETV8dD6gTd0YrbsBrFq6U1v%2Filv4C%2FsJpRJuwUrQTZ0P7eIDOHLeD1X67e7%2Fe7dbbB9htH%2Ffbu4vQDfvhFez%2B8a1h%2F1f3VSy%2BJ4Ol1oN8X4qN0qMZWv44HJanzKFLeJIltKcRpcbomP7gbHNkdV2Xe1uqO3g%2BwzOl1c3PvbmMlC7KjKlry2GX0w4s%2FgFoo5%2BhBAMAAA%3D%3D&timespan=PT24H) no dados de exemplo.
+[Clique aqui toosee uma demonstração](https://analytics.applicationinsights.io/demo?q=H4sIAAAAAAAAA3VSTY%2FTQAy991dYPXWlLf0QIO2KIiGWA3duiMPsxEnMzhe2p6WIH48nVUsuGylRNPOe3%2FOzN5vFZgPfRhL4VZHPIGM%2BCdgHdESgpMjOKx0RnsgNKYuSF%2BjRaWUE7xKMGIoBgTpMSv2Z0jBxOWc1QBWEPjM4EMUCP2uc0A3x8E5HKMi%2BEQNC7oHRbIgKdJWdUk5vmr9PvdkArildit%2Fcrk0lBDjnyhBzk%2FKVxdTy0QhNY6RhDPYqdlCy9XMV96NjBZc68IH8y6Tzuf01iZxeIZ%2FI5DqMOYmaQQRXNUdz6qGb5WOdSKEXnOozHtEFK%2Bh0qnq5YQzGF9DcoinoqbcigkO0NOZRNGOZaaBkMuat5xznFOtULKhG%2BdrGlVDhy%2B8SMlsETV8dD6gTd0YrbsBrFq6U1v%2Filv4C%2FsJpRJuwUrQTZ0P7eIDOHLeD1X67e7%2Fe7dbbB9htH%2Ffbu4vQDfvhFez%2B8a1h%2F1f3VSy%2BJ4Ol1oN8X4qN0qMZWv44HJanzKFLeJIltKcRpcbomP7gbHNkdV2Xe1uqO3g%2BwzOl1c3PvbmMlC7KjKlry2GX0w4s%2FgFoo5%2BhBAMAAA%3D%3D&timespan=PT24H) em dados de exemplo.
 
 ## <a name="how-it-works"></a>Como ele funciona
 
-O Diagnóstico Inteligente usa um algoritmo de aprendizado de máquina não supervisionado avançado com base na operação [DiffPatterns](app-insights-analytics-reference.md). Ele procura padrões candidatos que podem explicar a alteração de dados. Ele analisa o impacto de cada candidato na métrica e mostra o padrão que melhor se correlaciona com a alteração.
+O diagnóstico inteligente usa um algoritmo de aprendizado de máquina sem supervisão avançado baseado em Olá [DiffPatterns](app-insights-analytics-reference.md) operação. Ele procura por padrões de candidato que podem explicar Olá alteração de dados. Ele analisa o impacto de saudação de cada candidato na métrica hello e mostra o padrão de saudação que melhor se correlaciona com alteração de saudação.
 
 ## <a name="no-diagnostic-points"></a>Não há pontos de diagnóstico?
 
-O Diagnóstico Inteligente funciona somente quando os seguintes critérios forem atendidos:
+Diagnóstico inteligente só funciona quando Olá critérios a seguir forem atendida:
 
- * A configuração do Diagnóstico Inteligente está ativada. Procure o ícone de Configurações no Analytics.
- * A opção de Diagnóstico Inteligente nas configurações do Analytics está selecionada. 
- * Eixo de tempo: o eixo X do gráfico deve ser do tipo `datetime`.
- * Gráfico de linha ou área: o diagnóstico funciona somente com esses tipos de gráfico. Use `| render timechart` ou `| render areachart` no final da sua consulta; ou selecione Gráfico de Área ou Linha no seletor suspenso.
- * Descontinuidade: deve haver uma descontinuidade significativa nos dados.
- * Pontos suficientes para analisar.
- * Não mais que uma cláusula de resumo na consulta.
- * Nenhuma cláusula de projeto que contenha uma definição de nome antes da cláusula de resumo.
+ * A configuração do Diagnóstico Inteligente está ativada. Procure o ícone de configurações de saudação na análise.
+ * Olá opção diagnóstico inteligente nas configurações de análise é selecionado. 
+ * Eixo de tempo: Olá eixo x do gráfico de saudação deve ser do tipo `datetime`.
+ * Gráfico de linha ou área: o diagnóstico funciona somente com esses tipos de gráfico. Use `| render timechart` ou `| render areachart` no final de saudação de sua consulta; ou selecione a linha ou um gráfico de área de seletor de lista suspensa de saudação.
+ * Descontinuidade: Deve haver uma interrupção significativa nos dados de saudação.
+ * Tooanalyze de pontos suficientes.
+ * Não mais de um resumir cláusula na consulta de saudação.
+ * Nenhuma cláusula de projeto que contém uma definição de nome antes de saudação resumir cláusula.
 
  
  ## <a name="related-articles"></a>Artigos relacionados
 
  * [Tutorial do Analytics](app-insights-analytics-tour.md)
- * [Detecção inteligente](app-insights-proactive-diagnostics.md) alerta automaticamente para problemas de desempenho.
+ * [Detecção de Smart](app-insights-proactive-diagnostics.md) alerta automaticamente tooperformance problemas.

@@ -1,6 +1,6 @@
 ---
-title: "Como adicionar operações a uma API no Gerenciamento de API do Azure | Microsoft Docs"
-description: "Saiba como adicionar operações a uma API no Gerenciamento de API do Azure."
+title: "aaaHow tooadd operações tooan API no gerenciamento de API do Azure | Microsoft Docs"
+description: "Saiba como tooadd operações tooan API no gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,124 +14,124 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 105fc51c2d1152a40a5757985da47330e0b7b8cf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d57fa59a2b0ceb392cde23150a0cbb326e52d27d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-add-operations-to-an-api-in-azure-api-management"></a>Como adicionar operações a uma API no Gerenciamento de API do Azure
-Antes que uma API no Gerenciamento de API possa ser usada, as operações devem ser adicionadas. Este guia mostra como adicionar e configurar tipos diferentes de operações para uma API em Gerenciamento de API.
+# <a name="how-tooadd-operations-tooan-api-in-azure-api-management"></a>Como as operações de tooadd tooan API no gerenciamento de API do Azure
+Antes que uma API no Gerenciamento de API possa ser usada, as operações devem ser adicionadas. Este guia mostra como tooadd e configurar os diferentes tipos de operações tooan API no gerenciamento de API.
 
 ## <a name="add-operation"> </a>Adicionar uma operação
-Operações são adicionadas e configuradas em uma API no Portal do editor. Para acessar o portal do editor, clique em **Portal do editor** no Portal do Azure para acessar o serviço Gerenciamento de API.
+As operações são adicionadas e configurados tooan API no portal do publicador Olá. tooaccess Olá clique portal, publisher **portal do publicador** em hello Portal do Azure para seu serviço de gerenciamento de API.
 
 ![Portal do editor][api-management-management-console]
 
-> Se ainda não criou uma instância de serviço de Gerenciamento de API, confira [Criar uma instância de serviço de Gerenciamento de API][Create an API Management service instance] no tutorial [Introdução ao Gerenciamento de API do Azure][Get started with Azure API Management].
+> Se você ainda não tiver criado uma instância do serviço de gerenciamento de API, consulte [criar uma instância do serviço de gerenciamento de API] [ Create an API Management service instance] em Olá [Introdução ao gerenciamento de API do Azure] [ Get started with Azure API Management] tutorial.
 > 
 > 
 
-Selecione a API desejada no Portal do editor e então selecione a guia **Operações** . 
+Selecione Olá desejado API no portal do publicador hello e, em seguida, selecione Olá **operações** guia. 
 
 ![Operações][api-management-operations]
 
-Clique em **Adicionar operação** para adicionar uma nova operação. A janela **Nova operação** será exibida e a guia **Assinatura** será selecionada por padrão.
+Clique em **Adicionar operação** tooadd uma nova operação. Olá **nova operação** serão exibidas e Olá **assinatura** guia será selecionada por padrão.
 
 ![Adicionar operação][api-management-add-operation]
 
-Especifique o **verbo HTTP** escolhendo na lista suspensa.
+Especifique a saudação **verbo HTTP** escolhendo na lista suspensa de saudação.
 
 ![Método HTTP][api-management-http-method]
 
 <a name="url-template"></a>
 
-Defina o modelo do URL digitando um fragmento de URL consistindo de um ou mais segmentos de caminho URL e nenhum ou mais parâmetros de cadeia de consulta. O modelo do URL, anexado ao URL base da API, identifica uma única operação HTTP. Ele pode conter uma ou mais partes variáveis nomeadas que são identificadas por chaves. Essas partes variáveis se chamam parâmetros de modelo, que são valores atribuídos dinamicamente e extraídos do URL da solicitação quando a solicitação está sendo processada pela plataforma de Gerenciamento de API.
+Defina modelo de URL Olá digitando em um fragmento de URL que consiste em um ou mais segmentos de caminho de URL e zero ou mais parâmetros de cadeia de caracteres de consulta. modelo de URL Hello, toohello acrescentadas a URL base do hello API, identifica uma única operação HTTP. Ele pode conter uma ou mais partes variáveis nomeadas que são identificadas por chaves. Essas partes variável são chamados de parâmetros de modelo e valores extraídos da URL de solicitação hello quando Olá solicitação está sendo processada pela plataforma de gerenciamento de API de saudação são atribuídos dinamicamente.
 
-> O modelo de URL pode incluir padrões curingas. Por exemplo, especificar `/*` encaminha todas as solicitações para esse método HTTP para o serviço de back-end.
+> modelo de URL Olá pode incluir padrões de curinga. Por exemplo, especificar `/*` encaminhar todas as solicitações para esse método toohello HTTP volta terminará serviço.
 
 ![Modelo do URL][api-management-url-template]
 
 <a name="rewrite-url-template"></a>
 
-Se desejar, especifique **Reescrever modelo de URL**. Isso permite que você use o modelo de URL padrão para processar solicitações de entrada no front-end, enquanto chama o back-end por meio de um URL convertido de acordo com o modelo reescrito. Os parâmetros de modelo do modelo de URL devem ser usados no modelo reescrito. O exemplo a seguir mostra como o tipo de conteúdo codificado como um segmento de caminho no serviço Web do exemplo anterior pode ser fornecido como parâmetro de consulta na API publicada por meio da plataforma de Gerenciamento de API usando os modelos de URL.
+Se desejar, especifique Olá **modelo regravar URL**. Isso permite que você modelo de URL padrão do toouse Olá para processar as solicitações de entrada hello front-end, ao chamar hello back-end através de uma URL convertida de acordo com o toohello reconfiguração de modelo. Parâmetros de modelo do modelo de URL Olá devem ser usados no modelo de regravação de saudação. Olá exemplo a seguir mostra como conteúdo tipo codificado como o segmento de caminho no serviço da web de saudação do exemplo anterior Olá pode ser fornecido como um parâmetro de consulta em Olá API publicados por meio de saudação usando modelos de URL de saudação de plataforma de gerenciamento de API.
 
 ![Modelo de URL reescrito][api-management-url-template-rewrite]
 
-Quem chamar a operação utilizará o formato `/customers?customerid=ALFKI` e ele será mapeado para `/Customers('ALFKI')` quando o serviço de back-end for invocado.
+Operação de toohello chamadores usará o formato de saudação `/customers?customerid=ALFKI` e isso será mapeado muito`/Customers('ALFKI')` quando o serviço de back-end de saudação é invocado.
 
-O Nome de **exibição** e a **Descrição** oferecem uma descrição da operação e são usados para fornecer documentação aos desenvolvedores que utilizam essa API no portal do desenvolvedor.
+**Exibição** nome e **descrição** forneça uma descrição da operação de saudação e é usadas tooprovide documentação desenvolvedores toohello usando essa API no portal do desenvolvedor hello.
 
 ![Descrição][api-management-description]
 
-A descrição da operação pode ser especificada como texto sem formatação ou HTML na caixa de texto **Descrição** .
+Descrição da operação Olá pode ser especificada como texto sem formatação ou HTML em Olá **descrição** caixa de texto.
 
 ## <a name="operation-caching"> </a>Cache da operação
-O cache de respostas reduz a latência percebida pelos consumidores da API, reduz a largura de banda e diminui a carga no serviço Web HTTP que está implementando a API. 
+Cache de resposta reduz a latência percebida pelos consumidores Olá API, reduz o consumo de largura de banda e diminui Olá carga sobre a implementação do serviço web do hello HTTP Olá API. 
 
-Para habilitar o cache para a operação de modo fácil e rápido, selecione a guia **Caching** e marque a caixa de seleção **Habilitar**.
+tooeasily e habilitar rapidamente o cache para operação hello, selecione Olá **cache** guia e verifique Olá **habilitar** caixa de seleção.
 
 ![Cache][api-management-caching-tab]
 
-**Duração** especifica o período de tempo durante o qual a resposta da operação permanece armazenada em cache. O valor padrão é 3.600 segundos, ou uma hora.
+**Duração** Especifica o período de tempo durante o qual Olá resposta de operação permanece no cache de saudação de saudação. valor padrão de saudação é 3600 segundos ou 1 hora.
 
-Chaves de cache são usadas para diferenciar as respostas, de modo que a resposta correspondente a cada chave de cache diferente tenha seu próprio valor em cache separado. Outra opção é inserir parâmetros de cadeia de consulta específicos e/ou cabeçalhos HTTP a serem utilizados para computar valores de chave de cache nas caixas de texto **Variar de acordo com os parâmetros da cadeia de consulta** e **Variar de acordo com cabeçalhos**. Quando nenhum é especificado, o URL de solicitação completo e os seguintes valores de cabeçalho HTTP são usados para gerar a chave de cache: **Accept** e **Accept-Charset**.
+Chaves de cache são toodifferentiate usado entre as respostas para que a resposta de saudação correspondente chave de cache diferentes tooeach obterá seu próprio valor armazenado em cache separado. Opcionalmente, insira parâmetros de cadeia de caracteres de consulta específicos e/ou toobe de cabeçalhos HTTP usada no cálculo de valores de chave de cache em Olá **variar por parâmetros de cadeia de caracteres de consulta** e **variam por cabeçalhos** nas caixas de texto respectivamente. Quando nenhum é especificado, o total de solicitação de URL e Olá valores de cabeçalho HTTP a seguir é usado na geração de chave de cache: **aceitar** e **Accept-Charset**.
 
-> Para obter mais informações sobre cache e políticas de cache, consulte [Como armazenar em cache os resultados de operações no Gerenciamento de API do Azure][How to cache operation results in Azure API Management].
+> Para obter mais informações sobre o cache e cache de políticas, consulte [como os resultados de operação toocache no gerenciamento de API do Azure][How toocache operation results in Azure API Management].
 > 
 > 
 
 ## <a name="request-parameters"> </a>Parâmetros da solicitação
-Os parâmetros da operação são gerenciados na guia Parâmetros. Parâmetros especificados no **Modelo do URL**, na guia **Assinatura**, são adicionados automaticamente e somente podem ser alterados editando o modelo do URL. Parâmetros adicionais podem ser inseridos manualmente.
+Parâmetros de operação são gerenciados na guia parâmetros de saudação. Parâmetros especificados na Olá **modelo de URL** em Olá **assinatura** guia são adicionados automaticamente e podem ser alteradas somente com a edição do modelo de URL hello. Parâmetros adicionais podem ser inseridos manualmente.
 
-Para adicionar um novo parâmetro de consulta, clique em **Adicionar parâmetro de consulta** e insira as informações a seguir:
+tooadd um novo parâmetro de consulta, clique em **Adicionar parâmetro de consulta** e digite Olá informações a seguir:
 
 * **Nome** - nome do parâmetro.
-* **Descrição** - uma breve descrição do parâmetro (opcional).
-* **Tipo** - tipo do parâmetro, selecionado no menu suspenso.
-* **Valores** - valores que podem ser atribuídos a esse parâmetro. Um dos valores pode ser marcado como padrão (opcional).
-* **Obrigatório** - faça com que o parâmetro seja obrigatório marcando a caixa de seleção. 
+* **Descrição** -uma breve descrição do parâmetro hello (opcional).
+* **Tipo** -tipo de parâmetro selecionado na saudação da lista suspensa.
+* **Valores** -valores que podem ser atribuídos toothis parâmetro. Um dos valores de saudação pode ser marcado como padrão (opcional).
+* **Necessário** -tornar o parâmetro hello obrigatório, marcando a caixa de seleção de saudação. 
 
 ![Parâmetros da solicitação][api-management-request-parameters]
 
 ## <a name="request-body"> </a>Corpo da solicitação
-Se a operação permitir (por exemplo, PUT, POST) e precisar de um corpo, você poderá fornecer um exemplo dele em todos os formatos de representação com suporte (por exemplo, json, XML). 
+Se a operação Olá permite (por exemplo, PUT, POST) e requer um corpo que você pode fornecer um exemplo dele em todos os Olá suporte para formatos de representação (por exemplo, json, XML). 
 
-> O corpo da solicitação é usado somente para fins de documentação e não é validado.
+> corpo da solicitação Olá é usado para fins de documentação somente e não é validado.
 > 
 > 
 
-Para inserir um corpo de solicitação, vá até a guia **Corpo** .
+tooenter um corpo de solicitação, alternar toohello **corpo** guia.
 
-Clique em **Adicionar representação**, comece a digitar o nome do tipo de conteúdo desejado (por exemplo, aplicativo/json), selecione-o no menu suspenso e cole o exemplo de corpo de solicitação desejado, no formato selecionado, na caixa de texto. 
+Clique em **Adicionar representação**, comece a digitar o nome do tipo de conteúdo desejado (por exemplo, application/json), selecione-o no hello suspenso e colar Olá desejado exemplo de corpo de solicitação no formato de saudação selecionado na caixa de texto de saudação. 
 
 ![Corpo da solicitação][api-management-request-body]
 
-Além de representações, você também pode especificar um texto de descrição opcional na caixa de texto **Descrição** .
+Em toorepresentations adicionais, você também pode especificar uma descrição de texto opcional na Olá **descrição** caixa de texto.
 
 ## <a name="responses"> </a>Respostas
-É uma prática recomendável fornecer exemplos de respostas para todos os códigos de status que a operação possa produzir. Cada código de status pode ter mais de um exemplo de corpo de resposta, um para cada um dos tipos de conteúdos com suporte. 
+Exemplos de tooprovide uma boa prática de respostas para todos os códigos de status que pode produzir operação Olá é. Cada código de status pode ter mais de um exemplo de corpo de resposta, uma para cada Olá suporte para tipos de conteúdo. 
 
-Para adicionar uma resposta, clique em **Adicionar** e comece a digitar o código de status desejado. Neste exemplo, o código de status é **200 OK**. Quando o código for exibido no menu suspenso, selecione-o e o código de resposta será criado e adicionado à sua operação.
+tooadd uma resposta, clique em **adicionar** e comece a digitar o código de status de saudação desejado. Esse status do exemplo hello código é **200 Okey**. Depois que o código de saudação é exibido na lista suspensa hello, selecioná-la e o código de resposta de saudação é criado e adicionado tooyour operação.
 
 ![Código de resposta][api-management-response-code]
 
-Clique em **Adicionar representação**, comece a digitar o nome do tipo de conteúdo desejado (por exemplo, aplicativo/json) e selecione-o no menu suspenso.
+Clique em **Adicionar representação**, comece a digitar o nome de tipo de conteúdo desejado hello (por exemplo, application/json) e, em seguida, selecione no hello lista suspensa.
 
 ![Tipo de conteúdo do corpo][api-management-response-body-content-type]
 
-Copie o exemplo de corpo de resposta no formato selecionado na caixa de texto. 
+Cole o exemplo de corpo de resposta hello no formato selecionado Olá na caixa de texto de hello. 
 
 ![Corpo da resposta][api-management-response-body]
 
-Se desejar, adicione uma descrição opcional na caixa de texto **Descrição** .
+Se desejar, adicione uma descrição opcional para Olá **descrição** caixa de texto.
 
-Após configurar a operação, clique em **Salvar**.
+Após configurar a operação de saudação, clique em **salvar**.
 
 ## <a name="next-steps"> </a>Próximas etapas
-Após as operações serem adicionadas a uma API, a próxima etapa é associar a API a um produto e publicá-la para que os desenvolvedores possam chamar suas operações.
+Quando as operações de saudação são adicionadas tooan API, o hello próxima etapa é tooassociate hello API com um produto e publicá-lo para que os desenvolvedores podem chamar suas operações.
 
-* [Como criar e publicar um produto][How to create and publish a product]
+* [Como toocreate e publicar um produto][How toocreate and publish a product]
 
 [api-management-management-console]: ./media/api-management-howto-add-operations/api-management-management-console.png
 [api-management-operations]: ./media/api-management-howto-add-operations/api-management-operations.png
@@ -166,6 +166,6 @@ Após as operações serem adicionadas a uma API, a próxima etapa é associar a
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to create and publish a product]: api-management-howto-add-products.md
-[How to cache operation results in Azure API Management]: api-management-howto-cache.md
+[How tooadd operations tooan API]: api-management-howto-add-operations.md
+[How toocreate and publish a product]: api-management-howto-add-products.md
+[How toocache operation results in Azure API Management]: api-management-howto-cache.md

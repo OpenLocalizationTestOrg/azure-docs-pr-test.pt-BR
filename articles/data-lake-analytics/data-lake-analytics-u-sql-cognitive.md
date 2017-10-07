@@ -1,6 +1,6 @@
 ---
-title: Usando recursos cognitivos do U-SQL no Azure Data Lake Analytics | Microsoft Docs
-description: "Saiba como usar a inteligência de recursos Cognitivos no U-SQL"
+title: "recursos de U-SQL cognitivas aaaUsing na análise do Azure Data Lake | Microsoft Docs"
+description: "Saiba como toouse Olá inteligência dos recursos cognitivas U-SQL"
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: f77329f9838d6e824afa7234de90f62257a004de
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2c9ac71f490e929070fa0e72b93c3ffdb1ab243b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-get-started-with-the-cognitive-capabilities-of-u-sql"></a>Tutorial: introdução aos recursos Cognitivos do U-SQL
+# <a name="tutorial-get-started-with-hello-cognitive-capabilities-of-u-sql"></a>Tutorial: Introdução com recursos cognitivas Olá U-SQL
 
-Os recursos cognitivos para o U-SQL permitem aos desenvolvedores colocar inteligência em seus programas de Big Data. O processo geral de maneira simples:
+Recursos cognitivos para U-SQL permitem que os desenvolvedores toouse colocar inteligência de seus programas de grandes dados. Olá processo geral de simples:
 
-* Usar a instrução REFERENCE ASSEMBLY para habilitar os recursos cognitivos para o Script U-SQL
-* Chame a operação PROCESS para usar os recursos Cognitivos 
+* Usar recursos cognitivos do hello de tooenable de instrução do hello referência de ASSEMBLY para Olá Script U-SQL
+* Chamar a operação de processo de saudação recursos cognitivas de saudação toouse 
 
 ## <a name="imaging-scenarios"></a>Imaginando cenários
 
 ### <a name="example-image-tagging"></a>Exemplo: marcação de imagem
 
-O exemplo a seguir mostra um uso de ponta a ponta dos recursos de geração de imagens para detectar objetos nas imagens.
+saudação de exemplo a seguir mostra um uso de ponta a ponta de saudação objetos de toodetect recursos nas imagens de geração de imagens.
 
     REFERENCE ASSEMBLY ImageCommon;
     REFERENCE ASSEMBLY FaceSdk;
@@ -44,7 +44,7 @@ O exemplo a seguir mostra um uso de ponta a ponta dos recursos de geração de i
         FROM @"/images/{FileName:*}.jpg"
         USING new Cognition.Vision.ImageExtractor();
 
-    // Extract the number of objects on each image and tag them 
+    // Extract hello number of objects on each image and tag them 
     @objects =
         PROCESS @imgs 
         PRODUCE FileName,
@@ -120,7 +120,7 @@ Suponha que temos uma entrada que consiste em "Guerra e Paz" de Leo Tolstóy.
                 Text
         USING new Cognition.Text.KeyPhraseExtractor();
 
-    // Tokenize the key phrases.
+    // Tokenize hello key phrases.
     @kpsplits =
         SELECT No,
             Year,

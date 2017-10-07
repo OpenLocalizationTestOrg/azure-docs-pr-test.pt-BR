@@ -1,6 +1,6 @@
 ---
-title: Como redefinir o adaptador de rede de uma VM Windows do Azure | Microsoft Docs
-description: Mostra como redefinir o adaptador de rede de uma VM Windows do Azure
+title: interface de rede tooreset aaaHow para VM do Windows Azure | Microsoft Docs
+description: Mostra como tooreset interface de rede de VM do Windows Azure
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: 
 author: genlin
@@ -14,61 +14,61 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: genli
-ms.openlocfilehash: 220e426be20086841854d89831f6c9d67529867f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1b653820927ef4c3bb8f384a7e752846a8be3da9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Como redefinir o adaptador de rede de uma VM Windows do Azure 
+# <a name="how-tooreset-network-interface-for-azure-windows-vm"></a>Como tooreset interface de rede de VM do Windows Azure 
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-Você não consegue se conectar à VM (Máquina Virtual) Windows do Microsoft Azure depois de desabilitar a NIC (Adaptador de Rede) padrão ou definir um IP estático manualmente para a NIC. Este artigo mostra como redefinir o adaptador de rede de uma VM Windows do Azure, o que resolverá o problema de conexão remota.
+Não é possível conectar tooMicrosoft Windows Máquina Virtual (VM) do Azure depois de desabilitar o padrão de saudação de rede (NIC) ou manualmente define um endereço IP estático para a NIC hello. Este artigo mostra como tooreset Olá interface de rede de VM do Windows Azure, que resolverá o problema de conexão remota hello.
 
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
 ## <a name="reset-network-interface"></a>Redefinir o adaptador de rede
 
 ### <a name="for-classic-vms"></a>Para VMs Clássicas
 
-Para redefinir o adaptador de rede, siga estas etapas:
+rede tooreset interface, siga estas etapas:
 
-1.  Vá para o [Portal do Azure]( https://ms.portal.azure.com).
+1.  Vá toohello [portal do Azure]( https://ms.portal.azure.com).
 2.  Selecione **Máquinas Virtuais (Clássicas)**.
-3.  Selecione a Máquina Virtual afetada.
+3.  Selecione Olá afetados Máquina Virtual.
 4.  Selecione **Endereços IP**.
-5.  Se a **Atribuição de IP privado** não for **Estática**, altere-a para **Estática**.
-6.  Altere o **endereço IP** para outro endereço IP que está disponível na Sub-rede.
+5.  Se hello **atribuição de IP privado** não é **estático**, alterá-la muito**estático**.
+6.  Saudação de alteração **endereço IP** tooanother endereço IP que está disponível no hello sub-rede.
 7.  Selecione Salvar.
-8.  A máquina virtual será reiniciada para inicializar a nova NIC no sistema.
-9.  Tente executar o RDP no computador. Se for bem-sucedido, você poderá alterar o endereço IP Privado novamente para o original, se desejar. Caso contrário, você poderá mantê-lo. 
+8.  máquina virtual de saudação reiniciará tooinitialize Olá novo NIC toohello sistema.
+9.  Tente tooRDP tooyour máquina. Se for bem-sucedido, você pode alterar Olá toohello voltar de endereço de IP privado original se você quiser. Caso contrário, você poderá mantê-lo. 
 
 ### <a name="for-vms-deployed-in-resource-group-model"></a>Para as VMs implantadas no modelo de Grupo de recursos
 
-1.  Vá para o [Portal do Azure]( https://ms.portal.azure.com).
-2.  Selecione a Máquina Virtual afetada.
+1.  Vá toohello [portal do Azure]( https://ms.portal.azure.com).
+2.  Selecione Olá afetados Máquina Virtual.
 3.  Selecione **Adaptadores de Rede**.
-4.  Selecione o Adaptador de Rede associado ao computador
+4.  Selecione Olá associado à Interface de rede com sua máquina
 5.  Selecione **Configurações de IP**.
-6.  Selecione o IP. 
-7.  Se a **Atribuição de IP privado** não for **Estática**, altere-a para **Estática**.
-8.  Altere o **endereço IP** para outro endereço IP que está disponível na Sub-rede.
-9. A máquina virtual será reiniciada para inicializar a nova NIC no sistema.
-10. Tente executar o RDP no computador. Se for bem-sucedido, você poderá alterar o endereço IP Privado novamente para o original, se desejar. Caso contrário, você poderá mantê-lo. 
+6.  Selecione IP hello. 
+7.  Se hello **atribuição de IP privado** não é **estático**, alterá-la muito**estático**.
+8.  Saudação de alteração **endereço IP** tooanother endereço IP que está disponível no hello sub-rede.
+9. máquina virtual de saudação reiniciará tooinitialize Olá novo NIC toohello sistema.
+10. Tente tooRDP tooyour máquina. Se for bem-sucedido, você pode alterar Olá toohello voltar de endereço de IP privado original se você quiser. Caso contrário, você poderá mantê-lo. 
 
-## <a name="delete-the-unavailable-nics"></a>Excluir as NICs não disponíveis
-Depois que você conseguir conectar a área de trabalho remota ao computador, deverá excluir as NICs antigas para evitar o problema potencial:
+## <a name="delete-hello-unavailable-nics"></a>Excluir Olá NICs indisponíveis
+Depois que você pode máquina toohello de área de trabalho remota, você deve excluir Olá antigo NICs tooavoid Olá problema em potencial:
 
 1.  Abra o Gerenciador de Dispositivos.
 2.  Selecione **Exibir** > **Mostrar dispositivos ocultos**.
 3.  Selecione **Adaptadores de Rede**. 
-4.  Verifique os adaptadores nomeados como “Adaptador de Rede do Microsoft Hyper-V”.
-5.  Talvez você veja um adaptador não disponível que está esmaecido. Clique com o botão direito do mouse no adaptador e, em seguida, selecione Desinstalar.
+4.  Verifique se há adaptadores Olá nomeadas como "Adaptador de rede do Microsoft Hyper-V".
+5.  Talvez você veja um adaptador não disponível que está esmaecido. Clique com botão direito adaptador hello e, em seguida, selecione Desinstalar.
 
-    ![a imagem da NIC](media/reset-network-interface/nicpage.png)
+    ![imagem de saudação do hello NIC](media/reset-network-interface/nicpage.png)
 
     > [!NOTE]
-    > Desinstale somente os adaptadores não disponíveis que têm o nome “Adaptador de Rede do Microsoft Hyper-V”. Se você desinstalar um dos outros adaptadores ocultos, isso poderá causar outros problemas.
+    > Desinstale somente os adaptadores indisponível Olá com nome hello "Adaptador de rede do Microsoft Hyper-V". Se você desinstalar qualquer Olá outros adaptadores ocultados, isso pode causar problemas adicionais.
     >
     >
 

@@ -1,6 +1,6 @@
 ---
-title: "Criação de uma VM com várias NICs - CLI 2.0 do Azure | Microsoft Docs"
-description: "Aprenda a criar uma VM com várias NICs usando a CLI 2.0 do Azure."
+title: "aaaCreate uma VM com várias NICs - 2.0 do CLI do Azure | Microsoft Docs"
+description: "Saiba como toocreate uma VM com várias NICs usando Olá 2.0 do CLI do Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,30 +16,30 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19b1757dd694e756cfd2d0d6cd67e64f43ccab7f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ac0291a978e2c8682c69104915196cc6c4fcf8dd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-vm-with-multiple-nics-using-the-azure-cli-20"></a>Como criar uma VM com várias NICs usando a CLI 2.0 do Azure
+# <a name="create-a-vm-with-multiple-nics-using-hello-azure-cli-20"></a>Criar uma VM com várias NICs usando Olá 2.0 do CLI do Azure
 
 [!INCLUDE [virtual-network-deploy-multinic-arm-selectors-include.md](../../includes/virtual-network-deploy-multinic-arm-selectors-include.md)]
 
 [!INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md).  Este artigo aborda usando o modelo de implantação do Gerenciador de Recursos, que a Microsoft recomenda para a maioria das novas implantações em vez de do [modelo de implantação clássico](virtual-network-deploy-multinic-classic-cli.md).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md).  Este artigo aborda usando o modelo de implantação do hello Gerenciador de recursos, a Microsoft recomenda para a maioria das novas implantações em vez da saudação [modelo de implantação clássico](virtual-network-deploy-multinic-classic-cli.md).
 >
 
-## <a name="create"></a>Criação da VM
+## <a name="create"></a>Criar hello VM
 
-Você pode concluir essa tarefa usando a CLI 2.0 do Azure (este artigo) ou a [CLI 1.0 do Azure](virtual-network-deploy-multinic-cli-nodejs.md). Os valores em "" para as variáveis nas etapas a seguir criam recursos com as configurações do cenário. Altere os valores para adequá-los ao seu ambiente.
+Você pode concluir essa tarefa usando Olá CLI do Azure 2.0 (Este artigo) ou hello [Azure CLI 1.0](virtual-network-deploy-multinic-cli-nodejs.md). Olá valores em "" para variáveis de saudação nas etapas Olá seguir criar recursos com as configurações do cenário de saudação. Altere os valores hello, conforme apropriado para seu ambiente.
 
-1. Instale a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) se você ainda não tiver instalado.
-2. Siga as etapas em [Como criar um par de chaves público e privado SSH para VMs do Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para criar um par de chaves público e privado SSH para VMs do Linux.
-3. Faça logon com o comando `az login` de um shell de comando.
-4. Execute o script a seguir em um computador Linux ou Mac para criar a VM. O script cria um grupo de recursos, uma rede virtual (VNet) com duas sub-redes, duas NICs e uma VM com duas NICs conectadas a ela. Uma das NICs é conectada a uma sub-rede e é atribuída a um endereço IP estático público e privado. A outra NIC é conectada à outra sub-rede e é atribuída a um endereço IP privado estático e nenhum endereço IP público. A NIC, o endereço IP público, a rede virtual e os recursos da VM devem existir no mesmo local e assinatura. Embora não seja obrigatório que todos os recursos existam no mesmo grupo de recursos, no script a seguir é obrigatório.
+1. Instalar Olá [2.0 do CLI do Azure](/cli/azure/install-az-cli2) se você ainda não tiver instalado.
+2. Criar um par de chamadas chaves público e privado SSH para VMs do Linux executando etapas Olá Olá [criar um par de chamadas chaves público e privado SSH para VMs do Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+3. No shell de comando, faça logon com o comando Olá `az login`.
+4. Crie Olá VM executando o script hello seguinte em um computador Linux ou Mac. script Hello cria um grupo de recursos, uma rede virtual (VNet) com duas sub-redes e duas NICs de uma VM com hello duas NICs anexado tooit. Uma saudação NICs é conectado tooone sub-rede e é atribuída um endereço IP estático público e privado. Hello outra NIC está conectado toohello outra sub-rede e é atribuída um endereço IP privado estático e nenhum endereço IP público. Olá NIC, o endereço IP público, a rede virtual e recursos de VM devem todas existir no hello mesmo local e assinatura. Embora recursos Olá não tiverem todos tooexist em hello mesmo grupo de recursos no hello preencham de script a seguir.
 
 ```bash
 #!/bin/sh
@@ -52,9 +52,9 @@ az group create \
 --name $RgName \
 --location $Location
 
-# The address is assigned to the resource from a pool of IP adresses unique to each Azure region. 
-# Download and view the file from https://www.microsoft.com/en-us/download/details.aspx?id=41653 that lists
-# the ranges for each region.
+# hello address is assigned toohello resource from a pool of IP adresses unique tooeach Azure region. 
+# Download and view hello file from https://www.microsoft.com/en-us/download/details.aspx?id=41653 that lists
+# hello ranges for each region.
 
 PipName="PIP-WEB"
 az network public-ip create \
@@ -77,7 +77,7 @@ az network vnet create \
 --subnet-name $VnetSubnet1Name \
 --subnet-prefix $VnetSubnet1Prefix
 
-# Create a second subnet within the VNet
+# Create a second subnet within hello VNet
 
 VnetSubnet2Name="Back-end"
 VnetSubnet2Prefix="10.0.1.0/24"
@@ -87,10 +87,10 @@ az network vnet subnet create \
 --name $VnetSubnet2Name \
 --address-prefix $VnetSubnet2Prefix
 
-# Create a network interface connected to one of the subnets. The NIC is assigned a single dynamic private and
+# Create a network interface connected tooone of hello subnets. hello NIC is assigned a single dynamic private and
 # public IP address by default, but you can instead, assign static addresses, or no public IP address at all.
-# You can also assign multiple private or public IP addresses to each NIC. To learn more about IP addressing
-# options for NICs, enter the az network nic create -h command.
+# You can also assign multiple private or public IP addresses tooeach NIC. toolearn more about IP addressing
+# options for NICs, enter hello az network nic create -h command.
 
 Nic1Name="NIC-FE"
 PrivateIpAddress1="10.0.0.5"
@@ -104,8 +104,8 @@ az network nic create \
 --private-ip-address $PrivateIpAddress1 \
 --public-ip-address $PipName
 
-# Create a second network interface and connect it to the other subnet. Though multiple NICs attached to the same
-# VM can be connected to different subnets, the subnets must all be within the same VNet. Add additional NICs as necessary.
+# Create a second network interface and connect it toohello other subnet. Though multiple NICs attached toohello same
+# VM can be connected toodifferent subnets, hello subnets must all be within hello same VNet. Add additional NICs as necessary.
 
 Nic2Name="NIC-BE"
 PrivateIpAddress2="10.0.1.5"
@@ -118,33 +118,33 @@ az network nic create \
 --vnet-name $VnetName \
 --private-ip-address $PrivateIpAddress2
 
-# Create a VM and attach the two NICs.
+# Create a VM and attach hello two NICs.
 
 VmName="WEB"
 
-# Replace the value for the following **VmSize** variable with a value from the
+# Replace hello value for hello following **VmSize** variable with a value from the
 # https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes article. Not all VM sizes support
-# more than one NIC, so be sure to select a VM size that supports the number of NICs you want to attach to the VM.
-# You must create the VM with at least two NICs if you want to add more after VM creation. If you create a VM with
-# only one NIC, you can't add additional NICs to the VM after VM creation, regardless of how many NICs the VM supports.
-# The VM size specified in the following variable supports two NICs.
+# more than one NIC, so be sure tooselect a VM size that supports hello number of NICs you want tooattach toohello VM.
+# You must create hello VM with at least two NICs if you want tooadd more after VM creation. If you create a VM with
+# only one NIC, you can't add additional NICs toohello VM after VM creation, regardless of how many NICs hello VM supports.
+# hello VM size specified in hello following variable supports two NICs.
 
 VmSize="Standard_DS2"
 
-# Replace the value for the OsImage variable value with a value for *urn* from the output returned by entering the
+# Replace hello value for hello OsImage variable value with a value for *urn* from hello output returned by entering the
 # az vm image list command.
 
 OsImage="credativ:Debian:8:latest"
 
 Username="adminuser"
 
-# Replace the following value with the path to your public key file.
+# Replace hello following value with hello path tooyour public key file.
 
 SshKeyValue="~/.ssh/id_rsa.pub"
 
-# Before executing the following command, add variable names of additional NICs you may have added to the script that
-# you want to attach to the VM. If creating a Windows VM, remove the **ssh-key-value** line and you'll be prompted for
-# the password you want to configure for the VM.
+# Before executing hello following command, add variable names of additional NICs you may have added toohello script that
+# you want tooattach toohello VM. If creating a Windows VM, remove hello **ssh-key-value** line and you'll be prompted for
+# hello password you want tooconfigure for hello VM.
 
 az vm create \
 --name $VmName \
@@ -157,24 +157,24 @@ az vm create \
 --ssh-key-value $SshKeyValue
 ```
 
-Além de criar uma VM com duas NICs, o script cria:
-- Um único disco gerenciado premium por padrão, mas há outras opções para você criar outros tipos de disco. Veja o artigo [Como criar uma VM do Linux usando a CLI 2.0 do Azure](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obter mais informações.
-- Uma rede virtual com duas sub-redes e um único endereço IP público. Como alternativa, você pode usar uma rede virtual, uma sub-rede, uma NIC ou recursos de endereço IP público *existentes*. Para saber como usar os recursos de rede existente em vez de criar recursos adicionais, digite `az vm create -h`.
+Além disso toocreating uma VM com dois NICs, script hello cria:
+- Um único premium gerenciado em disco por padrão, mas você tiver outras opções para o tipo de disco de hello, que você pode criar. Saudação de leitura [criar uma VM do Linux usando hello Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artigo para obter detalhes.
+- Uma rede virtual com duas sub-redes e um único endereço IP público. Como alternativa, você pode usar uma rede virtual, uma sub-rede, uma NIC ou recursos de endereço IP público *existentes*. toolearn como toouse existente de recursos de rede em vez de criar recursos adicionais, digite `az vm create -h`.
 
 ## <a name = "validate"></a>Como validar a criação da VM e das NICs
 
-1. Digite o comando `az resource list --resouce-group Multi-NIC-VM --output table` para ver uma lista dos recursos criados pelo script. Deve haver seis recursos na saída retornada: duas NICs, um disco, um endereço IP público, uma rede virtual e uma máquina virtual.
-2. Digite o comando `az network public-ip show --name PIP-WEB --resource-group Multi-NIC-VM --output table`. Na saída retornada, observe o valor do **IpAddress** e o valor do **PublicIpAllocationMethod** é *estático*.
-3. Antes de executar o comando a seguir, remova o <>, substitua *Nome de usuário* pelo nome usado para a variável **Nome de usuário** no script e substitua o *ipAddress* pelo **ipAddress** da etapa anterior. Digite o seguinte comando para conectar com a VM: `ssh -i ~/.ssh/azure_id_rsa <Username>@<ipAddress>`. 
-4. Uma vez conectado com a VM, execute o `sudo ifconfig` comando para ver as interfaces *eth0* e *eth1*. Cada NIC recebeu os endereços IP privados estáticos especificados no script pelos servidores DHCP do Azure. Não altere os endereços IP e MAC atribuídos às NICs até que a VM seja excluída. Recomendamos que você não altere o endereço IP dentro de um sistema operacional, pois pode desabilitar a conectividade com o computador. Os endereços IP públicos não aparecem dentro do sistema operacional, uma vez que eles são traduzidos para e do endereço IP privado pela infraestrutura do Azure.
+1. Digite o comando Olá `az resource list --resouce-group Multi-NIC-VM --output table` toosee uma lista de recursos de saudação criados pelo script hello. Deve haver seis recursos Olá retornado de saída: duas NICs, um disco, um endereço IP público, uma rede virtual e uma máquina virtual.
+2. Digite o comando Olá `az network public-ip show --name PIP-WEB --resource-group Multi-NIC-VM --output table`. Em Olá retornado de saída, observe o valor de saudação do **IpAddress** e esse valor de saudação do **PublicIpAllocationMethod** é *estático*.
+3. Antes de executar Olá comando a seguir, remover <> hello, substitua *Username* com nome hello usado para Olá **Username** variável no script hello e substituir *ipAddress* com hello **ipAddress** da etapa anterior hello. Comando a seguir de execução Olá tooconnect toohello VM: `ssh -i ~/.ssh/azure_id_rsa <Username>@<ipAddress>`. 
+4. Uma vez conectado toohello VM, execute Olá `sudo ifconfig` comando toosee *eth0* e *eth1* interfaces. Cada NIC recebeu Olá privados endereços IP estáticos especificados no script hello pelos servidores de DHCP do Azure hello. Olá endereços IP e MAC atribuídos toohello NICs não alteram até Olá que VM seja excluída. É recomendável que você não altere o endereçamento IP dentro de um sistema operacional, como desativar computador de toohello de conectividade. Endereços IP públicos não aparecem no sistema de operacional hello, conforme forem tooand de convertido de endereço de rede do endereço IP privado de saudação por Olá infraestrutura do Azure.
 
-## <a name= "clean-up"></a>Como remover a VM e os recursos associados
+## <a name= "clean-up"></a>Remover hello VM e recursos associados
 
-É recomendável excluir os recursos criados neste exercício, caso você não pretenda usá-los em produção. Pode haver cobranças da VM, do endereço IP público e dos recursos de disco enquanto forem provisionados. Para remover os recursos criados durante este exercício, realize as seguintes etapas:
-1. Para exibir os recursos do grupo de recursos, execute o comando `az resource list --resource-group Multi-NIC-VM`.
-2. Confirme se não existem outros recursos no grupo de recursos, além dos recursos criados pelo script neste artigo. 
-3. Para excluir todos os recursos criados neste exercício, execute o comando `az group delete --name Multi-NIC-VM`. O comando exclui o grupo de recursos e todos os recursos que ele contém.
+É recomendável que você exclua recursos Olá criados neste exercício, se você não usá-las na produção. Pode haver cobranças da VM, do endereço IP público e dos recursos de disco enquanto forem provisionados. recursos de saudação tooremove criados durante este exercício, Olá concluir as etapas a seguir:
+1. recursos de saudação do tooview no grupo de recursos de hello, executar Olá `az resource list --resource-group Multi-NIC-VM` comando.
+2. Confirme que não existem recursos no grupo de recursos hello, diferente de recursos de saudação criados pelo script hello neste artigo. 
+3. toodelete todos os recursos criados neste exercício, execute Olá `az group delete --name Multi-NIC-VM` comando. comando Olá exclui o grupo de recursos hello e todos os recursos de saudação nele.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Qualquer tráfego de rede pode fluir de e para a VM criada neste artigo. Você pode definir regras de entrada e saída de um NSG que limitam o tráfego que pode fluir de e para cada adaptador de rede, cada sub-rede ou ambos. Para saber mais sobre NSGs, leia o artigo [Visão geral do NSG](virtual-networks-nsg.md).
+Qualquer tráfego de rede pode fluir tooand de saudação que VM criada neste artigo. Você pode definir regras de entrada e saída dentro de um NSG que limitam o tráfego de saudação que possa fluir tooand de cada interface de rede, cada sub-rede ou ambos. toolearn mais sobre os NSGs, ler Olá [visão geral do NSG](virtual-networks-nsg.md) artigo.

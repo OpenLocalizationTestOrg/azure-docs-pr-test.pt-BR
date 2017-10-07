@@ -1,6 +1,6 @@
 ---
-title: "Adicionar uma VM a um laboratório no Azure DevTest Labs | Microsoft Docs"
-description: "Saiba como adicionar uma máquina virtual a um laboratório no Azure DevTest Labs"
+title: "aaaAdd laboratório tooa uma VM do Azure DevTest Labs | Microsoft Docs"
+description: "Saiba como tooadd laboratório tooa uma máquina virtual do Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,104 +14,104 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: tarcher
-ms.openlocfilehash: 449bffb040dafc8edd0b8b0afd80dbea35cd28ac
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 82838e4349550db56de311264c188140b9556b24
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Adicionar uma VM a um laboratório no Azure DevTest Labs
-Se você já tiver [criado sua primeira VM](devtest-lab-create-first-vm.md), provavelmente isso foi feito por meio de uma [imagem do Marketplace](devtest-lab-configure-marketplace-images.md) pré-carregada. Agora, se quiser adicionar VMs subsequentes ao laboratório, você também poderá escolher uma *base* que seja uma [imagem personalizada](devtest-lab-create-template.md) ou uma [fórmula](devtest-lab-manage-formulas.md). Este tutorial orienta você pelo Portal do Azure para adicionar uma máquina virtual a um laboratório no DevTest Labs.
+# <a name="add-a-vm-tooa-lab-in-azure-devtest-labs"></a>Adicionar um laboratório de tooa VM no Azure DevTest Labs
+Se você já tiver [criado sua primeira VM](devtest-lab-create-first-vm.md), provavelmente isso foi feito por meio de uma [imagem do Marketplace](devtest-lab-configure-marketplace-images.md) pré-carregada. Agora, se você quiser tooadd subsequentes VMs tooyour laboratório, você também pode escolher um *base* seja um [imagem personalizada](devtest-lab-create-template.md) ou um [fórmula](devtest-lab-manage-formulas.md). Este tutorial orienta você a usar o hello tooadd portal do Azure um laboratório de tooa VM em DevTest Labs.
 
-Este artigo também mostra como gerenciar os artefatos para uma VM em seu laboratório.
+Este artigo mostra como toomanage Olá artefatos para uma VM no laboratório.
 
-## <a name="steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Etapas para adicionar uma VM a um laboratório no Azure DevTest Labs
-1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecione **Mais Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
-1. Na lista de laboratórios, selecione o laboratório no qual você deseja criar a VM.  
-1. Na folha **Visão geral** do laboratório, selecione **+ Adicionar**.  
+## <a name="steps-tooadd-a-vm-tooa-lab-in-azure-devtest-labs"></a>Etapas tooadd laboratório tooa uma VM do Azure DevTest Labs
+1. Entrar toohello [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Selecione **mais serviços**e, em seguida, selecione **DevTest Labs** da lista de saudação.
+1. Saudação de laboratórios, selecione lista laboratório Olá no qual você deseja toocreate Olá VM.  
+1. No laboratório de saudação **visão geral** folha, selecione **+ adicionar**.  
 
     ![Botão Adicionar VM](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
 
-1. Na folha **Escolher uma base** , selecione uma base para a VM.
-1. Na folha **Máquina virtual**, insira um nome para a nova máquina virtual na caixa de texto **Nome da máquina virtual**.
+1. Em Olá **escolher uma base** folha, selecione uma base para Olá VM.
+1. Em Olá **Máquina Virtual** folha, digite um nome para a máquina virtual da nova Olá no hello **nome da máquina Virtual** caixa de texto.
 
     ![Folha VM de Laboratório](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
 
-1. Insira um **Nome de Usuário** que receberá privilégios de administrador na máquina virtual.  
-1. Se você quiser usar uma senha armazenada em seu [repositório secreto](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store), selecione **Usar um segredo salvo** e especifique um valor de chave que corresponda ao seu segredo (senha). Caso contrário, digite uma senha no campo de texto rotulado **Digite um valor**.
-1. O **tipo de disco de máquina virtual** determina que tipo de disco de armazenamento é permitido para as máquinas virtuais no laboratório.
-1. Selecione **Tamanho da máquina virtual** e selecione um dos itens predefinidos que especificam os núcleos de processador, o tamanho da RAM e o tamanho do disco rígido da VM a ser criada.
-1. Selecione **Artefatos** e, na lista de artefatos, selecione e configure os artefatos que você deseja adicionar à imagem base.
-    **Observação:** se você for iniciante em Laboratórios de Desenvolvimento/Teste ou na configuração de artefatos, veja a seção [Adicionar um artefato existente a uma VM](#add-an-existing-artifact-to-a-vm) e volte aqui quando terminar.
-1. Selecione **Configurações avançadas** para configurar as opções de expiração e as opções de rede da VM. 
+1. Insira um **nome de usuário** que tem privilégios de administrador na máquina virtual de saudação.  
+1. Se você quiser toouse uma senha armazenada em seu [armazenamento secreto](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store), selecione **usar um segredo salvo**e especifique um valor de chave que corresponde a tooyour segredo (senha). Caso contrário, digite uma senha no campo de texto de saudação rotulado **digite um valor**.
+1. Olá **tipo de disco de máquina Virtual** determina qual tipo de disco de armazenamento será permitido para máquinas virtuais de saudação laboratório hello.
+1. Selecione **tamanho da máquina Virtual** e selecione uma das Olá predefinidos itens que especificam os núcleos de processador hello, tamanho da RAM e tamanho de disco rígido de saudação do hello VM toocreate.
+1. Selecione **artefatos** - lista de saudação de artefatos - e selecione Configurar artefatos Olá que deseja que a imagem base do tooadd toohello.
+    **Observação:** se você for novo laboratórios de tooDevTest ou configurando artefatos, consulte toohello [adicionar um tooa de artefato existente VM](#add-an-existing-artifact-to-a-vm) seção e, em seguida, retornar aqui quando terminar.
+1. Selecione **configurações avançadas** opções de opções e expiração de rede da VM do tooconfigure hello. 
 
-   Para definir uma opção de expiração, escolha o ícone de calendário para especificar uma data em que a VM será excluída automaticamente.  Por padrão, a VM nunca expirará. 
-1. Se quiser exibir ou copiar o modelo do Azure Resource Manager, veja a seção [Salvar modelo do Azure Resource Manager](#save-azure-resource-manager-template) e retorne para cá quando terminar.
-1. Selecione **Criar** para adicionar a VM especificada ao laboratório.
-1. A folha do laboratório exibe o status da criação da VM; primeiro como **Criando** e como **Executando** após a inicialização da VM.
+   tooset uma opção de expiração, escolha Olá Calendário ícone toospecify uma data na qual Olá VM será excluída automaticamente.  Por padrão, a saudação VM nunca expirará. 
+1. Se você quiser tooview ou copia modelo do Azure Resource Manager Olá, consulte toohello [do Azure Resource Manager Salvar modelo](#save-azure-resource-manager-template) seção e retornar aqui quando terminar.
+1. Selecione **criar** tooadd Olá especificado laboratório toohello de VM.
+1. folha de laboratório Olá exibe o status de saudação da criação da VM Olá - primeiro como **criando**, em seguida, como **executando** após Olá VM foi iniciada.
 
 > [!NOTE]
-> [Adicionar uma VM declarável](devtest-lab-add-claimable-vm.md) mostra como tornar a VM declarável para que ela esteja disponível para uso por qualquer usuário no laboratório.
+> [Adicionar uma VM claimable](devtest-lab-add-claimable-vm.md) mostra como toomake Olá VM claimable para que ele esteja disponível para uso por qualquer usuário no laboratório de saudação.
 >
 >
 
-## <a name="add-an-existing-artifact-to-a-vm"></a>Adicionar um artefato existente a uma VM
-Durante a criação de uma VM, você pode adicionar artefatos existentes. Cada laboratório inclui artefatos do Repositório Público de Artefatos de Laboratórios de Desenvolvimento/Teste, bem como artefatos criados e adicionados por você a seu próprio Repositório de Artefatos.
+## <a name="add-an-existing-artifact-tooa-vm"></a>Adicionar um tooa de artefato VM existente
+Durante a criação de uma VM, você pode adicionar artefatos existentes. Cada laboratório inclui os artefatos de saudação repositório de artefato do público DevTest Labs, bem como artefatos que você tenha criado e adicionado tooyour possui o repositório de artefato.
 
-* Os *artefatos* do Azure DevTest Labs permitem que você especifique *ações* que são executadas quando a VM é provisionada, como executar scripts do Windows PowerShell, executando comandos Bash e instalar software.
-* Os *parâmetros* de artefato permitem que você personalize o artefato para seu cenário específico.
+* Azure DevTest Labs *artefatos* permitem que você especifique *ações* que são executadas quando Olá VM é provisionada, como execução de scripts do Windows PowerShell, executando comandos Bash e instalar o software.
+* Artefato *parâmetros* permitem que você personalize o artefato de saudação para seu cenário específico
 
-Para saber como criar artefatos, confira o artigo [Aprenda a criar seus próprios artefatos para uso com Laboratórios de Desenvolvimento/Teste](devtest-lab-artifact-author.md).
+toodiscover como artefatos toocreate, consulte Olá artigo, [Saiba como tooauthor seus próprios artefatos para usam com o DevTest Labs](devtest-lab-artifact-author.md).
 
-1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecione **Mais Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
-1. Na lista de laboratórios, selecione o laboratório contendo a VM com a qual você quer trabalhar.  
+1. Entrar toohello [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Selecione **mais serviços**e, em seguida, selecione **DevTest Labs** da lista de saudação.
+1. Saudação de laboratórios, selecione lista laboratório Olá contendo Olá VM com o qual você deseja toowork.  
 1. Selecione **Minhas máquinas virtuais**.
-1. Selecione a VM desejada.
+1. Selecione Olá desejado VM.
 1. Selecione **Artefatos**. 
 1. Selecione **Aplicar artefatos**.
-1. Na folha **Aplicar artefatos**, selecione o artefato que você deseja adicionar à VM.
-1. Na folha **Adicionar artefatos**, insira os valores de parâmetro necessários e quaisquer parâmetros opcionais dos quais você precise.  
-1. Selecione **Adicionar** para adicionar o artefato e retornar à folha **Aplicar artefatos**.
+1. Em Olá **aplicar artefatos** folha, artefato Olá selecione desejar tooadd toohello VM.
+1. Em Olá **adicionar artefato** folha, insira os valores de parâmetro hello necessárias e os parâmetros opcionais que você precisa.  
+1. Selecione **adicionar** toohello de artefato e retornar Olá tooadd **aplicar artefatos** folha.
 1. Continue adicionando artefatos à sua VM conforme o necessário.
-1. Após adicionar os artefatos, você pode [alterar a ordem em que eles são executados](#change-the-order-in-which-artifacts-are-run). Você pode também voltar e [exibir ou modificar um artefato](#view-or-modify-an-artifact).
+1. Quando você tiver adicionado seus artefatos, você poderá [alterar ordem de saudação quais Olá artefatos são executados](#change-the-order-in-which-artifacts-are-run). Você também pode voltar muito[exibir ou modificar um artefato](#view-or-modify-an-artifact).
 1. Quando você terminar de adicionar artefatos, selecione **Aplicar**
 
-## <a name="change-the-order-in-which-artifacts-are-run"></a>Alterar a ordem de execução dos artefatos
-Por padrão, as ações dos artefatos são executadas na ordem em que eles são adicionados à VM. As etapas a seguir ilustram como alterar a ordem de execução dos artefatos.
+## <a name="change-hello-order-in-which-artifacts-are-run"></a>Alterar ordem de saudação artefatos são executados
+Por padrão, ações de saudação de artefatos de saudação são executadas em ordem de saudação na qual eles são adicionados toohello VM. Olá etapas a seguir ilustram como toochange Olá a ordem na qual Olá artefatos são executados.
 
-1. Na parte superior da folha **Aplicar artefatos**, selecione o link que indica o número de artefatos adicionados à VM.
+1. Na parte superior de saudação do hello **aplicar artefatos** folha, link Olá selecione indicando o número Olá artefatos que foram adicionados toohello VM.
    
-    ![Número de artefatos adicionados à VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. Na folha **Artefatos selecionados**, arraste e solte os artefatos na ordem desejada. **Observação:** se tiver problemas ao arrastar o artefato, verifique se está arrastando do lado esquerdo do artefato. 
+    ![Número de artefatos adicionados tooVM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
+1. Em Olá **selecionado artefatos** folha, arrastar e soltar artefatos Olá em Olá desejado ordem. **Observação:** se você tiver dificuldade arrastando o artefato Olá, certifique-se de que você estiver arrastando da saudação lado esquerdo de artefato de saudação. 
 1. Selecione **OK** quando tiver concluído.  
 
 ## <a name="view-or-modify-an-artifact"></a>exibir ou modificar um artefato
-As etapas a seguir ilustram como exibir ou modificar os parâmetros de um artefato:
+Olá etapas a seguir ilustram como tooview ou modificar parâmetros de saudação de um artefato:
 
-1. Na parte superior da folha **Aplicar artefatos**, selecione o link que indica o número de artefatos adicionados à VM.
+1. Na parte superior de saudação do hello **aplicar artefatos** folha, link Olá selecione indicando o número Olá artefatos que foram adicionados toohello VM.
    
-    ![Número de artefatos adicionados à VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. Na folha **Artefatos selecionados**, selecione o artefato que você deseja exibir ou editar.  
-1. Na folha **Adicionar artefato**, faça as alterações necessárias e selecione **OK** para fechar a folha **Adicionar artefato**.
-1. Selecione **OK** para fechar a folha **Artefatos selecionados**.
+    ![Número de artefatos adicionados tooVM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
+1. Em Olá **selecionado artefatos** folha, artefato Olá selecione que você deseja tooview ou edita.  
+1. Em Olá **adicionar artefato** folha, faça quaisquer alterações necessárias e selecione **Okey** tooclose Olá **adicionar artefato** folha.
+1. Selecione **Okey** tooclose Olá **selecionado artefatos** folha.
 
 ## <a name="save-azure-resource-manager-template"></a>Salvar modelo do Azure Resource Manager
-Um modelo do Azure Resource Manager é uma forma declarativa de definir uma implantação repetível. As etapas a seguir explicam como salvar o modelo do Azure Resource Manager para a VM que está sendo criada.
-Depois de salvo, você pode usar o modelo do Azure Resource Manager para [implantar novas VMs com o Azure PowerShell](../azure-resource-manager/resource-group-overview.md#template-deployment).
+Um modelo do Gerenciador de recursos do Azure fornece uma forma declarativa toodefine uma implantação repetível. Olá, as etapas a seguir explica como toosave Olá modelo do Gerenciador de recursos do Azure para Olá VM que está sendo criado.
+Uma vez salvo, você pode usar modelo do Azure Resource Manager Olá muito[implantar novas VMs com o Azure PowerShell](../azure-resource-manager/resource-group-overview.md#template-deployment).
 
-1. Na folha **Máquina virtual**, selecione **Exibir Modelo de ARM**.
-2. Na **folha Exibir o modelo do Azure Resource Manager**, selecione o texto do modelo.
-3. Copie o texto selecionado para a área de transferência.
-4. Selecione **OK** para fechar a **folha Exibir Modelo do Azure Resource Manager**.
+1. Em Olá **Máquina Virtual** folha, selecione **modelo do ARM exibição**.
+2. Em Olá **modelo de exibição do Azure Resource Manager** folha, o texto do modelo Olá select.
+3. Copiar Olá texto selecionado toohello área de transferência.
+4. Selecione **Okey** tooclose Olá **folha do modelo de Gerenciador de recursos de visualização do Azure**.
 5. Abra um editor de texto.
-6. Cole o texto do modelo da área de transferência.
-7. Salve o arquivo para uso posterior.
+6. Cole o texto do modelo de saudação da área de transferência hello.
+7. Salve o arquivo hello para uso posterior.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ### <a name="next-steps"></a>Próximas etapas
-* Após a criação da VM, você poderá se conectar à VM selecionando **Conectar** na folha da VM.
-* Saiba como [criar artefatos personalizados para sua VM do DevTest Labs](devtest-lab-artifact-author.md).
-* Explore a [galeria de modelos de Início Rápido do Azure Resource Manager do DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Uma vez Olá VM tiver sido criada, você pode se conectar toohello VM selecionando **conectar** na folha de saudação da VM.
+* Saiba como muito[criar artefatos personalizados para sua VM do DevTest Labs](devtest-lab-artifact-author.md).
+* Explorar Olá [Galeria de modelos do DevTest Labs Azure Resource Manager QuickStart](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

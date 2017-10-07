@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory com o Jive | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Jive."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Jive."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,89 +13,89 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 957b152fdd40d08a867e788b0cb9f7d57ed481e4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b1c0d0bc2d79427c055f577fe5f9d30d10f1bbdd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-configuring-jive-for-user-provisioning"></a>Tutorial: Configurando o Jive para o provisionamento de usuário
 
-O objetivo deste tutorial é mostrar as etapas que precisam ser realizadas no Jive e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o Jive.
+Olá objetivo deste tutorial é tooshow Olá etapas precisam tooperform em Jive e o Azure AD tooautomatically provisionar e provisionamento de contas de usuário do AD do Azure tooJive.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+cenário de saudação descrito neste tutorial presume que você já tenha Olá itens a seguir:
 
 *   Um locatário do Azure Active Directory.
 *   Uma assinatura habilitada para logon único do Jive.
 *   Uma conta de usuário no Jive com permissões de Administrador de Equipe.
 
-## <a name="assigning-users-to-jive"></a>Atribuindo usuários ao Jive
+## <a name="assigning-users-toojive"></a>Atribuir usuários tooJive
 
-O Azure Active Directory usa um conceito chamado "atribuições" para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de conta de usuário, somente os usuários e os grupos que foram "atribuídos" a um aplicativo no Azure AD serão sincronizados.
+Active Directory do Azure usa um conceito chamado "atribuições" toodetermine quais usuários devem receber acesso tooselected aplicativos. No contexto de saudação do provisionamento de conta de usuário automático, apenas Olá usuários e grupos que foram "atribuídos" tooan aplicativo no AD do Azure está sincronizado.
 
-Antes de configurar e habilitar o serviço de provisionamento, você precisa decidir quais usuários e/ou grupos no Azure AD representam os usuários que precisam de acesso ao aplicativo Jive. Depois de decidir, atribua esses usuários ao aplicativo Jive seguindo estas instruções:
+Antes de configurar e habilitar Olá provisionar um serviço, é necessário toodecide quais usuários e/ou grupos no AD do Azure que representam usuários Olá que precisam acessar tooyour Jive aplicativo. Depois de decidir, você pode atribuir esses aplicativos de Jive tooyour usuários, seguindo as instruções de saudação aqui:
 
-[Atribuir um usuário ou um grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Atribuir um aplicativo de enterprise tooan usuário ou grupo](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-to-jive"></a>Dicas importantes para atribuir usuários ao Jive
+### <a name="important-tips-for-assigning-users-toojive"></a>Dicas importantes para atribuir usuários tooJive
 
-*   Recomendamos a atribuição de um único usuário do Azure AD ao Jive para testar a configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+*   É recomendável que um único usuário do AD do Azure receberá tooJive tootest Olá configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-*   Ao atribuir um usuário ao Jive, você deve selecionar uma função de usuário válida. A função de "Acesso Padrão" não funciona para provisionamento.
+*   Ao atribuir um usuário tooJive, você deve selecionar uma função de usuário válido. função de "Acesso padrão" Hello não funciona para o provisionamento.
 
 ## <a name="enable-user-provisioning"></a>Habilitar o provisionamento de usuário
 
-Esta seção explica como conectar o Azure AD à API de provisionamento de conta de usuário do Jive e como configurar o serviço de provisionamento para criar, atualizar e desabilitar contas de usuário atribuídas no Jive, com base na atribuição de usuário e de grupo do Azure AD.
+Esta seção orienta você conectar-se a API de provisionamento de conta de usuário do tooJive seu AD do Azure e configurar Olá toocreate do serviço de provisionamento, atualizar e desativar contas de usuário atribuído em Jive com base na atribuição de usuário e grupo no AD do Azure.
 
 > [!TIP]
-> Você também pode optar por habilitar o Logon Único baseado em SAML no Jive, seguindo as instruções fornecidas no [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
+> Você também pode escolher tooenabled baseado no SAML SSO para Jive, seguindo instruções Olá fornecidas no [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
 
-### <a name="to-configure-user-account-provisioning"></a>Para configurar o provisionamento de conta de usuário:
+### <a name="tooconfigure-user-account-provisioning"></a>provisionamento de conta de usuário de tooconfigure:
 
-O objetivo desta seção é descrever como habilitar o provisionamento de contas de usuário do Active Directory no Jive.
-Como parte desse procedimento, é necessário fornecer um token de segurança do usuário que será necessário solicitar em Jive.com.
+Olá o objetivo desta seção é toooutline como tooenable o provisionamento de usuário do usuário do Active Directory contas tooJive.
+Como parte desse procedimento, será necessário tooprovide um token de segurança do usuário é necessário toorequest em Jive.com.
 
-1. No [Portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > Aplicativos Empresariais > Todos os aplicativos**.
+1. Em Olá [portal do Azure](https://portal.azure.com), procurar toohello **Active Directory do Azure > aplicativos da empresa > todos os aplicativos** seção.
 
-2. Se você já tiver configurado o Jive para logon único, pesquise a instância do Jive usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise **Jive** na galeria de aplicativos. Selecione o Jive nos resultados da pesquisa e adicione-o à lista de aplicativos.
+2. Se você já tiver configurado o Jive para logon único, procure sua instância do usando o campo de pesquisa de saudação do Jive. Caso contrário, selecione **adicionar** e procure **Jive** na Galeria de aplicativo hello. Selecione Jive Olá dos resultados da pesquisa e adicioná-lo tooyour lista de aplicativos.
 
-3. Selecione a instância do Jive e, depois, a guia **Provisionamento**.
+3. Selecione sua instância do Jive e selecione Olá **provisionamento** guia.
 
-4. Defina o **Modo de Provisionamento** como **Automático**. 
+4. Saudação de conjunto **modo de provisionamento** muito**automática**. 
 
     ![provisionamento](./media/active-directory-saas-jive-provisioning-tutorial/provisioning.png)
 
-5. Na seção **Credenciais de Administrador**, forneça as seguintes definições de configuração:
+5. Em Olá **credenciais de administrador** seção, forneça Olá definições de configuração a seguir:
    
-    a. Na caixa de texto **Nome do Usuário Administrador do Jive**, digite o nome da conta do Jive que tem o perfil do **Administrador de Sistema** atribuído no Jive.com.
+    a. Em Olá **nome de usuário administrador Jive** caixa de texto, tipo de um Jive nome de conta que tem Olá **administrador do sistema** perfil atribuído no Jive.com.
    
-    b. Na caixa de texto **Senha do Administrador do Jive** , digite a senha desta conta.
+    b. Em Olá **senha do administrador do Jive** caixa de texto, digite a senha Olá para esta conta.
    
-    c. Na caixa de texto **URL de Locatário do Jive** , digite a URL de locatário do Jive.
+    c. Em Olá **URL de locatário Jive** caixa de texto URL de locatário do tipo hello Jive.
       
       > [!NOTE]
-      > A URL de locatário do Jive é a URL usada por sua organização para fazer logon no Jive.  
-      > Normalmente, a URL tem o seguinte formato: **www.\<organização\>.jive.com**.          
+      > URL de locatário Jive Olá é usado pelo toolog sua organização em tooJive.  
+      > Normalmente, a saudação URL tem Olá formato a seguir: **www.\< organização\>. jive.com**.          
 
-6. No portal do Azure, clique em **Testar conectividade** para garantir que o Azure AD pode se conectar ao aplicativo Jive.
+6. No portal do Azure de Olá, clique em **Conexão de teste** tooensure AD do Azure pode se conectar a tooyour Jive aplicativo.
 
-7. Insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção abaixo.
+7. Digite hello endereço de email de uma pessoa ou grupo que deve receber notificações de erros de provisionamento no hello **Email de notificação** campo e verificar a saudação de caixa de seleção abaixo.
 
 8. Clique em **Salvar.**
 
-9. Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com o Jive.**
+9. Em Olá mapeamentos, selecione **tooJive sincronizar Azure usuários do Active Directory.**
 
-10. Na seção **Mapeamentos de Atributo**, examine os atributos de usuário que são sincronizados do Azure AD para o Jive. Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário do Jive em operações de atualização. Selecione o botão Salvar para confirmar as alterações.
+10. Em Olá **mapeamentos de atributo** seção, revise os atributos de usuário de saudação que são sincronizados do tooJive do AD do Azure. Olá atributos selecionados como **correspondência** propriedades são contas de usuário de saudação toomatch usados em Jive para operações de atualização. Selecione Olá toocommit de botão de salvar as alterações.
 
-11. Para habilitar o serviço de provisionamento do Azure AD no Jive, altere o **Status de Provisionamento** para **Ativado** na seção Configurações
+11. tooenable Olá serviço de provisionamento do AD do Azure para Jive, alteração Olá **Status de provisionamento** muito**em** na seção configurações da saudação
 
 12. Clique em **Salvar.**
 
-Isso inicia a sincronização inicial de todos os usuários e/ou grupos atribuídos ao Jive na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 20 minutos, desde que o serviço esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os relatórios de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento no aplicativo Jive.
+Ele inicia a sincronização inicial de saudação de todos os usuários e/ou grupos atribuídos tooJive em Olá usuários e a seção de grupos. a sincronização inicial Olá leva tooperform mais que as sincronizações subsequentes, que ocorrem aproximadamente a cada 20 minutos desde que o serviço hello está sendo executado. Você pode usar o hello **detalhes de sincronização** seção toomonitor progresso e execute os relatórios de atividade tooprovisioning links, que descrevem todas as ações executadas pelo Olá provisionar um serviço em seu aplicativo do Jive.
 
-Agora você pode criar uma conta de teste. Aguarde até 20 minutos para confirmar se a conta foi sincronizada com o Jive.
+Agora você pode criar uma conta de teste. Aguarde a minutos too20 tooverify Olá conta foi sincronizada tooJive.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

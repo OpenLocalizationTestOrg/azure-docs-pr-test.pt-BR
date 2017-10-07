@@ -1,6 +1,6 @@
 ---
-title: Como usar o Armazenamento de Blobs (armazenamento de objeto) do Ruby | Microsoft Docs
-description: "Armazene dados não estruturados na nuvem com o armazenamento de blobs do Azure (armazenamento de objeto)."
+title: aaaHow toouse armazenamento de Blob (objeto armazenamento) de Ruby | Microsoft Docs
+description: "Armazene dados não estruturados em nuvem Olá com armazenamento de BLOBs do Azure (armazenamento de objeto)."
 services: storage
 documentationcenter: ruby
 author: mmacy
@@ -14,21 +14,21 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-ms.openlocfilehash: 7f7d0c52b2b50a360711477e8e0eafc07ddcf374
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 638826777f5a7ae8330fd67cdbb51d5eee1736a5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-blob-storage-from-ruby"></a>Como usar o Armazenamento de blob no Ruby
+# <a name="how-toouse-blob-storage-from-ruby"></a>Como toouse armazenamento de Blob do Ruby
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Visão geral
-O Armazenamento de Blobs do Azure é um serviço que armazena dados não estruturados na nuvem como objetos/blobs. O Armazenamento de Blobs pode conter qualquer tipo de texto ou de dados binários, como um documento, um arquivo de mídia ou um instalador de aplicativo. O Armazenamento de Blobs também é chamado de armazenamento de objeto.
+Armazenamento de BLOBs do Azure é um serviço que armazena dados não estruturados em nuvem hello como objetos/blobs. O Armazenamento de Blobs pode conter qualquer tipo de texto ou de dados binários, como um documento, um arquivo de mídia ou um instalador de aplicativo. Armazenamento de blob também é chamado tooas armazenamento de objeto.
 
-Este guia mostra como executar cenários comuns usando o Armazenamento de Blobs. Os exemplos de código são gravados com a API do Ruby. Os cenários abrangidos incluem **carregar, listar, baixar** e **excluir** blobs.
+Este guia mostrará como tooperform cenários comuns de usar o armazenamento de Blob. exemplos de saudação são gravados usando Olá Ruby API. Olá cenários abordados incluem **carregar, listar, baixar,** e **excluindo** blobs.
 
 [!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -37,50 +37,50 @@ Este guia mostra como executar cenários comuns usando o Armazenamento de Blobs.
 ## <a name="create-a-ruby-application"></a>Criar um aplicativo Ruby
 Crie um aplicativo Ruby. Para ver as instruções, confira [Aplicativo Web Ruby on Rails em uma VM do Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)
 
-## <a name="configure-your-application-to-access-storage"></a>Configurar seu aplicativo para acessar o Armazenamento
-Para usar o Armazenamento do Azure, você deverá baixar e usar o pacote do Azure do Ruby, que inclui um conjunto de bibliotecas convenientes que se comunicam com os serviços REST do armazenamento.
+## <a name="configure-your-application-tooaccess-storage"></a>Configurar o armazenamento de tooaccess do aplicativo
+toouse armazenamento do Azure, você precisa toodownload e use Olá Ruby pacote do azure, que inclui um conjunto de bibliotecas de conveniência que se comunicam com serviços da REST do armazenamento hello.
 
-### <a name="use-rubygems-to-obtain-the-package"></a>Usar RubyGems para obter o pacote
+### <a name="use-rubygems-tooobtain-hello-package"></a>Use o pacote de saudação do RubyGems tooobtain
 1. Use uma interface de linha de comando como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix).
-2. Digite "gem install azure" na janela de comandos para instalar a gema e as dependências.
+2. Digite "gem instalar o azure" em gem de Olá Olá comando janela tooinstall e dependências.
 
-### <a name="import-the-package"></a>Importar o pacote
-Usando seu editor de texto favorito, adicione o seguinte na parte superior do arquivo do Ruby no qual você pretende usar o armazenamento:
+### <a name="import-hello-package"></a>Importar o pacote de saudação
+Usando seu editor de texto favorito, adicione Olá toohello superior de saudação arquivo Ruby onde você pretende toouse armazenamento a seguir:
 
 ```ruby
 require "azure"
 ```
 
 ## <a name="set-up-an-azure-storage-connection"></a>Configurar uma conexão do Armazenamento do Azure
-O módulo do Azure lerá as variáveis de ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS_KEY** para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não forem definidas, você deverá especificar as informações da conta antes de usar **Azure::Blob::BlobService** com o seguinte código:
+módulo de saudação do azure lerá variáveis de ambiente Olá **AZURE\_armazenamento\_conta** e **AZURE\_armazenamento\_ACCESS_KEY** para as informações necessárias a conta de armazenamento do Azure tooyour tooconnect. Se essas variáveis de ambiente não forem definidas, você deve especificar informações de conta de saudação antes de usar **Azure::Blob::BlobService** com hello código a seguir:
 
 ```ruby
 Azure.config.storage_account_name = "<your azure storage account>"
 Azure.config.storage_access_key = "<your azure storage access key>"
 ```
 
-Para obter esses valores de uma conta de armazenamento clássico ou do Resource Manager no Portal do Azure:
+tooobtain esses valores de um clássico ou Gerenciador de recursos de armazenamento de conta no hello portal do Azure:
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com).
-2. Navegue até a conta de armazenamento que você deseja usar.
-3. Na folha Configurações no lado direito, clique em **Chaves de Acesso**.
-4. Na folha Acessar chaves exibida, você verá as teclas de acesso 1 e 2. Você pode usar qualquer uma das duas.
-5. Clique no ícone de cópia para copiar a chave para a área de transferência.
+1. Faça logon no toohello [portal do Azure](https://portal.azure.com).
+2. Navegue toohello conta de armazenamento que você deseja toouse.
+3. Na folha de configurações de saudação em saudação à direita, clique em **chaves de acesso**.
+4. Olá acesso folha de chaves que aparece, você verá a chave de acesso de saudação 1 e 2 de chave de acesso. Você pode usar qualquer uma das duas.
+5. Clique em Olá copiar ícone toocopy Olá chave toohello área de transferência.
 
-Para obter esses valores de uma conta de armazenamento clássico no Portal Clássico do Azure:
+tooobtain esses valores de um armazenamento clássico contam no portal do Azure clássico de saudação:
 
-1. Faça logon no [Portal Clássico do Azure](https://manage.windowsazure.com).
-2. Navegue até a conta de armazenamento que você deseja usar.
-3. Clique em **GERENCIAR CHAVES DE ACESSO** na parte inferior do painel de navegação.
-4. Na caixa de diálogo pop-up, você verá o nome da conta de armazenamento, a tecla de acesso primária e a tecla de acesso secundária. Para a chave de acesso, você pode usar tanto a primária quanto a secundária.
-5. Clique no ícone de cópia para copiar a chave para a área de transferência.
+1. Faça logon no toohello [portal clássico do Azure](https://manage.windowsazure.com).
+2. Navegue toohello conta de armazenamento que você deseja toouse.
+3. Clique em **gerenciar chaves de acesso** na parte inferior de Olá Olá do painel de navegação.
+4. Na caixa de diálogo pop-up hello, você verá o nome de conta de armazenamento hello, chave de acesso primária e chave de acesso secundária. Para a chave de acesso, você pode usar Olá principal ou Olá um secundário.
+5. Clique em Olá copiar ícone toocopy Olá chave toohello área de transferência.
 
 ## <a name="create-a-container"></a>Criar um contêiner
 [!INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-O objeto **Azure::Blob::BlobService** permite que você trabalhe com contêineres e blobs. Para criar um contêiner, use o método **create\_container()**.
+Olá **Azure::Blob::BlobService** objeto permite que você trabalhe com contêineres e blobs. toocreate um contêiner, use Olá **criar\_container()** método.
 
-O exemplo de código a seguir cria um contêiner ou imprime o erro, se houver.
+Olá exemplo de código a seguir cria um contêiner ou imprime erro Olá se houver algum.
 
 ```ruby
 azure_blob_service = Azure::Blob::BlobService.new
@@ -91,32 +91,32 @@ rescue
 end
 ```
 
-Se desejar tornar públicos os arquivos do contêiner, você pode definir as permissões do contêiner.
+Se desejar toomake Olá arquivos no contêiner Olá público, você pode definir permissões do contêiner de saudação.
 
-Você pode modificar apenas a chamada <strong>create\_container()</strong> para passar a opção **:public\_access\_level**:
+Você pode modificar apenas saudação <strong>criar\_container()</strong> chamada toopass Olá **: público\_acesso\_nível** opção:
 
 ```ruby
 container = azure_blob_service.create_container("test-container",
     :public_access_level => "<public access level>")
 ```
 
-Os valores válidos da opção **:public\_access\_level** são:
+Os valores válidos para Olá **: público\_acesso\_nível** opção são:
 
-* **blob:** especifica o acesso de leitura público de blobs. Os dados do blob nesse contêiner podem ser lidos por meio de solicitação anônima, mas os dados do contêiner não estão disponíveis. Os clientes não podem enumerar os blobs no contêiner por meio de uma solicitação anônima.
-* **contêiner:** especifica o acesso de leitura público completo dos dados do contêiner e de blob. Os clientes podem enumerar os blobs no contêiner por meio de uma solicitação anônima, mas não podem enumerar os contêineres em uma conta de armazenamento.
+* **blob:** especifica o acesso de leitura público de blobs. Os dados do blob nesse contêiner podem ser lidos por meio de solicitação anônima, mas os dados do contêiner não estão disponíveis. Os clientes não podem enumerar blobs no contêiner Olá por solicitação anônima.
+* **contêiner:** especifica o acesso de leitura público completo dos dados do contêiner e de blob. Os clientes podem enumerar blobs dentro do contêiner de saudação por solicitação anônima, mas não é possível enumerar os contêineres na conta de armazenamento hello.
 
-Você também pode modificar o nível de acesso público de um contêiner usando **set\_container\_acl()** para especificar o nível de acesso público.
+Como alternativa, você pode modificar o nível de acesso público de saudação de um contêiner usando **definir\_contêiner\_acl()** nível de acesso público de saudação do método toospecify.
 
-O exemplo a seguir altera o nível de acesso público para **contêiner**:
+Olá alterações Olá nível de acesso público muito do exemplo de código a seguir**contêiner**:
 
 ```ruby
 azure_blob_service.set_container_acl('test-container', "container")
 ```
 
 ## <a name="upload-a-blob-into-a-container"></a>Carregar um blob em um contêiner
-Para carregar o conteúdo em um blob, use o método **create\_block\_blob()** para criar o blob e use um arquivo ou uma cadeia como o conteúdo do blob.
+blob de conteúdo tooa tooupload, use Olá **criar\_bloco\_blob()** blob de saudação do método toocreate, usar um arquivo ou de cadeia de caracteres como conteúdo de saudação do blob hello.
 
-O código a seguir carrega o arquivo **test.png** como um novo blob chamado "image-blob" no contêiner.
+Olá, código a seguir carrega o arquivo de saudação **test.png** como um novo blob denominado "blob de imagem" no contêiner de saudação.
 
 ```ruby
 content = File.open("test.png", "rb") { |file| file.read }
@@ -125,11 +125,11 @@ blob = azure_blob_service.create_block_blob(container.name,
 puts blob.name
 ```
 
-## <a name="list-the-blobs-in-a-container"></a>Listar os blobs em um contêiner
-Para listar os contêineres, use o método **list_containers()**.
-Para listar os blobs em um contêiner, use o método **list\_blobs()**.
+## <a name="list-hello-blobs-in-a-container"></a>Saudação de listar blobs em um contêiner
+contêineres de saudação toolist, use **list_containers()** método.
+blobs de saudação toolist dentro de um contêiner, use **lista\_blobs()** método.
 
-Ele envia as urls de todos os blobs em todos os contêineres à conta.
+Isso gera Olá urls de todos os blobs de saudação em todos os contêineres de saudação para conta de saudação.
 
 ```ruby
 containers = azure_blob_service.list_containers()
@@ -142,9 +142,9 @@ end
 ```
 
 ## <a name="download-blobs"></a>Baixar blobs
-Para baixar blobs, use o método **get\_blob()** para recuperar o conteúdo.
+blobs toodownload, use Olá **obter\_blob()** conteúdo de saudação do método tooretrieve.
 
-O exemplo a seguir demonstra o uso de **get\_blob()** para baixar o conteúdo de "image-blob" e gravá-lo em um arquivo local.
+Olá exemplo de código a seguir demonstra o uso de **obter\_blob()** toodownload Olá conteúdo do blob"imagem" e gravar arquivo local tooa.
 
 ```ruby
 blob, content = azure_blob_service.get_blob(container.name,"image-blob")
@@ -152,16 +152,16 @@ File.open("download.png","wb") {|f| f.write(content)}
 ```
 
 ## <a name="delete-a-blob"></a>Excluir um blob
-Finalmente, para excluir um blob, use o método **delete\_blob()**. O exemplo de código a seguir demonstra como excluir um blob.
+Por fim, toodelete um blob, use Olá **excluir\_blob()** método. Olá exemplo de código a seguir demonstra como toodelete um blob.
 
 ```ruby
 azure_blob_service.delete_blob(container.name, "image-blob")
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre tarefas complexas de armazenamento, siga estes links:
+toolearn sobre tarefas mais complexas de armazenamento, siga estes links:
 
 * [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 * [SDK do Azure para repositório Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub
-* [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md)
+* [Transferência de dados com hello AzCopy utilitário de linha de comando](storage-use-azcopy.md)
 

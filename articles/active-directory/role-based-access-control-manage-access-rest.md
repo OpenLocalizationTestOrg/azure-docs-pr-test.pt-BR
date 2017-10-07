@@ -1,6 +1,6 @@
 ---
-title: "Controle de acesso baseado em função com REST – Azure AD | Microsoft Docs"
-description: "Gerenciar o controle de acesso com base em função com a API REST"
+title: Controle de acesso baseado em aaaRole com REST - AD do Azure | Microsoft Docs
+description: "Gerenciando o controle de acesso baseado em função com hello API REST"
 services: active-directory
 documentationcenter: na
 author: andredm7
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: andredm
-ms.openlocfilehash: a5c19fd87ce1ae3e199bf1dfc8cf82f5653baac2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ccd402fd4fe4583288076cac23753dd067694681
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-role-based-access-control-with-the-rest-api"></a>Gerenciar o Controle de Acesso com Base em Função com a API REST
+# <a name="manage-role-based-access-control-with-hello-rest-api"></a>Gerenciar o controle de acesso baseado em função com hello API REST
 > [!div class="op_single_selector"]
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [API REST](role-based-access-control-manage-access-rest.md)
 
-O RBAC (controle de acesso baseado em função) no portal do Azure e na API do Azure Resource Manager ajuda você a gerenciar o acesso à sua assinatura e aos seus recursos em um nível detalhado. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
+Baseado em função RBAC controle de acesso () em Olá portal do Azure e API do Gerenciador de recursos do Azure ajuda a gerenciar o acesso tooyour assinatura e recursos em um nível granular. Com esse recurso, você pode conceder acesso para usuários, grupos ou entidades de serviço do Active Directory, atribuindo toothem algumas funções em um escopo específico.
 
 ## <a name="list-all-role-assignments"></a>Lista todas as atribuições de função
-Lista todas as atribuições de função no escopo e sub-escopos especificados.
+Lista todas as atribuições de função hello em Olá especificado escopo e subscopes.
 
-Para listar as atribuições de função, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/read` no escopo. Todas as funções internas recebem acesso a essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
+atribuições de função toolist, você deve ter acesso muito`Microsoft.Authorization/roleAssignments/read` operação no escopo de saudação. Todas as funções internas de saudação recebem acesso toothis operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Solicitação
-Use o método **GET** com o seguinte URI:
+Saudação de uso **obter** método com hello URI a seguir:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&$filter={filter}
 
-Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
+Dentro de Olá URI, verifique Olá toocustomize substituições a seguir sua solicitação:
 
-1. Substitua *{scope}* pelo escopo para o qual você deseja listar as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
+1. Substituir *{scope}* com escopo Olá para o qual você deseja toolist atribuições de função hello. Olá exemplos a seguir mostra como toospecify Olá escopo para os diferentes níveis:
 
    * Assinatura: /subscriptions/{subscription-id}  
    * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{api-version}* por 2015-07-01.
-3. Substitua *{filter}* pela condição que você deseja aplicar a fim de filtrar a lista de atribuições de função:
+3. Substituir *{filter}* com a condição de saudação que desejar que a lista de atribuições de função do tooapply toofilter hello:
 
-   * Liste atribuições de função para apenas o escopo especificado, não incluindo as atribuições de função em sub-escopos: `atScope()`    
+   * Lista de atribuições de função para apenas Olá especificado escopo, não incluindo atribuições de função hello subscopes:`atScope()`    
    * Liste atribuições de função para um usuário, grupo ou aplicativo específico: `principalId%20eq%20'{objectId of user, group, or service principal}'`  
    * Liste atribuições de função para um usuário específico, incluindo aqueles herdados de grupos | `assignedTo('{objectId of user}')`
 
@@ -79,23 +79,23 @@ Código de status: 200
 ```
 
 ## <a name="get-information-about-a-role-assignment"></a>Obter informações sobre uma atribuição de função
-Obtém informações sobre uma atribuição de função única especificada pelo identificador de atribuição de função.
+Obtém informações sobre uma única atribuição de função especificada pelo identificador de atribuição de função hello.
 
-Para saber mais sobre uma atribuição de função, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/read` . Todas as funções internas recebem acesso a essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
+tooget informações sobre uma atribuição de função, você deve ter acesso muito`Microsoft.Authorization/roleAssignments/read` operação. Todas as funções internas de saudação recebem acesso toothis operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Solicitação
-Use o método **GET** com o seguinte URI:
+Saudação de uso **obter** método com hello URI a seguir:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
 
-Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
+Dentro de Olá URI, verifique Olá toocustomize substituições a seguir sua solicitação:
 
-1. Substitua *{scope}* pelo escopo para o qual você deseja listar as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
+1. Substituir *{scope}* com escopo Olá para o qual você deseja toolist atribuições de função hello. Olá exemplos a seguir mostra como toospecify Olá escopo para os diferentes níveis:
 
    * Assinatura: /subscriptions/{subscription-id}  
    * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Substitua *{role-assignment-id}* pelo identificador GUID da atribuição de função.
+2. Substituir *{role-assignment-id}* com identificador de GUID Olá Olá de atribuição de função.
 3. Substitua *{api-version}* por 2015-07-01.
 
 ### <a name="response"></a>Response
@@ -120,26 +120,26 @@ Código de status: 200
 ```
 
 ## <a name="create-a-role-assignment"></a>Criar uma atribuição de função
-Crie uma atribuição de função no escopo especificado para a entidade especificada, concedendo a função especificada.
+Criar uma função de atribuição no hello especificado escopo para Olá especificado função especificado principal de concessão hello.
 
-Para criar uma atribuição de função, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/write` . Das funções internas, somente *Proprietário* e *Administrador do Acesso do Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
+toocreate uma atribuição de função, você deve ter acesso muito`Microsoft.Authorization/roleAssignments/write` operação. De saudação funções internas, apenas *proprietário* e *administrador de acesso do usuário* recebem acesso toothis operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Solicitação
-Use o método **PUT** com o seguinte URI:
+Saudação de uso **colocar** método com hello URI a seguir:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
 
-Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
+Dentro de Olá URI, verifique Olá toocustomize substituições a seguir sua solicitação:
 
-1. Substitua *{scope}* pelo escopo para o qual você deseja criar as atribuições de função. Quando você cria uma atribuição de função em um escopo pai, todos os escopos filho herdam a mesma atribuição de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
+1. Substituir *{scope}* com escopo de saudação em que você deseja toocreate atribuições de função hello. Quando você criar uma atribuição de função em um escopo pai, todos os escopos filho herdam Olá mesma atribuição de função. Olá exemplos a seguir mostra como toospecify Olá escopo para os diferentes níveis:
 
    * Assinatura: /subscriptions/{subscription-id}  
    * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1   
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Substitua *{role-assignment-id}* pelo novo GUID, que se torna o identificador GUID da nova atribuição de função.
+2. Substituir *{role-assignment-id}* com um novo GUID, que se torna o identificador GUID de saudação da nova atribuição de função hello.
 3. Substitua *{api-version}* por 2015-07-01.
 
-Para o corpo da solicitação, forneça os valores no seguinte formato:
+Corpo da solicitação Olá, fornece valores Olá Olá formato a seguir:
 
 ```
 {
@@ -153,10 +153,10 @@ Para o corpo da solicitação, forneça os valores no seguinte formato:
 
 | Nome do elemento | Obrigatório | Tipo | Descrição |
 | --- | --- | --- | --- |
-| roleDefinitionId |Sim |Cadeia de caracteres |Identificador da função. O formato do identificador é: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
-| principalId |Sim |Cadeia de caracteres |ID de objeto da entidade de segurança do Azure AD (usuário, grupo ou entidade de serviço) para o qual a função é atribuída. |
+| roleDefinitionId |Sim |Cadeia de caracteres |Identificador de saudação da função de saudação. formato de saudação do identificador de saudação é:`{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
+| principalId |Sim |Cadeia de caracteres |ID do objeto de entidade de saudação do AD do Azure (usuário, grupo ou entidade de serviço) toowhich Olá função é atribuída. |
 
-### <a name="response"></a>Response
+### <a name="response"></a>Resposta
 Código de status: 201
 
 ```
@@ -178,23 +178,23 @@ Código de status: 201
 ```
 
 ## <a name="delete-a-role-assignment"></a>Excluir uma atribuição de função
-Exclua uma atribuição de função no escopo especificado.
+Excluir uma atribuição de função em Olá especificado escopo.
 
-Para excluir uma atribuição de função, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/delete` . Das funções internas, somente *Proprietário* e *Administrador do Acesso do Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
+toodelete uma atribuição de função, você deve ter acesso toohello `Microsoft.Authorization/roleAssignments/delete` operação. De saudação funções internas, apenas *proprietário* e *administrador de acesso do usuário* recebem acesso toothis operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Solicitação
-Use o método **DELETE** com o seguinte URI:
+Saudação de uso **excluir** método com hello URI a seguir:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
 
-Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
+Dentro de Olá URI, verifique Olá toocustomize substituições a seguir sua solicitação:
 
-1. Substitua *{scope}* pelo escopo para o qual você deseja criar as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
+1. Substituir *{scope}* com escopo de saudação em que você deseja toocreate atribuições de função hello. Olá exemplos a seguir mostra como toospecify Olá escopo para os diferentes níveis:
 
    * Assinatura: /subscriptions/{subscription-id}  
    * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Substitua *{role-assignment-id}* pelo GUID da ID da atribuição de função.
+2. Substituir *{role-assignment-id}* com a id de atribuição de função hello GUID.
 3. Substitua *{api-version}* por 2015-07-01.
 
 ### <a name="response"></a>Response
@@ -219,27 +219,27 @@ Código de status: 200
 ```
 
 ## <a name="list-all-roles"></a>Lista todas as Funções
-Lista todas as funções que estão disponíveis para atribuição no escopo especificado.
+Lista todas as funções hello que estão disponíveis para atribuição de saudação especificada escopo.
 
-Para listar as funções, é necessário ter acesso à operação `Microsoft.Authorization/roleDefinitions/read` no escopo. Todas as funções internas recebem acesso a essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
+funções de toolist, você deve ter acesso muito`Microsoft.Authorization/roleDefinitions/read` operação no escopo de saudação. Todas as funções internas de saudação recebem acesso toothis operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Solicitação
-Use o método **GET** com o seguinte URI:
+Saudação de uso **obter** método com hello URI a seguir:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&$filter={filter}
 
-Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
+Dentro de Olá URI, verifique Olá toocustomize substituições a seguir sua solicitação:
 
-1. Substitua *{scope}* pelo escopo para o qual você deseja listar as funções. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
+1. Substituir *{scope}* com escopo Olá para o qual você deseja toolist funções hello. Olá exemplos a seguir mostra como toospecify Olá escopo para os diferentes níveis:
 
    * Assinatura: /subscriptions/{subscription-id}  
    * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{api-version}* por 2015-07-01.
-3. Substitua *{filter}* pela condição que você deseja aplicar a fim de filtrar a lista de funções:
+3. Substituir *{filter}* com a condição de saudação que você deseja tooapply lista de saudação toofilter de funções:
 
-   * Liste funções disponíveis para atribuição no escopo especificado e qualquer de seus escopos filho: `atScopeAndBelow()`
-   * Pesquise uma função usando o nome de exibição exato: `roleName%20eq%20'{role-display-name}'`. Use a forma codificada da URL do nome de exibição exato da função. Por exemplo, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+   * Lista de funções disponíveis para atribuição de saudação especificado escopo e qualquer um de seus escopos filhos:`atScopeAndBelow()`
+   * Pesquise uma função usando o nome de exibição exato: `roleName%20eq%20'{role-display-name}'`. Formato de nome de exibição exato Olá da função hello codificados da URL de saudação de uso. Por exemplo, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
 ### <a name="response"></a>Response
 Código de status: 200
@@ -251,7 +251,7 @@ Código de status: 200
       "properties": {
         "roleName": "Virtual Machine Contributor",
         "type": "BuiltInRole",
-        "description": "Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they\u2019re connected to.",
+        "description": "Lets you manage virtual machines, but not access toothem, and not hello virtual network or storage account they\u2019re connected to.",
         "assignableScopes": [
           "/"
         ],
@@ -302,23 +302,23 @@ Código de status: 200
 ```
 
 ## <a name="get-information-about-a-role"></a>Obter informações sobre uma Função
-Obtém informações sobre uma função única especificada pelo identificador de definição da função. Para obter informações sobre uma única função usando seu nome de exibição, consulte [Listar todas as funções](role-based-access-control-manage-access-rest.md#list-all-roles).
+Obtém informações sobre uma única função especificada pelo identificador de definição de função hello. tooget informações sobre uma única função usando seu nome de exibição, consulte [liste todas as funções](role-based-access-control-manage-access-rest.md#list-all-roles).
 
-Para saber mais sobre uma função, é necessário ter acesso à operação `Microsoft.Authorization/roleDefinitions/read` . Todas as funções internas recebem acesso a essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
+tooget informações sobre uma função, você deve ter acesso muito`Microsoft.Authorization/roleDefinitions/read` operação. Todas as funções internas de saudação recebem acesso toothis operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Solicitação
-Use o método **GET** com o seguinte URI:
+Saudação de uso **obter** método com hello URI a seguir:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
-Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
+Dentro de Olá URI, verifique Olá toocustomize substituições a seguir sua solicitação:
 
-1. Substitua *{scope}* pelo escopo para o qual você deseja listar as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
+1. Substituir *{scope}* com escopo Olá para o qual você deseja toolist atribuições de função hello. Olá exemplos a seguir mostra como toospecify Olá escopo para os diferentes níveis:
 
    * Assinatura: /subscriptions/{subscription-id}  
    * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Substitua *{role-definition-id}* pelo identificador GUID de definição da função.
+2. Substituir *{id de definição de função}* com identificador de GUID Olá Olá da definição da função.
 3. Substitua *{api-version}* por 2015-07-01.
 
 ### <a name="response"></a>Response
@@ -331,7 +331,7 @@ Código de status: 200
       "properties": {
         "roleName": "Virtual Machine Contributor",
         "type": "BuiltInRole",
-        "description": "Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they\u2019re connected to.",
+        "description": "Lets you manage virtual machines, but not access toothem, and not hello virtual network or storage account they\u2019re connected to.",
         "assignableScopes": [
           "/"
         ],
@@ -384,24 +384,24 @@ Código de status: 200
 ## <a name="create-a-custom-role"></a>Criar uma Função personalizada
 Criar uma função personalizada.
 
-Para criar uma função personalizada, é necessário ter acesso à operação `Microsoft.Authorization/roleDefinitions/write` em todos os `AssignableScopes`. Das funções internas, somente *Proprietário* e *Administrador do Acesso do Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
+toocreate uma função personalizada, você deve ter acesso muito`Microsoft.Authorization/roleDefinitions/write` operação em todos os Olá `AssignableScopes`. De saudação funções internas, apenas *proprietário* e *administrador de acesso do usuário* recebem acesso toothis operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Solicitação
-Use o método **PUT** com o seguinte URI:
+Saudação de uso **colocar** método com hello URI a seguir:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
-Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
+Dentro de Olá URI, verifique Olá toocustomize substituições a seguir sua solicitação:
 
-1. Substitua *{scope}* pelo primeiro *AssignableScope* da função personalizada. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis.
+1. Substituir *{scope}* com hello primeiro *AssignableScope* de função personalizada hello. Olá exemplos a seguir mostra como toospecify Olá escopo para os diferentes níveis.
 
    * Assinatura: /subscriptions/{subscription-id}  
    * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Substitua *{role-definition-id}* pelo novo GUID, que se torna o identificador GUID da nova função personalizada.
+2. Substituir *{id de definição de função}* com um novo GUID, que se torna o identificador GUID de saudação da nova função personalizada de saudação.
 3. Substitua *{api-version}* por 2015-07-01.
 
-Para o corpo da solicitação, forneça os valores no seguinte formato:
+Corpo da solicitação Olá, fornece valores Olá Olá formato a seguir:
 
 ```
 {
@@ -436,15 +436,15 @@ Para o corpo da solicitação, forneça os valores no seguinte formato:
 
 | Nome do elemento | Obrigatório | Tipo | Descrição |
 | --- | --- | --- | --- |
-| name |Sim |Cadeia de caracteres |Identificador GUID da função personalizada. |
-| properties.roleName |Sim |Cadeia de caracteres |Nome de exibição da função personalizada. Tamanho máximo de 128 caracteres. |
-| properties.description |Não |Cadeia de caracteres |Descrição da função personalizada. Tamanho máximo de 1024 caracteres. |
-| properties.type |Sim |Cadeia de caracteres |Defina como "CustomRole". |
-| properties.permissions.actions |Sim |String[] |Uma matriz de cadeias de caracteres de ação especificando as operações concedidas pela função personalizada. |
-| properties.permissions.notActions |Não |String[] |Uma matriz de cadeias de caracteres de ação especificando as operações a serem excluídas das operações concedidas pela função personalizada. |
-| properties.assignableScopes |Sim |String[] |Uma matriz de escopos no qual a função personalizada pode ser usada. |
+| name |Sim |Cadeia de caracteres |Identificador GUID de função personalizada hello. |
+| properties.roleName |Sim |Cadeia de caracteres |Exibir o nome da função personalizada hello. Tamanho máximo de 128 caracteres. |
+| properties.description |Não |Cadeia de caracteres |Descrição da função de saudação personalizada. Tamanho máximo de 1024 caracteres. |
+| properties.type |Sim |Cadeia de caracteres |Definir muito "CustomRole". |
+| properties.permissions.actions |Sim |String[] |Uma matriz de ação de cadeias de caracteres especificando operações Olá concedidas pela função personalizada hello. |
+| properties.permissions.notActions |Não |String[] |Uma matriz de cadeias de caracteres de ação especificando Olá operações tooexclude de operações de saudação concedido pela função personalizada hello. |
+| properties.assignableScopes |Sim |String[] |Uma matriz de escopos que Olá função personalizada pode ser usada. |
 
-### <a name="response"></a>Response
+### <a name="response"></a>Resposta
 Código de status: 201
 
 ```
@@ -487,24 +487,24 @@ Código de status: 201
 ## <a name="update-a-custom-role"></a>Atualizar uma Função personalizada
 Modificar uma função personalizada.
 
-Para modificar uma função personalizada, é necessário ter acesso à operação `Microsoft.Authorization/roleDefinitions/write` em todos os seus `AssignableScopes`. Das funções internas, somente *Proprietário* e *Administrador do Acesso do Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
+toomodify uma função personalizada, você deve ter acesso muito`Microsoft.Authorization/roleDefinitions/write` operação em todos os Olá `AssignableScopes`. De saudação funções internas, apenas *proprietário* e *administrador de acesso do usuário* recebem acesso toothis operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Solicitação
-Use o método **PUT** com o seguinte URI:
+Saudação de uso **colocar** método com hello URI a seguir:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
-Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
+Dentro de Olá URI, verifique Olá toocustomize substituições a seguir sua solicitação:
 
-1. Substitua *{scope}* pelo primeiro *AssignableScope* da função personalizada. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
+1. Substituir *{scope}* com hello primeiro *AssignableScope* de função personalizada hello. Olá exemplos a seguir mostra como toospecify Olá escopo para os diferentes níveis:
 
    * Assinatura: /subscriptions/{subscription-id}  
    * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Substitua *{role-definition-id}* pelo identificador GUID de definição da função personalizada.
+2. Substituir *{id de definição de função}* com identificador de GUID de saudação de função personalizada hello.
 3. Substitua *{api-version}* por 2015-07-01.
 
-Para o corpo da solicitação, forneça os valores no seguinte formato:
+Corpo da solicitação Olá, fornece valores Olá Olá formato a seguir:
 
 ```
 {
@@ -539,15 +539,15 @@ Para o corpo da solicitação, forneça os valores no seguinte formato:
 
 | Nome do elemento | Obrigatório | Tipo | Descrição |
 | --- | --- | --- | --- |
-| name |Sim |Cadeia de caracteres |Identificador GUID da função personalizada. |
-| properties.roleName |Sim |Cadeia de caracteres |Nome de exibição da função personalizada a ser atualizada. |
-| properties.description |Não |Cadeia de caracteres |Nome de exibição da função personalizada atualizada. |
-| properties.type |Sim |Cadeia de caracteres |Defina como "CustomRole". |
-| properties.permissions.actions |Sim |String[] |Uma matriz de cadeias de caracteres de ação especificando as operações para as quais a função personalizada atualizada concede acesso. |
-| properties.permissions.notActions |Não |String[] |Uma matriz de cadeias de caracteres de ação especificando as operações a serem excluídas das operações para as quais a função personalizada atualizada concede acesso. |
-| properties.assignableScopes |Sim |String[] |Uma matriz de escopos na qual a função personalizada atualizada pode ser usada. |
+| name |Sim |Cadeia de caracteres |Identificador GUID de função personalizada hello. |
+| properties.roleName |Sim |Cadeia de caracteres |Nome para exibição da saudação atualizado função personalizada. |
+| properties.description |Não |Cadeia de caracteres |Descrição da saudação atualizado função personalizada. |
+| properties.type |Sim |Cadeia de caracteres |Definir muito "CustomRole". |
+| properties.permissions.actions |Sim |String[] |Uma matriz de cadeias de caracteres de ação especificando Olá Olá de toowhich operações atualizada função personalizada que concede acesso. |
+| properties.permissions.notActions |Não |String[] |Uma matriz de ação de cadeias de caracteres especificando tooexclude de operações de saudação de operações de saudação quais Olá atualizado concessões de função personalizada. |
+| properties.assignableScopes |Sim |String[] |Uma matriz de escopos que Olá atualizada função personalizada pode ser usada. |
 
-### <a name="response"></a>Response
+### <a name="response"></a>Resposta
 Código de status: 201
 
 ```
@@ -590,21 +590,21 @@ Código de status: 201
 ## <a name="delete-a-custom-role"></a>Excluir uma Função personalizada
 Excluir uma função personalizada.
 
-Para excluir uma função personalizada, é necessário ter acesso à operação `Microsoft.Authorization/roleDefinitions/delete` em todos os seus `AssignableScopes`. Das funções internas, somente *Proprietário* e *Administrador do Acesso do Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
+toodelete uma função personalizada, você deve ter acesso muito`Microsoft.Authorization/roleDefinitions/delete` operação em todos os Olá `AssignableScopes`. De saudação funções internas, apenas *proprietário* e *administrador de acesso do usuário* recebem acesso toothis operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Solicitação
-Use o método **DELETE** com o seguinte URI:
+Saudação de uso **excluir** método com hello URI a seguir:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
-Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
+Dentro de Olá URI, verifique Olá toocustomize substituições a seguir sua solicitação:
 
-1. Substitua *{scope}* pelo escopo para o qual deseja você excluir as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
+1. Substituir *{scope}* com escopo de saudação que deseja definição de função toodelete hello. Olá exemplos a seguir mostra como toospecify Olá escopo para os diferentes níveis:
 
    * Assinatura: /subscriptions/{subscription-id}  
    * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Substitua *{role-definition-id}* pela definição de função do GUID da função personalizada.
+2. Substituir *{id de definição de função}* com a id de definição de função hello GUID de função personalizada hello.
 3. Substitua *{api-version}* por 2015-07-01.
 
 ### <a name="response"></a>Response

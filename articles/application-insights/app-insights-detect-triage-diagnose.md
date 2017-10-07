@@ -1,6 +1,6 @@
 ---
-title: "Visão geral do Azure Application Insights para DevOps | Microsfoft Docs"
-description: Saiba como usar o Application Insights em um ambiente de DevOps.
+title: aaaOverview do Azure Application Insights para DevOps | Microsoft Docs
+description: Saiba como toouse Application Insights em um ambiente de desenvolvimento Ops.
 author: CFreemanwa
 services: application-insights
 documentationcenter: 
@@ -13,101 +13,101 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: bwren
-ms.openlocfilehash: 4f9578fd39b80496a8de060b6cae8f5612e03aa7
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 42139f4645e815f26378726f4716a9bfbdc78551
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Visão geral do Application Insights para DevOps
 
-Ajuda do [Application Insights ](app-insights-overview.md), você pode encontrar rapidamente qual é o desempenho do seu aplicativo e como está sendo usado quando ele estiver ativo. Se houver algum problema, ele permite que você saiba, ajuda a avaliar o impacto e ajuda a determinar a causa.
+Ajuda do [Application Insights ](app-insights-overview.md), você pode encontrar rapidamente qual é o desempenho do seu aplicativo e como está sendo usado quando ele estiver ativo. Se houver um problema, ele permite que você sobre ele, ajuda a avaliar o impacto de saudação e ajuda a determinar a causa de saudação.
 
 Aqui está uma conta de uma equipe que desenvolve aplicativos da Web:
 
-* *"Alguns dias atrás, implantamos um hotfix “secundário”. Não executamos uma aprovação de teste ampla, mas infelizmente algumas alterações inesperadas foram mescladas à carga, gerando incompatibilidade entre o front-end e back-end. Imediatamente as exceções de servidor aumentaram drasticamente, nosso alerta disparou e fomos informados sobre a situação. Alguns cliques no portal do Application Insights, temos informações suficientes de pilhas de chamadas de exceção para restringir o problema. Revertemos imediatamente e limitamos os danos. O Application Insights tornou essa parte do ciclo das Operações de Desenvolvimento muito fácil e prática."*
+* *"Alguns dias atrás, implantamos um hotfix “secundário”. Não foi executada uma passagem de teste amplo, mas infelizmente alguma alteração inesperada foi mesclada com carga Olá, causando a incompatibilidade entre o início hello e back-end. Imediatamente, exceções de servidor surged, nosso alerta acionado, e foram feitas atento a situação de saudação. Alguns cliques no portal do Application Insights hello, nós temos informações suficientes de exceção pilhas toonarrow problema hello. É revertida imediatamente e Olá danos limitados. Application Insights fez essa parte da saudação devops ciclo muito fácil e acionáveis."*
 
-Neste artigo, acompanhamos uma equipe do banco da Fabrikam que desenvolve o sistema de serviços bancários online (OBS) para ver como eles usam Application Insights para responder aos clientes rapidamente e faça as atualizações.  
+Neste artigo, execute um agrupamento do banco da Fabrikam que desenvolve Olá bancários toosee do sistema (OBS) como usam online Application Insights tooquickly responder toocustomers e faça as atualizações.  
 
-A equipe trabalha em um ciclo de DevOps mostrado na ilustração a seguir:
+equipe de saudação funciona em um ciclo de DevOps descrito nos Olá ilustração a seguir:
 
 ![Ciclo do DevOps](./media/app-insights-detect-triage-diagnose/00-devcycle.png)
 
-Requisitos de feed em sua lista de pendências de desenvolvimento (lista de tarefas). Eles trabalham em impressões curtas, o que geralmente entrega software de trabalho, normalmente na forma de melhorias e extensões para o aplicativo existente. O aplicativo ativo é frequentemente atualizado com novos recursos. Enquanto estiver ativo, a equipe monitora-o para uso com a ajuda do Application Insights e desempenho. Esses dados do APM voltam para sua lista de pendências de desenvolvimento.
+Requisitos de feed em sua lista de pendências de desenvolvimento (lista de tarefas). Em resumo, eles funcionam sprints, que geralmente oferecem software trabalho - geralmente na forma de saudação de aprimoramentos e extensões toohello de aplicativo existente. aplicativo Hello em tempo real é frequentemente atualizado com novos recursos. Enquanto ele está ativo, equipe Olá monitora-lo para uso com a Ajuda de saudação do Application Insights e desempenho. Esses dados do APM voltam para sua lista de pendências de desenvolvimento.
 
-A equipe usa o Application Insights para monitorar o aplicativo Web ao vivo de perto em relação a/ao:
+equipe de saudação usa o aplicativo web em tempo real do Application Insights toomonitor hello atentamente para:
 
-* Desempenho. Eles querem entender como os tempos de resposta variam de acordo com a contagem de solicitações; quantos recursos de CPU, rede, disco e outros recursos estão sendo usados; e onde estão os afunilamentos.
-* Falhas. Se houver exceções ou solicitações com falha, ou se um contador de desempenho ficar fora de seu intervalo confortável, a equipe precisará saber disso rapidamente para que possam tomar as devidas providências.
-* Uso. Sempre que um novo recurso for liberado, a equipe deseja saber até que ponto é usado e os usuários tenham alguma dificuldade com ele.
+* Desempenho. Quiserem toounderstand como os tempos de resposta variam de acordo com a contagem de solicitação; quanto CPU, rede, disco e outros recursos estão sendo usados; e onde estão os gargalos de saudação.
+* Falhas. Se houver exceções solicitações com falha ou se um contador de desempenho ficar fora de seu intervalo confortável, Olá equipe necessidades tooknow rapidamente para que eles podem levar a ação.
+* Uso. Sempre que um novo recurso for liberado, equipe Olá deseja tooknow toowhat extensão é usado, e se os usuários têm dificuldade com ele.
 
-Vamos nos concentrar na parte do ciclo de comentários:
+Vamos nos concentrar em parte de comentários de saudação do ciclo de saudação:
 
 ![Detectar-Realizar a triagem-Diagnosticar](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
 
 ## <a name="detect-poor-availability"></a>Detectar baixa disponibilidade
-Manuela Moraes é desenvolvedora sênior da equipe de OBS e assume a liderança no monitoramento do desempenho online. Ela define vários [testes de disponibilidade](app-insights-monitor-web-app-availability.md):
+Marcela Markova é um desenvolvedor sênior da equipe OBS hello e leva lead Olá sobre o monitoramento de desempenho on-line. Ela define vários [testes de disponibilidade](app-insights-monitor-web-app-availability.md):
 
-* Um teste de URL única para a página de aterrissagem principal para o aplicativo, http://fabrikambank.com/onlinebanking/. Ela define os critérios de código HTTP 200 e o texto “Bem-vindo!”. Se esse teste falhar, há algum problema sério com a rede ou os servidores, ou talvez um problema de implantação. (Ou alguém alterou a mensagem de boas-vindas na página sem informá-la.)
-* Um teste de várias etapas mais aprofundado, que faz logon e obtém uma listagem atual das contas, verificando alguns detalhes principais em cada página. Esse teste verifica se o link para o banco de dados de contas está funcionando. Ela usa uma ID do cliente fictícia: algumas delas são mantidas para fins de teste.
+* Um teste de URL única para a página principal de saudação para o aplicativo hello, http://fabrikambank.com/onlinebanking/. Ela define os critérios de código HTTP 200 e o texto “Bem-vindo!”. Se esse teste falhar, há algo errado seriamente com rede hello ou servidores de hello ou pode ser um problema de implantação. (Ou alguém alterou Olá bem-vindo! mensagem na página de saudação sem deixar seu sabe).
+* Um teste de várias etapas mais aprofundado, que faz logon e obtém uma listagem atual das contas, verificando alguns detalhes principais em cada página. Esse teste verifica que esse banco de dados de contas do hello link toohello está funcionando. Ela usa uma ID do cliente fictícia: algumas delas são mantidas para fins de teste.
 
-Com esses testes configurados, Marcela está confiante de que a equipe saberá rapidamente sobre qualquer interrupção.  
+Com esses testes, configuradas, Marcela é seguro que essa equipe Olá saibam rapidamente sobre qualquer interrupção.  
 
-Falhas aparecem como pontos vermelhos no gráfico de teste da Web:
+Falhas aparecem como vermelhos pontos no gráfico de teste da web hello:
 
-![Exibição de testes da Web que foram executados durante o período anterior](./media/app-insights-detect-triage-diagnose/04-webtests.png)
+![Exibição de testes da web que foram executados pela Olá que precedem o período](./media/app-insights-detect-triage-diagnose/04-webtests.png)
 
-Mas o mais importante, um alerta sobre qualquer falha é enviado por e-mail à equipe de desenvolvimento. Desse modo, eles são informados sobre isso antes de quase todos os clientes.
+Mas é mais importante, um alerta sobre qualquer falha é enviado por email toohello equipe de desenvolvimento. Dessa forma, eles sabem sobre ele para que quase todos os clientes de hello.
 
 ## <a name="monitor-performance"></a>Monitorar o desempenho
-Na mesma página de visão geral do Application Insights, há um gráfico que mostra as [principais métricas](app-insights-web-monitor-performance.md).
+Página de visão geral de saudação do Application Insights, há um gráfico que mostra uma variedade de [chave métricas](app-insights-web-monitor-performance.md).
 
 ![Métricas diversas](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
 
-O tempo de carregamento de página do navegador é derivado da telemetria enviada diretamente a partir de páginas da Web. O tempo de resposta do servidor, a contagem de solicitações do servidor e a contagem de solicitações com falha são todos medidos no servidor Web e enviados para o Application Insights do servidor Web.
+O tempo de carregamento de página do navegador é derivado da telemetria enviada diretamente a partir de páginas da Web. Tempo de resposta do servidor, contagem de solicitação do servidor e contagem de solicitação com falha são todos medidos no servidor de web hello e enviados tooApplication Insights de lá.
 
-Marcela está um pouco preocupada com o gráfico de resposta do servidor. Esse gráfico mostra o tempo médio entre o tempo em que o servidor recebe uma solicitação HTTP do navegador de um usuário e o tempo em que ele retorna a resposta. Não é incomum ver uma variação nesse gráfico, uma vez que a carga do sistema varia. Todavia, nesse caso, parece haver que uma correlação entre pequenos aumentos na contagem de solicitações e grandes aumentos no tempo de resposta. Isso poderia indicar que o sistema está funcionando exatamente nos limites.
+Marcela é um pouco preocupado com gráfico de resposta do servidor de saudação. Este gráfico mostra o tempo médio de saudação entre quando o servidor de saudação recebe uma solicitação HTTP de navegador do usuário, e quando ele retorna a resposta de saudação. Não é incomum toosee uma variação neste gráfico, como a carga no sistema Olá varia. Mas, nesse caso, há uma correlação entre pequeno sobe Olá contagem de solicitações e grande de toobe aumenta no tempo de resposta de saudação. Que pode indicar que o sistema de saudação estiver funcionando em seus limites.
 
-Ela abre os gráficos de Servidores:
+Ela abre os gráficos de servidores hello:
 
 ![Métricas diversas](./media/app-insights-detect-triage-diagnose/06.png)
 
-Parece não haver nenhum sinal de limitação de recursos; portanto, talvez os impactos nos gráficos de resposta do servidor sejam apenas uma coincidência.
+Parece toobe sem sinal de limitação de recursos, portanto, talvez Olá impactos em gráficos de resposta do servidor de saudação são apenas uma coincidência.
 
-## <a name="set-alerts-to-meet-goals"></a>Definir alertas para atender às metas
-No entanto, ela gostaria de acompanhar os tempos de resposta. Se eles ficarem muito altos, ela desejará saber disso imediatamente.
+## <a name="set-alerts-toomeet-goals"></a>Definir alertas toomeet metas
+No entanto, ela gostaria tookeep olho nos tempos de resposta de saudação. Se eles forem muito altos, ela deseja tooknow sobre ele imediatamente.
 
 Portanto, ela define um [alerta](app-insights-metrics-explorer.md) para tempos de resposta maiores do que um limite típico. Isso lhe dá a certeza de que será informada sobre isso caso os tempos de resposta sejam lentos.
 
 ![Folha Adicionar alerta](./media/app-insights-detect-triage-diagnose/07-alerts.png)
 
-Alertas podem ser definidos em uma grande variedade de outras métricas. Por exemplo, você pode receber emails se a contagem de exceções aumentar excessivamente ou se a memória disponível tornar-se baixa demais, ou ainda se houver um pico em solicitações de cliente.
+Alertas podem ser definidos em uma grande variedade de outras métricas. Por exemplo, você pode receber emails se a contagem de exceção Olá torna-se alta, ou a memória disponível Olá fica baixa, ou se houver um pico em solicitações de cliente.
 
 ## <a name="stay-informed-with-smart-detection-alerts"></a>Mantenha-se informado com Alertas de detecção inteligente
-No dia seguinte, chega um email de alerta do Application Insights. Mas quando ela o abre, descobre que não é o alerta de tempo de resposta que ela definiu. Em vez disso, ele informa que houve um aumento repentino de solicitações com falha – ou seja, solicitações que retornaram códigos de falha de 500 ou mais.
+No dia seguinte, chega um email de alerta do Application Insights. Mas quando ela abri-la, ela localiza não é alerta de tempo de resposta de saudação que ela está definida. Em vez disso, ele informa que houve um aumento repentino de solicitações com falha – ou seja, solicitações que retornaram códigos de falha de 500 ou mais.
 
-As solicitações com falha indicam casos em que os usuários viram um erro – geralmente, após uma exceção lançada no código. Talvez eles recebam uma mensagem informando “Desculpe, não foi possível atualizar os detalhes no momento”. Ou, na pior das situações constrangedoras, um despejo de pilha é exibido na tela do usuário, cortesia do servidor Web.
+Solicitações com falha são onde os usuários viu o erro - geral após uma exceção gerada no código de saudação. Talvez eles recebam uma mensagem informando “Desculpe, não foi possível atualizar os detalhes no momento”. Ou, no pior inconveniente absoluto, um despejo da pilha aparece na tela do usuário hello, pela agência de servidor de web hello.
 
-Esse alerta é uma surpresa, pois a última vez que ela o examinou, a contagem de solicitações com falha felizmente era baixo. Um pequeno número de falhas é esperado em um servidor ocupado.
+Este alerta é uma surpresa, porque a última vez em que ela visto, hello hello falhou solicitação contagem foi Felizmente baixa. Um pequeno número de falhas é toobe esperado em um servidor ocupado.
 
-Isso também foi um pouco surpreendente para ela, pois ela não precisou configurar esse alerta. Application Insights inclui Detecção Inteligente. Ele se ajusta automaticamente ao padrão de falha comum de seu aplicativo e “se acostuma” com as falhas em uma página específica, fica abaixo da carga alta ou é vinculado a outras métricas. Ele gera o alarme somente se há um aumento acima do que é esperado.
+Ele também foi um pouco de surpresa para ela porque ela não tinha tooconfigure este alerta. Application Insights inclui Detecção Inteligente. Ajusta automaticamente o padrão comum de falha do aplicativo tooyour e falhas "é usado para" em uma página específica ou sob alta carga ou métricas tooother vinculado. Ele gera o alarme Olá somente se houver um aumento acima que vem tooexpect.
 
 ![email de diagnóstico proativo](./media/app-insights-detect-triage-diagnose/21.png)
 
-Este é um email muito útil. Ele não apenas aciona um alarme. Ele faz grande parte da triagem e do trabalho de diagnóstico também.
+Este é um email muito útil. Ele não apenas aciona um alarme. Ele faz muita triagem hello e trabalho de diagnóstico, muito.
 
-Mostra quantos clientes foram afetados e em quais páginas da Web ou operações. Manuela pode decidir se precisa convocar toda a equipe para trabalhar nisso como em um treinamento contra incêndio ou se isso pode ser ignorado até a semana seguinte.
+Mostra quantos clientes foram afetados e em quais páginas da Web ou operações. Marcela pode decidir se precisa tooget Olá toda a equipe trabalhando nisso como um incêndio, ou se ele pode ser ignorado até a próxima semana.
 
-O email também mostra que uma exceção específica ocorreu e – o mais interessante – que a falha está associada a chamadas com falha para determinado banco de dados. Isso explica o motivo pelo qual a falha apareceu de repente, mesmo que a equipe de Manuela não tenha implantado nenhuma atualização recentemente.
+email Olá também mostra que ocorreu uma exceção específica e - ainda mais interessante - essa falha hello está associada ao banco de dados específico do tooa chamadas com falha. Isso explica por que falhas de saudação apareceram, de repente, mesmo que a equipe do Marcela recentemente não implantou as atualizações.
 
-Marcella executa ping líder da equipe do banco de dados com base neste email. Sim descobre que eles lançaram um hotfix há meia hora atrás e, opa, talvez tenha havido uma mudança de esquema secundária...
+Líder de saudação Marcella pings de Olá equipe de banco de dados com base neste email. Ela descobre que eles liberado um hot fix Olá última meia hora; e Opa, talvez tenha sido uma alteração de esquema secundário...
 
-Portanto, o problema está prestes a ser corrigido, mesmo antes da investigação dos logs e em até 15 minutos após sua ocorrência. No entanto, Manuela clica no link para abrir o Application Insights. Ele é aberto exatamente em uma solicitação com falha, e ela pode ver a chamada com falha do banco de dados na lista associada de chamadas de dependência.
+Assim o problema de saudação está no toobeing de maneira Olá corrigido, mesmo antes de analisar logs e dentro de 15 minutos depois de ele decorrentes. No entanto, Marcela clica Olá link tooopen Application Insights. Ele é aberto para uma solicitação com falha e ele pode ver o banco de dados com falha chamar na lista de associados de saudação de chamadas de dependência.
 
 ![solicitação com falha](./media/app-insights-detect-triage-diagnose/23.png)
 
 ## <a name="detect-exceptions"></a>Detectar exceções
-Com um pouco de configuração, as [exceções](app-insights-asp-net-exceptions.md) são relatadas ao Application Insights automaticamente. Elas podem também ser capturadas explicitamente inserindo chamadas para [TrackException()](app-insights-api-custom-events-metrics.md#trackexception) no código:  
+Com um pouco de instalação, [exceções](app-insights-asp-net-exceptions.md) são relatado tooApplication Insights automaticamente. Eles podem também ser capturados explicitamente inserindo chamadas muito[trackexception ()](app-insights-api-custom-events-metrics.md#trackexception) em código hello:  
 
     var telemetry = new TelemetryClient();
     ...
@@ -123,14 +123,14 @@ Com um pouco de configuração, as [exceções](app-insights-asp-net-exceptions.
        var measurements = new Dictionary <string, double>
          {{"Users", currentGame.Users.Count}};
 
-       // Send the exception telemetry:
+       // Send hello exception telemetry:
        telemetry.TrackException(ex, properties, measurements);
     }
 
 
-A equipe do Fabrikam Bank evoluiu na prática de sempre enviar telemetria em uma exceção, a menos que haja uma óbvia recuperação.  
+equipe do banco da Fabrikam Olá evoluiu prática Olá sempre enviar telemetria em uma exceção, a menos que haja uma recuperação óbvia.  
 
-Na verdade, a estratégia deles é ainda mais ampla do que isso: enviam telemetria em todos os casos nos quais o cliente está frustrado em relação ao que queria fazer, independentemente de isto corresponder a uma exceção no código ou não. Por exemplo, se o sistema de transferência externa interbancária retorna uma mensagem "não é possível concluir esta transação" por algum motivo operacional (sem culpa do cliente), eles acompanham esse evento.
+Na verdade, é ainda mais ampla do que a sua estratégia: enviam telemetria em cada caso em que o cliente Olá é frustrado o que quisessem toodo, se ele corresponde tooan exceção no código hello, ou não. Por exemplo, se sistema de transferência entre banco externa Olá retornará uma mensagem "não é possível concluir esta transação" por algum motivo operacional (nenhuma falha do cliente de saudação), em seguida, controlam se o evento.
 
     var successCode = AttemptTransfer(transferAmount, ...);
     if (successCode < 0)
@@ -142,93 +142,93 @@ Na verdade, a estratégia deles é ainda mais ampla do que isso: enviam telemetr
        telemetry.TrackEvent("transfer failed", properties, measurements);
     }
 
-TrackException é usado para relatar exceções porque ele envia uma cópia da pilha. TrackEvent é usado para relatar outros eventos. Você pode anexar as propriedades que podem ser úteis no diagnóstico.
+TrackException é exceções tooreport usado porque ele envia uma cópia da pilha de saudação. TrackEvent é tooreport usado outros eventos. Você pode anexar as propriedades que podem ser úteis no diagnóstico.
 
-Exceções e eventos aparecem na folha [Pesquisa de diagnóstico](app-insights-diagnostic-search.md). Você pode analisar para ver as propriedades adicionais e o rastreamento de pilha.
+Exceções e eventos aparecem no hello [pesquisa diagnóstico](app-insights-diagnostic-search.md) folha. É possível analisá-los propriedades adicionais do toosee hello e rastreamento de pilha.
 
-![Na Pesquisa de diagnóstico, use filtros para exibir tipos específicos de dados](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
+![Na pesquisa de diagnóstico, use filtros tooshow determinados tipos de dados](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
 
 ## <a name="monitor-proactively"></a>Monitorar proativamente
-Marcela não fica apenas sentada esperando por alertas. Logo após cada reimplantação, ela examina [tempos de resposta](app-insights-web-monitor-performance.md) -tanto o quadro geral e a tabela de solicitações mais lentas quanto as contagens de exceção.  
+Marcela não fica apenas sentada esperando por alertas. Logo após cada nova implantação, ela usa uma olhada em [tempos de resposta](app-insights-web-monitor-performance.md) - ambos Olá Figura geral e contagens de tabela de saudação de solicitações mais lentas, bem como a exceção.  
 
 ![Gráfico de tempo de resposta e uma grade dos tempos de resposta do servidor.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
 
-Ela pode avaliar o efeito no desempenho de cada implantação, geralmente comparando cada semana com a última. Se houver uma deterioração repentina do quadro, ela levanta a questão com os desenvolvedores relevantes.
+Ela pode avaliar o efeito de desempenho de saudação de cada implantação, normalmente comparando cada semana com hello última. Se houver uma queda repentina worsening, ela gera que com desenvolvedores de saudação relevantes.
 
 ## <a name="triage-issues"></a>Problemas de triagem
-Triagem - avaliar a gravidade e a extensão de um problema - é a primeira etapa depois da detecção. Devemos chamar a equipe à meia-noite? Ou o problema pode esperar até o próximo intervalo conveniente na lista de pendências? Há algumas perguntas cruciais na triagem.
+Triagem - avaliar severidade hello e a extensão de um problema - é Olá primeira etapa após a detecção. Deve chamamos out equipe saudação à meia-noite? Ou pode ser deixado até que o intervalo de conveniente Avançar Olá na lista de pendências Olá? Há algumas perguntas cruciais na triagem.
 
-Com que frequência está acontecendo? Os gráficos na folha visão geral oferecem alguma perspectiva para um problema. Por exemplo, o aplicativo da Fabrikam gerou quatro alertas de teste da Web em uma noite. Examinando o gráfico pela manhã, a equipe pôde ver que existiam realmente alguns pontos vermelhos, embora a maioria dos testes tenham resultado em verde. Detalhando o gráfico de disponibilidade, ficou claro que todos esses problemas intermitentes eram de um local de teste. Isso, obviamente, foi um problema de rede que afetou somente uma rota e provavelmente se resolveria sozinho.  
+Frequência está acontecendo? gráficos de saudação na folha de visão geral de saudação dar algum problema de tooa de perspectiva. Por exemplo, Olá Fabrikam aplicativo gerado alertas de teste da web quatro uma noite. Observando o gráfico de saudação manhã Olá, equipe Olá pode ver que foram realmente alguns pontos vermelhos, embora ainda grande parte dos testes de saudação verde. O detalhamento de gráfico de disponibilidade hello, ficou claro que todos esses problemas intermitentes foram de local de um teste. Isso, obviamente, foi um problema de rede que afetou somente uma rota e provavelmente se resolveria sozinho.  
 
-Por outro lado, um aumento drástico e estável no gráfico de tempos de resposta ou contagens de exceção é, obviamente, motivo para pânico.
+Por outro lado, um aumento significativo e estável no gráfico de saudação de contagens de exceção ou tempos de resposta é obviamente algo toopanic sobre.
 
-Uma tática de triagem útil é “Experimente você mesmo”. Se você tiver o mesmo problema, saberá que ele é real.
+Uma tática de triagem útil é “Experimente você mesmo”. Se você tiver Olá mesmo problema, você sabe que é real.
 
-Que fração dos usuários são afetados? Para obter uma resposta aproximada, divida a taxa de falha pela contagem de sessão.
+Que fração de usuários são afetados? tooobtain uma resposta aproximada, divida a taxa de falha de Olá por contagem de sessões de saudação.
 
 ![Gráficos de sessões e solicitações com falha](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
 
-Quando há respostas lentas, compare a tabela das solicitações com respostas mais lentas com a frequência de uso de cada página.
+Quando há respostas lentas, compare tabela Olá de solicitações mais lentas responder com frequência de uso de saudação de cada página.
 
-Quão importante é o cenário bloqueado? Se esse for um problema funcional bloqueando uma história de usuário específica, isso importa muito? Se os clientes não podem pagar suas contas, isso é sério; se eles não podem alterar suas preferências de cor da tela, talvez isso possa esperar. Os detalhes do evento ou da exceção, ou a identidade da página lenta, informam onde os clientes estão tendo problemas.
+Qual é a importância cenário Olá bloqueada? Se esse for um problema funcional bloqueando uma história de usuário específica, isso importa muito? Se os clientes não podem pagar suas contas, isso é sério; se eles não podem alterar suas preferências de cor da tela, talvez isso possa esperar. Olá detalhes do evento hello ou exceção, ou a identidade de saudação do página lento Olá, informa onde os clientes estão tendo problemas.
 
 ## <a name="diagnose-issues"></a>Diagnosticar problemas
-O diagnóstico não é exatamente o mesmo que depuração. Antes de iniciar o rastreamento por meio do código, você deve ter uma ideia de porquê, de quando e de onde o problema está ocorrendo.
+Diagnóstico não está bem Olá igual a depuração. Antes de iniciar o rastreamento através do código hello, você deve ter uma ideia do motivo, onde e quando o problema de saudação está ocorrendo.
 
-**Quando isso acontece?** A exibição do histórico fornecida pelos gráficos de evento e de métrica facilita correlacionar os efeitos e as possíveis causas. Se houver picos intermitentes em taxas de exceção ou de tempo de resposta, examine a contagem de solicitações: se eles atingirem o pico ao mesmo tempo, o cenário parece com o de um problema de recurso. Você precisa atribuir mais CPU ou memória? Ou é uma dependência que não é capaz de dar conta da carga?
+**Quando isso acontece?**  exibição histórica do hello fornecida pelo gráficos de evento e métrica Olá torna efeitos toocorrelate fácil com as possíveis causas. Se houver picos intermitentes em taxas de exceção ou tempo de resposta, examinar a contagem de solicitações de saudação: se ele culmina no hello mesmo tempo, em seguida, ele se parece com um problema de recurso. Você precisa tooassign mais CPU ou memória? Ou é uma dependência que não é possível gerenciar a carga Olá?
 
-**O problema é conosco?**  Se você tiver uma queda repentina no desempenho de um determinado tipo de solicitação - por exemplo, quando o cliente deseja um demonstrativo de conta - há uma possibilidade de ser um subsistema externo em vez de seu aplicativo Web. No Metrics Explorer, selecione a taxa de falha de dependência e taxas de duração da dependência e compare seus históricos pelas últimas horas ou dias ao problema que é detectado. Se há alterações correlacionadas, um subsistema externo pode ser a causa.  
+**O problema é conosco?**  Se você tiver uma queda repentina no desempenho de um tipo específico de solicitação - por exemplo quando Olá cliente desejar um extrato - é possível pode ser um subsistema externo em vez de seu aplicativo web. No Metrics Explorer, selecione a taxa de falha de dependência hello e taxas de duração de dependência e comparar seus históricos sobre Olá após algumas horas ou dias com problema Olá detectadas. Se há são correlacionar as alterações, um subsistema externo pode ser tooblame.  
 
-![Gráficos de falha de dependência e a duração das chamadas para as dependências](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
+![Gráficos de falha de dependência e a duração de chamadas toodependencies](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
 
 Alguns problemas de dependência de lentidão são problemas de localização geográfica. O Fabrikam Bank usa máquinas virtuais do Azure, e descobriu que eles tinham inadvertidamente localizado seu servidor Web e servidor de conta em diferentes países. Obtiveram uma melhoria expressiva migrando um deles.
 
-**O que fizemos?** Se o problema não parece estar em uma dependência e se não esteve sempre lá, provavelmente é causado por uma alteração recente. A perspectiva histórica fornecida pelos gráficos de métrica e evento facilita correlacionar alterações repentinas com implantações. Isso reduz o escopo da busca pelo problema.
+**O que fizemos?** Se o problema de saudação não aparece toobe em uma dependência, e se sempre não, provavelmente é causado por uma alteração recente. Olá perspectiva histórica fornecida pelo gráficos de métricas e eventos de saudação torna fácil toocorrelate alterações repentinas com implantações. Que restringe a pesquisa Olá para problema de saudação.
 
-**O que está acontecendo?** Alguns problemas ocorrem apenas raramente e podem ser difíceis de rastrear por testes offline. Tudo o que podemos fazer é tentar capturar o bug quando ele ocorre, em tempo real. Você pode inspecionar os despejos de pilha em relatórios de exceção. Além disso, é possível escrever chamadas de rastreamento, com sua estrutura de registros favorita ou com TrackTrace() ou TrackEvent().  
+**O que está acontecendo?** Alguns problemas ocorrem raramente e podem ser difícil tootrack para baixo testando offline. Tudo o que podemos fazer é bug de saudação do tootry toocapture quando ela ocorre ao vivo. Você pode inspecionar Olá despejos de pilha em relatórios de exceção. Além disso, é possível escrever chamadas de rastreamento, com sua estrutura de registros favorita ou com TrackTrace() ou TrackEvent().  
 
-A Fabrikam tinha um problema intermitente com transferências entre contas, mas apenas com determinados tipos de conta. Para entender melhor o que estava acontecendo, eles inseriram chamadas TrackTrace() em pontos-chave do código, anexando o tipo de conta como uma propriedade para cada chamada. Isso facilitou filtrar apenas esses rastreamentos na pesquisa de diagnóstico. Eles também anexaram valores de parâmetro, como propriedades e medidas, às chamadas de rastreamento.
+A Fabrikam tinha um problema intermitente com transferências entre contas, mas apenas com determinados tipos de conta. toounderstand melhor o que estava acontecendo, eles inseridos tracktrace () chama nos pontos-chave no código hello, anexando Olá o tipo de conta como uma chamada de tooeach de propriedade. Que tornou fácil toofilter out apenas os rastreamentos em busca de diagnóstico. Eles também anexados valores de parâmetro como chamadas de rastreamento toohello propriedades e medidas.
 
-## <a name="respond-to-discovered-issues"></a>Responder a problemas descobertos
-Depois de diagnosticar o problema, você pode fazer um plano para corrigi-lo. Talvez você precise reverter uma alteração recente, ou talvez você possa simplesmente seguir em frente e corrigir o problema. Quando a correção tiver sido realizada, o Application Insights lhe diz se o processo foi bem-sucedido.  
+## <a name="respond-toodiscovered-issues"></a>Responder a problemas de toodiscovered
+Depois que você tenha diagnosticado problema hello, você pode fazer um plano toofix-lo. Talvez você precisa tooroll fazer uma alteração recente, ou talvez você pode prosseguir e corrigi-lo. Depois de corrigir Olá, o Application Insights informa se você teve êxito.  
 
-A equipe de desenvolvimento do banco da Fabrikam utiliza uma abordagem mais estruturada para medição de desempenho do que costumava utilizar antes do Application Insights.
+Equipe de desenvolvimento do banco da Fabrikam tomar uma medida tooperformance abordagem mais estruturada costumavam toobefore usavam Application Insights.
 
-* Eles definem metas de desempenho em termos de medidas específicas na página de visão geral do Application Insights.
-* Eles criam medidas de desempenho no aplicativo desde o início, como as métricas que medem o progresso do usuário por meio de “funis”.  
+* Eles definir metas de desempenho em termos de medidas específicas na página de visão geral do Application Insights hello.
+* Projetar medidas de desempenho no aplicativo hello a partir do início do hello, como as métricas de saudação medir o progresso de usuário por meio de 'funis'.  
 
 
 ## <a name="monitor-user-activity"></a>Monitorar as atividades do usuário
-Quando o tempo de resposta é constantemente bom e há algumas exceções, a equipe de desenvolvimento pode passar a trabalhar na usabilidade. Ela pode pensar em como melhorar a experiência dos usuários e como incentivar mais usuários a atingir as metas desejadas.
+Quando o tempo de resposta é bom e há algumas exceções, equipe de desenvolvimento Olá pode passar toousability. Eles podem pensar em como tooimprove Olá experiência dos usuários e como tooencourage hello mais de tooachieve usuários desejado metas.
 
-O Application Insights também pode ser usado para saber o que os usuários fazem com um aplicativo. Depois que ele é executado sem problemas, a equipe gostaria de saber quais recursos são os mais populares, do que os usuários gostam ou com o que têm dificuldade e com que frequência eles retornam. Isso os ajudará a definir as prioridades para seus futuros trabalhos. Além disso, eles podem planejar medir o sucesso de cada recurso como parte do ciclo de desenvolvimento. 
+Informações do aplicativo também podem ser usado toolearn fazem o que os usuários com um aplicativo. Depois que ele é executado sem problemas, equipe Olá que tooknow quais recursos estão hello mais popular, o que os usuários como ou tem dificuldades com e a frequência na qual elas retornam. Isso os ajudará a definir as prioridades para seus futuros trabalhos. E possa planejar de sucesso de saudação toomeasure de cada recurso como parte do ciclo de desenvolvimento de saudação. 
 
-Por exemplo, uma jornada típica do usuário pelo site tem um “funil” claro. Muitos clientes examinam as taxas de diferentes tipos de empréstimo. Um número menor segue para o preenchimento do formulário de cotação. Dentre aqueles que recebem uma cotação, poucos seguem em frente e realizam o empréstimo.
+Por exemplo, uma viagem típica do usuário por meio do site da web hello tem um "funil" claro. Muitos clientes examinar as taxas de saudação de diferentes tipos de empréstimo. Um número menor vá toofill no formulário de cotação hello. Aqueles que recebem uma cotação, alguns vá em frente e retire empréstimo hello.
 
 ![Contagens de exibição de página](./media/app-insights-detect-triage-diagnose/12-funnel.png)
 
-Considerando onde os números maiores de clientes caem, a empresa pode trabalhar em como conseguir mais usuários na parte inferior do funil. Em alguns casos, pode haver uma falha de experiência do usuário – por exemplo, o botão “Avançar” é difícil de ser encontrado ou as instruções não são óbvias. Provavelmente, existem motivos de negócio mais significativos para transferências de depósito: talvez as taxas de empréstimo são muito altas.
+Considerando onde diminuir Olá números de maiores de clientes, negócios Olá podem descobrir como tooget mais usuários por meio da parte inferior do toohello da saudação funil. Em alguns casos, pode haver uma falha do usuário (UX) de experiência - por exemplo, botão 'Próximo' hello é toofind rígido ou instruções de saudação não óbvias. Provavelmente, há mais significativos motivos dos negócios para transferências de soltar: talvez forem muito altas taxas de empréstimo hello.
 
-Sejam quais forem as razões, os dados ajudam a equipe a descobrir o que os usuários estão fazendo. Mais chamadas de rastreamento podem ser inseridas para descobrir mais detalhes. TrackEvent() pode ser usado para a contagem de todas as ações do usuário, desde os detalhes de cliques de botão individuais até realizações significativas como o pagamento de um empréstimo.
+Qualquer motivos Olá, Olá dados ajudam a equipe de saudação descobrir o que os usuários estão fazendo. Mais controle de chamadas podem ser inserido toowork mais detalhes. Trackevent pode ser usado toocount quaisquer ações do usuário, de muitos detalhes Olá de cliques de botão individual, conquistas toosignificant como pagar um empréstimo.
 
-A equipe está acostumando-se a ter informações sobre a atividade do usuário. Hoje em dia, sempre que criam um novo recurso, eles pensam como irão receber comentários sobre seu uso. Eles criam chamadas de rastreamento para o recurso desde o início. Eles usam os comentários para melhorar o recurso em cada ciclo de desenvolvimento.
+equipe de saudação está ficando usado toohaving informações sobre a atividade de usuário. Hoje em dia, sempre que criam um novo recurso, eles pensam como irão receber comentários sobre seu uso. Eles chama o controle de recurso de saudação do início da saudação de design. Eles usam o recurso de Olá Olá comentários tooimprove em cada ciclo de desenvolvimento.
 
 [Leia mais sobre o uso de controle](app-insights-usage-overview.md).
 
-## <a name="apply-the-devops-cycle"></a>Aplicar o ciclo de DevOps
-Portanto, é assim que uma equipe usa o Application Insights não apenas para corrigir problemas individuais, mas para melhorar seu ciclo de vida de desenvolvimento. Espero que isso tenha dado a você algumas ideias sobre como o Application Insights pode lhe ajudar com o gerenciamento do desempenho dos seus próprios aplicativos.
+## <a name="apply-hello-devops-cycle"></a>Aplicar o ciclo de DevOps Olá
+Isso é como um uso de equipe do Application Insights individuais não apenas toofix problemas, mas tooimprove seu ciclo de vida de desenvolvimento. Espero que isso tenha dado a você algumas ideias sobre como o Application Insights pode lhe ajudar com o gerenciamento do desempenho dos seus próprios aplicativos.
 
 ## <a name="video"></a>Vídeo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Próximas etapas
-Você pode começar de diversas maneiras, dependendo das características do seu aplicativo. Escolha o que lhe convém:
+Você pode começar de diversas maneiras, dependendo das características de saudação do seu aplicativo. Escolha o que lhe convém:
 
 * [Aplicativo web do ASP.NET](app-insights-asp-net.md)
 * [Aplicativo web Java](app-insights-java-get-started.md)
 * [Aplicativo web do Node.js](app-insights-nodejs.md)
 * Aplicativos já implantados, hospedados em [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) ou [Azure](app-insights-azure.md).
-* [Páginas da Web](app-insights-javascript.md) - aplicativo de página única ou página da web comum - use isso por conta própria ou com uma das opções de servidor.
-* [Testes de disponibilidade](app-insights-monitor-web-app-availability.md) para testar seu aplicativo da internet pública.
+* [Páginas da Web](app-insights-javascript.md) -aplicativo de página única ou página da web comum - use isso em seu próprio ou em tooany de adição de opções de saudação do servidor.
+* [Testes de disponibilidade](app-insights-monitor-web-app-availability.md) tootest Olá de seu aplicativo de internet pública.

@@ -1,6 +1,6 @@
 ---
-title: "Criar a infraestrutura básica no Azure usando o Terraform | Microsoft Docs"
-description: Saiba como criar recursos do Azure usando o Terraform
+title: "infraestrutura básica aaaCreate no Azure usando Terraform | Microsoft Docs"
+description: Saiba como toocreate Azure recursos usando Terraform
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: 9660a95b440c2e4311829979e270d9f10099f624
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 916a838c118f28b3fbd373188e0acb2afc655081
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-basic-infrastructure-in-azure-by-using-terraform"></a>Criar a infraestrutura básica no Azure usando o Terraform
-Este artigo descreve as etapas necessárias para provisionar uma máquina virtual, junto com a infraestrutura subjacente, no Azure. Você aprenderá a gravar scripts do Terraform e a visualizar as alterações antes de fazê-las na sua infraestrutura de nuvem. Você também aprenderá a criar a infraestrutura no Azure usando o Terraform.
+Este artigo descreve etapas Olá tootake tooprovision uma máquina virtual, junto com a infraestrutura subjacente, você precisa no Azure. Você aprenderá como toowrite Terraform scripts e como Olá toovisualize alterações antes de torná-los o em sua infraestrutura de nuvem. Você também aprenderá como infraestrutura toocreate no Azure usando Terraform.
 
-Para começar, crie um arquivo chamado \terraform_azure101.tf no editor de texto de sua preferência (Visual Studio Code/Sublime/Vim/etc.). O nome exato do arquivo não é importante, pois o Terraform aceita o nome da pasta como parâmetro: todos os scripts na pasta são executados. Cole o seguinte código no novo arquivo:
+tooget iniciado, crie um arquivo chamado \terraform_azure101.tf em seu editor de texto da opção (Visual Studio código/Sublime Vim/etc.). nome exato de saudação do arquivo hello não é importante porque Terraform aceita o nome da pasta hello como um parâmetro: todos os scripts na pasta Olá seja executados. Cole Olá código no novo arquivo de saudação a seguir:
 
 ~~~~
-# Configure the Microsoft Azure Provider
-# NOTE: if you defined these values as environment variables, you do not have to include this block
+# Configure hello Microsoft Azure Provider
+# NOTE: if you defined these values as environment variables, you do not have tooinclude this block
 provider "azurerm" {
   subscription_id = "your_subscription_id_from_script_execution"
   client_id       = "your_appId_from_script_execution"
@@ -42,46 +42,46 @@ resource "azurerm_resource_group" "helloterraform" {
     location = "West US"
 }
 ~~~~
-Na seção `provider` do script, você informa o Terraform para usar um provedor do Azure para provisionar recursos no script. Para obter os valores de subscription_id, appId, senha e tenant_id, veja o guia [Instalar e configurar o Terraform](terraform-install-configure.md). Se você tiver criado variáveis de ambiente para os valores nesse bloco, não precisará incluí-las. 
+Em Olá `provider` seção de saudação do script, informar Terraform toouse recursos de tooprovision um provedor do Azure no script hello. valores de tooget subscription_id, appId, senha e tenant_id, consulte Olá [instalar e configurar Terraform](terraform-install-configure.md) guia. Se você criou variáveis de ambiente para os valores hello neste bloco, não será necessário tooinclude-lo. 
 
-O recurso `azurerm_resource_group` instrui o Terraform a criar um novo grupo de recursos. Você pode ver mais tipos de recursos que estão disponíveis no Terraform mais adiante neste artigo.
+Olá `azurerm_resource_group` recurso instrui Terraform toocreate um novo grupo de recursos. Você pode ver mais tipos de recursos que estão disponíveis no Terraform mais adiante neste artigo.
 
-## <a name="execute-the-script"></a>Execute o script
-Depois de salvar o script, saia da linha de comando/console e digite o seguinte:
+## <a name="execute-hello-script"></a>Execute o script hello
+Depois de salvar o script hello, sair da linha de comando do console de toohello e digite Olá a seguir:
 ```
 terraform init
 ```
-para inicializar o provedor de Terraform do Azure. Depois, digite o seguinte:
+provedor de Terraform tooinitialize do Azure. Em seguida, digite o seguinte hello:
 ```
 terraform plan terraformscripts
 ```
-Vamos supor que `terraformscripts` seja a pasta em que o script foi salvo. Usamos o comando `plan` do Terraform, que examina os recursos definidos nos scripts. Ele compara-os com as informações de estado salvas pelo Terraform e, em seguida, gera a execução planejada _sem_ de fato criar recursos no Azure. 
+Vamos supor que `terraformscripts` é Olá pasta em que o script hello foi salvo. Usamos Olá `plan` Terraform comando, que examina os recursos de saudação definidos nos scripts de saudação. Ele compara toohello informações de estado salvas por Terraform e, em seguida, saídas Olá execução planejada _sem_ na verdade criando recursos no Azure. 
 
-Depois de executar o comando anterior, você deverá ver algo semelhante à seguinte tela:
+Depois de executar o comando anterior hello, você verá algo parecido com hello tela a seguir:
 
 ![Plano do Terraform](linux/media/terraform/tf_plan2.png)
 
-Se tudo parecer correto, provisione esse novo grupo de recursos no Azure executando o seguinte: 
+Se tudo estiver correto, provisione esse novo grupo de recursos no Azure, executando Olá seguinte: 
 ```
 terraform apply terraformscripts
 ```
-No portal do Azure, você deverá ver o novo grupo de recursos vazio chamado `terraformtest`. Na seção abaixo, você adicionará uma máquina virtual e toda sua infraestrutura de suporte para essa máquina virtual a esse grupo de recursos.
+Em Olá portal do Azure, você deve ver Olá novo vazio grupo de recursos chamado `terraformtest`. Olá seção a seguir, você adiciona que uma máquina virtual e todos os Olá infra-estrutura de suporte para esse grupo de recursos de toohello de máquina virtual.
 
 ## <a name="provision-an-ubuntu-vm-with-terraform"></a>Provisionar uma VM Ubuntu com o Terraform
-Vamos estender o script do Terraform criado com os detalhes necessários para provisionar uma máquina virtual executando Ubuntu. Os recursos que você provisionar nas seções a seguir são:
+Vamos estender uma máquina virtual executada Ubuntu script de Terraform Olá que criamos com detalhes de saudação tooprovision necessário. recursos de saudação provisionado no hello seções a seguir são:
 
 * Uma rede com uma única sub-rede
 * Uma placa de interface de rede 
 * Uma conta de armazenamento com um contêiner de armazenamento
 * Um IP público
-* Uma máquina virtual que utiliza todos os recursos anteriores 
+* Uma máquina virtual que utiliza todos os recursos de saudação anterior 
 
-Para obter uma documentação completa de cada um dos recursos do Azure Terraform, consulte a [documentação do Terraform](https://www.terraform.io/docs/providers/azurerm/index.html).
+Para obter a documentação completa para cada um dos recursos do Azure Terraform hello, consulte Olá [Terraform documentação](https://www.terraform.io/docs/providers/azurerm/index.html).
 
-A versão completa do [script de provisionamento](#complete-terraform-script) também é fornecida para conveniência.
+versão completa de saudação do hello [script de provisionamento](#complete-terraform-script) também é fornecido por questões de conveniência.
 
-### <a name="extend-the-terraform-script"></a>Estender o script do Terraform
-Estenda o script criado com os seguintes recursos: 
+### <a name="extend-hello-terraform-script"></a>Estender o script de Terraform Olá
+Estenda o script hello que foi criado com hello recursos a seguir: 
 ~~~~
 # create a virtual network
 resource "azurerm_virtual_network" "helloterraformnetwork" {
@@ -99,7 +99,7 @@ resource "azurerm_subnet" "helloterraformsubnet" {
     address_prefix = "10.0.2.0/24"
 }
 ~~~~
-O script anterior cria uma rede virtual e uma sub-rede dentro daquela rede virtual. Observe a referência ao grupo de recursos que você já criou por meio de “${azurerm_resource_group.helloterraform.name}” tanto na definição de rede virtual quanto na de sub-rede.
+script de saudação anterior cria uma rede virtual e uma sub-rede dentro da rede virtual. Observe o grupo de recursos do hello referência toohello que você criou já via "${azurerm_resource_group.helloterraform.name}" na rede virtual hello e definição de subrede hello.
 
 ~~~~
 # create public IP
@@ -129,7 +129,7 @@ resource "azurerm_network_interface" "helloterraformnic" {
     }
 }
 ~~~~
-Os trechos de script anteriores criam um IP público e um adaptador de rede que usa o IP público criado. Observe as referências a subnet_id e public_ip_address_id. O Terraform tem uma inteligência interna para entender que o adaptador de rede tem uma dependência dos recursos que precisam ser criados antes da criação do adaptador de rede.
+trechos de código de script de anterior Olá criar um IP público e uma interface de rede que usa o IP público de saudação criado. Observação Olá referências toosubnet_id e public_ip_address_id. Terraform tem toounderstand inteligência interna que Olá interface de rede tem uma dependência dos recursos de saudação que toobe necessidade criado antes da criação de Olá Olá da interface de rede.
 
 ~~~~
 # create a random id
@@ -158,7 +158,7 @@ resource "azurerm_storage_container" "helloterraformstoragestoragecontainer" {
     depends_on = ["azurerm_storage_account.helloterraformstorage"]
 }
 ~~~~
-Aqui, você criou uma conta de armazenamento e definiu um contêiner de armazenamento dentro dessa conta. Essa conta de armazenamento é o local em que você armazena os VHDs (discos rígidos virtuais) para a máquina virtual prestes a ser criada.
+Aqui, você criou uma conta de armazenamento e definiu um contêiner de armazenamento dentro dessa conta. Esta conta de armazenamento é onde você armazena os discos rígidos virtuais (VHDs) para a máquina virtual de saudação sobre toobe criado.
 
 ~~~~
 # create virtual machine
@@ -198,25 +198,25 @@ resource "azurerm_virtual_machine" "helloterraformvm" {
     }
 }
 ~~~~
-Por fim, o trecho de código anterior cria uma máquina virtual que utiliza todos os recursos já provisionados. Eles são uma conta de armazenamento e um contêiner para um VHD, um adaptador de rede com IP público e sub-rede especificados e o grupo de recursos já criado. Observe a propriedade vm_size, na qual o script especifica um SKU A0 do Azure.
+Finalmente, o trecho de código anterior Olá cria uma máquina virtual que utiliza todos os recursos de saudação provisionados já. Eles são uma conta de armazenamento e um contêiner para um VHD, uma interface de rede pública IP e sub-rede especificada, e o grupo de recursos Olá já criado. Observe a propriedade de vm_size hello, onde o script hello Especifica um SKU de A0 do Azure.
 
-### <a name="execute-the-script"></a>Execute o script
-Com o script completo salvo, saia para o console/linha de comando e digite o seguinte:
+### <a name="execute-hello-script"></a>Execute o script hello
+Com script completo Olá salvo, sair da linha de comando do console de toohello e digite Olá a seguir:
 ```
 terraform apply terraformscripts
 ```
-Depois de algum tempo, os recursos, incluindo uma máquina virtual, aparecem no grupo de recursos `terraformtest` no portal do Azure.
+Depois de algum tempo, os recursos de hello, incluindo uma máquina virtual, são exibidos no hello `terraformtest` grupo de recursos em Olá portal do Azure.
 
 ## <a name="complete-terraform-script"></a>Script completo do Terraform
 
-Para conveniência, abaixo está o script completo do Terraform que provisiona toda a infraestrutura discutida neste artigo.
+Para sua conveniência, abaixo é Olá completa Terraform script que provisiona toda a infra-estrutura de saudação discutidos neste artigo.
 
 ```
 variable "resourcesname" {
   default = "helloterraform"
 }
 
-# Configure the Microsoft Azure Provider
+# Configure hello Microsoft Azure Provider
 provider "azurerm" {
   subscription_id = "XXX"
   client_id       = "XXX"
@@ -339,4 +339,4 @@ resource "azurerm_virtual_machine" "helloterraformvm" {
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Você criou a infraestrutura básica no Azure usando o Terraform. Para obter cenários mais complexos, incluindo exemplos que usam balanceadores de carga e conjuntos de dimensionamento de máquinas virtuais, confira os vários [exemplos do Terraform para o Azure](https://github.com/hashicorp/terraform/tree/master/examples). Para obter uma lista atualizada de provedores do Azure com suporte, consulte a [Documentação do Terraform](https://www.terraform.io/docs/providers/azurerm/index.html).
+Você criou a infraestrutura básica no Azure usando o Terraform. Para obter cenários mais complexos, incluindo exemplos que usam balanceadores de carga e conjuntos de dimensionamento de máquinas virtuais, confira os vários [exemplos do Terraform para o Azure](https://github.com/hashicorp/terraform/tree/master/examples). Para obter uma lista atualizada de provedores do Azure com suporte, consulte Olá [Terraform documentação](https://www.terraform.io/docs/providers/azurerm/index.html).

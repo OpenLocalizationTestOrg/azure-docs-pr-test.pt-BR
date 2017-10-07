@@ -1,6 +1,6 @@
 ---
-title: "Descubra quando um usuário específico será capaz de acessar um aplicativo | Microsoft Docs"
-description: "Como saber quando um usuário extremamente importante é capaz de acessar um aplicativo que você configurou para o provisionamento do usuário com o Azure AD"
+title: "aaaFind-out quando um usuário específico será capaz de tooaccess um aplicativo | Microsoft Docs"
+description: "Como toofind-out quando um usuário criticamente importante ser capaz de tooaccess um aplicativo que você tiver configurado para provisionamento do usuário com o Azure AD"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,37 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: fcefb31904cfb77022db0358e9feee6a0479db81
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: bb9520499dcc8bbbe6fae05c5238c8852815ea0a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>Descubra quando um usuário específico será capaz de acessar um aplicativo
+# <a name="find-out-when-a-specific-user-will-be-able-tooaccess-an-application"></a>Descobrir quando um usuário específico será capaz de tooaccess um aplicativo
 Ao usar o provisionamento automático de usuário com um aplicativo, o Azure AD automaticamente provisionar e atualizar contas de usuário em um aplicativo com base em coisas como [atribuição de usuário e grupo](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) em um intervalo de tempo agendado regularmente, normalmente a cada 10 minutos.
 
 ## <a name="how-long-does-it-take"></a>Quanto tempo demora?
 
-O tempo necessário para que um determinado usuário seja provisionado depende principalmente se uma sincronização "completa" inicial já ocorreu.
+tempo de saudação que leva para um toobe de determinado usuário provisionado depende principalmente se já tiver ocorrido uma sincronização inicial de "full".
 
-A primeira sincronização entre o Azure AD e um aplicativo pode levar de 20 minutos até várias horas, dependendo do tamanho do diretório do Azure AD e o número de usuários no escopo para provisionamento. 
+Olá primeira sincronização entre o AD do Azure e um aplicativo pode demorar horas tooseveral de 20 minutos, dependendo do tamanho de saudação do diretório de saudação do AD do Azure e número de saudação de usuários em escopo para provisionamento. 
 
-Sincronizações subsequentes após a sincronização inicial ser mais rápido (por exemplo, em 10 minutos), como o serviço de provisionamento armazena as marcas d'água que representam o estado dos dois sistemas após a sincronização inicial, melhorando o desempenho de sincronizações subsequentes.
+As sincronizações subsequentes após a sincronização inicial de saudação ser mais rápido (por exemplo, em 10 minutos), como Olá provisionamento serviço armazena as marcas d'água que representam o estado de saudação de ambos os sistemas após a sincronização inicial hello, melhorando o desempenho de sincronizações subsequentes.
 
-## <a name="how-to-check-the-status-of-a-user"></a>Como verificar o status de um usuário
+## <a name="how-toocheck-hello-status-of-a-user"></a>Como toocheck Olá status de um usuário
 
-Para ver o status de provisionamento para um usuário selecionado, consulte os logs de auditoria no Azure AD.
+status de provisionamento toosee Olá para um usuário selecionado, consulte Olá os logs de auditoria no AD do Azure.
 
-Os logs de auditoria de provisionamento podem ser acessados no portal do Azure, na guia **Azure Active Directory &gt; Aplicativos Empresariais &gt; \[Nome do Aplicativo\] &gt; Logs de auditoria**. Filtre os logs na categoria de **provisionamento de conta**, para ver apenas os eventos de provisionamento para aquele aplicativo. Você pode procurar por usuários com base na "ID correspondente" que foi configurado para eles nos mapeamentos de atributo. 
+Olá provisionamento logs de auditoria pode ser acessada no hello portal do Azure, na Olá **Active Directory do Azure &gt; aplicativos corporativos &gt; \[nome do aplicativo\] &gt; Logs de auditoria**guia. Saudação de filtro logon Olá **provisionamento de conta** tooonly categoria consulte Olá provisionamento eventos para esse aplicativo. Você pode procurar usuários com base em hello "correspondência ID" que foi configurado para eles nos mapeamentos de atributo hello. 
 
-Por exemplo, se você configurou o "nome UPN" ou "endereço de email" como o atributo correspondente no lado do Azure AD e o usuário não sendo provisionado tem um valor de "audrey@contoso.com", em seguida, pesquise os logs de auditoria para "audrey@contoso.com" e reveja as entradas retornadas.
+Por exemplo, se você configurou hello "user principal name" ou "endereço de email" como Olá correspondência de atributo no lado de saudação do AD do Azure e não sendo provisionamento de usuário de saudação tem um valor de "audrey@contoso.com", em seguida, os logs de auditoria de saudação de pesquisa para"audrey@contoso.com" e, em seguida, examine as entradas são retornadas.
 
-Os logs de auditoria de provisionamento registram todas as operações executadas pelo serviço de provisionamento, incluindo:
+Olá provisionamento auditoria registra registro todas Olá operações executadas pelo Olá provisionamento de serviço, incluindo:
 
 * Consultando o Azure AD para usuários atribuídos que estão no escopo de provisionamento
-* Consultando o aplicativo de destino para a existência desses usuários
-* Comparando objetos de usuário entre o sistema
-* Adicionar, atualizar ou desabilitar a conta de usuário no sistema de destino com base na comparação
+* Consultando o aplicativo de destino Olá existência Olá desses usuários
+* Comparando objetos de usuário Olá entre sistema Olá
+* Adicionar, atualizar ou desabilitar a conta de usuário de saudação no sistema de destino de saudação com base em comparação de saudação
 
 ## <a name="next-steps"></a>Próximas etapas
-[Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)''
+[Automatizar o provisionamento de usuário e desprovisionamento tooSaaS aplicativos com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)'

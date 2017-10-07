@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory ao ThousandEyes | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o ThousandEyes."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e ThousandEyes."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,120 +13,120 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 392add7d5f0a55598b8b90760f5c3f2d1e67ac02
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: fbfbfb71809355b1b138762757a851907737730b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Tutorial: Integração do Active Directory do Azure ao ThousandEyes
 
-Neste tutorial, você aprenderá a integrar o ThousandEyes ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como toointegrate ThousandEyes com o Azure Active Directory (AD do Azure).
 
-A integração do ThousandEyes com o Azure AD oferece os seguintes benefícios:
+Integrando ThousandEyes com o AD do Azure fornece Olá benefícios a seguir:
 
-- No Azure AD, é possível controlar quem tem acesso ao ThousandEyes
-- É possível permitir que os usuários entrem automaticamente no ThousandEyes (Logon Único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um única localização: o Portal do Azure
+- Você pode controlar no AD do Azure que tenha acesso tooThousandEyes
+- Você pode habilitar seus usuários tooautomatically get conectado tooThousandEyes (logon único) com suas contas do AD do Azure
+- Você pode gerenciar suas contas em um local central - Olá portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com o ThousandEyes, serão necessários os seguintes itens:
+tooconfigure integração do AD do Azure com ThousandEyes, você precisa Olá itens a seguir:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura do ThousandEyes habilitada para logon único
 
 > [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, será possível obter uma versão de avaliação de um mês aqui: [Oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
 
-1. Adicionar o ThousandEyes da galeria
+1. Adicionando ThousandEyes da Galeria de saudação
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-thousandeyes-from-the-gallery"></a>Adicionar o ThousandEyes da galeria
-Para configurar a integração do ThousandEyes com o Azure AD, é necessário adicionar o ThousandEyes da galeria à sua lista de aplicativos SaaS gerenciados.
+## <a name="adding-thousandeyes-from-hello-gallery"></a>Adicionando ThousandEyes da Galeria de saudação
+integração de saudação tooconfigure do ThousandEyes no AD do Azure, você precisa tooadd ThousandEyes da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
 
-**Para adicionar o ThousandEyes da galeria, siga as seguintes etapas:**
+**tooadd ThousandEyes da Galeria hello, execute Olá etapas a seguir:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
 
     ![Aplicativos][3]
 
-4. Na caixa de pesquisa, digite **ThousandEyes**.
+4. Na caixa de pesquisa hello, digite **ThousandEyes**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_search.png)
 
-5. No painel de resultados, selecione **ThousandEyes** e clique no botão **Adicionar** para adicionar o aplicativo.
+5. No painel de resultados de saudação, selecione **ThousandEyes**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o ThousandEyes, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do ThousandEyes é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no ThousandEyes.
+Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no ThousandEyes é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no ThousandEyes precisa toobe estabelecida.
 
-No ThousandEyes, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+No ThousandEyes, atribuir o valor de saudação do hello **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
 
-Para configurar e testar o logon único do Azure AD com o ThousandEyes, é necessário concluir os seguintes blocos de construção:
+tooconfigure e teste de logon único do AD do Azure com ThousandEyes, é necessário Olá toocomplete blocos de construção a seguir:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criação de um usuário de teste do ThousandEyes](#creating-a-thousandeyes-test-user)** – para ter um equivalente de Brenda Fernandes no ThousandEyes que esteja vinculado à representação de usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
+3. **[Criar um usuário de teste ThousandEyes](#creating-a-thousandeyes-test-user)**  -toohave um equivalente do Britta Simon no ThousandEyes é vinculado toohello AD do Azure representação do usuário.
+4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
+5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único no aplicativo ThousandEyes.
+Nesta seção, você habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo ThousandEyes.
 
-**Para configurar o logon único do Azure AD com o ThousandEyes, siga estas etapas:**
+**tooconfigure AD do Azure-logon único com ThousandEyes, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, na página de integração de aplicativos do **ThousandEyes**, clique em **Logon único**.
+1. Em Olá portal do Azure, Olá **ThousandEyes** página de integração de aplicativos, clique em **o logon único**.
 
     ![Configurar Logon Único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
  
     ![Configurar Logon Único](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_samlbase.png)
 
-3. Na seção **URLs e Domínio do ThousandEyes**, siga estas etapas:
+3. Em Olá **ThousandEyes domínio e URLs** , execute Olá etapas a seguir:
 
     ![Configurar Logon Único](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_url.png)
 
-    Na caixa de texto **URL de Logon**, digite uma URL como: `https://app.thousandeyes.com/login/sso`
+    Em Olá **URL de logon** caixa de texto, digite um URL como:`https://app.thousandeyes.com/login/sso`
 
-4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+4. Em Olá **o certificado de autenticação SAML** seção, clique em **Certificate(Base64)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.
 
-    ![Configurar o logon único](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_certificate.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_certificate.png) 
 
 5. Clique no botão **Salvar** .
 
     ![Configurar Logon Único](./media/active-directory-saas-thousandeyes-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do ThousandEyes**, clique em **Configurar ThousandEyes** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+6. Em Olá **ThousandEyes configuração** seção, clique em **configurar ThousandEyes** tooopen **configurar o logon** janela. Saudação de cópia **URL de logout, ID de entidade de SAML e Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**
 
     ![Configurar Logon Único](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_configure.png) 
 
-7. Em outra janela do navegador da Web, entre em seu site de empresa do **ThousandEyes** como administrador.
+7. Em uma janela de navegador web diferente, logon tooyour **ThousandEyes** site da empresa como um administrador.
 
-8. No menu na parte superior, clique em **Configurações**.
+8. No menu de saudação na parte superior de saudação, clique em **configurações**.
    
     ![Configurações](./media/active-directory-saas-thousandeyes-tutorial/ic790066.png "Configurações")
 
@@ -134,11 +134,11 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
    
     ![Conta](./media/active-directory-saas-thousandeyes-tutorial/ic790067.png "Conta")
 
-10. Clique na guia **Segurança e Autenticação**.
+10. Clique em Olá **segurança & autenticação** guia.
    
     ![Segurança e autenticação](./media/active-directory-saas-thousandeyes-tutorial/ic790068.png "Segurança e autenticação")
 
-11. Na seção **Configurações de Logon Único** , realize as seguintes etapas:
+11. Em Olá **instalação Single Sign-On** , execute Olá etapas a seguir:
    
     ![Configurar o logon único](./media/active-directory-saas-thousandeyes-tutorial/ic790069.png "Configurar o logon único")
   
@@ -150,53 +150,53 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
   
     d. Na caixa de texto **Emissor do Provedor de Identidade**, cole a **ID de Entidade SAML** copiada do Portal do Azure.
   
-    e. Em **Certificado de Verificação**, clique em **Escolher Arquivo** e carregue o certificado que você baixou do Portal do Azure.
+    e. Em **certificado de verificação**, clique em **Escolher arquivo**e, em seguida, carregue o certificado de saudação que baixou do portal do Azure.
   
     f. Clique em **Salvar**.
  
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
 
 ![Criar um usuário do AD do Azure][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
 
-1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
 
-    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-thousandeyes-test-user"></a>Criação de um usuário de teste do ThousandEyes
 
-Para permitir que os usuários do AD do Azure façam logon no ThousandEyes, eles devem ser provisionados no ThousandEyes.  
-No caso do ThousandEyes, o provisionamento é uma tarefa manual.
+Ordem tooenable AD do Azure usuários toolog no ThousandEyes, eles devem ser provisionados no ThousandEyes.  
+No caso de saudação de ThousandEyes, o provisionamento é uma tarefa manual.
 
 >[!NOTE]
->É possível usar qualquer outra ferramenta de criação da conta de usuário do ThousandEyes ou as APIs fornecidas pelo ThousandEyes para provisionar as contas de usuário do Azure Active Directory.
+>Você pode usar qualquer ferramenta de criação outros ThousandEyes usuário conta ou APIs fornecidas pelo ThousandEyes tooprovision Azure Active Directory as contas de usuário.
 
-**Para provisionar uma conta de usuário no ThousandEyes, execute as seguintes etapas:**
+**tooprovision um tooThousandEyes de conta de usuário, execute Olá etapas a seguir:**
 
 1. Faça logon em seu site de empresa ThousandEyes como um administrador.
 
@@ -208,40 +208,40 @@ No caso do ThousandEyes, o provisionamento é uma tarefa manual.
    
     ![Conta](./media/active-directory-saas-thousandeyes-tutorial/IC790067.png "Conta")
 
-4. Clique na guia **Contas e Usuários**.
+4. Clique em Olá **contas & usuários** guia.
    
     ![Contas e usuários](./media/active-directory-saas-thousandeyes-tutorial/IC790073.png "Contas e usuários")
 
-5. Na seção **Adicionar Usuários e Contas**, realize as seguintes etapas:
+5. Em Olá **adicionar usuários e contas** , execute Olá etapas a seguir:
    
     ![Adicionar contas de usuário](./media/active-directory-saas-thousandeyes-tutorial/IC790074.png "Adicionar contas de usuário")   
   
-    a. Na caixa de texto **Nome**, digite o nome do usuário como **Brenda Fernandes**.
+    a. Em **nome** caixa de texto Nome do tipo saudação do usuário como **Britta Simon**.
 
-    b. Na caixa de texto **Email**, digite o email do usuário como **brittasimon@contoso.com**.
+    b. Em **Email** caixa de texto, como o email de saudação do tipo de usuário  **brittasimon@contoso.com** .
    
-    b. Clique em **Adicionar Novo Usuário à Conta**.
+    b. Clique em **tooAccount adicionar novo usuário**.
       
      >[!NOTE]
-     >O titular da conta do Azure Active Directory receberá um email com um link para confirmar e ativar a conta.
+     >proprietário de conta do Active Directory do Azure Hello serão recebe um email incluindo um link tooconfirm e ativar conta hello.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
 
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao ThousandEyes.
+Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooThousandEyes.
 
 ![Atribuir usuário][200] 
 
-**Para atribuir Brenda Fernandes ao ThousandEyes, siga estas etapas:**
+**tooassign Britta Simon tooThousandEyes, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, escolha **ThousandEyes**.
+2. Na lista de aplicativos hello, selecione **ThousandEyes**.
 
     ![Configurar Logon Único](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -249,7 +249,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -257,15 +257,15 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
 
-Ao clicar no bloco ThousandEyes no Painel de Acesso, você deverá entrará automaticamente no seu aplicativo ThousandEyes.
+Quando você clica em Olá ThousandEyes bloco no painel de acesso de saudação, você deve obter tooyour automaticamente conectado no aplicativo ThousandEyes.
 
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Para obter mais informações sobre Olá painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

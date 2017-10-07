@@ -1,6 +1,6 @@
 ---
-title: "Criar aplicativos .NET HDInsight de autenticação não interativa – Azure | Microsoft Docs"
-description: "Saiba como criar aplicativos .NET HDInsight de autenticação não interativa."
+title: "autenticação não interativo de aaaCreate HDInsight .NET applciations - Azure | Microsoft Docs"
+description: "Saiba como toocreate aplicativos de HDInsight .NET de autenticação não interativo."
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -16,48 +16,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
-ms.openlocfilehash: 7821a9e60e60ff01cff06db2a6f216a260c1c41a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5367c160b0146e6b855486b95f363e8fe7f1c98f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-non-interactive-authentication-net-hdinsight-applications"></a>Criar aplicativos .NET HDInsight de autenticação não interativa
-Você pode executar seu aplicativo .NET do Azure HDInsight na própria identidade do aplicativo (não interativo) ou na identidade do usuário conectado do aplicativo (interativo). Para obter um exemplo do aplicativo interativo, consulte [Conectar-se ao Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). Este artigo mostra como criar um aplicativo .NET de autenticação não interativa para se conectar ao Azure e gerenciar o HDInsight.
+Você pode executar seu aplicativo .NET do Azure HDInsight na identidade do aplicativo (não interativo) ou com identidade de saudação do hello assinado no usuário do aplicativo hello (interativo). Para obter um exemplo de aplicativo interativo do hello, consulte [conectar tooAzure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). Este artigo mostra como toocreate autenticação não interativo .NET aplicativo tooconnect tooAzure e gerenciar o HDInsight.
 
 Em seu aplicativo .NET não interativo, você precisa:
 
 * Da sua ID de locatário da assinatura do Azure (também conhecida como ID de diretório). Veja [Obter a ID de locatário](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
-* A ID de cliente do aplicativo do Azure Active Directory. Consulte [Criar um aplicativo do Azure Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) e [Obter uma ID de aplicativo](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
-* A chave secreta do aplicativo do Azure Active Directory. Consulte [Obter chave de autenticação do aplicativo](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
+* ID do cliente de aplicativo do Active Directory do Azure Hello. Consulte [Criar um aplicativo do Azure Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) e [Obter uma ID de aplicativo](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
+* chave secreta do aplicativo do Active Directory do Azure de saudação. Consulte [Obter chave de autenticação do aplicativo](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Cluster HDInsight. Consulte [tutorial de introdução](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 
 
-## <a name="assign-azure-ad-application-to-role"></a>Atribuir o aplicativo do Azure AD à função
-Você deve atribuir o aplicativo a uma [função](../active-directory/role-based-access-built-in-roles.md) para conceder a ele permissões para executar ações. Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissões são herdadas de níveis inferiores do escopo (por exemplo, adicionar um aplicativo à função Leitor de um grupo de recursos significa que ele pode ler o grupo de recursos e todos os recursos que ele contiver). Neste tutorial, você definirá o escopo no nível de grupo de recursos. Para obter mais informações, consulte [Usar atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../active-directory/role-based-access-control-configure.md)
+## <a name="assign-azure-ad-application-toorole"></a>Atribuir toorole de aplicativo do AD do Azure
+Você deve atribuir Olá aplicativo tooa [função](../active-directory/role-based-access-built-in-roles.md) toogrant ela permissões para executar ações. Você pode definir o escopo de saudação no nível de saudação de assinatura de saudação, o grupo de recursos ou o recurso. permissões de saudação são herdadas toolower níveis de escopo (por exemplo, adicionando que uma função de leitor de toohello de aplicativo para um grupo de recursos significa que ela pode ler o grupo de recursos de saudação e os recursos que ele contém). Neste tutorial, você definirá o escopo de saudação no nível do grupo de recursos de saudação. Para obter mais informações, consulte [usar os recursos de assinatura do Azure função atribuições toomanage acesso tooyour](../active-directory/role-based-access-control-configure.md)
 
-**Adicionar a função de Proprietário ao aplicativo do Azure AD**
+**Olá tooadd aplicativo do proprietário função toohello AD do Azure**
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Clique no **Grupo de Recursos** no painel esquerdo.
-3. Clique no grupo de recursos que contém o cluster HDInsight, no qual você executará a consulta Hive posteriormente neste tutorial. Se houver muitos grupos de recursos, você poderá usar o filtro.
-4. Clique em **Controle de acesso (IAM)** no menu do grupo de recursos.
-5. Clique em **Adicionar** na folha **Usuários**.
-6. Siga as instruções para adicionar a função **Proprietário** ao aplicativo do Azure AD que você criou no último procedimento. Ao concluir a tarefa com êxito, você deverá ver o aplicativo listado na folha Usuários com a função de Proprietário.
+1. Entrar toohello [portal do Azure](https://portal.azure.com).
+2. Clique em **grupo de recursos** no painel esquerdo do hello.
+3. Clique em grupo de recursos de saudação que contém o cluster do HDInsight Olá onde você executa a consulta de Hive posteriormente neste tutorial. Se houver muitos grupos de recursos, você pode usar o filtro de saudação.
+4. Clique em **(IAM) do controle de acesso** Olá recursos no menu de grupo.
+5. Clique em **adicionar** de saudação **usuários** folha.
+6. Siga saudação do hello instrução tooadd **proprietário** função toohello aplicativo AD do Azure que você criou no procedimento de última hello. Quando concluir com êxito, você deverá ver o aplicativo hello listado na folha do hello usuários com função de proprietário de saudação.
 
 ## <a name="develop-hdinsight-client-application"></a>Desenvolver aplicativos do cliente HDInsight
 
 1. Criar um aplicativo de console em C#
-2. Adicione os seguintes pacotes NuGet:
+2. Adicione Olá pacotes do Nuget a seguir:
 
         Install-Package Microsoft.Azure.Common.Authentication -Pre
         Install-Package Microsoft.Azure.Management.HDInsight -Pre
         Install-Package Microsoft.Azure.Management.Resources -Pre
 
-3. Use o seguinte exemplo de código:
+3. Use Olá exemplo de código a seguir:
 
         using System;
         using System.Security;
@@ -77,7 +77,7 @@ Você deve atribuir o aplicativo a uma [função](../active-directory/role-based
                 private static Guid SubscriptionId = new Guid("<Enter Your Azure Subscription ID>");
                 private static string tenantID = "<Enter Your Tenant ID (A.K.A. Directory ID)>";
                 private static string applicationID = "<Enter Your Application ID>";
-                private static string secretKey = "<Enter the Application Secret Key>";
+                private static string secretKey = "<Enter hello Application Secret Key>";
         
                 private static void Main(string[] args)
                 {
@@ -100,11 +100,11 @@ Você deve atribuir o aplicativo a uma [função](../active-directory/role-based
                         Console.WriteLine("\t Cluster location: " + name.Location);
                         Console.WriteLine("\t Cluster version: " + name.Properties.ClusterVersion);
                     }
-                    Console.WriteLine("Press Enter to continue");
+                    Console.WriteLine("Press Enter toocontinue");
                     Console.ReadLine();
                 }
 
-                /// Get the access token for a service principal and provided key                
+                /// Get hello access token for a service principal and provided key                
                 public static TokenCloudCredentials GetTokenCloudCredentials(string tenantId, string clientId, SecureString secretKey)
                 {
                     var authFactory = new AuthenticationFactory();

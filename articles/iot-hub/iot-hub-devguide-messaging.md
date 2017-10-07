@@ -1,5 +1,5 @@
 ---
-title: Entender as mensagens do Hub IoT do Azure| Microsoft Docs
+title: mensagens de Azure IoT Hub aaaUnderstand | Microsoft Docs
 description: "Guia do desenvolvedor – Mensagens do dispositivo para a nuvem e da nuvem para o dispositivo com o Hub IoT. Inclui informações sobre formatos de mensagem e protocolos de comunicação com suporte."
 services: iot-hub
 documentationcenter: .net
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.openlocfilehash: f54398d7ac46bf178d2bb603669b399d25370736
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a610741e23e243f392f1c042f9ab4a00d42f734f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="device-to-cloud-and-cloud-to-device-messaging-with-iot-hub"></a>Mensagens de dispositivo para nuvem e nuvem para dispositivo com o Hub IoT
 
-Use mensagens do Hub IoT para se comunicar com os dispositivos da seguinte forma:
+Use IoT Hub mensagens toocommunicate com seus dispositivos por:
 
-* Enviando mensagens de [dispositivo para nuvem][lnk-d2c] de dispositivos para a solução de back-end.
-* Enviando mensagens de [nuvem para dispositivo][lnk-c2d] da solução de back-end para os dispositivos.
+* Enviar [dispositivo para nuvem] [ lnk-d2c] mensagens de sua solução de tooyour dispositivos back-end.
+* Enviar [nuvem para dispositivo] [ lnk-c2d] mensagens de volta a solução Olá terminar tooyour dispositivos.
 
-As propriedades básicas da funcionalidade de mensagens do Hub IoT são a confiabilidade e a durabilidade das mensagens. Essas propriedades habilitam a adaptação à conectividade intermitente no lado do dispositivo e a picos de carga no processamento de eventos no lado da nuvem. O Hub IoT implementa *pelo menos uma vez* as garantias de entrega de mensagens do dispositivo para a nuvem e da nuvem para o dispositivo.
+Propriedades de núcleo da funcionalidade de mensagens de IoT Hub são confiabilidade hello e durabilidade de mensagens. Essas propriedades permitem conectividade de toointermittent resiliência no lado do dispositivo de saudação e tooload picos em processamento no lado da nuvem de saudação de eventos. O Hub IoT implementa *pelo menos uma vez* as garantias de entrega de mensagens do dispositivo para a nuvem e da nuvem para o dispositivo.
 
-Para obter uma introdução aos recursos de Hub IoT, confira os artigos [Azure e Internet das Coisas][lnk-azure-iot] e [Visão geral do serviço do Hub IoT do Azure][lnk-iot-hub-overview].
+Para recursos de toohello uma introdução de IoT Hub, consulte os artigos de saudação [Azure e Internet das coisas] [ lnk-azure-iot] e [visão geral da saudação serviço Azure IoT Hub] [lnk-iot-hub-overview].
 
-## <a name="when-to-use-iot-hub-messaging"></a>Quando usar mensagens do Hub IoT
+## <a name="when-toouse-iot-hub-messaging"></a>Quando mensagens de Hub IoT toouse
 
-Use mensagens de dispositivo para nuvem a fim de enviar alertas e telemetria de série temporal de seu aplicativo de dispositivo e de nuvem para dispositivo no caso de notificações unidirecionais para o aplicativo do dispositivo.
+Use mensagens de dispositivo para nuvem para enviar telemetria de série de tempo e alertas do seu aplicativo de dispositivo e de nuvem para dispositivo para o aplicativo de dispositivo tooyour notificações unidirecional.
 
-* Veja as[diretrizes de comunicação do dispositivo para a nuvem][lnk-d2c-guidance] se está em dúvida entre o uso de mensagens do dispositivo para a nuvem, propriedades reportadas ou carregamento do arquivo.
-* Veja as [diretrizes de comunicação da nuvem para o dispositivo][lnk-c2d-guidance] se está em dúvida entre o uso de mensagens da nuvem para o dispositivo, propriedades desejadas ou métodos diretos.
+* Consulte também[orientação de comunicação do dispositivo para nuvem] [ lnk-d2c-guidance] se em dúvida entre usar mensagens de dispositivo para nuvem, propriedades relatadas ou carregamento de arquivo.
+* Consulte também[orientação de comunicação de nuvem para dispositivo] [ lnk-c2d-guidance] se em dúvida entre o uso diretos métodos, propriedades desejadas ou mensagens de nuvem para dispositivo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

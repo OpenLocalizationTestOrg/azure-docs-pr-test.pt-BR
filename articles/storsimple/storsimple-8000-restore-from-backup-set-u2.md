@@ -1,6 +1,6 @@
 ---
-title: "Restaurar um volume de um backup em um StorSimple série 8000 | Microsoft Docs"
-description: "Explica como usar a página Catálogo de Backup do serviço Gerenciador de Dispositivos do StorSimple para restaurar um volume do StorSimple de um conjunto de backup."
+title: "aaaRestore um volume de backup em uma série StorSimple 8000 | Microsoft Docs"
+description: "Explica como toouse Olá toorestore de catálogo de Backup do serviço de Gerenciador de dispositivos de StorSimple um volume StorSimple um conjunto de backup."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,132 +14,132 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.openlocfilehash: aff0710ead4f76bb80c38e2d88fe9cd3ce6a7b48
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0fe2e4c23a23c75ce4058a8531356c94c973c6f1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restaurar um volume do StorSimple de um conjunto de backup
 
 ## <a name="overview"></a>Visão geral
 
-Este tutorial descreve a operação de restauração executada em um dispositivo StorSimple série 8000 usando um conjunto de backup existente. Use a folha **Catálogo de backup** para restaurar um volume de um backup local ou na nuvem. A folha **Catálogo de Backup** exibe todos os conjuntos de backup criados quando são realizados backups manuais ou automatizados. A operação de restauração de um conjunto de backup coloca o volume online imediatamente enquanto dados são baixados em segundo plano.
+Este tutorial descreve a operação de restauração Olá executada em um dispositivo da série StorSimple 8000 usando um conjunto de backup existente. Saudação de uso **catálogo de Backup** folha toorestore um volume de um local ou backup na nuvem. Olá **catálogo de Backup** folha exibe todos os conjuntos de backup de saudação que são criados quando os backups manuais ou automatizados são feitos. a operação de um conjunto de backup restauração Olá coloca o volume de saudação online imediatamente, enquanto dados são baixados no plano de fundo de saudação.
 
-Um método alternativo para iniciar a restauração é ir para **Dispositivos > [Seu dispositivo] > Volumes**. Na folha **Volumes**, selecione um volume, clique com o botão direito do mouse para invocar o menu de contexto e, em seguida, selecione **Restaurar**.
+Restauração de toostart um método alternativo é toogo muito**dispositivos > [seu dispositivo] > Volumes**. Em Olá **Volumes** folha, selecione um volume, tooinvoke Olá menu de contexto e, em seguida, selecione **restauração**.
 
 ## <a name="before-you-restore"></a>Antes de restaurar
 
-Antes de iniciar uma restauração, examine as seguintes advertências:
+Antes de iniciar uma restauração, revise Olá condições a seguir:
 
-* **É necessário colocar o volume offline** – Coloque o volume offline no host e no dispositivo antes de iniciar a operação de restauração. Embora a operação de restauração coloque automaticamente o volume online no dispositivo, você deve colocar o dispositivo online manualmente no host. Você pode colocar o volume online no host, assim que o volume estiver online no dispositivo. (Não é necessário aguardar até que a operação de restauração seja concluída.) Para obter os procedimentos, acesse [Colocar um volume offline](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline).
+* **Você deve colocar o volume de saudação offline** – coloque o volume de saudação offline em ambos os hosts hello e Olá dispositivo antes de você iniciar a operação de restauração de saudação. Embora a operação de restauração Olá automaticamente coloca o volume de saudação online no dispositivo hello, você deverá colocar manualmente dispositivo Olá on-line no host de saudação. Você pode colocar o volume Olá on-line no host hello como volume hello está online no dispositivo de saudação. (Você não precisa toowait até a conclusão da operação de restauração hello.) Para procedimentos, vá muito[colocar um volume offline](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline).
 
-* **Tipo de volume após a restauração** – Os volumes excluídos são restaurados com base no tipo do instantâneo; ou seja, volumes que foram fixados localmente são restaurados como volumes fixados localmente e volumes que estavam organizados em camadas são restaurados como volumes em camadas.
+* **O tipo de volume após a restauração** – volumes excluídos são restaurados com base no tipo de saudação no instantâneo Olá; ou seja, volumes que foram localmente fixados serão restaurados como volumes localmente afixados e volumes que foram organizadas em camadas são restaurados como volumes em camadas.
 
-    Para os volumes existentes, o tipo de uso atual do volume substitui o tipo que é armazenado no instantâneo. Por exemplo, se você restaurar um volume de um instantâneo tirado quando o tipo de volume estava em camadas e esse tipo de volume agora está fixado localmente (devido a uma operação de conversão realizada), o volume será restaurado como um volume fixado localmente. Da mesma forma, se um volume fixado localmente existente foi expandido e, mais tarde, restaurado de um instantâneo mais antigo tirado quando o volume era menor, o volume restaurado manterá o tamanho expandido atual.
+    Para os volumes existentes, tipo de uso atual saudação do volume Olá substitui tipo de saudação que é armazenado no instantâneo de saudação. Por exemplo, se você restaurar um volume de um instantâneo que foi feito quando o tipo de volume Olá foi hierárquico e que tipo de volume agora é localmente fixados (devido a operação de conversão de tooa que foi executada), volume de saudação será restaurado como um volume localmente afixado. Da mesma forma, se um volume localmente afixado existente foi expandido e subsequentemente restaurado a partir de um instantâneo mais antigo executado quando o volume de saudação era menor, hello volume restaurado manterão tamanho expandido atual de saudação.
 
-    Não é possível converter um volume de um volume em camadas para um volume fixado localmente ou de um volume fixado localmente para um volume em camadas enquanto o volume está sendo restaurado. Aguarde até que a operação de restauração seja concluída para poder converter o volume em outro tipo. Para obter informações sobre como converter um volume, vá para [Alterar o tipo de volume](storsimple-8000-manage-volumes-u2.md#change-the-volume-type). 
+    Não é possível converter um volume de um volume do volume em camadas tooa fixado localmente ou de um volume localmente afixado tooa hierárquico volume enquanto o volume de hello está sendo restaurado. Aguarde até que a conclusão da operação de restauração hello e, em seguida, você pode converter o tipo de tooanother de volume Olá. Para obter informações sobre como converter um volume, vá muito[alterar o tipo de volume Olá](storsimple-8000-manage-volumes-u2.md#change-the-volume-type). 
 
-* **O tamanho do volume é refletido no volume restaurado** – Essa é uma consideração importante se estiver restaurando um volume fixado localmente que foi excluído (já que os volumes localmente fixados são totalmente provisionados). Certifique-se de que você tem espaço suficiente antes de tentar restaurar um volume fixado localmente que foi excluído antes.
+* **Olá tamanho do volume é refletido no volume Olá restaurado** – essa é uma consideração importante, se você estiver restaurando um volume localmente afixado que foi excluído (porque os volumes localmente afixados totalmente provisionados). Certifique-se de que você tem espaço suficiente antes de tentar toorestore um volume localmente afixado que tenha sido excluído anteriormente.
 
-* **Não é possível expandir um volume enquanto ele está sendo restaurado** – Aguarde até que a operação de restauração seja concluída antes de tentar expandir o volume. Para obter informações sobre como expandir um volume, vá para [Modificar um volume](storsimple-8000-manage-volumes-u2.md#modify-a-volume).
+* **Você não pode expandir um volume enquanto ele está sendo restaurado** – Aguarde até que a operação de restauração Olá for concluída antes de tentar tooexpand volume de saudação. Para obter informações sobre como expandir um volume, vá muito[modificar um volume](storsimple-8000-manage-volumes-u2.md#modify-a-volume).
 
-* **Será possível executar um backup enquanto restaurar um volume local** – Para ver os procedimentos, acesse [Usar o serviço Gerenciador de Dispositivos do StorSimple para gerenciar políticas de backup](storsimple-8000-manage-backup-policies-u2.md).
+* **Você pode executar um backup enquanto você restaurar um volume local** – para procedimentos, vá muito[usar políticas de backup do hello Gerenciador de dispositivos do StorSimple service toomanage](storsimple-8000-manage-backup-policies-u2.md).
 
-* **Você pode cancelar uma operação de restauração** – Se você cancelar o trabalho de restauração, o volume será revertido para seu estado anterior à operação de restauração. Para obter os procedimentos, vá para [Cancelar um trabalho](storsimple-8000-manage-jobs-u2.md#cancel-a-job).
+* **Você pode cancelar uma operação de restauração** – se você cancelar trabalho de restauração hello, volume de saudação será revertida toohello estado que estava antes de você iniciou a operação de restauração de saudação. Para procedimentos, vá muito[cancelar um trabalho](storsimple-8000-manage-jobs-u2.md#cancel-a-job).
 
 ## <a name="how-does-restore-work"></a>Como restaurar o trabalho
 
-Para dispositivos que estão executando a Atualização 4 ou posterior, uma restauração baseada em mapa de calor é implementada. Quando as solicitações do host para acessar os dados chegam no dispositivo, essas solicitações são rastreadas e um mapa de calor é criado. Uma taxa de solicitação alta resulta em partes de dados com mais calor, enquanto uma taxa de solicitação menor é convertida em partes com menos calor. Você deve acessar os dados pelo menos duas vezes para que eles sejam marcados como _quentes_. Um arquivo que é modificado também é marcado como _quente_. Depois de iniciar a restauração, ocorre uma hidratação proativa de dados com base no mapa de calor. Para versões anteriores à Atualização 4, os dados são baixados durante a restauração com base somente no acesso.
+Para dispositivos que estão executando a Atualização 4 ou posterior, uma restauração baseada em mapa de calor é implementada. Como Olá host solicitações tooaccess dados atingirem o dispositivo hello, essas solicitações são rastreadas e um mapa de calor é criado. Alta taxa de resulta em blocos de dados com maior calor enquanto menor taxa de solicitação converte toochunks com calor inferior. Você deve acessar Olá dados pelo menos duas vezes toobe marcado como _hot_. Um arquivo que é modificado também é marcado como _quente_. Quando você iniciar a restauração hello, pró-ativo hidratação de dados ocorre com base no mapa de calor de saudação. Para versões anteriores à atualização 4, dados saudação são baixados durante a restauração com base no acesso somente.
 
-As advertências a seguir são aplicáveis a restaurações baseadas em mapa de calor:
+Olá condições a seguir se aplicam a restaurações de tooheatmap:
 
 * O acompanhamento de mapa de calor é habilitado somente para volumes em camadas e não há suporte para volumes fixados localmente.
 
-* Não há suporte para a restauração baseada em mapa de calor ao clonar um volume para outro dispositivo. 
+* Não há suporte para restauração baseada em mapa de calor ao clonar um volume tooanother dispositivo. 
 
-* Se houver uma restauração local, e existir um instantâneo local para o volume a ser restaurado no dispositivo, não reidrataremos (pois os dados já estão disponíveis localmente). 
+* Se houver uma restauração no local e um instantâneo local para Olá volume toobe restaurado existe no dispositivo hello, em seguida, nós não realimentar (como os dados já estão disponíveis localmente). 
 
-* Por padrão, quando você restaura, os trabalhos de reidratação começam e reidratam proativamente os dados com base no mapa de calor. 
+* Por padrão, quando você restaurar, Olá reidratação trabalhos são iniciados que proativamente realimentar dados com base no mapa de calor de saudação. 
 
-Na Atualização 4, os cmdlets do Windows PowerShell podem ser usados para consultar trabalhos reidratação em execução, cancelar um trabalho de reidratação e obter o status do trabalho de reidratação.
+Na atualização 4, cmdlets do Windows PowerShell podem ser usado tooquery reidratação trabalhos em execução, cancelar um trabalho de reidratação e obter o status de saudação do trabalho de reidratação hello.
 
-* `Get-HcsRehydrationJob` - Este cmdlet obtém o status do trabalho de reidratação. Um único trabalho de reidratação é disparado para um volume.
+* `Get-HcsRehydrationJob`-Este cmdlet obtém o status de saudação do trabalho de reidratação hello. Um único trabalho de reidratação é disparado para um volume.
 
-* `Set-HcsRehydrationJob` - Este cmdlet permite que você pause, interrompa, continue o trabalho de reidratação, quando a reidratação estiver em andamento.
+* `Set-HcsRehydrationJob`-Este cmdlet permite toopause, interromper, continuar Olá reidratação trabalho quando reidratação hello está em andamento.
 
-Para saber mais sobre como usar esse cmdlet, acesse [Referência de cmdlets do Windows PowerShell para StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
+Para obter mais informações sobre os cmdlets reidratação, vá muito[referência de cmdlet do Windows PowerShell para StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
-Com a reidratação automática, espera-se um desempenho de leitura transitório normalmente mais alto. A magnitude real dos aprimoramentos depende de vários fatores, como o padrão de acesso, variação de dados e tipo de dados. 
+Com a reidratação automática, espera-se um desempenho de leitura transitório normalmente mais alto. saudação magniutde real das melhorias depende de vários fatores, como o padrão de acesso, a variação de dados e tipo de dados. 
 
-Para cancelar um trabalho de reidratação, use o cmdlet do PowerShell. Se você desejar desabilitar permanentemente os trabalhos de reidratação para todas as restaurações futuras, contate o [Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
+toocancel um trabalho reidratação, você pode usar o cmdlet do PowerShell hello. Se você quiser trabalhos de reidratação desabilitar toopermanently para todos os Olá restaurações futuras, [entre em contato com o Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
-## <a name="how-to-use-the-backup-catalog"></a>Como usar o catálogo de backup
+## <a name="how-toouse-hello-backup-catalog"></a>Como toouse Olá catálogo de backup
 
-A folha **Catálogo de Backup** oferece uma consulta que ajuda a restringir sua seleção de conjunto de backup. Você pode filtrar os conjuntos de backup recuperados com base nos seguintes parâmetros:
+Olá **catálogo de Backup** folha fornece uma consulta que ajuda você a toonarrow sua seleção de conjunto de backup. Você pode filtrar Olá conjuntos de backup que são recuperados com base em Olá parâmetros a seguir:
 
-* **Intervalo de tempo** – O intervalo de datas e horas em que o conjunto de backup foi criado.
-* **Dispositivo** – O dispositivo no qual o conjunto de backup foi criado.
-* **Política de backup** ou **Volume** – A política de backup ou volume associado a este conjunto de backup.
+* **Intervalo de tempo** – Olá intervalo de data e hora quando o conjunto de backup Olá foi criado.
+* **Dispositivo** – dispositivo Olá no qual Olá o conjunto de backup foi criado.
+* **Política de backup** ou **Volume** – Olá a política de backup ou volume associado a este conjunto de backup.
 
-Os conjuntos de backup filtrados são então tabulados com base nos seguintes atributos:
+Olá conjuntos de backup filtrados são então tabulados com base em Olá seguintes atributos:
 
-* **Nome** – O nome da política de backup ou do volume associada a este conjunto de backup.
-* **Tipo** – Conjuntos de Backup podem ser instantâneos locais ou instantâneos de nuvem. Um instantâneo local é um backup de todos os dados do volume armazenadas localmente no dispositivo, enquanto um instantâneo de nuvem refere-se ao backup dos dados do volume que residem na nuvem. Instantâneos locais fornecem acesso mais rápido, enquanto os instantâneos de nuvem são escolhidos para resiliência de dados.
-* **Tamanho** – O tamanho real do conjunto de backup.
-* **Criado em** – O intervalo de data e hora quando os backups foram criados. 
-* **Volumes** – O número de volumes associados ao conjunto de backup.
-* **Iniciado** – Os backups podem ser iniciados de forma automática, de acordo com uma agenda ou de forma manual por um usuário. (Você pode usar uma política de backup para agendar backups. Ou é possível usar a opção **Fazer backup** para fazer um backup interativo ou sob demanda).
+* **Nome** – hello nome de política de backup hello ou volumes associados ao conjunto de backup hello.
+* **Tipo** – Conjuntos de Backup podem ser instantâneos locais ou instantâneos de nuvem. Um instantâneo local é um backup de todos os dados de volume armazenados localmente no dispositivo hello, enquanto um instantâneo de nuvem se refere a toohello backup dos dados de volume que residem na nuvem de saudação. Instantâneos locais fornecem acesso mais rápido, enquanto os instantâneos de nuvem são escolhidos para resiliência de dados.
+* **Tamanho** – Olá tamanho real do conjunto de backup hello.
+* **Criado em** – a data de saudação e a hora quando foram criados backups hello. 
+* **Volumes** -Olá número de volumes associados ao conjunto de backup hello.
+* **Iniciada** – backups Olá podem ser iniciados automaticamente de acordo com o agendamento de tooa ou manualmente por um usuário. (Você pode usar backups de tooschedule uma política de backup. Como alternativa, você pode usar o hello **fazer backup** tootake opção um backup interativo ou sob demanda.)
 
-## <a name="how-to-restore-your-storsimple-volume-from-a-backup"></a>Como restaurar o volume StorSimple de um backup
+## <a name="how-toorestore-your-storsimple-volume-from-a-backup"></a>Como toorestore seu volume StorSimple de um backup
 
-É possível usar a folha **Catálogo de Backup** para restaurar o volume do StorSimple de um backup específico. No entanto, tenha em mente que a restauração de um volume reverterá o volume ao estado em que ele estava quando o backup foi feito. Todos os dados adicionados após a operação de backup serão perdidos.
+Você pode usar o hello **catálogo de Backup** toorestore folha seu volume StorSimple de um backup específico. Lembre-se, no entanto, que a restauração de um volume será revertido Olá volume toohello estado quando foi feito backup de saudação. Os dados que foi adicionados após a operação de backup hello serão perdidos.
 
 > [!WARNING]
-> A restauração de um backup substituirá os volumes existentes do backup. Isso pode causar a perda de todos os dados gravados depois que o backup tiver sido feito.
+> Restauração de um backup substituirá os volumes existentes de backup Olá Olá. Isso pode causar perda de saudação de todos os dados gravados após Olá backup foi feito.
 
 
-### <a name="to-restore-your-volume"></a>Para restaurar seu volume
-1. Acesse o serviço do Gerenciador de Dispositivos do StorSimple e clique em **Catálogo de Backup**.
+### <a name="toorestore-your-volume"></a>toorestore seu volume
+1. Serviço de Gerenciador de dispositivos de StorSimple tooyour go e, em seguida, clique em **catálogo de Backup**.
 
 2. Selecione um conjunto de backup desta maneira:
    
-   1. Especifique o intervalo de tempo.
-   2. Selecione o dispositivo adequado.
-   3. Na lista suspensa, escolha o volume ou a política de backup para o backup que você deseja selecionar.
-   4. Clique em **Aplicar** para executar esta consulta.
+   1. Especifique o intervalo de tempo de saudação.
+   2. Selecione dispositivo de saudação apropriado.
+   3. Na lista suspensa de saudação, escolha política de backup ou volume Olá para backup de saudação que você deseja tooselect.
+   4. Clique em **aplicar** tooexecute esta consulta.
 
-    Os backups associados ao volume ou à política de backup selecionada devem aparecer na lista de conjuntos de backup.
+    Hello backups associados à política de backup ou volume Olá selecionado devem aparecer na lista de saudação de conjuntos de backup.
    
     ![Lista de conjunto de backup](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
      
-3. Expanda o conjunto de backup para exibir os volumes associados. Esses volumes devem ficar offline no host e no dispositivo antes que você possa restaurá-los. Acesse os volumes na folha **Volumes** do seu dispositivo e siga as etapas em [Colocar um volume offline](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) para colocá-los offline.
+3. Expanda Olá conjunto de backup tooview Olá associado volumes. Esses volumes devem ser colocados offline no host hello e no dispositivo antes de restaurá-los. Acessar volumes Olá Olá **Volumes** folha do seu dispositivo e, em seguida, siga Olá etapas [colocar um volume offline](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) tootake-los offline.
    
    > [!IMPORTANT]
-   > Verifique se você colocou os volumes offline primeiro no host antes de colocar os volumes offline no dispositivo. Se você não colocar os volumes offline no host, poderá ocorrer corrupção nos dados.
+   > Certifique-se de que você colocou Olá volumes offline no host Olá primeiro, antes de colocar Olá volumes offline no dispositivo de saudação. Se você não colocar volumes de Olá offline no host hello, isso pode levar potencialmente toodata corrupção.
    
-4. Navegue de volta para a guia **Catálogo de Backup** e selecione um conjunto de backup. Clique com botão direito do mouse e, no menu de contexto, selecione **Restaurar**.
+4. Navegue back toohello **catálogo de Backup** guia e selecione um conjunto de backup. Com o botão direito e, em seguida, no menu de contexto hello, selecione **restauração**.
 
     ![Lista de conjunto de backup](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
 
-5. Será solicitada a sua confirmação. Examine as informações de restauração e marque a caixa de seleção de confirmação.
+5. Será solicitada a sua confirmação. Saudação de revisão restaurar as informações e, em seguida, selecione caixa de seleção de confirmação de saudação.
    
     ![Página de confirmação](./media/storsimple-8000-restore-from-backup-set-u2/restorebu2.png)
 
-7.  Clique em **Restaurar**. Isso iniciará um trabalho de restauração que poderá ser exibido acessando a página **Trabalhos**.
+7.  Clique em **Restaurar**. Isso inicia um trabalho de restauração que você pode exibir acessando Olá **trabalhos** página.
 
     ![Página de confirmação](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
-8. Após a conclusão da restauração, verifique se o conteúdo de seus volumes foi substituído pelos volumes do backup.
+8. Após a conclusão da restauração Olá, verifique se conteúdo Olá de seus volumes é substituído por volumes de backup de saudação.
 
 
-## <a name="if-the-restore-fails"></a>Se a restauração falhar
+## <a name="if-hello-restore-fails"></a>Se restaurar Olá falhar
 
-Você receberá um alerta se a operação de restauração falhar por qualquer motivo. Atualize a lista de backup para verificar se o backup ainda é válido. Se o backup for válido e você estiver restaurando da nuvem, problemas de conectividade podem estar causando o problema.
+Você receberá um alerta se haverá falha na operação de restauração Olá por qualquer motivo. Se isso ocorrer, tooverify de lista de backup do hello atualização Olá backup ainda é válido. Se Olá backup é válido e você estiver restaurando de nuvem Olá, em seguida, problemas de conectividade podem estar causando Olá problema.
 
-Para concluir a operação de restauração, coloque o volume offline no host e repita a operação de restauração. Observe que quaisquer modificações no volume de dados executadas durante o processo de restauração serão perdidas.
+Olá toocomplete operação de restauração, coloque o volume de saudação offline no host hello e repita a operação de restauração de saudação. Observe que quaisquer dados de volume toohello modificações que foram executados durante a saudação processo de restauração serão perdida.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba como [Gerenciar volumes do StorSimple](storsimple-8000-manage-volumes-u2.md).
-* Saiba como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
+* Saiba como muito[StorSimple gerenciar volumes](storsimple-8000-manage-volumes-u2.md).
+* Saiba como muito[use Olá tooadminister de serviço do Gerenciador de dispositivos de StorSimple seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

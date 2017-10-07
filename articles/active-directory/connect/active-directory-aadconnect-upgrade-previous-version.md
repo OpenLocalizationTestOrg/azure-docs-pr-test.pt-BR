@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Connect: atualizar de uma versão anterior | Microsoft Docs"
-description: "Explica os diferentes métodos para atualizar para a versão mais recente do Azure Active Directory Connect, incluindo a atualização in-loco e a migração swing."
+description: "Explica Olá diferentes métodos tooupgrade toohello versão mais recente do Azure Active Directory Connect, incluindo uma atualização in-loco e uma migração de movimento."
 services: active-directory
 documentationcenter: 
 author: AndKjell
@@ -14,104 +14,104 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 52fd9375c71c42feaf87f4a0f4220e1cb3889e63
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 57bd5b094654e4983cafa303b6f3daecadafb01c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: atualização de uma versão anterior para a mais recente
-Este tópico descreve os diferentes métodos que você pode usar para atualizar sua instalação do Azure Active Directory (Azure AD) Connect para a versão mais recente. Recomendamos que você se mantenha atualizado com as versões do Azure AD Connect. Também é possível usar as etapas descritas na seção [migração Swing](#swing-migration) ao fazer uma alteração significativa na configuração.
+# <a name="azure-ad-connect-upgrade-from-a-previous-version-toohello-latest"></a>Do Azure AD Connect: A atualização de toohello uma versão anterior mais recente
+Este tópico descreve métodos diferentes de saudação que você pode usar tooupgrade sua versão mais recente do Connect do Azure Active Directory (AD do Azure) instalação toohello. É recomendável que você mantenha-se atualizado com as versões de saudação do Azure AD Connect. Você também usar etapas Olá Olá [gire migração](#swing-migration) seção quando você alterar uma configuração significativa.
 
-Se você quiser atualizar do DirSync, confira [Atualizar da ferramenta de sincronização do Azure AD (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md).
+Se você quiser tooupgrade do DirSync, consulte [atualização da ferramenta de sincronização do AD do Azure (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) em vez disso.
 
-Há algumas estratégias diferentes que podem ser usadas para atualizar o Azure AD Connect.
+Há algumas estratégias diferentes que você pode usar tooupgrade do Azure AD Connect.
 
 | Método | Descrição |
 | --- | --- |
-| [Atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) |Para clientes com uma instalação expressa, esse é o método mais simples. |
-| [Atualização in-loco](#in-place-upgrade) |Se você tiver apenas um servidor, é possível atualizar a instalação in-loco no mesmo servidor. |
-| [Migração swing](#swing-migration) |Com dois servidores, é possível preparar um dos servidores com a nova versão ou configuração e alterar o servidor ativo quando você estiver pronto. |
+| [Atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) |Este é o método mais fácil de saudação para clientes com uma instalação expressa. |
+| [Atualização in-loco](#in-place-upgrade) |Se você tiver um único servidor, você pode atualizar Olá instalação local no mesmo servidor de hello. |
+| [Migração swing](#swing-migration) |Com dois servidores, você pode preparar um dos servidores de saudação com a nova versão de hello ou configuração e alterar o servidor ativo hello quando você estiver pronto. |
 
-Para informações sobre permissões, consulte as [permissões necessárias para uma atualização](active-directory-aadconnect-accounts-permissions.md#upgrade).
+Para obter informações de permissões, consulte Olá [permissões necessárias para uma atualização](active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 > [!NOTE]
-> Depois que você tiver ativado o novo servidor do Azure AD Connect para iniciar a sincronização de alterações para o Azure AD, não deverá reverter usando o DirSync ou o Azure AD Sync. Fazer downgrade do Azure AD Connect para clientes herdados, incluindo o DirSync e o Azure AD Sync, não tem suporte e pode levar a problemas como a perda de dados no Azure AD.
+> Depois de habilitar a sua nova conexão do AD do Azure server toostart sincronizando alterações tooAzure AD, não reverta toousing DirSync ou o Azure AD Sync. Downgrade de clientes de toolegacy de conexão do AD do Azure, incluindo o DirSync e sincronização do AD do Azure, não é suportado e pode levar tooissues como perda de dados no AD do Azure.
 
 ## <a name="in-place-upgrade"></a>Atualização in-loco
 Uma atualização in-loco funciona para mudar do Azure AD Sync ou do Azure AD Connect. Ele não funcionará para a migração do DirSync ou para uma solução com o FIM (Forefront Identity Manager) + Azure AD Connector.
 
-Esse será o método preferencial quando você tiver um único servidor e menos de cerca de 100.000 objetos. Se houver várias alterações nas regras de sincronização prontas para uso, uma importação completa e uma sincronização completa ocorrerão após a atualização. Esse método assegura que a nova configuração seja aplicada a todos os objetos existentes no sistema. Essa execução pode levar algumas horas, dependendo do número de objetos no escopo do mecanismo de sincronização. O agendador da sincronização delta normal (que, por padrão, sincroniza a cada 30 minutos), será suspensa, mas a sincronização de senha continuará. Você pode considerar fazer a atualização in-loco durante um final de semana. Se não houver nenhuma alteração na configuração pronta para uso com a nova versão do Azure AD Connect, uma importação/sincronização delta normal será iniciada em vez disso.  
+Esse será o método preferencial quando você tiver um único servidor e menos de cerca de 100.000 objetos. Se houver alterações de regras de sincronização de fora da caixa de toohello, uma importação completa e sincronização completa ocorrerem após a atualização de saudação. Esse método garante que Olá nova configuração é aplicada tooall os objetos existentes no sistema de saudação. Essa execução pode levar algumas horas, dependendo do número de saudação de objetos que estão no escopo do mecanismo de sincronização de saudação. Agendador de sincronização delta normal da saudação (que sincroniza a cada 30 minutos por padrão) é suspenso, mas continua a sincronização de senha. Você pode considerar fazer atualização in-loco de saudação durante um fim de semana. Se não houver nenhuma configuração de fora da caixa de toohello alterações com versão de conectar Olá novo AD do Azure, em seguida, um normal importação/sincronização delta inicia em vez disso.  
 ![Atualização in-loco](./media/active-directory-aadconnect-upgrade-previous-version/inplaceupgrade.png)
 
-Se você tiver feito alterações nas regras de sincronização prontas, essas regras serão definidas para a configuração padrão na atualização. Para certificar-se de que sua configuração seja mantida entre as atualizações, verifique se as alterações foram feitas como descrito em [Práticas recomendadas para alterar a configuração padrão](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
+Se você tiver feito alterações regras de sincronização de fora da caixa de toohello, em seguida, essas regras estiverem definidas volta configuração padrão de toohello na atualização. toomake-se de que sua configuração é mantida entre atualizações, certifique-se de que você faça alterações conforme eles são descritos em [as práticas recomendadas para alterar a configuração padrão de saudação](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
 
-Durante a atualização in-loco, poderá haver alterações introduzidas que exijam que atividades de sincronização específicas (incluindo as etapas de importação completa e sincronização completa) sejam executadas após a conclusão da atualização. Para adiar tais atividades, consulte a seção [Como adiar a sincronização completa após a atualização](#how-to-defer-full-synchronization-after-upgrade).
+Durante a atualização in-loco, pode haver alterações que requerem sincronização específica toobe de atividades (incluindo as etapas de importação completa e sincronização completa) executado após a conclusão da atualização. toodefer tais atividades, consulte toosection [como toodefer completo sincronização após a atualização](#how-to-defer-full-synchronization-after-upgrade).
 
 ## <a name="swing-migration"></a>Migração swing
-Se você tiver uma implantação complexa ou muitos objetos, talvez seja impossível fazer uma atualização in-loco do sistema dinâmico. Para alguns clientes, o processo poderá levar vários dias e, durante esse tempo, nenhuma alteração delta será processada. Você também pode usar esse método quando planejar fazer alterações significativas em sua configuração e quiser experimentá-las antes de enviá-las por push para a nuvem.
+Se você tiver uma implantação complexa ou muitos objetos, pode ser impraticável toodo uma atualização no local no sistema ao vivo hello. Para alguns clientes, o processo poderá levar vários dias e, durante esse tempo, nenhuma alteração delta será processada. Você também pode usar esse método quando você planejar a configuração de tooyour de alterações substanciais toomake e você deseja tootry-los out antes que elas são enviadas toohello nuvem.
 
-O método recomendado para estes cenários é usar uma migração swing. Você precisa de (pelo menos) dois servidores, um servidor ativo e um de preparo. O servidor ativo (exibido com linhas azuis sólidas na imagem abaixo) será responsável pela carga de produção ativa. O servidor de preparo (mostrado com linhas tracejadas roxas) está preparado com a nova versão ou configuração. Quando estiver totalmente pronto, esse servidor ficará ativo. O servidor ativo anterior, agora com a versão ou configuração antiga instalada, se tornará o servidor de preparo e será atualizado.
+Olá recomendado método para esses cenários é toouse uma migração de movimento. Você precisa de (pelo menos) dois servidores, um servidor ativo e um de preparo. servidor ativo de saudação (mostrado com linhas azuis sólidas em Olá figura abaixo) é responsável pela carga de produção ativo hello. saudação (mostrado com tracejadas roxas) do servidor de preparo está preparada com a nova versão de hello ou configuração. Quando estiver totalmente pronto, esse servidor ficará ativo. Olá anterior active server, que agora tem hello configuração instalado ou versão antiga, é feita no servidor de preparo Olá e é atualizado.
 
-Os dois servidores podem usar versões diferentes. Por exemplo, o servidor ativo que você planeja desativar pode usar o Azure AD Sync e o novo servidor de preparo pode usar o Azure AD Connect. Se você usar a migração swing para desenvolver uma nova configuração, será uma boa ideia ter as mesmas versões nos dois servidores.  
+dois servidores de saudação podem usar diferentes versões. Por exemplo, o servidor ativo de saudação que você planeje toodecommission pode usar o Azure AD Sync e novo servidor de preparo Olá pode usar o Azure AD Connect. Se você usar o giro migração toodevelop uma nova configuração, ela é uma boa ideia toohave Olá mesmas versões em Olá dois servidores.  
 ![Servidor de preparo](./media/active-directory-aadconnect-upgrade-previous-version/stagingserver1.png)
 
 > [!NOTE]
-> Alguns clientes preferem ter três ou quatro servidores para este cenário. Quando o servidor de preparo é atualizado, você não tem um servidor de backup para a [recuperação de desastres](active-directory-aadconnectsync-operations.md#disaster-recovery). Com três ou quatro servidores, pode ser preparar um conjunto de servidores principais/em espera com a nova versão, garantindo que sempre haverá um servidor de preparo pronto para assumir o controle.
+> Alguns clientes preferem toohave três ou quatro servidores para este cenário. Quando Olá servidor de preparo é atualizado, você não tiver um servidor de backup para [a recuperação de desastres](active-directory-aadconnectsync-operations.md#disaster-recovery). Com três ou quatro servidores, você pode preparar um conjunto de servidores de principal/standby Olá nova versão, que garante que haja sempre um servidor de preparo está pronto tootake acima.
 
-Estas etapas também funcionam para mudar do Azure AD Sync ou de uma solução com o FIM + Azure AD Connector. Estas etapas não funcionam para o DirSync, mas o mesmo método de migração swing (também chamado de implantação paralela) com as etapas para o DirSync pode ser encontrado em [Atualizar a sincronização do Azure Active Directory (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md).
+Essas etapas de trabalho também toomove de sincronização do AD do Azure ou uma solução com FIM + conector AD do Azure. Essas etapas não funcionam para DirSync, mas Olá mesmo movimento método de migração (também chamado de implantação paralela) com as etapas para DirSync está em [sincronização de atualizar o Active Directory do Azure (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md).
 
-### <a name="use-a-swing-migration-to-upgrade"></a>Usar uma migração swing para atualizar
-1. Se você usar o Azure AD Connect nos dois servidores e planejar fazer apenas uma alteração de configuração, certifique-se de que o servidor ativo e o servidor de preparo estejam usando a mesma versão. Isso facilita a comparação de diferenças mais tarde. Se você estiver atualizando do Azure AD Sync, esses servidores terão versões diferentes. Se você estiver atualizando de uma versão anterior do Azure AD Connect, é uma boa ideia começar com os dois servidores usando a mesma versão, mas isso não é obrigatório.
-2. Se você tiver feito alguma configuração personalizada e o servidor de preparo não a tiver, siga as etapas em [Mover a configuração personalizada do servidor ativo para o de preparo](#move-custom-configuration-from-active-to-staging-server).
-3. Se estiver atualizando de uma versão anterior do Azure AD Connect, atualize o servidor de preparo para a versão mais recente. Se estiver movendo do Azure AD Sync, instale o Azure AD Connect em seu servidor de preparo.
-4. Permita que o mecanismo de sincronização execute a importação completa e a sincronização completa em seu servidor de preparo.
-5. Verifique se a nova configuração não causou alterações inesperadas usando as etapas descritas em “Verificar” em [Verificar a configuração de um servidor](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server). Se algo não acontecer conforme o esperado, siga as etapas para corrigir, executar a importação e a sincronização e verificar os dados até que eles fiquem corretos.
-6. Altere o servidor de preparo para que ele passe a ser o servidor ativo. Esta é a etapa final de “Alterar o servidor ativo” em [Verificar a configuração de um servidor](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server).
-7. Se estiver atualizando do Azure AD Connect, atualize o servidor que está no modo de preparo para a versão mais recente. Siga as mesmas etapas anteriores para atualizar os dados e a configuração. Se estiver atualizando do Azure AD Sync, agora você poderá desativar e encerrar o servidor antigo.
+### <a name="use-a-swing-migration-tooupgrade"></a>Usar um tooupgrade de migração de movimento
+1. Se você usar o Azure AD Connect em servidores e verifique tooonly de plano uma alteração de configuração, certifique-se de que o servidor ativo e o servidor de preparo estiverem usando Olá a mesma versão. Que torna mais fácil diferenças de toocompare mais tarde. Se você estiver atualizando do Azure AD Sync, esses servidores terão versões diferentes. Se você estiver atualizando de uma versão anterior do Azure AD Connect, é toostart uma boa ideia com hello dois servidores de Olá usando a mesma versão, mas não é obrigatório.
+2. Se você fez uma configuração personalizada e o servidor de preparo não-lo, execute as etapas de saudação em [mover uma configuração personalizada de saudação do active server toohello servidor de preparo](#move-custom-configuration-from-active-to-staging-server).
+3. Se você estiver atualizando de uma versão anterior do Azure AD Connect, atualize Olá versão mais recente do servidor toohello de preparo. Se estiver movendo do Azure AD Sync, instale o Azure AD Connect em seu servidor de preparo.
+4. Permitem que a importação completa do mecanismo de execução Olá sincronização e sincronização completa em seu servidor de preparo.
+5. Verifique se essa nova configuração de saudação não causar alterações inesperadas usando Olá etapas em "Verificar" no [Verificar configuração de saudação de um servidor](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server). Se algo não estiver correto, como esperado, execute importação hello e sincronização e verifique dados saudação até que parece bom, seguindo as etapas de saudação.
+6. Comutador hello toobe Olá active servidor de preparo. Esta é a etapa de final de hello "Switch servidor ativo" no [Verificar configuração de saudação de um servidor](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server).
+7. Se você estiver atualizando do Azure AD Connect, atualize o servidor de saudação que é agora de preparo na versão mais recente do modo toohello. Siga Olá mesmo etapas antes tooget Olá dados e atualizado. Se estiver atualizando do Azure AD Sync, agora você poderá desativar e encerrar o servidor antigo.
 
-### <a name="move-a-custom-configuration-from-the-active-server-to-the-staging-server"></a>Mover uma configuração personalizada do servidor ativo para o servidor de preparo
-Se você tiver feito alterações de configuração no servidor ativo, precisará garantir que as mesmas alterações sejam aplicadas ao servidor de preparo. Para ajudar com essa mudança, você pode usar o [Documentador de configuração do Azure AD Connect](https://github.com/Microsoft/AADConnectConfigDocumenter).
+### <a name="move-a-custom-configuration-from-hello-active-server-toohello-staging-server"></a>Mover uma configuração personalizada do servidor de preparo Olá active server toohello
+Se você fez o servidor ativo de toohello de alterações de configuração, você precisa toomake-se que Olá mesmo as alterações são aplicada toohello servidor de preparo. Mover toohelp com isso, você pode usar o hello [Documentador de configuração do Azure AD Connect](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
-Você pode mover as regras de sincronização personalizadas que você criou usando o PowerShell. Você deve aplicar outras alterações da mesma maneira em ambos os sistemas, mas não será possível migrar as alterações. O [documentador de configuração](https://github.com/Microsoft/AADConnectConfigDocumenter) pode ajudá-lo a comparar os dois sistemas para certificar-se de que eles são idênticos. A ferramenta também pode ajudar a automatizar as etapas desta seção.
+Você pode mover as regras de sincronização personalizadas Olá que você criou usando o PowerShell. Você deve aplicar outros Olá alterações maneira mesmo em ambos os sistemas e você não pode migrar alterações hello. Olá [Documentador configuração](https://github.com/Microsoft/AADConnectConfigDocumenter) pode ajudá-lo a comparar Olá dois sistemas toomake-se de que eles são idênticos. ferramenta de saudação também pode ajudar a automatizar etapas Olá encontradas nesta seção.
 
-Você precisa configurar os seguintes itens da mesma maneira em ambos os servidores:
+Você precisa tooconfigure Olá seguinte coisas Olá mesmo maneira em ambos os servidores:
 
-* A conexão às mesmas florestas
+* Conexão toohello mesmo florestas
 * Qualquer filtragem de domínio e de unidade organizacional
-* Os mesmos recursos opcionais, como a sincronização de senha e o write-back de senha
+* Olá mesmo recursos opcionais, como a sincronização de senha e Write-back de senha
 
 **Mover regras de sincronização personalizadas**  
-Para mover regras de sincronização personalizadas, faça o seguinte:
+regras de sincronização personalizadas toomove, Olá a seguir:
 
 1. Abra o **Editor de Regras de Sincronização** em seu servidor ativo.
-2. Selecione uma regra personalizada. Clique em **Exportar**. Isso abre uma janela do Bloco de Notas. Salve o arquivo temporário com uma extensão PS1. Isso o transforma em um script do PowerShell. Copie o arquivo PS1 para o servidor de preparo.  
+2. Selecione uma regra personalizada. Clique em **Exportar**. Isso abre uma janela do Bloco de Notas. Salve o arquivo temporário Olá com uma extensão PS1. Isso o transforma em um script do PowerShell. Copie toohello de arquivo PS1 Olá servidor de preparo.  
    ![Exportação da regra de sincronização](./media/active-directory-aadconnect-upgrade-previous-version/exportrule.png)
-3. O GUID do Conector é diferente no servidor de preparo e deve ser alterado. Para obter o GUID, inicie o **Editor de Regras de Sincronização**, escolha uma das regras prontas que representam o mesmo sistema conectado e clique em **Exportar**. Substitua o GUID em seu arquivo PS1 com o GUID do servidor de preparo.
-4. Em um prompt do PowerShell, execute o arquivo PS1. Isso cria a regra de sincronização personalizada no servidor de preparo.
+3. Olá GUID do conector é diferente em Olá servidor de preparo, e você deve alterá-la. Olá tooget GUID, iniciar **Editor de regras de sincronização**, selecione uma das regras de out-of-box Olá Olá que representam mesmo sistema conectado e clique em **exportar**. Substitua Olá GUID em seu arquivo PS1 Olá GUID da saudação servidor de preparo.
+4. Em um prompt do PowerShell, execute o arquivo hello PS1. Isso cria a regra de sincronização personalizadas Olá em Olá servidor de preparo.
 5. Repita essa etapa para todas as regras personalizadas.
 
-## <a name="how-to-defer-full-synchronization-after-upgrade"></a>Como adiar a sincronização completa após a atualização
-Durante a atualização in-loco, poderá haver alterações introduzidas que exijam que atividades de sincronização específicas (incluindo as etapas de importação completa e sincronização completa) sejam executadas. Por exemplo, as alterações de esquema do conector exigem a etapa de **importação completa** e as alterações de regra de sincronização integradas exigem que a etapa **sincronização completa** seja executada nos conectores afetados. Durante a atualização, o Azure AD Connect determina quais atividades de sincronização são necessárias e registra-as como *substituições*. No ciclo de sincronização seguinte, o agendador de sincronização seleciona essas substituições e executa-as. Quando uma substituição é executada com êxito, ela é removida.
+## <a name="how-toodefer-full-synchronization-after-upgrade"></a>Como toodefer completo sincronização após a atualização
+Durante a atualização in-loco, pode haver alterações que requerem sincronização específica atividades (incluindo as etapas de importação completa e sincronização completa) toobe executado. Por exemplo, alterações de esquema do conector exigem **importação completa** requerem alterações de regra de sincronização de etapa e out-of-box **completo sincronização** etapa toobe executado nos conectores afetados. Durante a atualização, o Azure AD Connect determina quais atividades de sincronização são necessárias e registra-as como *substituições*. Em Olá após o ciclo de sincronização, Agendador de sincronização de saudação pega essas substituições e executa-los. Quando uma substituição é executada com êxito, ela é removida.
 
-Pode haver situações em que você não deseja que essas substituições ocorram imediatamente após a atualização. Por exemplo, você tem vários objetos sincronizados e deseja que essas etapas de sincronização ocorram depois do horário comercial. Para remover essas substituições:
+Pode haver situações em que você não quer local de tootake essas substituições imediatamente após a atualização. Por exemplo, você tem vários objetos sincronizados e você deseja que essas toooccur de etapas de sincronização depois do horário comercial. tooremove essas substituições:
 
-1. Durante a atualização, **desmarque** a opção **Iniciar o processo de sincronização ao concluir a configuração**. Isso desabilita o agendador de sincronização e impede que o ciclo de sincronização ocorra automaticamente antes que as substituições sejam removidas.
+1. Durante a atualização, **desmarque** Olá opção **iniciar o processo de sincronização de saudação quando configuração for concluída**. Isso desabilita o Agendador de sincronização hello e impede que ciclo de sincronização ocorra automaticamente antes de substituições de saudação são removidas.
 
    ![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync01.png)
 
-2. Após a conclusão da atualização, execute o seguinte cmdlet para descobrir quais substituições foram adicionadas: `Get-ADSyncSchedulerConnectorOverride | fl`
+2. Após a conclusão da atualização, execute Olá toofind cmdlet out quais substituições foram adicionadas a seguir:`Get-ADSyncSchedulerConnectorOverride | fl`
 
    >[!NOTE]
-   > As substituições são específicas do conector. No exemplo a seguir, as etapas de importação completa e de sincronização completa foram adicionadas ao AD Connector local e no Azure AD Connector.
+   > Olá substituições são específicas do conector. No hello exemplo a seguir, as etapas de importação completa e sincronização completa foram adicionados tooboth Olá conector AD local e conector AD do Azure.
 
    ![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync02.png)
 
-3. Anote as substituições existentes que foram adicionadas.
+3. Anote Olá existente substituições que foram adicionados.
    
-4. Para remover as substituições da importação completa e da sincronização completa em um conector qualquer, execute o seguinte cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
+4. Olá tooremove substituições para importação completa e sincronização completa em um conector arbitrária, executar Olá cmdlet a seguir:`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
 
-   Para remover as substituições de todos os conectores, execute o seguinte script do PowerShell:
+   substituições de saudação tooremove em todos os conectores, execute Olá script do PowerShell a seguir:
 
    ```
    foreach ($connectorOverride in Get-ADSyncSchedulerConnectorOverride)
@@ -120,12 +120,12 @@ Pode haver situações em que você não deseja que essas substituições ocorra
    }
    ```
 
-5. Para retomar o agendador, execute o seguinte cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
+5. Agendador de saudação tooresume, execute Olá cmdlet a seguir:`Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
-   > Lembre-se de executar as etapas de sincronização necessárias assim que possível. Você pode executar essas etapas manualmente usando o Synchronization Service Manager ou adicionar as substituições novamente usando o cmdlet Set-ADSyncSchedulerConnectorOverride.
+   > Lembre-se tooexecute Olá necessárias etapas de sincronização assim que for possível. Manualmente você pode executar essas etapas usando Olá Synchronization Service Manager ou adicionar substituições hello usando Olá conjunto ADSyncSchedulerConnectorOverride cmdlet.
 
-Para adicionar as substituições para a importação completa e para a sincronização completa em um conector qualquer, execute o seguinte cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+Olá tooadd substituições para importação completa e sincronização completa em um conector arbitrária, executar Olá cmdlet a seguir:`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [como integrar suas identidades locais ao Azure Active Directory](active-directory-aadconnect.md).

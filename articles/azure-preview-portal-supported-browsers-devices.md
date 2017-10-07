@@ -1,6 +1,6 @@
 ---
-title: Navegadores e dispositivos com suporte para o Portal do Azure | Microsoft Docs
-description: "Descreve os navegadores e dispositivos nos quais o portal do Azure funcionará."
+title: aaaSupported navegadores e dispositivos para o portal do Azure | Microsoft Docs
+description: "Descreve quais hello Azure portal trabalhará de dispositivos e navegadores de saudação."
 services: 
 documentationcenter: 
 author: flanakin
@@ -16,20 +16,20 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.openlocfilehash: f8718e240eaefb47b18b6098be083e335ccbc89d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 1adac737e062803e67d4b820738bb0fcd21c81b0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Navegadores e dispositivos com suporte para o Portal do Azure
-Você pode executar o [Portal do Azure](https://portal.azure.com) em todos os dispositivos de tablet, desktop e navegadores modernos.
+# <a name="supported-browsers-and-devices-for-hello-azure-portal"></a>Suporte a navegadores e dispositivos para Olá portal do Azure
+Você pode executar Olá [portal do Azure](https://portal.azure.com) em todos os desktops modernos, dispositivos e navegadores tablet.
 
 ### <a name="supported-devices"></a>Dispositivos com suporte
-O Portal do Azure é executado sem problemas em computadores, Macs e tablets modernos. Se você precisa gerenciar seus recursos do Azure de um dispositivo móvel, tente o aplicativo do Azure que está disponível para versão prévia no iPhone e no Android. Para obter mais informações, consulte a postagem de blog [Introducing the Azure app public preview](https://azure.microsoft.com/blog/azure-app-preview/) (Apresentando a visualização pública do aplicativo do Azure).
+Olá portal do Azure é executado sem problemas em modernos PCs, Macs e tablets. Se você precisar toomanage seus recursos do Azure de um dispositivo móvel, tente Olá aplicativo do Azure que está disponível para visualização no iPhone e Android. Para obter mais informações, consulte Olá postagem de blog [visualização pública do aplicativo do Azure Introdução à saudação](https://azure.microsoft.com/blog/azure-app-preview/).
 
 ### <a name="supported-browsers"></a>Navegadores com suporte
-É recomendável que você use o navegador mais atualizado compatível com o sistema operacional. Há suporte para os seguintes navegadores:
+É recomendável que você use o navegador mais atualizada Olá compatível com o sistema operacional. Olá navegadores a seguir têm suporte:
 
 * Microsoft Edge (última versão)
 * Internet Explorer 11

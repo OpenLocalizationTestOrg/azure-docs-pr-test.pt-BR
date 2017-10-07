@@ -1,6 +1,6 @@
 ---
-title: Desenvolver localmente com o Emulador Azure Cosmos DB | Microsoft Docs
-description: "Usando o Emulador do Azure Cosmos DB, você pode desenvolver e testar seu aplicativo no local gratuitamente, sem criar uma assinatura do Azure."
+title: aaaDevelop localmente com hello Azure Cosmos DB emulador | Microsoft Docs
+description: "Usando hello Azure Cosmos DB emulador, você pode desenvolver e testar seu aplicativo localmente para livre, sem criar uma assinatura do Azure."
 services: cosmos-db
 documentationcenter: 
 keywords: Emulador do Azure Cosmos DB
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2017
 ms.author: arramac
-ms.openlocfilehash: a0f6a845a345ebd4ef0a58abf4934ce400103109
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fb5449489e5f71664e72d8e11e583315be371bf3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Usar o Emulador do Azure Cosmos DB para desenvolvimento e teste locais
+# <a name="use-hello-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Use hello Azure Cosmos DB emulador para teste e desenvolvimento local
 
 <table>
 <tr>
@@ -38,35 +38,35 @@ ms.lasthandoff: 08/29/2017
 </tr>
 </table>
   
-O Emulador do Azure Cosmos DB fornece um ambiente local que emula o serviço Azure Cosmos DB para fins de desenvolvimento. Com o Emulador do Azure Cosmos DB, você pode desenvolver e testar seu aplicativo localmente sem criar uma assinatura Azure ou incorrer em custos. Quando estiver satisfeito com o funcionamento de seu aplicativo no Emulador do Azure Cosmos DB, você poderá passar a usar uma conta do Azure Cosmos DB na nuvem.
+Hello Azure Cosmos DB emulador fornece um ambiente local que emula Olá serviço de banco de dados do Azure Cosmos para fins de desenvolvimento. Usando hello Azure Cosmos DB emulador, você pode desenvolver e testar seu aplicativo localmente, sem criar uma assinatura do Azure ou incorrer em todos os custos. Quando estiver satisfeito com como seu aplicativo está funcionando no hello Azure Cosmos DB emulador, você pode alternar toousing uma conta de banco de dados do Azure Cosmos na nuvem hello.
 
-Este artigo aborda as seguintes tarefas: 
+Este artigo aborda Olá tarefas a seguir: 
 
 > [!div class="checklist"]
-> * Instalar o Emulador
-> * Executar o Emulador no Docker para Windows
+> * Instalando Olá emulador
+> * Executando Olá emulador no Docker para Windows
 > * Autenticar solicitações
-> * Usar o Data Explorer no Emulador
+> * Usando Olá Explorador de dados em Olá emulador
 > * Exportar certificados SSL
-> * Chamar o Emulador na linha de comando
+> * Chamar hello emulador da linha de comando Olá
 > * Coletar arquivos de rastreamento
 
-É recomendável começar assistindo ao vídeo a seguir, em que Kirill Gavrylyuk mostra como começar a usar o Emulador do Azure Cosmos DB. Observe que o se vídeo refere ao emulador como o Emulador do DocumentDB, mas a ferramenta em si foi renomeada como Emulador do Azure Cosmos DB desde a gravação do vídeo. Todas as informações do vídeo ainda estão corretas para o Emulador do Azure Cosmos DB. 
+É recomendável que guia de Introdução observando Olá seguindo o vídeo, onde Kirill Gavrylyuk mostra como tooget iniciada com hello Azure Cosmos DB emulador. Observe que o vídeo Olá refere-se toohello emulador como Olá emulador de documentos, mas própria ferramenta de saudação foi renomeada hello Azure Cosmos DB emulador desde colar vídeo hello. Todas as informações no hello vídeo são ainda são precisas para hello Azure Cosmos DB emulador. 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2016/192/player]
 > 
 > 
 
-## <a name="how-the-emulator-works"></a>Como o emulador funciona
-O Emulador do Azure Cosmos DB fornece uma emulação de alta fidelidade do serviço Azure Cosmos DB. Ele dá suporte a uma funcionalidade idêntica ao Azure Cosmos DB, incluindo suporte para criar e consultar documentos JSON, provisionar e dimensionar coleções, bem como executar procedimentos armazenados e gatilhos. Desenvolva e teste aplicativos usando o Emulador do Azure Cosmos DB e implante-os no Azure em escala global, apenas fazendo uma única alteração de configuração no ponto de extremidade de conexão do Azure Cosmos DB.
+## <a name="how-hello-emulator-works"></a>Como funciona a saudação emulador
+Olá emulador do Azure Cosmos DB emula uma alta fidelidade de saudação serviço de banco de dados do Azure Cosmos. Ele dá suporte a uma funcionalidade idêntica ao Azure Cosmos DB, incluindo suporte para criar e consultar documentos JSON, provisionar e dimensionar coleções, bem como executar procedimentos armazenados e gatilhos. Você pode desenvolver e testar aplicativos usando hello Azure Cosmos DB emulador e implantá-las tooAzure em escala global fazendo apenas uma única configuração de alterar o ponto de extremidade de conexão de toohello para o banco de dados do Azure Cosmos.
 
-Embora tenhamos criado uma emulação local de alta fidelidade do serviço Azure Cosmos DB real, a implementação do Emulador do Azure Cosmos DB é diferente da implementação do serviço. Por exemplo, o Emulador do Azure Cosmos DB usa componentes padrão do sistema operacional, como sistema de arquivos local para persistência e pilha de protocolo HTTPS para conectividade. Isso significa que algumas funcionalidades que dependem da infraestrutura do Azure, como replicação global, latência de único dígito em milissegundos para leituras/gravações e níveis de consistência ajustáveis, não estão disponíveis pelo Emulador do Azure Cosmos DB.
+Enquanto criamos uma emulação de local de alta fidelidade do serviço de banco de dados do Azure Cosmos real hello, a implementação de saudação do hello Azure Cosmos DB emulador é diferente do serviço de saudação. Por exemplo, hello Azure Cosmos DB emulador usa componentes de sistema operacional padrão como o sistema de arquivos local Olá para persistência e a pilha do protocolo HTTPS para conectividade. Isso significa que algumas funcionalidades que se baseia na infraestrutura do Azure, como replicação global, latência de milissegundo dígito de leituras/gravações e níveis de consistência ajustáveis não estão disponíveis por meio de hello Azure Cosmos DB emulador.
 
 > [!NOTE]
-> No momento o Data Explorer no emulador dá suporte apenas à criação de coleções de API do DocumentDB e de coleções do MongoDB. Atualmente não há suporte para a criação de tabelas e gráficos no Data Explorer no emulador. 
+> Neste Olá tempo Data Explorer no hello emulador só oferece suporte a criação de saudação de coleções de API de documentos e MongoDB. Atualmente, o Hello Data Explorer no emulador de saudação não oferece suporte para a criação de saudação de tabelas e gráficos. 
 
 ## <a name="system-requirements"></a>Requisitos do sistema
-O Emulador do Azure Cosmos DB tem os seguintes requisitos de hardware e software:
+Olá emulador do Azure Cosmos DB tem Olá requisitos de hardware e software a seguir:
 
 * Requisitos de software
   * Windows Server 2012 R2, Windows Server 2016 ou Windows 10
@@ -75,44 +75,44 @@ O Emulador do Azure Cosmos DB tem os seguintes requisitos de hardware e software
   * Espaço disponível no disco rígido de 10 GB
 
 ## <a name="installation"></a>Instalação
-Você pode baixar e instalar o Emulador do Azure Cosmos DB no [Centro de Download da Microsoft](https://aka.ms/cosmosdb-emulator). 
+Você pode baixar e instalar hello Azure Cosmos DB emulador da saudação [Microsoft Download Center](https://aka.ms/cosmosdb-emulator). 
 
 > [!NOTE]
-> Para instalar, configurar e executar o Emulador do Azure Cosmos DB, você deve ter privilégios administrativos no computador.
+> tooinstall, configurar e executar hello Azure Cosmos DB emulador, você deve ter privilégios administrativos no computador de saudação.
 
 ## <a name="running-on-docker-for-windows"></a>Executar no Docker para Windows
 
-O Emulador do Azure Cosmos DB pode ser executado no Docker para Windows. O emulador não funciona no Docker para Oracle Linux.
+Olá emulador do Azure Cosmos banco de dados pode ser executado no Docker para Windows. Olá emulador não funciona no Docker para Oracle Linux.
 
-Depois de ter instalado o [Docker para Windows](https://www.docker.com/docker-windows) é possível, do Hub do Docker, efetuar pull da imagem do emulador executando o comando a seguir do seu shell favorito (cmd.exe, PowerShell, etc.).
+Uma vez que [Docker para Windows](https://www.docker.com/docker-windows) instalado, você pode extrair imagem do emulador de saudação do Hub do Docker executando Olá após o comando do shell favorito (cmd.exe, PowerShell, etc.).
 
 ```      
 docker pull microsoft/azure-cosmosdb-emulator 
 ```
-Para iniciar a imagem, execute os comandos a seguir.
+imagem toostart hello, executar Olá comandos a seguir.
 
 ``` 
 md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>nul
 docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i microsoft/azure-cosmosdb-emulator 
 ```
 
-A resposta tem aparência semelhante à seguinte:
+resposta de saudação tem a aparência a seguir toohello semelhante:
 
 ```
 Starting Emulator
 Emulator Endpoint: https://172.20.229.193:8081/
 Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 Exporting SSL Certificate
-You can import the SSL certificate from an administrator command prompt on the host by running:
+You can import hello SSL certificate from an administrator command prompt on hello host by running:
 cd /d %LOCALAPPDATA%\CosmosDBEmulatorCert
 powershell .\importcert.ps1
 --------------------------------------------------------------------------------------------------
 Starting interactive shell
 ``` 
 
-Fechar o shell interativo depois de o emulador ter sido iniciado desligará o contêiner do emulador.
+Fechando interativa do shell hello quando Olá emulador foi iniciado será contêiner de desligamento Olá emulador do Windows.
 
-Use o ponto de extremidade e a chave mestra da resposta no seu cliente e importe o certificado SSL no seu host. Para importar o certificado SSL, faça o seguinte em um prompt de comando do administrador:
+Usar o ponto de extremidade de saudação e chave mestra da resposta de saudação no seu cliente e Importar certificado SSL da saudação para seu host. Olá tooimport certificado SSL, Olá a seguir de um prompt de comando do administrador:
 
 ```
 cd %LOCALAPPDATA%\CosmosDBEmulatorCert
@@ -120,21 +120,21 @@ powershell .\importcert.ps1
 ```
 
 
-## <a name="start-the-emulator"></a>Iniciar o emulador
+## <a name="start-hello-emulator"></a>Iniciar o emulador de saudação
 
-Para iniciar o Emulador do Azure Cosmos DB, selecione o botão Iniciar ou pressione a tecla Windows. Comece a digitar **Emulador do Azure Cosmos DB** e selecione o emulador na lista de aplicativos. 
+Olá toostart emulador de banco de dados do Cosmos do Azure, selecione botão de início de saudação ou pressione a tecla do Windows hello. Comece digitando **emulador de banco de dados do Azure Cosmos**e selecione Olá emulador da lista de saudação de aplicativos. 
 
-![Selecionar o botão Iniciar ou pressionar a tecla Windows, começar a digitar **Emulador do Azure Cosmos DB** e selecionar o emulador na lista de aplicativos](./media/local-emulator/database-local-emulator-start.png)
+![Selecione Olá início botão ou pressione Olá tecla Windows, comece a digitar * * Azure Cosmos DB emulador * * e selecione Olá emulador da lista de saudação de aplicativos](./media/local-emulator/database-local-emulator-start.png)
 
-Quando o emulador estiver em execução, você verá um ícone na área de notificação da barra de tarefas do Windows. ![Notificação na barra de tarefas do emulador local do Azure Cosmos DB](./media/local-emulator/database-local-emulator-taskbar.png)
+Quando o emulador de saudação estiver em execução, você verá um ícone na Olá área de notificação de barra de tarefas do Windows. ![Notificação na barra de tarefas do emulador local do Azure Cosmos DB](./media/local-emulator/database-local-emulator-taskbar.png)
 
-O Emulador do Azure Cosmos DB, por padrão, é executado no computador local ("localhost") escutando na porta 8081.
+Olá emulador do Azure Cosmos DB por padrão é executado saudação do computador local ("localhost") escuta na porta 8081.
 
-O Emulador do Azure Cosmos DB é instalado por padrão no diretório `C:\Program Files\Azure Cosmos DB Emulator`. Você também pode iniciar e parar o emulador pela linha de comando. Veja [Referência da ferramenta de linha de comando](#command-line) para obter mais informações.
+Hello Azure Cosmos DB emulador é instalado por padrão toohello `C:\Program Files\Azure Cosmos DB Emulator` directory. Você também pode iniciar e parar o emulador de saudação da saudação de linha de comando. Veja [Referência da ferramenta de linha de comando](#command-line) para obter mais informações.
 
 ## <a name="start-data-explorer"></a>Iniciar o Data Explorer
 
-Quando o emulador do Azure Cosmos DB é iniciado, ele abre automaticamente o Data Explorer do Azure Cosmos DB no seu navegador. O endereço aparecerá como [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). Se você fechar o Explorer e quiser reabri-lo mais tarde, é possível abrir a URL no navegador ou iniciá-lo no Emulador do Azure Cosmos DB no Ícone de Bandeja do Windows, como mostrado abaixo.
+Quando o emulador do Azure Cosmos DB Olá inicia abrirá automaticamente hello Azure Cosmos DB Data Explorer no navegador. Olá endereço aparecerá como [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). Se você fechar Olá explorer e gostaria de toore-open-lo mais tarde, você pode abrir Olá URL no seu navegador ou iniciá-lo do hello Azure Cosmos DB emulador no hello ícone de bandeja do Windows, conforme mostrado abaixo.
 
 ![Iniciador do Data Explorer do emulador local do Azure Cosmos DB](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
@@ -142,67 +142,67 @@ Quando o emulador do Azure Cosmos DB é iniciado, ele abre automaticamente o Dat
 O Data Explorer indica se há uma nova atualização disponível para download. 
 
 > [!NOTE]
-> Não há garantias de que os dados criados em uma versão do Emulador do Azure Cosmos DB possam ser acessados em outras versões. Se você precisar persistir seus dados por longo prazo, é recomendável armazená-los em uma conta do Azure Cosmos DB e não no Emulador do Azure Cosmos DB. 
+> Os dados criados em uma versão de hello Azure Cosmos DB emulador não são garantidos toobe acessível ao usar uma versão diferente. Se você precisar toopersist seus dados de longo prazo do hello, é recomendável que você armazene esses dados em uma conta de banco de dados do Azure Cosmos, em vez de em hello Azure Cosmos DB emulador. 
 
 ## <a name="authenticating-requests"></a>Autenticar solicitações
-Assim como no Cosmos DB na nuvem, cada solicitação feita no Emulador do Azure Cosmos DB deve ser autenticada. O Emulador do Azure Cosmos DB dá suporte a uma única conta fixa e a uma chave de autenticação conhecida para autenticação de chave mestra. Essa conta e a chave são as únicas credenciais permitidas para uso com o Emulador do Azure Cosmos DB. Eles são:
+Assim como com o banco de dados do Azure Cosmos na nuvem hello, todas as solicitações feitas em relação a saudação emulador do Azure Cosmos banco de dados devem ser autenticada. Hello Azure Cosmos DB emulador dá suporte a uma única conta fixa e uma chave de autenticação conhecido para a autenticação de chave mestra. A conta e a chave são credenciais de somente Olá permitidas para uso com hello Azure Cosmos DB emulador. Eles são:
 
     Account name: localhost:<port>
     Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 
 > [!NOTE]
-> A chave mestra com suporte do Emulador do Azure Cosmos DB destina-se ao uso somente com o emulador. Você não pode usar sua conta do Azure Cosmos DB de produção e a chave com o Emulador do Azure Cosmos DB. 
+> chave mestra de saudação suportado pelo hello Azure Cosmos DB emulador destina-se a uso apenas com o emulador de saudação. Você não pode usar a conta de banco de dados do Azure Cosmos de produção e a chave com hello Azure Cosmos DB emulador. 
 
 > [!NOTE] 
-> Se você tiver iniciado o emulador com a opção /Key, use a chave gerada em vez de "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
+> Se você iniciou o emulador de saudação com hello opção /Key, use a tecla Olá gerado em vez de "C2y6yDjf5 Relational + ob0N8A7Cgv30VRDJIWEHLM + 4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw = ="
 
-Além disso, assim como o serviço Azure Cosmos DB, o Emulador do Azure Cosmos DB tem suporte apenas à comunicação segura por SSL.
+Além disso, apenas Olá serviço de banco de dados do Azure Cosmos, hello Azure Cosmos DB emulador oferece suporte apenas para proteger a comunicação via SSL.
 
-## <a name="running-the-emulator-on-a-local-network"></a>Executar o emulador em uma rede local
+## <a name="running-hello-emulator-on-a-local-network"></a>Emulador de saudação em execução em uma rede local
 
-Você pode executar o emulador em uma rede local. Para habilitar o acesso à rede, especifique a opção /AllowNetworkAccess na [linha de comando](#command-line-syntax), o que também requer que você especifique /Key=key_string ou /KeyFile=file_name. Você pode usar /GenKeyFile=file_name para gerar um arquivo com uma chave aleatória antecipadamente.  Em seguida, você pode passá-la para /KeyFile=file_name ou /Key=contents_of_file.
+Você pode executar o emulador de saudação em uma rede local. tooenable acesso à rede, especifique a opção de /AllowNetworkAccess Olá Olá [linha de comando](#command-line-syntax), que também requer que você especifique /Key = key_string ou /KeyFile = file_name. Você pode usar /GenKeyFile = file_name toogenerate um arquivo com uma chave aleatória antecipadamente.  Em seguida, você pode passar essa muito /keyfile = file_name ou /Key = contents_of_file.
 
-Para habilitar o acesso de rede pela primeira vez, o usuário deve desligar o emulador e excluir o diretório de dados do emulador (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
+acesso à rede tooenable para Olá Olá usuário deve desligar emulador de saudação e excluir o diretório de dados do emulador hello (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
 
-## <a name="developing-with-the-emulator"></a>Desenvolver com o Emulador
-Depois que o Emulador do Azure Cosmos DB estiver em execução na área de trabalho, você poderá usar qualquer [SDK do Azure Cosmos DB](documentdb-sdk-dotnet.md) com suporte ou a [API REST do Azure Cosmos DB](/rest/api/documentdb/) para interagir com o Emulador. O Emulador do Azure Cosmos DB também inclui um Data Explorer interno que permite criar coleções para as APIs do MongoDB e DocumentDB e exibir e editar documentos sem precisar escrever qualquer código.   
+## <a name="developing-with-hello-emulator"></a>Desenvolvendo com hello emulador
+Depois de você ter hello emulador Cosmos banco de dados do Azure em execução em sua área de trabalho, você pode usar qualquer suporte [banco de dados do SDK do Azure Cosmos](documentdb-sdk-dotnet.md) ou hello [API de REST do banco de dados do Azure Cosmos](/rest/api/documentdb/) toointeract com hello emulador. Olá emulador do Azure Cosmos DB também inclui um Gerenciador de dados interno que permite que você crie coleções para Olá documentos e MongoDB APIs e exibir e editar documentos sem gravar qualquer código.   
 
-    // Connect to the Azure Cosmos DB Emulator running locally
+    // Connect toohello Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(
         new Uri("https://localhost:8081"), 
         "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
-Se você estiver usando o [suporte ao protocolo do Azure Cosmos DB para MongoDB](mongodb-introduction.md), use a seguinte cadeia de conexão:
+Se você estiver usando [o banco de dados do Azure Cosmos suporte de protocolo para o MongoDB](mongodb-introduction.md), use Olá cadeia de caracteres de conexão a seguir:
 
     mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true&3t.sslSelfSignedCerts=true
 
-Você pode usar ferramentas existentes, como o [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio), para se conectar ao Emulador do Azure Cosmos DB. Também é possível migrar dados entre o Emulador do Azure Cosmos DB e o serviço Azure Cosmos DB usando a [Ferramenta de Migração de Dados do Azure Cosmos DB](https://github.com/azure/azure-documentdb-datamigrationtool).
+Você pode usar as ferramentas existentes como [Studio do Azure DocumentDB](https://github.com/mingaliu/DocumentDBStudio) tooconnect toohello emulador do Azure Cosmos banco de dados. Também é possível migrar dados entre hello Azure Cosmos DB emulador e serviço de banco de dados do Azure Cosmos hello usando Olá [ferramenta de migração de dados de banco de dados do Azure Cosmos](https://github.com/azure/azure-documentdb-datamigrationtool).
 
 > [!NOTE] 
-> Se você tiver iniciado o emulador com a opção /Key, use a chave gerada em vez de "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
+> Se você iniciou o emulador de saudação com hello opção /Key, use a tecla Olá gerado em vez de "C2y6yDjf5 Relational + ob0N8A7Cgv30VRDJIWEHLM + 4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw = ="
 
-Usando o emulador do Azure Cosmos DB, por padrão, você pode criar até 25 coleções de partição única ou uma coleção particionada. Para saber mais sobre como alterar esse valor, veja [Definição do valor de PartitionCount](#set-partitioncount).
+Usando o emulador do Windows Azure Cosmos DB hello, por padrão, você pode criar coleções com uma partição única too25 ou 1 coleção particionada. Para obter mais informações sobre como alterar esse valor, consulte [configuração Olá PartitionCount valor](#set-partitioncount).
 
-## <a name="export-the-ssl-certificate"></a>Exportar o certificado SSL
+## <a name="export-hello-ssl-certificate"></a>Exportar o certificado SSL Olá
 
-As linguagens e o tempo de execução .NET usam o Repositório de Certificados do Windows para a conexão segura com o emulador local do Azure Cosmos DB. Outras linguagens têm seu próprio método de gerenciar e usar certificados. O Java usa seu próprio [repositório de certificados](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) enquanto o Python usa [wrappers de soquete](https://docs.python.org/2/library/ssl.html).
+Linguagens .NET e o tempo de execução use Olá repositório de certificados do Windows toosecurely conectam emulador local do banco de dados do Azure Cosmos toohello. Outras linguagens têm seu próprio método de gerenciar e usar certificados. O Java usa seu próprio [repositório de certificados](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) enquanto o Python usa [wrappers de soquete](https://docs.python.org/2/library/ssl.html).
 
-Para obter um certificado para uso com linguagens e tempos de execução que não se integram ao Repositório de Certificados do Windows, você precisará exportá-lo usando o Gerenciador de Certificados do Windows. Você pode iniciá-lo executando certlm.msc ou seguir as instruções passo a passo em [Exportar os certificados do Emulador do Azure Cosmos DB](./local-emulator-export-ssl-certificates.md). Depois que o gerenciador de certificados estiver em execução, abra os Certificados Pessoais, conforme mostrado abaixo, e exporte o certificado com o nome amigável "DocumentDBEmulatorCertificate" como um arquivo X.509 codificado em BASE-64 (.cer).
+Em ordem tooobtain toouse um certificado com linguagens e tempos de execução que não integram Olá repositório de certificados do Windows você precisará tooexport usando Olá Gerenciador de certificados do Windows. Você pode iniciá-lo executando certlm.msc ou siga as instruções passo a passo de saudação em [exportar hello Azure Cosmos DB emulador certificados](./local-emulator-export-ssl-certificates.md). Quando o Gerenciador de certificados Olá estiver em execução, abra Olá pessoal de certificados conforme mostrado abaixo e exportar Olá certificado com o nome amigável do hello "DocumentDBEmulatorCertificate" como o arquivo de x. 509 (. cer) codificado em BASE 64.
 
 ![Certificado SSL do emulador local do Azure Cosmos DB](./media/local-emulator/database-local-emulator-ssl_certificate.png)
 
-O certificado X.509 pode ser importado no repositório de certificados Java seguindo as instruções em [Adicionando um certificado ao repositório de certificados de AC do Java](https://docs.microsoft.com/azure/java-add-certificate-ca-store). Depois que o certificado é importado para o repositório de certificados, os aplicativos Java e MongoDB podem se conectar ao Emulador do Azure Cosmos DB.
+certificado x. 509 de saudação pode ser importado para o repositório de certificados do Java hello, seguindo as instruções de saudação do [adicionando um toohello certificado repositório de certificados de autoridade de certificação de Java](https://docs.microsoft.com/azure/java-add-certificate-ca-store). Depois que o certificado Olá é importado no repositório de certificados Olá, aplicativos Java e MongoDB será toohello tooconnect capaz de emulador do Azure Cosmos banco de dados.
 
-Durante a conexão do emulador de SDKs Python e Node.js, a verificação de SSL é desabilitada.
+Ao conectar o emulador toohello de Python e Node.js SDKs, verificação de SSL está desabilitada.
 
 ## <a id="command-line"></a>Referência da ferramenta de linha de comando
-No local da instalação, você pode usar a linha de comando para iniciar e interromper o emulador, configurar opções e executar outras operações.
+Do local de instalação Olá, você pode usar Olá toostart de linha de comando e interromper o emulador de saudação, configurar opções e executar outras operações.
 
 ### <a name="command-line-syntax"></a>Sintaxe da linha de comando
 
     CosmosDB.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/?]
 
-Para exibir a lista de opções, digite `CosmosDB.Emulator.exe /?` no prompt de comando.
+lista de saudação tooview de opções, digite `CosmosDB.Emulator.exe /?` no prompt de comando hello.
 
 <table>
 <tr>
@@ -213,51 +213,51 @@ Para exibir a lista de opções, digite `CosmosDB.Emulator.exe /?` no prompt de 
 </tr>
 <tr>
   <td>[No arguments]</td>
-  <td>Inicia o Emulador do Azure Cosmos DB com as configurações padrão.</td>
+  <td>Inicia hello Azure Cosmos DB emulador com as configurações padrão.</td>
   <td>CosmosDB.Emulator.exe</td>
   <td></td>
 </tr>
 <tr>
   <td>[Ajuda]</td>
-  <td>Exibe a lista de argumentos de linha de comando com suporte.</td>
+  <td>Exibe a lista de saudação do suporte para argumentos de linha de comando.</td>
   <td>CosmosDB.Emulator.exe /?</td>
   <td></td>
 </tr>
 <tr>
   <td>Shutdown</td>
-  <td>Desliga o Emulador do Azure Cosmos DB.</td>
+  <td>Olá emulador do Azure Cosmos banco de dados é desligado.</td>
   <td>CosmosDB.Emulator.exe /Shutdown</td>
   <td></td>
 </tr>
 <tr>
   <td>DataPath</td>
-  <td>Especifica o caminho no qual armazenar os arquivos de dados. O padrão é %LocalAppdata%\CosmosDBEmulator.</td>
+  <td>Especifica o caminho de saudação em quais arquivos de dados toostore. O padrão é %LocalAppdata%\CosmosDBEmulator.</td>
   <td>CosmosDB.Emulator.exe /DataPath=&lt;datapath&gt;</td>
   <td>&lt;datapath&gt;: um caminho acessível</td>
 </tr>
 <tr>
   <td>Porta</td>
-  <td>Especifica o número da porta a ser usada para o emulador.  O padrão é 8081.</td>
+  <td>Especifica o toouse de número de porta Olá emulador do Windows hello.  O padrão é 8081.</td>
   <td>CosmosDB.Emulator.exe /Port=&lt;porta&gt;</td>
   <td>&lt;port&gt;: único número de porta</td>
 </tr>
 <tr>
   <td>MongoPort</td>
-  <td>Especifica o número da porta a ser usada para API de compatibilidade do MongoDB. O padrão é 10255.</td>
+  <td>Especifica o toouse de número de porta Olá para fins de compatibilidade do MongoDB API. O padrão é 10255.</td>
   <td>CosmosDB.Emulator.exe /MongoPort=&lt;mongoport&gt;</td>
   <td>&lt;mongoport&gt;: único número de porta</td>
 </tr>
 <tr>
   <td>DirectPorts</td>
-  <td>Especifica as portas a serem usadas para conectividade direta. Os padrões são 10251,10252,10253,10254.</td>
+  <td>Especifica a saudação toouse de portas para conectividade direta. Os padrões são 10251,10252,10253,10254.</td>
   <td>CosmosDB.Emulator.exe /DirectPorts:&lt;directports&gt;</td>
   <td>&lt;directports&gt;: lista de 4 portas delimitadas por vírgula</td>
 </tr>
 <tr>
   <td>Chave</td>
-  <td>Chave de autorização para o emulador. A chave deve ser a codificação de base 64 de um vetor de 64 bytes.</td>
+  <td>Chave de autorização para o emulador de saudação. Chave deve ser Olá codificação de base 64 de um vetor de 64 bytes.</td>
   <td>CosmosDB.Emulator.exe /Key:&lt;chave&gt;</td>
-  <td>&lt;key&gt;: a chave de ser a codificação base-64 de um vetor de 64 bytes</td>
+  <td>&lt;chave&gt;: chave deve ser Olá codificação de base 64 de um vetor de 64 bits</td>
 </tr>
 <tr>
   <td>EnableRateLimiting</td>
@@ -273,7 +273,7 @@ Para exibir a lista de opções, digite `CosmosDB.Emulator.exe /?` no prompt de 
 </tr>
 <tr>
   <td>NoUI</td>
-  <td>Não mostra o emulador de interface do usuário.</td>
+  <td>Não mostre o emulador Olá interface do usuário.</td>
   <td>CosmosDB.Emulator.exe /NoUI</td>
   <td></td>
 </tr>
@@ -285,19 +285,19 @@ Para exibir a lista de opções, digite `CosmosDB.Emulator.exe /?` no prompt de 
 </tr>
 <tr>
   <td>PartitionCount</td>
-  <td>Especifica o número máximo de coleções particionadas. Veja [Alterar o número de coleções](#set-partitioncount) para saber mais.</td>
+  <td>Especifica o número máximo de saudação de coleções particionadas. Consulte [alterar número de saudação de coleções](#set-partitioncount) para obter mais informações.</td>
   <td>CosmosDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
   <td>&lt;contagemdepartições&gt;: número máximo permitido de coleções de partição única. O padrão é 25. O máximo permitido é 250.</td>
 </tr>
 <tr>
   <td>DefaultPartitionCount</td>
-  <td>Especifica o número padrão de partições para uma coleção particionada.</td>
+  <td>Especifica o número de partições para uma coleção particionada padrão de saudação.</td>
   <td>CosmosDB.Emulator.exe /DefaultPartitionCount=&lt;defaultpartitioncount&gt;</td>
   <td>&lt;defaultpartitioncount&gt; O padrão é 25.</td>
 </tr>
 <tr>
   <td>AllowNetworkAccess</td>
-  <td>Permite o acesso para o emulador através de uma rede. Você também deve passar /Key=&lt;key_string&gt; ou /KeyFile=&lt;file_name&gt; para habilitar o acesso à rede.</td>
+  <td>Permite acessar emulador toohello em uma rede. Você também deve transmitir /Key =&lt;key_string&gt; ou /KeyFile =&lt;file_name&gt; tooenable acesso à rede.</td>
   <td>CosmosDB.Emulator.exe /AllowNetworkAccess /Key=&lt;key_string&gt;<br><br>ou o<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=&lt;file_name&gt;</td>
   <td></td>
 </tr>
@@ -309,102 +309,102 @@ Para exibir a lista de opções, digite `CosmosDB.Emulator.exe /?` no prompt de 
 </tr>
 <tr>
   <td>GenKeyFile</td>
-  <td>Gere uma nova chave de autorização e salve no arquivo especificado. A chave gerada pode ser usada com as opções /Key ou /KeyFile.</td>
-  <td>CosmosDB.Emulator.exe  /GenKeyFile=&lt;caminho até o arquivo da chave&gt;</td>
+  <td>Gere uma nova chave de autorização e salve o arquivo especificado toohello. chave de saudação gerada pode ser usada com hello /Key ou /KeyFile opções.</td>
+  <td>CosmosDB.Emulator.exe /GenKeyFile =&lt;caminho tookey arquivo&gt;</td>
   <td></td>
 </tr>
 <tr>
   <td>Consistência</td>
-  <td>Defina o nível de consistência padrão da conta.</td>
+  <td>Defina o nível de consistência do hello padrão para a conta de saudação.</td>
   <td>CosmosDB.Emulator.exe /Consistency=&lt;consistência&gt;</td>
-  <td>&lt;consistência&gt;: o valor deve ser um dos seguintes [níveis de consistência](consistency-levels.md): Sessão, Forte, Eventual ou BoundedStaleness.  O valor padrão é Sessão.</td>
+  <td>&lt;consistência&gt;: valor deve ser um dos seguintes Olá [níveis de consistência](consistency-levels.md): BoundedStaleness, forte, Eventual ou sessão.  valor padrão de saudação é a sessão.</td>
 </tr>
 <tr>
   <td>?</td>
-  <td>Mostre a mensagem de ajuda.</td>
+  <td>Mostre mensagem de saudação do ajuda.</td>
   <td></td>
   <td></td>
 </tr>
 </table>
 
-## <a name="differences-between-the-azure-cosmos-db-emulator-and-azure-cosmos-db"></a>Diferenças entre o Emulador do Azure Cosmos DB e o Azure Cosmos DB 
-Como o Emulador do Azure Cosmos DB fornece um ambiente emulado em execução em uma estação de trabalho do desenvolvedor local, há algumas diferenças na funcionalidade entre o emulador e a conta do Azure Cosmos DB na nuvem:
+## <a name="differences-between-hello-azure-cosmos-db-emulator-and-azure-cosmos-db"></a>Diferenças entre hello Azure Cosmos DB emulador e o banco de dados do Azure Cosmos 
+Como hello Azure Cosmos DB emulador fornece um ambiente emulado em execução em uma estação de trabalho de desenvolvedor local, existem algumas diferenças na funcionalidade entre emulador hello e uma conta de banco de dados do Azure Cosmos na nuvem hello:
 
-* O Emulador do Azure Cosmos DB dá suporte apenas uma única conta fixa e uma chave mestra conhecida.  Não é possível regenerar uma chave no Emulador do Azure Cosmos DB.
-* O Emulador do Azure Cosmos DB não é um serviço escalonável e não dará suporte a um grande número de coleções.
-* O Emulador do Azure Cosmos DB não simula diferentes [níveis de consistência do Azure Cosmos DB](consistency-levels.md).
-* O Emulador do Azure Cosmos DB não simula [replicação de várias regiões](distribute-data-globally.md).
-* O Emulador do Azure Cosmos DB não dá suporte às substituições de cota de serviço que estão disponíveis no serviço Azure Cosmos DB (por exemplo, limites de tamanho de documento, aumento do armazenamento de coleção particionado).
-* Como a sua cópia do Emulador do Azure Cosmos DB pode não ser atualizada com as alterações mais recentes com o serviço Azure Cosmos DB, use o [planejador de capacidade do Azure Cosmos DB](https://www.documentdb.com/capacityplanner) para estimar precisamente as necessidades de taxa de transferência (RUs) do seu aplicativo.
+* Hello Azure Cosmos DB emulador dá suporte a apenas uma única conta fixa e uma chave mestra conhecida.  Regeneração da chave não é possível em hello Azure Cosmos DB emulador.
+* Hello Azure Cosmos DB emulador não é um serviço escalonável e não oferecerão suporte a um grande número de coleções.
+* Hello Azure Cosmos DB emulador não simular diferentes [níveis de consistência do banco de dados do Azure Cosmos](consistency-levels.md).
+* Hello Azure Cosmos DB emulador não simular [várias regiões replicação](distribute-data-globally.md).
+* Olá emulador do Azure Cosmos banco de dados não oferece suporte a substituições de cota de serviço Olá que estão disponíveis no serviço de banco de dados do Azure Cosmos hello (por exemplo, limites de tamanho do documento, armazenamento maior coleção particionada).
+* Como a cópia do hello Azure Cosmos DB emulador pode não ser backup toodate com alterações mais recentes de saudação com o serviço de banco de dados do Azure Cosmos hello, por favor [Planejador de capacidade do banco de dados do Azure Cosmos](https://www.documentdb.com/capacityplanner) taxa de transferência da produção de estimativa tooaccurately (RUs) necessidades do seu aplicativo.
 
-## <a id="set-partitioncount"></a>Alterar o número de coleções
+## <a id="set-partitioncount"></a>Alterar o número de saudação de coleções
 
-Por padrão, você pode criar até 25 coleções de partição única ou uma coleção particionada usando o Emulador do Azure Cosmos DB. Modificando o valor **PartitionCount**, você pode criar até 250 coleções de partição única ou 10 coleções particionadas ou qualquer combinação dos dois que não excedam 250 partições únicas (onde 1 coleção particionada = 25 coleções de partição única).
+Por padrão, você pode criar coleções com uma partição única too25 ou 1 coleção particionada usando hello Azure Cosmos DB emulador. Modificando Olá **PartitionCount** valor, você pode criar coleções com uma partição única too250 ou 10 coleções particionadas, ou qualquer combinação de saudação duas que não excedam único 250 partições (onde 1 particionados coleção = 25 coleção de partição única).
 
-Se você tentar criar uma coleção depois que a contagem de partição atual tiver sido excedida, o emulador lançará uma exceção de ServiceUnavailable, com a mensagem de erro a seguir.
+Se você tentar toocreate uma coleção depois que a contagem de partição atual Olá foi excedida, o emulador Olá lança uma exceção de ServiceUnavailable, com a seguinte mensagem de saudação.
 
     Sorry, we are currently experiencing high demand in this region, 
     and cannot fulfill your request at this time. We work continuously 
-    to bring more and more capacity online, and encourage you to try again. 
-    Please do not hesitate to email docdbswat@microsoft.com at any time or 
+    toobring more and more capacity online, and encourage you tootry again. 
+    Please do not hesitate tooemail docdbswat@microsoft.com at any time or 
     for any reason. ActivityId: 29da65cc-fba1-45f9-b82c-bf01d78a1f91
 
-Para alterar o número de coleções disponíveis para o Emulador do Azure Cosmos DB, faça o seguinte:
+número de saudação do toochange de coleções disponíveis toohello Azure Cosmos DB Emulator, Olá a seguir:
 
-1. Exclua todos os dados locais do Emulador do Azure Cosmos DB clicando com o botão direito do mouse no ícone **Emulador do Azure Cosmos DB** na bandeja do sistema e clicando em **Redefinir Dados…**.
+1. Exclua todos os dados locais do emulador do Azure Cosmos DB clicando Olá **emulador de banco de dados do Azure Cosmos** ícone na bandeja do sistema hello e, em seguida, clicando em **Redefinir dados...** .
 2. Exclua todos os dados de emulador desta pasta C:\Users\user_name\AppData\Local\CosmosDBEmulator.
-3. Saia de todas as instâncias abertas clicando com o botão direito do mouse no ícone do **Emulador do Azure Cosmos DB** na bandeja do sistema e clicando em **Sair**. Pode levar um minuto para que todas as instâncias saiam.
-4. Instale a versão mais recente do [Emulador Azure Cosmos DB](https://aka.ms/cosmosdb-emulator).
-5. Inicie o emulador com o sinalizador PartitionCount definindo um valor <= 250. Por exemplo: `C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`.
+3. Saia de todas as instâncias abertas clicando Olá **emulador de banco de dados do Azure Cosmos** ícone na bandeja do sistema hello e, em seguida, clicando em **saída**. Pode levar um minuto para tooexit de todas as instâncias.
+4. Instale a versão mais recente Olá de saudação [emulador de banco de dados do Azure Cosmos](https://aka.ms/cosmosdb-emulator).
+5. Iniciar o emulador de saudação com hello sinalizador PartitionCount definindo um valor < = 250. Por exemplo: `C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`.
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 
-Use as dicas a seguir para ajudar a solucionar problemas encontrados com o Emulador do Azure Cosmos DB:
+Use Olá dicas toohelp solucionar problemas encontrados com o emulador do Azure Cosmos DB Olá a seguir:
 
-- Se você tiver instalado uma nova versão do emulador e se houver erros, redefina os dados. Você pode redefinir seus dados clicando com o botão direito do mouse no ícone do Emulador do Azure Cosmos DB na bandeja do sistema e clicando em Redefinir Dados.... Se isso não resolver os erros, você pode desinstalar e reinstalar o aplicativo. Veja [Desinstalar o emulador local](#uninstall) para obter instruções.
+- Se você instalou uma nova versão do emulador de saudação e houver erros, certifique-se de que redefinir os dados. Você pode redefinir os dados clicando hello Azure Cosmos DB emulador ícone na bandeja do sistema hello e, em seguida, clicando em Redefinir dados... Se isso não resolver erros de saudação, você pode desinstalar e reinstalar o aplicativo hello. Consulte [desinstalar um emulador local Olá](#uninstall) para obter instruções.
 
-- Se o Emulador do Azure Cosmos DB falhar, colete os arquivos de despejo na pasta c:\Users\user_name\AppData\Local\CrashDumps, compacte-os e anexe-os a um email que deve ser enviado para [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+- Se o emulador do Azure Cosmos DB Olá falhar, coletar arquivos de despejo da pasta c:\Users\user_name\AppData\Local\CrashDumps, compactá-los e anexá-los tooan email muito[askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
-- Se você enfrentar falhas em CosmosDB.StartupEntryPoint.exe, execute o seguinte comando em um prompt de comando de administrador: `lodctr /R` 
+- Se você enfrentar falhas em CosmosDB.StartupEntryPoint.exe, execute Olá comando a seguir em um prompt de comando do administrador:`lodctr /R` 
 
-- Se você encontrar um problema de conectividade, [colete os arquivos de rastreamento](#trace-files), compacte-os e anexe-os a um email que deve ser enviado para [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+- Se você encontrar um problema de conectividade, [coletar arquivos de rastreamento](#trace-files), compactá-los e anexá-los email tooan muito[askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
-- Se você receber uma mensagem de **Serviço Indisponível**, o emulador poderá estar falhando em inicializar a pilha de rede. Verifique se você tem o cliente seguro Pulse ou o cliente de redes Juniper instalado, uma vez que seus drivers de filtro de rede podem causar o problema. Desinstalar os drivers de filtro de rede de terceiros geralmente corrige o problema.
+- Se você receber um **serviço indisponível** mensagem, hello emulador poderia estar falhando tooinitialize da pilha de rede hello. Toosee de seleção se você tiver Olá Pulse secure cliente ou Juniper redes cliente instalado, como drivers de filtro de rede podem causar um problema de saudação. A desinstalação de drivers de filtro de rede de terceiros geralmente corrige o problema de saudação.
 
 ### <a id="trace-files"></a>Coletar arquivos de rastreamento
 
-Para coletar rastreamentos de depuração, execute os seguintes comandos em um prompt de comando administrativo:
+toocollect depuração rastreamentos, executados Olá comandos a seguir em um prompt de comando administrativo:
 
 1. `cd /d "%ProgramFiles%\Azure Cosmos DB Emulator"`
-2. `CosmosDB.Emulator.exe /shutdown`. Confira a bandeja do sistema para ter certeza de que o programa foi desligado. Isso pode levar um minuto. Você também pode simplesmente clicar em **Sair** na interface do usuário do Emulador do Azure Cosmos DB.
+2. `CosmosDB.Emulator.exe /shutdown`. Inspecionar Olá bandeja toomake se Olá programa do sistema foi desligado, pode levar um minuto. Você também pode simplesmente clicar **Exit** na interface de usuário do hello Azure Cosmos DB emulador.
 3. `CosmosDB.Emulator.exe /starttraces`
 4. `CosmosDB.Emulator.exe`
-5. Reproduza o problema. Se o Data Explorer não está funcionando, você só precisa aguardar que o navegador abra por alguns segundos para capturar o erro.
+5. Reproduza o problema de saudação. Se o Gerenciador de dados não está funcionando, você só precisa toowait para Olá navegador tooopen para alguns erros de saudação do toocatch segundos.
 5. `CosmosDB.Emulator.exe /stoptraces`
-6. Navegue até `%ProgramFiles%\Azure Cosmos DB Emulator` e localize o arquivo docdbemulator_000001.etl.
-7. Envie o arquivo .etl junto com as etapas reproduzidas para [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) para fins de depuração.
+6. Navegue muito`%ProgramFiles%\Azure Cosmos DB Emulator` e localizar o arquivo de docdbemulator_000001.etl hello.
+7. Envie o arquivo de ETL de saudação junto com as etapas de reprodução muito[ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com) para depuração.
 
-### <a id="uninstall"></a>Desinstalar o Emulador local
+### <a id="uninstall"></a>Desinstalar Olá emulador local
 
-1. Saia de todas as instâncias abertas do Emulador local clicando com o botão direito do mouse no ícone do Emulador do Azure Cosmos DB na bandeja do sistema e clicando em Sair. Pode levar um minuto para que todas as instâncias saiam.
-2. Na caixa de pesquisa do Windows, digite **Aplicativos e recursos** e clique no resultado de **Aplicativos e recursos (Configurações do sistema)**.
-3. Na lista de aplicativos, vá para **Emulador do Azure Cosmos DB**, selecione-o, clique em **Desinstalar** e então confirme e clique em **Desinstalar** novamente.
-4. Quando o aplicativo for desinstalado, navegue até C:\Users\<usuário > \AppData\Local\CosmosDBEmulator e exclua a pasta. 
+1. Saia de todas as instâncias abertas do hello emulador local clicando duas vezes o ícone do emulador do Azure Cosmos DB Olá na bandeja do sistema Olá, e, em seguida, clicar em Sair. Pode levar um minuto para tooexit de todas as instâncias.
+2. Na caixa de pesquisa do Windows hello, digite **aplicativos e recursos** e clique em Olá **aplicativos e recursos (configurações do sistema)** resultados.
+3. Na lista de saudação de aplicativos, vá muito**emulador de banco de dados do Azure Cosmos**, selecioná-la, clique em **desinstalação**, em seguida, confirme e clique em **desinstalação** novamente.
+4. Quando o aplicativo hello é desinstalado, navegue tooC:\Users\<usuário > \AppData\Local\CosmosDBEmulator e excluir a pasta de saudação. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você fez o seguinte:
+Neste tutorial, você fez a seguir hello:
 
 > [!div class="checklist"]
-> * Instalou o Emulador local
-> * Realizou o rand do Emulador no Docker para Windows
+> * Instalado Olá emulador local
+> * Saudação de RAND emulador no Docker para Windows
 > * Autenticou solicitações
-> * Usou o Data Explorer no Emulador
+> * Usado Olá Explorador de dados em Olá emulador
 > * Exportou certificados SSL
-> * Chamou o Emulador na linha de comando
+> * Chamado hello emulador da linha de comando Olá
 > * Coletou arquivos de rastreamento
 
-Neste tutorial, você aprendeu como usar o Emulador local para o desenvolvimento local gratuito. Agora, você pode seguir para o próximo tutorial e aprender como exportar certificados SSL do Emulador. 
+Neste tutorial, você aprendeu como toouse Olá emulador local para local de desenvolvimento gratuito. Agora você pode continuar tutorial próxima toohello e aprender como certificados de emulador SSL tooexport. 
 
 > [!div class="nextstepaction"]
-> [Exportar os certificados do Emulador do Azure Cosmos DB](local-emulator-export-ssl-certificates.md)
+> [Exportar certificados de emulador do Azure Cosmos DB Olá](local-emulator-export-ssl-certificates.md)

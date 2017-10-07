@@ -1,5 +1,5 @@
 ---
-title: "Armazenamento Standard econômico baseado em HD e discos de VM do Azure | Microsoft Docs"
+title: "com base em aaaHD padrão armazenamento econômico e discos de VM do Azure | Microsoft Docs"
 description: "Discuta o Armazenamento Standard econômico e discos de VM gerenciados e não gerenciados."
 services: storage
 documentationcenter: 
@@ -14,52 +14,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: yuemlu
-ms.openlocfilehash: cdcc06844dce5df09b50a9a5f6a97a7a96a9ef48
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c454c61254c6b160bdf2cd39ea3319452e3e4898
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Armazenamento Standard econômico e discos de VM do Azure gerenciados e não gerenciados
 
-O Armazenamento Standard do Azure oferece suporte de disco confiável e de baixo custo para VMs que executam cargas de trabalho insensíveis a latência. Ele também oferece suporte a tabelas, blobs, filas e arquivos. Com o Armazenamento Standard, os dados são armazenados em unidades de disco rígido (HDDs - hard disk drives). Ao trabalhar com VMs, você pode usar discos de armazenamento padrão para cenários de desenvolvimento/teste e cargas de trabalho menos críticas e discos de armazenamento premium para aplicativos de produção de missão crítica. O Armazenamento Standard está disponível em todas as regiões do Azure por Standard. 
+O Armazenamento Standard do Azure oferece suporte de disco confiável e de baixo custo para VMs que executam cargas de trabalho insensíveis a latência. Ele também oferece suporte a tabelas, blobs, filas e arquivos. Com o armazenamento padrão, os dados de saudação são armazenados em unidades de disco rígido (HDDs). Ao trabalhar com VMs, você pode usar discos de armazenamento padrão para cenários de desenvolvimento/teste e cargas de trabalho menos críticas e discos de armazenamento premium para aplicativos de produção de missão crítica. O Armazenamento Standard está disponível em todas as regiões do Azure por Standard. 
 
-Este artigo se concentra no uso de armazenamento padrão para discos de VM. Para obter mais informações sobre o uso de armazenamento com tabelas, blobs, filas e arquivos, consulte [Introdução ao armazenamento](storage-introduction.md).
+Este artigo concentra-se no uso de saudação de armazenamento padrão para discos de VM. Para obter mais informações sobre o uso de saudação do armazenamento com tabelas, blobs, filas e arquivos, consulte toohello [tooStorage Introdução](storage-introduction.md).
 
 ## <a name="disk-types"></a>Tipos de disco
 
-Há duas maneiras de criar discos padrão para VMs do Azure:
+Há duas maneiras de discos de padrão de toocreate para máquinas virtuais do Azure:
 
-**Discos não gerenciados**: esse é o método original onde você gerencia as contas de armazenamento usadas para armazenar os arquivos VHD que correspondem aos discos de VM. Os arquivos VHD são armazenados como blobs de páginas nas contas de armazenamento. Discos não gerenciados podem ser anexados a qualquer tamanho de VM do Azure, incluindo as VMs que usam principalmente o armazenamento Premium, como a série DSv2 e GS. As VMs do Azure suportam anexar vários discos padrão, permitindo que até 256 TB de armazenamento por VM.
+**Não gerenciado discos**: Este é método original hello onde você gerencia Olá contas usadas toostore Olá VHD arquivos de armazenamento que correspondem a toohello discos de VM. Os arquivos VHD são armazenados como blobs de páginas nas contas de armazenamento. Os discos não gerenciados podem ser anexado tooany tamanho da VM do Azure, incluindo as VMs de saudação que usem armazenamento Premium, principalmente como Olá série DSv2 e série GS. Suporte de VMs do Azure anexar vários discos padrão, permitindo que até too256 TB de armazenamento por VM.
 
-[**Azure Managed Disks**](storage-managed-disks-overview.md): esse recurso gerencia as contas de armazenamento usadas para os discos de VM para você. Você só precisa especificar o tipo (Premium ou Standard) e o tamanho do disco que você precisa, e o Azure criará e gerenciará o disco para você. Você não precisa se preocupar com o local em que colocará os discos em várias contas de armazenamento para garantir que fique dentro dos limites de escalabilidade das contas de armazenamento – o Azure cuida disso para você.
+[**Os discos do Azure gerenciados**](storage-managed-disks-overview.md): esse recurso gerencia contas de armazenamento Olá usadas para discos de VM Olá para você. Especificar o tipo de saudação (Premium ou padrão) e o tamanho do disco é necessário e Azure cria e gerencia disco Olá para você. Você não tem tooworry sobre onde colocar os discos de saudação entre várias contas de armazenamento em ordem tooensure que permanecer dentro dos limites de escalabilidade Olá Olá para contas de armazenamento - Azure lida com isso para você.
 
-Embora os dois tipos de discos estejam disponíveis, é recomendável usar o Managed Disks para aproveitar seus muitos recursos.
+Mesmo que os dois tipos de discos disponíveis, é recomendável usar vantagem de tootake discos gerenciados de seus muitos recursos.
 
-Para começar a usar o Armazenamento Standard do Azure, visite a página [Introdução gratuita](https://azure.microsoft.com/pricing/free-trial/). 
+tooget iniciado com o armazenamento padrão do Azure, visite [comece gratuitamente](https://azure.microsoft.com/pricing/free-trial/). 
 
-Para obter informações sobre como criar uma VM com Managed Disks, consulte um dos seguintes artigos.
+Para obter informações sobre como toocreate uma VM com discos gerenciados, consulte uma saudação seguintes artigos.
 
 * [Criar uma VM do Windows usando o Gerenciador de Recursos e o PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-* [Criar uma VM Linux usando a CLI do Azure 2.0](../virtual-machines/linux/quick-create-cli.md)
+* [Criar uma VM do Linux usando Olá 2.0 do CLI do Azure](../virtual-machines/linux/quick-create-cli.md)
 
 ## <a name="standard-storage-features"></a>Recursos do Armazenamento Standard 
 
-Vamos dar uma olhada em alguns dos recursos do Armazenamento Standard. Para saber mais, confira [Introdução ao Armazenamento do Azure](storage-introduction.md).
+Vamos dar uma olhada em alguns dos recursos de saudação do armazenamento padrão. Para obter mais detalhes, consulte [tooAzure Introdução armazenamento](storage-introduction.md).
 
-**Armazenamento Standard**: o Armazenamento Standard do Azure dá suporte a Discos, Blobs, Armazenamento de Arquivos, Tabelas e Filas do Azure. Para usar os serviços de Armazenamento Standard, o primeiro passo é [Criar uma conta de armazenamento do Azure](storage-create-storage-account.md#create-a-storage-account).
+**Armazenamento Standard**: o Armazenamento Standard do Azure dá suporte a Discos, Blobs, Armazenamento de Arquivos, Tabelas e Filas do Azure. Serviços de armazenamento padrão de toouse, inicie com [criar uma conta de armazenamento do Azure](storage-create-storage-account.md#create-a-storage-account).
 
-**Discos de armazenamento Standard:** discos de armazenamento Standard podem ser anexados a todas as VMs do Azure, incluindo as VMs da série de tamanho usadas com o armazenamento Premium, como as séries DSv2 e GS. Um disco de armazenamento padrão só pode ser anexado a uma VM. No entanto, você pode anexar um ou mais desses discos em uma VM até a contagem máxima do disco definida para aquele tamanho de VM. Na seção a seguir sobre Metas de desempenho e escalabilidade do Armazenamento Standard, descreveremos as especificações em mais detalhes. 
+**Discos de armazenamento padrão:** armazenamento padrão, os discos podem ser anexado VMs do Azure tooall incluindo as VMs da série de tamanho usadas com o armazenamento Premium, como a série de série DSv2 e GS hello. Um disco de armazenamento padrão só pode ser anexado tooone VM. No entanto, você pode anexar um ou mais desses tooa discos VM, o toohello de contagem de disco máximo definido para esse tamanho VM. Olá seção a seguir sobre escalabilidade de armazenamento padrão e metas de desempenho, descreveremos especificações hello mais detalhadamente. 
 
-**Blob de páginas Standard**: blobs de páginas Standard são usados para manter discos persistentes para VMs e também podem ser acessados diretamente por meio do REST como outros tipos de Blobs do Azure. [Blobs de páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) são uma coleção de páginas de 512 bytes otimizadas para leitura aleatória e operações de gravação. 
+**Blob de página padrão**: blobs de página padrão são usado toohold discos persistentes para VMs e também pode ser acessados diretamente por meio do REST como outros tipos de Blobs do Azure. [Blobs de páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) são uma coleção de páginas de 512 bytes otimizadas para leitura aleatória e operações de gravação. 
 
-**Replicação de armazenamento:** na maioria das regiões, dados em uma conta de armazenamento padrão podem ser replicados geograficamente ou replicados localmente em vários data centers. Os quatro tipos de replicação disponíveis são Armazenamento Localmente Redundante (LRS), Armazenamento com Redundância de Zona (ZRS), Armazenamento com Redundância Geográfica (GRS) e Armazenamento com Redundância Geográfica com Acesso de Leitura (RA-GRS). O Managed Disks no Armazenamento Standard atualmente suportam apenas o Armazenamento Localmente Redundante (LRS). Para saber mais, consulte [Replicação de armazenamento](storage-redundancy.md).
+**Replicação de armazenamento:** na maioria das regiões, dados em uma conta de armazenamento padrão podem ser replicados geograficamente ou replicados localmente em vários data centers. tipos de saudação quatro de replicação disponível são armazenamento localmente redundante (LRS), o armazenamento com redundância de zona (ZRS), o armazenamento com redundância geográfica (GRS) e o armazenamento com redundância geográfica com acesso de leitura (RA-GRS). O Managed Disks no Armazenamento Standard atualmente suportam apenas o Armazenamento Localmente Redundante (LRS). Para saber mais, consulte [Replicação de armazenamento](storage-redundancy.md).
 
 ## <a name="scalability-and-performance-targets"></a>Metas de Escalabilidade e Desempenho
 
-Nesta seção, descreveremos todas as metas de escalabilidade e desempenho que você deve considerar ao usar o Armazenamento Standard.
+Nesta seção, descreveremos Olá escalabilidade e metas de desempenho tooconsider é necessário ao usar o armazenamento padrão.
 
-### <a name="account-limits--does-not-apply-to-managed-disks"></a>Limites de conta – não se aplicam aos discos gerenciados
+### <a name="account-limits--does-not-apply-toomanaged-disks"></a>Limites de conta – não se aplica a toomanaged discos
 
 | **Recurso** | **Limite padrão** |
 |--------------|-------------------|
@@ -68,51 +68,51 @@ Nesta seção, descreveremos todas as metas de escalabilidade e desempenho que v
 | Saída máxima<sup>1</sup> por conta de armazenamento (regiões dos EUA) | 20 Gbps se o RA-GRS/GRS/ZRS estiver habilitado, 30 Gbps para o LRS |
 | Entrada máxima<sup>1</sup> por conta de armazenamento (regiões da Ásia e Europa) | 5 Gbps se o GRS/ZRS estiver habilitado, 10 Gbps para o LRS |
 | Saída máxima<sup>1</sup> por conta de armazenamento (regiões da Ásia e Europa) | 10 Gbps se o RA-GRS/GRS/ZRS estiver habilitado, 15 Gbps para o LRS |
-| Taxa de solicitação total (presumindo um tamanho de objeto de 1KB) por conta de armazenamento | Até 20.000 IOPS, entidades por segundo ou mensagens por segundo |
+| Taxa de solicitação total (presumindo um tamanho de objeto de 1KB) por conta de armazenamento | Backup too20, IOPS 000, entidades por segundo ou mensagens por segundo |
 
-<sup>1</sup> Entrada refere-se a todos os dados (solicitações) que estão sendo enviados a uma conta de armazenamento. Saída refere-se a todos os dados (respostas) recebidos de uma conta de armazenamento.
+<sup>1</sup> entrada refere-se a dados tooall (solicitações) sendo enviados tooa conta de armazenamento. Saída refere-se tooall dados (respostas) sendo recebidos de uma conta de armazenamento.
 
 Para saber mais, consulte [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md).
 
-Se as necessidades do seu aplicativo excederem as metas de escalabilidade de uma única conta de armazenamento, crie seu aplicativo para usar várias contas de armazenamento e particionar seus dados nessas contas de armazenamento. Como alternativa, você pode usar o Azure Managed Disks e o Azure gerenciará o particionamento e o posicionamento de seus dados para você.
+Se Olá precisa de seu aplicativo exceder os destinos de escalabilidade de saudação de uma única conta de armazenamento, criar várias contas de armazenamento de seu aplicativo toouse e particionar seus dados entre as contas de armazenamento. Como alternativa, você pode discos gerenciado do Azure e Azure gerenciará Olá particionamento e o posicionamento de seus dados para você.
 
 ### <a name="standard-disks-limits"></a>Limites de discos Standard
 
-Ao contrário dos discos Premium, as operações de entrada/saída por segundo (IOPS) e a taxa de transferência (largura de banda) de discos Standard não são provisionadas. O desempenho de discos padrão varia de acordo com o tamanho da VM à qual o disco está anexado, não com o tamanho do disco. Você pode esperar alcançar até o limite de desempenho listado na tabela a seguir.
+Diferentemente dos discos de Premium, as operações de entrada/saída Olá por segundo (IOPS) e taxa de transferência (largura de banda) de discos padrão não são provisionadas. Olá desempenho de discos padrão varia de acordo com hello VM tamanho toowhich Olá disco estiver anexado, não toohello tamanho de disco hello. Você pode esperar tooachieve o limite de desempenho toohello listada na tabela de saudação abaixo.
 
 **Limites de discos Standard (gerenciados e não gerenciados)**
 
 | **Camada de VM**            | **VM de camada básica** | **VM de camada Standard** |
 |------------------------|-------------------|----------------------|
 | Tamanho máximo do disco          | 4095 GB           | 4095 GB              |
-| Máx. de 8 KB de IOPS por disco | Até 300         | Até 500            |
-| Largura de banda máxima por disco | Até 60 MB/s     | Até 60 MB/s        |
+| Máx. de 8 KB de IOPS por disco | Backup too300         | Backup too500            |
+| Largura de banda máxima por disco | O too60 MB/s     | O too60 MB/s        |
 
-Se a sua carga de trabalho requer suporte de disco de alto desempenho e baixa latência, considere usar o armazenamento Premium. Para conhecer mais benefícios do Armazenamento Premium, visite [Armazenamento Premium de alto desempenho e discos de VM do Azure](storage-premium-storage.md). 
+Se a sua carga de trabalho requer suporte de disco de alto desempenho e baixa latência, considere usar o armazenamento Premium. tooknow mais benefícios do armazenamento Premium, visite [Premium de alto desempenho, armazenamento e discos de VM do Azure](storage-premium-storage.md). 
 
 ## <a name="snapshots-and-copy-blob"></a>Instantâneos e blob de cópia
 
-Para o serviço de Armazenamento, o arquivo VHD é um blob de páginas. Você pode tirar instantâneos dos blobs de páginas e copiá-los para outro local, como uma conta de armazenamento diferente.
+toohello serviço de armazenamento do arquivo VHD Olá é um blob de página. Você pode tirar instantâneos de blobs de página e copiá-los tooanother local, como uma conta de armazenamento diferente.
 
 ### <a name="unmanaged-disks"></a>Discos não gerenciados
 
-Você pode criar [instantâneos incrementais](storage-incremental-snapshots.md) para discos Standard não gerenciados da mesma maneira que usa os instantâneos com o Armazenamento Standard. É recomendável que você crie instantâneos e depois os copie para uma conta de armazenamento padrão com redundância geográfica padrão se o seu disco de origem estiver em uma conta de armazenamento localmente redundante. Para saber mais, consulte [Opções de redundância do Armazenamento do Azure](storage-redundancy.md).
+Você pode criar [instantâneos incrementais](storage-incremental-snapshots.md) para discos de padrão de não gerenciado em Olá mesma forma como você usa instantâneos com o armazenamento padrão. É recomendável que você crie instantâneos e, em seguida, copie esses conta de armazenamento com redundância geográfica de padrão de tooa instantâneos se o disco de origem estiver em uma conta de armazenamento com redundância local. Para saber mais, consulte [Opções de redundância do Armazenamento do Azure](storage-redundancy.md).
 
-Se um disco estiver anexado a uma VM, determinadas operações de API não são permitidas nos discos. Por exemplo, você não pode executar uma operação de [Cópia de Blob](/rest/api/storageservices/Copy-Blob) nesse blob enquanto o disco estiver anexado a uma VM. Em vez disso, primeiro crie um instantâneo desse blob usando o método de API REST [Instantâneo de Blob](/rest/api/storageservices/Snapshot-Blob) e depois execute a [Cópia de Blob](/rest/api/storageservices/Copy-Blob) do instantâneo para copiar o disco anexado. Como alternativa, você pode desanexar o disco e, em seguida, executar as operações necessárias.
+Se um disco estiver anexado tooa VM, determinadas operações de API não são permitidas em discos de saudação. Por exemplo, você não pode executar uma [cópia Blob](/rest/api/storageservices/Copy-Blob) operação no blob desde que o disco de saudação anexado tooa VM. Em vez disso, primeiro crie um instantâneo do blob usando Olá [Blob de instantâneo](/rest/api/storageservices/Snapshot-Blob) método API de REST e, em seguida, executar Olá [cópia Blob](/rest/api/storageservices/Copy-Blob) de saudação do hello instantâneo toocopy disco anexado. Como alternativa, você pode desanexar o disco hello e, em seguida, executar todas as operações necessárias.
 
-Para manter cópias com redundância geográfica dos seus instantâneos, você pode copiar instantâneos de uma conta de armazenamento com redundância local para uma conta de armazenamento padrão com redundância geográfica usando AzCopy ou Copiar Blob. Para obter mais informações, confira [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md) e [Copy Blob](/rest/api/storageservices/Copy-Blob) (Cópia de Blob).
+toomaintain cópias com redundância geográfica de seus instantâneos, você pode copiar os instantâneos de uma conta de armazenamento padrão com redundância geográfica do armazenamento localmente redundante conta tooa usando AzCopy ou cópia de Blob. Para obter mais informações, consulte [transferir dados com o utilitário de linha de comando AzCopy de hello](storage-use-azcopy.md) e [cópia Blob](/rest/api/storageservices/Copy-Blob).
 
 Para obter informações detalhadas sobre como executar operações REST em blobs de páginas nas contas de armazenamento padrão, consulte [API REST de serviços de armazenamento do Azure](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference).
 
 ### <a name="managed-disks"></a>Discos gerenciados
 
-Um instantâneo de um disco gerenciado é uma cópia somente leitura do disco gerenciado que é armazenado como um disco gerenciado padrão. Instantâneos incrementais não têm suporte no momento para Managed Disks, mas terão suporte no futuro.
+Um instantâneo de um disco gerenciado é uma cópia somente leitura de disco gerenciado hello, que é armazenado como um disco gerenciado padrão. Instantâneos incrementais atualmente não há suporte para discos gerenciados, mas terá suporte em Olá futuras.
 
-Se um disco gerenciado estiver anexado a uma VM, determinadas operações de API não serão permitidas nos discos. Por exemplo, você não pode gerar uma assinatura de acesso compartilhado (SAS) para executar uma operação de cópia enquanto o disco estiver anexado a uma VM. Em vez disso, primeiro crie um instantâneo do disco e, em seguida, execute a cópia do instantâneo. Como alternativa, você pode desanexar o disco e, em seguida, gerar uma assinatura de acesso compartilhado (SAS) para executar a operação de cópia.
+Se um disco gerenciado é anexado tooa VM, determinadas operações de API não são permitidas em discos de saudação. Por exemplo, você não pode gerar uma SAS (assinatura) de acesso compartilhado tooperform uma operação de cópia enquanto o disco de saudação está anexado tooa VM. Em vez disso, primeiro criar um instantâneo do disco hello e, em seguida, executar a cópia de saudação do instantâneo de saudação. Como alternativa, você pode desanexar o disco hello e, em seguida, gerar uma operação de cópia do acesso compartilhado (SAS) de assinatura tooperform hello.
 
 ## <a name="pricing-and-billing"></a>Preços e cobrança
 
-Ao usar o Armazenamento Standard, as seguintes considerações de cobrança se aplicam:
+Ao usar o armazenamento padrão, hello cobrança considerações a seguir se aplicam:
 
 * Tamanho de discos/dados não gerenciados de armazenamento Standard 
 * Standard Managed Disks
@@ -120,15 +120,15 @@ Ao usar o Armazenamento Standard, as seguintes considerações de cobrança se a
 * Transferências de dados de saída
 * Transações
 
-**Tamanho de discos e dados de armazenamento não gerenciados:** para discos e outros dados não gerenciados (blobs, tabelas, filas e arquivos), você é cobrado apenas pela quantidade de espaço que estiver usando. Por exemplo, se você tiver uma VM cujo blob de páginas é provisionado como 127 GB, mas a VM usa apenas 10 GB de espaço, você será cobrado por 10 GB de espaço. Há suporte para armazenamento padrão até 8191 GB e discos padrão não gerenciados até 4095 GB. 
+**Não gerenciado de tamanho do armazenamento de dados e de disco:** de discos não gerenciados e outros dados (blobs, tabelas, filas e arquivos), você é cobrado apenas para a quantidade de saudação de espaço está usando. Por exemplo, se você tiver uma VM cujo blob de página é provisionado como 127 GB, mas hello VM está realmente somente usando 10 GB de espaço, você será cobrado para 10 GB de espaço. Há suporte para o armazenamento padrão a too8191 GB e discos padrão de não gerenciados a too4095 GB. 
 
-**Discos gerenciados:** discos gerenciados serão cobrados no tamanho provisionado. Se o seu disco for provisionado como um disco de 10 GB e você estiver usando apenas 5 GB, você ainda será cobrado pelo tamanho de provisão de 10 GB.
+**Discos gerenciado:** discos gerenciado são cobrados tamanho Olá provisionado. Se o disco é provisionado como um disco de 10 GB e você estiver usando apenas 5 GB, você ainda será cobrado para tamanho de provisionar Olá de 10 GB.
 
-**Instantâneos**: os instantâneos de discos padrão serão cobrados pela capacidade adicional usada pelos instantâneos. Para saber mais sobre instantâneos, consulte [Criando um instantâneo de um Blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
+**Instantâneos**: instantâneos de discos padrão são cobrados para capacidade adicional de saudação usada por instantâneos do hello. Para saber mais sobre instantâneos, consulte [Criando um instantâneo de um Blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
 **Transferências de dados de saída**: as [transferências de dados de saída](https://azure.microsoft.com/pricing/details/data-transfers/) (dados saindo dos datacenters do Azure) incorrem em cobrança por uso de largura de banda.
 
-**Transação**: o Azure cobra US $0.0036 por 100.000 transações de armazenamento padrão. As transações incluem operações de leitura e gravação para o armazenamento.
+**Transação**: o Azure cobra US $0.0036 por 100.000 transações de armazenamento padrão. Transações incluem leitura e gravação toostorage de operações.
 
 Para obter informações detalhadas sobre os preços de armazenamento Standard, Máquinas Virtuais e Managed Disks, consulte:
 
@@ -140,11 +140,11 @@ Para obter informações detalhadas sobre os preços de armazenamento Standard, 
 
 O backup das máquinas virtuais com discos não gerenciados pode ser feito usando o Backup do Azure. [Mais detalhes](../backup/backup-azure-vms-first-look-arm.md).
 
-Você também pode usar o serviço de Backup do Azure com o Managed Disks para criar um trabalho de backup com backups baseados em tempo, fácil restauração de VM e políticas de retenção de backup. Você pode ler mais sobre isso em [Usando o serviço de backup do Azure para VMs com Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+Você também pode usar o hello serviço Backup do Azure com discos gerenciados toocreate um trabalho de backup com backups baseados em tempo, fácil restauração de VM e políticas de retenção de backup. Você pode ler mais sobre isso em [Usando o serviço de backup do Azure para VMs com Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Introdução ao Armazenamento do Azure](storage-introduction.md)
+* [Introdução tooAzure armazenamento](storage-introduction.md)
 
 * [Criar uma conta de armazenamento](storage-create-storage-account.md)
 
@@ -152,4 +152,4 @@ Você também pode usar o serviço de Backup do Azure com o Managed Disks para c
 
 * [Criar uma VM do Windows usando o Gerenciador de Recursos e o PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Criar uma VM Linux usando a CLI do Azure 2.0](../virtual-machines/linux/quick-create-cli.md)
+* [Criar uma VM do Linux usando Olá 2.0 do CLI do Azure](../virtual-machines/linux/quick-create-cli.md)

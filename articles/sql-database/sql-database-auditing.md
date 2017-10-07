@@ -1,5 +1,5 @@
 ---
-title: "Introdução à auditoria do banco de dados SQL do Azure | Microsoft Docs"
+title: aaaGet iniciado com a auditoria de banco de dados SQL do Azure | Microsoft Docs
 description: "Introdução à auditoria do banco de dados SQL do Azure"
 services: sql-database
 documentationcenter: 
@@ -15,73 +15,73 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: f4324a59b5fa4c2e1ab5b1d7fc7e5fe986ea80f8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5494c602d702ac41992520f900c393a98cc7c989
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
-A auditoria do banco de dados SQL do Azure acompanha eventos do banco de dados e grava-os em um log de auditoria em sua conta de armazenamento do Azure. A auditoria também:
+Auditoria de banco de dados SQL Azure rastreia eventos de banco de dados e grava o log de auditoria tooan em sua conta de armazenamento do Azure. A auditoria também:
 
 * Ajuda você a manter a conformidade regulatória, entender a atividade do banco de dados e obter informações sobre discrepâncias e anomalias que podem indicar preocupações para os negócios ou suspeitas de violações de segurança.
 
-* Permite e facilita a adesão aos padrões de conformidade, embora não garanta a conformidade. Para obter mais informações sobre os programas Azure que oferecem suporte à conformidade com os padrões, consulte o [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
+* Habilita e facilita a padrões de toocompliance aderência, embora ela não garante conformidade. Para obter mais informações sobre o Azure programas que conformidade com padrões de suporte, consulte Olá [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
 
 ## <a id="subheading-1"></a>Visão geral da auditoria do banco de dados SQL do Azure
 É possível usar a auditoria do banco de dados SQL para:
 
 
-* **Retenha** uma trilha de auditoria dos eventos selecionados. Definir categorias de ações de banco de dados a ser auditadas.
-* **Relate** sobre a atividade do banco de dados. Utilizar relatórios pré-configurados e um painel para iniciar rapidamente um relatório de atividades e eventos.
+* **Retenha** uma trilha de auditoria dos eventos selecionados. Você pode definir categorias de banco de dados ações toobe auditado.
+* **Relate** sobre a atividade do banco de dados. Você pode usar relatórios pré-configurados e um tooget painel iniciada rapidamente com a atividade e o relatório de eventos.
 * **Analise** relatórios. Encontrar eventos suspeitos, atividades incomuns e tendências.
 
-Você pode configurar a auditoria para diferentes tipos de categorias de evento, conforme explicado na seção [Configurar a auditoria do banco de dados](#subheading-2).
+Você pode configurar a auditoria para diferentes tipos de categorias de evento, conforme explicado em Olá [configurar a auditoria para seu banco de dados](#subheading-2) seção.
 
-Os logs de auditoria são gravados no Armazenamento de blobs do Azure em sua assinatura do Azure.
+Logs de auditoria são gravados tooAzure armazenamento de Blob em sua assinatura do Azure.
 
 
 ## <a id="subheading-8"></a>Definir a política de auditoria no nível do servidor versus no nível do banco de dados
 
 Uma política de auditoria pode ser definida para um banco de dados específico ou como uma política padrão de servidor:
 
-* Uma política de servidor se aplica a todos os bancos de dados existentes e recém-criados no servidor.
+* Uma política de servidor se aplica a tooall existente e bancos de dados recém-criado no servidor de saudação.
 
-* Se a *auditoria de blob do servidor estiver habilitada*, ela *sempre se aplicará ao banco de dados* (ou seja, o banco de dados será auditado), independentemente das configurações de auditoria do banco de dados.
+* Se *auditoria de blob do servidor é habilitada*, ele *sempre aplica-se o banco de dados toohello* (ou seja, banco de dados hello será auditado), independentemente do banco de dados de saudação configurações de auditoria.
 
-* A habilitação da auditoria de blob no banco de dados, além de sua habilitação no servidor, *não* substituirá nem alterará as configurações de auditoria de blob do servidor. Ambas as auditorias existirão lado a lado. Em outras palavras, o banco de dados será auditado duas vezes em paralelo (uma vez pela política de servidor e uma vez pela política de banco de dados).
+* Habilitar a auditoria no banco de dados do hello em adição tooenabling-lo no servidor de saudação do blob será *não* substituir ou alterar qualquer uma das configurações de saudação de auditoria de blob do servidor de saudação. Ambas as auditorias existirão lado a lado. Em outras palavras, o banco de dados de saudação será auditado duas vezes em paralelo (uma vez pela política do servidor de saudação e uma vez pela política de banco de dados de saudação).
 
    > [!NOTE]
    > Evite habilitar a auditoria de blobs de servidor e a auditoria de blobs do banco de dados juntas, a menos que:
-    > * Você deseja usar outra *conta de armazenamento* ou outro *período de retenção* para um banco de dados específico.
-    > * Você deseja auditar categorias ou tipos de evento de um banco de dados específico que são diferentes das categorias ou dos tipos de evento que estão sendo auditados no restante dos bancos de dados no servidor. Por exemplo, talvez você tenha inserções de tabela que precisam ser auditadas somente em um banco de dados específico.
+    > * Você deseja toouse outro *conta de armazenamento* ou *período de retenção* para um banco de dados específico.
+    > * Você deseja tooaudit tipos de evento ou categorias para um banco de dados que são diferentes dos tipos de eventos ou as categorias que estão sendo auditadas restante de saudação de bancos de dados Olá no servidor de saudação. Por exemplo, você pode ter inserções de tabela que precisa toobe auditada somente para um banco de dados específico.
    > 
-   > Caso contrário, recomendamos habilitar somente a auditoria de blob no nível do servidor e deixar a auditoria no nível do banco de dados desabilitada para todos os bancos de dados.
+   > Caso contrário, é recomendável que você habilite a auditoria de nível de servidor apenas blob e deixe Olá nível de banco de dados auditoria desabilitada para todos os bancos de dados.
 
 
 ## <a id="subheading-2"></a>Configurar a auditoria do banco de dados
-A seção a seguir descreve a configuração de auditoria usando o Portal do Azure.
+Olá, seção a seguir descreve configuração Olá de auditoria usando Olá portal do Azure.
 
-1. Vá para o [Portal do Azure](https://portal.azure.com).
-2. Acesse a folha **Configurações** do banco de dados SQL/SQL Server que você deseja auditar. Na folha **Configurações**, selecione **Auditoria e Detecção de ameaças**.
+1. Vá toohello [portal do Azure](https://portal.azure.com).
+2. Vá toohello **configurações** folha de saudação do banco de dados/SQL server SQL você deseja tooaudit. Em Olá **configurações** folha, selecione **detecção de auditoria e ameaças**.
 
     <a id="auditing-screenshot"></a> ![Painel de navegação][1]
-3. Se você preferir configurar uma política de auditoria do servidor (que se aplicará a todos os bancos de dados existentes e recém-criados neste servidor), poderá selecionar o link **Exibir configurações do servidor** na folha de auditoria do banco de dados. Depois, é possível exibir ou modificar as configurações de auditoria do servidor.
+3. Se você preferir tooset uma política de auditoria de servidor (que será aplicada tooall existente e bancos de dados recém-criado neste servidor), você pode selecionar Olá **exibir configurações de servidor** link na folha de auditoria de banco de dados de saudação. Você pode exibir ou modificar as configurações de auditoria de servidor de saudação.
 
     ![Painel de navegação][2]
-4. Se você preferir habilitar a auditoria de blob no nível do banco de dados (além ou em vez da auditoria no nível do servidor), em **Auditoria**, selecione **ATIVADO** e, em **Tipo de auditoria**, selecione **Blob**.
+4. Se você preferir tooenable blob auditoria no nível de banco de dados de saudação (em adição tooor em vez de auditoria de nível de servidor), para **auditoria**, selecione **ON**e para **auditoria tipo** , selecione **Blob**.
 
-    Se a auditoria de blob do servidor estiver habilitada, a auditoria configurada para o banco de dados existirá lado a lado com a auditoria de blob do servidor.  
+    Se o servidor blob auditoria estiver habilitada, a auditoria de banco de dados configurado de saudação existirá lado a lado com a auditoria de blob do servidor de saudação.  
 
     ![Painel de navegação][3]
-5. Para abrir a folha **Armazenamento de Logs de Auditoria**, selecione **Detalhes de Armazenamento**. Selecione a conta de armazenamento do Azure em que os logs serão salvos e, depois, selecione o período de retenção, após o qual os logs antigos serão excluídos. Em seguida, clique em **OK**. 
+5. Olá tooopen **armazenamento de Logs de auditoria** folha, selecione **detalhes de armazenamento**. Selecione a conta de armazenamento do Azure Olá onde os logs serão salvas e, em seguida, selecione o período de retenção hello, após o qual Olá logs antigos serão excluídos. Em seguida, clique em **OK**. 
    >[!TIP] 
-   >Para aproveitar ao máximo os modelos de relatórios de auditoria, use a mesma conta de armazenamento para todos os bancos de dados auditados. 
+   >Olá tooget máximo de modelos de relatórios auditoria hello, use Olá a mesma conta de armazenamento para todos os bancos de dados auditados. 
 
     <a id="storage-screenshot"></a> ![Painel de navegação][4]
-6. Se quiser personalizar os eventos auditados, você poderá fazer isso por meio do PowerShell ou da API REST. Para obter mais detalhes, consulte a seção [Automação (PowerShell/API REST)](#subheading-7).
-7. Depois de definir as configurações de auditoria, você poderá ativar o novo recurso de detecção de ameaças e configurar emails para receber alertas de segurança. Ao usar a detecção de ameaças, você recebe alertas proativos sobre atividades anômalas do banco de dados que podem indicar possíveis ameaças à segurança. Para obter mais detalhes, consulte [Introdução à detecção de ameaças](sql-database-threat-detection-get-started.md).
+6. Se você quiser toocustomize eventos de saudação auditado, você pode fazer isso por meio do PowerShell ou Olá API REST. Para obter mais detalhes, consulte Olá [automação (API REST/PowerShell)](#subheading-7) seção.
+7. Depois de configurar as configurações de auditoria, você pode ativar o novo recurso de detecção de ameaças hello e configurar alertas de segurança de tooreceive de emails. Ao usar a detecção de ameaças, você recebe alertas proativos sobre atividades anômalas do banco de dados que podem indicar possíveis ameaças à segurança. Para obter mais detalhes, consulte [Introdução à detecção de ameaças](sql-database-threat-detection-get-started.md).
 8. Clique em **Salvar**.
 
 
@@ -89,88 +89,88 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
 
 
 ## <a id="subheading-3"></a>Analisar os logs e relatórios de auditoria
-Os logs de auditoria são agregados na conta do Azure Storage escolhida durante a instalação. Explore os logs de auditoria usando uma ferramenta como o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/).
+Logs de auditoria são agregados no hello escolhido durante a instalação de conta de armazenamento do Azure. Explore os logs de auditoria usando uma ferramenta como o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/).
 
 Os logs de auditoria de blob são salvos como uma coleção de arquivos de blob em um contêiner chamado **sqldbauditlogs**.
 
-Para obter mais detalhes sobre a hierarquia da pasta de armazenamento dos logs de auditoria de blob, as convenções de nomenclatura do blob e o formato do log, consulte a [Referência de formato do log de auditoria de blob (download de arquivo .doc)](https://go.microsoft.com/fwlink/?linkid=829599).
+Para obter mais detalhes sobre a hierarquia de saudação da pasta de armazenamento de logs de auditoria de blob hello, convenções de nomenclatura de blob e formato de log, consulte Olá [Blob Audit Log formato referência (download do arquivo. docx)](https://go.microsoft.com/fwlink/?linkid=829599).
 
-Há vários métodos que podem ser usados para exibir os logs de auditoria de blob:
+Há vários métodos que você pode usar o blob tooview logs de auditoria:
 
-* Use o [portal do Azure](https://portal.azure.com).  Abra o banco de dados relevante. Na parte superior da folha **Auditoria e Detecção de ameaças** do banco de dados, clique em **Exibir logs de auditoria**.
+* Saudação de uso [portal do Azure](https://portal.azure.com).  Banco de dados relevante Olá aberto. AT Olá superior do banco de dados Olá **detecção de auditoria e ameaças** folha, clique em **exibir logs de auditoria**.
 
     ![Painel de navegação][7]
 
-    Uma folha **Registros de auditoria** será aberta, na qual você poderá exibir os logs.
+    Um **registros de auditoria** abre folha, do qual você será capaz de tooview Olá logs.
 
-    - Exiba datas específicas clicando em **Filtro** na parte superior da folha **Registros de auditoria**.
+    - Você pode exibir datas específicas clicando **filtro** na parte superior de saudação do hello **registros de auditoria** folha.
     - Alterne entre os registros de auditoria que foram criados por uma auditoria da política de servidor ou da política de banco de dados.
 
        ![Painel de navegação][8]
 
-* Use a função do sistema **sys.fn_get_audit_file** (T-SQL) para retornar os dados do log de auditoria em um formato tabular. Para obter mais informações sobre como usar essa função, consulte a [documentação de sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
+* Use a função de sistema hello **sys. fn_get_audit_file** dados de log de auditoria (T-SQL) tooreturn Olá em formato tabular. Para obter mais informações sobre como usar essa função, consulte Olá [documentação de sys. fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 
 * Use a opção **Mesclar Arquivos de Auditoria** no SQL Server Management Studio (a partir do SSMS 17):  
-    1. No menu do SSMS, selecione **Arquivo** > **Abrir** > **Mesclar Arquivos de Auditoria**.
+    1. No menu do SSMS hello, selecione **arquivo** > **abrir** > **mesclar arquivos de auditoria**.
 
         ![Painel de navegação][9]
-    2. A caixa de diálogo **Adicionar Arquivos de Auditoria** será aberta. Selecione uma das opções **Adicionar** para escolher se deseja mesclar arquivos de auditoria de um disco local ou importá-los do Armazenamento do Azure (você deverá fornecer os detalhes e a chave de conta do Armazenamento do Azure).
+    2. Olá **adicionar arquivos de auditoria** caixa de diálogo é aberta. Selecione uma saudação **adicionar** opções se auditoria toomerge arquivos de um local de disco ou importá-los do armazenamento do Azure (será necessário tooprovide seus detalhes de armazenamento do Azure e a chave de conta).
 
-    3. Depois que todos os arquivos a serem mesclados forem adicionados, clique em **OK** para concluir a operação de mesclagem.
+    3. Depois de toomerge de todos os arquivos foram adicionados, clique em **Okey** toocomplete operação de mesclagem de saudação.
 
-    4. O arquivo mesclado é aberto no SSMS, no qual você pode exibi-lo e analisá-lo, bem como exportá-lo para um arquivo XEL ou CSV ou para uma tabela.
+    4. arquivo mesclado Olá abre no SSMS, onde você pode exibir e analisá-lo, bem como a exportação-tooan XEL ou CSV arquivo ou tooa tabela.
 
-* Use o [aplicativo de sincronização](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) que criamos. Ele é executado no Azure e utiliza APIs públicas do Log Analytics do OMS (Operations Management Suite) para enviar os logs de auditoria do SQL por push para o OMS. O aplicativo de sincronização envia os logs de auditoria do SQL por push para o Log Analytics do OMS para consumo por meio do painel do Log Analytics do OMS. 
+* Saudação de uso [sincronizar aplicativo](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) que você criou. Ele é executado no Azure e utiliza a análise de Log do Operations Management Suite (OMS) pública APIs toopush SQL logs de auditoria ao OMS. aplicativo de sincronização Hello envia logs de auditoria do SQL em análise de logs do OMS para consumo por meio do painel de análise de logs do OMS hello. 
 
 * Use o Power BI. Você pode exibir e analisar dados do log de auditoria no Power BI. Saiba mais sobre o [Power BI e acesse um modelo para download](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
-* Baixe os arquivos de log do contêiner de Azure Storage Blob por meio do portal ou usando uma ferramenta como o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/).
-    * Depois de baixar um arquivo de log localmente, clique duas vezes no arquivo para abrir, exibir e analisar os logs no SSMS.
-    * Baixe também vários arquivos simultaneamente por meio do Gerenciador de Armazenamento do Azure. Clique com o botão direito do mouse em uma subpasta específica (por exemplo, uma subpasta que inclui todos os arquivos de log de uma data específica) e selecione **Salvar como** para salvar em uma pasta local.
+* Baixar arquivos de log do seu contêiner de blob de armazenamento do Azure por meio do portal hello, ou usando uma ferramenta como [Azure Storage Explorer](http://storageexplorer.com/).
+    * Depois de baixar um arquivo de log localmente, você pode clicar duas vezes tooopen do arquivo hello, exibir e analisar logs Olá no SSMS.
+    * Baixe também vários arquivos simultaneamente por meio do Gerenciador de Armazenamento do Azure. Clique em uma subpasta específica (por exemplo, uma subpasta que inclui todos os arquivos de log para uma data específica) e selecione **Salvar como** toosave em uma pasta local.
 
 * Métodos adicionais:
-   * Depois de baixar vários arquivos (ou uma subpasta que inclui arquivos de log de um dia inteiro, conforme descrito no item anterior nesta lista), você pode mesclá-los localmente, conforme descrito nas instruções da opção Mesclar Arquivos de Auditoria do SSMS indicadas anteriormente.
+   * Depois de baixar vários arquivos (ou em uma subpasta que inclui arquivos de log para um dia inteiro, conforme descrito no item anterior Olá nesta lista), você pode mesclá-los localmente conforme descrito nas instruções de arquivos de auditoria de mesclagem do SSMS Olá descritas anteriormente.
 
    * Exiba os logs de auditoria de blob de forma programática:
 
-     * Use a biblioteca C# do [Leitor de Eventos Estendidos](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/).
+     * Saudação de uso [leitor de eventos estendidos](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/) biblioteca C#.
      * [Consulte Arquivos de Eventos Estendidos usando o PowerShell](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/).
 
 
 
 
 ## <a id="subheading-5"></a>Práticas de produção
-<!--The description in this section refers to preceding screen captures.-->
+<!--hello description in this section refers toopreceding screen captures.-->
 
 ### <a id="subheading-6">Auditoria de bancos de dados replicados geograficamente</a>
-Ao usar bancos de dados com replicação geográfica, é possível configurar a auditoria no banco de dados primário, no banco de dados secundário ou em ambos, dependendo do tipo de auditoria.
+Quando você usa os bancos de dados replicada geograficamente, é possível tooset a auditoria no banco de dados primário Olá, banco de dados secundário hello ou ambos, dependendo do tipo de auditoria de saudação.
 
-Siga estas instruções (lembre-se de que a auditoria de blob pode ser ativada ou desativada somente nas configurações de auditoria do banco de dados primário):
+Siga estas instruções (Lembre-se de que a auditoria de blob pode ser ativada ou desativada somente de banco de dados primário Olá configurações de auditoria):
 
-* **Banco de dados primário**. Ative a auditoria de blob, no servidor ou no próprio banco de dados, conforme descrito na seção [Configurar a auditoria do banco de dados](#subheading-2).
-* **Banco de dados secundário**. Ative a auditoria de blob no banco de dados primário, conforme descrito na seção [Configurar a auditoria do banco de dados](#subheading-2). 
-   * A auditoria de blob precisa estar habilitada no *banco de dados primário*, não no servidor.
-   * Depois que a auditoria de blob estiver habilitada no banco de dados primário, ela também será habilitada no banco de dados secundário.
+* **Banco de dados primário**. Ativar a auditoria de blob, no servidor de saudação ou Olá próprio banco de dados, conforme descrito em Olá [configurar a auditoria para seu banco de dados](#subheading-2) seção.
+* **Banco de dados secundário**. Ativar a auditoria de blob no banco de dados primário hello, conforme descrito em Olá [configurar a auditoria para seu banco de dados](#subheading-2) seção. 
+   * Auditoria de blob deve ser habilitada nos Olá *banco de dados primário em si*, não o servidor de saudação.
+   * Depois que a auditoria de blob estiver habilitada no banco de dados primário hello, ele também será habilitado no banco de dados secundário hello.
 
      >[!IMPORTANT]
-     >Por padrão, as configurações de armazenamento do banco de dados secundário serão idênticas às do banco de dados primário, causando um tráfego entre regiões. Evite isso habilitando a auditoria de blob no servidor secundário e configurando o armazenamento local nas configurações de armazenamento do servidor secundário. Isso substituirá o local de armazenamento do banco de dados secundário e o resultado será que cada banco de dados salvará seus logs de auditoria no armazenamento local.  
+     >Por padrão, as configurações de armazenamento Olá para o banco de dados secundário Olá será idêntico toothose do banco de dados primário Olá, fazendo com que o tráfego entre regional. Você pode evitar isso, permitindo a auditoria de blob no servidor secundário hello e configurar o armazenamento local nas configurações de armazenamento do servidor secundário Olá. Isso substituirá o local de armazenamento de saudação para o banco de dados secundário hello e resultam em cada banco de dados salvando seu armazenamento de toolocal de logs de auditoria.  
 <br>
 
 ### <a id="subheading-6">Regeneração de chave de armazenamento</a>
-Em produção, você provavelmente atualizará suas chaves de armazenamento periodicamente. Ao atualizar as chaves, é necessário salvar novamente a política de auditoria. O processo é o seguinte:
+Em produção, você está provavelmente toorefresh o armazenamento de chaves periodicamente. Ao atualizar as chaves, é necessário a diretiva de auditoria tooresave hello. processo de saudação é o seguinte:
 
-1. Abra a folha **Detalhes de Armazenamento**. Na caixa **Chave de Acesso de Armazenamento**, selecione **Secundária** e clique em **OK**. Em seguida, clique em **Salvar** na parte superior da folha de configuração de auditoria.
+1. Olá abrir **armazenamento detalhes** folha. Em Olá **chave de acesso de armazenamento** selecione **secundário**e clique em **Okey**. Em seguida, clique em **salvar** na parte superior de saudação do hello folha de configuração de auditoria.
 
     ![Painel de navegação][5]
-2. Acesse a folha de configuração de armazenamento e regenere a chave de acesso primária.
+2. Vá toohello folha de configuração de armazenamento e regenerar a chave de acesso primária hello.
 
     ![Painel de navegação][6]
-3. Volte para a folha de configuração de auditoria, alterne a chave de acesso de armazenamento de secundária para primária e, depois, clique em **OK**. Em seguida, clique em **Salvar** na parte superior da folha de configuração de auditoria.
-4. Volte para a folha de configuração de armazenamento e regenere a chave de acesso secundária (em preparação para o próximo ciclo de atualização da chave).
+3. Voltar toohello folha de configuração de auditoria, alternar a chave de acesso de armazenamento de saudação do tooprimary secundário e, em seguida, clique em **Okey**. Em seguida, clique em **salvar** na parte superior de saudação do hello folha de configuração de auditoria.
+4. Volte toohello folha de configuração de armazenamento e chave de acesso secundária Olá regenerar (em preparação para o ciclo de atualização da chave Olá próximo).
 
 ## <a id="subheading-7"></a>Automação (PowerShell/API REST)
-Configure também a auditoria no Banco de Dados SQL do Azure usando as seguintes ferramentas de automação:
+Você também pode configurar a auditoria no banco de dados do SQL Azure usando Olá ferramentas de automação a seguir:
 
 * **Cmdlets do PowerShell**:
 

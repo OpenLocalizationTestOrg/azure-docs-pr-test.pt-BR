@@ -1,6 +1,6 @@
 ---
-title: "Habilitar o Azure Application Insights Profiler em um recurso dos Serviços de Nuvem | Microsoft Docs"
-description: "Saiba como configurar o criador de perfil em um aplicativo ASP.NET hospedado por um recurso dos Serviços de Nuvem do Azure."
+title: "aaaEnable criador de perfil de informações de aplicativo do Azure em um recurso de serviços de nuvem | Microsoft Docs"
+description: "Saiba como tooset o criador de perfil de saudação em um aplicativo ASP.NET hospedado por um recurso de serviços de nuvem do Azure."
 services: application-insights
 documentationcenter: 
 author: CFreemanwa
@@ -12,106 +12,106 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
-ms.openlocfilehash: 5ff062ac81dca9d8b205cec966d2a9c11a4005b6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b9ac3bca513bf4518f44780389a9f2945f6ccc98
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enable-application-insights-profiler-on-an-azure-cloud-services-resource"></a>Habilitar o Application Insights Profiler em um recurso dos Serviços de Nuvem do Microsoft Azure
 
-Este passo a passo demonstra como habilitar o Azure Application Insights Profiler em um aplicativo ASP.NET hospedado por um recurso dos Serviços de Nuvem do Microsoft Azure. Os exemplos incluem suporte para Máquinas Virtuais do Azure, conjuntos de dimensionamento de máquinas virtuais e Service Fabric do Azure. Todos os exemplos dependem de modelos que dão suporte ao modelo de implantação do Azure Resource Manager. Para saber mais sobre o modelo de implantação, leia [Implantação do Azure Resource Manager versus clássica: entenda os modelos de implantação e o estado de seus recursos](/azure-resource-manager/resource-manager-deployment-model).
+Este passo a passo demonstra como tooenable criador de perfil de informações de aplicativo do Azure em um aplicativo ASP.NET hospedado por um recurso de serviços de nuvem do Azure. exemplos de saudação incluem suporte para máquinas virtuais do Azure e conjuntos de escala de máquina virtual do Azure Service Fabric. todos os exemplos de saudação confiam nos modelos que oferecem suporte ao modelo de implantação do Azure Resource Manager hello. Para obter mais informações sobre o modelo de implantação hello, examine [do Azure Resource Manager versus implantação clássica: entender os modelos de implantação e Olá estado de seus recursos](/azure-resource-manager/resource-manager-deployment-model).
 
 ## <a name="overview"></a>Visão geral
 
-O diagrama a seguir ilustra como o criador de perfil funciona para os recursos dos Serviços de Nuvem do Microsoft Azure. Ele usa uma máquina virtual do Azure como exemplo.
+Olá diagrama a seguir ilustra como o criador de perfil Olá funciona para os recursos de serviços de nuvem do Azure. Ele usa uma máquina virtual do Azure como exemplo.
 
-![Visão geral](./media/enable-profiler-compute/overview.png) Para coletar informações de processamento e exibição no portal do Azure, você deve instalar o componente Agente de Diagnóstico para os recursos dos Serviços de Nuvem do Microsoft Azure. O restante do passo a passo apresenta diretrizes sobre como instalar e configurar o Agente de Diagnóstico para habilitar o Application Insights Profiler.
+![Visão geral](./media/enable-profiler-compute/overview.png) toocollect informações para processamento e exibição em Olá portal do Azure, você deve instalar o componente do agente de diagnóstico Olá para recursos de serviços de nuvem do Azure hello. Olá rest Olá passo a passo fornece orientação sobre como tooinstall e configurar Olá agente de diagnóstico tooenable criador de perfil do Application Insights.
 
-## <a name="prerequisites-for-the-walkthrough"></a>Pré-requisitos para o passo a passo
+## <a name="prerequisites-for-hello-walkthrough"></a>Pré-requisitos para Olá passo a passo
 
-* Um modelo de implantação do Resource Manager que instala os agentes de criador de perfil nas VMs ([WindowsVirtualMachine.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)) ou conjuntos de dimensionamento ([WindowsVirtualMachineScaleSet.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)).
+* Um modelo do Gerenciador de recursos de implantação que instala agentes do criador de perfil de saudação em Olá VMs ([WindowsVirtualMachine.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)) ou conjuntos de escala ([WindowsVirtualMachineScaleSet.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)).
 
-* Uma instância do Application Insights habilitada para criação de perfil. Para obter instruções, confira [Habilitar o criador de perfil](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler#enable-the-profiler).
+* Uma instância do Application Insights habilitada para criação de perfil. Para obter instruções, consulte [habilitar perfil Olá](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler#enable-the-profiler).
 
-* .NET Framework 4.6.1 ou posterior instalado no recurso de destino dos Serviços de Nuvem do Microsoft Azure.
+* Recursos de serviços de nuvem do Azure de destino do .NET framework 4.6.1 ou posterior instalado em hello.
 
 ## <a name="create-a-resource-group-in-your-azure-subscription"></a>Criar um grupo de recursos em sua assinatura do Azure
-O seguinte exemplo demonstra como criar um grupo de recursos usando um script do PowerShell:
+saudação de exemplo a seguir demonstra como toocreate um recurso de grupo usando um script do PowerShell:
 
 ```
 New-AzureRmResourceGroup -Name "Replace_With_Resource_Group_Name" -Location "Replace_With_Resource_Group_Location"
 ```
 
-## <a name="create-an-application-insights-resource-in-the-resource-group"></a>Criar um recurso Application Insights no grupo de recursos
-Na folha **Application Insights**, insira as informações do recurso, conforme mostrado neste exemplo: 
+## <a name="create-an-application-insights-resource-in-hello-resource-group"></a>Criar um recurso do Application Insights no grupo de recursos de saudação
+Em Olá **Application Insights** folha, insira as informações de Olá para o recurso, conforme mostrado neste exemplo: 
 
 ![Folha Application Insights](./media/enable-profiler-compute/createai.png)
 
-## <a name="apply-an-application-insights-instrumentation-key-in-the-azure-resource-manager-template"></a>Aplicar uma chave de instrumentação do Application Insights no modelo do Azure Resource Manager
+## <a name="apply-an-application-insights-instrumentation-key-in-hello-azure-resource-manager-template"></a>Aplicar uma chave de instrumentação do Application Insights no modelo do Azure Resource Manager Olá
 
-1. Caso ainda não tenha baixado o modelo, baixe-o do [GitHub](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json).
+1. Se você ainda não baixou modelo Olá ainda, baixe-o do [GitHub](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json).
 
-2. Localize a chave do Application Insights.
+2. Localize a chave do Application Insights hello.
    
-   ![Local da chave](./media/enable-profiler-compute/copyaikey.png)
+   ![Local da chave de saudação](./media/enable-profiler-compute/copyaikey.png)
 
-3. Substitua o valor do modelo.
+3. Substitua o valor do modelo de saudação.
    
-   ![Valor substituído no modelo](./media/enable-profiler-compute/copyaikeytotemplate.png)
+   ![Valor substituído no modelo de saudação](./media/enable-profiler-compute/copyaikeytotemplate.png)
 
-## <a name="create-an-azure-vm-to-host-the-web-application"></a>Criar uma VM do Azure para hospedar o aplicativo Web
-1. Crie uma cadeia de caracteres segura para salvar a senha.
+## <a name="create-an-azure-vm-toohost-hello-web-application"></a>Criar um aplicativo web do Azure VM toohost Olá
+1. Crie uma senha de saudação do toosave de cadeia de caracteres segura.
 
    ```
    $password = ConvertTo-SecureString -String "Replace_With_Your_Password" -AsPlainText -Force
    ```
 
-2. Implante o modelo do Azure Resource Manager.
+2. Implante o modelo do Azure Resource Manager hello.
 
-   Altere o diretório no console do PowerShell para a pasta que contém o modelo do Resource Manager. Para implantar o modelo, execute o seguinte comando:
+   Alterar diretório Olá Olá console toohello pasta do PowerShell que contém o modelo do Gerenciador de recursos. modelo de saudação toodeploy, execute Olá comando a seguir:
 
    ```
    New-AzureRmResourceGroupDeployment -ResourceGroupName "Replace_With_Resource_Group_Name" -TemplateFile .\WindowsVirtualMachine.json -adminUsername "Replace_With_your_user_name" -adminPassword $password -dnsNameForPublicIP "Replace_WIth_your_DNS_Name" -Verbose
    ```
 
-Depois que o script for executado com êxito, você deverá encontrar uma VM denominada **MyWindowsVM** em seu grupo de recursos.
+Depois que o script hello é executado com êxito, você deve encontrar uma VM denominada **MyWindowsVM** em seu grupo de recursos.
 
-## <a name="configure-web-deploy-on-the-vm"></a>Configurar Implantação da Web na VM
+## <a name="configure-web-deploy-on-hello-vm"></a>Configurar a implantação da Web em Olá VM
 Verifique se a Implantação da Web está habilitada na sua VM para que você possa publicar o aplicativo Web usando o Visual Studio.
 
-Para instalar a Implantação da Web em uma VM manualmente por meio do WebPI, confira [Installing and Configuring Web Deploy on IIS 8.0 or Later](https://docs.microsoft.com/en-us/iis/install/installing-publishing-technologies/installing-and-configuring-web-deploy-on-iis-80-or-later) (Instalar e configurar a Implantação da Web no IIS 8.0 ou posterior). Para obter um exemplo de como automatizar a instalação da Implantação da Web usando um modelo do Azure Resource Manager, confira [Create, configure, and deploy a web application to an Azure VM](https://azure.microsoft.com/en-us/resources/templates/201-web-app-vm-dsc/) (Criar, configurar e implantar um aplicativo Web em uma VM do Azure).
+tooinstall implantação da Web em uma máquina virtual manualmente por meio do WebPI, consulte [instalando e configurando o implantação da Web no IIS 8.0 ou posterior](https://docs.microsoft.com/en-us/iis/install/installing-publishing-technologies/installing-and-configuring-web-deploy-on-iis-80-or-later). Para obter um exemplo de como tooautomate instalar a implantação da Web usando um modelo do Gerenciador de recursos do Azure, consulte [criar, configurar e implantar um aplicativo de web tooan VM do Azure](https://azure.microsoft.com/en-us/resources/templates/201-web-app-vm-dsc/).
 
-Se você estiver implantando um aplicativo MVC ASP.NET, vá para o Gerenciador do Servidor, escolha **Adicionar Funções e Recursos** > **Servidor Web (IIS)** > **Servidor Web** > **Desenvolvimento de Aplicativo** e habilite o ASP.NET 4.5 no servidor.
+Se você estiver implantando um aplicativo ASP.NET MVC, vá tooServer Manager, selecione **adicionar funções e recursos** > **servidor Web (IIS)** > **Web Server**  >  **Desenvolvimento de aplicativos**e habilitar o ASP.NET 4.5 no servidor.
 
 ![Adicionar ASP.NET](./media/enable-profiler-compute/addaspnet45.png)
 
-## <a name="install-the-azure-application-insights-sdk-for-your-project"></a>Instalar o SDK do Azure Application Insights para seu projeto
+## <a name="install-hello-azure-application-insights-sdk-for-your-project"></a>Instalar hello Azure SDK do Application Insights para seu projeto
 1. Abra o aplicativo Web ASP.NET no Visual Studio.
 
-2. Clique com o botão direito do mouse no projeto e escolha **Adicionar** > **Serviços Conectados**.
+2. Clique com botão direito hello e selecione **adicionar** > **serviços conectados**.
 
 3. Selecione **Application Insights**.
 
-4. Siga as instruções na página. Selecione o recurso Application Insights que você criou anteriormente.
+4. Siga as instruções de saudação na página de saudação. Selecione o recurso do Application Insights Olá que você criou anteriormente.
 
-5. Escolha o botão **Registrar**.
+5. Selecione Olá **registrar** botão.
 
 
-## <a name="publish-the-project-to-an-azure-vm"></a>Publicar o projeto em uma VM do Azure
-Há várias maneiras de publicar um aplicativo para uma VM do Azure. Uma delas é usar o Virtual Studio 2017.
+## <a name="publish-hello-project-tooan-azure-vm"></a>Publicar Olá projeto tooan VM do Azure
+Há várias toopublish de maneiras tooan um aplicativo do Azure VM. Uma maneira é toouse 2017 do Visual Studio.
 
-1. Clique com o botão direito do mouse no projeto e escolha **Publicar**.
+1. Clique com botão direito hello e selecione **publicar**.
 
-2. Escolha **Máquinas Virtuais do Microsoft Azure** como o destino de publicação e siga as etapas.
+2. Selecione **máquinas virtuais do Microsoft Azure** como Olá publicar destino e siga as etapas de saudação.
 
    ![Publish-FromVS](./media/enable-profiler-compute/publishtoVM.png)
 
-3. Execute um teste de carga no seu aplicativo. Você deve ver os resultados na página da Web do portal da instância do Application Insights.
+3. Execute um teste de carga no seu aplicativo. Você deve ver resultados Olá Application Insights instância portal página da Web.
 
 
-## <a name="enable-the-profiler"></a>Habilitar o criador de perfil
-1. Vá para a folha **Desempenho** do Application Insights e escolha **Configurar**.
+## <a name="enable-hello-profiler"></a>Habilitar o criador de perfil de saudação
+1. Vá tooyour Application Insights **desempenho** folha e selecione **configurar**.
    
    ![Ícone Configurar](./media/enable-profiler-compute/enableprofiler1.png)
  
@@ -119,41 +119,41 @@ Há várias maneiras de publicar um aplicativo para uma VM do Azure. Uma delas �
    
    ![Ícone Habilitar o Criador de Perfil](./media/enable-profiler-compute/enableprofiler2.png)
 
-## <a name="add-a-performance-test-to-your-application"></a>Adicionar um teste de desempenho para o aplicativo
-Siga estas etapas para que seja possível coletar alguns dados de exemplo a serem exibidos no Application Insights Profiler:
+## <a name="add-a-performance-test-tooyour-application"></a>Adicionar um aplicativo de tooyour de teste de desempenho
+Para que possamos coletar algumas toobe de dados de exemplo exibido no criador de perfil do Application Insights, siga estas etapas:
 
-1. Navegue até o recurso Application Insights que você criou anteriormente. 
+1. Procure o recurso do Application Insights toohello que você criou anteriormente. 
 
-2. Vá para a folha **Disponibilidade** e adicione um teste de desempenho que envie solicitações da Web para a URL do aplicativo. 
+2. Vá toohello **disponibilidade** folha e adicione um teste de desempenho que envia a URL do aplicativo web solicitações tooyour. 
 
    ![Adicionar teste de desempenho](./media/enable-profiler-compute/AvailabilityTest.png)
 
 ## <a name="view-your-performance-data"></a>Exibir seus dados de desempenho
 
-1. Aguarde de 10 a 15 minutos para que o criador de perfil colete e analise os dados. 
+1. Aguarde 10 a 15 minutos para Olá profiler toocollect e analisar dados de saudação. 
 
-2. Vá para a folha **Desempenho** em seu recurso Application Insights e veja o desempenho do aplicativo quando ele está sob carga.
+2. Vá toohello **desempenho** folha no recurso do Application Insights e exibição de desempenho do seu aplicativo quando ele está sob carga.
 
    ![Exibição do desempenho](./media/enable-profiler-compute/aiperformance.png)
 
-3. Escolha o ícone em **Exemplos** para abrir a folha **Exibição de Rastreamento**.
+3. Ícone de saudação selecione **exemplos** tooopen Olá **exibição de rastreamento** folha.
 
-   ![Abrindo a folha Exibição de Rastreamento](./media/enable-profiler-compute/traceview.png)
+   ![Abrir a folha de exibição de rastreamento Olá](./media/enable-profiler-compute/traceview.png)
 
 
 ## <a name="work-with-an-existing-template"></a>Trabalhar com um modelo existente
 
-1. Localize a declaração do recurso Diagnóstico do Azure em seu modelo de implantação.
+1. Localize a declaração de recursos de diagnóstico do Azure Olá em seu modelo de implantação.
    
-   Caso não tenha uma declaração, você poderá criar uma semelhante à declaração no exemplo a seguir. Você pode atualizar o modelo no [site do Azure Resource Explorer](https://resources.azure.com).
+   Se você não tiver uma declaração, você pode criar um que é semelhante a declaração de saudação em Olá exemplo a seguir. Você pode atualizar o modelo de saudação do hello [site do Gerenciador de recursos do Azure](https://resources.azure.com).
 
-2. Altere o editor de `Microsoft.Azure.Diagnostics` para `AIP.Diagnostics.Test`.
+2. Editor de alteração de saudação do `Microsoft.Azure.Diagnostics` muito`AIP.Diagnostics.Test`.
 
 3. Para `typeHandlerVersion`, use `0.0`.
 
-4. Verifique se `autoUpgradeMinorVersion` está definido como `true`.
+4. Verifique se `autoUpgradeMinorVersion` está definido muito`true`.
 
-5. Adicione a nova instância do coletor `ApplicationInsightsProfiler` no objeto de configurações `WadCfg`, conforme mostrado no seguinte exemplo:
+5. Adicionar Olá novo `ApplicationInsightsProfiler` instância do coletor no hello `WadCfg` objeto de configurações, conforme mostrado no exemplo a seguir de saudação:
 
 ```
 "resources": [
@@ -172,7 +172,7 @@ Siga estas etapas para que seja possível coletar alguns dados de exemplo a sere
                   "Sink": [
                     {
                       "name": "Give a descriptive short name. E.g.: MyApplicationInsightsProfilerSink",
-                      "ApplicationInsightsProfiler": "Enter the Application Insights instance instrumentation key guid here"
+                      "ApplicationInsightsProfiler": "Enter hello Application Insights instance instrumentation key guid here"
                     }
                   ]
                 },
@@ -189,20 +189,20 @@ Siga estas etapas para que seja possível coletar alguns dados de exemplo a sere
 ]
 ```
 
-## <a name="enable-the-profiler-on-virtual-machine-scale-sets"></a>Habilitar o criador de perfil em conjuntos de dimensionamento de máquinas virtuais
-Para ver como habilitar o criador de perfil, baixe o modelo [WindowsVirtualMachineScaleSet.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json). Aplique as mesmas alterações em um modelo de VM ao recurso de extensão de diagnóstico para o conjunto de dimensionamento de máquinas virtuais.
+## <a name="enable-hello-profiler-on-virtual-machine-scale-sets"></a>Habilitar o criador de perfil de saudação em conjuntos de escala de máquinas virtuais
+toosee como tooenable Olá profiler, download Olá [WindowsVirtualMachineScaleSet.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json) modelo. Aplica Olá mesmo alterações em um recurso de extensão VM modelo toohello diagnóstico para o conjunto de escalas da máquina virtual hello.
 
-Verifique se cada instância no conjunto de dimensionamento tem acesso à Internet. O Agente do Criador de Perfil pode enviar as amostras coletadas ao Application Insights para exibição e análise.
+Certifique-se de que cada instância no conjunto de escala Olá tem toohello de acesso à internet. Olá criador de perfil de agente, em seguida, pode enviar amostras de saudação coletada tooApplication Insights para exibição e análise.
 
-## <a name="enable-the-profiler-on-service-fabric-applications"></a>Habilitar o criador de perfil em aplicativos do Service Fabric
-1. Provisione o cluster do Service Fabric para que ele tenha a extensão do Diagnóstico do Azure que instala o Agente do Criador de Perfil.
+## <a name="enable-hello-profiler-on-service-fabric-applications"></a>Habilitar o criador de perfil de saudação em aplicativos do Service Fabric
+1. Saudação de provisionar Service Fabric cluster toohave Olá diagnóstico do Azure extensão que instala Olá criador de perfil de agente.
 
-2. Instale o SDK do Application Insights no projeto e configure a chave do Application Insights.
+2. Instalar Olá SDK do Application Insights no projeto de saudação e configurar a chave do Application Insights hello.
 
-3. Adicione o código do aplicativo à telemetria de instrumento.
+3. Adicione telemetria de tooinstrument de código do aplicativo.
 
-### <a name="provision-the-service-fabric-cluster-to-have-the-azure-diagnostics-extension-that-installs-the-profiler-agent"></a>Provisionar o cluster do Service Fabric para que ele tenha a extensão do Diagnóstico do Azure que instala o Agente do Criador de Perfil
-Um cluster do Service Fabric, que pode ser seguro ou não. Você pode definir um cluster de gateway como não seguro, de modo que ele não exija um certificado para o acesso. Clusters que hospedam lógica de negócios e dados devem ser seguros. Você pode habilitar o criador de perfil em clusters seguros e não seguros do Service Fabric. Este passo a passo usa um cluster não seguro como um exemplo para explicar as alterações necessárias para habilitar o criador de perfil. Você pode provisionar um cluster seguro da mesma maneira.
+### <a name="provision-hello-service-fabric-cluster-toohave-hello-azure-diagnostics-extension-that-installs-hello-profiler-agent"></a>Provisionar Olá Service Fabric cluster toohave Olá extensão de diagnóstico do Azure que instala Olá criador de perfil de agente
+Um cluster do Service Fabric, que pode ser seguro ou não. Você pode definir um toobe de cluster de gateway não seguro para que ele não requer um certificado para o acesso. Clusters que hospedam lógica de negócios e dados devem ser seguros. Você pode habilitar o criador de perfil de saudação em clusters de malha do serviço seguras e não seguras. Este passo a passo usa um cluster de não seguro como um exemplo tooexplain as alterações que são necessárias tooenable Olá profiler. Você pode provisionar um cluster seguro no hello mesma maneira.
 
 1. Baixe o [ServiceFabricCluster.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json). Assim como feito nas VMs e nos conjuntos de dimensionamento de máquinas virtuais, substitua `Application_Insights_Key` pela chave do Application Insights:
 
@@ -220,7 +220,7 @@ Um cluster do Service Fabric, que pode ser seguro ou não. Você pode definir um
                      },
    ```
 
-2. Implante o modelo usando um script do PowerShell:
+2. Implante o modelo hello usando um script do PowerShell:
 
    ```
    Login-AzureRmAccount
@@ -229,20 +229,20 @@ Um cluster do Service Fabric, que pode ser seguro ou não. Você pode definir um
 
    ```
 
-### <a name="install-the-application-insights-sdk-in-the-project-and-configure-the-application-insights-key"></a>Instalar o SDK do Application Insights no projeto e configurar a chave do Application Insights
-Instale o SDK do Application Insights do [pacote do NuGet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/). Certifique-se de instalar uma versão estável 2.3 ou posterior. 
+### <a name="install-hello-application-insights-sdk-in-hello-project-and-configure-hello-application-insights-key"></a>Instalar Olá SDK do Application Insights no projeto hello e configurar a chave do Application Insights Olá
+Instalar Olá SDK do Application Insights do hello [pacote NuGet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/). Certifique-se de instalar uma versão estável 2.3 ou posterior. 
 
 Para obter informações sobre como configurar o Application Insights em seus projetos, confira [Using Service Fabric with Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md) (Usando o Service Fabric com o Application Insights).
 
-### <a name="add-application-code-to-instrument-telemetry"></a>Adicionar o código do aplicativo à telemetria de instrumento
-1. Em qualquer parte de código que você queira instrumentar, adicione uma instrução de uso em torno dele. 
+### <a name="add-application-code-tooinstrument-telemetry"></a>Adicionar telemetria de tooinstrument de código do aplicativo
+1. Para qualquer parte do código que você deseja tooinstrument, adicione um usando a instrução ao redor dele. 
 
-   No exemplo a seguir, o método `RunAsync` está desempenhando seu papel e a classe `telemetryClient` captura a telemetria depois que ela é iniciada. O evento precisa de um nome exclusivo no aplicativo.
+   Em Olá exemplo a seguir, Olá `RunAsync` método é realizar algum trabalho e Olá `telemetryClient` classe captura telemetria Olá após ele ser iniciado. evento Olá precisa de um nome exclusivo em um aplicativo hello.
 
    ```
    protected override async Task RunAsync(CancellationToken cancellationToken)
        {
-           // TODO: Replace the following sample code with your own logic
+           // TODO: Replace hello following sample code with your own logic
            //       or remove this RunAsync override if it's not needed in your service.
 
            while (true)
@@ -262,15 +262,15 @@ Para obter informações sobre como configurar o Application Insights em seus pr
        }
    ```
 
-2. Implante seu aplicativo para o cluster do Service Fabric. Aguarde por 10 minutos até o aplicativo ser executado. Para obter melhor efeito, você pode executar um teste de carga no aplicativo. Vá para a folha **Desempenho** do portal do Application Insights e aparecerão exemplos de rastreamentos de criação de perfil.
+2. Implante o cluster do aplicativo toohello Service Fabric. Aguarde Olá aplicativo toorun por 10 minutos. Para obter melhor efeito, você pode executar um teste de carga no aplicativo hello. Do portal do Application Insights vá toohello **desempenho** folha e você deverá ver exemplos de rastreamentos de criação de perfil.
 
 <!---
 Commenting out these sections for now
-## Enable the Profiler on Cloud Services applications
+## Enable hello Profiler on Cloud Services applications
 [TODO]
-## Enable the Profiler on classic Azure Virtual Machines
+## Enable hello Profiler on classic Azure Virtual Machines
 [TODO]
-## Enable the Profiler on on-premise servers
+## Enable hello Profiler on on-premise servers
 [TODO]
 --->
 
@@ -278,4 +278,4 @@ Commenting out these sections for now
 
 - Encontre ajuda para solução de problemas do criador de perfil em [Solução de problemas do criador de perfil](app-insights-profiler.md#troubleshooting).
 
-- Leia mais sobre o criador de perfil em [Application Insights Profiler](app-insights-profiler.md).
+- Leia mais sobre o criador de perfil de saudação em [criador de perfil do aplicativo Insights](app-insights-profiler.md).

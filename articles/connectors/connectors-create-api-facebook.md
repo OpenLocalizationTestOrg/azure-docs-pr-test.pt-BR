@@ -1,6 +1,6 @@
 ---
-title: "Adicionar o conector Facebook a seus Aplicativos Lógicos | Microsoft Docs"
-description: "Visão geral do conector do Facebook com os parâmetros de API REST"
+title: "conector do Facebook Olá aaaAdd em seus aplicativos lógicos | Microsoft Docs"
+description: "Visão geral do conector do Facebook Olá com parâmetros de API REST"
 services: 
 documentationcenter: 
 author: MandiOhlinger
@@ -15,34 +15,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: e10a30ccef3e81cb3d7749696453d82b8958d076
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 962c6ed5d36e465de9d485d50e5c6dca6d44f470
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-facebook-connector"></a>Introdução ao conector do Facebook
-Conecte-se ao Facebook e publique em uma linha do tempo, recebe um feed de página e muito mais. Com o Facebook, você pode:
+# <a name="get-started-with-hello-facebook-connector"></a>Introdução ao conector do Facebook Olá
+Conectar-se tooFacebook e lançar tooa da linha do tempo, obtenha uma página de feed e muito mais. Com o Facebook, você pode:
 
-* Criar seu fluxo de negócios com base nos dados que você obtém do Facebook. 
+* Crie o fluxo de negócios com base em dados Olá que Get do Facebook. 
 * Usar um gatilho quando uma nova publicação for recebida.
-* Usar ações que publicam em sua linha do tempo, obtêm uma feed de página e mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando há uma nova publicação em sua linha do tempo, você pode publicá-la e enviá-la ao seu feed do Twitter. 
+* Ações de uso que lançar tooyour da linha do tempo, obtenha uma página de feed e muito mais. Essas ações obtém uma resposta e saída de hello tornar disponível para outras ações. Por exemplo, quando há uma nova postagem no cronograma, pode levar essa postagem e por push tooyour feed do Twitter. 
 
 É possível começar criando um aplicativo lógico agora. Consulte [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="create-a-connection-to-facebook"></a>Criar uma conexão com o Facebook
-Quando você adiciona esse conector aos seus aplicativos lógicos, precisa autorizar que os aplicativos lógicos se conectem ao Facebook.
+## <a name="create-a-connection-toofacebook"></a>Criar uma conexão tooFacebook
+Quando você adiciona esse conector tooyour os aplicativos lógicos, é necessário autorizar lógica aplicativos tooconnect tooyour Facebook.
 
-1. Entre em sua conta do Facebook
-2. Selecione **Autorizar**e permita que seus aplicativos lógicos se conectem e usem o Facebook. 
+1. Entrar tooyour conta do Facebook
+2. Selecione **autorizar**e permitir que seu tooconnect de aplicativos de lógica e usar o Facebook. 
 
-> [!INCLUDE [Steps to create a connection to Facebook](../../includes/connectors-create-api-facebook.md)]
+> [!INCLUDE [Steps toocreate a connection tooFacebook](../../includes/connectors-create-api-facebook.md)]
 > 
 
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/facebook/).
+Exibir quaisquer gatilhos e ações definidas em swagger Olá e também os limites de saudação [detalhes conector](/connectors/facebook/).
 
 ## <a name="more-connectors"></a>Mais conectores
-Volte para a [Lista de APIs](apis-list.md).
+Voltar toohello [lista APIs](apis-list.md).

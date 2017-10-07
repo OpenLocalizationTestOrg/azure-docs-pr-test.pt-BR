@@ -1,6 +1,6 @@
 ---
-title: "Criar um aplicativo de funções no Portal do Azure | Microsoft Docs"
-description: "Crie um novo aplicativo de funções no Serviço de Aplicativo do Azure por meio do portal."
+title: "aaaCreate um aplicativo de função da saudação Portal do Azure | Microsoft Docs"
+description: "Crie um novo aplicativo de função no serviço de aplicativo do Azure do portal de saudação."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 85a88c537415cd6f2b6bc005cc18e3baaa29e9a4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: c531fc71c798edf22e25a5f4b79c15413809dc86
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-function-app-from-the-azure-portal"></a>Criar um aplicativo de funções no portal do Azure
+# <a name="create-a-function-app-from-hello-azure-portal"></a>Criar um aplicativo de função do hello portal do Azure
 
-Os Aplicativos do Azure Functions usam a infraestrutura do Serviço de Aplicativo do Azure. Este tópico mostra como criar um aplicativo de funções no portal do Azure. Um aplicativo de funções é o contêiner que hospeda a execução de funções individuais. Quando você cria um aplicativo de funções no plano de hospedagem do Serviço de Aplicativo, o aplicativo de funções pode usar todos os recursos do Serviço de Aplicativo.
+Aplicativos de função do Azure usa a infra-estrutura de serviço de aplicativo do Azure hello. Este tópico mostra como um aplicativo de função no portal do Azure de saudação do toocreate. Um função de aplicativo é o contêiner de saudação que hospeda a execução de saudação de funções individuais. Quando você cria um aplicativo de função no hello plano de hospedagem de serviço de aplicativo, seu aplicativo de função pode usar todos os recursos de saudação do serviço de aplicativo.
 
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
@@ -34,24 +34,24 @@ Ao criar um aplicativo de funções, forneça um **Nome de aplicativo** válido,
 
 Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. O nome da sua conta de armazenamento deve ser exclusivo no Azure. 
 
-Depois de criar o aplicativo de funções, é possível criar funções individuais em uma ou mais linguagens diferentes. Crie funções [usando o portal](functions-create-first-azure-function.md#create-function), [a implantação contínua](functions-continuous-deployment.md) ou [carregando com FTP](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp).
+Depois de aplicativo de função hello for criado, você pode criar funções individuais em um ou mais idiomas diferentes. Criar funções [usando o portal de saudação](functions-create-first-azure-function.md#create-function), [implantação contínua](functions-continuous-deployment.md), ou [Carregando com FTP](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp).
 
 ## <a name="service-plans"></a>Planos de serviço
 
-O Azure Functions tem dois planos de serviço diferentes: o plano de Consumo e o plano do Serviço de Aplicativo. O plano de Consumo automaticamente aloca potência de computação quando seu código está em execução, escala horizontalmente conforme a necessidade para tratar da carga e reduz horizontalmente quando o código não está em execução. O plano do Serviço de Aplicativo fornece ao aplicativo de funções o acesso a todos os recursos do Serviço de Aplicativo. É necessário escolher o plano de serviço quando o aplicativo de funções é criado, e ele não pode ser alterado. Para obter mais informações, consulte [Escolher um plano de hospedagem do Azure Functions](functions-scale.md).
+O Azure Functions tem dois planos de serviço diferentes: o plano de Consumo e o plano do Serviço de Aplicativo. plano de consumo Olá aloca automaticamente a capacidade de computação quando seu código é executado, escalas-out como carga de toohandle necessário e escalas-in quando o código não está em execução. Olá plano de serviço de aplicativo fornece sua função de instalações de saudação de tooall de acesso de aplicativo de serviço de aplicativo. É necessário escolher o plano de serviço quando o aplicativo de funções é criado, e ele não pode ser alterado. Para obter mais informações, consulte [Escolher um plano de hospedagem do Azure Functions](functions-scale.md).
 
-Se você estiver planejando executar funções do JavaScript em um plano do Serviço de Aplicativo, deverá escolher um plano com menos núcleos. Para obter mais informações, consulte a [Referência do JavaScript para funções](functions-reference-node.md#choose-single-core-app-service-plans).
+Se você estiver planejando toorun funções de JavaScript em um plano de serviço de aplicativo, você deve escolher um plano com menos núcleos. Para obter mais informações, consulte Olá [referência de JavaScript para funções](functions-reference-node.md#choose-single-core-app-service-plans).
 
 <a name="storage-account-requirements"></a>
 
 ## <a name="storage-account-requirements"></a>Requisitos da conta de armazenamento
 
-Ao criar um aplicativo de funções no Serviço de Aplicativo, é necessário criar ou se vincular a uma conta do Armazenamento do Azure de uso geral que dá suporte ao armazenamento de Blobs, Filas e Tabelas. Internamente, o Functions usa o Armazenamento para operações como gerenciamento de gatilhos e log de execuções de função. Algumas contas de armazenamento não dão suporte a filas e tabelas, como contas de armazenamento somente blob, Armazenamento Premium do Azure e contas de armazenamento de uso geral com replicação ZRS. Essas contas são filtradas na folha Conta de Armazenamento durante a criação de um aplicativo de funções.
+Ao criar um aplicativo de função no serviço de aplicativo, você deve criar ou vincular tooa uso geral do Azure conta de armazenamento que dá suporte ao armazenamento de Blob, fila e tabela. Internamente, o Functions usa o Armazenamento para operações como gerenciamento de gatilhos e log de execuções de função. Algumas contas de armazenamento não dão suporte a filas e tabelas, como contas de armazenamento somente blob, Armazenamento Premium do Azure e contas de armazenamento de uso geral com replicação ZRS. Essas contas são filtradas fora da folha de conta de armazenamento Olá durante a criação de um aplicativo de função.
 
 >[!NOTE]
->Ao usar o plano de hospedagem de Consumo, o código da função e os arquivos de configuração da associação são armazenados no armazenamento de Arquivos do Azure na conta de armazenamento principal. Ao excluir a conta de armazenamento principal, esse conteúdo será excluído e não poderá ser recuperado.
+>Ao usar o plano de hospedagem de consumo hello, seus arquivos de configuração de código e associação de função são armazenados no armazenamento de arquivo do Azure na conta de armazenamento principal de saudação. Quando você exclui a conta de armazenamento principal hello, esse conteúdo será excluído e não pode ser recuperado.
 
-Para saber mais sobre tipos de conta de armazenamento, confira [Introdução aos serviços de Armazenamento do Microsoft Azure](../storage/common/storage-introduction.md#introducing-the-azure-storage-services). 
+toolearn mais sobre os tipos de conta de armazenamento, consulte [apresentando os serviços de armazenamento do Azure Olá](../storage/common/storage-introduction.md#introducing-the-azure-storage-services). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory B2C: como modificar a inscrição em políticas personalizadas e configurar um provedor autodeclarado"
-description: "Um passo a passo sobre como adicionar declarações para inscrição e configurar a entrada do usuário"
+description: "Um passo a passo sobre como adicionar declarações toosign backup e configurar a entrada do usuário Olá"
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja
@@ -14,30 +14,30 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/29/2017
 ms.author: joroja
-ms.openlocfilehash: 64b9d904d7d070052e125b479f4719d208c9ff85
-ms.sourcegitcommit: b0af2a2cf44101a1b1ff41bd2ad795eaef29612a
+ms.openlocfilehash: c31d737263fef3e771bdf451b809b0ca522c8fe0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: como modificar a inscrição para adicionar novas declarações e configurar a entrada do usuário.
+# <a name="azure-active-directory-b2c-modify-sign-up-tooadd-new-claims-and-configure-user-input"></a>B2C de diretório ativo do Azure: Modificar tooadd novas declarações de inscrição e configure a entrada do usuário.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Neste artigo, você adicionará uma nova entrada de usuário fornecido (uma declaração) para seu percurso do usuário para inscrição.  Você configurará a entrada como uma lista suspensa e a definirá se for necessário.
+Neste artigo, você adicionará uma novo fornecida pelo usuário (uma declaração) de entrada tooyour inscrição usuário jornada.  Você configurará entrada hello como uma lista suspensa e definir se é necessário.
 
-Editado por Sipi para disparar a entrega de teste.
+Editado por Sipi tootrigger teste entrega.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclua as etapas no artigo [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).  Teste o percurso do usuário para entrada/inscrição para fazer uma inscrição e uma conta local nova antes de continuar.
+* Olá concluído as etapas no artigo de saudação [guia de Introdução com as políticas personalizadas](active-directory-b2c-get-started-custom.md).  Teste toosignup jornada de usuário de inscrição/signin Olá uma nova conta local antes de continuar.
 
 
-A coleta de dados inicial de seus usuários é obtida por meio de inscrição/entrada.  Declarações adicionais podem ser obtidas posteriormente por meio de percursos do usuário de edição de perfil. Toda vez que o Azure AD B2C reúne informações diretamente do usuário de forma interativa, o Identity Experience Framework usa seu `selfasserted provider`. As etapas a seguir se aplicam sempre que esse provedor é usado.
+A coleta de dados inicial de seus usuários é obtida por meio de inscrição/entrada.  Declarações adicionais podem ser obtidas posteriormente por meio de percursos do usuário de edição de perfil. Sempre que o Azure AD B2C reúne informações diretamente do usuário Olá interativamente, Olá identidade experiência Framework usa seu `selfasserted provider`. Olá estas etapas se aplicam a qualquer momento, esse provedor é usado.
 
 
-## <a name="define-the-claim-its-display-name-and-the-user-input-type"></a>Definir a declaração, seu nome de exibição e o tipo de entrada do usuário
-Permite perguntar ao usuário sobre a cidade dele.  Adicione o seguinte elemento para o elemento `<ClaimsSchema>` no arquivo de política de TrustFrameWorkExtensions:
+## <a name="define-hello-claim-its-display-name-and-hello-user-input-type"></a>Definir Olá declaração, seu nome de exibição e Olá tipo de entrada do usuário
+Permite solicitar Olá usuário seu cidade.  Adicionar Olá após o elemento toohello `<ClaimsSchema>` elemento no arquivo de política de TrustFrameWorkExtensions hello:
 
 ```xml
 <ClaimType Id="city">
@@ -47,13 +47,13 @@ Permite perguntar ao usuário sobre a cidade dele.  Adicione o seguinte elemento
   <UserInputType>TextBox</UserInputType>
 </ClaimType>
 ```
-Existem outras opções que você pode fazer aqui para personalizar a declaração.  Para um esquema completo, consulte o **Guia de Referência Técnica do Identity Experience Framework**.  Este guia será publicado em breve na seção de referência.
+Há opções adicionais que você pode fazer aqui toocustomize Olá de declaração.  Para um esquema completo, consulte toohello **guia de referência técnica do identidade experiência Framework**.  Este guia será publicado em breve na seção de referência de saudação.
 
-* `<DisplayName>` é uma cadeia de caracteres que define o *rótulo* voltado para o usuário
+* `<DisplayName>`é uma cadeia de caracteres que define voltadas para o usuário Olá *rótulo*
 
-* `<UserHelpText>` ajuda o usuário a entender o que é necessário
+* `<UserHelpText>`Ajuda o usuário a saudação entender o que é necessário
 
-* `<UserInputType>` tem as quatro opções a seguir destacadas abaixo:
+* `<UserInputType>`Olá seguintes quatro opções realçou abaixo:
     * `TextBox`
 ```xml
 <ClaimType Id="city">
@@ -78,7 +78,7 @@ Existem outras opções que você pode fazer aqui para personalizar a declaraç�
 </ClaimType>
 ```
 
-    * `DropdownSingleSelect` – Permite a seleção de um único valor válido.
+    * `DropdownSingleSelect`-Permite a seleção de saudação do único valor válido.
 
 ![Captura de tela da opção de lista suspensa](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
@@ -97,7 +97,7 @@ Existem outras opções que você pode fazer aqui para personalizar a declaraç�
 ```
 
 
-* `CheckboxMultiSelect` Permite a seleção de um ou mais valores.
+* `CheckboxMultiSelect`Permite a seleção de saudação de um ou mais valores.
 
 ![Captura de tela de opção com seleção múltipla](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
@@ -115,9 +115,9 @@ Existem outras opções que você pode fazer aqui para personalizar a declaraç�
 </ClaimType>
 ```
 
-## <a name="add-the-claim-to-the-sign-upsign-in-user-journey"></a>Adicione a declaração ao percurso do usuário de entrada/inscrição
+## <a name="add-hello-claim-toohello-sign-upsign-in-user-journey"></a>Adicionar Olá declaração toohello sign up/entrar jornada de usuário
 
-1. Adicione a declaração como um `<OutputClaim ClaimTypeReferenceId="city"/>` ao TechnicalProfile `LocalAccountSignUpWithLogonEmail` (encontrado no arquivo de política de TrustFrameworkBase).  Observe que este TechnicalProfile usa o SelfAssertedAttributeProvider.
+1. Adicione a declaração hello como um `<OutputClaim ClaimTypeReferenceId="city"/>` toohello TechnicalProfile `LocalAccountSignUpWithLogonEmail` (encontrado no arquivo de política de TrustFrameworkBase Olá).  Observe que este TechnicalProfile usa Olá SelfAssertedAttributeProvider.
 
   ```xml
   <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -142,7 +142,7 @@ Existem outras opções que você pode fazer aqui para personalizar a declaraç�
       <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
       <OutputClaim ClaimTypeReferenceId="authenticationSource" />
       <OutputClaim ClaimTypeReferenceId="newUser" />
-      <!-- Optional claims, to be collected from the user -->
+      <!-- Optional claims, toobe collected from hello user -->
       <OutputClaim ClaimTypeReferenceId="givenName" />
       <OutputClaim ClaimTypeReferenceId="surName" />
       <OutputClaim ClaimTypeReferenceId="city"/>
@@ -154,7 +154,7 @@ Existem outras opções que você pode fazer aqui para personalizar a declaraç�
   </TechnicalProfile>
   ```
 
-2. Adicione a declaração para o AAD-UserWriteUsingLogonEmail como um `<PersistedClaim ClaimTypeReferenceId="city" />` para gravar a declaração para o diretório do AAD depois de coletar do usuário. Você pode ignorar esta etapa se você preferir não manter a declaração no diretório para uso futuro.
+2. Adicionar Olá declaração toohello UserWriteUsingLogonEmail AAD como uma `<PersistedClaim ClaimTypeReferenceId="city" />` diretório do AAD toowrite Olá declaração toohello após coletá-lo do usuário hello. Você pode ignorar esta etapa se você preferir não toopersist Olá declaração no diretório Olá para uso futuro.
 
   ```xml
   <!-- Technical profiles for local accounts -->
@@ -190,14 +190,14 @@ Existem outras opções que você pode fazer aqui para personalizar a declaraç�
   </TechnicalProfile>
   ```
 
-3. Adicione a declaração do TechnicalProfile, que lê do diretório quando um usuário faz logon como um `<OutputClaim ClaimTypeReferenceId="city" />`
+3. Adicionar Olá declaração toohello TechnicalProfile que lê do diretório hello quando um usuário fizer logon como um`<OutputClaim ClaimTypeReferenceId="city" />`
 
   ```xml
   <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
     <Metadata>
       <Item Key="Operation">Read</Item>
       <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
-      <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for the provided user ID.</Item>
+      <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for hello provided user ID.</Item>
     </Metadata>
     <IncludeInSso>false</IncludeInSso>
     <InputClaims>
@@ -218,7 +218,7 @@ Existem outras opções que você pode fazer aqui para personalizar a declaraç�
   </TechnicalProfile>
   ```
 
-4. Adicione `<OutputClaim ClaimTypeReferenceId="city" />` ao arquivo de política RP SignUporSignIn.xml para que essa declaração seja enviada para o aplicativo no token após um percurso do usuário bem-sucedido.
+4. Adicionar Olá `<OutputClaim ClaimTypeReferenceId="city" />` arquivo de política RP toohello SignUporSignIn.xml para esta declaração é enviada toohello aplicativo no token Olá após uma viagem de usuário bem-sucedida.
 
   ```xml
   <RelyingParty>
@@ -240,17 +240,17 @@ Existem outras opções que você pode fazer aqui para personalizar a declaraç�
   </RelyingParty>
   ```
 
-## <a name="test-the-custom-policy-using-run-now"></a>Testar a política personalizada usando a opção “Executar Agora”
+## <a name="test-hello-custom-policy-using-run-now"></a>Testar a política personalizada do hello usando "Executar agora"
 
-1. Abra a **Folha B2C do Azure AD** e navegue até **Identity Experience Framework > Políticas personalizadas**.
-2. Selecione a política personalizada carregada e clique no botão **Executar agora**.
-3. Você deverá conseguir se inscrever usando um endereço de email.
+1. Olá abrir **folha do Azure AD B2C** e navegue muito**identidade experiência Framework > políticas personalizadas**.
+2. Selecione Olá política personalizada que você carregou e, em seguida, clique em Olá **executar agora** botão.
+3. Você deve ser capaz de toosign usando um endereço de email.
 
-A tela de inscrição no modo de teste deve ser semelhante a esta:
+tela de inscrição Hello no modo de teste deve ser toothis semelhante:
 
 ![Captura de tela da opção de inscrição modificada](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
 
-  O token de volta para seu aplicativo incluirá a declaração `city` conforme mostrado abaixo
+  Olá token tooyour back aplicativo agora incluirá Olá `city` conforme mostrado abaixo de declaração
 ```json
 {
   "exp": 1493596822,
@@ -273,16 +273,16 @@ A tela de inscrição no modo de teste deve ser semelhante a esta:
 
 ## <a name="optional-remove-email-verification-from-signup-journey"></a>Opcional: Remoção da verificação de email do percurso de inscrição
 
-Para ignorar a verificação de email, o autor da política pode optar por remover `PartnerClaimType="Verified.Email"`. O endereço de email será necessário, mas não verificado, a menos que "Required" = true seja removido.  Considere cuidadosamente se esta opção é adequada para seus casos de uso!
+verificação de email tooskip, autor da política Olá pode escolher tooremove `PartnerClaimType="Verified.Email"`. Olá endereço de email serão necessárias, mas não verificado, a menos que "Necessário" = true é removido.  Considere cuidadosamente se esta opção é adequada para seus casos de uso!
 
-Verificar email está habilitado por padrão no `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` no arquivo de política TrustFrameworkBase no pacote starter:
+Verificar email é habilitado por padrão no hello `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` no arquivo de política de TrustFrameworkBase Olá no pacote de inicializador de saudação:
 ```xml
 <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Adicione a nova declaração aos fluxos para logons de conta social alterando os TechnicalProfiles listados abaixo. Eles são usados por logons de conta social/federados para gravar e ler os dados do usuário usando o alternativeSecurityId como o localizador.
+Adicione Olá novos declaração toohello fluxos para logons de conta social alterando Olá TechnicalProfiles listados abaixo. Esses são usados por conta social/federado logons toowrite e ler dados do usuário hello usando alternativeSecurityId Olá Olá localizador.
 ```xml
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">

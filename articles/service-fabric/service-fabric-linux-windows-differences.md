@@ -1,6 +1,6 @@
 ---
-title: "Diferenças no Azure Service Fabric entre Linux e Windows | Microsoft Docs"
-description: "As diferenças entre a visualização do Azure Service Fabric no Linux e do Azure Service Fabric no Windows."
+title: "aaaAzure Service Fabric as diferenças entre o Linux e Windows | Microsoft Docs"
+description: "Diferenças entre hello visualização do Azure Service Fabric no Linux e do Azure Service Fabric no Windows."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 7b80bb7d4a4e6a1b4cf47ce87200f47339785c53
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7a16a440dfc8d9006e274f46951be1562e6f10d9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Diferenças entre o Service Fabric no Linux (visualização) e no Windows (geralmente disponível)
 
-Como o Service Fabric no Linux é uma visualização, há alguns recursos que têm suporte no Windows, mas ainda não têm no Linux. Eventualmente, os conjuntos de recursos serão iguais quando o Service Fabric ficar disponível no Linux. Nas futuras versões, esse intervalo de recursos será reduzido. Existem as seguintes diferenças entre as versões mais recentes disponíveis (ou seja, entre a versão 5.6 para Windows e a versão 5.5 no Linux): 
+Como o Service Fabric no Linux é uma visualização, há alguns recursos que têm suporte no Windows, mas ainda não têm no Linux. Eventualmente, Olá conjuntos de recursos será em paridade quando o serviço de malha no Linux se tornarem disponível. Nas futuras versões, esse intervalo de recursos será reduzido. Olá seguir existem diferenças entre as versões mais recentes disponíveis de hello (ou seja, entre a versão 5.6 no Windows e versão 5.5 no Linux): 
 
 * Coleções Confiáveis (e Serviços Confiáveis com Estado) 
 * ReverseProxy 
 * Instalador autônomo 
 * Validação do esquema XML para os arquivos de manifesto 
 * Redirecionamento do console 
-* Serviço de Análise de Falha (FAS)
+* Olá serviço de análise de falha (FAS)
 * Docker Compose, volume e drivers de log para contêineres 
 * Governança de recursos para contêineres e serviços 
 * Serviço DNS
 * Suporte ao Azure Active Directory
 * Equivalentes de comando da CLI de certos comandos do Powershell 
-* Somente um subconjunto de comandos do Powershell pode ser executado em um cluster do Linux (como explicado na próxima seção).
+* Somente um subconjunto dos comandos do Powershell pode ser executado em um cluster do Linux (como expandido na próxima seção, Olá).
 
 >[!NOTE]
 >O redirecionamento de console não tem suporte em clusters de produção, mesmo no Windows.
@@ -106,4 +106,4 @@ As ferramentas de desenvolvimento também são diferente entre o Windows e o Lin
 * [Criar e implantar seu primeiro aplicativo Java de do Service Fabric no Linux usando Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Criar e implantar seu primeiro aplicativo Java do Service Fabric no Linux usando o plug-in do Service Fabric para o Eclipse](service-fabric-get-started-eclipse.md)
 * [Criar seu primeiro aplicativo do CSharp no Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
-* [Usar a CLI do Service Fabric para gerenciar seus aplicativos](service-fabric-application-lifecycle-sfctl.md)
+* [Usar Olá CLI de malha do serviço toomanage seus aplicativos](service-fabric-application-lifecycle-sfctl.md)

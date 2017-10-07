@@ -1,6 +1,6 @@
 ---
-title: SDK do OMS (Operations Management Suite) | Microsoft Docs
-description: "Este artigo lista a documentação e outros recursos disponíveis para acessar os serviços do OMS fora dos portais do OMS e do Azure.  Isso inclui a API REST para acesso de várias interfaces de programação e mecanismos de script, como o PowerShell"
+title: aaaOperations Management Suite (OMS) SDK | Microsoft Docs
+description: "Este artigo lista documentação hello e outros recursos disponíveis para acessar os serviços do OMS fora Olá OMS e portais do Azure.  Isso inclui a API REST para acesso de várias interfaces de programação e mecanismos de script, como o PowerShell"
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
-ms.openlocfilehash: 03e0f5b6fa26806083cd7852e123495c898bcf0c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7144f10bba70a8f08cc97cec45b4b0a148892c90
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="operations-management-suite-oms-sdk"></a>SDK do Operations Management Suite (OMS)
-O [Microsoft Operations Management Suite (OMS)](operations-management-suite-overview.md) é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda você a gerenciar e proteger sua infraestrutura local e de nuvem.  Este artigo lista a documentação e outros recursos disponíveis para acessar os serviços do OMS fora dos portais do OMS e do Azure.  Isso inclui a API REST para acesso de várias interfaces de programação e mecanismos de script, como o PowerShell. 
+O [Microsoft Operations Management Suite (OMS)](operations-management-suite-overview.md) é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda você a gerenciar e proteger sua infraestrutura local e de nuvem.  Este artigo lista documentação hello e outros recursos disponíveis para acessar os serviços do OMS fora Olá OMS e portais do Azure.  Isso inclui a API REST para acesso de várias interfaces de programação e mecanismos de script, como o PowerShell. 
 
 ## <a name="automation"></a>Automação
 * [Documentação sobre automação do Azure](http://azure.microsoft.com/documentation/services/automation)
@@ -33,7 +33,7 @@ O [Microsoft Operations Management Suite (OMS)](operations-management-suite-over
 * [Documentação de backup do Azure](http://azure.microsoft.com/documentation/services/backup)
 * [Cmdlets de backup do PowerShell](https://msdn.microsoft.com/library/mt619253.aspx)
 * [API REST de backup](https://msdn.microsoft.com/library/azure/mt772375.aspx)
-* [Implantar e gerenciar o backup no Azure para o Windows Server/Windows Client usando o PowerShell](../backup/backup-client-automation.md)
+* [Implantar e gerenciar o backup tooAzure para o cliente do Windows Server/Windows usando o PowerShell](../backup/backup-client-automation.md)
 
 ## <a name="log-analytics"></a>Log Analytics
 * [Documentação do Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics)
@@ -51,10 +51,10 @@ O [Microsoft Operations Management Suite (OMS)](operations-management-suite-over
 ## <a name="site-recovery"></a>Site Recovery
 * [Cmdlets do Site Recovery do PowerShell](https://msdn.microsoft.com/library/mt637930.aspx)
 * [API REST do Site Recovery](https://msdn.microsoft.com/library/azure/mt750497.aspx)
-* [Adicionar runbooks de automação do Azure aos planos de recuperação](../site-recovery/site-recovery-runbook-automation.md)
+* [Adicionar planos de toorecovery de runbooks de automação do Azure](../site-recovery/site-recovery-runbook-automation.md)
 * [Replicar entre máquinas virtuais locais do Hyper-V e o Azure usando o PowerShell e o Azure Resource Manager](../site-recovery/site-recovery-deploy-with-powershell-resource-manager.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Leia sobre as diferentes opções de [integração com serviços do OMS](operations-management-suite-integration.md).
+* Leia sobre as diferentes opções Olá para [integrando serviços OMS](operations-management-suite-integration.md).
 * Crie uma [solução personalizada no OMS](operations-management-suite-solutions-creating.md).
 

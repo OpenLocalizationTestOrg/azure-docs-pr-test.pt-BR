@@ -1,6 +1,6 @@
 ---
-title: "Como configurar o registro automático de dispositivos ingressados no domínio do Windows com o Azure Active Directory| Microsoft Docs"
-description: "Configure seus dispositivos de domínio do Windows para serem registrados de forma automática e silenciosa com o Azure Active Directory."
+title: "aaaHow tooconfigure o registro automático de dispositivos de domínio do Windows com o Active Directory do Azure | Microsoft Docs"
+description: "Configure seu tooregister de dispositivos do Windows ingressado no domínio automática e silenciosa com o Active Directory do Azure."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,70 +15,70 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: dccd7df6a5f85df4179c7ea7cfc476cfb57f48c0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6a1aab753f5456ed06ba7979ab05f70f29b4ddee
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-configure-automatic-registration-of-windows-domain-joined-devices-with-azure-active-directory"></a>Como configurar o registro automático de dispositivos ingressados no domínio do Windows com o Azure Active Directory
+# <a name="how-tooconfigure-automatic-registration-of-windows-domain-joined-devices-with-azure-active-directory"></a>Como o registro automático do Windows tooconfigure domínio dispositivos com o Active Directory do Azure
 
-Para usar o [Acesso condicional baseado no dispositivo do Azure Active Directory](active-directory-conditional-access-azure-portal.md), seus computadores devem estar registrados no Azure Active Directory (Azure AD). Você pode obter uma lista dos dispositivos registrados na sua organização usando o cmdlet [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) no [módulo do Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0). 
+toouse [acesso condicional com base no dispositivo do Active Directory do Azure](active-directory-conditional-access-azure-portal.md), os computadores devem ser registrados com o Azure Active Directory (AD do Azure). Você pode obter uma lista de dispositivos registrados em sua organização usando Olá [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet Olá [módulo do Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0). 
 
-Este artigo fornece as etapas para configurar o registro automático de dispositivos ingressados no domínio do Windows com o Azure AD em sua organização.
+Este artigo fornece as etapas de saudação para configurar o registro automático de dispositivos de domínio do Windows hello com o Azure AD em sua organização.
 
 
 Para saber mais sobre:
 
 - Acesso condicional, confira [Acesso condicional com base no dispositivo ao Azure Active Directory](active-directory-conditional-access-azure-portal.md). 
-- Dispositivos Windows 10 no local de trabalho e as experiências aprimoradas quando registrado com o Azure AD, consulte [Windows 10 para a empresa: usar dispositivos para o trabalho](active-directory-azureadjoin-windows10-devices-overview.md).
-- Windows 10 Enterprise E3 no CSP, consulte a [Visão Geral do Windows 10 Enterprise E3 no CSP](https://docs.microsoft.com/en-us/windows/deployment/windows-10-enterprise-e3-overview).
+- Dispositivos Windows 10 no local de trabalho hello e experiências Olá aprimorada quando registrado com o AD do Azure, consulte [Windows 10 para a empresa Olá: usar dispositivos para o trabalho](active-directory-azureadjoin-windows10-devices-overview.md).
+- Windows 10 Enterprise E3 em CSP, consulte Olá [Windows 10 Enterprise E3 na visão geral do CSP](https://docs.microsoft.com/en-us/windows/deployment/windows-10-enterprise-e3-overview).
 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Antes de começar a configurar o registro automático dos dispositivos associados ao domínio do Windows no seu ambiente, você deve se familiarizar com os cenários com suporte e as restrições.  
+Antes de começar a configurar o registro automático de dispositivos de domínio do Windows hello em seu ambiente, você deve se familiarizar com cenários de saudação com suporte e as restrições de saudação.  
 
-Para melhorar a legibilidade das descrições, este tópico usa o termo a seguir: 
+tooimprove legibilidade de saudação de descrições de hello, este tópico usa Olá termos a seguir: 
 
-- **Dispositivos atuais do Windows** - este termo refere-se aos dispositivos associados ao domínio que executam o Windows 10 ou o Windows Server 2016.
-- **Dispositivos de baixo nível do Windows** - este termo refere-se a todos os dispositivos do Windows associados ao domínio **com suporte** que não estão executando o Windows 10 nem o Windows Server 2016.  
+- **Dispositivos do Windows atuais** -este termo se refere a dispositivos que ingressaram no toodomain executando o Windows 10 ou Windows Server 2016.
+- **Dispositivos de baixo nível do Windows** -este termo se refere a tooall **suporte** dispositivos Windows ingressados no domínio que estão executando o Windows 10 nem Windows Server 2016.  
 
 
 ### <a name="windows-current-devices"></a>Dispositivos atuais do Windows
 
-- Para os dispositivos que executam o sistema operacional da área de trabalho do Windows, é recomendável usar a Atualização de Aniversário do Windows 10 (versão 1607) ou posterior. 
-- O registro de dispositivos atuais do Windows **tem** suporte em ambientes não-federados, como configurações de sincronização de hash de senha.  
+- Para dispositivos que executam o sistema de operacional de desktop do Windows hello, é recomendável usar a atualização de aniversário do Windows 10 (versão 1607) ou posterior. 
+- Olá registro atuais de dispositivos do Windows **é** suporte em ambientes de não-federado, como configurações de sincronização de hash de senha.  
 
 
 ### <a name="windows-down-level-devices"></a>Dispositivos de nível inferior do Windows
 
-- Há suporte para os seguintes dispositivos de nível inferior do Windows:
+- Olá dispositivos de baixo nível do Windows a seguir têm suporte:
     - Windows 8.1
     - Windows 7
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- O registro de dispositivos de nível inferior do Windows **tem** suporte em ambientes não federados por meio do Logon Único Contínuo [Logon Único Contínuo do Azure Active Directory](https://aka.ms/hybrid/sso).
-- O registro de dispositivos de nível inferior do Windows **não tem** suporte para dispositivos que utilizam perfis móveis. Se você depender da mobilidade de perfis ou configurações, use o Windows 10.
+- Olá registro de dispositivos de baixo nível do Windows **é** suporte em ambientes de não-federado por meio de perfeita Single Sign On [do Azure Active Directory perfeita Single Sign-On](https://aka.ms/hybrid/sso).
+- Olá registro de dispositivos de baixo nível do Windows **não é** com suporte para dispositivos usando perfis de roaming. Se você depender da mobilidade de perfis ou configurações, use o Windows 10.
 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar a habilitar o registro automático dos dispositivos associados ao domínio na sua organização, você precisará garantir que esteja executando uma versão atualizada do Azure AD Connect.
+Antes de iniciar a habilitação Olá o registro automático de dispositivos que ingressaram no domínio em sua organização, você precisa toomake-se de que você está executando uma versão atualizada do AD do Azure se conectar.
 
 Azure AD Connect:
 
-- Mantém a associação entre a conta do computador no seu Active Directory (AD) local e o objeto do dispositivo no Azure AD. 
+- Mantém a associação de saudação entre a conta de computador de saudação de seu local no Active Directory (AD) e o objeto de dispositivo de saudação no AD do Azure. 
 - Permite outros recursos relacionados ao dispositivo, como o Windows Hello for Business.
 
 
 
 ## <a name="configuration-steps"></a>Etapas da configuração
 
-Este tópico inclui as etapas necessárias para todos os cenários de configuração típicos.  
-Use a tabela a seguir para ter uma visão geral das etapas necessárias para o seu cenário:  
+Este tópico inclui etapas Olá necessária para todos os cenários de configuração típica.  
+Use Olá tabela tooget uma visão geral das etapas de saudação que são necessários para o cenário a seguir:  
 
 
 
@@ -94,20 +94,20 @@ Use a tabela a seguir para ter uma visão geral das etapas necessárias para o s
 
 ## <a name="step-1-configure-service-connection-point"></a>Etapa 1: configurar o ponto de conexão de serviço
 
-O objeto de ponto de conexão de serviço (SCP) é usado por seus dispositivos durante o registro para descobrir informações de locatário do Azure AD. No seu Active Directory (AD) local, o objeto de SCP para o registro automático de dispositivos associados ao domínio deve existir na partição do contexto de nomenclatura da configuração da floresta do computador. Há apenas um contexto de nomenclatura de configuração por floresta. Em uma configuração de várias florestas do Active Directory, deverá haver um ponto de conexão de serviço em todas as florestas que tiverem computadores associados ao domínio.
+objeto de SCP (ponto) de conexão de serviço de saudação é usado por seus dispositivos durante saudação registro toodiscover informações de locatário do AD do Azure. Em seu local do Active Directory (AD), o objeto SCP Olá Olá o registro automático de dispositivos que ingressaram no domínio deve existir no hello nomenclatura contexto partição de configuração da floresta do computador hello. Há apenas um contexto de nomenclatura de configuração por floresta. Em uma configuração do Active Directory de várias floresta, o ponto de conexão de serviço Olá deve existir em todas as florestas de computadores que ingressaram no domínio.
 
-Você pode usar o cmdlet [ **Get-ADRootDSE**](https://technet.microsoft.com/library/ee617246.aspx) para recuperar o contexto de nomenclatura de configuração da sua floresta.  
+Você pode usar o hello [ **Get-ADRootDSE** ](https://technet.microsoft.com/library/ee617246.aspx) cmdlet tooretrieve Olá contexto de nomenclatura configuração da floresta.  
 
-Para uma floresta com um nome de domínio do Active Directory *fabrikam.com*, o contexto de nomenclatura de configuração é:
+Para uma floresta com o nome de domínio do Active Directory Olá *fabrikam.com*, Olá contexto de nomenclatura de configuração é:
 
 `CN=Configuration,DC=fabrikam,DC=com`
 
-Na sua floresta, o objeto de SCP para o registro automático de dispositivos associados ao domínio está localizado em:  
+Em sua floresta, o objeto Olá SCP para Olá o registro automático de dispositivos que ingressaram no domínio está localizado em:  
 
 `CN=62a0ff2e-97b9-4513-943f-0d221bd30080,CN=Device Registration Configuration,CN=Services,[Your Configuration Naming Context]`
 
-Dependendo de como você implantou o Azure AD Connect, o objeto SCP pode ter já ter sido configurado.
-Você pode verificar a existência do objeto e recuperar os valores da descoberta usando o seguinte script do Windows PowerShell: 
+Dependendo de como você implantou o Azure AD Connect, objeto de SCP Olá pode ter já foi configurado.
+Você pode verificar a existência de saudação do objeto hello e recuperar valores de descoberta hello usando Olá script do Windows PowerShell a seguir: 
 
     $scp = New-Object System.DirectoryServices.DirectoryEntry;
 
@@ -115,19 +115,19 @@ Você pode verificar a existência do objeto e recuperar os valores da descobert
 
     $scp.Keywords;
 
-A saída **$scp.Keywords** mostra as informações de locatário do Azure AD, por exemplo:
+Olá **$scp. Palavras-chave** saída mostra informações de locatário de saudação do AD do Azure, por exemplo:
 
     azureADName:microsoft.com
     azureADId:72f988bf-86f1-41af-91ab-2d7cd011db47
 
-Se o ponto de conexão do serviço não existir, você poderá criá-lo executando o cmdlet `Initialize-ADSyncDomainJoinedComputerSync` no seu servidor do Azure AD Connect. As credenciais do admin corporativo são necessárias para executar este cmdlet.  
-O cmdlet:
+Se o ponto de conexão de serviço Olá não existir, você pode criá-lo executando Olá `Initialize-ADSyncDomainJoinedComputerSync` cmdlet no seu servidor do Azure AD Connect. Credenciais de administrador corporativo é necessário toorun esse cmdlet.  
+Olá cmdlet:
 
-- Cria o ponto de conexão de serviço na floresta do Active Directory à qual o Azure AD Connect está conectado. 
-- Exige que você especifique o parâmetro `AdConnectorAccount`. Essa é a conta que está configurada como a conta do conector do Active Directory no Azure AD Connect. 
+- Cria o ponto de conexão de serviço Olá na floresta do Active Directory de saudação do Azure AD Connect está conectado ao. 
+- Exige que você Olá toospecify `AdConnectorAccount` parâmetro. Essa é a conta de saudação que é configurada como o Active Directory, conecte-se a conta de conector no AD do Azure. 
 
 
-O script a seguir mostra um exemplo de uso do cmdlet. Nesse script, `$aadAdminCred = Get-Credential` exige que você digite um nome de usuário. Você precisa fornecer o nome de usuário no formato de nome principal (UPN) do usuário (`user@example.com`). 
+Olá, script a seguir mostra um exemplo para usar o cmdlet hello. Nesse script, `$aadAdminCred = Get-Credential` exige que você tootype um nome de usuário. Você precisa de nome de usuário Olá tooprovide no formato de nome principal (UPN) do usuário hello (`user@example.com`). 
 
 
     Import-Module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1";
@@ -136,14 +136,14 @@ O script a seguir mostra um exemplo de uso do cmdlet. Nesse script, `$aadAdminCr
 
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
-O cmdlet `Initialize-ADSyncDomainJoinedComputerSync`:
+Olá `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
 
-- Usa o módulo Active Directory PowerShell, que se baseia nos Serviços Web do Active Directory em execução em um controlador de domínio. Os Serviços Web do Active Directory têm suporte em controladores de domínio executando o Windows Server 2008 R2 e posterior.
-- Há suporte somente para a **versão do módulo 1.1.166.0 do MSOnline PowerShell**. Para baixar este módulo, use este [link](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
+- Usa o módulo do Active Directory PowerShell hello, que se baseia em serviços Web do Active Directory em execução em um controlador de domínio. Os Serviços Web do Active Directory têm suporte em controladores de domínio executando o Windows Server 2008 R2 e posterior.
+- Só há suporte para Olá **MSOnline PowerShell versão do módulo 1.1.166.0**. toodownload neste módulo, use [link](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
 
-Para controladores de domínio executando o Windows Server 2008 ou versões anteriores, use o script abaixo para criar o ponto de conexão de serviço.
+Para controladores de domínio que executam o Windows Server 2008 ou versões anteriores, use script de saudação abaixo de ponto de conexão de serviço toocreate hello.
 
-Em uma configuração de várias florestas, você deve usar o script a seguir para criar o ponto de conexão de serviço em cada floresta onde existam computadores:
+Em uma configuração de várias floresta, você deve usar o hello ponto de conexão de serviço do script toocreate Olá em cada floresta onde existem computadores a seguir:
  
     $verifiedDomain = "contoso.com"    # Replace this with any of your verified domain names in Azure AD
     $tenantID = "72f988bf-86f1-41af-91ab-2d7cd011db47"    # Replace this with you tenant ID
@@ -164,42 +164,42 @@ Em uma configuração de várias florestas, você deve usar o script a seguir pa
 
 ## <a name="step-2-setup-issuance-of-claims"></a>Etapa 2: configurar a emissão de declarações
 
-Em uma configuração do Azure AD federada, os dispositivos confiam nos Serviços de Federação do Active Directory (AD FS) ou no serviço de federação local de um terceiro para se autenticar no Azure AD. Os dispositivos são autenticados para obter um token de acesso para se registrar com o Serviço de Registro de Dispositivo (Azure DRS) do Azure Active Directory.
+No Azure federado configuração do AD, dispositivos contam com os serviços de Federação do Active Directory (AD FS) ou uma parte 3 de tooAzure de tooauthenticate de serviço de Federação AD local. Dispositivos autenticam tooget um tooregister de token de acesso em relação a saudação do Azure Active Directory Device Registration Service (DRS do Azure).
 
-Os dispositivos atuais do Windows são autenticados usando a Autenticação Integrada do Windows para um ponto de extremidade WS-Trust ativo (versões 1.3 ou 2005) hospedado pelo serviço de federação local.
+Windows dispositivos atuais se autenticar usando a autenticação integrada do Windows tooan WS-Trust ponto de extremidade ativo (versões 1.3 ou 2005) hospedado pelo serviço de federação local hello.
 
 > [!NOTE]
-> Ao usar o AD FS, **adfs/services/trust/13/windowstransport** ou **adfs/services/trust/2005/windowstransport** devem ser habilitados. Se você estiver usando o proxy Web de autenticação, verifique também se esse ponto de extremidade pode ser publicado por meio do proxy. Você pode ver quais pontos de extremidade são habilitados por meio do console de gerenciamento do AD FS em **Serviço > pontos de extremidade**.
+> Ao usar o AD FS, **adfs/services/trust/13/windowstransport** ou **adfs/services/trust/2005/windowstransport** devem ser habilitados. Se você estiver usando Olá Proxy de autenticação da Web, também Certifique-se de que esse ponto de extremidade é publicado por meio do proxy de saudação. Você pode ver quais pontos de extremidade são habilitados por meio do console de gerenciamento de saudação do AD FS em **Service > pontos de extremidade**.
 >
->Se você não tiver o AD FS como seu serviço de federação local, siga as instruções do seu fornecedor para garantir que ele ofereça suporte aos pontos de extremidade WS-Trust 1.3 ou 2005 e que eles sejam publicados por meio do Arquivo de Troca de Metadados (MEX).
+>Se você não tiver o AD FS como seu serviço de federação local, siga as instruções de saudação do seu toomake fornecedor se que eles dão suporte a WS-Trust 1.3 ou pontos de extremidade de 2005 e que eles são publicados por meio de saudação (MEX) do arquivo de troca de metadados.
 
-As seguintes declarações devem existir no token recebido pelo DRS do Azure para que o registro do dispositivo seja concluído. O DRS do Azure criará um objeto de dispositivo no Azure AD com algumas dessas informações que são usadas pelo Azure AD Connect para associar o objeto de dispositivo recém-criado à conta do computador local.
+Olá seguintes declarações devem existir no token Olá recebida pelo Azure DRS para toocomplete de registro do dispositivo. DRS Azure criará um objeto de dispositivo no AD do Azure com algumas dessas informações que são usadas pelo objeto de dispositivo do Azure AD Connect tooassociate Olá recém-criado com hello computador conta local.
 
 * `http://schemas.microsoft.com/ws/2012/01/accounttype`
 * `http://schemas.microsoft.com/identity/claims/onpremobjectguid`
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`
 
-Se você tiver mais de um nome de domínio verificado, precisará fornecer a seguinte declaração para os computadores:
+Se você tiver mais de um nome de domínio verificado, você precisa tooprovide Olá declaração para os computadores a seguir:
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`
 
-Se você já estiver emitindo uma declaração ImmutableID (por exemplo, a ID de logon alternativo), precisará fornecer uma declaração correspondente para os computadores:
+Se você já esteja emitindo uma declaração de ImmutableID (por exemplo, a ID de logon alternativo), será necessário tooprovide uma declaração correspondente para computadores:
 
 * `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`
 
-Nas seções a seguir, você encontrará informações sobre:
+Em Olá seções a seguir, você pode encontrar informações sobre:
  
-- Os valores de que cada declaração deve ter
+- os valores Hello cada declaração deve ter
 - Como uma definição se pareceria no AD FS
 
-A definição ajuda você a verificar se os valores estão presentes ou se você precisa criá-los.
+definição de saudação ajuda tooverify se houver valores hello, ou se você precisa toocreate-los.
 
 > [!NOTE]
-> Se você não usar o AD FS para o servidor de federação local, siga as instruções do fornecedor para criar a configuração adequada para emitir essas declarações.
+> Se você não usar o AD FS para o servidor de federação local, siga tooissue de configuração apropriada do fornecedor instruções toocreate Olá essas declarações.
 
 ### <a name="issue-account-type-claim"></a>Emitir declaração de tipo de conta
 
-**`http://schemas.microsoft.com/ws/2012/01/accounttype`** - Essa declaração deve conter um valor de **DJ**, que identifica o dispositivo como um computador associado ao domínio. No AD FS, você pode adicionar uma regra de transformação de emissão que se parece com o seguinte:
+**`http://schemas.microsoft.com/ws/2012/01/accounttype`**-Esta declaração deve conter um valor de **DJ**, que identifica o dispositivo hello como um computador ingressado no domínio. No AD FS, você pode adicionar uma regra de transformação de emissão que se parece com o seguinte:
 
     @RuleName = "Issue account type for domain-joined computers"
     c:[
@@ -212,9 +212,9 @@ A definição ajuda você a verificar se os valores estão presentes ou se você
         Value = "DJ"
     );
 
-### <a name="issue-objectguid-of-the-computer-account-on-premises"></a>Emita o objectGUID da conta do computador local
+### <a name="issue-objectguid-of-hello-computer-account-on-premises"></a>Execute o objectGUID do hello computador conta local
 
-**`http://schemas.microsoft.com/identity/claims/onpremobjectguid`** - Essa declaração deve conter o valor do **objectGUID** da conta do computador local. No AD FS, você pode adicionar uma regra de transformação de emissão que se parece com o seguinte:
+**`http://schemas.microsoft.com/identity/claims/onpremobjectguid`**-Esta declaração deve conter Olá **objectGUID** valor Olá conta de computador local. No AD FS, você pode adicionar uma regra de transformação de emissão que se parece com o seguinte:
 
     @RuleName = "Issue object GUID for domain-joined computers"
     c1:[
@@ -234,9 +234,9 @@ A definição ajuda você a verificar se os valores estão presentes ou se você
         param = c2.Value
     );
  
-### <a name="issue-objectsid-of-the-computer-account-on-premises"></a>Emita o objectSID da conta do computador local
+### <a name="issue-objectsid-of-hello-computer-account-on-premises"></a>Problema objectSID Olá computador conta local
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** - Essa declaração deve conter o valor do **objectSid** da conta do computador local. No AD FS, você pode adicionar uma regra de transformação de emissão que se parece com o seguinte:
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`**-Esta declaração deve conter Olá Olá **objectSid** valor Olá conta de computador local. No AD FS, você pode adicionar uma regra de transformação de emissão que se parece com o seguinte:
 
     @RuleName = "Issue objectSID for domain-joined computers"
     c1:[
@@ -253,9 +253,9 @@ A definição ajuda você a verificar se os valores estão presentes ou se você
 
 ### <a name="issue-issuerid-for-computer-when-multiple-verified-domain-names-in-azure-ad"></a>Emita o issuerID de computador quando houver vários nomes de domínio verificados no Azure AD
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`** - Essa declaração deve conter o Uniform Resource Identifier (URI) de qualquer um dos nomes de domínio verificados que se conectam ao serviço de federação local (AD FS ou terceiro) que emite o token. No AD FS, você pode adicionar regras de transformação de emissão parecidas com aquelas abaixo na ordem específica após as mostradas acima. Observe que é necessária uma regra para emitir explicitamente a regra para usuários. Nas regras abaixo, é adicionada uma primeira regra de identificação do usuário vs. a autenticação do computador.
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`**-Esta declaração deve conter Olá identificador URI (Uniform Resource) de qualquer um dos Olá verificar nomes de domínio que se conectam com hello token de emissão Olá federation service (AD FS ou 3ª parte) local. No AD FS, você pode adicionar regras de transformação de emissão que pareçam Olá aquelas abaixo em que ordem específica após Olá aquelas acima. Observe que essa regra de saudação do problema de tooexplicitly uma regra para os usuários é necessário. Em regras de saudação abaixo, uma regra primeiro identificar o usuário vs. autenticação de computador é adicionada.
 
-    @RuleName = "Issue account type with the value User when its not a computer"
+    @RuleName = "Issue account type with hello value User when its not a computer"
     NOT EXISTS(
     [
         Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", 
@@ -267,7 +267,7 @@ A definição ajuda você a verificar se os valores estão presentes ou se você
         Value = "User"
     );
     
-    @RuleName = "Capture UPN when AccountType is User and issue the IssuerID"
+    @RuleName = "Capture UPN when AccountType is User and issue hello IssuerID"
     c1:[
         Type == "http://schemas.xmlsoap.org/claims/UPN"
     ]
@@ -297,15 +297,15 @@ A definição ajuda você a verificar se os valores estão presentes ou se você
     );
 
 
-Na declaração acima,
+Declaração de saudação acima,
 
-- `$<domain>` é a URL de serviço do AD FS
-- `<verified-domain-name>` é um espaço reservado que você precisa substituir por um de seus nomes de domínio verificado no Azure AD
+- `$<domain>`é a URL do serviço Olá AD FS
+- `<verified-domain-name>`é um espaço reservado é necessário tooreplace com um de seus nomes de domínio verificado no AD do Azure
 
 
 
-Para obter mais detalhes sobre nomes de domínio verificados, confira [Adicionar um nome de domínio ao Azure Active Directory](active-directory-add-domain.md).  
-Para obter uma lista dos domínios da empresa verificados, você pode usar o cmdlet [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0). 
+Para obter mais detalhes sobre nomes de domínio verificado, consulte [adicionar um nome de domínio personalizado tooAzure do Active Directory](active-directory-add-domain.md).  
+tooget uma lista de seus domínios da empresa verificados, você pode usar o hello [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet. 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
@@ -331,9 +331,9 @@ Para obter uma lista dos domínios da empresa verificados, você pode usar o cmd
         param = c2.Value
     );
 
-### <a name="helper-script-to-create-the-ad-fs-issuance-transform-rules"></a>Script auxiliar para criar regras de transformação de emissão do AD FS
+### <a name="helper-script-toocreate-hello-ad-fs-issuance-transform-rules"></a>Regras de transformação de auxiliar script toocreate Olá AD FS emissão
 
-O script a seguir o ajudará com a criação das regras de transformação de emissão descritas acima.
+Hello script a seguir ajudará com a criação de saudação de emissão de saudação transformar regras descritas acima.
 
     $multipleVerifiedDomainNames = $false
     $immutableIDAlreadyIssuedforUsers = $false
@@ -383,7 +383,7 @@ O script a seguir o ajudará com a criação das regras de transformação de em
 
     $rule4 = ''
     if ($multipleVerifiedDomainNames -eq $true) {
-    $rule4 = '@RuleName = "Issue account type with the value User when it is not a computer"
+    $rule4 = '@RuleName = "Issue account type with hello value User when it is not a computer"
     NOT EXISTS(
     [
         Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", 
@@ -395,7 +395,7 @@ O script a seguir o ajudará com a criação das regras de transformação de em
         Value = "User"
     );
     
-    @RuleName = "Capture UPN when AccountType is User and issue the IssuerID"
+    @RuleName = "Capture UPN when AccountType is User and issue hello IssuerID"
     c1:[
         Type == "http://schemas.xmlsoap.org/claims/UPN"
     ]
@@ -456,129 +456,129 @@ O script a seguir o ajudará com a criação das regras de transformação de em
 
 ### <a name="remarks"></a>Comentários 
 
-- Esse script acrescenta as regras às regras existentes. Não execute o script duas vezes porque o conjunto de regras seria adicionado duas vezes. Certifique-se de que não exista nenhuma regra correspondente para essas declarações (sob as condições correspondentes) antes de executar o script novamente.
+- Esse script acrescenta Olá regras toohello existente regras. Script de saudação não são executadas duas vezes porque Olá conjuntos de regras será adicionado duas vezes. Certifique-se de que nenhuma regra correspondente existe para essas declarações (em condições de correspondente Olá) antes de executar o script hello novamente.
 
-- Se você tiver vários nomes de domínio verificados (conforme mostrado no portal do Azure AD ou por meio do cmdlet Get-MsolDomains), defina o valor de **$multipleVerifiedDomainNames** no script para **$true**. Além disso, certifique-se de remover qualquer declaração de issuerid existente que possa ter sido criada pelo Azure AD Connect ou por outros meios. Aqui está um exemplo dessa regra:
+- Se você tiver vários nomes de domínio verificado (conforme mostrado no portal de saudação do AD do Azure ou por meio do cmdlet Get-MsolDomains de saudação), definir o valor de saudação do **$multipleVerifiedDomainNames** Olá script muito**$true**. Além disso, certifique-se de remover qualquer declaração de issuerid existente que possa ter sido criada pelo Azure AD Connect ou por outros meios. Aqui está um exemplo dessa regra:
 
 
         c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
         => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
 
-- Se você já tiver emitido uma declaração **ImmutableID** para contas de usuário, defina o valor de **$immutableIDAlreadyIssuedforUsers** no script para **$true**.
+- Se você já tiver emitido um **ImmutableID** de declaração para contas de usuário, defina o valor de saudação do **$immutableIDAlreadyIssuedforUsers** Olá script muito**$true**.
 
 ## <a name="step-3-enable-windows-down-level-devices"></a>Etapa 3: habilitar dispositivos de nível inferior do Windows
 
 Se alguns dos seus dispositivos associados ao domínio forem dispositivos de nível inferior do Windows, você precisa:
 
-- Definir uma política no Azure AD para permitir que os usuários registrem dispositivos.
+- Defina uma política no AD do Azure tooenable tooregister os dispositivos dos usuários.
  
-- Configurar o serviço de federação local para emitir declarações para dar suporte à **autenticação integrada do Windows (IWA)** para o registro de dispositivos.
+- Configurar o local federação serviço tooissue declarações toosupport **Windows IWA (autenticação integrada)** para registro do dispositivo.
  
-- Adicionar o ponto de extremidade de autenticação de dispositivo do Azure AD às zonas da Intranet local para evitar prompts de certificação ao autenticar o dispositivo.
+- Adicione Olá AD do Azure dispositivo autenticação ponto de extremidade toohello local Intranet zonas tooavoid certificado solicita ao autenticar o dispositivo hello.
 
-### <a name="set-policy-in-azure-ad-to-enable-users-to-register-devices"></a>Definir uma política no Azure AD para permitir que os usuários registrem dispositivos
+### <a name="set-policy-in-azure-ad-tooenable-users-tooregister-devices"></a>Definir a diretiva no AD do Azure tooenable tooregister os dispositivos dos usuários
 
-Para registrar dispositivos de nível inferior do Windows, você precisa garantir que a configuração para permitir que os usuários registrem dispositivos no Azure AD esteja definida. Você pode encontrar essa configuração no Portal do Azure em:
+tooregister dispositivos de nível inferior do Windows, você precisa toomake-se de que Olá configuração tooallow usuários tooregister dispositivos no AD do Azure está definida. Olá portal do Azure, você encontrará essa configuração em:
 
 `Azure Active Directory > Users and groups > Device settings`
     
-A política a seguir deve ser definida como **Todos** : **os usuários podem registrar seus dispositivos com o Azure AD**
+Olá seguinte política deve ser definida muito**todos os**: **os usuários podem registrar seus dispositivos com o Azure AD**
 
 ![Registrar dispositivos](./media/active-directory-conditional-access-automatic-device-registration-setup/23.png)
 
 
 ### <a name="configure-on-premises-federation-service"></a>Configurar o serviço de federação local 
 
-O serviço de federação local deve oferecer suporte ao emitir as declarações **authenticationmehod** e **wiaormultiauthn** ao receber uma solicitação de autenticação para a terceira parte confiável do Azure AD com um parâmetro resouce_params com um valor codificado como mostrado abaixo:
+Seu serviço de federação local deve oferecer suporte à emissão Olá **authenticationmehod** e **wiaormultiauthn** declarações durante o recebimento de uma autenticação solicitar a terceira parte confiável toohello AD do Azure mantém um resouce_params parâmetro com um valor codificado conforme mostrado abaixo:
 
     eyJQcm9wZXJ0aWVzIjpbeyJLZXkiOiJhY3IiLCJWYWx1ZSI6IndpYW9ybXVsdGlhdXRobiJ9XX0
 
     which decoded is {"Properties":[{"Key":"acr","Value":"wiaormultiauthn"}]}
 
-Quando essa solicitação chega, o serviço de federação local deve autenticar o usuário usando a Autenticação Integrada do Windows e, se ela for bem-sucedida, ele deverá emitir as duas declarações a seguir:
+Quando essa solicitação chega, serviço de federação local Olá deve autenticar o usuário hello usando a autenticação integrada do Windows e ao ser bem-sucedido, ele deverá emitir Olá duas declarações a seguir:
 
     http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows
     http://schemas.microsoft.com/claims/wiaormultiauthn
 
-No AD FS, você precisa adicionar uma regra de transformação de emissão que passe pelo método de autenticação.  
+No AD FS, você deve adicionar esse método de autenticação Olá passa por uma regra de transformação de emissão.  
 
-**Para adicionar essa regra:**
+**tooadd essa regra:**
 
-1. No console de gerenciamento do AD FS, vá para `AD FS > Trust Relationships > Relying Party Trusts`.
-2. Clique com o botão direito do mouse no objeto de confiança de terceira parte confiável da Plataforma de Identidade do Microsoft Office 365 e selecione **Editar Regras de Declaração**.
-3. Na guia **Regras de Transformação de Emissão**, selecione **Adicionar Regra**.
-4. Na lista de modelos **Regra de declaração**, selecione **Enviar Declarações Usando uma Regra Personalizada**.
+1. No console de gerenciamento do hello AD FS, vá muito`AD FS > Trust Relationships > Relying Party Trusts`.
+2. Objeto de confiança de terceiros confiável Olá plataforma de identidade do Microsoft Office 365 e, em seguida, selecione **editar regras de declaração**.
+3. Em Olá **regras de transformação de emissão** guia, selecione **Adicionar regra**.
+4. Em Olá **regra de declaração** lista de modelo, selecione **enviar declarações usando uma regra personalizada**.
 5. Selecione **Avançar**.
-6. Na caixa **Nome da regra de declaração**, digite **Regra de Declaração de Método de Autenticação**.
-7. Na caixa **Regra de declaração** , digite a seguinte regra:
+6. Em Olá **nome da regra de declaração** , digite **regra de declaração de método de autenticação**.
+7. Em Olá **regra de declaração** caixa, Olá tipo regra a seguir:
 
     `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-8. No servidor de federação, digite o comando do PowerShell abaixo após substituir  **\<RPObjectName\>**  pelo nome do objeto da terceira parte confiável para o seu objeto de terceira parte confiável do Azure AD. Geralmente, este objeto é nomeado como **Plataforma de Identidade do Microsoft Office 365**.
+8. No servidor de federação, digite o comando do PowerShell Olá abaixo depois de substituir  **\<RPObjectName\>**  com hello terceira parte confiável nome do objeto para o objeto de confiança de terceiros confiável do AD do Azure. Geralmente, este objeto é nomeado como **Plataforma de Identidade do Microsoft Office 365**.
    
     `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
-### <a name="add-the-azure-ad-device-authentication-end-point-to-the-local-intranet-zones"></a>Adicione o ponto de extremidade de autenticação de dispositivo do Azure AD para Zonas da Intranet Local
+### <a name="add-hello-azure-ad-device-authentication-end-point-toohello-local-intranet-zones"></a>Adicionar zonas de Intranet Local Olá AD do Azure dispositivo autenticação ponto de extremidade toohello
 
-Para evitar prompts de certificado quando os usuários dos dispositivos de registro fizerem a autenticação no Azure AD, você poderá enviar uma política para os seus dispositivos associados ao domínio para adicionar a seguinte URL na zona da Intranet Local no Internet Explorer:
+certificado tooavoid avisa quando os usuários no registro de dispositivos autenticar tooAzure AD, você pode enviar uma saudação de tooadd política tooyour dispositivos que ingressaram no domínio seguindo a zona de Intranet Local toohello URL no Internet Explorer:
 
 `https://device.login.microsoftonline.com`
 
 ## <a name="step-4-control-deployment-and-rollout"></a>Etapa 4: implantação de controle e distribuição
 
-Quando você tiver concluído as etapas necessárias, os dispositivos associados ao domínio estarão prontos para se registrar automaticamente com o Azure AD. Todos os dispositivos associados ao domínio que executarem a Atualização de Aniversário do Windows 10 e o Windows Server 2016 serão registrados automaticamente no Azure AD na reinicialização do dispositivo ou no login. Novos dispositivos serão registrados com o Azure AD quando o dispositivo reiniciar depois que a operação de ingresso no domínio for concluída.
+Quando você concluiu as etapas de saudação necessários, dispositivos que ingressaram no domínio são tooautomatically pronto registrar com o Azure AD. Todos os dispositivos associados ao domínio que executarem a Atualização de Aniversário do Windows 10 e o Windows Server 2016 serão registrados automaticamente no Azure AD na reinicialização do dispositivo ou no login. Registrar novos dispositivos com o Azure AD quando o dispositivo Olá é reiniciado após a conclusão da operação de junção de domínio hello.
 
-Os dispositivos que foram anteriormente ingressados no local de trabalho na transição do Azure AD (por exemplo, no Intune) para "*Ingressado no Domínio, Registrado no AAD*". No entanto, levará algum tempo para que esse processo seja concluído em todos os dispositivos devido ao fluxo normal de atividade do usuário e do domínio.
+Dispositivos que foram anteriormente ingressos tooAzure AD (por exemplo, para o Intune) transição muito"*ingressado no domínio, registrado no AAD*"; no entanto, levará algum tempo para esse processo toocomplete em todos os dispositivos de vencimento toohello normal fluxo de atividade de usuário e domínio.
 
 ### <a name="remarks"></a>Comentários
 
-- Você pode usar um objeto de Política de Grupo para controlar a distribuição de registro automático de computadores associados ao domínio do Windows 10 e do Windows Server 2016.
+- Você pode usar uma distribuição de saudação do toocontrol de objeto diretiva de grupo de registro automático do Windows 10 e computadores de domínio do Windows Server 2016.
 
-- A Atualização de 10 de novembro de 2015 do Windows será registrada automaticamente com o Azure AD **apenas** se o objeto da Política de Grupo de distribuição for definido.
+- Windows 10 de novembro de 2015 atualizar automaticamente registra com o Azure AD **somente** se o objeto de diretiva de grupo de distribuição de saudação é definido.
 
-- Para distribuir o registro automático dos computadores de nível inferior do Windows, você pode implantar um [pacote do Windows Installer](#windows-installer-packages-for-non-windows-10-computers) nos computadores que selecionar.
+- toorollout Olá o registro automático de computadores de nível inferior do Windows, você pode implantar um [pacote do Windows Installer](#windows-installer-packages-for-non-windows-10-computers) toocomputers que você selecionar.
 
-- Se você enviar o objeto de Política de Grupo para dispositivos associados ao domínio do Windows 8.1, será feita uma tentativa de registro. No entanto, é recomendável que você use o [pacote do Windows Installer](#windows-installer-packages-for-non-windows-10-computers) para registrar todos os seus dispositivos de nível inferior do Windows. 
+- Se você enviar por push a dispositivos que ingressaram no domínio tooWindows 8.1 objeto diretiva de grupo hello, registro será tentado. No entanto, é recomendável que você use Olá [pacote do Windows Installer](#windows-installer-packages-for-non-windows-10-computers) tooregister todos os seus dispositivos de baixo nível do Windows. 
 
 ### <a name="create-a-group-policy-object"></a>Criar um objeto de Política de Grupo 
 
-Para controlar a distribuição do registro automático de computadores atuais do Windows, você pode implantar a Política de Grupo **Registrar computadores associados ao domínio como dispositivos** nos computadores que deseja registrar. Por exemplo, você pode implantar a política em uma unidade organizacional ou um grupo de segurança.
+distribuição de saudação toocontrol de registro automático de computadores com Windows atuais, você deve implantar Olá **registrar os computadores do domínio como dispositivos** dispositivos de toohello de objeto de diretiva de grupo que deseja tooregister. Por exemplo, você pode implantar o grupo de segurança de tooa ou unidade organizacional do hello política tooan.
 
-**Para definir a política:**
+**política de saudação tooset:**
 
-1. Abra o **Gerenciador do Servidor** e depois vá para `Tools > Group Policy Management`.
-2. Vá para o nó de domínio que corresponde ao domínio em que você deseja ativar o registro automático de computadores atuais do Windows.
+1. Abra **Gerenciador do servidor**e, em seguida, ir muito`Tools > Group Policy Management`.
+2. Vá toohello nó do domínio que corresponde a toohello domínio onde você deseja tooactivate o registro automático de computadores com Windows atuais.
 3. Clique com o botão direito do mouse em **Objetos de Política de Grupo** e selecione **Novo**.
-4. Insira um nome para o objeto de Política de Grupo. Por exemplo, *Registro Automático no Azure AD*. Selecione **OK**.
+4. Insira um nome para o objeto de Política de Grupo. Por exemplo, *tooAzure o registro automático AD*. Selecione **OK**.
 5. Clique com o botão direito do mouse em seu novo objeto de Política de Grupo e selecione **Editar**.
-6. Vá para **Configuração do Computador** > **Políticas** > **Modelos Administrativos** > **Componentes do Windows** > **Registro de Dispositivo**. Clique com o botão direito do mouse em **Registrar computadores associados ao domínio como dispositivos** e selecione **Editar**.
+6. Vá muito**configuração do computador** > **políticas** > **modelos administrativos** > **Windows Componentes** > **registro de dispositivo**. Clique com o botão direito do mouse em **Registrar computadores associados ao domínio como dispositivos** e selecione **Editar**.
    
    > [!NOTE]
-   > Esse modelo de Política de Grupo foi renomeado de versões anteriores do console de Gerenciamento de Política de Grupo. Se você estiver usando uma versão anterior do console, vá para `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
+   > Este modelo de diretiva de grupo foi renomeado de versões anteriores do console de gerenciamento de política de grupo de saudação. Se você estiver usando uma versão anterior do console Olá, vá muito`Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
 
 7. Selecione **Habilitado** e selecione **Aplicar**.
 8. Selecione **OK**.
-9. Vincule o objeto da Política de Grupo a um local de sua escolha. Por exemplo, você pode vinculá-lo a uma unidade organizacional específica. Você também pode vinculá-lo a um grupo específico de computadores que se registram automaticamente no Azure AD. Para definir essa política para todos os computadores com Windows 10 e Windows Server 2016 ingressados no domínio em sua organização, vincule o objeto de Política de Grupo ao domínio.
+9. Saudação de link local de tooa de objeto de diretiva de grupo de sua escolha. Por exemplo, você pode vincular unidade organizacional específica de tooa. Você também pode vinculá-lo tooa o grupo de segurança específico de computadores que se registrar automaticamente com o Azure AD. tooset essa política para todos os computadores ingressados em domínio Windows 10 e Windows Server 2016 em sua organização, o domínio toohello de objeto de diretiva de grupo do link hello.
 
 ### <a name="windows-installer-packages-for-non-windows-10-computers"></a>Pacotes do Windows Installer para computadores que não são do Windows 10
 
-Para registrar computadores de nível inferior do Windows associados ao domínio em um ambiente federado, você pode baixar e instalar esses pacotes do Windows Installer (.msi) do Centro de Downloads na página [Microsoft Workplace Join para computadores não-Windows 10](https://www.microsoft.com/en-us/download/details.aspx?id=53554) .
+computadores de nível inferior Windows tooregister ingressado no domínio em um ambiente federado, você pode baixar e instalar esses pacotes do Windows Installer (. msi) do Centro de Download em Olá [Microsoft ingresso no local para computadores sem Windows 10](https://www.microsoft.com/en-us/download/details.aspx?id=53554) página.
 
-Você pode implantar o pacote usando um sistema de distribuição de software como o System Center Configuration Manager. O pacote dá suporte às opções de instalação silenciosa padrão com o parâmetro *quiet*. O System Center Configuration Manager Current Branch oferece benefícios adicionais em relação às versões anteriores, como a capacidade de monitorar registros concluídos. Para obter mais informações, consulte [System Center 2016](https://www.microsoft.com/cloud-platform/system-center-configuration-manager).
+Você pode implantar o pacote de saudação usando um sistema de distribuição de software como o System Center Configuration Manager. Olá pacote dá suporte a opções de instalação silenciosa padrão Olá com hello *silencioso* parâmetro. Ramificação atual do System Center Configuration Manager oferece benefícios adicionais de versões anteriores, como registros do hello capacidade tootrack concluída. Para obter mais informações, consulte [System Center 2016](https://www.microsoft.com/cloud-platform/system-center-configuration-manager).
 
-O instalador cria uma tarefa agendada no sistema que é executada no contexto do usuário. A tarefa é disparada quando o usuário entra no Windows. A tarefa registra silenciosamente o dispositivo no Azure AD com as credenciais do usuário após a autenticação usando a Autenticação Integrada do Windows. Para ver a tarefa agendada, no dispositivo, vá para o **Microsoft** > **Workplace Join** e depois para a biblioteca do Agendador de Tarefas.
+instalador de saudação cria uma tarefa agendada no sistema de saudação que é executado no contexto de saudação do usuário. tarefa Olá é disparada quando o usuário Olá entra em tooWindows. tarefa Olá silenciosamente registra o dispositivo Olá com o Azure AD com as credenciais do usuário Olá depois de autenticar usando a autenticação integrada do Windows. tarefa agendada do toosee hello, no dispositivo hello, ir muito**Microsoft** > **ingresso**, e em seguida, acesse a biblioteca do Agendador de tarefas toohello.
 
 ## <a name="step-5-verify-registered-devices"></a>Etapa 5: verificar os dispositivos registrados
 
-Você pode obter uma lista dos dispositivos registrados com sucesso na sua organização usando o cmdlet [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) no [módulo do Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+Você pode verificar os dispositivos registrados com êxito em sua organização usando Olá [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet Olá [módulo do Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
-A saída deste cmdlet mostra os dispositivos registrados no Azure AD. Para obter todos os dispositivos, use o parâmetro **-Todos** e, em seguida, filtre-os usando a propriedade **deviceTrustType**. Dispositivos associados ao domínio possuem um valor de **Associado ao domínio**.
+saída deste cmdlet Olá mostra os dispositivos registrados no AD do Azure. tooget todos os dispositivos, use Olá **-todos os** parâmetro e, em seguida, filtrá-los usando Olá **deviceTrustType** propriedade. Dispositivos associados ao domínio possuem um valor de **Associado ao domínio**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Perguntas frequentes sobre o registro de dispositivo automático](active-directory-device-registration-faq.md)
-* [Solução de problemas de registro automático de computadores ingressados no domínio do Azure AD – Windows 10 e Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
-* [Solução de problemas de registro automático de computadores associados ao domínio do Azure AD – não Windows 10](active-directory-device-registration-troubleshoot-windows-legacy.md)
+* [Solucionando problemas de registro automático de domínio Unido computadores tooAzure AD – Windows 10 e Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
+* [Solucionando problemas de registro automático de domínio Unido computadores tooAzure AD – não - Windows 10](active-directory-device-registration-troubleshoot-windows-legacy.md)
 * [Acesso condicional ao Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 
 

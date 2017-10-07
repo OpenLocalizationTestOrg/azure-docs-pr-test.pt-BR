@@ -1,6 +1,6 @@
 ---
-title: "Referência do desenvolvedor de JavaScript do Azure Functions | Microsoft Docs"
-description: "Entenda como desenvolver funções usando JavaScript."
+title: "referência do desenvolvedor aaaJavaScript para funções do Azure | Microsoft Docs"
+description: Entendeu o funcionamento do toodevelop usando JavaScript.
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 7ea81ed47f391fbce1432c2b11ac176ab6c04ae0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 6220b42f965b6ee2463341aaf270836623fdf7fa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 > [!div class="op_single_selector"]
@@ -30,17 +30,17 @@ ms.lasthandoff: 08/29/2017
 > 
 > 
 
-A experiência de JavaScript para o Azure Functions torna mais fácil exportar uma função que é passada como um objeto `context` para se comunicar com o tempo de execução e para receber e enviar dados por meio de associações.
+Olá experiência de JavaScript para funções do Azure torna fácil tooexport uma função, que é passada como um `context` objeto para se comunicar com o tempo de execução de saudação e para receber e enviar dados por meio de associações.
 
-Este artigo pressupõe que você já tenha lido a [referência do desenvolvedor do Azure Functions](functions-reference.md).
+Este artigo pressupõe que você já leu Olá [referência do desenvolvedor do Azure funções](functions-reference.md).
 
 ## <a name="exporting-a-function"></a>Exportando uma função
-Todas as funções JavaScript devem exportar uma única `function` via `module.exports` para o tempo de execução localizar a função e executá-la. Esta função sempre deve incluir um objeto `context` .
+Todas as funções JavaScript devem exportar um único `function` via `module.exports` Olá Runtime toofind Olá função e executá-lo. Esta função sempre deve incluir um objeto `context` .
 
 ```javascript
 // You must include a context, but other arguments are optional
 module.exports = function(context) {
-    // Additional inputs can be accessed by the arguments property
+    // Additional inputs can be accessed by hello arguments property
     if(arguments.length === 4) {
         context.log('This function has 4 inputs');
     }
@@ -51,16 +51,16 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 };
 ```
 
-As associações de `direction === "in"` são passadas como argumentos de função, o que significa que você pode usar [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) para lidar dinamicamente com novas entradas (por exemplo, usando `arguments.length` para iterar por todas as suas entradas). Essa funcionalidade é conveniente quando você tem apenas um gatilho e nenhuma entrada adicional, pois é possível acessar seus dados de gatilho de maneira previsível, sem fazer referência ao objeto `context`.
+Associações de `direction === "in"` são passadas como argumentos de função, o que significa que você pode usar [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) toodynamically lidar com novas entradas (por exemplo, usando `arguments.length` tooiterate em todas as suas entradas). Essa funcionalidade é conveniente quando você tem apenas um gatilho e nenhuma entrada adicional, pois é possível acessar seus dados de gatilho de maneira previsível, sem fazer referência ao objeto `context`.
 
-Os argumentos sempre são passados para a função na ordem em que ocorrem em *function.json*, mesmo se você não especificá-los na sua instrução de exportações. Por exemplo, se tiver `function(context, a, b)` e alterá-lo para `function(context, a)`, você ainda poderá obter o valor de `b` no código de função, fazendo referência ao `arguments[3]`.
+argumentos Olá sempre são passados função toohello na ordem Olá ocorrem em *function.json*, mesmo se você não especificá-los em sua instrução de exportações. Por exemplo, se você tiver `function(context, a, b)` e alterá-la muito`function(context, a)`, ainda é possível obter o valor de saudação do `b` no código de função referindo-se muito`arguments[3]`.
 
-Todas as associações, independentemente da direção, também são transmitidas por todo o objeto `context` (veja o script a seguir). 
+Todas as associações, independentemente de direção, também são passadas Olá `context` objeto (consulte Olá script a seguir). 
 
 ## <a name="context-object"></a>objeto de contexto
-O tempo de execução usa um objeto `context` para passar dados de/para sua função e permitir que você se comunique com o tempo de execução.
+saudação de tempo de execução usa um `context` tooand de dados do objeto toopass de sua função e toolet você se comunicar com o tempo de execução de saudação.
 
-O objeto de contexto sempre é o primeiro parâmetro para uma função e deve ser incluído porque tem métodos como `context.done` e `context.log`, que são necessários para usar corretamente o tempo de execução. Você pode nomear o objeto de acordo com a sua preferência (por exemplo, `ctx` ou `c`).
+Olá objeto de contexto é sempre a primeira função de tooa parâmetro hello e deve ser incluído porque tem métodos como `context.done` e `context.log`, que são necessárias toouse Olá runtime corretamente. Você pode nomear o objeto hello como desejar (por exemplo, `ctx` ou `c`).
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -74,7 +74,7 @@ module.exports = function(context) {
 ```
 context.bindings
 ```
-Retorna um objeto nomeado que contém todos os dados de entrada e saída. Por exemplo, a seguinte definição de associação em seu *function.json*, permite que você acesse o conteúdo da fila por meio do objeto `context.bindings.myInput`. 
+Retorna um objeto nomeado que contém todos os dados de entrada e saída. Olá, por exemplo, após a definição de associação no seu *function.json* permite que você acesse Olá conteúdo da fila de saudação do hello `context.bindings.myInput` objeto. 
 
 ```json
 {
@@ -86,7 +86,7 @@ Retorna um objeto nomeado que contém todos os dados de entrada e saída. Por ex
 ```
 
 ```javascript
-// myInput contains the input data, which may have properties such as "name"
+// myInput contains hello input data, which may have properties such as "name"
 var author = context.bindings.myInput.name;
 // Similarly, you can set your output data
 context.bindings.myOutput = { 
@@ -99,17 +99,17 @@ context.bindings.myOutput = {
 context.done([err],[propertyBag])
 ```
 
-Informa ao tempo de execução que seu código terminou. Você deve chamar `context.done`, ou o tempo de execução nunca saberá que sua função terminou e a execução atingirá o tempo limite. 
+Informa Olá em tempo de execução que terminou de seu código. Você deve chamar `context.done`, ou tempo de execução else hello nunca sabe que sua função é concluída e execução de saudação atingirá o tempo limite. 
 
-O método `context.done` permite que você passe um erro definido pelo usuário de volta ao tempo de execução, e um recipiente de propriedades que substitui as propriedades no objeto `context.bindings`.
+Olá `context.done` método permite que você toopass fazer um tempo de execução de toohello de erro definidas pelo usuário e um conjunto de propriedades de propriedades que substituir propriedades Olá Olá `context.bindings` objeto.
 
 ```javascript
-// Even though we set myOutput to have:
+// Even though we set myOutput toohave:
 //  -> text: hello world, number: 123
 context.bindings.myOutput = { text: 'hello world', number: 123 };
-// If we pass an object to the done function...
+// If we pass an object toohello done function...
 context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
-// the done method will overwrite the myOutput binding to be: 
+// hello done method will overwrite hello myOutput binding toobe: 
 //  -> text: hello there, world, noNumber: true
 ```
 
@@ -118,26 +118,26 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 ```
 context.log(message)
 ```
-Permite que você grave nos logs do console de streaming no nível de rastreamento padrão. Há métodos adicionais de registro em log disponíveis no `context.log` que permitem a gravação no log de console em outros níveis de rastreamento:
+Permite que você toowrite toohello console logs de streaming no nível de rastreamento padrão hello. Em `context.log`adicionais de log métodos estão disponíveis que permitem a você escrever toohello log de console em outros níveis de rastreamento:
 
 
 | Método                 | Descrição                                |
 | ---------------------- | ------------------------------------------ |
-| **error(_message_)**   | Grava no registro em log no nível do erro, ou em um nível inferior.   |
-| **warn(_message_)**    | Grava no registro em log no nível do aviso, ou em um nível inferior. |
-| **info(_message_)**    | Grava no registro em log no nível da informação, ou em um nível inferior.    |
-| **verbose(_message_)** | Grava no registro em log no nível detalhado.           |
+| **error(_message_)**   | Grava o nível de tooerror log ou inferior.   |
+| **warn(_message_)**    | Grava o nível de toowarning log ou inferior. |
+| **info(_message_)**    | Grava o nível de tooinfo log ou inferior.    |
+| **verbose(_message_)** | Grava o log de nível de tooverbose.           |
 
-O exemplo a seguir grava no console no nível de rastreamento de aviso:
+Olá, exemplo a seguir grava toohello console no nível de rastreamento de aviso hello:
 
 ```javascript
 context.log.warn("Something has happened."); 
 ```
-Você pode definir o limite do nível de rastreamento para registrar em log no arquivo host.json, ou desativá-lo.  Para saber mais sobre como gravar nos logs, veja a próxima seção.
+Você pode definir o limite do nível de rastreamento Olá para registrar em log no arquivo de host.json hello, ou desativá-lo.  Para obter mais informações sobre como toowrite toohello registra, consulte Olá próxima seção.
 
 ## <a name="binding-data-type"></a>Tipo de dados de associação
 
-Para definir o tipo de dados para uma associação de entrada, use a propriedade `dataType` na definição de associação. Por exemplo, para ler o conteúdo de uma solicitação HTTP em formato binário, use o tipo `binary`:
+toodefine tipo de dados de saudação para uma associação de entrada, use Olá `dataType` propriedade na definição de associação de saudação. Por exemplo, tooread Olá conteúdo de uma solicitação HTTP em formato binário, use o tipo de saudação `binary`:
 
 ```json
 {
@@ -150,48 +150,48 @@ Para definir o tipo de dados para uma associação de entrada, use a propriedade
 
 Outras opções para `dataType` são `stream` e `string`.
 
-## <a name="writing-trace-output-to-the-console"></a>Gravar a saída de rastreamento no console 
+## <a name="writing-trace-output-toohello-console"></a>Console de toohello de saída de rastreamento de gravação 
 
-No Functions, use os métodos `context.log` para gravar a saída de rastreamento no console. Neste ponto, não é possível usar `console.log` para gravar no console.
+Em funções, você usar Olá `context.log` console toohello de saída de rastreamento do métodos toowrite. Neste ponto, você não pode usar `console.log` toowrite toohello console.
 
-Quando você chama `context.log()`, sua mensagem é gravada no console no nível de rastreamento padrão, que é o nível de rastreamento de _informações_. O código a seguir grava no console no nível de rastreamento de informações:
+Quando você chama `context.log()`, a mensagem é gravada toohello console no nível de rastreamento padrão Olá, é hello _informações_ o nível de rastreamento. Olá código a seguir grava toohello console no nível de rastreamento de informações de saudação:
 
 ```javascript
 context.log({hello: 'world'});  
 ```
 
-O código anterior é o equivalente ao código a seguir:
+Olá código anterior é equivalente toohello código a seguir:
 
 ```javascript
 context.log.info({hello: 'world'});  
 ```
 
-O código a seguir grava no console no nível do erro:
+Olá código a seguir grava toohello console no nível de erro hello:
 
 ```javascript
 context.log.error("An error has occurred.");  
 ```
 
-Como _erro_ é o nível de rastreamento mais alto, esse rastreamento é gravado na saída em todos os níveis de rastreamento enquanto o registro em log estiver habilitado.  
+Porque _erro_ for hello mais alto nível, este rastreamento é gravado toohello saída em todos os níveis de rastreamento como o log está habilitado.  
 
 
-Todos os métodos `context.log` dão suporte ao mesmo formato de parâmetro que o [método util.format](https://nodejs.org/api/util.html#util_util_format_format) de Node.js. Considere o código a seguir, que grava no console usando o nível de rastreamento padrão:
+Todos os `context.log` métodos oferecem suporte a saudação mesmo formato do parâmetro que é suportado pelo Olá Node. js [util.format método](https://nodejs.org/api/util.html#util_util_format_format). Considere Olá código, que grava toohello console usando o nível de rastreamento saudação padrão a seguir:
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=' + req.originalUrl);
 context.log('Request Headers = ' + JSON.stringify(req.headers));
 ```
 
-Você também pode escrever o mesmo código no formato a seguir:
+Você também pode Olá gravação mesmo código Olá formato a seguir:
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-### <a name="configure-the-trace-level-for-console-logging"></a>Configurar o nível de rastreamento para o registro em log no console
+### <a name="configure-hello-trace-level-for-console-logging"></a>Configurar o nível de rastreamento de saudação do log de console
 
-O Functions permite a definição do nível de rastreamento de limite para gravar no console, o que facilita o controle do modo de gravação dos rastreamentos no console a partir de suas funções. Para definir o limite para todos os rastreamentos gravados no console, use a propriedade `tracing.consoleLevel` no arquivo host.json. Essa configuração se aplica a todas as funções em seu aplicativo de função. O exemplo a seguir define o limite de rastreamento para habilitar o registro em log detalhado:
+Funções permite definir o nível de rastreamento de limite de saudação para gravar toohello console, o que torna fácil toocontrol maneira de saudação os rastreamentos são gravados toohello console de suas funções. limite de saudação tooset para todos os rastreamentos gravados toohello console, use Olá `tracing.consoleLevel` propriedade no arquivo de host.json hello. Essa configuração se aplica a funções de tooall em seu aplicativo de função. Olá, exemplo a seguir define Olá rastreamento limite tooenable o log detalhado:
 
 ```json
 { 
@@ -201,58 +201,58 @@ O Functions permite a definição do nível de rastreamento de limite para grava
 }  
 ```
 
-Os valores de **consoleLevel** correspondem aos nomes dos métodos `context.log`. Para desabilitar todo o registro em log do rastreamento no console, defina **consoleLevel** como _off_. Para saber mais sobre o arquivo host.json, consulte o [tópico de referência sobre host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+Valores de **consoleLevel** correspondem toohello nomes de saudação `context.log` métodos. toodisable toohello console, de log de rastreamento de todos os conjunto **consoleLevel** too_off_. Para obter mais informações sobre o arquivo de host.json hello, consulte Olá [tópico de referência host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 
 ## <a name="http-triggers-and-bindings"></a>Gatilhos e associações HTTP
 
-HTTP e gatilhos de webhook e associações de saída HTTP usam objetos de solicitação e resposta para representar as mensagens HTTP.  
+HTTP e gatilhos de webhook HTTP de saída e associações de usam a solicitação e resposta objetos toorepresent Olá HTTP mensagens.  
 
 ### <a name="request-object"></a>Objeto da solicitação
 
-O objeto `request` tem as seguintes propriedades:
+Olá `request` objeto tem Olá propriedades a seguir:
 
 | Propriedade      | Descrição                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _body_        | Um objeto que contém o corpo da solicitação.               |
-| _headers_     | Um objeto que contém os cabeçalhos da solicitação.                   |
-| _method_      | O método HTTP da solicitação.                                |
-| _originalUrl_ | A URL da solicitação.                                        |
-| _params_      | Um objeto que contém os parâmetros de roteamento da solicitação. |
-| _query_       | Um objeto que contém os parâmetros da consulta.                  |
-| _rawBody_     | O corpo da mensagem como uma cadeia de caracteres.                           |
+| _body_        | Um objeto que contém o corpo de saudação da solicitação de saudação.               |
+| _headers_     | Um objeto que contém os cabeçalhos de solicitação de saudação.                   |
+| _method_      | método HTTP da solicitação de saudação do Hello.                                |
+| _originalUrl_ | Olá URL de solicitação de saudação.                                        |
+| _params_      | Um objeto que contém parâmetros de roteamento de saudação da solicitação de saudação. |
+| _query_       | Um objeto que contém os parâmetros de consulta hello.                  |
+| _rawBody_     | corpo de saudação de mensagem de saudação como uma cadeia de caracteres.                           |
 
 
 ### <a name="response-object"></a>Objeto de resposta
 
-O objeto `response` tem as seguintes propriedades:
+Olá `response` objeto tem Olá propriedades a seguir:
 
 | Propriedade  | Descrição                                               |
 | --------- | --------------------------------------------------------- |
-| _body_    | Um objeto que contém o corpo da resposta.         |
-| _headers_ | Um objeto que contém os cabeçalhos da resposta.             |
-| _isRaw_   | Indica que a formatação foi ignorada para a resposta.    |
-| _status_  | O código de status HTTP da resposta.                     |
+| _body_    | Um objeto que contém Olá corpo da resposta de saudação.         |
+| _headers_ | Um objeto que contém os cabeçalhos de resposta de saudação.             |
+| _isRaw_   | Indica que a formatação é ignorada para a resposta de saudação.    |
+| _status_  | código de status HTTP da resposta de saudação do Hello.                     |
 
-### <a name="accessing-the-request-and-response"></a>Acessar a solicitação e a resposta 
+### <a name="accessing-hello-request-and-response"></a>Acessando Olá solicitação e resposta 
 
-Ao trabalhar com gatilhos HTTP, há três maneiras de acessar os objetos de solicitação e resposta HTTP:
+Quando você trabalha com gatilhos HTTP, você pode acessar objetos de solicitação e resposta HTTP de saudação em qualquer uma das três maneiras:
 
-+ A partir das associações de entrada e saída nomeadas. Dessa forma, o gatilho e as associações de HTTP funcionam da mesma forma que qualquer outra associação. O exemplo a seguir define o objeto de resposta usando uma associação chamada `response`: 
++ De saudação denominado entrada e saída de associações. Dessa forma, o gatilho HTTP do hello e trabalho de associações Olá mesmo como qualquer outra associação. Olá exemplo a seguir define o objeto de resposta hello usando um conjunto nomeado `response` associação: 
 
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
 
-+ Das propriedades `req` e `res` no objeto `context`. Dessa forma, você pode usar o padrão convencional para acessar os dados HTTP a partir do objeto de contexto, em vez de usar o padrão `context.bindings.name` completo. O exemplo a seguir mostra como acessar os objetos `req` e `res` no `context`:
++ De `req` e `res` propriedades Olá `context` objeto. Dessa forma, você pode usar dados de tooaccess HTTP de padrão convencional de saudação do objeto de contexto Olá, em vez de ter toouse Olá completo `context.bindings.name` padrão. Olá mostrado no exemplo a seguir como Olá tooaccess `req` e `res` objetos Olá `context`:
 
     ```javascript
-    // You can access your http request off the context ...
+    // You can access your http request off hello context ...
     if(context.req.body.emoji === ':pizza:') context.log('Yay!');
     // and also set your http response
     context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
     ```
 
-+ Chamando `context.done()`. Um tipo especial de associação HTTP que retorna a resposta passada ao método `context.done()`. A seguinte associação de saída HTTP define um parâmetro de saída `$return`:
++ Chamando `context.done()`. Um tipo especial de associação HTTP retorna a resposta de saudação que é passada toohello `context.done()` método. Olá seguir HTTP de saída associação define um `$return` parâmetro de saída:
 
     ```json
     {
@@ -261,7 +261,7 @@ Ao trabalhar com gatilhos HTTP, há três maneiras de acessar os objetos de soli
       "name": "$return"
     }
     ``` 
-    Essa associação de saída espera que você forneça a resposta ao chamar `done()` da seguinte maneira:
+    Essa associação de saída espera toosupply resposta de hello quando você chamar `done()`, da seguinte maneira:
 
     ```javascript
      // Define a valid response object.
@@ -270,24 +270,24 @@ Ao trabalhar com gatilhos HTTP, há três maneiras de acessar os objetos de soli
     ```  
 
 ## <a name="node-version-and-package-management"></a>Versão do Node e gerenciamento de pacote
-A versão do Node está bloqueada em `6.5.0`no momento. Estamos investigando a adição de suporte para mais versões e para torná-las configuráveis.
+versão do nó Hello está bloqueada no momento em `6.5.0`. Estamos investigando a adição de suporte para mais versões e para torná-las configuráveis.
 
-As etapas a seguir permitem que você inclua pacotes em seu aplicativo de função: 
+Olá, as etapas a seguir permitem que você incluir pacotes em seu aplicativo de função: 
 
-1. Vá para `https://<function_app_name>.scm.azurewebsites.net`.
+1. Vá muito`https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Clique em **Console de Depuração** > **CMD**.
 
-3. Acesse `D:\home\site\wwwroot`e arraste o arquivo package.json para a pasta **wwwroot** na metade superior da página.  
-    Também há outras maneiras de carregar arquivos em seu aplicativo de função. Para saber mais, confira [Como atualizar os arquivos do aplicativo de função](functions-reference.md#fileupdate). 
+3. Vá muito`D:\home\site\wwwroot`e, em seguida, arraste o toohello de arquivo Package. JSON **wwwroot** pasta na metade superior do hello da página de saudação.  
+    Você também pode carregar arquivos tooyour função aplicativo de outras maneiras. Para obter mais informações, consulte [tooupdate funcionamento arquivos do aplicativo](functions-reference.md#fileupdate). 
 
-4. Depois que o arquivo package.json é carregado, execute o comando `npm install` no **console de execução remota do Kudu**.  
-    Essa ação baixa os pacotes indicados no arquivo package.json e reinicia o aplicativo de função.
+4. Depois de saudação Package. JSON arquivo é carregado, execute Olá `npm install` do hello **console de execução remota de Kudu**.  
+    Essa ação baixa pacotes de saudação indicados no arquivo de Package. JSON hello e reinicia Olá função app.
 
-Após a instalação dos pacotes necessários, você os importa para sua função chamando `require('packagename')`, como no exemplo a seguir:
+Depois de hello pacotes necessários estão instalados, importá-los função tooyour chamando `require('packagename')`, conforme mostrado no exemplo a seguir de saudação:
 
 ```javascript
-// Import the underscore.js library
+// Import hello underscore.js library
 var _ = require('underscore');
 var version = process.version; // version === 'v6.5.0'
 
@@ -297,10 +297,10 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-Você deve definir um arquivo `package.json` na raiz de seu aplicativo de função. A definição de arquivo permite que todas as funções no aplicativo compartilhem os mesmos pacotes armazenados em cache, o que oferece o melhor desempenho. Se houver conflitos de versão, você poderá resolver o conflito adicionando um arquivo `package.json` na pasta de uma função específica.  
+Você deve definir um `package.json` arquivo na raiz de saudação do seu aplicativo de função. Arquivo de saudação definição permite que todas as funções no compartilhamento de aplicativo hello Olá mesmo pacotes armazenados em cache, que oferece um melhor desempenho de saudação. Se ocorrer um conflito de versão, você pode resolvê-lo adicionando um `package.json` arquivo na pasta de saudação de uma função específica.  
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
-Para obter uma variável de ambiente ou um valor de configuração do aplicativo, use `process.env`, conforme mostrado no exemplo de código a seguir:
+tooget uma variável de ambiente ou um valor de configuração do aplicativo, use `process.env`, conforme mostrado no hello exemplo de código a seguir:
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -320,17 +320,17 @@ function GetEnvironmentVariable(name)
 ```
 ## <a name="considerations-for-javascript-functions"></a>Considerações para funções em JavaScript
 
-Ao trabalhar com funções em JavaScript, lembre-se das considerações nas duas seções a seguir.
+Quando você trabalha com funções JavaScript, lembre-se de considerações Olá Olá duas seções a seguir.
 
 ### <a name="choose-single-core-app-service-plans"></a>Escolher Planos do Serviço de Aplicativo de núcleo único
 
-Ao criar um aplicativo de função que usa o Plano do Serviço de Aplicativo, recomendamos que você selecione um plano de núcleo único em vez de um plano com vários núcleos. Atualmente, o Functions executa funções em JavaScript com mais eficiência em VMs de núcleo único, e o uso de VMs maiores não produz os aprimoramentos de desempenho esperados. Quando for necessário, você poderá escalar horizontalmente manualmente adicionando mais instâncias de VM de núcleo único ou poderá habilitar o dimensionamento automático. Para saber mais, confira [Dimensionar a contagem de instâncias manual ou automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
+Quando você cria um aplicativo de função que usa Olá plano de serviço de aplicativo, é recomendável que você selecione um plano de núcleo único em vez de um plano com vários núcleos. Hoje, funções executa funções JavaScript com mais eficiência em VMs de núcleo único e usando as máquinas virtuais maiores não produz melhorias de desempenho Olá esperado. Quando for necessário, você poderá escalar horizontalmente manualmente adicionando mais instâncias de VM de núcleo único ou poderá habilitar o dimensionamento automático. Para saber mais, confira [Dimensionar a contagem de instâncias manual ou automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
 
 ### <a name="typescript-and-coffeescript-support"></a>Suporte a TypeScript e CoffeeScript
-Como ainda não há suporte direto para compilação automática de TypeScript ou CoffeeScript por meio do tempo de execução, esse suporte precisa ser manipulado fora do tempo de execução, no tempo de implantação. 
+Porque suporte direto ainda não existe para CoffeeScript ou TypeScript de compilação automática por meio do tempo de execução hello, esse suporte precisa toobe tratado fora do tempo de execução hello, no momento da implantação. 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais, consulte os recursos a seguir:
+Para obter mais informações, consulte Olá recursos a seguir:
 
 * [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)

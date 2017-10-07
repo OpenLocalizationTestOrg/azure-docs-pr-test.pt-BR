@@ -1,8 +1,8 @@
 ---
-title: "Sincronização do Azure AD Connect: como gerenciar a conta de serviço do Azure AD | Microsoft Docs"
-description: "Este tópico documenta como restaurar a conta de serviço do Azure AD."
+title: "Sincronização do Azure AD Connect: como conta de serviço toomanage Olá AD do Azure | Microsoft Docs"
+description: "Este tópico documenta como conta de serviço toorestore Olá AD do Azure."
 services: active-directory
-keywords: "AADSTS70002, AADSTS50054: Como redefinir a senha da conta de serviço do Conector de sincronização do Azure AD Connect"
+keywords: "AADSTS70002, AADSTS50054, como tooreset Olá senha Olá sincronização do Azure AD Connect conta de serviço do conector"
 documentationcenter: 
 author: andkjell
 manager: femila
@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 8e9e8192ee4fcb636b5be91d2616acbc9120c8c0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e563518eae173de42a1d40bb5a76e63f29f9da42
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Sincronização do Azure AD Connect: como gerenciar a conta de serviço do Azure AD
-A conta de serviço usada pelo Azure AD Connector deve ter serviço gratuito. Se você precisa redefinir suas credenciais, este tópico é indicado para você. Por exemplo, se um Administrador Global tiver redefinido a senha por engano na conta de serviço usando o PowerShell.
+# <a name="azure-ad-connect-sync-how-toomanage-hello-azure-ad-service-account"></a>Sincronização do Azure AD Connect: como conta de serviço toomanage Olá AD do Azure
+conta de serviço de saudação usada por Olá conector AD do Azure deve toobe serviço gratuito. Se você precisar tooreset suas credenciais, este tópico é para você. Por exemplo, se um Administrador Global tem por engano redefinir Olá senha na conta de serviço hello usando o PowerShell.
 
-## <a name="reset-the-credentials"></a>Redefinir as credenciais
-Se a conta de serviço definida no Azure AD Connector não puder contatar o Azure AD devido a problemas de autenticação, a senha poderá ser redefinida.
+## <a name="reset-hello-credentials"></a>Redefinir credenciais de saudação
+Se a conta de serviço de Olá definida no hello conector AD do Azure não pode entrar em contato com o AD do Azure devido a problemas de tooauthentication, Olá poderá ser redefinida.
 
-1. Entre no servidor de sincronização do Azure AD Connector e inicie o PowerShell.
+1. Entre no servidor de sincronização do Azure AD Connect toohello e inicie o PowerShell.
 2. Execute `Add-ADSyncAADServiceAccount`.  
    ![Cmdlet addadsyncaadserviceaccount do PowerShell](./media/active-directory-aadconnectsync-howto-azureadaccount/addadsyncaadserviceaccount.png)
 3. Forneça credenciais de Administrador Global do Azure AD.
 
-Esse cmdlet redefinirá a senha da conta de serviço e a atualizará no Azure AD e no mecanismo de sincronização.
+Esse cmdlet redefine a senha Olá Olá conta de serviço e atualizá-lo no AD do Azure e no mecanismo de sincronização de saudação.
 
 ## <a name="known-issues-these-steps-can-solve"></a>Problemas conhecidos que essas etapas podem resolver
-Esta seção é uma lista de erros relatados por clientes que foram corrigidos por uma redefinição de credenciais na conta de serviço do Azure AD.
+Esta seção é uma lista de erros relatados por clientes que foram corrigidos por um credenciais redefinir Olá conta de serviço do AD do Azure.
 
 - - -
 Evento 6900  
-O servidor encontrou um erro inesperado ao processar uma notificação de alteração de senha:  
+servidor de saudação encontrou um erro inesperado ao processar uma notificação de alteração de senha:  
 AADSTS70002: erro ao validar as credenciais. AADSTS50054: A senha antiga é usada para autenticação.
 
 - - -
