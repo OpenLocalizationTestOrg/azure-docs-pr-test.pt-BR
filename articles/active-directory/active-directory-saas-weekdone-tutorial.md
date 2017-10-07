@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory ao Weekdone | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Weekdone."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Weekdone."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,191 +13,191 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 84aa0069dce55a6623398a99e1cac6bb21bf52f7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f997f1b49ff1aa0659a2409fdd945c6f96413b55
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-weekdone"></a>Tutorial: integração do Azure Active Directory ao Weekdone
 
-Neste tutorial, você aprenderá como integrar o Weekdone ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como toointegrate Weekdone com o Azure Active Directory (AD do Azure).
 
-A integração do Weekdone ao Azure AD oferece os seguintes benefícios:
+Integrando Weekdone com o AD do Azure fornece Olá benefícios a seguir:
 
-- Você pode controlar no Azure AD quem tem acesso ao Weekdone
-- Você pode habilitar seus usuários a fazerem logon automaticamente no Weekdone (logon único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um única localização: o Portal do Azure
+- Você pode controlar no AD do Azure que tenha acesso tooWeekdone
+- Você pode habilitar seu usuários tooautomatically get conectado tooWeekdone (logon único) com suas contas do AD do Azure
+- Você pode gerenciar suas contas em um local central - Olá portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao Weekdone, você precisa dos seguintes itens:
+tooconfigure integração do AD do Azure com Weekdone, você precisa Olá itens a seguir:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura do Weekdone habilitada para logon único
 
 > [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, será possível obter uma versão de avaliação de um mês aqui: [Oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
 
-1. Adicionando Weekdone da galeria
+1. Adicionando Weekdone da Galeria de saudação
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-weekdone-from-the-gallery"></a>Adicionando Weekdone da galeria
-Para configurar a integração do Weekdone ao Azure AD, você precisa adicionar o Weekdone na galeria à sua lista de aplicativos de SaaS gerenciados.
+## <a name="adding-weekdone-from-hello-gallery"></a>Adicionando Weekdone da Galeria de saudação
+integração de saudação tooconfigure de Weekdone no AD do Azure, você precisa tooadd Weekdone da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
 
-**Para adicionar o Weekdone da galeria, execute as seguintes etapas:**
+**tooadd Weekdone da Galeria hello, execute Olá etapas a seguir:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
 
     ![Aplicativos][3]
 
-4. Na caixa de pesquisa, digite **Weekdone**.
+4. Na caixa de pesquisa hello, digite **Weekdone**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_search.png)
 
-5. No painel de resultados, selecione **Weekdone** e clique no botão **Adicionar** para adicionar o aplicativo.
+5. No painel de resultados de saudação, selecione **Weekdone**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o Weekdone com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Weekdone é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Weekdone.
+Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá em Weekdone é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação em Weekdone precisa toobe estabelecida.
 
-No Weekdone, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+Weekdone, atribuir valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
 
-Para configurar e testar o logon único do Azure AD com o Weekdone, você precisa concluir os seguintes blocos de construção:
+tooconfigure e teste de logon único do AD do Azure com Weekdone, é necessário Olá toocomplete blocos de construção a seguir:
 
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criação de um usuário de teste do Weekdone](#creating-a-weekdone-test-user)** – para ter um equivalente de Brenda Fernandes no Weekdone que esteja vinculado à representação de usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
+3. **[Criar um usuário de teste Weekdone](#creating-a-weekdone-test-user)**  -toohave um equivalente do Britta Simon em Weekdone é toohello vinculado do Azure AD representação do usuário.
+4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
+5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único no aplicativo Weekdone.
+Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo Weekdone.
 
-**Para configurar o logon único do Azure AD com o Weekdone, execute as seguintes etapas:**
+**tooconfigure AD do Azure-logon único com Weekdone, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, na página de integração de aplicativos do **Weekdone**, clique em **Logon único**.
+1. Em Olá portal do Azure, Olá **Weekdone** página de integração de aplicativos, clique em **o logon único**.
 
     ![Configurar Logon Único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
  
     ![Configurar Logon Único](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_samlbase.png)
 
-3. Na seção **URLs e Domínio do Weekdone**, se você desejar configurar o aplicativo em modo iniciado pelo **IDP**:
+3. Em Olá **Weekdone domínio e URLs** seção, se desejar que o aplicativo hello tooconfigure **IDP** modo iniciado:
 
     ![Configurar Logon Único](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_url1.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://weekdone.com/a/<tenantname>`
+    a. Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://weekdone.com/a/<tenantname>`
 
-    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://weekdone.com/a/<tenantname>`
+    b. Em Olá **URL de resposta** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://weekdone.com/a/<tenantname>`
 
-4. Marque **Mostrar configurações de URL avançadas**. Se quiser configurar o aplicativo no modo iniciado em **SP**:
+4. Marque **Mostrar configurações de URL avançadas**. Se desejar que o aplicativo hello tooconfigure **SP** modo iniciado:
 
-    ![Configurar o logon único](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_url2.png)
+    ![Configurar Logon Único](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_url2.png)
 
-    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://weekdone.com/a/<tenantname>`
+    Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://weekdone.com/a/<tenantname>`
      
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. Contate a [equipe de suporte ao cliente do Weekdone](mailto:hello@weekdone.com) para obter esses valores. 
+    > Esses valores não são reais. Atualizar esses valores com hello real identificador, URL de resposta e URL de logon. Entre em contato com [equipe de suporte do cliente Weekdone](mailto:hello@weekdone.com) tooget esses valores. 
 
-5. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+5. Em Olá **o certificado de autenticação SAML** seção, clique em **Certificate(Base64)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.
 
-    ![Configurar o logon único](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_certificate.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_certificate.png) 
 
 6. Clique no botão **Salvar** .
 
     ![Configurar Logon Único](./media/active-directory-saas-weekdone-tutorial/tutorial_general_400.png)
     
-7. Na seção **Configuração do Weekdone**, clique em **Configurar o Weekdone** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+7. Em Olá **Weekdone configuração** seção, clique em **configurar Weekdone** tooopen **configurar o logon** janela. Saudação de cópia **URL de logout, ID de entidade de SAML e Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**
 
     ![Configurar Logon Único](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_configure.png) 
 
-8. Para configurar o logon único no lado do **Weekdone**, é necessário enviar o **XML de metadados, a URL de Saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** baixados para a [equipe de suporte do Weekdone](mailto:hello@weekdone.com).
+8. tooconfigure logon único no **Weekdone** lado, você precisa toosend Olá baixado **Metadata XML, URL de logout, ID de entidade de SAML e Single Sign-On URL do serviço SAML** muito[Weekdone suporte equipe](mailto:hello@weekdone.com).
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
 
 ![Criar um usuário do AD do Azure][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
 
-1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-weekdone-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-weekdone-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-weekdone-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-weekdone-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
 
-    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-weekdone-test-user"></a>Criando um usuário de teste Weekdone
 
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Weekdone. O Weekdone dá suporte ao provisionamento just-in-time, que está habilitado por padrão.
+Olá objetivo desta seção é toocreate um usuário chamado Britta Simon no Weekdone. O Weekdone dá suporte ao provisionamento just-in-time, que está habilitado por padrão.
 
-Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o Weekdone se ele ainda não existir.
+Não há itens de ação para você nesta seção. Um novo usuário é criado durante uma tentativa tooaccess Weekdone se ele ainda não existir.
 
 >[!NOTE]
->Se for necessário criar um usuário manualmente, será preciso contatar a [equipe de suporte ao cliente do Weekdone](mailto:hello@weekdone.com).
+>Se você precisar toocreate um usuário manualmente, você precisa Olá toocontact [equipe de suporte do cliente Weekdone](mailto:hello@weekdone.com).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
 
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao Weekdone.
+Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooWeekdone.
 
 ![Atribuir usuário][200] 
 
-**Para atribuir Brenda Fernandes ao Weekdone, execute as seguintes etapas:**
+**tooassign Britta Simon tooWeekdone, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Weekdone**.
+2. Na lista de aplicativos hello, selecione **Weekdone**.
 
     ![Configurar Logon Único](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -205,7 +205,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -213,13 +213,13 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-O objetivo desta seção é testar sua configuração de SSO do Azure AD usando o Painel de Acesso.
+Olá o objetivo desta seção é tootest Olá a sua configuração de SSO do AD do Azure usando o painel de acesso.
 
-Quando você clica no bloco Weekdone no Painel de Acesso, deve fazer logon automaticamente no seu aplicativo Weekdone.
+Quando você clica em bloco Weekdone Olá Olá painel de acesso, você deve obter automaticamente assinado em tooyour Weekdone aplicativo.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

@@ -1,6 +1,6 @@
 ---
-title: "Referência de configurações de roaming do Windows 10 | Microsoft Docs"
-description: "Uma lista completa de todas as configurações que serão ser movidas ou armazenadas em backup no Windows 10."
+title: "referência de configurações de roaming do aaaWindows 10 | Microsoft Docs"
+description: "Uma lista completa de todas as configurações de saudação que serão movidos ou backup no Windows 10."
 services: active-directory
 keywords: enterprise state roaming, nuvem do window
 documentationcenter: 
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 5082ed8d2f41e72fa979b978e2ac0b0840fdcdac
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 381e2220b698bb0e477c207984ff96c03ed132ca
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência de configurações de roaming do Windows 10
-A seguir, uma lista completa de todas as configurações que serão ser movidas ou armazenadas em backup no Windows 10. 
+a seguir Olá é uma lista completa de todas as configurações de saudação que serão movidos ou backup no Windows 10. 
 
 ## <a name="devices-and-endpoints"></a>Dispositivos e pontos de extremidade
-Veja a tabela a seguir para obter um resumo dos dispositivos e dos tipos de conta compatíveis com a estrutura de sincronização, de backup e de restauração no Windows 10.
+Consulte Olá para obter um resumo dos dispositivos de saudação e tipos de conta que são suportados pela sincronização hello, backup, a tabela a seguir e restauração do framework no Windows 10.
 
 | Tipo e operação de conta | Desktop | Móvel |
 | --- | --- | --- |
@@ -35,10 +35,10 @@ Veja a tabela a seguir para obter um resumo dos dispositivos e dos tipos de cont
 | Conta da Microsoft: backup/restauração |Não |Sim |
 
 ## <a name="what-is-backup"></a>O que é backup?
-As configurações do Windows geralmente são sincronizadas por padrão, mas algumas configurações são incluídas apenas no backup, como a lista de aplicativos instalados em um dispositivo. O backup é destinado somente a dispositivos móveis e atualmente não está disponível para usuários do Enterprise State Roaming. O backup usa uma conta da Microsoft e armazena as configurações e dados do aplicativo no OneDrive. Se um usuário desabilitar a sincronização no dispositivo usando o aplicativo Configurações, os dados de aplicativo que normalmente são sincronizados se tornarão somente backup. Os dados de backup só podem ser acessados por meio da operação de restauração durante a primeira execução de um novo dispositivo. Os backups podem ser desabilitados por meio de configurações do dispositivo e podem ser gerenciados e excluídos por meio da conta do OneDrive do usuário.
+Configurações do Windows geralmente sincronizar por padrão, mas algumas configurações são somente backup, como lista Olá dos aplicativos instalados em um dispositivo. O backup é destinado somente a dispositivos móveis e atualmente não está disponível para usuários do Enterprise State Roaming. Backup usa uma conta da Microsoft e armazena configurações hello e dados de aplicativo no OneDrive. Se um usuário desativa a sincronização no dispositivo hello usando o aplicativo de configurações de Olá, dados de aplicativo que normalmente é sincronizado se tornará backup apenas. Dados de backup só podem ser acessados por meio da operação de restauração Olá durante a saudação experiência de um novo dispositivo de primeira execução. Backups pode ser desabilitados por meio de configurações do dispositivo Olá e podem ser gerenciados e excluídos por meio de saudação sua conta do OneDrive.
 
 ## <a name="windows-settings-overview"></a>Visão geral das configurações do Windows
-Os grupos de configurações a seguir estão disponíveis para que os usuários finais habilitem/desabilitem a sincronização de configurações em dispositivos Windows 10.
+Olá a seguintes grupos de configurações estão disponível para sincronização de configurações de tooenable/desabilitar os usuários finais em dispositivos Windows 10.
 
 * Tema: plano de fundo da área de trabalho, bloco de usuário, posição da barra de tarefas etc. 
 * Configurações do Internet Explorer: histórico de navegação, URLs tipadas, favoritos etc.Configurações do Internet Explorer: histórico de navegação, URLs tipadas, favoritos etc. 
@@ -54,10 +54,10 @@ A sincronização do grupo de configuração (favoritos, lista de leitura) do na
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
 
 ## <a name="windows-settings-details"></a>Detalhes das configurações do Windows
-Na tabela a seguir, Outras entradas na coluna Grupo de Configurações refere-se às configurações que podem ser desabilitadas, vá para Configurações > Contas > Sincronizar as configurações > Outras configurações do Windows. 
+Olá a tabela a seguir, outras entradas na coluna do grupo de configurações de saudação refere-se toosettings que pode ser desabilitado indo tooSettings > contas > sincronizar suas configurações > configurações de outras janelas. 
 
-As entradas internas na coluna Grupo de Configurações referem-se às configurações e aos aplicativos que só podem ter a sincronização desabilitada no próprio aplicativo ou por meio da desabilitação da sincronização do dispositivo inteiro usando o gerenciamento de dispositivos móveis (MDM) ou as configurações da Política de Grupo.
-As configurações que não forem movidas ou sincronizadas não pertencerão a um grupo.
+Internas entradas na coluna do grupo de configurações de saudação consulte toosettings e aplicativos que só podem ser desabilitados no próprio aplicativo hello, ou desabilitando a sincronização para todo dispositivo de saudação usando gerenciamento de dispositivo móvel (MDM) ou as configurações de política de grupo de sincronização.
+As configurações que não se movem ou sincronização não pertencerá tooa grupo.
 
 | Configurações | Desktop | Móvel | Agrupar |
 | --- | --- | --- | --- |
@@ -85,16 +85,16 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Personalização da área de trabalho**: papel de parede de apresentação de slides |sync |X |Tema |
 | **Personalização da área de trabalho**: configurações da barra de tarefas (posição, ocultar automaticamente etc.) |sync |X |Tema |
 | **Personalização da área de trabalho**: iniciar o layout da tela |X |backup | |
-| **Dispositivos**: impressoras compartilhadas às quais você se conectou |X |X |Outros |
+| **Dispositivos**: você se conectou muito de impressoras compartilhadas|X |X |Outros |
 | **Navegador Edge**: lista de leitura |sync |sync |interno |
 | **Navegador Edge**: favoritos |sync |sync |interno |
 | **Navegador Edge**: principais sites <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Navegador Edge**: URLs digitadas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Navegador Edge**: configurações da barra de favoritos <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: mostrar o botão home <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador de borda**: Mostrar botão página inicial Olá <sup> [[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Navegador Edge**: bloquear pop-ups <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: perguntar-me o que fazer com cada download <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: oferecer para salvar senhas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador de borda**: perguntar quais toodo com cada download <sup> [[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador de borda**: oferecem toosave senhas <sup> [[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Navegador Edge**: enviar solicitações para não rastrear <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Navegador Edge**: salvar entradas de formulário <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Navegador Edge**: mostrar sugestões de pesquisa e de site conforme eu digitar <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
@@ -127,7 +127,7 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Idioma**: CHS QWERTY - tecla de alternância C/E, shift |sync |X |idioma |
 | **Idioma**: CHS QWERTY - tecla de alternância C/E, Ctrl |sync |X |idioma |
 | **Idioma**: CHS WUBI - modo de entrada de caractere único |sync |X |idioma |
-| **Idioma**: CHS WUBI - mostrar a codificação restante do candidato |sync |X |idioma |
+| **Idioma**: WUBI CHS - Mostrar Olá restantes de codificação de candidato Olá |sync |X |idioma |
 | **Idioma**: CHS WUBI - um aviso sonoro quando a codificação 4 é inválida |sync |X |Linguagem |
 | **Idioma**: CHT Bopomofo; inclui CJK Ext-A |sync |X |idioma |
 | **Idioma**: IME japonês - digitação preditiva e palavras personalizadas |sync |sync |idioma |
@@ -139,11 +139,11 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Tela de bloqueio**: todas as configurações de tela de bloqueio |X |X | |
 | **Lupa**: ativada ou desativada (alternância mestre) |X |X |facilidade de acesso |
 | **Lupa**: ativar ou desativar a cor de inversão (desativado por padrão) |sync |X |facilidade de acesso |
-| **Lupa**: controle - acompanhar o foco do teclado |sync |X |facilidade de acesso |
-| **Lupa**: controle - acompanhar o cursor do mouse |sync |X |facilidade de acesso |
+| **Lupa**: controle - siga o foco do teclado Olá |sync |X |facilidade de acesso |
+| **Lupa**: controle - de cursor do mouse siga Olá |sync |X |facilidade de acesso |
 | **Magnifier**: iniciar quando os usuários entram (desativado por padrão) |sync |X |facilidade de acesso |
-| **Mouse**: alterar o tamanho do cursor do mouse |sync |X |Outros |
-| **Mouse**: alterar a cor do cursor do mouse |sync |X |Outros |
+| **Mouse**: alterar o tamanho de saudação do cursor do mouse |sync |X |outros |
+| **Mouse**: alterar a cor de saudação do cursor do mouse |sync |X |Outros |
 | **Mouse**: todas as outras configurações |X |X | |
 | **Narrador**: início rápido |sync |X |facilidade de acesso |
 | **Narrador**: os usuários podem alterar o tom de fala do Narrador |sync |X |facilidade de acesso |
@@ -153,8 +153,8 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Narrador**: fazer o cursor de inserção seguir o Narrador (ativado por padrão) |sync |X |facilidade de acesso |
 | **Narrador**: habilitar o realce visual do cursor do Narrador (ativado por padrão) |sync |X |facilidade de acesso |
 | **Narrador**: reproduzir as indicações de áudio (ativado por padrão) |sync |X |facilidade de acesso |
-| **Narrador**: ativar as teclas do teclado de toque quando você levanta seu dedo (desativado por padrão) |sync |X |facilidade de acesso |
-| **Facilidade de acesso**: definir a espessura do cursor intermitente |sync |X |facilidade de acesso |
+| **O Narrator**: ativar o teclado de toque hello quando você levantar o dedo (desativado por padrão) |sync |X |facilidade de acesso |
+| **Facilidade de acesso**: definir Olá espessura do cursor piscando Olá |sync |X |facilidade de acesso |
 | **Facilidade de acesso**: remover as imagens da tela de fundo (desativado por padrão) |sync |X |facilidade de acesso |
 | **Ligar e Suspensão**: todas as configurações |X |X | |
 | **Iniciar a personalização de tela**: cor de ênfase (apenas telefone) |X |sync |Tema |
@@ -163,8 +163,8 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Digitação**: realçar as palavras incorretas |sync |backup |idioma |
 | **Digitação**: mostrar sugestões de texto ao digitar |sync |backup |idioma |
 | **Digitação**: adicionar um espaço depois de escolher uma sugestão de texto |sync |backup |idioma |
-| **Digitação**: adicionar um ponto depois de um toque duplo na barra de espaços |sync |backup |idioma |
-| **Digitação**: colocar a primeira letra de cada frase em maiúscula |sync |backup |idioma |
+| **Digitar**: adicionar um período depois, com um toque duplo Olá barra de espaços |sync |backup |idioma |
+| **Digitar**: Olá primeira letra de cada frase em maiuscula |sync |backup |idioma |
 | **Digitação**: usar todas as letras maiúsculas quando tocar duas vezes na tecla shift |sync |backup |idioma |
 | **Digitação**: tocar sons de tecla ao digitar |sync |backup |idioma |
 | **Digitação**: dados de personalização para teclado de toque |sync |backup |idioma |

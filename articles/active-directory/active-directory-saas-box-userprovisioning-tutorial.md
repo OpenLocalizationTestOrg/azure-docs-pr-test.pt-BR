@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory com o Box | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Box."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e caixa."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,106 +13,106 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 9f061f3f5a0a4825854b893150ceccc8951487de
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e92baabb174642c22c99e2a30bc9c71845b3b75f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-configuring-box-for-automatic-user-provisioning"></a>Tutorial: Configurar o Box para provisionamento automático de usuário
 
-O objetivo deste tutorial é mostrar as etapas que precisam ser executadas no Box e no Azure AD para provisionar e desprovisionar automaticamente contas de usuário do Azure AD no Box.
+Olá objetivo deste tutorial é tooshow Olá etapas tooperform na caixa e o Azure AD tooautomatically provisionar e provisionamento de contas de usuário do AD do Azure tooBox.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+cenário de saudação descrito neste tutorial presume que você já tenha Olá itens a seguir:
 
 *   Um locatário do Azure Active Directory.
 *   Uma assinatura do Box habilitada para logon único.
 *   Uma conta de usuário do Box com permissões de Administrador de Equipe.
 
-## <a name="assigning-users-to-box"></a>Atribuindo usuários ao Box 
+## <a name="assigning-users-toobox"></a>Atribuir usuários tooBox 
 
-O Azure Active Directory usa um conceito chamado "atribuições" para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de conta de usuário, somente os usuários e os grupos que foram "atribuídos" a um aplicativo no Azure AD serão sincronizados.
+Active Directory do Azure usa um conceito chamado "atribuições" toodetermine quais usuários devem receber acesso tooselected aplicativos. No contexto de saudação do provisionamento de conta de usuário automático, apenas Olá usuários e grupos que foram "atribuídos" tooan aplicativo no AD do Azure está sincronizado.
 
-Antes de configurar e habilitar o serviço de provisionamento, você precisa decidir quais usuários e/ou grupos do Azure AD representam os usuários que precisam de acesso ao aplicativo Box. Depois de decidir, você pode atribuir esses usuários ao aplicativo Box seguindo estas instruções:
+Antes de configurar e habilitar Olá provisionar um serviço, é necessário toodecide quais usuários e/ou grupos no AD do Azure representam Olá usuários precisam acessar tooyour caixa aplicativo. Depois de decidir, você pode atribuir esses usuários tooyour o aplicativo do Box, seguindo as instruções de saudação aqui:
 
-[Atribuir um usuário ou um grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Atribuir um aplicativo de enterprise tooan usuário ou grupo](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ## <a name="assign-users-and-groups"></a>Atribuir usuários e grupos
-A guia **Box > Usuários e Grupos** no portal do Azure permite especificar quais usuários e grupos devem ter acesso ao Box. A atribuição de um usuário ou grupo faz com que as seguintes ações ocorram:
+Olá **caixa > usuários e grupos** guia Olá portal do Azure permite que você toospecify quais usuários e grupos deve receber acesso tooBox. Atribuição de um usuário ou grupo faz com que Olá toooccur coisas a seguir:
 
-* O Azure AD permite que o usuário atribuído (seja por atribuição direta ou associação de grupo) realize a autenticação no Box. Se um usuário não for atribuído, o Azure AD não permitirá que ele entre no Box e retornará um erro na página de entrada do Azure AD.
-* Um bloco de aplicativo do Box é adicionado ao [iniciador do aplicativo](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)do usuário.
-* Se o provisionamento automático estiver habilitado, os usuários e/ou grupos atribuídos serão adicionados à fila de provisionamento para serem provisionado automaticamente.
+* AD do Azure permite Olá atribuído tooBox de tooauthenticate de usuário (seja por atribuição direta ou associação de grupo). Se não for atribuído a um usuário, o AD do Azure não permite que eles toosign em tooBox e retorna um erro na página de entrada do AD do Azure de saudação.
+* Um bloco de aplicativo para a caixa é adicionado do usuário toohello [iniciador do aplicativo](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+* Se o provisionamento automático estiver habilitado, usuários Olá atribuído e/ou grupos serão adicionados toohello provisionamento toobe fila provisionado automaticamente.
   
-  * Se apenas objetos de usuário tiverem sido configurados para serem provisionados, todos os usuários atribuídos diretamente e todos os usuários que são membros de grupos atribuídos serão colocados na fila de provisionamento. 
-  * Se os objetos de grupo tiverem sido configurados para serem provisionados, todos os objetos de grupo atribuídos serão provisionados para o Box, bem como todos os usuários que são membros desses grupos. As associações de grupo e usuário são preservadas ao serem gravadas no Box.
+  * Se apenas objetos de usuário foram configurado toobe provisionado, em seguida, todos os usuários diretamente atribuídos são colocados na fila de provisionamento de saudação e todos os usuários que são membros de grupos atribuídos são colocados em Olá provisionamento de fila. 
+  * Se os objetos de grupo configurado toobe provisionado, todos os objetos de grupo atribuído são tooBox provisionado e todos os usuários que são membros desses grupos. associações de grupo e usuário Olá são preservadas ao que está sendo gravada tooBox.
 
-Você pode usar a guia **Atributos > Logon único** para configurar quais atributos de usuário (ou declarações) são apresentadas ao Box durante a autenticação baseada em SAML e a guia **Atributos > Provisionamento** para configurar como os atributos de usuário e grupo fluem do Azure AD para o Box durante as operações de provisionamento.
+Você pode usar o hello **atributos > Single Sign-On** guia tooconfigure quais atributos de usuário (ou declarações) é apresentado tooBox durante a autenticação baseada em SAML e hello **atributos > provisionamento** guia tooconfigure como atributos de usuário e grupo de fluam do AD do Azure tooBox durante o provisionamento de operações.
 
-### <a name="important-tips-for-assigning-users-to-box"></a>Dicas importantes para atribuir usuários ao Box 
+### <a name="important-tips-for-assigning-users-toobox"></a>Dicas importantes para atribuir usuários tooBox 
 
-*   Recomendamos atribuir um único usuário do Azure AD ao Box para testar a configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+*   É recomendável que um único AD do Azure atribuídos pelo usuário tooBox tootest Olá configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-*   Ao atribuir um usuário ao Box, você precisa selecionar uma função de usuário válida. A função de "Acesso Padrão" não funciona para provisionamento.
+*   Ao atribuir um usuário toobox, você deve selecionar uma função de usuário válido. função de "Acesso padrão" Hello não funciona para o provisionamento.
 
 ## <a name="enable-automated-user-provisioning"></a>Habilitar o Provisionamento Automatizado de Usuários
 
-Esta seção orienta você quanto à conexão do Azure AD com a API de provisionamento de conta de usuário do Box e à configuração do serviço de provisionamento, a fim de criar, atualizar e desabilitar contas de usuário atribuídas no Box com base na atribuição de usuário e de grupo do Azure AD.
+Esta seção orienta conectar-se a API de provisionamento de conta de usuário do tooBox seu AD do Azure e configurar Olá toocreate do serviço de provisionamento, atualizar e desativar contas de usuário atribuído na caixa com base na atribuição de usuário e grupo no AD do Azure.
 
-Se o provisionamento automático estiver habilitado, os usuários e/ou grupos atribuídos serão adicionados à fila de provisionamento para serem provisionado automaticamente.
+Se o provisionamento automático estiver habilitado, usuários Olá atribuído e/ou grupos serão adicionados toohello provisionamento toobe fila provisionado automaticamente.
     
- * Se apenas objetos de usuário tiverem sido configurados para serem provisionados, os usuários atribuídos diretamente e os usuários que são membros de grupos atribuídos serão colocados na fila de provisionamento. 
+ * Se apenas objetos de usuário são toobe configurado provisionado, em seguida, os usuários atribuídos diretamente são colocados na fila de provisionamento de saudação e todos os usuários que são membros de grupos atribuídos são colocados em Olá provisionamento de fila. 
     
- * Se os objetos de grupo tiverem sido configurados para serem provisionados, todos os objetos de grupo atribuídos serão provisionados para o Box, bem como todos os usuários que são membros desses grupos. As associações de grupo e usuário são preservadas ao serem gravadas no Box.
+ * Se os objetos de grupo configurado toobe provisionado, todos os objetos de grupo atribuído são tooBox provisionado e todos os usuários que são membros desses grupos. associações de grupo e usuário Olá são preservadas ao que está sendo gravada tooBox.
 
 > [!TIP] 
-> Você também pode optar por habilitar o Logon único baseado em SAML para o Box seguindo as instruções fornecidas no [Portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
+> Você também pode escolher tooenabled baseado no SAML SSO para caixa, seguindo instruções Olá fornecidas no [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
 
-### <a name="to-configure-automatic-user-account-provisioning"></a>Para configurar o provisionamento automático de conta de usuário:
+### <a name="tooconfigure-automatic-user-account-provisioning"></a>provisionamento de conta de usuário automático de tooconfigure:
 
-O objetivo desta seção é descrever como habilitar o provisionamento de contas de usuário do Active Directory no Box.
+Olá o objetivo desta seção é toooutline como tooenable provisionamento de usuário do Active Directory contas tooBox.
 
-1. No [Portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > Aplicativos Empresariais > Todos os aplicativos**.
+1. Em Olá [portal do Azure](https://portal.azure.com), procurar toohello **Active Directory do Azure > aplicativos da empresa > todos os aplicativos** seção.
 
-2. Se já tiver configurado o Box para logon único, pesquise sua instância do Box usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise o **Box** na galeria de aplicativos. Selecione o Box nos resultados da pesquisa e adicione-o à lista de aplicativos.
+2. Se você já tiver configurado a caixa para logon único, procure a instância da caixa usando o campo de pesquisa de saudação. Caso contrário, selecione **adicionar** e procure **caixa** na Galeria de aplicativo hello. Marque a caixa de saudação dos resultados da pesquisa e adicioná-lo tooyour lista de aplicativos.
 
-3. Selecione sua instância do Box e selecione a guia **Provisionamento**.
+3. Selecione a instância da caixa e selecione Olá **provisionamento** guia.
 
-4. Defina o **Modo de Provisionamento** como **Automático**. 
+4. Saudação de conjunto **modo de provisionamento** muito**automática**. 
 
     ![provisionamento](./media/active-directory-saas-box-userprovisioning-tutorial/provisioning.png)
 
-5. Na seção **Credenciais de Administrador**, clique em **Autorizar** para abrir uma caixa de diálogo de logon do Box em uma nova janela do navegador.
+5. Em Olá **credenciais de administrador** seção, clique em **autorizar** tooopen uma caixa de diálogo de logon em uma nova janela do navegador.
 
-6. Na página **Fazer logon para conceder acesso ao Box**, forneça as credenciais necessárias e clique em **Autorizar**. 
+6. Em Olá **Login toogrant acesso tooBox** página, forneça credenciais Olá necessárias e, em seguida, clique em **autorizar**. 
    
     ![Habilitar o provisionamento automático de usuário](./media/active-directory-saas-box-userprovisioning-tutorial/IC769546.png "Habilitar o provisionamento de usuário automático")
 
-7. Clique em **Conceder acesso ao Box** para autorizar essa operação e retornar ao portal do Azure. 
+7. Clique em **conceder acesso tooBox** tooauthorize toohello essa operação e tooreturn portal do Azure. 
    
     ![Habilitar o provisionamento automático de usuário](./media/active-directory-saas-box-userprovisioning-tutorial/IC769549.png "Habilitar o provisionamento de usuário automático")
 
-8. No portal do Azure, clique em **Testar conectividade** para garantir que o Azure AD possa se conectar ao aplicativo Box. Se a conexão falhar, verifique se sua conta do Box tem permissões de Administrador de Equipe e repita a etapa **"Autorizar"**.
+8. No portal do Azure de Olá, clique em **Conexão de teste** tooensure AD do Azure pode se conectar a tooyour caixa aplicativo. Se a conexão de saudação falhar, certifique-se de que sua conta do Box tem permissões de administrador de equipe e tente Olá **"Autorizar"** etapa novamente.
 
-9. Insira o endereço de email de uma pessoa ou um grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção.
+9. Digite hello endereço de email de uma pessoa ou grupo que deve receber notificações de erros de provisionamento no hello **Email de notificação** campo e verificar a caixa de seleção de saudação.
 
 10. Clique em **Salvar.**
 
-11. Na seção Mapeamentos, selecione **Sincronizar usuários do Azure Active Directory com o Box**.
+11. Em Olá mapeamentos, selecione **tooBox sincronizar Azure usuários do Active Directory.**
 
-12. Na seção **Mapeamentos de Atributo**, revise os atributos de usuário que serão sincronizados do Azure AD com o Box. Os atributos selecionados como propriedades **Correspondentes** serão usados para fazer a correspondência entre as contas de usuário no Box para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
+12. Em Olá **mapeamentos de atributo** seção, revise os atributos de usuário de saudação que são sincronizados do tooBox do AD do Azure. Olá atributos selecionados como **correspondência** propriedades são contas de usuário de saudação toomatch usado na caixa para operações de atualização. Selecione Olá toocommit de botão de salvar as alterações.
 
-13. Para habilitar o serviço de provisionamento do Azure AD para o Box, altere o **Status de Provisionamento** para **Ativado** na seção Configurações
+13. tooenable Olá serviço provisionamento do AD do Azure para caixa, alteração Olá **Status de provisionamento** muito**em** na seção configurações da saudação
 
 14. Clique em **Salvar.**
 
-Isso inicia a sincronização inicial de todos os usuários e/ou grupos atribuídos ao Box na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 20 minutos, desde que o serviço esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os relatórios de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento no aplicativo Box.
+Que inicia a sincronização inicial de saudação de todos os usuários e/ou grupos atribuídos tooBox em Olá usuários e a seção de grupos. a sincronização inicial Olá leva tooperform mais que as sincronizações subsequentes, que ocorrem aproximadamente a cada 20 minutos desde que o serviço hello está sendo executado. Você pode usar o hello **detalhes de sincronização** seção toomonitor progresso e execute os relatórios de atividade tooprovisioning links, que descrevem todas as ações executadas pelo Olá provisionar um serviço em seu aplicativo de caixa.
 
-Agora você pode criar uma conta de teste. Aguarde até 20 minutos para confirmar se a conta foi sincronizada com o Box.
+Agora você pode criar uma conta de teste. Aguarde a minutos too20 tooverify Olá conta foi sincronizada toobox.
 
-Em seu locatário do Box, os usuários sincronizados estão listados em **Usuários Gerenciados** no **Console do Administrador**.
+No seu locatário do Box, os usuários sincronizados estão listados em **usuários gerenciados** em Olá **Console de administração**.
 
 ![Status da integração](./media/active-directory-saas-box-userprovisioning-tutorial/IC769556.png "Status da integração")
 

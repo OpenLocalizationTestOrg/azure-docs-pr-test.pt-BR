@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory com o Kudos | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Kudos."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Kudos."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,225 +13,225 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 353798fcfd4ad7ce017fc2fddf4110715db3ace2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c1b481463574461f9948db2b83843fefa5d74e99
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kudos"></a>Tutorial: Integração do Active Directory do Azure com o Kudos
 
-Neste tutorial, você aprenderá a integrar o Kudos ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como toointegrate muito bem com o Azure Active Directory (AD do Azure).
 
-A integração do Kudos ao Azure AD oferece os seguintes benefícios:
+Integrando o Kudos com o AD do Azure fornece Olá benefícios a seguir:
 
-- Você pode controlar no Azure AD quem terá acesso ao Kudos
-- Você pode permitir que seus usuários entrem automaticamente no Kudos (Logon Único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um única localização: o Portal do Azure
+- Você pode controlar no AD do Azure que tenha acesso tooKudos
+- Você pode habilitar seus usuários tooautomatically get conectado tooKudos (logon único) com suas contas do AD do Azure
+- Você pode gerenciar suas contas em um local central - Olá portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com o Kudos, você precisará dos seguintes itens:
+tooconfigure integração do AD do Azure com o Kudos, você precisa Olá itens a seguir:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura habilitada para logon único do Kudos
 
 > [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
 
-1. Adicionar o Kudos da galeria
+1. Adicionando Kudos da Galeria de saudação
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-kudos-from-the-gallery"></a>Adicionar o Kudos da galeria
-Para configurar a integração do Kudos ao Azure AD, você precisará adicionar o Kudos da galeria à sua lista de aplicativos SaaS gerenciados.
+## <a name="adding-kudos-from-hello-gallery"></a>Adicionando Kudos da Galeria de saudação
+integração de saudação tooconfigure do Kudos no AD do Azure, você precisa tooadd Kudos da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
 
-**Para adicionar o Kudos da galeria, execute as seguintes etapas:**
+**tooadd Kudos da Galeria hello, execute Olá etapas a seguir:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
 
     ![Aplicativos][3]
 
-4. Na caixa de pesquisa, digite **Kudos**.
+4. Na caixa de pesquisa hello, digite **Kudos**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kudos-tutorial/tutorial_kudos_search.png)
 
-5. No painel de resultados, selecione **Kudos** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+5. No painel de resultados de saudação, selecione **Kudos**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kudos-tutorial/tutorial_kudos_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o Kudos, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Kudos é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Kudos.
+Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no Kudos é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no Kudos precisa toobe estabelecida.
 
-No Kudos, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+No Kudos, atribuir o valor de saudação do hello **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
 
-Para configurar e testar o logon único do Azure AD com o Kudos, você precisa concluir os seguintes blocos de construção:
+tooconfigure e teste de logon único do AD do Azure com o Kudos, é necessário Olá toocomplete blocos de construção a seguir:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criar um usuário de teste do Kudos](#creating-a-kudos-test-user)** – para ter um equivalente de Brenda Fernandes no Kudos que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
+3. **[Criar um usuário de teste do Kudos](#creating-a-kudos-test-user)**  -toohave um equivalente do Britta Simon no Kudos é vinculado toohello AD do Azure representação do usuário.
+4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
+5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo Kudos.
+Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo Kudos.
 
-**Para configurar o logon único do Azure AD com o Kudos, execute as seguintes etapas:**
+**tooconfigure AD do Azure-logon único com o Kudos, execute Olá etapas a seguir:**
 
-1. No portal do Azure, na página de integração de aplicativos do **Kudos**, clique em **Logon único**.
+1. Em Olá portal do Azure, Olá **Kudos** página de integração de aplicativos, clique em **o logon único**.
 
     ![Configurar Logon Único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
  
     ![Configurar Logon Único](./media/active-directory-saas-kudos-tutorial/tutorial_kudos_samlbase.png)
 
-3. Na seção **URLs e Domínio do Kudos**, execute as seguintes etapas:
+3. Em Olá **Kudos domínio e URLs** , execute Olá etapas a seguir:
 
     ![Configurar Logon Único](./media/active-directory-saas-kudos-tutorial/tutorial_kudos_url.png)
 
-    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company>.kudosnow.com`
+    Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<company>.kudosnow.com`
     
     > [!NOTE] 
-    > Esse valor não é real. Atualize esse valor com a URL de Logon real. Para obter esse valor, entre em contato com a [equipe de suporte do cliente Kudos](http://success.kudosnow.com/home). 
+    > Esse valor não é real. Atualize esse valor com hello URL de logon real. Entre em contato com [equipe de suporte do cliente do Kudos](http://success.kudosnow.com/home) tooget esse valor. 
  
-4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+4. Em Olá **o certificado de autenticação SAML** seção, clique em **Certificate(Base64)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.
 
-    ![Configurar o logon único](./media/active-directory-saas-kudos-tutorial/tutorial_kudos_certificate.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-kudos-tutorial/tutorial_kudos_certificate.png) 
 
 5. Clique no botão **Salvar** .
 
     ![Configurar Logon Único](./media/active-directory-saas-kudos-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Kudos**, clique em **Configurar Kudos** para abrir a janela **Configurar Logon**. Copie a **URL do serviço de logon único do SAML e a URL de logoff** da **seção de Referência Rápida.**
+6. Em Olá **Kudos configuração** seção, clique em **configurar Kudos** tooopen **configurar o logon** janela. Saudação de cópia **URL de logout e Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**
 
     ![Configurar Logon Único](./media/active-directory-saas-kudos-tutorial/tutorial_kudos_configure.png) 
 
 7. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do Kudos como administrador.
 
-8. No menu na parte superior, clique em **Configurações**.
+8. No menu de saudação na parte superior de saudação, clique em **configurações**.
    
     ![Configurações](./media/active-directory-saas-kudos-tutorial/ic787806.png "Configurações")
 
 9. Clique em **Integrações \> SSO**.
 
-10. Na seção **SSO** , realize as seguintes etapas:
+10. Em Olá **SSO** , execute Olá etapas a seguir:
    
     ![SSO](./media/active-directory-saas-kudos-tutorial/ic787807.png "SSO")
    
-    a. Na caixa de texto **URL de Logon**, cole o valor da **URL do Serviço de Logon Único do SAML** copiado do portal do Azure. 
+    a. Em **URL de logon** caixa de texto valor Olá colar **Single Sign-On URL do serviço SAML** que você copiou do portal do Azure. 
 
-    b. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado X.509**
+    b. Abra seu certificado codificado em base 64 no bloco de notas, Olá de copiar conteúdo dele para sua área de transferência e, em seguida, cole-o toohello **certificado x. 509** caixa de texto
    
-    c. Em **URL de Logoff**, cole o valor da **URL de Saída** copiado no portal do Azure.
+    c. Em **Logout tooURL**, cole o valor de saudação do **URL de logout** que você copiou do portal do Azure.
    
-    d. Na caixa de texto **Sua URL do Kudos** , digite o nome de sua empresa.
+    d. Em Olá **sua URL do Kudos** caixa de texto, digite o nome da sua empresa.
    
     e. Clique em **Salvar**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
 
 ![Criar um usuário do AD do Azure][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
 
-1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kudos-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kudos-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kudos-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kudos-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
 
-    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-kudos-test-user"></a>Criar um usuário de teste do Kudos
 
-Para permitir que os usuários do AD do Azure façam logon no Kudos, eles devem ser provisionados no Kudos. 
+Em ordem tooenable AD do Azure usuários toolog no Kudos, eles devem ser provisionados no Kudos. 
 
-No caso do Kudos, o provisionamento é uma tarefa manual.
+No caso de saudação do Kudos, o provisionamento é uma tarefa manual.
 
-**Para provisionar uma conta de usuário, execute as seguintes etapas:**
+**tooprovision uma conta de usuário, execute Olá etapas a seguir:**
 
-1. Faça logon em seu site de empresa do **Kudos** como administrador.
+1. Faça logon no tooyour **Kudos** site da empresa como administrador.
 
-2. No menu na parte superior, clique em **Configurações**.
+2. No menu de saudação na parte superior de saudação, clique em **configurações**.
    
    ![Configurações](./media/active-directory-saas-kudos-tutorial/ic787806.png "Configurações")
 
 3. Clique em **Usuário Administrador**.
 
-4. Clique na guia **Usuários** e, em seguida, clique em **Adicionar um usuário**.
+4. Clique em Olá **usuários** guia e, em seguida, clique em **adicionar um usuário**.
    
    ![Usuário Administrador](./media/active-directory-saas-kudos-tutorial/ic787809.png "Usuário Administrador")
 
-5. Na seção **Adicionar um Usuário** , realize as seguintes etapas:
+5. Em Olá **adicionar um usuário** , execute Olá etapas a seguir:
    
     ![Adicionar um Usuário](./media/active-directory-saas-kudos-tutorial/ic787810.png "Adicionar um Usuário")
    
-    a. Digite o **Nome**, o **Sobrenome** e o **Email** e outros detalhes de uma conta válida do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.
+    a. Saudação de tipo **nome**, **Sobrenome**, **Email** e outros detalhes de uma conta válida do Active Directory do Azure você deseja tooprovision em Olá relacionados caixas de texto.
    
     b. Clique em **Criar Usuário**.
 
 >[!NOTE]
->É possível usar qualquer outra ferramenta de criação da conta de usuário do Kudos ou APIs fornecidas pelo Kudos para provisionar as contas de usuário do AAD.
+>Você pode usar qualquer ferramenta de criação outros Kudos usuário conta ou APIs fornecidas pelo Kudos tooprovision contas de usuário do AAD.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
 
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Kudos.
+Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooKudos.
 
 ![Atribuir usuário][200] 
 
-**Para atribuir Brenda Fernandes ao Kudos, execute as seguintes etapas:**
+**tooassign Britta Simon tooKudos, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Kudos**.
+2. Na lista de aplicativos hello, selecione **Kudos**.
 
     ![Configurar Logon Único](./media/active-directory-saas-kudos-tutorial/tutorial_kudos_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -239,7 +239,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -247,13 +247,13 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
 
-Ao clicar no bloco Kudos no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Kudos. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Quando você clica em bloco Kudos Olá Olá painel de acesso, você deve obter tooyour automaticamente conectado no aplicativo de Kudos. Para obter mais informações sobre Olá painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

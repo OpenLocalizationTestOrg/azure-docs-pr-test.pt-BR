@@ -1,6 +1,6 @@
 ---
 title: "Introdução aos relatórios do Azure Active Directory | Microsoft Docs"
-description: "Lista os diversos relatórios disponíveis nos relatórios do Active Directory do Azure"
+description: "Listas Olá vários relatórios disponíveis no Active Directory do Azure reporting"
 services: active-directory
 documentationcenter: 
 author: dhanyahk
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
-ms.openlocfilehash: 5cd1ae6196d9cd63f97dc9d302442280ece23e40
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f47875708398391dd7f3efdc56a741fdba273b76
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="getting-started-with-azure-active-directory-reporting"></a>Introdução aos Relatórios do Active Directory do Azure
 ## <a name="what-it-is"></a>O que é
-O Active Directory do Azure (Azure AD) inclui relatórios de auditoria, atividade e segurança para seu diretório. Aqui está uma lista dos relatórios incluídos:
+O Active Directory do Azure (Azure AD) inclui relatórios de auditoria, atividade e segurança para seu diretório. Aqui está uma lista de relatórios de saudação incluídos:
 
 ### <a name="security-reports"></a>Relatórios de segurança
 * Entradas de fontes desconhecidas
@@ -54,18 +54,18 @@ O Active Directory do Azure (Azure AD) inclui relatórios de auditoria, atividad
 
 ## <a name="how-it-works"></a>Como ele funciona
 ### <a name="reporting-pipeline"></a>Pipeline de relatórios
-O pipeline de relatórios consiste em três etapas principais. Sempre que um usuário entrar ou uma autenticação for feita, acontecerá o seguinte:
+Olá pipeline de emissão de relatórios consiste em três etapas principais. Sempre que um usuário faz logon ou uma autenticação é feita, ocorre a seguinte de saudação:
 
-* Primeiro, o usuário é autenticado (com êxito ou não), e o resultado é armazenado nos bancos de dados de serviço do Active Directory do Azure.
+* Primeiro, autenticação saudação do usuário (com êxito ou não) e saudação de resultados é armazenada em bancos de dados do serviço Olá Active Directory do Azure.
 * Em intervalos regulares, todas as entradas recentes são processadas. Neste ponto, nossos algoritmos de atividade anômala e segurança estão procurando atividades suspeitas em todas as entradas recentes.
-* Após o processamento, os relatórios são gravados, armazenados em cache e disponibilizados no portal clássico do Azure.
+* Após o processamento, Olá relatórios são gravados, armazenado em cache e servidos em Olá portal clássico do Azure.
 
 ### <a name="report-generation-times"></a>Tempos de geração dos relatórios
-Devido ao grande volume de autenticações e entradas processadas pela plataforma do Azure AD, as entradas mais recentes processadas têm, em média, uma hora de duração. Em casos raros, pode levar até oito horas para as entradas mais recentes serem processadas.
+Devido a toohello grande volume de autenticações e entre que ins processadas pelo Olá plataforma do AD do Azure, hello mais recentes entradas processadas são, em média, uma hora antigas. Em casos raros, pode levar até too8 horas tooprocess hello mais recentes entradas.
 
-É possível encontrar a entrada processada mais recente examinando o texto de ajuda na parte superior de cada relatório.
+Você pode encontrar a entrada hello mais recentes processado examinando o texto de ajuda de saudação na parte superior de saudação de cada relatório.
 
-![Texto de ajuda na parte superior de cada relatório](./media/active-directory-reporting-getting-started/reportingWatermark.PNG)
+![Texto de ajuda na parte superior de saudação de cada relatório](./media/active-directory-reporting-getting-started/reportingWatermark.PNG)
 
 > [!TIP]
 > Para obter mais documentação sobre os Relatórios do AD do Azure, consulte [Exibir relatórios de acesso e uso](active-directory-view-access-usage-reports.md).
@@ -73,25 +73,25 @@ Devido ao grande volume de autenticações e entradas processadas pela plataform
 > 
 
 ## <a name="getting-started"></a>Introdução
-### <a name="sign-into-the-azure-classic-portal"></a>Entre no portal clássico do Azure
-Primeiro, será necessário entrar no [Portal Clássico do Azure](https://manage.windowsazure.com) como administrador global ou de conformidade. Também será necessário ser um administrador ou coadministrador de serviço de assinatura do Azure ou usar a assinatura do Azure "Acesso ao Azure AD".
+### <a name="sign-into-hello-azure-classic-portal"></a>Entrar Olá portal clássico do Azure
+Primeiro, você precisará toosign em Olá [portal clássico do Azure](https://manage.windowsazure.com) como um administrador global ou de conformidade. Você também deve ser um administrador de serviço de assinatura do Azure ou coadministrador ou usar hello "acesso tooAzure AD" assinatura do Azure.
 
-### <a name="navigate-to-reports"></a>Navegue até Relatórios
-Para exibir relatórios, navegue até a guia Relatórios na parte superior do diretório.
+### <a name="navigate-tooreports"></a>Navegue tooReports
+tooview relatórios, navegue toohello guia de relatórios na parte superior de saudação do seu diretório.
 
-Se esta for a primeira vez que você exibe relatórios, será preciso aceitar uma caixa de diálogo antes de conseguir exibir os relatórios. Isso é para garantir que a exibição desses dados, que podem ser considerados informações particulares em alguns países, seja aceitável aos administradores em sua organização.
+Se for a primeira vez que exibir relatórios hello, você precisará tooagree caixa de diálogo de tooa antes de exibir relatórios de saudação. Isso é tooensure que é aceitável para que os administradores em sua organização tooview esses dados, que podem ser considerados informações particulares em alguns países.
 
 ![Caixa de diálogo](./media/active-directory-reporting-getting-started/dialogBox.png)
 
 ### <a name="explore-each-report"></a>Explore cada relatório
-Navegue até cada relatório para ver os dados coletados e as entradas processadas. É possível encontrar uma [lista com todos os relatórios aqui](active-directory-reporting-guide.md).
+Navegue até cada relatório toosee Olá de dados sendo coletados e processados Olá entradas. Você pode encontrar um [lista de todos os relatórios de saudação](active-directory-reporting-guide.md).
 
 ![Todos os relatórios](./media/active-directory-reporting-getting-started/reportsMain.png)
 
-### <a name="download-the-reports-as-csv"></a>Baixe os relatórios como CSV
-Cada relatório pode ser baixado como um arquivo CSV (valores separados por vírgula). É possível usar esses arquivos no Excel, no PowerBI ou em programas de análise de terceiros para analisar os dados ainda mais.
+### <a name="download-hello-reports-as-csv"></a>Baixe os relatórios de saudação como CSV
+Cada relatório pode ser baixado como um arquivo CSV (valores separados por vírgula). Você pode usar esses arquivos no Excel, Power BI ou programas toofurther analisar seus dados de análise de terceiros.
 
-Para baixar qualquer relatório como CSV, navegue até o relatório e clique em "Baixar" na parte inferior.
+toodownload qualquer relatório como um CSV, navegar toohello relatório e clique em "Download" na parte inferior da saudação.
 
 ![Botão Baixar](./media/active-directory-reporting-getting-started/downloadButton.png)
 
@@ -102,23 +102,23 @@ Para baixar qualquer relatório como CSV, navegue até o relatório e clique em 
 
 ## <a name="next-steps"></a>Próximas etapas
 ### <a name="customize-alerts-for-anomalous-sign-in-activity"></a>Personalizar alertas para atividade de entrada anômala
-Navegue até a guia "Configurar" de seu diretório.
+Navegue toohello "Configurar" guia de seu diretório.
 
-Role até a seção "Notificações".
+Seção de "Notificações" toohello de rolagem.
 
-Habilite ou desabilite a seção "Notificações por Email de Entradas Anômalas".
+Habilitar ou desabilitar a seção de "Notificações de Email de entradas anômalas" hello.
 
-![Seção Notificações](./media/active-directory-reporting-getting-started/notificationsSection.png)
+![Olá seção notificações](./media/active-directory-reporting-getting-started/notificationsSection.png)
 
-### <a name="integrate-with-the-azure-ad-reporting-api"></a>Integrar com a API de Relatório do AD do Azure
-Consulte [Introdução à API de Relatório](active-directory-reporting-api-getting-started.md).
+### <a name="integrate-with-hello-azure-ad-reporting-api"></a>Integrar Olá API Reporting do AD do Azure
+Consulte [guia de Introdução com hello Reporting API](active-directory-reporting-api-getting-started.md).
 
 ### <a name="engage-multi-factor-authentication-on-users"></a>Acione Multi-Factor Authentication nos usuários
 Selecione um usuário em um relatório.
 
-Clique no botão "Habilitar MFA" na parte inferior da tela.
+Botão hello "Habilitar MFA" na parte inferior da saudação da tela hello.
 
-![Botão Multi-Factor Authentication na parte inferior da tela](./media/active-directory-reporting-getting-started/mfaButton.png)
+![botão de autenticação multifator de Olá Olá final da tela hello](./media/active-directory-reporting-getting-started/mfaButton.png)
 
 > [!TIP]
 > Para obter mais documentação sobre os Relatórios do AD do Azure, consulte [Exibir relatórios de acesso e uso](active-directory-view-access-usage-reports.md).
@@ -127,10 +127,10 @@ Clique no botão "Habilitar MFA" na parte inferior da tela.
 
 ## <a name="learn-more"></a>Saiba mais
 ### <a name="audit-events"></a>Eventos de auditoria
-Saiba mais sobre quais eventos são auditados no diretório em [Eventos de auditoria de Relatórios do Active Directory do Azure](active-directory-reporting-audit-events.md).
+Saiba mais sobre quais eventos são auditados no diretório de saudação em [do Azure Active Directory relatar eventos de auditoria](active-directory-reporting-audit-events.md).
 
 ### <a name="api-integration"></a>Integração da API
-Consulte [Introdução à API de Relatório](active-directory-reporting-api-getting-started.md) e a [documentação de referência da API](https://msdn.microsoft.com/library/azure/mt126081.aspx).
+Consulte [guia de Introdução com hello API Reporting](active-directory-reporting-api-getting-started.md) e hello [documentação de referência de API](https://msdn.microsoft.com/library/azure/mt126081.aspx).
 
 ### <a name="get-in-touch"></a>Entre em contato
 Envie um email para [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com) para qualquer dúvida, ajuda ou comentário.

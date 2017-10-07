@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: configurar o LinkedIn Sales Navigator para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs"
-description: "Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário no LinkedIn Sales Navigator."
+description: "Saiba como as contas de usuário de provisionar e provisionar eliminação de tooautomatically de Active Directory do Azure do tooconfigure tooLinkedIn navegador de vendas."
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
@@ -14,110 +14,110 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: 86357949c8e6927f78ca5bb8b7e20a6b88c37ef3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 322c5271535994c13a9fafadbf74f356cdfe865d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-configuring-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Tutorial: configurar o LinkedIn Sales Navigator para provisionamento automático de usuário
 
 
-O objetivo deste tutorial é mostrar as etapas que precisam ser executadas no LinkedIn Sales Navigator e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o LinkedIn Sales Navigator. 
+Olá objetivo deste tutorial é tooshow Olá etapas precisam tooperform no LinkedIn vendas navegador e o Azure AD tooautomatically provisionar e provisionamento de contas de usuário do AD do Azure tooLinkedIn navegador de vendas. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+cenário de saudação descrito neste tutorial presume que você já tenha Olá itens a seguir:
 
 *   Um locatário do Azure Active Directory
 *   Um locatário do LinkedIn Sales Navigator 
-*   Uma conta de administrador no LinkedIn Sales Navigator com acesso ao Centro de Contas do LinkedIn
+*   Uma conta de administrador no navegador de vendas do LinkedIn com acesso toohello LinkedIn Centro de contas
 
 > [!NOTE]
-> O Azure Active Directory integra-se com o LinkedIn Sales Navigator usando o protocolo [SCIM](http://www.simplecloud.info/).
+> Active Directory do Azure integra-se ao navegador de vendas LinkedIn usando Olá [SCIM](http://www.simplecloud.info/) protocolo.
 
-## <a name="assigning-users-to-linkedin-sales-navigator"></a>Atribuir usuários ao LinkedIn Sales Navigator
+## <a name="assigning-users-toolinkedin-sales-navigator"></a>Atribuir usuários tooLinkedIn navegador de vendas
 
-O Azure Active Directory usa um conceito chamado "atribuições" para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de conta de usuário, somente os usuários e grupos que foram "atribuídos" a um aplicativo no Azure AD serão sincronizados. 
+Active Directory do Azure usa um conceito chamado "atribuições" toodetermine quais usuários devem receber acesso tooselected aplicativos. No contexto de saudação do provisionamento de conta de usuário automático, apenas Olá usuários e grupos que foram "atribuídos" tooan aplicativo no Azure AD serão sincronizados. 
 
-Antes de configurar e habilitar o serviço de provisionamento, você precisará decidir quais usuários e/ou grupos no Azure AD representam os usuários que precisam de acesso ao LinkedIn Sales Navigator. Depois de decidir, atribua esses usuários ao LinkedIn Sales Navigator seguindo estas instruções:
+Antes de configurar e habilitar Olá provisionar um serviço, você precisará toodecide quais usuários e/ou grupos no AD do Azure que representam usuários Olá que precisam acessar tooLinkedIn navegador de vendas. Depois de decidir, você pode atribuir tooLinkedIn esses usuários vendas navegador seguindo as instruções de saudação aqui:
 
-[Atribuir um usuário ou um grupo a um aplicativo empresarial](active-directory-coreapps-assign-user-azure-portal.md)
+[Atribuir um aplicativo de enterprise tooan usuário ou grupo](active-directory-coreapps-assign-user-azure-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-linkedin-sales-navigator"></a>Dicas importantes para atribuir usuários ao LinkedIn Sales Navigator
+### <a name="important-tips-for-assigning-users-toolinkedin-sales-navigator"></a>Dicas importantes para atribuir usuários tooLinkedIn navegador de vendas
 
-*   Recomendamos a atribuição de um único usuário do Azure AD ao LinkedIn Sales Navigator para testar a configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+*   É recomendável que um único usuário do AD do Azure ser atribuído a saudação de tootest do navegador de vendas tooLinkedIn configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-*   Ao atribuir um usuário ao LinkedIn Sales Navigator, selecione a função **Usuário** na caixa de diálogo de atribuição. A função de "Acesso Padrão" não funciona para provisionamento.
+*   Ao atribuir um tooLinkedIn vendas navegador do usuário, você deve selecionar Olá **usuário** função na caixa de diálogo de atribuição de saudação. função de "Acesso padrão" Hello não funciona para o provisionamento.
 
 
-## <a name="configuring-user-provisioning-to-linkedin-sales-navigator"></a>Como configurar o provisionamento de usuários no LinkedIn Sales Navigator
+## <a name="configuring-user-provisioning-toolinkedin-sales-navigator"></a>Configurando tooLinkedIn navegador de vendas de provisionamento do usuário
 
-Esta seção orienta você pela conexão do Azure AD à API de provisionamento de conta de usuário do SCIM do LinkedIn Sales Navigator e também pela configuração do serviço de provisionamento, a fim de criar, atualizar e desabilitar contas de usuário atribuídas no LinkedIn Sales Navigator com base na atribuição de usuário e de grupo do Azure AD.
+Esta seção orienta você conectar-se a conta de usuário SCIM do navegador seu AD do Azure tooLinkedIn vendas API de provisionamento e configuração Olá toocreate do serviço de provisionamento, atualizar e desativar contas de usuário atribuído no navegador de vendas do LinkedIn com base no usuário e atribuição de grupo no AD do Azure.
 
 > [!TIP]
-> Você também pode optar por habilitar o logon único baseado em SAML para o LinkedIn Sales Navigator seguindo as instruções fornecidas no [Portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
+> Você também pode escolher tooenabled baseado no SAML SSO para LinkedIn vendas Navigator, seguindo instruções Olá fornecidas no [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
 
 
-### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-sales-navigator-in-azure-ad"></a>Para configurar o provisionamento de conta de usuário automático para o LinkedIn Sales Navigator no Azure AD:
+### <a name="tooconfigure-automatic-user-account-provisioning-toolinkedin-sales-navigator-in-azure-ad"></a>conta de usuário automático tooconfigure provisionamento tooLinkedIn navegador de vendas no AD do Azure:
 
 
-A primeira etapa é recuperar o token de acesso do LinkedIn. Se você for um administrador corporativo, você poderá provisionar um token de acesso automaticamente. No seu centro de contas, vá para **Configurações &gt; Configurações Globais** e abra o painel **Instalação do SCIM**.
+primeira etapa de saudação é tooretrieve seu token de acesso do LinkedIn. Se você for um administrador corporativo, você poderá provisionar um token de acesso automaticamente. No Centro de sua conta, vá muito**configurações &gt; configurações globais** e abra hello **SCIM instalação** painel.
 
 > [!NOTE]
-> Se você estiver acessando o centro de contas diretamente em vez de fazê-lo por meio de um link, você poderá alcançá-lo usando as etapas a seguir.
+> Se você estiver acessando o Centro de contas Olá diretamente em vez de através de um link, você pode acessar usando Olá etapas a seguir.
 
-1)  Entre no Centro de Contas.
+1)  Entrar no Centro de tooAccount.
 
 2)  Selecione **Administrador &gt; Configurações de Administrador**.
 
-3)  Clique em **Integrações Avançadas** na barra lateral esquerda. Você será direcionado para o Centro de Contas.
+3)  Clique em **avançado integrações** na lateral esquerda da saudação. Você é direcionado toohello Centro de contas.
 
-4)  Clique em **+ Adicionar a nova configuração de SCIM** e siga o procedimento preenchendo cada campo.
+4)  Clique em **+ adicionar a nova configuração de SCIM** e siga o procedimento Olá preenchendo cada campo.
 
 > Quando a atribuição automática de licenças não está habilitada, isso significa que somente os dados de usuário estão sincronizados.
 
 ![Provisionamento do LinkedIn Sales Navigator](./media/active-directory-saas-linkedinsalesnavigator-provisioning-tutorial/linkedin_1.PNG)
 
-> Quando a atribuição automática de licenças estiver habilitada, você precisa anotar o tipo de licença e a instância do aplicativo. Licenças são atribuídas por ordem de chegada, até que todas as licenças tenham sido utilizadas.
+> Quando a atribuição de autolicense estiver habilitada, você precisa toonote a instância do aplicativo e o tipo de licença. Licenças são atribuídas para entrega, primeiro atender base até que todas as licenças de saudação são feitas.
 
 ![Provisionamento do LinkedIn Sales Navigator](./media/active-directory-saas-linkedinsalesnavigator-provisioning-tutorial/linkedin_2.PNG)
 
-5)  Clique em **Gerar token**. Você deve ver o token de acesso ser exibido sob o campo **Token de acesso**.
+5)  Clique em **Gerar token**. Você deve ver o vídeo de token de acesso em Olá **token de acesso** campo.
 
-6)  Salve seu token de acesso para a área de transferência ou o computador antes de sair da página.
+6)  Salve a área de transferência de tooyour de token de acesso ou o computador antes de sair da página hello.
 
-7) Em seguida, entre no [Portal do Azure](https://portal.azure.com) e navegue até a seção **Azure Active Directory > Aplicativos Empresariais > Todos os aplicativos**.
+7) Em seguida, entrar toohello [portal do Azure](https://portal.azure.com)e procurar toohello **Active Directory do Azure > aplicativos da empresa > todos os aplicativos** seção.
 
-8) Se você já tiver configurado o LinkedIn Sales Navigator para logon único, pesquise por sua instância do LinkedIn Sales Navigator usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise por **LinkedIn Sales Navigator** na galeria de aplicativos. Selecione o LinkedIn Sales Navigator nos resultados da pesquisa e adicione-o à lista de aplicativos.
+8) Se você já tiver configurado o navegador de vendas LinkedIn para logon único, pesquisa de sua instância do navegador de vendas LinkedIn usando o campo de pesquisa de saudação. Caso contrário, selecione **adicionar** e procure **LinkedIn vendas navegador** na Galeria de aplicativo hello. Selecione navegador de vendas LinkedIn Olá dos resultados da pesquisa e adicioná-lo tooyour lista de aplicativos.
 
-9)  Selecione sua instância do LinkedIn Sales Navigator e selecione a guia **Provisionamento**.
+9)  Selecione a instância do navegador de vendas LinkedIn, selecione Olá **provisionamento** guia.
 
-10) Defina o **Modo de Provisionamento** como **Automático**.
+10) Saudação de conjunto **modo de provisionamento** muito**automática**.
 
 ![Provisionamento do LinkedIn Sales Navigator](./media/active-directory-saas-linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
 
-11)  Preencha os campos a seguir em **Credenciais de Administrador**:
+11)  Preencha Olá seguintes campos em **credenciais de administrador** :
 
-* Na **URL do Locatário**, digite https://api.linkedin.com.
+* Em Olá **URL do locatário** , digite https://api.linkedin.com.
 
-* No campo **Segredo do Token**, insira o token de acesso gerado na etapa 1 e clique em **Testar Conexão**.
+* Em Olá **segredo do Token** campo, insira o token de acesso de saudação gerado na etapa 1 e clique em **Conexão de teste** .
 
-* Você verá uma notificação de êxito no lado do superior direito do seu Portal.
+* Você verá uma notificação de êxito no lado de superiordireito de saudação do seu portal.
 
-12) Insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção abaixo.
+12) Digite hello endereço de email de uma pessoa ou grupo que deve receber notificações de erros de provisionamento no hello **Email de notificação** campo e verificar a saudação de caixa de seleção abaixo.
 
 13) Clique em **Salvar**. 
 
-14) Na seção **Mapeamentos de Atributo**, examine os atributos de usuário e grupo que serão sincronizados do Azure AD para o LinkedIn Sales Navigator. Observe que os atributos selecionados como propriedades **Correspondentes** serão usados para corresponder as contas de usuário e grupos no LinkedIn Sales Navigator para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
+14) Em Olá **mapeamentos de atributo** seção, revise os atributos de usuário e grupo Olá que serão sincronizados do AD do Azure tooLinkedIn navegador de vendas. Observe que Olá atributos selecionados como **correspondência** propriedades serão usados toomatch Olá as contas de usuário e grupos no navegador de vendas LinkedIn para operações de atualização. Selecione Olá toocommit de botão de salvar as alterações.
 
 ![Provisionamento do LinkedIn Sales Navigator](./media/active-directory-saas-linkedinsalesnavigator-provisioning-tutorial/linkedin_4.PNG)
 
-15) Para habilitar o serviço de provisionamento do Azure AD para o LinkedIn Sales Navigator, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**
+15) tooenable Olá serviço de provisionamento do AD do Azure para LinkedIn vendas Navigator, alteração Olá **Status de provisionamento** muito**na** em Olá **configurações** seção
 
 16) Clique em **Salvar**. 
 
-Isso iniciará a sincronização inicial de todos os usuários e/ou grupos atribuídos ao LinkedIn Sales Navigator na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 20 minutos, desde que o serviço esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os relatórios de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo LinkedIn Sales Navigator.
+Isso iniciará a sincronização inicial de usuários e/ou grupos atribuídos tooLinkedIn navegador de vendas na seção usuários e grupos de Olá Olá. Observe que a sincronização inicial Olá levará mais tooperform que sincronizações subsequentes, que ocorrem aproximadamente a cada 20 minutos desde que o serviço hello está sendo executado. Você pode usar o hello **detalhes de sincronização** seção toomonitor progresso e execute os relatórios de atividade tooprovisioning links, que descrevem todas as ações executadas pelo Olá provisionar um serviço em seu aplicativo de navegador de vendas do LinkedIn.
 
 
 ## <a name="additional-resources"></a>Recursos adicionais

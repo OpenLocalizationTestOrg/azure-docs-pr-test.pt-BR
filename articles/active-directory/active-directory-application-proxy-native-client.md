@@ -1,6 +1,6 @@
 ---
-title: Publicar aplicativos cliente nativos - Azure AD | Microsoft Docs
-description: Aborda como habilitar aplicativos clientes nativos para se comunicar com o Conector de Proxy do aplicativo Azure AD para fornecer acesso remoto seguro aos seus aplicativos locais.
+title: aplicativos cliente nativos de aaaPublish - AD do Azure | Microsoft Docs
+description: Aborda como tooenable toocommunicate de aplicativos cliente nativo com o conector de Proxy de aplicativo do AD do Azure tooprovide acesso remoto seguro tooyour local aplicativos.
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -15,32 +15,32 @@ ms.date: 08/17/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: bdaa5af6ff5331bc310499586615b48a864c3c5e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0ed2be217bf992f034d8321d5e66569b4cace24f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Como habilitar aplicativos clientes nativos para interagir com aplicativos de proxy
+# <a name="how-tooenable-native-client-apps-toointeract-with-proxy-applications"></a>Como tooenable toointeract de aplicativos cliente nativo com o proxy de aplicativos
 
-Além dos aplicativos Web, o Proxy de Aplicativo do Azure Active Directory também pode ser usado para publicar aplicativos cliente nativos. Os aplicativos cliente nativos diferem dos aplicativos Web porque eles são instalados em um dispositivo, enquanto os aplicativos Web são acessados por meio de um navegador. 
+Em aplicativos de tooweb de adição, Proxy de aplicativo do Azure Active Directory também podem ser usados toopublish aplicativos de cliente nativo. Os aplicativos cliente nativos diferem dos aplicativos Web porque eles são instalados em um dispositivo, enquanto os aplicativos Web são acessados por meio de um navegador. 
 
 O Proxy de Aplicativo dá suporte a aplicativos cliente nativos aceitando os tokens emitidos pelo Azure AD que são enviados nos cabeçalhos padrão Autorizar HTTP.
 
 ![Relação entre os usuários finais, o Active Directory do Azure e os aplicativos publicados](./media/active-directory-application-proxy-native-client/richclientflow.png)
 
-Use a Biblioteca de Autenticação do Azure AD, que trata da autenticação e dá suporte a vários ambientes de cliente, para publicar aplicativos nativos. O Proxy de Aplicativo se encaixa no [cenário de Aplicativo Nativo para API Web](develop/active-directory-authentication-scenarios.md#native-application-to-web-api). Este artigo explica as quatro etapas para publicar um aplicativo nativo com o Proxy de Aplicativo e a Biblioteca de Autenticação do Azure AD. 
+Use Olá biblioteca de autenticação do AD do Azure, que cuida da autenticação e dá suporte a muitos ambientes de cliente, aplicativos nativos toopublish. Proxy de aplicativo se encaixa Olá [cenário do aplicativo nativo tooWeb API](develop/active-directory-authentication-scenarios.md#native-application-to-web-api). Este artigo orienta Olá quatro etapas toopublish um aplicativo nativo com o Proxy de aplicativo e hello biblioteca de autenticação do AD do Azure. 
 
 ## <a name="step-1-publish-your-application"></a>Etapa 1: publicar seu aplicativo
-Publique seu aplicativo de proxy como faria com qualquer outro aplicativo e atribua aos usuários acesso a ele. Para saber mais, consulte [Publicar aplicativos com o Proxy de Aplicativo](active-directory-application-proxy-publish.md).
+Publicar seu aplicativo proxy como faria com qualquer outro aplicativo e atribuir usuários tooaccess seu aplicativo. Para saber mais, consulte [Publicar aplicativos com o Proxy de Aplicativo](active-directory-application-proxy-publish.md).
 
 ## <a name="step-2-configure-your-application"></a>Etapa 2: configurar seu aplicativo
 Configure seu aplicativo nativo da seguinte maneira:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Navegue até **Azure Active Directory** > **Registros de aplicativo**.
+1. Entrar toohello [portal do Azure](https://portal.azure.com).
+2. Navegue muito**Active Directory do Azure** > **registros do aplicativo**.
 3. Selecione **Novo registro de aplicativo**.
-4. Especifique um nome para o aplicativo, selecione **Nativo** como o tipo de aplicativo e forneça o URI de Redirecionamento para seu aplicativo. 
+4. Especifique um nome para seu aplicativo, selecione **nativo** como tipo de aplicativo hello e fornecem Olá URI de redirecionamento para seu aplicativo. 
 
    ![Criar um novo registro de aplicativo](./media/active-directory-application-proxy-native-client/create.png)
 5. Selecione **Criar**.
@@ -48,50 +48,50 @@ Configure seu aplicativo nativo da seguinte maneira:
 Para obter informações mais detalhadas sobre como criar um novo registro de aplicativo, confira [Integrando aplicativos ao Azure Active Directory](.//develop/active-directory-integrating-applications.md).
 
 
-## <a name="step-3-grant-access-to-other-applications"></a>Etapa 3: conceder acesso a outros aplicativos
-Habilite o aplicativo nativo para ser exposto a outros aplicativos no seu diretório:
+## <a name="step-3-grant-access-tooother-applications"></a>Etapa 3: Acesso tooother candidaturas
+Habilite Olá aplicativo nativo toobe exposto tooother aplicativos em seu diretório:
 
-1. Ainda nos **Registros de aplicativo**, selecione o novo aplicativo nativo que você acabou de criar.
+1. Ainda no **registros do aplicativo**, selecione Olá novo aplicativo nativo que você acabou de criar.
 2. Selecione **Permissões necessárias**.
 3. Selecione **Adicionar**.
-4. Abra a primeira etapa, **Selecionar uma API**.
-5. Use a barra de pesquisa para encontrar o aplicativo Proxy de Aplicativo que você publicou na primeira seção. Escolha esse aplicativo e clique em **Selecionar**. 
+4. Olá abrir a primeira etapa **selecionar uma API**.
+5. Use Olá barra toofind Olá Proxy de aplicativo aplicativo de pesquisa que você publicou na primeira seção do hello. Escolha esse aplicativo e clique em **Selecionar**. 
 
-   ![Procurar o aplicativo de proxy](./media/active-directory-application-proxy-native-client/select_api.png)
-6. Abra a segunda etapa, **Selecionar permissões**.
-7. Use a caixa de seleção para conceder ao aplicativo nativo acesso ao aplicativo de proxy e clique em **Selecionar**.
+   ![Procure Olá proxy aplicativo](./media/active-directory-application-proxy-native-client/select_api.png)
+6. Segunda etapa de saudação aberto, **selecionar permissões**.
+7. Olá caixa de seleção toogrant seu aplicativo de proxy do aplicativo nativo acesso tooyour e clique em **selecione**.
 
-   ![Conceder acesso ao aplicativo de proxy](./media/active-directory-application-proxy-native-client/select_perms.png)
+   ![Conceder acesso tooproxy aplicativo](./media/active-directory-application-proxy-native-client/select_perms.png)
 8. Selecione **Concluído**.
 
 
-## <a name="step-4-edit-the-active-directory-authentication-library"></a>Etapa 4: Edite a Biblioteca de Autenticação do Active Directory
-Edite o código de aplicativo nativo no contexto de autenticação da ADAL (Biblioteca de Autenticação do Active Directory) para incluir o seguinte texto:
+## <a name="step-4-edit-hello-active-directory-authentication-library"></a>Etapa 4: Editar Olá biblioteca de autenticação do Active Directory
+Edite o código do aplicativo nativo Olá no contexto de autenticação de saudação do Olá biblioteca de autenticação do Active Directory (ADAL) tooinclude Olá texto a seguir:
 
 ```
 // Acquire Access Token from AAD for Proxy Application
 AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/<Tenant ID>");
 AuthenticationResult result = authContext.AcquireToken("< External Url of Proxy App >",
-        "<App ID of the Native app>",
-        new Uri("<Redirect Uri of the Native App>"),
+        "<App ID of hello Native app>",
+        new Uri("<Redirect Uri of hello Native App>"),
         PromptBehavior.Never);
 
-//Use the Access Token to access the Proxy Application
+//Use hello Access Token tooaccess hello Proxy Application
 HttpClient httpClient = new HttpClient();
 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >");
 ```
 
-As variáveis no exemplo de código devem ser substituídas da seguinte maneira:
+variáveis de saudação no código de exemplo hello devem ser substituídos da seguinte maneira:
 
-* A **ID do locatário** pode ser encontrada no Portal do Azure. Navegue até **Azure Active Directory** > **Propriedades** e copie a ID de Diretório. 
-* A **URL externa** é a URL de front-end que você inseriu no Aplicativo de Proxy. Para encontrar esse valor, navegue até a seção **Proxy de aplicativo** do aplicativo de proxy.
-* A **ID do aplicativo** do aplicativo nativo pode ser encontrada na página **Propriedades** do aplicativo nativo.
-* O **URI de Redirecionamento do aplicativo nativo** pode ser encontrado na página **URIs de Redirecionamento** do aplicativo nativo.
+* **ID do locatário** pode ser encontrado na Olá portal do Azure. Navegue muito**Active Directory do Azure** > **propriedades** e cópia hello ID de diretório. 
+* **URL externa** é Olá URL de front-end inserida no hello Proxy de aplicativo. toofind este valor, navegar toohello **proxy de aplicativo** seção do aplicativo de proxy de saudação.
+* **ID do aplicativo** de saudação aplicativo nativo pode ser encontrado no hello **propriedades** página do aplicativo nativo hello.
+* **Redirecionar URI do aplicativo nativo Olá** podem ser encontradas no hello **URIs de redirecionamento** página do aplicativo nativo hello.
 
 
 ## <a name="see-also"></a>Consulte também
 
-Para saber mais sobre o fluxo do aplicativo nativo, confira [Aplicativo nativo para API Web](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)
+Para obter mais informações sobre o fluxo do aplicativo nativo hello, consulte [tooweb aplicativo nativo API](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)
 
-Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](http://blogs.technet.com/b/applicationproxyblog/)
+Para Olá últimas notícias e atualizações, confira Olá [blog de Proxy de aplicativo](http://blogs.technet.com/b/applicationproxyblog/)

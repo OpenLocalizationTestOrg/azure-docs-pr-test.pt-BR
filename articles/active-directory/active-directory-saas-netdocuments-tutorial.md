@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory ao NetDocuments | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o NetDocuments."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e do NetDocuments."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,113 +13,113 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 87c3338d611daa837aa5f079c4b68e0e6fc58455
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ee9887553595a2492642aed4cb4abcd11d9cf599
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netdocuments"></a>Tutorial: Integração do Active Directory do Azure com o NetDocuments
 
-Neste tutorial, você aprenderá a integrar o NetDocuments ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como toointegrate NetDocuments com o Azure Active Directory (AD do Azure).
 
-A integração do NetDocuments ao Azure AD oferece os seguintes benefícios:
+Integrando o NetDocuments com o AD do Azure fornece Olá benefícios a seguir:
 
-- No Azure AD, é possível controlar quem tem acesso ao NetDocuments
-- Você pode permitir que seus usuários façam logon automaticamente no NetDocuments (logon único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um única localização: o Portal do Azure
+- Você pode controlar no AD do Azure que tenha acesso tooNetDocuments
+- Você pode habilitar seus usuários tooautomatically get conectado tooNetDocuments (logon único) com suas contas do AD do Azure
+- Você pode gerenciar suas contas em um local central - Olá portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao NetDocuments, você precisará dos seguintes itens:
+tooconfigure integração do AD do Azure com o NetDocuments, você precisa Olá itens a seguir:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura habilitada para logon único do NetDocuments
 
 > [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
 
-1. Adicionar o NetDocuments da galeria
+1. Adicionando NetDocuments da Galeria de saudação
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-netdocuments-from-the-gallery"></a>Adicionar o NetDocuments da galeria
-Para configurar a integração do NetDocuments ao Azure AD, você precisará adicionar o NetDocuments da galeria à sua lista de aplicativos SaaS gerenciados.
+## <a name="adding-netdocuments-from-hello-gallery"></a>Adicionando NetDocuments da Galeria de saudação
+integração de saudação tooconfigure do NetDocuments no AD do Azure, você precisa tooadd NetDocuments da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
 
-**Para adicionar o NetDocuments da galeria, execute as seguintes etapas:**
+**tooadd NetDocuments da Galeria hello, execute Olá etapas a seguir:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
 
     ![Aplicativos][3]
 
-4. Na caixa de pesquisa, digite **NetDocuments**.
+4. Na caixa de pesquisa hello, digite **NetDocuments**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-netdocuments-tutorial/tutorial_netdocuments_search.png)
 
-5. No painel de resultados, selecione **NetDocuments** e clique no botão **Adicionar** para adicionar o aplicativo.
+5. No painel de resultados de saudação, selecione **NetDocuments**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-netdocuments-tutorial/tutorial_netdocuments_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o NetDocuments, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do NetDocuments é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no NetDocuments.
+Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no NetDocuments é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no NetDocuments precisa toobe estabelecida.
 
-No NetDocuments, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+No NetDocuments, atribuir o valor de saudação do hello **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
 
-Para configurar e testar o logon único do Azure AD com o NetDocuments, você precisará concluir os seguintes blocos de construção:
+tooconfigure e teste de logon único do AD do Azure com o NetDocuments, é necessário Olá toocomplete blocos de construção a seguir:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criar um usuário de teste do NetDocuments](#creating-a-netdocuments-test-user)** – para ter um equivalente de Brenda Fernandes no NetDocuments que esteja vinculado à representação desse usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
+3. **[Criar um usuário de teste do NetDocuments](#creating-a-netdocuments-test-user)**  -toohave um equivalente do Britta Simon no NetDocuments é vinculado toohello AD do Azure representação do usuário.
+4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
+5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure e configurar o logon único em seu aplicativo NetDocuments.
+Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único em seu aplicativo NetDocuments.
 
-**Para configurar o logon único do Azure AD com o NetDocuments, execute as seguintes etapas:**
+**tooconfigure AD do Azure-logon único com o NetDocuments, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, na página de integração de aplicativos do **NetDocuments**, clique em **Logon único**.
+1. Em Olá portal do Azure, Olá **NetDocuments** página de integração de aplicativos, clique em **o logon único**.
 
     ![Configurar Logon Único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
  
     ![Configurar Logon Único](./media/active-directory-saas-netdocuments-tutorial/tutorial_netdocuments_samlbase.png)
 
-3. Na seção **URLs e Domínio do NetDocuments**, execute as seguintes etapas:
+3. Em Olá **NetDocuments domínio e URLs** , execute Olá etapas a seguir:
 
     ![Configurar Logon Único](./media/active-directory-saas-netdocuments-tutorial/tutorial_netdocuments_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
+    a. Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
 
-    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
+    b. Em Olá **URL de resposta** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte do NetDocuments](https://support.netdocuments.com/hc/) para obter esses valores.
+    > Esses valores não são reais. Atualize esses valores com URL de logon real hello e a URL de resposta. Entre em contato com [equipe de suporte do NetDocuments](https://support.netdocuments.com/hc/) tooget esses valores.
  
-4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+4. Em Olá **o certificado de autenticação SAML** seção, clique em **Metadata XML** e, em seguida, salve o arquivo de metadados de saudação em seu computador.
 
-    ![Configurar o logon único](./media/active-directory-saas-netdocuments-tutorial/tutorial_netdocuments_certificate.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-netdocuments-tutorial/tutorial_netdocuments_certificate.png) 
 
 5. Clique no botão **Salvar** .
 
@@ -127,7 +127,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
 6. Em uma janela de navegador da Web diferente, faça logon no site de sua empresa do NetDocuments como administrador.
 
-7. Vá para **Administrador**.
+7. Vá muito**Admin**.
 
 8. Clique em **Adicionar e remover usuários e grupos**.
    
@@ -137,60 +137,60 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     
     ![Configurar opções de autenticação avançadas](./media/active-directory-saas-netdocuments-tutorial/ic795048.png "Configurar opções de autenticação avançadas")
 
-10. Na caixa de diálogo **Identidade Federada**, execute as seguintes etapas:
+10. Em Olá **identidade federada** caixa de diálogo, executar Olá etapas a seguir:
    
     ![Identidade Federada](./media/active-directory-saas-netdocuments-tutorial/ic795049.png "Identidade Federada")
    
     a. Para **Tipo de servidor de identidade federada**, selecione **Serviços de Federação do Active Directory**.
    
-    b. Clique em **Escolher arquivo**para carregar o arquivo de metadados que você baixou do Portal do Azure.
+    b. Clique em **Escolher arquivo**, Olá tooupload baixou o arquivo de metadados que você baixou do portal do Azure.
    
     c. Clique em **OK**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
 
 ![Criar um usuário do AD do Azure][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
 
-1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-netdocuments-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-netdocuments-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-netdocuments-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-netdocuments-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
 
-    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-netdocuments-test-user"></a>Criar um usuário de teste do NetDocuments
 
-Para permitir que os usuários do Azure AD façam logon no NetDocuments, eles devem ser provisionados no NetDocuments.  
-No caso do NetDocuments, o provisionamento é uma tarefa manual.
+tooenable AD do Azure usuários toolog em tooNetDocuments, eles devem ser provisionados no NetDocuments.  
+No caso de saudação do NetDocuments, o provisionamento é uma tarefa manual.
 
-**Para provisionar uma conta de usuário, execute as seguintes etapas:**
+**tooprovision uma conta de usuário, execute Olá etapas a seguir:**
 
-1. Faça logon em seu site de empresa do **NetDocuments** como administrador.
+1. Tocar em tooyour **NetDocuments** site da empresa como administrador.
 
-2. No menu na parte superior, clique em **Administrador**.
+2. No menu de saudação na parte superior de saudação, clique em **Admin**.
    
     ![Admin](./media/active-directory-saas-netdocuments-tutorial/ic795051.png "Admin")
 
@@ -198,30 +198,30 @@ No caso do NetDocuments, o provisionamento é uma tarefa manual.
    
     ![Repositório](./media/active-directory-saas-netdocuments-tutorial/ic795047.png "Repositório")
 
-4. Na caixa de texto **Endereço de Email**, digite o endereço de email de uma conta válida do Azure Active Directory que você deseja provisionar e clique em **Adicionar Usuário**.
+4. Em Olá **endereço de Email** caixa de texto, digite o endereço de email de Olá de uma conta válida do Active Directory do Azure você deseja tooprovision e, em seguida, clique em **adicionar usuário**.
    
     ![Endereço de Email](./media/active-directory-saas-netdocuments-tutorial/ic795053.png "Endereço de Email")
    
    >[!NOTE]
-   >O titular da conta do Active Directory do Azure receberá um email com um link para confirmar a conta antes que ela se torne ativa. É possível usar qualquer outra ferramenta de criação da conta de usuário do NetDocuments ou as APIs fornecidas pelo NetDocuments para provisionar as contas de usuário do Azure Active Directory.
+   >proprietário de conta do Active Directory do Azure Olá receberá um email que inclui uma conta de saudação do link tooconfirm antes de se tornar ativa. Você pode usar qualquer ferramenta de criação outros NetDocuments usuário conta ou APIs fornecidas pela NetDocuments tooprovision Azure Active Directory as contas de usuário.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
 
-Nesta seção, você concederá a Brenda Fernandes acesso ao NetDocuments para que ela fique habilitada a usar o logon único do Azure.
+Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooNetDocuments.
 
 ![Atribuir usuário][200] 
 
-**Para atribuir Brenda Fernandes ao NetDocuments, execute as seguintes etapas:**
+**tooassign Britta Simon tooNetDocuments, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **NetDocuments**.
+2. Na lista de aplicativos hello, selecione **NetDocuments**.
 
     ![Configurar Logon Único](./media/active-directory-saas-netdocuments-tutorial/tutorial_netdocuments_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -229,7 +229,7 @@ Nesta seção, você concederá a Brenda Fernandes acesso ao NetDocuments para q
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -237,14 +237,14 @@ Nesta seção, você concederá a Brenda Fernandes acesso ao NetDocuments para q
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
 
-Quando você clicar no bloco NetDocuments no Painel de Acesso, você deverá ser automaticamente conectado ao seu aplicativo NetDocuments.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Quando você clica em Olá NetDocuments bloco no painel de acesso de saudação, você deve obter tooyour automaticamente conectado no aplicativo NetDocuments.
+Para obter mais informações sobre o painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

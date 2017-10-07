@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: b3fab99ff9fab5bc67fa70113dc5b06fac775b09
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d04a9efeb3b35421aa605cadb2aa25f656a4d515
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
 
-Veja abaixo algumas perguntas frequentes sobre tudo relativo à redefinição de senhas.
+Olá a seguir está algumas perguntas frequentes para tudo relacionado toopassword redefinir.
 
-Caso você tenha uma pergunta geral sobre o Azure AD e o autoatendimento de redefinição de senha que não foi respondida aqui, peça ajuda à comunidade nos [fóruns do Azure AD](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Os membros da comunidade incluem Engenheiros, Gerentes de Produto, MVPs e colegas Profissionais de TI.
+Se você tiver uma pergunta geral sobre o Azure AD e a senha de autoatendimento redefinição, que não foi respondida aqui, solicite comunidade Olá para obter assistência no hello [fóruns do Azure Ad](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Membros da comunidade Olá incluem engenheiros, gerentes de produto, MVPs e colega profissionais de TI.
 
-Esta seção de perguntas frequentes é dividida nas seguintes seções:
+Perguntas Frequentes é dividido em Olá seções a seguir:
 
 * [**Perguntas sobre o registro de redefinição de senha**](#password-reset-registration)
 * [**Perguntas sobre a redefinição de senha**](#password-reset)
@@ -39,12 +39,12 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 ## <a name="password-reset-registration"></a>Registro de redefinição de senha
 * **P: meus usuários podem registrar seus próprios dados de redefinição de senha?**
 
-  > **R:** Sim, desde que a redefinição de senha esteja habilitada e eles sejam licenciados, eles podem ir para o portal de Registro de Redefinição de Senha em http://aka.ms/ssprsetup para registrar as informações de autenticação. Os usuários também podem se registrar se conectando ao painel de acesso em http://myapps.microsoft.com, clicando na guia perfil e clicando na opção Registrar-se para a redefinição de senha.
+  > **R:** Sim, contanto que a redefinição de senha está habilitada e eles sejam licenciados, eles podem ir toohello portal de registro de redefinição de senha em http://aka.ms/ssprsetup tooregister suas informações de autenticação. Os usuários também podem registrar pelo painel de acesso vai toohello em http://myapps.microsoft.com, clicando em Guia do perfil hello e Olá registrar para a opção de redefinição de senha.
   >
   >
 * **P: posso definir dados de redefinição de senha em nome dos meus usuários?**
 
-  > **R:** Sim, você pode fazer isso com o Azure AD Connect, PowerShell, [portal do Azure](https://portal.azure.com) ou o Portal de Administração do Office. Para obter mais informações, consulte o artigo [Dados usados pelo Autoatendimento de Redefinição de Senha do Azure AD](active-directory-passwords-data.md).
+  > **R:** Sim, você pode fazer isso com o Azure AD Connect, PowerShell, Olá [portal do Azure](https://portal.azure.com), ou o portal de administração do Office de hello. Para obter mais informações, consulte o artigo Olá [dados usados pelo Azure AD autoatendimento de redefinição de senha](active-directory-passwords-data.md).
   >
   >
 * **P: posso sincronizar dados de perguntas de segurança do local?**
@@ -54,57 +54,57 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P: meus usuários podem registrar dados de forma que outros usuários não possam ver esses dados?**
 
-  > **R:** Sim. Quando os usuários registram dados usando o Portal de Registro de Redefinição de Senha, eles são salvos em campos de autenticação privada visíveis apenas por Administradores Globais e pelo usuário.
+  > **R:** Sim, quando os usuários registram dados usando Olá Portal redefinição de senha registro é salvo em campos de autenticação particulares que só são visíveis pelo usuário de administradores globais e hello.
     >
     > [!NOTE]
-    > Se uma **conta do Administrador do Azure** registrar o número de telefone de autenticação, ela também será populada no campo de telefone celular e ficará visível.
+    > Se um **conta de administrador do Azure** registra o número de telefone de autenticação ele também é preenchido no campo de telefone celular hello e é visível.
     >
   >
   >
-* **P: meus usuários precisam ser registrados antes de poder usar a redefinição de senha?**
+* **P: meus usuários tem toobe registrado antes que eles podem usar a redefinição de senha?**
 
-  > **R:** Não. Se você definir informações de autenticação suficientes em nome deles, os usuários não precisarão se registrar. A redefinição de senha funcionará desde que você tenha formatado corretamente os dados armazenados nos campos apropriados no diretório.
+  > **R:** não, se você definir informações de autenticação suficientes em seu nome, os usuários não têm tooregister. A redefinição de senha funciona enquanto você formatou corretamente os dados armazenados nos campos apropriados de saudação no diretório de saudação.
   >
   >
-* **P: posso sincronizar ou definir os campos Telefone de autenticação, Autenticação de email ou Telefone alternativo em nome dos meus usuários?**
+* **P: posso sincronizar ou definir campos de telefone de autenticação, Email de autenticação ou telefone de autenticação alternativo Olá em nome de meus usuários?**
 
   > **R:** isso não é possível atualmente.
   >
   >
-* **P: como o portal de registro sabe quais opções mostrar aos meus usuários?**
+* **P: como portal de registro Olá sabe quais opções tooshow meus usuários?**
 
-  > **R:** O portal de registro de redefinição de senha só mostra as opções que você habilitou para os usuários. Essas opções estão localizadas na seção Política de Redefinição de Senha de Usuário da guia Configurar do diretório. Por exemplo, isso significa que, se você não habilitar perguntas de segurança, os usuários não poderão se registrar nessa opção.
+  > **R:** portal de registro de redefinição de senha Olá somente mostra Olá opções que você habilitou para seus usuários. Essas opções são encontradas na seção de política de redefinição de senha de usuário da guia Configurar do diretório de saudação. Por exemplo, isso significa que se você não habilitar a perguntas de segurança, em seguida, os usuários não são tooregister possível para essa opção.
   >
   >
 * **P: quando um usuário é considerado registrado?**
 
-  > **R:** Um usuário é considerado registrado para o SSPR quando ele registrou, pelo menos, o **Número de métodos obrigatórios para a redefinição** que você definiu no [portal do Azure](https://portal.azure.com).
+  > **R:** um usuário é considerado registrado para SSPR quando eles foram registrados pelo menos Olá **número de tooreset necessários métodos** que você definiu no hello [portal do Azure](https://portal.azure.com).
   >
   >
 ## <a name="password-reset"></a>Redefinição de senha
-* **P: quanto tempo deve levar até que eu receba uma chamada telefônica, um SMS ou um email de redefinição de senha?**
+* **P: quanto tempo deve esperar tooreceive um email, SMS ou chamada telefônica da redefinição de senha?**
 
-  > **R:** Emails, mensagens SMS e chamadas telefônicas devem ser recebidas em menos de um minuto, normalmente de 5 a 20 segundos.
-    >Se você não receber a notificação nesse período:
+  > **R:** Email, mensagens SMS e chamadas telefônicas devem chegar em menos de um minuto, com o caso comum hello, sendo 5 a 20 segundos.
+    >Se você não recebe a notificação de saudação nesse período de tempo:
         > * Verifique a pasta Lixo Eletrônico.
-        > * Verifique se o número ou o email de contato é aquele que você espera.
-        > * Verifique se os dados de autenticação no diretório estão formatados corretamente.
+        > * Verifique o número de saudação ou email que está sendo contatado é hello um esperado.
+        > * Verifique se os dados de autenticação Olá no diretório hello estão formatados corretamente.
                 >     * Exemplo: “+1 4255551234” ou “user@contoso.com”
   >
   >
 * **P: quais idiomas são compatíveis com a redefinição de senha?**
 
-  > **R:** A interface do usuário de redefinição de senha, as mensagens SMS e as chamadas de voz estão localizadas nos mesmos idiomas com suporte no Office 365.
+  > **R:** Olá IU de redefinição de senha, mensagens SMS e voz chamadas são localizadas no hello mesmos idiomas que têm suporte no Office 365.
   >
   >
-* **P: que partes da experiência de redefinição de senha ficam personalizadas com a marca quando eu definir marcas organizacionais na guia Configurar no meu diretório?**
+* **Guia Configurar do p: quais partes da experiência de redefinição de senha Olá obtenham marcadas quando defino organizacional de identidade visual no meu diretório?**
 
-  > **R:** O portal de redefinição de senha mostra o logotipo de sua organização e também permite que você configure o link Contate o administrador para apontar para uma URL ou um email personalizado. Todos os emails enviados pela redefinição de senha incluem o logotipo de sua organização, as cores, o nome no corpo do email e o nome De personalizado.
+  > **R:** Olá portal de redefinição de senha mostra o logotipo da sua organização e permite que você tooconfigure Olá entre em contato com seu email personalizado do administrador link toopoint tooa ou URL. Nenhum email que é enviado pela redefinição de senha inclui o logotipo da sua organização, cores, o nome no corpo de saudação do email Olá e personalizadas a partir do nome.
   >
   >
-* **P: como eu instruo os usuários sobre onde acessar para redefinir as suas senhas?**
+* **P: como eu posso instruir meus usuários sobre onde toogo tooreset suas senhas?**
 
-  > **R:** Você pode enviar os usuários diretamente para https://passwordreset.microsoftonline.com ou instruí-los a clicar no **link Não consegue acessar sua conta** encontrado em qualquer tela de conexão de Conta Corporativa ou de Estudante. Você também pode publicar esses links em um local acessível aos usuários.
+  > **R:** toohttps://passwordreset.microsoftonline.com seus usuários podem ser enviados diretamente ou instruir Olá tooclick **não é possível acessar o link de conta** encontrado em qualquer página entrar ou de estudante. Você também pode publicar esses links no lugar tooyour facilmente acessível aos usuários.
   >
   >
 * **P: posso usar essa página em um dispositivo móvel?**
@@ -119,7 +119,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P: como posso integrar a redefinição de senha diretamente à experiência de entrada na área de trabalho do usuário?**
 
-  > **R:** Se você for um cliente do Azure AD Premium, poderá instalar o Microsoft Identity Manager sem custo adicional e implantar a solução de redefinição de senha local para atender a esse requisito.
+  > **R:** se você for um cliente do Azure AD Premium, você pode instalar o Microsoft Identity Manager sem nenhum custo adicional e implantar Olá local senha redefinição solução toomeet esse requisito.
   >
   >
 * **P: posso definir perguntas de segurança diferentes para diferentes localidades?**
@@ -127,9 +127,9 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   > **R:** isso não é possível atualmente.
   >
   >
-* **P: quantas perguntas podemos configurar para a opção de autenticação com perguntas de segurança?**
+* **P: quantas perguntas podemos configurar opção de autenticação de perguntas de segurança Olá?**
 
-  > **R:** Você pode configurar até 20 perguntas de segurança personalizadas no [portal do Azure](https://portal.azure.com).
+  > **R:** você pode configurar as perguntas de segurança personalizada too20 em Olá [portal do Azure](https://portal.azure.com).
   >
   >
 * **P: qual o tamanho máximo das perguntas de segurança?**
@@ -137,105 +137,105 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   > **R:** as perguntas de segurança podem ter entre 3 e 200 caracteres.
   >
   >
-* **P: qual o tamanho máximo das respostas às perguntas de segurança?**
+* **P: quanto tempo podem ter as respostas toosecurity perguntas?**
 
-  > **R:** as respostas podem ter entre 3 e 40 caracteres.
+  > **R:** respostas podem ser 3 too40 caracteres.
   >
   >
-* **P: as respostas duplicadas para perguntas de segurança são rejeitadas?**
+* **P: são rejeitadas respostas duplicadas toosecurity perguntas?**
 
-  > **R:** sim, rejeitamos respostas duplicadas para perguntas de segurança.
+  > **R:** Sim, rejeitamos respostas duplicadas toosecurity perguntas.
   >
   >
-* **P: Um usuário pode registrar a mesma pergunta de segurança mais de uma vez?**
+* **P: maio um registro de usuário Olá mesma pergunta de segurança mais de uma vez?**
 
   > **R:** Não. Quando um usuário registra uma pergunta específica, ele não pode se registrar nessa pergunta uma segunda vez.
   >
   >
-* **P: é possível definir um limite mínimo de perguntas de segurança para registro e redefinição?**
+* **P: é possível tooset um limite mínimo de perguntas de segurança para registro e redefinição?**
 
   > **R:** sim, um limite pode ser definido para o registro e outro para a redefinição. Podem ser necessárias de três a cinco perguntas de segurança para o registro e de três a cinco perguntas para a redefinição.
   >
   >
-* **P: se um usuário tiver registrado mais do que o número máximo de perguntas obrigatórias para a redefinição, como as perguntas de segurança são selecionadas durante a redefinição?**
+* **P: se um usuário tiver registrado mais do que o número máximo de saudação de tooreset necessário de perguntas, como perguntas de segurança são selecionadas durante a redefinição?**
 
-  > **R:** X perguntas de segurança são selecionadas aleatoriamente do número total de perguntas nas quais um usuário se registrou, em que X é o **Número de perguntas obrigatórias para a redefinição**. Por exemplo, se um usuário tem 5 perguntas de segurança registradas, mas apenas 3 são obrigatórias para a redefinição, 3 das 5 são selecionadas aleatoriamente e apresentadas no momento da redefinição. Se o usuário der respostas erradas, o processo de seleção ocorrerá novamente para evitar hammering de perguntas.
+  > **R:** segurança N perguntas são selecionadas aleatoriamente sem o número total de saudação de perguntas que um usuário tiver registrado, onde N é hello **número de tooreset necessário perguntas**. Por exemplo, se um usuário tiver 5 perguntas de segurança registradas, mas apenas 3 são necessário tooreset, 3 de saudação 5 são selecionado aleatoriamente e apresentadas na reinicialização. Se o usuário Olá obtém respostas Olá toohello perguntas errado, o processo de seleção de saudação ocorrer tooprevent hammering da pergunta.
   >
   >
 * **P: vocês impedem os usuários de tentar redefinir a senha várias vezes em um curto período de tempo?**
 
-  > **R:** Sim, existem recursos de segurança internos na redefinição de senha para proteção contra uso indevido. Os usuários têm somente cinco tentativas de redefinição de senha em uma mesma hora antes de serem bloqueados por 24 horas. Os usuários somente podem tentar validar um número de telefone cinco vezes em uma mesma hora antes de serem bloqueados por 24 horas. Os usuários somente podem experimentar um único método de autenticação cinco vezes em uma mesma hora antes de serem bloqueados por 24 horas.
+  > **R:** Sim, há recursos de segurança incorporados tooprotect de redefinição de senha de uso indevido. Os usuários têm somente cinco tentativas de redefinição de senha em uma mesma hora antes de serem bloqueados por 24 horas. Os usuários somente podem experimentar toovalidate um número de telefone 5 vezes dentro de uma hora antes do bloqueio por 24 horas. Os usuários somente podem experimentar um único método de autenticação cinco vezes em uma mesma hora antes de serem bloqueados por 24 horas.
   >
   >
-* **P: por quanto tempo vale a senha de uso único por email e SMS?**
+* **P: por quanto tempo são email hello e a senha de uso único de SMS válido?**
 
-  > **R:** a duração da sessão para a redefinição de senha é de 105 minutos. Desde o início da operação de redefinição de senha, o usuário tem 105 minutos para redefinir sua senha. A senha de uso único por email e SMS perde a validade depois que esse período de tempo expira.
+  > **R:** Olá a duração da sessão para redefinição de senha é 105 minutos. Operação de redefinição de senha do início de saudação do hello, usuário Olá tem 105 minutos tooreset sua senha. Hello email e senha de uso único de SMS são inválidos depois que esse período de tempo expira.
   >
   >
 
 ## <a name="password-change"></a>Alteração de senha
-* **P: onde os usuários devem ir para alterar suas senhas?**
+* **P: onde meus usuários deveríamos toochange suas senhas?**
 
-  > **R:** Os usuários podem alterar suas senhas em qualquer lugar em que veem seus ícones ou imagens de perfil (como no canto superior direito das experiências do [Office 365](https://portal.office.com) ou do [Painel de Acesso](https://myapps.microsoft.com)). Os usuários podem alterar suas senhas na [página de perfil do Painel de Acesso](https://account.activedirectory.windowsazure.com/r#/profile). Os usuários também poderão ser solicitados a alterar suas senhas automaticamente na tela de conexão do Azure AD se elas expirarem. Por fim, os usuários podem navegar até o [Portal de alteração de senha do Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) diretamente se desejarem alterar suas senhas.
+  > **R:** os usuários podem alterar suas senhas em qualquer lugar, eles verão sua imagem do perfil ou ícone (como no canto superior direito de saudação do seu [Office 365](https://portal.office.com) ou [painel de acesso](https://myapps.microsoft.com) experiências. Os usuários podem alterar suas senhas da saudação [página de perfil do painel de acesso](https://account.activedirectory.windowsazure.com/r#/profile). Os usuários também podem ser solicitado toochange suas senhas automaticamente na tela de entrada hello AD do Azure se suas senhas expiradas. Por fim, os usuários podem navegar toohello [Portal de alteração de senha do AD do Azure](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) diretamente se desejarem toochange suas senhas.
   >
   >
-* **P: meus usuários podem ser notificados no Portal do Office quando uma senha local expirar?**
+* **P: meus usuários notificados no Portal do Office de hello quando sua senha local expira?**
 
-  > **R:** isso é possível no momento se você está usando o ADFS, seguindo as instruções aqui: [Enviando declarações de política de senha com o ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Se você está usando a sincronização de hash de senha, isso não é possível atualmente. Isso ocorre porque nós não sincronizamos políticas de senha locais e, portanto, não é possível postar as notificações de expiração para experiências de nuvem. Em ambos os casos, também é possível [notificar os usuários cujas senhas estejam prestes a expirar usando o PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  > **R:** hoje isso é possível se você estiver usando o AD FS, seguindo as instruções de saudação aqui: [enviar declarações de política de senha com o ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Se você está usando a sincronização de hash de senha, isso não é possível atualmente. Isso é porque nós não sincronizar as políticas de senha local, portanto, não é possível para que possamos experiências toopost toocloud de notificações de expiração. Em ambos os casos, também é possível muito[notificar os usuários cujas senhas estão sobre tooexpire usando PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
   >
   >
 
 ## <a name="password-management-reports"></a>Relatórios de gerenciamento de senha
-* **P: quanto tempo leva para que os dados sejam exibidos nos relatórios de gerenciamento de senha?**
+* **P: quanto tempo leva para tooshow dados backup nos relatórios de gerenciamento de senha Olá?**
 
-  > **R:** os dados devem ser exibidos nos relatórios de gerenciamento de senha entre 5 e 10 minutos. Em algumas instâncias, pode levar até uma hora para que sejam exibidos.
+  > **R:** dados devem ser exibidos nos relatórios de gerenciamento de senha hello dentro de 5 a 10 minutos. Ele algumas instâncias pode levar até tooan tooappear de hora.
   >
   >
-* **P: como posso filtrar os relatórios de gerenciamento de senha?**
+* **P: como posso filtrar Olá relatórios de gerenciamento de senha?**
 
-  > **R:** Você pode filtrar os relatórios de gerenciamento de senhas clicando na lupa pequena na extremidade direita dos rótulos de coluna, próximo ao início do relatório. Se você quiser fazer uma filtragem mais avançada, pode baixar o relatório do Excel e criar uma tabela dinâmica.
+  > **R:** você pode filtrar relatórios de gerenciamento de senha Olá clicando Olá Lupa pequena toohello direita dos rótulos de coluna hello, superior de saudação do relatório de saudação. Se você quiser toodo de filtragem mais avançada, você pode baixar Olá relatório tooexcel-lo e criar uma tabela dinâmica.
   >
   >
-* **P: Qual é o número máximo de eventos armazenados nos relatórios de gerenciamento de senha?**
+* **P: qual é o número máximo de saudação de eventos são armazenados nos relatórios de gerenciamento de senha Olá?**
 
-  > **R:** até 75 mil redefinições de senha ou eventos de registro de redefinição de senha são armazenados nos relatórios de gerenciamento de senha relativo ao período de 30 dias anteriores.  Estamos trabalhando para expandir esse número e incluir mais eventos.
+  > **R:** backup too75, 000 senha senha ou redefinição redefinição registro eventos são armazenados nos relatórios de gerenciamento de senha hello, abrangendo backup too30 dias.  Estamos trabalhando tooexpand esse número tooinclude mais eventos.
   >
   >
-* **P: qual o período mais antigo coberto pelos relatórios de gerenciamento de senha?**
+* **P: quanto vão Olá relatórios de gerenciamento de senha?**
 
-  > **R:** os relatórios de gerenciamento de senha mostram operações ocorridas nos últimos 30 dias. Por enquanto, se você precisar arquivar esses dados, pode baixar os relatórios periodicamente e salvá-los em um local separado.
+  > **R:** relatórios de gerenciamento de senha Olá Mostrar operações que ocorrem dentro Olá últimos 30 dias. Por enquanto, se você precisar tooarchive dos dados, você pode baixar relatórios de saudação periodicamente e salvá-los em um local separado.
   >
   >
-* **P: existe um número máximo de linhas que podem ser exibidas nos relatórios de gerenciamento de senha?**
+* **P: há um número máximo de linhas que podem ser exibidas nos relatórios de gerenciamento de senha Olá?**
 
-  > **R:** sim, um máximo de 75 mil linhas pode aparecer nos relatórios de gerenciamento de senha, quer seja mostrado na interface do usuário ou baixado.
+  > **R:** Sim, um máximo de 75.000 linhas pode aparecer em qualquer um dos relatórios de gerenciamento de senha hello, se elas estão sendo mostradas no hello interface do usuário ou que estão sendo baixadas.
   >
   >
-* **P: Existe uma API para acessar os dados do relatório de redefinição de senha ou de registro de redefinição de senha?**
+* **P: há uma API tooaccess Olá senha redefinição ou registro de dados de relatório?**
 
-  > **R:** Sim. Consulte a documentação a seguir para saber como você pode acessar o fluxo de dados do relatório de redefinição de senha.  [Saiba como acessar programaticamente os eventos de relatório de redefinição de senha](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+  > **R:** Sim, consulte Olá toolearn documentação a seguir como você pode acessar a senha Olá redefinir o fluxo de dados de relatório.  [Saiba como tooaccess de redefinição de senha relatar eventos programaticamente](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
   >
   >
 
 ## <a name="password-writeback"></a>Write-back de senha
-* **P: como funciona os bastidores do write-back de senha?**
+* **P: como funciona em segundo plano de saudação do Write-back de senha?**
 
-  > **R:** Consulte [Como funciona o write-back de senha](active-directory-passwords-writeback.md) para obter uma explicação detalhada do que acontece quando você habilita o write-back de senha e como os dados fluem pelo sistema novamente ao seu ambiente local.
+  > **R:** consulte [como funciona o write-back de senha](active-directory-passwords-writeback.md) para obter uma explicação sobre o que acontece quando você habilita o write-back de senha e como os dados fluem pelo sistema Olá volta para seu ambiente local.
   >
   >
-* **P: quanto tempo demora para o write-back de senha funcionar?  Há um atraso de sincronização como com a sincronização com hash de senha?**
+* **P: quanto tempo o write-back de senha leva toowork?  Há um atraso de sincronização como com a sincronização com hash de senha?**
 
-  > **R:** o write-back de senha é instantâneo. É um pipeline síncrono que funciona de forma essencialmente diferente da sincronização com hash de senha. O write-back de senha permite aos usuários obter comentários em tempo real sobre o sucesso da operação de redefinição ou de alteração de senha. O tempo médio para um write-back bem-sucedido de uma senha é abaixo de 500 ms.
+  > **R:** o write-back de senha é instantâneo. É um pipeline síncrono que funciona de forma essencialmente diferente da sincronização com hash de senha. Write-back de senha permite aos usuários tooget de comentários em tempo real sobre o êxito de saudação de sua senha redefinir ou alterar a operação. tempo médio de saudação para um write-back bem-sucedido de uma senha é em 500 ms.
   >
   >
 * **P: Se minha conta local estiver desabilitada, como minha conta ou meu acesso na nuvem será afetado?**
 
-  > **R:** Se sua ID local estiver desabilitada, a ID ou o acesso na nuvem também estará desabilitado no próximo intervalo de sincronização por meio do AAD Connect. Por padrão, isso ocorre a cada 30 minutos.
+  > **R:** se sua ID de local estiver desabilitada, sua nuvem de ID/acesso também será desabilitado no próximo intervalo de sincronização Olá via conexão AAD byt padrão isso é a cada 30 minutos.
   >
   >
-* **P: Se minha conta local for restrita por uma política de senha do Active Directory local, o SSPR respeitará essa política quando eu alterar a senha?**
+* **P: se a minha conta local é restrito por uma política de senha do Active Directory local, SSPR obedece a essa política ao alterar senha Olá?**
 
-  > **R:** Sim, o SSPR se baseia e respeita a política de senha do AD local, incluindo a política de senha típica do domínio do AD, bem como as políticas de senha refinadas e definidas, direcionadas a determinado usuário.
+  > **R:** Sim, SSPR depende e age de acordo com hello a política de senha do AD, incluindo a política de senha de domínio de AD típica, bem como as políticas de senha refinada definido tooa dado de usuário de destino no local.
   >
   >
 * **P: o write-back de senha funciona com quais tipos de conta?**
@@ -250,21 +250,21 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P: o write-back de senha é seguro?  Como posso ter certeza de que não serei invadido por um hacker?**
 
-  > **R:** Sim, o write-back de senha é seguro. Para ler mais sobre as quatro camadas de segurança implementadas pelo serviço de write-back de senha, confira a seção [Modelo de segurança do write-back de senha](active-directory-passwords-writeback.md#password-writeback-security-model) em Como funciona o write-back de senha.
+  > **R:** Sim, o write-back de senha é seguro. tooread mais informações sobre camadas Olá quatro de segurança implementado pelo serviço de write-back de senha Olá, confira o hello [modelo de segurança de write-back de senha](active-directory-passwords-writeback.md#password-writeback-security-model) seção como funciona o write-back de senha.
   >
   >
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Os links a seguir fornecem informações adicionais sobre a redefinição de senha usando o Azure AD
+Olá links a seguir fornece informações adicionais sobre a redefinição de senha usando o AD do Azure
 
 * [**Início Rápido**](active-directory-passwords-getting-started.md): comece agora mesmo a usar o gerenciamento de autoatendimento de senhas do Azure AD 
-* [**Licenciamento**](active-directory-passwords-licensing.md): configure o licenciamento do Azure AD
-* [**Dados**](active-directory-passwords-data.md): entenda os dados que são necessários e como eles são usados para o gerenciamento de senhas
-* [**Distribuição**](active-directory-passwords-best-practices.md): planeje e implante o SSPR para seus usuários usando as diretrizes descritas aqui
-* [**Personalizar**](active-directory-passwords-customize.md): personalize a aparência da experiência do SSPR em sua empresa.
-* [**Relatórios**](active-directory-passwords-reporting.md) – descubra se, quando e onde os usuários estão acessando a funcionalidade do SSPR
+* [**Licenciamento** ](active-directory-passwords-licensing.md) - Configuração do licenciamento do Azure AD
+* [**Dados** ](active-directory-passwords-data.md) - entender dados Olá necessários e como ele é usado para gerenciamento de senha
+* [**Distribuição** ](active-directory-passwords-best-practices.md) -planejar e implantar os usuários de tooyour SSPR usando Olá diretrizes encontradas aqui
+* [**Personalizar** ](active-directory-passwords-customize.md) -personalizar Olá aparência de saudação SSPR experiência para sua empresa.
+* [**Relatórios**](active-directory-passwords-reporting.md): descubra se, quando e onde os usuários estão acessando a funcionalidade SSPR
 * [**Política**](active-directory-passwords-policy.md) – entenda e defina políticas de senha do Azure AD
-* [**Write-back de Senha**](active-directory-passwords-writeback.md) – como o write-back de senha funciona com o diretório local
-* [**Aprofundamento Técnico**](active-directory-passwords-how-it-works.md) – vá para os bastidores para entender como ele funciona
-* [**Resolver problemas**](active-directory-passwords-troubleshoot.md) – saiba como resolver problemas comuns encontrados no SSPR
+* [**Write-back de senha** ](active-directory-passwords-writeback.md) - Como o write-back de senha opera com o seu diretório local
+* [**Mergulho profundo técnica** ](active-directory-passwords-how-it-works.md) -vá atrás Olá cortina toounderstand como ele funciona
+* [**Solucionar problemas de** ](active-directory-passwords-troubleshoot.md) -Saiba como problemas comuns de tooresolve que vemos com SSPR

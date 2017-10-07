@@ -1,6 +1,6 @@
 ---
-title: "Sincronização do Azure AD Connect: alterando a conta do serviço de sincronização do Azure AD Connect | Microsoft Docs"
-description: "Este documento tópico descreve a chave de criptografia e como abandoná-la depois que a senha tiver sido alterada."
+title: "Sincronização do Azure AD Connect: Alterar conta de serviço de sincronização se conectar de saudação do AD do Azure | Microsoft Docs"
+description: "Este documento de tópico descreve chave de criptografia hello e como tooabandon após a senha de saudação é alterado."
 services: active-directory
 keywords: "Conta do serviço de sincronização do Azure AD, senha"
 documentationcenter: 
@@ -15,96 +15,96 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: bf6234d0810f870909957ee1c1e33c225a4922b9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 11948ac4662f722e4f684ef6c9b9ccdc6387e60f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Alteração da senha da conta do serviço de sincronização do Azure AD Connect
-Se você alterar a senha de conta do serviço de sincronização do Azure AD Connect, o serviço de sincronização não será capaz de iniciar corretamente até você ter abandonado a chave de criptografia e reinicializado a senha da conta do serviço de sincronização do Azure AD Connect. 
+# <a name="changing-hello-azure-ad-connect-sync-service-account-password"></a>Alteração da senha de conta de serviço de sincronização do hello Azure AD Connect
+Se você alterar a senha da conta de serviço para o Azure AD Connect sincronização de hello, Olá serviço de sincronização não será capaz de iniciar corretamente até ter abandonado a chave de criptografia de saudação e reiniciadas a senha da conta de serviço para o Azure AD Connect sincronização de saudação. 
 
-O Azure AD Connect, como parte dos serviços de sincronização, usa uma chave de criptografia para armazenar as senhas das contas de serviço do AD DS e do Azure AD.  Essas contas são criptografadas antes de serem armazenadas no banco de dados. 
+Como parte da saudação serviços de sincronização do Azure AD Connect, usa uma criptografia toostore chave Olá senhas hello AD DS e contas de serviço do AD do Azure.  Essas contas são criptografadas antes de serem armazenadas no banco de dados de saudação. 
 
-A chave de criptografia usada é protegida usando o [Data Protection do Windows (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx). O DPAPI protege a chave de criptografia usando a **senha da conta do serviço de sincronização do Azure AD Connect**. 
+Olá chave de criptografia usada é protegida usando [proteção de dados do Windows (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx). DPAPI protege a chave de criptografia de saudação usando Olá **senha da conta de serviço de sincronização do hello AD do Azure Connect**. 
 
-Se você precisar alterar a senha da conta do serviço, use os procedimentos em [Abandono da chave de criptografia de sincronização do Azure AD Connect](#abandoning-the-azure-ad-connect-sync-encryption-key) para fazer isso.  Estes procedimentos também deverão ser usados se você precisar abandonar a chave de criptografia por algum motivo.
+Se você precisar de senha da conta de serviço toochange hello, você pode usar procedimentos Olá [chave de criptografia de sincronização se conectar de saudação do AD do Azure Abandoning](#abandoning-the-azure-ad-connect-sync-encryption-key) tooaccomplish isso.  Esses procedimentos também devem ser usados se você precisar de chave de criptografia de saudação tooabandon por qualquer motivo.
 
-##<a name="issues-that-arise-from-changing-the-password"></a>Os problemas que surgem da alteração da senha
-Há duas coisas que precisam ser feitas quando você altera a senha da conta do serviço.
+##<a name="issues-that-arise-from-changing-hello-password"></a>Problemas que surgem da alteração da senha Olá
+Há duas coisas que precisam toobe feita quando você alterar a senha da conta de serviço hello.
 
-Primeiro, você precisa alterar a senha no Gerenciador de Controle de Serviços do Windows.  Até que esse problema seja resolvido, você verá os seguintes erros:
+Primeiro, é necessário toochange senha de saudação em Olá Gerenciador de controle de serviço do Windows.  Até que esse problema seja resolvido, você verá os seguintes erros:
 
 
-- Se você tentar iniciar o serviço de sincronização no Gerenciador de Controle de Serviços do Windows, receberá o erro "**O Windows não pôde iniciar o serviço de sincronização do Microsoft Azure AD no computador local**". **Erro 1069: O serviço não foi iniciado devido a uma falha de logon.**"
-- No Visualizador de Eventos do Windows, o log de eventos do sistema contém um erro com **ID de evento 7038** e a mensagem "**O serviço ADSync não pôde fazer logon com a senha configurada atualmente devido ao seguinte erro: nome de usuário ou senha incorretos.**"
+- Se você tentar toostart Olá serviço de sincronização no Gerenciador de controle de serviço do Windows, você recebe o erro de hello "**Windows não pôde iniciar o serviço de sincronização do AD do Microsoft Azure Olá no computador Local**". **Erro 1069: o serviço de saudação não foi iniciado devido a falha de logon tooa.** "
+- Em Visualizador de eventos do Windows, o log de eventos do sistema Olá contém um erro com **7038 de ID de evento** e a mensagem "**Olá serviço ADSync foi toolog não é possível em como com senha Olá configurado no momento devido toohello seguinte erro: Olá nome de usuário ou senha está incorreta.** "
 
-Segundo, sob condições específicas, se a senha for atualizada, o serviço de sincronização não poderá mais recuperar a chave de criptografia pelo DPAPI. Sem a chave de criptografia, o serviço de sincronização não poderá descriptografar as senhas necessárias para sincronizar de/para o AD local e o Azure AD.
+Em segundo lugar, sob condições específicas, se Olá senha for atualizada, Olá serviço de sincronização não mais recuperar chave de criptografia Olá via DPAPI. Sem a chave de criptografia Olá Olá de que serviço de sincronização não é possível descriptografar Olá senhas necessárias toosynchronize local AD e o Azure AD.
 Você verá erros, como:
 
-- No Gerenciador de Controle de Serviços do Windows, se você tentar iniciar o serviço de sincronização e ele não conseguir recuperar a chave de criptografia, receberá o erro “**O Windows não pôde iniciar a sincronização do Microsoft Azure AD no computador local. Para saber mais, examine o log de eventos do sistema. Se for um serviço de terceiros, não Microsoft, entre em contato com o fornecedor do serviço e mencione o código de erro específico do serviço **-21451857952****”.
-- No Visualizador de Eventos do Windows, o log de eventos do aplicativo contém um erro com **ID de evento 6028** e a mensagem de erro *“**A chave de criptografia do servidor não pode ser acessada* *”.*
+- No Gerenciador de controle de serviços do Windows, se você tentar toostart Olá serviço de sincronização e ele não pode recuperar a chave de criptografia de saudação falhar com o erro "* * Windows não pôde iniciar Olá Microsoft Azure AD Sync no computador Local. Para obter mais informações, examine o log de eventos do sistema de saudação. Se este é um serviço de terceiros, entre em contato com o fornecedor do serviço de saudação e consulte o código de erro específico tooservice * *-21451857952 *. "
+- No Visualizador de eventos do Windows, o log de eventos do aplicativo hello contém um erro com **6028 de ID de evento** e mensagem de erro *"**não é possível acessar a chave de criptografia do servidor de saudação.* *"*
 
-Para garantir que você não receba esses erros, siga os procedimentos em [Abandonando a chave de criptografia de sincronização do Azure AD Connect](#abandoning-the-azure-ad-connect-sync-encryption-key) ao alterar a senha.
+tooensure que você não recebe esses erros, siga os procedimentos de saudação em [chave de criptografia de sincronização se conectar de saudação do AD do Azure Abandoning](#abandoning-the-azure-ad-connect-sync-encryption-key) ao alterar a senha de saudação.
  
-## <a name="abandoning-the-azure-ad-connect-sync-encryption-key"></a>Abandono da chave de criptografia de sincronização do Azure AD Connect
+## <a name="abandoning-hello-azure-ad-connect-sync-encryption-key"></a>Chave de criptografia do Azure AD Sync conectar Olá abandoná-la
 >[!IMPORTANT]
->Os procedimentos a seguir aplicam-se somente ao Azure AD Connect compilação 1.1.443.0 ou anterior.
+>Olá procedimentos a seguir se aplicam somente tooAzure AD Connect compilação 1.1.443.0 ou anterior.
 
-Use os procedimentos a seguir para abandonar a chave de criptografia.
+Use Olá chave de criptografia de saudação de tooabandon procedimentos a seguir.
 
-### <a name="what-to-do-if-you-need-to-abandon-the-encryption-key"></a>O que fazer se você precisar abandonar a chave de criptografia
+### <a name="what-toodo-if-you-need-tooabandon-hello-encryption-key"></a>Quais toodo se precisar de chave de criptografia de saudação tooabandon
 
-Se você precisar abandonar a chave de criptografia, use os procedimentos a seguir para fazer isso.
+Se você precisar de chave de criptografia tooabandon hello, use Olá tooaccomplish procedimentos a seguir.
 
-1. [Abandone a chave de criptografia existente](#abandon-the-existing-encryption-key)
+1. [Abandone a chave de criptografia existente Olá](#abandon-the-existing-encryption-key)
 
-2. [Forneça a senha da conta do AD DS](#provide-the-password-of-the-ad-ds-account)
+2. [Fornecer a senha Olá Olá conta AD DS](#provide-the-password-of-the-ad-ds-account)
 
-3. [Reinicialize a senha da conta de sincronização do Azure AD](#reinitialize-the-password-of-the-azure-ad-sync-account)
+3. [Reinicializar senha Olá Olá conta de sincronização do AD do Azure](#reinitialize-the-password-of-the-azure-ad-sync-account)
 
-4. [Inicie o serviço de sincronização](#start-the-synchronization-service)
+4. [Saudação de iniciar o serviço de sincronização](#start-the-synchronization-service)
 
-#### <a name="abandon-the-existing-encryption-key"></a>Abandone a chave de criptografia existente
-Abandone a chave de criptografia existente para que essa nova chave de criptografia possa ser criada:
+#### <a name="abandon-hello-existing-encryption-key"></a>Abandone a chave de criptografia existente Olá
+Abandone a chave de criptografia existente Olá para que essa nova chave de criptografia pode ser criado:
 
-1. Faça logon no seu servidor do Azure AD Connect como administrador.
+1. Faça logon no tooyour servidor se conectar do AD do Azure como administrador.
 
 2. Inicie uma nova sessão do PowerShell.
 
-3. Navegue até a pasta: `$env:Program Files\Microsoft Azure AD Sync\bin\`
+3. Navegue até toofolder:`$env:Program Files\Microsoft Azure AD Sync\bin\`
 
-4. Execute o comando: `./miiskmu.exe /a`
+4. Execute o comando hello:`./miiskmu.exe /a`
 
 ![Utilitário de chave de criptografia de sincronização do Azure AD Connect](media/active-directory-aadconnectsync-encryption-key/key5.png)
 
-#### <a name="provide-the-password-of-the-ad-ds-account"></a>Forneça a senha da conta do AD DS
-Como as senhas existentes armazenadas no banco de dados não podem ser descriptografadas, você precisará fornecer ao serviço de sincronização a senha da conta do AD DS. O serviço de sincronização criptografa as senhas usando a nova chave de criptografia:
+#### <a name="provide-hello-password-of-hello-ad-ds-account"></a>Fornecer a senha Olá Olá conta AD DS
+Como as senhas existentes Olá armazenadas dentro do banco de dados de saudação não podem ser descriptografadas, você precisa tooprovide Olá serviço de sincronização com senha Olá conta Olá AD DS. Olá serviço de sincronização criptografa senhas hello usando a nova chave de criptografia hello:
 
-1. Inicie o Synchronization Service Manager (INICIAR → Serviço de Sincronização).
+1. Inicie Olá Synchronization Service Manager (serviço de sincronização inicial →).
 </br>![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)  
-2. Acesse a guia **Conectores**.
-3. Selecione o **AD Connector** que corresponde ao seu AD local. Se você tiver mais de um AD Connector, repita as etapas a seguir para cada um deles.
+2. Vá toohello **conectores** guia.
+3. Selecione Olá **conector AD** que corresponde a tooyour AD local. Se você tiver mais de um conector do AD, repita Olá seguindo as etapas para cada um deles.
 4. Em **Ações**, selecione **Propriedades**.
-5. Na caixa de diálogo pop-up, selecione **Conectar-se à floresta do Active Directory**:
-6. Insira a senha da conta do AD DS na caixa de texto **Senha**. Se você não souber a senha, configure-a para um valor conhecido antes de executar essa etapa.
-7. Clique em **OK** para salvar a nova senha e fechar a caixa de diálogo pop-up.
+5. Na caixa de diálogo pop-up hello, selecione **conectar-se a floresta do diretório tooActive**:
+6. Digite a senha de saudação da conta do AD DS de saudação em hello **senha** caixa de texto. Se você não souber a senha, você deve definir tooa conhecido valor antes de executar essa etapa.
+7. Clique em **Okey** toosave Olá nova senha e a caixa de diálogo pop-up Olá fechar.
 ![Utilitário de chave de criptografia de sincronização do Azure AD Connect](media/active-directory-aadconnectsync-encryption-key/key6.png)
 
-#### <a name="reinitialize-the-password-of-the-azure-ad-sync-account"></a>Reinicialize a senha da conta de sincronização do Azure AD
-Você não pode fornecer diretamente a senha da conta de serviço do Azure AD para o serviço de sincronização. Em vez disso, você precisa usar o cmdlet **Add-ADSyncAADServiceAccount** para reinicializar a conta de serviço do Azure AD. O cmdlet redefine a senha da conta e a torna disponível para o serviço de sincronização:
+#### <a name="reinitialize-hello-password-of-hello-azure-ad-sync-account"></a>Reinicializar senha Olá Olá conta de sincronização do AD do Azure
+Diretamente, você não pode fornecer senha Olá Olá AD do Azure serviço conta toohello serviço de sincronização. Em vez disso, você precisa toouse Olá cmdlet **ADSyncAADServiceAccount adicionar** tooreinitialize Olá conta de serviço do AD do Azure. Olá cmdlet redefine a senha da conta hello e facilita o serviço de sincronização de toohello disponível:
 
-1. Inicie uma nova sessão do PowerShell no servidor do Azure AD Connect.
+1. Inicie uma nova sessão do PowerShell no servidor do Azure AD Connect hello.
 2. Execute o cmdlet `Add-ADSyncAADServiceAccount`.
-3. Na caixa de diálogo pop-up, forneça as credenciais de administrador global do Azure AD para seu locatário do Azure AD.
+3. Na caixa de diálogo pop-up hello, forneça credenciais de Administrador Global de saudação do AD do Azure para seu locatário do AD do Azure.
 ![Utilitário de chave de criptografia de sincronização do Azure AD Connect](media/active-directory-aadconnectsync-encryption-key/key7.png)
-4. Se isso for bem-sucedido, você verá o prompt de comando do PowerShell.
+4. Se for bem-sucedida, você verá o prompt de comando do PowerShell hello.
 
-#### <a name="start-the-synchronization-service"></a>Inicie o serviço de sincronização
-Agora que o serviço de sincronização tem acesso à chave de criptografia e todas as senhas necessárias, você poderá reiniciar o serviço no Gerenciador de Controle de Serviços do Windows:
+#### <a name="start-hello-synchronization-service"></a>Saudação de iniciar o serviço de sincronização
+Agora que Olá serviço de sincronização tem a chave de criptografia de toohello de acesso e todas as senhas de Olá precisa, você pode reiniciar o serviço de saudação em Olá Gerenciador de controle de serviços do Windows:
 
 
-1. Vá para o Gerenciador de Controle de Serviços do Windows (INICIAR → Serviços).
+1. Vá tooWindows Gerenciador de controle de serviço (serviços de início →).
 2. Selecione **Sincronização do Microsoft Azure AD** e clique em Reiniciar.
 
 ## <a name="next-steps"></a>Próximas etapas

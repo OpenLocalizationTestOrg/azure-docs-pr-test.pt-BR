@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory ao Autotask Workplace | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Autotask Workplace."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Autotask no local de trabalho."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,211 +14,211 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 45130162271b20860607497ff93c6a668c415233
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7f820f24e8e9493fa2e1c075f2ef61d7eaa84f73
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>Tutorial: Integração do Azure Active Directory ao Autotask Workplace
 
-Neste tutorial, você aprende a integrar o Autotask Workplace ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como toointegrate Autotask no local de trabalho com o Azure Active Directory (AD do Azure).
 
-A integração do Autotask Workplace ao Azure AD oferece os seguintes benefícios:
+Integrando Autotask no local de trabalho com o AD do Azure fornece Olá benefícios a seguir:
 
-- No Azure AD, é possível controlar quem tem acesso ao Autotask Workplace
-- É possível permitir que os usuários se conectem automaticamente ao Autotask Workplace (Logon Único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um única localização: o Portal do Azure
+- Você pode controlar no AD do Azure que tenha acesso tooAutotask no local de trabalho
+- Você pode habilitar seu usuários tooautomatically get conectado tooAutotask no local de trabalho (logon único) com suas contas do AD do Azure
+- Você pode gerenciar suas contas em um local central - Olá portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao Autotask Workplace, você precisa dos seguintes itens:
+tooconfigure integração do AD do Azure com Autotask no local de trabalho, você precisa Olá itens a seguir:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura habilitada para logon único do Autotask Workplace
 - Você deve ser um administrador ou superadministrador no local de trabalho.
-- Você deve ter uma conta Administrador no Azure AD.
-- Os usuários que utilizam esse recurso devem ter contas no local de trabalho e no Azure AD e os endereços de email deles para ambos devem corresponder.
+- Você deve ter uma conta de administrador no hello AD do Azure.
+- usuários de saudação que utilizam este recurso devem ter contas no local de trabalho e hello AD do Azure e seus endereços de email para ambos devem corresponder.
 
 > [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
 
-1. Adicionando o Autotask Workplace por meio da galeria
+1. Adicionando Autotask no local de trabalho na Galeria de saudação
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-autotask-workplace-from-the-gallery"></a>Adicionando o Autotask Workplace por meio da galeria
-Para configurar a integração do Autotask Workplace ao Azure AD, você precisa adicionar o Autotask Workplace à lista de aplicativos SaaS gerenciados por meio da galeria.
+## <a name="adding-autotask-workplace-from-hello-gallery"></a>Adicionando Autotask no local de trabalho na Galeria de saudação
+integração de saudação tooconfigure do local de trabalho Autotask no AD do Azure, você precisa tooadd Autotask no local de trabalho da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
 
-**Para adicionar o Autotask Workplace por meio da galeria, realize as seguintes etapas:**
+**tooadd Autotask no local de trabalho na Galeria de hello, execute Olá etapas a seguir:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
 
-    ![O botão Azure Active Directory][1]
+    ![botão de Active Directory do Azure Olá][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
 
-    ![A folha Aplicativos empresariais][2]
+    ![folha de aplicativos de empresa Olá][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
 
-    ![O botão Novo aplicativo][3]
+    ![Novo botão de aplicativo Hello][3]
 
-4. Na caixa de pesquisa, digite **Autotask Workplace**, selecione **Autotask Workplace** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa hello, digite **Autotask no local de trabalho**, selecione **Autotask trabalho** no painel de resultados e clique em **adicionar** botão aplicativo hello de tooadd.
 
-    ![Autotask Workplace na lista de resultados](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_addfromgallery.png)
+    ![Lista de resultados de local de trabalho Autotask em Olá](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
 Nesta seção, você configura e testa o logon único do Azure AD com o Autotask Workplace, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Autotask Workplace é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Autotask Workplace.
+Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá na área de trabalho Autotask é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação na área de trabalho Autotask precisa toobe estabelecida.
 
-No Autotask Workplace, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+Na área de trabalho Autotask, atribuir o valor de saudação do hello **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
 
-Para configurar e testar o logon único do Azure AD com o Autotask Workplace, você precisa concluir os seguintes blocos de construção:
+tooconfigure e teste de logon único do AD do Azure com Autotask de espaço de trabalho, você precisa Olá toocomplete blocos de construção a seguir:
 
-1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Autotask Workplace](#create-an-autotask-workplace-test-user)** – para ter um equivalente de Brenda Fernandes no Autotask Workplace vinculado à representação do usuário no Azure AD.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Testar o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#create-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
+3. **[Criar um usuário de teste do local de trabalho Autotask](#create-an-autotask-workplace-test-user)**  -toohave um equivalente do Britta Simon na área de trabalho Autotask que é vinculado toohello AD do Azure representação do usuário.
+4. **[Atribuir um usuário de teste de saudação do AD do Azure](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
+5. **[Testar o logon único](#test-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo Autotask Workplace.
+Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único em seu aplicativo de área de trabalho Autotask.
 
-**Para configurar o logon único do Azure AD com o Autotask Workplace, realize as seguintes etapas:**
+**tooconfigure AD do Azure-logon único com o local de trabalho Autotask execute Olá etapas a seguir:**
 
-1. No portal do Azure, na página de integração do aplicativo do **Autotask Workplace**, clique em **Logon único**.
+1. Em Olá portal do Azure, Olá **Autotask trabalho** página de integração de aplicativos, clique em **o logon único**.
 
     ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
  
     ![Caixa de diálogo Logon único](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_samlbase.png)
 
-3. Se desejar configurar o aplicativo no modo iniciado pelo **IDP**, realize as seguintes etapas na seção **Domínio e URLs do Autotask Workplace**:
+3. Se desejar que o aplicativo hello tooconfigure **IDP** iniciada modo, executar Olá seguindo as etapas na Olá **URLs e domínio do local de trabalho Autotask** seção:
 
     ![Informações de logon único de Domínio e URLs do Autotask Workplace para IdP](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.awp.autotask.net/singlesignon/saml/metadata`
+    a. Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<subdomain>.awp.autotask.net/singlesignon/saml/metadata`
 
-    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<subdomain>.awp.autotask.net/singlesignon/saml/SSO`
+    b. Em Olá **URL de resposta** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<subdomain>.awp.autotask.net/singlesignon/saml/SSO`
 
-4. Se desejar configurar o aplicativo no modo iniciado pelo **SP**, marque a opção **Mostrar configurações de URL avançadas** e realize as seguintes etapas:
+4. Se desejar que o aplicativo hello tooconfigure **SP** modo iniciado, verifique **Mostrar configurações de URL avançadas** e executar Olá etapas a seguir:
 
     ![Informações de logon único de Domínio e URLs do Autotask Workplace para SP](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_url1.png)
 
-    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.awp.autotask.net/loginsso`
+    Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<subdomain>.awp.autotask.net/loginsso`
      
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. Contate a [equipe de suporte ao Cliente do Autotask Workplace](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) para obter esses valores. 
+    > Esses valores não são reais. Atualizar esses valores com hello real identificador, URL de resposta e URL de logon. Entre em contato com [equipe de suporte do cliente de área de trabalho Autotask](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) tooget esses valores. 
 
-5. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+5. Em Olá **o certificado de autenticação SAML** seção, clique em **Metadata XML** e, em seguida, salve o arquivo de metadados de saudação em seu computador.
 
-    ![O link de download do Certificado](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_certificate.png) 
+    ![link de download de certificado Olá](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_certificate.png) 
 
 6. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_general_400.png)
 
-7. Em uma janela de navegador da Web diferente, faça logon no Workplace Online usando as credenciais de administrador.
+7. Em uma janela de navegador web diferente, o logon tooWorkplace Online usando Olá credenciais de administrador.
 
     >[!Note]
-    >Ao configurar o IdP, um subdomínio precisará ser especificado. Para confirmar o subdomínio correto, faça logon no Workplace Online. Depois de conectado, tome nota do subdomínio na URL.
-    >O subdomínio é a parte entre o "https://" e ".awp.autotask.net/" e deve ser us, eu, ca or au.
+    >Ao configurar Olá IdP, um subdomínio precisará toobe especificado. subdomínio de correta de saudação do tooconfirm, logon tooWorkplace on-line. Depois de conectado, manter Observação toohello subdomínio Olá URL.
+    >subdomínio Olá faz parte de saudação entre hello "https://" e ".awp.autotask.net/" e deve ser EUA, UE, autoridade de certificação ou Austrália.
 
-8. Vá até **Configuração** > **Logon Único** e execute as seguintes etapas:
+8. Vá muito**configuração** > **Single Sign-On** e executar Olá etapas a seguir:
 
     ![Configuração de Logon Único do Autotask](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskssoconfig1.png)
  
-    a. Selecione a opção **Arquivo de Metadados XML** e, em seguida, carregue o **XML de Metadados** baixado do Portal do Azure.
+    a. Selecione Olá **arquivo de metadados XML** opção e, em seguida, carregar Olá **Metadata XML** baixado do portal do Azure.
 
     b. Clique em **Habilitar SSO**.
     
     ![Configuração de aprovação de Logon Único do Autotask](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskssoconfig2.png)
 
-    c. Selecione a caixa de seleção **Confirmo que essas informações estão corretas e eu confio neste IdP**.
+    c. Selecione Olá **confirmar essas informações estão corretas e eu confio neste IdP** caixa de seleção.
 
     d. Clique em **Aprovar**.
      
 >[!Note]
->Se você precisar de assistência para configurar o Autotask Workplace, consulte [essa página](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) para obter ajuda com sua conta do Workplace.
+>Se você precisar de assistência com a configuração Autotask no local de trabalho, consulte [essa página](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) tooget assistência com sua conta da empresa.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
 
    ![Criar um usuário de teste do Azure AD][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
 
-1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
+1. No hello portal do Azure, no painel esquerdo do hello, clique em Olá **Active Directory do Azure** botão.
 
-    ![O botão Azure Active Directory](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_01.png)
+    ![botão de Active Directory do Azure Olá](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_01.png)
 
-2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos**e, em seguida, clique em **todos os usuários**.
 
-    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_02.png)
+    ![Olá "Usuários e grupos" e "Todos os usuários" links](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_02.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação do hello **todos os usuários** caixa de diálogo.
 
-    ![O botão Adicionar](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_03.png)
+    ![botão Adicionar de saudação](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_03.png)
 
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+4. Em Olá **usuário** caixa de diálogo caixa, execute Olá etapas a seguir:
 
-    ![A caixa de diálogo Usuário](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_04.png)
+    ![caixa de diálogo de usuário Olá](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_04.png)
 
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
+    a. Em Olá **nome** , digite **BrittaSimon**.
 
-    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
+    b. Em Olá **nome de usuário** caixa tipo hello endereço de email do usuário Britta Simon.
 
-    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+    c. Selecione Olá **Mostrar senha** caixa de seleção e anote o valor de saudação que é exibido no hello **senha** caixa.
 
     d. Clique em **Criar**.
 
 ### <a name="create-an-autotask-workplace-test-user"></a>Criar um usuário de teste do Autotask Workplace
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Autotask. Trabalhe com a [equipe de suporte do Autotask Workplace](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) para adicionar os usuários à plataforma Autotask Workplace.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Autotask. Trabalhe com [a equipe de suporte local de trabalho Autotask](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) tooadd usuários Olá Olá plataforma Autotask no local de trabalho.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
 
-Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Autotask Workplace.
+Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooAutotask no local de trabalho.
 
-![Atribuir a função de usuário][200] 
+![Atribuir função de usuário Olá][200] 
 
-**Para atribuir Brenda Fernandes ao Autotask Workplace, realize as seguintes etapas:**
+**tooassign Britta Simon tooAutotask no local de trabalho, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Autotask Workplace**.
+2. Na lista de aplicativos hello, selecione **Autotask trabalho**.
 
-    ![O link do Autotask Workplace na lista de Aplicativos](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_app.png) 
+    ![Olá link Autotask no local de trabalho na lista de aplicativos Olá](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
 
-    ![O link “Usuários e grupos”][202]
+    ![link de "Usuários e grupos" Hello][202]
 
 4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
-    ![O painel Adicionar Atribuição][203]
+    ![Painel de atribuição adicionar Olá][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -226,14 +226,14 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
 
-Quando você clicar no bloco Autotask Workplace no Painel de Acesso, deverá ser automaticamente conectado ao aplicativo Autotask Workplace.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Quando você clica em Olá Autotask no local de trabalho lado a lado no painel de acesso de saudação, você deve obter tooyour automaticamente conectado no aplicativo de área de trabalho Autotask.
+Para obter mais informações sobre o painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

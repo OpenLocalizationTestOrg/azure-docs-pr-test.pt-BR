@@ -16,88 +16,88 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 0fa05ee6a2df13845024e770a82f50ab7f75bafd
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c177192bbe69d179a25d174b06a0813ec28e2615
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Aprofundamento no autoatendimento de redefinição de senha no Azure AD
 
-Como funciona o SSPR? O que essa opção significa na interface? Continue lendo para saber mais sobre o autoatendimento de redefinição de senha do Azure AD.
+Como funciona o SSPR? O que essa opção significa na interface Olá? Continuar a ler toofind mais informações sobre a senha de autoatendimento do AD do Azure redefinir.
 
-## <a name="how-does-the-password-reset-portal-work"></a>Como funciona o portal de redefinição de senha
+## <a name="how-does-hello-password-reset-portal-work"></a>Como a senha de saudação redefinir trabalho portal
 
-Quando um usuário navega para o portal de redefinição de senha, um fluxo de trabalho é iniciado para determinar:
+Quando um usuário navega toohello portal de redefinição de senha, um fluxo de trabalho é iniciado toodetermine:
 
-   * Como a página deve ser localizada?
-   * A conta de usuário é válida?
-   * A qual organização o usuário pertence?
-   * Em que local a senha do usuário é gerenciada?
-   * O usuário é licenciado para usar o recurso?
+   * Como página Olá deve ser localizada
+   * Conta de usuário de saudação é válido?
+   * Qual organização o usuário Olá pertencem a?
+   * Onde a senha do usuário Olá é gerenciada?
+   * É Olá usuário licenciado toouse Olá recurso?
 
 
-Ler as etapas abaixo para saber mais sobre a lógica por trás da página de redefinição de senha.
+Ler Olá etapas abaixo toolearn sobre a lógica de saudação por trás da página de redefinição de senha hello.
 
-1. O usuário clica no link Não consegue acessar sua conta ou acessa diretamente [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
-2. Com base na localidade do navegador, a experiência é renderizada no idioma apropriado. A experiência de redefinição de senha é localizada nos mesmos idiomas para os quais o Office 365 dá suporte.
+1. O usuário clica Olá não pode acessar o link de conta ou vai diretamente muito[https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
+2. Com base em Olá Olá de localidade do navegador experiência é renderizada no idioma adequado hello. Olá experiência de redefinição de senha está localizada em Olá mesmos idiomas que ofereça suporte a Office 365.
 3. O usuário insere uma id de usuário e passa  por um captcha.
-4. O AD do Azure verifica se o usuário é capaz de usar esse recurso fazendo o seguinte:
-   * Verifica se o usuário tem esse recurso habilitado e uma licença do Azure AD atribuída.
-     * Se o usuário não tiver esse recurso habilitado ou uma licença atribuída, ele deverá contatar o administrador para redefinir sua senha.
-   * Verifica se o usuário tem os dados de desafio corretos definidos em sua conta de acordo com a política do administrador.
-     * Se a política exige apenas um desafio, fica garantido que o usuário tem os dados apropriados definidos em pelo menos um dos desafios habilitados pela política do administrador.
-       * Se o usuário não estiver configurado, ele deverá contatar o administrador para redefinir sua senha.
-     * Se a política exige dois desafios, fica garantido que o usuário tem os dados apropriados definidos em pelo menos dois dos desafios habilitados pela política do administrador.
-       * Se o usuário não estiver configurado, ele deverá contatar o administrador para redefinir sua senha.
-   * Verifica se a senha do usuário é gerenciada localmente (federada ou sincronizada com hash de senha).
-     * Se o write-back estiver implantado e a senha do usuário for gerenciada localmente, o usuário poderá continuar a autenticação e a redefinição de sua senha.
-     * Se o write-back não estiver implantado e a senha do usuário for gerenciada localmente, o usuário deverá contatar o administrador para redefinir sua senha.
-5. Se for determinado que o usuário pode redefinir sua senha com êxito, ele será orientado pelo processo de redefinição.
+4. AD do Azure verifica se o usuário de saudação é capaz de toouse esse recurso fazendo Olá seguinte:
+   * Verifica que o usuário Olá tem esse recurso habilitado e uma licença do AD do Azure atribuída.
+     * Se o usuário Olá não tem esse recurso habilitado ou uma licença atribuída, usuário Olá é solicitado toocontact tooreset seu administrador sua senha.
+   * Verifica que o usuário Olá tem dados de desafio direita Olá definidos na sua conta de acordo com a política do administrador.
+     * Se a política exigir apenas um desafio, certifica-se que o usuário Olá tem dados de apropriado Olá definidos para pelo menos um dos desafios de saudação habilitados pela política do administrador de saudação.
+       * Se o usuário de saudação não está configurado, Olá usuário é aconselhável toocontact tooreset seu administrador sua senha.
+     * Se a política de saudação exigir dois desafios, certifica-se que o usuário Olá tem dados de apropriado Olá definidos para pelo menos duas das Olá desafios habilitados pela política do administrador de saudação.
+       * Se usuário Olá não estiver configurado, podemos Olá usuário é aconselhável toocontact tooreset seu administrador sua senha.
+   * Verifica se Olá a senha de usuário é gerenciada no local (federados ou sincronizados de hash de senha).
+     * Se Write-back for implantado e Olá a senha de usuário é gerenciada no local, o usuário Olá é permitido tooproceed tooauthenticate e redefinir sua senha.
+     * Se Write-back não é implantado e Olá a senha de usuário é gerenciada no local, o usuário Olá é solicitado toocontact tooreset seu administrador sua senha.
+5. Se for determinado que o usuário Olá é capaz de toosuccessfully redefinir sua senha, Olá será guiado pelo processo de redefinição de saudação.
 
 ## <a name="authentication-methods"></a>Métodos de autenticação
 
-Se o SSPR (Autoatendimento de Redefinição de Senha) estiver habilitado, você deverá selecionar pelo menos um das opções a seguir como métodos de autenticação. É altamente recomendável escolher pelo menos dois métodos de autenticação para que os usuários tenham mais flexibilidade.
+Se a redefinição de senha de autoatendimento (SSPR) estiver habilitado, você deve selecionar pelo menos um dos Olá opções para métodos de autenticação a seguir. É altamente recomendável escolher pelo menos dois métodos de autenticação para que os usuários tenham mais flexibilidade.
 
 * Email
 * Telefone celular
 * Telefone comercial
 * Perguntas de segurança
 
-### <a name="what-fields-are-used-in-the-directory-for-authentication-data"></a>Quais campos são usados no diretório para os dados de autenticação
+### <a name="what-fields-are-used-in-hello-directory-for-authentication-data"></a>Quais campos são usados no diretório Olá para dados de autenticação
 
-* Telefone Comercial corresponde ao Telefone Comercial
-    * Os usuários não conseguem definir esse campo por conta própria; ele deve ser definido por um administrador
-* Telefone Celular corresponde ao Telefone de Autenticação (não visível publicamente) ou ao Telefone Celular (visível publicamente)
-    * O serviço procura o Telefone de Autenticação primeiro e, em seguida, recorre ao Telefone Celular se aquele não estiver presente
-* O Endereço de Email Alternativo corresponde ao Email de Autenticação (não visível publicamente) ou ao Email Alternativo
-    * O serviço procura o Email de Autenticação primeiro e, em seguida, recorre ao Email Alternativo
+* Telefone comercial corresponde tooOffice telefone
+    * Os usuários são tooset não é possível que esse campo se ele deve ser definido por um administrador
+* Telefone celular corresponde tooeither telefone de autenticação (não visível publicamente) ou telefone celular (publicamente visível)
+    * Olá serviço procura primeiro o telefone de autenticação, em seguida, reverterá tooMobile telefone se não apresentar
+* Endereço de Email alternativo corresponde tooeither Email de autenticação (não visível publicamente) ou Email alternativo
+    * serviço Olá procura por Email de autenticação pela primeira vez, em seguida, falha tooAlternate back Email
 
-Por padrão, somente os atributos de nuvem Telefone Comercial e Telefone Celular são sincronizados com o diretório de nuvem do seu diretório local para os dados de autenticação.
+Por padrão, somente Olá atributos de nuvem telefone do escritório e telefone celular são sincronizados tooyour diretório na nuvem do seu diretório local para dados de autenticação.
 
-Os usuários somente poderão redefinir suas senhas se tiverem dados presentes nos métodos de autenticação habilitados e definidos como obrigatórios pelo administrador.
+Os usuários podem apenas redefinir sua senha se tiverem dados presentes nos métodos de autenticação Olá administrador Olá habilitada e requer.
 
-Se os usuários não desejarem que seus números de telefone celular fiquem visíveis no diretório, mas ainda desejarem usá-los para a redefinição de senha, os administradores não deverão populá-los no diretório e, em seguida, o usuário deverá popular seu atributo **Telefone de Autenticação** por meio do [portal de registro de redefinição de senha](http://aka.ms/ssprsetup). Os administradores poderão ver essas informações no perfil do usuário, mas elas não serão publicadas em nenhum outro lugar. Se uma conta do Administrador do Azure registrar o número de telefone de autenticação, ela será populada no campo de telefone celular e ficará visível.
+Se os usuários não desejar seu toobe de número de telefone celular visível no diretório Olá mas prefere como toouse-lo para redefinição de senha, os administradores não devem preenchê-la no diretório hello e usuário hello, em seguida, preencha seus **telefone de autenticação**  atributo via Olá [portal de registro de redefinição de senha](http://aka.ms/ssprsetup). Os administradores podem ver essas informações no perfil do usuário hello, mas não é publicado em outro lugar. Se uma conta de administrador do Azure registra o número de telefone de autenticação, ele é preenchido no campo de telefone celular hello e é visível.
 
 ### <a name="number-of-authentication-methods-required"></a>Quantidade necessária de métodos de autenticação
 
-Essa opção determina o número mínimo de métodos de autenticação disponíveis pelos quais um usuário deverá passar para redefinir ou desbloquear sua senha e pode ser definida como 1 ou 2.
+Essa opção determina o número mínimo de saudação de métodos de autenticação disponíveis Olá um usuário deve passar pelo tooreset ou desbloquear sua senha e pode ser definido tooeither 1 ou 2.
 
-Os usuários podem optar por fornecer mais métodos de autenticação se eles forem habilitados pelo administrador.
+Os usuários podem escolher toosupply mais métodos de autenticação se estiverem habilitados pelo administrador de saudação.
 
-Se um usuário não tiver os métodos mínimos necessários registrados, ele verá uma página de erro que o direcionará para solicitar a um administrador para redefinir sua senha.
+Se um usuário não tem métodos Olá mínimo necessário registrados, ele verá uma página de erro que direciona toorequest tooreset um administrador sua senha.
 
 ### <a name="how-secure-are-my-security-questions"></a>Qual o nível de segurança de minhas perguntas de segurança
 
-Se você usar perguntas de segurança, recomendamos usá-las juntamente com outro método, pois elas podem ser menos seguras do que outros métodos, já que algumas pessoas podem saber as respostas para as perguntas de outros usuários.
+Se você usar perguntas de segurança, recomendamos-los em uso com outro método como eles podem ser menos seguros do que outros métodos, pois algumas pessoas podem saber as respostas de saudação tooanother perguntas de usuários.
 
 > [!NOTE] 
-> As perguntas de segurança são armazenadas de forma privada e protegida em um objeto de usuário no diretório e somente podem ser respondidas pelos usuários durante o registro. Não há nenhuma maneira de um administrador ler ou modificar as perguntas ou respostas de um usuário.
+> Perguntas de segurança são armazenadas com segurança em particular em um objeto de usuário no diretório hello e só podem ser respondidas pelos usuários durante o registro. Não é possível para um administrador tooread ou modificar um usuário perguntas ou respostas.
 >
 
 ### <a name="security-question-localization"></a>Localização das perguntas de segurança
 
-Todas as perguntas predefinidas a seguir são localizadas no conjunto completo de idiomas do Office 365 de acordo com a localidade do navegador do usuário.
+Todas as perguntas predefinidas que seguem são localizadas em todo o conjunto de idiomas do Office 365 com base na localidade do navegador do usuário Olá Olá.
 
 * Em qual cidade você conheceu seu primeiro cônjuge/parceiro?
 * Em qual cidade seus pais se conheceram?
@@ -106,9 +106,9 @@ Todas as perguntas predefinidas a seguir são localizadas no conjunto completo d
 * Em qual cidade você teve seu primeiro emprego?
 * Em qual cidade sua mãe nasceu?
 * Em qual cidade você estava no ano de 2000?
-* Qual era o sobrenome de seu professor favorito no ensino médio*?
-* Qual é o nome de uma faculdade que você tentou entrar, mas que não frequentou?
-* Qual é o nome do lugar em que você realizou sua primeira festa de casamento?
+* O que é o sobrenome de saudação de seu professor favorito no alto * escola?
+* O que é o nome de saudação de uma faculdade à qual você aplicou toobut não frequentou?
+* Qual é o nome de saudação do local de saudação em que você realizou sua primeira recepção de casamento?
 * Qual é o segundo nome de seu pai?
 * Qual é sua comida favorita?
 * Qual é o nome e sobrenome de sua avó materna?
@@ -118,43 +118,43 @@ Todas as perguntas predefinidas a seguir são localizadas no conjunto completo d
 * Qual é o nome e sobrenome de seu avô paterno?
 * Qual é o segundo nome de seu irmão mais novo?
 * Em qual escola você concluiu a sexta série?
-* Qual era o nome e sobrenome de seu melhor amigo de infância?
-* Qual era o nome e sobrenome de seu primeiro parceiro?
-* Qual era o sobrenome de seu professor favorito no ensino médio?
-* Qual era a marca e o modelo de seu primeiro carro ou sua primeira moto?
-* Qual era o nome da primeira escola em que você estudou?
-* Qual é o nome do hospital em que você nasceu?
-* Qual é o nome da rua da primeira casa em que morou na infância?
-* Qual é o nome de seu herói de infância?
-* Qual é o nome de seu animal de pelúcia preferido?
-* Qual era o nome de seu primeiro animal de estimação?
+* O que foi Olá primeiro nome e sobrenome de seu melhor amigo de infância?
+* O que foi Olá primeiro nome e sobrenome de seu primeiro cônjuge?
+* Qual foi o último o nome de seu professor favorito do ensino Olá?
+* Qual era Olá marca e modelo do seu primeiro carro ou moto?
+* O que é o nome de saudação da primeira escola de saudação em que você estudou?
+* O que é o nome de saudação do hospital Olá em que você nasceu?
+* O que é o nome de saudação da rua de saudação da primeira morou?
+* O que é o nome de saudação de seu herói de infância?
+* O que é o nome de saudação de seu animal de pelúcia?
+* O que é o nome de saudação do seu primeiro animal de estimação?
 * Qual era seu apelido de infância?
 * Qual era seu esporte favorito no ensino médio?
 * Qual foi seu primeiro emprego?
-* Quais eram os últimos quatro dígitos de seu primeiro número de telefone?
-* Quando criança, o que você queria ser quando crescesse?
-* Quem é a pessoa mais famosa que você já conheceu?
+* O que foram Olá os quatro últimos dígitos de seu número de telefone de infância?
+* Quando criança, o que você queria toobe quando crescesse?
+* Quem é a pessoa mais famosa Olá que você já conheceu?
 
 ### <a name="custom-security-questions"></a>Perguntas de segurança personalizadas
 
-As perguntas de segurança personalizadas não são localizadas para localidades diferentes. Todas as perguntas personalizadas são exibidas no mesmo idioma em que são inseridas na interface do usuário administrativo, mesmo se a localidade do navegador do usuário é diferente. Se precisar de perguntas localizadas, use as perguntas predefinidas.
+As perguntas de segurança personalizadas não são localizadas para localidades diferentes. Todas as perguntas personalizadas são exibidas no hello mesmo idioma são inseridos na interface de usuário administrativo hello, mesmo se a localidade do navegador do usuário Olá é diferente. Se você precisar localizadas perguntas, use perguntas Olá predefinido.
 
-O tamanho máximo de uma pergunta de segurança personalizada é de 200 caracteres.
+comprimento máximo de saudação de uma pergunta de segurança personalizada é 200 caracteres.
 
 ### <a name="security-question-requirements"></a>Requisitos das perguntas de segurança
 
 * O limite mínimo para a resposta é de 3 caracteres
 * O limite máximo para a resposta é de 40 caracteres
-* Os usuários não podem responder à mesma pergunta mais de uma vez
-* Os usuários não podem fornecer a mesma resposta a mais de uma pergunta
-* Qualquer conjunto de caracteres pode ser usado para definir as perguntas e respostas, incluindo caracteres Unicode
-* O número de perguntas definidas deve ser maior ou igual ao número de perguntas obrigatórias para o registro
+* Os usuários não podem responder Olá mesma pergunta mais de uma vez
+* Os usuários não podem fornecer Olá mesma resposta toomore que uma pergunta
+* Qualquer conjunto de caracteres pode ser usado toodefine perguntas e respostas, incluindo caracteres Unicode
+* número de saudação de perguntas definidas deve ser maior que ou igual a toohello inúmeros tooregister de perguntas necessárias
 
 ## <a name="registration"></a>Registro
 
-### <a name="require-users-to-register-when-signing-in"></a>Exigir que os usuários se registrem ao entrar
+### <a name="require-users-tooregister-when-signing-in"></a>Exigir usuários tooregister ao entrar
 
-A habilitação dessa opção exige que um usuário que está habilitado para a redefinição de senha conclua o registro de redefinição de senha caso ele faça logon em aplicativos que usam o Azure AD para conexão, como os seguintes:
+A habilitação dessa opção requer que um usuário que está habilitado para senha redefinir o registro de redefinição de senha toocomplete Olá se eles logon tooapplications usando toosign do AD do Azure em como as que seguem:
 
 * Office 365
 * Portal do Azure
@@ -162,27 +162,27 @@ A habilitação dessa opção exige que um usuário que está habilitado para a 
 * Aplicativos federados
 * Aplicativos personalizados que usam o Azure AD
 
-A desabilitação desse recurso ainda permitirá que os usuários registrem manualmente suas informações de contato visitando [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) ou clicando no link **Registrar para redefinição de senha** na guia Perfil do painel de acesso.
+Desabilitar este recurso ainda permitirá que os usuários toomanually registrar suas informações de contato visitando [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) ou clicando Olá **registrar para redefinição de senha** link em Olá guia perfil no painel de acesso de saudação.
 
 > [!NOTE]
-> Os usuários podem ignorar o portal de registro de redefinição de senha clicando em Cancelar ou fechando a janela, mas verão esse prompt sempre que fizerem logon até concluírem o registro.
+> Os usuários podem ignorar o portal de registro de redefinição de senha Olá clicando cancelar ou fechando a janela Olá, mas são solicitados sempre que eles logon até concluir o registro.
 >
 
-### <a name="number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Número de dias antes que os usuários precisem reconfirmar suas informações de autenticação
+### <a name="number-of-days-before-users-are-asked-tooreconfirm-their-authentication-information"></a>Número de dias antes dos usuários frequentes tooreconfirm suas informações de autenticação
 
-Essa opção determina o período entre a configuração e a reconfirmação das informações de autenticação e só estará disponível se você habilitar a opção **Exigir que os usuários se registrem ao entrar**.
+Essa opção determina o período de saudação de tempo entre a configuração e reconfirmando informações de autenticação e só estará disponível se você habilitar Olá **exigem tooregister usuários ao entrar** opção.
 
-Os valores válidos são 0 a 730 dias, com 0 indicando “Nunca solicitar aos usuários a reconfirmação de suas informações de autenticação”
+Os valores válidos são 0 e 730 dias com 0, que significa nunca perguntar usuários tooreconfirm suas informações de autenticação
 
 ## <a name="notifications"></a>Notificações
 
-### <a name="notify-users-on-password-resets"></a>Notificar os usuários de redefinições de senha
+### <a name="notify-users-on-password-resets"></a>Notificar os usuários sobre as redefinições de senha
 
-Se essa opção for definida como Sim, o usuário que está redefinindo a senha receberá um email notificando-o de que sua senha foi alterada por meio do portal do SSPR em seus endereços de email primário e alternativo registrados no Azure AD. Ninguém mais é notificado desse evento de redefinição.
+Se essa opção for definida tooyes, usuário de saudação que é redefinir sua senha recebe um email notificando que sua senha foi alterada por meio de saudação SSPR tootheir portal principal e endereços de email alternativo no arquivo no AD do Azure. Ninguém mais é notificado desse evento de redefinição.
 
 ### <a name="notify-all-admins-when-other-admins-reset-their-passwords"></a>Notificar todos os administradores quando outros administradores redefinirem suas senhas
 
-Se essa opção for definida como Sim, **todos os administradores** receberão um email em seu endereço de email primário registrado no Azure AD notificando-os de que outro administrador alterou sua senha usando o SSPR.
+Se essa opção for definida, em seguida, tooyes, **todos os administradores** receber um endereço de email principal do email tootheir no arquivo no AD do Azure, notificando que outro administrador alterou sua senha usando o SSPR.
 
 Exemplo: Há quatro administradores em um ambiente. O administrador “A” redefine sua senha usando o SSPR. Os administradores B, C e D recebem um email avisando-os que isso está ocorrendo.
 
@@ -190,19 +190,19 @@ Exemplo: Há quatro administradores em um ambiente. O administrador “A” rede
 
 Se você instalou, configurou e habilitou o Azure AD Connect, terá mais opções de integrações locais.
 
-### <a name="write-back-passwords-to-your-on-premises-directory"></a>Write-back de senhas para o diretório local
+### <a name="write-back-passwords-tooyour-on-premises-directory"></a>Write-back de diretório de local de tooyour de senhas
 
-Controla se o write-back de senha está habilitado para esse diretório e, se estiver, indica o status do serviço de write-back local. Isso será útil se você desejar desabilitar o write-back de senha temporariamente sem reconfigurar o Azure AD Connect.
+Controla se o write-back de senha está habilitada ou não para este diretório e, se o write-back estiver ativado, indica o status de saudação do serviço de write-back local hello. Isso é útil se você quiser tootemporarily desabilitar Olá senha write-back sem configurar novamente a conexão do AD do Azure.
 
-* Se a opção estiver definida como Sim, o write-back será habilitado e os usuários federados e sincronizados com hash de senha poderão redefinir suas senhas.
-* Se a opção estiver definida como Não, o write-back será desabilitado e os usuários federados e sincronizados com hash de senha não poderão redefinir suas senhas.
+* Se o comutador hello é tooyes de conjunto de write-back estiver habilitado e federado e os usuários sincronizado de hash de senha será capaz de tooreset suas senhas.
+* Se o comutador hello é toono de conjunto de write-back será desabilitado e federado e os usuários sincronizado de hash de senha não será capaz de tooreset suas senhas.
 
-### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Permitir aos usuários desbloquear contas sem redefinir a senha
+### <a name="allow-users-toounlock-accounts-without-resetting-their-password"></a>Permitir que os usuários toounlock contas sem redefinir sua senha
 
-Determina se os usuários que visitam o portal de redefinição de senha receber a opção de desbloquear suas contas locais do Active Directory sem redefinir a senha. Por padrão, o Azure AD sempre desbloqueia contas ao executar uma redefinição de senha, essa configuração permite que você separe as duas operações. 
+Designa se os usuários que visitam o portal de redefinição de senha Olá devem ser determinado Olá opção toounlock seu Active Directory no local de contas sem redefinir sua senha. Por padrão, o AD do Azure sempre desbloquear contas ao realizar uma redefinição de senha, essa configuração permite que você tooseparate essas duas operações. 
 
-* Se for definido como "Sim", os usuários terão a opção de redefinir suas senhas e desbloquear a conta, ou desbloquear sem redefinir a senha.
-* Se for definido como "não", os usuários só poderão executar uma operação combinada de redefinição de senha e de desbloqueio de conta.
+* Se definir muito "Sim", em seguida, os usuários serão Olá determinada opção tooreset sua senha e desbloquear conta hello, ou toounlock sem redefinir senha hello.
+* Se definido muito "não", em seguida, os usuários só será capaz de tooperform uma redefinição de senha combinada e uma conta de operação de desbloqueio.
 
 ## <a name="network-requirements"></a>Requisitos de rede
 
@@ -210,67 +210,67 @@ Determina se os usuários que visitam o portal de redefinição de senha receber
 
 [Lista de URLs e endereços IP do Microsoft Office](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
 
-Para o Azure AD Connect versão 1.1.443.0 e posterior, você precisa do acesso a HTTPS de saída ao seguinte
+Para o Azure AD Connect versão 1.1.443.0 e posterior, você precisará de HTTPS de saída acesso toohello a seguir
 * passwordreset.microsoftonline.com
 * servicebus.windows.net
 
-Para obter um acesso mais granular, encontre a lista atualizada de Intervalos IP do Datacenter do Microsoft Azure que é atualizada toda quarta-feira e coloque em vigor a segunda-feira seguinte [aqui](https://www.microsoft.com/download/details.aspx?id=41653).
+Para um acesso mais granular, você pode encontrar lista atualizada de saudação do Microsoft Azure Datacenter intervalos de IP que é atualizado toda quarta-feira e coloque o seguinte de saudação do efeito segunda-feira [aqui](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="idle-connection-timeouts"></a>Tempos limite de conexão ociosa
 
-A ferramenta Azure AD Connect envia pings/keepalives periódicos para pontos de extremidade do Barramento de Serviço a fim de garantir que as conexões ficarão ativas. Se a ferramenta detectar que muitas conexões estão sendo encerradas, ele aumentará a frequência de pings automaticamente para o ponto de extremidade. As menores quedas de “intervalos de ping” serão de 1 ping a cada 60 segundos. No entanto, recomendamos que os proxies/firewalls permitam a persistência das conexões ociosas por, no mínimo, 2 a 3 minutos. *Para versões mais antigas, sugerimos quatro minutos ou mais.
+ferramenta do Hello Azure AD Connect envia pings/keepalives periódica tooServiceBus pontos de extremidade tooensure que conexões Olá permaneçam ativos. Ferramenta Olá deve detectar a que muitas conexões estão sendo eliminados, automaticamente aumentará a frequência de saudação do ponto de extremidade de toohello pings. Olá menor 'ping intervalos' descarta toois 1 ping a cada 60 segundos, no entanto, recomendamos enfaticamente que firewalls/proxies permite conexões ociosas toopersist de pelo menos 2 a 3 minutos. *Para versões mais antigas, sugerimos quatro minutos ou mais.
 
 ## <a name="active-directory-permissions"></a>Permissões do Active Directory
 
-A conta especificada no utilitário Azure AD Connect deve ter Permissões de Redefinição de Senha, Alteração de Senha, Permissões de Gravação em lockoutTime e Permissões de Gravação em pwdLastSet, direitos estendidos no objeto raiz de **cada domínio** nessa floresta **OU** nas UOs do usuário que você deseja que estejam no escopo do SSPR.
+Olá conta especificada no utilitário do hello Azure AD Connect deve ter Redefinir senha, alterar a senha, permissões de gravação em lockoutTime e permissões de gravação em pwdLastSet, estendido direitos sobre o objeto raiz de saudação do **cada domínio** nessa floresta **ou** no usuário Olá UOs desejar toobe no escopo para SSPR.
 
-Se não tiver certeza sobre qual conta a descrição acima se refere, abra a interface do usuário da configuração do Azure Active Directory Connect e clique na opção Exibir configuração atual. A conta à qual você precisa adicionar a permissão é listada em “Diretórios Sincronizados”
+Se você não tiver certeza de quais Olá de conta acima se refere a, abra hello Azure Active Directory Connect interface de configuração e clique em opção de configuração Olá exibição atual. conta de saudação que necessário tooadd toois de permissão listadas em "Diretórios sincronizados"
 
-Definir essas permissões permite que a conta de serviço MA de cada floresta gerencie senhas em nome das contas de usuário na floresta. **Se você não atribuir essas permissões, mesmo que o write-back pareça estar configurado corretamente, os usuários verão erros ao tentar gerenciar suas senhas locais na nuvem.**
+Definir essas permissões permite que a conta de serviço de MA Olá para senhas de toomanage cada floresta em nome de contas de usuário dentro dessa floresta. **Se você não tooassign essas permissões, em seguida, mesmo que o write-back aparece toobe configurado corretamente, os usuários encontram erros ao tentar toomanage suas senhas locais da nuvem de saudação.**
 
 > [!NOTE]
-> Pode levar até uma hora ou mais para que essas permissões sejam replicadas em todos os objetos no diretório.
+> Pode levar até tooan horas ou mais desses objetos de tooall tooreplicate permissões em seu diretório.
 >
 
-Para configurar as permissões apropriadas para que ocorra o write-back de senha
+tooset as permissões apropriadas Olá toooccur de write-back de senha
 
-1. Abra Usuários e Computadores do Active Directory com uma conta que tem as permissões de administração de domínio apropriadas
-2. No menu Exibir, verifique se a opção Recursos Avançados está ativada
-3. No painel esquerdo, clique com o botão direito do mouse no objeto que representa a raiz do domínio e escolha Propriedades
-    * Clique na guia Segurança
+1. Abra usuários do Active Directory e computadores com uma conta que tenha permissões de administração de domínio apropriado Olá
+2. No menu de exibição hello, certifique-se de que recursos avançados está ativado
+3. No painel esquerdo do hello, clique no objeto de saudação que representa a raiz de saudação do domínio hello e escolha Propriedades
+    * Guia de segurança do hello
     * Em seguida, clique em Avançado.
-4. Na guia Permissões, clique em Adicionar
-5. Selecione a conta à qual as permissões estão sendo aplicadas (na instalação do Azure AD Connect)
-6. Na caixa suspensa Aplica-se a, selecione Objetos Descendentes de Usuário
-7. Em Permissões, marque as caixas para o seguinte
+4. Na guia permissões de saudação, clique em Adicionar
+5. Selecione conta Olá que permissões estão sendo aplicadas muito (da configuração de conexão do AD do Azure)
+6. No hello aplica-se toodrop caixa suspensa, selecione objetos de usuário descendentes
+7. Em permissões marque as caixas de saudação seguinte Olá
     * Unexpire-Password
     * Redefinir senha
     * Alterar senha
     * Gravar lockoutTime
     * Gravar pwdLastSet
-8. Clique em Aplicar/OK para aplicar e sair das caixas de diálogo abertas.
+8. Clique em Aplicar/Okey tooapply e saia de todas as caixas de diálogo Abrir.
 
 ## <a name="how-does-password-reset-work-for-b2b-users"></a>Como a redefinição de senha funciona para usuários B2B?
-A redefinição e a alteração de senhas têm suporte completo em todas as configurações B2B.  Leia abaixo os três casos de B2B explícitos com suporte na redefinição de senha.
+A redefinição e a alteração de senhas têm suporte completo em todas as configurações B2B.  Leia abaixo Olá três explícita B2B casos com suporte pela redefinição de senha.
 
-1. **Usuários de uma organização de parceiros com um locatário existente do Azure AD** – se a organização com a qual você está fazendo uma parceria tiver um locatário existente do Azure AD, **respeitaremos todas as políticas de redefinição de senha habilitadas no locatário**. Para que a redefinição de senha funcione, a organização parceira só precisa garantie que o Azure AD SSPR esteja habilitado, o que não acarreta custo adicional para os clientes do O365 e pode ser habilitado seguindo as etapas em nosso guia de [Introdução ao gerenciamento de senhas](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
-2. **Usuários que se inscreveram usando a [inscrição para autoatendimento](active-directory-self-service-signup.md)** – se a organização com a qual você está fazendo uma parceria tiver usado o recurso de [inscrição para autoatendimento](active-directory-self-service-signup.md) para entrar em um locatário, permitiremos que eles redefinam com o email com o qual se registraram.
-3. **Usuários B2B** – os novos usuários B2B criados com as novas [funcionalidades do Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md) também poderão redefinir suas senhas com o email com o qual se registraram durante o processo de convite.
+1. **Os usuários de uma organização de parceiro com um locatário existente do AD do Azure** - se a organização de saudação são está em parceria com tem um locatário existente do AD do Azure, estamos **respeita quaisquer políticas de redefinição de senha estão habilitadas no locatário**. Para senha redefinir toowork, Olá parceiro organização necessidades apenas toomake se SSPR do AD do Azure está habilitado, que é sem custos adicionais para os clientes do O365, e pode ser habilitada, seguindo as etapas em Olá nosso [guia de Introdução ao gerenciamento de senhas ](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) guia.
+2. **Os usuários que se inscreveu usando [inscrição de autoatendimento](active-directory-self-service-signup.md)**  - se a organização Olá são está em parceria com usado Olá [inscrição de autoatendimento](active-directory-self-service-signup.md) tooget de recurso em um locatário, podemos deixá-los redefinido com email Olá registrados.
+3. **Usuários de B2B** -novos usuários B2B criados usando Olá novo [recursos do Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md) também será capaz de tooreset suas senhas com email Olá eles registrados durante o processo de convite hello.
 
-Para testar isso, acesse http://passwordreset.microsoftonline.com com um desses usuários parceiros. Desde que eles tenham um email alternativo ou um email de autenticação definido, a redefinição de senha funcionará como esperado.
+tootest isso, vá toohttp://passwordreset.microsoftonline.com com um desses usuários do parceiro. Desde que eles tenham um email alternativo ou um email de autenticação definido, a redefinição de senha funcionará como esperado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Os links a seguir fornecem informações adicionais sobre a redefinição de senha usando o Azure AD
+Olá links a seguir fornece informações adicionais sobre a redefinição de senha usando o AD do Azure
 
 * [**Início Rápido**](active-directory-passwords-getting-started.md): comece agora mesmo a usar o gerenciamento de autoatendimento de senhas do Azure AD 
-* [**Licenciamento**](active-directory-passwords-licensing.md): configure o licenciamento do Azure AD
-* [**Dados**](active-directory-passwords-data.md): entenda os dados que são necessários e como eles são usados para o gerenciamento de senhas
-* [**Distribuição**](active-directory-passwords-best-practices.md) – planeje e implante o SSPR em seus usuários usando as diretrizes descritas aqui
-* [**Política**](active-directory-passwords-policy.md) – entenda e defina políticas de senha do Azure AD
-* [**Write-back de Senha**](active-directory-passwords-writeback.md) – como o write-back de senha funciona com o diretório local
-* [**Personalizar**](active-directory-passwords-customize.md) – personalize a aparência da experiência do SSPR em sua empresa.
-* [**Relatórios**](active-directory-passwords-reporting.md) – descubra se, quando e onde os usuários estão acessando a funcionalidade do SSPR
-* [**Perguntas frequentes**](active-directory-passwords-faq.md) – Como? Por quê? O quê? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
-* [**Solução de problemas**](active-directory-passwords-troubleshoot.md) - Saiba como resolver problemas comuns que vemos com a SSPR
+* [**Licenciamento** ](active-directory-passwords-licensing.md) - Configuração do licenciamento do Azure AD
+* [**Dados** ](active-directory-passwords-data.md) - entender dados Olá necessários e como ele é usado para gerenciamento de senha
+* [**Distribuição** ](active-directory-passwords-best-practices.md) -planejar e implantar os usuários de tooyour SSPR usando Olá diretrizes encontradas aqui
+* [**Política** ](active-directory-passwords-policy.md) - Como entender e definir políticas de senha do Azure AD
+* [**Write-back de senha** ](active-directory-passwords-writeback.md) - Como o write-back de senha opera com o seu diretório local
+* [**Personalizar** ](active-directory-passwords-customize.md) -personalizar Olá aparência de saudação SSPR experiência para sua empresa.
+* [**Relatórios**](active-directory-passwords-reporting.md): descubra se, quando e onde os usuários estão acessando a funcionalidade SSPR
+* [**Perguntas frequentes**](active-directory-passwords-faq.md) – Como? Por quê? O quê? Onde? Quem? Quando? -Respostas tooquestions você sempre quis tooask
+* [**Solucionar problemas de** ](active-directory-passwords-troubleshoot.md) -Saiba como problemas comuns de tooresolve que vemos com SSPR
 

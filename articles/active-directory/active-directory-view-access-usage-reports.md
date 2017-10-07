@@ -1,6 +1,6 @@
 ---
-title: "Exibir relatórios de acesso e uso | Microsoft Docs"
-description: "Explica como exibir relatórios de acesso e uso para obter informações sobre a integridade e a segurança do diretório da organização."
+title: "aaaView relatórios de acesso e uso | Microsoft Docs"
+description: "Explica como acesso tooview relatórios de uso e toogain percepção integridade hello e segurança do diretório da sua organização."
 services: active-directory
 documentationcenter: 
 author: dhanyahk
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
-ms.openlocfilehash: 038ac79ebf61c6429fbf7ca21eefe9414bcfc03a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1c18fd2a327ae8b67f62ce2754f643bdb03514a9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="view-your-access-and-usage-reports"></a>Exibir relatórios de acesso e uso
-*Esta documentação é parte do [Guia de Relatórios do Azure Active Directory](active-directory-reporting-guide.md).*
+*Esta documentação é parte da saudação [do Azure Active Directory Reporting guia](active-directory-reporting-guide.md).*
 
-Você pode usar os relatórios de uso e de acesso do Active Directory do Azure para obter visibilidade quanto à integridade e a segurança do diretório da sua organização. Com essas informações, um administrador de diretório pode determinar melhor onde possíveis riscos de segurança podem estar, de modo que pode fazer planos adequados para mitigar esses riscos.
+Você pode usar o acesso do Azure Active Directory e uso relatórios toogain visibilidade Olá integridade e segurança do diretório da sua organização. Com essas informações, um administrador de diretório pode determinar melhor onde possíveis riscos de segurança pode para que possa planejar toomitigate adequadamente esses riscos.
 
-No Portal de Gerenciamento do Azure, os relatórios são categorizados das seguintes maneiras:
+No Portal de gerenciamento do hello, relatórios são categorizados Olá maneiras a seguir:
 
-* Relatórios de anomalias – contêm eventos de entrada que nós identificamos como anômalos. Nosso objetivo é que você fique ciente dessas atividades e permitir que você possa tomar uma decisão quanto a um evento ser suspeito ou não.
+* Relatórios de anomalias – contém eventos de conexão que nós identificamos toobe anormal. Nosso objetivo é toomake você ciente de tais atividades e permitem que você toobe capaz de toomake uma decisão sobre se um evento é suspeito.
 * Relatórios de aplicativos integrados – fornece um panorama de como os aplicativos em nuvem estão sendo usados na sua organização. O Active Directory do Azure oferece integração com milhares de aplicativos em nuvem.
-* Relatórios de erros – indicam erros que podem ocorrer ao provisionar contas para aplicativos externos.
+* Relatórios de erros – indica os erros que podem ocorrer ao provisionar contas tooexternal aplicativos.
 * Relatórios específicos do usuário – exibem dados de atividade de entrada/dispositivo de vídeo de um usuário específico.
-* Logs de atividades – contêm um registro de todos os eventos auditados no últimas 24 horas, últimos 7 dias ou últimos 30 dias, bem como alterações no grupo de atividade e atividades de registro e redefinição de senha.
+* Logs de atividade – contêm um registro de todos os eventos auditados em Olá última 24 horas, últimos 7 dias ou últimos 30 dias, bem como alterações do grupo de atividade e atividade de registro e redefinição de senha.
 
 > [!NOTE]
-> * Alguns relatórios avançados de uso de recursos e anomalias estão disponíveis somente quando você habilita o [Azure Active Directory Premium](active-directory-get-started-premium.md). Relatórios avançados ajudam a melhorar a segurança de acesso, responder às ameaças potenciais e obter acesso a análises sobre o uso do aplicativo e acesso do dispositivo.
-> * As Azure Active Directory Premium e Basic estão disponíveis para clientes na China usando a instância mundial do Active Directory do Azure. As edições Azure Active Directory Premium e Basic não têm suporte atualmente no serviço Microsoft Azure operado pela 21Vianet na China. Para obter mais informações, entre em contato conosco no [Fórum do Active Directory do Azure](https://feedback.azure.com/forums/169401-azure-active-directory/).
+> * Alguns relatórios avançados de uso de recursos e anomalias estão disponíveis somente quando você habilita o [Azure Active Directory Premium](active-directory-get-started-premium.md). Os relatórios avançados ajudam a melhorar a segurança de acesso, responder toopotential ameaças e obter acesso tooanalytics sobre o uso de acesso e o aplicativo de dispositivo.
+> * O Azure Active Directory Premium e edições Basic estão disponíveis para clientes na China usando a instância mundial de saudação do Active Directory do Azure. O Azure Active Directory Premium e edições Basic não têm suporte no momento no serviço do Microsoft Azure Olá operado pela 21Vianet na China. Para obter mais informações, entre em contato conosco em Olá [Fórum do Active Directory do Azure](https://feedback.azure.com/forums/169401-azure-active-directory/).
 > 
 > 
 
@@ -43,24 +43,24 @@ No Portal de Gerenciamento do Azure, os relatórios são categorizados das segui
 | Relatório | Descrição |
 | --- | --- |
 | **Relatórios de atividades anômalas** | |
-| [Entradas de fontes desconhecidas](active-directory-reporting-sign-ins-from-unknown-sources.md) |Pode indicar uma tentativa de conexão sem rastreamento. |
+| [Entradas de fontes desconhecidas](active-directory-reporting-sign-ins-from-unknown-sources.md) |Pode indicar um toosign tentativa sem que está sendo rastreado. |
 | [Entradas após várias falhas](active-directory-reporting-sign-ins-after-multiple-failures.md) |Pode indicar um ataque de força bruta com êxito. |
-| [Entradas de várias regiões geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md) |Pode indicar que vários usuários estão se conectando com a mesma conta. |
+| [Entradas de várias regiões geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md) |Pode indicar que vários usuários estão entrando com hello mesma conta. |
 | [Entradas de endereços IP com atividade suspeita](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md) |Pode indicar uma conexão bem-sucedida após uma tentativa de invasão prolongada. |
-| [Entradas de dispositivos possivelmente infectados](active-directory-reporting-sign-ins-from-possibly-infected-devices.md) |Pode indicar uma tentativa de conexão de dispositivos possivelmente infectados. |
-| [Atividade de conexão anômala](active-directory-reporting-irregular-sign-in-activity.md) |Pode indicar eventos anormais para padrões de conexão dos usuários. |
+| [Entradas de dispositivos possivelmente infectados](active-directory-reporting-sign-ins-from-possibly-infected-devices.md) |Pode indicar um toosign tentativa de dispositivos possivelmente infectados. |
+| [Atividade de conexão anômala](active-directory-reporting-irregular-sign-in-activity.md) |Pode indicar padrões de entrada dos eventos anômalos toousers. |
 | [Usuários com atividade de entrada anômala](active-directory-reporting-users-with-anomalous-sign-in-activity.md) |Indica os usuários cujas contas podem ter sido comprometidas. |
 | Usuários com credenciais insuficientes |Usuários com credenciais insuficientes |
 | **Logs de atividade** | |
 | Relatório de auditoria |Eventos auditados em seu diretório |
 | Atividade de redefinição de senha |Fornece uma exibição detalhada das redefinições de senha que acontecem em sua organização. |
 | Atividade de registro de redefinição de senha |Fornece uma exibição detalhada dos registros de redefinições de senha que acontecem em sua organização. |
-| Atividade de grupos de autoatendimento |Fornece um log de atividades para todas as atividades de autoatendimento de grupo em seu diretório |
+| Atividade de grupos de autoatendimento |Fornece um tooall do log de atividade atividades de autoatendimento em seu diretório de grupo |
 | **Aplicativos integrados** | |
 | Uso do aplicativo |Fornece um resumo do uso de todos os aplicativos SaaS integrados ao seu diretório. |
-| Atividade de provisionamento de conta |Fornece um histórico de tentativas para provisionar contas a aplicativos externos. |
+| Atividade de provisionamento de conta |Fornece um histórico de tentativas de tooprovision aplicativos de tooexternal de contas. |
 | Status de substituição de senha |Fornece uma visão geral detalhada do status de substituição automática de senha de aplicativos SaaS. |
-| Erros de provisionamento de conta |Indica um impacto sobre o acesso dos usuários para aplicativos externos. |
+| Erros de provisionamento de conta |Indica os aplicativos de tooexternal access dos toousers um impacto. |
 | **Gerenciamento de direitos** | |
 | Uso do RMS |Fornece um resumo de uso do Rights Management |
 | Usuários RMS mais ativos |Lista os primeiros 1.000 usuários ativos que acessaram arquivos protegidos por RMS |
@@ -96,11 +96,11 @@ No Portal de Gerenciamento do Azure, os relatórios são categorizados das segui
 | Uso de aplicativos habilitados para RMS | | |Somente RMS |
 
 ## <a name="anomalous-activity-reports"></a>Relatórios de atividades anômalas
-<p>Os relatórios de atividade de entrada anômala contêm atividade de entrada suspeita para o Portal de Gerenciamento do Azure, o Painel de Acesso do AD do Azure, o Office365, o Sharepoint Online, o Dynamics CRM Online e outros serviços online da Microsoft.</p>
+<p>Olá anormal entrar em relatórios de atividades sinalizador suspeito entrar tooOffice365 de atividade, Portal de gerenciamento, o painel de acesso do AD do Azure, o Sharepoint Online, Dynamics CRM Online e outros serviços online da Microsoft.</p>
 
-<p>Todos esses relatórios, exceto o relatório "Entradas após várias falhas", também sinalizam as entradas <i>federadas</i> suspeitas nos serviços mencionados anteriormente, independentemente do provedor de federação. </p>
+<p>Todos esses relatórios, exceto hello "Entradas após várias falhas" relatório, também sinalizador suspeito <i>federado</i> entrar ins toohello mencionados acima dos serviços, independentemente do provedor de Federação hello. </p>
 
-<p>Os relatórios a seguir estão disponíveis: </p><ul>
+<p>Olá relatórios a seguir está disponível: </p><ul>
 
 <li>[Entradas de fontes desconhecidas](active-directory-reporting-sign-ins-from-unknown-sources.md).</li>
 
@@ -122,7 +122,7 @@ No Portal de Gerenciamento do Azure, os relatórios são categorizados das segui
 ### <a name="audit-report"></a>Relatório de auditoria
 | Descrição | Local do relatório |
 |:--- |:--- |
-| Mostra um registro de todos os eventos auditados durante as últimas 24 horas, últimos 7 dias ou últimos 30 dias. <br /> Para obter mais informações, consulte [Eventos de relatório de auditoria do Active Directory do Azure](active-directory-reporting-audit-events.md) |Diretório > guia Relatórios |
+| Mostra um registro de todos os eventos auditados em Olá últimas 24 horas, últimos 7 dias ou últimos 30 dias. <br /> Para obter mais informações, consulte [Eventos de relatório de auditoria do Active Directory do Azure](active-directory-reporting-audit-events.md) |Diretório > guia Relatórios |
 
 ![Relatório de auditoria](./media/active-directory-view-access-usage-reports/auditReport.PNG)
 
@@ -143,7 +143,7 @@ No Portal de Gerenciamento do Azure, os relatórios são categorizados das segui
 ### <a name="self-service-groups-activity"></a>Atividade de grupos de autoatendimento
 | Descrição | Local do relatório |
 |:--- |:--- |
-| Mostra todas as atividades para os grupos gerenciados por autoatendimento em seu diretório. |Diretório > Usuários > <i>Usuário</i> > guia Dispositivos |
+| Mostra todas as atividades de saudação de grupos de autoatendimentos em seu diretório. |Diretório > Usuários > <i>Usuário</i> > guia Dispositivos |
 
 ![Atividade de grupos de autoatendimento](./media/active-directory-view-access-usage-reports/selfServiceGroupsActivity.PNG)
 
@@ -151,29 +151,29 @@ No Portal de Gerenciamento do Azure, os relatórios são categorizados das segui
 ### <a name="application-usage-summary"></a>Uso do aplicativo: resumo
 | Descrição | Local do relatório |
 |:--- |:--- |
-| Use este relatório quando desejar consultar o uso de todos os aplicativos SaaS em seu diretório. Este relatório está baseado no número de vezes que os usuários clicaram no aplicativo no Painel de Acesso. |Diretório > guia Relatórios |
+| Use este relatório quando desejar toosee uso para todos os aplicativos de SaaS Olá em seu diretório. Este relatório está baseado no número de saudação de vezes que os usuários clicaram no aplicativo hello em Olá painel de acesso. |Diretório > guia Relatórios |
 
-Este relatório inclui as entradas para *todos* os aplicativos aos quais o diretório tem acesso, incluindo os aplicativos previamente integrados da Microsoft.
+Este relatório inclui entradas muito*todos os* aplicativos que o diretório tiver acessam, incluindo aplicativos pré-integrados da Microsoft.
 
-Os aplicativos da Microsoft integrados incluem o Office 365, Sharepoint, o Portal de Gerenciamento do Azure e outros.
+Aplicativos Microsoft pré-integrados incluem o Office 365, Sharepoint, Olá Portal de gerenciamento e outros.
 
 ![Resumo de uso do aplicativo](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)
 
 ### <a name="application-usage-detailed"></a>Uso do aplicativo: detalhado
 | Descrição | Local do relatório |
 |:--- |:--- |
-| Use este relatório para ver o quanto um aplicativo SaaS específico está sendo usado. Este relatório está baseado no número de vezes que os usuários clicaram no aplicativo no Painel de Acesso. |Diretório > guia Relatórios |
+| Use este relatório quando desejar toosee quanto um aplicativo SaaS específico está sendo usado. Este relatório está baseado no número de saudação de vezes que os usuários clicaram no aplicativo hello em Olá painel de acesso. |Diretório > guia Relatórios |
 
 ### <a name="application-dashboard"></a>Painel do aplicativo
 | Descrição | Local do relatório |
 |:--- |:--- |
-| Este relatório indica entradas cumulativas no aplicativo pelos usuários em sua organização, durante um intervalo de tempo selecionado. O gráfico na página do painel ajudará você a identificar tendências para toda a utilização desse aplicativo. |Diretório > Aplicativo > guia Painel |
+| Este relatório indica o aplicativo de toohello ins cumulativa logon por usuários em sua organização, em um intervalo de tempo selecionado. gráfico de saudação na página de painel Olá ajudará você a identificar tendências para todos os usos desse aplicativo. |Diretório > Aplicativo > guia Painel |
 
 ## <a name="error-reports"></a>Relatórios de erros
 ### <a name="account-provisioning-errors"></a>Erros de provisionamento de conta
 | Descrição | Local do relatório |
 |:--- |:--- |
-| Use isto para monitorar os erros que ocorrem durante a sincronização de contas de aplicativos SaaS para o Active Directory do Azure. |Diretório > guia Relatórios |
+| Use este toomonitor os erros que ocorrem durante a sincronização de saudação de contas do tooAzure de aplicativos SaaS do Active Directory. |Diretório > guia Relatórios |
 
 ![Erros de provisionamento de conta](./media/active-directory-view-access-usage-reports/accountProvisioningErrors.PNG)
 
@@ -181,65 +181,65 @@ Os aplicativos da Microsoft integrados incluem o Office 365, Sharepoint, o Porta
 ### <a name="devices"></a>Dispositivos
 | Descrição | Local do relatório |
 |:--- |:--- |
-| Use este relatório quando desejar ver o endereço IP e a localização geográfica de dispositivos que um usuário específico utilizou para acessar o Active Directory do Azure. |Diretório > Usuários > <i>Usuário</i> > guia Dispositivos |
+| Use este relatório quando desejar que o endereço IP toosee hello e a localização geográfica de dispositivos que um usuário específico tenha utilizado tooaccess Active Directory do Azure. |Diretório > Usuários > <i>Usuário</i> > guia Dispositivos |
 
 ### <a name="activity"></a>Atividade
 | Descrição | Local do relatório |
 |:--- |:--- |
-| Mostra a atividade de entrada de um usuário. O relatório inclui informações como o aplicativo conectado ao dispositivo utilizado, o endereço IP e o local. Não coletamos o histórico de usuários que realizam a entrada com uma conta da Microsoft. |Diretório > Usuários > <i>Usuário</i> > guia Atividade |
+| Mostra o logon de saudação na atividade de um usuário. relatório de saudação inclui informações como o aplicativo hello conectado, o dispositivo usado, o endereço IP e o local. Não coletamos o histórico de saudação para usuários que entram com uma conta da Microsoft. |Diretório > Usuários > <i>Usuário</i> > guia Atividade |
 
-#### <a name="sign-in-events-included-in-the-user-activity-report"></a>Inscreva-se em eventos incluídos no relatório de Atividade de Usuário
-Somente determinados tipos de eventos de entrada serão exibidos no relatório de Atividade de Usuário.
+#### <a name="sign-in-events-included-in-hello-user-activity-report"></a>Inscrever-se em eventos incluídos no hello relatório de atividade de usuário
+Somente determinados tipos de eventos de entrada serão exibida no hello relatório de atividade de usuário.
 
 | Tipo de evento | Incluso? |
 | --- | --- |
-| Entradas no [Painel de Acesso](http://myapps.microsoft.com/) |Sim |
-| Entradas no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/) |Sim |
-| Entradas no [Portal do Microsoft Azure](https://portal.azure.com/) |Sim |
-| Entradas no [Portal do Office 365](http://portal.office.com/) |Sim |
-| Entradas em um aplicativo nativo, como o Outlook (consulte exceção abaixo) |Sim |
-| Entradas em um aplicativo federado/provisionado por meio do Painel de Acesso, como Salesforce |Sim |
-| Entradas em um aplicativo baseado em senha por meio do Painel de Acesso, como o Twitter |Sim |
-| Realiza a entrada em um aplicativo de negócios personalizado que foi adicionado ao diretório |Não (em breve) |
-| Conexões em um aplicativo de proxy de aplicativo do Azure AD que foi adicionado ao diretório |Não (em breve) |
+| Assinar ins toohello [painel de acesso](http://myapps.microsoft.com/) |Sim |
+| Assinar ins toohello [Portal de gerenciamento](https://manage.windowsazure.com/) |Sim |
+| Assinar ins toohello [Portal do Microsoft Azure](https://portal.azure.com/) |Sim |
+| Assinar ins toohello [portal do Office 365](http://portal.office.com/) |Sim |
+| Assinar o aplicativo nativo do ins tooa, como o Outlook (consulte a exceção abaixo) |Sim |
+| Assinar ins tooa federado/provisionado aplicativo por meio de saudação painel de acesso, como o Salesforce |Sim |
+| Assinar ins tooa baseada em senha aplicativo por meio de saudação painel de acesso, como o Twitter |Sim |
+| Entrada ins tooa aplicativo de negócios personalizada que tenha sido adicionado toohello diretório |Não (em breve) |
+| Assinar ins tooan Proxy de aplicativo do Azure AD aplicativo que foi adicionado toohello diretório |Não (em breve) |
 
-> Observação: Para reduzir a quantidade de interferência no relatório, as entradas pelo [Assistente de Conexão do Microsoft Online Services](http://community.office365.com/en-us/w/sso/534.aspx) não são mostradas.
+> Observação: quantidade de saudação do tooreduce de ruído neste relatório, entradas por Olá [assistente Microsoft Online Services entrar](http://community.office365.com/en-us/w/sso/534.aspx) não são mostradas.
 > 
 > 
 
-## <a name="things-to-consider-if-you-suspect-security-breach"></a>Coisas a considerar se você suspeitar de violação de segurança
-Se você suspeitar que uma conta de usuário pode estar comprometida ou qualquer tipo de atividade de usuário suspeita que pode levar a uma violação de segurança de seus dados de diretório na nuvem, você talvez queira considerar uma ou mais das seguintes ações:
+## <a name="things-tooconsider-if-you-suspect-security-breach"></a>Coisas tooconsider se você suspeitar de violação de segurança
+Se você suspeitar de que uma conta de usuário pode ser comprometida ou qualquer tipo de atividade de usuário suspeitos que pode levar tooa violação de segurança de dados do diretório na nuvem Olá, talvez você queira tooconsider um ou mais de saudação ações a seguir:
 
-* Contate o usuário para verificar a atividade
-* Redefinir a senha do usuário
+* Entre em contato com a atividade de Olá Olá usuário tooverify
+* Redefinir senha do usuário Olá
 * [Habilitar a Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started.md) para segurança adicional
 
 ## <a name="view-or-download-a-report"></a>Exibir ou baixar uma fatura
-1. No portal clássico do Azure, clique em **Active Directory**, clique no nome do diretório de sua organização, em seguida, clique em **Relatórios**.
-2. Na página Relatórios, clique no relatório que você deseja exibir e/ou baixar.
+1. No portal clássico do Azure do hello, clique em **do Active Directory**, clique em nome de saudação do diretório da sua organização e, em seguida, clique em **relatórios**.
+2. Na página de relatórios Olá, clique em relatório Olá desejado tooview e/ou download.
    
    > [!NOTE]
-   > Se esta for a primeira vez que você usa o recurso de relatório do Active Directory do Azure, verá uma mensagem para aceitar. Se você concordar, clique no ícone de marca de seleção para continuar.
+   > Se esse for Olá pela primeira vez que você usou Olá reporting recurso do Active Directory do Azure, você verá um tooOpt de mensagem no. Se você concordar, clique em Olá toocontinue de ícone de marca de seleção.
    > 
    > 
-3. Clique no menu suspenso ao lado de Intervalo e, em seguida, selecione um dos seguintes intervalos de tempo que deverá ser usado ao gerar este relatório:
+3. Clique Olá menu suspenso próximo tooInterval e, em seguida, selecione uma das Olá intervalos de tempo que devem ser usados ao gerar este relatório a seguir:
    
    * Últimas 24 horas
    * Últimos 7 dias
    * Últimos 30 dias
-4. Clique no ícone de marca de seleção para executar o relatório.
-   * Até 1000 eventos serão mostrados no portal clássico do Azure.
-5. Se aplicável, clique em **Baixar** para baixar o relatório em um arquivo compactado no formato CSV (valores separados por vírgulas) para fins de arquivamento ou visualização offline.
-   * Até 75.000 eventos serão incluídos no arquivo baixado.
-   * Para obter mais dados, confira a [API de Relatórios do AD do Azure](active-directory-reporting-api-getting-started.md).
+4. Clique em relatório de Olá Olá marca de seleção ícone toorun.
+   * Backup too1000 eventos serão mostrados na Olá portal clássico do Azure.
+5. Se aplicável, clique em **baixar** toodownload Olá relatório tooa arquivo compactado no formato de valores separados por vírgulas (CSV) para visualização offline ou finalidades de arquivamento.
+   * Backup too75, 000 eventos serão incluídos no arquivo hello baixado.
+   * Para mais dados, confira Olá [API do Azure AD Reporting](active-directory-reporting-api-getting-started.md).
 
 ## <a name="ignore-an-event"></a>Ignorar um evento
-Se você estiver exibindo os relatórios de anomalias, perceba que você pode ignorar vários eventos que aparecem em relatórios relacionados. Para ignorar um evento, basta destacar o evento no relatório e, em seguida, clicar em **Ignorar**. O botão **Ignorar** removerá permanentemente o evento realçado do relatório e só pode ser usado por administradores globais licenciados.
+Se você estiver exibindo os relatórios de anomalias, perceba que você pode ignorar vários eventos que aparecem em relatórios relacionados. tooignore um evento, basta destacar o evento Olá no relatório hello e, em seguida, clique em **ignorar**. Olá **ignorar** botão removerá permanentemente evento realçado saudação do relatório hello e só pode ser usada por administradores globais licenciados.
 
 ## <a name="automatic-email-notifications"></a>Notificações automáticas por email
 Para saber mais sobre as notificações de relatórios do Azure AD, confira [Notificações de relatórios do Active Directory do Azure](active-directory-reporting-notifications.md).
 
 ## <a name="whats-next"></a>O que vem a seguir
 * [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
-* [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
+* [Adicionar identidade visual tooyour páginas entrar e painel de acesso da empresa](active-directory-add-company-branding.md)
 

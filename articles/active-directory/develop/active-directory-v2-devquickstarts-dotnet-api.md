@@ -1,6 +1,6 @@
 ---
-title: Adicionar entrada a uma API Web do MVC do .NET usando o ponto de extremidade do Azure AD v2.0 | Microsoft Docs
-description: "Agora você tem uma API da Web .NET MVC que aceita tokens de contas da Microsoft pessoais, e contas corporativas ou de estudante."
+title: "aaaAdd tooa entrar API da web .NET MVC usando Olá o ponto de extremidade do AD do Azure v 2.0 | Microsoft Docs"
+description: Como toobuild uma Api da Web MVC do .NET que aceita tokens de ambos os Account pessoal da Microsoft e contas corporativa ou escolar.
 services: active-directory
 documentationcenter: .net
 author: dstrockis
@@ -15,30 +15,30 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b2d7bbfcd9218698f71e9dfdb1ad5d9ff8740f5e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4e517145422bb6e9368e82a7eef4a5c57cce530a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="secure-an-mvc-web-api"></a>Proteger uma API Web do MVC
-Com o ponto de extremidade v2.0 do Azure Active Directory, você pode proteger uma API Web usando tokens de acesso [OAuth 2.0](active-directory-v2-protocols.md) , permitindo que usuários com contas pessoais, corporativas ou de estudante da Microsoft acessem sua API Web com segurança.
+Com o ponto de extremidade de Active Directory do Azure Olá v 2.0, você pode proteger uma API da Web usando [OAuth 2.0](active-directory-v2-protocols.md) tokens de acesso, permitindo que os usuários com ambas as conta pessoal da Microsoft e contas corporativas ou de estudante toosecurely acessar a API da Web.
 
 > [!NOTE]
-> Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0.  Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
+> Nem todos os recursos e cenários de Active Directory do Azure têm suporte pelo ponto de extremidade do hello v 2.0.  toodetermine se você deve usar o ponto de extremidade de v 2.0 hello, leia sobre [limitações v 2.0](active-directory-v2-limitations.md).
 >
 >
 
-Em APIs da Web ASP.NET, você pode conseguir isso usando o middleware OWIN da Microsoft, incluso no .NET Framework 4.5.  Usaremos aqui o OWIN para compilar uma API Web MVC de "Lista de Tarefas" que permite aos clientes criar e ler tarefas da lista de tarefas pendentes do usuário.  A API Web validará se as solicitações de entrada contém um token de acesso válido e rejeitará as solicitações não aprovadas na validação em uma rota protegida.  Este exemplo foi criado usando o Visual Studio 2015.
+Em APIs da Web ASP.NET, você pode conseguir isso usando o middleware OWIN da Microsoft, incluso no .NET Framework 4.5.  Aqui vamos usar OWIN toobuild uma API da Web MVC de "tooDo lista" que permite que os clientes toocreate e ler tarefas da lista de tarefas do usuário.  API da web Hello validará que as solicitações de entrada contém um token de acesso válido e rejeitar todas as solicitações que não passou na validação em uma rota protegida.  Este exemplo foi criado usando o Visual Studio 2015.
 
 ## <a name="download"></a>Baixar
-O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet).  Para acompanhar, você pode [baixar o esqueleto do aplicativo como um .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) ou clonar o esqueleto:
+código de saudação para este tutorial é mantido [no GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet).  toofollow ao longo, você pode [baixar o esqueleto do aplicativo hello como. zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) ou esqueleto de saudação do clone:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
 ```
 
-O aplicativo de esqueleto inclui todo o código clichê de uma API simples, porém estão faltando todas as partes relacionadas à identidade. Se você não quiser acompanhar, clone ou [baixe o exemplo completo](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip).
+aplicativo de esqueleto Olá inclui todo o código clichê Olá para uma API simples, mas não tem todas as partes relacionadas à identidade de saudação. Se você não quiser toofollow ao longo, em vez disso, você pode clonar ou [baixar exemplo hello concluída](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip).
 
 ```
 git clone https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
@@ -47,16 +47,16 @@ git clone https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
 ## <a name="register-an-app"></a>Registrar um aplicativo
 Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md).  Não se esqueça de:
 
-* Copiar a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela logo.
+* Cópia para baixo Olá **Id do aplicativo** atribuído tooyour aplicativo, você precisará dele em breve.
 
-Essa solução do Visual Studio também contém um "TodoListClient”, que é um aplicativo WPF simples.  O TodoListClient é usado para demonstrar como um usuário se conecta e como um cliente pode emitir solicitações para sua API Web.  Nesse caso, tanto o TodoListClient como TodoListService são representados pelo mesmo aplicativo.  Para configurar o TodoListClient, você deverá também:
+Essa solução do Visual Studio também contém um "TodoListClient”, que é um aplicativo WPF simples.  Olá TodoListClient é toodemonstrate usado como um usuário entrar e como um cliente pode emitir solicitações tooyour API da Web.  Nesse caso, a saudação TodoListClient e Olá TodoListService são representados por Olá mesmo aplicativo.  tooconfigure Olá TodoListClient, você também deve:
 
-* Adicione a plataforma **Móvel** de seu aplicativo.
+* Adicionar Olá **Mobile** plataforma para seu aplicativo.
 
 ## <a name="install-owin"></a>Instalar a OWIN
-Agora que você registrou um aplicativo, é preciso configurar seu aplicativo para se comunicar com o ponto de extremidade v2.0 para validar tokens e solicitações recebidos.
+Agora que você já registrou um aplicativo, você precisa tooset backup toocommunicate seu aplicativo com ponto de extremidade do hello v 2.0 em ordem toovalidate solicitações de entrada e tokens.
 
-* Para começar, abra a solução e adicione os pacotes do NuGet de middleware OWIN ao projeto TodoListService usando o Console do Gerenciador de Pacotes.
+* toobegin, abra a solução hello e adicione Olá OWIN middleware NuGet pacotes toohello projeto TodoListService usando Olá Package Manager Console.
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService
@@ -66,8 +66,8 @@ PM> Install-Package Microsoft.IdentityModel.Protocol.Extensions -ProjectName Tod
 ```
 
 ## <a name="configure-oauth-authentication"></a>Configurar a autenticação OAuth
-* Adicionar uma classe de inicialização OWIN no projeto TodoListService chamado `Startup.cs`.  Clique com o botão direito do mouse no projeto --> **Adicionar** --> **Novo item** --> pesquise por "OWIN".  O middleware OWIN invocará o método `Configuration(…)` quando seu aplicativo for iniciado.
-* Altere a declaração de classe para `public partial class Startup`; já implementamos parte dessa classe para você em outro arquivo.  No método `Configuration(…)`, faça uma chamada para ConfgureAuth(...) para configurar a autenticação para seu aplicativo Web.
+* Adicionar um projeto TodoListService do toohello da classe de inicialização OWIN chamado `Startup.cs`.  --> Do botão direito do mouse no projeto de saudação **adicionar** --> **Novo Item** --> procure "OWIN".  Olá OWIN middleware invocará Olá `Configuration(…)` método quando seu aplicativo é iniciado.
+* Altere a declaração de classe Olá muito`public partial class Startup` -já implementamos parte dessa classe para você em outro arquivo.  Em Olá `Configuration(…)` método, faça um tooset tooConfgureAuth(...) de chamada de autenticação para seu aplicativo web.
 
 ```C#
 public partial class Startup
@@ -79,34 +79,34 @@ public partial class Startup
 }
 ```
 
-* Abra o arquivo `App_Start\Startup.Auth.cs` e implemente o método `ConfigureAuth(…)`, que vai configurar a API da Web para aceitar tokens do ponto de extremidade v2.0.
+* Arquivo hello abrir `App_Start\Startup.Auth.cs` e implementar Olá `ConfigureAuth(…)` método, que irá configurar tokens de tooaccept de API da Web de saudação do ponto de extremidade do hello v 2.0.
 
 ```C#
 public void ConfigureAuth(IAppBuilder app)
 {
         var tvps = new TokenValidationParameters
         {
-                // In this app, the TodoListClient and TodoListService
-                // are represented using the same Application Id - we use
-                // the Application Id to represent the audience, or the
+                // In this app, hello TodoListClient and TodoListService
+                // are represented using hello same Application Id - we use
+                // hello Application Id toorepresent hello audience, or the
                 // intended recipient of tokens.
 
                 ValidAudience = clientId,
 
                 // In a real applicaiton, you might use issuer validation to
-                // verify that the user's organization (if applicable) has
-                // signed up for the app.  Here, we'll just turn it off.
+                // verify that hello user's organization (if applicable) has
+                // signed up for hello app.  Here, we'll just turn it off.
 
                 ValidateIssuer = false,
         };
 
-        // Set up the OWIN pipeline to use OAuth 2.0 Bearer authentication.
-        // The options provided here tell the middleware about the type of tokens
-        // that will be recieved, which are JWTs for the v2.0 endpoint.
+        // Set up hello OWIN pipeline toouse OAuth 2.0 Bearer authentication.
+        // hello options provided here tell hello middleware about hello type of tokens
+        // that will be recieved, which are JWTs for hello v2.0 endpoint.
 
-        // NOTE: The usual WindowsAzureActiveDirectoryBearerAuthenticaitonMiddleware uses a
-        // metadata endpoint which is not supported by the v2.0 endpoint.  Instead, this
-        // OpenIdConenctCachingSecurityTokenProvider can be used to fetch & use the OpenIdConnect
+        // NOTE: hello usual WindowsAzureActiveDirectoryBearerAuthenticaitonMiddleware uses a
+        // metadata endpoint which is not supported by hello v2.0 endpoint.  Instead, this
+        // OpenIdConenctCachingSecurityTokenProvider can be used toofetch & use hello OpenIdConnect
         // metadata document.
 
         app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
@@ -116,7 +116,7 @@ public void ConfigureAuth(IAppBuilder app)
 }
 ```
 
-* Agora você pode usar `[Authorize]` atributos para proteger os controladores e ações com a autenticação de portador OAuth 2.0.  Decore a classe `Controllers\TodoListController.cs` com uma marca de autorização.  Isso forçará o usuário a entrar antes de acessar essa página.
+* Agora você pode usar `[Authorize]` atributos tooprotect seus controladores e ações com autenticação do portador do OAuth 2.0.  Decore Olá `Controllers\TodoListController.cs` classe com uma marca de autorização.  Isso forçará Olá usuário toosign em antes de acessar essa página.
 
 ```C#
 [Authorize]
@@ -124,14 +124,14 @@ public class TodoListController : ApiController
 {
 ```
 
-* Quando um chamador autorizado invoca com êxito uma das `TodoListController` APIs, a ação pode precisar ter acesso às informações sobre o chamador.  O OWIN fornece acesso às declarações dentro do token de portador por meio do objeto `ClaimsPrincpal` .  
+* Quando um chamador autorizado com êxito invoca uma saudação `TodoListController` APIs, ação Olá pode precisar acessar tooinformation sobre chamador hello.  OWIN fornece acesso toohello declarações no token de portador Olá via Olá `ClaimsPrincpal` objeto.  
 
 ```C#
 public IEnumerable<TodoItem> Get()
 {
-    // You can use the ClaimsPrincipal to access information about the
-    // user making the call.  In this case, we use the 'sub' or
-    // NameIdentifier claim to serve as a key for the tasks in the data store.
+    // You can use hello ClaimsPrincipal tooaccess information about the
+    // user making hello call.  In this case, we use hello 'sub' or
+    // NameIdentifier claim tooserve as a key for hello tasks in hello data store.
 
     Claim subject = ClaimsPrincipal.Current.FindFirst(ClaimTypes.NameIdentifier);
 
@@ -141,30 +141,30 @@ public IEnumerable<TodoItem> Get()
 }
 ```
 
-* Por fim, abra o arquivo `web.config` na raiz do projeto TodoListService e insira os valores de configuração na seção `<appSettings>`.
-  * Seu `ida:Audience` é a **ID do Aplicativo** do aplicativo que você inseriu no portal.
+* Por fim, abra Olá `web.config` na raiz de saudação do projeto TodoListService de saudação do arquivo e insira os valores de configuração no hello `<appSettings>` seção.
+  * O `ida:Audience` é hello **Id do aplicativo** do aplicativo hello que você inseriu no portal de saudação.
 
-## <a name="configure-the-client-app"></a>Configurar o aplicativo do cliente
-Antes que você possa ver o Serviço de Lista de Tarefas em ação, você precisa configurar o Cliente de Lista de Tarefas para poder obter tokens do ponto de extremidade v2.0 e fazer chamadas para o serviço.
+## <a name="configure-hello-client-app"></a>Configurar o aplicativo de cliente Olá
+Antes de poder ver Olá serviço de lista de tarefas em ação, você precisa tooconfigure Olá cliente da lista de tarefas para que possa obter tokens do ponto de extremidade do hello v 2.0 e fazer chamadas toohello serviço.
 
-* No projeto TodoListClient, abra `App.config` e insira seus valores de configuração na seção `<appSettings>`.
-  * Sua ID do Aplicativo `ida:ClientId` que você copiou do portal.
+* No projeto de TodoListClient hello, abra `App.config` e insira os valores de configuração no hello `<appSettings>` seção.
+  * O `ida:ClientId` é copiada do portal de saudação de Id do aplicativo.
 
-Por fim, limpe, compile e execute cada projeto!  Agora você tem uma API da Web .NET MVC que aceita tokens de contas da Microsoft pessoais e contas corporativas ou de estudante.  Entre na TodoListClient e chame sua API da Web para adicionar tarefas à Lista de Tarefas do usuário.
+Por fim, limpe, compile e execute cada projeto!  Agora você tem uma API da Web .NET MVC que aceita tokens de contas da Microsoft pessoais e contas corporativas ou de estudante.  Entrar Olá TodoListClient e chamar a lista de tarefas de web api tooadd tarefas toohello do usuário.
 
-Para referência, o exemplo concluído (sem os valores de configuração) [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip), ou você pode cloná-lo do GitHub:
+Para referência, Olá concluída exemplo (sem os valores de configuração) [é fornecido como. zip aqui](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip), ou você pode cloná-lo do GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora você pode passar para tópicos adicionais.  Você pode desejar experimentar:
+Agora você pode passar para tópicos adicionais.  Você pode desejar tootry:
 
 [Chamar uma API Web em um aplicativo Web >>](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 
 Para obter recursos adicionais, consulte:
 
-* [Guia do desenvolvedor do v2.0 >>](active-directory-appmodel-v2-overview.md)
+* [Guia do desenvolvedor v 2.0 Olá >>](active-directory-appmodel-v2-overview.md)
 * [Marca “azure-active-directory” do StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="get-security-updates-for-our-products"></a>Obter atualizações de segurança para nossos produtos
-Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
+Recomendamos que você tooget as notificações quando os incidentes de segurança ocorrem visitando [essa página](https://technet.microsoft.com/security/dd252948) e assinando tooSecurity alertas de aviso.

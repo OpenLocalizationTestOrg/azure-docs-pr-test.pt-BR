@@ -1,6 +1,6 @@
 ---
-title: Aplicativos e navegadores que usam regras de acesso condicional no Azure Active Directory | Microsoft Docs
-description: "Com o controle de acesso condicional, o Azure Active Directory verifica as condições específicas quando autentica o usuário e para permitir o acesso do aplicativo."
+title: aaaApplications e navegadores que usam regras de acesso condicional no Active Directory do Azure | Microsoft Docs
+description: "Com controle de acesso condicional, Active Directory do Azure verifica condições específicas quando ele autentica o usuário hello e tooallow acesso ao aplicativo."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,27 +15,27 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 8614660f7c98af7b4e6d50348775495c67ae1cc8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ca20853bb9f4b22d0b88ddd2f051d658e0d88cf3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="applications-and-browsers-that-use-conditional-access-rules-in-azure-active-directory"></a>Aplicativos e navegadores que usam regras de acesso condicional no Azure Active Directory
 
 As regras de acesso condicional têm suporte em aplicativos conectados do Azure Active Directory, (Azure AD) aplicativos SaaS (software como serviço) federados pré-integrados, aplicativos que usam senha de logon único (SSO), aplicativos de linha de negócios e aplicativos que usam o Proxy de Aplicativo Azure AD. Para obter uma lista detalhada dos aplicativos para os quais você pode habilitar o acesso condicional, veja [Serviços habilitados com acesso condicional](active-directory-conditional-access-technical-reference.md). O acesso condicional funciona com os aplicativos móveis e da área de trabalho que usam autenticação moderna. Neste artigo, abordaremos o funcionamento do acesso condicional em aplicativos móveis e de área de trabalho.
 
-Você pode usar páginas de entrada do Azure AD em aplicativos que usam autenticação moderna. Com uma página de logon, a autenticação multifator é solicitada de um usuário. Se o acesso do usuário estiver bloqueado, será mostrada uma mensagem. A autenticação moderna é necessária para que o dispositivo se autentique no Azure AD para que políticas de acesso condicional com base no dispositivo sejam avaliadas.
+Você pode usar páginas de entrada do Azure AD em aplicativos que usam autenticação moderna. Com uma página de logon, a autenticação multifator é solicitada de um usuário. É mostrada uma mensagem se o acesso de saudação do usuário será bloqueado. Autenticação moderna é necessária para Olá tooauthenticate de dispositivo com o AD do Azure, para que as políticas de acesso condicional baseado em dispositivo são avaliadas.
 
-É importante saber quais aplicativos podem usar as regras de acesso condicional e as etapas que talvez você precise executar para proteger outros pontos de entrada do aplicativo.
+É importante tooknow quais aplicativos podem usar regras de acesso condicional e Olá etapas que talvez você precise tootake toosecure outros pontos de entrada do aplicativo.
 
 ## <a name="applications-that-use-modern-authentication"></a>Aplicativos que usam a autenticação moderna
 > [!NOTE]
-> Se você tiver uma política de acesso condicional no Azure AD com um equivalente no Office 365, configure duas políticas de acesso condicional. Isso se aplica, por exemplo, a políticas de acesso condicional para o Exchange Online ou o SharePoint Online.
+> Se você tiver uma política de acesso condicional no Azure AD com um equivalente no Office 365, configure duas políticas de acesso condicional. Isso seria aplicada, por exemplo, tooconditional as políticas de acesso para o Exchange Online ou SharePoint Online.
 >
 >
 
-Os aplicativos a seguir oferecem suporte ao acesso condicional para o Office 365 e outros aplicativos de serviço conectados ao Azure AD:
+Olá seguintes aplicativos dão suporte ao acesso condicional para o Office 365 e outros aplicativos de serviço conectado de AD do Azure:
 
 
 | Serviço de Destino| Plataforma| Aplicativo |
@@ -48,12 +48,12 @@ Os aplicativos a seguir oferecem suporte ao acesso condicional para o Office 365
 | Office 365 Exchange Online| Windows 8.1, Windows 7| Outlook 2016, Outlook 2013 (com autenticação moderna), Skype for Business (com autenticação moderna)|
 | Office 365 Exchange Online| iOS| Aplicativo móvel do Outlook|
 | Office 365 Exchange Online| Mac OS X| Outlook 2016 (Office para macOS)|
-| Office 365 SharePoint Online| Windows 10| Aplicativos do Office 2016, aplicativos universais do Office, Office 2013 (com autenticação moderna), cliente de sincronização do OneDrive (veja as [observações](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), suporte aos Grupos do Office planejado para o futuro, suporte aos aplicativos do SharePoint planejado para o futuro|
+| Office 365 SharePoint Online| Windows 10| Aplicativos do Office 2016, Office Universal de aplicativos, Office 2013 (com autenticação moderna), o cliente de sincronização OneDrive (consulte [notas](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), suporte de grupos do Office planejado para Olá futuras, suporte de aplicativo do SharePoint planejado para Olá futuras|
 | Office 365 SharePoint Online| Windows 8.1, Windows 7| Aplicativos do Office 2016, Office 2013 (com autenticação moderna), cliente de sincronização do OneDrive (veja as [observações](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|
 | Office 365 SharePoint Online| iOS, Android| Aplicativos móveis do Office|
-| Office 365 SharePoint Online| Mac OS X| Office 2016 para macOS (somente Word, Excel, PowerPoint, OneNote). Suporte para OneDrive for Business planejado para o futuro|
+| Office 365 SharePoint Online| Mac OS X| Office 2016 para macOS (somente Word, Excel, PowerPoint, OneNote). OneDrive para suporte de negócios planejada para Olá futuras|
 | Office 365 Yammer| Windows 10, iOS, Android| Aplicativo Office Yammer|
-| Serviço PowerBI| Windows 10, Windows 8.1, Windows 7 e iOS| Aplicativo PowerBI. Atualmente, o aplicativo Power BI para Android não dá suporte ao acesso condicional baseado no dispositivo.|
+| Serviço PowerBI| Windows 10, Windows 8.1, Windows 7 e iOS| Aplicativo PowerBI. Olá aplicativo do Power BI para Android no momento não oferece suporte para acesso condicional com base no dispositivo.|
 | Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS e Android| Aplicativo Visual Studio Team Services|
 
 
@@ -64,24 +64,24 @@ Os aplicativos a seguir oferecem suporte ao acesso condicional para o Office 365
 
 
 ## <a name="applications-that-do-not-use-modern-authentication"></a>Aplicativos que não usam autenticação moderna
-Atualmente, você deve usar outros métodos para bloquear o acesso a aplicativos que não usam autenticação moderna. As regras de acesso para aplicativos que não usam a autenticação moderna não são impostas por acesso condicional. Isso é basicamente uma consideração para acesso ao Exchange e ao SharePoint. A maioria das versões anteriores de aplicativos usar protocolos antigos de controle de acesso.
+No momento, você deve usar outros tooapps acesso tooblock de métodos que não usam autenticação moderna. As regras de acesso para aplicativos que não usam a autenticação moderna não são impostas por acesso condicional. Isso é basicamente uma consideração para acesso ao Exchange e ao SharePoint. A maioria das versões anteriores de aplicativos usar protocolos antigos de controle de acesso.
 
 ### <a name="control-access-in-office-365-sharepoint-online"></a>Controlar o acesso no Office 365 SharePoint Online
-Você pode desabilitar os protocolos herdados para o acesso ao SharePoint usando o cmdlet Set-SPOTenant. Use este cmdlet para impedir que os clientes do Office que usam os protocolos de autenticação não moderna acessem recursos do SharePoint Online.
+Você pode desabilitar protocolos herdados para acesso ao SharePoint usando o cmdlet Olá SPOTenant conjunto. Use este clientes do Office tooprevent cmdlet que usam protocolos de autenticação não moderna acessem recursos do SharePoint Online.
 
 **Exemplo de comando**: `Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
 
 ### <a name="control-access-in-office-365-exchange-online"></a>Controlar o acesso no Office 365 Exchange Online
-O Exchange oferece duas categorias principais de protocolos. Examine as opções a seguir e selecione a política ideal para sua organização.
+O Exchange oferece duas categorias principais de protocolos. Examine Olá as opções a seguir e selecione política Olá adequada para sua organização.
 
-* **Exchange ActiveSync**. Por padrão, as políticas de acesso condicional para a autenticação multifator e local não são impostas para o Exchange ActiveSync. Você precisa proteger o acesso a esses serviços, configurando a política do Exchange ActiveSync diretamente ou bloqueando o Exchange ActiveSync usando regras de Serviços de Federação do Active Directory (AD FS).
-* **Protocolos herdados**. Você pode bloquear os protocolos herdados com o AD FS. Isso bloqueia o acesso para clientes mais antigos do Office, como o Office 2013 sem autenticação moderna habilitada e versões anteriores do Office.
+* **Exchange ActiveSync**. Por padrão, as políticas de acesso condicional para a autenticação multifator e local não são impostas para o Exchange ActiveSync. Você precisar tooprotect acesso toothese serviços por meio da configuração de política do Exchange ActiveSync diretamente ou pelo bloqueio do Exchange ActiveSync usando regras de serviços de Federação do Active Directory (AD FS).
+* **Protocolos herdados**. Você pode bloquear os protocolos herdados com o AD FS. Isso impede que clientes do Office access tooolder, como o Office 2013 sem autenticação moderna habilitado e versões anteriores do Office.
 
-### <a name="use-ad-fs-to-block-legacy-protocol"></a>Usar o AD FS para bloquear o protocolo legado
-Você pode usar as regras de autorização de emissão de exemplo a seguir para bloquear o acesso de protocolo herdado no nível do AD FS. Escolha entre duas configurações comuns.
+### <a name="use-ad-fs-tooblock-legacy-protocol"></a>Usar protocolo herdado do AD FS tooblock
+Você pode usar o hello exemplo emissão autorização regras tooblock protocolo herdado, o acesso no nível de saudação do AD FS a seguir. Escolha entre duas configurações comuns.
 
-#### <a name="option-1-allow-exchange-activesync-and-allow-legacy-apps-but-only-on-the-intranet"></a>Opção 1: permitir o Exchange ActiveSync e só permitir aplicativos herdados, mas somente na intranet
-Ao aplicar as três regras a seguir ao Objeto de Confiança de Terceira Parte Confiável do AD FS para a Plataforma de Identidade do Microsoft Office 365, o tráfego do Exchange ActiveSync e o tráfego de autenticação moderno e de navegador, têm acesso. Aplicativos herdados são bloqueados da extranet.
+#### <a name="option-1-allow-exchange-activesync-and-allow-legacy-apps-but-only-on-hello-intranet"></a>Opção 1: Permitir que o Exchange ActiveSync e permitir que os aplicativos herdados, mas somente na intranet Olá
+Aplicando Olá três toohello de regras a seguir de terceira parte confiável do AD FS confiança para a plataforma de identidade do Microsoft Office 365, o tráfego do Exchange ActiveSync, e navegador e o tráfego de autenticação moderna têm acesso. Aplicativos herdados são impedidos de saudação extranet.
 
 ##### <a name="rule-1"></a>Regra 1
     @RuleName = "Allow all intranet traffic"
@@ -100,7 +100,7 @@ Ao aplicar as três regras a seguir ao Objeto de Confiança de Terceira Parte Co
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 #### <a name="option-2-allow-exchange-activesync-and-block-legacy-apps"></a>Opção 2: Permitir o Exchange ActiveSync e bloquear aplicativos herdados
-Ao aplicar as três regras a seguir ao Objeto de Confiança de Terceira Parte Confiável do AD FS para a Plataforma de Identidade do Microsoft Office 365, o tráfego do Exchange ActiveSync e o tráfego de autenticação moderno e de navegador, têm acesso. Aplicativos herdados são bloqueados de qualquer localização.
+Aplicando Olá três toohello de regras a seguir de terceira parte confiável do AD FS confiança para a plataforma de identidade do Microsoft Office 365, o tráfego do Exchange ActiveSync, e navegador e o tráfego de autenticação moderna têm acesso. Aplicativos herdados são bloqueados de qualquer localização.
 
 ##### <a name="rule-1"></a>Regra 1
     @RuleName = "Allow all intranet traffic only for browser and modern authentication clients"
@@ -124,7 +124,7 @@ Ao aplicar as três regras a seguir ao Objeto de Confiança de Terceira Parte Co
 
 ## <a name="supported-browsers-for-device-based-policies"></a>Navegadores com suporte para políticas baseadas em dispositivo 
 
-Você só pode obter acesso para políticas baseadas em dispositivo que verificam a conformidade do dispositivo e o ingresso no domínio quando o Azure AD puder identificar e autenticar o dispositivo. Enquanto a maioria das verificações, como de localização e MFA, funcionam na maioria dos dispositivos e navegadores, as políticas de dispositivo requerem a versão do sistema operacional e os navegadores listados abaixo. O acesso será bloqueado para usuários em navegadores ou sistemas operacionais sem suporte quando uma política de dispositivo estiver em vigor. 
+Você só pode obter acesso para políticas de dispositivo com base em verificar para ingresso no domínio e de conformidade do dispositivo ao AD do Azure pode identificar e autenticar o dispositivo de saudação. Enquanto a maioria das verificações, como o local e o trabalho MFA na maioria dos dispositivos e navegadores, políticas de dispositivo requerem da versão de hello sistemas operacionais e navegadores listados abaixo. Acesso será bloqueado para os usuários em navegadores sem suporte ou sistemas operacionais de saudação quando uma política de dispositivo está em vigor. 
 
 | SO                     | Navegadores                 | Suporte     |
 | :--                    | :--                      | :-:         |
@@ -143,7 +143,7 @@ Você só pode obter acesso para políticas baseadas em dispositivo que verifica
 | Mac OS                 | Chrome                   | Em breve |
 
 > [!NOTE]
-> Para obter suporte do Chrome, você precisa estar usando a Atualização do Windows 10 para Criadores e instalar a extensão encontrada [aqui](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+> Para obter suporte Chrome, você deve estar usando criadores de atualização do Windows 10 e instalar extensão do hello encontrada [aqui](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 >
 >
 

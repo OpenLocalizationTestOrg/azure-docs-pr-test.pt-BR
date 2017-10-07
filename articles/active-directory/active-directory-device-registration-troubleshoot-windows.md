@@ -1,6 +1,6 @@
 ---
-title: "Solucionando problemas do registro automático de computadores ingressados no domínio do Azure AD para Windows 10 e Windows Server 2016 | Microsoft Docs"
-description: "Solucionando problemas do registro automático de computadores ingressados no domínio do Azure AD para Windows 10 e Windows Server 2016."
+title: "aaaTroubleshooting Olá o registro automático de domínio do AD do Azure em computadores ingressados para Windows 10 e Windows Server 2016 | Microsoft Docs"
+description: "Solucionando problemas de registro automático de saudação do domínio do AD do Azure em computadores ingressados para Windows 10 e Windows Server 2016."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,22 +14,22 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5b7f95f302f716d9221b5fae59aa2df5c956a524
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3795323ce9392368b412b3e1208868431e59a74b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="troubleshooting-auto-registration-of-domain-joined-computers-to-azure-ad--windows-10-and-windows-server-2016"></a>Solução de problemas de registro automático de computadores ingressados no domínio do Azure AD – Windows 10 e Windows Server 2016
+# <a name="troubleshooting-auto-registration-of-domain-joined-computers-tooazure-ad--windows-10-and-windows-server-2016"></a>Solucionando problemas de registro automático de domínio Unido computadores tooAzure AD – Windows 10 e Windows Server 2016
 
-Este tópico é aplicável aos seguintes clientes:
+Este tópico é aplicável toohello clientes a seguir:
 
 -   Windows 10
 -   Windows Server 2016
 
-Para outros clientes Windows, confira [Solução de problemas de registro automático de computadores ingressados no domínio do Azure AD para clientes de nível inferior do Windows](active-directory-device-registration-troubleshoot-windows-legacy.md).
+Para outros clientes do Windows, consulte [Solucionando problemas de registro automático de domínio Unido computadores tooAzure AD para clientes de nível inferior do Windows](active-directory-device-registration-troubleshoot-windows-legacy.md).
 
-Este tópico pressupõe que você tenha configurado o registro automático de dispositivos ingressados no domínio conforme descrito em [Como configurar o registro automático de dispositivos ingressados no domínio do Windows com o Azure Active Directory](active-directory-device-registration-get-started.md) para dar suporte aos seguintes cenários:
+Este tópico pressupõe que você tenha configurado o registro automático de dispositivos que ingressaram no domínio conforme descrito em descrito em [como tooconfigure o registro automático do Windows ingressado no domínio dispositivos com o Active Directory do Azure](active-directory-device-registration-get-started.md) Olá toosupport os seguintes cenários:
 
 - [Acesso condicional com base em dispositivo](active-directory-conditional-access-automatic-device-registration-setup.md)
 
@@ -38,16 +38,16 @@ Este tópico pressupõe que você tenha configurado o registro automático de di
 - [Configurar o Hello for Business](active-directory-azureadjoin-passport-deployment.md)
 
 
-Este documento fornece diretrizes de solução de problemas sobre como resolver os problemas potenciais. 
+Este documento fornece orientação para solução de problemas sobre como tooresolve potenciais problemas. 
 
-O registro tem suporte na Atualização do Windows de 10 de novembro de 2015 e superior.  
-É recomendável usar a Atualização de Aniversário para habilitar os cenários acima.
+Olá registro tem suporte no Windows hello atualização 10 de novembro de 2015 e superior.  
+É recomendável usar saudação da atualização de aniversário para habilitar cenários de saudação acima.
 
-## <a name="step-1-retrieve-the-registration-status"></a>Etapa 1: Recuperar o status do registro 
+## <a name="step-1-retrieve-hello-registration-status"></a>Etapa 1: Recuperar o status de registro de saudação 
 
-**Para recuperar o status do registro:**
+**status do registro Olá tooretrieve:**
 
-1. Abra o prompt de comando como administrador.
+1. Olá abrir o prompt de comando como administrador.
 
 2. Digite **dsregcmd /status**
 
@@ -57,7 +57,7 @@ O registro tem suporte na Atualização do Windows de 10 de novembro de 2015 e s
     | Device State                                                         |  +----------------------------------------------------------------------+
     
         AzureAdJoined : YES
-     EnterpriseJoined : NO DeviceId : 5820fbe9-60c8-43b0-bb11-44aee233e4e7 Thumbprint : B753A6679CE720451921302CA873794D94C6204A KeyContainerId : bae6a60b-1d2f-4d2a-a298-33385f6d05e9 KeyProvider : Microsoft Platform Crypto Provider TpmProtected : YES KeySignTest: : MUST Run elevated to test.
+     EnterpriseJoined: Nenhum DeviceId: impressão digital de 5820fbe9-60c8-43b0-bb11-44aee233e4e7: B753A6679CE720451921302CA873794D94C6204A KeyContainerId: bae6a60b-1d2f-4d2a-a298-33385f6d05e9 KeyProvider: TpmProtected de provedor de criptografia da plataforma Microsoft: Sim KeySignTest:: deve executar com privilégios elevados tootest.
                   Idp : login.windows.net TenantId : 72b988bf-86f1-41af-91ab-2d7cd011db47 TenantName : Contoso AuthCodeUrl : https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/authorize AccessTokenUrl : https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/token MdmUrl : https://enrollment.manage-beta.microsoft.com/EnrollmentServer/Discovery.svc MdmTouUrl : https://portal.manage-beta.microsoft.com/TermsOfUse.aspx dmComplianceUrl : https://portal.manage-beta.microsoft.com/?portalAction=Compliance SettingsUrl : eyJVcmlzIjpbImh0dHBzOi8va2FpbGFuaS5vbmUubWljcm9zb2Z0LmNvbS8iLCJodHRwczovL2thaWxhbmkxLm9uZS5taWNyb3NvZnQuY29tLyJdfQ== JoinSrvVersion : 1.0 JoinSrvUrl : https://enterpriseregistration.windows.net/EnrollmentServer/device/ JoinSrvId : urn:ms-drs:enterpriseregistration.windows.net KeySrvVersion : 1.0 KeySrvUrl : https://enterpriseregistration.windows.net/EnrollmentServer/key/ KeySrvId : urn:ms-drs:enterpriseregistration.windows.net DomainJoined : YES DomainName : CONTOSO
     
     +----------------------------------------------------------------------+
@@ -71,53 +71,53 @@ O registro tem suporte na Atualização do Windows de 10 de novembro de 2015 e s
 
 
 
-## <a name="step-2-evaluate-the-registration-status"></a>Etapa 2: Avaliar o status do registro 
+## <a name="step-2-evaluate-hello-registration-status"></a>Etapa 2: Avaliar o status de registro de saudação 
 
-Examine os seguintes campos e garanta que eles tenham os valores esperados:
+Examine Olá campos a seguir e certifique-se de que eles têm valores esperados de saudação:
 
 ### <a name="azureadjoined--yes"></a>AzureAdJoined : YES  
 
-Esse campo mostra se o dispositivo está registrado no Azure AD. Se o valor aparecer como ‘NO’, o registro não foi concluído. 
+Este campo mostra se o dispositivo de saudação é registrado no AD do Azure. Se o valor de saudação mostra como 'Não', o registro não foi concluída. 
 
 **Possíveis causas:**
 
-- Falha na autenticação do computador para o registro.
+- Falha na autenticação de computador Olá para o registro.
 
-- Há um proxy HTTP na organização que não pode ser descoberto pelo computador
+- Há um proxy HTTP na organização Olá que não pode ser descoberta pelo computador Olá
 
-- O computador não pode alcançar o Azure AD para autenticação ou o Azure DRS para registro
+- computador Olá não pode chegar Azure AD para autenticação ou do Azure DRS para registro
 
-- O computador pode não estar na rede interna da organização ou em VPN com a linha de visão direta para um controlador de domínio do AD local.
+- Olá computador podem não estar na rede interna da organização hello ou em VPN com a linha direta de visão tooan controlador de domínio do AD local.
 
-- Se o computador tiver um TPM, ele poderá estar em um estado inválido.
+- Se o computador Olá tem um TPM, é possível em um estado inválido.
 
-- Pode haver um erro de configuração nos serviços observado anteriormente no documento que você precisará verificar novamente. Alguns exemplos comuns são:
+- Pode haver um erro de configuração nos serviços observado anteriormente no documento de saudação que você precisará tooverify novamente. Alguns exemplos comuns são:
 
     - O servidor de Federação não tem pontos de extremidade WS-Trust habilitados
 
     - O servidor de federação pode não permitir a autenticação de entrada de computadores na rede usando a Autenticação Integrada do Windows.
 
-    - Não há nenhum objeto de Ponto de Conexão de Serviço que aponta para o seu nome de domínio verificado no Azure AD na floresta do AD à qual o computador pertence
+    - Não há nenhum objeto de ponto de Conexão de serviço que aponta para o nome de domínio verificado tooyour no AD do Azure na floresta Olá AD qual pertence o computador de saudação
 
 ---
 
 ### <a name="domainjoined--yes"></a>DomainJoined : YES  
 
-Esse campo mostra se o dispositivo ingressou em um Active Directory local ou não. Se o valor aparecer como **NO**, o dispositivo não poderá se registrar automaticamente no Azure AD. Certifique-se primeiro de que o dispositivo ingresse no Active Directory local para que ele possa se registrar no Azure AD. Se você estiver buscando ingressar o computador no Azure AD diretamente, vá até Learn about capabilities of Azure Active Directory Join (Saiba mais sobre os recursos do Ingresso do Azure Active Directory).
+Este campo mostra se o dispositivo Olá é tooan ingressado no Active Directory local ou não. Se o valor de saudação mostra como **não**, dispositivo Olá não é automaticamente o registro com o Azure AD. Verifique primeiro toohello de associações de dispositivo que Olá local do Active Directory para que ele possa registrar com o Azure AD. Se você estiver procurando unindo Olá computador tooAzure AD diretamente, vá tooLearn sobre recursos de junção do Azure Active Directory.
 
 ---
 
 ### <a name="workplacejoined--no"></a>WorkplaceJoined : NO  
 
-Esse campo mostra se o dispositivo está registrado no Azure AD, mas como um dispositivo pessoal (marcado como “Ingressado no Espaço de Trabalho”). Se esse valor deve aparecer como 'NO' para um computador ingressado no domínio registrado no Azure AD, mas aparecer como YES, isso significa que uma conta corporativa ou de estudante foi adicionada antes de o computador concluir o registro. Nesse caso a conta será ignorada se a versão de Atualização de Aniversário do Windows 10 (1607 ao executar o comando WinVer na janela 'Executar' ou em uma janela de prompt de comando) estiver sendo usada.
+Este campo mostra se o dispositivo de saudação está registrado com o AD do Azure, mas como um dispositivo pessoal (marcado como 'Ingressou no local de trabalho'). Se esse valor deve aparecer como 'Não' para um computador ingressado no domínio registrado com o Azure AD, porém se ele mostra como Sim, isso significa que uma conta corporativa ou escolar foi concluído o registro do computador adicionado toohello anterior. Nesse caso a conta de saudação será ignorada se usando a versão de atualização de aniversário de saudação do Windows 10 (1607 quando executar comando de WinVer Olá em Olá janela 'Executar' ou em uma janela de prompt de comando).
 
 ---
 
 ### <a name="wamdefaultset--yes-and-azureadprt--yes"></a>WamDefaultSet : YES e AzureADPrt : YES
   
-Esses campos mostram que o usuário foi autenticado com êxito no Azure AD ao se conectar ao dispositivo. Se eles mostrarem ‘NO’, os itens a seguir serão possíveis causas:
+Esses campos mostram que o usuário Olá foi autenticado com êxito tooAzure AD ao fazer logon no dispositivo toohello. Se elas mostram 'Nenhum' hello seguem as possíveis causas:
 
-- STK (chave de armazenamento) inválida no TPM associada ao dispositivo no registro (verifique o KeySignTest durante a execução com privilégios elevados).
+- Chave de armazenamento incorreta (STK) no TPM associado Olá dispositivo após o registro (seleção Olá KeySignTest durante a execução com privilégios elevados).
 
 - ID de logon alternativo
 
@@ -125,4 +125,4 @@ Esses campos mostram que o usuário foi autenticado com êxito no Azure AD ao se
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais, veja [Perguntas frequentes sobre o registro de dispositivo automático](active-directory-device-registration-faq.md) 
+Para obter mais informações, consulte Olá [perguntas frequentes sobre o registro de dispositivo automático](active-directory-device-registration-faq.md) 
