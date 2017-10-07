@@ -1,5 +1,5 @@
 ---
-title: Visualizar os dados do SQL Data Warehouse com o Power BI | Microsoft Azure
+title: aaaVisualize dados do SQL Data Warehouse com o Power BI Microsoft Azure
 description: Visualizar os dados do SQL Data Warehouse com o Power BI
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
-ms.openlocfilehash: a41393730143b14e91318a61858d989fff3786c1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0425cf5abe7bc001b2a41df4d09bf5f2e42527e0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualizar os dados com o Power BI
 > [!div class="op_single_selector"]
@@ -32,66 +32,66 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Este tutorial mostra como usar o Power BI para se conectar ao SQL Data Warehouse e criar algumas visualizações básicas.
+Este tutorial mostra como toouse Power BI tooconnect tooSQL Data Warehouse e criar algumas visualizações básico.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Data-Warehouse-Sample-Data-and-PowerBI/player]
 > 
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para acompanhar este tutorial, você precisará:
+toostep este tutorial, você precisa:
 
-* Um SQL Data Warehouse pré-carregado com o banco de dados AdventureWorksDW. Para provisionar isso, consulte [Criar um SQL Data Warehouse][Create a SQL Data Warehouse] e opte por carregar os dados de exemplo. Se você já tiver um data warehouse, mas não tiver dados de exemplo, poderá [carregar dados de exemplo manualmente][load sample data manually].
+* Um SQL Data Warehouse pré-carregados com o banco de dados do hello AdventureWorksDW. tooprovision isso, consulte [criar um SQL Data Warehouse] [ Create a SQL Data Warehouse] e escolha dados de exemplo hello tooload. Se você já tiver um data warehouse, mas não tiver dados de exemplo, poderá [carregar dados de exemplo manualmente][load sample data manually].
 
-## <a name="1-connect-to-your-database"></a>1. Conectar-se ao seu banco de dados
-Para abrir o Power BI e conectar-se ao banco de dados AdventureWorksDW:
+## <a name="1-connect-tooyour-database"></a>1. Conecte-se o banco de dados tooyour
+tooopen Power BI e conecte-se o banco de dados do AdventureWorksDW tooyour:
 
-1. Faça logon no [Portal do Azure][Azure portal].
+1. O logon no hello [portal do Azure][Azure portal].
 2. Clique em **bancos de dados SQL** e escolha o banco de dados AdventureWorks do SQL Data Warehouse.
    
     ![Localize o banco de dados][1]
-3. Clique no botão “Abrir no Power BI”.
+3. Clique o botão 'Abrir no Power BI' hello.
    
     ![Botão Power BI][2]
-4. Agora você deve ver a página de conexão do SQL Data Warehouse exibindo o endereço Web do seu banco de dados. Clique em Avançar.
+4. Agora você deve ver a página de conexão do SQL Data Warehouse Olá exibindo o endereço da web de banco de dados. Clique em Avançar.
    
     ![Conexão do Power BI][3]
-5. Insira seu nome de usuário e senha do servidor do Azure SQL e você será totalmente conectado ao banco de dados do SQL Data Warehouse.
+5. Digite seu nome de usuário do SQL Azure server e a senha e você será o banco de dados do SQL Data Warehouse tooyour totalmente conectada.
    
     ![Entrada do Power BI][4]
-6. Depois de entrar no Power BI, clique no conjunto de dados do AdventureWorksDW na folha esquerda. Isso abrirá o banco de dados.
+6. Depois de ter entrado no Power BI, clique em Olá AdventureWorksDW dataset na folha de saudação à esquerda. Isso abrirá o banco de dados de saudação.
    
     ![Abrir AdventureWorksDW no Power BI][5]
 
 ## <a name="2-create-a-report"></a>2. Criar um relatório
-Agora você está pronto para usar o Power BI para analisar os dados de exemplo do AdventureWorksDW. Para executar a análise, o AdventureWorksDW possui uma exibição chamada AggregateSales. Essa exibição contém algumas das principais métricas para analisar as vendas da empresa.
+Você está agora pronto toouse Power BI tooanalyze seus dados de exemplo AdventureWorksDW. análise de saudação tooperform AdventureWorksDW tem uma exibição chamada AggregateSales. Essa exibição contém algumas das métricas-chave para a análise de vendas da empresa de saudação Olá Olá.
 
-1. Para criar um mapa do valor de vendas de acordo com o CEP, clique no painel de campos à direita, clique na exibição AggregateSales para expandi-la. Clique nas colunas PostalCode e SalesAmount para selecioná-las.
+1. toocreate um mapa da quantidade de vendas de acordo com o código de toopostal, no painel de campos à direita do hello, clique em Olá AggregateSales exibição tooexpand-lo. Clique em tooselect de colunas PostalCode e SalesAmount Olá-los.
    
     ![Selecionar AggregateSales no Power BI][6]
    
     O Power BI reconhecerá isso automaticamente como dados geográficos e os colocará em um mapa para você.
    
     ![Mapa do Power BI][7]
-2. Esta etapa cria um gráfico de barras que mostra o valor de vendas por receita de cliente. Para criar isso, vá para a exibição expandida AggregateSales. Clique no campo SalesAmount. Arraste o campo Receita de Cliente para a esquerda e solte-o no Eixo.
+2. Esta etapa cria um gráfico de barras que mostra o valor de vendas por receita de cliente. toocreate este toohello vá expandido AggregateSales exibição. Clique em campo SalesAmount de saudação. Arraste Olá renda campo toohello esquerda e soltá-lo em um eixo.
    
     ![Selecionar eixo no Power BI][8]
    
-    Mudamos o gráfico de barras para o lado esquerdo.
+    Mudamos gráfico de barras Olá sobre Olá esquerda.
    
     ![Barra do Power BI][9]
-3. Esta etapa cria um gráfico de linhas que mostra o valor de vendas por data do pedido. Para criar isso, vá para a exibição expandida AggregateSales. Clique em SalesAmount e em OrderDate. Na coluna Visualizações, clique no ícone Gráfico de Linhas; é o primeiro ícone na segunda linha sob visualizações.
+3. Esta etapa cria um gráfico de linhas que mostra o valor de vendas por data do pedido. toocreate este toohello vá expandido AggregateSales exibição. Clique em SalesAmount e em OrderDate. Na coluna de visualizações de saudação Clique ícone de gráfico de linhas de saudação; Este é o primeiro ícone de saudação na segunda linha hello em visualizações.
    
     ![Selecionar gráfico de linhas no Power BI][10]
    
-    Agora você tem um relatório que mostra três visualizações diferentes dos dados.
+    Agora você tem um relatório que mostra três visualizações diferentes de dados de saudação.
    
     ![Linha do Power BI][11]
 
 Você pode salvar seu andamento a qualquer momento clicando em **Arquivo** e selecionando **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que proporcionamos a você uma introdução à verificação de dados de exemplo, confira como [desenvolver][develop], [carregar][load] ou [migrar][migrate]. Ou confira o [Site do Power BI][Power BI website].
+Agora que damos você toowarm algum tempo para cima com dados de exemplo hello, consulte como muito[desenvolver][develop], [carregar][load], ou [ migrar][migrate]. Ou dar uma olhada Olá [site do Power BI][Power BI website].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
@@ -112,7 +112,7 @@ Agora que proporcionamos a você uma introdução à verificação de dados de e
 [develop]: sql-data-warehouse-overview-develop.md
 [load]: sql-data-warehouse-overview-load.md
 [load sample data manually]: sql-data-warehouse-load-sample-databases.md
-[connecting to SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
+[connecting tooSQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
 <!--Other-->

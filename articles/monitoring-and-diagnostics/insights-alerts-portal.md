@@ -1,6 +1,6 @@
 ---
-title: "Criar alertas para serviços do Azure – Portal do Azure | Microsoft Docs"
-description: "Disparar emails, notificações, chame URLs de sites (webhooks) ou automação quando as condições especificadas forem atendidas."
+title: "alertas de aaaCreate para serviços do Azure - portal do Azure | Microsoft Docs"
+description: "Disparar emails, notificações, URLs de sites de chamada (webhooks) ou automação quando Olá que especificar condições."
 author: rboucher
 manager: carmonm
 editor: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
-ms.openlocfilehash: 745a9c016bd037f1051025a2c5a468c3935e4550
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 78d862d25255cda9fdfe347329e908a471c39846
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Criar alertas de métrica no Azure Monitor para serviços do Azure – Portal do Azure
 > [!div class="op_single_selector"]
@@ -29,19 +29,19 @@ ms.lasthandoff: 07/11/2017
 >
 
 ## <a name="overview"></a>Visão geral
-Este artigo mostra como configurar alertas de métrica do Azure usando o Portal do Azure.   
+Este artigo mostra como tooset alertas de métrica do Azure usando Olá portal do Azure.   
 
 Você pode receber um alerta com base em métricas de monitoramento ou em eventos nos serviços do Azure.
 
-* **Valores da métrica** - o alerta dispara quando o valor de uma métrica especificada ultrapassa um limite que você atribui em qualquer direção. Ou seja, ele dispara quando a condição é atendida pela primeira vez e posteriormente, quando essa condição não está sendo mais atendida.    
-* **Eventos do log de atividades** – um alerta pode disparar em *cada* evento ou somente quando determinados eventos ocorrem. Para saber mais sobre alertas de log de atividades, [clique aqui](monitoring-activity-log-alerts.md)
+* **Valores da métrica** - Olá gatilhos de alerta quando o valor de saudação de uma métrica especificada cruza um limite que você atribui em qualquer direção. Ou seja, ela aciona ambos quando Olá primeiro condição e, em seguida, posteriormente quando que condição é não está sendo atendida.    
+* **Eventos do log de atividades** – um alerta pode disparar em *cada* evento ou somente quando determinados eventos ocorrem. mais sobre alertas de log de atividade de toolearn [clique aqui](monitoring-activity-log-alerts.md)
 
-Você pode configurar um alerta de métrica para fazer o seguinte quando ele dispara:
+Você pode configurar uma saudação de métrica toodo alerta após quando ele dispara:
 
-* enviar um email para o administrador de serviços e os coadministradores
-* enviar email para outros emails que você especificar.
+* enviar o administrador do serviço de toohello de notificações de email e coadministradores
+* Envie email tooadditional emails que você especificar.
 * chamar um webhook
-* iniciar a execução de um runbook do Azure (apenas no Portal do Azure)
+* Iniciar a execução de um runbook do Azure (apenas de saudação portal do Azure)
 
 Você pode configurar e obter informações sobre regras de alerta de métrica usando
 
@@ -50,44 +50,44 @@ Você pode configurar e obter informações sobre regras de alerta de métrica u
 * [CLI (Interface de linha de comando)](insights-alerts-command-line-interface.md)
 * [API REST do Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Criar uma regra de alerta em uma métrica com o Portal do Azure
-1. No [Portal](https://portal.azure.com/), localize o recurso no qual você está interessado em monitor e selecione-o.
+## <a name="create-an-alert-rule-on-a-metric-with-hello-azure-portal"></a>Criar uma regra de alerta em uma métrica com hello portal do Azure
+1. Em Olá [portal](https://portal.azure.com/), localize o recurso Olá você está interessado no monitoramento e selecioná-lo.
 
-2. Selecione **Alertas** ou **Regras de alerta** na seção MONITORAMENTO. O texto e o ícone podem variar um pouco para recursos diferentes.  
+2. Selecione **alertas** ou **regras de alerta** em Olá seção monitoramento. ícone e o texto de saudação podem variar um pouco para recursos diferentes.  
 
     ![Monitoramento](./media/insights-alerts-portal/AlertRulesButton.png)
 
-3. Selecione o comando **Adicionar alerta** e preencha os campos.
+3. Selecione Olá **adicionar alerta** de comando e preencha os campos de saudação.
 
     ![Adicionar alerta](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 
 4. Dê um **Nome** para o alerta de regra e escolha uma **Descrição**, que também mostre os emails de notificação.
 
-5. Selecione a **Métrica** que você deseja monitorar, escolha uma **Condição** e um valor de **Limite** para a métrica. Escolha também o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar. Por exemplo, se você usar o período "PT5M" e o alerta procura por CPU acima de 80%, o alerta disparará quando a CPU estiver consistentemente acima de 80% por cinco minutos. Após o primeiro gatilho, ele disparará novamente quando a CPU permanecer abaixo de 80% durante cinco minutos. A medição da CPU ocorre a cada um minuto.   
+5. Selecione Olá **métrica** você deseja toomonitor, em seguida, escolha um **condição** e **limite** valor de métrica de saudação. Também tiver escolhido Olá **período** de tempo que Olá métrica regra deve ser atendida antes de gatilhos de alerta de saudação. Por exemplo, se você usar o período de hello "PT5M" e a alerta de procura da CPU acima de 80%, alerta Olá dispara quando Olá CPU foi consistentemente acima de 80% por 5 minutos. Depois que o primeiro gatilho de saudação ocorre, ele novamente dispara quando Olá da CPU permanece abaixo de 80% de 5 minutos. Olá medida de CPU ocorre a cada 1 minuto.   
 
-6. Verifique **Proprietários de email...** se quiser que os administradores e coadministradores recebem um email quando o alerta disparar.
+6. Verificar **proprietários de Email...**  se você quiser que os administradores e coadministradores toobe enviado por email quando Olá alerta acionado.
 
-7. Se você quiser que outros emails recebam uma notificação quando o alerta for disparado, adicione-os ao campo **Email(s) de administrador adicionais** . Vários emails separados com ponto e vírgula – *email@contoso.com;email2@contoso.com*
+7. Se você quiser emails adicionais tooreceive notificação hello quando o alerta é acionado, adicioná-los em Olá **email(s) administrador adicional** campo. Vários emails separados com ponto e vírgula – *email@contoso.com;email2@contoso.com*
 
-8. Coloque um URI válido no campo **Webhook** se você quiser chamá-lo quando o alerta for disparado.
+8. Colocar em um URI válido no hello **Webhook** campo se você quiser chamada hello alerta acionado quando.
 
-9. Se você usar a Automação do Azure, selecione um Runbook a ser executado quando o alerta for disparado.
+9. Se você usar a automação do Azure, você pode selecionar um toobe Runbook executado quando Olá alerta será acionado.
 
-10. Selecione **OK** ao concluir a criação do alerta.   
+10. Selecione **Okey** quando concluído toocreate Olá alerta.   
 
-Em alguns minutos, o alerta estará ativo e disparará conforme descrito anteriormente.
+Em poucos minutos, o alerta de hello está ativa e dispara conforme descrito anteriormente.
 
 ## <a name="managing-your-alerts"></a>Gerenciar seus alertas
 Depois de criar um alerta, você poderá selecioná-lo e:
 
-* Exibir um gráfico mostrando o limite de métrica e os valores reais do dia anterior.
+* Exiba um gráfico que mostra o limite de métrica hello e os valores reais de Olá Olá dia anterior.
 * Editar ou exclui-lo.
-* **Desabilitar** ou **Habilitar** se você quiser interromper temporariamente ou continuar recebendo notificações do alerta.
+* **Desabilitar** ou **habilitar** se deseja tootemporarily parar ou continuar recebendo notificações para o alerta.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Obter uma visão geral do monitoramento do Azure](monitoring-overview.md) , incluindo os tipos de informações que você pode coletar e monitorar.
+* [Obter uma visão geral do monitoramento do Azure](monitoring-overview.md) incluindo Olá tipos de informações você pode coletar e monitorar.
 * Saiba mais sobre como [configurar webhooks em alertas](insights-webhooks-alerts.md).
 * Saiba mais sobre [Configurar alertas em eventos de Log de Atividades](monitoring-activity-log-alerts.md).
 * Saiba mais sobre [Runbooks da Automação do Azure](../automation/automation-starting-a-runbook.md).
 * Tenha uma [visão geral dos logs de diagnóstico](monitoring-overview-of-diagnostic-logs.md) e colete métricas detalhadas de alta frequência em seu serviço.
-* Tenha uma [visão geral da coleção de métricas](insights-how-to-customize-monitoring.md) para verificar se o serviço está disponível e responsivo.
+* Obter um [visão geral da coleção de métricas](insights-how-to-customize-monitoring.md) toomake-se de que o serviço está disponível e respondendo.

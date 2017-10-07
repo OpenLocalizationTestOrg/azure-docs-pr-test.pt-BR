@@ -1,6 +1,6 @@
 ---
-title: "Balanceamento de carga em várias configurações de IP usando a CLI do Azure | Microsoft Docs"
-description: "Saiba como atribuir vários endereços IP a uma máquina virtual usando a CLI do Azure | Resource Manager."
+title: "aaaLoad balanceamento em várias configurações de IP usando a CLI do Azure | Microsoft Docs"
+description: "Saiba como tooassign vários endereços IP tooa máquina de virtual usando a CLI do Azure | Gerenciador de recursos."
 services: virtual-network
 documentationcenter: na
 author: anavinahar
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: annahar
-ms.openlocfilehash: bd15713752ea01ad403d8e3dcfed0c9a7adcc7fa
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: df81e1b8193f274bad435d6b506c7be824117416
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="load-balancing-on-multiple-ip-configurations"></a>Balanceamento de carga em várias configurações de IP
 
@@ -28,22 +28,22 @@ ms.lasthandoff: 08/03/2017
 > * [CLI](load-balancer-multiple-ip-cli.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 
-Este artigo descreve como usar o Azure Load Balancer com vários endereços IP em uma interface de rede secundária (NIC). Para este cenário, temos duas VMs executando o Windows, cada uma com uma NIC principal e uma secundária. Cada uma das NICs secundárias possui duas configurações de IP. Cada VM hospeda os sites contoso.com e fabrikam.com. Cada site está associado a uma das configurações de IP na NIC secundária. Usamos o Azure Load Balancer para expor dois endereços IP front-end, um para cada site, a fim de distribuir o tráfego para a respectiva configuração de IP do site. Esse cenário usa o mesmo número de porta entre os front-ends, bem como os dois endereços IP do pool de back-end.
+Este artigo descreve como toouse balanceador de carga do Azure com o IP de vários endereços em uma interface de rede secundária (NIC). Para este cenário, temos duas VMs executando o Windows, cada uma com uma NIC principal e uma secundária. Cada um dos secundários de saudação NICs têm duas configurações de IP. Cada VM hospeda os sites contoso.com e fabrikam.com. Cada site é associado tooone Olá de configurações de IP em uma NIC secundário. Olá Usamos o balanceador de carga do Azure tooexpose dois front-end endereços IP, uma para cada site, toodistribute tráfego toohello respectiva configuração de IP para o site de saudação. Esse cenário usa Olá o mesmo número de porta entre os front-ends, bem como os dois endereços IP do pool de back-end.
 
 ![Imagem de cenário do LB](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
-## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>Etapas para o balanceamento de carga em várias configurações de IP
+## <a name="steps-tooload-balance-on-multiple-ip-configurations"></a>Saldo de tooload etapas em várias configurações de IP
 
-Execute as etapas abaixo para obter o cenário descrito neste artigo:
+Siga as próximas etapas, Olá cenário de saudação tooachieve descritos neste artigo:
 
-1. [Instale e configure a CLI do Azure](../cli-install-nodejs.md) executando as etapas do artigo vinculado e faça logon em sua conta do Azure.
+1. [Instalar e configurar Olá CLI do Azure](../cli-install-nodejs.md) Olá CLI do Azure, seguindo as etapas de saudação no artigo vinculado hello e log em sua conta do Azure.
 2. [Crie um grupo de recursos](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-group) chamado *contosofabrikam*, conforme descrito acima.
 
     ```azurecli
     azure group create contosofabrikam westcentralus
     ```
 
-3. [Criar um conjunto de disponibilidade](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-an-availability-set) para as duas VMs. Para esse cenário, use o comando a seguir:
+3. [Criar um conjunto de disponibilidade](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-an-availability-set) toofor Olá duas VMs. Para este cenário, use Olá comando a seguir:
 
     ```azurecli
     azure availset create --resource-group contosofabrikam --location westcentralus --name myAvailabilitySet
@@ -57,13 +57,13 @@ Execute as etapas abaixo para obter o cenário descrito neste artigo:
     azure network vnet subnet create --resource-group contosofabrikam --vnet-name myVnet --name mySubnet --address-prefix 10.0.0.0/24
     ```
 
-5. [Crie o balanceador de carga](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) chamado *mylb*:
+5. [Criar o balanceador de carga Olá](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) chamado *mylb*:
 
     ```azurecli
     azure network lb create --resource-group contosofabrikam --location westcentralus --name mylb
     ```
 
-6. Crie dois endereços IP públicos e dinâmicos para as configurações de IP de front-end de seu balanceador de carga:
+6. Crie dois endereços do IP de públicos dinâmicos para as configurações de IP de front-end de saudação do balanceador de carga:
 
     ```azurecli
     azure network public-ip create --resource-group contosofabrikam --location westcentralus --name PublicIp1 --domain-name-label contoso --allocation-method Dynamic
@@ -71,7 +71,7 @@ Execute as etapas abaixo para obter o cenário descrito neste artigo:
     azure network public-ip create --resource-group contosofabrikam --location westcentralus --name PublicIp2 --domain-name-label fabrikam --allocation-method Dynamic
     ```
 
-7. Crie as duas configurações de IP de front-end, *contosofe* e *fabrikamfe*, respectivamente:
+7. Criar front-end Olá duas configurações de IP, *contosofe* e *fabrikamfe* respectivamente:
 
     ```azurecli
     azure network lb frontend-ip create --resource-group contosofabrikam --lb-name mylb --public-ip-name PublicIp1 --name contosofe
@@ -90,7 +90,7 @@ Execute as etapas abaixo para obter o cenário descrito neste artigo:
     azure network lb rule create --resource-group contosofabrikam --lb-name mylb --name HTTPf --protocol tcp --probe-name http --frontend-port 5000 --backend-port 5000 --frontend-ip-name fabrkamfe --backend-address-pool-name fabrikampool
     ```
 
-9. Execute o comando a seguir e, em seguida, verifique a saída para [verificar se o seu balanceador de carga](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) foi criado corretamente:
+9. Seguinte Olá executar comando abaixo e verifique a saída de hello muito[verificar seu balanceador de carga](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) foi criado corretamente:
 
     ```azurecli
     azure network lb show --resource-group contosofabrikam --name mylb
@@ -104,7 +104,7 @@ Execute as etapas abaixo para obter o cenário descrito neste artigo:
     azure storage account create --location westcentralus --resource-group contosofabrikam --kind Storage --sku-name GRS mystorageaccount1
     ```
 
-11. [Crie as interfaces de rede](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-nic) para a VM1 e adicione uma segunda configuração de IP, *VM1-ipconfig2* e [crie a VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-the-linux-vms) conforme exibido abaixo:
+11. [Criar hello interfaces de rede](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-nic) para VM1 e adicionar uma segunda configuração IP, *VM1 ipconfig2*, e [criar hello VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-the-linux-vms) conforme mostrado abaixo:
 
     ```azurecli
     azure network nic create --resource-group contosofabrikam --location westcentralus --subnet-vnet-name myVnet --subnet-name mySubnet --name VM1Nic1 --ip-config-name NIC1-ipconfig1
@@ -124,8 +124,8 @@ Execute as etapas abaixo para obter o cenário descrito neste artigo:
     azure vm create --resource-group contosofabrikam --name VM2 --location westcentralus --os-type linux --nic-names VM2Nic1,VM2Nic2 --vnet-name VNet1 --vnet-subnet-name Subnet1 --availset-name myAvailabilitySet --vm-size Standard_DS3_v2 --storage-account-name mystorageaccount2 --image-urn canonical:UbuntuServer:16.04.0-LTS:latest --admin-username <your username>  --admin-password <your password>
     ```
 
-13. Por fim, você deve configurar os registros de recurso DNS para apontar para o endereço IP do endereço IP front-end do Balanceador de Carga. Você pode hospedar seus domínios no DNS do Azure. Para saber mais sobre como usar o DNS do Azure com o Load Balancer, confira [Usar o DNS do Azure com outros serviços do Azure](../dns/dns-for-azure-services.md).
+13. Por fim, você deve configurar o recurso registros toopoint toohello front-end respectivo endereço IP de DNS Olá balanceador de carga. Você pode hospedar seus domínios no DNS do Azure. Para saber mais sobre como usar o DNS do Azure com o Load Balancer, confira [Usar o DNS do Azure com outros serviços do Azure](../dns/dns-for-azure-services.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre como combinar os serviços de balanceamento de carga no Azure em [Usando os serviços de balanceamento de carga no Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Saiba como é possível usar diferentes tipos de logs no Azure para gerenciar e solucionar problemas do balanceador de carga em [Análise de log para o Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Saiba mais sobre como o balanceamento de carga de toocombine serviços no Azure em [usando os serviços de balanceamento de carga no Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
+- Saiba como você pode usar diferentes tipos de logs no Azure toomanage e solucionar problemas de Balanceador de carga no [de análise de Log para o balanceador de carga do Azure](../load-balancer/load-balancer-monitor-log.md).

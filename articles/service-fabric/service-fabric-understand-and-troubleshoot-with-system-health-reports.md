@@ -1,6 +1,6 @@
 ---
-title: "Solucionar problemas com relatórios de integridade do sistema | Microsoft Docs"
-description: "Descreve os relatórios de integridade enviados por componentes do Service Fabric do Azure e seu uso para solucionar problemas de cluster ou de aplicativos."
+title: "aaaTroubleshoot com relatórios de integridade do sistema | Microsoft Docs"
+description: "Descreve os relatórios de integridade Olá enviados pelos componentes do Azure Service Fabric e seu uso para solução de problemas de cluster ou problemas de aplicativos."
 services: service-fabric
 documentationcenter: .net
 author: oanapl
@@ -14,58 +14,58 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
-ms.openlocfilehash: 54e20146b2f1e0ca6153b66319be70c6f7c2fb59
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: c77a6cdd0440ce5d354cd8760f40151f674a3529
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-system-health-reports-to-troubleshoot"></a>Usar relatórios de integridade do sistema para solução de problemas
-Os componentes do Service Fabric apresentam relatórios de integridade prontos para uso sobre todas as entidades. O [repositório de integridade](service-fabric-health-introduction.md#health-store) cria e exclui entidades baseado nos relatórios do sistema. Ele também os organiza em uma hierarquia que captura interações de entidade.
+# <a name="use-system-health-reports-tootroubleshoot"></a>Usar tootroubleshoot de relatórios de integridade do sistema
+Relatório do Azure Service Fabric componentes imediato saudação em todas as entidades no cluster hello. Olá [repositório de integridade](service-fabric-health-introduction.md#health-store) cria e exclui entidades com base em relatórios de saudação do sistema. Ele também os organiza em uma hierarquia que captura interações de entidade.
 
 > [!NOTE]
-> Leia mais sobre o [Modelo de Integridade do Service Fabric](service-fabric-health-introduction.md)para entender os conceitos relacionados à integridade.
+> conceitos relacionados à integridade toounderstand, leia mais em [modelo de integridade da malha do serviço](service-fabric-health-introduction.md).
 > 
 > 
 
-Os relatórios de integridade do sistema fornecem visibilidade da funcionalidade do cluster e de aplicativos e sinalizam problemas por meio da integridade. Para aplicativos e serviços, os relatórios de integridade do sistema verificam se as entidades são implementadas e estão se comportando corretamente da perspectiva do Service Fabric. Os relatórios não fornecem monitoramento de integridade da lógica de negócios do serviço nem detecção de processos travados. Os serviços de usuário podem enriquecer os dados de integridade com informações específicas à respectiva lógica.
-
-> [!NOTE]
-> Os relatórios de integridade dos watchdogs ficam visíveis somente *depois* que os componentes do sistema criam uma entidade. Quando uma entidade é excluída, o repositório de integridade exclui automaticamente todos os relatórios de integridade associados a ela. O mesmo acontece quando uma nova instância da entidade é criada (por exemplo, uma nova instância de réplica do serviço com estado persistente é criada). Todos os relatórios associados à instância antiga são excluídos e removidos do repositório.
-> 
-> 
-
-Os relatórios de componentes do sistema são identificados por sua origem, que começa com o prefixo "**System.**" prefixo. Os watchdogs não podem usar o mesmo prefixo para suas origens, pois os relatórios com parâmetros inválidos são rejeitados.
-Vamos examinar alguns relatórios do sistema para entender o que os dispara e como corrigir possíveis problemas que eles representam.
+Os relatórios de integridade do sistema fornecem visibilidade da funcionalidade do cluster e de aplicativos e sinalizam problemas por meio da integridade. Para aplicativos e serviços, relatórios de integridade do sistema, verifique se que entidades foram implementadas e estão funcionando corretamente da saudação perspectiva do Service Fabric. relatórios de saudação não fornecem nenhum monitoramento de integridade de lógica de negócios de saudação do serviço hello ou detecção de processos travados. Serviços de usuário podem enriquecer os dados de integridade de saudação com lógica de tootheir específicos de informações.
 
 > [!NOTE]
-> O Service Fabric continua adicionando relatórios sobre condições de interesse que melhoram a visibilidade do que está acontecendo no cluster e no aplicativo. Os relatórios existentes também podem ser aprimorados com mais detalhes para ajudar a solucionar o problema mais rapidamente.
+> Relatórios de integridade watchdogs são visíveis apenas *depois* componentes do sistema Olá criam uma entidade. Quando uma entidade é excluída, o repositório de integridade Olá exclui automaticamente todos os relatórios de integridade associados a ele. Olá mesmo é verdadeiro quando é criada uma nova instância da entidade de saudação (por exemplo, uma nova instância de réplica com monitoração de estado de serviço persistente é criada). Todos os relatórios associados a instância antiga Olá são excluídos e limpos do repositório de saudação.
+> 
+> 
+
+Olá relatórios de componente do sistema são identificados pela origem hello, que inicia com hello "**System.**" prefixo. Watchdogs não podem usar o hello mesmo prefixo para suas fontes, como relatórios com parâmetros inválidos são rejeitados.
+Vamos examinar alguns relatórios toounderstand que faz com que elas e como toocorrect Olá possíveis problemas que eles representam.
+
+> [!NOTE]
+> Service Fabric continua tooadd relatórios sobre as condições de interesse que melhorar a visibilidade sobre o que está acontecendo no aplicativo e o cluster de saudação. Os relatórios existentes também podem ser aprimorados com mais detalhes toohelp solucionar problema hello mais rapidamente.
 > 
 > 
 
 ## <a name="cluster-system-health-reports"></a>Relatórios de integridade do sistema de cluster
-A entidade de integridade do cluster é criada automaticamente no repositório de integridade. Se tudo funcionar corretamente, ele não terá um relatório do sistema.
+entidade de integridade do cluster Olá é criada automaticamente no repositório de integridade de saudação. Se tudo funcionar corretamente, ele não terá um relatório do sistema.
 
 ### <a name="neighborhood-loss"></a>Perda de ambiente
-**System.Federation** relata um erro quando detecta uma perda de ambiente. O relatório tem origem em nós individuais e a ID do nó é incluída no nome da propriedade. Caso haja uma perda de ambiente em todo o anel do Service Fabric, geralmente podemos esperar dois eventos (ambos os lados da lacuna serão relatados). Se houver mais perdas de ambiente, haverá mais eventos.
+**System.Federation** relata um erro quando detecta uma perda de ambiente. relatório de saudação for de nós individuais e Olá a ID do nó está incluída no nome da propriedade hello. Se um ambiente é perdido no anel de malha do serviço inteiro hello, normalmente, haverá dois eventos (ambos os lados do relatório de intervalo de saudação). Se houver mais perdas de ambiente, haverá mais eventos.
 
-O relatório especifica o tempo limite de concessão global como o tempo de vida útil. O relatório é enviado novamente a cada metade da duração do tempo de vida útil, desde que a condição permaneça ativa. O evento é removido automaticamente quando expira. Remover o comportamento expirado garante que o relatório será removido do repositório de integridade corretamente, mesmo que o nó de relatório esteja inativo.
+relatório de Olá Especifica o tempo limite de concessão global hello como tempo de saudação toolive. relatório de saudação é reenviado cada metade da duração de tempo de vida de saudação de como condição Olá permanece ativa. evento de saudação é removido automaticamente quando ela expirar. Remova ao comportamento expirado garante que relatório Olá é limpos do repositório de integridade Olá corretamente, mesmo se o nó reporting hello está inativo.
 
 * **SourceId**: System.Federation
 * **Propriedade**: começa com **Ambiente** e inclui informações sobre o nó
-* **Próximas etapas**: investigue por que o ambiente foi perdido (por exemplo, verifique a comunicação entre os nós do cluster).
+* **Próximas etapas**: investigar por que o ambiente de saudação for perdido (por exemplo, verificar Olá comunicação entre nós de cluster).
 
 ## <a name="node-system-health-reports"></a>Relatórios de integridade do sistema de nó
-**System.FM**, que representa o serviço Gerenciador de Failover, é a autoridade que gerencia informações sobre nós de cluster. Cada nó deve ter um relatório de System.FM mostrando seu estado. As entidades de nó são removidas quando o estado do nó é removido (veja [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync)).
+**System.FM**, que representa o serviço de Gerenciador de Failover hello, Olá autoridade que gerencia informações sobre nós de cluster. Cada nó deve ter um relatório de System.FM mostrando seu estado. entidades de nó Olá são removidas quando o estado do nó Olá é removido (consulte [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync)).
 
 ### <a name="node-updown"></a>Nó ativo/inativo
-System.FM relata OK quando o nó ingressa no anel (está em execução). Ele relata um erro quando o nó é removido do anel (ele está desativado, seja para atualização ou simplesmente porque falhou). A hierarquia de integridade criada pelo repositório de integridade age nas entidades implantadas em correlação com relatórios de nó do System.FM. Ela considera o nó como um pai virtual de todas as entidades implantadas. As entidades implantadas nesse nó serão expostas por meio de consultas se o nó for reportado como ativo pelo System.FM, com a mesma instância que aquela associada às entidades. Quando System.FM relata o nó inativo ou reiniciado (nova instância), o repositório de integridade remove automaticamente as entidades implantadas que podem existir apenas no nó inativo ou na instância anterior do nó.
+System.FM informa como Okey ao nó Olá une anel hello (estiver em execução). Ele relata um erro ao nó Olá entregas de anel hello (ele estiver inativo, seja para atualizar ou simplesmente porque ele falhou). hierarquia de integridade Olá criada pelo repositório de integridade Olá age em entidades implantadas em correlação com relatórios de nó System.FM. Ele considera nó Olá virtual pai de todas as entidades implantados. entidades Olá implantado nesse nó são expostas por meio de consultas se o nó Olá é relatada como backup por System.FM, com hello mesmo a instância como instância Olá associada com entidades de saudação. Ao System.FM relatórios a nó hello está desligado ou reiniciado (uma nova instância), repositório de integridade Olá limpa automaticamente entidades Olá implantado que podem existir somente Olá para baixo de nó ou na instância anterior de saudação do nó de saudação.
 
 * **SourceId**: System.FM
 * **Propriedade**: Estado
-* **Próximas etapas**: se o nó estiver inativo para uma atualização, ele deverá aparecer novamente depois que for atualizado. Nesse caso, o estado de integridade deve ser alternado de volta para OK. Se o nó não voltar ou falhar, será preciso investigar mais.
+* **Próximas etapas**: se o nó de saudação está inativo para uma atualização, ele deve voltar depois que ele foi atualizado. Nesse caso, o estado de integridade de saudação deve alternar tooOK back. Se o nó de saudação não voltar ou falhar, problema de saudação precisa de mais investigação.
 
-O exemplo a seguir mostra o evento System.FM com estado de integridade OK para o nó ativo:
+Olá exemplo a seguir mostra Olá System.FM evento com um estado de integridade de Okey para o nó de:
 
 ```powershell
 PS C:\> Get-ServiceFabricNodeHealth  _Node_0
@@ -88,30 +88,30 @@ HealthEvents          :
 
 
 ### <a name="certificate-expiration"></a>Expiração de certificado
-**System.FabricNode** relata um aviso quando os certificados usados pelo nó estão prestes a expirar. Há três certificados por nó: **Certificate_cluster**, **Certificate_server** e **Certificate_default_client**. Quando falta pelo menos duas semanas para expirar, o estado de integridade do relatório é OK. Quando a expiração é dentro de duas semanas, o tipo de relatório é um aviso. O tempo de vida útil desses eventos é infinito; eles são removidos quando um nó deixa o cluster.
+**System.FabricNode** relata um aviso quando certificados usados por nó Olá estão prestes a expirar. Há três certificados por nó: **Certificate_cluster**, **Certificate_server** e **Certificate_default_client**. Quando a expiração de saudação é pelo menos duas semanas, o estado de integridade de relatório de saudação é Okey. Quando a expiração Olá estiver dentro de duas semanas, o tipo de relatório de saudação é um aviso. TTL desses eventos é infinito, e eles são removidos quando sai de um nó de cluster hello.
 
 * **SourceId**: System.FabricNode
-* **Propriedade**: começa com **Certificate** e contém mais informações sobre o tipo de certificado
-* **Próximas etapas**: atualize os certificados se eles estiverem prestes a expirar.
+* **Propriedade**: começa com **certificado** e contém mais informações sobre o tipo de certificado Olá
+* **Próximas etapas**: atualizar certificados de saudação se eles estiverem perto da expiração.
 
 ### <a name="load-capacity-violation"></a>Violação da capacidade de carga
-O Service Fabric Load Balancer relata um aviso quando detecta uma violação da capacidade do nó.
+Olá balanceador de carga de malha do serviço relata um aviso quando detecta uma violação de capacidade do nó.
 
 * **SourceId**: System.PLB
 * **Propriedade**: começa com **Capacity**
-* **Próximas etapas**: verifique as métricas fornecidas e exiba a capacidade atual do nó.
+* **Próximas etapas**: seleção fornecido capacidade atual de métricas e exibição Olá no nó de saudação.
 
 ## <a name="application-system-health-reports"></a>Relatórios de integridade do sistema de aplicativo
-**System.CM**, que representa o serviço do Gerenciador de Cluster, é a autoridade que gerencia as informações sobre um aplicativo.
+**System.CM**, que representa o serviço de Gerenciador de Cluster de hello, Olá autoridade que gerencia informações sobre um aplicativo.
 
 ### <a name="state"></a>Estado
-System.CM relata OK quando o aplicativo é criado ou atualizado. Ele informa ao repositório de integridade quando o aplicativo é excluído para que este possa ser removido do repositório.
+System.CM informa como Okey quando o aplicativo hello foi criado ou atualizado. Ele informa repositório de integridade hello quando o aplicativo hello foi excluído, para que ele pode ser removido do repositório.
 
 * **SourceId**: System.CM
 * **Propriedade**: Estado
-* **Próximas etapas**: se o aplicativo tiver sido criado ou atualizado, ele deverá incluir o relatório de integridade do Gerenciador de Cluster. Caso contrário, verifique o estado do aplicativo emitindo uma consulta (por exemplo, o cmdlet **Get-ServiceFabricApplication -ApplicationName *applicationName*** do PowerShell).
+* **Próximas etapas**: se o aplicativo hello foi criado ou atualizado, ele deve incluir o relatório de integridade do Gerenciador de Cluster de saudação. Caso contrário, verifique o estado de saudação do aplicativo hello emitindo uma consulta (por exemplo, Olá cmdlet do PowerShell **ServiceFabricApplication de Get - ApplicationName *applicationName***).
 
-O exemplo a seguir mostra o evento de estado no aplicativo **fabric:/WordCount** :
+Olá exemplo a seguir mostra o evento de estado Olá em hello **fabric: / WordCount** aplicativo:
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
@@ -135,15 +135,15 @@ HealthEvents                    :
 ```
 
 ## <a name="service-system-health-reports"></a>Relatórios de integridade do sistema de serviço
-**System.FM**, que representa o serviço do Gerenciador de Failover, é a autoridade que gerencia as informações sobre serviços.
+**System.FM**, que representa o serviço de Gerenciador de Failover hello, Olá autoridade que gerencia informações sobre os serviços.
 
 ### <a name="state"></a>Estado
-System.FM relata OK quando o serviço é criado. Ele exclui a entidade do repositório de integridade quando o serviço é excluído.
+System.FM informa como Okey quando Olá serviço foi criado. Ele exclui entidade saudação do repositório de integridade hello quando o serviço de saudação foi excluído.
 
 * **SourceId**: System.FM
 * **Propriedade**: Estado
 
-O exemplo a seguir mostra o evento de estado no serviço **fabric:/WordCount/WordCountWebService**:
+Olá exemplo a seguir mostra o evento de estado Olá no serviço de saudação **fabric: / WordCount/WordCountWebService**:
 
 ```powershell
 PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountWebService -ExcludeHealthStatistics
@@ -170,27 +170,27 @@ HealthEvents          :
 ```
 
 ### <a name="service-correlation-error"></a>Erro de correlação de serviço
-**System.PLB** relata um erro ao detectar que a atualização de um serviço a ser correlacionado com outro serviço cria uma cadeia de afinidade. O relatório é limpo quando a atualização é bem-sucedida.
+**System.PLB** relata um erro quando detecta que um toobe serviço correlacionada com outro serviço de atualização cria uma cadeia de afinidade. relatório de saudação é limpo quando ocorre a atualização bem-sucedida.
 
 * **SourceId**: System.PLB
 * **Propriedade**: ServiceDescription
-* **Próximas etapas**: verifique as descrições de serviços correlacionadas.
+* **Próximas etapas**: seleção Olá correlacionados descrições de serviços.
 
 ## <a name="partition-system-health-reports"></a>Relatórios de integridade do sistema de partição
-**System.FM**, que representa o serviço do Gerenciador de Failover, é a autoridade que gerencia as informações sobre partições de serviço.
+**System.FM**, que representa o serviço de Gerenciador de Failover hello, Olá autoridade que gerencia informações sobre partições de serviço.
 
 ### <a name="state"></a>Estado
-System.FM relata OK quando a partição é criada e está íntegra. Ele exclui a entidade do repositório de integridade quando a partição é excluída.
+System.FM informa como Okey quando a partição Olá foi criada e está íntegra. Ele exclui entidade saudação do repositório de integridade hello quando Olá partição será excluída.
 
-Se a partição estiver abaixo da contagem mínima de réplica, ela relatará um erro. Se a partição não estiver abaixo da contagem mínima de réplica, mas estiver abaixo da contagem de réplica de destino, ele relatará um aviso. Se a partição estiver na perda de quórum, o System.FM relatará um erro.
+Se a partição Olá está abaixo da contagem de réplica mínimo hello, ele relata um erro. Se Olá partição não está abaixo da contagem de réplica mínimo hello, mas está abaixo da contagem de réplica de destino hello, ele relata um aviso. Se a partição de saudação está em perda de quorum, System.FM relata um erro.
 
-Outros eventos importantes incluem avisos quando a reconfiguração demorar mais que o esperado e quando a compilação demorar mais que o esperado. Os tempos esperados para compilação ou reconfiguração podem ser configurados baseados nos cenários de serviço. Por exemplo, se um serviço tem um terabyte de estado, como o Banco de Dados SQL, criá-lo demora mais do que demoraria para um serviço com uma pequena quantidade de estado.
+Outros eventos importantes incluem um aviso quando a reconfiguração de saudação leva mais tempo do que o esperado e quando a compilação Olá demora mais do que o esperado. tempos de saudação esperado para compilação hello e reconfiguração são configuráveis com base em cenários de serviço. Por exemplo, se um serviço tem um terabyte de estado, como o banco de dados SQL, compilação Olá leva mais tempo do que para um serviço com uma pequena quantidade de estado.
 
 * **SourceId**: System.FM
 * **Propriedade**: Estado
-* **Próximas etapas**: se o estado de integridade não está OK, é possível que algumas réplicas não tenham sido criadas, abertas ou promovidas para o primário ou secundário corretamente. Em muitos casos, a causa raiz é um bug de serviço na implementação da função de abertura ou de alteração.
+* **Próximas etapas**: se o estado de integridade de saudação não for Okey, é possível que algumas réplicas não foram criado, aberto ou promovida tooprimary ou secundário corretamente. Em muitos casos, Olá principal causa é um bug de serviço no hello aberta ou na implementação de função de alteração.
 
-O exemplo a seguir mostra uma partição íntegra:
+saudação de exemplo a seguir mostra uma partição íntegra:
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountWebService | Get-ServiceFabricPartitionHealth -ExcludeHealthStatistics -ReplicasFilter None
@@ -212,7 +212,7 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-O exemplo a seguir mostra a integridade de uma partição que está abaixo da contagem de réplica de destino. A etapa seguinte é obter a descrição da partição, que mostra como ela é configurada: **MinReplicaSetSize** é três e **TargetReplicaSetSize** é sete. Em seguida, obtenha o número de nós no cluster: cinco. Nesse caso, portanto, duas réplicas não podem ser colocadas porque o número de réplicas de destino é maior do que o número de nós disponíveis.
+Olá exemplo a seguir mostra a integridade saudação de uma partição que está abaixo da contagem de réplica de destino. Olá próxima etapa é tooget Olá descrição da partição, que mostra como estiver configurado: **MinReplicaSetSize** é três e **TargetReplicaSetSize** é sete. Em seguida, obter o número de Olá de nós no cluster Olá: cinco. Portanto nesse caso, duas réplicas não podem ser armazenadas porque o número de destino de saudação de réplicas é maior do que o número de saudação de nós disponíveis.
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None -ExcludeHealthStatistics
@@ -252,8 +252,8 @@ HealthEvents          :
                         SentAt                : 7/14/2017 4:58:13 PM
                         ReceivedAt            : 7/14/2017 4:58:14 PM
                         TTL                   : 00:01:05
-                        Description           : The Load Balancer was unable to find a placement for one or more of the Service's Replicas:
-                        Secondary replica could not be placed due to the following constraints and properties:  
+                        Description           : hello Load Balancer was unable toofind a placement for one or more of hello Service's Replicas:
+                        Secondary replica could not be placed due toohello following constraints and properties:  
                         TargetReplicaSetSize: 7
                         Placement Constraint: N/A
                         Parent Service: N/A
@@ -291,21 +291,21 @@ PS C:\> @(Get-ServiceFabricNode).Count
 ```
 
 ### <a name="replica-constraint-violation"></a>Violação da restrição de réplica
-**System.PLB** relata um aviso se detectar uma violação de restrição de réplica e não puder posicionar todas as réplicas da partição. Os detalhes do relatório mostram quais restrições e propriedades impedem o posicionamento da réplica.
+**System.PLB** relata um aviso se detectar uma violação de restrição de réplica e não puder posicionar todas as réplicas da partição. detalhes do relatório Olá mostram quais restrições e propriedades de evitar que o posicionamento de réplica de saudação.
 
 * **SourceId**: System.PLB
 * **Propriedade**: começa com **ReplicaConstraintViolation**
 
 ## <a name="replica-system-health-reports"></a>Relatórios de integridade do sistema de réplica
-**System.RA**, que representa o componente do agente de reconfiguração, é a autoridade do estado da réplica.
+**System.RA**, que representa o componente do agente de reconfiguração Olá, é a autoridade de saudação para estado da réplica hello.
 
 ### <a name="state"></a>Estado
-**System.RA** relata OK quando a réplica é criada.
+**System.RA** relata Okey quando Olá réplica foi criada.
 
 * **SourceId**: System.RA
 * **Propriedade**: Estado
 
-O exemplo a seguir mostra uma réplica íntegra:
+saudação de exemplo a seguir mostra uma réplica íntegra:
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
@@ -328,22 +328,22 @@ HealthEvents          :
 ```
 
 ### <a name="replica-open-status"></a>Status aberto da réplica
-A descrição desse relatório de integridade contém a hora de início (UTC) da chamada à API invocada.
+Descrição de saudação deste relatório de integridade contém a hora de início da saudação (Coordinated Universal Time) quando chamada Olá API foi chamada.
 
-**System.RA** relatará um aviso se a réplica aberta demorar mais que o período configurado (padrão: 30 minutos). Quando a API afeta a disponibilidade do serviço, o relatório é emitido muito mais rapidamente (intervalo configurável, padrão de 30 segundos). O tempo medido inclui o tempo necessário para abrir o replicador e abrir o serviço. A propriedade muda para OK quando a abertura é concluída.
+**System.RA** relata um aviso se a réplica de saudação abrir demora mais do que o período Olá configurado (padrão: 30 minutos). Se Olá API afeta a disponibilidade do serviço, o relatório de saudação é emitido muito mais rápido (um intervalo configurável, com um padrão de 30 segundos). medida de tempo de saudação inclui tempo Olá para o replicador de saudação aberto e o serviço de Olá aberto. Olá tooOK de alterações de propriedade se abrir Olá completa.
 
 * **SourceId**: System.RA
 * **Propriedade**: **ReplicaOpenStatus**
-* **Próximas etapas**: se o estado de integridade não estiver OK, investigue o motivo pelo qual a réplica aberta demora mais que o esperado.
+* **Próximas etapas**: se o estado de integridade de saudação não for Okey, investigue por que a réplica de saudação abrir demora mais do que esperado.
 
 ### <a name="slow-service-api-call"></a>Chamada à API para serviço lento
-**System.RAP** e **System.Replicator** relatarão um aviso se uma chamada para o código do serviço do usuário demorar mais que o tempo configurado. Esse status é removido quando a chamada é concluída.
+**System.RAP** e **System.Replicator** relatar um aviso se um código de serviço chamada toohello usuário demora mais do que o tempo de saudação configurado. Aviso de saudação é limpo quando Olá chamada é concluída.
 
 * **SourceId**: System.RAP ou System.Replicator
-* **Propriedade**: o nome da API lenta. A descrição fornece mais detalhes sobre o tempo em que a API esteve pendente.
-* **Próximas etapas**: investigue o motivo pelo qual a chamada demora mais que o esperado.
+* **Propriedade**: nome de saudação da API lenta hello. Descrição de saudação fornece mais detalhes sobre a saudação de tempo Olá API foi pendente.
+* **Próximas etapas**: investigar por que a chamada de saudação demora mais do que esperado.
 
-O exemplo a seguir mostra uma partição na perda de quórum e as etapas de investigação realizadas para entender o motivo. Uma das réplicas tem o estado de integridade de aviso; portanto, obtemos sua integridade. Ele mostra que a operação do serviço demora mais que o esperado, um evento relatado por System.RAP. Depois que a informação é recebida, a próxima etapa será examinar o código de serviço e investigá-lo. Nesse caso, a implementação de **RunAsync** do serviço com estado gera uma exceção sem tratamento. As réplicas são recicladas, de modo que você não pode ver nenhuma réplica no estado de aviso. Você pode tentar novamente obter o estado de integridade e examinar as diferenças na ID de réplica. Em alguns casos, as novas tentativas podem lhe dar pistas.
+saudação de exemplo a seguir mostra uma partição em perda de quorum e Olá investigação etapas feitas toofigure o motivo. Uma das réplicas de saudação tem um estado de integridade de aviso, para que você obtenha sua integridade. Ele mostra que operação de serviço Olá leva mais tempo do que o esperado, um evento relatado pelo System.RAP. Depois que essas informações são recebidas, o hello próxima etapa é toolook no código de serviço hello e investigar existe. Nesse caso, Olá **RunAsync** implementação de serviço com monitoração de estado Olá lança uma exceção sem tratamento. réplicas de saudação são Reciclando, talvez você não veja todas as réplicas em estado de aviso de saudação. Você pode tentar novamente obter estado de integridade de saudação e examinar as diferenças na ID de réplica hello. Em certos casos, repetições Olá podem fornecer pistas.
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful | Get-ServiceFabricPartitionHealth -ExcludeHealthStatistics
@@ -437,7 +437,7 @@ HealthEvents          :
                         Transitions           : ->Warning = 4/24/2015 7:00:59 PM
 ```
 
-Ao iniciar o aplicativo com defeito no depurador, as janelas Eventos de Diagnóstico mostram a exceção lançada por RunAsync:
+Quando você inicia o aplicativo com defeito hello sob depurador Olá, o windows de eventos de diagnóstico de saudação mostram exceção de saudação do RunAsync:
 
 ![Eventos de diagnóstico do Visual Studio 2015: falha de RunAsync em fabric:/HelloWorldStatefulApplication.][1]
 
@@ -447,26 +447,26 @@ Eventos de diagnóstico do Visual Studio 2015: falha de RunAsync em **fabric:/He
 
 
 ### <a name="replication-queue-full"></a>Fila de replicação cheia
-**System.Replicator** relata um aviso quando a fila de replicação está cheia. Na réplica primária, a fila de replicação normalmente fica cheia porque uma ou mais réplicas secundárias são lentas confirmar as operações. No local secundário, isso geralmente acontece quando o serviço está lento para aplicar as operações. O aviso será removido quando a fila não estiver mais cheia.
+**System.Replicator** relata um aviso quando a fila de replicação hello está cheia. Em Olá primário, fila de replicação normalmente fica cheio porque uma ou mais réplicas secundárias são operações tooacknowledge lenta. Em Olá secundário, isso geralmente acontece quando o serviço hello está lenta tooapply Olá operações. Aviso de saudação é limpo quando a fila de saudação não esteja mais cheio.
 
 * **SourceId**: System.Replicator
-* **Propriedade**: **PrimaryReplicationQueueStatus** ou **SecondaryReplicationQueueStatus**, dependendo da função da réplica
+* **Propriedade**: **PrimaryReplicationQueueStatus** ou **SecondaryReplicationQueueStatus**, dependendo da função de réplica Olá
 
 ### <a name="slow-naming-operations"></a>Operações de Nomeação lentas
 **System.NamingService** relata a integridade na réplica primária quando uma operação de nomenclatura demora mais do que o aceitável. Exemplos de operações de Nomeação: [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) ou [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Mais métodos podem ser encontrados em FabricClient, por exemplo, em [métodos de gerenciamento do serviço](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) ou [métodos de gerenciamento de propriedade](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
 
 > [!NOTE]
-> O serviço de nomenclatura resolve nomes de serviço para um local no cluster e permite aos usuários gerenciar propriedades e nomes de serviço. É um serviço persistentes particionado pelo Service Fabric. Uma das partições representa o proprietário da autoridade, que contém metadados sobre todos os nomes e serviços do Service Fabric. Os nomes do Service Fabric são mapeados para partições diferentes, chamadas de partições de Proprietário de Nome, assim, o serviço é extensível. Leia mais sobre o [Serviço de nomeação](service-fabric-architecture.md).
+> Olá Naming service resolve local tooa do serviço de nomes de cluster hello e permite que propriedades e nomes de serviço toomanage de usuários. É um serviço persistentes particionado pelo Service Fabric. Uma das partições Olá representa Olá proprietário da autoridade, que contém metadados sobre todos os nomes de serviço de malha e serviços. nomes de Service Fabric do Hello são mapeadas toodifferent partições, chamadas partições do proprietário do nome, portanto, o serviço de saudação extensível. Leia mais sobre o [Serviço de nomeação](service-fabric-architecture.md).
 > 
 > 
 
-Quando uma operação de nomeação leva mais tempo do que o esperado, a operação é sinalizada com um relatório de Aviso na *réplica primária da partição de serviço de nomeação que atende à operação*. Se a operação for concluída com êxito, o Aviso será limpo. Se a operação for concluída com um erro, o relatório de integridade incluirá detalhes sobre o erro.
+Quando uma operação de nomenclatura leva mais tempo do que o esperado, operação Olá será sinalizada com um relatório de aviso em Olá *réplica primária do hello nomear a partição de serviço que serve a operação de saudação*. Se a operação de saudação for concluída com êxito, hello aviso está desmarcado. Se a conclusão da operação de saudação com um erro, o relatório de integridade Olá inclui detalhes sobre o erro hello.
 
 * **SourceId**: System.NamingService
-* **Propriedade**: começa com o prefixo **Duration_** e identifica a operação lenta e o nome do Service Fabric em que a operação é aplicada. Por exemplo, se a criação de um serviço em name fabric: /MyApp/MyService levar muito tempo, a propriedade será Duration_AOCreateService.fabric:/MyApp/MyService. AO aponta para a função da partição de nomeação para esse nome e a operação.
-* **Próximas etapas**: verifique por que a operação de nomeação falha. Cada operação pode ter causas raiz diferentes. Por exemplo, a exclusão de serviço pode estar bloqueado em um nó porque o host do aplicativo falha em um nó devido a um bug de usuário no código de serviço.
+* **Propriedade**: começa com o prefixo **Duration_** e identifica a operação lenta hello e o nome de malha do serviço Olá quais Olá operação é aplicada. Por exemplo, se criar um serviço na malha de nome: / MyApp/MyService leva muito tempo, a propriedade de saudação é Duration_AOCreateService.fabric:/MyApp/MyService. Função de toohello sol pontos de saudação partição de nomenclatura para o nome e a operação.
+* **Próximas etapas**: seleção por Olá nomenclatura operação falha. Cada operação pode ter causas raiz diferentes. Por exemplo, excluir o serviço pode estar preso em um nó, porque o host de aplicativo hello fica falhando em um nó devido tooa bug de usuário no código de serviço de saudação.
 
-O exemplo a seguir mostra uma operação de criação de serviço. A operação demorou mais do que a duração configurada. AO tenta novamente e envia o trabalho para NO. NO concluiu a última operação com Tempo limite. Nesse caso, a mesma réplica é primária para as funções AO e NO.
+saudação de exemplo a seguir mostra uma operação de criação do serviço. operação de saudação demorou mais do que a duração de saudação configurada. AO tentar novamente e envia tooNO de trabalho. Nenhuma operação última Olá concluída com tempo limite. Nesse caso, hello mesma réplica é a principal para Olá sol e nenhuma função.
 
 ```powershell
 PartitionId           : 00000000-0000-0000-0000-000000001000
@@ -495,7 +495,7 @@ HealthEvents          :
                         SentAt                : 4/29/2016 8:39:12 PM
                         ReceivedAt            : 4/29/2016 8:39:38 PM
                         TTL                   : 00:05:00
-                        Description           : The AOCreateService started at 2016-04-29 20:39:08.677 is taking longer than 30.000.
+                        Description           : hello AOCreateService started at 2016-04-29 20:39:08.677 is taking longer than 30.000.
                         RemoveWhenExpired     : True
                         IsExpired             : False
                         Transitions           : Error->Warning = 4/29/2016 8:39:38 PM, LastOk = 1/1/0001 12:00:00 AM
@@ -507,23 +507,23 @@ HealthEvents          :
                         SentAt                : 4/29/2016 8:41:05 PM
                         ReceivedAt            : 4/29/2016 8:41:08 PM
                         TTL                   : 00:00:15
-                        Description           : The NOCreateService started at 2016-04-29 20:39:08.689 completed with FABRIC_E_TIMEOUT in more than 30.000.
+                        Description           : hello NOCreateService started at 2016-04-29 20:39:08.689 completed with FABRIC_E_TIMEOUT in more than 30.000.
                         RemoveWhenExpired     : True
                         IsExpired             : False
                         Transitions           : Error->Warning = 4/29/2016 8:39:38 PM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
 ## <a name="deployedapplication-system-health-reports"></a>Relatórios de integridade do sistema DeployedApplication
-**System.Hosting** é a autoridade nas entidades implantadas.
+**System.Hosting** é Olá autoridade em entidades implantadas.
 
 ### <a name="activation"></a>Ativação
-System.Hosting relata OK quando um aplicativo é ativado com êxito no nó. Caso contrário, ele relata um erro.
+System.Hosting informa como Okey quando um aplicativo foi ativado com êxito no nó de saudação. Caso contrário, ele relata um erro.
 
 * **SourceId**: System.Hosting
-* **Propriedade**: ativação, incluindo a versão de distribuição
-* **Próximas etapas**: se o aplicativo não estiver íntegro, investigue o motivo pelo qual a ativação falhou.
+* **Propriedade**: ativação, incluindo a versão de distribuição Olá
+* **Próximas etapas**: se o aplicativo hello não está íntegro, investigar por que a ativação de saudação falhou.
 
-O exemplo a seguir mostra uma ativação bem-sucedida:
+saudação de ativação bem-sucedida do exemplo mostra a seguir:
 
 ```powershell
 PS C:\> Get-ServiceFabricDeployedApplicationHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ExcludeHealthStatistics
@@ -545,42 +545,42 @@ HealthEvents                       :
                                      SentAt                : 7/14/2017 4:55:08 PM
                                      ReceivedAt            : 7/14/2017 4:55:14 PM
                                      TTL                   : Infinite
-                                     Description           : The application was activated successfully.
+                                     Description           : hello application was activated successfully.
                                      RemoveWhenExpired     : False
                                      IsExpired             : False
                                      Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 ### <a name="download"></a>Baixar
-**System.Hosting** relatará um erro se o download do pacote de aplicativos falhar.
+**System.Hosting** relata um erro se o download do pacote de aplicativo hello falhar.
 
 * **SourceId**: System.Hosting
 * **Propriedade**: **Download:*RolloutVersion***
-* **Próximas etapas**: investigue o motivo pelo qual o download falhou no nó.
+* **Próximas etapas**: investigar por que o download de saudação falhou no nó de saudação.
 
 ## <a name="deployedservicepackage-system-health-reports"></a>Relatórios de integridade do sistema DeployedServicePackage
-**System.Hosting** é a autoridade nas entidades implantadas.
+**System.Hosting** é Olá autoridade em entidades implantadas.
 
 ### <a name="service-package-activation"></a>Ativação do pacote de serviço
-System.Hosting relatará OK se a ativação do pacote de serviço no nó for bem-sucedida. Caso contrário, ele relata um erro.
+System.Hosting informa como Okey se a ativação do pacote de serviço Olá no nó de saudação for bem-sucedida. Caso contrário, ele relata um erro.
 
 * **SourceId**: System.Hosting
 * **Propriedade**: ativação
-* **Próximas etapas**: investigue o motivo pelo qual a ativação falhou.
+* **Próximas etapas**: investigar por que a ativação de saudação falhou.
 
 ### <a name="code-package-activation"></a>Ativação do pacote de códigos
-**System.Hosting** relatará OK para cada pacote de códigos se a ativação for bem-sucedida. Se houver falha na ativação, ele relatará um aviso conforme configurado. Se **CodePackage** falhar em ativar ou terminar com um erro maior que o **CodePackageHealthErrorThreshold** configurado, a hospedagem relatará um erro. Se um pacote de serviço contiver vários pacotes de código, um relatório de ativação será gerado para cada um.
+**System.Hosting** informa como Okey para cada pacote de código se saudação de ativação é bem-sucedida. Se a ativação Olá falhar, ele relata um aviso como configurado. Se **CodePackage** falhar tooactivate ou termina com um erro maior Olá configurado **CodePackageHealthErrorThreshold**, hospedagem relata um erro. Se um pacote de serviço contiver vários pacotes de código, um relatório de ativação será gerado para cada um.
 
 * **SourceId**: System.Hosting
-* **Propriedade**: usa o prefixo **CodePackageActivation** e contém o nome do pacote de códigos e o ponto de entrada como **CodePackageActivation:*CodePackageName*:*SetupEntryPoint/EntryPoint*** (por exemplo, **CodePackageActivation:Code:SetupEntryPoint**)
+* **Propriedade**: prefixo de saudação usa **CodePackageActivation** e contém o nome de saudação do pacote de códigos hello e ponto de entrada hello como  **CodePackageActivation:* CodePackageName*:*SetupEntryPoint/EntryPoint** * (por exemplo, **CodePackageActivation:Code:SetupEntryPoint**)
 
 ### <a name="service-type-registration"></a>Registro do tipo de serviço
-**System.Hosting** relatará OK se o tipo de serviço for registrado com êxito. Ele relatará um erro se o registro não foi feito pontualmente (conforme configurado usando **ServiceTypeRegistrationTimeout**). Se o tempo de execução estiver fechado, o tipo de serviço não estará registrado no nó e Hospedagem relatará um aviso.
+**System.Hosting** informa como Okey se o tipo de serviço Olá foi registrado com êxito. Ele relata um erro se Olá registro não foi feito no tempo (configurado usando **ServiceTypeRegistrationTimeout**). Se Olá runtime estiver fechada, o tipo de serviço Olá é cancelar o registro do nó de saudação e hospedagem relata um aviso.
 
 * **SourceId**: System.Hosting
-* **Propriedade**: usa o prefixo **ServiceTypeRegistration** e contém o nome do tipo de serviço (por exemplo, **ServiceTypeRegistration:FileStoreServiceType**)
+* **Propriedade**: prefixo de saudação usa **ServiceTypeRegistration** e contém o nome do tipo de serviço de saudação (por exemplo, **ServiceTypeRegistration:FileStoreServiceType**)
 
-O exemplo a seguir mostra um pacote de serviço íntegro implantado:
+saudação de exemplo a seguir mostra um pacote de serviço implantado Íntegro:
 
 ```powershell
 PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
@@ -599,7 +599,7 @@ HealthEvents               :
                              SentAt                : 7/14/2017 4:55:08 PM
                              ReceivedAt            : 7/14/2017 4:55:14 PM
                              TTL                   : Infinite
-                             Description           : The ServicePackage was activated successfully.
+                             Description           : hello ServicePackage was activated successfully.
                              RemoveWhenExpired     : False
                              IsExpired             : False
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
@@ -611,7 +611,7 @@ HealthEvents               :
                              SentAt                : 7/14/2017 4:55:08 PM
                              ReceivedAt            : 7/14/2017 4:55:14 PM
                              TTL                   : Infinite
-                             Description           : The CodePackage was activated successfully.
+                             Description           : hello CodePackage was activated successfully.
                              RemoveWhenExpired     : False
                              IsExpired             : False
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
@@ -623,30 +623,30 @@ HealthEvents               :
                              SentAt                : 7/14/2017 4:55:08 PM
                              ReceivedAt            : 7/14/2017 4:55:14 PM
                              TTL                   : Infinite
-                             Description           : The ServiceType was registered successfully.
+                             Description           : hello ServiceType was registered successfully.
                              RemoveWhenExpired     : False
                              IsExpired             : False
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 ### <a name="download"></a>Baixar
-**System.Hosting** relatará um erro se o download do pacote de serviço falhar.
+**System.Hosting** relata um erro se o download do pacote de serviço Olá falhar.
 
 * **SourceId**: System.Hosting
 * **Propriedade**: **Download:*RolloutVersion***
-* **Próximas etapas**: investigue o motivo pelo qual o download falhou no nó.
+* **Próximas etapas**: investigar por que o download de saudação falhou no nó de saudação.
 
 ### <a name="upgrade-validation"></a>Validação da atualização
-**System.Hosting** relatará um erro se a validação durante a atualização falhar ou se a atualização falhar no nó.
+**System.Hosting** relata um erro se houver falha na validação durante a atualização de saudação ou se hello atualização falha no nó de saudação.
 
 * **SourceId**: System.Hosting
-* **Propriedade**: usa o prefixo **FabricUpgradeValidation** e contém a versão de atualização
-* **Descrição**: aponta para o erro encontrado
+* **Propriedade**: prefixo de saudação usa **FabricUpgradeValidation** e contém a versão de atualização de saudação
+* **Descrição**: pontos toohello erro
 
 ## <a name="next-steps"></a>Próximas etapas
 [Como exibir relatórios de integridade do Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
-[Como relatar e verificar a integridade do serviço](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+[Como tooreport e verificação de integridade do serviço](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
 [Monitorar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 

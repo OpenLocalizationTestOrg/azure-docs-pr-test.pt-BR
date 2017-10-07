@@ -1,6 +1,6 @@
 ---
-title: "Gerenciar contas dos Serviços de Mídia do Azure com o PowerShell"
-description: "Saiba como gerenciar contas dos Serviços de Mídia do Azure com cmdlets do PowerShell."
+title: "aaaManage contas de serviços de mídia do Azure com o PowerShell"
+description: Saiba como toomanage Azure Media Services contas com cmdlets do PowerShell.
 author: Juliako
 manager: erikre
 editor: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: juliako
-ms.openlocfilehash: 3d999d9e27844bc0164cc3572522b9ec022118a1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e8f97bb2393343e45fabf9c437b4fc09f2525dc2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-azure-media-services-accounts-with-powershell"></a>Gerenciar contas dos Serviços de Mídia do Azure com o PowerShell
 > [!div class="op_single_selector"]
@@ -27,12 +27,12 @@ ms.lasthandoff: 07/11/2017
 > * [REST](https://docs.microsoft.com/rest/api/media/mediaservice)
 > 
 > [!NOTE]
-> Para poder criar uma conta de Serviços de Mídia do Azure, você deve ter uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Avaliação Gratuita do Azure</a>.
+> toobe toocreate capaz de uma conta de serviços de mídia do Azure, você deve ter uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Avaliação Gratuita do Azure</a>.
 > 
 > 
 
 ## <a name="overview"></a>Visão geral
-Este artigo lista os cmdlets do Azure PowerShell para os Serviços de Mídia do Azure (AMS) na estrutura do Azure Resource Manager. Os cmdlets existem no namespace **Microsoft.Azure.Commands.Media** .
+Este artigo lista Olá cmdlets do PowerShell do Azure para serviços de mídia do Azure (AMS) na estrutura do Azure Resource Manager hello. Olá cmdlets existe no hello **Microsoft.Azure.Commands.Media** namespace.
 
 ## <a name="versions"></a>Versões
 **ApiVersion**:   "2015-10-01"
@@ -52,7 +52,7 @@ Conjunto de Parâmetros: StorageAccountsParamSet
 ### <a name="parameters"></a>parâmetros
 **-ResourceGroupName &lt;Cadeia de caracteres&gt;**
 
-Especifica o nome do grupo de recursos ao qual pertence este serviço de mídia.
+Especifica o nome de saudação do hello toowhich de grupo de recursos que pertence este serviço de mídia.
 
 | Aliases | nenhum |
 | --- | --- |
@@ -64,7 +64,7 @@ Especifica o nome do grupo de recursos ao qual pertence este serviço de mídia.
 
 **-AccountName &lt;Cadeia de caracteres&gt;**
 
-Especifica o nome do serviço de mídia.
+Especifica o nome de saudação do serviço de mídia hello.
 
 | Aliases | Name |
 | --- | --- |
@@ -76,7 +76,7 @@ Especifica o nome do serviço de mídia.
 
 **-Location &lt;Cadeia de caracteres&gt;**
 
-Especifica a localização do recurso do serviço de mídia.
+Especifica a localização do recurso de saudação do serviço de mídia hello.
 
 | Aliases | nenhum |
 | --- | --- |
@@ -88,10 +88,10 @@ Especifica a localização do recurso do serviço de mídia.
 
 **-StorageAccountId &lt;Cadeia de caracteres&gt;**
 
-Especifica uma conta de armazenamento principal associada ao serviço de mídia.
+Especifica uma conta de armazenamento primário associado ao serviço de mídia hello.
 
-* Nova conta de armazenamento (criada com a API do Gerenciador de Recursos) com suporte apenas.
-* A conta de armazenamento deve existir e ter o mesmo local do serviço de mídia.
+* Nova conta de armazenamento (criada com hello API do Gerenciador de recursos) somente oferece suportada.
+* Olá conta de armazenamento deve existir e tiver Olá mesmo local com o serviço de mídia hello.
 
 | Aliases | nenhum |
 | --- | --- |
@@ -104,10 +104,10 @@ Especifica uma conta de armazenamento principal associada ao serviço de mídia.
 
 **-StorageAccounts &lt;PSStorageAccount\[\]&gt;**
 
-Especifica as contas de armazenamento associadas ao serviço de mídia.
+Especifica as contas de armazenamento associado ao serviço de mídia hello.
 
-* Nova conta de armazenamento (criada com a API do Gerenciador de Recursos) com suporte apenas.
-* A conta de armazenamento deve existir e ter o mesmo local do serviço de mídia.
+* Nova conta de armazenamento (criada com hello API do Gerenciador de recursos) somente oferece suportada.
+* Olá conta de armazenamento deve existir e tiver Olá mesmo local com o serviço de mídia hello.
 * Apenas uma conta de armazenamento pode ser especificada como principal.
 
 | Aliases | nenhum |
@@ -121,7 +121,7 @@ Especifica as contas de armazenamento associadas ao serviço de mídia.
 
 **-Tags &lt;Hashtable&gt;**
 
-Especifica uma tabela de hash das marcações associadas ao serviço de mídia.
+Especifica uma tabela de hash de marcas de saudação que estão associados com o serviço de mídia hello.
 
 * Exemplo: @{"tag1"="value1";" tag2 "=: valor2"}
 
@@ -135,13 +135,13 @@ Especifica uma tabela de hash das marcações associadas ao serviço de mídia.
 
 **&lt;CommandParameters&gt;**
 
-Este cmdlet oferece suporte aos parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
+Esse cmdlet oferece suporte a parâmetros comuns de saudação:-Debug, - ErrorAction, - ErrorVariable, - InformationAction, - InformationVariable, - OutVariable,-OutBuffer, - PipelineVariable, - Verbose, - WarningAction e - WarningVariable.
 
 ### <a name="inputs"></a>Entradas
-O tipo de entrada é o tipo dos objetos que você pode enviar ao cmdlet.
+tipo de entrada Hello é tipo de saudação do hello objetos que você pode transmitir toohello cmdlet.
 
-### <a name="outputs"></a>Saídas
-O tipo de saída é o tipo dos objetos que o cmdlet transmite.
+### <a name="outputs"></a>outputs
+tipo de saída de Hello é o tipo de saudação de objetos Olá Olá cmdlet emite.
 
 ## <a name="set-azurermmediaservice"></a>Set-AzureRmMediaService
 Atualiza um serviço de mídia.
@@ -152,7 +152,7 @@ Atualiza um serviço de mídia.
 ### <a name="parameters"></a>parâmetros
 **-ResourceGroupName &lt;Cadeia de caracteres&gt;**
 
-Especifica o nome do grupo de recursos ao qual pertence este serviço de mídia.
+Especifica o nome de saudação do hello toowhich de grupo de recursos que pertence este serviço de mídia.
 
 | Aliases | nenhum |
 | --- | --- |
@@ -164,7 +164,7 @@ Especifica o nome do grupo de recursos ao qual pertence este serviço de mídia.
 
 **-AccountName &lt;Cadeia de caracteres&gt;**
 
-Especifica o nome do serviço de mídia.
+Especifica o nome de saudação do serviço de mídia hello.
 
 | Aliases | Name |
 | --- | --- |
@@ -176,10 +176,10 @@ Especifica o nome do serviço de mídia.
 
 **-StorageAccounts &lt;PSStorageAccount\[\]&gt;**
 
-Especifica as contas de armazenamento associadas ao serviço de mídia.
+Especifica as contas de armazenamento associado ao serviço de mídia hello.
 
-* Nova conta de armazenamento (criada com a API do Gerenciador de Recursos) com suporte apenas.
-* A conta de armazenamento deve existir e ter o mesmo local do serviço de mídia.
+* Nova conta de armazenamento (criada com hello API do Gerenciador de recursos) somente oferece suportada.
+* Olá conta de armazenamento deve existir e tiver Olá mesmo local com o serviço de mídia hello.
 * Apenas uma conta de armazenamento pode ser especificada como principal.
 
 | Aliases | nenhum |
@@ -193,9 +193,9 @@ Especifica as contas de armazenamento associadas ao serviço de mídia.
 
 **-Tags &lt;Hashtable&gt;**
 
-Especifica uma tabela de hash das marcações associadas a este serviço de mídia.
+Especifica uma tabela de hash de marcas de saudação que estão associados esse serviço de mídia.
 
-* As marcações associadas ao serviço de mídia são substituídas pelo valor especificado pelo cliente.
+* marcas de saudação que estão associadas com o serviço de mídia Olá são substituídas com o valor especificado pelo cliente de saudação.
 
 | Aliases | nenhum |
 | --- | --- |
@@ -207,13 +207,13 @@ Especifica uma tabela de hash das marcações associadas a este serviço de míd
 
 **&lt;CommandParameters&gt;**
 
-Este cmdlet oferece suporte aos parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
+Esse cmdlet oferece suporte a parâmetros comuns de saudação:-Debug, - ErrorAction, - ErrorVariable, - InformationAction, - InformationVariable, - OutVariable,-OutBuffer, - PipelineVariable, - Verbose, - WarningAction e - WarningVariable.
 
 ### <a name="inputs"></a>Entradas
-O tipo de entrada é o tipo dos objetos que você pode enviar ao cmdlet.
+tipo de entrada Hello é tipo de saudação do hello objetos que você pode transmitir toohello cmdlet.
 
-### <a name="outputs"></a>Saídas
-O tipo de saída é o tipo dos objetos que o cmdlet transmite.
+### <a name="outputs"></a>outputs
+tipo de saída de Hello é o tipo de saudação de objetos Olá Olá cmdlet emite.
 
 ## <a name="remove-azurermmediaservice"></a>Remove-AzureRmMediaService
 Remove um serviço de mídia.
@@ -224,7 +224,7 @@ Remove um serviço de mídia.
 ### <a name="parameters"></a>parâmetros
 **-ResourceGroupName &lt;Cadeia de caracteres&gt;**
 
-Especifica o nome do grupo de recursos ao qual pertence este serviço de mídia.
+Especifica o nome de saudação do hello toowhich de grupo de recursos que pertence este serviço de mídia.
 
 | Aliases | nenhum |
 | --- | --- |
@@ -236,7 +236,7 @@ Especifica o nome do grupo de recursos ao qual pertence este serviço de mídia.
 
 **-AccountName &lt;Cadeia de caracteres&gt;**
 
-Especifica o nome do serviço de mídia.
+Especifica o nome de saudação do serviço de mídia hello.
 
 | Aliases | nenhum |
 | --- | --- |
@@ -248,13 +248,13 @@ Especifica o nome do serviço de mídia.
 
 **&lt;CommandParameters&gt;**
 
-Este cmdlet oferece suporte aos parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
+Esse cmdlet oferece suporte a parâmetros comuns de saudação:-Debug, - ErrorAction, - ErrorVariable, - InformationAction, - InformationVariable, - OutVariable,-OutBuffer, - PipelineVariable, - Verbose, - WarningAction e - WarningVariable.
 
 ### <a name="inputs"></a>Entradas
-O tipo de entrada é o tipo dos objetos que você pode enviar ao cmdlet.
+tipo de entrada Hello é tipo de saudação do hello objetos que você pode transmitir toohello cmdlet.
 
-### <a name="outputs"></a>Saídas
-O tipo de saída é o tipo dos objetos que o cmdlet transmite.
+### <a name="outputs"></a>outputs
+tipo de saída de Hello é o tipo de saudação de objetos Olá Olá cmdlet emite.
 
 ## <a name="get-azurermmediaservice"></a>Get-AzureRmMediaService
 Obtém todos os serviços de mídia em um grupo de recursos ou um serviço de mídia com um determinado nome.
@@ -271,7 +271,7 @@ ParameterSet: AccountNameParameterSet
 ### <a name="parameters"></a>parâmetros
 **-ResourceGroupName &lt;Cadeia de caracteres&gt;**
 
-Especifica o nome do grupo de recursos ao qual pertence este serviço de mídia.
+Especifica o nome de saudação do hello toowhich de grupo de recursos que pertence este serviço de mídia.
 
 | Aliases | nenhum |
 | --- | --- |
@@ -285,7 +285,7 @@ Aceitar caracteres curinga?   false
 
 **-AccountName &lt;Cadeia de caracteres&gt;**
 
-Especifica o nome do serviço de mídia.
+Especifica o nome de saudação do serviço de mídia hello.
 
 | Aliases | nenhum |
 | --- | --- |
@@ -298,13 +298,13 @@ Especifica o nome do serviço de mídia.
 
 **&lt;CommandParameters&gt;**
 
-Este cmdlet oferece suporte aos parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
+Esse cmdlet oferece suporte a parâmetros comuns de saudação:-Debug, - ErrorAction, - ErrorVariable, - InformationAction, - InformationVariable, - OutVariable,-OutBuffer, - PipelineVariable, - Verbose, - WarningAction e - WarningVariable.
 
 ### <a name="inputs"></a>Entradas
-O tipo de entrada é o tipo dos objetos que você pode enviar ao cmdlet.
+tipo de entrada Hello é tipo de saudação do hello objetos que você pode transmitir toohello cmdlet.
 
-### <a name="outputs"></a>Saídas
-O tipo de saída é o tipo dos objetos que o cmdlet transmite.
+### <a name="outputs"></a>outputs
+tipo de saída de Hello é o tipo de saudação de objetos Olá Olá cmdlet emite.
 
 ## <a name="get-azurermmediaservicekeys"></a>Get-AzureRmMediaServiceKeys
 Obtém as chaves de um serviço de mídia.
@@ -315,7 +315,7 @@ Obtém as chaves de um serviço de mídia.
 ### <a name="parameters"></a>parâmetros
 **-ResourceGroupName &lt;Cadeia de caracteres&gt;**
 
-Especifica o nome do grupo de recursos ao qual pertence este serviço de mídia.
+Especifica o nome de saudação do hello toowhich de grupo de recursos que pertence este serviço de mídia.
 
 | Aliases | nenhum |
 | --- | --- |
@@ -327,7 +327,7 @@ Especifica o nome do grupo de recursos ao qual pertence este serviço de mídia.
 
 **-AccountName &lt;Cadeia de caracteres&gt;**
 
-Especifica o nome do serviço de mídia.
+Especifica o nome de saudação do serviço de mídia hello.
 
 | Aliases | nenhum |
 | --- | --- |
@@ -339,13 +339,13 @@ Especifica o nome do serviço de mídia.
 
 **&lt;CommandParameters&gt;**
 
-Este cmdlet oferece suporte aos parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
+Esse cmdlet oferece suporte a parâmetros comuns de saudação:-Debug, - ErrorAction, - ErrorVariable, - InformationAction, - InformationVariable, - OutVariable,-OutBuffer, - PipelineVariable, - Verbose, - WarningAction e - WarningVariable.
 
 ### <a name="inputs"></a>Entradas
-O tipo de entrada é o tipo dos objetos que você pode enviar ao cmdlet.
+tipo de entrada Hello é tipo de saudação do hello objetos que você pode transmitir toohello cmdlet.
 
-### <a name="outputs"></a>Saídas
-O tipo de saída é o tipo dos objetos que o cmdlet transmite.
+### <a name="outputs"></a>outputs
+tipo de saída de Hello é o tipo de saudação de objetos Olá Olá cmdlet emite.
 
 ## <a name="set-azurermmediaservicekey"></a>Set-AzureRmMediaServiceKey
 Regenera uma chave primária ou secundária de um serviço de mídia.
@@ -356,7 +356,7 @@ Regenera uma chave primária ou secundária de um serviço de mídia.
 ### <a name="parameters"></a>parâmetros
 **-ResourceGroupName &lt;Cadeia de caracteres&gt;**
 
-Especifica o nome do grupo de recursos ao qual pertence este serviço de mídia.
+Especifica o nome de saudação do hello toowhich de grupo de recursos que pertence este serviço de mídia.
 
 | Aliases | nenhum |
 | --- | --- |
@@ -368,7 +368,7 @@ Especifica o nome do grupo de recursos ao qual pertence este serviço de mídia.
 
 **-AccountName &lt;Cadeia de caracteres&gt;**
 
-Especifica o nome do serviço de mídia.
+Especifica o nome de saudação do serviço de mídia hello.
 
 | Aliases | nenhum |
 | --- | --- |
@@ -380,7 +380,7 @@ Especifica o nome do serviço de mídia.
 
 **-KeyType &lt;KeyType&gt;**
 
-Especifica o tipo de chave do serviço de mídia.
+Especifica o tipo de serviço de mídia Olá chave hello.
 
 * Primária ou Secundária
 
@@ -394,16 +394,16 @@ Especifica o tipo de chave do serviço de mídia.
 
 **&lt;CommandParameters&gt;**
 
-Este cmdlet oferece suporte aos parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
+Esse cmdlet oferece suporte a parâmetros comuns de saudação:-Debug, - ErrorAction, - ErrorVariable, - InformationAction, - InformationVariable, - OutVariable,-OutBuffer, - PipelineVariable, - Verbose, - WarningAction e - WarningVariable.
 
 ### <a name="inputs"></a>Entradas
-O tipo de entrada é o tipo dos objetos que você pode enviar ao cmdlet.
+tipo de entrada Hello é tipo de saudação do hello objetos que você pode transmitir toothe cmdlet.
 
-### <a name="outputs"></a>Saídas
-O tipo de saída é o tipo dos objetos que o cmdlet transmite.
+### <a name="outputs"></a>outputs
+tipo de saída de Hello é o tipo de saudação de objetos Olá Olá cmdlet emite.
 
 ## <a name="sync-azurermmediaservicestoragekeys"></a>Sync-AzureRmMediaServiceStorageKeys
-Sincroniza as chaves da conta de armazenamento para uma conta de armazenamento associada ao serviço de mídia.
+Sincroniza as chaves de conta de armazenamento para uma conta de armazenamento associado ao serviço de mídia hello.
 
 ### <a name="syntax"></a>Sintaxe
     Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaServiceAccountName] <string>    [-StorageAccountId] <string>  [<CommonParameters>]
@@ -411,7 +411,7 @@ Sincroniza as chaves da conta de armazenamento para uma conta de armazenamento a
 ### <a name="parameters"></a>parâmetros
 **-ResourceGroupName &lt;Cadeia de caracteres&gt;**
 
-Especifica o nome do grupo de recursos ao qual pertence este serviço de mídia.
+Especifica o nome de saudação do hello toowhich de grupo de recursos que pertence este serviço de mídia.
 
 | Aliases | nenhum |
 | --- | --- |
@@ -423,7 +423,7 @@ Especifica o nome do grupo de recursos ao qual pertence este serviço de mídia.
 
 **-AccountName &lt;Cadeia de caracteres&gt;**
 
-Especifica o nome do serviço de mídia.
+Especifica o nome de saudação do serviço de mídia hello.
 
 | Aliases | nenhum |
 | --- | --- |
@@ -435,7 +435,7 @@ Especifica o nome do serviço de mídia.
 
 **-StorageAccountId &lt;Cadeia de caracteres&gt;**
 
-Especifica a conta de armazenamento associada ao serviço de mídia.
+Especifica a conta de armazenamento de saudação associada ao serviço de mídia hello.
 
 | Aliases | ID |
 | --- | --- |
@@ -447,13 +447,13 @@ Especifica a conta de armazenamento associada ao serviço de mídia.
 
 **&lt;CommandParameters&gt;**
 
-Este cmdlet oferece suporte aos parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
+Esse cmdlet oferece suporte a parâmetros comuns de saudação:-Debug, - ErrorAction, - ErrorVariable, - InformationAction, - InformationVariable, - OutVariable,-OutBuffer, - PipelineVariable, - Verbose, - WarningAction e - WarningVariable.
 
 ### <a name="inputs"></a>Entradas
-O tipo de entrada é o tipo dos objetos que você pode enviar ao cmdlet.
+tipo de entrada Hello é tipo de saudação do hello objetos que você pode transmitir toohello cmdlet.
 
-### <a name="outputs"></a>Saídas
-O tipo de saída é o tipo dos objetos que o cmdlet transmite.
+### <a name="outputs"></a>outputs
+tipo de saída de Hello é o tipo de saudação de objetos Olá Olá cmdlet emite.
 
 ## <a name="next-step"></a>Próxima etapa
 Confira os roteiros de aprendizagem dos Serviços de Mídia.

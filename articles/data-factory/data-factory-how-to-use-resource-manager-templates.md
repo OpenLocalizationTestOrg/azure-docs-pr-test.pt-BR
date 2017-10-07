@@ -1,6 +1,6 @@
 ---
-title: Usar modelos do Resource Manager no Data Factory | Microsoft Docs
-description: Saiba como criar e usar modelos do Azure Resource Manager para criar entidades de Data Factory.
+title: "modelos do Gerenciador de recursos de aaaUse na fábrica de dados | Microsoft Docs"
+description: "Saiba como toocreate entidades e de uso do Azure Resource Manager modelos toocreate fábrica de dados."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -14,45 +14,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
-ms.openlocfilehash: c3ea2c047434b5b5495f0ce85be9376a502e4962
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 60d5dbd29494420006aed6d5bd9a10a63c36bec3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-templates-to-create-azure-data-factory-entities"></a>Usar modelos para criar entidades do Azure Data Factory
+# <a name="use-templates-toocreate-azure-data-factory-entities"></a>Usar modelos toocreate do Azure Data Factory entidades
 ## <a name="overview"></a>Visão geral
-Ao usar o Azure Data Factory para suas necessidades de integração de dados, talvez você precise reutilizar o mesmo padrão em diversos ambientes ou implementar a mesma tarefa repetidamente na mesma solução. Modelos ajudam você a implementar e gerenciar estes cenários de forma fácil. Modelos no Azure Data Factory são ideais para cenários que envolvem reutilização e repetição.
+Durante o uso do Azure Data Factory para suas necessidades de integração de dados, você pode perceber que está reutilizando Olá mesmo padrão em diferentes ambientes ou implementando Olá mesma tarefa repetidamente dentro do hello mesmo solução. Modelos ajudam você a implementar e gerenciar estes cenários de forma fácil. Modelos no Azure Data Factory são ideais para cenários que envolvem reutilização e repetição.
 
-Considere a situação em que uma organização tem 10 instalações de produção em todo o mundo. Os logs de cada fábrica são armazenados em um banco de dados do SQL Server local separado. A empresa quer criar um único data warehouse na nuvem para análise ad hoc. Ele também quer ter a mesma lógica, mas configurações diferentes para ambientes de desenvolvimento, teste e produção.
+Considere uma situação de saudação em que uma organização tem 10 instalações de produção em Olá, mundo. logs de saudação de cada fábrica são armazenados em um banco de dados do SQL Server local separado. empresa de saudação deseja toobuild um único data warehouse na nuvem Olá para análise ad hoc. Ele também deseja toohave Olá mesma lógica, mas diferentes configurações para ambientes de desenvolvimento, teste e produção.
 
-Nesse caso, uma tarefa precisa ser repetida dentro do mesmo ambiente, mas com valores diferentes entre as 10 fábricas de dados para cada fábrica. Na verdade, **repetição** está presente. A modelagem permite a abstração desse fluxo genérico (ou seja, pipelines com as mesmas atividades em cada data factory), mas usa um arquivo de parâmetro separado para cada fábrica.
+Nesse caso, uma tarefa precisar toobe repetido dentro Olá mesmo ambiente, mas com diferentes valores entre Olá 10 fábricas de dados para cada fábrica. Na verdade, **repetição** está presente. Permite a modelagem abstração Olá este fluxo genérico (ou seja, pipelines tendo Olá atividades mesmo em cada fábrica de dados), mas usa um arquivo de parâmetro separado para cada fábrica.
 
-Além disso, como a organização deseja implantar essas 10 data factories diversas vezes em vários ambientes, os modelos podem usar a **reutilização** ao utilizar arquivos de parâmetros separados para ambientes de desenvolvimento, teste e produção.
+Além disso, como Olá organização deseja que toodeploy essas fábricas de dados de 10 várias vezes em diferentes ambientes, modelos podem usar isso **reutilização** utilizando os arquivos de parâmetros separados para desenvolvimento, teste, e ambientes de produção.
 
 ## <a name="templating-with-azure-resource-manager"></a>Modelagem com o Azure Resource Manager
-[Modelos do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment) são uma ótima maneira de obter modelagem no Azure Data Factory. Os modelos do Resource Manager definem a infraestrutura e a configuração de sua solução do Azure por meio de um arquivo JSON. Como modelos de Azure Resource Manager funcionam com todos/quase todos os serviços do Azure, eles podem ser amplamente usados para gerenciar facilmente todos os recursos dos ativos do Azure. Consulte [Criando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para saber mais sobre os modelos do Resource Manager em geral.
+[Modelos do Gerenciador de recursos do Azure](../azure-resource-manager/resource-group-overview.md#template-deployment) são modelos de tooachieve uma ótima maneira na fábrica de dados do Azure. Modelos do Gerenciador de recursos definem infraestrutura hello e a configuração de sua solução do Azure por meio de um arquivo JSON. Como os modelos de Gerenciador de recursos do Azure funcionam com a maioria dos/de todos os serviços do Azure, ele pode ser amplamente usado tooeasily gerenciar todos os recursos dos ativos do Azure. Consulte [modelos de autoria do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) toolearn mais sobre Olá modelos do Gerenciador de recursos em geral.
 
 ## <a name="tutorials"></a>Tutoriais
-Consulte os tutoriais a seguir para obter instruções passo a passo para criar entidades de Data Factory usando modelos do Resource Manager:
+Consulte Olá seguintes tutoriais para entidades de fábrica de dados toocreate instruções passo a passo usando modelos do Gerenciador de recursos:
 
-* [Tutorial: criar um pipeline para copiar os dados usando o modelo do Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-* [Tutorial: criar um pipeline para processar os dados usando o modelo do Azure Resource Manager](data-factory-build-your-first-pipeline.md)
+* [Tutorial: Criar um pipeline de dados de toocopy usando o modelo do Gerenciador de recursos do Azure](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+* [Tutorial: Criar um pipeline de dados de tooprocess usando o modelo do Gerenciador de recursos do Azure](data-factory-build-your-first-pipeline.md)
 
 ## <a name="data-factory-templates-on-github"></a>Modelos do Data Factory no GitHub
-Confira os seguintes modelos de início rápido do Azure no GitHub:
+Check-out Olá seguindo os modelos de início rápido do Azure no GitHub:
 
-* [Criar o Data Factory para copiar dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy)
+* [Criar um toocopy dados da fábrica de dados do armazenamento de BLOBs do Azure tooAzure banco de dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy)
 * [Criar um Data Factory com a atividade do Hive em um cluster HDInsight do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation)
-* [Criar um Data Factory para copiar dados do Salesforce para Blobs do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy)
-* [Criar um Data Factory que encadeia atividades: copia dados de um servidor FTP para Blobs do Azure, invoca um script hive em um cluster HDInsight sob demanda para transformar os dados e copia o resultado no Banco de Dados SQL do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-data-factory-ftp-hive-blob)
+* [Criar um toocopy dados da fábrica de dados do Salesforce tooAzure Blobs](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy)
+* [Criar uma fábrica de dados que se encadeia atividades: copia dados de um servidor FTP tooAzure Blobs, chama um script de hive em um HDInsight cluster tootransform Olá de dados sob demanda e copia os resultados no banco de dados do SQL Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-data-factory-ftp-hive-blob)
 
-Fique à vontade para compartilhar seus modelos do Azure Data Factory em [início rápido do Azure](https://azure.microsoft.com/documentation/templates/). Consulte o [guia de contribuição](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE) ao desenvolver modelos que podem ser compartilhados por meio deste repositório.
+Sinta-se livre tooshare seus modelos do Azure Data Factory em [início rápido do Azure](https://azure.microsoft.com/documentation/templates/). Consulte toohello [guia contribuição](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE) durante o desenvolvimento de modelos que podem ser compartilhados por meio deste repositório.
 
-As seções a seguir fornecem detalhes sobre como definir recursos do Data Factory em um modelo do Resource Manager.
+Olá seções a seguir fornece detalhes sobre como definir recursos de fábrica de dados em um modelo do Gerenciador de recursos.
 
 ## <a name="defining-data-factory-resources-in-templates"></a>Definir recursos de Data Factory em modelos
-O modelo de nível superior para definir um Data Factory é:
+saudação de modelo de nível superior para definir uma fábrica de dados é:
 
 ```JSON
 "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -81,7 +81,7 @@ O modelo de nível superior para definir um Data Factory é:
 ```
 
 ### <a name="define-data-factory"></a>Definir Data Factory
-Você pode definir um Data Factory no modelo do Resource Manager, conforme mostrado no exemplo a seguir:
+Você pode definir uma fábrica de dados no modelo do Gerenciador de recursos de saudação conforme Olá exemplo a seguir:
 
 ```JSON
 "resources": [
@@ -92,7 +92,7 @@ Você pode definir um Data Factory no modelo do Resource Manager, conforme mostr
     "location": "East US"
 }
 ```
-O dataFactoryName é definido em “variáveis” como:
+Olá dataFactoryName é definido em "variáveis" como:
 
 ```JSON
 "dataFactoryName": "[concat('<myDataFactoryName>', uniqueString(resourceGroup().id))]",
@@ -110,7 +110,7 @@ O dataFactoryName é definido em “variáveis” como:
 }
 ```
 
-Consulte [Serviço de Armazenamento Vinculado](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [Serviços de Computação Vinculados](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes sobre as propriedades JSON para o serviço vinculado específico que você deseja implantar. O parâmetro "dependsOn" especifica o nome do Data Factory correspondente. Um exemplo de definição de um serviço vinculado do Armazenamento do Azure é mostrado na definição de JSON a seguir:
+Consulte [serviço vinculado do armazenamento](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [serviços vinculados de computação](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes sobre as propriedades JSON Olá para o serviço vinculado específico de saudação desejar toodeploy. parâmetro de "dependsOn" Hello Especifica o nome da fábrica de dados correspondente hello. Um exemplo de definição de um serviço vinculado de armazenamento do Azure é mostrado no hello definição JSON a seguir:
 
 ### <a name="define-datasets"></a>Definir conjuntos de dados
 
@@ -126,7 +126,7 @@ Consulte [Serviço de Armazenamento Vinculado](data-factory-azure-blob-connector
     ...
 }
 ```
-Consulte [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para obter detalhes sobre as propriedades JSON para o tipo de conjunto de dados específico que você deseja implantar. Observe que o parâmetro "dependsOn" especifica o nome do Data Factory correspondente e o serviço de armazenamento vinculado. Um exemplo de definição de um tipo de conjunto de dados do armazenamento de blobs do Azure na seguinte definição JSON:
+Consulte também[suporte para armazenamentos de dados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para obter detalhes sobre as propriedades JSON Olá para o tipo de conjunto de dados específico Olá desejar toodeploy. Observação hello "dependsOn" parâmetro especifica o nome de dados correspondentes Olá serviço vinculado de armazenamento e fábrica. Um exemplo de definição de tipo de conjunto de dados de armazenamento de BLOBs do Azure é mostrado no hello definição JSON a seguir:
 
 ```JSON
 "type": "datasets",
@@ -172,7 +172,7 @@ Consulte [Armazenamentos de dados com suporte](data-factory-data-movement-activi
 }
 ```
 
-Consulte [definindo pipelines](data-factory-create-pipelines.md#pipeline-json) para obter detalhes sobre as propriedades JSON para definir o pipeline específico e as atividades que você deseja implantar. Observe o parâmetro "dependsOn" especifica o nome do Data Factory e quaisquer serviços vinculados ou conjuntos de dados correspondentes. Um exemplo de um pipeline que copia dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL é mostrado no seguinte trecho de JSON:
+Consulte também[definir pipelines](data-factory-create-pipelines.md#pipeline-json) para obter detalhes sobre propriedades JSON Olá para definir Olá específico pipeline e atividades desejar toodeploy. Observação hello "dependsOn" parâmetro especifica o nome hello da fábrica de dados e serviços vinculados correspondentes ou conjuntos de dados. Um exemplo de um pipeline que copia dados de armazenamento de BLOBs do Azure tooAzure banco de dados SQL é mostrado no hello trecho JSON a seguir:
 
 ```JSON
 "type": "datapipelines",
@@ -189,7 +189,7 @@ Consulte [definindo pipelines](data-factory-create-pipelines.md#pipeline-json) p
     "activities": [
     {
         "name": "CopyFromAzureBlobToAzureSQL",
-        "description": "Copy data frm Azure blob to Azure SQL",
+        "description": "Copy data frm Azure blob tooAzure SQL",
         "type": "Copy",
         "inputs": [
             {
@@ -227,12 +227,12 @@ Consulte [definindo pipelines](data-factory-create-pipelines.md#pipeline-json) p
 }
 ```
 ## <a name="parameterizing-data-factory-template"></a>Parametrizando o modelo de Data Factory
-Para obter as práticas recomendadas sobre parametrização, consulte o artigo [Práticas recomendadas para criar modelos do Azure Resource Manager](../azure-resource-manager/resource-manager-template-best-practices.md#parameters). Em geral, o uso do parâmetro deverá ser minimizado, especialmente se variáveis puderem ser usadas em vez disso. Apenas forneça parâmetros nos seguintes cenários:
+Para obter as práticas recomendadas sobre parametrização, consulte o artigo [Práticas recomendadas para criar modelos do Azure Resource Manager](../azure-resource-manager/resource-manager-template-best-practices.md#parameters). Em geral, o uso do parâmetro deverá ser minimizado, especialmente se variáveis puderem ser usadas em vez disso. Apenas fornece parâmetros em Olá os seguintes cenários:
 
 * As configurações variam de acordo com ambiente (exemplo: desenvolvimento, teste e produção)
 * Segredos (por exemplo, senhas)
 
-Se você precisar receber segredos do [Cofre de Chaves do Azure](../key-vault/key-vault-get-started.md) ao implantar entidades do Azure Data Factory usando modelos, especifique o **cofre de chaves** e **nome secreto** conforme mostrado no exemplo a seguir:
+Se você precisar de segredos toopull de [Azure Key Vault](../key-vault/key-vault-get-started.md) quando entidades do Azure Data Factory usando modelos de implantação, especifique Olá **Cofre de chaves** e **nome secreto** conforme mostrado na saudação de exemplo a seguir:
 
 ```JSON
 "parameters": {
@@ -249,6 +249,6 @@ Se você precisar receber segredos do [Cofre de Chaves do Azure](../key-vault/ke
 ```
 
 > [!NOTE]
-> Embora ainda não haja suporte para exportar modelos para Data Factories existentes, ele ainda funciona.
+> Ao exportar modelos para fábricas de dados existente no momento ainda não é suportada, é em Olá funciona.
 >
 >

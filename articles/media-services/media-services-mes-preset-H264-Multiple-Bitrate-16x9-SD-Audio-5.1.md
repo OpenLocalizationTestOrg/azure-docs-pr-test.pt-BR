@@ -1,6 +1,6 @@
 ---
-title: "H264 Taxas de Bits Múltiplas 16x9 SD Audio 5.1 | Microsoft Docs"
-description: "O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxas de Bits Múltiplas 16x9 SD Audio 5.1**."
+title: "aaaH264 múltiplas taxas de bits 16X9 SD Audio 5.1 | Microsoft Docs"
+description: "tópico de saudação fornece uma visão geral de saudação * * taxas de bits H264 múltiplas 16X9 SD Audio 5.1* * predefinição de tarefa."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 52b8c9073f89279cb4509bcdf872ef0d6d1d709b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d3bdd02caacda3fec38484e108f94da70431f120
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="h264-multiple-bitrate-16x9-sd-audio-51"></a>H264 Taxas de Bits Múltiplas 16x9 SD Audio 5.1
-`Media Encoder Standard` define um conjunto de predefinições de codificação que pode ser usado ao criar trabalhos de codificação. Você pode usar um `preset name` para especificar em qual formato deseja codificar o arquivo de mídia. Ou, pode criar suas próprias predefinições com base em JSON ou XML (usando a codificação UTF-8 ou UTF-16). Em seguida, você passaria a predefinição personalizada ao codificador. Para obter a lista de todos os nomes de predefinição com suporte por este codificador `Media Encoder Standard`, consulte [Predefinições de tarefa para o Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard` define um conjunto de predefinições de codificação que pode ser usado ao criar trabalhos de codificação. Você pode usar um `preset name` toospecify em qual formato você deseja que tooencode seu arquivo de mídia. Ou, pode criar suas próprias predefinições com base em JSON ou XML (usando a codificação UTF-8 ou UTF-16). Em seguida, transmita codificador do hello toohello predefinição personalizada. Para obter lista de saudação de saudação todos os predefinição nomes compatíveis com esta `Media Encoder Standard` codificador, consulte [predefinições de tarefa para o codificador de mídia padrão](media-services-mes-presets-overview.md).  
   
- Este tópico mostra a predefinição `H264 Multiple Bitrate 16x9 SD Audio 5.1` no formato XML e JSON.  
+ Este tópico mostra Olá `H264 Multiple Bitrate 16x9 SD Audio 5.1` predefinido no formato XML e JSON.  
   
- Essa predefinição produz um conjunto de 5 arquivos MP4 alinhados a GOP, variando de 1900 kbps a 400 kbps, e áudio AAC 5.1. Para obter informações detalhadas sobre o perfil, taxa de bits, taxa de amostragem etc. dessa predefinição, examine o XML ou JSON definido abaixo. Para obter explicações sobre o significado de cada elemento, e os valores válidos para cada elemento, veja [Esquema do Media Encoder Standard](media-services-mes-schema.md).  
+ Esta predefinição gera um conjunto de 5 arquivos MP4 com alinhamento GOP, variando de 1900 kbps too400 kbps e áudio 5.1 AAC. Para obter informações detalhadas sobre o perfil, taxa de bits, taxa de amostragem etc. Isso predefinido, examine Olá XML ou JSON definido abaixo. Para explicações significa que cada elemento e os valores válidos Olá para cada elemento, consulte Olá [esquema padrão do Media Encoder](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Ao modificar os valores de `Width` e `Height` em camadas, certifique-se de que a taxa de proporção permaneça consistente. Por exemplo: 1920 x 1080, 1280 x 720, 1080 x 576, 640 x 360. Você não deve usar uma combinação de taxas de proporção, como: 1280 x 720, 720 x 480, 640 x 360.  
+>  Ao modificar Olá `Width` e `Height` valores em camadas, certifique-se de que proporção Olá permaneçam consistente. Por exemplo: 1920 x 1080, 1280 x 720, 1080 x 576, 640 x 360. Você não deve usar uma combinação de taxas de proporção, como: 1280 x 720, 720 x 480, 640 x 360.  
   
  XML  
   

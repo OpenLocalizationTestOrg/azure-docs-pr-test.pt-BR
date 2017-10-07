@@ -1,6 +1,6 @@
 ---
-title: "Relatórios entre bancos de dados em nuvem expandidos | Microsoft Docs"
-description: "como configurar consultas elásticas em partições horizontais"
+title: "aaaReporting em bancos de dados de nuvem expansíveis | Microsoft Docs"
+description: "como tooset Elástico consultas sobre partições horizontais"
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: mlandzic
-ms.openlocfilehash: 62b5bcd26aa1ed219fb38970916e0e8847ceb577
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 78986c2040bf308195bf7c77e64d4f37273fcf36
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Relatórios entre bancos de dados em nuvem expandidos (visualização)
 ![Consultar em fragmentos][1]
 
-Bancos de dados fragmentados distribuem linhas em uma camada de dados expandida. O esquema é idêntico em todos os bancos de dados participantes, também conhecido como particionamento horizontal. Usando uma consulta elástica, você pode criar relatórios que abrangem todos os bancos de dados em um banco de dados fragmentado.
+Bancos de dados fragmentados distribuem linhas em uma camada de dados expandida. esquema de saudação é idêntica em todos os bancos de dados participantes, também conhecidos como o particionamento horizontal. Usando uma consulta elástica, você pode criar relatórios que abrangem todos os bancos de dados em um banco de dados fragmentado.
 
 Para um início rápido, confira [Relatórios entre bancos de dados em nuvem expandidos](sql-database-elastic-query-getting-started.md).
 
 Para bancos de dados não fragmentados, consulte [Query across cloud databases with different schemas (Consulta entre bancos de dados na nuvem com esquemas diferentes)](sql-database-elastic-query-vertical-partitioning.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Crie um mapa de fragmentos usando a biblioteca de cliente do banco de dados elástico. Confira [Gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md). Ou use o aplicativo de exemplo em [Introdução às ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
-* Como alternativa, confira [Migrar bancos de dados existentes para bancos de dados expandidos](sql-database-elastic-convert-to-use-elastic-tools.md).
-* O usuário deve ter a permissão para ALTERAR QUALQUER FONTE DE DADOS EXTERNA. Essa permissão está incluída na permissão ALTERAR BANCO DE DADOS.
-* As permissões para ALTERAR QUALQUER FONTE DE DADOS EXTERNA são necessárias para referenciar a fonte de dados subjacente.
+* Crie um mapa do fragmento usando a biblioteca de cliente do banco de dados Elástico hello. Confira [Gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md). Ou use o aplicativo de exemplo hello no [Introdução às ferramentas de banco de dados Elástico](sql-database-elastic-scale-get-started.md).
+* Como alternativa, consulte [existente Migrar bancos de dados de bancos de dados de saída tooscaled](sql-database-elastic-convert-to-use-elastic-tools.md).
+* usuário Olá deve ter a permissão ALTER ANY EXTERNAL DATA SOURCE. Essa permissão é incluída com a permissão ALTER DATABASE hello.
+* Permissões ALTER ANY EXTERNAL DATA SOURCE são necessários toorefer toohello subjacente da fonte de dados.
 
 ## <a name="overview"></a>Visão geral
-Essas instruções criam a representação de metadados de sua camada de dados fragmentados no banco de dados de consulta elástico. 
+Essas instruções criam representação de metadados de saudação de sua camada de dados fragmentado no banco de dados de consulta Elástico hello. 
 
 1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
 2. [CRIAR UMA CREDENCIAL NO ESCOPO DO BANCO DE DADOS](https://msdn.microsoft.com/library/mt270260.aspx)
@@ -44,7 +44,7 @@ Essas instruções criam a representação de metadados de sua camada de dados f
 4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) 
 
 ## <a name="11-create-database-scoped-master-key-and-credentials"></a>1.1 Criar chave mestra do escopo do banco de dados e credenciais
-A credencial é usada pela consulta elástica para se conectar aos bancos de dados remotos.  
+Olá credencial é usada pelo Olá consulta Elástico tooconnect tooyour bancos de dados remotos.  
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
@@ -52,7 +52,7 @@ A credencial é usada pela consulta elástica para se conectar aos bancos de dad
     [;]
 
 > [!NOTE]
-> Certifique-se de que o *"\<nome de usuário\>"* não inclui nenhum sufixo *"@servername"*. 
+> Certifique-se de que Olá *"\<username\>"* não incluir nenhum *"@servername"* sufixo. 
 > 
 > 
 
@@ -79,11 +79,11 @@ Sintaxe:
         SHARD_MAP_NAME='ShardMap' 
     );
 
-Recupere a lista de fontes de dados externas atuais: 
+Recupere a lista de saudação de fontes de dados externas atual: 
 
     select * from sys.external_data_sources; 
 
-A fonte de dados externa faz referência ao seu mapa de fragmentos. Uma consulta elástica então usa a fonte de dados externa e o mapa de fragmentos subjacente para enumerar os bancos de dados que participam da camada de dados. As mesmas credenciais são usadas para ler o mapa de fragmentos e acessar os dados nos fragmentos durante o processamento de uma consulta elástica. 
+fonte de dados externa Olá faz referência a seu mapa de fragmento. Uma consulta elástica usa fonte de dados externa hello e Olá subjacente fragmento mapa tooenumerate Olá bancos de dados que participam da camada de dados de saudação. Olá, mesmo credenciais são mapa do fragmento Olá tooread usado e tooaccess Olá dados em fragmentos Olá durante o processamento de saudação de uma consulta Elástico. 
 
 ## <a name="13-create-external-tables"></a>1.3 Criar tabelas externas
 Sintaxe:  
@@ -122,34 +122,34 @@ Sintaxe:
         DISTRIBUTION=SHARDED(ol_w_id)
     ); 
 
-Recupere a lista de tabelas externas do banco de dados atual: 
+Recupere a lista de saudação de tabelas externas do banco de dados atual hello: 
 
     SELECT * from sys.external_tables; 
 
-Para descartar tabelas externas:
+tabelas externas toodrop:
 
     DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]
 
 ### <a name="remarks"></a>Comentários
-A cláusula DATA\_SOURCE define a fonte de dados externa (um mapa de fragmentos) usada para a tabela externa.  
+Olá dados\_cláusula de fonte define a fonte de dados externa da saudação (um mapa do fragmento) que é usado para a tabela externa hello.  
 
-As cláusulas SCHEMA\_NAME e OBJECT\_NAME mapeiam a definição da tabela externa para uma tabela em um esquema diferente. Se for omitido, o esquema do objeto remoto será considerado “dbo” e seu nome será considerado como sendo idêntico ao nome da tabela externa que está sendo definido. Isso é útil se o nome da tabela remota já existe no banco de dados em que você deseja criar a tabela externa. Por exemplo, defina uma tabela externa para obter uma exibição agregada de exibições de catálogo ou de DMVs em sua camada de dados expandida. Como as exibições de catálogo e as DMVs já existem localmente, você não pode usar seus nomes para a definição da tabela externa. Em vez disso, use um nome diferente e use a exibição do catálogo ou o nome de DMV nas cláusulas SCHEMA\_NAME e/ou OBJECT\_NAME. (Veja o exemplo abaixo.) 
+Olá esquema\_nome e o objeto\_cláusulas de nome mapeiam a tabela de tooa de definição de tabela externa de saudação em um esquema diferente. Se omitido, o esquema de saudação do objeto remoto Olá é considerada toobe "dbo" e seu nome é considerado o nome da tabela externa toobe toohello idênticos que está sendo definido. Isso é útil se Olá nome da tabela remota já existe no banco de dados de saudação onde deseja que a tabela externa do toocreate hello. Por exemplo, você deseja toodefine tooget uma tabela externa uma exibição agregada de exibições do catálogo ou DMVs em seus dados de expansão de camada. Como DMVs e modos de exibição de catálogo já existem localmente, você não pode usar seus nomes de definição de tabela externa hello. Em vez disso, use um nome diferente e usar da exibição de catálogo hello ou Olá nome DMVS no esquema de saudação\_nome e/ou objeto\_cláusulas de nome. (Consulte o exemplo hello abaixo). 
 
-A cláusula DISTRIBUTION especifica a distribuição de dados usada para esta tabela. O processador de consultas utiliza as informações fornecidas na cláusula DISTRIBUTION para criar planos de consulta mais eficientes.  
+cláusula de distribuição de saudação especifica a distribuição de dados Olá usada para esta tabela. processador de consultas Olá utiliza informações Olá fornecidas Olá distribuição cláusula toobuild hello mais eficientes planos de consulta.  
 
-1. **SHARDED** significa que os dados são particionados horizontalmente entre os bancos de dados. A chave de particionamento para a distribuição de dados é o parâmetro **<sharding_column_name>**.
-2. **REPLICATED** significa que cópias idênticas da tabela estão presentes em cada banco de dados. É sua responsabilidade assegurar que as réplicas sejam idênticas entre os bancos de dados.
-3. **ROUND\_ROBIN** significa que a tabela é horizontalmente particionada usando um método de distribuição dependente do aplicativo. 
+1. **FRAGMENTADA** significa que dados são particionados horizontalmente em bancos de dados de saudação. Olá, chave de particionamento para distribuição de dados Olá Olá **< sharding_column_name >** parâmetro.
+2. **REPLICADAS** significa que cópias idênticas de tabela Olá estão presentes em cada banco de dados. É o tooensure responsabilidade réplicas Olá são idênticas em bancos de dados de saudação.
+3. **ROUND\_ROBIN** significa que essa tabela Olá é particionada horizontalmente usando um método de distribuição do aplicativo dependente. 
 
-**Referência de camada de dados**: a DDL da tabela externa faz referência a uma fonte de dados externa. A fonte de dados externa especifica um mapa de fragmentos que fornece à tabela externa as informações necessárias para localizar todos os bancos de dados em sua camada de dados. 
+**Referência da camada de dados**: tabela externa de saudação DDL refere-se a fonte de dados externa tooan. fonte de dados externa Olá Especifica um mapa do fragmento que fornece tabela externa Olá Olá informações necessárias toolocate todos os bancos de dados de saudação em sua camada de dados. 
 
 ### <a name="security-considerations"></a>Considerações de segurança
-Usuários com acesso à tabela externa têm acesso automaticamente a tabelas remotas subjacentes com a credencial fornecida na definição de fonte de dados externa. Evite a elevação de privilégios indesejada usando credencial da fonte de dados externa. Use GRANT ou REVOKE para uma tabela externa como se fosse uma tabela normal.  
+Os usuários com a tabela externa do acesso toohello automaticamente acessar tabelas remotas subjacentes de toohello na credencial Olá especificado na definição de fonte de dados externa hello. Evite indesejada elevação de privilégios por meio de credencial Olá Olá externo de fonte de dados. Use GRANT ou REVOKE para uma tabela externa como se fosse uma tabela normal.  
 
 Depois de definir a fonte de dados externa e as tabelas externas, agora você poderá usar o T-SQL completo nas tabelas externas.
 
 ## <a name="example-querying-horizontal-partitioned-databases"></a>Exemplo: consultando bancos de dados particionados horizontais
-A consulta a seguir executa uma junção de três vias entre depósitos, pedidos e linhas da pedido e usa várias agregações e um filtro seletivo. Ele pressupõe que o (1) particionamento horizontal (fragmentação) e (2) esses depósitos, pedidos e linhas de pedido são fragmentados pela coluna de ID de depósito, e que a consulta elástica pode colocar as junções nos fragmentos e processar a parte cara da consulta nos fragmentos de modo paralelo. 
+Olá consulta a seguir executa uma junção de três vias entre depósitos, pedidos e linhas de ordem e usa várias agregações e um filtro seletivo. Ele assume o particionamento horizontal (1) (fragmentação) e (2) que depósitos, pedidos e linhas de ordem são fragmentadas pela coluna de id de warehouse hello e consulta Elástico Olá pode posicionar Olá junções em fragmentos hello e processar parte caro Olá consulta Olá Olá fragmentos em paralelo. 
 
     select  
          w_id as warehouse,
@@ -167,14 +167,14 @@ A consulta a seguir executa uma junção de três vias entre depósitos, pedidos
     group by w_id, o_c_id 
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Procedimento armazenado para a execução remota de T-SQL: sp\_execute_remote
-A consulta elástica também apresenta um procedimento armazenado que fornece acesso direto aos fragmentos. O procedimento armazenado é chamado [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) e pode ser usado para executar procedimentos armazenados remotos ou código T-SQL em bancos de dados remotos. Ele usa os seguintes parâmetros: 
+Consulta elástica também apresenta um procedimento armazenado que fornece acesso direto toohello fragmentos. Olá procedimento armazenado é chamado [sp\_executar \_remoto](https://msdn.microsoft.com/library/mt703714) e pode ser usado tooexecute procedimentos armazenados ou código T-SQL em bancos de dados remotos hello. Ele usa Olá parâmetros a seguir: 
 
-* Nome da fonte de dados (nvarchar): o nome da fonte de dados externa do tipo RDBMS. 
-* Consulta (nvarchar): a consulta T-SQL a ser executada em cada fragmento. 
-* Declaração de parâmetro (nvarchar) - opcional: cadeia de caracteres com definições de tipo de dados para os parâmetros usados no parâmetro Query (como sp_executesql). 
+* Nome da fonte de dados (nvarchar): nome de saudação da fonte de dados externa de saudação do tipo RDBMS. 
+* Consulta (nvarchar): toobe de consulta Olá T-SQL executado em cada fragmento. 
+* Declaração de parâmetro (nvarchar) - opcional: cadeia de caracteres com definições de tipo de dados para parâmetros de saudação usadas no parâmetro de consulta de saudação (como sp_executesql). 
 * Lista de valores de parâmetro - opcional: lista separada por vírgulas de valores de parâmetro (como sp_executesql).
 
-O sp\_execute\_remote usa a fonte de dados externa fornecida nos parâmetros de invocação para executar a instrução T-SQL especificada nos bancos de dados remotos. Ele usa a credencial da fonte de dados externa para a conexão com o banco de dados do gerenciador de mapa do fragmento e bancos de dados remotos.  
+Olá sp\_executar\_remota usa Olá fornecida na seguinte instrução T-SQL em bancos de dados remotos Olá Olá invocação parâmetros tooexecute Olá de fonte de dados externa. Ele usa credenciais Olá Olá dados externos fonte tooconnect toohello shardmap manager banco de dados e bancos de dados remotos hello.  
 
 Exemplo: 
 
@@ -183,13 +183,13 @@ Exemplo:
         N'select count(w_id) as foo from warehouse' 
 
 ## <a name="connectivity-for-tools"></a>Conectividade de ferramentas
-Use cadeias de conexão regulares do SQL Server para conectar seu aplicativo e suas ferramentas de BI e de integração de dados ao banco de dados com as definições da tabela externa. Certifique-se de que o SQL Server tem suporte como uma fonte de dados para a ferramenta. Em seguida, faça referência ao banco de dados de consulta elástica como qualquer outro banco de dados do SQL Server conectado à ferramenta, e use tabelas externas de sua ferramenta ou aplicativo como se elas fossem tabelas locais. 
+Use tooconnect regular de cadeias de caracteres de conexão do SQL Server seu aplicativo, dados e BI integração ferramentas toohello banco de dados com suas definições de tabela externa. Certifique-se de que o SQL Server tem suporte como uma fonte de dados para a ferramenta. Em seguida, fazer referência Olá Elástico consultar banco de dados como qualquer outra ferramenta de toohello conectado de banco de dados do SQL Server e use tabelas externas de seu aplicativo ou uma ferramenta como se fossem tabelas locais. 
 
 ## <a name="best-practices"></a>Práticas recomendadas
-* Verifique se o banco de dados do ponto de extremidade da consulta elástica recebeu acesso ao banco de dados do mapa de fragmentos e a todos os fragmentos por meio dos firewalls do Banco de Dados SQL.  
-* Valide ou imponha a distribuição de dados definida pela tabela externa. Se a distribuição de dados real for diferente da distribuição especificada na definição de tabela, as consultas podem gerar resultados inesperados. 
-* A consulta elástica atualmente não executa a eliminação de fragmentos quando predicados da chave de fragmentação permitem que ela exclua com segurança determinados fragmentos do processamento.
-* A consulta elástica funciona melhor para consultas em que a maior parte da computação pode ser realizada nos fragmentos. Normalmente o melhor desempenho de consulta é obtido com predicados de filtro seletivo que podem ser avaliados nos fragmentos ou junções sobre as chaves de particionamento que podem ser executadas de forma alinhada por partição em todos os fragmentos. Outros padrões de consulta podem precisar carregar grandes quantidades de dados dos fragmentos para o nó de cabeçalho e podem ter um desempenho insatisfatório
+* Certifique-se de que esse banco de dados do ponto de extremidade de consulta Elástico Olá tem o banco de dados do access toohello shardmap e todos os fragmentos por meio de saudação que firewalls de banco de dados SQL.  
+* Validar ou impor a distribuição de dados Olá definida pela tabela externa hello. Se a distribuição de dados real é diferente de distribuição de saudação especificada na definição de tabela, as consultas podem produzir resultados inesperados. 
+* Elástica consulta atualmente não executar eliminação de fragmento quando predicados de chave de fragmentação Olá permitiria que toosafely excluir determinados fragmentos do processamento.
+* Consulta elástica funciona melhor para consultas onde a maioria de computação Olá pode ser feita em fragmentos hello. Você normalmente obtém melhor desempenho de consulta Olá com predicados de filtro seletivo que pode ser avaliada em fragmentos hello ou junções em Olá chaves que podem ser executadas de forma alinhado por partição em todos os fragmentos de particionamento. Outros padrões de consulta podem precisar de tooload grandes quantidades de dados do nó principal do toohello Olá fragmentos e podem executar mal
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,6 +1,6 @@
 ---
-title: "Configurar o codificador NewTek TriCaster para enviar uma transmissão ativa da taxa de bits única | Microsoft Docs"
-description: "Este tópico mostra como configurar o codificador ativo TriCaster para enviar uma transmissão de taxa de bits única para os canais do AMS que estão habilitados para codificação ativa."
+title: "aaaConfigure Olá NewTek TriCaster codificador toosend uma transmissão ao vivo de taxa de bits única | Microsoft Docs"
+description: "Este tópico mostra como Olá tooconfigure Tricaster canais ao vivo codificador toosend uma taxa de bits única fluxo tooAMS que são habilitados para codificação ao vivo."
 services: media-services
 documentationcenter: 
 author: cenkdin
@@ -14,13 +14,13 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkd;anilmur
-ms.openlocfilehash: 42b012fb98bd0504c931ce391d63aecca8c3d311
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 57dcf62a6a76b04e69f147a738be78ccb3c3ecdc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador NewTek TriCaster para enviar uma transmissão ao vivo de taxa de bits única
+# <a name="use-hello-newtek-tricaster-encoder-toosend-a-single-bitrate-live-stream"></a>Use Olá NewTek TriCaster codificador toosend uma transmissão ao vivo de taxa de bits única
 > [!div class="op_single_selector"]
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Elemental Live](media-services-configure-elemental-live-encoder.md)
@@ -29,53 +29,53 @@ ms.lasthandoff: 08/29/2017
 >
 >
 
-Este tópico mostra como configurar o codificador ativo [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) para enviar uma transmissão de taxa de bits única para os canais do AMS que estão habilitados para codificação ativa. Para obter mais informações, consulte [Trabalhando com canais habilitados para executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
+Este tópico mostra como Olá tooconfigure [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) canais ao vivo codificador toosend uma taxa de bits única fluxo tooAMS que são habilitados para codificação ao vivo. Para obter mais informações, consulte [trabalhando com canais que é habilitado tooPerform Live codificação com o Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
-Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a ferramenta AMSE (Gerenciador de Serviços de Mídia da Azure). Essa ferramenta é executada apenas em PCs com Windows. Se você estiver no Mac ou Linux, use o portal do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
+Este tutorial mostra como toomanage Azure Media Services (AMS) com a ferramenta Gerenciador de serviços na mídia do Azure (AMSE). Essa ferramenta é executada apenas em PCs com Windows. Se você estiver usando o Mac ou Linux, use Olá toocreate portal do Azure [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
 
 > [!NOTE]
-> Ao usar o Tricaster para o envio de um feed de contribuição aos canais AMS habilitados para codificação ativa, pode haver problemas de áudio/vídeo no evento ao vivo, caso você use determinados recursos do Tricaster, como corte rápido entre feeds ou alternância de/para imagens fixas. A equipe do AMS está trabalhando para corrigir esses problemas; até lá, não é recomendável usar esses recursos.
+> Quando usar Tricaster para envio em uma contribuição feed tooAMS canais que são habilitados para codificação ao vivo, pode haver problemas de áudio/vídeo em seu evento ao vivo se você usar determinados recursos do Tricaster, como Recortar entre feeds de rápida ou alternância de slates . Olá AMS equipe está trabalhando para corrigir esses problemas, até lá, é recomendável não toouse esses recursos.
 >
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Criar uma conta dos Serviços de Mídia do Azure](media-services-portal-create-account.md)
 * Verifique se há um Ponto de Extremidade de Streaming em execução. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md)
-* Instale a versão mais recente da ferramenta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
-* Inicie a ferramenta e conecte-se à sua conta do AMS.
+* Instale a versão mais recente Olá de saudação [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) ferramenta.
+* Inicie a ferramenta hello e conecte-se a conta tooyour AMS.
 
 ## <a name="tips"></a>Dicas
 * Sempre que possível, use uma conexão de Internet com fio.
-* Uma boa regra geral ao determinar os requisitos de largura de banda é dobrar as taxas de bits de transmissão. Embora isso não seja um requisito obrigatório, isso ajuda a reduzir o impacto do congestionamento da rede.
+* Uma boa regra prática ao determinar os requisitos de largura de banda é toodouble Olá streaming taxas de bits. Embora não seja um requisito obrigatório, ela ajuda a reduzir o impacto de saudação do congestionamento da rede.
 * Ao usar codificadores baseados em software, feche todos os programas desnecessários.
 
 ## <a name="create-a-channel"></a>Criar um canal
-1. Na ferramenta AMSE, navegue até a guia **Ao Vivo** e clique com o botão direito do mouse na área de canais. Selecione **Criar canal...** no menu.
+1. Na ferramenta AMSE hello, navegar toohello **Live** guia e clique com o botão direito na área de canal hello. Selecione **Criar canal...** no menu de saudação.
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
 
-2. Especifique um nome de canal; o campo de descrição é opcional. Nas Configurações do Canal, selecione **Standard** para a opção Codificação Ativa, com o Protocolo de Entrada definido para **RTMP**. Você pode deixar todas as outras configurações como estão.
+2. Especifique um nome de canal, Olá campo de descrição é opcional. Em configurações de canal, selecione **padrão** para Olá opção codificação ao vivo, com hello entrada do protocolo definido muito**RTMP**. Você pode deixar todas as outras configurações como estão.
 
-    Verifique se a opção **Iniciar o novo canal agora** está marcada.
+    Verifique se Olá **início Olá novo canal agora** está selecionado.
 
 3. Clique em **Criar Canal**.
 
    ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster2.png)
 
 > [!NOTE]
-> O canal pode levar até 20 minutos para ser iniciado.
+> canal Olá pode levar até 20 minutos toostart.
 >
 >
 
-Enquanto o canal é iniciado, você pode [configurar o codificador](media-services-configure-tricaster-live-encoder.md#configure_tricaster_rtmp).
+Enquanto o canal Olá é iniciado, você pode [configurar codificador Olá](media-services-configure-tricaster-live-encoder.md#configure_tricaster_rtmp).
 
 > [!IMPORTANT]
 > Lembre-se de que a cobrança começa assim que o Canal entra em um estado pronto. Para obter mais informações, veja [Estados do canal](media-services-manage-live-encoder-enabled-channels.md#states).
 >
 >
 
-## <a id=configure_tricaster_rtmp></a>Configurar o codificador do NewTek TriCaster
-Neste tutorial, são usadas as configurações de saída abaixo. O restante desta seção descreve as etapas de configuração mais detalhadamente.
+## <a id=configure_tricaster_rtmp></a>Configurar Olá NewTek TriCaster codificador
+Neste tutorial Olá seguintes configurações de saída são usadas. Olá restante desta seção descreve etapas de configuração em mais detalhes.
 
 **Vídeo**:
 
@@ -93,69 +93,69 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 
 ### <a name="configuration-steps"></a>Etapas da configuração
 1. Crie um novo projeto do **NewTek TriCaster** dependendo de qual fonte de entrada de vídeo está sendo usada.
-2. Depois de entrar nesse projeto, encontre o botão **Transmissão** e clique no ícone de engrenagem ao lado dele para acessar o menu de configuração da transmissão.
+2. Uma vez no projeto, localize Olá **fluxo** botão e, em seguida, clique em Olá engrenagem ícone próximo tooit tooaccess Olá fluxo configuração menu.
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster3.png)
-3. Depois de abrir o menu, clique em **Novo** no título Conexão. Quando solicitado para selecionar o tipo de conexão, selecione **Adobe Flash**.
+3. Depois que o menu de saudação for aberto, clique em **novo** sob o título de Conexão hello. Quando solicitado para o tipo de conexão hello, selecione **Adobe Flash**.
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster4.png)
 4. Clique em **OK**.
-5. Um perfil FMLE agora pode ser importado clicando na seta suspensa no **Perfil de Streaming** e navegando até **Procurar**.
+5. Um perfil de FMLE agora pode ser importado clicando Olá seta do menu suspenso em **perfil Streaming** e navegar muito**procurar**.
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster5.png)
-6. Navegue até onde o perfil FMLE configurado foi salvo.
+6. Navegue toowhere Olá configurado FMLE perfil foi salvo.
 7. Selecione-o e pressione **OK**.
 
-    Uma vez que o perfil foi carregado, vá para a próxima etapa.
-8. Obtenha a URL de entrada do canal para atribuí-la ao **Ponto de extremidade RTMP**do Tricaster.
+    Quando o perfil de saudação é carregado, continue toohello próxima etapa.
+8. Obter URL de entrada do canal de saudação em ordem tooassign-toohello Tricaster **ponto de extremidade de RTMP**.
 
-    Navegue de volta para a ferramenta AMSE e verifique o status de conclusão do canal. Depois do Estado ser alterado de **Iniciando** para **Executando**, você poderá obter a URL de entrada.
+    Navegue ferramenta AMSE toohello back e verificar o status de conclusão de canal hello. Depois que o estado Olá mudou de **iniciando** muito**executando**, você pode obter a URL de entrada hello.
 
-    Quando o canal estiver em execução, clique com o botão direito no nome dele, navegue até parar sobre **Copiar URL de entrada para área de transferência**, em seguida, selecione **URL da Entrada Principal**.  
+    Quando estiver executando o canal Olá, clique direito no nome do canal hello, navegue para baixo toohover **copiar a URL de entrada tooclipboard** e, em seguida, selecione **URL de entrada primária**.  
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster6.png)
-9. Cole essas informações no campo **Local** sob **Flash Server** dentro do projeto Tricaster. Atribua também um nome de transmissão no campo **ID da transmissão** .
+9. Colar essas informações no hello **local** campo em **Flash Server** no projeto de Tricaster hello. Também atribuir um nome de fluxo em Olá **identificação do fluxo** campo.
 
-    Se as informações do fluxo forem adicionadas ao perfil FMLE, ele também poderá ser importado para esta seção clicando em **Importar Configurações**, navegando até o perfil FMLE salvo e clicando em **OK**. Os campos relevantes do Flash Server devem preencher as informações do FMLE.
+    Se as informações de fluxo foi adicionadas o perfil FMLE toohello, ele também pode ser importado toothis seção clicando **importar configurações**, navegando toohello salvada FMLE perfil e clicando em **Okey**. campos de Flash Server relevantes Olá devem preencher com informações de saudação do FMLE.
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster7.png)
-10. Quando terminar, clique em **OK** na parte inferior da tela. Quando as entradas de áudio e vídeo no Tricaster estiverem prontas, comece a transmissão para o AMS clicando no botão **Transmissão** .
+10. Quando terminar, clique em **Okey** na parte inferior da saudação da tela hello. Quando entradas de áudio e vídeo em Olá Tricaster estiverem prontas, iniciar streaming tooAMS clicando Olá **fluxo** botão.
 
      ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster11.png)
 
 > [!IMPORTANT]
-> Antes de clicar em **Transmissão**, você **deve** assegurar que o Canal está pronto.
-> Além disso, lembre-se de não deixar o Canal em um estado pronto sem um feed de contribuição de entrada por mais de 15 minutos.
+> Antes de clicar em **fluxo**, você **deve** Certifique-se de que o canal de saudação está pronto.
+> Além disso, certifique-se de não tooleave Olá canal em um estado pronto sem uma entrada contribuição feed por mais de > 15 minutos.
 >
 >
 
 ## <a name="test-playback"></a>Reprodução de teste
-Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a ser testado. No menu, passe o mouse sobre **Reproduzir a Visualização** e selecione **Azure Media Player**.  
+Navegue ferramenta AMSE toohello e clique com botão direito Olá canal toobe testado. No menu de hello, passe o mouse sobre **Olá reprodução visualização** e selecione **com o Azure Media Player**.  
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster8.png)
 
-Se a transmissão for exibida no player, isso significa que o codificador foi corretamente configurado para se conectar ao AMS.
+Se o fluxo de saudação aparece no player hello, codificador Olá foi tooAMS tooconnect configurado corretamente.
 
-Se um erro for recebido, será necessário redefinir o canal e ajustar as configurações do codificador. Veja o tópico [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter orientações.  
+Se um erro é recebido, canal Olá precisará toobe redefinição e codificador configurações ajustadas. Consulte Olá [de solução de problemas](media-services-troubleshooting-live-streaming.md) tópico para obter orientação.  
 
 ## <a name="create-a-program"></a>Criar um programa
-1. Depois que a reprodução do canal for confirmada, crie um programa. Na guia **Ativo** na ferramenta AMSE, clique com o botão direito na área do programa e selecione **Criar Novo Programa**.  
+1. Depois que a reprodução do canal for confirmada, crie um programa. Em Olá **Live** guia na ferramenta AMSE hello, clique com o botão direito na área de programa hello e selecione **criar um novo programa**.  
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
-2. Nomeie o programa e, se necessário, ajuste a **Duração da Janela de Arquivo** (cujo padrão é de 4 horas). Você também pode especificar um local de armazenamento ou deixar como o padrão.  
-3. Marque a caixa **Iniciar o Programa agora** .
+2. Nomeie o programa hello e, se necessário, ajuste Olá **duração da janela de arquivo** (os horários de too4 padrões). Você também pode especificar um local de armazenamento ou deixe como saudação padrão.  
+3. Verificar Olá **início Olá programa agora** caixa.
 4. Clique em **Criar Programa**.  
 
     >[!NOTE]
     >A criação do programa leva menos tempo do que a criação do canal.
         
-5. Quando o programa estiver em execução, confirme a reprodução clicando com o botão direito do programa e navegando até **Reproduzi o(s) programa(s)**, em seguida, selecionando **com o Azure Media Player**.  
-6. Depois de confirmar, clique novamente com botão direito no programa e selecione **Copie a URL de Saída para Área de Transferência** (ou recupere essas informações na opção **Informações e configurações do programa** do menu).
+5. Depois que o programa de hello está sendo executado, confirme a reprodução clique direito programa hello e navegando muito**reprodução Olá programas** e, em seguida, selecionando **com o Azure Media Player**.  
+6. Depois de confirmar, clique com botão direito programa hello novamente e selecionar **copiar Olá URL de saída tooClipboard** (ou recuperar essas informações do hello **informações e configurações de programa** opção no menu de saudação).
 
-A transmissão agora está pronta para ser inserida em um player ou distribuída para um público para a exibição ao vivo.  
+Olá está agora pronto toobe inserido em um player ou público tooan distribuída ao vivo de exibição.  
 
-## <a name="troubleshooting"></a>solução de problemas
-Veja o tópico [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter orientações.
+## <a name="troubleshooting"></a>Solucionar problemas
+Consulte Olá [de solução de problemas](media-services-troubleshooting-live-streaming.md) tópico para obter orientação.
 
 ## <a name="next-step"></a>Próxima etapa
 Revise os roteiros de aprendizagem dos Serviços de Mídia.

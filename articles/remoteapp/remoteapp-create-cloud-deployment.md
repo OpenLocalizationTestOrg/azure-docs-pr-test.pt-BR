@@ -1,6 +1,6 @@
 ---
-title: "Como criar uma coleção na nuvem do Azure RemoteApp | Microsoft Docs"
-description: "Saiba como criar uma implantação de nuvem do RemoteApp do Azure que salva dados na nuvem do Azure."
+title: "aaaHow toocreate uma coleção de nuvem do Azure RemoteApp | Microsoft Docs"
+description: "Saiba como toocreate uma implantação do Azure RemoteApp que salva dados em Olá nuvem do Azure."
 services: remoteapp
 documentationcenter: 
 author: msmbaldwin
@@ -14,94 +14,94 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 52d5a073c0de42a77cd7163bf402ed2cdf598d95
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a072ad19d8293016382831d48d0af8e0f5e0d458
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-create-a-cloud-collection-of-azure-remoteapp"></a>Como criar uma coleção na nuvem do Azure RemoteApp
+# <a name="how-toocreate-a-cloud-collection-of-azure-remoteapp"></a>Como toocreate uma coleção de nuvem do Azure RemoteApp
 > [!IMPORTANT]
-> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Saudação de leitura [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
 Há dois tipos de coleções do [Azure RemoteApp](remoteapp-collections.md): 
 
-* Nuvem: reside completamente no Azure. Você pode optar por salvar todos os dados na nuvem (para uma coleção somente da nuvem) ou conectar sua coleção a uma VNET e salvar os dados lá.   
-* Híbrido: inclui uma rede virtual para acesso local - isso requer o uso do Azure AD e um ambiente do Active Directory local.
+* Nuvem: reside completamente no Azure. Você pode escolher toosave todos os dados na nuvem hello (para uma coleção somente nuvem) ou tooconnect tooa sua coleção VNET e salvar dados.   
+* Híbrido: inclui uma rede virtual para acesso local - isso requer o uso de saudação do AD do Azure e um ambiente do Active Directory local.
 
-Este tutorial explica o processo de criação de uma implantação de nuvem. Há quatro etapas: 
+Este tutorial orienta você pelo processo de saudação de criação de uma coleção de nuvem. Há quatro etapas: 
 
 1. Criar uma coleção do Azure RemoteApp
-2. Opcionalmente, configure a sincronização do diretório. Se você estiver usando o AD do Azure + Active Directory, precisa sincronizar usuários, contatos e senhas por meio do Active Directory local com o locatário do AD do Azure.
+2. Opcionalmente, configure a sincronização do diretório. Se você estiver usando o AD do Azure + Active Directory, você tem toosynchronize usuários, contatos e senhas do seu locatário de tooyour AD do Azure Active Directory local.
 3. Publicar aplicativos.
 4. Configurar o acesso do usuário.
 
 **Antes de começar**
 
-Você precisa fazer o seguinte antes de criar a coleção:
+Você precisa toodo Olá seguinte antes de criar a coleção de saudação:
 
-* [Inscreva-se](https://azure.microsoft.com/services/remoteapp/) no RemoteApp do Azure. 
-* Colete informações sobre os usuários aos quais deseja conceder acesso. Podem ser informações da conta da Microsoft ou da conta corporativa do Active Directory para usuários ou grupos.
-* Este procedimento pressupõe que usará ou uma das imagens de modelo fornecidas como parte de sua assinatura ou que você já carregou a imagem do modelo que deseja usar. Se desejar fazer o upload da imagem do modelo, é possível fazer isso na página Imagens do modelo. Apenas clique em **Fazer o upload de uma imagem do modelo** e siga as etapas do assistente. 
-* Deseja usar a imagem do Office 365 ProPlus? Verifique as informações [aqui](remoteapp-officesubscription.md).
-* Deseja fornecer aplicativos personalizados ou programas LOB? Crie uma nova [imagem](remoteapp-imageoptions.md) e use-a em sua coleção de nuvem.
-* Descubra se você precisa conectar-se a uma VNET. Se você escolher conectar-se a uma VNET, verifique se ela atende às [diretrizes de dimensionamento](remoteapp-vnetsizing.md) e se [pode se conectar ao RemoteApp](remoteapp-vnet.md). Confira o [artigo sobre planejamento da VNET ](remoteapp-planvnet.md)para saber mais.
-* Se você estiver usando uma VNET, decida se deseja colocá-la em seu domínio do Active Directory local.
+* [Inscreva-se](https://azure.microsoft.com/services/remoteapp/) no Azure RemoteApp. 
+* Colete informações sobre usuários Olá que você deseja toogrant access. Podem ser informações da conta da Microsoft ou da conta corporativa do Active Directory para usuários ou grupos.
+* Este procedimento pressupõe que são ambos toouse contínuo uma saudação de imagens de modelo fornecidos como parte da sua assinatura ou se você já tiver carregado imagem de modelo Olá deseja toouse. Se você precisar tooupload uma imagem de modelo diferente, você pode fazer isso na página de imagens de modelo de saudação. Basta clicar em **carregar uma imagem de modelo** e siga as etapas de saudação no Assistente de saudação. 
+* Deseja imagem Office 365 ProPlus do toouse Olá? Verifique as informações [aqui](remoteapp-officesubscription.md).
+* Deseja aplicativos personalizados tooprovide ou programas LOB? Crie uma nova [imagem](remoteapp-imageoptions.md) e use-a em sua coleção de nuvem.
+* Descubra se você precisa de tooconnect tooa VNET. Se você escolher tooconnect tooa VNET, verifique se ele atende Olá [diretrizes de dimensionamento](remoteapp-vnetsizing.md) e que ele [pode se conectar a tooRemoteApp](remoteapp-vnet.md). Check-out Olá [artigo planejamento de rede virtual ](remoteapp-planvnet.md)para obter mais informações.
+* Se você estiver usando uma rede virtual, decida se deseja toojoin-tooyour domínio de Active Directory local.
 
 ## <a name="step-1-create-a-cloud-collection---with-or-without-a-vnet"></a>Etapa 1: criar uma coleção na nuvem, com ou sem uma VNET
-Use as etapas a seguir para **criar uma coleção somente na nuvem**:
+As etapas a seguir de saudação do uso muito**criar uma coleção somente nuvem**:
 
-1. No portal de gerenciamento, vá para a página do RemoteApp.
+1. No portal de gerenciamento hello, vá toohello RemoteApp página.
 2. Clique em **Novo > Criação Rápida**.
 3. Digite um nome para a coleção e selecione sua região.
-4. Escolha o plano que você deseja usar - standard ou basic.
-5. Escolha o modelo a ser usado para esta coleção. 
+4. Escolha Olá plano que você deseja toouse - básico ou padrão.
+5. Escolha Olá toouse de modelo para esta coleção. 
    
-    **Dica:** sua assinatura do RemoteApp vem com [imagens de modelo](remoteapp-images.md) que contêm os programas Office 365 ou Office 2013 (para uso de avaliação), alguns publicados (como o Word) e outros prontos para publicar. Você também pode criar uma nova [imagem](remoteapp-imageoptions.md) e usá-la em sua coleção de nuvem.
+    **Dica:** sua assinatura do RemoteApp vem com [imagens de modelo](remoteapp-images.md) que contêm o Office 365 ou Office 2013 (para uso de avaliação) programas, alguns publicado (como Word) e outros pronto toopublish. Você também pode criar uma nova [imagem](remoteapp-imageoptions.md) e usá-la em sua coleção de nuvem.
 6. Clique em **Criar coleção de RemoteApp**.
    
-    **Importante:** pode levar até 30 minutos para provisionar sua coleção.
+    **Importante:** pode levar até too30 minutos tooprovision sua coleção.
 
-Depois de criar sua coleção do Azure RemoteApp, clique duas vezes no nome da coleção. Isso abrirá a página **Início Rápido** , na qual você terminará de configurar a coleção.
+Depois de sua coleção do RemoteApp foi criada, clique duas vezes em nome de saudação da coleção de saudação. Isso abrirá Olá **início rápido** página - isso é onde você terminar de configurar coleta de saudação.
 
-Use as seguintes etapas para criar uma **coleção VNET + nuvem**:
+Toocreate as etapas a seguir do uso Olá um **coleção VNET + nuvem**:
 
-1. No Portal de gerenciamento, vá para a página RemoteApp do Azure.
+1. No portal de gerenciamento hello, vá toohello Azure RemoteApp página.
 2. Clique em **Novo** > **Criar com VNET**.
 3. Digite um nome para a sua coleção.
-4. Escolha o plano que você deseja usar - standard ou basic.
-5. Escolha a VNET que você já criou. Não sabe como fazer isso? Por enquanto, as etapas estão no tópico [híbrido](remoteapp-create-hybrid-deployment.md) .
-6. Decida se você deseja associar sua coleção ao seu domínio. Em caso afirmativo, você precisará usar a AD Connect para integrar o Azure AD e o ambiente do Active Directory. Isso será explicado abaixo na **Etapa 2**.
+4. Escolha Olá plano que você deseja toouse - básico ou padrão.
+5. Escolha Olá VNET que você já tenha criado. Não sei como toodo que? Por enquanto, etapas Olá estão em Olá [híbrida](remoteapp-create-hybrid-deployment.md) tópico.
+6. Decida se deseja toojoin seu domínio de tooyour da coleção. Em caso afirmativo, você precisará toouse AD Connect toointegrate AD do Azure e o ambiente do Active Directory. Isso será explicado abaixo na **Etapa 2**.
 7. Clique em **Criar coleção de RemoteApp**.
 
 ## <a name="step-2-configure-active-directory-directory-synchronization-optional"></a>Etapa 2: Configurar a sincronização de diretório do Active Directory (opcional)
-Para usar o Active Directory, o Azure RemoteApp exige uma sincronização de diretório entre o Azure Active Directory e o Active Directory local para sincronizar usuários, grupos, contatos e senhas com o locatário do Azure Active Directory. Consulte [Configurando o Active Directory para o RemoteApp do Azure](remoteapp-ad.md) para obter informações de planejamento. Você também pode ir diretamente para o [AD Connect](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/) para saber mais.
+Se você quiser toouse do Active Directory, o Azure RemoteApp requer sincronização de diretórios entre o Active Directory do Azure e locais do Active Directory toosynchronize usuários, contatos e locatário de Active Directory do Azure tooyour senhas. Consulte [Configurando o Active Directory para o RemoteApp do Azure](remoteapp-ad.md) para obter informações de planejamento. Você também pode ir diretamente muito[AD Connect](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/) para obter informações.
 
 ## <a name="step-3-publish-apps"></a>Etapa 3: Publicar aplicativos
-Um aplicativo do Azure RemoteApp é o aplicativo ou programa fornecido aos usuários. Ele está localizado na imagem do modelo na qual foi carregada a coleção. Quando um usuário acessa um aplicativo, ele aparece para ser executado no seu ambiente local, mas ele está, de fato, em execução em uma máquina virtual no Azure. 
+Um aplicativo do Azure RemoteApp é Olá aplicativo ou programa que você forneça tooyour usuários. Ele está localizado na imagem de modelo Olá carregado para a coleção de saudação. Quando um usuário acessa um aplicativo, o aplicativo hello aparece toorun no seu ambiente local, mas ele está em execução em uma máquina virtual no Azure. 
 
-Antes que os usuários possam acessar aplicativos, você precisa publicá-los – os aplicativos de publicação permitem que os usuários acessem os aplicativos por meio do cliente da Área de Trabalho Remota.
+Antes dos usuários podem acessar aplicativos, você precisa toopublish-los – permite que aplicativos que os usuários acessam aplicativos Olá por meio de publicação Olá cliente de área de trabalho remota.
 
-Você pode publicar vários aplicativos em sua coleção do RemoteApp. Na página de publicação, clique em **Publicar** para adicionar um programa. É possível publicar por meio do menu **Iniciar** da imagem do modelo ou especificando o caminho na imagem do modelo do aplicativo. Se você optar por adicionar por meio menu **Iniciar** , escolha o aplicativo a ser publicado. Se você optar por fornecer o caminho para o aplicativo, forneça um nome para o aplicativo e o caminho para onde ele está instalado na imagem do modelo.
+Você pode publicar vários aplicativos tooyour coleção do RemoteApp do Azure. Na página de publicação Olá, clique em **publicar** tooadd um programa. Você pode publicar de saudação **iniciar** menu Olá da imagem de modelo ou especificando o caminho de saudação na imagem de modelo Olá para o aplicativo hello. Se você escolher tooadd Olá **iniciar** menu, escolha Olá toopublish de aplicativo. Se você escolher tooprovide Olá caminho toohello aplicativo, forneça um nome para o aplicativo hello e Olá caminho toowhere que ele é instalado na imagem de modelo hello.
 
 ## <a name="step-4-configure-user-access"></a>Etapa 4: Configurar o acesso do usuário
-Agora que você criou sua coleção, precisa adicionar os usuários que você quer que usem seus recursos remotos. Se estiver usando o Active Directory, os usuários ou grupos que têm acesso liberado precisarão existir no locatário do Active Directory, associado à assinatura usada para criar esta coleção.
+Agora que você criou sua coleção, é necessário tooadd usuários de saudação que você deseja toouse possível toobe seus recursos remotos. Se você estiver usando o Active Directory, usuários de saudação que você forneça acesso tooneed tooexist no locatário do Active Directory Olá associados com a assinatura de saudação usado toocreate nesta coleção.
 
-1. Na página Início Rápido, clique em **Configurar o acesso do usuário**. 
-2. Insira a conta de trabalho (a partir do Active Directory) ou a conta da Microsoft para a qual você deseja conceder acesso.
+1. Na página início rápido hello, clique em **configurar o acesso de usuário**. 
+2. Insira a conta de trabalho da saudação (a partir do Active Directory) ou a conta da Microsoft que você deseja acesso toogrant.
    
    **Observações:** 
    
-   Lembre-se de usar o formato *user@domain.com*.
+   Certifique-se de que você use Olá  *user@domain.com*  formato.
    
-   Se você estiver usando o Office 365 ProPlus em sua coleção, você deve usar as identidades do Active Directory para os usuários. Isso ajuda a validar o licenciamento. 
-3. Depois que os usuários são validados, clique em **Salvar**.
+   Se você estiver usando o Office 365 ProPlus em sua coleção, você deve usar identidades do Active Directory Olá para seus usuários. Isso ajuda a validar o licenciamento. 
+3. Depois que os usuários de saudação são validados, clique em **salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
-É isso – sua implantação na nuvem do Azure RemoteApp foi criada e implantada com sucesso. A próxima etapa é fazer com que os seus usuários baixem e instalem o cliente da Área de Trabalho Remota. É possível encontrar a URL do cliente na página Início Rápido do Azure RemoteApp. Em seguida, os usuários podem fazer o logon no cliente e acessar os aplicativos que você publicou.
+É isso – sua implantação na nuvem do Azure RemoteApp foi criada e implantada com sucesso. Olá próxima etapa é toohave aos usuários baixar e instalar o cliente de área de trabalho remota hello. Você pode encontrar o cliente Olá Olá URL na página de início rápido do Azure RemoteApp hello. Em seguida, tem os usuários façam logon em cliente hello e acessar Olá aplicativos publicados por você.
 
 ### <a name="help-us-help-you"></a>Ajude-nos a ajudar você
-Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações - elas serão enviadas para que as examinemos e, assim que elas forem desconectadas, você verá suas alterações e aprimoramentos bem aqui.
+Você sabia que na adição toorating neste artigo e fazer comentários para baixo abaixo, você pode fazer alterações toohello artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** toomake alterações - aqueles virão toous para revisão e, em seguida, uma vez que saia neles, você verá suas alterações e aprimoramentos aqui.
 

@@ -1,6 +1,6 @@
 ---
-title: Usar modelos do Azure para criar o HDInsight e o Data Lake Store | Microsoft Docs
-description: Usar modelos do Resource Manager do Azure para criar e usar clusters HDInsight com o Azure Data Lake Store
+title: "aaaUse toocreate de modelos do Azure HDInsight e repositório Data Lake | Microsoft Docs"
+description: "Use o Gerenciador de recursos do Azure modelos toocreate e usar clusters de HDInsight com repositório Azure Data Lake"
 services: data-lake-store,hdinsight
 documentationcenter: 
 author: nitinme
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: nitinme
-ms.openlocfilehash: 6f43423096f0e74f41afea275e4ec9801dc2cea5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: eb88a626f2837dcc29295f3f73a91757059c3bb8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-resource-manager-template"></a>Criar o cluster HDInsight com o Data Lake Store usando o modelo do Resource Manager do Azure
 > [!div class="op_single_selector"]
@@ -29,67 +29,67 @@ ms.lasthandoff: 07/11/2017
 >
 >
 
-Aprenda a usar o Azure PowerShell para configurar um cluster HDInsight com o Azure Data Lake Store **como o armazenamento adicional**.
+Saiba como toouse do Azure PowerShell tooconfigure um HDInsight cluster com repositório Azure Data Lake, **como armazenamento adicional**.
 
-Para tipos de cluster compatíveis, o Data Lake Store pode ser usado como um armazenamento padrão ou uma conta de armazenamento adicional. Quando o Data Lake Store é usado como armazenamento adicional, a conta de armazenamento padrão para os clusters ainda será Blobs de Armazenamento do Azure (WASB) e os arquivos relacionados ao cluster (como logs, etc.) ainda serão gravados no armazenamento padrão, embora os dados que você queira processar possam ser armazenados em uma conta do Data Lake Store. O uso do Repositório Data Lake como uma conta de armazenamento adicional não afeta o desempenho ou a capacidade de leitura/gravação no armazenamento do cluster.
+Para tipos de cluster compatíveis, o Data Lake Store pode ser usado como um armazenamento padrão ou uma conta de armazenamento adicional. Quando o repositório Data Lake é usado como armazenamento adicional, conta de armazenamento padrão Olá para clusters de saudação ainda estará Blobs de armazenamento do Azure (WASB) e arquivos relacionados ao cluster de saudação (como logs, etc.) são gravados ainda armazenamento padrão de toohello, enquanto os dados de saudação que você deseja tooprocess podem ser armazenados em uma conta do repositório Data Lake. Usando o repositório Data Lake como uma conta de armazenamento adicional não afeta o desempenho e o hello capacidade tooread/gravação toohello armazenamento de cluster hello.
 
 ## <a name="using-data-lake-store-for-hdinsight-cluster-storage"></a>Usando o Data Lake Store para armazenamento do cluster HDInsight
 
 Aqui estão algumas considerações importantes para usar o HDInsight com o Data Lake Store:
 
-* A opção para criar clusters HDInsight com acesso ao Data Lake Store como armazenamento padrão está disponível para o HDInsight versão 3.5 e 3.6.
+* Clusters de HDInsight toocreate opção com acesso tooData Lake repositório como armazenamento padrão está disponível para HDInsight versão 3.5 e 3.6.
 
-* A opção para criar clusters HDInsight com acesso ao Data Lake Store como armazenamento adicional está disponível para o HDInsight versões 3.2, 3.4, 3.5 e 3.6.
+* Clusters de HDInsight toocreate opção com acesso tooData Lake repositório como armazenamento adicional está disponível para HDInsight versões 3.2, 3.4, 3.5 e 3.6.
 
-Neste artigo, provisionaremos um cluster Hadoop com o Repositório Data Lake como armazenamento adicional. Para obter instruções sobre como criar um cluster Hadoop com o Data Lake Store como armazenamento padrão, veja [Criar um cluster HDInsight com o Data Lake Store usando o Portal do Azure](data-lake-store-hdinsight-hadoop-use-portal.md).
+Neste artigo, provisionaremos um cluster Hadoop com o Repositório Data Lake como armazenamento adicional. Para obter instruções sobre como toocreate um Hadoop de cluster com o repositório Data Lake como armazenamento padrão, consulte [criar um cluster HDInsight com repositório Data Lake usando o Portal do Azure](data-lake-store-hdinsight-hadoop-use-portal.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar este tutorial, você deve ter o seguinte:
+Antes de começar este tutorial, você deve ter o seguinte hello:
 
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1.0 ou superior**. Consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
-* **Entidade de serviço do Azure Active Directory**. As etapas neste tutorial fornecem instruções sobre como criar uma entidade de serviço no Azure AD. No entanto, você deve ser administrador do Azure AD para poder criar uma entidade de serviço. Se você for administrador do Azure AD, poderá ignorar esse pré-requisito e continuar com o tutorial.
+* **Azure PowerShell 1.0 ou superior**. Consulte [como tooinstall e configurar o Azure PowerShell](/powershell/azure/overview).
+* **Entidade de serviço do Azure Active Directory**. As etapas deste tutorial fornecem instruções sobre como toocreate uma entidade de serviço no AD do Azure. No entanto, você deve ser um toocreate capaz do AD do Azure administrador toobe uma entidade de serviço. Se você for um administrador do AD do Azure, você pode ignorar esse pré-requisito e continuar com o tutorial hello.
 
-    **Se você não for um administrador do Azure AD**, não poderá executar as etapas necessárias para criar uma entidade de serviço. Nesse caso, o administrador do Azure AD deverá primeiro criar uma entidade de serviço antes de criar um cluster HDInsight com Data Lake Store. Além disso, a entidade de serviço deve ser criada usando um certificado, conforme descrito em [Criar uma entidade de serviço com certificado](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
+    **Se você não for um administrador do AD do Azure**, não será capaz de tooperform Olá etapas necessárias toocreate uma entidade de serviço. Nesse caso, o administrador do Azure AD deverá primeiro criar uma entidade de serviço antes de criar um cluster HDInsight com Data Lake Store. Além disso, Olá entidade de serviço deve ser criada usando um certificado, conforme descrito em [criar uma entidade de serviço com certificado](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
 
 ## <a name="create-an-hdinsight-cluster-with-azure-data-lake-store"></a>Criar um cluster HDInsight com o Azure Data Lake Store
-O modelo do Resource Manager e os pré-requisitos para usar o modelo estão disponíveis no GitHub em [Implantar um cluster HDInsight Linux com o novo Data Lake Store](https://github.com/Azure/azure-quickstart-templates/tree/master/201-hdinsight-datalake-store-azure-storage). Siga as instruções fornecidas neste link para criar um cluster HDInsight com o Azure Data Lake Store como o armazenamento adicional.
+modelo do Gerenciador de recursos de saudação e Olá pré-requisitos para usar o modelo de hello, estão disponíveis no GitHub em [implantar um cluster HDInsight Linux com o novo repositório do Data Lake](https://github.com/Azure/azure-quickstart-templates/tree/master/201-hdinsight-datalake-store-azure-storage). Siga as instruções de Olá fornecidas no toocreate link um cluster HDInsight com repositório Azure Data Lake como armazenamento adicional da saudação.
 
-As instruções no link mencionado acima exigem o PowerShell. Antes de iniciar as instruções, verifique se você está conectado com sua conta do Azure. Na área de trabalho, abra uma nova janela do Azure PowerShell e insira o trecho a seguir. Quando solicitado a fazer logon, lembre-se de fazer logon como o proprietário ou um dos administradores da assinatura:
+instruções de Olá Olá link mencionados acima exigem o PowerShell. Antes de iniciar as instruções, verifique se que você fizer logon no tooyour conta do Azure. Na área de trabalho, abra uma nova janela do PowerShell do Azure e insira Olá trechos de código a seguir. Quando solicitada toolog, certifique-se de você fazer logon como uma saudação admininistrators/proprietário da assinatura:
 
 ```
-# Log in to your Azure account
+# Log in tooyour Azure account
 Login-AzureRmAccount
 
-# List all the subscriptions associated to your account
+# List all hello subscriptions associated tooyour account
 Get-AzureRmSubscription
 
 # Select a subscription
 Set-AzureRmContext -SubscriptionId <subscription ID>
 ```
 
-## <a name="upload-sample-data-to-the-azure-data-lake-store"></a>Carregue os exemplos de dados no Azure Data Lake Store
-O modelo do Resource Manager cria uma nova conta do Data Lake Store e associa-a com o cluster HDInsight. Você deve carregar alguns dados de exemplo no Data Lake Store. Você precisará desses dados posteriormente no tutorial para executar trabalhos de um cluster HDInsight que acessa dados no repositório Data Lake. Para obter instruções sobre como carregar dados, consulte [Carregar um arquivo no Data Lake Store](data-lake-store-get-started-portal.md#uploaddata). Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
+## <a name="upload-sample-data-toohello-azure-data-lake-store"></a>Carregar repositório exemplo dados toohello Azure Data Lake
+modelo do Gerenciador de recursos de saudação cria uma nova conta do repositório Data Lake e associa ao cluster do HDInsight hello. Agora, você deve carregar alguns dados de exemplo toohello repositório Data Lake. Você precisará esses dados posteriormente em trabalhos toorun tutorial Olá de um cluster HDInsight que acessam dados em Olá repositório Data Lake. Para obter instruções sobre como tooupload dados, consulte [carregar um arquivo tooyour repositório Data Lake](data-lake-store-get-started-portal.md#uploaddata). Se você estiver procurando por alguns tooupload de dados de exemplo, você pode obter Olá **ambulância dados** pasta Olá [repositório Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
-## <a name="set-relevant-acls-on-the-sample-data"></a>Definir ACLs relevantes nos dados de exemplo
-Para verificar se os dados de exemplo que você carregou estão acessíveis do cluster HDInsight, você deverá garantir que o aplicativo do Azure AD que é usado para estabelecer a identidade entre o cluster HDInsight e o Data Lake Store tem acesso para o arquivo/pasta que você está tentando acessar. Para fazer isso, execute as seguintes etapas.
+## <a name="set-relevant-acls-on-hello-sample-data"></a>Definir ACLs relevantes em dados de exemplo hello
+toomake se os dados de exemplo hello que você carregar são acessíveis do cluster do HDInsight hello, você deve garantir que o aplicativo hello AD do Azure que é a identidade tooestablish usado entre o cluster do HDInsight hello e repositório Data Lake tenha acesso toohello arquivo/pasta é a tentativa de tooaccess. toodo isso, execute Olá etapas a seguir.
 
-1. Localize o nome do aplicativo do Azure AD que está associado ao cluster HDInsight e o Data Lake Store. Uma maneira para procurar o nome é abrir a folha do cluster HDInsight que você criou usando o modelo do Resource Manager, clique na guia **Identidade do Cluster AAD** e procure o valor do **Nome de exibição da entidade de serviço**.
-2. Agora, forneça acesso a esse aplicativo do Azure AD no arquivo/pasta que você deseja acessar do cluster HDInsight. Para definir as ACLs certas no arquivo/pasta no Data Lake Store, consulte [Protegendo dados no Data Lake Store](data-lake-store-secure-data.md#filepermissions).
+1. Localize o nome de saudação do hello aplicativo AD do Azure que está associado ao cluster HDInsight e Olá repositório Data Lake. Toolook unidirecional para nome hello é criada usando o modelo do Gerenciador de recursos de saudação folha de cluster tooopen Olá HDInsight, clique em Olá **Cluster AAD identidade** guia e procure o valor de saudação do **entidade de serviço Nome de exibição**.
+2. Agora, fornecem acesso toothis aplicativo AD do Azure no hello arquivo/pasta que você deseja tooaccess do cluster do HDInsight hello. o direito de saudação de tooset ACLs Olá arquivo/pasta no repositório Data Lake, consulte [proteção de dados no repositório Data Lake](data-lake-store-secure-data.md#filepermissions).
 
-## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-the-data-lake-store"></a>Executar trabalhos de teste no cluster HDInsight para usar o Repositório Data Lake
-Após a configuração de um cluster HDInsight, você poderá executar trabalhos de teste no cluster a fim de testar se o cluster HDInsight pode acessar o Repositório Data Lake. Para fazer isso, executaremos um exemplo de trabalho do Hive que cria uma tabela usando os exemplos de dados que você carregou anteriormente em seu Repositório Data Lake.
+## <a name="run-test-jobs-on-hello-hdinsight-cluster-toouse-hello-data-lake-store"></a>Executar trabalhos de teste em Olá HDInsight cluster toouse Olá repositório Data Lake
+Depois de configurar um cluster HDInsight, você pode executar trabalhos de teste em Olá cluster tootest que Olá HDInsight cluster pode acessar o repositório Data Lake. toodo assim, iremos executar um trabalho de Hive de exemplo que cria uma tabela usando dados de exemplo hello que você carregou anteriormente repositório tooyour Data Lake.
 
-Nesta seção, você acessará um cluster Linux HDInsight por SSH e executará uma consulta Hive de exemplo. Se você está usando um cliente Windows, é recomendável usar o **PuTTY**, que pode ser baixado de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+Nesta seção, você vai SSH em um cluster HDInsight Linux e execução Olá um exemplo de consulta de Hive. Se você está usando um cliente Windows, é recomendável usar o **PuTTY**, que pode ser baixado de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Para saber mais sobre a utilização do PuTTY, confira [Usar SSH com o Hadoop baseado em Linux no HDInsight no Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
-1. Uma vez conectado, inicie a CLI do Hive usando o seguinte comando:
+1. Uma vez conectado, inicie Olá CLI do Hive usando Olá comando a seguir:
 
    ```
    hive
    ```
-2. Usando a CLI, insira as instruções a seguir para criar uma nova tabela chamada **vehicles** usando os dados de exemplo no Repositório Data Lake:
+2. Usando Olá CLI, insira Olá seguindo as instruções toocreate uma nova tabela nomeada **veículos** com dados de exemplo hello Olá repositório Data Lake:
 
    ```
    DROP TABLE vehicles;
@@ -97,7 +97,7 @@ Para saber mais sobre a utilização do PuTTY, confira [Usar SSH com o Hadoop ba
    SELECT * FROM vehicles LIMIT 10;
    ```
 
-   Você deverá ver um resultado semelhante ao seguinte:
+   Você verá uma saída semelhante toohello a seguir:
 
    ```
    1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
@@ -114,19 +114,19 @@ Para saber mais sobre a utilização do PuTTY, confira [Usar SSH com o Hadoop ba
 
 
 ## <a name="access-data-lake-store-using-hdfs-commands"></a>Repositório Data Lake usando comandos do HDFS
-Após a configuração do cluster HDInsight para usar o Repositório Data Lake, você poderá usar os comandos do shell HDFS para acessar o armazenamento.
+Quando você tiver configurado o repositório Data Lake do toouse de cluster de HDInsight hello, você pode usar comandos de shell do hello HDFS tooaccess Olá repositório.
 
-Nesta seção, você acessará um cluster Linux HDInsight por SSH e executará comandos do HDFS. Se você está usando um cliente Windows, é recomendável usar o **PuTTY**, que pode ser baixado de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+Nesta seção, você vai SSH em um cluster HDInsight Linux e execução Olá comandos HDFS. Se você está usando um cliente Windows, é recomendável usar o **PuTTY**, que pode ser baixado de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Para saber mais sobre a utilização do PuTTY, confira [Usar SSH com o Hadoop baseado em Linux no HDInsight no Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
-Uma vez conectado, use o comando do sistema de arquivos HDFS a seguir para listar os arquivos no Repositório Data Lake.
+Uma vez conectado, use Olá arquivos HDFS filesystem comando toolist Olá no hello repositório Data Lake a seguir.
 
 ```
 hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
 ```
 
-Isso deve listar o arquivo carregado anteriormente no Repositório Data Lake.
+Isso deve listar arquivo hello que você carregou anteriormente repositório toohello Data Lake.
 
 ```
 15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
@@ -134,8 +134,8 @@ Found 1 items
 -rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder
 ```
 
-Você também pode usar o comando `hdfs dfs -put` para carregar alguns arquivos no Repositório Data Lake e usar `hdfs dfs -ls` para verificar se os arquivos foram carregados com êxito.
+Você também pode usar o hello `hdfs dfs -put` comando tooupload toohello alguns arquivos repositório Data Lake e, em seguida, usar `hdfs dfs -ls` tooverify arquivos Olá foram carregados com êxito.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Copiar dados de Armazenamento de Blobs do Azure para o Data Lake Store](data-lake-store-copy-data-wasb-distcp.md)
+* [Copiar dados do repositório Azure armazenamento de Blobs tooData Lake](data-lake-store-copy-data-wasb-distcp.md)

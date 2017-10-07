@@ -1,6 +1,6 @@
 ---
-title: "Preparar uma implantação do serviço de nuvem (Node.js) | Microsoft Docs"
-description: "Saiba como implantar seu aplicativo Azure para um ambiente de preparo e depois implantar em um ambiente de produção usando a permuta do IP Virtual (VIP)."
+title: "aaaStage uma implantação de serviço de nuvem (Node. js) | Microsoft Docs"
+description: "Saiba como toodeploy tooa seu aplicativo do Azure que ambiente de preparo, em seguida, implantar o ambiente de produção tooa usando a troca de IP Virtual (VIP)."
 services: cloud-services
 documentationcenter: nodejs
 author: TomArcher
@@ -14,62 +14,62 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tarcher
-ms.openlocfilehash: b3000ed769e8c60eccb21e26f53ce7ccb7e68d7f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 0656c84ac444a10f152f441265f85141347bf1fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="staging-an-application-in-azure"></a>Preparando um aplicativo no Azure
-Um aplicativo empacotado pode ser implantado no ambiente de preparo no Azure para ser testado antes de movê-lo para o ambiente de produção onde o aplicativo pode ser acessado na Internet. O ambiente de preparo é exatamente igual ao ambiente de produção, exceto que você só poderá acessar o aplicativo preparado com uma URL ofuscada que é gerada pelo Azure. Após verificar que seu aplicativo está funcionando corretamente, ele pode ser implantado no ambiente de produção executando uma permuta do VIP (IP Virtual).
+Um aplicativo empacotado pode ser implantado toohello preparo ambiente no Azure toobe testado antes de movê-lo toohello produção ambiente no qual Olá aplicativo está acessível na saudação da Internet. O ambiente de preparo é exatamente como o ambiente de produção de hello, exceto que você pode apenas Olá acesso preparado o aplicativo com uma URL ofuscado que é gerado pelo Azure. Após ter verificado que seu aplicativo está funcionando corretamente, pode ser implantado toohello ambiente de produção, executando uma permuta de VIP (IP Virtual).
 
 > [!NOTE]
-> As etapas deste artigo se aplicam somente a aplicativos de nó hospedados como um Serviço de Nuvem do Azure.
+> Olá etapas neste artigo se aplicam somente aplicativos toonode hospedados como um serviço de nuvem do Azure.
 > 
 > 
 
 ## <a name="step-1-stage-an-application"></a>Etapa 1: Preparar um aplicativo
-Esta tarefa aborda como preparar um aplicativo usando o **Microsoft Azure PowerShell**.
+Essa tarefa aborda como um aplicativo por meio de toostage Olá **Microsoft Azure PowerShell**.
 
-1. Ao publicar um serviço, basta passar o parâmetro **-Slot** para o cmdlet **Publish-AzureServiceProject**.
+1. Ao publicar um serviço, basta passar Olá **-Slot** parâmetro à saudação **AzureServiceProject publicar** cmdlet.
    
    ```powershell
    Publish-AzureServiceProject -Slot staging
    ```
-2. Faça logon no [portal clássico do Azure] e selecione **Serviços de Nuvem**. Após o serviço de nuvem ser criado e o status da coluna **Preparo** ter sido atualizado para **Executando**, clique no nome de serviço.
+2. Faça logon no toohello [portal clássico do Azure] e selecione **serviços de nuvem**. Após o serviço de nuvem Olá é criado e Olá **preparo** status de coluna tiver sido atualizado muito**executando**, clique no nome do serviço de saudação.
    
    ![portal exibindo um serviço em execução][cloud-service]
-3. Selecione o **Painel** e, em seguida, selecione **Preparo**.
+3. Selecione Olá **painel**e, em seguida, selecione **preparo**.
    
    ![painel de serviço de nuvem][cloud-service-dashboard]
-4. Observe o valor na entrada da **URL do Site** à direita. O nome DNS é uma ID interna ofuscada que é gerada pelo Azure.
+4. Observe o valor Olá Olá **URL do Site** direita de toohello de entrada. nome DNS de saudação é um identificador interno ofuscado Azure gerado.
    
     ![URL do Site][cloud-service-staging-url]
 
-Agora você pode verificar que o aplicativo está funcionando corretamente no ambiente de preparo usando a URL do site de preparo.
+Agora você pode verificar se o aplicativo hello está funcionando corretamente no ambiente de preparo usando a URL do site de preparo de saudação do hello.
 
 ## <a name="step-2-upgrade-an-application-in-production-by-swapping-vips"></a>Etapa 2: Atualizar um aplicativo em produção permutando VIPs
-Após verificar a versão atualizada de um aplicativo no ambiente de preparo, você pode rapidamente torná-lo disponível em produção permutando os VIPs (IPs virtuais) do ambiente de preparo e de produção.
+Após ter verificado Olá a versão atualizada de um aplicativo no ambiente de preparo, você pode torná-lo disponível em produção, trocando Olá IPs virtuais (VIPs) de ambientes de preparo e produção de hello.
 
 > [!NOTE]
-> Essa etapa pressupõe que você já implantou um aplicativo na produção e preparou a versão atualizada do aplicativo.
+> Esta etapa pressupõe que você já ter implantado um aplicativo tooproduction e preparado Olá a versão atualizada do aplicativo.
 > 
 > 
 
-1. Faça logon no [portal clássico do Azure], clique em **Serviços de Nuvem** e selecione o nome do serviço.
-2. No **Painel**, selecione **Preparo** e, em seguida, clique em **Permutar** na parte inferior da página. Isso abre a caixa de diálogo Permuta de VIP.
+1. Faça logon no hello [portal clássico do Azure], clique em **serviços de nuvem** e, em seguida, selecione o nome do serviço de saudação.
+2. De saudação **painel**, selecione **preparo**e, em seguida, clique em **trocar** final Olá Olá página. Olá permuta de VIP de caixa de diálogo é aberta.
    
    ![caixa de diálogo permuta de vip][vip-swap-dialog]
-3. Revise as informações e, em seguida, clique em **OK**. As duas implantações começam a ser atualizadas à medida que o ambiente de preparo é permutado para a produção e a implantação de produção é permutada para o preparo.
+3. Revise as informações de saudação e, em seguida, clique em **Okey**. duas implantações do Hello começam a atualização como Olá implantação comutadores tooproduction e hello produção implantação comutadores toostaging de preparo.
 
-Você preparou uma implantação e atualizou uma implantação em produção com sucesso permutando VIPs com a implantação em preparo.
+Ter uma implantação de teste e atualizado de uma implantação de produção por permuta de VIPs com a implantação de saudação em preparação com êxito.
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Como implantar um serviço atualizado na produção permutando VIPs no Azure]
+* [Como tooDeploy uma tooProduction de atualização de serviço por VIPs de permuta no Azure]
 
-[portal clássico do Azure]: http://manage.windowsazure.com
+[Portal clássico do Azure]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
 [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-[Como implantar um serviço atualizado na produção permutando VIPs no Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
+[Como tooDeploy uma tooProduction de atualização de serviço por VIPs de permuta no Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production

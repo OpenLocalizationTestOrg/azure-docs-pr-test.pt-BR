@@ -1,6 +1,6 @@
 ---
-title: Criar ContentKeys com .NET
-description: "Saiba como criar chaves de conteúdo que fornecem acesso seguro aos ativos."
+title: aaaCreate ContentKeys com .NET
+description: "Saiba como chaves de conteúdo toocreate que fornecem seguro acessam tooAssets."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 3280a6fcde59bae360da7cb9fea4bb649f984e43
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 35909c64e8393e228be75c464a034ffc40122952
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-contentkeys-with-net"></a>Criar ContentKeys com .NET
 > [!div class="op_single_selector"]
@@ -27,28 +27,28 @@ ms.lasthandoff: 08/29/2017
 > 
 > 
 
-Os serviços de mídia permitem que você crie ativos e forneça ativos criptografados. Uma **ContentKey** fornece acesso seguro aos seus **ativos**. 
+Serviços de mídia permitem toocreate e entregar ativos criptografados. Um **ContentKey** fornece acesso seguro tooyour **ativo**s. 
 
-Ao criar um novo ativo (por exemplo, antes de [carregar arquivos](media-services-dotnet-upload-files.md)), você pode especificar as seguintes opções de criptografia: **StorageEncrypted**, **CommonEncryptionProtected** ou **EnvelopeEncryptionProtected**. 
+Quando você cria um novo ativo (por exemplo, antes de você [carregar arquivos](media-services-dotnet-upload-files.md)), você pode especificar Olá as opções de criptografia a seguir: **StorageEncrypted**, **CommonEncryptionProtected**, ou **EnvelopeEncryptionProtected**. 
 
-Quando você fornece ativos para seus clientes, é possível [configurar para que os ativos sejam criptografados dinamicamente](media-services-dotnet-configure-asset-delivery-policy.md) com uma das duas criptografias a seguir: **DynamicEnvelopeEncryption** ou **DynamicCommonEncryption**.
+Quando você entregar ativos tooyour clientes, você pode [configurar para toobe ativos criptografado dinamicamente](media-services-dotnet-configure-asset-delivery-policy.md) com uma saudação dois criptografias a seguir: **DynamicEnvelopeEncryption** ou  **DynamicCommonEncryption**.
 
-Os ativos criptografados precisam ser associados a **ContentKey**s. Este artigo descreve como criar uma chave de conteúdo.
+Ativos criptografados têm toobe associado **ContentKey**s. Este artigo descreve como toocreate uma chave de conteúdo.
 
 > [!NOTE]
-> Ao criar um novo ativo **StorageEncrypted** usando o SDK do .NET dos Serviços de Mídia, a **ContentKey** é automaticamente criada e vinculada ao ativo.
+> Ao criar um novo **StorageEncrypted** ativo usando Olá SDK do Media Services .NET hello **ContentKey** é automaticamente criado e vinculado com ativo hello.
 > 
 > 
 
 ## <a name="contentkeytype"></a>ContentKeyType
-Um dos valores que você deve definir ao criar um conteúdo da chave é o tipo de chave de conteúdo. Escolha um dos seguintes valores. 
+Um dos valores de saudação que você deve definir quando criar um conteúdo de chave é o tipo de chave de conteúdo de saudação. Escolha uma saudação valores a seguir. 
 
     public enum ContentKeyType
     {
         /// <summary>
         /// Specifies a content key for common encryption.
         /// </summary>
-        /// <remarks>This is the default value.</remarks>
+        /// <remarks>This is hello default value.</remarks>
         CommonEncryption = 0,
 
         /// <summary>
@@ -68,7 +68,7 @@ Um dos valores que você deve definir ao criar um conteúdo da chave é o tipo d
     }
 
 ## <a id="envelope_contentkey"></a>Criar um tipo de envelope de ContentKey
-O trecho de código a seguir cria uma chave de conteúdo do tipo de criptografia de envelope. Em seguida, associa a chave com o ativo especificado.
+Olá trecho de código a seguir cria uma chave de conteúdo do tipo de criptografia de envelope hello. Em seguida, associa chave Olá com ativo especificado hello.
 
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
     {
@@ -105,7 +105,7 @@ chamada
 
 
 ## <a id="common_contentkey"></a>Criar um tipo comum de ContentKey
-O trecho de código a seguir cria uma chave de conteúdo do tipo de criptografia comum. Em seguida, associa a chave com o ativo especificado.
+Hello trecho de código a seguir cria uma chave de conteúdo Olá comuns do tipo de criptografia. Em seguida, associa chave Olá com ativo especificado hello.
 
     static public IContentKey CreateCommonTypeContentKey(IAsset asset)
     {
@@ -119,7 +119,7 @@ O trecho de código a seguir cria uma chave de conteúdo do tipo de criptografia
                                 "ContentKey",
                                 ContentKeyType.CommonEncryption);
 
-        // Associate the key with the asset.
+        // Associate hello key with hello asset.
         asset.ContentKeys.Add(key);
 
         return key;

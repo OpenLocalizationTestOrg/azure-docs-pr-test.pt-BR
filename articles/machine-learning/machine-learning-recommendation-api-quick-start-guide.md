@@ -16,64 +16,64 @@ ms.date: 03/31/2017
 ms.author: luisca
 ROBOTS: NOINDEX
 redirect_url: machine-learning-datamarket-deprecation
-redirect_document_id: TRUE
-ms.openlocfilehash: 0a9d0b6aa1ef734a857ecc16777ba6250909b38d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: d8f98e85f723a1104cb169b26d797934140979f1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="quick-start-guide-for-the-machine-learning-recommendations-api-version-1"></a>Guia de início rápido para a API de Recomendações do Machine Learning (versão 1)
+# <a name="quick-start-guide-for-hello-machine-learning-recommendations-api-version-1"></a>Guia de início rápido para Olá API de recomendações de aprendizado de máquina (versão 1)
 
 > [!NOTE]
-> Você deve começar usando o [Serviço Cognitivo da API de Recomendações](https://www.microsoft.com/cognitive-services/recommendations-api) em vez desta versão. O Serviço Cognitivo de Recomendações substituirá esse serviço, e todos os recursos novos serão desenvolvidos lá. Ele possui novos recursos como suporte ao processamento em lotes, um Gerenciador de API aprimorado, uma superfície de API mais limpa, uma experiência de inscrição/cobrança mais consistente etc.
+> Você deve começar a usar o hello [recomendações API cognitivas serviço](https://www.microsoft.com/cognitive-services/recommendations-api) em vez de nesta versão. Olá serviço cognitivas recomendações será substituído por esse serviço e todos os novos recursos de saudação serão desenvolvidos existe. Ele possui novos recursos como suporte ao processamento em lotes, um Gerenciador de API aprimorado, uma superfície de API mais limpa, uma experiência de inscrição/cobrança mais consistente etc.
 >
-> Saiba mais sobre [Como migrar para o novo Serviço Cognitivo](http://aka.ms/recomigrate).
+> Saiba mais sobre [toohello migrando novo serviço cognitivas](http://aka.ms/recomigrate).
 > 
 > 
 
-Este documento descreve como integrar o seu serviço ou aplicativo para usar as Recomendações do Microsoft Azure Machine Learning. Encontre mais detalhes sobre a API de Recomendações na [Galeria do Cortana Intelligence](https://gallery.cortanaintelligence.com/MachineLearningAPIs/Recommendations-2).
+Este documento descreve como tooonboard toouse seu serviço ou aplicativo recomendações de aprendizado de máquina do Microsoft Azure. Você pode encontrar mais detalhes no hello API recomendações em Olá [Cortana Intelligence galeria](https://gallery.cortanaintelligence.com/MachineLearningAPIs/Recommendations-2).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="general-overview"></a>Visão geral
-Para usar as Recomendações de Azure Machine Learning, você precisa executar as seguintes etapas:
+toouse recomendações de aprendizado de máquina do Azure, você precisará Olá tootake etapas a seguir:
 
-* Criar um modelo – um modelo é um contêiner de seus dados de uso, dados do catálogo e o modelo de recomendação.
-* Importar dados do catálogo - Um catálogo contém informações de metadados sobre os itens. 
+* Criar um modelo - um modelo é um contêiner de seus dados de uso, dados de catálogo e modelo de recomendação de saudação.
+* Importar dados de catálogo - um catálogo contém informações de metadados sobre itens de saudação. 
 * Importar dados de uso: os dados de uso podem ser carregados de uma entre duas maneiras (ou ambas):
-  * Carregando um arquivo que contém os dados de uso.
+  * Carregando um arquivo que contém dados de uso de saudação.
   * Enviando eventos de aquisição de dados.
-    Normalmente, você carrega um arquivo de uso para poder criar um modelo de recomendação inicial (inicialização) e usá-lo até que o sistema reúna dados suficientes usando o formato de aquisição de dados.
-* Criar um modelo de recomendação – Esta é uma operação assíncrona, em que o sistema de recomendação emprega todos os dados de uso e cria um modelo de recomendação. Essa operação pode levar vários minutos ou várias horas, dependendo do tamanho dos dados e dos parâmetros de configuração da compilação. Ao disparar a compilação, você receberá uma ID de compilação. Use-o para verificar quando o processo de compilação foi concluído antes de começar a consumir recomendações.
+    Geralmente você carregar um arquivo de uso na ordem de toobe capaz de toocreate um modelo de recomendação inicial (inicialização) e usá-lo até que o sistema Olá reúne dados suficientes usando o formato de aquisição de dados hello.
+* Criar um modelo de recomendação - esta é uma operação assíncrona no qual Olá sistema de recomendação usa todos os dados de uso de saudação e cria um modelo de recomendação. Essa operação pode levar vários minutos ou várias horas, dependendo da saudação o tamanho dos dados de saudação e Olá criar parâmetros de configuração. Quando disparo compilação hello, você obterá uma ID de compilação. Use-toocheck quando o processo de compilação Olá terminou antes de iniciar tooconsume recomendações.
 * Consumir recomendações - Obtenha recomendações para um item específico ou uma lista de itens.
 
-Todas as etapas acima são feitas por meio da API de Recomendações do Azure Machine Learning.  Você pode baixar um aplicativo de exemplo que implementa cada uma dessas etapas da [galeria também.](http://1drv.ms/1xeO2F3)
+Todas as etapas de saudação acima são feitas por meio de saudação API de recomendações de aprendizado de máquina do Azure.  Você pode baixar um aplicativo de exemplo que implementa a cada uma dessas etapas de saudação [Galeria também.](http://1drv.ms/1xeO2F3)
 
 ## <a name="limitations"></a>Limitações
-* O número máximo de modelos por assinatura é 10.
-* O número máximo de itens que um catálogo pode conter é 100.000.
-* O número máximo de pontos de uso mantidos é cerca de 5.000.000. Os mais antigos serão excluídos se novos forem carregados ou relatados.
-* O volume máximo dos dados que podem ser enviado no POST (por exemplo, importar dados de catálogo e importar dados de uso) é de 200 MB.
-* O número de transações por segundo para uma compilação de modelo de recomendação que não está ativa é cerca de 2 TPS. Uma compilação de modelo de recomendação ativo pode conter até 20 TPS.
+* número máximo de saudação de modelos por assinatura é 10.
+* número máximo de saudação de itens que pode conter um catálogo é 100.000.
+* número máximo de saudação de pontos de uso que são mantidos é ~ 5.000.000. Olá mais antigo será excluído se novas serão carregadas ou relatadas.
+* tamanho máximo de saudação de dados que podem ser enviados no POST (por exemplo, importar dados de catálogo, importar dados de uso) é de 200MB.
+* Olá número de transações por segundo para uma compilação de modelo de recomendação não está ativo é ~ 2TPS. Uma compilação de modelo de recomendação está ativa pode conter backup too20TPS.
 
 ## <a name="integration"></a>Integração
 ### <a name="authentication"></a>Autenticação
-O Microsoft Azure Marketplace dá suporte ao método de autenticação Básico ou OAuth. Você pode localizar facilmente as chaves de conta, navegando até as chaves no marketplace [nas configurações da conta](https://datamarket.azure.com/account/keys). 
+Microsoft Azure Marketplace oferece suporte a um método de autenticação básica ou OAuth hello. Você pode localizar facilmente Olá chaves de conta navegando toohello chaves no marketplace de saudação em [as configurações de conta](https://datamarket.azure.com/account/keys). 
 
 #### <a name="basic-authentication"></a>Autenticação básica
-Adicione o cabeçalho de autorização:
+Adicione o cabeçalho de autorização hello:
 
     Authorization: Basic <creds>
 
     Where <creds> = ConvertToBase64("AccountKey:" + yourAccountKey);  
 
-Converta em Base64 (c#)
+Converter tooBase64 (c#)
 
     var bytes = Encoding.UTF8.GetBytes("AccountKey:" + yourAccountKey);
     var creds = Convert.ToBase64String(bytes);
 
-Converta em Base64 (JavaScript)
+Converter tooBase64 (JavaScript)
 
     var creds = window.btoa("AccountKey" + ":" + yourAccountKey);
 
@@ -81,15 +81,15 @@ Converta em Base64 (JavaScript)
 
 
 ### <a name="service-uri"></a>URI de serviço
-O URI da raiz de serviço para as APIs de Recomendações do Azure Machine Learning está [aqui.](https://api.datamarket.azure.com/amla/recommendations/v2/)
+Olá URI raiz do serviço para Olá APIs de recomendações de aprendizado de máquina do Azure é [aqui.](https://api.datamarket.azure.com/amla/recommendations/v2/)
 
-O URI do serviço completo é expresso usando elementos da especificação de OData.
+URI do serviço completo Olá é expressa usando elementos da especificação de OData hello.
 
 ### <a name="api-version"></a>Versão da API
-Cada chamada à API terá, por fim, um parâmetro de consulta chamado apiVersion que deve ser definido como “1.0”.
+Cada chamada de API terá, no final do hello, um parâmetro de consulta chamado apiVersion que deve ser definido muito "1.0".
 
 ### <a name="ids-are-case-sensitive"></a>IDs diferenciam minúsculas e maiúsculas
-IDs, retornados por qualquer uma das APIS, diferenciam minúsculas de maiúsculas e devem ser usados desta maneira quando passados como parâmetros nas chamadas de API subsequentes. Por exemplo, IDS de modelo e de catálogo diferenciam maiúsculas de minúsculas.
+IDs, retornados por qualquer Olá APIs, diferenciam maiusculas de minúsculas e devem ser usadas como tal quando passados como parâmetros em chamadas API subsequentes. Por exemplo, IDS de modelo e de catálogo diferenciam maiúsculas de minúsculas.
 
 ### <a name="create-a-model"></a>Criar um modelo
 Criando uma solicitação para "criar modelo":
@@ -109,8 +109,8 @@ Criando uma solicitação para "criar modelo":
 
 Código de status HTTP: 200
 
-* `feed/entry/content/properties/id` – Contém a ID do modelo.
-  Lembre-se que a ID do modelo diferencia maiúsculas de minúsculas.
+* `feed/entry/content/properties/id`-Contém a ID do modelo hello.
+  Observe que a ID do modelo Olá diferencia maiusculas de minúsculas.
 
 XML de OData
 
@@ -144,7 +144,7 @@ XML de OData
 
 
 ### <a name="import-catalog-data"></a>Importar dados de catálogo
-Se você carregar vários arquivos de catálogo para o mesmo modelo com várias chamadas, inseriremos apenas os novos itens de catálogo. Os itens existentes permanecerão com os valores originais.
+Se você carregar vários catálogo arquivos toohello mesmo modelo com várias chamadas, inserimos somente Olá novos itens de catálogo. Itens existentes permanecerão com seus valores originais hello.
 
 | Método HTTP | URI |
 |:--- |:--- |
@@ -152,18 +152,18 @@ Se você carregar vários arquivos de catálogo para o mesmo modelo com várias 
 
 | Nome do Parâmetro | Valores Válidos |
 |:--- |:--- |
-| modelId |O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
-| nome do arquivo |Identificador textual do catálogo.<br>São permitidos apenas letras (A-Z, a-z), números (0-9), hifens (-) e sublinhado (_).<br>Comprimento máximo: 50 |
+| modelId |Identificador exclusivo do modelo de saudação (diferencia maiusculas de minúsculas) |
+| nome do arquivo |Identificador textual do catálogo de saudação.<br>São permitidos apenas letras (A-Z, a-z), números (0-9), hifens (-) e sublinhado (_).<br>Comprimento máximo: 50 |
 | apiVersion |1.0 |
 |  | |
-| Corpo da solicitação |Dados de catálogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>Id do item</td><td>Sim</td><td>Alfanumérico, comprimento máximo 50</td><td>Identificador exclusivo de um item</td></tr><tr><td>Nome do Item</td><td>Sim</td><td>Alfanumérico, comprimento máximo 255</td><td>Nome do item</td></tr><tr><td>Categoria do Item</td><td>Sim</td><td>Alfanumérico, comprimento máximo 255</td><td>Categoria à qual este item pertence (por exemplo, Livros de Culinária, Drama...)</td></tr><tr><td>Descrição</td><td>Não</td><td>Alfanumérico, comprimento máximo 4000</td><td>Descrição deste item</td></tr></table><br>O tamanho máximo do arquivo é de 200 MB.<br><br>Exemplo:<br><code>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</code> |
+| Corpo da solicitação |Dados de catálogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>Id do item</td><td>Sim</td><td>Alfanumérico, comprimento máximo 50</td><td>Identificador exclusivo de um item</td></tr><tr><td>Nome do Item</td><td>Sim</td><td>Alfanumérico, comprimento máximo 255</td><td>Nome do item</td></tr><tr><td>Categoria do Item</td><td>Sim</td><td>Alfanumérico, comprimento máximo 255</td><td>Categoria toowhich que este item pertence (por exemplo, livros de culinária Drama...)</td></tr><tr><td>Descrição</td><td>Não</td><td>Alfanumérico, comprimento máximo 4000</td><td>Descrição deste item</td></tr></table><br>O tamanho máximo do arquivo é de 200 MB.<br><br>Exemplo:<br><code>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,hello Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</code> |
 
 **Resposta**:
 
 Código de status HTTP: 200
 
 * `Feed\entry\content\properties\LineCount` – O número de linhas aceitas.
-* `Feed\entry\content\properties\ErrorCount` – O número de linhas que não foram inseridas devido a um erro.
+* `Feed\entry\content\properties\ErrorCount`-Número de linhas que não foram inseridas devido a erro tooan.
 
 XML de OData
 
@@ -191,7 +191,7 @@ XML de OData
 
 ### <a name="import-usage-data"></a>Importar dados de uso
 #### <a name="uploading-a-file"></a>Carregar um arquivo
-Esta seção mostra como carregar dados de uso usando um arquivo. Você pode chamar essa API várias vezes com dados de uso. Todos os dados de uso serão salvos para todas as chamadas.
+Esta seção mostra como os dados de uso tooupload usando um arquivo. Você pode chamar essa API várias vezes com dados de uso. Todos os dados de uso serão salvos para todas as chamadas.
 
 | Método HTTP | URI |
 |:--- |:--- |
@@ -199,18 +199,18 @@ Esta seção mostra como carregar dados de uso usando um arquivo. Você pode cha
 
 | Nome do Parâmetro | Valores Válidos |
 |:--- |:--- |
-| modelId |O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
-| nome do arquivo |Identificador textual do catálogo.<br>São permitidos apenas letras (A-Z, a-z), números (0-9), hifens (-) e sublinhado (_).<br>Comprimento máximo: 50 |
+| modelId |Identificador exclusivo do modelo de saudação (diferencia maiusculas de minúsculas) |
+| nome do arquivo |Identificador textual do catálogo de saudação.<br>São permitidos apenas letras (A-Z, a-z), números (0-9), hifens (-) e sublinhado (_).<br>Comprimento máximo: 50 |
 | apiVersion |1.0 |
 |  | |
-| Corpo da solicitação |Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>Id de usuário</td><td>Sim</td><td>Alfanumérico</td><td>Identificador exclusivo de um usuário</td></tr><tr><td>Id do item</td><td>Sim</td><td>Alfanumérico, comprimento máximo 50</td><td>Identificador exclusivo de um item</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo, 2013/06/20T10:00:00)</td><td>Hora dos dados</td></tr><tr><td>Evento</td><td>Não, se fornecido, também deve colocar a data</td><td>Um dos seguintes:<br>• Clique<br>• RecommendationClick<br>•    AddShopCart<br>• RemoveShopCart<br>• Compra</td><td></td></tr></table><br>O tamanho máximo do arquivo é de 200 MB.<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| Corpo da solicitação |Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>Id de usuário</td><td>Sim</td><td>Alfanumérico</td><td>Identificador exclusivo de um usuário</td></tr><tr><td>Id do item</td><td>Sim</td><td>Alfanumérico, comprimento máximo 50</td><td>Identificador exclusivo de um item</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo, 2013/06/20T10:00:00)</td><td>Hora dos dados</td></tr><tr><td>Evento</td><td>Não, se fornecido, também deve colocar a data</td><td>Um dos seguintes hello:<br>• Clique<br>• RecommendationClick<br>•    AddShopCart<br>• RemoveShopCart<br>• Compra</td><td></td></tr></table><br>O tamanho máximo do arquivo é de 200 MB.<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Resposta**:
 
 Código de status HTTP: 200
 
 * `Feed\entry\content\properties\LineCount` – O número de linhas aceitas.
-* `Feed\entry\content\properties\ErrorCount` – O número de linhas que não foram inseridas devido a um erro.
+* `Feed\entry\content\properties\ErrorCount`-Número de linhas que não foram inseridas devido a erro tooan.
 * `Feed\entry\content\properties\FileId` – Identificador do arquivo.
 
 XML de OData
@@ -239,7 +239,7 @@ XML de OData
 
 
 #### <a name="using-data-acquisition"></a>Usando a aquisição de dados
-Esta seção mostra como enviar eventos em tempo real para as Recomendações do Azure Machine Learning, geralmente do seu site.
+Esta seção mostra como eventos toosend real tempo recomendações tooAzure de aprendizado de máquina, normalmente a partir de seu site.
 
 | Método HTTP | URI |
 |:--- |:--- |
@@ -249,7 +249,7 @@ Esta seção mostra como enviar eventos em tempo real para as Recomendações do
 |:--- |:--- |
 | apiVersion |1.0 |
 |  | |
-| Corpo da solicitação |Entrada de dados de evento para cada evento que você deseja enviar. Você deve enviar a mesma ID no campo SessionId para a mesma sessão de usuário ou navegador. (Consulte o exemplo de corpo de evento abaixo.) |
+| Corpo da solicitação |Entrada de dados de evento para cada evento que você deseja toosend. Você deve enviar para a mesma sessão de usuário ou navegador Olá Olá mesmo ID nesse campo de SessionId hello. (Consulte o exemplo de corpo de evento abaixo.) |
 
 * Exemplo de evento “Click”:
   
@@ -345,8 +345,8 @@ Esta seção mostra como enviar eventos em tempo real para as Recomendações do
 
 | Nome do Parâmetro | Valores Válidos |
 |:--- |:--- |
-| modelId |O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
-| userDescription |Identificador textual do catálogo. Observe que se você usar espaços você deve codificá-los com 20%. Consulte o exemplo acima.<br>Comprimento máximo: 50 |
+| modelId |Identificador exclusivo do modelo de saudação (diferencia maiusculas de minúsculas) |
+| userDescription |Identificador textual do catálogo de saudação. Observe que se você usar espaços você deve codificá-los com 20%. Consulte o exemplo acima.<br>Comprimento máximo: 50 |
 | apiVersion |1.0 |
 |  | |
 | Corpo da solicitação |NENHUM |
@@ -355,9 +355,9 @@ Esta seção mostra como enviar eventos em tempo real para as Recomendações do
 
 Código de status HTTP: 200
 
-Esta é uma API assíncrona. Você receberá uma ID de compilação como uma resposta. Para saber quando a compilação foi concluída, você deve chamar a API "Obter Status de Compilações de um Modelo" e localizar a ID desta compilação na resposta. Observe que uma compilação pode levar de minutos a horas dependendo do tamanho dos dados.
+Esta é uma API assíncrona. Você receberá uma ID de compilação como uma resposta. tooknow quando a compilação Olá terminou, você deve chamar hello "Obter compilações Status de um modelo de" API e localize essa compilação ID na resposta de saudação. Observe que uma compilação pode levar de toohours minutos dependendo do tamanho de saudação de dados de saudação.
 
-Você não pode consumir recomendações até a compilação terminar.
+Você não pode consumir recomendações até Olá compilar termina.
 
 Status de compilação válidos:
 
@@ -369,7 +369,7 @@ Status de compilação válidos:
 * Cancelado – A compilação foi cancelada.
 * Cancelando – A compilação está sendo cancelada.
 
-Observe que a ID de compilação pode ser encontrada no seguinte caminho: `Feed\entry\content\properties\Id`
+Observe que compilação Olá que ID pode ser encontrada em Olá que caminho a seguir:`Feed\entry\content\properties\Id`
 
 XML de OData
 
@@ -417,29 +417,29 @@ XML de OData
 
 | Nome do Parâmetro | Valores Válidos |
 |:--- |:--- |
-| modelId |O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
-| onlyLastBuild |Indica se é necessário retornar todo o histórico de compilação do modelo ou apenas o status da compilação mais recente. |
+| modelId |Identificador exclusivo do modelo de saudação (diferencia maiusculas de minúsculas) |
+| onlyLastBuild |Indica se tooreturn todos Olá criar histórico do modelo de saudação ou somente status de saudação da compilação mais recente do hello. |
 | apiVersion |1.0 |
 
 **Resposta**:
 
 Código de status HTTP: 200
 
-A resposta inclui uma entrada por compilação. Cada entrada tem os seguintes dados:
+resposta de saudação inclui uma entrada por compilação. Cada entrada tem Olá seguintes dados:
 
-* `feed/entry/content/properties/UserName` – O nome do usuário.
-* `feed/entry/content/properties/ModelName` – O nome do modelo.
+* `feed/entry/content/properties/UserName`– Nome do usuário de saudação.
+* `feed/entry/content/properties/ModelName`– Nome do modelo de saudação.
 * `feed/entry/content/properties/ModelId` – Identificador exclusivo do modelo.
-* `feed/entry/content/properties/IsDeployed` - Se a compilação é implantada (conhecido como compilação ativa).
+* `feed/entry/content/properties/IsDeployed`– Se o build Olá é implantado (também conhecido como compilação ativa).
 * `feed/entry/content/properties/BuildId` – Identificador exclusivo da compilação.
-* `feed/entry/content/properties/BuildType` - Tipo de compilação.
-* `feed/entry/content/properties/Status` – Status da compilação. Este pode ser uma das seguintes opções: Erro, Criando, Na fila, Cancelando, Cancelado e Êxito
-* `feed/entry/content/properties/StatusMessage` – Mensagem de status detalhada (aplica-se somente a estados específicos).
+* `feed/entry/content/properties/BuildType`-Tipo de compilação de saudação.
+* `feed/entry/content/properties/Status` – Status da compilação. Pode ser uma das seguintes Olá: erro, construção, na fila, cancelar, cancelado, sucesso
+* `feed/entry/content/properties/StatusMessage`– Mensagem de status detalhadas (aplica-se somente os estados de toospecific).
 * `feed/entry/content/properties/Progress` – Andamento da compilação (%).
 * `feed/entry/content/properties/StartTime` – Hora de início da compilação.
 * `feed/entry/content/properties/EndTime` – Hora de término da compilação.
 * `feed/entry/content/properties/ExecutionTime` – Duração da compilação.
-* `feed/entry/content/properties/ProgressStep` – Detalhes sobre o estágio atual de uma compilação em andamento.
+* `feed/entry/content/properties/ProgressStep`– Os detalhes sobre o estágio atual de saudação que é uma compilação em andamento no.
 
 Status de compilação válidos:
 
@@ -453,7 +453,7 @@ Status de compilação válidos:
 
 Valores válidos para o tipo de compilação:
 
-* Classificação - compilação de classificação. (Para obter detalhes do build de classificação, consulte o documento “Documentação da API de Recomendação do Machine Learning”).
+* Classificação - compilação de classificação. (Detalhes da compilação para classificação, consulte o documento de "Documentação de recomendação de aprendizado de máquina API" toohello).
 * Recomendação - compilação de recomendação.
 * Fbt - Build de frequentemente comprados juntos.
 
@@ -500,8 +500,8 @@ XML de OData
 
 | Nome do Parâmetro | Valores Válidos |
 |:--- |:--- |
-| modelId |O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
-| itemIds |Lista separada por vírgulas dos itens para recomendar.<br>Comprimento máximo: 1024 |
+| modelId |Identificador exclusivo do modelo de saudação (diferencia maiusculas de minúsculas) |
+| itemIds |Lista separada por vírgulas de saudação itens toorecommend para.<br>Comprimento máximo: 1024 |
 | numberOfResults |Número de resultados necessários  |
 | includeMetatadata |Uso futuro, sempre falso |
 | apiVersion |1.0 |
@@ -510,16 +510,16 @@ XML de OData
 
 Código de status HTTP: 200
 
-A resposta inclui uma entrada por item recomendado. Cada entrada tem os seguintes dados:
+resposta de saudação inclui uma entrada por itens recomendados. Cada entrada tem Olá seguintes dados:
 
 * `Feed\entry\content\properties\Id` - ID do item recomendado.
-* `Feed\entry\content\properties\Name` - Nome do item.
-* `Feed\entry\content\properties\Rating` - Classificação da recomendação; número mais alto significa maior confiança.
+* `Feed\entry\content\properties\Name`-Nome do item de saudação.
+* `Feed\entry\content\properties\Rating`-Classificação de recomendação de saudação; número mais alto significa maior confiança.
 * `Feed\entry\content\properties\Reasoning` - Raciocínio da recomendação (por exemplo, explicações de recomendação).
 
 XML de OData
 
-A resposta de exemplo a seguir inclui 10 itens recomendados:
+resposta de exemplo Hello abaixo inclui 10 itens recomendados:
 
     <feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
       <title type="text" />
@@ -671,10 +671,10 @@ A resposta de exemplo a seguir inclui 10 itens recomendados:
     </feed>
 
 ### <a name="update-model"></a>Atualizar modelo
-Você pode atualizar a descrição do modelo ou a ID de compilação ativa.
-*ID de compilação ativa* – cada compilação para cada modelo tem uma ID de compilação. A ID de compilação ativa é a primeira compilação executada com êxito de cada novo modelo. Depois que tiver uma ID de compilação ativa e criar compilações adicionais para o mesmo modelo, você precisará defini-lo explicitamente como a ID de compilação padrão, se desejar. Ao consumir recomendações, se você não especificar a ID de compilação que deseja usar, o padrão será usado automaticamente.
+Você pode atualizar a descrição do modelo hello ou Olá ID do ativo de compilação.
+*ID de compilação ativa* – cada compilação para cada modelo tem uma ID de compilação. ID de compilação active Olá é Olá primeira compilação bem-sucedida cada novo modelo. Depois que você tiver uma ID de ativo de compilação e fazer compilações adicionais para Olá mesmo modelo, você precisa tooexplicitly defini-lo hello padrão criar ID se desejar. Quando você consome recomendações, se você não especificar a ID de compilação de saudação que você deseja toouse, padrão Olá um será usado automaticamente.
 
-Esse mecanismo permite, depois de ter um modelo de recomendação em produção, compilar e testar novos modelos antes de promovê-los para produção.
+Esse mecanismo permite que você - depois de um modelo de recomendação em produção - toobuild novos modelos e testá-las antes de promovê-los tooproduction.
 
 | Método HTTP | URI |
 |:--- |:--- |
@@ -682,10 +682,10 @@ Esse mecanismo permite, depois de ter um modelo de recomendação em produção,
 
 | Nome do Parâmetro | Valores Válidos |
 |:--- |:--- |
-| ID |O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
+| ID |Identificador exclusivo do modelo de saudação (diferencia maiusculas de minúsculas) |
 | apiVersion |1.0 |
 |  | |
-| Corpo da solicitação |`<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Observe que as marcações XML Description e ActiveBuildId são opcionais. Se você não quiser definir Description ou ActiveBuildId, remova a marca inteira. |
+| Corpo da solicitação |`<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Observe que a descrição de marcas Olá XML e ActiveBuildId são opcionais. Se você não quiser tooset descrição ou ActiveBuildId, remova a marca de inteiro de hello. |
 
 **Resposta**:
 
@@ -703,5 +703,5 @@ XML de OData
     </feed>
 
 ## <a name="legal"></a>Legal
-Este documento é fornecido "no estado em que se encontra". As informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio. Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida. Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna. © 2014 Microsoft. Todos os direitos reservados. 
+Este documento é fornecido "no estado em que se encontra". As informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio. Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida. Este documento não dá nenhum direito legal tooany de propriedade intelectual de nenhum produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna. © 2014 Microsoft. Todos os direitos reservados. 
 

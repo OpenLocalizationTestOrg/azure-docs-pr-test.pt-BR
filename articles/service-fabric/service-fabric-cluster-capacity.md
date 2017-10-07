@@ -1,5 +1,5 @@
 ---
-title: Planejamento da capacidade de cluster do Service Fabric | Microsoft Docs
+title: "Olá aaaPlanning capacidade de cluster do Service Fabric | Microsoft Docs"
 description: "Considerações de planejamento de capacidade de cluster do Service Fabric. Níveis de confiabilidade, durabilidade e nodetypes"
 services: service-fabric
 documentationcenter: .net
@@ -14,128 +14,128 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: chackdan
-ms.openlocfilehash: 36b96360fabdcc64ffd2356540c580594637d48e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 83272ce7fefe698eef755cf66493c2874cc3b120
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planejamento de capacidade de cluster do Service Fabric
-Para qualquer implantação de produção, o planejamento de capacidade é uma etapa importante. Aqui estão alguns dos itens que você precisa considerar como parte desse processo.
+Para qualquer implantação de produção, o planejamento de capacidade é uma etapa importante. Aqui estão alguns dos itens de saudação que você tenha tooconsider como parte desse processo.
 
-* O número de tipos de nós com os quais o cluster precisa começar
-* As propriedades de cada tipo de nó (tamanho, primário, voltado para a Internet, número de VMs etc.)
-* As características de confiabilidade e durabilidade do cluster
+* sua necessidades de cluster toostart out com tipos de número de saudação do nó
+* Propriedades de saudação de cada tipo de nó (tamanho, primário, da internet, número de VMs, etc.)
+* características de confiabilidade e durabilidade de saudação do cluster de saudação
 
 Vamos examinar rapidamente cada um desses itens.
 
-## <a name="the-number-of-node-types-your-cluster-needs-to-start-out-with"></a>O número de tipos de nós com os quais o cluster precisa começar
-Primeiro, você precisa descobrir para que o cluster que está criando será usado e que tipos de aplicativos você planeja implantar no cluster. Se não tem certeza quanto à finalidade do cluster, você provavelmente ainda não está pronto para iniciar o processo de planejamento de capacidade.
+## <a name="hello-number-of-node-types-your-cluster-needs-toostart-out-with"></a>sua necessidades de cluster toostart out com tipos de número de saudação do nó
+Primeiro, é necessário toofigure qual cluster Olá você está criando irá toobe usado para e que tipos de aplicativos que você está planejando toodeploy para este cluster. Se você não estiver claro no propósito de saudação do cluster de saudação, você provavelmente ainda não pronto do processo de planejamento de capacidade de saudação tooenter.
 
-Estabeleça o número de tipos de nós com os quais o cluster precisa começar.  Cada tipo de nó é mapeado para um Conjunto de Escala de Máquina Virtual. Cada tipo de nó pode ser escalado verticalmente para cima ou para baixo de forma independente, tem conjuntos diferentes de portas abertas e pode ter métricas de capacidade diferente. Portanto, a decisão quanto ao número de tipos de nós essencialmente se resume às seguintes considerações:
+Estabelece o número de saudação de tipos de nós de com que cluster precisa toostart out.  Cada tipo de nó é mapeado tooa conjunto de escala de máquina Virtual. Cada tipo de nó pode ser escalado verticalmente para cima ou para baixo de forma independente, tem conjuntos diferentes de portas abertas e pode ter métricas de capacidade diferente. Portanto decisão de saudação do número de saudação de tipos de nós essencialmente resume toohello considerações a seguir:
 
-* O aplicativo tem vários serviços, e algum deles precisa ser público ou voltado para a Internet? Os aplicativos típicos contêm um serviço de gateway de front-end que recebe entrada de um cliente e um ou mais serviços de back-end que se comunicam com os serviços de front-end. Nesse caso, você acaba tendo pelo menos dois tipos de nó.
-* Os serviços (que compõem o aplicativo) têm necessidades de infraestrutura diferentes, como maior RAM ou mais ciclos de CPU? Por exemplo, vamos supor que o aplicativo que você deseja implantar contenha um serviço de front-end e um serviço de back-end. O serviço de front-end pode ser executado em VMs menores (com tamanhos de VM como D2) que têm portas abertas para a Internet.  No entanto, o serviço de back-end faz uso intensivo de computação e precisa ser executado em VMs maiores (com tamanhos de VM como D4, D6, D15) que não são voltadas para a Internet.
+* Seu aplicativo tem vários serviços, e qualquer um deles é necessário toobe pública ou voltados à internet? Os aplicativos típicos contêm um serviço de gateway de front-end que recebe entrada de um cliente e um ou mais serviços back-end que se comunicam com serviços de front-end de saudação. Nesse caso, você acaba tendo pelo menos dois tipos de nó.
+* Os serviços (que compõem o aplicativo) têm necessidades de infraestrutura diferentes, como maior RAM ou mais ciclos de CPU? Por exemplo, suponhamos que esse aplicativo hello que você deseja toodeploy contém um serviço front-end e um serviço back-end. Olá serviço front-end pode executar em VMs menores (tamanhos de VM como D2) que tem portas abertas toohello internet.  Olá back-end, no entanto, toorun de computação intensiva e necessidades em VMs maior (com tamanhos de VM como D4, D6, D15) que não são internet enfrentados pelo serviço.
   
-  No exemplo, embora você possa optar por colocar todos os serviços em um tipo de um nó, é recomendável colocá-los em um cluster com dois tipos de nó.  Isso permite que cada tipo de nó tenha propriedades distintas, como conectividade com a Internet ou tamanho de VM. O número de VMs também pode ser dimensionado independentemente.  
-* Como você não pode prever o futuro, baseie-se no que já sabe e decida com quantos tipos de nós os aplicativos precisam começar. Você sempre pode adicionar ou remover tipos de nós posteriormente. Um cluster do Service Fabric deve ter pelo menos um tipo de nó.
+  Neste exemplo, embora você possa decidir tooput todos os serviços em um tipo de nó de Olá, é recomendável que você coloque-os em um cluster com dois tipos de nó.  Isso permite que propriedades de para cada nó tipo toohave distintos, como conectividade com a internet ou o tamanho da VM. número de saudação de VMs pode ser dimensionado independentemente, e também.  
+* Desde que você não pode prever o futuro hello, vá com fatos que você conhece e decidir sobre o número de saudação de tipos de nós que seus aplicativos precisam toostart com. Você sempre pode adicionar ou remover tipos de nós posteriormente. Um cluster do Service Fabric deve ter pelo menos um tipo de nó.
 
-## <a name="the-properties-of-each-node-type"></a>As propriedades de cada tipo de nó
-O **tipo de nó** pode ser visto como algo equivalente a funções nos Serviços de Nuvem. Os tipos de nó definem os tamanhos e o número de VMs e suas propriedades. Cada tipo de nó definido em um cluster do Service Fabric está configurado como um conjunto de dimensionamento de máquinas virtuais separado. Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você pode usar para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Sendo definidos como conjuntos de dimensionamento de máquinas virtuais distintos, cada tipo de nó pode ser escalado verticalmente ou horizontalmente de forma independente, ter diferentes conjuntos de portas abertas e ter métricas de capacidade diferentes.
+## <a name="hello-properties-of-each-node-type"></a>Propriedades de saudação de cada tipo de nó
+Olá **tipo de nó** podem ser vistos como equivalentes tooroles em serviços de nuvem. Tipos de nós definem tamanhos de VM hello, número de saudação de VMs e suas propriedades. Cada tipo de nó definido em um cluster do Service Fabric está configurado como um conjunto de dimensionamento de máquinas virtuais separado. Conjunto de escalas da máquina virtual é um recurso de computação do Azure, você pode usar toodeploy e gerenciar uma coleção de máquinas virtuais como um conjunto. Sendo definidos como conjuntos de dimensionamento de máquinas virtuais distintos, cada tipo de nó pode ser escalado verticalmente ou horizontalmente de forma independente, ter diferentes conjuntos de portas abertas e ter métricas de capacidade diferentes.
 
-Leia [este documento](service-fabric-cluster-nodetypes.md) para obter mais detalhes sobre o relacionamento entre Nodetypes para conjunto de dimensionamento de máquinas virtuais, como usar RDP para acessar uma das instâncias, abrir novas portas, etc.
+Leitura [neste documento](service-fabric-cluster-nodetypes.md) para obter mais detalhes sobre a relação de saudação do conjunto de escalas da máquina Nodetypes toovirtual, como tooRDP em uma das instâncias de hello, abrir novas portas etc.
 
-O cluster pode ter mais de um tipo de nó, mas o tipo de nó primário (o primeiro que você define no portal) deve ter pelo menos cinco VMs para clusters usados para cargas de trabalho de produção (ou pelo menos três VMs para clusters de teste). Se estiver criando o cluster usando um modelo do Resource Manager, procure um atributo **Primary** na definição do tipo de nó. O tipo de nó primário é o tipo de nó em que os serviços do sistema do Service Fabric são colocados.  
+O cluster pode ter mais de um tipo de nó, mas o tipo de nó primário hello (Olá a primeira alteração que você definir no portal de saudação) deve ter pelo menos cinco VMs para clusters usados para cargas de trabalho de produção (ou pelo menos três VMs para clusters de teste). Se você estiver criando um cluster de saudação usando um modelo do Gerenciador de recursos, em seguida, procure **primário** atributo na definição de tipo de nó de saudação. tipo de nó primário Olá é tipo de nó de saudação onde os serviços do sistema do Service Fabric são colocados.  
 
 ### <a name="primary-node-type"></a>Tipo de nó primário
-Para um cluster com vários tipos de nó, você precisa escolher um deles como primário. Aqui estão as características de um tipo de nó primário:
+Para um cluster com vários tipos de nó, você precisa toochoose um deles toobe primário. Aqui estão as características de saudação de um tipo de nó primário:
 
-* O **tamanho mínimo de VMs** para o tipo de nó primário é determinado pela **camada de durabilidade** que você escolhe. O padrão para a camada de durabilidade é Bronze. Role para baixo para obter detalhes sobre o que é a camada de durabilidade e os valores que ela pode ter.  
-* O **número mínimo de VMs** para o tipo de nó primário é determinado pela **camada de confiabilidade** que você escolhe. O padrão para a camada de confiabilidade é Prata. Role para baixo para obter detalhes sobre o que é a camada de confiabilidade e os valores que ela pode ter. 
+* Olá **tamanho mínimo de VMs** para o tipo de nó primário Olá é determinado pelo Olá **a camada de durabilidade** você escolher. saudação padrão da camada de durabilidade de saudação é Bronze. Role para baixo para obter detalhes sobre qual camada de durabilidade Olá é e valores hello pode demorar.  
+* Olá **número mínimo de VMs** para o tipo de nó primário Olá é determinado pelo Olá **camada de confiabilidade** você escolher. saudação padrão da camada de confiabilidade de saudação é prata. Role para baixo para obter detalhes sobre qual camada de confiabilidade Olá é e valores hello pode demorar. 
 
 
-* Os serviços do sistema do Service Fabric (por exemplo, o serviço Gerenciador de Cluster ou o Serviço de Armazenamento de Imagens) são colocados no tipo de nó primário. Assim, a confiabilidade e a durabilidade do cluster são determinadas pelos valores de camadas de confiabilidade e durabilidade selecionados para o tipo de nó primário.
+* Serviços de sistema do Service Fabric Hello (por exemplo, serviço de Gerenciador de Cluster de saudação ou serviço de repositório de imagem) são colocados no tipo de nó primário hello e a confiabilidade de saudação caso e durabilidade de cluster Olá é determinada pela camada de valor e durabilidade de camada de confiabilidade do hello valor selecionado para o tipo de nó primário hello.
 
 ![Captura de tela de um cluster com dois tipos de nó ][SystemServices]
 
 ### <a name="non-primary-node-type"></a>Tipo de nó não primário
-Para um cluster com vários tipos de nó, há um tipo de nó primário, e os demais serão não primários. Aqui estão as características de um tipo de nó não primário:
+Para um cluster com vários tipos de nós, há um tipo de nó primário e rest Olá deles não primário. Aqui estão as características de saudação de um tipo de nó não primário:
 
-* O tamanho mínimo de VMs para o tipo de nó é determinado pela camada de durabilidade que você escolhe. O padrão para a camada de durabilidade é Bronze. Role para baixo para obter detalhes sobre o que é a camada de durabilidade e os valores que ela pode ter.  
-* O número mínimo de VMs para esse tipo de nó pode ser um. No entanto, você deve escolher esse número com base no número de réplicas do aplicativo/serviços que deseja executar nesse tipo de nó. O número de VMs em um tipo de nó pode ser aumentado após a implantação do cluster.
+* tamanho mínimo de saudação de VMs para esse tipo de nó é determinado pela camada de durabilidade de saudação que você escolher. saudação padrão da camada de durabilidade de saudação é Bronze. Role para baixo para obter detalhes sobre qual camada de durabilidade Olá é e valores hello pode demorar.  
+* número mínimo de saudação de VMs para esse tipo de nó pode ser um. No entanto, você deve escolher esse número com base no número de saudação de réplicas de saudação/serviços de aplicativo que deseja toorun nesse tipo de nó. número de saudação de VMs em um tipo de nó pode ser aumentado após ter implantado o cluster hello.
 
-## <a name="the-durability-characteristics-of-the-cluster"></a>As características de durabilidade do cluster
-A camada de durabilidade é usada para indicar ao sistema os privilégios que as VMs têm com a infraestrutura subjacente do Azure. No tipo de nó primário, esse privilégio permite que o Service Fabric pause qualquer solicitação de infraestrutura de nível de VM (por exemplo, reinicialização de VM, recriação de imagem de VM ou migração de VM) que afete os requisitos de quorum para os serviços do sistema e os serviços com estado. Nos tipos de nó não primários, esse privilégio permite que o Service Fabric pause quaisquer solicitações de infraestrutura de nível de VM (como reinicialização de VM, recriação de imagem de VM, migração de VM etc.) que afete os requisitos de quorum para os serviços com estado em execução.
+## <a name="hello-durability-characteristics-of-hello-cluster"></a>características de durabilidade de saudação do cluster de saudação
+a camada de durabilidade Olá é usado tooindicate toohello sistema Olá privilégios suas VMs com a infraestrutura do Azure subjacente de saudação. Em tipo de nó primário hello, esse privilégio permite Service Fabric toopause qualquer solicitação de infraestrutura de nível de VM (por exemplo, uma reinicialização da VM, recriação de imagem de VM ou migração de VM) que afetam os requisitos de quorum Olá para serviços do sistema hello e seus serviços com monitoração de estado. Em tipos de nó principal não hello, esse privilégio permite Service Fabric toopause quaisquer solicitações de nível de infraestrutura VM como reinicialização da VM, a nova imagem de VM, a migração de VM etc., que afetam os requisitos de quorum Olá para seus serviços com monitoração de estado em execução.
 
-Esse privilégio é expresso nos seguintes valores:
+Este privilégio é expresso em Olá valores a seguir:
 
-* Ouro – os Trabalhos de infraestrutura podem permanecer em pausa por duas horas por UD. A durabilidade ouro pode ser habilitada apenas em skus de VM de nó completo como D15_V2, G5 etc.
-* Prata – os Trabalhos de infraestrutura podem permanecer em pausa por um período de dez minutos por UD e estão disponíveis em todas as VMs padrão de núcleo único e superior.
-* Bronze - sem privilégios. Esse é o padrão. Use esse nível de durabilidade somente para Tipos de nós que executam _somente_ cargas de trabalho sem estado. 
+* Ouro - infraestrutura Olá trabalhos podem ser pausados por um período de duas horas por UD. A durabilidade ouro pode ser habilitada apenas em skus de VM de nó completo como D15_V2, G5 etc.
+* Prata - Olá infraestrutura trabalhos pode ser pausado por um período de 10 minutos por UD e está disponíveis em todas as VMs padrão de núcleo único e acima.
+* Bronze - sem privilégios. Esse é o padrão de saudação. Use esse nível de durabilidade somente para Tipos de nós que executam _somente_ cargas de trabalho sem estado. 
 
 > [!WARNING]
 > NodeTypes executados com durabilidade Bronze não têm _nenhum privilégio_. Isso significa que trabalhos de infraestrutura que afetam sus cargas de trabalho sem estado não serão interrompidas ou atrasadas. É possível que tais trabalhos ainda possam afetar suas cargas de trabalho, causando tempo de inatividade ou outros problemas. Para qualquer tipo de carga de trabalho de produção, é recomendável a execução com pelo menos o nível Prata. 
 > 
 
-É preciso escolher o nível de durabilidade de cada um dos tipos de nós. Você pode escolher o nível de durabilidade Ouro ou Prata para um tipo de nó e Bronze para outro no mesmo cluster.**Você deve manter um número mínimo de 5 nós de qualquer tipo de nó que tem uma durabilidade de ouro e prata**. 
+Obter o nível de durabilidade toochoose para cada um dos tipos de nós. Você pode escolher um nível de durabilidade de ouro toohave de um tipo de nó ou prata e outros Olá ter Bronze Olá mesmo cluster. **Você deve manter um número mínimo de 5 nós de qualquer tipo de nó que tem uma durabilidade de ouro ou prata**. 
 
 **Vantagens de usar os níveis de durabilidade Ouro ou Prata**
  
-1. Reduz o número de etapas necessárias em uma operação de redução horizontal (isto é, a desativação do nó e a chamada para Remove-ServiceFabricNodeState ocorrem de maneira automática)
-2. Reduz o risco de perda de dados decorrente de uma operação de alteração de SKU de VM in-loco iniciada pelo cliente ou de operações de infraestrutura do Azure.
+1. Reduz o número de saudação de etapas necessárias em uma operação de escala (ou seja, a desativação do nó e remover ServiceFabricNodeState é chamado automaticamente)
+2. Reduz o risco de saudação de perda de dados devido a operações de infraestrutura do Azure ou tooa iniciada pelo cliente no local SKU de VM a operação de alteração.
      
 **Desvantagens de usar os níveis de durabilidade Ouro ou Prata**
  
-1. As implantações no Conjunto de Dimensionamento de Máquinas Virtuais e nos outros recursos do Azure relacionados podem ser atrasadas, podem atingir o tempo limite ou podem ser bloqueadas inteiramente por problemas no cluster ou no nível de infraestrutura. 
-2. Aumenta o número de [eventos de ciclo de vida de réplica](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (por exemplo, trocas primárias) devido às desativações de nós automatizadas durante as operações de infraestrutura do Azure.
+1. Implantações tooyour conjunto de escala de máquinas virtuais e outros recursos do Azure relacionados) podem ser atrasados, podem atingir o tempo limite ou podem ser bloqueados inteiramente por problemas no cluster ou no nível de infraestrutura de saudação. 
+2. Aumenta Olá inúmeros [eventos de ciclo de vida de réplica](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (por exemplo, trocas primárias) devido tooautomated desativações de nó durante as operações de infraestrutura do Azure.
 
-### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Recomendações de quando usar os níveis de durabilidade Prata ou Ouro
+### <a name="recommendations-on-when-toouse-silver-or-gold-durability-levels"></a>Recomendações sobre quando toouse níveis de durabilidade Prata ou ouro
 
-Use a durabilidade Prata ou Ouro para todos os tipos de nós que hospedam serviços com estado que você pretende reduzir horizontalmente (reduzir a contagem de instâncias de VM) com frequência, mas prefere que as operações de implantação sejam atrasadas para simplificar essas operações de redução horizontal. Os cenários de escalabilidade horizontal (adicionar instâncias de VMs) não fazem parte das opções da camada de durabilidade, somente os de redução horizontal.
+Use Prata ou ouro durabilidade para nó todos os tipos de monitoração de estado que host serviços você esperar no tooscale (reduzir a contagem de instâncias VM) com frequência, e você prefere que operações de implantação atrasado em favor simplificando essas operações de escala. cenários de expansão de saudação (adicionar instâncias de máquinas virtuais) não são reproduzidos em sua escolha de camada de durabilidade hello, em escala única.
 
-### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Recomendações operacionais para o tipo de nó configurado para o nível de durabilidade Prata ou Ouro.
+### <a name="operational-recommendations-for-hello-node-type-that-you-have-set-toosilver-or-gold-durability-level"></a>Recomendações operacionais para o nó de saudação tipo que você definiu a durabilidade toosilver ou ouro nível.
 
-1. Mantenha sempre a integridade do cluster e dos aplicativos e verifique se os aplicativos respondem a todos os [eventos de ciclo de vida de réplica do Serviço](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (como quando a réplica sendo compilada está paralisada) de maneira oportuna.
-2. Adotar modos mais seguros de fazer uma alteração de SKU de VM (escalar verticalmente/horizontalmente): a alteração da SKU de VM de um Conjunto de Dimensionamento de Máquinas Virtuais é inerentemente uma operação não segura e portanto deve ser evitada, se possível. Veja o processo que você pode seguir para evitar problemas comuns.
-    - **Para tipos de nós não primários:** é recomendado criar um novo Conjunto de Dimensionamento de Máquinas Virtuais, modificar a restrição de posicionamento do serviço para incluir o novo Conjunto de Dimensionamento de Máquinas Virtuais/tipo de nó e, em seguida, reduzir a contagem antiga de instâncias do Conjunto de Dimensionamento de Máquinas Virtuais para 0, um nó de cada vez (isso deve ser feito para garantir que a remoção dos nós não afete a confiabilidade do cluster).
-    - **Para o tipo de nó primário**: recomendamos não alterar a SKU de VM do tipo de nó primário. Se o motivo da nova SKU for capacidade, recomendamos adicionar mais instâncias ou, se possível, criar um novo cluster. Se você não tiver outra opção, modifique a definição do Modelo do Conjunto de Dimensionamento de Máquinas Virtuais para refletir a nova SKU. Se o seu cluster tiver apenas um tipo de nó, verifique se todos os aplicativos com estado respondem a todos os [eventos de ciclo de vida de réplica do Serviço](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (como quando a réplica sendo compilada está paralisada) de maneira oportuna e se a duração da recompilação da réplica do serviço dura menos de cinco minutos (para o nível de durabilidade Prata). 
+1. Manter o cluster e os aplicativos de integridade em todos os momentos e certifique-se de que os aplicativos respondem tooall [eventos de ciclo de vida de réplica de serviço](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (como a réplica de compilação está preso) de maneira oportuna.
+2. Adotar toomake mais segura de maneiras uma alteração de SKU de VM (escala para cima/baixo): alterando Olá SKU de VM de um conjunto de escala de máquina Virtual é inerentemente uma operação não segura e isso devem ser evitados se possível. Este é o processo de saudação você pode seguir os problemas comuns de tooavoid.
+    - **Para não primário nodetypes:** é recomendável que você cria novo conjunto de escala de máquina Virtual, modifique Olá posicionamento restrição tooinclude Olá novo conjunto de escala de máquinas virtuais/nó tipo de serviço e, em seguida, reduzir Olá antigo conjunto de escala de máquinas virtuais too0 de contagem de instância, um nó por vez (Isso é toomake-se de que a remoção de nós de saudação não afetam os confiabilidade de saudação do cluster Olá).
+    - **Para nodetype primário Olá:** nossa recomendação é que você não altere o SKU de VM do tipo de nó primário hello. Se Olá razão para novo SKU hello é capacidade, recomendamos adicionar mais instâncias ou se possível, crie um novo cluster. Se você não tem escolha, fazer modificações toohello tooreflect de definição de modelo de conjunto de escala de máquina Virtual Olá SKU de novo. Se seu cluster tem apenas um nodetype, em seguida, certifique-se de que todos os seus aplicativos com monitoração de estado respondam tooall [eventos de ciclo de vida de réplica de serviço](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (como a réplica de compilação está preso), de maneira oportuna e que a réplica de serviço recriar duração é menos de cinco minutos (para o nível de durabilidade prata). 
 
 
 > [!WARNING]
-> Alterar o Tamanho de SKU da VM para Conjuntos de Dimensionamento de VMs que não executam pelo menos a durabilidade Prata não é recomendado. Alterar o Tamanho de SKU da VM é uma operação de infraestrutura no local com destruição de dados. Sem ter pelo menos alguma capacidade de atrasar ou monitorar essa alteração, é possível que a operação cause perda de dados para serviços com estado ou outros problemas operacionais imprevistos, mesmo para cargas de trabalho sem estado. 
+> Olá alterar tamanho da SKU de VM para conjuntos de escala de VM não está em execução, pelo menos, Prata durabilidade não é recomendados. Alterar o Tamanho de SKU da VM é uma operação de infraestrutura no local com destruição de dados. Sem pelo menos um pouco toodelay capacidade ou o monitor dessa alteração, é possível que operação Olá pode causar perda de serviços com monitoração de estado ou outros problemas operacionais imprevistas, mesmo para cargas de trabalho sem monitoração de estado. 
 > 
     
 3. Mantenha uma contagem mínima de cinco nós para qualquer Conjunto de Dimensionamento de Máquinas Virtuais com MR habilitado
-4. Não exclua instâncias de VM aleatórias; sempre reduza verticalmente o recurso Conjunto de Dimensionamento de Máquinas Virtuais. A exclusão de instâncias de VM aleatórias tem o potencial de criar desequilíbrios na difusão das instâncias de VM por UD e FD. Esse desequilíbrio pode afetar de maneira negativa a capacidade dos sistemas de executar um balanceamento de carga adequado entre as instâncias do serviço/réplicas do Serviço.
-6. Se usar o Dimensionamento Automático, defina as regras de modo que a redução horizontal (remoção de instâncias de VM) seja executada em um nó de cada vez. Redução de mais de uma instância em um momento não é segura.
-7. Se a redução de um tipo de nó primário, você deve nunca reduzi-lo mais do que permite que o nível de confiabilidade.
+4. Não exclua instâncias de VM aleatórias; sempre reduza verticalmente o recurso Conjunto de Dimensionamento de Máquinas Virtuais. exclusão de saudação aleatórias de instâncias de VM tem o potencial de criação desequilíbrios na instância VM Olá espalhadas por UD e FD. Esse desequilíbrio pode afetar adversamente Olá sistemas capacidade tooproperly o balanceamento de carga entre réplicas de serviço/instâncias de serviço hello.
+6. Se usar o dimensionamento automático, em seguida, defina regras de hello, de modo que a escala (remoção de instâncias VM) são feitas somente um nó por vez. Redução de mais de uma instância em um momento não é segura.
+7. Se a redução de um tipo de nó primário, você deve nunca reduzi-lo mais do que permite que o nível de confiabilidade hello.
 
 
-## <a name="the-reliability-characteristics-of-the-cluster"></a>As características de confiabilidade do cluster
-A camada de confiabilidade é usada para definir o número de réplicas dos serviços do sistema que você deseja executar nesse cluster no tipo de nó primário. Quanto maior for o número de réplicas, mais confiáveis os serviços do sistema serão no cluster.  
+## <a name="hello-reliability-characteristics-of-hello-cluster"></a>características de confiabilidade de saudação do cluster de saudação
+Olá camada de confiabilidade é usada número de saudação do tooset de réplicas Olá dos serviços do sistema que você deseja toorun neste cluster no tipo de nó primário hello. Olá mais número Olá de réplicas, hello mais confiável Olá serviços do sistema estejam em seu cluster.  
 
-A camada de confiabilidade pode ter os valores a seguir:
+camada de confiabilidade Olá pode assumir Olá valores a seguir:
 
-* Platina - executar os serviços do sistema com uma contagem de conjuntos de réplicas de destino de 9
-* Ouro - executar os serviços do sistema com uma contagem de conjuntos de réplicas de destino de 7
-* Prata - executar os serviços do sistema com uma contagem de conjuntos de réplicas de destino de 5 
-* Bronze - executar os serviços do sistema com uma contagem de conjuntos de réplicas de destino de 3
+* Platinum - execução Olá serviços do sistema com uma contagem de conjunto de réplica de destino de 9
+* Ouro - execução Olá serviços do sistema com uma contagem de conjunto de réplica de destino de 7
+* Silver - executar Olá serviços do sistema com uma contagem de conjunto de réplica de destino de 5 
+* Bronze - execução Olá serviços do sistema com uma contagem de conjunto de réplica de destino de 3
 
 > [!NOTE]
-> A camada de confiabilidade que você escolhe determina o número mínimo de nós que o tipo de nó primário deve ter. 
+> camada de confiabilidade Olá que você escolher determina o número mínimo de saudação de nós de que seu tipo de nó primário deve ter. 
 > 
 > 
 
 
-### <a name="recommendations-for-the-reliability-tier"></a>Recomendações para a camada de confiabilidade.
+### <a name="recommendations-for-hello-reliability-tier"></a>Recomendações para a camada de confiabilidade de saudação.
 
- Quando você aumenta ou diminui o tamanho do cluster (a soma das instâncias VM em todos os tipos de nó), você deve atualizar a confiabilidade do seu cluster de um nível para outro. Fazer isso dispara as atualizações de cluster necessárias para alterar a contagem de conjuntos de réplicas dos serviços do sistema. Aguarde a conclusão da atualização em andamento antes de fazer outras alterações no cluster, assim como adicionar nós.  Você pode monitorar o andamento da atualização no Service Fabric Explorer ou executando [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+ Quando você aumentar ou diminuir o tamanho de saudação do cluster (soma de saudação de instâncias VM em todos os tipos de nó), você deve atualizar a confiabilidade de saudação do cluster de uma camada tooanother. Isso dispara Olá cluster atualizações necessárias toochange Olá sistema serviços réplica Definir contagem. Aguarde Olá atualização em andamento toocomplete antes de fazer quaisquer outra alterações toohello cluster, como a adição de nós.  Você pode monitorar o progresso de saudação de atualização de saudação no Service Fabric Explorer ou executando [ServiceFabricClusterUpgrade Get](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
-Aqui está a recomendação sobre como escolher o nível de confiabilidade.
+Aqui está a recomendação Olá sobre como escolher o nível de confiabilidade de saudação.
 
 | **Tamanho do cluster** | **Camada de confiabilidade** |
 | --- | --- |
-| 1 |Não especifique o parâmetro de camada de confiabilidade, o sistema calculará |
+| 1 |Não especifique Olá parâmetro da camada de confiabilidade, calcula o sistema Olá |
 | 3 |Bronze |
 | 5 ou 6|Silver |
 | 7 ou 8 |Gold |
@@ -146,72 +146,72 @@ Aqui está a recomendação sobre como escolher o nível de confiabilidade.
 
 ## <a name="primary-node-type---capacity-guidance"></a>Tipo de nó Primário - Diretrizes de Capacidade
 
-Eis aqui as diretrizes de planejamento da capacidade do tipo de nó principal
+Este é um guia de saudação para o planejamento de capacidade de tipo de nó primário Olá
 
-1. **Número de instâncias de VM para executar qualquer carga de trabalho de produção no Azure:** você deve especificar um tamanho mínimo de tipo de Nó Primário de 5. 
-2. **Número de instâncias de VM para executar cargas de trabalho de teste no Azure** Você pode especificar um tamanho mínimo de tipo de nó primário de 1 ou 3. O cluster de um nó é executado com uma configuração especial e, portanto, não há suporte para expansão desse cluster. O cluster de um nó não tem confiabilidade e assim, em seu modelo do Resource Manager, você precisa remover ou não especificar essa configuração (não definir o valor de configuração não é suficiente). Se você configurar o cluster de um nó configurado por meio do Portal, em seguida, a configuração será feita automaticamente. Não há suporte para clusters de 1 e 3 nós para executar cargas de trabalho de produção. 
-3. **SKU da VM:** o tipo de nó Primário é onde os serviços do sistema são executados e, portanto, a SKU de VM escolhida deve levar em consideração o pico de carga geral que você planeja colocar no cluster. Aqui está uma analogia para ilustrar o que quero dizer – pense no tipo de nó primário como seus "pulmões", ele fornece oxigênio para seu cérebro e, dessa forma, se o cérebro não obtiver oxigênio suficiente, seu corpo será prejudicado. 
+1. **Número de VM instâncias toorun qualquer carga de trabalho de produção no Azure:** você deve especificar um tamanho de tipo de nó primário mínimo de 5. 
+2. **Instâncias de VM toorun cargas de trabalho de teste no Azure** você pode especificar um tamanho de tipo de nó primário mínimo de 1 ou 3. Olá um cluster de nó, é executado com uma configuração especial e, portanto, não há suporte para a escala fora do cluster. um cluster de nó, Hello tem não confiabilidade e, portanto em seu modelo do Gerenciador de recursos, você tooremove ou não especifique que a configuração (não definindo o valor de configuração de saudação não é suficiente). Se você configurar o cluster de um nó de saudação configurar por meio do portal e configuração de saudação é feita automaticamente. Não há suporte para clusters de 1 e 3 nós para executar cargas de trabalho de produção. 
+3. **SKU de VM:** tipo de nó primário é onde os serviços do sistema Olá executados, para Olá SKU de VM você escolher para, deve levar em Olá de conta geral pico de carga você planejar tooplace em cluster hello. Aqui está um tooillustrate analogia quero dizer aqui - opinião do tipo de nó primário hello como os "pulmões", é o que fornece dados de tooyour oxigênio e então se cérebro Olá não obtém suficiente oxigênio, seu corpo será prejudicado. 
 
-Como as necessidades de capacidade de um cluster são determinadas pela carga de trabalho que você planeja executar no cluster, não podemos fornecer a você uma diretriz qualitativa para sua carga de trabalho específica, mas veja estas diretrizes amplas para ajudar você a começar
+Desde que as necessidades de capacidade de saudação de um cluster é determinado pela carga de trabalho planejar toorun em cluster hello, não é possível fornecer você com diretrizes qualitativa para sua carga de trabalho específica, mas, aqui é Olá diretrizes amplas toohelp que você a começar
 
 Para cargas de trabalho de produção 
 
 
-- A SKU de VM recomendada é a Standard D3 ou a Standard D3_V2 ou equivalente, com um mínimo de 14 GB de SSD local.
-- A SKU de VM de uso mínimo com suporte é a Standard D1 ou a Standard D1_V2 ou equivalente, com um mínimo de 14 GB de SSD local. 
+- Olá recomendado que é de SKU de VM D3 padrão ou D3_V2 padrão ou equivalente, com um mínimo de 14 GB de SSD local.
+- uso de saudação mínimo com suporte SKU de VM é D1 padrão ou D1_V2 padrão ou equivalente, com um mínimo de 14 GB de SSD local. 
 - As SKUs de VM de núcleo parcial como a Standard A0 não têm suporte para cargas de trabalho de produção.
 - A SKU Standard A1 não tem suporte para cargas de trabalho de produção por motivos de desempenho.
 
 
 ## <a name="non-primary-node-type---capacity-guidance-for-stateful-workloads"></a>O tipo de nó Não Principal - Diretrizes de Capacidade para cargas de trabalho com monitoração de estado
 
-Este guia é para cargas de trabalho com monitoração de estado usando o Service Fabric [coleções confiáveis ou reliable Actors](service-fabric-choose-framework.md) que você está executando no tipo de nó não primário.
+Este guia é para cargas de trabalho com monitoração de estado usando o Service fabric [coleções confiáveis ou reliable Actors](service-fabric-choose-framework.md) que você está executando no tipo de nó não primário hello.
 
 
-**Número de instâncias de VM:** para as cargas de trabalho de produção com monitoração de estado, é recomendável que você as execute com uma contagem de réplica mínima e de destino de 5. Isso significa que no estado estável, você fica com uma réplica (de um conjunto de réplicas) em cada domínio de falha e em cada domínio de atualização. O conceito de camada de confiabilidade inteira para o tipo de nó primário é, na verdade, apenas uma maneira de especificar essa configuração para serviços do sistema. Portanto a mesma consideração aplica-se aos serviços com monitoração de estado também.
+**Número de instâncias de VM:** para as cargas de trabalho de produção com monitoração de estado, é recomendável que você as execute com uma contagem de réplica mínima e de destino de 5. Isso significa que no estado estável, você fica com uma réplica (de um conjunto de réplicas) em cada domínio de falha e em cada domínio de atualização. conceito de camada de confiabilidade todo Olá para o tipo de nó primário Olá é uma maneira toospecify essa configuração para serviços do sistema. Olá assim mesmo consideração se aplica a serviços com monitoração de estado tooyour também.
 
-Assim, para cargas de trabalho de produção, o tamanho mínimo recomendado do tamanho do tipo de Nó não Principal é 5, se você estiver executando cargas de trabalho com monitoração de estado nele.
+Portanto para cargas de trabalho de produção, tamanho do tipo mínimo recomendado não - nó primário Olá for 5, se você estiver executando cargas de trabalho com monitoração de estado nele.
 
 
-**SKU de VM:** esse é o tipo de nó em que seus serviços de aplicativo estão sendo executados e, portanto, a SKU de VM escolhida deverá levar em conta a carga máxima que você deseja colocar em cada nó. As necessidades de capacidade do tipo de nó são determinadas pela carga de trabalho que você planeja executar no cluster e, portanto, não podemos fornecer a você diretriz qualitativa para sua carga de trabalho específica, mas veja estas diretrizes amplas para ajudar você a começar
+**SKU de VM:** isso é Olá tipo de nó em que estiver executando os serviços do aplicativo, para Olá SKU de VM escolha para ele, deve levar em conta Olá picos de carga você planejar tooplace em cada nó. Olá necessidades de capacidade de nodetype Olá, é determinado pela carga de trabalho que planejar toorun em cluster hello, portanto não é possível fornecer você com diretrizes qualitativa para sua carga de trabalho específica, mas, aqui é Olá diretrizes amplas toohelp que você a começar
 
 Para cargas de trabalho de produção 
 
-- A SKU de VM recomendada é a Standard D3 ou a Standard D3_V2 ou equivalente, com um mínimo de 14 GB de SSD local.
-- A SKU de VM de uso mínimo com suporte é a Standard D1 ou a Standard D1_V2 ou equivalente, com um mínimo de 14 GB de SSD local. 
+- Olá recomendado que é de SKU de VM D3 padrão ou D3_V2 padrão ou equivalente, com um mínimo de 14 GB de SSD local.
+- uso de saudação mínimo com suporte SKU de VM é D1 padrão ou D1_V2 padrão ou equivalente, com um mínimo de 14 GB de SSD local. 
 - As SKUs de VM de núcleo parcial como a Standard A0 não têm suporte para cargas de trabalho de produção.
 - Especificamente, a SKU Standard A1 não tem suporte para cargas de trabalho de produção por motivos de desempenho.
 
 
 ## <a name="non-primary-node-type---capacity-guidance-for-stateless-workloads"></a>O tipo de nó Não Principal - Diretrizes de Capacidade para cargas de trabalho sem monitoração de estado
 
-Este guia de cargas de trabalho sem monitoração de estado que você está executando no nodetype não primário.
+Este guia de cargas de trabalho sem monitoração de estado que você está executando em Olá não primário nodetype.
 
-**Número de instâncias de VM:** para cargas de trabalho de produção sem estado, o tamanho mínimo do tipo de Nó não Principal com suporte é 2. Isso permite a execução de duas instâncias sem monitoração de estado do seu aplicativo e permite que seu serviço sobreviva à perda de uma instância de VM. 
+**Número de instâncias VM:** para produção as cargas de trabalho sem monitoração de estado, o tamanho do tipo de nó não primário Olá mínima com suporte é 2. Isso permite toorun você duas sem monitoração de estado instâncias de seu aplicativo e permitindo que o serviço toosurvive Olá perda de uma instância de VM. 
 
 > [!NOTE]
-> Se o cluster estiver em execução em uma versão do Service Fabric inferior a 5.6, devido a um defeito no tempo de execução (esse problema é corrigido na versão 5.6), o dimensionamento de um tipo de nó não primário para menos de 5 fará com que o cluster se torne não íntegro, até você chamar [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/servicefabric/vlatest/Remove-ServiceFabricNodeState) com o nome de nó apropriado. Leia [Sair ou entrar no cluster do Service Fabric](service-fabric-cluster-scale-up-down.md) para obter mais detalhes
+> Se o cluster está em execução em uma versão do fabric de serviço menor 5.6, devido a defeito tooa em hello tempo de execução (esse problema é corrigido no 5.6), redução de um tooless de tipo de nó não primário que 5, resulta a ativação não íntegro, até que você chamar a integridade de cluster [ Remover ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/servicefabric/vlatest/Remove-ServiceFabricNodeState) com o nome de nó apropriado hello. Leia [Sair ou entrar no cluster do Service Fabric](service-fabric-cluster-scale-up-down.md) para obter mais detalhes
 > 
 >
 
-**SKU de VM:** esse é o tipo de nó em que seus serviços de aplicativo estão sendo executados e, portanto, a SKU de VM escolhida deverá levar em conta a carga máxima que você deseja colocar em cada nó. As necessidades de capacidade do tipo de nó são determinadas pela carga de trabalho que você planeja executar no cluster e, portanto, não podemos fornecer a você diretriz qualitativa para sua carga de trabalho específica, mas veja estas diretrizes amplas para ajudar você a começar
+**SKU de VM:** isso é Olá tipo de nó em que estiver executando os serviços do aplicativo, para Olá SKU de VM escolha para ele, deve levar em conta Olá picos de carga você planejar tooplace em cada nó. Olá necessidades de capacidade de nodetype Olá, é determinado pela carga de trabalho que planejar toorun em cluster hello, portanto não é possível fornecer você com diretrizes qualitativa para sua carga de trabalho específica, mas, aqui é Olá diretrizes amplas toohelp que você a começar
 
 Para cargas de trabalho de produção 
 
 
-- A SKU de VM recomendada é a Standard D3 ou a Standard D3_V2 ou equivalente. 
-- O uso mínimo com suporte da SKU de VM é a Standard D1 ou a Standard D1_V2 ou equivalente. 
+- Olá recomendado que é de SKU de VM D3 padrão ou D3_V2 padrão ou equivalente. 
+- uso de saudação mínimo com suporte SKU de VM é D1 padrão ou D1_V2 padrão ou equivalente. 
 - As SKUs de VM de núcleo parcial como a Standard A0 não têm suporte para cargas de trabalho de produção.
 - A SKU Standard A1 não tem suporte para cargas de trabalho de produção por motivos de desempenho.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+<!--Every topic should have next steps and links toohello next logical set of content tookeep hello customer engaged-->
 
 ## <a name="next-steps"></a>Próximas etapas
-Após concluir o planejamento de capacidade e configurar um cluster, leia o seguinte:
+Depois de concluir o planejamento de capacidade e configurar um cluster, leia Olá seguinte:
 
 * [Segurança do Cluster do Service Fabric](service-fabric-cluster-security.md)
 * [Introdução ao modelo de Integridade do Service Fabric](service-fabric-health-introduction.md)
-* [Definir relação entre tipos de nó e conjunto de dimensionamento de máquinas virtuais](service-fabric-cluster-nodetypes.md)
+* [Relação de escala de máquina tooVirtual Nodetypes definida](service-fabric-cluster-nodetypes.md)
 
 <!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png

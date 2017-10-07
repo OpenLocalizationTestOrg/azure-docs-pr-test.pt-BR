@@ -1,6 +1,6 @@
 ---
-title: "Replicar VMs do Hyper-V no Azure no Portal Clássico |Microsoft Docs"
-description: "Este artigo descreve como replicar máquinas virtuais Hyper-V para o Azure quando as máquinas não são gerenciadas em nuvens do VMM."
+title: "aaaReplicate tooAzure de VMs Hyper-V no portal clássico Olá | Microsoft Docs"
+description: "Este artigo descreve como tooreplicate virtual Hyper-V máquinas tooAzure quando máquinas não são gerenciadas nas nuvens do VMM."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
 ms.author: raynew
-ms.openlocfilehash: 438f32ee3605e2dd0c46de7993a359cc269262fe
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 12d08d950a79e956436cb03ffc87ab40e86c589e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="replicate-between-on-premises-hyper-v-virtual-machines-and-azure-without-vmm-with-azure-site-recovery"></a>Replicar entre máquinas virtuais Hyper-V no local e o Azure (sem VMM) com o Azure Site Recovery
 > [!div class="op_single_selector"]
@@ -28,46 +28,46 @@ ms.lasthandoff: 08/29/2017
 >
 >
 
-Este artigo descreve como replicar VMs Hyper-V locais para o Azure, usando o serviço [Azure Site Recovery](site-recovery-overview.md) no Portal do Azure. Nesse cenário, os servidores Hyper-V não são gerenciados em nuvens do VMM.
+Este artigo descreve como tooreplicate local tooAzure de máquinas virtuais do Hyper-V, usando Olá [do Azure Site Recovery](site-recovery-overview.md) service, Olá portal do Azure. Nesse cenário, os servidores Hyper-V não são gerenciados em nuvens do VMM.
 
-Depois de ler este artigo, poste comentários no final ou faça perguntas técnicas no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Depois de ler este artigo, postar os comentários na parte inferior da saudação ou questões técnicas Olá [Fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## <a name="site-recovery-in-the-azure-portal"></a>Recuperação de Site no portal do Azure
+## <a name="site-recovery-in-hello-azure-portal"></a>Recuperação de site no portal do Azure de saudação
 
-O Azure tem dois [modelos de implantação](../resource-manager-deployment-model.md) diferentes para criar e trabalhar com recursos: o Azure Resource Manager e o clássico. O Azure também tem dois portais: portal clássico do Azure e portal do Azure.
+O Azure tem dois [modelos de implantação](../resource-manager-deployment-model.md) diferentes para criar e trabalhar com recursos: o Azure Resource Manager e o clássico. O Azure também tem dois portais – Olá portal clássico do Azure e Olá portal do Azure.
 
-Este artigo descreve como implantar no portal clássico. O portal clássico pode ser usado para manter os cofres existentes. Não é possível criar novos cofres usando o portal clássico.
+Este artigo descreve como toodeploy no portal clássico do hello. portal clássico Olá pode ser cofres existentes toomaintain usado. Não é possível criar novos cofres usando o portal clássico do hello.
 
 ## <a name="site-recovery-in-your-business"></a>Recuperação de Site em sua empresa
 
-As organizações precisam de uma estratégia de BCDR que determine como os aplicativos e os dados permanecerão em execução e disponíveis durante o tempo de inatividade planejado e não planejado e como recuperarão as condições normais de trabalho assim que possível. Aqui está o que a Recuperação de Site pode fazer:
+As organizações precisam de uma estratégia BCDR que determina como os aplicativos e dados permanecem em execução e disponível durante o tempo de inatividade planejado e não planejado e recuperar toonormal condições de trabalho assim que possível. Aqui está o que a Recuperação de Site pode fazer:
 
 * Proteção externa para aplicativos de negócios em execução em VMs Hyper-V.
-* Um único local para configurar, gerenciar e monitorar replicação, failover e recuperação.
-* Failover simples no Azure e failback (restauração) do Azure para servidores host Hyper-V no site local.
+* Tooset um único local, gerenciar e monitorar a replicação, failover e recuperação.
+* TooAzure simples de failover e failback (Restaurar) dos servidores de host de tooHyper-V do Azure no seu site local.
 * Planos de recuperação que incluem várias VMs, para que cargas de trabalho de aplicativo em camadas façam failover juntas.
 
 ## <a name="azure-prerequisites"></a>Pré-requisitos do Azure
 * Você precisa de uma conta do [Microsoft Azure](https://azure.microsoft.com/) . Você pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Você precisa de uma conta de armazenamento do Azure para armazenar os dados replicados. A conta precisa estar com a replicação geográfica habilitada. Ela deve estar localizada na mesma região que o cofre do Azure Site Recovery e ser associada à mesma assinatura. [Saiba mais sobre o Armazenamento do Azure](../storage/common/storage-introduction.md). Observe que não há suporte para a movimentação de contas de armazenamento criadas usando o [novo portal do Azure](../storage/common/storage-create-storage-account.md) entre grupos de recursos.
-* Você precisará de uma rede virtual do Azure para que as máquinas virtuais do Azure estejam conectadas a uma rede quando o failover de seu site primário for executado.
+* É necessário um toostore replicado dados da conta de armazenamento do Azure. conta de saudação precisa de replicação geográfica habilitada. Deve estar no hello mesma região do cofre do Azure Site Recovery hello e associar Olá a mesma assinatura. [Saiba mais sobre o Armazenamento do Azure](../storage/common/storage-introduction.md). Observe que não há suporte para mover contas de armazenamento criadas usando Olá [novo portal do Azure](../storage/common/storage-create-storage-account.md) entre grupos de recursos.
+* Você precisará de uma rede virtual do Azure para que máquinas virtuais do Azure será conectado tooa rede quando você fizer failover no site primário.
 
 ## <a name="hyper-v-prerequisites"></a>Pré-requisitos do Hyper-V
-* No site local de origem será necessário um ou mais servidores executando o **Windows Server 2012 R2** com a função Hyper-V instalada ou o **Microsoft Hyper-V Server 2012 R2**. O servidor deve:
+* No site de local de origem Olá você precisará de um ou mais servidores executando **Windows Server 2012 R2** com a função hello Hyper-V instalada ou **Microsoft Hyper-V Server 2012 R2**. O servidor deve:
 * Conter uma ou mais máquinas virtuais.
-* Estar conectado à Internet, diretamente ou por meio de um proxy.
-* Executar as correções descritas na KB [2961977](https://support.microsoft.com/en-us/kb/2961977 "KB2961977").
+* Ser toohello conectado à Internet, diretamente ou por meio de um proxy.
+* Executar correções de saudação descritas na KB [2961977](https://support.microsoft.com/en-us/kb/2961977 "KB2961977").
 
 ## <a name="virtual-machine-prerequisites"></a>Pré-requisitos de máquina virtual
-As máquinas virtuais que você deseja proteger devem estar em conformidade com os [Requisitos de máquinas virtuais do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Máquinas virtuais que você deseja tooprotect devem estar em conformidade com [requisitos da máquina virtual do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ## <a name="provider-and-agent-prerequisites"></a>Pré-requisitos de provedor e do agente
-Como parte da implantação do Azure Site Recovery, você instalará o Provedor do Azure Site Recovery e o Agente dos Serviços de Recuperação do Azure em cada servidor Hyper-V. Observe que:
+Como parte da implantação do Azure Site Recovery você instalar Olá provedor Azure Site Recovery e hello Azure Recovery Services Agent em cada servidor Hyper-V. Observe que:
 
-* Recomendamos que você sempre execute as versões mais recentes do provedor e do agente. Elas estão disponíveis no portal do Site Recovery.
-* Todos os servidores Hyper-V em um cofre devem ter as mesmas versões do provedor e do agente.
-* O provedor em execução no servidor deve se conectar ao Site Recovery pela Internet. Você pode fazer isso sem um proxy, com as configurações de proxy definidas no servidor Hyper-V ou com as configurações personalizadas de proxy definidas durante a instalação do provedor. Você precisa garantir que o servidor proxy que deseja usar é capaz acessar essas URLs para conectar ao Azure:
+* Recomendamos que você sempre executar agente e versões mais recentes de saudação do hello provedor. Eles estão disponíveis no portal de recuperação de Site hello.
+* Todos os servidores Hyper-V em um cofre deve ter Olá mesmo versões do hello provedor e agente.
+* Provedor em execução no servidor de saudação Hello conecta tooSite recuperação sobre Olá internet. Você pode fazer isso sem um proxy, com as configurações de proxy Olá atualmente configuradas no servidor do Hyper-V hello, ou com as configurações de proxy personalizadas que você configurou durante a instalação do provedor. Você precisará toomake-se de que esse servidor de proxy Olá deseja toouse pode acessar essas URLs Olá para conectar-se tooAzure:
 
   * *.accesscontrol.windows.net
   * *.backup.windowsazure.com
@@ -77,152 +77,152 @@ Como parte da implantação do Azure Site Recovery, você instalará o Provedor 
   - https://www.msftncsi.com/ncsi.txt
   - time.windows.com
   - time.nist.gov
-* Além disso, permita os endereços IP descritos em [Intervalos de IP do armazenamento de dados do Azure](https://www.microsoft.com/download/details.aspx?id=41653) e o protocolo HTTPS (443). Você precisa permitir os intervalos IP válidos da região do Azure que você planeja usar e aqueles do Oeste dos EUA.
+* Além de permitir endereços IP de saudação descritos em [intervalos de IP de Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653) e o protocolo HTTPS (443). Você tem intervalos de IP de saudação tooallow de saudação região do Azure que você planeje toouse e do Oeste dos EUA.
 
-O gráfico abaixo mostra os diferentes canais de comunicação e portas usados pela Recuperação de Site para coordenação e a replicação
+Este gráfico mostra a canais de comunicação diferente hello e portas usadas pela recuperação de Site para replicação e de orquestração
 
 ![Topologia B2A](./media/site-recovery-hyper-v-site-to-azure-classic/b2a-topology.png)
 
 ## <a name="step-1-create-a-vault"></a>Etapa 1: criar um cofre
-1. Entre no [Portal de Gerenciamento](https://portal.azure.com).
+1. Entrar toohello [Portal de gerenciamento](https://portal.azure.com).
 2. Expanda **Serviços de Dados** > **Serviços de Recuperação** e clique em **Cofre do Site Recovery**.
 3. Clique em **Criar Novo** > **Criação Rápida**.
-4. Em **Nome**, digite um nome amigável para identificar o cofre.
-5. Em **Região**, selecione a região geográfica para o cofre. Para verificar as regiões com suporte, consulte a Disponibilidade Geográfica nos [Detalhes dos Preços do Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
+4. Em **nome**, insira um cofre de saudação tooidentify nome amigável.
+5. Em **região**, selecione Olá região geográfica para Olá cofre. regiões toocheck suporte consulte disponibilidade geográfica em [detalhes de preços do Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. Clique em **Criar cofre**.
 
     ![Novo cofre](./media/site-recovery-hyper-v-site-to-azure-classic/vault.png)
 
-Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O cofre será listado como **Ativo** na página de Serviços de Recuperação.
+Verifique a saudação tooconfirm de barra de status que Olá cofre foi criado com êxito. Olá cofre será listado como **Active** na página principal de serviços de recuperação hello.
 
 ## <a name="step-2-create-a-hyper-v-site"></a>Etapa 2: criar um site do Hyper-V
-1. Na página Serviços de Recuperação, clique no cofre para abrir a página de Início Rápido. O Início Rápido pode também ser aberto a qualquer tempo usando o ícone.
+1. Na página de serviços de recuperação hello, clique em página de início rápido do hello cofre tooopen hello. Início rápido também pode ser aberto a qualquer momento usando o ícone de saudação.
 
     ![Início rápido](./media/site-recovery-hyper-v-site-to-azure-classic/quick-start-icon.png)
-2. Na lista suspensa, selecione **Entre um site do Hyper-V local e o Azure**.
+2. Na lista suspensa de saudação, selecione **entre um site do Hyper-V local e o Azure**.
 
     ![Cenário de site do Hyper-V](./media/site-recovery-hyper-v-site-to-azure-classic/select-scenario.png)
 3. Em **Criar um Site do Hyper-V**, clique em **Criar Site do Hyper-V**. Especifique um nome e salve.
 
     ![Site do Hyper-V](./media/site-recovery-hyper-v-site-to-azure-classic/create-site.png)
 
-## <a name="step-3-install-the-provider-and-agent"></a>Etapa 3: instalar o Provedor e o agente
-Instale o provedor e o agente em cada servidor Hyper-V onde haja VMs que você deseja proteger.
+## <a name="step-3-install-hello-provider-and-agent"></a>Etapa 3: Instalar hello provedor e agente
+Instale Olá provedor e o agente em cada servidor Hyper-V com máquinas virtuais que você deseja tooprotect.
 
-Se você estiver instalando em um cluster do Hyper-V, execute as etapas 5 a 11 em cada nó no cluster de failover. Após o registro de todos os nós e a habilitação da proteção, as máquinas virtuais serão protegidas mesmo se migrarem entre nós no cluster.
+Se você estiver instalando em um cluster Hyper-V, executa as etapas 5 a 11 em cada nó no cluster de failover de saudação. Depois que todos os nós são registrados e habilitar a proteção, máquinas virtuais serão protegidas, mesmo se eles migram entre nós de cluster de saudação.
 
 1. Em **Preparar servidores Hyper-V**, clique em **Baixar um arquivo de chave de registro**.
-2. Na página **Baixar a Chave de Registro**, clique em **Baixar** ao lado do site. Baixe a chave para um local seguro onde possa ser facilmente acessada pelo servidor Hyper-V. A chave é válida para 5 dias após ser gerada.
+2. Em Olá **baixar a chave de registro** , clique em **baixar** próximo site toohello. Baixe Olá tooa chave local seguro que possa ser facilmente acessado pelo servidor de saudação Hyper-V. chave de saudação é válida por 5 dias depois que ele é gerado.
 
     ![Chave de Registro](./media/site-recovery-hyper-v-site-to-azure-classic/download-key.png)
-3. Clique em **Baixar o Provedor** para obter a versão mais recente.
-4. Execute o arquivo em cada servidor Hyper-V que você deseja registrar no cofre. O arquivo instala dois componentes:
-   * **Provedor do Azure Site Recovery**— Lida com a comunicação e a coordenação entre o servidor Hyper-V e o portal do Azure Site Recovery.
-   * **Agente de Serviços de Recuperação do Azure**— Lida com o transporte de dados entre máquinas virtuais em execução no servidor de origem Hyper-V e o armazenamento do Azure.
-5. No **Microsoft Update** você pode optar por atualizações. Com essa configuração habilitada, o Provedor e o Agente de atualizações serão instaladas de acordo com a diretiva do Microsoft Update.
+3. Clique em **Download Olá provedor** versão mais recente do tooobtain hello.
+4. Execute o arquivo de saudação em cada servidor Hyper-V que você deseja tooregister no cofre hello. arquivo Hello instala dois componentes:
+   * **O provedor de recuperação de Site do Azure**— trata a comunicação e a coordenação entre o servidor de saudação Hyper-V e o portal do Azure Site Recovery Olá.
+   * **Agente de serviços de recuperação do Azure**— lida com a transferência de dados entre máquinas virtuais em execução no servidor de origem Hyper-V de saudação e armazenamento do Azure.
+5. No **Microsoft Update** você pode optar por atualizações. Com essa configuração habilitada, o provedor e agente serão instaladas de acordo com a política do tooyour Microsoft Update.
 
     ![Atualizações da Microsoft](./media/site-recovery-hyper-v-site-to-azure-classic/provider1.png)
-6. Em **Instalação** especifique onde você deseja instalar o Provedor e o Agente no servidor Hyper-V.
+6. Em **instalação** especifique onde você deseja tooinstall Olá provedor e Olá de agente no servidor Hyper-V.
 
     ![Local de instalação](./media/site-recovery-hyper-v-site-to-azure-classic/provider2.png)
-7. Após a instalação continue para registrar o servidor no cofre.
-8. Na página **Configurações do Cofre**, clique em **Procurar** para selecionar o arquivo da chave. Especifique a assinatura do Azure Site Recovery, o nome do cofre e o site de Hyper-V ao qual pertence o servidor Hyper-V.
+7. Após a conclusão da instalação continuar servidor de saudação do programa de instalação tooregister no cofre hello.
+8. Em Olá **as configurações do cofre** , clique em **procurar** tooselect arquivo de chave de saudação. Especifique a assinatura do Azure Site Recovery Olá, nome do cofre Olá, e Olá Hyper-V site toowhich Olá Hyper-V servidor pertence.
 
     ![Registros do servidor](./media/site-recovery-hyper-v-site-to-azure-classic/provider8.PNG)
-9. Na página **Conexão com a Internet** , especifique como o Provedor se conecta ao Azure Site Recovery. Selecione **Usar configurações de proxy padrão do sistema** para usar as configurações de conexão com a Internet definidas no servidor. Se você não especificar um valor, as configurações padrão serão usadas.
+9. Em Olá **Conexão de Internet** página que você especificar como Olá provedor se conecta tooAzure recuperação de Site. Selecione **usar configurações de proxy do sistema padrão** configurações de conexão de Internet do toouse saudação padrão configuradas no servidor de saudação. Se você não especificar um padrão de saudação do valor configurações serão usadas.
 
    ![Configurações da Internet](./media/site-recovery-hyper-v-site-to-azure-classic/provider7.PNG)
-10. Registro começa a registrar o servidor no cofre.
+10. Registro inicia o servidor de saudação do tooregister no cofre hello.
 
     ![Registros do servidor](./media/site-recovery-hyper-v-site-to-azure-classic/provider15.PNG)
-11. Após a conclusão do registro, os metadados do servidor Hyper-V são recuperados pelo Azure Site Recovery e o servidor é exibido na guia **Sites do Hyper-V** da página **Servidores** no cofre.
+11. Após a conclusão de registro de metadados de saudação Hyper-V server é recuperado com o Azure Site Recovery e saudação do servidor é exibida em Olá **Sites Hyper-V** guia Olá **servidores** página no cofre hello.
 
-### <a name="install-the-provider-from-the-command-line"></a>Instalar o provedor usando a linha de comando
-Como alternativa, você pode instalar o provedor do Azure Site Recovery usando a linha de comando. Você deve usar esse método se quiser instalar o provedor em um computador que executa o Windows Server Core 2012 R2. Execute da linha de comando da seguinte forma:
+### <a name="install-hello-provider-from-hello-command-line"></a>Instalar Olá provedor da linha de comando Olá
+Como alternativa, você pode instalar Olá provedor Azure Site Recovery da linha de comando hello. Você deve usar esse método se você quiser tooinstall Olá provedor em um computador executando o Windows Server Core 2012 R2. Execute da linha de comando de saudação da seguinte maneira:
 
-1. Baixar o arquivo de instalação do provedor e a chave de registro em uma pasta. Por exemplo, C:\ASR.
+1. Baixe Olá provedor de arquivo e registro tooa chave pasta de instalação. Por exemplo, C:\ASR.
 2. Execute um prompt de comando como Administrador e digite
 
         C:\Windows\System32> CD C:\ASR
         C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
-3. Instale o provedor executando:
+3. Em seguida, instale Olá provedor executando:
 
         C:\ASR> setupdr.exe /i
-4. Execute o seguinte para concluir o registro:
+4. Execute Olá toocomplete registro a seguir:
 
         CD C:\Program Files\Microsoft Azure Site Recovery Provider
-        C:\Program Files\Microsoft Azure Site Recovery Provider\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
+        C:\Program Files\Microsoft Azure Site Recovery Provider\> DRConfigurator.exe /r  /Friendlyname <friendly name of hello server> /Credentials <path of hello credentials file> /EncryptionEnabled <full file name toosave hello encryption certificate>         
 
 Em que os parâmetros incluem:
 
-* **/Credentials**: especifique o local da chave de registro que você baixou.
-* **/FriendlyName**: especifique um nome para identificar o servidor host Hyper-V. Esse nome aparecerá no portal
-* **/EncryptionEnabled**: opcional. Especifique se deseja criptografar máquinas virtuais de réplica no Azure (com criptografia em repouso).
-* **/proxyAddress**; **/proxyport**; **/proxyUsername**; **/proxyPassword**: Opcional. Especifique parâmetros de proxy se quiser usar um proxy personalizado; do contrário, o proxy existente exigirá autenticação.
+* **/ Credenciais**: especificar local de saudação da chave de registro de saudação baixado.
+* **/ FriendlyName**: especificar um servidor de host do nome tooidentify Olá Hyper-V. Esse nome aparecerá no portal de saudação
+* **/EncryptionEnabled**: opcional. Especifique se deseja tooencrypt máquinas virtuais da réplica no Azure (a criptografia em repouso).
+* **/proxyAddress**; **/proxyport**; **/proxyUsername**; **/proxyPassword**: Opcional. Especifica parâmetros de proxy, se você quiser toouse um proxy personalizado, ou o proxy existente exige autenticação.
 
 ## <a name="step-4-create-an-azure-storage-account"></a>Etapa 4: criar uma conta de armazenamento do Azure
-* Na página **Preparar recursos**, selecione **Criar Conta de Armazenamento** para criar uma conta de armazenamento do Azure, caso você ainda não tenha uma. A conta deve ter a replicação geográfica habilitada. Ela deve estar na mesma região que o cofre do Azure Site Recovery e estar associada à mesma assinatura.
+* Em **preparar recursos** selecione **criar conta de armazenamento** toocreate uma conta de armazenamento do Azure se você não tiver um. conta de saudação deve ter replicação geográfica habilitada. Deve estar no hello mesma região do cofre do Azure Site Recovery hello e associar Olá a mesma assinatura.
 
     ![Criar Conta de Armazenamento](./media/site-recovery-hyper-v-site-to-azure-classic/create-resources.png)
 
 > [!NOTE]
-> 1. Não há suporte para a movimentação das contas de armazenamento criadas usando o [novo portal do Azure](../storage/common/storage-create-storage-account.md) entre os grupos de recursos.
-> 2. [Migração de contas de armazenamento](../azure-resource-manager/resource-group-move-resources.md) nos grupos de recursos dentro da mesma assinatura ou nas assinaturas não tem suporte para as contas de armazenamento usadas para a implantação do Site Recovery.
+> 1. Não há suporte para movimentação de saudação de contas de armazenamento criadas usando Olá [novo portal do Azure](../storage/common/storage-create-storage-account.md) entre grupos de recursos.
+> 2. [Migração de contas de armazenamento](../azure-resource-manager/resource-group-move-resources.md) em recursos grupos dentro Olá a mesma assinatura ou em assinaturas não é há suporte para contas de armazenamento usadas para implantar a recuperação de Site.
 >
 
 ## <a name="step-5-create-and-configure-protection-groups"></a>Etapa 5: criar e configurar grupos de proteção
-Grupos de proteção são agrupamentos lógicos de máquinas virtuais que você deseja proteger usando as mesmas configurações de proteção. Aplique as configurações de proteção em um grupo de proteção e essas configurações serão aplicadas em todas as máquinas virtuais que você adicionar ao grupo.
+Grupos de proteção são agrupamentos lógicos de máquinas virtuais que você deseja usar tooprotect Olá mesmas configurações de proteção. Aplicar o grupo de proteção de tooa de configurações de proteção, e essas configurações são máquinas virtuais de tooall aplicado que você adicionar grupo toohello.
 
 1. Em **Criar e configurar grupos de proteção**, clique em **Criar um grupo de proteção**. Se algum pré-requisito não estiver em vigor, uma mensagem será emitida e você poderá clicar em **Exibir detalhes** para saber mais.
-2. Na guia **Grupos de Proteção** , adicione um grupo de proteção. Especifique um nome, o site de origem Hyper-V, o **Azure**de destino, o nome da sua assinatura do Azure Site Recovery e a conta de armazenamento do Azure.
+2. Em Olá **grupos de proteção** guia, adicione um grupo de proteção. Especifique um nome, o site de origem Hyper-V de saudação, o destino de Olá **Azure**, seu nome de assinatura do Azure Site Recovery e Olá conta de armazenamento do Azure.
 
     ![Grupo de proteção](./media/site-recovery-hyper-v-site-to-azure-classic/protection-group.png)
-3. Em **Configurações de replicação**, defina a **Frequência de cópia** para especificar com que frequência o delta de dados deve ser sincronizado entre a origem e o destino. Você pode definir como 30 segundos, 5 minutos ou 15 minutos.
+3. Em **as configurações de replicação** conjunto Olá **frequência de cópia** toospecify frequência delta de dados Olá deve ser sincronizada entre Olá origem e destino. Você pode definir too30 segundos, 5 minutos ou 15 minutos.
 4. Em **Reter pontos de recuperação** , especifique quantas horas de histórico de recuperação devem ser armazenadas.
-5. Em **Frequência de instantâneos consistentes com o aplicativo** , é possível especificar se deve obter instantâneos que usam o Serviço de VSS (Cópias de Sombra de Volume) para garantir que os aplicativos estejam em um estado consistente quando o instantâneo for obtido. Por padrão, eles não obtidos. Defina essa opção com um valor menor do que o número dos pontos de recuperação adicionais que você configurar. Isso só terá suporte se a máquina virtual estiver sendo executada um sistema operacional Windows.
-6. Em **Hora de início da replicação** , especifique quando a replicação inicial das máquinas virtuais no grupo de proteção deve ser enviada ao Azure.
+5. Em **frequência dos instantâneos consistentes por aplicativo** você pode especificar se os instantâneos tootake usar tooensure Volume Shadow Copy Service (VSS) que os aplicativos estejam em um estado consistente quando Olá instantâneo é tirado. Por padrão, eles não obtidos. Verifique se que esse valor é definido tooless que número de saudação de pontos de recuperação adicionais que você configurar. Isso só é suportado se a máquina virtual de saudação está executando um sistema operacional Windows.
+6. Em **hora de início da replicação inicial** especifique quando a replicação inicial de máquinas virtuais no grupo de proteção Olá deve ser enviada tooAzure.
 
     ![Grupo de proteção](./media/site-recovery-hyper-v-site-to-azure-classic/protection-group2.png)
 
 ## <a name="step-6-enable-virtual-machine-protection"></a>Etapa 6: habilitar a proteção da máquina virtual
-Adicione máquinas virtuais aos grupos de proteção para protegê-las.
+Adicione máquinas virtuais tooa grupo tooenable proteção para eles.
 
 > [!NOTE]
 > Proteger VMs que executam o Linux com um endereço IP estático sem suporte.
 >
 >
 
-1. Na guia **Computadores** do grupo de proteção, clique em **Adicionar máquinas virtuais aos grupos de proteção para habilitar a proteção**.
-2. Na página **Habilitar Proteção da Máquina Virtual** selecione as máquinas virtuais que você deseja proteger.
+1. Em Olá **máquinas** guia Olá grupo de proteção, clique em * * Adicionar máquinas virtuais tooprotection grupos de proteção tooenable * *.
+2. Em Olá **Habilitar proteção da máquina Virtual** página Olá select de máquinas virtuais que deseja tooprotect.
 
     ![Habilitar Proteção da Máquina Virtual](./media/site-recovery-hyper-v-site-to-azure-classic/add-vm.png)
 
-    Os trabalhos de Habilitar a Proteção são iniciados. Você pode acompanhar o andamento na guia **Trabalhos** . Após o trabalho de Finalizar Proteção ser executado, a máquina virtual está pronta para failover.
+    trabalhos de proteção habilitar Olá começa. Você pode acompanhar o progresso na Olá **trabalhos** guia. Após o trabalho finalizar proteção de saudação executa Olá VM está pronta para failover.
 3. Após a configuração da proteção, é possível:
 
-   * Exibir as máquinas virtuais em **Itens Protegidos** > **Grupos de Proteção** > *protectiongroup_name* > **Máquinas Virtuais** É possível detalhar as informações sobre a máquina na guia **Propriedades**.
-   * Configure as propriedades de failover de uma máquina virtual em **Itens Protegidos** > **Grupos de Proteção** > *protectiongroup_name* > **Máquinas Virtuais** *virtual_machine_name* > **Configurar**. Você pode configurar:
+   * Exibir máquinas virtuais em **itens protegidos** > **grupos de proteção** > *protectiongroup_name*  >  **Máquinas virtuais** pode analisar detalhes toomachine Olá **propriedades** guia...
+   * Configurar propriedades de failover Olá para uma máquina virtual em **itens protegidos** > **grupos de proteção** > *protectiongroup_name*  >  **Máquinas virtuais** *virtual_machine_name* > **configurar**. Você pode configurar:
 
-     * **Nome**: o nome da máquina virtual no Azure.
-     * **Tamanho**: o tamanho de destino da máquina virtual que executa o failover.
+     * **Nome**: nome de saudação da máquina virtual de saudação no Azure.
+     * **Tamanho**: Olá tamanho de destino da máquina virtual Olá que faz o failover.
 
        ![Configurar as propriedades da máquina virtual](./media/site-recovery-hyper-v-site-to-azure-classic/vm-properties.png)
    * Defina as configurações adicionais de máquina virtual em *Itens Protegidos** > **Grupos de Proteção** > *nome_dogrupodeproteção* > **Máquinas Virtuais** *nome_da_máquina_virtual* > **Configurar**, incluindo:
 
-     * **Adaptadores de rede**: o número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino. Verifique o número de nics com suporte pelo tamanho da máquina virtual nas [especificações de tamanho de máquina virtual](../virtual-machines/linux/sizes.md) .
+     * **Adaptadores de rede**: número de saudação de adaptadores de rede é determinado pelo tamanho Olá especificado para a máquina de virtual de destino hello. Verificar [especificações de tamanho de máquina virtual](../virtual-machines/linux/sizes.md) para número de saudação de nics suportados pelo tamanho da máquina virtual de saudação.
 
-       Quando você altera a dimensão de uma máquina virtual e salva as configurações, o número do adaptador de rede é alterado na próxima vez em que você abrir a página **Configurar** . O número de adaptadores de rede de máquinas virtuais de destino é o mínimo do número de adaptadores de rede na máquina virtual de origem e o número máximo de adaptadores de rede compatíveis com o tamanho da máquina virtual selecionada. É explicado abaixo:
+       Quando você modificar o tamanho de saudação para uma máquina virtual e salva as configurações de hello, número de saudação do adaptador de rede será alterado quando você abrir **configurar** Olá página próxima vez. Olá vários adaptadores de rede de máquinas virtuais de destino é mínimo de saudação vários adaptadores de rede na máquina virtual de origem e o número máximo de adaptadores de rede suportados pelo tamanho de saudação da máquina virtual de saudação escolhida. É explicado abaixo:
 
-       * Se o número de adaptadores de rede na máquina de origem for menor ou igual ao número de adaptadores permitido para o tamanho da máquina de destino, o destino terá o mesmo número de adaptadores que a origem.
-       * Se o número de adaptadores para máquina virtual de origem exceder o número permitido para o tamanho de destino e o tamanho máximo de destino será usado.
-       * Por exemplo, se uma máquina de origem tiver dois adaptadores de rede e o tamanho da máquina de destino oferecer suporte a quatro, a máquina de destino terá dois adaptadores. Se a máquina de origem tiver dois adaptadores, mas o tamanho de destino com suporte oferecer suporte apenas a uma máquina de destino, ela terá apenas um adaptador.
+       * Se Olá vários adaptadores de rede no computador de origem de saudação é menor ou igual toohello número de adaptadores permitido para o tamanho de máquina de destino Olá, então terá destino Olá Olá o mesmo número de adaptadores de fonte de saudação.
+       * Se número Olá dos adaptadores de saudação da máquina virtual de origem exceder o número de saudação permitido para o tamanho de destino hello e tamanho máximo da saudação destino será usado.
+       * Por exemplo, se um computador de origem tem dois adaptadores de rede e tamanho de máquina de destino Olá oferece suporte a quatro, computador de destino Olá terá dois adaptadores. Se o computador de origem Olá tem dois adaptadores, mas hello tamanho de destino com suporte apenas oferece suporte a um computador de destino Olá terá apenas um adaptador.
 
-     * **Rede Azure**: especifique a rede na qual a máquina virtual devem executar failover. Se a máquina virtual tiver vários adaptadores de rede, todos deverão estar conectados à mesma rede do Azure.
-     * **Sub-rede** Para cada adaptador de rede na máquina virtual, selecione a sub-rede na rede do Azure à qual a máquina deve se conectar após o failover.
-     * **Endereço IP de destino**: se o adaptador de rede da máquina virtual de origem estiver configurado para usar um endereço IP estático, você poderá especificar o endereço IP da máquina virtual de destino para garantir que a máquina tenha o mesmo endereço IP após o failover.  Se você não especificar um endereço IP, qualquer endereço disponível no momento será atribuído durante o failover. Se você especificar um endereço que está sendo usado, o failover falhará.
+     * **Rede do Azure**: especifique a máquina virtual do hello rede toowhich Olá devem executar failover. Se a máquina virtual de saudação tem vários adaptadores de rede todos os adaptadores deve toohello conectado mesma rede do Azure.
+     * **Subrede** para cada adaptador de rede na máquina virtual de hello, sub-rede Olá select na máquina de Olá Olá rede Azure toowhich deve se conectar após o failover.
+     * **Endereço IP de destino**: se o adaptador de rede de saudação da máquina virtual de origem é configurado toouse estático um de endereço IP, em seguida, você pode especificar o endereço IP de Olá Olá tooensure de máquina virtual de destino que Olá máquina tem Olá mesmo endereço IP após o failover .  Se você não especificar um endereço IP, em seguida, qualquer endereço disponível será atribuído em tempo de saudação de failover. Se você especificar um endereço que está sendo usado, o failover falhará.
 
      > [!NOTE]
-     > [Migração de redes](../azure-resource-manager/resource-group-move-resources.md) nos grupos de recursos dentro da mesma assinatura ou nas assinaturas não tem suporte para as redes usadas para a implantação do Site Recovery.
+     > [Migração de redes](../azure-resource-manager/resource-group-move-resources.md) em recursos grupos dentro Olá a mesma assinatura ou em assinaturas não é há suporte para redes usados para implantar a recuperação de Site.
      >
 
      ![Configurar as propriedades da máquina virtual](./media/site-recovery-hyper-v-site-to-azure-classic/multiple-nic.png)
@@ -231,48 +231,48 @@ Adicione máquinas virtuais aos grupos de proteção para protegê-las.
 
 
 ## <a name="step-7-create-a-recovery-plan"></a>Etapa 7: criar um plano de recuperação
-Para testar a implantação, você pode executar um failover de teste para uma única máquina virtual ou um plano de recuperação que contém uma ou mais máquinas virtuais. [Saiba mais](site-recovery-create-recovery-plans.md) sobre a criação de um plano de recuperação.
+Na implantação de saudação tootest ordem, você pode executar um failover de teste para uma única máquina virtual ou um plano de recuperação que contém uma ou mais máquinas virtuais. [Saiba mais](site-recovery-create-recovery-plans.md) sobre a criação de um plano de recuperação.
 
-## <a name="step-8-test-the-deployment"></a>Etapa 8: testar a implantação
-Há duas maneiras de executar um failover de teste no Azure.
+## <a name="step-8-test-hello-deployment"></a>Etapa 8: Testar a implantação de saudação
+Há dois toorun de maneiras um tooAzure de failover de teste.
 
-* **Failover de teste sem uma rede do Azure**– esse tipo de failover de teste verifica se a máquina virtual é mostrada corretamente no Azure. A máquina virtual não será conectada a nenhuma rede do Azure após o failover.
-* **Failover de teste com uma rede do Azure**– esse tipo de failover verifica se o ambiente de replicação inteiro é mostrado conforme o esperado e se as máquinas virtuais com failover serão conectadas à rede do Azure de destino especificada. Observe que para o failover de teste, a sub-rede da máquina virtual de teste será determinada com base na sub-rede da máquina virtual de réplica. Isso é diferente da replicação normal quando a sub-rede de uma máquina virtual de réplica baseia-se na sub-rede da máquina virtual de origem.
+* **Failover de teste sem uma rede do Azure**— este tipo de failover de teste verifica se a máquina virtual Olá aparece corretamente no Azure. máquina virtual de saudação não será conectado tooany rede Azure após o failover.
+* **Failover de teste com uma rede do Azure**— este tipo de failover verifica que Olá ambiente de replicação inteiro aparece como esperado e failover de máquinas virtuais de saudação conecta toohello rede Azure de destino especificado. Observe que para failover de teste sub-rede Olá Olá máquina de virtual de teste será descoberta com base na sub-rede de saudação do hello máquina de virtual de réplica. Isso é tooregular diferentes de replicação quando sub-rede saudação de uma máquina virtual de réplica é baseada na sub-rede de saudação do hello da máquina virtual de origem.
 
-Se você quiser executar um failover de teste sem especificar uma rede do Azure, não precisará de preparo prévio.
+Se você quiser toorun um failover de teste sem especificar uma rede do Azure não é necessário tooprepare nada.
 
-Para executar um failover de teste com uma rede do Azure de destino, você precisará criar uma nova rede do Azure isolada da rede de produção do Azure (o comportamento padrão quando você cria uma nova rede no Azure). Leia [Executar um failover de teste](site-recovery-failover.md) para obter mais detalhes.
+toorun um failover de teste com um destino de rede do Azure, você precisará toocreate uma nova rede Azure isolada da rede de produção do Azure (comportamento padrão quando você cria uma nova rede no Azure). Leia [Executar um failover de teste](site-recovery-failover.md) para obter mais detalhes.
 
-Para testar totalmente a replicação e a implantação da rede, você precisará configurar a infraestrutura para que a máquina virtual replicada funcione como esperado. Uma maneira de fazer isso é configurar uma máquina virtual como um controlador de domínio com DNS e replicá-la para o Azure usando a Recuperação de Site para criá-la na rede de teste com a execução de um failover de teste.  [Leia mais sobre](site-recovery-active-directory.md#test-failover-considerations) as considerações sobre failover de teste para o Active Directory.
+toofully teste a implantação de replicação e de rede, você precisará tooset infra-estrutura Olá para que Olá replicadas toowork de máquina virtual, conforme o esperado. Uma maneira de fazer essa tootooset uma máquina virtual como um controlador de domínio com DNS e replicá-la tooAzure usando toocreate de recuperação de Site no teste de saudação de rede executando um failover de teste.  [Leia mais sobre](site-recovery-active-directory.md#test-failover-considerations) as considerações sobre failover de teste para o Active Directory.
 
-Execute o failover de teste da seguinte maneira:
+Execute failover de teste de saudação da seguinte maneira:
 
 > [!NOTE]
-> Para obter o melhor desempenho ao fazer um failover para o Azure, não deixe de instalar o agente do Azure no computador protegido. Isso ajuda na inicialização mais rápida e também no diagnóstico em caso de problemas. O agente do Linux pode ser encontrado [aqui](https://github.com/Azure/WALinuxAgent) e o agente do Windows pode ser encontrado [aqui](http://go.microsoft.com/fwlink/?LinkID=394789)
+> tooget Olá melhor desempenho quando você fizer uma tooAzure de failover, certifique-se de que você tenha instalado o hello Azure agente na máquina Olá protegido. Isso ajuda na inicialização mais rápida e também no diagnóstico em caso de problemas. O agente do Linux pode ser encontrado [aqui](https://github.com/Azure/WALinuxAgent) e o agente do Windows pode ser encontrado [aqui](http://go.microsoft.com/fwlink/?LinkID=394789)
 >
 >
 
-1. Na guia **Planos de Recuperação**, selecione o plano e clique em **Failover de Teste**.
-2. Na página **Confirmar Failover de Teste**, selecione **Nenhum** ou uma rede específica do Azure.  Observe que, se você selecionar **Nenhum** , o failover de teste verificará se a máquina virtual foi replicada corretamente para o Azure, mas não verificará sua configuração de rede de replicação.
+1. Em Olá **planos de recuperação** , selecione o plano de saudação e clique em **Failover de teste**.
+2. Em Olá **confirmar Failover de teste** página Selecione **nenhum** ou uma rede do Azure específica.  Observe que, se você selecionar **nenhum** failover de teste de saudação verificará se a máquina virtual Olá corretamente replicados tooAzure mas não verifica sua configuração de rede de replicação.
 
     ![Failover de Teste](./media/site-recovery-hyper-v-site-to-azure-classic/test-nonetwork.png)
-3. Na guia **Trabalhos** , você pode acompanhar o progresso do failover. Você também deverá ver a réplica de teste de máquina virtual no portal do Azure. Se tiver configurado para máquinas virtuais de acesso a rede local, você pode iniciar uma conexão de área de trabalho remota para a máquina virtual.
-4. Quando o failover atinge a fase **Concluir teste**, clique em **Concluir Teste** para concluir o failover de teste. Você pode fazer uma busca detalhada na guia **Trabalho** para acompanhar o progresso e o status do failover, e para realizar as ações necessárias.
-5. Após o failover, você poderá ver a réplica de teste da máquina virtual no portal do Azure. Se tiver configurado para máquinas virtuais de acesso a rede local, você pode iniciar uma conexão de área de trabalho remota para a máquina virtual.
+3. Em Olá **trabalhos** guia você pode acompanhar o progresso de failover. Você também deve ser toosee capaz de réplica de teste de máquina virtual Olá no hello portal do Azure. Se você estiver configurado em máquinas virtuais de tooaccess da sua rede local, você pode iniciar uma máquina virtual de toohello de conexão de área de trabalho remota.
+4. Quando o failover de saudação atinge Olá **testes completos** fase, clique em **concluir teste** toofinish Olá failover de teste. Você pode fazer drill down toohello **trabalho** guia tootrack progresso de failover e o status e tooperform as ações que são necessários.
+5. Após o failover será toosee capaz de réplica de teste de máquina virtual Olá no hello portal do Azure. Se você estiver configurado em máquinas virtuais de tooaccess da sua rede local, você pode iniciar uma máquina virtual de toohello de conexão de área de trabalho remota.
 
-   1. Verificar se as máquinas virtuais foram iniciadas com êxito.
-   2. Se você quiser se conectar à máquina virtual no Azure usando a Área de trabalho remota após o failover, habilite a Conexão de Área de Trabalho Remota na máquina virtual antes de executar o teste de failover. Você também precisará adicionar um ponto de extremidade RDP na máquina virtual. É possível aproveitar um [runbook de automação do Azure](site-recovery-runbook-automation.md) para fazer isso.
-   3. Após o failover, se você usar um endereço IP público para se conectar à máquina virtual no Azure usando a Área de Trabalho Remota, verifique se você não tem qualquer política de domínio que impeça a conexão com uma máquina virtual usando um endereço público.
-6. Após a conclusão do teste, faça o seguinte:
+   1. Verifique se que máquinas virtuais de saudação foi iniciada com êxito.
+   2. Se você quiser tooconnect toohello VM no Azure usando a área de trabalho remota após o failover hello, habilite Conexão de área de trabalho remota na máquina virtual de saudação antes de executar o failover de teste de saudação. Você também precisará tooadd um ponto de extremidade do RDP na máquina virtual de saudação. Você pode aproveitar um [runbook de automação do Azure](site-recovery-runbook-automation.md) toodo que.
+   3. Após o failover se você usar uma IP endereço tooconnect toohello virtual máquina público no Azure usando a área de trabalho remota, verifique se você não tem qualquer política de domínio que impedem a conexão de máquina virtual de tooa usando um endereço público.
+6. Após a conclusão da saudação teste Olá a seguir:
 
-   * Clique em **Failover de teste concluído**. Limpe o ambiente de teste para desligar automaticamente e excluir as máquinas virtuais de teste.
-   * Clique em **Observações** para gravar e salvar observações associadas ao failover de teste.
-7. Quando o failover atinge a fase **Testes completos** , conclua a verificação da seguinte maneira:
-   1. Visualize a máquina virtual de réplica no portal do Azure. Verifique se a máquina virtual foi iniciada com êxito.
-   2. Se tiver configurado para máquinas virtuais de acesso a rede local, você pode iniciar uma conexão de área de trabalho remota para a máquina virtual.
-   3. Clique em **Concluir o teste** para concluí-lo.
-   4. Clique em **Observações** para gravar e salvar observações associadas ao failover de teste.
-   5. Clique em **Failover de teste concluído**. Limpa o ambiente de teste para desligar automaticamente e excluir a máquina virtual de teste.
+   * Clique em **Olá failover de teste for concluído**. Limpar Olá power de tooautomatically do ambiente de teste e exclua Olá máquinas de virtuais de teste.
+   * Clique em **notas** toorecord e salvar todas as observações associadas Olá failover de teste.
+7. Quando o failover de saudação atinge Olá **testes completos** fase concluir a verificação de saudação da seguinte maneira:
+   1. Exibir hello máquina de virtual de réplica no hello portal do Azure. Verifique se que a máquina virtual Olá iniciado com êxito.
+   2. Se você estiver configurado em máquinas virtuais de tooaccess da sua rede local, você pode iniciar uma máquina virtual de toohello de conexão de área de trabalho remota.
+   3. Clique em **teste completo Olá** toofinish-lo.
+   4. Clique em **notas** toorecord e salvar todas as observações associadas Olá failover de teste.
+   5. Clique em **Olá failover de teste for concluído**. Limpar Olá power de tooautomatically do ambiente de teste e exclua Olá máquina de virtual de teste.
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois que a implantação é configurada e está em funcionamento, [saiba mais](site-recovery-failover.md) sobre o failover.

@@ -1,5 +1,5 @@
 ---
-title: "Entender o preço do Hub IoT do Azure| Microsoft Docs"
+title: "preços do Azure IoT Hub aaaUnderstand | Microsoft Docs"
 description: "Guia do desenvolvedor ‑ informações sobre como a medição e preço funcionam no Hub IoT, incluindo exemplos funcionais."
 services: iot-hub
 documentationcenter: 
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2016
 ms.author: elioda
-ms.openlocfilehash: 3470473e1b2aa107c32643a66092b68bfafd1a37
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e294c0b7f483e042ca3f63e93c14e0c2d773ae7f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Informações sobre preços do Hub IoT do Azure
 
-O [Preço do Hub IoT do Azure][lnk-pricing] fornece as informações gerais sobre SKUs e preços diferentes para o Hub IoT. Este artigo contém detalhes adicionais sobre como as diversas funcionalidades do Hub IoT são medidas como mensagens pelo Hub IoT.
+[IoT Hub do Azure preços] [ lnk-pricing] fornece informações gerais de saudação em diferentes SKUs e preços para o IoT Hub. Este artigo contém detalhes adicionais sobre como as mensagens de saudação que várias funcionalidades de IoT Hub são monitoradas como pelo IoT Hub.
 
 ## <a name="charges-per-operation"></a>Encargos por operação
 
@@ -31,31 +31,31 @@ O [Preço do Hub IoT do Azure][lnk-pricing] fornece as informações gerais sobr
 | Operações de registro de identidade <br/> (criar, recuperar, listar, atualizar e excluir) | Não será cobrado. |
 | Mensagens do dispositivo para a nuvem | As mensagens enviadas com êxito são cobradas em partes de 4 KB na entrada no Hub IoT, por exemplo, uma mensagem de 6 KB é cobrada em 2 mensagens. |
 | Mensagens da nuvem para o dispositivo | As mensagens enviadas com êxito são cobradas em partes de 4 KB, por exemplo, uma mensagem de 6 KB é cobrada em 2 mensagens. |
-| Carregamentos de arquivos | A transferência de arquivos para o Armazenamento do Azure não é limitada pelo Hub IoT. Mensagens de conclusão e inicialização de transferência de arquivo são cobradas como mensagens limitadas com incrementos de 4 KB. Por exemplo, transferir um arquivo de 10 MB são cobradas duas mensagens além do custo de Armazenamento do Azure. |
-| Métodos diretos | As solicitações de métodos bem-sucedidas são cobradas em partes de 4 KB, as respostas com corpos não vazios são cobradas em 4 KB como mensagens adicionais. As solicitações para dispositivos desconectados são cobradas como mensagens em partes de 4 KB. Por exemplo, um método com um corpo de 6 KB que resulta em uma resposta sem corpo do dispositivo é cobrado como duas mensagens; um método com um corpo de 6 KB que resulta em uma resposta de 1 KB do dispositivo é cobrado como duas mensagens para a solicitação mais uma outra mensagem para a resposta. |
-| Leituras de dispositivo gêmeo | Leituras de dispositivo gêmeo do dispositivo e back-end de solução são cobradas como mensagens em partes de 512 bytes. Por exemplo, a leitura de um dispositivo gêmeo de 6 KB é cobrada como 12 mensagens. |
-| Atualizações do dispositivo gêmeo (marcas e propriedades) | As atualizações do dispositivo gêmeo do dispositivo e o dispositivo são cobradas como mensagens em partes de 512 bytes. Por exemplo, a leitura de um dispositivo gêmeo de 6 KB é cobrada como 12 mensagens. |
-| Consultas de dispositivo gêmeo | As consultas são cobradas como mensagens, dependendo do tamanho do resultado em partes de 512 bytes. |
+| Carregamentos de arquivos | Transferência de arquivo tooAzure armazenamento não é monitorado pelo IoT Hub. Mensagens de conclusão e inicialização de transferência de arquivo são cobradas como mensagens limitadas com incrementos de 4 KB. Por exemplo, a transferência de um arquivo de 10 MB é cobrado duas mensagens em adição toohello custos de armazenamento do Azure. |
+| Métodos diretos | As solicitações de métodos bem-sucedidas são cobradas em partes de 4 KB, as respostas com corpos não vazios são cobradas em 4 KB como mensagens adicionais. Dispositivos de toodisconnected solicitações são cobrados como mensagens em blocos de 4 KB. Por exemplo, um método com um corpo de 6-KB que resulta em uma resposta sem corpo de dispositivo de saudação é cobrada como duas mensagens; um método com um corpo de 6-KB que resulta em uma resposta de 1 KB de dispositivo de saudação é cobrado como duas mensagens de solicitação de hello mais outra mensagem para resposta de saudação. |
+| Leituras de dispositivo gêmeo | Duas dispositivo lê de dispositivo de saudação e de volta a solução Olá final é cobrado como mensagens em blocos de 512 bytes. Por exemplo, a leitura de um dispositivo gêmeo de 6 KB é cobrada como 12 mensagens. |
+| Atualizações do dispositivo gêmeo (marcas e propriedades) | Atualizações do dispositivo duas do dispositivo hello e Olá são cobradas como mensagens em blocos de 512 bytes. Por exemplo, a leitura de um dispositivo gêmeo de 6 KB é cobrada como 12 mensagens. |
+| Consultas de dispositivo gêmeo | Consultas são cobradas como mensagens dependendo do tamanho do resultado da saudação em blocos de 512 bytes. |
 | Operações de trabalhos <br/> (criar, atualizar, listar, excluir) | Não será cobrado. |
 | Operações de trabalhos por dispositivo | As operações de trabalhos (como atualizações de dispositivos gêmeos e métodos) são cobradas de forma normal. Por exemplo, um trabalho que resulta em 1000 chamadas de método com solicitações de 1 KB e respostas de corpo vazio é cobrado em 1000 mensagens. |
 
 > [!NOTE]
-> Todos os tamanhos são computados considerando-se o tamanho da carga em bytes (o enquadramento de protocolo é ignorado). No caso de mensagens (que têm propriedades e corpo), o tamanho é calculado independentemente do protocolo, conforme descrito no [Guia do desenvolvedor de mensagens do Hub IoT][lnk-message-size].
+> Todos os tamanhos são computados considerar o tamanho da carga Olá em bytes (quadros de protocolo é ignorado). No caso de mensagens (que têm propriedades e corpo) tamanho Olá é calculado de maneira independente de protocolo, conforme descrito em Olá [IoT Hub guia do desenvolvedor do sistema de mensagens][lnk-message-size].
 
 ## <a name="example-1"></a>Exemplo 1
 
-Um dispositivo envia uma mensagem de 1 KB do dispositivo para nuvem por minuto para Hub IoT, que é lida pelo Azure Stream Analytics. O back-end de solução invoca um método (com carga de 512 bytes) no dispositivo a cada dez minutos para disparar uma ação específica. O dispositivo responde ao método com um resultado de 200 bytes.
+Um dispositivo envia uma mensagem de dispositivo para a nuvem de 1 KB por minuto tooIoT Hub, que é então lidos pelo Azure Stream Analytics. back-end de solução Olá invoca um método (com a carga de 512 bytes) no dispositivo Olá tootrigger cada dez minutos uma ação específica. dispositivo Olá responde toohello método com um resultado de 200 bytes.
 
-O dispositivo consome 1 mensagem * 60 minutos * 24 horas = 1440 mensagens por dia para as mensagens do dispositivo para a nuvem e 2 solicitações mais resposta * 6 vezes por hora * 24 horas = 288 mensagens para os métodos, para um total de 1728 Mensagens por dia.
+dispositivo Olá consome 1 mensagem * 60 minutos * 24 horas = 1440 mensagens por dia para mensagens de saudação do dispositivo para nuvem e 2 solicitação e resposta * 6 vezes por hora * 24 horas = 288 mensagens para métodos hello, para um total de 1728 mensagens por dia.
 
 ## <a name="example-2"></a>Exemplo 2:
 
-Um dispositivo envia uma mensagem de 100 KB do dispositivo para a nuvem a cada hora. Ele também atualiza seu dispositivo gêmeo com cargas de 1 KB a cada 4 horas. O back-end de solução, uma vez por dia, lê o dispositivo gêmeo de 14 KB e atualiza-o com cargas de 512 bytes para alterar as configurações.
+Um dispositivo envia uma mensagem de 100 KB do dispositivo para a nuvem a cada hora. Ele também atualiza seu dispositivo gêmeo com cargas de 1 KB a cada 4 horas. solução de saudação volta terminar, uma vez por dia, leituras Olá 14 KB dispositivo duas e atualiza com configurações de toochange cargas de 512 bytes.
 
-O dispositivo consome 25 mensagens (100KB/4KB) * 24 horas para mensagens do dispositivo para a nuvem, mais 1 mensagem * 6 vezes por dia para atualizações de dispositivo gêmeo, para um total de 156 mensagens por dia.
-O back-end da solução consome 28 mensagens (14 KB/0,5 KB) para ler o dispositivo gêmeo, além de 1 mensagem para atualizá-lo, em um total de 29 mensagens.
+dispositivo Olá consome 25 mensagens de (100KB / 4KB) * 24 horas para que as mensagens de dispositivo para nuvem, além de 1 mensagem * 6 vezes por dia para atualizações de duas do dispositivo, para um total de 156 mensagens por dia.
+Olá back-end solução consome duas de dispositivo (14KB/0,5 KB) de 28 mensagens tooread hello, mais 1 mensagem tooupdate-lo para um total de mensagens de 29.
 
-No total, o dispositivo e o back-end da solução consomem 185 mensagens por dia.
+No total, dispositivo hello e back-end de solução Olá consumir 185 mensagens por dia.
 
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub

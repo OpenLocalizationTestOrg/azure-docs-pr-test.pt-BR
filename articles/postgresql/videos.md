@@ -9,15 +9,15 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/05/2017
-ms.openlocfilehash: c5d4b85755750f3c06320ac623601ff155b2a704
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 5fb8797f3304289e3ef51f8101dc9c896fc2bcf4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-database-for-postgresql-videos"></a>Banco de dados do Azure para Vídeos PostgreSQL
-[Como começar usar o novo Banco de dados do Azure para o serviço PostgreSQL](https://channel9.msdn.com/events/Build/2017/B8046)
+[Como tooget iniciado com hello novo banco de dados do Azure para o serviço PostgreSQL](https://channel9.msdn.com/events/Build/2017/B8046)
 
 <iframe src="https://channel9.msdn.com/Events/Build/2017/B8046/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
 
-Neste vídeo da Microsoft 2017 //Criar uma conferência, aprenda com dois antigos clientes a forma de usar o Banco de dados do Azure para o serviço PostgreSQL para obter uma inovação mais rápida. Iremos aprender como eles migraram para o serviço, e discutiremos as próximas etapas no desenvolvimento do aplicativo deles. Iremos ver alguns dos recursos do serviço de chaves e discutiremos as formas como você, como desenvolvedor, pode migrar os seus aplicativos já existentes ou desenvolver novos aplicativos que usem este serviço gerenciado de PostgreSQL no Azure.
+Neste vídeo da conferência do hello 2017 Microsoft //Build, aprenda com dois clientes de adoção antecipados como eles usaram o banco de dados do Azure para PostgreSQL serviço tooinnovate mais rápido. Podemos saber como eles migrados toohello serviço e discutirmos as próximas etapas no seu desenvolvimento de aplicativo. Percorremos alguns dos recursos de serviço de chave hello e discutir como você como um desenvolvedor pode migra seus aplicativos existentes ou desenvolve novos aplicativos que usam esse serviço PostgreSQL gerenciado no Azure.

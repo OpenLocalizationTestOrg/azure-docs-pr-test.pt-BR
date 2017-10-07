@@ -1,6 +1,6 @@
 ---
-title: Criar o primeiro modelo do Azure Resource Manager | Microsoft Docs
-description: "Um guia passo a passo para criar seu primeiro modelo do Azure Resource Manager. Ele mostra como usar a referência de modelo para uma conta de armazenamento para criar o modelo."
+title: aaaCreate primeiro o modelo do Gerenciador de recursos do Azure | Microsoft Docs
+description: "Um guia passo a passo toocreating seu primeiro modelo do Gerenciador de recursos do Azure. Ele mostra como toouse Olá referência de modelo para um modelo de saudação de toocreate de conta de armazenamento."
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.date: 07/27/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: 49086b51e2db1aebed45746306ae14b6f1feb631
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 92e6d6bb7094fe0e4537ee080704967862804bdb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Criar e implantar seu primeiro modelo do Azure Resource Manager
-Este tópico explica as etapas de criação de seu primeiro modelo do Azure Resource Manager. Os modelos do Resource Manager são arquivos JSON que definem os recursos necessários para implantar sua solução. Para entender os conceitos associados à implantação e ao gerenciamento de soluções do Azure, consulte [Visão geral do Azure Resource Manager](resource-group-overview.md). Se você já tiver recursos e quiser obter um modelo para esses recursos, consulte [Exportar um modelo do Azure Resource Manager de recursos existentes](resource-manager-export-template.md).
+Este tópico o guiará durante as etapas de saudação de criar seu primeiro modelo do Gerenciador de recursos do Azure. Modelos do Gerenciador de recursos são arquivos JSON que definem recursos Olá precisar toodeploy para sua solução. conceitos de saudação do toounderstand associados ao implantar e gerenciar suas soluções do Azure, consulte [visão geral do Gerenciador de recursos do Azure](resource-group-overview.md). Se você tiver os recursos existentes e deseja tooget um modelo para esses recursos, consulte [exportar um modelo do Gerenciador de recursos do Azure de recursos existentes](resource-manager-export-template.md).
 
-Para criar e revisar os modelos, você precisa de um editor de JSON. [Visual Studio Code](https://code.visualstudio.com/) é um editor de código entre plataformas aberto e leve. Recomendamos usar o Visual Studio Code para criar modelos do Resource Manager. Este tópico pressupõe que você esteja usando o VS Code; no entanto, se você tiver outro editor de JSON (como o Visual Studio), use-o.
+modelos de toocreate e revisar, é necessário um editor de JSON. [Visual Studio Code](https://code.visualstudio.com/) é um editor de código entre plataformas aberto e leve. Recomendamos usar o Visual Studio Code para criar modelos do Resource Manager. Este tópico pressupõe que você esteja usando o VS Code; no entanto, se você tiver outro editor de JSON (como o Visual Studio), use-o.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,13 +31,13 @@ Para criar e revisar os modelos, você precisa de um editor de JSON. [Visual Stu
 
 ## <a name="create-template"></a>Criar modelo
 
-Vamos começar com um modelo simples que implanta uma conta de armazenamento na sua assinatura.
+Vamos começar com um modelo simple que implanta uma tooyour assinatura da conta de armazenamento.
 
 1. Selecione **Arquivo** > **Novo Arquivo**. 
 
    ![Novo arquivo](./media/resource-manager-create-first-template/new-file.png)
 
-2. Copie e cole a seguinte sintaxe JSON em seu arquivo:
+2. Copie e cole Olá sintaxe JSON a seguir no arquivo:
 
    ```json
    {
@@ -65,17 +65,17 @@ Vamos começar com um modelo simples que implanta uma conta de armazenamento na 
    }
    ```
 
-   Os nomes de conta de armazenamento têm várias restrições que os tornam difíceis de definir. O nome deve ter entre três e 24 caracteres de comprimento e usar somente números e letras minúsculas, além de ser exclusivo. O modelo anterior usa a função [uniqueString](resource-group-template-functions-string.md#uniquestring) para gerar um valor de hash. Para dar mais significado a esse valor de hash, ele adiciona o prefixo *storage*. 
+   Nomes de conta de armazenamento tem várias restrições que os tornam difícil tooset. Olá nome deve ter entre 3 e 24 caracteres de comprimento, use apenas números e letras minúsculas e ser exclusivo. o modelo anterior Hello usa Olá [uniqueString](resource-group-template-functions-string.md#uniquestring) toogenerate um valor de hash de função. toogive esse hash valor mais ou seja, ele adiciona o prefixo Olá *armazenamento*. 
 
-3. Salve esse arquivo como **azuredeploy.json** em uma pasta local.
+3. Salve esse arquivo como **azuredeploy.json** tooa pasta de local.
 
    ![Salvar modelo](./media/resource-manager-create-first-template/save-template.png)
 
 ## <a name="deploy-template"></a>Implantar modelo
 
-Você está pronto para implantar o modelo. Use o PowerShell ou a CLI do Azure para criar um grupo de recursos. Em seguida, implante uma conta de armazenamento para esse grupo de recursos.
+Você está pronto toodeploy este modelo. Use o PowerShell ou CLI do Azure toocreate um grupo de recursos. Em seguida, você pode implantar um grupo de recursos de toothat de conta de armazenamento.
 
-* No caso do PowerShell, use os seguintes comandos na pasta que contém o modelo:
+* Para o PowerShell, use Olá comandos a seguir da pasta Olá contendo Olá modelo:
 
    ```powershell
    Login-AzureRmAccount
@@ -84,7 +84,7 @@ Você está pronto para implantar o modelo. Use o PowerShell ou a CLI do Azure p
    New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json
    ```
 
-* No caso de uma instalação local da CLI do Azure, use os seguintes comandos na pasta que contém o modelo:
+* Para uma instalação local da CLI do Azure, use Olá comandos a seguir da pasta Olá contendo Olá modelo:
 
    ```azurecli
    az login
@@ -93,19 +93,19 @@ Você está pronto para implantar o modelo. Use o PowerShell ou a CLI do Azure p
    az group deployment create --resource-group examplegroup --template-file azuredeploy.json
    ```
 
-Quando a implantação é concluída, sua conta de armazenamento passa a existir no grupo de recursos.
+Quando termina de implantação, sua conta de armazenamento existe no grupo de recursos de saudação.
 
 ## <a name="deploy-template-from-cloud-shell"></a>Implantar o modelo do Cloud Shell
 
-Você pode usar o [Cloud Shell](../cloud-shell/overview.md) para executar os comandos da CLI do Azure a fim de implantar o modelo. No entanto, você deve carregar o modelo primeiro para o compartilhamento de arquivos do seu Cloud Shell. Se você ainda não usou o Cloud Shell, confira [Visão geral do Azure Cloud Shell](../cloud-shell/overview.md) para saber mais sobre como configurá-lo.
+Você pode usar [nuvem Shell](../cloud-shell/overview.md) comandos toorun Olá CLI do Azure para implantar o modelo. No entanto, você deve carregar o modelo pela primeira vez no compartilhamento de arquivo hello para o Shell de nuvem. Se você ainda não usou o Cloud Shell, confira [Visão geral do Azure Cloud Shell](../cloud-shell/overview.md) para saber mais sobre como configurá-lo.
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com).   
+1. Faça logon no toohello [portal do Azure](https://portal.azure.com).   
 
-2. Selecione o grupo de recursos do Cloud Shell. O nome padrão é `cloud-shell-storage-<region>`.
+2. Selecione o grupo de recursos do Cloud Shell. Olá nome padrão é `cloud-shell-storage-<region>`.
 
    ![Escolha o grupo de recursos](./media/resource-manager-create-first-template/select-cs-resource-group.png)
 
-3. Selecione a conta de armazenamento do Cloud Shell.
+3. Selecione a conta de armazenamento de saudação para o Shell de nuvem.
 
    ![Escolher conta de armazenamento](./media/resource-manager-create-first-template/select-storage.png)
 
@@ -113,7 +113,7 @@ Você pode usar o [Cloud Shell](../cloud-shell/overview.md) para executar os com
 
    ![Selecionar arquivos](./media/resource-manager-create-first-template/select-files.png)
 
-5. Selecione o compartilhamento de arquivos para o Cloud Shell. O nome padrão é `cs-<user>-<domain>-com-<uniqueGuid>`.
+5. Selecione o compartilhamento de arquivo de saudação para o Shell de nuvem. Olá nome padrão é `cs-<user>-<domain>-com-<uniqueGuid>`.
 
    ![Selecionar compartilhamento de arquivos](./media/resource-manager-create-first-template/select-file-share.png)
 
@@ -137,24 +137,24 @@ Você pode usar o [Cloud Shell](../cloud-shell/overview.md) para executar os com
 
    ![Carregar arquivo](./media/resource-manager-create-first-template/upload-files.png)
 
-11. Abra o prompt.
+11. Prompt Olá aberto.
 
    ![Abrir Cloud Shell](./media/resource-manager-create-first-template/start-cloud-shell.png)
 
-12. Digite os seguintes comandos no Cloud Shell:
+12. Digite hello comandos Olá Shell de nuvem a seguir:
 
    ```azurecli
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
    ```
 
-Quando a implantação é concluída, sua conta de armazenamento passa a existir no grupo de recursos.
+Quando termina de implantação, sua conta de armazenamento existe no grupo de recursos de saudação.
 
-## <a name="customize-the-template"></a>Personalizar o modelo
+## <a name="customize-hello-template"></a>Personalizar o modelo de saudação
 
-O modelo funciona bem, mas não é flexível. Ele sempre implanta um armazenamento com redundância local no Centro-Sul dos EUA. O nome é sempre *armazenamento*, seguido de um valor de hash. Para habilitar o uso do modelo em cenários diferentes, adicione parâmetros a ele.
+modelo de saudação funciona bem, mas não é flexível. Ele sempre implanta tooSouth um armazenamento redundante localmente centro dos EUA. nome da saudação é sempre *armazenamento* seguido de um valor de hash. tooenable usando o modelo de saudação para diferentes cenários, adicionar parâmetros toohello modelo.
 
-O exemplo a seguir mostra a seção de parâmetros com dois parâmetros. O primeiro parâmetro, `storageSKU`, permite que você especifique o tipo de redundância. Ele restringe os valores que você pode transmitir a valores que são válidos para uma conta de armazenamento. Ela também especifica um valor padrão. O segundo parâmetro, `storageNamePrefix`, está definido para permitir um máximo de 11 caracteres. Ele especifica um valor padrão.
+Olá exemplo a seguir mostra a saudação parâmetros seção com dois parâmetros. Olá primeiro parâmetro `storageSKU` permite que você toospecify o tipo de saudação de redundância. Ele limita os valores hello que você pode passar de toovalues são válidos para uma conta de armazenamento. Ela também especifica um valor padrão. Olá segundo parâmetro `storageNamePrefix` é conjunto tooallow um máximo de 11 caracteres. Ele especifica um valor padrão.
 
 ```json
 "parameters": {
@@ -169,7 +169,7 @@ O exemplo a seguir mostra a seção de parâmetros com dois parâmetros. O prime
     ],
     "defaultValue": "Standard_LRS",
     "metadata": {
-      "description": "The type of replication to use for the storage account."
+      "description": "hello type of replication toouse for hello storage account."
     }
   },
   "storageNamePrefix": {
@@ -177,13 +177,13 @@ O exemplo a seguir mostra a seção de parâmetros com dois parâmetros. O prime
     "maxLength": 11,
     "defaultValue": "storage",
     "metadata": {
-      "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
+      "description": "hello value toouse for starting hello storage account name. Use only lowercase letters and numbers."
     }
   }
 },
 ```
 
-Na seção de variáveis, adicione uma variável chamada `storageName`. Ela combina o valor de prefixo dos parâmetros e um valor de hash a partir da função [uniqueString](resource-group-template-functions-string.md#uniquestring). Ela usa a função [toLower](resource-group-template-functions-string.md#tolower) para converter todos os caracteres em minúsculas.
+Na seção de variáveis hello, adicione uma variável chamada `storageName`. Ele combina o valor de prefixo de saudação de parâmetros de saudação e um valor de hash da saudação [uniqueString](resource-group-template-functions-string.md#uniquestring) função. Ele usa Olá [toLower](resource-group-template-functions-string.md#tolower) função tooconvert toolowercase de todos os caracteres.
 
 ```json
 "variables": {
@@ -191,7 +191,7 @@ Na seção de variáveis, adicione uma variável chamada `storageName`. Ela comb
 },
 ```
 
-Para usar esses novos valores na sua conta de armazenamento, altere a definição do recurso:
+toouse esses novos valores para a conta de armazenamento, altere a definição de recurso de saudação:
 
 ```json
 "resources": [
@@ -210,11 +210,11 @@ Para usar esses novos valores na sua conta de armazenamento, altere a definiçã
 ],
 ```
 
-Observe que o nome da conta de armazenamento agora está definido como a variável que você adicionou. O nome da SKU é definido como o valor do parâmetro. O local é definido como o mesmo do grupo de recursos.
+Observe que Olá nome da conta de armazenamento Olá agora está definido para a variável toohello que você adicionou. nome da SKU Olá estiver definido como toohello valor do parâmetro hello. Olá local é definido Olá mesmo local que o grupo de recursos de saudação.
 
 Salve o arquivo. 
 
-Depois de concluir as etapas neste artigo, o modelo agora se parece com:
+Depois de concluir as etapas de saudação neste artigo, seu modelo agora se parece com:
 
 ```json
 {
@@ -232,7 +232,7 @@ Depois de concluir as etapas neste artigo, o modelo agora se parece com:
       ],
       "defaultValue": "Standard_LRS",
       "metadata": {
-        "description": "The type of replication to use for the storage account."
+        "description": "hello type of replication toouse for hello storage account."
       }
     },   
     "storageNamePrefix": {
@@ -240,7 +240,7 @@ Depois de concluir as etapas neste artigo, o modelo agora se parece com:
       "maxLength": 11,
       "defaultValue": "storage",
       "metadata": {
-        "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
+        "description": "hello value toouse for starting hello storage account name. Use only lowercase letters and numbers."
       }
     }
   },
@@ -267,7 +267,7 @@ Depois de concluir as etapas neste artigo, o modelo agora se parece com:
 
 ## <a name="redeploy-template"></a>Reimplantar o modelo
 
-Reimplante o modelo com valores diferentes.
+Reimplante o modelo de saudação com valores diferentes.
 
 Para o PowerShell, use:
 
@@ -281,7 +281,7 @@ Para a CLI do Azure, use:
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
 ```
 
-Para o Cloud Shell, carregue o modelo alterado no compartilhamento de arquivos. Substitua o arquivo existente. Em seguida, use o seguinte comando:
+Para Olá Shell de nuvem, carregue o compartilhamento de arquivo do modelo alterado toohello. Substitua arquivo existente hello. Em seguida, use Olá comando a seguir:
 
 ```azurecli
 az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
@@ -289,7 +289,7 @@ az group deployment create --resource-group examplegroup --template-file clouddr
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não forem mais necessários, limpe os recursos implantados excluindo o grupo de recursos.
+Quando não é mais necessário, limpe os recursos de saudação implantado excluindo grupo de recursos de saudação.
 
 Para o PowerShell, use:
 
@@ -304,6 +304,6 @@ az group delete --name examplegroup
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre a estrutura de um modelo, confira [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
-* Para saber mais sobre as propriedades de uma conta de armazenamento, confira [Referência do modelo de contas de armazenamento](/azure/templates/microsoft.storage/storageaccounts).
-* Para exibir modelos completos para muitos tipos diferentes de soluções, consulte os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
+* toolearn mais sobre a estrutura de saudação de um modelo, consulte [modelos de autoria do Azure Resource Manager](resource-group-authoring-templates.md).
+* toolearn sobre propriedades de saudação para uma conta de armazenamento, consulte [referência de modelo de contas de armazenamento](/azure/templates/microsoft.storage/storageaccounts).
+* modelos de tooview completa para muitos tipos diferentes de soluções, consulte Olá [modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/).

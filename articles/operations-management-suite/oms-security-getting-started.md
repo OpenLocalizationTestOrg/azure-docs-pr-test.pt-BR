@@ -1,6 +1,6 @@
 ---
-title: "Introdução à Solução de Segurança e Auditoria do Operations Management Suite | Microsoft Docs"
-description: "Este documento o ajuda a se familiarizar com os recursos de segurança e auditoria do Operations Management Suite para monitorar sua nuvem híbrida."
+title: "aaaGetting de Introdução ao Operations Management Suite solução de segurança e auditoria | Microsoft Docs"
+description: "Este documento Introdução você tooget com toomonitor de recursos de solução de segurança do Operations Management Suite e auditoria sua nuvem híbrida."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
@@ -15,43 +15,43 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: eb5283c8f32fddaa8a20a565e4b877821de979a4
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 5cb3e5dbb3e60f9702a34c9413ddc1bf2b14b411
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Introdução à solução de Segurança e Auditoria do Operations Management Suite
 Este documento o ajuda a se familiarizar rapidamente com as funcionalidades da solução de Auditoria e Segurança do OMS (Operations Management Suite) explicando cada uma das opções.
 
 ## <a name="what-is-oms"></a>O que é o OMS?
-O OMS (Microsoft Operations Management Suite) é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda a gerenciar e proteger sua infraestrutura local e de nuvem. Para obter mais informações sobre o OMS, leia o artigo [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
+O OMS (Microsoft Operations Management Suite) é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda a gerenciar e proteger sua infraestrutura local e de nuvem. Para obter mais informações sobre o OMS, leia o artigo de saudação [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
 ## <a name="oms-security-and-audit-dashboard"></a>Painel Segurança e Auditoria do OMS
-A solução de Segurança e Auditoria do OMS fornece uma exibição abrangente da postura de segurança de TI de sua organização com consultas de pesquisa internas para problemas importantes que exigem atenção. O painel **Segurança e Auditoria** é a tela inicial para tudo relacionado à segurança no OMS. Ela fornece uma análise de alto nível do estado de segurança de seus computadores. Também inclui a capacidade de exibir todos os eventos das últimas 24 horas, dos últimos sete dias ou de qualquer outro intervalo de tempo personalizado. Para acessar o painel **Segurança e Auditoria**, siga estas etapas:
+Olá solução do OMS segurança e auditoria fornece uma visão abrangente da sua organização postura de segurança de TI com consultas de pesquisa interna para problemas importantes que exigem sua atenção. Olá **segurança e auditoria** dashboard é a tela inicial Olá para tudo relacionado toosecurity no OMS. Ele fornece informações de alto nível em estado de segurança de saudação de seus computadores. Ele também inclui Olá capacidade tooview todos os eventos de saudação nas últimas 24 horas, 7 dias, ou qualquer outro período de tempo personalizado. Olá tooaccess **segurança e auditoria** painel, siga estas etapas:
 
-1. No painel principal **Microsoft Operations Management Suite**, clique no bloco **Configurações** à esquerda.
-2. Na folha **Configurações**, em **Soluções**, clique na opção **Segurança e Auditoria**.
-3. O painel **Segurança e Auditoria** é exibido:
+1. Em Olá **Microsoft Operations Management Suite** clique de painel principal **configurações** lado a lado no hello esquerdo.
+2. Em Olá **configurações** folha, em **soluções** clique **segurança e auditoria** opção.
+3. Olá **segurança e auditoria** painel é exibido:
    
     ![Painel Segurança e Auditoria do OMS](./media/oms-security-getting-started/oms-getting-started-fig1-ga.png)
 
-Se você estiver acessando esse painel pela primeira vez e não tiver dispositivos monitorados pelo OMS, os blocos não serão populados com os dados obtidos do agente. Depois de instalar o agente, poderá demorar para que eles sejam populados e, portanto, o que é visto inicialmente pode ter alguns dados ausentes, já que eles ainda estão sendo carregados para a nuvem.  Nesse caso, é normal ver alguns blocos sem informações tangíveis. Leia [Conectar computadores com Windows diretamente ao OMS](https://technet.microsoft.com/library/mt484108.aspx) para obter mais informações sobre como instalar o agente do OMS em um sistema Windows e [Conectar computadores com Linux ao OMS](https://technet.microsoft.com/library/mt622052.aspx) para obter mais informações sobre como executar essa tarefa em um sistema Linux.
+Se você estiver acessando este painel para Olá primeira vez e você não tem dispositivos monitorados pelo OMS, Olá blocos não serão populados com dados obtidos do agente de saudação. Depois de instalar o agente hello, pode levar algum tempo toopopulate, portanto, o que é exibido inicialmente pode estar faltando alguns dados conforme eles ainda estão carregando toohello nuvem.  Nesse caso, é normal toosee alguns blocos sem informações tangíveis. Leitura [conectar computadores Windows diretamente tooOMS](https://technet.microsoft.com/library/mt484108.aspx) para obter mais informações sobre como agente do OMS tooinstall em um sistema Windows e [tooOMS de computadores Linux conectar](https://technet.microsoft.com/library/mt622052.aspx) para obter mais informações sobre como tooperform esta tarefa em um sistema Linux.
 
 > [!NOTE]
-> O agente coleta as informações com base nos eventos atuais que são habilitados, por exemplo, nome do computador, nome de usuário e endereço IP. No entanto, nenhum documento/arquivo, nome de banco de dados ou dado privado será coletado.   
+> agente Olá coleta informações de saudação com base em Olá atual eventos que são habilitados, por exemplo, nome do computador, nome de usuário e endereço IP. No entanto, nenhum documento/arquivo, nome de banco de dados ou dado privado será coletado.   
 > 
 > 
 
-as soluções são uma coleção de regras de lógica, de visualização e de aquisição de dados que abordam os principais desafios dos clientes. Segurança e Auditoria é uma solução; outras podem ser adicionadas separadamente. Leia o artigo [Adicionar soluções](https://technet.microsoft.com/library/mt674635.aspx) para obter mais informações sobre como adicionar uma nova solução.
+as soluções são uma coleção de regras de lógica, de visualização e de aquisição de dados que abordam os principais desafios dos clientes. Segurança e Auditoria é uma solução; outras podem ser adicionadas separadamente. Leia o artigo Olá [adicionar soluções](https://technet.microsoft.com/library/mt674635.aspx) para obter mais informações sobre como tooadd uma nova solução.
 
-O painel Auditoria e Segurança do OMS é organizado em quatro categorias principais:
+painel do OMS segurança e auditoria Olá é organizada em quatro categorias principais:
 
-* **Domínios de segurança**: nessa área, você poderá explorar ainda mais os registros de segurança ao longo do tempo, acessar a avaliação de malware, atualizar as informações de avaliação, segurança de rede, identidade e acesso, computadores com eventos de segurança e ter acesso rapidamente ao painel da Central de Segurança do Azure.
-* **Problemas importantes**: essa opção permitirá que você identifique rapidamente o número de problemas ativos e sua severidade.
-* **Detecções (visualização)**: o habilita a identificar padrões de ataque visualizando alertas de segurança à medida que eles ocorrem em relação a seus recursos.
-* **Inteligência contra ameaças**: permite que você identifique padrões de ataque visualizando o número total de servidores com tráfego IP de saída mal-intencionado, o tipo de ameaça mal-intencionada e um mapa que mostra a origem desses IPs. 
-* **Consultas comuns de segurança**: essa opção fornece uma lista das consultas de segurança mais comuns que você pode usar para monitorar seu ambiente. Quando você clica em uma dessas consultas, ela abre a folha **Pesquisa** com os resultados da consulta.
+* **Domínios de segurança**: nesta área, você será capaz de toofurther explorar registros de segurança ao longo do tempo, acessar avaliação de malware, atualize a avaliação, segurança de rede, informações de identidade e acesso, computadores com eventos de segurança e ter rapidamente Painel de Central de segurança do acesso tooAzure.
+* **Problemas importantes**: esta opção permitirá tooquickly identificar Olá número de problemas ativos e Olá severidade desses problemas.
+* **Detecções (visualização)**: permite que os padrões de ataque tooidentify visualizando alertas de segurança conforme eles ocorrem em relação a seus recursos.
+* **Inteligência de ameaça**: permite que os padrões de ataque tooidentify visualizando o número total de saudação de servidores com saída tráfego IP mal-intencionado, tipo de ameaça mal-intencionado hello e um mapa que mostra onde esses IPs são provenientes. 
+* **Consultas comuns de segurança**: essa opção fornece uma lista de segurança mais comuns de saudação consultas que você pode usar toomonitor seu ambiente. Quando você clicar em uma das consultas, ele abre Olá **pesquisa** folha com resultados Olá para a consulta.
 
 > [!NOTE]
 > para obter mais informações sobre como o OMS mantém seus dados seguros, leia Como o OMS protege seus dados.
@@ -59,24 +59,24 @@ O painel Auditoria e Segurança do OMS é organizado em quatro categorias princi
 > 
 
 ## <a name="security-domains"></a>Domínios de segurança
-Ao monitorar os recursos, é importante conseguir acessar rapidamente o estado atual de seu ambiente. No entanto, também é importante ter a capacidade de acompanhar os eventos que ocorreram no passado que podem levar a uma compreensão melhor do que está acontecendo em seu ambiente em determinado momento. 
+Quando o monitoramento de recursos, é importante toobe tooquickly capaz de acesso Olá estado atual do seu ambiente. No entanto também é toobe importante tootrack capaz de eventos back que ocorreram em Olá anterior que pode levar tooa melhor compreensão do que está acontecendo em seu ambiente em determinado ponto no tempo. 
 
 > [!NOTE]
-> A retenção de dados ocorre de acordo com o plano de preços do OMS. Para obter mais informações, visite a página de preços do [Microsoft Operations Management Suite](https://www.microsoft.com/server-cloud/operations-management-suite/pricing.aspx) .
+> retenção de dados está de acordo com toohello plano de preços do OMS. Para obter mais informações, visite Olá [Microsoft Operations Management Suite](https://www.microsoft.com/server-cloud/operations-management-suite/pricing.aspx) página de preços.
 > 
 > 
 
-Os cenários de investigação forense e de resposta a incidentes aproveitarão diretamente os resultados disponíveis no bloco **Registros de Segurança ao longo do Tempo** .
+Cenários de investigação de resposta e análise forense incidente diretamente se beneficiará de resultados de saudação disponíveis no hello **registros de segurança ao longo do tempo** lado a lado.
 
 ![Registros de segurança ao longo do tempo](./media/oms-security-getting-started/oms-getting-started-fig2.JPG)
 
-Quando você clicar neste bloco, a folha **Pesquisa** será aberta, mostrando um resultado da consulta para **Eventos de Segurança** (Type=SecurityEvents) com dados baseados nos últimos sete dias, conforme mostrado abaixo:
+Quando você clicar nesse bloco, Olá **pesquisa** folha será aberta, mostrando um resultado de consulta para **eventos de segurança** (tipo = SecurityEvents) com dados com base em Olá últimos sete dias, conforme mostrado abaixo:
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Registros de segurança ao longo do tempo](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
 
-O resultado da pesquisa é dividido em dois painéis: o painel esquerdo fornece uma divisão do número de eventos de segurança encontrados, os computadores nos quais esses eventos foram encontrados, o número de contas que foram descobertas nesses computadores e os tipos de atividades. O painel direito fornece os resultados totais e uma exibição cronológica dos eventos de segurança com o nome e a atividade de evento do computador. Também é possível clicar em **Mostrar Mais** para exibir mais detalhes sobre esse evento, tais como os dados do evento, a ID do evento e a origem do evento.
+resultado da pesquisa Olá é dividido em dois painéis: painel esquerdo Olá fornece uma análise do número de saudação de eventos de segurança que foram encontrados, Olá computadores em que esses eventos foram encontradas, número de saudação de contas que foram descobertos nesses computadores e tipos de saudação de atividades. painel direito da saudação fornece resultados totais hello e uma exibição cronológica Olá de eventos de segurança com atividade de evento e de nome do computador hello. Você também pode clicar em **Mostrar mais** tooview mais detalhes sobre esse evento, como dados de evento de saudação, ID de evento hello e origem do evento hello.
 
 > [!NOTE]
 > Para obter mais informações sobre a consulta de pesquisa do OMS, leia a [referência de pesquisa do OMS](https://technet.microsoft.com/library/mt450427.aspx).
@@ -84,23 +84,23 @@ O resultado da pesquisa é dividido em dois painéis: o painel esquerdo fornece 
 > 
 
 ### <a name="antimalware-assessment"></a>Avaliação antimalware
-Essa opção permite que você identifique rapidamente os computadores sem proteção suficiente e os computadores que estão comprometidos por um malware. O status da avaliação de malware e as ameaças detectadas nos servidores monitorados são lidos e, em seguida, os dados são enviados para o serviço do OMS na nuvem para processamento. Os servidores com ameaças detectadas e os servidores sem proteção suficiente são mostrados no painel de avaliação de malware, que pode ser acessado após clicar no bloco **Avaliação Antimalware**. 
+Este permite opção tooquickly você identificar os computadores com proteção insuficiente e computadores que são comprometidos por um programa mal-intencionado. Avaliação de malware, status e ameaças detectadas nos servidores de saudação monitorada são lidas e hello, em seguida, os dados é enviada toohello serviço do OMS na nuvem Olá para processamento. Servidores com ameaças detectadas e servidores com proteção insuficiente são mostrados no painel de avaliação de malware hello, que pode ser acessada em hello **avaliação Antimalware** lado a lado. 
 
 ![avaliação de malware](./media/oms-security-getting-started/oms-getting-started-fig4-ga.png)
 
-Assim como ocorre com qualquer outro bloco dinâmico disponível no Painel do OMS, ao clicar nele, a folha **Pesquisa** será aberta com o resultado da consulta. Para essa opção, se você clicar na opção **Sem Relatório** em **Status de Proteção**, você terá o resultado da consulta que mostra essa única entrada que contém o nome do computador e sua classificação, conforme mostrado abaixo:
+Assim como qualquer outro bloco dinâmico disponíveis no painel do OMS, quando você clica nele, Olá **pesquisa** folha será aberta com o resultado da consulta hello. Para essa opção, se você clicar em Olá **Reporting não** opção em **Status de proteção**, você terá que mostra essa única entrada que contém o nome do computador hello e sua classificação, como resultado da consulta Olá como mostrado abaixo:
 
 ![resultado da pesquisa](./media/oms-security-getting-started/oms-getting-started-fig5.png)
 
 > [!NOTE]
-> *classificação* é o fornecimento de uma classificação, com a finalidade de refletir o status da proteção (ativado, desativado, atualizado, etc.) e as ameaças encontradas. Ter isso como um número ajuda a fazer agregações.
+> *classificação* é uma classificação fornecendo o status de saudação do tooreflect de proteção de saudação (on, off, atualizado, etc.) e ameaças encontrados. Com que como um número toomake agregações da Ajuda.
 > 
 > 
 
-Se você clicar no nome do computador, você terá a exibição cronológica do status da proteção deste computador. Isso é muito útil para cenários em que você precisa entender se o antimalware foi instalado uma vez e se, em algum momento, foi removido.   
+Se você clicar no nome do computador hello, você terá a exibição cronológica saudação do status de proteção de saudação para este computador. Isso é muito útil para cenários em que você precisa toounderstand se Olá antimalware foi instalado e em algum momento ele foi removido.   
 
 ### <a name="update-assessment"></a>Avaliação de atualização
-Essa opção permite que você determine rapidamente a exposição geral a problemas potenciais de segurança, bem como se essas atualizações são críticas e até que ponto são críticas para seu ambiente. A solução de Segurança e Auditoria do OMS fornece apenas a visualização dessas atualizações; os dados reais são fornecidos pelas [Soluções de Gerenciamento de Atualizações](oms-solution-update-management.md), que é um módulo diferente no OMS. Este é um exemplo das atualizações:
+Isso permite que a opção tooquickly você determinar Olá problemas de segurança de toopotential exposição geral e se ou de quão crítica essas atualizações são para o seu ambiente. OMS solução de segurança e auditoria fornecem apenas visualização Olá dessas atualizações, os dados reais Olá vêm de [soluções de gerenciamento de atualização](oms-solution-update-management.md), que é um módulo diferente no OMS. Veja um exemplo de hello atualizações:
 
 ![atualizações do sistema](./media/oms-security-getting-started/oms-getting-started-fig6-new.png)
 
@@ -110,93 +110,93 @@ Essa opção permite que você determine rapidamente a exposição geral a probl
 > 
 
 ### <a name="identity-and-access"></a>Identidade e Acesso
-A identidade deve ser o plano de controle de sua empresa e a proteção de sua identidade deve ser sua prioridade. Embora, no passado, existiam perímetros em torno das organizações e embora eles fossem um dos principais limites de defesa, hoje em dia, com um número maior de dados e aplicativos sendo movidos para a nuvem, a identidade tornou-se o novo perímetro. 
+Identidade deve ser um controle de saudação plano para a sua empresa, protegendo sua identidade deve ser sua prioridade. Enquanto em Olá anterior, havia perímetro em torno de organizações e esse perímetro foi um dos limites de defesa primária hello, hoje em dia com mais dados e aplicativos mais movendo nuvem toohello identidade Olá torna-se perímetro novo hello. 
 
 > [!NOTE]
-> atualmente, os dados se baseiam apenas em dados de logon dos Eventos de Segurança (ID do evento 4624). No futuro, os logons do Office 365 e os dados do Azure AD também serão incluídos.
+> atualmente dados saudação baseia-se apenas em dados de logon de eventos de segurança (evento ID 4624) em logons de Office365 futuros hello e dados do Azure AD também serão incluídos.
 > 
 > 
 
-Ao monitorar suas atividades de identidade, você poderá agir de forma proativa antes que um incidente local ocorra ou agir de forma reativa para interromper uma tentativa de ataque. O painel **Identidade e Acesso** fornece uma visão geral do estado de identidade, incluindo o número de tentativas de logon com falha, a conta do usuário que foi usada durante as tentativas, as contas que foram bloqueadas, as contas com alteração ou redefinição de senha e o número atual de contas que estão registradas. 
+Ao monitorar as atividades de identidade será medidas proativas capaz de tootake antes de um incidente local ou ações reativo toostop uma tentativa de ataque. Olá **de identidade e acesso** painel fornece uma visão geral do seu estado de identidade, incluindo o número de saudação de toolog tentativas com falha na conta do usuário Olá que foram usadas durante as tentativas, contas que foram bloqueadas, contas com alterado ou redefinição de senha e, no momento, o número de contas que são registrados no. 
 
-Ao clicar no bloco **Identidade e Acesso**, você verá o seguinte painel:
+Quando você clica em Olá **de identidade e acesso** bloco, você verá Olá painel a seguir:
 
 ![identidade e acesso](./media/oms-security-getting-started/oms-getting-started-fig7-ga.png)
 
-As informações disponíveis neste painel podem ajudá-lo imediatamente a identificar uma atividade suspeita potencial. Por exemplo, há 338 tentativas de fazer logon como **Administrador** e 100% dessas tentativas falharam. Isso pode ser causado por um ataque de força bruta nessa conta. Se você clicar nessa conta, obterá mais informações que podem ajudá-lo a determinar o recurso de destino desse ataque potencial:
+informações de saudação disponíveis neste painel imediatamente podem ajudar a tooidentify uma atividade suspeita potencial. Por exemplo, há 338 toolog de tentativas em como **administrador** e 100% dessas tentativas de falha. Isso pode ser causado por um ataque de força bruta nessa conta. Se você clicar nesta conta você obterá mais informações que podem ajudá-lo toodetermine recurso de destino Olá para esse ataque potencial:
 
 ![pesquisar resultados](./media/oms-security-getting-started/oms-getting-started-fig8.JPG)
 
-O relatório detalhado fornece informações importantes sobre esse evento, incluindo: o computador de destino, o tipo de logon (nesse caso, Logon de rede), a atividade (nesse caso, o evento 4625) e uma linha do tempo abrangente de cada tentativa. 
+relatório detalhado Hello fornece informações importantes sobre esse evento, incluindo: o computador de destino hello, tipo de Olá de logon (no logon de rede neste caso), a atividade de saudação (por esse evento caso 4625) e um cronograma abrangente de cada tentativa. 
 
 ### <a name="computers"></a>Computadores
-Este bloco pode ser usado para acessar todos os computadores que têm eventos de segurança de forma ativa. Ao clicar neste bloco, você verá a lista de computadores com eventos de segurança e o número de eventos em cada computador:
+Este bloco pode ser usado tooaccess todos os computadores que têm ativamente os eventos de segurança. Quando você clica neste bloco você verá a lista de saudação de computadores com eventos de segurança e o número de saudação de eventos em cada computador:
 
 ![Computadores](./media/oms-security-getting-started/oms-getting-started-fig9.JPG)
 
-Você pode continuar a investigação clicando em cada computador e examinar os eventos de segurança sinalizados.
+Você pode continuar sua investigação clicando em cada computador e examinar os eventos de segurança de saudação que foram sinalizados.
 
 ### <a name="threat-intelligence"></a>Inteligência contra ameaças
 
-Ao usar a opção Inteligência contra Ameaças disponível na Segurança e Auditoria do OMS, os administradores de TI podem identificar as ameaças à segurança no ambiente, por exemplo, identificar se determinado computador faz parte de um botnet. Os computadores podem se tornar nós em um botnet quando os invasores instalam de forma ilícita malware que se conecta secretamente esse computador ao comando e controle. Ela também pode identificar ameaças potenciais recebidas de canais de comunicação underground, como darknet. Saiba mais sobre o Threat Intelligence lendo o artigo [Monitorando e respondendo a alertas de segurança na solução de Segurança e Auditoria do Operations Management Suite](oms-security-responding-alerts.md).
+Usando a opção de inteligência de ameaça de saudação disponível no OMS segurança e auditoria, os administradores de TI pode identificar ameaças de segurança em ambiente hello, por exemplo, identificar se um determinado computador fizer parte de uma botnet. Computadores podem ser nós em uma botnet quando os invasores forma ilícita instalar malware que secretamente se conecta a esse comando de toohello do computador e o controle. Ela também pode identificar ameaças potenciais recebidas de canais de comunicação underground, como darknet. Saiba mais sobre a inteligência de ameaça lendo [toosecurity de monitoramento e resposta alertas no Operations Management Suite solução de segurança e auditoria](oms-security-responding-alerts.md) artigo.
 
 Em alguns cenários, você pode observar um potencial IP mal-intencionado que foi acessado de um computador monitorado:
 
 ![mapa do threat intel](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
 
-Este e outros alertas na mesma categoria são gerados via Segurança do OMS, aproveitando a [Inteligência contra Ameaças da Microsoft](https://youtu.be/O4WtxgUrDc8). Os dados de Inteligência contra Ameaças são coletados pela Microsoft e também adquiridos dos principais provedores de inteligência contra ameaças. Esses dados são atualizados com frequência e adaptados para ameaças ágeis. Devido à sua natureza, ele deve ser combinado com outras fontes de informações de segurança durante a [investigação](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) de um alerta de segurança. 
+Este alerta e outros em Olá mesma categoria, são gerados por meio da segurança do OMS, aproveitando [Microsoft Threat Intelligence](https://youtu.be/O4WtxgUrDc8). Olá dados de inteligência de ameaça é coletada pela Microsoft, bem como adquirido dos principais provedores de inteligência de ameaça. Esses dados forem atualizados frequentemente e adaptada movendo toofast ameaças. Devido a natureza tooits, ele deve ser combinado com outras fontes de informações de segurança ao [investigando](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) um alerta de segurança. 
 
 ### <a name="baseline-assessment"></a>Avaliação de linha de base
 
 A Microsoft, juntamente com organizações governamentais e do setor no mundo todo, define uma configuração do Windows que representa implantações de servidor altamente seguras. Essa configuração é um conjunto de chaves do registro, configurações de política de auditoria e configurações de política de segurança, juntamente com os valores recomendados da Microsoft para essas configurações. Esse conjunto de regras é conhecido como linha de base de Segurança. Leia [Avaliação de Linha de Base na Solução de Auditoria e Segurança do Operations Management Suite](oms-security-baseline.md) para saber mais informações sobre esta opção.
 
 ### <a name="azure-security-center"></a>Central de Segurança do Azure
-Basicamente, este bloco é um atalho para acessar o painel da Central de Segurança do Azure. Leia [Introdução à Central de Segurança do Azure](../security-center/security-center-get-started.md) para obter mais informações sobre essa solução.
+Esse bloco é basicamente um painel do atalho tooaccess Central de segurança do Azure. Leia [Introdução à Central de Segurança do Azure](../security-center/security-center-get-started.md) para obter mais informações sobre essa solução.
 
 ## <a name="notable-issues"></a>Problemas importantes
-O objetivo principal deste grupo de opções é fornecer uma visão geral dos problemas que você tem em seu ambiente, categorizando-os em Crítico, Aviso e Informativo. O bloco do tipo de problema Ativo é uma visualização desses problemas, mas não permite explorar mais detalhes sobre eles; para isso, você precisa usar a parte inferior deste bloco que tem o nome do problema (NOME), a quantidade de objetos fizeram isso acontecer (CONTAGEM) e o nível em que ele se mostra crítico (SEVERIDADE).
+Olá intenção principal neste grupo de opções é tooprovide uma exibição rápida de problemas de saudação que você tem em seu ambiente, categorizando-los em crítico, aviso e informativo. Olá bloco de tipo de problema ativo é uma visualização desses problemas, mas ele não permite que você tooexplore mais detalhes sobre eles, para que você precisa toouse Olá parte inferior esse bloco que contém o nome de saudação do problema de saudação (nome), quantos objetos tinha isso acontecer (contagem) e como é essencial (GRAVIDADE).
 
 ![Problemas importantes](./media/oms-security-getting-started/oms-getting-started-fig10.JPG)
 
-Você pode ver que esses problemas já foram abordados em diferentes áreas do grupo **Domínios de Segurança** , o que reforça o objetivo dessa exibição: visualizar os problemas mais importantes em seu ambiente em um único lugar.
+Você pode ver que esses problemas já foram abordados em áreas diferentes do hello **domínios de segurança** grupo, o que reforça a intenção de saudação dessa exibição: visualizar problemas mais importantes de saudação em seu ambiente de um único local.
 
 ## <a name="detections-preview"></a>Detecções (visualização)
-O objetivo principal dessa opção é permitir que a TI identifique rapidamente as ameaças potenciais em seu ambiente e a gravidade da ameaça.
+Olá, intenção principal dessa opção é tooallow IT tooquickly identificar ambiente de tootheir ameaças potenciais por meio e a severidade Olá essa ameaça.
 
 ![Threat Intel](./media/oms-security-getting-started/oms-getting-started-fig12.png)
 
-Essa opção também pode ser usada durante uma [investigação de resposta a incidentes](https://blogs.msdn.microsoft.com/azuresecurity/2016/11/30/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) para realizar a avaliação e obter mais informações sobre o ataque.
+Essa opção também pode ser usada durante uma [investigação de resposta a incidentes](https://blogs.msdn.microsoft.com/azuresecurity/2016/11/30/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) tooperform Olá avaliação e obter mais informações sobre ataques de saudação.
 
 > [!NOTE]
-> Para obter mais informações sobre como usar o OMS para resposta a incidentes, assista a este vídeo: [Como utilizar a Central de Segurança do Azure e o Microsoft Operations Management Suite para uma resposta a incidentes](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
+> Para obter mais informações sobre como toouse do OMS para resposta de incidente, assista a este vídeo: [como tooLeverage Olá Central de segurança do Azure & Microsoft Operations Management Suite para uma resposta a incidentes](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
 > 
 > 
 
 ## <a name="threat-intelligence"></a>Inteligência contra ameaças
-A nova seção de inteligência contra ameaças da solução de Segurança e Auditoria visualiza os possíveis padrões de ataque de várias maneiras: o número total de servidores com tráfego IP de saída mal-intencionado, o tipo de ameaça mal-intencionada e um mapa que mostra a origem desses IPs. É possível interagir com o mapa e clicar nos IPs para obter mais informações.
+Olá ameaça nova seção de inteligência de solução de segurança e auditoria Olá visualiza padrões de ataque de saudação de várias maneiras: Olá número total de servidores com saída tráfego IP mal-intencionado, Olá tipo de ameaça mal-intencionados e um mapa que mostra onde esses IPs são provenientes. Você pode interagir com o mapa de saudação e clique no hello IPs para obter mais informações.
 
-As tachinhas amarelas no mapa indicam o tráfego de entrada dos IPs mal-intencionados. Não é incomum que os servidores expostos à Internet observem um tráfego de entrada mal-intencionado, mas recomenda-se examinar essas tentativas para certificar-se de que nenhuma delas foi bem-sucedida. Esses indicadores são baseados nos logs do IIS, no WireData e nos logs do Firewall do Windows.  
+Pinos amarelos no mapa de saudação indicam o tráfego de entrada de IPs mal-intencionado. Não é incomum para servidores que são expostos toohello internet toosee mal-intencionado tráfego de entrada, mas é recomendável analisar esses toomake de tentativas se nenhum deles foi bem-sucedida. Esses indicadores são baseados nos logs do IIS, no WireData e nos logs do Firewall do Windows.  
 
 ![Threat Intel](./media/oms-security-getting-started/oms-getting-started-fig11-ga.png)
 
 ## <a name="common-security-queries"></a>Consultas comuns de segurança
-A lista de consultas comuns de segurança disponível pode ser útil para acessar rapidamente informações do recurso e personalizá-las de acordo com as necessidades de seu ambiente. Essas consultas comuns são:
+lista de saudação de consultas comuns de segurança disponíveis pode ser útil para você toorapidly acesso informações sobre o recurso e personalizá-lo com base nas necessidades do seu ambiente. Essas consultas comuns são:
 
 * Todas as Atividades de Segurança
-* Atividades de Segurança no computador “computer01.contoso.com” (substituir pelo nome de seu computador)
-* Atividades de Segurança no computador “computer01.contoso.com” em relação à conta “Administrador” (substituir pelos nomes de seu computador e sua conta)
+* Atividades de segurança no computador "computer01.contoso.com hello" (Substituir pelo nome do seu computador)
+* Atividades de segurança no computador "computer01.contoso.com hello" conta "Administrador" (substituir pelos seus próprios nomes de computador e da conta)
 * Atividade de Logon por Computador
 * Contas que encerraram o antimalware da Microsoft em qualquer computador
-* Computadores em que o processo de antimalware da Microsoft foi encerrado
+* Computadores nos quais Olá processo antimalware da Microsoft foi encerrado
 * Computadores em que “hash.exe” foi executado (substituir pelo nome de outro processo)
 * Todos os nomes de Processos que foram executados
 * Atividade de Logon por Conta
-* Contas que se conectaram remotamente no computador “computer01.contoso.com” (substituir pelo nome de seu computador)
+* Contas que fizeram logon remotamente no computador "computer01.contoso.com hello" (Substituir pelo nome do seu computador)
 
 ## <a name="see-also"></a>Consulte também
-Neste documento, apresentamos a você a solução de Segurança e Auditoria do OMS. Para saber mais sobre a Segurança do OMS, veja os seguintes artigos:
+Neste documento, você foram introduzidas tooOMS solução de segurança e auditoria. toolearn mais sobre a segurança do OMS, consulte Olá artigos a seguir:
 
 * [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
-* [Monitorando e respondendo a alertas de segurança na solução de Segurança e Auditoria do Operations Management Suite](oms-security-responding-alerts.md)
+* [Monitorando e respondendo tooSecurity alertas no Operations Management Suite solução de segurança e auditoria](oms-security-responding-alerts.md)
 * [Monitorando recursos na solução de Segurança e Auditoria do Operations Management Suite](oms-security-monitoring-resources.md)
 

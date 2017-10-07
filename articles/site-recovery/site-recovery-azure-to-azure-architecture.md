@@ -1,6 +1,6 @@
 ---
-title: "Como funciona a replicação de máquina virtual do Azure entre regiões do Azure no Azure Site Recovery?  | Microsoft Docs"
-description: "Este artigo fornece uma visão geral dos componentes e da arquitetura usados ao replicar VMs do Azure entre regiões do Azure com o serviço Azure Site Recovery."
+title: "aaaHow dá a replicação de máquina virtual do Azure entre regiões do Azure trabalho no Azure Site Recovery?  | Microsoft Docs"
+description: "Este artigo fornece uma visão geral dos componentes e arquitetura usada ao replicar máquinas virtuais do Azure entre regiões do Azure usando o serviço do Azure Site Recovery hello."
 services: site-recovery
 documentationcenter: 
 author: sujayt
@@ -14,72 +14,72 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/29/2017
 ms.author: sujayt
-ms.openlocfilehash: ec397eaeda963f257d1bd996f1f57189bcde17ca
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 01eda83e490821f8afc8a2973c18a19453a2e84a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="how-does-azure-vm-replication-work-in-site-recovery"></a>Como funciona a replicação de VM do Azure no Site Recovery?
 
 
-Este artigo descreve os componentes e os processos envolvidos na replicação e recuperação de VMs (máquinas virtuais) do Azure de uma região para outra usando o serviço [Azure Site Recovery](site-recovery-overview.md).
+Este artigo descreve Olá componentes e processos envolvidos na replicação e recuperação de máquinas virtuais (VMs) do Azure de uma região tooanother usando Olá [do Azure Site Recovery](site-recovery-overview.md) serviço.
 
 >[!NOTE]
->Atualmente, a replicação de VM do Azure com o serviço Site Recovery está em versão prévia.
+>Replicação de VM do Azure com o serviço de recuperação de Site do hello está atualmente em visualização.
 
-Publique eventuais comentários no final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Lançar os comentários na parte inferior da saudação deste artigo, ou fazer perguntas no hello [Fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="architectural-components"></a>Componentes de arquitetura
 
-O diagrama a seguir fornece uma exibição de alto nível de um ambiente de VM do Azure em uma região específica (neste exemplo, a localização Leste dos EUA). Em um ambiente de VM do Azure:
+Olá diagrama a seguir fornece uma visão geral de um ambiente de VM do Azure em uma região específica (no exemplo, Olá local do Leste dos EUA). Em um ambiente de VM do Azure:
 - Os aplicativos podem ser executados em VMs com discos distribuídos em contas de armazenamento.
-- As VMs podem ser incluídas em uma ou mais sub-redes de uma rede virtual.
+- Olá VMs pode ser incluído em uma ou mais sub-redes em uma rede virtual.
 
-![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
+![ambiente do cliente](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
-Saiba mais sobre os pré-requisitos e requisitos de implantação na [matriz de suporte](site-recovery-support-matrix-azure-to-azure.md).
+Saiba mais sobre os pré-requisitos de implantação hello e os requisitos em Olá [matriz de suporte](site-recovery-support-matrix-azure-to-azure.md).
 
 ## <a name="replication-process"></a>Processo de replicação
 
 ### <a name="step-1"></a>Etapa 1
 
-Quando você habilita a replicação de VM do Azure no portal do Azure, os recursos mostrados na tabela e no diagrama a seguir são criados automaticamente na região de destino. Por padrão, os recursos são criados com base nas configurações da região de origem. Você pode personalizar as configurações de destino, conforme necessário. [Saiba mais](site-recovery-replicate-azure-to-azure.md).
+Quando você habilitar a replicação de VM do Azure no portal do Azure de saudação, Olá recursos mostrados em Olá seguinte diagrama e tabela são criados automaticamente na região de destino hello. Por padrão, os recursos são criados com base nas configurações da região de origem. Você pode personalizar as configurações de destino de saudação conforme necessário. [Saiba mais](site-recovery-replicate-azure-to-azure.md).
 
 ![Habilitar o processo de replicação, etapa 1](./media/site-recovery-azure-to-azure-architecture/enable-replication-step-1.png)
 
 **Recurso** | **Detalhes**
 --- | ---
-**Grupo de recursos de destino** | O grupo de recursos ao qual as VMs replicadas pertencem após o failover.
-**Rede virtual de destino** | A rede virtual na qual as VMs replicadas estão localizadas após o failover. Um mapeamento de rede é criado entre redes virtuais de origem e de destino e vice-versa.
-**Contas de armazenamento de cache** | Antes que as alterações nas VMs de origem sejam replicadas para a conta de armazenamento de destino, elas são acompanhadas e enviadas para a conta de armazenamento de cache no local de destino. Isso garante um impacto mínimo sobre os aplicativos de produção em execução na VM.
-**Contas de armazenamento de destino**  | Contas de armazenamento no local de destino para as quais os dados são replicados.
-**Conjuntos de disponibilidade de destino**  | Conjuntos de disponibilidade nos quais as VMs replicadas estão localizadas após o failover.
+**Grupo de recursos de destino** | Olá toowhich do grupo de recursos pertencem VMs replicadas após o failover.
+**Rede virtual de destino** | rede virtual de saudação em que VMs replicadas estão localizadas após o failover. Um mapeamento de rede é criado entre redes virtuais de origem e de destino e vice-versa.
+**Contas de armazenamento de cache** | Antes das alterações na fonte que VMs são replicadas toohello conta de armazenamento de destino, eles são controlados e enviados toohello conta de armazenamento de cache no local de destino hello. Isso garante um impacto mínimo sobre aplicativos de produção em execução em Olá VM.
+**Contas de armazenamento de destino**  | Contas de armazenamento em dados de Olá Olá destino local toowhich é replicada.
+**Conjuntos de disponibilidade de destino**  | Conjuntos de disponibilidade no qual Olá replicada VMs estão localizadas após o failover.
 
 ### <a name="step-2"></a>Etapa 2
 
-Conforme a replicação é habilitada, a extensão Serviço de mobilidade do Site Recovery é automaticamente instalada na VM. Ocorre o seguinte:
+Como a replicação estiver habilitada, Olá serviço de mobilidade de extensão de recuperação de Site é instalado automaticamente nos Olá VM. a seguir Olá ocorre:
 
-1. A VM é registrada no Site Recovery.
+1. Olá VM está registrado com o Site Recovery.
 
-2. A replicação contínua é configurada na VM. As gravações de dados nos discos de VM são continuamente transferidas para a conta de armazenamento de cache no local de origem.
+2. A replicação contínua está configurada para Olá VM. Grava dados em Olá VM discos estão continuamente transferidos toohello conta de armazenamento de cache no local de origem hello.
 
    ![Habilitar o processo de replicação, etapa 2](./media/site-recovery-azure-to-azure-architecture/enable-replication-step-2.png)
 
    >[!IMPORTANT]
-   > O Site Recovery nunca precisa de conectividade de entrada à VM. A VM precisa apenas de conectividade de saída aos endereços IP/URLs do serviço Site Recovery, endereços IP/URLs de autenticação do Office 365 e endereços IP da conta de armazenamento de cache. Para obter mais informações, consulte o artigo [Diretrizes de rede para replicação de máquinas virtuais do Azure](site-recovery-azure-to-azure-networking-guidance.md).
+   > Recuperação de site nunca precisa de conectividade de entrada toohello VM. Olá VM precisa apenas conectividade de saída tooSite recuperação URLs/endereços IP, endereços IP/URLs de autenticação do Office 365 e endereços IP de conta de armazenamento de cache. Para obter mais informações, consulte Olá [diretrizes de rede para replicar máquinas virtuais do Azure](site-recovery-azure-to-azure-networking-guidance.md) artigo.
 
 ## <a name="continuous-replication-process"></a>Processo de replicação contínua
 
-Depois que a replicação contínua estiver funcionando, as gravações de disco serão transferidas imediatamente para a conta de armazenamento de cache. O Site Recovery processa os dados e envia-os para a conta de armazenamento de destino. Depois que os dados são processados, pontos de recuperação são gerados na conta de armazenamento de destino em intervalos de alguns minutos.
+Depois que a replicação contínua está funcionando, o disco gravações são imediatamente transferidos toohello conta de armazenamento de cache. Recuperação de site processa dados saudação e envia toohello conta de armazenamento de destino. Após o processamento de dados de saudação, pontos de recuperação são gerados na conta de armazenamento de destino Olá intervalos de alguns minutos.
 
 ## <a name="failover-process"></a>Processo de failover
 
-Quando você inicia um failover, as VMs são criadas no grupo de recursos de destino, na rede virtual de destino, na sub-rede de destino e no conjunto de disponibilidade de destino. Durante um failover, você pode usar qualquer ponto de recuperação.
+Quando você iniciar um failover, Olá que máquinas virtuais são criadas no grupo de recursos de destino hello, a rede virtual de destino, a sub-rede de destino e hello destino conjunto de disponibilidade. Durante um failover, você pode usar qualquer ponto de recuperação.
 
 ![Processo de failover](./media/site-recovery-azure-to-azure-architecture/failover.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre a [rede](site-recovery-azure-to-azure-networking-guidance.md) para a replicação de VM do Azure.
-- Siga um passo a passo para [replicar VMs do Azure.](site-recovery-azure-to-azure.md)
+- Execute um passo a passo muito[replicar máquinas virtuais do Azure.](site-recovery-azure-to-azure.md)

@@ -1,6 +1,6 @@
 ---
-title: Restaurar dados no Azure para um computador Windows ou Windows Server | Microsoft Docs
-description: Saiba como restaurar os dados armazenados no Azure para um computador Windows ou Windows Server.
+title: aaaRestore dados no computador do Windows ou do Azure tooa Windows Server | Microsoft Docs
+description: Saiba como toorestore dados armazenados no computador do Windows ou do Azure tooa do Windows Server.
 services: backup
 documentationcenter: 
 author: saurabhsensharma
@@ -14,172 +14,172 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/16/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 231dd61f95267b3a504ed70e9b3a5abc470b69b2
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 11335495e448986a74f1733406f87e04331641d7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Restaurar arquivos em um computador de cliente do Windows ou Windows Server usando o modelo de implantação do Gerenciador de recursos
+# <a name="restore-files-tooa-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Restaurar arquivos tooa Windows server ou o computador de cliente do Windows usando o modelo de implantação do Gerenciador de recursos
 > [!div class="op_single_selector"]
 > * [Portal do Azure](backup-azure-restore-windows-server.md)
 > * [Portal clássico](backup-azure-restore-windows-server-classic.md)
 >
 >
 
-Este artigo explica como restaurar dados de um cofre de backup. Para restaurar dados, você pode usar o assistente recuperar dados do agente do Serviços de Recuperação do Microsoft Azure (MARS). Ao restaurar dados, é possível:
+Este artigo explica como toorestore dados de um cofre de backup. toorestore dados, você usa o Assistente de recuperar dados de saudação no agente do Microsoft Azure Recovery Services (MARS) hello. Ao restaurar dados, é possível:
 
-* Restaurar dados para o mesmo computador do qual os backups foram realizados.
-* Restaurar dados para um computador alternativo.
+* Restaurar dados toohello mesmo computador do qual os backups Olá foram realizados.
+* Restaure a máquina alternativo de tooan de dados.
 
-Em janeiro de 2017, a Microsoft lançou uma atualização de Versão Prévia para o agente do MARS. Juntamente com as correções de bug, essa atualização permite Restauração Instantânea, que permite que você monte um instantâneo de ponto de recuperação gravável como um volume de recuperação. Em seguida, é possível explorar os arquivos de volume de recuperação e de cópia em um computador local e, assim, restaurar arquivos de forma seletiva.
+Em janeiro de 2017, a Microsoft lançou um agente de MARS toohello de atualização de visualização. Juntamente com correções de bug, essa atualização permite restauração instantânea, que permite que você toomount um instantâneo de ponto de recuperação gravável como um volume de recuperação. Em seguida, você pode explorar Olá recuperação volume e copiar arquivos tooa computador local restaurando assim seletivamente arquivos.
 
 > [!NOTE]
-> A [atualização do Backup do Azure de janeiro de 2017](https://support.microsoft.com/en-us/help/3216528?preview) será necessária se você desejar usar a Restauração Instantânea para restaurar dados. Além disso, os dados de backup devem ser protegidos em cofres nas localidades listadas no artigo de suporte. Consulte a [atualização do Backup do Azure de janeiro de 2017](https://support.microsoft.com/en-us/help/3216528?preview) para obter a lista mais recente de localidades que oferecem suporte à Restauração Instantânea. No momento, a Restauração Instantânea **não** está disponível em todas as localidades.
+> Olá [de janeiro de 2017 atualização de Backup do Azure](https://support.microsoft.com/en-us/help/3216528?preview) é necessária se você quiser toouse restauração instantânea toorestore dados. Também os dados de backup Olá devem ser protegidos no cofres em localidades listados no artigo de suporte de saudação. Consulte Olá [de janeiro de 2017 atualização de Backup do Azure](https://support.microsoft.com/en-us/help/3216528?preview) para a lista mais recente Olá das localidades que oferecem suporte à restauração instantânea. No momento, a Restauração Instantânea **não** está disponível em todas as localidades.
 >
 
-A Restauração Instantânea está disponível para uso em cofres dos Serviços de Recuperação no portal do Azure e em cofres de Backup no portal clássico. Se desejar usar a Restauração Instantânea, baixe a atualização do MARS e siga os procedimentos que mencionam a Restauração Instantânea.
+Restauração instantânea está disponível para uso em cofres de serviços de recuperação no hello portal do Azure e cofres de Backup no portal clássico do hello. Se você quiser toouse restauração instantânea, baixe a atualização de MARS Olá e siga os procedimentos de saudação que mencionem restauração instantânea.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="use-instant-restore-to-recover-data-to-the-same-machine"></a>Use a Restauração Instantânea para recuperar dados no mesmo computador
+## <a name="use-instant-restore-toorecover-data-toohello-same-machine"></a>Use a restauração instantânea toohello de dados toorecover mesmo computador
 
-Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo computador (do qual o backup foi feito), as etapas a seguir o ajudarão a recuperar os dados.
+Se você excluiu acidentalmente um arquivo e quiser toorestore-toohello mesma máquina (do qual Olá é feito backup), Olá seguindo as etapas ajudará você a recuperar dados de saudação.
 
-1. Abra o snap-in do **Backup do Microsoft Azure** . Se você não souber onde o snap-in foi instalado, pesquise **Backup do Microsoft Azure** no computador ou servidor.
+1. Olá abrir **Backup do Microsoft Azure** encaixe em. Se você não souber onde o snap-in de saudação foi instalado, pesquisar Olá computador ou servidor para **Backup do Microsoft Azure**.
 
-    O aplicativo da área de trabalho deve aparecer nos resultados da pesquisa.
+    aplicativo de área de trabalho de saudação deve aparecer nos resultados da pesquisa Olá.
 
-2. Clique em **Recuperar Dados** para iniciar o assistente.
+2. Clique em **recuperar dados** toostart Assistente de saudação.
 
     ![Recuperar Dados](./media/backup-azure-restore-windows-server/recover.png)
 
-3. No painel **Introdução**, para restaurar os dados para o mesmo computador ou servidor, selecione **Este servidor (`<server name>`)** e clique em **Próximo**.
+3. Em Olá **Introdução** painel, toorestore Olá dados toohello mesmo servidor ou computador, selecione **neste servidor (`<server name>`)** e clique em **próximo**.
 
-    ![Escolha a opção Este servidor para restaurar os dados para o mesmo computador](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
+    ![Escolha esse servidor opção toorestore Olá dados toohello mesmo computador](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. No painel **Selecionar Modo de Recuperação**, escolha **Pastas e arquivos individuais** e, em seguida, clique em **Avançar**.
+4. Em Olá **Selecionar modo de recuperação** painel, escolha **arquivos e pastas individuais** e, em seguida, clique em **próximo**.
 
     ![Procurar arquivos](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
 
-5. No painel **Selecionar Volume e Data**, selecione o volume que contém os arquivos e/ou pastas que deseja restaurar.
+5. Em Olá **selecionar Volume e data** painel, o volume de saudação select que contém arquivos de saudação e/ou pastas que você deseja toorestore.
 
-    No calendário, selecione um ponto de recuperação. Você pode restaurar de qualquer ponto de recuperação. As datas em **negrito** indicam a disponibilidade de pelo menos um ponto de recuperação. Depois de selecionar uma data, se houver vários pontos de recuperação disponíveis, escolha o ponto de recuperação específico no menu suspenso **Hora**.
+    No calendário hello, selecione um ponto de recuperação. Você pode restaurar de qualquer ponto de recuperação. Datas no **negrito** indicar a disponibilidade de saudação de pelo menos um ponto de recuperação. Quando você seleciona uma data, se houver vários pontos de recuperação, escolher o ponto de recuperação específico Olá Olá **tempo** menu suspenso.
 
     ![Volume e data](./media/backup-azure-restore-windows-server/samemachine_selectvolumedate_instantrestore.png)
 
-6. Depois de ter escolhido o ponto de recuperação a ser restaurado, clique em **Montar**.
+6. Depois de ter escolhido Olá toorestore de ponto de recuperação, clique em **montar**.
 
-    O Backup do Azure monta o ponto de recuperação local e o usa como um volume de recuperação.
+    O Backup do Azure monta o ponto de recuperação locais hello e utiliza como um volume de recuperação.
 
-7. No painel **Procurar e Recuperar Arquivos**, clique em **Procurar** para abrir o Windows Explorer e localize os arquivos e pastas desejados.
+7. Em Olá **procurar e recuperar arquivos** painel, clique em **procurar** tooopen Windows Explorer e localize Olá arquivos e pastas que você deseja.
 
     ![Opções de recuperação](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
 
-8. No Windows Explorer, copie os arquivos e/ou pastas que deseja restaurar e cole-os em qualquer localização local no servidor ou computador. Você pode abrir ou transmitir os arquivos diretamente do volume de recuperação e verificar se as versões corretas são recuperadas.
+8. No Windows Explorer, Olá copiar os arquivos e/ou pastas você deseja toorestore e colá-los tooany local toohello local servidor ou computador. Você pode abrir ou transmitir Olá arquivos diretamente do volume de recuperação hello e verificar Olá correto versões são recuperadas.
 
-    ![Copiar e colar arquivos e pastas do volume montado na localização local](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
+    ![Copie e cole os arquivos e pastas do local do volume montado toolocal](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
 
-9. Quando você terminar de restaurar os arquivos e/ou pastas, no painel **Procurar e Recuperar Arquivos**, clique em **Desmontar**. Clique em **Sim** para confirmar que deseja desmontar o volume.
+9. Quando você terminar de restauração Olá arquivos e/ou pastas, Olá **arquivos de recuperação e procurar** painel, clique em **desmontagem**. Em seguida, clique em **Sim** tooconfirm que você deseja que o volume de saudação toounmount.
 
-    ![Desmontar o volume e confirmar](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
+    ![Desmontar o volume de saudação e confirmar](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Se você não clicar em Desmontar, o Volume de Recuperação permanecerá montado por seis horas a partir da hora em que foi montado. No entanto, o tempo de montagem é estendido até um máximo de 24 horas no caso de uma cópia de arquivo em andamento. Não será executada nenhuma operação de backup enquanto o volume estiver montado. Qualquer operação de backup agendada para execução durante o tempo em que o volume estiver montado será executada após o volume de recuperação ser desmontado.
+    > Se você não clicar desmontagem, Olá recuperação Volume permanecerá montada por 6 horas de tempo de saudação quando ele foi montado. No entanto, o tempo de montagem de saudação é estendido até um máximo de 24 horas no caso de uma cópia de arquivo em andamento. Nenhuma operação de backup será executado enquanto Olá volume está montado. Toorun qualquer operação de backup agendada durante o tempo de saudação quando o volume de saudação estiver montado, será executado após o volume de saudação de recuperação é desmontado.
     >
 
 
-## <a name="use-instant-restore-to-restore-data-to-an-alternate-machine"></a>Usar a Restauração Instantânea para restaurar dados em um computador alternativo
-Se o servidor inteiro for perdido, você ainda pode recuperar dados do backup do Azure para um computador diferente. As etapas a seguir ilustram o fluxo de trabalho.
+## <a name="use-instant-restore-toorestore-data-tooan-alternate-machine"></a>Usar restauração instantânea toorestore dados tooan alternativa máquina
+Se o servidor inteiro for perdido, você ainda poderá recuperar dados de máquina do Azure Backup tooa diferente. Olá etapas a seguir ilustra o fluxo de trabalho de saudação.
 
 
-A terminologia usada nessas etapas inclui:
+terminologia de saudação usada essas etapas incluem:
 
-* *Máquina de origem* : a máquina original da qual o backup foi feito e que está indisponível no momento.
-* *Computador de destino* – O computador para o qual os dados estão sendo recuperados.
-* *Cofre de exemplo* – o cofre Serviços de Recuperação no qual a *Máquina de origem* e a *Máquina de destino* estão registradas. <br/>
+* *Máquina de origem* – máquina original de saudação do qual backup Olá foi feita e que está disponível no momento.
+* *Computador de destino* – Olá máquina toowhich Olá dados estão sendo recuperados.
+* *Cofre de exemplo* – Olá Olá de toowhich de Cofre de serviços de recuperação *máquina de origem* e *máquina destino* são registrados. <br/>
 
 > [!NOTE]
-> Os backups não podem ser restaurados em um computador de destino executando uma versão anterior do sistema operacional. Por exemplo, um backup feito em um computador com Windows 7 pode ser restaurado em um computador com Windows 8 ou mais recente. Um backup feito em um computador com Windows 8 não pode ser restaurado em um computador com Windows 7.
+> Os backups não podem ser restaurado tooa máquina de destino executando uma versão anterior do sistema operacional de saudação. Por exemplo, um backup feito em um computador com Windows 7 pode ser restaurado em um computador com Windows 8 ou mais recente. Um backup feito em um computador Windows 8 não pode ser o computador restaurado tooa Windows 7.
 >
 >
 
-1. Abra o snap-in do **Backup do Microsoft Azure** no *Computador de destino*.
+1. Olá abrir **Backup do Microsoft Azure** encaixe em Olá *máquina de destino*.
 
-2. Verifique se o *Computador de destino* e o *Computador de origem* estão registrados no mesmo cofre de Serviços de Recuperação.
+2. Certifique-se de saudação *máquina destino* e hello *máquina de origem* são registrado toohello dos serviços de recuperação mesmo cofre.
 
-3. Clique em **Recuperar Dados** para abrir o **Assistente de Recuperação de Dados**.
+3. Clique em **recuperar dados** tooopen Olá **Assistente para recuperar dados**.
 
     ![Recuperar Dados](./media/backup-azure-restore-windows-server/recover.png)
 
-4. No painel **Introdução**, selecione **Outro servidor**
+4. Em Olá **Introdução** painel, selecione **outro servidor**
 
     ![Outro servidor](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
 
-5. Forneça o arquivo de credencial de cofre que corresponde ao *Cofre de exemplo* e clique em **Próximo**.
+5. Fornecer o arquivo de credencial de cofre Olá correspondente toohello *cofre exemplo*e clique em **próximo**.
 
-    Se o arquivo de credencial de cofre for inválido (ou tiver expirado), baixe um novo arquivo de credencial de cofre do *Cofre de exemplo* no Portal do Azure. Depois de fornecer uma credencial de cofre válida, o nome do Cofre de Backup correspondente aparecerá.
+    Se o arquivo de credencial de cofre Olá é inválido (ou expirado), baixe um novo arquivo de credencial de Cofre de saudação *cofre exemplo* em Olá portal do Azure. Depois que você forneça uma credencial de cofre válida, Olá nome da saudação que Cofre de Backup correspondente é exibida.
 
 
-6. No painel **Selecionar Servidor de Backup**, selecione o *Computador de origem* na lista de computadores exibidos e forneça a senha. Em seguida, clique em **Próximo**.
+6. Em Olá **Selecionar servidor de Backup** painel, selecione Olá *máquina de origem* da lista de saudação de máquinas exibidas e forneça a senha de saudação. Em seguida, clique em **Próximo**.
 
     ![Lista de computadores](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 
-7. No painel **Selecionar Modo de Recuperação**, selecione **Pastas e arquivos individuais** e clique em **Próximo**.
+7. Em Olá **Selecionar modo de recuperação** painel, selecione **arquivos e pastas individuais** e clique em **próximo**.
 
     ![Pesquisar](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
 
-8. No painel **Selecionar Volume e Data**, selecione o volume que contém os arquivos e/ou pastas que deseja restaurar.
+8. Em Olá **selecionar Volume e data** painel, o volume de saudação select que contém arquivos de saudação e/ou pastas que você deseja toorestore.
 
-    No calendário, selecione um ponto de recuperação. Você pode restaurar de qualquer ponto de recuperação. As datas em **negrito** indicam a disponibilidade de pelo menos um ponto de recuperação. Depois de selecionar uma data, se houver vários pontos de recuperação disponíveis, escolha o ponto de recuperação específico no menu suspenso **Hora**.
+    No calendário hello, selecione um ponto de recuperação. Você pode restaurar de qualquer ponto de recuperação. Datas no **negrito** indicar a disponibilidade de saudação de pelo menos um ponto de recuperação. Quando você seleciona uma data, se houver vários pontos de recuperação, escolher o ponto de recuperação específico Olá Olá **tempo** menu suspenso.
 
     ![Pesquisar itens](./media/backup-azure-restore-windows-server/alternatemachine_selectvolumedate_instantrestore.png)
 
-9. Clique em **Montar** para montar localmente o ponto de recuperação como um volume de recuperação em seu *Computador de destino*.
+9. Clique em **montar** toolocally montagem Olá ponto de recuperação como um volume de recuperação em seu *máquina de destino*.
 
-10. No painel **Procurar e Recuperar Arquivos**, clique em **Procurar** para abrir o Windows Explorer e localize os arquivos e pastas desejados.
+10. Em Olá **procurar e recuperar arquivos** painel, clique em **procurar** tooopen Windows Explorer e localize Olá arquivos e pastas que você deseja.
 
     ![Criptografia](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
 
-11. No Windows Explorer, copie os arquivos e/ou pastas do volume de recuperação e cole-os na localização de seu *Computador de destino*. Você pode abrir ou transmitir os arquivos diretamente do volume de recuperação e verificar se as versões corretas são recuperadas.
+11. No Windows Explorer, copie arquivos hello e/ou pastas do volume de recuperação hello e colá-los tooyour *máquina destino* local. Você pode abrir ou transmitir Olá arquivos diretamente do volume de recuperação hello e verificar Olá correto versões são recuperadas.
 
     ![Criptografia](./media/backup-azure-restore-windows-server/alternatemachine_copy_instantrestore.png)
 
-12. Quando você terminar de restaurar os arquivos e/ou pastas, no painel **Procurar e Recuperar Arquivos**, clique em **Desmontar**. Clique em **Sim** para confirmar que deseja desmontar o volume.
+12. Quando você terminar de restauração Olá arquivos e/ou pastas, Olá **arquivos de recuperação e procurar** painel, clique em **desmontagem**. Em seguida, clique em **Sim** tooconfirm que você deseja que o volume de saudação toounmount.
 
     ![Criptografia](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Se você não clicar em Desmontar, o Volume de Recuperação permanecerá montado por seis horas a partir da hora em que foi montado. No entanto, o tempo de montagem é estendido até um máximo de 24 horas no caso de uma cópia de arquivo em andamento. Não será executada nenhuma operação de backup enquanto o volume estiver montado. Qualquer operação de backup agendada para execução durante o tempo em que o volume estiver montado será executada após o volume de recuperação ser desmontado.
+    > Se você não clicar desmontagem, Olá recuperação Volume permanecerá montada por 6 horas de tempo de saudação quando ele foi montado. No entanto, o tempo de montagem de saudação é estendido até um máximo de 24 horas no caso de uma cópia de arquivo em andamento. Nenhuma operação de backup será executado enquanto Olá volume está montado. Toorun qualquer operação de backup agendada durante o tempo de saudação quando o volume de saudação estiver montado, será executado após o volume de saudação de recuperação é desmontado.
     >
 
 ## <a name="troubleshooting"></a>Solucionar problemas
-Se o Backup do Azure não tiver montado com êxito o volume de recuperação mesmo após os diversos minutos de clicar em **Montar** ou falha ao montar o volume de recuperação com um ou mais erros, siga as etapas abaixo para iniciar a recuperação normalmente.
+Se Backup do Azure com êxito não montar o volume de recuperação Olá até mesmo após vários minutos clicando em **montar** ou falhar toomount Olá volume de recuperação com um ou mais erros, siga as etapas de saudação abaixo toobegin recuperando normalmente.
 
-1.  Cancele o processo de montagem em andamento caso ele esteja sendo executado por vários minutos.
+1.  Cancele o processo de montagem em andamento de saudação caso esteve em execução por vários minutos.
 
-2.  Verifique se você está na versão mais recente do agente de Backup do Azure. Para obter as informações de versão do agente de Backup do Azure, clique em **Sobre o Agente dos Serviços de Recuperação do Microsoft Azure** no painel **Ações** do console de Backup do Microsoft Azure e verifique se o número de **Versão** é igual a ou maior do que a versão mencionada [neste artigo](https://go.microsoft.com/fwlink/?linkid=229525). Você pode baixar a versão mais recente [aqui](https://go.microsoft.com/fwLink/?LinkID=288905)
+2.  Certifique-se de que você está na versão mais recente de saudação do agente de Backup do Azure hello. toofind informações de versão de saudação do agente de Backup do Azure, clique em **sobre o Microsoft Azure Recovery Services Agent** em Olá **ações** painel do Microsoft Azure Backup console e certifique-se de que Olá ** Versão** número é igual tooor superior à versão Olá mencionado na [neste artigo](https://go.microsoft.com/fwlink/?linkid=229525). Você pode baixar a versão mais recente de saudação do [aqui](https://go.microsoft.com/fwLink/?LinkID=288905)
 
-3.  Vá para **Gerenciador de Dispositivos** -> **Controladores de Armazenamento** e verifique se você pode localizar o **Iniciador do Microsoft iSCSI**. Se você puder localizá-lo, vá diretamente para a etapa 7 abaixo. 
+3.  Vá muito**Gerenciador de dispositivos** -> **controladores de armazenamento** e certifique-se de que você pode localizar **iniciador Microsoft iSCSI**. Se você pode localizá-lo, vá diretamente toostep 7 abaixo. 
 
-4.  Se você não puder localizar o serviço Iniciador do Microsoft iSCSI conforme mencionado na etapa 3, verifique se você pode encontrar uma entrada em **Gerenciador de Dispositivos** -> **Controladores de Armazenamento** chamada **Dispositivo Desconhecido** com a ID de Hardware **ROOT\ISCSIPRT**.
+4.  Se você não puder localizar o serviço do iniciador Microsoft iSCSI conforme mencionado na etapa 3, verifique toosee se você pode encontrar uma entrada em **Gerenciador de dispositivos** -> **controladores de armazenamento** chamado ** Dispositivo desconhecido** com a ID de Hardware **ROOT\ISCSIPRT**.
 
 5.  Clique com o botão direito do mouse em **Dispositivo Desconhecido** e selecione **Atualizar Software de Driver**.
 
-6.  Atualize o driver ao selecionar a opção para **Pesquisar automaticamente software de driver atualizado**. A conclusão da atualização deve alterar o **Dispositivo Desconhecido** para o **Iniciador do Microsoft iSCSI** conforme mostrado abaixo. 
+6.  Atualizar o driver de hello, selecionando a opção de saudação muito **pesquisar automaticamente software de driver atualizado de**. Conclusão da atualização Olá deve alterar **dispositivo desconhecido** muito**iniciador Microsoft iSCSI** conforme mostrado abaixo. 
 
     ![Criptografia](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
 
-7.  Vá para **Gerenciador de Tarefas** -> **Serviços (Local)** -> **Serviço Iniciador do Microsoft iSCSI**. 
+7.  Vá muito**Gerenciador de tarefas** -> **serviços (Local)** -> **serviço iniciador Microsoft iSCSI**. 
 
     ![Criptografia](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
     
-8.  Reinicie o serviço Iniciador do Microsoft iSCSI ao clicar com o botão direito do mouse no serviço, clicar em **Parar** e continue clicando com o botão direito do mouse e clicando em **Iniciar**.
+8.  Reinicie o serviço Olá Microsoft iSCSI Initiator clicando-se no serviço hello, clicando em **parar** e mais clique direito novamente e clicando em **iniciar**.
 
 9.  Repita a recuperação usando a Restauração Instantânea. 
 
-Se a recuperação ainda falhar, reinicialize o servidor/cliente. Se uma reinicialização não for desejável ou se a recuperação ainda falhar mesmo após a reinicialização do servidor, tente recuperar de um Computador Alternativo e contate o Suporte do Azure no [Portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) e envie uma solicitação de suporte.
+Se recuperação Olá ainda falhar, reinicialize o servidor/cliente. Se uma reinicialização não é desejável ou recuperação Olá ainda falha mesmo após a reinicialização do servidor de saudação, tente recuperar de uma máquina alternativo e entre em contato com suporte do Azure indo muito[Portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) e enviar uma solicitação de suporte.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Agora que você restaurou seus arquivos e pastas, poderá [gerenciar seus backups](backup-azure-manage-windows-server.md).

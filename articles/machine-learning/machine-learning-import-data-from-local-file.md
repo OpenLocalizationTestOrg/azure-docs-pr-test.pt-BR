@@ -1,6 +1,6 @@
 ---
-title: Importar dados de um arquivo para o Azure Machine Learning Studio | Microsoft Docs
-description: "Saiba como carregar um arquivo de dados de treinamento do disco rígido para o Azure Machine Learning Studio. Isso cria um módulo de conjunto de dados no espaço de trabalho."
+title: "aaaImport dados de um arquivo para o estúdio de aprendizado de máquina do Azure | Microsoft Docs"
+description: "Saiba como tooupload um dados de treinamento do arquivo de sua unidade de disco rígido de tooAzure estúdio de aprendizado de máquina. Isso cria um módulo de conjunto de dados no espaço de trabalho de saudação."
 keywords: importar dados, formato de dados, tipos de dados, fontes de dados, dados de treinamento
 services: machine-learning
 documentationcenter: 
@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye;bradsev
-ms.openlocfilehash: 18010864160ceb2d76aea37196e6944bbe426457
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 636facd9042145382c953a1c75969149ede6f6fe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="import-training-data-from-a-file-on-your-hard-drive-into-machine-learning-studio"></a>Importar dados de treinamento de um arquivo no disco rígido para o Machine Learning Studio
 [!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
-Saiba como carregar um arquivo de dados do disco rígido a fim de usar como dados de treinamento no Azure Machine Learning Studio. Ao importar o arquivo de dados, você terá um módulo de conjunto de dados pronto para uso em seu espaço de trabalho.
+Saiba como tooupload dados de um arquivo de sua unidade de disco rígido toouse como dados de treinamento no estúdio de aprendizado de máquina do Azure. Importando o arquivo de dados hello, você tem um módulo de conjunto de dados pronto para uso no seu espaço de trabalho.
 
-## <a name="steps-to-import-data-from-a-local-file"></a>Etapas para importar dados de um arquivo local
-Para importar dados de um disco rígido local, faça o seguinte:
+## <a name="steps-tooimport-data-from-a-local-file"></a>Dados de tooimport de etapas de um arquivo local
+tooimport dados de uma unidade de disco rígido local, Olá a seguir:
 
-1. clique em **+NOVO** na parte inferior da janela do Machine Learning Studio.
+1. Clique em **+ novo** na parte inferior da saudação da janela do estúdio de aprendizado de máquina hello.
 2. Selecione **CONJUNTO DE DADOS** e **DO ARQUIVO LOCAL**.
-3. Na caixa de diálogo **Carregar um novo conjunto de dados** , navegue até o arquivo que deseja carregar
-4. Digite um nome, identifique o tipo de dados e, opcionalmente, insira uma descrição. Uma descrição é recomendada – ela permite registrar características sobre os dados que você deseja lembrar ao usar os dados no futuro.
-5. A caixa de seleção **Esta é a nova versão de um conjunto de dados existente** permite que você atualize um conjunto de dados existente com novos dados. Clique nesta caixa de seleção e digite o nome de um conjunto de dados existente.
+3. Em Olá **carregar um novo conjunto de dados** caixa de diálogo, procurar toohello arquivo a ser tooupload
+4. Insira um nome, identifique o tipo de dados hello e, opcionalmente, insira uma descrição. Uma descrição é recomendada - permite que você toorecord quaisquer características sobre dados Olá que você deseja tooremember quando usando dados Olá Olá futuro.
+5. Olá a caixa de seleção **isso é Olá nova versão de um conjunto de dados existente** permite que você tooupdate um conjunto de dados existente com novos dados. Clique nesta caixa de seleção e, em seguida, digite o nome de saudação de um conjunto de dados existente.
 
 ![Carregar um novo conjunto de dados](media/machine-learning-import-data-from-local-file/upload-dataset.png)
 
-Durante o upload, você verá uma mensagem informando que seu arquivo está sendo carregado. O tempo de upload depende do tamanho dos dados e da velocidade da conexão com o serviço. Se souber que o arquivo levará muito tempo, você pode fazer outras coisas dentro do Machine Learning Studio enquanto espera. No entanto, fechar o navegador fará com que o upload de dados falhe.
+Durante o upload, você verá uma mensagem informando que seu arquivo está sendo carregado. Carregar tempo depende do tamanho de saudação de seu dados e Olá a velocidade de seu serviço de toohello de conexão. Se você souber que o arquivo hello levará um longo tempo, você pode fazer outras coisas dentro do estúdio de aprendizado de máquina enquanto você espera. No entanto, fechar o navegador Olá faz com que o hello toofail de carregamento de dados.
 
 ## <a name="dataset-module-is-ready-for-use"></a>O módulo do conjunto de dados está pronto para uso
-Uma vez carregados, seus dados são armazenados em um módulo de conjunto de dados e ficam disponíveis para qualquer experimento em seu espaço de trabalho.
+Depois que seus dados são carregados, ele é armazenado em um módulo de conjunto de dados e é experiência tooany disponíveis no espaço de trabalho.
 
-Quando estiver editando um experimento, você pode encontrar os conjuntos de dados criados na lista **Meus Conjuntos de Dados**, na lista **Conjuntos de Dados Salvos** na paleta de módulos. É possível arrastar e soltar o conjunto de dados na tela de teste quando você desejar usá-lo para outras análises e aprendizado de máquina.
+Quando você estiver editando um experimento, você pode encontrar hello conjuntos de dados que você criou no hello **Meus conjuntos de dados** lista sob Olá **conjuntos de dados salvos** lista na paleta de módulo hello. Você pode arrastar e soltar dataset de saudação em tela de experimento hello quando você desejar toouse Olá dataset para análise adicional e aprendizado de máquina.

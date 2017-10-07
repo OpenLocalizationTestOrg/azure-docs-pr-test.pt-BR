@@ -1,6 +1,6 @@
 ---
-title: "Usando o Gerenciador de Recuperação para corrigir problemas do mapa de fragmentos | Microsoft Docs"
-description: Use a classe RecoveryManager para resolver problemas com mapas de fragmentos
+title: "aaaUsing toofix do Gerenciador de recuperação do fragmento mapear problemas | Microsoft Docs"
+description: "Use Olá RecoveryManager classe toosolve problemas mapas de fragmento"
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,40 +14,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: ddove
-ms.openlocfilehash: e60e2295484873ea15d52108b7d619319a57827f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2218fb15122f1df466e65483480461e366317f2f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Usando a classe RecoveryManager para corrigir problemas do mapa de fragmentos
-A classe [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) fornece aos aplicativos ADO.Net a capacidade de detectar e de corrigir facilmente qualquer inconsistência entre o GSM (mapa de fragmentos global) e o LSM (mapa de fragmentos local) em um ambiente de banco de dados fragmentado. 
+# <a name="using-hello-recoverymanager-class-toofix-shard-map-problems"></a>Usando os problemas de mapa de fragmento Olá RecoveryManager classe toofix
+Olá [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) classe fornece aplicativos ADO.Net Olá capacidade tooeasily detectar e corrigir as inconsistências entre o mapa do fragmento global de saudação (GSM) e o mapa de fragmentos de local de saudação (LSM) em um ambiente de banco de dados fragmentado. 
 
-O GSM e o LSM rastreiam o mapeamento de cada banco de dados em um ambiente fragmentado. Ocasionalmente, ocorre uma interrupção entre o GSM e o LSM. Nesse caso, use a classe RecoveryManager para detectar e reparar a interrupção.
+Olá GSM LSM acompanhar Olá mapeamento e de cada banco de dados em um ambiente fragmentado. Ocasionalmente, uma quebra ocorre entre Olá GSM e hello LSM. Nesse caso, use Olá RecoveryManager classe toodetect e reparar quebra hello.
 
-A classe RecoveryManager faz parte da [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md). 
+Olá RecoveryManager classe faz parte da saudação [biblioteca de cliente do banco de dados Elástico](sql-database-elastic-database-client-library.md). 
 
 ![Mapa de fragmentos][1]
 
-Para obter definições de termos, consulte o [Glossário de ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-glossary.md). Para entender como o **ShardMapManager** é usado para gerenciar dados em uma solução fragmentada, consulte [Gerenciamento do mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md).
+Para obter definições de termos, consulte o [Glossário de ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-glossary.md). como Olá toounderstand **ShardMapManager** toomanage usados dados em uma solução fragmentada, consulte [gerenciamento de mapa do fragmento](sql-database-elastic-scale-shard-map-management.md).
 
-## <a name="why-use-the-recovery-manager"></a>Por que usar o gerenciador de recuperação?
-Em um ambiente de banco de dados fragmentado, há um locatário por banco de dados e muitos bancos de dados por servidor. Também pode haver vários servidores no ambiente. Cada banco de dados é mapeado no mapa de fragmento para que as chamadas possam ser encaminhadas para o banco de dados e servidor corretos. Os bancos de dados são controlados de acordo com uma **chave de fragmentação** e um **intervalo de valores de chave** é atribuído a cada fragmento. Por exemplo, uma chave de fragmentação pode representar os nomes de clientes de "D" a "F". O mapeamento de todos os fragmentos (também conhecido como bancos de dados) e seus intervalos de mapeamento estão contidos no **GSM (mapa de fragmentos global)**. Cada banco de dados também contém um mapa dos intervalos contidos no fragmento – isso é conhecido como o **LSM (mapa de fragmentos local)**. Quando um aplicativo se conecta a um fragmento, o mapeamento é armazenado em cache com o aplicativo para recuperação rápida. O LSM é usado para validar dados em cache. 
+## <a name="why-use-hello-recovery-manager"></a>Por que usar o Gerenciador de recuperação Olá?
+Em um ambiente de banco de dados fragmentado, há um locatário por banco de dados e muitos bancos de dados por servidor. Também pode haver vários servidores no ambiente de saudação. Cada banco de dados está mapeado no mapa do fragmento hello, para que chamadas possam ser banco de dados e o servidor correto toohello roteadas. Bancos de dados são controlados de acordo com o tooa **chave de fragmentação**, e cada fragmento é atribuído um **intervalo de valores de chave**. Por exemplo, uma chave de fragmentação pode representar os nomes de clientes de saudação de "D" muito "f" Olá mapeamento de todos os fragmentos (também conhecido como bancos de dados) e seus intervalos de mapeamento estão contidos em Olá **mapa do fragmento global (GSM)**. Cada banco de dados também contém um mapa de intervalos de saudação contidos no fragmento de saudação que é conhecido como Olá **mapa do fragmento local (LSM)**. Quando um aplicativo se conecta tooa fragmento, mapeamento de saudação é armazenado em cache com o aplicativo hello para recuperação rápida. Olá LSM é usado toovalidate em cache dados. 
 
-O GSM e o LSM podem ficar fora de sincronia pelos seguintes motivos:
+Olá GSM e LSM podem se tornar fora de sincronia para Olá motivos a seguir:
 
-1. Exclusão de um fragmento cujo intervalo acredita-se não estar mais sendo usado, ou renomeação de um fragmento. A exclusão de um fragmento resulta em um **mapeamento de fragmento órfão**. De modo semelhante, um banco de dados renomeado pode causar um mapeamento de fragmentos órfãos. Dependendo da intenção da alteração, o fragmento pode precisar ser removido ou a localização do fragmento precisa ser atualizada. Para recuperar um banco de dados excluído, consulte [Restaurar um banco de dados excluído](sql-database-recovery-using-backups.md).
-2. Ocorre um evento de failover geográfico. Para continuar, é necessário atualizar o nome do servidor e o nome do banco de dados do gerenciador do mapa de fragmento no aplicativo e atualizar os detalhes do mapeamento de fragmento para todos os fragmentos em um mapa de fragmentos. Em caso de um failover geográfico, tal lógica de recuperação deverá ser automatizada no fluxo de trabalho do failover. A automação das ações de recuperação proporciona capacidade de gerenciamento ininterrupta para bancos de dados habilitados geograficamente e evita ações humanas manuais. Para saber mais sobre as opções para recuperar um banco de dados no caso de uma interrupção do data center, consulte [Continuidade dos negócios](sql-database-business-continuity.md) e [Recuperação de desastre](sql-database-disaster-recovery.md).
-3. Um fragmento ou o banco de dados ShardMapManager é restaurado para um ponto anterior. Para saber mais sobre recuperação pontual usando backups, consulte [Recuperação usando backups](sql-database-recovery-using-backups.md).
+1. exclusão de saudação de um fragmento cujo intervalo considerado toono mais estar em uso ou a renomeação de um fragmento. A exclusão de um fragmento resulta em um **mapeamento de fragmento órfão**. De modo semelhante, um banco de dados renomeado pode causar um mapeamento de fragmentos órfãos. Dependendo da intenção de saudação de alteração hello, fragmento de saudação pode precisar toobe removido ou local de fragmento de saudação precisa toobe atualizado. toorecover um banco de dados excluído, consulte [restaurar um banco de dados excluído](sql-database-recovery-using-backups.md).
+2. Ocorre um evento de failover geográfico. toocontinue, um deve atualizar o nome do servidor de saudação e nome de banco de dados do Gerenciador do mapa de fragmentos no aplicativo hello e, em seguida, detalhes de mapeamento de fragmentos de saudação atualização para todos os fragmentos em um mapa do fragmento. Se houver um failover geográfico, uma lógica de recuperação deve ser automatizada de fluxo de trabalho de failover de saudação. A automação das ações de recuperação proporciona capacidade de gerenciamento ininterrupta para bancos de dados habilitados geograficamente e evita ações humanas manuais. toolearn sobre opções toorecover um banco de dados se houver uma interrupção de centro de dados, consulte [continuidade dos negócios](sql-database-business-continuity.md) e [a recuperação de desastres](sql-database-disaster-recovery.md).
+3. Banco de dados ShardMapManager um fragmento ou Olá é restaurado tooan ponto no tempo anterior. toolearn sobre recuperação pontual usando backups, consulte [recuperação usando backups](sql-database-recovery-using-backups.md).
 
-Para saber mais sobre as ferramentas do Banco de dados elástico do Banco de dados SQL do Azure, a Restauração e a Replicação geográfica, consulte os artigos a seguir: 
+Para obter mais informações sobre ferramentas de banco de dados Elástico banco de dados SQL, a replicação geográfica e restauração, consulte o seguinte hello: 
 
 * [Visão geral: continuidade de negócios em nuvem e recuperação de desastre do banco de dados com o banco de dados SQL](sql-database-business-continuity.md) 
 * [Comece com ferramentas de banco de dados elástico](sql-database-elastic-scale-get-started.md)  
 * [Gerenciamento de ShardMap](sql-database-elastic-scale-shard-map-management.md)
 
 ## <a name="retrieving-recoverymanager-from-a-shardmapmanager"></a>Recuperando o RecoveryManager de um ShardMapManager
-A primeira etapa é criar uma instância do RecoveryManager. O [método GetRecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager.aspx) retorna o gerenciador de recuperação da instância [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) atual. Para solucionar as inconsistências no mapa de fragmentos, você deverá primeiramente recuperar o RecoveryManager para o mapa de fragmentos específico. 
+Olá primeira etapa é toocreate uma instância de RecoveryManager. Olá [GetRecoveryManager método](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager.aspx) retorna Olá Gerenciador de recuperação para Olá atual [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) instância. tooaddress quaisquer inconsistências no fragmento de saudação do mapa, primeiro você deve recuperar hello RecoveryManager para mapa do fragmento específico de saudação. 
 
    ```
     ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString,  
@@ -55,63 +55,63 @@ A primeira etapa é criar uma instância do RecoveryManager. O [método GetRecov
              RecoveryManager rm = smm.GetRecoveryManager(); 
    ```
 
-Neste exemplo, o RecoveryManager é inicializado no ShardMapManager. O ShardMapManager que contém um ShardMap também já foi inicializado. 
+Neste exemplo, Olá RecoveryManager é inicializada de saudação ShardMapManager. Olá ShardMapManager que contém um ShardMap também já foi inicializado. 
 
-Uma vez que o código desse aplicativo manipula o mapa de fragmentos em si, as credenciais usadas no método de fábrica (no exemplo anterior, smmConnectionString) devem ser credenciais que tenham permissões de leitura/gravação no banco de dados GSM referenciado pela cadeia de conexão. Essas credenciais normalmente são diferentes das credenciais usadas para abrir conexões de roteamento dependente de dados. Para saber mais, consulte [Usando credenciais no cliente do banco de dados elástico](sql-database-elastic-scale-manage-credentials.md).
+Desde que este código de aplicativo manipula o mapa do fragmento Olá em si, Olá credenciais usadas no método de fábrica hello (em Olá anterior como exemplo, smmConnectionString) devem ser credenciais que têm permissões de leitura e gravação no banco de dados do GSM Olá referenciado por Olá cadeia de caracteres de conexão. Essas credenciais são normalmente diferentes das credenciais usadas tooopen conexões de roteamento dependente de dados. Para obter mais informações, consulte [usando as credenciais no cliente de banco de dados Elástico Olá](sql-database-elastic-scale-manage-credentials.md).
 
-## <a name="removing-a-shard-from-the-shardmap-after-a-shard-is-deleted"></a>Removendo um fragmento do ShardMap depois que um fragmento é excluído
-O [método DetachShard](https://msdn.microsoft.com/library/azure/dn842083.aspx) desanexa o fragmento determinado do mapa de fragmentos e exclui os mapeamentos associados ao fragmento.  
+## <a name="removing-a-shard-from-hello-shardmap-after-a-shard-is-deleted"></a>Removendo um fragmento de saudação ShardMap depois que um fragmento é excluído
+Olá [DetachShard método](https://msdn.microsoft.com/library/azure/dn842083.aspx) desanexa Olá fornecida fragmento do mapa do fragmento hello e exclui os mapeamentos associados a fragmentos de saudação.  
 
-* O parâmetro location é o local do fragmento, especificamente o nome do servidor e o nome do banco de dados, do fragmento que está sendo desanexado. 
-* O parâmetro shardMapName é o nome do mapa de fragmentos. Isso só será necessário quando vários mapas de fragmentos forem gerenciados pelo mesmo gerenciador de mapas de fragmentos. Opcional. 
+* parâmetro de local de saudação é o local de fragmento de hello, especificamente o nome do servidor e o nome do banco de dados de fragmento hello está sendo desanexado. 
+* parâmetro de shardMapName Hello é nome do mapa de fragmentos hello. Isso só é necessária quando vários mapas de fragmento são gerenciados pelo Olá mesmo Gerenciador de mapa do fragmento. Opcional. 
 
 
 > [!IMPORTANT]
-> Use essa técnica somente se você tiver certeza de que o intervalo para o mapeamento atualizado está vazio. Os métodos acima não verificam os dados para o intervalo que está sendo movido, portanto, é melhor incluir verificações em seu código.
+> Use essa técnica somente se você tiver certeza de que o intervalo de saudação para mapeamento de saudação atualizado é vazio. métodos de saudação acima não verificam dados para o intervalo de saudação que está sendo movido, portanto, é melhor tooinclude verifica no seu código.
 >
 
-Este exemplo remove fragmentos do mapa do fragmento. 
+Este exemplo remove os fragmentos de mapa do fragmento hello. 
 
    ```
    rm.DetachShard(s.Location, customerMap);
    ``` 
 
-O mapa de fragmento reflete a localização do fragmento no GSM antes de sua exclusão. Como o fragmento foi excluído, é pressuposto que isso foi intencional, e o intervalo de chaves de fragmentação não está mais em uso. Se esse não for o caso, você poderá executar a restauração pontual. para recuperar o fragmento de um ponto no tempo anterior. (Nesse caso, examine a seção a seguir para detectar inconsistências de fragmento.) Para recuperar, consulte [Recuperação pontual](sql-database-recovery-using-backups.md).
+mapa do fragmento Olá reflete o local de fragmento Olá Olá GSM antes da exclusão de saudação do fragmento hello. Como fragmentos Olá foi excluído, será considerado foi intencional e intervalo de chave de fragmentação Olá não está mais em uso. Se esse não for o caso, você poderá executar a restauração pontual. fragmento de saudação toorecover de um point-in-time anterior. (Nesse caso, examine Olá inconsistências de fragmento de toodetect seção a seguir). toorecover, consulte [recuperação pontual](sql-database-recovery-using-backups.md).
 
-Uma vez que é pressuposto que a exclusão do banco de dados foi intencional, a ação de limpeza administrativa final é excluir a entrada para o fragmento no gerenciador de mapas de fragmentos. Isso impede que o aplicativo grave informações inadvertidamente em um intervalo não esperado.
+Considerando a exclusão de banco de dados Olá tenha sido intencional, hello ação de limpeza administrativas final é fragmento do toodelete Olá entrada toohello no Gerenciador do mapa de fragmento de saudação. Isso impede que o aplicativo hello inadvertidamente gravar o intervalo de tooa informações que não é esperado.
 
-## <a name="to-detect-mapping-differences"></a>Para detectar diferenças de mapeamento
-O [método DetectMappingDifferences](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences.aspx) seleciona e retorna um dos mapas de fragmentos (local ou global) como a fonte da relação de confiança e reconcilia os mapeamentos em ambos os mapas de fragmento (GSM e LSM).
+## <a name="toodetect-mapping-differences"></a>diferenças de mapeamento de toodetect
+Olá [DetectMappingDifferences método](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences.aspx) seleciona e retorna um dos mapas de fragmento da saudação (locais ou globais) como fonte de saudação da verdade e reconcilia os mapeamentos de ambos os mapas de fragmento (GSM e LSM).
 
    ```
    rm.DetectMappingDifferences(location, shardMapName);
    ```
 
-* O *local* especifica o nome do servidor e o nome do banco de dados. 
-* O parâmetro *shardMapName* é o nome do mapa de fragmentos. Isso só será necessário se vários mapas de fragmentos forem gerenciados pelo mesmo gerenciador de mapas de fragmentos. Opcional. 
+* Olá *local* Especifica o nome do servidor de saudação e o nome do banco de dados. 
+* Olá *shardMapName* parâmetro é o nome do mapa de fragmentos hello. Isso só é necessário se vários mapas de fragmento são gerenciados pelo Olá mesmo Gerenciador de mapa do fragmento. Opcional. 
 
-## <a name="to-resolve-mapping-differences"></a>Para resolver as diferenças de mapeamento
-O [método ResolveMappingDifferences](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) seleciona um dos mapas de fragmentos (local ou global) como a fonte da relação de confiança e reconcilia os mapeamentos em ambos os mapas de fragmento (GSM e LSM).
+## <a name="tooresolve-mapping-differences"></a>diferenças de mapeamento de tooresolve
+Olá [ResolveMappingDifferences método](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) seleciona um dos mapas de fragmento da saudação (locais ou globais) como fonte de saudação da verdade e reconcilia os mapeamentos de ambos os mapas de fragmento (GSM e LSM).
 
    ```
    ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
    ```
 
-* O parâmetro *RecoveryToken* enumera as diferenças nos mapeamentos entre o GSM e o LSM para o fragmento específico. 
-* A [enumeração MappingDifferenceResolution](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx) é usada para indicar o método de resolução da diferença entre os mapeamentos de fragmento. 
-* **MappingDifferenceResolution.KeepShardMapping** é recomendado no caso em que o LSM contém o mapeamento preciso e, portanto, o mapeamento no fragmento deve ser usado. Normalmente, isso acontece no caso de um failover: o fragmento agora reside em um novo servidor. Uma vez que o fragmento deve primeiramente ser removido do GSM (usando o método RecoveryManager.DetachShard), um mapeamento não existe mais no GSM. Assim, o LSM deve ser usado para restabelecer o mapeamento de fragmento.
+* Olá *RecoveryToken* parâmetro enumera Olá diferenças mapeamentos de saudação hello GSM e hello LSM para fragmentos específicos hello. 
+* Olá [MappingDifferenceResolution enumeração](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx) é usado tooindicate Olá método para resolver a diferença de saudação entre mapeamentos de fragmento de saudação. 
+* **MappingDifferenceResolution.KeepShardMapping** é recomendável que, quando Olá LSM contém mapeamento precisas hello e, portanto, o mapeamento de saudação no fragmento de saudação deve ser usado. Isso acontece normalmente Olá se houver um failover: fragmento Olá agora reside em um novo servidor. Desde que o fragmento de saudação deve ser removido da saudação GSM (usando o método de RecoveryManager.DetachShard hello), um mapeamento não existe mais no hello GSM. Portanto, Olá LSM deve ser usado toore-estabelecer Olá mapeamento de fragmentos.
 
-## <a name="attach-a-shard-to-the-shardmap-after-a-shard-is-restored"></a>Anexar um fragmento ao ShardMap depois que um fragmento é restaurado
-O [método AttachShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard.aspx) anexa o fragmento determinado ao mapa de fragmentos. Ele detecta todas as inconsistências do mapa de fragmentos e atualiza os mapeamentos para corresponder ao fragmento no ponto de restauração do fragmento. É pressuposto que o banco de dados também seja renomeado para refletir o nome do banco de dados original (antes de o fragmento ter sido restaurado), já que a restauração pontual é padronizada para um novo banco de dados com o carimbo de data/hora. 
+## <a name="attach-a-shard-toohello-shardmap-after-a-shard-is-restored"></a>Anexar um fragmento de toohello ShardMap depois que um fragmento é restaurado
+Olá [AttachShard método](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard.aspx) anexa Olá mapa do fragmento toohello fragmento especificado. Ele detecta as inconsistências de mapa do fragmento e atualiza o fragmento de saudação do hello mapeamentos toomatch no ponto de saudação da restauração de fragmento de saudação. Presume-se que esse banco de dados de saudação é também tooreflect renomeado Olá banco de dados nome original (antes de fragmento de saudação foi restaurado), desde que a restauração pontual de saudação padrões tooa novo banco de dados anexado com carimbo de hora hello. 
 
    ```
    rm.AttachShard(location, shardMapName)
    ``` 
 
-* O parâmetro *location* é o nome do servidor e o nome do banco de dados do fragmento que está sendo anexado. 
-* O parâmetro *shardMapName* é o nome do mapa de fragmentos. Isso só será necessário quando vários mapas de fragmentos forem gerenciados pelo mesmo gerenciador de mapas de fragmentos. Opcional. 
+* Olá *local* parâmetro é o nome do servidor de saudação e o nome do banco de dados de fragmento Olá que está sendo anexado. 
+* Olá *shardMapName* parâmetro é o nome do mapa de fragmentos hello. Isso só é necessária quando vários mapas de fragmento são gerenciados pelo Olá mesmo Gerenciador de mapa do fragmento. Opcional. 
 
-Este exemplo adiciona um fragmento ao Mapa de Fragmentos que foi restaurado recentemente de um ponto anterior. Uma vez que o fragmento (ou seja, o mapeamento para o fragmento no LSM) tenha sido restaurado, ele é potencialmente inconsistente com a entrada de fragmento no GSM. Fora desse código de exemplo, o fragmento foi restaurado e renomeado para o nome original do banco de dados. Como ele foi restaurado, é pressuposto que o mapeamento no LSM seja o mapeamento confiável. 
+Este exemplo adiciona um mapa do fragmento toohello fragmento que foram restaurado recentemente de um tempo de ponto anterior. Como o fragmento hello (ou seja, Olá mapeamento de fragmentos de saudação em Olá LSM) tiver sido restaurado, é potencialmente inconsistente com entrada de fragmento Olá Olá GSM. Fora do código de exemplo, o fragmento de saudação foi restaurado e renomeado toohello o nome original do banco de dados de saudação. Desde que ele foi restaurado, presume-se mapeamento de saudação no hello LSM é mapeamento confiável hello. 
 
    ```
    rm.AttachShard(s.Location, customerMap); 
@@ -122,24 +122,24 @@ Este exemplo adiciona um fragmento ao Mapa de Fragmentos que foi restaurado rece
        } 
    ```
 
-## <a name="updating-shard-locations-after-a-geo-failover-restore-of-the-shards"></a>Atualizando os locais do fragmento depois de um failover geográfico (restauração) dos fragmentos
-Em caso de um failover geográfico, o banco de dados secundário será disponibilizado para gravação e se tornará o novo banco de dados primário. O nome do servidor e, possivelmente, do banco de dados (dependendo da sua configuração) podem ser diferentes do primário original. Portanto, as entradas do mapeamento para o fragmento no GSM e LSM devem ser corrigidas. Da mesma forma, se o banco de dados for restaurado para um nome ou local diferente, ou para um ponto anterior no tempo, isso poderá causar inconsistências nos mapas de fragmentos. O Gerenciador de Mapas de Fragmentos manipula a distribuição de conexões abertas para o banco de dados correto. A distribuição baseia-se nos dados no mapa de fragmentos e no valor da chave de fragmentação que é o destino da solicitação dos aplicativos. Após um failover geográfico, essas informações devem ser atualizadas com o nome de servidor, nome do banco de dados e mapeamento de fragmentos precisos do banco de dados recuperado. 
+## <a name="updating-shard-locations-after-a-geo-failover-restore-of-hello-shards"></a>Atualizar locais de fragmento após um failover geográfico (Restaurar) de fragmentos de saudação
+Se houver um failover geográfico, o banco de dados secundário Olá é disponibilizado de gravação e se torna Olá novo principal banco de dados. Olá nome do servidor de saudação e, potencialmente, banco de dados de saudação (dependendo da configuração), pode ser diferente do primário original hello. Olá, portanto, as entradas de mapeamento de fragmento de saudação em Olá GSM e LSM deve ser corrigido. Da mesma forma, se hello banco de dados é restaurado tooa outro nome ou local ou tooan ponto anterior no tempo, isso pode causar inconsistências no hello mapas de fragmento. Olá Gerenciador do mapa de fragmentos lida com a distribuição de saudação do banco de dados correto do toohello conexões abertas. Distribuição baseia-se em dados de saudação no mapa do fragmento hello e valor de saudação da chave de fragmentação Olá Olá destino da solicitação de aplicativos de saudação. Após um failover geográfico, essas informações devem ser atualizadas com o nome do servidor precisa de saudação, nome do banco de dados e mapeamento de fragmentos de banco de dados recuperado Olá. 
 
 ## <a name="best-practices"></a>Práticas recomendadas
-O failover geográfico e a recuperação são operações normalmente gerenciadas por um administrador de nuvem do aplicativo intencionalmente utilizando um dos recursos de continuidade de negócios dos Bancos de Dados SQL do Azure. O planejamento da continuidade de negócios exige processos, procedimentos e medidas para garantir que as operações de negócios possam continuar sem interrupção. Os métodos disponíveis como parte da classe RecoveryManager devem ser usados dentro desse fluxo de trabalho para garantir que o GSM e LSM sejam mantidos atualizados com base na ação de recuperação tomada. Há cinco etapas básicas para garantir que o GSM e o LSM reflitam adequadamente as informações precisas depois de um evento de failover. O código do aplicativo para executar essas etapas pode ser integrado ao fluxo de trabalho e às ferramentas existentes. 
+Failover de replicação geográfica e recuperação são operações que normalmente são gerenciadas por um administrador de nuvem do aplicativo hello intencionalmente utilizando um dos recursos de continuidade de negócios de bancos de dados do Azure SQL. Planejamento de continuidade de negócios exige processos, procedimentos e medidas tooensure que operações comerciais possam continuar sem interrupções. Olá métodos disponíveis como parte do hello RecoveryManager classe deve ser usada nessa saudação de tooensure de fluxo de trabalho GSM e LSM são mantidos atualizados com base na ação de recuperação Olá realizada. Há cinco etapas básicas tooproperly garantindo Olá GSM e LSM refletem informações precisas de saudação após um evento de failover. Olá tooexecute de código de aplicativo, que essas etapas podem ser integradas no fluxo de trabalho e as ferramentas existentes. 
 
-1. Recupere o RecoveryManager do ShardMapManager. 
-2. Desanexe o fragmento antigo do mapa de fragmentos.
-3. Anexe o novo fragmento ao mapa de fragmentos, incluindo o novo local do fragmento.
-4. Detecte inconsistências no mapeamento entre o GSM e o LSM. 
-5. Resolva as diferenças entre o GSM e o LSM, confiando no LSM. 
+1. Recupere Olá RecoveryManager de saudação ShardMapManager. 
+2. Desanexe o fragmento antigo de saudação do mapa do fragmento hello.
+3. Anexe Olá novo fragmento toohello mapa do fragmento, incluindo o novo local de fragmento hello.
+4. Detecte inconsistências no hello mapeamento entre hello GSM e LSM. 
+5. Resolva as diferenças entre Olá GSM e hello LSM, Olá confiante LSM. 
 
-Este exemplo executa as seguintes etapas:
+Este exemplo executa Olá etapas a seguir:
 
-1. Remove os fragmentos do Mapa de Fragmentos que refletem locais do fragmento antes do evento de failover.
-2. Anexa fragmentos ao Mapa de Fragmentos que reflete os novos locais do fragmento (o parâmetro "Configuration.SecondaryServer" é o novo nome do servidor, mas o nome do banco de dados é o mesmo).
-3. Recupera os tokens de recuperação detectando diferenças de mapeamento entre o GSM e o LSM para cada fragmento. 
-4. Resolve as inconsistências confiando no mapeamento do LSM de cada fragmento. 
+1. Remove fragmentos Olá mapa do fragmento que refletem os locais de fragmento antes do evento de failover de saudação.
+2. Anexa fragmentos toohello mapa do fragmento refletindo Olá novos fragmentos locais (parâmetro hello "Configuration.SecondaryServer" é o novo nome do servidor Olá mas Olá mesmo nome de banco de dados).
+3. Recupera os tokens de recuperação Olá detectando diferenças de mapeamento entre hello GSM e hello LSM para cada fragmento. 
+4. Resolve inconsistências Olá mapeando confiante Olá da saudação LSM de cada fragmento. 
    
    ```
    var shards = smm.GetShards(); 

@@ -1,6 +1,6 @@
 ---
-title: "O que é um modelo do Serviço de Nuvem e pacote | Microsoft Docs"
-description: "Descreve o modelo de serviço de nuvem (.csdef, .cscfg) e o pacote (.cspkg) no Azure"
+title: "aaaWhat é um modelo de serviço de nuvem e o pacote | Microsoft Docs"
+description: "Descreve o modelo de serviço de nuvem hello (. csdef,. cscfg) e o pacote (. cspkg) no Azure"
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 21fbdbc4c24440c6fbbd7487cfbb2e0a3140aa96
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 5280cdca4810859b6afdbbe1359fc2fabe871894
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Qual é o modelo de serviço de nuvem e como empacotá-lo?
-Um serviço de nuvem é criado a partir de três componentes, a definição do serviço *(.csdef)*, configuração do serviço *(.cscfg)* e pacote do serviço *(.cspkg)*. Os arquivos **ServiceDefinition.csdef** e **ServiceConfig.cscfg** são baseados no XML, descrevem a estrutura do serviço de nuvem e como ela é configurada; coletivamente são chamados de modelo. O **ServicePackage.cspkg** é um arquivo zip gerado do **ServiceDefinition.csdef** e entre outras coisas, contém todas as dependências necessárias com base no binário. O Azure cria um serviço de nuvem para o **ServicePackage.cspkg** e o **ServiceConfig.cscfg**.
+# <a name="what-is-hello-cloud-service-model-and-how-do-i-package-it"></a>O que é o modelo de serviço de nuvem hello e como empacotá-lo?
+Um serviço de nuvem é criado de três componentes, definição de serviço Olá *(. csdef)*, Olá a configuração de serviço *(. cscfg)*e um pacote de serviço *(. cspkg)*. Ambos os Olá **servicedefinition. Csdef** e **ServiceConfig.cscfg** arquivos são baseados em XML e descrevem a estrutura de saudação do serviço de nuvem hello e como ele é configurado; coletivamente chamados de modelo de saudação. Olá **ServicePackage.cspkg** é um arquivo zip que é gerado a partir Olá **servicedefinition. Csdef** e entre outras coisas, contém todas as dependências de binário Olá necessário. O Azure cria um serviço de nuvem de ambos os Olá **ServicePackage.cspkg** e hello **ServiceConfig.cscfg**.
 
-Quando o serviço de nuvem estiver em execução no Azure, você poderá reconfigurá-lo por meio do arquivo **ServiceConfig.cscfg** , mas você não pode alterar a definição.
+Quando o serviço de nuvem Olá estiver em execução no Azure, você pode reconfigurá-lo por meio de saudação **ServiceConfig.cscfg** arquivo, mas você não pode alterar a definição de saudação.
 
-## <a name="what-would-you-like-to-know-more-about"></a>O que você deseja saber mais?
-* Quero saber mais sobre os arquivos [ServiceDefinition.csdef](#csdef) e [ServiceConfig.cscfg](#cscfg).
+## <a name="what-would-you-like-tooknow-more-about"></a>O que você gostaria que tooknow mais sobre?
+* Desejo tooknow mais sobre Olá [servicedefinition. Csdef](#csdef) e [ServiceConfig.cscfg](#cscfg) arquivos.
 * Já sei sobre isso, dê-me [alguns exemplos](#next-steps) sobre o que posso configurar.
-* Quero criar o [ServicePackage.cspkg](#cspkg).
+* Desejo Olá toocreate [ServicePackage.cspkg](#cspkg).
 * Estou usando o Visual Studio e desejo...
   * [Criar um serviço de nuvem][vs_create]
   * [Reconfigurar um serviço de nuvem existente][vs_reconfigure]
@@ -38,7 +38,7 @@ Quando o serviço de nuvem estiver em execução no Azure, você poderá reconfi
 <a name="csdef"></a>
 
 ## <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
-O arquivo **ServiceDefinition.csdef** especifica as configurações que são usadas pelo Azure para configurar um serviço de nuvem. O [esquema de definição de serviço do Azure (arquivo .csdef)](https://msdn.microsoft.com/library/azure/ee758711.aspx) fornece o formato permitido para um arquivo de definição de serviço. O exemplo a seguir mostra as configurações que podem ser definidas para as funções da Web e de trabalho:
+Olá **servicedefinition. Csdef** arquivo Especifica configurações de saudação que são usadas pelo Azure tooconfigure um serviço de nuvem. Olá [esquema de definição de serviço do Azure (arquivo. csdef)](https://msdn.microsoft.com/library/azure/ee758711.aspx) fornece o formato permitido Olá para um arquivo de definição de serviço. Olá, exemplo a seguir mostra as configurações de saudação que podem ser definidas para Olá Web e funções de trabalho:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -89,38 +89,38 @@ O arquivo **ServiceDefinition.csdef** especifica as configurações que são usa
 </ServiceDefinition>
 ```
 
-Você pode consultar o [Esquema de Definição de Serviço](https://msdn.microsoft.com/library/azure/ee758711.aspx) para uma melhor compreensão sobre o esquema XML usado aqui, no entanto, eis uma breve explicação de alguns dos elementos:
+Você pode consultar toohello [esquema de definição de serviço](https://msdn.microsoft.com/library/azure/ee758711.aspx) para melhor compreensão de esquema XML, Olá usada aqui, no entanto, aqui está uma breve explicação de alguns dos elementos de saudação:
 
 **Sites**  
-contêm as definições para sites da Web ou aplicativos Web hospedados no IIS7.
+Contém definições de saudação para sites ou aplicativos web hospedados no IIS7.
 
 **InputEndpoints**  
-contém as definições para pontos de extremidade usados para entrar em contato com o serviço de nuvem.
+Contém definições de saudação para pontos de extremidade que usou o serviço de nuvem de saudação toocontact.
 
 **InternalEndpoints**  
-contém as definições para pontos de extremidade que são usados por instâncias de função para se comunicar entre si.
+Contém as definições de saudação para pontos de extremidade que são usados por toocommunicate de instâncias de função com o outro.
 
 **ConfigurationSettings**  
-contém as definições de configuração para recursos de uma função específica.
+Contém as definições de configuração Olá para recursos de uma função específica.
 
 **Certificados**  
-contêm as definições para certificados que são necessárias para uma função. O exemplo de código anterior mostra um certificado que é usado para a configuração do Azure Connect.
+Contém definições de saudação para certificados que são necessários para uma função. o exemplo de código anterior Olá mostra um certificado que é usado para a configuração de saudação do Azure Connect.
 
 **LocalResources**  
-contém as definições para recursos de armazenamento local. Um recurso de armazenamento local é um diretório reservado no sistema de arquivos da máquina virtual no qual uma instância de uma função está em execução.
+Contém definições de saudação para recursos de armazenamento local. Um recurso de armazenamento local é um diretório reservado no sistema de arquivos de saudação da máquina virtual de saudação no qual uma instância de uma função está em execução.
 
 **Imports**  
-contém as definições para módulos importados. O exemplo de código anterior mostra os módulos para conexão de área de trabalho remota e Azure Connect.
+Contém definições de saudação para módulos importados. o exemplo de código anterior Olá mostra módulos Olá para Conexão de área de trabalho remota e o Azure Connect.
 
 **Inicialização**  
-contém tarefas que são executadas quando a função é iniciada. As tarefas são definidas em um arquivo executável ou o .cmd.
+Contém tarefas que são executadas quando a função hello for iniciada. Olá tarefas são definidas em um arquivo executável ou. cmd.
 
 <a name="cscfg"></a>
 
 ## <a name="serviceconfigurationcscfg"></a>ServiceConfiguration.cscfg
-A definição das configurações do serviço de nuvem é determinada pelos valores do arquivo **ServiceConfiguration.cscfg** . Especifique o número de instâncias que você deseja implantar para cada função nesse arquivo. Os valores para os parâmetros de configuração que você definiu no arquivo de definição de serviço são adicionados ao arquivo de configuração de serviço. As impressões digitais para qualquer certificado de gerenciamento que estão associadas ao serviço de nuvem também são adicionadas ao arquivo. O [esquema de configuração de serviço do Azure (arquivo .cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx) fornece o formato permitido para um arquivo de configuração de serviço.
+configuração de saudação de configurações de saudação para seu serviço de nuvem é determinada pelos valores Olá Olá **ServiceConfiguration** arquivo. Você especifica o número de saudação de instâncias que você deseja toodeploy para cada função nesse arquivo. valores de Olá Olá as definições de configuração que você definiu no arquivo de definição de serviço Olá são adicionados toohello arquivo de configuração de serviço. impressões digitais de saudação para qualquer certificado de gerenciamento que estão associado com o serviço de nuvem Olá também são adicionadas toohello arquivo. Olá [esquema de configuração de serviço do Azure (arquivo. cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx) fornece o formato permitido Olá para um arquivo de configuração do serviço.
 
-O arquivo de configuração de serviço não é fornecido com o aplicativo, mas é carregado no Azure como um arquivo separado e é usado para configurar o serviço de nuvem. Você pode carregar um novo arquivo de configuração de serviço sem reimplantar o serviço de nuvem. Os valores de configuração do serviço de nuvem podem ser alterados enquanto o serviço de nuvem está em execução. O exemplo a seguir mostra as definições de configuração que podem ser definidas para as funções da Web e de trabalho:
+Olá arquivo de configuração de serviço não é fornecido com o aplicativo hello, mas é tooAzure carregado como um arquivo separado e é usado tooconfigure hello serviço de nuvem. Você pode carregar um novo arquivo de configuração de serviço sem reimplantar o serviço de nuvem. os valores de configuração Olá Olá serviço de nuvem podem ser alterados enquanto o serviço de nuvem hello está em execução. Olá, exemplo a seguir mostra as definições de configuração de saudação que podem ser definidas para Olá Web e funções de trabalho:
 
 ```xml
 <?xml version="1.0"?>
@@ -140,28 +140,28 @@ O arquivo de configuração de serviço não é fornecido com o aplicativo, mas 
 </ServiceConfiguration>
 ```
 
-Você pode consultar o [esquema de configuração de serviço](https://msdn.microsoft.com/library/azure/ee758710.aspx) para entender melhor o esquema XML usado aqui, no entanto, eis uma breve explicação dos elementos:
+Você pode consultar toohello [esquema de configuração de serviço](https://msdn.microsoft.com/library/azure/ee758710.aspx) para melhor compreensão Olá esquema XML usado aqui, no entanto, aqui está uma breve explicação de elementos de saudação:
 
 **Instâncias**  
-configura o número de instâncias em execução para a função. Para impedir que seu serviço de nuvem fique potencialmente indisponível durante atualizações, é recomendável implantar mais de uma instância das suas funções da Web. Ao implantar mais de uma instância, você estará aderindo às diretrizes do [Contrato de nível de serviço de computação do Azure (SLA)](http://azure.microsoft.com/support/legal/sla/), que garante 99,95% de conectividade externa para funções de Internet quando duas ou mais instâncias de função são implantadas para um serviço.
+Configura o número de saudação de instâncias em execução para a função hello. tooprevent sua nuvem de serviço de fique indisponível durante atualizações, é recomendável que você implantar mais de uma instância de suas funções para a web. Ao implantar mais de uma instância, você está aderindo diretrizes toohello Olá [contrato de nível de serviço de computação do Azure (SLA)](http://azure.microsoft.com/support/legal/sla/), que garante 99,95% de conectividade externa para funções da Internet quando duas ou mais funções instâncias são implantadas para um serviço.
 
 **ConfigurationSettings**  
-define as configurações para as instâncias em execução para uma função. O nome dos `<Setting>` elementos deve corresponder às definições no arquivo de definição de serviço.
+Define as configurações de saudação para Olá instâncias em execução para uma função. nome de saudação do hello `<Setting>` elementos devem coincidir com as definições de configuração Olá no arquivo de definição de serviço hello.
 
 **Certificados**  
-configura os certificados que são usados pelo serviço. O exemplo de código anterior mostra como definir o certificado para o módulo RemoteAccess. O valor do atributo *impressão digital* deve ser definido como a impressão digital do certificado que será usado.
+Configura os certificados de saudação que são usados pelo serviço de saudação. o exemplo de código anterior Olá mostra como toodefine Olá certificado para o módulo RemoteAccess de saudação. Olá valor Olá *impressão digital* atributo deve ser definido como impressão digital de toohello de saudação toouse de certificado.
 
 <p/>
 
 > [!NOTE]
-> A impressão digital do certificado pode ser adicionada ao arquivo de configuração usando um editor de texto. Ou então, o valor pode ser adicionado na guia **Certificados** da página **Propriedades** da função no Visual Studio.
+> pode ser adicionado a impressão digital de saudação do certificado de saudação toohello arquivo de configuração usando um editor de texto. Ou, Olá valor pode ser adicionado em Olá **certificados** guia da saudação **propriedades** página da função hello no Visual Studio.
 > 
 > 
 
 ## <a name="defining-ports-for-role-instances"></a>Definindo as portas para instâncias de função
-O Azure permite apenas um ponto de entrada para uma função web. Isso significa que todo o tráfego ocorre por meio de um endereço IP. Você pode configurar seus sites para compartilhar uma porta ao configurar o cabeçalho do host para direcionar a solicitação para o local correto. Você também pode configurar seus aplicativos para escutar portas conhecidas no endereço IP.
+O Azure permite apenas uma função de web tooa de ponto de entrada. Isso significa que todo o tráfego ocorre por meio de um endereço IP. Você pode configurar seu sites tooshare uma porta Configurando Olá host cabeçalho toodirect Olá solicitação toohello local correto. Você também pode configurar as portas do aplicativos toolisten toowell conhecidas no endereço IP hello.
 
-O exemplo a seguir mostra a configuração de uma função web com um site e o aplicativo Web. O site é configurado como o local de entrada padrão na porta 80, e os aplicativos web são configurados para receber solicitações de um cabeçalho de host alternativo que é chamado de "mail.mysite.cloudapp.net".
+Olá, exemplo a seguir mostra a configuração Olá para uma função web com um aplicativo web e o site. Olá site está configurado como local de entrada hello padrão na porta 80 e aplicativos da web de saudação são solicitações tooreceive configurado de um cabeçalho de host alternativo que é chamado de "mail.mysite.cloudapp.net".
 
 ```xml
 <WebRole>
@@ -196,55 +196,55 @@ O exemplo a seguir mostra a configuração de uma função web com um site e o a
 ```
 
 
-## <a name="changing-the-configuration-of-a-role"></a>Alterar a configuração de uma função
-Você pode atualizar a configuração do seu serviço de nuvem enquanto ele é executado no Azure, sem que o serviço fique offline. Para alterar informações de configuração, você pode carregar um novo arquivo de configuração, ou editar o arquivo de configuração no local e aplicá-lo ao seu serviço em execução. As seguintes alterações podem ser feitas na configuração de um serviço:
+## <a name="changing-hello-configuration-of-a-role"></a>Alterando a configuração de saudação de uma função
+Você pode atualizar a configuração de saudação de seu serviço de nuvem enquanto está em execução no Azure, sem colocar offline o serviço de saudação. toochange informações de configuração, você pode carregar um novo arquivo de configuração ou editar Olá arquivo de configuração de colocar e aplicá-lo tooyour executando o serviço. Olá alterações a seguir podem ser feitas toohello configuração de um serviço:
 
-* **Alterando os valores das configurações**  
-  Quando uma configuração é alterada, uma instância de função pode optar por aplicar a alteração enquanto a instância está online ou reciclar a instância normalmente e aplicar a alteração enquanto a instância está offline.
-* **Alterando a topologia de serviço das instâncias da função**  
-  As alterações da topologia não afetam as instâncias em execução, exceto quando uma instância está sendo removida. Todas as instâncias restantes geralmente não precisam ser recicladas. No entanto, você pode optar por reciclar instâncias de função em resposta a uma alteração de topologia.
-* **Alterando a impressão digital do certificado**  
-  Somente é possível atualizar um certificado quando uma instância de função está offline. Se um certificado é adicionado, excluído ou alterado enquanto uma instância de função estiver online, o Azure deixará a instância offline normalmente para atualizar o certificado e a deixará online novamente após a alteração ser concluída.
+* **Alterando os valores hello definições de configuração**  
+  Quando uma configuração de alterações, de configuração uma instância de função pode escolher tooapply Olá alteração Olá instância está online ou toorecycle Olá instância normalmente e aplique a alteração de saudação enquanto Olá instância está offline.
+* **A alteração de topologia do serviço de saudação de instâncias de função**  
+  As alterações da topologia não afetam as instâncias em execução, exceto quando uma instância está sendo removida. Todas as instâncias restantes geralmente não é necessário toobe reciclado; No entanto, você pode escolher toorecycle instâncias de função na alteração de topologia de tooa de resposta.
+* **Alterando a impressão digital do certificado Olá**  
+   Somente é possível atualizar um certificado quando uma instância de função está offline. Se um certificado for adicionado, excluído ou alterado enquanto uma instância de função estiver online, o Azure normalmente usa certificados de Olá Olá instância tooupdate off-line e colocá-lo novamente online após a conclusão da alteração de saudação.
 
 ### <a name="handling-configuration-changes-with-service-runtime-events"></a>Tratando alterações de configuração com eventos de tempo de execução do serviço
-A [Biblioteca de Tempo de Execução do Azure](https://msdn.microsoft.com/library/azure/mt419365.aspx) inclui o namespace [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx), que fornece classes para interagir com o ambiente do Azure de uma função. A classe [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) define os seguintes eventos que são disparados antes e depois de uma alteração de configuração:
+Olá [biblioteca de tempo de execução do Azure](https://msdn.microsoft.com/library/azure/mt419365.aspx) inclui Olá [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx) namespace, que fornece classes para interagir com hello ambiente do Azure de uma função. Olá [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) classe define Olá eventos que são disparados antes e após uma alteração de configuração a seguir:
 
 * **[Alterando](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx) eventos**  
-  Isso ocorre antes que a alteração de configuração seja aplicada a uma instância específica de uma função, fornecendo a oportunidade de desativar as instâncias de função, se necessário.
+  Isso ocorre antes que alterações de configuração de saudação tooa aplicada a instância especificada de uma função fornecendo tootake uma chance para instâncias de função hello, se necessário.
 * **[Evento](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx) alterado**  
-  Ocorre depois que a alteração de configuração é aplicada a uma instância específica de uma função.
+  Ocorre após a alteração de configuração Olá tooa aplicada a instância especificada de uma função.
 
 > [!NOTE]
-> Como as alterações de certificado sempre tornam as instâncias de uma função offline, elas não geram os eventos RoleEnvironment.Changing ou RoleEnvironment.Changed.
+> Como alterações de certificado sempre usa instâncias de saudação de uma função off-line, elas não geram eventos de saudação Changing ou RoleEnvironment.
 > 
 > 
 
 <a name="cspkg"></a>
 
 ## <a name="servicepackagecspkg"></a>ServicePackage.cspkg
-Para implantar um aplicativo como um serviço de nuvem no Azure, primeiro você deve empacotar o aplicativo no formato apropriado. Você pode usar a ferramenta de linha de comando **CSPack** (instalada com o [SDK do Azure](https://azure.microsoft.com/downloads/)) para criar o arquivo de pacote como uma alternativa para o Visual Studio.
+toodeploy um aplicativo como um serviço de nuvem no Azure, você deve primeiro aplicativo hello de pacote no formato apropriado de saudação. Você pode usar o hello **CSPack** ferramenta de linha de comando (instalado com hello [SDK do Azure](https://azure.microsoft.com/downloads/)) toocreate arquivo de pacote hello como uma alternativa tooVisual Studio.
 
-**CSPack** usa o conteúdo do arquivo de definição de serviço e arquivo de configuração de serviço para definir o conteúdo do pacote. **CSPack** gera um arquivo de pacote de aplicativos (.cspkg) que você pode carregar no Azure usando o [Portal do Azure](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Por padrão, o pacote é denominado `[ServiceDefinitionFileName].cspkg`, mas você pode especificar um nome diferente usando a opção `/out` de **CSPack**.
+**CSPack** usa Olá conteúdo da saudação serviço definição serviço de configuração toodefine Olá conteúdo do arquivo de pacote de saudação. **CSPack** gera um arquivo de pacote de aplicativo (. cspkg) que você pode carregar tooAzure usando Olá [portal do Azure](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Por padrão, o pacote de saudação é chamado `[ServiceDefinitionFileName].cspkg`, mas você pode especificar um nome diferente usando Olá `/out` opção de **CSPack**.
 
 **CSPack** está localizado em  
 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\[sdk-version]\bin\`
 
 > [!NOTE]
-> O CSPack.exe (no Windows) está disponível executando o atalho do **prompt de comando do Microsoft Azure** que é instalado com o SDK.  
+> CSPack.exe (no windows) está disponível executando Olá **Prompt de comando do Microsoft Azure** atalho que é instalado com o SDK de saudação.  
 > 
-> Execute o programa CSPack.exe por ele mesmo para ver a documentação sobre todos os comandos e opções possíveis.
+> Execute o programa de CSPack.exe de saudação por si só toosee documentação sobre todas as opções possíveis hello e comandos.
 > 
 > 
 
 <p />
 
 > [!TIP]
-> Para executar o serviço de nuvem localmente no **Emulador de Computação do Microsoft Azure**, use a opção **/copyonly**. Esta opção copia os arquivos binários do aplicativo para um layout de diretório do qual eles podem ser executados no emulador de computação.
+> Executar seu serviço de nuvem localmente no hello **emulador de computação do Microsoft Azure**, use Olá **/copyonly** opção. Esta opção copia arquivos binários de saudação para layout de diretório Olá aplicativo tooa do qual eles podem ser executados no emulador de computação hello.
 > 
 > 
 
-### <a name="example-command-to-package-a-cloud-service"></a>Exemplo de comando para empacotar um serviço de nuvem
-O exemplo a seguir cria um pacote de aplicativos que contém as informações para uma função web. O comando especifica o arquivo de definição de serviço para usar, o diretório onde os arquivos binários podem ser encontrados e o nome do arquivo do pacote.
+### <a name="example-command-toopackage-a-cloud-service"></a>Comando de exemplo toopackage um serviço de nuvem
+Olá, exemplo a seguir cria um pacote de aplicativo que contém informações de saudação para uma função web. comando Olá Especifica Olá toouse de arquivo de definição de serviço, diretório Olá onde os arquivos binários podem ser encontrado e Olá o nome do arquivo de pacote de saudação.
 
 ```cmd
 cspack [DirectoryName]\[ServiceDefinition]
@@ -253,7 +253,7 @@ cspack [DirectoryName]\[ServiceDefinition]
        /out:[OutputFileName]
 ```
 
-Se o aplicativo contém uma função web e uma função de trabalho, o comando a seguir será usado:
+Se o aplicativo hello contém uma função web e uma função de trabalho, hello comando a seguir é usado:
 
 ```cmd
 cspack [DirectoryName]\[ServiceDefinition]
@@ -263,18 +263,18 @@ cspack [DirectoryName]\[ServiceDefinition]
        /role:[RoleName];[RoleBinariesDirectory];[RoleAssemblyName]
 ```
 
-Onde as variáveis são definidas da seguinte maneira:
+Onde as variáveis de saudação são definidas da seguinte maneira:
 
 | Variável | Valor |
 | --- | --- |
-| \[DirectoryName\] |O subdiretório no diretório do projeto raiz que contém o arquivo .csdef do projeto do Azure. |
-| \[ServiceDefinition\] |O nome do arquivo de definição de serviço. Por padrão, esse arquivo é chamado de ServiceDefinition.csdef. |
-| \[OutputFileName\] |O nome do arquivo de pacote gerado. Normalmente, isso é definido como o nome do aplicativo. Se nenhum nome de arquivo for especificado, o pacote de aplicativos será criado como \[NomeAplicativo\].cspkg. |
-| \[RoleName\] |O nome da função, conforme definido no arquivo de definição de serviço. |
-| \[RoleBinariesDirectory] |O local dos arquivos binários da função. |
-| \[VirtualPath\] |Os diretórios físicos para cada caminho virtual definido na seção Sites da definição de serviço. |
-| \[PhysicalPath\] |Os diretórios físicos do conteúdo de cada caminho virtual definido no nó de site da definição de serviço. |
-| \[RoleAssemblyName\] |O nome do arquivo binário para a função. |
+| \[DirectoryName\] |Olá subdiretório no diretório do projeto Olá raiz que contém o arquivo. csdef Olá Olá projeto do Azure. |
+| \[ServiceDefinition\] |nome de saudação do arquivo de definição de serviço hello. Por padrão, esse arquivo é chamado de ServiceDefinition.csdef. |
+| \[OutputFileName\] |nome Olá Olá gerou o arquivo de pacote. Normalmente, isso é definido toohello nome do aplicativo hello. Se nenhum nome de arquivo for especificado, o pacote de aplicativo hello é criado como \[ApplicationName\]. cspkg. |
+| \[RoleName\] |nome de saudação da função de saudação conforme definido no arquivo de definição de serviço hello. |
+| \[RoleBinariesDirectory] |local de saudação de arquivos binários para função Olá Olá. |
+| \[VirtualPath\] |diretórios físicos de saudação para cada caminho virtual definido na seção de Sites de saudação da definição de serviço hello. |
+| \[PhysicalPath\] |Olá diretórios físicos do conteúdo de saudação de cada caminho virtual definido no nó do site Olá da definição de serviço hello. |
+| \[RoleAssemblyName\] |nome de saudação do arquivo binário Olá função hello. |
 
 ## <a name="next-steps"></a>Próximas etapas
 Estou criando um pacote de serviço de nuvem e desejo...

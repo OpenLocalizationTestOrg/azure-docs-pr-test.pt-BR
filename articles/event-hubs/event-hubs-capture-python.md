@@ -1,6 +1,6 @@
 ---
-title: Passo a passo da Captura de Hubs de Eventos do Azure | Microsoft Docs
-description: Exemplo que usa o SDK do Python do Azure para demonstrar o uso do recurso Captura de Hubs de Eventos.
+title: passo a passo aaaAzure Hubs de evento captura | Microsoft Docs
+description: Exemplo que usa hello Azure SDK de Python toodemonstrate usando o recurso de captura de Hubs de evento hello.
 services: event-hubs
 documentationcenter: 
 author: djrosanova
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: darosa;sethm
-ms.openlocfilehash: a764a116755c20f60e92e553bd7c896425272b85
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 1737dcca283711d863aa970db0e80ae71814e666
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>Passo a passo da Captura de Hubs de Eventos: Python
 
-A Captura de Hubs de Eventos é um recurso dos Hubs de Eventos que habilita o fornecimento automático dos dados de streaming no Hub de Eventos para uma conta de Armazenamento de Blobs do Azure desejada. Essa capacidade facilita a execução de processamento em lote na transmissão de dados em tempo real. Este artigo descreve como usar a Captura de Hubs de Eventos com o Python. Para saber mais sobre a Captura de Hubs de Eventos, confira o [artigo de visão geral](event-hubs-archive-overview.md).
+Captura de Hubs de eventos é um recurso dos Hubs de eventos que permite que você tooautomatically entregar Olá fluxo de dados em seu hub de evento tooan conta de armazenamento de BLOBs do Azure de sua escolha. Esse recurso torna fácil tooperform processamento em lote em dados de streaming em tempo real. Este artigo descreve como capturam de Hubs de eventos toouse com Python. Para obter mais informações sobre captura de Hubs de evento, consulte Olá [artigo de visão geral](event-hubs-archive-overview.md).
 
-Este exemplo usa o [SDK para Python do Azure](https://azure.microsoft.com/develop/python/) para demonstrar o recurso de Captura. O programa sender.py envia telemetria de ambiente simulado para os Hubs de Eventos no formato JSON. O Hub de Eventos está configurado para usar o recurso de Captura a fim de gravar esses dados no Armazenamento de Blobs em lotes. Em seguida, o aplicativo capturereader.py lê esses blobs e cria um arquivo de acréscimo por dispositivo e grava os dados em arquivos. csv.
+Este exemplo usa Olá [Azure SDK de Python](https://azure.microsoft.com/develop/python/) toodemonstrate o recurso de captura hello. programa de sender.py Olá envia telemetria ambiente simulada tooEvent Hubs no formato JSON. Olá hub de eventos está configurado toouse Olá captura recurso toowrite esse armazenamento tooblob de dados em lotes. Olá capturereader.py aplicativo, em seguida, lê esses blobs e cria um arquivo de acrescentar por dispositivo e grava dados saudação em arquivos. csv.
 
 ## <a name="what-will-be-accomplished"></a>O que será realizado
 
-1. Criar uma conta de Armazenamento de Blobs do Azure e um contêiner de blobs dentro dela, usando o portal do Azure.
-2. Criar um namespace do Hub de Eventos usando o portal do Azure.
-3. Crie um Hub de Eventos com o recurso de Captura habilitado, usando o Portal do Azure.
-4. Envie dados para o Hub de Eventos com um script Python.
-5. Leia os arquivos da captura e processe-os com outro script Python.
+1. Crie uma conta de armazenamento de BLOBs do Azure e um contêiner de blob dentro dele, usando Olá portal do Azure.
+2. Crie um namespace de Hub de eventos, usando Olá portal do Azure.
+3. Crie um hub de eventos com recurso de captura Olá habilitado, usando Olá portal do Azure.
+4. Envie um hub de eventos de toohello de dados com um script de Python.
+5. Ler arquivos de saudação de captura hello e processá-los com outro script de Python.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,18 +43,18 @@ Este exemplo usa o [SDK para Python do Azure](https://azure.microsoft.com/develo
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
-1. Faça logon no [Portal do Azure][Azure portal].
-2. No painel de navegação esquerdo do portal, clique em **Novo**, em **Armazenamento** e em **Conta de Armazenamento**.
-3. Preencha os campos na folha da conta de armazenamento e clique em **Criar**.
+1. Faça logon no toohello [portal do Azure][Azure portal].
+2. No painel de navegação à esquerda de saudação do portal de saudação, clique em **novo**, em seguida, clique em **armazenamento**e, em seguida, clique em **conta de armazenamento**.
+3. Preencha os campos de saudação na folha de conta de armazenamento hello e, em seguida, clique em **criar**.
    
    ![][1]
-4. Depois de ver a mensagem **Implantações Bem-sucedidas**, clique no nome da nova conta de armazenamento e, na folha **Fundamentos**, clique em **Blobs**. Quando a folha **Serviço Blob** abrir, clique em **+ Contêiner** na parte superior. Nomeie o contêiner **captura** e feche a folha do **Serviço Blob**.
-5. Clique em **Chaves de acesso** na folha esquerda e copie o nome da conta de armazenamento e o valor de **key1**. Salve esses valores no Bloco de notas ou em outro local temporário.
+4. Depois de ver Olá **implantações bem-sucedida** , clique em nome de saudação da nova conta de armazenamento hello e em Olá **Essentials** folha, clique em **Blobs**. Olá quando **do serviço Blob** folha é aberto, clique em **+ contêiner** na parte superior da saudação. Contêiner de saudação do nome **capturar**, em seguida, feche Olá **do serviço Blob** folha.
+5. Clique em **chaves de acesso** no hello esquerdo folha e cópia Olá o nome da conta de armazenamento hello e valor de saudação do **key1**. Salve tooNotepad esses valores ou algum outro local temporário.
 
-## <a name="create-a-python-script-to-send-events-to-your-event-hub"></a>Criar um script Python para enviar eventos a seu Hub de Eventos
+## <a name="create-a-python-script-toosend-events-tooyour-event-hub"></a>Criar um hub de eventos do Python script toosend eventos tooyour
 1. Abra seu editor de Python favorito, como o [Visual Studio Code][Visual Studio Code].
-2. Crie um script chamado **sender.py**. Esse script envia 200 eventos para seu hub de eventos. Eles são simples leituras de ambiente enviadas em JSON.
-3. Cole o seguinte código em sender.py:
+2. Crie um script chamado **sender.py**. Esse script envia 200 hub de eventos de tooyour de eventos. Eles são simples leituras de ambiente enviadas em JSON.
+3. Cole Olá código a seguir em sender.py:
    
   ```python
   import uuid
@@ -75,13 +75,13 @@ Este exemplo usa o [SDK para Python do Azure](https://azure.microsoft.com/develo
           sbs.send_event('INSERT YOUR EVENT HUB NAME', s)
       print y
   ```
-4. Atualize o código anterior para usar o nome do namespace, o valor de chave e o nome do hub de eventos obtidos ao criar o namespace dos Hubs de Eventos.
+4. Atualize Olá anterior toouse de código, o nome do namespace, o valor da chave e o nome do hub de eventos que você obteve ao criar o namespace de Hubs de eventos de saudação.
 
-## <a name="create-a-python-script-to-read-your-capture-files"></a>Criar um script Python para ler os arquivos da Captura
+## <a name="create-a-python-script-tooread-your-capture-files"></a>Criar um tooread de script de Python seus arquivos de captura
 
-1. Preencha a folha e clique em **Criar**.
-2. Criar um script chamado **capturereader.py**. Esse script lê os arquivos capturados e cria um arquivo por dispositivo para gravar os dados somente para esse dispositivo.
-3. Cole o código abaixo no capturereader.py:
+1. Preencha a folha de saudação e clique em **criar**.
+2. Criar um script chamado **capturereader.py**. Esse script lê Olá capturada arquivos e cria um arquivo de dados do dispositivo toowrite Olá por apenas para o dispositivo.
+3. Cole Olá código a seguir em capturereader.py:
    
   ```python
   import os
@@ -125,10 +125,10 @@ Este exemplo usa o [SDK para Python do Azure](https://azure.microsoft.com/develo
           block_blob_service.delete_blob(container, blob.name)
   startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'capture')
   ```
-4. Não se esqueça de colar os valores apropriados do nome da sua conta de armazenamento e da chave na chamada para `startProcessing`.
+4. Ser toopaste-se de que os valores apropriados Olá para seu nome de conta de armazenamento e a chave no hello chamada muito`startProcessing`.
 
-## <a name="run-the-scripts"></a>Executar os scripts
-1. Abra um prompt de comando com o Python em seu caminho e execute estes comandos para instalar os pacotes de pré-requisito do Python:
+## <a name="run-hello-scripts"></a>Executar scripts de saudação
+1. Abra um prompt de comando com o Python em seu caminho e, em seguida, execute estes comandos tooinstall Python pré-requisitos do pacote:
    
   ```
   pip install azure-storage
@@ -136,35 +136,35 @@ Este exemplo usa o [SDK para Python do Azure](https://azure.microsoft.com/develo
   pip install avro
   ```
    
-  Se você tiver uma versão anterior do Azure ou do Armazenamento do Azure, talvez precise usar a opção **--upgrade**
+  Se você tiver uma versão anterior do armazenamento do azure ou do azure, talvez seja necessário Olá toouse **– atualizar** opção
    
-  Você também precisa executar o seguinte (desnecessário na maioria dos sistemas):
+  Talvez também seja necessário toorun Olá seguir (não é necessária na maioria dos sistemas):
    
   ```
   pip install cryptography
   ```
-2. Altere o diretório para o qual você salvou sender.py e capturereader.py e execute este comando:
+2. Alterar sua toowherever de diretório que você salvou sender.py e capturereader.py e execute este comando:
    
   ```
   start python sender.py
   ```
    
-  Esse comando inicia um novo processo de Python para executar o remetente.
-3. Agora, aguarde alguns minutos para que a captura seja executada. Em seguida, digite o seguinte comando na janela de comando original:
+  Esse comando inicia um novo remetente Python processo toorun hello.
+3. Agora, aguarde alguns minutos para Olá captura toorun. Em seguida, digite o comando a seguir em sua janela de comando original de saudação:
    
    ```
    python capturereader.py
    ```
 
-   Esse processador de captura usa o diretório local para baixar todos os blobs do contêiner/da conta de armazenamento. Ele processa todos os que não estão vazios e grava os resultados como arquivos .csv no diretório local.
+   Este processador captura usa toodownload de diretório local Olá todos os blobs de saudação do contêiner da conta Olá armazenamento. Ele processa qualquer um que não estejam vazias e grava os resultados de saudação como arquivos. csv no diretório local hello.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
+Você pode aprender mais sobre os Hubs de eventos visitando Olá links a seguir:
 
 * [Visão Geral da Captura de Hubs de Eventos][Overview of Event Hubs Capture]
 * Um [aplicativo de exemplo completo que usa os Hubs de Eventos][sample application that uses Event Hubs].
-* O exemplo de [Escala horizontal do processamento de eventos com Hubs de Eventos][Scale out Event Processing with Event Hubs].
+* Olá [expansão com Hubs de eventos de processamento de eventos] [ Scale out Event Processing with Event Hubs] exemplo.
 * [Visão Geral dos Hubs de Eventos][Event Hubs overview]
 
 [Azure portal]: https://portal.azure.com/

@@ -1,6 +1,6 @@
 ---
-title: "Publicar aplicativos para usuários individuais em uma coleção do Azure RemoteApp (versão prévia) | Microsoft Docs"
-description: "Saiba como pode publicar aplicativos para usuários individuais, em vez de depender de grupos no Azure RemoteApp."
+title: "aaaPublish aplicativos tooindividual os usuários em uma coleção do RemoteApp do Azure (visualização) | Microsoft Docs"
+description: "Saiba como você pode publicar os usuários tooindividual de aplicativos, em vez de dependendo grupos no Azure RemoteApp."
 services: remoteapp-preview
 documentationcenter: 
 author: piotrci
@@ -14,92 +14,92 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 11/23/2016
 ms.author: piotrci
-ms.openlocfilehash: c94ffffdec3e46ed08d941ee58dcf17b432e1dad
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 87b435552ddbfc2c6d03aeb01d95a44985e71f9f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="publish-applications-to-individual-users-in-an-azure-remoteapp-collection-preview"></a>Publicar aplicativos para usuários individuais em uma coleção do Azure RemoteApp (Visualização)
+# <a name="publish-applications-tooindividual-users-in-an-azure-remoteapp-collection-preview"></a>Publicar aplicativos tooindividual os usuários em uma coleção do RemoteApp do Azure (visualização)
 > [!IMPORTANT]
-> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Saudação de leitura [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
-Este artigo explica como publicar aplicativos para usuários individuais em uma coleção do Azure RemoteApp. Essa é uma nova funcionalidade no Azure RemoteApp, atualmente em visualização particular, e está disponível somente para usuários pioneiros específicos para fins de avaliação.
+Este artigo explica como toopublish aplicativos tooindividual os usuários em uma coleção do RemoteApp do Azure. Isso é uma nova funcionalidade no Azure RemoteApp, atualmente na visualização privada e pioneiros disponível tooselect apenas para fins de avaliação.
 
-Originalmente, o Azure RemoAppte habilitava apenas uma maneira de publicar aplicativos: o administrador publicava os aplicativos a partir da imagem e eles ficavam visíveis para todos os usuários na coleção.
+Originalmente o Azure RemoteApp habilitado apenas uma maneira de publicação de aplicativos: administrador Olá seria publicar aplicativos de imagem de saudação e estariam visíveis tooall usuários na coleção de saudação.
 
-Um cenário comum é incluir vários aplicativos em uma única imagem e implantar uma coleção para reduzir os custos de gerenciamento. Muitas vezes, nem todos os aplicativos são relevantes para todos os usuários. Os administradores preferem publicar aplicativos para usuários individuais, assim, eles não veem aplicativos desnecessários em seu feed de aplicativos.
+Um cenário comum é tooinclude muitos aplicativos em uma única imagem e implantar uma coleção em custos de gerenciamento de tooreduce de ordem. Muitas vezes, nem todos os aplicativos são usuários relevantes tooall – os administradores prefere toopublish usuários de tooindividual de aplicativos para que eles não verão os aplicativos desnecessários em seus aplicativos de feed.
 
-Isso já é possível no Azure RemoteApp, atualmente como um recurso de visualização limitada. Veja um pequeno resumo sobre a nova funcionalidade:
+Isso já é possível no Azure RemoteApp, atualmente como um recurso de visualização limitada. Aqui está um resumo da nova funcionalidade de saudação:
 
 1. Uma coleção pode ser definida em um destes dois modos:
    
-   * o modo de coleção original, em que todos os usuários em uma coleção podem ver todos os aplicativos publicados. Esse é o modo padrão.
-   * o novo modo de aplicativo, em que os usuários veem apenas os aplicativos que foram explicitamente atribuídos a eles
-2. No momento, o modo de aplicativo só pode ser habilitado por meio de cmdlets do PowerShell do Azure RemoteApp.
+   * Olá original modo de coleta onde todos os usuários em uma coleção podem ver todos os aplicativos publicados. Este é o modo de padrão de saudação.
+   * novo modo de aplicativo Hello, onde os usuários veem somente os aplicativos que foram explicitamente atribuídas toothem
+2. No momento de saudação o modo de aplicativo hello só pode ser habilitado usando cmdlets do PowerShell do Azure RemoteApp.
    
-   * Quando é definido como modo de aplicativo, a atribuição de usuário na coleção não pode ser gerenciada por meio do portal do Azure. A atribuição de usuário deve ser gerenciada por meio de cmdlets do PowerShell.
-3. Os usuários verão apenas os aplicativos publicados diretamente para eles. No entanto, ainda é possível que um usuário inicie os outros aplicativos disponíveis na imagem, acessando-os diretamente no sistema operacional.
+   * Ao definir o modo de tooapplication, atribuição de usuário na coleção de saudação não pode ser gerenciado por meio de Olá portal do Azure. Atribuição do usuário tem toobe gerenciada por meio de cmdlets do PowerShell.
+3. Os usuários verão apenas aplicativos Olá publicados diretamente toothem. No entanto, talvez ainda seja possível para um usuário toolaunch Olá outros aplicativos disponíveis na imagem de saudação acessando-los diretamente no sistema operacional de saudação.
    
-   * Esse recurso não fornece um bloqueio seguro de aplicativos. Ele apenas limita a visibilidade no feed de aplicativos.
-   * Se precisar isolar usuários dos aplicativos, será preciso usar coleções separadas para isso.
+   * Este recurso não fornece um bloqueio seguro de aplicativos; ela apenas limita a visibilidade no aplicativo hello feed.
+   * Se você precisar tooisolate usuários de aplicativos, você precisará coleções separadas toouse para fazer isso.
 
-## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>Como obter os cmdlets do PowerShell do Azure RemoteApp
-Para experimentar a nova funcionalidade de visualização, você precisará usar os cmdlets do Azure PowerShell. No momento, não é possível usar o Portal de Gerenciamento do Azure para habilitar o novo modo de publicação de aplicativos.
+## <a name="how-tooget-azure-remoteapp-powershell-cmdlets"></a>Como tooget cmdlets do PowerShell do Azure RemoteApp
+tootry Olá nova visualização funcionalidade, você precisará toouse cmdlets do PowerShell do Azure. No momento não é toouse possíveis Olá Azure Management portal tooenable Olá nova publicação modo de aplicativo.
 
-Primeiro, verifique se você tem o [módulo Azure PowerShell](/powershell/azure/overview) instalado.
+Primeiro, verifique se você tem Olá [módulo Azure PowerShell](/powershell/azure/overview) instalado.
 
-Em seguida, inicie o console do PowerShell no modo de administrador e execute este cmdlet:
+Em seguida, inicie o console do PowerShell Olá no modo de administrador e execute hello cmdlet a seguir:
 
         Add-AzureAccount
 
-Ele solicitará seu nome de usuário e senha do Azure. Depois de conectado, você poderá executar os cmdlets do RemoteApp do Azure em suas assinaturas do Azure.
+Ele solicitará seu nome de usuário e senha do Azure. Depois de conectado, será capaz de toorun cmdlets do Azure RemoteApp em relação a suas assinaturas do Azure.
 
-## <a name="how-to-check-which-mode-a-collection-is-in"></a>Como verificar o modo no qual uma coleção está
-Execute o cmdlet a seguir:
+## <a name="how-toocheck-which-mode-a-collection-is-in"></a>Como toocheck modo no qual uma coleção está em
+Execute Olá cmdlet a seguir:
 
         Get-AzureRemoteAppCollection <collectionName>
 
-![Verificar o modo de coleção](./media/remoteapp-perapp/araacllelvel.png)
+![Verificar o modo de coleta de saudação](./media/remoteapp-perapp/araacllelvel.png)
 
-A propriedade AclLevel pode ter os seguintes valores:
+Olá AclLevel propriedade pode ter Olá valores a seguir:
 
-* Coleção: o modo de publicação original. Todos os usuários veem todos os aplicativos publicados.
-* Aplicativo: o novo modo de publicação. Os usuários veem apenas os aplicativos publicados diretamente para eles.
+* Coleta: Olá publicação modo original. Todos os usuários veem todos os aplicativos publicados.
+* Aplicativo: Olá nova publicação modo. Os usuários veem somente Olá aplicativos publicados diretamente toothem.
 
-## <a name="how-to-switch-to-application-publishing-mode"></a>Como alternar para o modo de publicação de aplicativos
-Execute o cmdlet a seguir:
+## <a name="how-tooswitch-tooapplication-publishing-mode"></a>Como o modo de publicação de tooapplication tooswitch
+Execute Olá cmdlet a seguir:
 
         Set-AzureRemoteAppCollection -CollectionName -AclLevel Application
 
-O estado de publicação do aplicativo será preservado: inicialmente, todos os usuários verão todos os aplicativos publicados originais.
+Estado de publicação de aplicativo será preservado: inicialmente todos os usuários verão todos os aplicativos publicados original de saudação.
 
-## <a name="how-to-list-users-who-can-see-a-specific-application"></a>Como listar os usuários que podem ver um aplicativo específico
-Execute o cmdlet a seguir:
+## <a name="how-toolist-users-who-can-see-a-specific-application"></a>Como os usuários toolist quem podem ver um aplicativo específico
+Execute Olá cmdlet a seguir:
 
         Get-AzureRemoteAppUser -CollectionName <collectionName> -Alias <appAlias>
 
-Isso lista todos os usuários que podem ver o aplicativo.
+Lista todos os usuários que podem ver o aplicativo hello.
 
-Observação: você pode ver os aliases de aplicativos (chamados de "alias de aplicativos" na sintaxe acima) executando Get-AzureRemoteAppProgram - CollectionName <collectionName>.
+Observação: Você pode ver aliases de aplicativo hello (chamados "alias do aplicativo" na sintaxe de saudação acima) executando Get-AzureRemoteAppProgram - CollectionName <collectionName>.
 
-## <a name="how-to-assign-an-application-to-a-user"></a>Como atribuir um aplicativo a um usuário
-Execute o cmdlet a seguir:
+## <a name="how-tooassign-an-application-tooa-user"></a>Como tooassign um usuário do aplicativo tooa
+Execute Olá cmdlet a seguir:
 
         Add-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
 
-Agora, o usuário verá o aplicativo no cliente RemoteApp do Azure e poderá conectar-se a ele.
+usuário Hello agora verá saudação do aplicativo no cliente do Azure RemoteApp hello e será capaz de tooconnect tooit.
 
-## <a name="how-to-remove-an-application-from-a-user"></a>Como remover um aplicativo de um usuário
-Execute o cmdlet a seguir:
+## <a name="how-tooremove-an-application-from-a-user"></a>Como tooremove um aplicativo de um usuário
+Execute Olá cmdlet a seguir:
 
         Remove-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
 
 ## <a name="providing-feedback"></a>Como fornecer comentários
-Agradecemos seus comentários e sugestões sobre este recurso de visualização. Preencha a [pesquisa](http://www.instant.ly/s/FDdrb) para nos informar sobre sua opinião.
+Agradecemos seus comentários e sugestões sobre este recurso de visualização. Por favor, preencha Olá [pesquisa](http://www.instant.ly/s/FDdrb) toolet no que você acha.
 
-## <a name="havent-had-a-chance-to-try-the-preview-feature"></a>Ainda não teve a oportunidade de experimentar o recurso de visualização?
-Se você ainda não participou da visualização, use esta [pesquisa](http://www.instant.ly/s/AY83p) para solicitar acesso.
+## <a name="havent-had-a-chance-tootry-hello-preview-feature"></a>Ainda não teve um recurso de visualização chance tootry Olá?
+Se você não participou de visualização Olá ainda, use isso [pesquisa](http://www.instant.ly/s/AY83p) toorequest acesso.
 

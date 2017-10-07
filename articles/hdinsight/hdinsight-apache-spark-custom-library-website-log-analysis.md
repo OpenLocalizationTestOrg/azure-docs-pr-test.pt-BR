@@ -1,6 +1,6 @@
 ---
-title: "Analisar logs de sites com bibliotecas de Python no Spark – Azure | Microsoft Docs"
-description: Este notebook demonstra como analisar dados de log usando uma biblioteca personalizada com o Spark no Azure HDInsight.
+title: logs de site aaaAnalyze com bibliotecas de Python no Spark - Azure | Microsoft Docs
+description: "Este bloco de anotações demonstra como tooanalyze dados de log usando uma biblioteca personalizada com Spark no HDInsight do Azure."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -16,39 +16,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
-ms.openlocfilehash: 2a028beb1e9eae89d32238e61b6f67c4c059a94a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 29e4308b2a359aee6d69494a98307d4da07f7909
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>Analisar logs do site usando uma biblioteca personalizada do Python com cluster Spark no HDInsight
 
-Este notebook demonstra como analisar dados de log usando uma biblioteca personalizada com o Spark no HDInsight. A biblioteca personalizada que usamos é uma biblioteca Python chamada **iislogparser.py**.
+Este bloco de anotações demonstra como tooanalyze dados de log usando uma biblioteca personalizada com Spark no HDInsight. podemos usar a biblioteca personalizada de saudação é uma biblioteca de Python chamada **iislogparser.py**.
 
 > [!TIP]
-> Este tutorial também está disponível como um notebook Jupyter em um cluster do Spark (Linux) que você pode criar no HDInsight. A experiência de bloco de anotações permite executar os trechos de código Python no próprio bloco de anotações. Para executar o tutorial de dentro de um notebook, crie um cluster Spark, inicie um notebook do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) e, em seguida, execute o notebook **Analisar logs com o Spark usando uma library.ipynb** personalizada na pasta **PySpark**.
+> Este tutorial também está disponível como um notebook Jupyter em um cluster do Spark (Linux) que você pode criar no HDInsight. experiência de notebook Olá permite executar trechos de Python de saudação do bloco de anotações de saudação em si. tutorial de saudação tooperform de dentro de um bloco de anotações, criar um cluster Spark, inicie um bloco de anotações do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), e, em seguida, execute notebook Olá **analisar logs com Spark usando um library.ipynb personalizado** em Olá  **PySpark** pasta.
 >
 >
 
 **Pré-requisitos:**
 
-Você deve ter o seguinte:
+Você deve ter o seguinte hello:
 
 * Uma assinatura do Azure. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## <a name="save-raw-data-as-an-rdd"></a>Salvar dados brutos como RDD
-Nesta seção, usamos o notebook [Jupyter](https://jupyter.org) associado a um cluster do Apache Spark no HDInsight para executar trabalhos que processam dados brutos de exemplo e os salvam como uma tabela Hive. Os dados de exemplo são um arquivo .csv (hvac.csv) disponível em todos os clusters por padrão.
+Nesta seção, usamos Olá [Jupyter](https://jupyter.org) notebook associado a um cluster do Apache Spark no HDInsight toorun trabalhos que processam os dados brutos de exemplo e salvá-lo como uma tabela de Hive. dados de exemplo Hello são um arquivo. csv (hvac.csv) disponível em todos os clusters por padrão.
 
-Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos nos conectar à tabela Hive usando ferramentas de BI como Power BI e Tableau.
+Depois que seus dados é salvo como uma tabela Hive, nós conectará toohello tabela de Hive usando ferramentas de BI como Power BI e Tableau na próxima seção, Olá.
 
-1. No [portal do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
-2. Na folha do cluster Spark, clique em **Painel do Cluster** e em **Notebook Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
+1. De saudação [portal do Azure](https://portal.azure.com/), do quadro de saudação inicial, clique em bloco de saudação para seu cluster Spark (se tê-fixado quadro toohello inicial). Você também pode navegar cluster tooyour em **procurar todos os** > **Clusters HDInsight**.   
+2. Na folha de cluster do Spark hello, clique em **painel Cluster**e, em seguida, clique em **Jupyter Notebook**. Se solicitado, insira as credenciais de administrador de saudação para cluster hello.
 
    > [!NOTE]
-   > Você também pode acessar o Bloco de Notas Jupyter de seu cluster abrindo a seguinte URL no navegador. Substitua **CLUSTERNAME** pelo nome do cluster:
+   > Você também poderá atingir Olá anotações do Jupyter para o cluster por Olá abrir URL a seguir em seu navegador. Substituir **CLUSTERNAME** com nome de saudação do cluster:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
@@ -56,25 +56,25 @@ Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos
 3. Crie um novo bloco de anotações. Clique em **Novo** e em **PySpark**.
 
     ![Criar um novo bloco de anotações do Jupyter](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Criar um novo bloco de anotações do Jupyter")
-4. Um novo bloco de anotações é criado e aberto com o nome Untitled.pynb. Clique no nome do bloco de anotações na parte superior e digite um nome amigável.
+4. Um novo bloco de anotações é criado e aberto com o nome hello Untitled.pynb. Clique em nome do bloco de anotações de saudação na parte superior da saudação e insira um nome amigável.
 
-    ![Fornecer um nome para o bloco de anotações](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "Fornecer um nome para o bloco de anotações")
-5. Por ter criado um notebook usando o kernel PySpark, não será necessário criar nenhum contexto explicitamente. Os contextos do Spark e do Hive serão criados automaticamente para você ao executar a primeira célula do código. Você pode começar importando os tipos que são obrigatórios para este cenário. Cole o trecho a seguir em uma célula vazia e, em seguida, pressione **SHIFT + ENTER**.
+    ![Forneça um nome para o bloco de anotações de saudação](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "forneça um nome para o bloco de anotações de saudação")
+5. Como você criou um bloco de anotações com o hello PySpark kernel, não é necessário toocreate qualquer contextos explicitamente. contextos de Spark e Hive Olá serão automaticamente criados para você quando você executar a primeira célula de código hello. Você pode começar importando tipos Olá que são necessários para este cenário. Cole Olá seguindo o trecho de código em uma célula vazia e, em seguida, pressione **SHIFT + ENTER**.
 
         from pyspark.sql import Row
         from pyspark.sql.types import *
 
 
-1. Crie um RDD usando os dados de log de exemplo já disponíveis no cluster. Você pode acessar os dados na conta de armazenamento padrão associada ao cluster em **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log**.
+1. Crie um RDD usando dados de log de exemplo hello já disponíveis no cluster de saudação. Você pode acessar dados Olá na conta de armazenamento padrão de saudação associada Olá cluster em **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log**.
 
         logs = sc.textFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
 
 
-1. Recupere um log de exemplo definido para verificar se a etapa anterior foi concluída com êxito.
+1. Recupere um tooverify de conjunto de log de exemplo que Olá a etapa anterior foi concluída com êxito.
 
         logs.take(5)
 
-    Você deverá ver um resultado semelhante ao seguinte:
+    Você verá uma saída semelhante toohello a seguir:
 
         # -----------------
         # THIS IS AN OUTPUT
@@ -87,24 +87,24 @@ Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos
          u'2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step4.png X-ARR-LOG-ID=4bea5b3d-8ac9-46c9-9b8c-ec3e9500cbea 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 72177 871 47']
 
 ## <a name="analyze-log-data-using-a-custom-python-library"></a>Analise os dados de log usando uma biblioteca Python personalizada
-1. Na saída acima, as primeiras linhas incluem as informações de cabeçalho, e cada linha restante coincide com o esquema descrito naquele cabeçalho. Analisar esses logs pode ser complicado. Então, usamos uma biblioteca personalizada do Python (**iislogparser.py**) que torna a análise desses logs muito mais fácil. Por padrão, essa biblioteca é incluída com o cluster do Spark no HDInsight em **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**.
+1. Na saída de hello acima, primeiras linhas de alguns Olá incluem informações de cabeçalho hello e corresponde a cada linha restante esquema Olá descrita nesse cabeçalho. Analisar esses logs pode ser complicado. Então, usamos uma biblioteca personalizada do Python (**iislogparser.py**) que torna a análise desses logs muito mais fácil. Por padrão, essa biblioteca é incluída com o cluster do Spark no HDInsight em **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**.
 
-    No entanto, essa biblioteca não está no `PYTHONPATH`, então não podemos usá-la com uma instrução de importação como `import iislogparser`. Para usar essa biblioteca, devemos distribuí-la para todos os nós de trabalho. Execute o trecho de código a seguir.
+    No entanto, essa biblioteca não fica Olá `PYTHONPATH` para nós não pode usá-lo usando uma instrução de importação como `import iislogparser`. toouse nessa biblioteca, é necessário distribuir nós de trabalho tooall hello. Execute Olá trecho de código a seguir.
 
         sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
 
 
-1. O `iislogparser` fornece uma função `parse_log_line` que retorna `None` se uma linha do log for uma linha de cabeçalho, e retorna uma instância da classe `LogLine` se encontrar uma linha do log. Use a classe `LogLine` para extrair somente as linhas do log do RDD:
+1. `iislogparser`Fornece uma função `parse_log_line` que retorna `None` se uma linha de log é uma linha de cabeçalho e retorna uma instância da saudação `LogLine` classe se ele encontrar uma linha de log. Olá Use `LogLine` classe tooextract Olá apenas linhas de log de saudação RDD:
 
         def parse_line(l):
             import iislogparser
             return iislogparser.parse_log_line(l)
         logLines = logs.map(parse_line).filter(lambda p: p is not None).cache()
-2. Recupere algumas linhas de log extraídas para verificar se a etapa foi concluída com êxito.
+2. Recupere algumas linhas de log extraídos tooverify que Olá etapa foi concluída com êxito.
 
        logLines.take(2)
 
-   A saída deverá ser semelhante a esta:
+   saída de Hello deve ser a seguir toohello semelhante:
 
        # -----------------
        # THIS IS AN OUTPUT
@@ -112,7 +112,7 @@ Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos
 
        [2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step2.png X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 53175 871 46,
         2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32]
-3. A classe `LogLine`, por sua vez, tem alguns métodos úteis, como `is_error()`, que retorna se uma entrada de log tem um código de erro. Use isso para calcular o número de erros nas linhas de log extraídas e então registre todos os erros em um arquivo diferente.
+3. Olá `LogLine` classe, por sua vez, tem alguns métodos úteis, como `is_error()`, que retorna se uma entrada de log tem um código de erro. Use esse número de saudação de toocompute de erros nas linhas de log Olá extraído, em seguida, arquivo de log e todos os Olá erros tooa diferentes.
 
        errors = logLines.filter(lambda p: p.is_error())
        numLines = logLines.count()
@@ -120,15 +120,15 @@ Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos
        print 'There are', numErrors, 'errors and', numLines, 'log entries'
        errors.map(lambda p: str(p)).saveAsTextFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
 
-   Você verá algo semelhante ao mostrado a seguir:
+   Você verá uma saída semelhante Olá seguinte:
 
        # -----------------
        # THIS IS AN OUTPUT
        # -----------------
 
        There are 30 errors and 646 log entries
-4. Você também pode usar **Matplotlib** para construir uma visualização dos dados. Por exemplo, se você quiser isolar a causa de solicitações executadas por um longo tempo, talvez queira localizar os arquivos que, em média, levam mais tempo para atender.
-   O trecho a seguir recupera os 25 principais recursos que levaram mais tempo para atender uma solicitação.
+4. Você também pode usar **Matplotlib** tooconstruct uma visualização de dados de saudação. Por exemplo, se você quiser tooisolate causa de saudação de solicitações que são executados por um longo tempo, convém arquivos Olá toofind levar hello mais tooserve de tempo em média.
+   trecho de saudação abaixo recupera Olá superior 25 recursos que levou a maioria dos tooserve de tempo uma solicitação.
 
        def avgTimeTakenByKey(rdd):
            return rdd.combineByKey(lambda line: (line.time_taken, 1),
@@ -138,7 +138,7 @@ Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos
 
        avgTimeTakenByKey(logLines.map(lambda p: (p.cs_uri_stem, p))).top(25, lambda x: x[1])
 
-   Você verá algo semelhante ao mostrado a seguir:
+   Você verá uma saída semelhante Olá seguinte:
 
        # -----------------
        # THIS IS AN OUTPUT
@@ -169,7 +169,7 @@ Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos
         (u'/blogposts/sqlvideos/sqlvideos.jpg', 102.0),
         (u'/blogposts/mvcrouting/step21.jpg', 101.0),
         (u'/blogposts/mvc4/step1.png', 98.0)]
-5. Você também pode apresentar essas informações na forma de plotagem. Como uma primeira etapa para criar um gráfico, criaremos uma tabela **AverageTime**temporária. A tabela agrupa os logs por hora para ver se houve quaisquer picos incomuns de latência em um determinado momento.
+5. Você também pode apresentar essas informações no formulário de saudação de plotagem. Como uma primeira toocreate etapa um gráfico, vamos primeiro criar uma tabela temporária **AverageTime**. saudação de grupos de tabela Olá registra por toosee tempo se houver qualquer picos de latência incomum em um determinado momento.
 
        avgTimeTakenByMinute = avgTimeTakenByKey(logLines.map(lambda p: (p.datetime.minute, p))).sortByKey()
        schema = StructType([StructField('Minutes', IntegerType(), True),
@@ -177,19 +177,19 @@ Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos
 
        avgTimeTakenByMinuteDF = sqlContext.createDataFrame(avgTimeTakenByMinute, schema)
        avgTimeTakenByMinuteDF.registerTempTable('AverageTime')
-6. Você pode então executar a seguinte consulta SQL para obter todos os registros da tabela **AverageTime** .
+6. Você pode executar Olá tooget de consulta SQL a seguir todos os registros de saudação em Olá **AverageTime** tabela.
 
        %%sql -o averagetime
        SELECT * FROM AverageTime
 
-   A mágica do `%%sql` seguido pelo `-o averagetime` assegura que a saída da consulta seja mantida localmente no servidor Jupyter (normalmente o nó principal do cluster). A saída é mantida como uma estrutura de dados [Pandas](http://pandas.pydata.org/) com o nome especificado **averagetime**.
+   Olá `%%sql` mágico seguido `-o averagetime` garante que saída Olá de consulta de saudação é persistentes localmente no servidor de Jupyter de saudação (normalmente Olá nó principal do cluster Olá). saída de Hello é mantida como um [Pandas](http://pandas.pydata.org/) dataframe com hello especificado nome **averagetime**.
 
-   Você verá algo semelhante ao mostrado a seguir:
+   Você verá uma saída semelhante Olá seguinte:
 
    ![Saída da consulta SQL](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "Saída da consulta SQL")
 
-   Para obter mais informações sobre a palavra mágica `%%sql`, consulte [Parâmetros com suporte na palavra mágica %%sql](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
-7. Agora você pode usar Matplotlib, uma biblioteca usada para construir a visualização de dados para criar um gráfico. Como o gráfico deve ser criado da estrutura de dados **averagetime** mantida localmente, o trecho de código deve começar com a mágica `%%local`. Isso garante que o código seja executado localmente no servidor do Jupyter.
+   Para obter mais informações sobre Olá `%%sql` magic, consulte [suporte para parâmetros com Olá % % sql magic](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+7. Agora você pode usar Matplotlib, uma biblioteca usada tooconstruct visualização de dados, toocreate um gráfico. Porque plotagem Olá deve ser criada de saudação localmente persistente **averagetime** dataframe, o trecho de código Olá deve começar com hello `%%local` mágica. Isso garante que o código de Olá é executado localmente no servidor do Jupyter hello.
 
        %%local
        %matplotlib inline
@@ -199,10 +199,10 @@ Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos
        plt.xlabel('Time (min)')
        plt.ylabel('Average time taken for request (ms)')
 
-   Você verá algo semelhante ao mostrado a seguir:
+   Você verá uma saída semelhante Olá seguinte:
 
    ![Saída de Matplotlib](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Saída de Matplotlib")
-8. Depois de concluir a execução do aplicativo, você deve encerrar o notebook para liberar os recursos. Para isso, no menu **Arquivo** do bloco de anotações, clique em **Fechar e Interromper**. Isso desligará e fechará o bloco de anotações.
+8. Depois de terminar de executar o aplicativo hello, você deverá recursos de saudação do desligamento Olá notebook toorelease. toodo caso de Olá **arquivo** menu notebook hello, clique em **fechar e interromper**. Esta desligará e notebook Olá fechar.
 
 ## <a name="seealso"></a>Consulte também
 * [Visão geral: Apache Spark no Azure HDInsight](hdinsight-apache-spark-overview.md)
@@ -210,21 +210,21 @@ Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos
 ### <a name="scenarios"></a>Cenários
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming Spark: use o Spark no HDInsight para a criação de aplicativos streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
+* [Spark com o aprendizado de máquina: Use Spark nos resultados de inspeção de alimentos HDInsight toopredict](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos de streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicativos
 * [Criar um aplicativo autônomo usando Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Executar trabalhos remotamente em um cluster do Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
-* [Use o Plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [Usar o plug-in de Ferramentas do HDInsight para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Usar o plug-in de ferramentas de HDInsight para toocreate IntelliJ IDEIA e enviar Spark Scala aplicativos](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Usar o plug-in de ferramentas de HDInsight para aplicativos de Spark toodebug IntelliJ IDEIA remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Kernels disponíveis para o bloco de anotações Jupyter no cluster do Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Usar pacotes externos com blocos de notas Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [Instalar o Jupyter em seu computador e conectar-se a um cluster Spark do HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Instalar Jupyter em seu computador e conecte-se tooan cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Gerenciar recursos
-* [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Gerenciar os recursos de cluster do hello Apache Spark no HDInsight do Azure](hdinsight-apache-spark-resource-manager.md)
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)

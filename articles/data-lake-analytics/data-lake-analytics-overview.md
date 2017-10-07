@@ -1,6 +1,6 @@
 ---
-title: "Visão geral da do Microsoft Azure Data Lake Analytics | Microsoft Docs"
-description: "O Data Lake Analytics é um serviço de computação de Big Data do Azure que permite usar dados para impulsionar seus negócios com as informações obtidas de seus dados na nuvem, independentemente de onde eles estiverem e de seu tamanho."
+title: "aaaOverview de análise do Microsoft Azure Data Lake | Microsoft Docs"
+description: "Análise data Lake é um serviço de dados grande do Azure que permite que você use dados toodrive seus negócios com informações obtidas dos seus dados na nuvem hello, independentemente do seu tamanho ou onde ele está."
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.openlocfilehash: 8817b511d779029421491194b50120d51ec9dbad
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 15bcd549c5aeb167da1338f253270ad57f8c5123
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-microsoft-azure-data-lake-analytics"></a>Visão geral da Análise Microsoft Azure Data Lake
 ## <a name="what-is-azure-data-lake-analytics"></a>O que é a Análise Azure Data Lake?
-O Azure Data Lake Analytics é um serviço de análise sob demanda que simplifica a análise de big data. Você pode se concentrar em escrever, executar e gerenciar trabalhos em vez de operar a infraestrutura distribuída. Em vez de implantar, configurar e ajustar o hardware, você escreve consultas para transformar seus dados e extrair informações importantes. O serviço de análise pode manipular trabalhos de qualquer escala de maneira instantânea, simplesmente configurando o controle para a quantidade de potência necessária. Você só paga pelo trabalho quando ele está em execução, o que o torna econômico. O serviço de análise dá suporte ao Active Directory do Azure, permitindo que você gerencie o acesso e as funções de maneira integrada com seu sistema de identidade local. Ele também inclui a U-SQL, uma linguagem que unifica os benefícios do SQL com a capacidade expressiva dos códigos do usuário. O tempo de execução distribuído escalonável do U-SQL permite que você analise de forma eficiente dados no repositório e em SQL Servers no Azure, no Banco de Dados SQL do Azure e no SQL Data Warehouse do Azure.
+Análise do Azure Data Lake é uma análise de big data análise sob demanda trabalho serviço toosimplify. Você pode se concentrar em escrever, executar e gerenciar trabalhos em vez de operar a infraestrutura distribuída. Em vez de implantação, configuração e ajuste de hardware, você escreve consultas tootransform seus dados e extrair informações valiosas. serviço de análise de saudação pode manipular os trabalhos de qualquer escala instantaneamente definindo discagem Olá para Quanta energia é necessário. Você só paga pelo trabalho quando ele está em execução, o que o torna econômico. serviço de análise de saudação dá suporte ao Azure Active Directory, permitindo que você gerencie o acesso e funções, integradas com o sistema de identidade local. Ele também inclui U-SQL, uma linguagem que unifica benefícios de saudação do SQL com poder expressivo de saudação do código do usuário. Habilita o escalonável de tempo de execução distribuída do U-SQL tooefficiently você analisar dados no repositório de saudação e entre servidores SQL Azure, o banco de dados do SQL Azure e o Azure SQL Data Warehouse.
 
 ## <a name="key-capabilities"></a>Principais recursos
 * **Escala dinâmica**
   
-    O Data Lake Analytics foi projetado desde o início para proporcionar escala e desempenho na nuvem.  Ela provisiona recursos de maneira dinâmica e permitir a análise de dados em terabytes ou até mesmo em exabytes. Ao final do trabalho, o serviço deixa de usar os recursos automaticamente, e você paga apenas pela potência de processamento usada. À medida que o tamanho dos dados armazenados ou da quantidade de recursos de computação usados aumenta ou diminui, você não precisa reescrever os códigos. Você pode se concentrar apenas na lógica dos seus negócios e não em como você processa e armazena grandes conjuntos de dados.
+    O Data Lake Analytics foi projetado desde o início para proporcionar escala e desempenho na nuvem.  Ela provisiona recursos de maneira dinâmica e permitir a análise de dados em terabytes ou até mesmo em exabytes. Quando Olá trabalho for concluído, ele se aproxima de recursos automaticamente e você paga somente pelos Olá usada de potência de processamento. Como aumentar ou diminuir o tamanho Olá dos dados armazenados ou Olá a quantidade de recursos de computação usados, você não tem código toorewrite. Você pode se concentrar apenas na lógica dos seus negócios e não em como você processa e armazena grandes conjuntos de dados.
 * **Use ferramentas com as quais você está familiarizado para desenvolver, depurar e otimizar de maneira mais rápida e inteligente**
   
-    O Data Lake Analytics apresenta uma ampla integração com o Visual Studio, para que você possa usar ferramentas com as quais já está familiarizado para executar, depurar e ajustar códigos. A visualização dos trabalhos do U-SQL permite ver como ocorre a execução de códigos em escala, para que você possa identificar afunilamentos de desempenho e otimizar custos.
+    Análise data Lake tem profunda integração com o Visual Studio, então você pode usar ferramentas familiares toorun, depurar e ajustar seu código. A visualização dos trabalhos do U-SQL permite ver como ocorre a execução de códigos em escala, para que você possa identificar afunilamentos de desempenho e otimizar custos.
 * **U-SQL: simples e familiar, poderoso e extensível**
   
-    A Análise Data Lake inclui o U-SQL, uma linguagem de consulta que estende a natureza declarativa simples e familiar do SQL com o poder expressivo do C#. A linguagem U-SQL é baseada no mesmo tempo de execução distribuído que alimenta os sistemas de Big Data na Microsoft. Milhões de desenvolvedores do SQL e do .NET agora podem processar e analisar dados com as habilidades que eles já têm.
+    Análise data Lake inclui U-SQL, uma linguagem de consulta que se estende a natureza de familiar, simples e declarativa de saudação do SQL com poder expressivo de saudação do c#. Olá linguagem U-SQL se baseia no hello mesmo distribuídas em tempo de execução que habilita os sistemas de dados grande hello dentro da Microsoft. Milhões de desenvolvedores do SQL e do .NET podem processar e analisar seus dados com habilidades Olá que já têm.
 * **Integração total com seus investimentos de TI**
   
-    A Análise Data Lake pode usar seus investimentos de TI existentes para identidade, gerenciamento, segurança e armazenamento de dados. Isso simplifica a governança de dados e facilita estender seus aplicativos de dados atuais. O Data Lake Analytics é integrado ao Active Directory para o gerenciamento e permissões de usuário e é fornecido com o monitoramento e auditoria internos.
+    A Análise Data Lake pode usar seus investimentos de TI existentes para identidade, gerenciamento, segurança e armazenamento de dados. Essa abordagem simplifica a governança de dados e torna fácil tooextend seus aplicativos de dados atual. O Data Lake Analytics é integrado ao Active Directory para o gerenciamento e permissões de usuário e é fornecido com o monitoramento e auditoria internos.
 * **Financeiramente viável e econômico**
   
-    A Análise Data Lake é uma solução econômica para executar cargas de trabalho de Big Data. Você paga por trabalho quando os dados são processados. Não é necessário nenhum hardware, licenças ou contratos de suporte específico do serviço. O sistema é automaticamente escalado vertical ou horizontalmente conforme a tarefa é iniciada e concluída, para que você só pague pelo serviço de que precisa.
+    A Análise Data Lake é uma solução econômica para executar cargas de trabalho de Big Data. Você paga por trabalho quando os dados são processados. Não é necessário nenhum hardware, licenças ou contratos de suporte específico do serviço. sistema de saudação dimensiona automaticamente para cima ou para baixo como trabalho Olá é iniciado e concluído, para que você nunca paga por mais de que você precisa.
 * **Funciona com todos os seus Dados do Azure**
   
-    O Data Lake Analytics é especialmente otimizado para funcionar com o Azure Data Lake, fornecendo o mais alto nível de desempenho, taxa de transferência e paralelização para suas cargas de trabalho de big data.  O Data Lake Analytics também pode trabalhar com Armazenamento de Blobs do Azure e Banco de Dados SQL do Azure.
+    Análise data Lake é toowork otimizada com o Azure Data Lake - fornecendo o nível mais alto de saudação de desempenho, a taxa de transferência e a paralelização para suas cargas de trabalho de dados grandes.  O Data Lake Analytics também pode trabalhar com Armazenamento de Blobs do Azure e Banco de Dados SQL do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
  

@@ -1,6 +1,6 @@
 ---
-title: "Visão geral do Lote do Azure para desenvolvedores | Microsoft Docs"
-description: "Conheça os recursos do serviço de Lote e suas APIs do ponto de vista de um desenvolvedor."
+title: aaaOverview de lote do Azure para desenvolvedores | Microsoft Docs
+description: "Saiba mais recursos de saudação do serviço de lote Olá e suas APIs do ponto de vista do desenvolvimento."
 services: batch
 documentationcenter: .net
 author: tamram
@@ -15,42 +15,42 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2f2a878414e4efd626d674ef9a182ae52eeb1ff
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3da9d82572b28d05d1923166bd08c26725ca3316
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolva soluções de computação paralela em larga escala com o Lote
 
-Nesta visão geral dos componentes principais do serviço de Lote do Azure, vamos abordar os recursos do serviço primário que os desenvolvedores do Lote podem usar para criar soluções de computação paralela em grande escala.
+Nesta visão geral de componentes essenciais Olá Olá serviço de lote do Azure, vamos abordar os recursos de serviço principal de hello e recursos que os desenvolvedores de lote podem usar paralela em grande escala toobuild soluções de computação.
 
-Se você estiver desenvolvendo um aplicativo de computador distribuído ou serviço que faz chamadas diretas da [API REST][batch_rest_api] ou estiver usando um dos [SDKs de Lote](batch-apis-tools.md#azure-accounts-for-batch-development), usará muitos dos recursos analisados neste artigo.
+Se você estiver desenvolvendo um aplicativo de computação distribuído ou serviço que emite direto [API REST] [ batch_rest_api] chamadas ou você estiver usando um Olá [SDKs de lote](batch-apis-tools.md#azure-accounts-for-batch-development), você usará muitos dos recursos de saudação e recursos discutidos neste artigo.
 
 > [!TIP]
-> Para obter uma introdução de nível superior do serviço de Lote, consulte os [Fundamentos do Lote do Azure](batch-technical-overview.md).
+> Para um nível mais alto toohello Introdução serviço de lote, consulte [Noções básicas do lote do Azure](batch-technical-overview.md).
 >
 >
 
 ## <a name="batch-service-workflow"></a>Fluxo de trabalho de serviço do Lote
-O seguinte fluxo de trabalho de alto nível é típico de quase todos os aplicativos e serviços que usam o serviço de Lote para o processamento de cargas de trabalho paralelas:
+Olá a seguinte fluxo de trabalho de alto nível é típico de quase todos os aplicativos e serviços que usam o serviço de lote Olá para o processamento de cargas de trabalho paralelas:
 
-1. Carregue os **arquivos de dados** que você deseja processar em uma conta de [Armazenamento do Azure ][azure_storage]. O Lote inclui suporte interno para acessar o armazenamento de Blobs do Azure, e as tarefas podem baixar esses arquivos para [nós de computação](#compute-node) quando são executadas.
-2. Carregue os **arquivos de aplicativo** que as tarefas executarão. Esses arquivos podem ser binários ou scripts e suas dependências e são executados pelas tarefas em seus trabalhos. As tarefas podem baixar esses arquivos de sua conta de armazenamento ou você pode usar o recurso dos [pacotes de aplicativos](#application-packages) de lote para a implantação e o gerenciamento dos aplicativos.
-3. Crie um [pool](#pool) de nós de computação. Quando você cria um pool, pode especificar o número de nós de computação para o pool, seu tamanho e o sistema operacional. Quando cada tarefa no trabalho é executada, ela é atribuída para ser executada em um de nós no pool.
-4. Crie um [trabalho](#job). Um trabalho gerencia uma coleção de tarefas. Você associa cada trabalho a um pool específico no qual as tarefas do trabalho serão executadas.
-5. Adicione [tarefas](#task) ao trabalho. Cada tarefa executa o aplicativo ou script que você carregou para processar os arquivos de dados que ele baixa de sua conta do Armazenamento. À medida que cada tarefa é concluída, pode carregar sua saída para o Armazenamento do Azure.
-6. Monitore o andamento dos trabalhos e recupere a saída de tarefas do Armazenamento do Azure.
+1. Carregar Olá **arquivos de dados** que você deseja tooprocess tooan [armazenamento do Azure] [ azure_storage] conta. Lote inclui suporte interno para acessar o armazenamento de BLOBs do Azure e suas tarefas podem baixar esses arquivos muito[nós de computação](#compute-node) quando as tarefas de saudação são executadas.
+2. Carregar Olá **arquivos de aplicativo** que as tarefas serão executadas. Esses arquivos podem ser binários ou scripts e suas dependências e são executados por tarefas de saudação em seus trabalhos. As tarefas podem baixar esses arquivos em sua conta de armazenamento, ou você pode usar o hello [pacotes de aplicativos](#application-packages) recurso de lote para implantação e gerenciamento de aplicativos.
+3. Crie um [pool](#pool) de nós de computação. Quando você cria um pool, você especifica o número de saudação de nós de computação para o pool de saudação, tamanho e sistema operacional de saudação. Quando cada tarefa no trabalho é executado, ele é atribuído tooexecute em um de nós de saudação em seu pool.
+4. Crie um [trabalho](#job). Um trabalho gerencia uma coleção de tarefas. Associe cada pool específico de trabalho tooa onde as tarefas do trabalho serão executado.
+5. Adicionar [tarefas](#task) toohello trabalho. Cada tarefa executa o aplicativo hello ou script que você carregou os arquivos de dados de saudação tooprocess baixa de sua conta de armazenamento. Como cada tarefa é concluída, ela pode carregar seu armazenamento de tooAzure de saída.
+6. Monitorar o andamento do trabalho e recuperar a saída de tarefa de saudação do armazenamento do Azure.
 
-As seções a seguir discutem esses e outros recursos do Lote que habilitarão que seu cenário de computação distribuída.
+Olá seções a seguir discutem esses e Olá outros recursos do lote que permitem que seu cenário de computação distribuído.
 
 > [!NOTE]
-> Você precisa de uma [Conta do Lote](#account) para usar o serviço do Lote. A maioria das soluções do Lote também usa uma conta de [Armazenamento do Azure][azure_storage] para o armazenamento de arquivos e a recuperação. Atualmente, o Lote dá suporte apenas ao tipo de conta de armazenamento **uso-geral**, conforme descrito na etapa 5 de [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/common/storage-create-storage-account.md).
+> É necessário um [conta de lote](#account) toouse Olá serviço de lote. A maioria das soluções do Lote também usa uma conta de [Armazenamento do Azure][azure_storage] para o armazenamento de arquivos e a recuperação. Lote atualmente suporta apenas Olá **geral** tipo de conta de armazenamento, conforme descrito na etapa 5 do [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) na [contas de armazenamento do Azure sobre](../storage/common/storage-create-storage-account.md).
 >
 >
 
 ## <a name="batch-service-resources"></a>Recursos do serviço de lote
-Alguns dos recursos a seguir - contas, nó de computação, pool, trabalhos e tarefa - são necessários para todas as soluções que usam o serviço de Lote. Outros, como agendas de trabalho e pacotes de aplicativos, são recursos úteis, mas opcionais.
+Alguns dos Olá recursos – contas a seguir computação nós, pools, trabalhos e tarefas — seja exigidas por todas as soluções que usam o serviço de lote de saudação. Outros, como agendas de trabalho e pacotes de aplicativos, são recursos úteis, mas opcionais.
 
 * [Conta](#account)
 * [Nó de computação](#compute-node)
@@ -68,77 +68,77 @@ Alguns dos recursos a seguir - contas, nó de computação, pool, trabalhos e ta
 * [Pacotes de aplicativos](#application-packages)
 
 ## <a name="account"></a>Conta
-Uma conta do Batch é uma entidade identificada exclusivamente no serviço Batch. Todo o processamento é feito por meio de uma conta do Lote.
+Uma conta de lote é uma entidade identificada exclusivamente no serviço de lote de saudação. Todo o processamento é feito por meio de uma conta do Lote.
 
-Você pode criar uma conta do Lote do Azure usando o [portal do Azure](batch-account-create-portal.md) ou por meio de programação, como com a [biblioteca .NET do Gerenciamento de Lote](batch-management-dotnet.md). Ao criar a conta, você poderá associar uma conta do Armazenamento do Azure.
+Você pode criar uma conta de lote do Azure usando Olá [portal do Azure](batch-account-create-portal.md) ou programaticamente, como com hello [biblioteca Batch Management .NET](batch-management-dotnet.md). Ao criar conta hello, você pode associar uma conta de armazenamento do Azure.
 
 ### <a name="pool-allocation-mode"></a>Modo de alocação de pools
 
-Quando você cria uma conta do Lote, pode especificar como os [pools](#pool) dos nós de computação são alocados. Você pode optar por alocar pools de nós de computação em uma assinatura gerenciada pelo Lote do Azure ou pode alocá-los em sua própria assinatura. A propriedade *modo de alocação de pool* da conta determina onde os pools são alocados. 
+Quando você cria uma conta do Lote, pode especificar como os [pools](#pool) dos nós de computação são alocados. Você pode escolher tooallocate pools de nós de computação em uma assinatura gerenciada pelo lote do Azure, ou pode ser alocada em sua própria assinatura. Olá *modo de alocação de pool* propriedade conta Olá determina onde os pools são alocados. 
 
-Para decidir qual modo de alocação de pools usar, considere o que melhor se adapta à sua situação:
+toodecide qual pool toouse do modo de alocação, considere que melhor se adapta a sua situação:
 
-* **Serviço em Lotes**: o Serviço em Lotes é o modo de alocação de pools padrão, no qual os pools são alocados em segundo plano em assinaturas gerenciadas do Azure. Tenha em mente esses pontos-chave sobre o modo de alocação de pools do Serviço em Lotes:
+* **Serviço de lote**: serviço de lote é o modo para alocação de pool do padrão hello, no qual os pools são alocados em segundo plano da saudação em assinaturas gerenciado do Azure. Tenha em mente estes pontos-chave sobre o modo de alocação de pool de serviço de lote hello:
 
-    - O modo de alocação de pools do Serviço em Lotes dá suporte a pools de Serviço de Nuvem e de Máquina Virtual.
-    - O modo de alocação de pools do Serviço em Lotes dá suporte tanto à autenticação de chave compartilhada quanto à [Autenticação do Azure AD](batch-aad-auth.md) (Azure Active Directory). 
-    - Você pode usar nós de computação de baixa prioridade ou dedicados em pools alocados com o modo de alocação de pools do Serviço em Lotes.
-    - Não use o modo de alocação de pools do Serviço em Lotes se você planeja criar pools de máquina virtual do Azure a partir de imagens VM personalizadas ou se planeja usar uma rede virtual. Crie sua conta com o modo de alocação de pools de Assinatura de Usuário.
-    - Os pools de Máquina Virtual provisionados em uma conta criada com o modo de alocação de pools do Serviço em Lotes devem ser criados com imagens do [Marketplace de Máquinas Virtuais do Azure][vm_marketplace].
+    - modo de alocação de pool de serviço de lote Olá oferece suporte a pools de serviço de nuvem e máquina Virtual.
+    - Olá modo de alocação de pool do serviço de lote oferece suporte tanto a autenticação chave compartilhada ou [autenticação do Active Directory do Azure](batch-aad-auth.md) (AD do Azure). 
+    - Você pode usar qualquer um de nós de computação dedicado ou de baixa prioridade em pools alocados com o modo de alocação de pool de serviço de lote hello.
+    - Não use o modo de alocação de pool de serviço de lote Olá se você planeja toocreate pools de máquina virtual do Azure de imagens VM personalizadas, ou se você planejar toouse uma rede virtual. Crie sua conta com o modo de alocação de pool Olá assinatura de usuário.
+    - Pools de máquina virtual provisionados em uma conta criada com o modo de alocação de pool de serviço de lote Olá devem ser criados de [Marketplace de máquinas virtuais do Azure] [ vm_marketplace] imagens.
 
-* **Assinatura de usuário**: com o modo de alocação de pools de Assinatura de Usuário, os pools do Lote são alocados na assinatura do Azure onde a conta é criada. Tenha em mente estes pontos-chave sobre o modo de alocação de pools da Assinatura de Usuário:
+* **Assinatura de usuário**: com o modo de alocação de pool de assinatura de usuário hello, pools de lote são alocados em Olá assinatura do Azure em que a conta de saudação é criada. Tenha em mente estes pontos-chave sobre o modo de alocação de pool de assinatura de usuário hello:
      
-    - O modo de alocação de pools de Assinatura de Usuário dá suporte somente a pools de Máquina Virtual. Ele não dá suporte a pools dos Serviços de Nuvem.
-    - Para criar pools de máquina virtual de imagens VM personalizadas ou usar uma rede virtual com pools de Máquina Virtual, você deverá usar o modo de alocação de pools de Assinatura de Usuário.  
-    - Você deve usar a [Autenticação do Azure Active Directory](batch-aad-auth.md) com pools alocados na assinatura do usuário. 
-    - Você deve configurar um cofre de chaves do Azure para sua conta do Lote se o modo de alocação de pool estiver definido como Assinatura de Usuário. 
-    - Você pode usar somente nós de computação dedicados em pools em uma conta criada com o modo de alocação de pools de Assinatura de Usuário. Não há suporte para nós de baixa prioridade.
-    - Os pools de Máquina Virtual provisionados em uma conta com o modo de alocação de pools de Assinatura de Usuário devem ser criados com imagens do [Marketplace de Máquinas Virtuais do Azure][vm_marketplace] ou de imagens personalizadas fornecidas por você.
+    - modo de alocação de pool de assinatura de usuário Olá oferece suporte a apenas os pools de máquina Virtual. Ele não dá suporte a pools dos Serviços de Nuvem.
+    - pools de máquina Virtual toocreate de imagens da VM ou toouse uma rede virtual personalizado com pools de máquina Virtual, você deve usar o modo de alocação de pool de assinatura de usuário hello.  
+    - Você deve usar [autenticação do Active Directory do Azure](batch-aad-auth.md) com pools são alocados na assinatura de usuário hello. 
+    - Você deve configurar um cofre de chaves do Azure para sua conta de lote se o modo de alocação de pool de saudação é definido tooUser assinatura. 
+    - Você pode usar nós de computação dedicado somente nos pools em uma conta criada com o modo de alocação de pool Olá assinatura de usuário. Não há suporte para nós de baixa prioridade.
+    - Pools de máquina virtual provisionados em uma conta com o modo de alocação de pool Olá assinatura de usuário podem ser criados de [Marketplace de máquinas virtuais do Azure] [ vm_marketplace] imagens ou de personalizado imagens que você fornece.
 
-A tabela a seguir compara os modos de alocação de pools do Serviço em Lotes e da Assinatura de Usuário.
+Olá, a tabela a seguir compara os modos de alocação de pool de serviço de lote e assinatura de usuário de saudação.
 
 | **Modo de alocação de pools**                 | **Serviço em Lotes**                                                                                       | **Assinatura de Usuário**                                                              |
 |-------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| **Os pools são alocados em**               | Em uma assinatura gerenciada pelo Azure                                                                           | Na assinatura do usuário em que a conta do Lote é criada                        |
+| **Os pools são alocados em**               | Em uma assinatura gerenciada pelo Azure                                                                           | assinatura de usuário Olá no qual Olá lote conta é criada                        |
 | **Configurações com suporte**             | <ul><li>Configuração do Serviço de Nuvem</li><li>Configuração da Máquina Virtual (Linux e Windows)</li></ul> | <ul><li>Configuração da Máquina Virtual (Linux e Windows)</li></ul>                |
 | **Imagens de VM com suporte**                  | <ul><li>Imagens do Azure Marketplace</li></ul>                                                              | <ul><li>Imagens do Azure Marketplace</li><li>Imagens personalizadas</li></ul>                   |
 | **Tipos de nós de computação com suporte**         | <ul><li>Nós dedicados</li><li>Nós de baixa prioridade</li></ul>                                            | <ul><li>Nós dedicados</li></ul>                                                  |
 | **Autenticação com suporte**             | <ul><li>Chave compartilhada</li><li>AD do Azure</li></ul>                                                           | <ul><li>AD do Azure</li></ul>                                                         |
 | **Azure Key Vault obrigatório**             | Não                                                                                                      | Sim                                                                                |
 | **Cota de núcleos**                           | Determinado pela cota de núcleos do Lote                                                                          | Determinado pela cota de núcleos da assinatura                                              |
-| **Suporte a VNet (Rede Virtual) do Azure** | Pools criados com a Configuração do Serviço de Nuvem                                                      | Pools criados com a Configuração de Máquina Virtual                               |
-| **Modelo de implantação de rede virtual com suporte**      | VNets criadas com o modelo de implantação clássico                                                             | VNets criadas com o modelo de implantação clássico ou com o Azure Resource Manager |
+| **Suporte a VNet (Rede Virtual) do Azure** | Pools criados com hello configuração de serviço de nuvem                                                      | Pools criados com hello configuração da máquina Virtual                               |
+| **Modelo de implantação de rede virtual com suporte**      | VNets criadas com o modelo de implantação clássico                                                             | Vnets criado com o modelo de implantação clássico hello ou Gerenciador de recursos do Azure |
 
 ## <a name="azure-storage-account"></a>Conta de Armazenamento do Azure
 
 A maioria das soluções do Lote usa o Armazenamento do Azure para armazenar arquivos de recurso e de saída.  
 
-Atualmente, o Lote dá suporte apenas ao tipo da conta de armazenamento de Uso geral, conforme descrito na etapa 5 de [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/common/storage-create-storage-account.md). As tarefas do Lote (incluindo as tarefas padrão, tarefas iniciais, tarefas de preparação do trabalho e tarefas de liberação do trabalho) devem especificar os arquivos de recurso que residem nas contas de armazenamento de finalidade geral.
+Lote atualmente suporta apenas tipo de conta de armazenamento de uso geral hello, conforme descrito na etapa 5 do [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) na [contas de armazenamento do Azure sobre](../storage/common/storage-create-storage-account.md). As tarefas do Lote (incluindo as tarefas padrão, tarefas iniciais, tarefas de preparação do trabalho e tarefas de liberação do trabalho) devem especificar os arquivos de recurso que residem nas contas de armazenamento de finalidade geral.
 
 
 ## <a name="compute-node"></a>Nó de computação
-Um nó de computação é uma máquina virtual (VM) do Azure ou VM do serviço de nuvem que é dedicada ao processamento de uma parte da carga de trabalho do aplicativo. O tamanho de um nó determina o número de núcleos de CPU, a capacidade da memória e o tamanho do sistema de arquivos local alocado para o nó. Você pode criar pools de nós de Windows ou Linux usando os Serviços de Nuvem do Azure, imagens do [Marketplace de Máquinas Virtuais do Azure][vm_marketplace] ou imagens personalizadas preparadas por você. Consulte o seguinte seção [Pool](#pool) para obter mais informações sobre essas opções.
+Um nó de computação é uma máquina virtual do Azure (VM) ou a máquina virtual que é dedicado tooprocessing uma parte da carga de trabalho do aplicativo de serviço de nuvem. tamanho de saudação de um nó determina o número de saudação de núcleos de CPU, capacidade de memória e tamanho do sistema de arquivo local que é alocado toohello nó. Você pode criar pools de nós do Windows ou Linux por meio de serviços de nuvem do Azure, imagens de saudação [Marketplace de máquinas virtuais do Azure][vm_marketplace], ou imagens personalizadas que você preparar. Veja a seguir Olá [Pool](#pool) para obter mais informações sobre essas opções.
 
-Os nós podem executar qualquer executável ou script que tenha suporte no ambiente do sistema operacional do nó. Isso inclui \*.exe, \*.cmd, \*.bat e os scripts do PowerShell para Windows e binários, shell e scripts Python para Linux.
+Nós podem executar qualquer script ou executável que é suportado pelo ambiente de sistema operacional de saudação do nó de saudação. Isso inclui \*.exe, \*.cmd, \*.bat e os scripts do PowerShell para Windows e binários, shell e scripts Python para Linux.
 
 Todos os nós de computação no Lote também incluem:
 
 * Uma [estrutura de pastas](#files-and-directories) padrão e as [variáveis de ambiente](#environment-settings-for-tasks) associadas disponíveis para a referência por tarefas.
-* **firewall** que são definidas para controlar o acesso.
-* [Acesso remoto](#connecting-to-compute-nodes) para os nós do Windows (Remote Desktop Protocol (RDP)) e do Linux (Secure Shell (SSH)).
+* **Firewall** as configurações que são definidas toocontrol acesso.
+* [Acesso remoto](#connecting-to-compute-nodes) tooboth Windows Remote Desktop Protocol (RDP) e nós do Linux (Secure Shell (SSH)).
 
 ## <a name="pool"></a>pool
-Um pool é uma coleção de nós na qual seu aplicativo é executado. O pool pode ser criado manualmente por você ou automaticamente pelo serviço de Lote quando você especifica o trabalho a ser feito. Você pode criar e gerenciar um pool que atenda às exigências de recursos de seu aplicativo. Um pool pode ser usado somente pela conta do Lote na qual foi criado. Uma conta do Batch pode ter mais de um pool.
+Um pool é uma coleção de nós na qual seu aplicativo é executado. Olá pool pode ser criado manualmente por você ou automaticamente pelo serviço de lote de hello quando você especificar Olá toobe de trabalho concluído. Você pode criar e gerenciar um pool que atenda aos requisitos de recursos de saudação do seu aplicativo. Um pool pode ser usado somente por conta do lote Olá no qual ele foi criado. Uma conta do Batch pode ter mais de um pool.
 
-Os pools do Lote do Azure se baseiam na plataforma de computação principal do Azure. Eles fornecem alocação em larga escala, instalação de aplicativos, distribuição de dados, monitoramento de integridade e ajuste flexível do número de nós de computação em um pool ([dimensionamento](#scaling-compute-resources)).
+Criar pools de lote do Azure na parte superior da plataforma de computação do Azure Olá principal. Eles fornecem alocação em larga escala, instalação de aplicativos, distribuição de dados, monitoramento de integridade e ajuste flexível do número de saudação de nós de computação em um pool ([dimensionamento](#scaling-compute-resources)).
 
-Todos os nós adicionados a um pool recebem um nome e um endereço IP exclusivos. Quando um nó é removido de um pool, todas as alterações feitas no sistema operacional ou arquivos são perdidas e seu nome e endereço IP são liberados para o uso futuro. Quando um nó deixa um pool, seu tempo de vida termina.
+Cada nó que é adicionado tooa pool é atribuído um nome exclusivo e o endereço IP. Quando um nó for removido de um pool, quaisquer alterações feitas no sistema de operacional toohello ou arquivos serão perdidas, e seu nome e endereço IP são liberados para uso futuro. Quando um nó deixa um pool, seu tempo de vida termina.
 
-Ao criar um pool, você pode especificar os seguintes atributos. Algumas configurações são diferentes dependendo do modo de alocação de pool da [conta](#account) do Lote:
+Quando você cria um pool, você pode especificar Olá atributos a seguir. Algumas configurações forem diferentes, dependendo do modo de alocação de pool Olá de saudação lote [conta](#account):
 
 - Sistema operacional e versão do nó de computação
 - Tipo de nó de computação e número de nós de destino
-- Tamanho dos nós de computação
+- Tamanho de nós de computação Olá
 - Política de dimensionamento
 - Política de agendamento de tarefas
 - Status de comunicação de nós de computação
@@ -146,180 +146,180 @@ Ao criar um pool, você pode especificar os seguintes atributos. Algumas configu
 - pacotes de aplicativos
 - Configuração de rede
 
-Cada uma dessas configurações é descrita mais detalhadamente nas seções a seguir.
+Cada uma dessas configurações é descrita mais detalhadamente nas seções a seguir de saudação.
 
 > [!IMPORTANT]
-> As contas do Lote criadas com o modo de alocação de pools do Serviço em Lotes possuem uma cota padrão que limita o número de núcleos em uma conta do Lote. O número de núcleos corresponde ao número de nós de computação. Você pode encontrar as cotas padrão e instruções sobre como [aumentar uma cota](batch-quota-limit.md#increase-a-quota) em [Cotas e limites para o serviço Lote do Azure](batch-quota-limit.md). Se o pool não está alcançando seu número desejado de nós, a cota de núcleo pode ser o motivo.
+> Contas de lote criadas com o modo de alocação de pool de serviço de lote Olá têm uma cota padrão que limita o número de saudação de núcleos em uma conta de lote. número de saudação de núcleos corresponde toohello número de nós de computação. Você pode encontrar as cotas de padrão de saudação e instruções sobre como muito[aumentar cota](batch-quota-limit.md#increase-a-quota) na [cotas e limites de saudação do serviço Azure Batch](batch-quota-limit.md). Se o pool não é para alcançar seu número de destino de nós, cota de núcleo Olá pode ser motivo de saudação.
 >
->As contas do Lote criadas com o modo de alocação de pools de Assinatura de Usuário não estão sujeitas às cotas do serviço em Lotes. Elas compartilham a cota de núcleos da assinatura especificada. Para saber mais, confira[Limites das Máquinas Virtuais](../azure-subscription-service-limits.md#virtual-machines-limits) e [Assinatura e limites de serviço, cotas e restrições do Azure](../azure-subscription-service-limits.md).
+>Contas de lote criadas com o modo de alocação de pool de assinatura de usuário Olá não observar as cotas do serviço de lote hello. Em vez disso, eles compartilham em Olá Olá cota principal especificado assinatura. Para saber mais, confira[Limites das Máquinas Virtuais](../azure-subscription-service-limits.md#virtual-machines-limits) e [Assinatura e limites de serviço, cotas e restrições do Azure](../azure-subscription-service-limits.md).
 >
 >
 
 ### <a name="compute-node-operating-system-and-version"></a>Sistema operacional e versão do nó de computação
 
-Quando você cria um pool do Lote, pode especificar a configuração de máquina virtual do Azure e o tipo de sistema operacional que deseja executar em cada nó de computação no pool. Os dois tipos de configuração disponíveis no Lote são:
+Quando você cria um pool de lote, você pode especificar a configuração de máquina virtual do Azure hello e o tipo de saudação de deseja toorun em cada nó de computação no pool de saudação do sistema operacional. Olá dois tipos de configurações disponíveis em lote são:
 
-- A **configuração de máquina virtual**, que especifica que o pool é composto de máquinas virtuais do Azure. Essas máquinas virtuais podem ser criadas de imagens Linux ou Windows. 
+- Olá **configuração de máquina Virtual**, que especifica o pool Olá é composta de máquinas virtuais do Azure. Essas máquinas virtuais podem ser criadas de imagens Linux ou Windows. 
 
-    Ao criar um pool baseado na Configuração da Máquina Virtual, você deverá especificar não apenas o tamanho dos nós e a origem das imagens usadas para criá-los, mas também a **referência da imagem da máquina virtual** e a **SKU do agente de nó** do Lote a ser instalada nos nós. Para saber mais sobre como especificar essas propriedades de pool, confira [Provisionar nós de computação do Linux em pools do Lote do Azure](batch-linux-nodes.md).
+    Quando você cria um pool com base em Olá configuração da máquina Virtual, você deve especificar não somente o tamanho de saudação de nós hello e origem de saudação do hello imagens usadas toocreate-los, mas também Olá **referência de imagem de máquina virtual** e hello Lote **agente nó SKU** toobe instalada em nós de saudação. Para saber mais sobre como especificar essas propriedades de pool, confira [Provisionar nós de computação do Linux em pools do Lote do Azure](batch-linux-nodes.md).
 
-- A **configuração dos Serviços de Nuvem**, que especifica que o pool é composto de nós dos Serviços de Nuvem do Azure. Os Serviços de Nuvem fornecem *somente* nós de computação do Windows.
+- Olá **configuração de serviços de nuvem**, que especifica o pool Olá é composto por nós de serviços de nuvem do Azure. Os Serviços de Nuvem fornecem *somente* nós de computação do Windows.
 
-    Os sistemas operacionais disponíveis para pools de Configuração de Serviços de Nuvem são listados na [matriz de compatibilidade de SDK e versões de SO Convidado do Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Ao criar um pool que contém os nós dos Serviços de Nuvem, você precisa especificar o tamanho do nó e sua *Família de SOs*. Os Serviços de Nuvem são implantados no Azure mais rapidamente do que as máquinas virtuais que executam o Windows. Se você deseja ter pools de nós de computação do Windows, pode achar os Serviços de Nuvem mais vantajosos no desempenho em relação a tempo de implantação.
+    Sistemas operacionais disponíveis para pools de configuração de serviços de nuvem são listados no hello [versões do sistema operacional de convidado do Azure e matriz de compatibilidade do SDK](../cloud-services/cloud-services-guestos-update-matrix.md). Quando você cria um pool que contém nós de serviços de nuvem, é necessário que o tamanho de nó toospecify hello e sua *família de sistemas operacionais*. Serviços de nuvem são implantado tooAzure mais rapidamente do que as máquinas virtuais que executam o Windows. Se você deseja ter pools de nós de computação do Windows, pode achar os Serviços de Nuvem mais vantajosos no desempenho em relação a tempo de implantação.
 
-    * A *Família de SO* também determina quais versões do .NET são instaladas com o sistema operacional.
-    * Assim como ocorre com as funções de trabalho nos Serviços de Nuvem, você pode especificar uma *Versão do SO* (para obter mais informações sobre as funções de trabalho, consulte a seção [Sobre os serviços de nuvem](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) na [Visão geral dos Serviços de Nuvem](../cloud-services/cloud-services-choose-me.md)).
-    * Assim como ocorre com as funções de trabalho, é recomendável especificar `*` para a *Versão do SO* de forma que os nós sejam automaticamente atualizados e não haja nenhum trabalho necessário para atender as versões recém-lançadas. O caso de uso principal para selecionar uma versão específica do SO é garantir a compatibilidade dos aplicativos, permitindo que os testes de compatibilidade retroativa sejam executados antes de permitir que a versão seja atualizada. Após a validação, a *Versão do SO* para o pool pode ser atualizada e a nova imagem do SO pode ser instalada – as tarefas em execução serão interrompidas e colocadas novamente na fila.
+    * Olá *família de sistemas operacionais* também determina quais versões do .NET são instalados com hello sistema operacional.
+    * Como com funções de trabalho em serviços de nuvem, você pode especificar um *versão do sistema operacional* (para obter mais informações sobre funções de trabalho, consulte Olá [sobre serviços de nuvem](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) seção Olá [serviços de nuvem Visão geral](../cloud-services/cloud-services-choose-me.md)).
+    * Como com funções de trabalho, é recomendável que você especifique `*` para Olá *versão do sistema operacional* para que nós Olá são atualizados automaticamente, e não há nenhum trabalho necessário toocater toonewly lançada versões. caso de uso primário Olá para selecionar uma versão específica do sistema operacional é tooensure compatibilidade de aplicativos, que permite que o teste toobe executada antes de permitir Olá versão toobe atualizado de compatibilidade com versões anteriores. Após a validação, Olá *versão do sistema operacional* Olá pool pode ser atualizado e pode ser instalada a nova imagem do SO hello – tarefas em execução são interrompidas e retirada da fila.
 
-Quando você cria um pool, precisa selecionar o **nodeAgentSkuId** apropriado, dependendo do sistema operacional da imagem base do seu VHD. Você pode obter um mapeamento das IDs de SKU do agente de nó disponível para suas referências de imagem do SO chamando a operação [Listar SKUs do agente de nó](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus).
+Quando você cria um pool, você precisa tooselect Olá apropriado **nodeAgentSkuId**, dependendo da saudação de sistema operacional da imagem de base de saudação do seu VHD. Você pode obter um mapeamento de nó disponível agente IDs de SKU tootheir referências de imagem do sistema operacional, chamada hello [lista suporte nó agente SKUs](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) operação.
 
-Confira a seção [Conta](#account) para saber mais sobre como definir o modo de alocação de pool ao criar uma conta do Lote.
+Consulte Olá [conta](#account) seção para obter informações sobre como definir o modo de alocação de pool de hello quando você criar uma conta de lote.
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Imagens personalizadas para pools de máquina virtual
 
-Para usar uma imagem personalizada e provisionar os pools de Máquina Virtual, crie sua conta do Lote com o modo de alocação de pools de Assinatura de Usuário. Com esse modo, os pools do Lote são alocados para a assinatura onde reside a conta. Confira a seção [Conta](#account) para saber mais sobre como definir o modo de alocação de pool ao criar uma conta do Lote.
+toouse pools de máquina Virtual de tooprovision uma imagem personalizada, crie sua conta em lotes com o modo de alocação de pool de assinatura de usuário hello. Com esse modo, pools de lote são alocados na assinatura Olá onde reside a conta de saudação. Consulte Olá [conta](#account) seção para obter informações sobre como definir o modo de alocação de pool de hello quando você criar uma conta de lote.
 
-Para usar uma imagem personalizada, você precisará preparar a imagem generalizando-a. Para obter informações sobre como preparar imagens personalizadas do Linux de VMs do Azure, confira [Capturar uma VM Linux do Azure para usar como modelo](../virtual-machines/linux/capture-image-nodejs.md). Para obter informações sobre como preparar imagens personalizadas do Windows de VMs do Azure, confira [Criar imagens de VM personalizadas com o Azure PowerShell](../virtual-machines/windows/tutorial-custom-images.md). 
+toouse uma imagem personalizada, você precisará imagem de saudação tooprepare generalizando-lo. Para obter informações sobre como preparar imagens personalizadas do Linux de VMs do Azure, consulte [toouse uma VM do Linux do Azure como um modelo de captura](../virtual-machines/linux/capture-image-nodejs.md). Para obter informações sobre como preparar imagens personalizadas do Windows de VMs do Azure, confira [Criar imagens de VM personalizadas com o Azure PowerShell](../virtual-machines/windows/tutorial-custom-images.md). 
 
 > [!IMPORTANT]
-> Ao preparar sua imagem personalizada, lembre-se do seguinte:
-> - Verifique se a imagem do sistema operacional base usada para provisionar os pools do Lote não têm extensões do Azure pré-instaladas, como a extensão Script Personalizado. Se a imagem contém uma extensão pré-instalada, o Azure pode ter problemas ao implantar a VM.
-> - Verifique se a imagem do sistema operacional base fornecida usa a unidade temporária padrão, já que o agente de nó do Lote espera a unidade temporária padrão.
+> Ao preparar sua imagem personalizada, lembre-se no seguinte de saudação mente:
+> - Certifique-se de que imagem do sistema operacional base Olá usar tooprovision os pools de lote não tem qualquer pré-instalado extensões do Azure, como a extensão de Script personalizado hello. Se a imagem de saudação contém uma extensão pré-instalados, Azure poderá encontrar problemas Implantando Olá VM.
+> - Verifique se essa imagem do sistema operacional base Olá que é fornecer usa Olá unidade temporária do padrão, como hello agente do nó de lote no momento espera unidade temporária do saudação padrão.
 >
 >
 
-Para criar um pool de configuração de máquina virtual usando uma imagem personalizada, você precisará de uma ou mais contas de Armazenamento do Azure padrão para armazenar as imagens VHD personalizadas. As imagens personalizadas são armazenadas como blobs. Para fazer referência a imagens personalizadas ao criar um pool, especifique os URIs dos blobs VHD de imagem personalizada para a propriedade [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) da propriedade [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf).
+toocreate um pool de configuração de máquina Virtual usando uma imagem personalizada, você precisará de um ou mais padrão armazenamento do Azure contas toostore suas imagens VHD personalizadas. As imagens personalizadas são armazenadas como blobs. tooreference personalizados imagens quando você cria um pool, especifique Olá URIs de blobs VHD de imagem personalizada Olá para Olá [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) propriedade Olá [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf) propriedade.
 
-Verifique se suas contas de armazenamento atendem aos seguintes critérios:   
+Certifique-se de que suas contas de armazenamento atendem Olá critérios a seguir:   
 
-- As contas de armazenamento que contém os blobs VHD de imagem personalizada precisam estar na mesma assinatura que a conta do Lote (a assinatura de usuário).
-- As contas de armazenamento especificadas precisam estar na mesma região que a conta do Lote.
-- No momento, somente as contas de armazenamento padrão de uso geral têm suporte. O armazenamento Premium do Azure terá suporte no futuro.
-- Você pode especificar uma conta de armazenamento com vários blobs VHD personalizados ou várias contas de armazenamento, cada uma com um único blob. Recomendamos que você use várias contas de armazenamento para obter um melhor desempenho.
-- Um blob VHD de imagem personalizada pode dar suporte a até 40 instâncias de VM Linux ou 20 instâncias de VM Windows. Você precisa criar cópias do blob VHD para criar pools com mais VMs. Por exemplo, um pool com 200 máquinas virtuais Windows precisa de 10 blobs VHD exclusivos especificados para a propriedade **osDisk**.
+- contas de armazenamento Olá contendo Olá imagem personalizada VHD blobs necessário toobe em Olá mesma assinatura conforme Olá conta em lotes (assinatura de usuário Olá).
+- Olá especificado contas de armazenamento precisam toobe em Olá mesma região Olá conta do lote.
+- No momento, somente as contas de armazenamento padrão de uso geral têm suporte. Armazenamento Premium do Azure terão suporte na Olá futuras.
+- Você pode especificar uma conta de armazenamento com vários blobs VHD personalizados ou várias contas de armazenamento, cada uma com um único blob. Recomendamos que você toouse contas de armazenamento vários tooget um melhor desempenho.
+- Pode dar suporte a um blob VHD de imagem personalizada exclusivo too40 que instâncias de VM do Linux ou 20 instâncias de VM do Windows. Você precisará toocreate cópias dos pools de toocreate de blob Olá VHD com mais VMs. Por exemplo, um pool com 200 máquinas virtuais do Windows precisa 10 blobs VHD exclusivos especificados para Olá **osDisk** propriedade.
 
-Para criar um pool de uma imagem personalizada usando o portal do Azure:
+toocreate um pool de uma imagem personalizada usando Olá portal do Azure:
 
-1. Navegue até sua conta do Lote no portal do Azure.
-2. Na folha **Configurações**, selecione o item de menu **Pools**.
-3. Na folha **Pools**, selecione o comando **Adicionar**; a folha **Adicionar pool** será exibida.
-4. Selecione **Imagem personalizada (Windows/Linux)** na lista suspensa **Tipo de Imagem**. O portal exibe o seletor **Imagem Personalizada**. Escolha um ou mais VHDs do mesmo contêiner e clique no botão **Selecionar**. 
-    Suporte para vários VHDs de contas de armazenamento e de contêineres diferentes será adicionado no futuro.
-5. Selecione a **oferta/publicador/SKU** correta para seus VHDs personalizados, selecione o modo **cache** e preencha todos os outros parâmetros do pool.
-6. Para verificar se um pool é baseado em uma imagem personalizada, consulte a propriedade **Sistema operacional** na seção de resumo de recursos da folha **Pool**. O valor dessa propriedade deve ser **Imagem de VM personalizada**.
-7. Todos os VHDs personalizados associados a um pool são exibidos na folha **propriedades** do pool.
+1. Navegue tooyour conta de lote no hello portal do Azure.
+2. Em Olá **configurações** folha, selecione Olá **Pools** item de menu.
+3. Em Olá **Pools** folha, selecione Olá **adicionar** comando; Olá **Adicionar pool** folha será exibida.
+4. Selecione **imagem personalizada (Windows/Linux)** de saudação **tipo de imagem** lista suspensa. portal de saudação exibe Olá **imagem personalizada** seletor. Escolha um ou mais VHDs Olá Olá mesmo do contêiner e clique em **selecione** botão. 
+    Suporte para vários VHDs de contas de armazenamento diferentes e diferentes contêineres será adicionado em Olá futuras.
+5. Selecione Olá correto **oferta/publicador/Sku** para seus VHDs personalizados, selecione Olá desejado **cache** modo, em seguida, preencha todas Olá outros parâmetros para o pool de saudação.
+6. toocheck se um pool é baseado em uma imagem personalizada, consulte Olá **sistema operacional** propriedade na seção de resumo de recursos Olá da saudação **Pool** folha. Olá valor dessa propriedade deve ser **imagem de VM personalizada**.
+7. Todos os VHDs personalizados associados a um pool são exibidos no pool de saudação **propriedades** folha.
 
 ### <a name="compute-node-type-and-target-number-of-nodes"></a>Tipo de nó de computação e número de nós de destino
 
-Quando você cria um pool, você pode especificar os tipos de nós de computação que você deseja e o número de destino para cada um. Os dois tipos de nós de computação são:
+Quando você cria um pool, você pode especificar quais tipos de nós de computação desejado e hello número de destino para cada um. Olá dois tipos de nós de computação são:
 
-- **Nós de computação dedicados.** Nós de computação dedicados são reservados para suas cargas de trabalho. Eles são mais caros que os nós de baixa prioridade, mas é garantido que nunca sofrerão preempção.
+- **Nós de computação dedicados.** Nós de computação dedicados são reservados para suas cargas de trabalho. Eles são mais caros do que nós de baixa prioridade, mas eles não têm garantia toonever superado.
 
-- **Nós de computação de baixa prioridade.** Nós de baixa prioridade aproveitam a capacidade excedente no Azure para executar cargas de trabalho de Lote. Nós de baixa prioridade são mais baratos por hora do que nós dedicados e permitem cargas de trabalho que exigem muita capacidade de computação. Para obter mais informações, consulte [Usar VMs de baixa prioridade com o Lote](batch-low-pri-vms.md).
+- **Nós de computação de baixa prioridade.** Nós de baixa prioridade tirar proveito da capacidade excedente no Azure toorun suas cargas de trabalho em lotes. Nós de baixa prioridade são mais baratos por hora do que nós dedicados e permitem cargas de trabalho que exigem muita capacidade de computação. Para obter mais informações, consulte [Usar VMs de baixa prioridade com o Lote](batch-low-pri-vms.md).
 
-    Pode ocorrer preempção de nós de computação de baixa prioridade quando o Azure tem capacidade excedente insuficiente. Se ocorrer preempção de um nó durante a execução de tarefas, as tarefas serão retiradas da fila e executadas novamente depois que um nó de computação ficar disponível novamente. Nós de baixa prioridade são uma boa opção para cargas de trabalho nas quais o tempo para conclusão do trabalho é flexível e o trabalho é distribuído entre muitos nós. Antes de decidir usar nós de baixa prioridade para seu cenário, verifique se os trabalhos perdidos devido a preempção serão poucos e fáceis de se recriar.
+    Pode ocorrer preempção de nós de computação de baixa prioridade quando o Azure tem capacidade excedente insuficiente. Se um nó é superado durante a execução de tarefas, tarefas de saudação são retirada da fila e execute novamente depois que um nó de computação fica disponível novamente. Os nós de baixa prioridade são uma boa opção para cargas de trabalho em que o tempo de conclusão do trabalho de saudação é flexível e trabalho Olá é distribuído entre vários nós. Antes de decidir toouse nós de baixa prioridade para seu cenário, certifique-se de que qualquer trabalho perdido devido toopreemption será toorecreate mínima e fácil.
 
-    Nós de computação de baixa prioridade estão disponíveis apenas para contas de Lote criadas com o modo de alocação do pool definido para **Serviço em Lotes**.
+    Nós de computação de baixa prioridade estão disponíveis apenas para contas de lote criadas com o modo de alocação de pool de saudação definido muito**serviço de lote**.
 
-Você pode ter nós de computação de baixa prioridade e dedicados no mesmo pool. Cada tipo de nó &mdash; dedicado e de baixa prioridade &mdash; tem sua própria configuração de destino, para que você pode especificar o número desejado de nós. 
+É possível ter ambos os nós de computação dedicado e de baixa prioridade em Olá mesmo pool. Cada tipo de nó &mdash; dedicado e de baixa prioridade &mdash; tem sua própria configuração de destino, para o qual você pode especificar o número de saudação desejado de nós. 
     
-O número de nós de computação é conhecido como um *destino* porque, em algumas situações, o pool pode não alcançar o número desejado de nós. Por exemplo, um pool talvez não alcance o destino se ele atingir a [cota de núcleo](batch-quota-limit.md) da conta do Lote primeiro. Ou então, o pool poderá não alcançar o destino se você tiver aplicado uma fórmula de dimensionamento automático que limita o número máximo de nós ao pool.
+Olá, número de nós de computação é chamado tooas um *destino* porque, em algumas situações, o pool pode não alcançar número desejado de saudação de nós. Por exemplo, um pool talvez não obtenha o destino de saudação se atingir Olá [cota de núcleo](batch-quota-limit.md) de lote de sua conta primeiro. Ou, o pool de saudação talvez não obtenha o destino Olá se você aplicou um dimensionamento automático pool toohello fórmulas que limita o número máximo de saudação de nós.
 
 Para informações sobre preços de ambos os nós de computação de baixa prioridade e dedicado, consulte [Preços de Lote](https://azure.microsoft.com/pricing/details/batch/).
 
-### <a name="size-of-the-compute-nodes"></a>Tamanho dos nós de computação
+### <a name="size-of-hello-compute-nodes"></a>Tamanho de nós de computação Olá
 
 **Configuração dos Serviços de Nuvem** são listados em [Tamanhos para Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md). O Lote dá suporte a todos os tamanhos de Serviços de Nuvem, exceto `ExtraSmall`, `STANDARD_A1_V2` e `STANDARD_A2_V2`.
 
 Os tamanhos de nós de computação da **Configuração de Máquina Virtual** são listados em [Tamanhos de máquinas virtuais no Azure](../virtual-machines/linux/sizes.md) (Linux) e [Tamanhos de máquinas virtuais no Azure](../virtual-machines/windows/sizes.md) (Windows). O Lote dá suporte a todos os tamanhos de VM do Azure, exceto `STANDARD_A0` e aqueles com armazenamento premium (série `STANDARD_GS`, `STANDARD_DS` e `STANDARD_DSV2`).
 
-Ao selecionar um tamanho de nó de computação, considere as características e os requisitos dos aplicativos que você vai executar nos nós. Os aspectos como se o aplicativo tem multithread e quanta memória ele consome podem ajudar a determinar o tamanho do nó mais adequado e econômico. Geralmente, você seleciona um tamanho de nó supondo que uma tarefa seja executada no nó por vez. No entanto, é possível ter várias tarefas (e, portanto, várias instâncias do aplicativo) [executadas em paralelo](batch-parallel-node-tasks.md) em nós de computação durante a execução do trabalho. Nesse caso, é comum escolher um tamanho maior de nó para acomodar a demanda crescente de execução de tarefas paralelas. Confira [Política de agendamento](#task-scheduling-policy) de tarefas para obter mais informações.
+Ao selecionar um tamanho de nó de computação, considere as características de saudação e requisitos de aplicativos de saudação que em nós hello, você executará. Aspectos como se o aplicativo hello é multi-threaded e a quantidade de memória consome pode ajudar a determinam o tamanho de nó de mais adequada e econômica de saudação. É típico tooselect um tamanho de nó, supondo que uma tarefa será executada em um nó por vez. No entanto, é possível toohave várias tarefas (e, portanto, várias instâncias de aplicativo) [executados em paralelo](batch-parallel-node-tasks.md) em nós de computação durante a execução do trabalho. Nesse caso, é comum toochoose uma maior nó tamanho tooaccommodate Olá maior demanda de execução de tarefas paralelas. Confira [Política de agendamento](#task-scheduling-policy) de tarefas para obter mais informações.
 
-Todos os nós em um pool têm o mesmo tamanho. Se você pretende executar aplicativos com diferentes requisitos de sistema e/ou níveis de carga, é recomendável usar pools separados.
+Todos os nós de saudação em um pool de são Olá mesmo tamanho. Se você pretende toorun aplicativos com diferentes requisitos de sistema e/ou níveis de carga, é recomendável que você use grupos separados.
 
 ### <a name="scaling-policy"></a>Política de dimensionamento
 
-Para as cargas de trabalho dinâmicas, você pode gravar e aplicar uma [fórmula de dimensionamento automático](#scaling-compute-resources) em um pool. O serviço de Lote avalia periodicamente a fórmula e ajusta o número de nós no pool com base em vários parâmetros do pool, trabalho e tarefa que você pode especificar.
+Para cargas de trabalho dinâmicas, você pode escrever e aplicar um [fórmula de dimensionamento automático](#scaling-compute-resources) tooa pool. Olá serviço de lote periodicamente avalia a fórmula e ajusta Olá número de nós no pool de saudação com base no pool, trabalho e parâmetros da tarefa que você pode especificar vários.
 
 ### <a name="task-scheduling-policy"></a>Política de agendamento de tarefas
 
-A opção de configuração [máx. de tarefas por nó](batch-parallel-node-tasks.md) determina o número máximo de tarefas que podem ser executadas em paralelo em cada nó de computação no pool.
+Olá [máximo de tarefas por nó](batch-parallel-node-tasks.md) opção de configuração determina o número de máximo de saudação de tarefas que podem ser executados em paralelo em cada nó de computação no pool de saudação.
 
-A configuração padrão especifica que uma tarefa de cada vez seja executada em um nó, mas há situações em que é útil ter duas ou mais tarefas executadas simultaneamente em um nó. Veja o [cenário de exemplo](batch-parallel-node-tasks.md#example-scenario) no artigo sobre as [tarefas de nó simultâneas](batch-parallel-node-tasks.md) para ver como você pode aproveitar as várias tarefas por nó.
+configuração padrão de saudação especifica que uma tarefa de cada vez é executado em um nó, mas há situações em que é benéfico toohave duas ou mais tarefas executadas simultaneamente em um nó. Consulte Olá [cenário de exemplo](batch-parallel-node-tasks.md#example-scenario) em Olá [tarefas simultâneas do nó](batch-parallel-node-tasks.md) toosee artigo como você pode se beneficiar de várias tarefas por nó.
 
-Você também pode especificar um *tipo de preenchimento* que determina se o Lote distribui as tarefas igualmente entre todos os nós de um pool ou empacota cada nó com o número máximo de tarefas antes de atribuir tarefas a outro nó.
+Você também pode especificar um *tipo de preenchimento* que determina se a opção em lotes distribui tarefas Olá igualmente entre todos os nós em um pool ou pacotes de cada nó com o número máximo de saudação de tarefas antes de atribuir o nó de tooanother de tarefas.
 
 ### <a name="communication-status-for-compute-nodes"></a>Status de comunicação de nós de computação
 
-Na maioria dos cenários, as tarefas operam de forma independente e não precisam comunicar-se umas com as outras. No entanto, há alguns aplicativos em que as tarefas precisam se comunicar, como os [cenários MPI](batch-mpi.md).
+Na maioria dos cenários, tarefas operam de forma independente e não é necessário toocommunicate uns com os outros. No entanto, há alguns aplicativos em que as tarefas precisam se comunicar, como os [cenários MPI](batch-mpi.md).
 
-Você pode configurar um pool para permitir a  **comunicação entre os nós**, de modo que os nós em um pool possam comunicar-se durante a execução. Quando a comunicação entre nós é habilitada, os nós nos pools de Configuração dos Serviços de Nuvem podem comunicar-se uns com os outros nas portas acima de 1100 e os pools de Configuração da Máquina Virtual não restringem o tráfego em nenhuma porta.
+Você pode configurar um pool tooallow **na comunicação**, de modo que nós dentro de um pool podem se comunicar em tempo de execução. Quando a comunicação entre nós é habilitada, os nós nos pools de Configuração dos Serviços de Nuvem podem comunicar-se uns com os outros nas portas acima de 1100 e os pools de Configuração da Máquina Virtual não restringem o tráfego em nenhuma porta.
 
-Observe que habilitar a comunicação entre nós também afeta a colocação dos nós nos clusters e pode limitar o número máximo de nós em um pool devido às restrições da implantação. Se seu aplicativo não precisar da comunicação entre os nós, o serviço de Lote poderá alocar um número potencialmente grande de nós para o pool a partir de vários clusters e data centers diferentes para permitir uma capacidade maior do processamento paralelo.
+Observe que habilitar na comunicação também afeta o posicionamento de saudação de nós de saudação em clusters e pode limitar o número máximo de saudação de nós em um pool de devido a restrições de implantação. Se seu aplicativo não precisar de comunicação entre os nós, Olá serviço de lote pode alocar pool toohello de um número potencialmente grande de nós de clusters diferentes muitas e data centers tooenable maior capacidade de processamento paralelo.
 
 ### <a name="start-tasks-for-compute-nodes"></a>Tarefas iniciais para nós de computação
 
-A *tarefa inicial* opcional é executada em cada nó quando ele ingressa no pool e sempre que um nó é reiniciado ou sua imagem é refeita. A tarefa inicial é particularmente útil para preparar nós de computação para a execução de tarefas, como instalar aplicativos que as tarefas executarão nos nós de computação.
+Olá opcional *Iniciar tarefa* como nó une pool Olá, e cada vez que um nó é reiniciado ou recriar a imagem é executado em cada nó. tarefa de início de saudação é especialmente útil para preparar nós de computação para a execução de tarefas, como a instalação de aplicativos de saudação que as tarefas executar em nós de computação de saudação hello.
 
 ### <a name="application-packages"></a>pacotes de aplicativos
 
-Você pode especificar [pacotes de aplicativos](#application-packages) para implantar os nós de computação no pool. Os pacotes de aplicativos fornecem uma implantação simplificada e controle de versão dos aplicativos que suas tarefas executam. Os pacotes de aplicativos que você especifica para um pool são instalados em cada nó que ingressa no pool e sempre que um nó é reinicializado ou sua imagem é recriada.
+Você pode especificar [pacotes de aplicativos](#application-packages) toodeploy toohello nós de computação no pool de saudação. Pacotes de aplicativos fornecem uma implantação simplificada e controle de versão de aplicativos Olá executar suas tarefas. Os pacotes de aplicativos que você especifica para um pool são instalados em cada nó que ingressa no pool e sempre que um nó é reinicializado ou sua imagem é recriada.
 
 > [!NOTE]
-> Os pacotes de aplicativos têm suporte em todos os pools do Lote criados após 5 de julho de 2017. Elas só terão suporte em pools do Lote criados entre 10 de março de 2016 e 5 de julho de 2017 se o pool tiver sido criado usando uma configuração de Serviço de Nuvem. Os pools do Lote criados antes de 10 de março de 2016 não dão suporte a pacotes de aplicativos. Para saber mais sobre como usar pacotes de aplicativos para implantar os aplicativos nos nós do Lote, veja [Implantar aplicativos em nós de computação com pacotes de aplicativos do Lote](batch-application-packages.md).
+> Os pacotes de aplicativos têm suporte em todos os pools do Lote criados após 5 de julho de 2017. Eles têm suporte em pools de lote criados entre 10 de março de 2016 e 5 de julho de 2017 somente se o pool de saudação foi criado usando uma configuração de serviço de nuvem. Pools de lote criados too10 anterior de março de 2016 não dão suporte a pacotes de aplicativos. Para obter mais informações sobre como usar o aplicativo pacotes toodeploy seus nós de lote de tooyour de aplicativos, consulte [implantar aplicativos toocompute nós com pacotes de aplicativos de lote](batch-application-packages.md).
 >
 >
 
 ### <a name="network-configuration"></a>Configuração de rede
 
-Você pode especificar a sub-rede de uma [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md) do Azure em que nós de computação do pool devem ser criados. Veja a seção [Configuração de rede do pool](#pool-network-configuration) para obter mais informações.
+Você pode especificar a sub-rede de saudação de um Azure [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md) na computação do pool que Olá nós devem ser criados. Consulte Olá [configuração do Pool de rede](#pool-network-configuration) para obter mais informações.
 
 
 ## <a name="job"></a>Trabalho
-Um trabalho é uma coleção de tarefas. Ele gerencia como a computação é realizada por suas tarefas nos nós de computação em um pool.
+Um trabalho é uma coleção de tarefas. Ele gerencia como computação é executada por suas tarefas em nós de computação de saudação em um pool.
 
-* O trabalho especifica o **pool** no qual o trabalho é executado. Você pode criar um novo pool para cada trabalho ou usar um pool para vários trabalhos. Você pode criar um pool para cada trabalho associado a um agendamento de trabalho ou para todos os trabalhos associados a um agendamento de trabalho.
-* Você pode especificar uma **prioridade de trabalho**opcional. Quando um trabalho é enviado com uma prioridade mais alta que os trabalhos em andamento atualmente, as tarefas do trabalho com prioridade mais alta são inseridas na fila antes das tarefas dos trabalhos com prioridade mais baixa. As tarefas com prioridade mais baixa que já estejam em execução não são antecipadas.
-* Você pode usar as restrições do **trabalho** para especificar certos limites para seus trabalhos:
+* trabalho de saudação especifica Olá **pool** no qual Olá trabalho é toobe executar. Você pode criar um novo pool para cada trabalho ou usar um pool para vários trabalhos. Você pode criar um pool para cada trabalho associado a um agendamento de trabalho ou para todos os trabalhos associados a um agendamento de trabalho.
+* Você pode especificar uma **prioridade de trabalho**opcional. Quando um trabalho é enviado com uma prioridade mais alta que os trabalhos que estão atualmente em andamento, tarefas Olá para o trabalho de maior prioridade Olá são inseridas na fila de saudação à frente de tarefas para trabalhos de prioridade mais baixa hello. As tarefas com prioridade mais baixa que já estejam em execução não são antecipadas.
+* Você pode usar o trabalho **restrições** toospecify certos limites para os seus trabalhos:
 
-    Você pode definir uma **hora do relógio máxima**, de modo que se um trabalho for executado por mais tempo que a hora do relógio máxima especificada, o trabalho e todas as suas tarefas serão encerrados.
+    Você pode definir um **tempo máximo wallclock**, de modo que se um trabalho for executado por mais de tempo de wallclock máximo de saudação for especificado, o trabalho hello e todas as suas tarefas são encerradas.
 
-    O Lote pode detectar e repetir as tarefas com falha. Você pode especificar o **número máximo de tentativas de tarefa** como uma restrição, inclusive se uma tarefa é repetida *sempre* ou *nunca* é repetida. Repetir uma tarefa significa que a tarefa é colocada na fila para ser executada novamente.
-* O aplicativo do cliente pode adicionar tarefas a um trabalho ou você pode especificar uma [tarefa do gerenciador de trabalhos](#job-manager-task). Uma tarefa do gerenciador de trabalhos contém as informações necessárias para criar as tarefas necessárias para um trabalho, com a tarefa do gerenciador de trabalhos sendo executada em um de nós de computação no pool. A tarefa do gerenciador de trabalhos é tratada especificamente pelo Lote – ela é colocada na fila assim que o trabalho é criado e é reiniciada, caso falhe. Uma tarefa do gerenciador de trabalhos é *necessária* para os trabalhos criados por um [agendamento de trabalho](#scheduled-jobs) , pois é a única maneira de definir as tarefas antes do trabalho ser instanciado.
-* Por padrão, os trabalhos permanecem no estado ativo quando todas as tarefas no trabalho são concluídas. Você pode alterar esse comportamento para que o trabalho seja encerrado automaticamente quando todas as tarefas no trabalho forem concluídas. Defina a propriedade **onAllTasksComplete** do trabalho ([OnAllTasksComplete][net_onalltaskscomplete] no .NET do Lote) para *terminatejob* para encerrar automaticamente o trabalho quando todas as tarefas estão no estado concluído.
+    O Lote pode detectar e repetir as tarefas com falha. Você pode especificar Olá **número máximo de tentativas de tarefa** como uma restrição, incluindo se uma tarefa é *sempre* ou *nunca* repetida. Repetir uma tarefa significa que essa tarefa Olá toobe retirada da fila, execute novamente.
+* O aplicativo cliente pode adicionar o trabalho de tooa de tarefas, ou você pode especificar um [tarefa do Gerenciador de trabalho](#job-manager-task). Uma tarefa do Gerenciador de trabalho contém informações de saudação que é necessário toocreate Olá necessário tarefas para um trabalho, com a tarefa do Gerenciador de trabalho hello está sendo executada em uma saudação nós de computação no pool de saudação. Olá tarefa do Gerenciador de trabalho é tratada especificamente pelo lote – ele está na fila assim que o trabalho Olá é criado e é reiniciado quando ele falhar. É uma tarefa do Gerenciador de trabalho *necessária* para trabalhos que são criados por um [agenda de trabalho](#scheduled-jobs) porque ele é Olá somente toodefine Olá tarefas antes do trabalho de saudação é instanciado.
+* Por padrão, trabalhos permanecem no estado ativo hello quando todas as tarefas no trabalho Olá forem concluídas. Você pode alterar esse comportamento para que hello trabalho será encerrado automaticamente quando todas as tarefas no trabalho Olá forem concluídas. Do trabalho de conjunto Olá **onAllTasksComplete** propriedade ([OnAllTasksComplete] [ net_onalltaskscomplete] no lote .NET) muito*terminatejob* tooautomatically Encerre trabalho hello quando todas as suas tarefas estão em estado de saudação concluída.
 
-    Observe que o serviço de Lote considera que um trabalho *sem* tarefas tem todas as suas tarefas concluídas. Portanto, essa opção é mais comumente usada com uma [tarefa do gerenciador de trabalhos](#job-manager-task). Se você quiser usar o encerramento automático de trabalho sem um gerenciador de trabalhos, defina inicialmente a propriedade **onAllTasksComplete** de um novo trabalho como *noaction*. Depois, defina-a como *terminatejob* somente depois que você terminar de adicionar tarefas ao trabalho.
+    Observe que o serviço de lote Olá considera um trabalho com *sem* toohave tarefas conclusão de todas as suas tarefas. Portanto, essa opção é mais comumente usada com uma [tarefa do gerenciador de trabalhos](#job-manager-task). Se desejar que o encerramento do trabalho automática toouse sem um Gerenciador de trabalhos, inicialmente você deve definir um novo trabalho **onAllTasksComplete** propriedade muito*noaction*, em seguida, defini-lo muito*terminatejob* somente depois que você terminar de adicionar o trabalho de toohello de tarefas.
 
 ### <a name="job-priority"></a>prioridade de trabalho
-Você pode atribuir uma prioridade a trabalhos criados no Lote. O serviço Lote usa o valor da prioridade do trabalho para determinar a ordem de agendamento dos trabalhos em uma conta (isso não deve ser confundido com um [trabalho agendado](#scheduled-jobs)). Os valores de prioridade variam de -1000 a 1000, em que -1000 é a prioridade mais baixa e 1000 a mais alta. Para atualizar a prioridade de um trabalho, chame a operação [Atualizar as propriedades de um trabalho] [rest_update_job] \(REST do Lote) ou modifique a propriedade [CloudJob.Priority] [net_cloudjob_priority] \(.NET do Lote).
+Você pode atribuir um toojobs de prioridade que você cria no lote. Olá serviço de lote usa o valor de prioridade de saudação da ordem de saudação do hello trabalho toodetermine de agendamento de trabalho em uma conta (isso não é toobe confundido com um [trabalho agendado](#scheduled-jobs)). os valores de prioridade Olá variam de -1000 too1000, com -1000 sendo a prioridade mais baixa hello e 1000 hello mais alta. prioridade de saudação tooupdate de um trabalho, chamada hello [atualizar propriedades de saudação de um trabalho] [ rest_update_job] operação em lote REST (), ou modificar Olá [CloudJob.Priority] [ net_cloudjob_priority] propriedade (lote .NET).
 
-Em uma mesma conta, os trabalhos com prioridade mais alta têm precedência no agendamento sobre aqueles com prioridade mais baixa. Um trabalho com valor de prioridade mais alto em uma conta não tem precedência no agendamento sobre outro trabalho com valor de prioridade mais baixo em uma conta diferente.
+Dentro de saudação mesma conta, maior prioridade trabalhos têm precedência sobre os trabalhos de prioridade mais baixa de agendamento. Um trabalho com valor de prioridade mais alto em uma conta não tem precedência no agendamento sobre outro trabalho com valor de prioridade mais baixo em uma conta diferente.
 
-O plano de trabalho em pools é independente. Entre pools diferentes, não é garantido que um trabalho com prioridade mais alta seja agendado primeiro, caso faltem nós ociosos em seu pool associado. No mesmo pool, trabalhos com o mesmo nível de prioridade têm a mesma chance de ser agendados.
+O plano de trabalho em pools é independente. Entre pools diferentes, não é garantido que um trabalho com prioridade mais alta seja agendado primeiro, caso faltem nós ociosos em seu pool associado. Em Olá mesmo pool, trabalhos com hello mesmo nível de prioridade têm a mesma chance de ser agendado.
 
 ### <a name="scheduled-jobs"></a>Trabalhos agendados
-As [Agendas de trabalho][rest_job_schedules] permitem criar trabalhos recorrentes dentro do serviço de Lote. Um plano de trabalho especifica quando executar trabalhos e inclui as especificações para os trabalhos a serem executados. Você pode especificar a duração do agendamento - quanto tempo e quando o agendamento entra em vigor – e com que frequência os trabalhos são criados durante o período agendado.
+[Agendas de trabalho] [ rest_job_schedules] permitem toocreate de trabalhos recorrentes em Olá serviço de lote. Uma agenda de trabalho especifica quando toorun trabalhos e inclui as especificações de saudação de saudação trabalhos toobe executar. Você pode especificar a duração de saudação da agenda hello – quanto tempo e quando agenda hello está em vigor – e frequência os trabalhos são criados durante a saudação agendado período.
 
 ## <a name="task"></a>Tarefa
-Uma tarefa é uma unidade de computação que está associada a um trabalho. Ela é executada em um nó. As tarefas são atribuídas a um nó para execução ou estão na fila até que um nó fique livre. Resumindo, uma tarefa executa um ou mais programas ou scripts em um nó de computação para executar o trabalho necessário.
+Uma tarefa é uma unidade de computação que está associada a um trabalho. Ela é executada em um nó. Tarefas atribuídas nó tooa para execução ou são enfileiradas até que um nó fique livre. Em suma, uma tarefa executa um ou mais programas ou scripts em um computação nó tooperform Olá trabalho que é necessário.
 
 Ao criar uma tarefa, você pode especificar:
 
-* A **linha de comando** da tarefa. Essa é a linha de comando que executa o aplicativo ou script nos nós de computação.
+* Olá **linha de comando** para tarefas de saudação. Esta é a linha de comando Olá que executa o aplicativo ou script no nó de computação hello.
 
-    É importante observar que a linha de comando realmente não é executada em um shell. Portanto, não é possível aproveitar nativamente os recursos do shell, como a expansão da [variável de ambiente](#environment-settings-for-tasks) (isso inclui `PATH`). Para aproveitar esses recursos, você deve chamar o shell na linha de comando – por exemplo, iniciando `cmd.exe` nos nós do Windows ou `/bin/sh` no Linux:
+    É importante toonote que Olá a linha de comando não executa em um shell. Portanto, ele nativamente não pode tirar proveito dos recursos de shell como [variável de ambiente](#environment-settings-for-tasks) expansão (Isso inclui Olá `PATH`). tootake proveito desses recursos, você deve chamar shell Olá na linha de comando hello – por exemplo, iniciando `cmd.exe` em nós do Windows ou `/bin/sh` no Linux:
 
     `cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
 
     `/bin/sh -c MyTaskApplication $MY_ENV_VAR`
 
-    Se as tarefas precisarem executar um aplicativo ou script que não esteja no `PATH` do nó ou fazer referência às variáveis de ambiente, chame o shell explicitamente na linha de comando da tarefa.
-* **Arquivos de recursos** que contêm os dados a serem processados. Esses arquivos são copiados automaticamente para o nó a partir do armazenamento de Blobs em uma conta de Armazenamento do Azure geral, antes da linha de comando da tarefa ser executada. Para obter mais informações, consulte as seções [Tarefa inicial](#start-task) e [Arquivos e diretórios](#files-and-directories).
-* As **variáveis de ambiente** que são exigidas pelo aplicativo. Para obter mais informações, consulte a seção [Configurações do ambiente para tarefas](#environment-settings-for-tasks) .
-* As **restrições** de acordo com as quais a tarefa deve ser executada. Por exemplo, as restrições incluem o tempo máximo que a tarefa pode ser executada, o número máximo de vezes que uma tarefa com falha deve ser repetida e o tempo máximo que os arquivos no diretório de trabalho da tarefa são mantidos.
-* **Pacotes de aplicativos** para implantar no nó de computação no qual a tarefa está agendada para ser executada. [Application packages](#application-packages) fornecem uma implantação simplificada e controle de versão dos aplicativos que suas tarefas executam. Os pacotes de aplicativos de nível de tarefa são especialmente úteis em ambientes de pool compartilhado, em que diferentes trabalhos são executados em um pool e o pool não é excluído quando um trabalho é concluído. Se o trabalho tiver menos tarefas do que os nós no pool, pacotes de aplicativos de tarefa poderão minimizar a transferência de dados, pois o aplicativo é implantado apenas para os nós que executam tarefas.
+    Se precisarem de suas tarefas toorun um aplicativo ou script que não está em Olá do nó `PATH` ou fazer referência a variáveis de ambiente, invoque o shell Olá explicitamente na linha de comando de tarefa de saudação.
+* **Arquivos de recurso** que contêm Olá toobe de dados processada. Esses arquivos são copiados automaticamente toohello nó do armazenamento de Blob em uma conta de armazenamento do Azure para fins gerais antes de linha de comando da tarefa Olá é executada. Para obter mais informações, consulte as seções de saudação [tarefa inicial](#start-task) e [arquivos e diretórios](#files-and-directories).
+* Olá **variáveis de ambiente** que são exigidas por seu aplicativo. Para obter mais informações, consulte Olá [configurações de ambiente para tarefas](#environment-settings-for-tasks) seção.
+* Olá **restrições** sob qual Olá tarefa deve ser executada. Por exemplo, as restrições incluem o tempo máximo de saudação tarefa Olá é permitida toorun, o número de vezes que uma tarefa com falha deve ser repetida, máximo hello e máximo de saudação hora em que os arquivos no diretório de trabalho da tarefa Olá são mantidos.
+* **Pacotes de aplicativos** toodeploy toohello em qual Olá a tarefa está agendada toorun de nó de computação. [Pacotes de aplicativos](#application-packages) fornecem uma implantação simplificada e controle de versão de aplicativos Olá executar suas tarefas. Pacotes de aplicativos de nível de tarefa são especialmente úteis em ambientes de pool compartilhado, onde diferentes trabalhos são executados em um pool e pool de saudação não será excluído quando um trabalho é concluído. Se o trabalho tiver menos tarefas que os nós no pool hello, pacotes de aplicativos de tarefa podem minimizar transferência de dados desde que o aplicativo é implantado toohello apenas nós que executam tarefas.
 
-Além das tarefas que você pode definir para realizar computação em um nó, as tarefas especiais a seguir também são fornecidas pelo serviço Lote:
+Além disso tootasks definir tooperform computação em um nó, Olá tarefas especiais a seguir também é fornecido pelo serviço de lote hello:
 
 * [Iniciar tarefa](#start-task)
 * [Tarefa do Gerenciador de Trabalhos](#job-manager-task)
@@ -328,289 +328,289 @@ Além das tarefas que você pode definir para realizar computação em um nó, a
 * [Dependências da tarefa](#task-dependencies)
 
 ### <a name="start-task"></a>Iniciar tarefa
-Associando uma **tarefa inicial** a um pool, você pode preparar o ambiente operacional de seus nós. Por exemplo, você pode executar ações como instalar os aplicativos que suas tarefas executarão e iniciar os processos em segundo plano. A tarefa inicial é executada sempre que um nó inicia, contanto que ele permaneça no pool - incluindo quando o nó é adicionado pela primeira vez ao pool e quando ele é reiniciado ou sua imagem é recriada.
+Associando um **Iniciar tarefa** com um pool, você pode preparar Olá de seus nós o ambiente operacional. Por exemplo, você pode executar ações como instalação de aplicativos de saudação que executam as tarefas ou iniciar processos em segundo plano. tarefa de início de saudação é executado sempre que um nó é iniciado, desde que ela permaneça no pool de hello – incluindo ao nó de saudação é adicionado primeiro pool toohello e quando ele for reiniciado ou recriar a imagem.
 
-O principal benefício da tarefa inicial é que ela pode conter todas as informações necessárias para configurar um nó de computação e instalar os aplicativos necessários para a execução da tarefa. Portanto, aumentar o número de nós em um pool é tão simples quanto especificar a nova contagem de nós de destino. A tarefa inicial fornece ao serviço de Lote as informações necessárias para configurar os novos nós e prepará-los para a aceitação das tarefas.
+O principal benefício Olá da tarefa de início é que ele pode conter todas as informações de saudação que é necessário tooconfigure um nó de computação e instalar aplicativos de saudação que são necessários para a execução da tarefa. Portanto, o aumento Olá número de nós em um pool é tão simple quanto especificando a nova contagem de nó de destino hello. tarefa de início de saudação fornece informações Olá de serviço de lote de Olá Olá tooconfigure necessários novos nós e prepará-los para aceitar tarefas.
 
-Como com qualquer tarefa em Lote do Azure, você pode especificar uma lista de **arquivos de recursos** no [Armazenamento do Azure][azure_storage], além de uma **linha de comando** a ser executada. Primeiro, o serviço de Lote copia os arquivos de recursos para o nó no Armazenamento do Azure, depois, executa a linha de comando. Para uma tarefa inicial do pool, a lista de arquivos normalmente contém o aplicativo da tarefa e suas dependências.
+Como com qualquer tarefa em lote do Azure, você pode especificar uma lista de **arquivos de recurso** na [armazenamento do Azure][azure_storage], além de tooa **linha de comando** toobe executado. serviço de lote Olá copia primeiro nó de toohello de arquivos de recurso de saudação do armazenamento do Azure e, em seguida, executa a linha de comando de saudação. Para uma tarefa de início do pool, lista de arquivos Olá normalmente contém Olá tarefa aplicativo e suas dependências.
 
-No entanto, ela também pode incluir os dados de referência a serem usados por todas as tarefas em execução no nó de computação. Por exemplo, a linha de comando da tarefa inicial pode executar uma `robocopy` operação para copiar os arquivos do aplicativo (que foram especificados como arquivos de recurso e baixados para o nó) do [diretório de trabalho](#files-and-directories) da tarefa inicial para a [pasta compartilhada](#files-and-directories), em seguida, executar um MSI ou `setup.exe`.
+No entanto, tarefas de início Olá também podem incluir toobe de dados de referência usado por todas as tarefas que estão em execução no nó de computação hello. Por exemplo, a linha de comando de início da tarefa pode executar um `robocopy` operação toocopy arquivos de aplicativo (que foram especificados como arquivos de recurso e baixado toohello nó) do hello Iniciar tarefa [diretório de trabalho](#files-and-directories) toohello [pasta compartilhada](#files-and-directories), e, em seguida, execute um MSI ou `setup.exe`.
 
-Geralmente é desejável que o serviço de Lote aguarde a conclusão da tarefa inicial antes de considerar o nó pronto para ter tarefas atribuídas, mas isso pode ser configurado.
+É geralmente preferível para toowait de serviço de lote Olá para Olá Iniciar tarefa toocomplete antes de considerar Olá tarefas do nó pronto toobe atribuído, mas você pode configurá-la.
 
-Se uma tarefa de inicialização falhar em um nó de computação, o estado do nó será atualizado para refletir a falha e o nó não tem nenhuma tarefa atribuída a ele. Uma tarefa inicial poderá falhar se houver um problema ao copiar seus arquivos de recursos do armazenamento ou se o processo executado por sua linha de comando retornar um código de saída diferente de zero.
+Se uma tarefa inicial falhar em um nó de computação, hello estado do nó de saudação será atualizado tooreflect Olá falha e nó Olá não está atribuído a todas as tarefas. Uma tarefa inicial pode falhar se houver um problema copiando seus arquivos de recursos de armazenamento, ou se o processo de saudação executado por sua linha de comando retorna um código de saída diferente de zero.
 
-Se você adicionar ou atualizar a tarefa inicial para um pool existente , deverá reinicializar seus nós de computação para que a tarefa inicial seja aplicada aos nós.
+Se você adicionar ou atualizar a tarefa de início de saudação para um pool existente, você deve reiniciar os nós de computação Olá Iniciar tarefa toobe aplicada toohello nós.
 
 >[!NOTE]
-> O tamanho total de uma tarefa de início deve ser menor ou igual a 32768 caracteres, incluindo arquivos de recurso e variáveis de ambiente. Para garantir que a tarefa de início atenda a esse requisito, você pode usar uma das duas abordagens:
+> Olá tamanho total de uma tarefa de início deve ser menor ou igual too32768 caracteres, incluindo arquivos de recurso e variáveis de ambiente. tooensure sua tarefa de início atende a esse requisito, você pode usar uma das duas abordagens:
 >
-> 1. Você pode usar pacotes de aplicativos para distribuir aplicativos ou dados em cada nó no pool do Lote. Para saber mais sobre pacotes de aplicativos, veja [Implantar aplicativos em nós de computação com pacotes de aplicativos do Lote](batch-application-packages.md).
-> 2. Você pode criar um arquivo compactado que contém os arquivos de aplicativos manualmente. Carregue seu arquivo compactado no Armazenamento do Azure como um blob. Especifique o arquivo compactado como um arquivo de recurso para a tarefa de início. Antes de executar a linha de comando para a tarefa de início, descompacte o arquivo da linha de comando. 
+> 1. Você pode usar aplicativos de toodistribute de pacotes de aplicativo ou dados em cada nó no pool de lote. Para obter mais informações sobre pacotes de aplicativos, consulte [implantar aplicativos toocompute nós com pacotes de aplicativos de lote](batch-application-packages.md).
+> 2. Você pode criar um arquivo compactado que contém os arquivos de aplicativos manualmente. Carregar seu arquivo compactado de tooAzure armazenamento como um blob. Especifique o arquivo hello compactado como um arquivo de recurso para a tarefa de início. Antes de executar a linha de comando Olá para sua tarefa de início, descompacte o arquivo Olá Olá linha de comando. 
 >
->    Para descompactar o arquivo, você pode usar sua ferramenta de arquivamento preferida. Você precisará incluir a ferramenta usada para descompactar o arquivo como um arquivo de recurso para a tarefa inicial.
+>    arquivamento de saudação toounzip, você pode usar Olá, ferramenta de sua escolha de arquivamento. Você precisará tooinclude ferramenta de saudação que você use o arquivamento de saudação toounzip como um arquivo de recurso para a tarefa inicial de saudação.
 >
 >
 
 ### <a name="job-manager-task"></a>Tarefa do Gerenciador de Trabalhos
-Você geralmente usa uma **tarefa do gerenciador de trabalhos** para controlar e/ou monitorar a execução do trabalho — por exemplo, para criar e enviar tarefas para um trabalho, determinar as tarefas adicionais a executar e quando o trabalho é concluído. No entanto, uma tarefa do gerenciador de trabalhos não está limitada a essas atividades. É uma tarefa completa que pode executar as ações necessárias para o trabalho. Por exemplo, uma tarefa do gerenciador de trabalhos pode baixar um arquivo especificado como um parâmetro, analisar o conteúdo desse arquivo e enviar tarefas adicionais com base no conteúdo.
+Você normalmente usa um **tarefa do Gerenciador de trabalho** toocontrol e/ou o monitor de execução – por exemplo, toocreate de trabalho e enviar tarefas de saudação para um trabalho, determinar toorun tarefas adicionais e determinar quando o trabalho for concluído. No entanto, uma tarefa do Gerenciador de trabalho não é restrito toothese atividades. É uma tarefa totalmente o que pode executar as ações que são necessárias para o trabalho de saudação. Por exemplo, uma tarefa do Gerenciador de trabalho pode baixar um arquivo que é especificado como um parâmetro, analisar o conteúdo de saudação do arquivo e enviar tarefas adicionais com base em desses conteúdos.
 
-Uma tarefa do gerenciador de trabalho é iniciada antes de todas as outras tarefas. Ela fornece os seguintes recursos:
+Uma tarefa do gerenciador de trabalho é iniciada antes de todas as outras tarefas. Ele fornece Olá recursos a seguir:
 
-* Ela é criada automaticamente pelo serviço Lote quando o trabalho é criado.
-* É agendada para execução antes das outras tarefas em um trabalho.
-* O nó associado é o último a ser removido de um pool quando o pool está sendo reduzido.
-* Seu término pode ser vinculado ao término de todas as tarefas existentes no trabalho.
-* Uma tarefa do gerenciador de trabalhos tem a prioridade mais alta quando precisa ser reiniciada. Se não houver um nó ocioso disponível, o serviço de Lote poderá encerrar uma das outras tarefas em execução no pool para liberar espaço para a tarefa do gerenciador de trabalhos ser executada.
-* Uma tarefa de gerenciador de trabalhos em um trabalho não tem prioridade sobre tarefas em outros trabalhos. Entre diferentes trabalhos, somente as prioridades de nível de trabalho são observadas.
+* Ele é automaticamente enviado como uma tarefa pelo serviço de lote de saudação quando Olá trabalho é criado.
+* Ele é agendado tooexecute antes Olá outras tarefas em um trabalho.
+* O nó associado é Olá toobe última removido de um pool ao pool hello está sendo reduzida.
+* Seu encerramento pode ser associado toohello término de todas as tarefas no trabalho de saudação.
+* Uma tarefa do Gerenciador de trabalho tem prioridade mais alta de saudação quando ele precisa toobe reiniciado. Se um nó ocioso não estiver disponível, Olá serviço de lote pode terminar uma saudação outras tarefas em execução no toomake espaço pool Olá Olá toorun de tarefa de Gerenciador de trabalho.
+* Uma tarefa do Gerenciador de trabalho em um trabalho não têm prioridade sobre tarefas de saudação de outros trabalhos. Entre diferentes trabalhos, somente as prioridades de nível de trabalho são observadas.
 
 ### <a name="job-preparation-and-release-tasks"></a>Tarefas de preparação e liberação do trabalho
 O Lote fornece tarefas de preparação do trabalho para a instalação de execução pré-trabalho. As tarefas de liberação do trabalho são para a manutenção ou a limpeza pós-trabalho.
 
-* **Tarefa de preparação do trabalho**– a tarefa de preparação do trabalho é executada em todos os nós de computação agendados para executar as tarefas, antes de qualquer outra tarefa do trabalho ser executada. É possível usar a tarefa de preparação do trabalho para copiar os dados compartilhados por todas as tarefas, mas é exclusiva para o trabalho, por exemplo.
-* **Tarefa de liberação do trabalho**– quando o trabalho for concluído, a tarefa de liberação do trabalho será executada em cada nó no pool que executou pelo menos uma tarefa. É possível usar a tarefa de liberação do trabalho para excluir os dados copiados pela tarefa de preparação do trabalho ou compactar e carregar os dados do log de diagnóstico, por exemplo.
+* **Tarefa de preparação de trabalho**: uma tarefa de preparação de trabalho é executado em todos os nós de computação são tarefas agendadas toorun, antes de qualquer Olá outras tarefas de trabalho são executadas. Você pode usar dados toocopy de tarefa de preparação um trabalho que são compartilhados por todas as tarefas, mas é exclusivo toohello trabalho, por exemplo.
+* **Tarefa de liberação de trabalho**: quando um trabalho for concluída, uma tarefa de liberação de trabalho é executado em cada nó no pool de saudação que pelo menos uma tarefa executada. Você pode usar um trabalho versão toodelete dados da tarefa que são copiados pela tarefa de preparação de trabalho hello, ou toocompress e upload log dados de diagnóstico, por exemplo.
 
-As tarefas de preparação e liberação do trabalho permitem especificar uma linha de comando a ser executada quando a tarefa é chamada. Elas oferecem recursos, como download de arquivo, execução elevada, variáveis de ambiente personalizadas, duração máxima da execução, contagem de repetição e tempo de retenção do arquivo.
+Ambos preparação de trabalho e tarefas de versão permitem toospecify toorun uma linha de comando quando a tarefa de saudação é invocada. Elas oferecem recursos, como download de arquivo, execução elevada, variáveis de ambiente personalizadas, duração máxima da execução, contagem de repetição e tempo de retenção do arquivo.
 
 Para saber mais sobre tarefas de preparação e de liberação de trabalho, consulte [Executar tarefas de preparação e de conclusão de trabalhos em nós de computação do Lote do Azure](batch-job-prep-release.md).
 
 ### <a name="multi-instance-task"></a>Tarefa de várias instâncias
-Uma [tarefa de várias instâncias](batch-mpi.md) é a que é configurada para ser executada simultaneamente em mais de um nó de computação. Com as tarefas de várias instâncias, você pode habilitar os cenários de computação de alto desempenho, que requerem um grupo de nós de computação alocados juntos para processar uma única carga de trabalho (como a Interface de Troca de Mensagens (MPI)).
+Um [tarefas de várias instâncias](batch-mpi.md) é uma tarefa que é configurado toorun em mais de um nó de computação simultaneamente. Com tarefas de várias instâncias, você pode habilitar o alto desempenho cenários de computação que exigem um grupo de nós de computação que estão alocados juntos tooprocess uma única carga de trabalho (como Interface MPI (Message Passing)).
 
-Para obter uma análise detalhada sobre como executar os trabalhos da MPI no Lote usando a biblioteca .NET do Lote, confira [Usar tarefas de várias instâncias para executar os aplicativos da MPI (Interface de Troca de Mensagens) no Lote do Azure](batch-mpi.md).
+Para obter uma discussão detalhada sobre como executar trabalhos MPI em lote usando biblioteca de lote .NET Olá, confira [Use a instância várias tarefas toorun passando Interface aplicativos MPI (Message) em lote do Azure](batch-mpi.md).
 
 ### <a name="task-dependencies"></a>Dependências da tarefa
-As [dependências de tarefas](batch-task-dependencies.md), como o nome indica, permitem especificar que uma tarefa depende da conclusão de outras tarefas antes de sua execução. Este recurso fornece suporte para situações em que uma tarefa "downstream" consome a saída de uma tarefa "upstream" - ou quando uma tarefa upstream executa alguma inicialização necessária para uma tarefa downstream. Para usar esse recurso, primeiro você deve habilitar as dependências em seu trabalho do Lote. Em seguida, para cada tarefa que dependa de outra (ou de muitas outras), especifique as tarefas das quais essa tarefa depende.
+[Dependências de tarefa](batch-task-dependencies.md), como Olá nome implica, permitem que você toospecify uma tarefa depende da conclusão de saudação de outras tarefas antes de sua execução. Este recurso fornece suporte para situações em que uma tarefa de "downstream" consome saída saudação de uma tarefa de "upstream" ou quando uma tarefa upstream executa algumas inicialização necessária para uma tarefa de downstream. toouse esse recurso, você deve primeiro habilitar dependências em seu trabalho em lotes. Em seguida, para cada tarefa que depende de outro (ou outros), você especificar tarefas Olá que essa tarefa depende.
 
-Com as dependências de tarefas, você pode configurar cenários como o seguinte:
+Com dependências de tarefa, você pode configurar cenários como Olá a seguir:
 
 * A *tarefaB* depende da *tarefaA* (a *tarefaB* não começará sua execução até que a *tarefaA* tenha terminado).
 * A *tarefaC* depende da *tarefaA* e da *tarefaB*.
 * A *tarefaD* depende de várias tarefas, como as tarefas de *1* a *10*, antes de ser executada.
 
-Confira as [Dependências da tarefa no Lote do Azure](batch-task-dependencies.md) e o exemplo de código [TaskDependencies][github_sample_taskdeps] no repositório GitHub [azure-batch-samples][github_samples] para obter mais detalhes sobre esse recurso.
+Check-out [tarefas dependências em lote do Azure](batch-task-dependencies.md) e hello [TaskDependencies] [ github_sample_taskdeps] exemplo de código Olá [exemplos de lote do azure] [ github_samples] Repositório GitHub para mais detalhes sobre esse recurso.
 
 ## <a name="environment-settings-for-tasks"></a>Configurações do ambiente para tarefas
-Cada tarefa executada pelo serviço Lote tem acesso a variáveis de ambiente definidas em nós de computação. Isso inclui as variáveis de ambiente definidas pelo serviço de Lote ([service-defined][msdn_env_vars]) e as variáveis de ambiente personalizadas que você pode definir para suas tarefas. Os aplicativos e scripts executados pelas tarefas têm acesso a essas variáveis de ambiente durante a execução.
+Cada tarefa executada pelo serviço de lote de saudação tem variáveis de tooenvironment de acesso que ele define nós de computação. Isso inclui variáveis de ambiente definidas pelo serviço de lote de saudação ([definido pelo serviço][msdn_env_vars]) e variáveis de ambiente personalizado que você pode definir para suas tarefas. executar suas tarefas de scripts e aplicativos de saudação tem acesso toothese as variáveis de ambiente durante a execução.
 
-Você pode definir variáveis de ambiente personalizadas no nível de tarefa ou de trabalho populando a propriedade *configurações de ambiente* para essas entidades. Por exemplo, consulte a operação [Adicionar uma tarefa a um trabalho][rest_add_task] (API REST do Lote) ou as propriedades [CloudTask.EnvironmentSettings][net_cloudtask_env] e [CloudJob.CommonEnvironmentSettings][net_job_env] no .NET do Lote.
+Você pode definir variáveis de ambiente personalizadas no nível de tarefa ou trabalho Olá preenchendo Olá *configurações de ambiente* propriedade dessas entidades. Por exemplo, consulte Olá [adicionar um trabalho tooa] [ rest_add_task] operação (API REST do lote) ou hello [CloudTask.EnvironmentSettings] [ net_cloudtask_env] e [ CloudJob.CommonEnvironmentSettings] [ net_job_env] propriedades no .NET de lote.
 
-Seu aplicativo cliente ou serviço pode obter as variáveis de ambiente da tarefa, definidas pelo serviço e personalizadas, usando a operação [Obter informações sobre uma tarefa][rest_get_task_info] (REST do Lote) ou acessando a propriedade [CloudTask.EnvironmentSettings][net_cloudtask_env] (.NET do Lote). Os processos em execução em um nó de computação podem acessar essas e outras variáveis de ambiente no nó, por exemplo, usando a sintaxe familiar do `%VARIABLE_NAME%` (Windows) ou `$VARIABLE_NAME` (Linux).
+Seu aplicativo cliente ou serviço pode obter variáveis de ambiente da tarefa, definido pelo serviço e personalizadas, usando Olá [obter informações sobre uma tarefa] [ rest_get_task_info] operação (em lote REST) ou acessando Olá [CloudTask.EnvironmentSettings] [ net_cloudtask_env] propriedade (lote .NET). Processos em execução em um nó de computação podem acessar essas e outras variáveis de ambiente no nó hello, por exemplo, usando Olá familiar `%VARIABLE_NAME%` (Windows) ou `$VARIABLE_NAME` sintaxe (Linux).
 
 Você pode encontrar uma lista completa de todas as variáveis de ambiente definidas pelo serviço em [Variáveis de ambiente do nó de computação][msdn_env_vars].
 
 ## <a name="files-and-directories"></a>Arquivos e diretórios
-Cada tarefa tem um *diretório de trabalho* em que ela cria zero ou mais arquivos e diretórios. Esse diretório de trabalho pode ser usado para armazenar o programa executado pela tarefa, os dados que ele processa e a saída do processamento executado. Todos os arquivos e diretórios de uma tarefa são pertencentes ao usuário de tarefa.
+Cada tarefa tem um *diretório de trabalho* em que ela cria zero ou mais arquivos e diretórios. Esta pasta de trabalho pode ser usada para armazenar o programa hello executado pela tarefa hello, dados de saudação que ele processa, e Olá saída de processamento de hello, que ele executa. Todos os arquivos e diretórios de uma tarefa pertencem Olá usuário de tarefa.
 
-O serviço de Lote exibe uma parte do sistema de arquivos em um nó como o *diretório-raiz*. As tarefas podem acessar esse diretório-raiz referenciando a variável de ambiente `AZ_BATCH_NODE_ROOT_DIR` . Para saber mais sobre como usar as variáveis de ambiente, consulte [Configurações de ambiente para tarefas](#environment-settings-for-tasks).
+Olá serviço de lote expõe uma parte do sistema de arquivos de saudação em um nó como Olá *diretório raiz*. Tarefas podem acessar o diretório raiz de saudação referenciando Olá `AZ_BATCH_NODE_ROOT_DIR` variável de ambiente. Para saber mais sobre como usar as variáveis de ambiente, consulte [Configurações de ambiente para tarefas](#environment-settings-for-tasks).
 
-O diretório raiz contém a seguinte estrutura de diretório:
+diretório raiz de saudação contém Olá estrutura de diretórios a seguir:
 
 ![Estrutura de diretórios do nó de computação][1]
 
-* **compartilhado**– esse diretório fornece acesso de leitura/gravação a *todas* as tarefas executadas em um nó. Qualquer tarefa executada no nó pode criar, ler, atualizar e excluir arquivos nesse diretório. As tarefas podem acessar esse diretório referenciando a variável de ambiente `AZ_BATCH_NODE_SHARED_DIR` .
-* **inicialização**– esse diretório é usado por uma tarefa inicial como seu diretório de trabalho. Todos os arquivos que são baixados para o nó pela tarefa de inicialização são armazenados aqui. A tarefa inicial pode criar, ler, atualizar e excluir arquivos nesse diretório. As tarefas podem acessar esse diretório referenciando a variável de ambiente `AZ_BATCH_NODE_STARTUP_DIR` .
-* **Tarefas**- um diretório é criado para cada tarefa executada no nó. É acessado referenciando a variável de ambiente `AZ_BATCH_TASK_DIR` .
+* **compartilhado**: este diretório fornece acesso de leitura/gravação muito*todos os* tarefas que são executados em um nó. Qualquer tarefa que é executado no nó Olá pode criar, ler, atualizar e excluir arquivos nesse diretório. Tarefas podem acessar este diretório referenciando Olá `AZ_BATCH_NODE_SHARED_DIR` variável de ambiente.
+* **inicialização**– esse diretório é usado por uma tarefa inicial como seu diretório de trabalho. Todos os arquivos de saudação que são baixados toohello nó pela tarefa de início de saudação são armazenados. Olá Iniciar tarefa pode criar, ler, atualizar e excluir arquivos nesse diretório. Tarefas podem acessar este diretório referenciando Olá `AZ_BATCH_NODE_STARTUP_DIR` variável de ambiente.
+* **Tarefas**: um diretório é criado para cada tarefa que é executado no nó de saudação. Ele é acessado referenciando Olá `AZ_BATCH_TASK_DIR` variável de ambiente.
 
-    Em cada diretório de tarefas, o serviço Lote cria um diretório de trabalho (`wd`) cujo caminho exclusivo é especificado pela variável de ambiente `AZ_BATCH_TASK_WORKING_DIR`. Esse diretório oferece acesso de leitura/gravação à tarefa. A tarefa pode criar, ler, atualizar e excluir arquivos contidos nesse diretório. Esse diretório é mantido com base na restrição *RetentionTime* especificada para a tarefa.
+    Dentro de cada diretório de tarefa, Olá serviço de lote cria um diretório de trabalho (`wd`) cujo caminho exclusivo é especificado pelo Olá `AZ_BATCH_TASK_WORKING_DIR` variável de ambiente. Este diretório fornece tarefas de toohello de acesso de leitura/gravação. tarefa Olá pode criar, ler, atualizar e excluir arquivos nesse diretório. Esse diretório é mantido com base em Olá *RetentionTime* restrição especificada para a tarefa de saudação.
 
-    `stdout.txt` e `stderr.txt` – esses arquivos são gravados na pasta de tarefas durante a execução da tarefa.
+    `stdout.txt`e `stderr.txt`: esses arquivos são gravados toohello pasta de tarefas durante a execução de saudação da tarefa de saudação.
 
 > [!IMPORTANT]
-> Quando um nó é removido do pool, *todos* os arquivos armazenados no nó são removidos.
+> Quando um nó é removido do pool de saudação *todos os* de saudação arquivos que são armazenados no nó de saudação são removidos.
 >
 >
 
 ## <a name="application-packages"></a>pacotes de aplicativos
-O recurso dos [pacotes de aplicativos](batch-application-packages.md) fornece um gerenciamento e implantação fáceis dos aplicativos para os nós de computação em seus pools. Você pode carregar e gerenciar várias versões dos aplicativos executados por suas tarefas, incluindo seus binários e arquivos de suporte. Então, você pode implantar automaticamente um ou mais desses aplicativos nos nós de computação em seu pool.
+Olá [pacotes de aplicativos](batch-application-packages.md) recurso fornece fácil gerenciamento e implantação de aplicativos de nós de computação toohello em seus pools. Você pode carregar e gerenciar várias versões de saudação aplicativos executados por suas tarefas, incluindo seus binários e arquivos de suporte. Em seguida, você pode implantar automaticamente uma ou mais toohello esses aplicativos nós de computação no pool de.
 
-Você pode especificar os pacotes de aplicativos no nível do pool e de tarefa. Quando você especifica os pacotes de aplicativos do pool, o aplicativo é implantado para todos os nós no pool. Quando você especifica os pacotes de aplicativos de tarefa, o aplicativo é implantado apenas para nós que estão agendados para execução de pelo menos uma das tarefas do trabalho, antes que a linha de comando da tarefa seja executada.
+Você pode especificar os pacotes de aplicativos no nível de pool e tarefa hello. Quando você especifica pacotes de aplicativos do pool, o aplicativo hello é nó tooevery implantado no pool de saudação. Quando você especifica os pacotes de aplicativos de tarefa, aplicativo hello é implantado toonodes somente que são toorun agendada pelo menos uma das tarefas do trabalho hello, antes de saudação a linha de comando da tarefa é executada.
 
-O Lote lida com os detalhes de como trabalhar com o Armazenamento do Azure para armazenar pacotes de aplicativos e implantá-los para nós de computação. Portanto, a sobrecarga de gerenciamento e código pode ser simplificada.
+Identificadores de lote Olá detalhes do trabalho com o armazenamento do Azure toostore seus pacotes de aplicativos e implantação-las toocompute nós, portanto o código e o gerenciamento de sobrecarga pode ser simplificada.
 
-Para saber mais sobre o recurso do pacote de aplicativos, confira a [Implantar aplicativos em nós de computação com pacotes de aplicativos do Lote do Azure](batch-application-packages.md).
+toofind mais informações sobre o recurso de pacote de aplicativo hello, check-out [implantar aplicativos toocompute nós com pacotes de aplicativos de lote](batch-application-packages.md).
 
 > [!NOTE]
-> Se você adicionar pacotes de aplicativos do pool a um pool *existente* , deverá reinicializar seus nós de computação para que os pacotes de aplicativos sejam implantados nos nós.
+> Se você adicionar o pool aplicativo pacotes tooan *existente* pool, você deve reinicializar seus nós de computação para o aplicativo hello pacotes toobe implantado toohello nós.
 >
 >
 
 ## <a name="pool-and-compute-node-lifetime"></a>Tempo de vida de nó de computação e de pool
-Ao projetar sua solução do Lote do Azure, você deve tomar uma decisão de design sobre como e quando os pools são criados, e por quanto tempo os nós de computação nesses pools ficarão disponíveis.
+Ao projetar sua solução de lote do Azure, você tem toomake uma decisão de design sobre como e quando os pools são criados e computação quanto nós dentro desses pools estejam disponíveis.
 
-Em uma extremidade do espectro, você pode criar um pool para cada trabalho enviado e excluir o pool logo após o término da execução de suas tarefas. Isso maximiza a utilização porque os nós só serão alocados quando necessário, e desligados assim que ficarem ociosos. Embora isso signifique que o trabalho deva aguardar até que os nós sejam alocados, é importante observar que as tarefas serão agendadas para execução assim que os nós estiverem disponíveis individualmente, alocadas e a tarefa inicial tiver sido concluída. O Lote *não* aguarda até que todos os nós em um pool estejam disponíveis antes de atribuir as tarefas aos nós. Isso garante a máxima utilização de todos os nós disponíveis.
+Em uma extremidade do espectro hello, você pode criar um pool para cada trabalho que você enviar e excluir pool Olá assim que concluir suas tarefas a execução. Isso maximiza a utilização porque nós Olá são alocados somente quando necessário e desligar assim que elas são ociosas. Enquanto isso significa que o trabalho Olá deve aguardar Olá nós toobe alocada, é importante toonote tarefas são agendadas para execução como nós individualmente disponíveis, são alocados, e Olá tarefa inicial foi concluída. Lote *não* Aguarde até que todos os nós dentro de um pool estão disponíveis antes de atribuir tarefas toohello nós. Isso garante a máxima utilização de todos os nós disponíveis.
 
-Por outro lado, se ter os trabalhos iniciados imediatamente for a prioridade mais alta, você poderá criar um pool antecipadamente e tornar seus nós disponíveis antes dos trabalhos serem enviados. Nesse cenário, as tarefas podem começar imediatamente, mas os nós poderão ficar ociosos enquanto aguardam a atribuição delas.
+Em Olá outra ponta do espectro Olá, se ter trabalhos iniciar imediatamente é a prioridade mais alta do hello, você pode criar um pool antecipadamente e disponibilizar seus nós para que os trabalhos são enviados. Nesse cenário, as tarefas podem iniciar imediatamente, mas nós podem ficam ociosos ao aguardar que eles toobe atribuído.
 
-Uma abordagem combinada normalmente é usada para lidar com uma carga variável, mas em andamento. Você pode ter um pool para o qual vários trabalhos são enviados, mas pode aumentar ou diminuir o número de nós de acordo com a carga de trabalho (confira [Dimensionando os recursos de computação](#scaling-compute-resources) na seção a seguir). Isso pode ser feito de maneira reativa, com base na carga atual, ou proativamente, se a carga puder ser prevista.
+Uma abordagem combinada normalmente é usada para lidar com uma carga variável, mas em andamento. Você pode ter um pool que são enviados para vários trabalhos, mas podem dimensionar o número de saudação de nós para cima ou para baixo de acordo com a carga de trabalho toohello (consulte [recursos de computação de escala](#scaling-compute-resources) em Olá seção a seguir). Isso pode ser feito de maneira reativa, com base na carga atual, ou proativamente, se a carga puder ser prevista.
 
 ## <a name="virtual-network-vnet-and-firewall-configuration"></a>Configuração de firewall e VNet (rede virtual) 
 
-Quando você provisiona um pool de nós de computação no Lote do Azure, pode associar o pool de uma sub-rede de uma [VNet (rede virtual)](../virtual-network/virtual-networks-overview.md) do Azure. Para saber mais sobre como criar uma rede virtual com sub-redes, confira [Criar uma rede virtual do Azure com sub-redes](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
+Quando você provisiona um conjunto de nós de computação em lote do Azure, você pode associar pool Olá com uma sub-rede de um Azure [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md). toolearn mais sobre como criar uma rede virtual com sub-redes, consulte [criar uma rede virtual do Azure com sub-redes](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
 
- * A rede virtual associada a um pool deve ser:
+ * Olá associada a um pool de rede virtual deve ser:
 
-   * Na mesma **região** do Azure que a conta do Lote do Azure.
-   * Na mesma **assinatura** do Azure que a conta do Lote do Azure.
+   * Em hello Azure mesmo **região** como Olá conta de lote do Azure.
+   * Em Olá mesmo **assinatura** como Olá conta de lote do Azure.
 
-* O tipo de VNet suportado depende de como os pools estão sendo alocados para a conta do lote:
+* tipo de saudação da rede virtual com suporte depende como pools estão sendo alocados para Olá conta do lote:
 
-    - Se o modo de alocação de pools para sua conta do Lote estiver definido como Serviço em Lotes, você só pode atribuir uma rede virtual aos pools criados com a **Configuração dos Serviços de Nuvem**. Além disso, a VNet especificada deve ser criada com o modelo de implantação clássico. Não há suporte para VNets criadas com o modelo de implantação do Azure Resource Manager.
+    - Se o modo de alocação de pool Olá para sua conta do lote é definido tooBatch serviço, você pode atribuir um toopools somente de rede virtual criada com hello **configuração de serviços de nuvem**. Além disso, Olá especificado que redes devem ser criados com o modelo de implantação clássico hello. Não há suporte para VNets criados com o modelo de implantação do Azure Resource Manager hello.
  
-    - Se o modo de alocação de pools para sua conta do Lote estiver definido como Assinatura de Usuário, você só pode atribuir uma rede virtual aos pools criados com a **Configuração da Máquina Virtual**. Não há suporte para pools criados com a **Configuração do Serviço de Nuvem**. A rede virtual associada pode ser criada com o modelo de implantação do Azure Resource Manager ou com o modelo de implantação clássico.
+    - Se o modo de alocação de pool Olá para sua conta do lote é definido tooUser assinatura, você pode atribuir um toopools somente de rede virtual criada com hello **configuração de máquina Virtual**. Pools criados com hello **configuração do serviço de nuvem** não têm suporte. Olá que redes associadas podem ser criadas com o modelo de implantação do Azure Resource Manager hello ou modelo de implantação clássico hello.
 
-    Para obter uma tabela resumindo o suporte à rede virtual de acordo com o modo de alocação de pools, confira a seção [Modo de alocação de pools](#pool-allocation-mode).
+    Para uma tabela de resumo de suporte de rede virtual de acordo com o modo de alocação toopool, consulte Olá [modo de alocação de Pool](#pool-allocation-mode) seção.
 
-* Se o modo de alocação de pools para sua conta do Lote estiver definido como Serviço Lote, você deve fornecer permissões para a entidade de serviço do Lote para acessar a rede virtual. A rede virtual deve atribuir a função [RBAC (Controle de Acesso Baseado em Função) da máquina virtual clássica](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) para a entidade de Serviço em Lotes. Se a função RBAC especificada não for fornecida, o serviço de lote retornará 400 (solicitação incorreta). Para adicionar a função no portal do Azure:
+* Se o modo de alocação de pool de saudação para sua conta do lote for definido tooBatch serviço, você deve fornecer permissões para Olá tooaccess principal do serviço de lote Olá VNet. Olá VNet deve atribuir Olá [Classic Virtual Machine Contributor Role-Based acesso RBAC (controle)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) entidade de serviço de lote de toohello de função. Se Olá especificado função RBAC não for fornecida, o serviço de lote de saudação retorna 400 (solicitação incorreta). função de saudação tooadd em Olá portal do Azure:
 
-    1. Selecione a **VNet**, em seguida, **Controle de Acesso (IAM)** > **Funções** > **Colaborador de Máquina Virtual** > **Adicionar**.
-    2. Na folha **Adicionar permissões**, selecione a função **Colaborador da Máquina Virtual**.
-    3. Na folha **Adicionar permissões**, procure a API do Lote. Procure cada uma dessas cadeias de caracteres por vez até encontrar a API:
+    1. Selecione Olá **VNet**, em seguida, **(IAM) do controle de acesso** > **funções** > **colaborador da máquina Virtual**  >  **Adicionar**.
+    2. Em Olá **adicionar permissões** folha, selecione Olá **colaborador da máquina Virtual** função.
+    3. Em Olá **adicionar permissões** folha, procure Olá API de lote. Pesquise para cada uma dessas cadeias de caracteres por sua vez até encontrar hello API:
         1. **MicrosoftAzureBatch**.
         2. **Lote do Microsoft Azure**. Os locatários mais recentes do Azure AD podem usar esse nome.
-        3. **ddbf3205-c6bd-46ae-8127-60eb93363864** é a ID para a API do Lote. 
-    3. Selecione a entidade de serviço de API do Lote. 
+        3. **ddbf3205-c6bd-46ae-8127-60eb93363864** é identificação Olá Olá API de lote. 
+    3. Selecione Olá entidade de serviço de API de lote. 
     4. Clique em **Salvar**.
 
-        ![Atribuir função de Colaborador de VM à entidade de serviço do Lote](./media/batch-api-basics/iam-add-role.png)
+        ![Atribuir a entidade de serviço de tooBatch de função de Colaborador de VM](./media/batch-api-basics/iam-add-role.png)
 
 
-* A sub-rede especificada deve ter **endereços IP** suficientemente livres para acomodar o número total de nós de destino; ou seja, a soma das propriedades `targetDedicatedNodes` e `targetLowPriorityNodes` do pool. Se a sub-rede não tiver endereços IP suficientes livres, o serviço de Lote alocará parcialmente os nós de computação no pool e retornará um erro de redimensionamento.
+* Olá especificado sub-rede deve ter suficiente livre **endereços IP** tooaccommodate Olá número total de nós de destino; ou seja, Olá soma de saudação `targetDedicatedNodes` e `targetLowPriorityNodes` propriedades de pool de saudação. Se a sub-rede de saudação não tiver endereços IP suficientes livres, Olá serviço de lote parcialmente aloca nós de computação Olá no pool de saudação e retornará um erro de redimensionamento.
 
-* A sub-rede especificada deve permitir a comunicação do serviço do Lote para que seja capaz de agendar tarefas nos nós de computação. Se a comunicação com os nós de computação for negada por um **NSG (grupo de segurança de rede)** associado com a VNet, o serviço de lote definirá o estado de nós de computação para **inutilizável**.
+* Olá especificado sub-rede deve permitir tooschedule capaz de tarefas de comunicação de toobe de serviço de lote Olá em nós de computação de saudação. Se nós de computação de comunicação toohello é negado por um **grupo de segurança de rede (NSG)** associado Olá rede virtual, e em seguida, Olá serviço de lote define o estado de Olá Olá de nós de computação muito**inutilizável**.
 
-* Se a VNet especificada tiver **NSGs (grupos de segurança de rede)** e/ou um **firewall** associados, algumas portas reservadas do sistema devem ser habilitadas para comunicação de entrada:
+* Se Olá especificado a rede virtual associada **grupos de segurança de rede (NSGs)** e/ou um **firewall**, e algumas portas reservado do sistema devem ser ativadas para comunicação de entrada:
 
 - Para pools criados com uma configuração de máquina virtual, habilite as portas 29876 e 29877, bem como a porta 22 para Linux e a porta 3389 para Windows. 
 - Para pools criados com uma configuração de serviço de nuvem, habilite as portas 10100, 20100 e 30100. 
-- Permita as conexões de saída para o Armazenamento do Azure na porta 443. Além disso, verifique se seu ponto de extremidade do Armazenamento do Azure pode ser resolvido por servidores DNS personalizados que servem sua rede virtual. Especificamente, uma URL do formato `<account>.table.core.windows.net` deve ser resolvida.
+- Habilite conexões de saída tooAzure armazenamento na porta 443. Além disso, verifique se seu ponto de extremidade do Armazenamento do Azure pode ser resolvido por servidores DNS personalizados que servem sua rede virtual. Especificamente, uma URL do formulário de saudação `<account>.table.core.windows.net` deve ser resolvido.
 
-    A tabela a seguir descreve as portas de entrada que você precisa habilitar para grupos criados com a configuração da máquina virtual:
+    Olá, tabela a seguir descreve Olá portas que você precisa tooenable para pools que você criou com a configuração de máquina virtual de saudação de entrada:
 
-    |    Portas de destino    |    Endereço IP de origem      |    O Lote adiciona NSGs?    |    Necessário para que a máquina virtual possa ser usada?    |    Ação do usuário   |
+    |    Portas de destino    |    Endereço IP de origem      |    O Lote adiciona NSGs?    |    Necessário para a VM toobe utilizável?    |    Ação do usuário   |
     |---------------------------|---------------------------|----------------------------|-------------------------------------|-----------------------|
-    |    <ul><li>Para pools criados com a configuração de máquina virtual: 29876, 29877</li><li>Para pools criados com a configuração de serviço de nuvem: 10100, 20100, 30100</li></ul>         |    Endereços IP com função de serviço Somente Lote |    Sim. O Lote adiciona os NSGs no nível dos NIC (adaptadores de rede) anexados às VMs. Essas NSGs permitem o tráfego somente de endereços IP com função de serviço do Lote. Mesmo que você abra essas portas para toda a Web, o tráfego será bloqueado no NIC. |    Sim  |  Não é necessário especificar um NSG, pois o Lote permite somente os endereços IP do Lote. <br /><br /> No entanto, se você especificar um NSG, verifique se essas portas estão abertas para tráfego de entrada. <br /><br /> Se você especificar * como o IP de origem em seu NSG, o Lote ainda adicionará os NSGs no nível de NIC anexados às VMs. |
-    |    3389, 22               |    Máquinas de usuário, usadas para depuração, para que você possa acessar a máquina virtual remotamente.    |    Não                                    |    Não                     |    Adicione os NSGs se quiser permitir o acesso remoto (RDP/SSH) à máquina virtual.   |                 
+    |    <ul><li>Para pools criados com a configuração de máquina virtual Olá: 29876, 29877</li><li>Para pools criados com a configuração de serviço de nuvem Olá: 10100, 20100, 30100</li></ul>         |    Endereços IP com função de serviço Somente Lote |    Sim. Lote adiciona os NSGs no nível de saudação da rede interfaces (NIC) anexados tooVMs. Essas NSGs permitem o tráfego somente de endereços IP com função de serviço do Lote. Mesmo se você abrir essas portas para web inteiro Olá, tráfego de saudação será bloqueado, a saudação NIC. |    Sim  |  Não é necessário toospecify um NSG, porque o lote permite que somente os endereços IP de lote. <br /><br /> No entanto, se você especificar um NSG, verifique se essas portas estão abertas para tráfego de entrada. <br /><br /> Se você especificar * como hello IP de origem em seu NSG, lote ainda adiciona os NSGs no nível de saudação do tooVMs NIC conectada. |
+    |    3389, 22               |    Máquinas de usuário, usadas para depuração, para que você pode acessar remotamente o hello VM.    |    Não                                    |    Não                     |    Adicione os NSGs toopermit toohello de acesso remoto (RDP/SSH) VM.   |                 
 
-    A tabela abaixo descreve a porta de saída que você precisa habilitar para permitir o acesso ao Armazenamento do Azure:
+    Olá, a tabela a seguir descreve a porta de saída Olá que você precisa tooenable toopermit acesso tooAzure armazenamento:
 
-    |    Portas de saída    |    Destino    |    O Lote adiciona NSGs?    |    Necessário para que a máquina virtual possa ser usada?    |    Ação do usuário    |
+    |    Portas de saída    |    Destino    |    O Lote adiciona NSGs?    |    Necessário para a VM toobe utilizável?    |    Ação do usuário    |
     |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
-    |    443    |    Armazenamento do Azure    |    Não    |    Sim    |    Se você adicionar NSGs, verifique se essa porta está aberta para tráfego de saída.    |
+    |    443    |    Armazenamento do Azure    |    Não    |    Sim    |    Se você adicionar qualquer NSGs, certifique-se de que essa porta é aberto toooutbound tráfego.    |
 
 
 ## <a name="scaling-compute-resources"></a>Dimensionando os recursos de computação
-Com o [dimensionamento automático](batch-automatic-scaling.md), você pode deixar que o serviço de Lote ajuste dinamicamente o número de nós de computação em um pool de acordo com a carga de trabalho e o uso de recursos atuais do cenário de computação. Isso permite reduzir o custo geral de execução do aplicativo usando apenas os recursos necessários e liberando os que você não precisa.
+Com [o dimensionamento automático](batch-automatic-scaling.md), você pode ter o serviço de lote Olá ajustar dinamicamente o número de saudação de nós de computação em um pool de acordo com toohello atual carga de trabalho e uso de recursos do seu cenário de computação. Isso permite toolower Olá custo geral da execução do seu aplicativo usando apenas os recursos de saudação é necessário e liberar aqueles não é necessário.
 
-Você habilita o dimensionamento automático escrevendo uma [fórmula de dimensionamento automático](batch-automatic-scaling.md#automatic-scaling-formulas) e associando-a a um pool. O serviço de Lote usa a fórmula para determinar o número de nós no pool de destino para o próximo intervalo de dimensionamento (um intervalo que você pode configurar). Você pode especificar as configurações de dimensionamento automático para um pool ao criá-lo ou habilitar o dimensionamento mais tarde em um pool. Você também pode atualizar as configurações de dimensionamento em um pool com dimensionamento habilitado.
+Você habilita o dimensionamento automático escrevendo uma [fórmula de dimensionamento automático](batch-automatic-scaling.md#automatic-scaling-formulas) e associando-a a um pool. Olá serviço de lote usa Olá toodetermine fórmula Olá destino quantos nós no pool Olá Olá próximo escala intervalo (um intervalo que você pode configurar). Você pode especificar Olá configurações automáticas de escala para um pool ao criá-lo ou habilitar mais tarde o dimensionamento de um pool. Você também pode atualizar Olá dimensionamento configurações em um pool de dimensionamento habilitado.
 
-Por exemplo, talvez um trabalho exija que você envie um grande número de tarefas a serem executadas. Você pode atribuir uma fórmula de dimensionamento ao pool que ajusta o número de nós nele com base no número atual de tarefas enfileiradas e a taxa de conclusão das tarefas no trabalho. Periodicamente, o serviço de Lote avalia a fórmula e redimensiona o pool com base na carga de trabalho e em outras configurações da fórmula. O serviço adiciona nós conforme necessário quando há um grande número de tarefas em fila e remove os nós quando não existem tarefas em execução ou fila.
+Por exemplo, talvez um trabalho requer que você enviar um grande número de tarefas toobe executado. Você pode atribuir um pool de fórmula toohello escala que ajusta Olá número de nós no pool de saudação com base no número atual de saudação de tarefas em fila e a taxa de conclusão de saudação de tarefas Olá no trabalho de saudação. Olá serviço de lote periodicamente avalia a fórmula hello e redimensiona o pool hello, com base na carga de trabalho e as outras configurações de fórmula. Olá serviço adiciona nós, conforme necessário quando há um grande número de tarefas em fila e remove nós quando não existem tarefas em execução ou na fila.
 
-Uma fórmula de dimensionamento pode basear-se nas seguintes métricas:
+Uma fórmula de dimensionamento pode ser baseada em Olá métricas a seguir:
 
-* **métricas do tempo** são baseadas nas estatísticas coletadas a cada cinco minutos no número de horas especificado.
+* **Métricas de tempo** são baseadas em estatísticas coletadas a cada cinco minutos no Olá especificado número de horas.
 * **métricas do recurso** são baseadas nos usos da CPU, da largura de banda e da memória, e no número de nós.
 * As **métricas de tarefa** são baseadas no estado da tarefa, como *Ativa* (na fila), *Em execução* ou *Concluída*.
 
-Quando o dimensionamento automático diminui o número de nós de computação em um pool, você deve considerar como lidar com as tarefas em execução no momento da operação de redução. Para aceitar isso, o Lote fornece uma *opção de desalocação do nó* que você pode incluir em suas fórmulas. Por exemplo, você pode especificar que as tarefas em execução sejam interrompidas imediatamente, interrompidas imediatamente e colocadas novamente na fila para execução em outro nó ou concluídas antes que o nó seja removido do pool.
+Quando o dimensionamento automático diminui o número de saudação de nós de computação em um pool, você deve considerar como toohandle tarefas em execução no momento de saudação do hello diminuir a operação. tooaccommodate, lote fornece um *opção de desalocação de nó* que você pode incluir em suas fórmulas. Por exemplo, você pode especificar que as tarefas em execução são interrompidas imediatamente, interrompidas imediatamente e, em seguida, retirada da fila para execução em outro nó ou permitidas toofinish antes que o nó de saudação é removido do pool de saudação.
 
 Para saber mais sobre o dimensionamento automático de um aplicativo, consulte [Dimensionar automaticamente nós de computação em um pool do Lote do Azure](batch-automatic-scaling.md).
 
 > [!TIP]
-> Para maximizar a utilização de recursos de computação, defina o número de destino de nós como zero ao fim de um trabalho, mas permita a conclusão das tarefas em execução.
+> toomaximize utilização de recursos de computação, definir o número de destino de saudação de nós toozero final Olá de um trabalho, mas permitir toofinish de tarefas em execução.
 >
 >
 
 ## <a name="security-with-certificates"></a>Segurança com certificados
-Normalmente, você precisa usar certificados ao criptografar ou descriptografar informações confidenciais para as tarefas, como a chave para uma [conta de Armazenamento do Azure][azure_storage]. Para dar suporte a isso, você pode instalar certificados nos nós. Os segredos criptografados são passados para tarefas por meio dos parâmetros de linha de comando ou incorporados em um dos recursos de tarefa, e os certificados instalados podem ser usados para descriptografá-los.
+Você normalmente precisa de certificados toouse ao criptografar ou descriptografar informações confidenciais para tarefas, como chave Olá para um [conta de armazenamento do Azure][azure_storage]. toosupport isso, você pode instalar certificados em nós. Os segredos criptografados são transmitidos tootasks por meio do parâmetros de linha de comando ou incorporados em um dos recursos da tarefa de saudação e certificados Olá instalado podem ser usado toodecrypt-los.
 
-Você usa a operação [Adicionar certificado][rest_add_cert] (REST do Lote) ou o método [CertificateOperations.CreateCertificate][net_create_cert] (.NET do Lote) para adicionar um certificado a uma conta do Lote. Então, pode associar o certificado a um pool novo ou existente. Quando um certificado está associado a um pool, o serviço em lote instala o certificado em cada nó presente no pool. O serviço Lote instala os certificados apropriados quando o nó é inicializado, antes que ele execute qualquer tarefa (incluindo a tarefa inicial e a tarefa do gerenciador de trabalhos).
+Use Olá [Adicionar certificado] [ rest_add_cert] operação (em lote REST) ou [CertificateOperations.CreateCertificate] [ net_create_cert] método (lote .NET) tooadd tooa um certificado conta do lote. Em seguida, você pode associar certificado Olá com um grupo novo ou existente. Quando um certificado está associado um pool, Olá serviço de lote instala certificado Olá em cada nó no pool de saudação. Olá serviço de lote instala certificados apropriados hello quando o nó de saudação é iniciado, antes de iniciar as tarefas (incluindo a tarefa inicial de saudação e a tarefa do Gerenciador de trabalho).
 
-Se você adicionar certificados a um pool *existente* , deverá reinicializar seus nós de computação para que os certificados sejam aplicados aos nós.
+Se você adicionar certificados tooan *existente* pool, você deve reinicializar seus nós de computação Olá certificados toobe aplicada toohello nós.
 
 ## <a name="error-handling"></a>Tratamento de erros
-Talvez seja necessário lidar com as falhas da tarefa e do aplicativo em sua solução do Lote.
+Talvez seja necessário toohandle falhas de tarefa e o aplicativo em sua solução de lote.
 
 ### <a name="task-failure-handling"></a>Manipulação de falha de tarefa
 As falhas de tarefas se enquadram nestas categorias:
 
 * **Falhas de pré-processamento**
 
-    Se uma tarefa não for iniciada, um erro de pré-processamento é definido para a tarefa.  
+    Se uma tarefa falhar toostart, um erro de pré-processamento está definido para a tarefa de saudação.  
 
-    Poderão ocorrer erros de processamento se os arquivos de recurso da tarefa forem movidos, se a conta de armazenamento não estiver mais disponível ou se outro problema que impediu a cópia bem-sucedida dos arquivos para o nó foi encontrado.
+    Pré-processando erros pode ocorrer se moveram os arquivos de recursos da tarefa hello, Olá conta de armazenamento não está mais disponível ou outro problema foi encontrado que Olá impediu a cópia bem-sucedida dos arquivos toohello nó.
 
 * **Falhas de carregamento de arquivo**
 
-    Se o carregamento de arquivos especificados para uma tarefa falhar por algum motivo, um erro de carregamento de arquivo é definido para a tarefa.
+    Se o carregamento de arquivos que são especificados para uma tarefa falhar por algum motivo, um erro de carregamento de arquivo é definido para a tarefa de saudação.
 
-    Poderá ocorrer erros de carregamento de arquivo se as SAS fornecidas para acessar o armazenamento do Azure estiverem inválidas ou não se forneceram permissões de gravação, se a conta de armazenamento não estiver mais disponível ou se foi encontrado um outro problema que impediu a cópia bem-sucedida dos arquivos a partir do nó.    
+    Podem ocorrer erros se hello SAS fornecidos para acessar o armazenamento do Azure é inválido ou não fornecer permissões de gravação, se a conta de armazenamento Olá não está mais disponível ou se outro problema foi encontrado que impediu o hello com êxito a cópia dos arquivos de carregamento de arquivo nó de saudação.    
 
 * **Falhas de aplicativo**
 
-    O processo especificado pela linha de comando da tarefa também pode falhar. O processo é considerado com falha quando é retornado um código de saída diferente de zero pelo processo executado pela tarefa (consulte *Códigos de saída da tarefa* na tarefa a seguir).
+    processo de saudação que é especificado pela linha de comando da tarefa Olá também pode falhar. Olá processo é considerado toohave falha quando um código de saída diferente de zero é retornado pelo processo de saudação que é executado pela tarefa de saudação (consulte *códigos de saída de tarefa* na próxima seção, Olá).
 
-    Para as falhas do aplicativo, você pode configurar o Lote para repetir automaticamente a tarefa até um número especificado de vezes.
+    Falhas de aplicativo, você pode configurar o lote tooautomatically repetição Olá tarefa tooa número especificado de vezes.
 
 * **Falhas de restrição**
 
-    Você pode definir uma restrição que especifique a duração máxima da execução de um trabalho ou uma tarefa, *maxWallClockTime*. Isso pode ser útil para encerrar as tarefas sem progresso.
+    Você pode definir uma restrição que especifica Olá duração de execução máximo para um trabalho ou tarefa, hello *maxWallClockTime*. Isso pode ser útil para finalizar as tarefas que não tooprogress.
 
-    Quando o tempo máximo tiver sido excedido, a tarefa será marcada como *concluída*, mas o código de saída será definido para `0xC000013A` e o campo *schedulingError* será marcado como `{ category:"ServerError", code="TaskEnded"}`.
+    Quando o período de tempo máximo Olá foi excedido, a tarefa de saudação é marcada como *concluída*, mas o código de saída de hello está definido muito`0xC000013A` e hello *schedulingError* campo está marcado como `{ category:"ServerError", code="TaskEnded"}`.
 
 ### <a name="debugging-application-failures"></a>Falhas de depuração de aplicativos
 * `stderr` e `stdout`
 
-    Durante a execução, um aplicativo pode produzir uma saída de diagnóstico que pode ser usada para solucionar os problemas. Conforme mencionado na seção [Arquivos e diretórios](#files-and-directories) anterior, o serviço de Lote grava a saída padrão e os erros padrão nos arquivos `stdout.txt` e `stderr.txt` no diretório da tarefa no nó de computação. Você pode usar o portal do Azure ou um dos SDKs do Lote para baixar esses arquivos. Por exemplo, você pode recuperar esses e outros arquivos para solucionar problemas usando [ComputeNode.GetNodeFile][net_getfile_node] e [CloudTask.GetNodeFile][net_getfile_task] na biblioteca do .NET do Lote.
+    Durante a execução, um aplicativo pode produzir saída de diagnóstico que você pode usar tootroubleshoot problemas. Conforme mencionado em Olá anteriormente nesta seção [arquivos e diretórios](#files-and-directories), Olá serviço de lote grava a saída padrão e erro padrão de saída muito`stdout.txt` e `stderr.txt` arquivos no diretório de tarefa de saudação em Olá nó de computação. Você pode usar Olá portal do Azure ou um toodownload de SDKs de lote Olá esses arquivos. Por exemplo, você pode recuperar esses e outros arquivos para fins de solução de problemas usando [ComputeNode.GetNodeFile] [ net_getfile_node] e [CloudTask.GetNodeFile] [ net_getfile_task] na biblioteca do .NET em lotes de saudação.
 
 * **Códigos de saída de tarefas**
 
-    Conforme mencionado anterior, uma tarefa é marcada como tendo falhas pelo serviço de Lote se o processo executado pela tarefa retorna um código de saída diferente de zero. Quando uma tarefa executa um processo, o Lote preenche a propriedade do código de saída da tarefa com o *código de retorno do processo*. É importante observar que o código de saída da tarefa não **é** determinado pelo serviço de Lote. O código de saída da tarefa é determinado pelo próprio processo ou pelo sistema operacional no qual o processo é executado.
+    Como mencionado anteriormente, uma tarefa está marcada como falha pelo serviço de lote Olá se o processo de saudação que é executado pela tarefa de saudação retorna um código de saída diferente de zero. Quando uma tarefa executa um processo, lote preenche a propriedade de código de saída da tarefa Olá com hello *código de retorno do processo de saudação*. É importante toonote que o código de saída da tarefa é **não** determinado pelo serviço de lote de saudação. Código de saída da tarefa é determinado pelo próprio processo de saudação ou sistema operacional Olá qual processo Olá executado.
 
 ### <a name="accounting-for-task-failures-or-interruptions"></a>Contabilidade de interrupções ou de falhas de tarefas
-As tarefas podem falhar ou ser interrompidas ocasionalmente. O próprio aplicativo da tarefa pode falhar, o nó no qual a tarefa está em execução pode ser reinicializado ou o nó pode ser removido do pool durante uma operação de redimensionamento, caso a política de desalocação do pool seja definida para remover o nó imediatamente sem esperar que as tarefas sejam concluídas. Em todos os casos, a tarefa pode ser automaticamente recolocada na fila pelo Lote para a execução em outro nó.
+As tarefas podem falhar ou ser interrompidas ocasionalmente. Hello tarefa aplicativo em si pode falhar, nó Olá no qual Olá tarefa está em execução pode ser reinicializado ou nó Olá pode ser removido do pool de saudação durante uma operação de redimensionamento se hello, política de desalocação do pool é conjunto tooremove nós imediatamente sem aguardar toofinish de tarefas. Em todos os casos, tarefa Olá pode ser automaticamente retirada da fila de lote para execução em outro nó.
 
-Também é possível que um problema intermitente faça com que uma tarefa falhe ou demore muito para ser executada. Você pode definir o intervalo máximo de execução de uma tarefa. Se o intervalo máximo de execução for excedido, o serviço de Lote irá interromper o aplicativo da tarefa.
+Ele também é possível que um problema intermitente de toocause toohang uma tarefa ou coloque tooexecute muito longo. Você pode definir o intervalo de saudação de execução máximo para uma tarefa. Se o intervalo de saudação de execução máximo for excedido, Olá serviço de lote interrupções de aplicativo de tarefa hello.
 
-### <a name="connecting-to-compute-nodes"></a>Conectar-se a nós de computação
-Você pode executar uma depuração e solução de problemas adicionais conectando um nó de computação remotamente. Você pode usar o portal do Azure para baixar um arquivo RDP (Remote Desktop Protocol) para os nós do Windows e obter informações da conexão SSH (Secure Shell) para os nós do Linux. Você também pode fazer isso usando as APIs do Lote – por exemplo, com o [.NET do Lote][net_rdpfile] ou o [Python do Lote](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
+### <a name="connecting-toocompute-nodes"></a>Conectando nós toocompute
+Você pode executar adicionais de depuração e solução de problemas ao entrar no nó de computação tooa remotamente. Você pode usar o hello toodownload portal do Azure um arquivo de protocolo de área de trabalho remota (RDP) para nós do Windows e obter informações de conexão Secure Shell (SSH) para nós do Linux. Você também pode fazer isso usando Olá lote APIs – por exemplo, com [Batch .NET] [ net_rdpfile] ou [lote Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
 
 > [!IMPORTANT]
-> Para se conectar a um nó via RDP ou SSH, primeiro você deve criar um usuário no nó. Para tanto, você pode usar o portal do Azure, [adicionar uma conta de usuário a um nó][rest_create_user] usando a API REST do Lote, chamar o método [ComputeNode.CreateComputeNodeUser][net_create_user] no .NET do Lote ou chamar o método [add_user][py_add_user] no módulo Python do Lote.
+> nó de tooa tooconnect via RDP ou SSH, você primeiro deve criar um usuário no nó de saudação. toodo isso, você pode usar o hello portal do Azure, [adicionar um nó de tooa de conta de usuário] [ rest_create_user] usando Olá API REST do lote, chame Olá [ComputeNode.CreateComputeNodeUser] [ net_create_user] método no .NET em lotes ou chamada hello [add_user] [ py_add_user] método no módulo de lote Python hello.
 >
 >
 
 ### <a name="troubleshooting-problematic-compute-nodes"></a>Solucionando os nós de computação problemáticos
-Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serviço de Lote pode examinar os metadados das tarefas com falha para identificar um nó com comportamento inadequado. Cada nó em um pool tem uma ID exclusiva, e o nó no qual uma tarefa é executada é incluído nos metadados da tarefa. Após identificar um nó com problemas, você poderá executar várias ações nele:
+Em situações em que algumas das suas tarefas estão falhando, seu aplicativo de cliente do lote ou o serviço pode examinar metadados de saudação do hello falhado tarefas tooidentify um nó com comportamento inadequado. Cada nó em um pool recebe uma ID exclusiva e nó Olá no qual uma tarefa é executada está incluída nos metadados da tarefa de saudação. Após identificar um nó com problemas, você poderá executar várias ações nele:
 
-* **Reiniciar o nó** ([REST][rest_reboot] | [.NET][net_reboot])
+* **Reinicie o nó de saudação** ([REST][rest_reboot] | [.NET][net_reboot])
 
-    Às vezes, reiniciar o nó pode corrigir problemas latentes, como processos bloqueados ou com falha. Observe que, se o pool usar uma tarefa de inicialização ou se o trabalho usar uma tarefa de preparação de trabalho, eles serão executados quando o nó for reiniciado.
-* **Refazer a imagem do nó** ([REST][rest_reimage] | [.NET][net_reimage])
+    Nó de saudação reiniciar às vezes pode limpar latentes problemas como processos presos ou falha. Observe que se o pool usa uma tarefa inicial ou uma tarefa de preparação de trabalho usa o seu trabalho, elas são executadas quando Olá nó é reiniciado.
+* **Refazer a imagem de nó Olá** ([REST][rest_reimage] | [.NET][net_reimage])
 
-    Esse procedimento reinstala o sistema operacional no nó. Assim como ocorre com a reinicialização de um nó, as tarefas de inicialização e de preparação de trabalho são executadas novamente depois que a imagem do nó é refeita.
-* **Remover o nó do pool** ([REST][rest_remove] | [.NET][net_remove])
+    Isso reinstala o sistema de operacional de saudação no nó de saudação. Com a reinicialização de um nó, iniciar tarefas e tarefas de preparação de trabalho executar novamente depois que o nó de saudação foi criado.
+* **Remover nó de saudação do pool de saudação** ([REST][rest_remove] | [.NET][net_remove])
 
-    Às vezes, é necessário remover completamente o nó do pool.
-* **Desabilitar o agendamento de tarefas no nó** ([REST][rest_offline] | [.NET][net_offline])
+    Às vezes, é necessário toocompletely remover nó de saudação do pool de saudação.
+* **Desabilitar o agendamento de tarefas no nó Olá** ([REST][rest_offline] | [.NET][net_offline])
 
-    Isso efetivamente coloca o nó offline para que nenhuma tarefa adicional seja atribuída a ele, mas permite que o nó permaneça em execução e no pool. Isso o habilita a continuar a investigar a causa das falhas sem perder os dados da tarefa com falha e sem que o nó cause falhas de tarefas adicionais. Por exemplo, você pode desabilitar o agendamento de tarefas no nó e [fazer logon remotamente](#connecting-to-compute-nodes) para examinar os logs de evento do nó ou solucionar outros problemas. Depois de concluir sua investigação, você poderá colocar o nó online novamente, permitindo o agendamento da tarefa ([REST][rest_online] | [.NET][net_online]) ou executar uma das ações analisadas anteriormente.
+    Isso efetivamente leva nó Olá off-line de forma que nenhuma tarefa adicional recebem tooit, mas permite Olá nó tooremain em execução no pool de saudação. Isso permite que você tooperform mais investigação Olá causa de falhas de saudação sem perda de dados da tarefa com falha Olá e sem nó Olá causando falhas de tarefas adicionais. Por exemplo, você pode desabilitar um agendamento de tarefas no nó hello, em seguida, [entrar remotamente](#connecting-to-compute-nodes) tooexamine Olá logs de eventos do nó ou executar outra solução de problemas. Depois de concluir sua investigação, você poderá colocar nó de saudação on-line, permitindo o agendamento de tarefas ([REST][rest_online] | [.NET] [ net_online]), ou executar uma saudação outras ações discutidas anteriormente.
 
 > [!IMPORTANT]
-> Com cada ação descrita nesta seção – reinicializar, refazer a imagem, remover e desabilitar o agendamento de tarefas – é possível especificar como as tarefas atualmente em execução no nó são lidadas quando você executa a ação. Por exemplo, quando você desabilita o agendamento de tarefas em um nó usando a biblioteca de cliente .NET do Lote, pode especificar um valor de enumeração [DisableComputeNodeSchedulingOption][net_offline_option] para especificar se deseja **Terminar** as tarefas em execução, **Recolocar em fila** para o agendamento em outros nós ou permitir que a execução das tarefas conclua antes de executar a ação (**TaskCompletion**).
+> Com cada ação que é descrita nesta seção – reinicializar, a recriação de imagem, remover e desabilitar agendamento de tarefas – será capaz de toospecify como tarefas atualmente em execução no nó de saudação são tratadas quando você executar a ação de saudação. Por exemplo, quando você desativar o agendamento de tarefas em um nó usando a biblioteca de cliente .NET do lote hello, você pode especificar um [DisableComputeNodeSchedulingOption] [ net_offline_option] toospecify o valor de enumeração se muito**Terminate** executar tarefas, **Requeue** -los para o agendamento em outros nós, ou permitir toocomplete de tarefas em execução antes de executar a ação de saudação (**TaskCompletion**).
 >
 >
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre as [Ferramentas e APIs do Lote](batch-apis-tools.md) disponíveis para a criação de soluções do Lote.
-* Veja o passo a passo do aplicativo de exemplo do Lote em [Introdução à Biblioteca do Lote do Azure para .NET](batch-dotnet-get-started.md). Também há uma [versão em Python](batch-python-tutorial.md) do tutorial que executa uma carga de trabalho nos nós de computação do Linux.
-* Baixe e compile o projeto de exemplo [Gerenciador do Lote][github_batchexplorer] para usar durante o desenvolvimento de suas soluções de Lote. Usando o Gerenciador do Lote, você pode executar o seguinte e muito mais:
+* Saiba mais sobre Olá [ferramentas e APIs de lote](batch-apis-tools.md) disponíveis para criar soluções de lote.
+* Percorrer um passo a passo no exemplo de aplicativo de lote [começar com hello biblioteca do lote do Azure para .NET](batch-dotnet-get-started.md). Também há um [versão do Python](batch-python-tutorial.md) tutorial Olá que executa uma carga de trabalho no Linux nós de computação.
+* Baixe e criar hello [Explorer lote] [ github_batchexplorer] projeto de exemplo para uso ao desenvolver suas soluções de lote. Olá lote Explorer pode executar a seguir hello e muito mais:
 
   * Monitorar e manipular pools, trabalhos e tarefas em sua conta do Lote
   * Baixe `stdout.txt`, `stderr.txt` e outros arquivos de nós
   * Criar usuários em nós e baixar arquivos RDP para logon remoto
-* Saiba como [criar pools de nós de computação do Linux](batch-linux-nodes.md).
-* Visite o [fórum do Lote do Azure][batch_forum] no MSDN. O fórum é um bom lugar para fazer perguntas se você está apenas aprendendo ou se é especialista no Lote.
+* Saiba como muito[criar pools de nós de computação Linux](batch-linux-nodes.md).
+* Visite Olá [Fórum do Azure Batch] [ batch_forum] no MSDN. Fórum de saudação é um bom colocar tooask perguntas, se você estiver aprendendo apenas ou um especialista em lote de uso.
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 

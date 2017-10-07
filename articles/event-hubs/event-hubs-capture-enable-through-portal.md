@@ -1,6 +1,6 @@
 ---
-title: Habilitar a Captura de Hubs de Eventos do Azure por meio do portal | Microsoft Docs
-description: Habilite o recurso Captura de Hubs de Eventos usando o portal do Azure.
+title: Habilitar aaaAzure capturar de Hubs de eventos por meio do portal | Microsoft Docs
+description: "Habilite o recurso de captura de Hubs de evento de saudação usando Olá portal do Azure."
 services: event-hubs
 documentationcenter: 
 author: sethmanheim
@@ -14,60 +14,60 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/28/2017
 ms.author: sethm
-ms.openlocfilehash: 0cbf45dce922647f2996f929d2c7cf885a2f4db4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 27c7528552c497a4d98873a22bd56a991c66247c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Habilitar a Captura de Hubs de Evento usando o portal do Azure
+# <a name="enable-event-hubs-capture-using-hello-azure-portal"></a>Habilitar a captura de Hubs de evento usando Olá portal do Azure
 
-Você pode configurar Captura na hora da criação do hub de eventos usando o [portal do Azure](https://portal.azure.com). Ou pode capturar os dados em um contêiner do [Armazenamento de Blobs](https://azure.microsoft.com/services/storage/blobs/) do Azure ou em uma conta do [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
+Você pode configurar a captura no momento da criação Olá evento hub usando Olá [portal do Azure](https://portal.azure.com). Pode qualquer tooan de dados captura hello Azure [armazenamento de Blob](https://azure.microsoft.com/services/storage/blobs/) contêiner ou tooan [repositório Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) conta.
 
-## <a name="capture-data-to-an-azure-storage-account"></a>Capturar dados em uma conta do Armazenamento do Azure  
+## <a name="capture-data-tooan-azure-storage-account"></a>Capturar conta de armazenamento do Azure tooan dados  
 
-Quando você cria um hub de eventos, você pode habilitar a captura clicando o **em** no botão de **criar Hub de eventos** folha portal. Em seguida, especifique uma Conta de Armazenamento e um contêiner clicando em **Armazenamento do Azure** na caixa **Provedor da Captura**. Já que a Captura dos Hubs de Eventos usa a autenticação de serviços com o armazenamento, você não precisa especificar uma cadeia de conexão de armazenamento. O seletor de recurso seleciona automaticamente o URI do recurso para sua conta de armazenamento. Se você usar o Azure Resource Manager, deverá fornecer esse URI explicitamente como uma cadeia de caracteres.
+Quando você cria um hub de eventos, você pode habilitar a captura clicando Olá **na** botão Olá **criar Hub de eventos** portal folha. Em seguida, especifique uma conta de armazenamento e contêiner clicando **armazenamento do Azure** em Olá **provedor capturar** caixa. Como capturar de Hubs de evento usa a autenticação de serviço a serviço com o armazenamento, não é necessário toospecify uma cadeia de caracteres de conexão de armazenamento. Selecionador de recurso Olá seleciona automaticamente o URI do recurso Olá para sua conta de armazenamento. Se você usar o Azure Resource Manager, deverá fornecer esse URI explicitamente como uma cadeia de caracteres.
 
-A janela de tempo padrão é de 5 minutos. O valor mínimo é 1, o máximo é 15. A janela **Tamanho** tem um intervalo de 10 a 500 MB.
+janela de tempo saudação padrão é 5 minutos. valor mínimo de saudação é 1, Olá máximo 15. Olá **tamanho** janela tem um intervalo de 10 a 500 MB.
 
 ![][1]
 
-## <a name="capture-data-to-an-azure-data-lake-store-account"></a>Capturar dados em uma conta do Azure Data Lake Store
+## <a name="capture-data-tooan-azure-data-lake-store-account"></a>Capturar conta de repositório Azure Data Lake tooan dados
 
-Para capturar dados em um Azure Data Lake Store, você pode criar uma conta do Data Lake Store e um hub de eventos:
+toocapture dados tooAzure repositório Data Lake, crie uma conta do repositório Data Lake e um hub de eventos:
 
 ### <a name="create-an-azure-data-lake-store-account-and-folders"></a>Criar uma conta e pastas do Azure Data Lake Store
 
-1. Crie uma conta do Data Lake Store seguindo as instruções em [Introdução ao Azure Data Lake Store usando o portal do Azure](../data-lake-store/data-lake-store-get-started-portal.md). 
-2. Crie uma pasta nessa conta seguindo as instruções na seção [Criar pastas na conta do Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md#createfolder).
-3. Na folha de conta do repositório Data Lake, clique em **Data Explorer**.
+1. Criar uma conta do repositório Data Lake, seguindo as instruções de saudação do [Introdução ao repositório Azure Data Lake usando Olá portal do Azure](../data-lake-store/data-lake-store-get-started-portal.md). 
+2. Criar uma pasta sob esta conta, seguindo as instruções de Olá Olá [criar pastas na conta do repositório Azure Data Lake](../data-lake-store/data-lake-store-get-started-portal.md#createfolder) seção.
+3. Na folha de conta do repositório Data Lake hello, clique em **Data Explorer**.
 4. Clique em **Acessar**.
 5. Clique em **Adicionar**.
-6. Na caixa **Pesquisar por nome ou email**, digite **Microsoft.EventHubs** e selecione essa opção. 
-7. A guia **Permissões** aparecerá. Defina as permissões conforme mostrado na figura abaixo:
+6. Em Olá **pesquisar por nome ou email** caixa tipo **Microsoft.EventHubs** e, em seguida, selecione essa opção. 
+7. Olá **permissões** guia é exibida. Definir permissões de hello, conforme mostrado na figura a seguir de saudação:
 
     ![][6]
 
 8. Clique em **OK**.
-9. Agora, crie uma pasta na pasta raiz navegando até a pasta de destino e clicando em seu nome.
+9. Agora, crie uma pasta na pasta raiz de saudação toohello pasta de destino de navegação e clicando no nome da pasta Olá.
 10. Clique em **Acessar**.
 11. Clique em **Adicionar**.
-12. Na caixa **Pesquisar por nome ou email**, digite **Microsoft.EventHubs** e selecione essa opção.
-13. A guia **Permissões** é exibida novamente. Defina as permissões conforme mostrado na figura abaixo:
+12. Em Olá **pesquisar por nome ou email** caixa tipo **Microsoft.EventHubs** e, em seguida, selecione essa opção.
+13. Olá **permissões** guia é exibida novamente. Definir permissões de hello, conforme mostrado na figura a seguir de saudação:
 
     ![][5]
 
 ### <a name="create-an-event-hub"></a>Criar um Hub de Evento
 
-1. Observe que o hub de eventos deve estar na mesma assinatura do Azure que o Azure Data Lake Store recém-criado. Criar o hub de eventos, clicando no **na** botão em **capturar** no **criar Hub de eventos** portal folha. 
-2. No **criar Hub de eventos** portal folha, selecione **repositório Azure Data Lake** do **provedor capturar** caixa.
-3. Em **Azure Data Lake Store**, especifique a conta do Data Lake Store criada anteriormente e, no campo **Caminho do Data Lake**, digite o caminho para a pasta de dados criada.
+1. Observe a esse hub de eventos Olá deve estar no hello mesma assinatura do Azure como Olá repositório Azure Data Lake você acabou de criar. Criar hub de eventos de hello, clicando em Olá **na** botão em **capturar** em Olá **criar Hub de eventos** portal folha. 
+2. Em Olá **criar Hub de eventos** portal folha, selecione **repositório Azure Data Lake** de saudação **provedor capturar** caixa.
+3. Em **selecione repositório do Data Lake**, especifique Olá conta do repositório Data Lake criado anteriormente e Olá **Data Lake caminho** campo, digite a pasta de dados Olá caminho toohello criado por você.
 
     ![][3]
 
 ## <a name="add-or-configure-capture-on-an-existing-event-hub"></a>Adicionar ou configurar a Captura em um hub de eventos existente
 
-Você pode configurar a Captura em hubs de eventos existentes que estejam em namespaces dos Hubs de Eventos. Para habilitar a Captura em um hub de eventos existente ou alterar as configurações da Captura, clique no namespace para carregar a folha **Essentials** e clique no Hub de Eventos para o qual você deseja habilitar ou alterar a configuração da Captura. Por fim, clique no **propriedades** seção da folha de abrir e editar as configurações de captura, conforme as figuras a seguir:
+Você pode configurar a Captura em hubs de eventos existentes que estejam em namespaces dos Hubs de Eventos. tooenable captura em um hub de eventos existente ou toochange as configurações de captura, clique em saudação do hello namespace tooload **Essentials** folha, em seguida, clique em hub de eventos Olá para o qual você deseja tooenable ou alterar a configuração de captura de saudação. Por fim, clique em Olá **propriedades** seção Olá abrir folha e, em seguida, edite as configurações de captura hello, conforme mostrado no hello figuras a seguir:
 
 ### <a name="azure-blob-storage"></a>Armazenamento do Blobs do Azure
 

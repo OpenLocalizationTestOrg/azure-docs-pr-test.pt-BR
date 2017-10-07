@@ -1,6 +1,6 @@
 ---
-title: "Arquivar Logs de Diagnóstico do Azure | Microsoft Docs"
-description: "Saiba como arquivar os Logs de Diagnóstico do Azure para retenção de longo prazo em uma conta de armazenamento."
+title: "aaaArchive Logs de diagnóstico do Azure | Microsoft Docs"
+description: "Saiba como tooarchive o diagnóstico do Azure registra para retenção de longo prazo em uma conta de armazenamento."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,43 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem
-ms.openlocfilehash: dbc5f89001dcb6cd1ab061cb0a9632e4e5d2c1c7
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: bc9edbd3a649023a728b7fe77130dba2b6e6370d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arquivar Logs de Diagnóstico do Azure
-Neste artigo, mostraremos como você pode usar o portal do Azure, os cmdlets do PowerShell, CLI ou API REST para arquivar seu [log de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md) em uma conta de armazenamento. Essa opção será útil se você quiser manter seu log de diagnóstico com uma política de retenção opcional para auditoria, análise estática ou backup. A conta de armazenamento não precisa estar na mesma assinatura que o recurso que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
+Neste artigo, mostramos como você pode usar o hello portal do Azure, Cmdlets do PowerShell, CLI ou REST API tooarchive seu [logs de diagnósticos do Azure](monitoring-overview-of-diagnostic-logs.md) em uma conta de armazenamento. Essa opção será útil se você gostaria que tooretain o diagnóstico registra em log com uma política de retenção opcional para auditoria, análise estática ou backup. conta de armazenamento Olá não tem toobe Olá mesma assinatura que o recurso Olá emitindo logs como usuário Olá que configura a configuração de saudação tem assinaturas de tooboth de acesso RBAC apropriadas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar, você precisará [criar uma conta de armazenamento](../storage/storage-create-storage-account.md) na qual é possível arquivar os seus logs de diagnósticos. É altamente recomendável que você não use uma conta de armazenamento existente que tenha outros dados sem monitoramento armazenados para que você possa controlar melhor o acesso aos dados de monitoramento. No entanto, se você estiver arquivando também os Logs de Atividade e as métricas de diagnóstico em uma conta de armazenamento, talvez faça sentido usar essa conta de armazenamento para o log de diagnóstico, bem como manter todos os dados de monitoramento em um local central. A conta de armazenamento usada deve ser uma conta de armazenamento de finalidade geral e não uma conta de armazenamento de blobs.
+Antes de começar, é preciso muito[criar uma conta de armazenamento](../storage/storage-create-storage-account.md) toowhich poderá arquivar os logs de diagnóstico. É altamente recomendável que você não use uma conta de armazenamento existente que tenha outros monitoramento não dados armazenados nela, para que você pode controlar melhor acesso toomonitoring dados. No entanto, se você estiver arquivando também o Log de atividades e a conta de armazenamento de tooa de métricas de diagnóstico, talvez faça sentido toouse essa conta de armazenamento para seu logs de diagnóstico também tookeep todos os dados de monitoramento em um local central. conta de armazenamento Olá usada deve ser uma conta de armazenamento de propósito geral, não uma conta de armazenamento de blob.
 
 ## <a name="diagnostic-settings"></a>Configurações de Diagnóstico
-Para arquivar os logs de diagnóstico usando qualquer um dos métodos abaixo, defina uma **configuração de diagnóstico** para um determinado recurso. Uma configuração de diagnóstico para um recurso define as categorias de logs e dados de métrica enviados a um destino (conta de armazenamento, namespace de Hubs de Eventos ou Log Analytics). Ela também define a política de retenção (número de dias para armazenamento) para eventos de cada categoria de log e dados de métrica armazenados em uma conta de armazenamento. Se uma política de retenção for definida como zero, os eventos para essa categoria de log serão armazenados indefinidamente (ou seja, para sempre). Uma política de retenção pode ser qualquer quantidade de dias, entre 1 e 2147483647. [Leia mais sobre configurações de diagnóstico aqui](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos
+tooarchive o diagnóstico logs usando qualquer um dos métodos de saudação abaixo, defina um **configuração de diagnóstico** para um recurso específico. Uma configuração de diagnóstico para um recurso define as categorias de saudação de logs e dados de métrica enviados destino tooa (conta de armazenamento, o namespace de Hubs de eventos ou análise de Log). Ele também define a política de retenção de saudação (número de dias tooretain) para eventos de cada categoria de log e métricos dados armazenados em uma conta de armazenamento. Se uma política de retenção é definida toozero, eventos para essa categoria de log são armazenados indefinidamente (que é toosay, indefinidamente). Uma política de retenção pode ser qualquer quantidade de dias, entre 1 e 2147483647. [Leia mais sobre configurações de diagnóstico aqui](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). Políticas de retenção são aplicadas por dia, para em Olá final de um dia (UTC), logs do dia Olá que agora está além da política de retenção hello serão excluídas. Por exemplo, se você tiver uma política de retenção de um dia, no início de saudação do dia Olá hoje hello logs de anteontem Olá seriam excluídos
 
-## <a name="archive-diagnostic-logs-using-the-portal"></a>Arquivar logs de diagnóstico usando o portal
-1. No portal, navegue até o Azure Monitor e clique em **Configurações de Diagnóstico**
+## <a name="archive-diagnostic-logs-using-hello-portal"></a>Logs de diagnóstico de arquivamento usando o portal de saudação
+1. No portal de hello, navegar tooAzure Monitor e clique em **configurações de diagnóstico**
 
     ![Seção de monitoramento do Azure Monitor](media/monitoring-archive-diagnostic-logs/diagnostic-settings-blade.png)
 
-2. Se desejar filtrar a lista por tipo de recurso ou grupo de recursos, clique no recurso para o qual você deseja definir uma configuração de diagnóstica.
+2. Se desejar filtrar lista Olá por tipo de recurso ou grupo de recursos, clique no recurso Olá para o qual você gostaria que tooset uma configuração de diagnóstica.
 
-3. Se nenhuma configuração existir no recurso que você selecionou, será solicitada a criação de uma configuração. Clique em “Ativar diagnóstico”.
+3. Se nenhuma configuração existir no recurso de saudação selecionado, você está toocreate solicitada uma configuração. Clique em “Ativar diagnóstico”.
 
    ![Adicionar configuração de diagnóstico - nenhuma configuração existente](media/monitoring-archive-diagnostic-logs/diagnostic-settings-none.png)
 
-   Se houver configurações existentes no recurso, você verá uma lista de configurações já definidas nesse recurso. Clique em "Adicionar configuração de diagnóstico".
+   Se houver configurações existentes no recurso hello, você verá uma lista de configurações já configurado nesse recurso. Clique em "Adicionar configuração de diagnóstico".
 
    ![Adicionar configuração de diagnóstico - configurações existentes](media/monitoring-archive-diagnostic-logs/diagnostic-settings-multiple.png)
 
-3. Dê um nome à sua configuração e marque a caixa **Exportar para Conta de Armazenamento** e então selecione uma conta de armazenamento. Como opção, defina um número de dias para manter esses logs usando os controles deslizantes **Retenção (dias)** . Uma retenção de zero dias armazena os logs indefinidamente.
+3. Dê sua configuração para um nome e marque a caixa de saudação para **exportar tooStorage conta**, em seguida, selecione uma conta de armazenamento. Opcionalmente, defina um número de dias tooretain esses logs usando Olá **retenção (dias)** controles deslizantes. Uma retenção de zero dias armazena logs Olá indefinidamente.
    
    ![Adicionar configuração de diagnóstico - configurações existentes](media/monitoring-archive-diagnostic-logs/diagnostic-settings-configure.png)
     
 4. Clique em **Salvar**.
 
-Após alguns instantes, a nova configuração aparece na lista de configurações para esse recurso e os logs de diagnóstico são arquivados para essa conta de armazenamento assim que os novos dados de evento são gerados.
+Após alguns instantes, nova configuração de saudação aparece na lista de configurações para esse recurso e logs de diagnóstico são arquivados toothat armazenamento conta assim que novos dados de evento são gerados.
 
 ## <a name="archive-diagnostic-logs-via-azure-powershell"></a>Arquivar logs de diagnóstico por meio do Azure PowerShell
 ```
@@ -59,30 +59,30 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 
 | Propriedade | Obrigatório | Descrição |
 | --- | --- | --- |
-| ResourceId |Sim |ID de Recurso do recurso no qual você deseja definir uma configuração de diagnóstico. |
-| StorageAccountId |Não |A ID de Recurso da Conta de Armazenamento na qual os Logs de Diagnóstico devem ser salvos. |
-| Categorias |Não |Lista separada por vírgulas de categorias de log para habilitar. |
-| Habilitado |Sim |Booliano indicando se os diagnósticos estão habilitados ou desabilitados nesse recurso. |
+| ResourceId |Sim |ID de recurso do recurso Olá no qual você deseja tooset uma configuração de diagnóstica. |
+| StorageAccountId |Não |ID do recurso da conta de armazenamento de saudação toowhich Logs de diagnóstico deve ser salvo. |
+| Categorias |Não |Lista separada por vírgulas de tooenable de categorias de log. |
+| habilitado |Sim |Booliano indicando se os diagnósticos estão habilitados ou desabilitados nesse recurso. |
 | RetentionEnabled |Não |Booliano indicando se há uma política de retenção habilitada nesse recurso. |
-| RetentionInDays |Não |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs indefinidamente. |
+| RetentionInDays |Não |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena logs Olá indefinidamente. |
 
-## <a name="archive-diagnostic-logs-via-the-cross-platform-cli"></a>Arquivar os logs de diagnóstico por meio da CLI de Plataforma Cruzada
+## <a name="archive-diagnostic-logs-via-hello-cross-platform-cli"></a>Logs de diagnóstico de arquivamento via Olá CLI de plataforma cruzada
 ```
 azure insights diagnostic set --resourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg --storageId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage –categories networksecuritygroupevent,networksecuritygrouprulecounter --enabled true
 ```
 
 | Propriedade | Obrigatório | Descrição |
 | --- | --- | --- |
-| ResourceId |Sim |ID de Recurso do recurso no qual você deseja definir uma configuração de diagnóstico. |
-| storageId |Não |A ID de Recurso da Conta de Armazenamento na qual os logs de diagnóstico devem ser salvos. |
-| Categorias |Não |Lista separada por vírgulas de categorias de log para habilitar. |
+| ResourceId |Sim |ID de recurso do recurso Olá no qual você deseja tooset uma configuração de diagnóstica. |
+| storageId |Não |ID do recurso dos logs de diagnóstico Olá conta de armazenamento toowhich deve ser salvos. |
+| Categorias |Não |Lista separada por vírgulas de tooenable de categorias de log. |
 | Habilitado |Sim |Booliano indicando se os diagnósticos estão habilitados ou desabilitados nesse recurso. |
 
-## <a name="archive-diagnostic-logs-via-the-rest-api"></a>Arquivar logs de diagnóstico por meio da API REST
-[Confira este documento](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings) para saber mais sobre como definir uma configuração de diagnóstico usando a API REST do Azure Monitor.
+## <a name="archive-diagnostic-logs-via-hello-rest-api"></a>Logs de diagnóstico de arquivamento via Olá API REST
+[Consulte este documento](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings) para obter informações sobre como você pode definir uma configuração de diagnóstico usando Olá API de REST do Monitor do Azure.
 
-## <a name="schema-of-diagnostic-logs-in-the-storage-account"></a>Esquema de logs de diagnóstico na conta de armazenamento
-Após a configuração do arquivamento, um contêiner de armazenamento será criado na conta de armazenamento assim que ocorrer um evento em uma das categorias de log habilitadas. Os blobs no contêiner seguem o mesmo formato em todos os Logs de Diagnóstico e no Log de Atividades. A estrutura desses blobs é:
+## <a name="schema-of-diagnostic-logs-in-hello-storage-account"></a>Esquema dos logs de diagnósticos na conta de armazenamento Olá
+Depois que você configurar arquivamento, um contêiner de armazenamento é criado na conta de armazenamento Olá assim que um evento ocorre em uma das categorias de log Olá que você habilitou. blobs Hello dentro do contêiner de saudação siga Olá mesmo formato em Logs de diagnóstico e Log de atividades de hello. estrutura Olá esses blobs é:
 
 > insights-logs-{nome da categoria de log}/resourceId=/SUBSCRIPTIONS/{ID da assinatura}/RESOURCEGROUPS/{nome do grupo de recursos}/PROVIDERS/{nome do provedor de recursos}/{tipo de recurso}/{nome do recurso}/y={ano com quatro dígitos numéricos}/m={mês com dois dígitos numéricos}/d={dia com dois dígitos numéricos}/h={horário com dois dígitos no formato 24 horas}/m=00/PT1H.json
 > 
@@ -100,9 +100,9 @@ Por exemplo, um nome de blob poderia ser:
 > 
 > 
 
-Cada blob PT1H.json contém um blob JSON de eventos que ocorreram dentro de uma hora especificada na URL do blob (por exemplo, h=12). Durante a hora presente, os eventos são acrescentados ao arquivo PT1H.json conforme eles ocorrem. O valor de minuto (m=00) é sempre 00, como eventos de logs de diagnóstico são divididos em blobs individuais por hora.
+Cada blob PT1H.json contém um blob JSON de eventos que ocorreram na hora de saudação especificada na URL de blob de saudação (por exemplo, h = 12). Durante a saudação hora presente, os eventos são acrescentadas toohello PT1H.json arquivo conforme elas ocorrem. Olá valor de minuto (m = 00) é sempre 00, desde que os eventos de log de diagnóstico são divididos em blobs individuais por hora.
 
-No arquivo PT1H.json, cada evento é armazenado na matriz de "registros", seguindo este formato:
+No arquivo de PT1H.json hello, cada evento é armazenado na matriz de registros"hello", neste formato a seguir:
 
 ```
 {
@@ -129,18 +129,18 @@ No arquivo PT1H.json, cada evento é armazenado na matriz de "registros", seguin
 
 | Nome do elemento | Descrição |
 | --- | --- |
-| tempo real |Carimbo de hora quando o evento foi gerado pelo serviço do Azure que está processando a solicitação correspondente ao evento. |
-| ResourceId |ID de recurso do recurso afetado. |
-| operationName |Nome da operação. |
-| categoria |Categoria de log do evento. |
-| propriedades |Conjunto de pares de `<Key, Value>` (ou seja, Dicionário) que descreve os detalhes do evento. |
+| tempo real |Evento Olá correspondente de solicitação de carimbo de hora do evento Olá foi gerado pelo Olá Olá de processamento de serviço do Azure. |
+| resourceId |ID do recurso da saudação afetados recursos. |
+| operationName |Nome da operação de saudação. |
+| categoria |Categoria de log de evento de saudação. |
+| propriedades |Conjunto de `<Key, Value>` pares (ou seja, o dicionário) que descreve os detalhes de saudação do evento hello. |
 
 > [!NOTE]
-> As propriedades e o uso dessas propriedades podem variar dependendo do recurso.
+> Propriedades de saudação e o uso dessas propriedades podem variar dependendo de recurso hello.
 > 
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Baixar blobs para análise](../storage/storage-dotnet-how-to-use-blobs.md)
-* [Logs de diagnóstico de fluxo para um namespace de Hubs de Eventos](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Namespace de Hubs de eventos tooan logs de diagnóstico de fluxo](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Leia mais sobre logs de diagnóstico](monitoring-overview-of-diagnostic-logs.md)

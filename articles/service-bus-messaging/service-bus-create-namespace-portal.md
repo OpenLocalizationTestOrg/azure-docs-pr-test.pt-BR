@@ -1,6 +1,6 @@
 ---
-title: "Como criar um namespace do Barramento de Serviço no portal do Azure | Microsoft Docs"
-description: "Crie um namespace do Barramento de Serviço usando o Portal do Azure."
+title: "aaaHow toocreate um namespace de barramento de serviço no portal do Azure de saudação | Microsoft Docs"
+description: "Crie um namespace de barramento de serviço usando Olá portal do Azure."
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 06/27/2017
 ms.author: sethm
-ms.openlocfilehash: c8654ed547a9001e2e968d2a45d990a73ef27d3b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d8907e7e4a804056f6d66d5a177d9ace967ed2ab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Criar um namespace do Barramento de Serviço usando o Portal do Azure
+# <a name="create-a-service-bus-namespace-using-hello-azure-portal"></a>Criar um namespace de barramento de serviço usando Olá portal do Azure
 
-Um namespace é um contêiner de escopo para todos os componentes de mensagem. Várias filas e tópicos podem residir em um único namespace e os namespaces geralmente servem como contêineres de aplicativos. Existem duas maneiras diferentes de criar um namespace de Barramento de Serviço:
+Um namespace é um contêiner de escopo para todos os componentes de mensagem. Várias filas e tópicos podem residir em um único namespace e os namespaces geralmente servem como contêineres de aplicativos. Há duas maneiras diferentes toocreate um namespace de barramento de serviço:
 
 1. Portal do Azure (este artigo)
 2. [Modelos do Gerenciador de Recursos][create-namespace-using-arm]
 
-## <a name="create-a-namespace-in-the-azure-portal"></a>Criar um namespace no Portal do Azure
+## <a name="create-a-namespace-in-hello-azure-portal"></a>Criar um namespace no hello portal do Azure
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -35,7 +35,7 @@ Parabéns! Agora você criou um namespace Mensagens do Barramento de Serviço.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira nossos [exemplos do GitHub][github-samples], que mostram alguns dos recursos mais avançados de Mensagens do Barramento de Serviço do Azure.
+Confira nosso [GitHub exemplos][github-samples], que mostram algumas das hello mais avançados recursos de mensagens do barramento de serviço do Azure.
 
 [create-namespace-using-arm]: service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure/azure-service-bus/tree/master/samples

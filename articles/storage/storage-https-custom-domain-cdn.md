@@ -1,6 +1,6 @@
 ---
-title: "Usando a CDN do Azure para acessar blobs com domínios personalizados por HTTPS"
-description: "Aprenda a integrar a CDN do Azure com o Armazenamento de Blobs para acessar blobs com domínios personalizados por HTTPS"
+title: "blobs do aaaUsing hello Azure CDN tooaccess com domínios personalizados por HTTPS"
+description: "Saiba como blobs toointegrate Olá CDN do Azure com tooaccess de armazenamento de blob com domínios personalizados HTTPS"
 services: storage
 documentationcenter: 
 author: michaelhauss
@@ -14,60 +14,60 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mihauss
-ms.openlocfilehash: 1439198250346ae9484eae448489e8a5de4734b7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 678e24a7dde5cb2f8feea177bb47c92f61035e66
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="using-the-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Usando a CDN do Azure para acessar blobs com domínios personalizados por HTTPS
+# <a name="using-hello-azure-cdn-tooaccess-blobs-with-custom-domains-over-https"></a>Usando blobs do hello Azure CDN tooaccess com domínios personalizados por HTTPS
 
 A CDN (Rede de Distribuição de Conteúdo) do Azure agora dá suporte a HTTPS para nomes de domínio personalizados.
-Você pode aproveitar esse recurso para acessar blobs de armazenamento usando seu domínio personalizado por HTTPS. Para fazer isso, primeiro será necessário habilitar a CDN do Azure em seu ponto de extremidade de blob e mapear a CDN para um nome de domínio personalizado. Uma vez realizadas essas etapas, a tarefa de habilitar HTTPS para o seu domínio personalizado é simplificada com a habilitação de apenas um clique e o gerenciamento do certificado completo, sem nenhum custo adicional ao preço normal da CDN.
+Você pode aproveitar os blobs de armazenamento de tooaccess esse recurso usando seu domínio personalizado sobre HTTPS. toodo assim, você precisará tooenable CDN do Azure no seu blob ponto de extremidade e mapear Olá CDN tooa nome de domínio personalizado. Depois que você seguir essas etapas, habilitar HTTPS para seu domínio personalizado foi simplificada por meio de um botão do mouse, gerenciamento de certificados completo e tudo com nenhum custo adicional toonormal CDN preços.
 
-Essa capacidade é importante porque ela permite proteger a privacidade e a integridade dos dados confidenciais do aplicativo Web quando estão em trânsito. Usar o protocolo SSL para assegurar o tráfego via HTTPS garante que esses dados sejam criptografados quando enviados pela Internet. O HTTPS fornece confiabilidade, autenticação e protege seus aplicativos Web contra ataques.
+Essa capacidade é importante porque ela permite que você tooprotect Olá privacidade e integridade dos dados de seus dados de aplicativo web confidenciais em trânsito. Usar o tráfego de tooserve de protocolo hello SSL por HTTPS garante que os dados são criptografados quando ela é enviada pela Olá internet. O HTTPS fornece confiabilidade, autenticação e protege seus aplicativos Web contra ataques.
 
 > [!NOTE]
-> Além de dar suporte a SSL para nomes de domínio personalizado, a CDN do Azure pode ajudá-lo a dimensionar seu aplicativo para fornecer conteúdo de alta largura de banda em todo o mundo.
-> Para obter mais informações, confira [Visão geral da CDN do Azure](../cdn/cdn-overview.md).
+> Além disso tooproviding suporte a SSL para nomes de domínio personalizado, Olá CDN do Azure pode ajudar a dimensionar seu conteúdo de alta largura de banda do aplicativo toodeliver em torno de Olá, mundo.
+> toolearn mais, confira [visão geral de saudação do Azure CDN](../cdn/cdn-overview.md).
 >
 >
 
 ## <a name="quick-start"></a>Início rápido
 
-Estas são as etapas necessárias para habilitar HTTPS para o ponto de extremidade do Armazenamento de Blobs personalizado:
+Estes são Olá etapas necessárias tooenable HTTPS para o ponto de extremidade de armazenamento de blob personalizado:
 
 1.  [Integrar uma conta de armazenamento do Azure com a CDN do Azure](../cdn/cdn-create-a-storage-account-with-cdn.md).
-    Este artigo guia você pela criação de uma conta de armazenamento no Portal do Azure, se você ainda não fez isso.
-2.  [Mapeie conteúdo da CDN do Azure para um domínio personalizado](../cdn/cdn-map-content-to-custom-domain.md).
+    Este artigo o orienta por meio de criar uma conta de armazenamento no hello Portal do Azure, se você ainda não fez isso.
+2.  [Domínio personalizado do mapa do Azure CDN tooa conteúdo](../cdn/cdn-map-content-to-custom-domain.md).
 3.  [Habilite HTTPS em um domínio personalizado da CDN do Azure](../cdn/cdn-custom-ssl.md).
 
 ## <a name="shared-access-signatures"></a>As Assinaturas de Acesso Compartilhado
 
-Se o ponto de extremidade do Armazenamento de Blobs estiver configurado para não permitir acesso de leitura anônimo, você precisará fornecer um token [SAS (assinatura de acesso compartilhado)](storage-dotnet-shared-access-signature-part-1.md) em cada solicitação que fizer ao domínio personalizado. Por padrão, os pontos de extremidade de Armazenamento de Blobs não permitem acesso de leitura anônimo. Para obter mais informações sobre assinaturas de acesso compartilhado, veja [Gerenciar acesso de leitura anônimo a contêineres e blobs](storage-manage-access-to-resources.md).
+Se o ponto de extremidade de armazenamento de blob é o acesso de leitura anônimo toodisallow configurado, você precisará tooprovide um [assinatura de acesso compartilhado (SAS)](storage-dotnet-shared-access-signature-part-1.md) token em cada solicitação que domínio personalizado tooyour. Por padrão, os pontos de extremidade de Armazenamento de Blobs não permitem acesso de leitura anônimo. Para obter mais informações sobre assinaturas de acesso compartilhado, veja [Gerenciar acesso de leitura anônimo a contêineres e blobs](storage-manage-access-to-resources.md).
 
-A CDN do Azure não respeita nenhuma restrição adicionada ao token SAS. Por exemplo, todos os tokens SAS têm uma hora da expiração. Isso significa que o conteúdo ainda pode ser acessado com uma SAS expirada até que esse conteúdo seja limpo dos nós de borda da CDN. Você pode controlar por quanto tempo os dados são armazenados em cache na CDN definindo o cabeçalho de resposta do cache. Veja [Gerenciar a expiração dos blobs de Armazenamento do Azure na CDN do Azure](../cdn/cdn-manage-expiration-of-blob-content.md) para obter instruções.
+CDN do Azure não respeita qualquer token SAS restrições toohello adicionado. Por exemplo, todos os tokens SAS têm uma hora da expiração. Isso significa que o conteúdo ainda pode ser acessada com uma SAS expirada até que o conteúdo é limpo de nós de extremidade CDN hello. Você pode controlar quanto tempo os dados em cache em Olá CDN pelo cabeçalho de resposta de configuração de cache no hello. Veja [Gerenciar a expiração dos blobs de Armazenamento do Azure na CDN do Azure](../cdn/cdn-manage-expiration-of-blob-content.md) para obter instruções.
 
-Se você criar várias URLs de SAS para o mesmo ponto de extremidade de blob, é recomendável ativar o caching de cadeias de consulta da CDN do Azure. Isso é para garantir que cada URL seja tratada como uma entidade exclusiva. Para obter mais informações, confira [Controlar o comportamento de caching da CDN do Azure com cadeias de consulta](../cdn/cdn-query-string.md).
+Se você criar várias URLs da SAS para Olá mesmo ponto de extremidade de blob, é recomendável ativar o cache de cadeia de caracteres de consulta para o Azure CDN. Isso é tooensure que cada URL é tratado como uma entidade única. Para obter mais informações, confira [Controlar o comportamento de caching da CDN do Azure com cadeias de consulta](../cdn/cdn-query-string.md).
 
-## <a name="http-to-https-redirection"></a>Redirecionamento de HTTP para HTTPS
+## <a name="http-toohttps-redirection"></a>Redirecionamento de HTTP tooHTTPS
 
-Você pode optar por redirecionar o tráfego de HTTP para HTTPS. Isso requer o uso da oferta do Azure CDN Premium da Verizon. Você precisa [Substituir o comportamento HTTP usando o mecanismo de regras da CDN do Azure](../cdn/cdn-rules-engine.md) com a regra a seguir:
+Você pode optar por tooredirect tooHTTPS de tráfego HTTP. Isso requer o uso de oferta de premium Olá CDN do Azure da Verizon. É necessário muito[comportamento substituir HTTP usando o mecanismo de regras do Azure CDN](../cdn/cdn-rules-engine.md) com a seguinte regra:
 
 ![](./media/storage-https-custom-domain-cdn/redirect-to-https.png)
 
-“Cdn-endpoint-name” refere-se ao nome que você configurou para o ponto de extremidade da CDN. Você pode selecionar esse valor na lista suspensa. “Origin-path” refere-se ao caminho dentro de sua conta de armazenamento de origem em que reside o conteúdo estático.
-Se você estiver hospedando todo o conteúdo estático em um único contêiner, substitua “origin-path” pelo nome do contêiner.
+"Nome de ponto de extremidade Cdn" refere-se nome toohello que você configurou para seu ponto de extremidade CDN. Você pode selecionar esse valor na lista suspensa de saudação. "Caminho de origem" se refere ao caminho hello dentro de sua conta de armazenamento de origem onde reside o conteúdo estático.
+Se você estiver hospedando todo o conteúdo estático em um único contêiner, substitua "caminho de origem" pelo nome de saudação do contêiner.
 
-Para informações mais aprofundadas sobre regras, consulte os [Recursos do mecanismo de regras da CDN do Azure](../cdn/cdn-rules-engine-reference-features.md).
+Para se aprofundar em regras, consulte Olá [recursos do mecanismo de regras do Azure CDN](../cdn/cdn-rules-engine-reference-features.md).
 
 ## <a name="pricing-and-billing"></a>Preços e cobrança
 
-Quando você acessa blobs por meio de uma CDN do Azure, você paga [preços de Armazenamento de Blobs](https://azure.microsoft.com/pricing/details/storage/blobs/) para o tráfego entre os nós de borda e a origem (Armazenamento de Blobs) e [preços de CDN](https://azure.microsoft.com/pricing/details/cdn/) para dados acessados por meio dos nós de borda.
+Quando você acessar blobs por meio de uma CDN do Azure, você paga [os preços de armazenamento de Blob](https://azure.microsoft.com/pricing/details/storage/blobs/) para o tráfego entre nós de borda hello e da origem da saudação (armazenamento de Blob), e [preços CDN](https://azure.microsoft.com/pricing/details/cdn/) para dados acessados a partir de nós de borda hello.
 
-Por exemplo, digamos que você tenha uma conta de armazenamento no Oeste dos EUA que está sendo acessada usando uma CDN do Azure. Se alguém no Reino Unido tenta acessar um dos blobs na conta de armazenamento por meio da CDN, o Azure verifica primeiro o nó de borda desse blob mais próximo do Reino Unido. Se for encontrado, ele acessará essa cópia do blob e usará preços de CDN, porque ele estará sendo acessado na CDN. Se não for encontrado, o Azure copiará o blob para o nó de borda, o que resultará em cobranças de saída e transação conforme especificado nos preços de Armazenamento de Blobs e, em seguida, acessará o arquivo no nó de borda, o que resultará na cobrança da CDN.
+Por exemplo, digamos que você tenha uma conta de armazenamento no Oeste dos EUA que está sendo acessada usando uma CDN do Azure. Se alguém de saudação do Reino Unido tenta tooaccess uma saudação blobs na conta de armazenamento por meio de saudação CDN, o Azure verifica primeiro nó de borda hello mais próximo à saudação do Reino Unido para esse blob. Se encontrado, ele acessa essa cópia de blob hello e usará CDN sobre preços, porque ele está sendo acessado no hello CDN. Se não for encontrado, o Azure copiará Olá blob toohello borda nó, o que resultará na saída e encargos de transação como especificado no hello preços de armazenamento de Blob e acessar o arquivo hello no nó de borda hello, que resultará na cobrança da CDN.
 
-Ao examinar a [Página de preços da CDN](https://azure.microsoft.com/pricing/details/cdn/), observe que o suporte ao protocolo HTTPS para nomes de domínio personalizado só está disponível para a CDN do Azure dos produtos Verizon (Standard e Premium).
+Ao examinar a saudação [CDN página de preços](https://azure.microsoft.com/pricing/details/cdn/), observe que dão suporte a HTTPS para nomes de domínio personalizado está disponível somente para CDN do Azure de produtos Verizon (Standard e Premium).
 
 ## <a name="next-steps"></a>Próximas etapas
 

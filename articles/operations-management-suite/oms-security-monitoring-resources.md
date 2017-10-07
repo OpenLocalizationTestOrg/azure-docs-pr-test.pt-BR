@@ -1,6 +1,6 @@
 ---
-title: "Monitorando recursos na solução de Segurança e Auditoria do Operations Management Suite | Microsoft Docs"
-description: "Este documento o ajuda a usar as funcionalidades de Segurança e Auditoria do OMS para monitorar seus recursos e identificar problemas de segurança."
+title: "aaaMonitoring recursos no Operations Management Suite solução de segurança e auditoria | Microsoft Docs"
+description: "Este documento ajuda a toouse OMS segurança e auditoria recursos toomonitor seus recursos e identificar problemas de segurança."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-ms.openlocfilehash: 2f73266b65a4eda6c8751a2d56bc3f11bf4e6a57
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 932b946ae1ffa3b979c02f419702d42d46abf7ca
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitoring-resources-in-operations-management-suite-security-and-audit-solution"></a>Monitorando recursos na solução de Segurança e Auditoria do Operations Management Suite
-Este documento o ajuda a usar as funcionalidades de Segurança e Auditoria do OMS para monitorar seus recursos e identificar problemas de segurança.
+Este documento ajuda você a usar o OMS segurança e auditoria recursos toomonitor seus recursos e identificar problemas de segurança.
 
 ## <a name="what-is-oms"></a>O que é o OMS?
-O OMS (Microsoft Operations Management Suite) é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda a gerenciar e proteger sua infraestrutura local e de nuvem. Para obter mais informações sobre o OMS, leia o artigo [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
+O OMS (Microsoft Operations Management Suite) é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda a gerenciar e proteger sua infraestrutura local e de nuvem. Para obter mais informações sobre o OMS, leia o artigo de saudação [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
 ## <a name="monitoring-resources"></a>Monitorando recursos
-Sempre que possível e acima de tudo, será conveniente prevenir a ocorrência incidentes de segurança. No entanto, é impossível prevenir todos os incidentes de segurança. Quando ocorrer, de fato, um incidente de segurança, você precisará garantir que seu impacto seja minimizado.  Há três recomendações críticas que podem ser usadas para minimizar a quantidade e o impacto dos incidentes de segurança:
+Sempre que possível, você desejará que os incidentes de segurança tooprevent aconteça em primeiro lugar de saudação. No entanto, é impossível tooprevent todos os incidentes de segurança. Quando ocorrer um incidente de segurança, você precisará tooensure que seu impacto é minimizado.  Há três recomendações importantes que podem ser usado toominimize Olá número e Olá impacto de incidentes de segurança:
 
 * Avalie regularmente as vulnerabilidades em seu ambiente.
-* Verifique regularmente todos os sistemas de computadores e dispositivos de rede para assegurar que eles têm todos os patches mais recentes instalados.
+* Verificar com frequência todos os sistemas de computador e tooensure de dispositivos de rede que têm todos os patches mais recentes do hello instalados.
 * Verifique regularmente todos os logs e mecanismos de log, incluindo logs de eventos do sistema operacional, logs específicos de aplicativos e logs do sistema de detecção de intrusões.
 
-A solução de Segurança e Auditoria do OMS permite que o departamento de TI monitore de forma ativa todos os recursos, o que pode ajudar a minimizar o impacto dos incidentes de segurança. A Segurança e Auditoria do OMS tem domínios de segurança que podem ser usados para monitorar os recursos. Os domínios de segurança fornecem um acesso rápido a várias opções; para o monitoramento de segurança, os seguintes domínios serão abordados mais detalhadamente:
+OMS segurança e auditoria permite solução IT tooactively monitorar todos os recursos, que podem ajudar a minimiza o impacto de saudação de incidentes de segurança. A Segurança e Auditoria do OMS tem domínios de segurança que podem ser usados para monitorar os recursos. domínios de segurança Olá fornece acesso rápido tooa opções, de saudação de monitoramento de segurança domínios a seguir serão abordados com mais detalhes:
 
 * Avaliação de malware
 * Avaliação de atualização
@@ -46,69 +46,69 @@ A solução de Segurança e Auditoria do OMS permite que o departamento de TI mo
 > 
 
 ### <a name="monitoring-system-protection"></a>Monitorando a proteção do sistema
-Em uma abordagem de defesa em profundidade, cada camada de proteção é importante para o estado de segurança geral de seu ativo. Os computadores com ameaças detectadas e os computadores sem proteção suficiente são mostrados no bloco Avaliação de Malware em Domínios de Segurança. Usando as informações contidas em Avaliação de Malware, é possível identificar um plano para aplicar proteção aos servidores que precisam dessa proteção. Para acessar essa opção, siga as etapas abaixo:
+Em uma defesa profunda, cada camada de proteção é importante para Olá estado geral de segurança do seu ativo. Computadores com detectadas ameaças e computadores com proteção insuficiente são mostrados no hello bloco de avaliação de Malware em domínios de segurança. Usando informações Olá Olá avaliação de Malware, você pode identificar um plano tooapply proteção toohello os servidores que precisam dela. tooaccess Olá de siga essa opção etapas abaixo:
 
-1. No painel principal do **Microsoft Operations Management Suite**, clique no bloco **Segurança e Auditoria**.
+1. Em Olá **Microsoft Operations Management Suite** clique de painel principal **segurança e auditoria** lado a lado.
    
     ![Segurança e Auditoria](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig1.png)
-2. No painel **Segurança e Auditoria**, clique em **Avaliação de Malware** em **Domínios de Segurança**. O painel **Avaliação de Malware** é exibido, conforme mostrado abaixo:
+2. Em Olá **segurança e auditoria** painel, clique em **avaliação Antimalware** em **domínios de segurança**. Olá **avaliação Antimalware** painel é exibido conforme mostrado abaixo:
 
 ![Avaliação de malware](./media/oms-security-monitoring-resources/oms-security-monitoring-resources-fig2-ga.png)
 
-É possível usar o painel **Avaliação de Malware** para identificar os seguintes problemas de segurança:
+Você pode usar o hello **avaliação de Malware** saudação do painel tooidentify problemas de segurança a seguir:
 
-* **Ameaças ativas**: computadores que foram comprometidos e que têm ameaças ativas no sistema.
-* **Ameaças corrigidas**: computadores que foram comprometidos, mas cujas ameaças foram corrigidas.
-* **Assinatura desatualizada**: computadores que têm a proteção contra malware habilitada, mas cuja assinatura está desatualizada.
+* **Ameaças ativas**: computadores que foram comprometidos e tem ameaças ativas no sistema de saudação.
+* **Corrigida a ameaças**: os computadores que foram comprometidos mas ameaças Olá foram corrigidos.
+* **Assinatura desatualizada**: computadores que têm proteção contra malware habilitada mas assinatura hello está desatualizado.
 * **Sem proteção em tempo real**: computadores que não têm o antimalware instalado.
 
 ### <a name="monitoring-updates"></a>Monitorando as atualizações
-A aplicação das atualizações mais recentes de segurança é uma melhor prática de segurança, que deve ser incorporada em sua estratégia de gerenciamento de atualizações. O serviço Microsoft Monitoring Agent (HealthService.exe) lê as informações de atualização dos computadores monitorados e envia essas informações atualizadas para o serviço do OMS na nuvem para processamento. O serviço Microsoft Monitoring Agent é configurado como um serviço automático e deve estar sempre em execução no computador de destino.
+Aplicar atualizações de segurança mais recentes da saudação é uma prática recomendada de segurança, e ele deve ser incorporado em sua estratégia de gerenciamento de atualização. Serviço Microsoft Monitoring Agent (HealthService.exe) lê as informações de atualização de computadores monitorados e, em seguida, envia esse serviço OMS toohello informações atualizadas na nuvem Olá para processamento. Olá serviço Microsoft Monitoring Agent é configurado como um serviço automático e ele deve ser sempre executado no computador de destino de saudação.
 
 ![Monitorando as atualizações](./media/oms-security-monitoring-resources/oms-security-monitoring-resources-fig3.png)
 
-Lógica é aplicada aos dados de atualização e o serviço de nuvem registra os dados. Se forem encontradas atualizações ausentes, elas serão mostradas no painel **Atualizações** . Você pode usar o painel **Atualizações** para trabalhar com as atualizações ausentes e desenvolver um plano para aplicá-las aos servidores que precisam delas. Siga as etapas abaixo para acessar o painel **Atualizações** :
+Lógica é aplicada toohello atualização de dados e o serviço de nuvem Olá registra dados de saudação. Se forem encontradas atualizações ausentes, elas serão mostradas na Olá **atualizações** painel. Você pode usar o hello **atualizações** toowork painel com ausente atualiza e desenvolver um plano tooapply-los toohello servidores que precisam delas. Siga as etapas de saudação abaixo Olá tooaccess **atualizações** painel:
 
-1. No painel principal do **Microsoft Operations Management Suite**, clique no bloco **Segurança e Auditoria**.
-2. No painel **Segurança e Auditoria**, clique em **Avaliação de Atualização** em **Domínios de Segurança**. O painel Atualização é exibido, conforme mostrado abaixo:
+1. Em Olá **Microsoft Operations Management Suite** clique de painel principal **segurança e auditoria** lado a lado.
+2. Em Olá **segurança e auditoria** painel, clique em **avaliação de atualização** em **domínios de segurança**. Painel de atualização de saudação é exibido conforme mostrado abaixo:
 
 ![Avaliação de atualização](./media/oms-security-monitoring-resources/oms-security-monitoring-resources-fig4.png)
 
-Neste painel, é possível executar uma avaliação de atualização para entender o estado atual de seus computadores e tratar as ameaças mais críticas. Usando o bloco **Atualizações Críticas ou de Segurança** , os administradores de TI poderão acessar informações detalhadas sobre as atualizações ausentes, conforme mostrado abaixo:
+Nesse painel, você pode executar um avaliação toounderstand Olá atual estado de atualização de seus computadores e tratar ameaças mais críticas do hello. Usando Olá **críticas ou atualizações de segurança** lado a lado, os administradores de TI será capaz de tooaccess informações detalhadas sobre atualizações de saudação que estão faltando, conforme mostrado abaixo:
 
 ![resultado da pesquisa](./media/oms-security-monitoring-resources/oms-security-monitoring-resources-fig5.png)
 
-Este relatório inclui informações críticas que podem ser usadas para identificar o tipo de ameaça ao qual esse sistema está vulnerável, que inclui os artigos da base de dados da Microsoft associados à atualização de segurança e o Boletim da Microsoft com mais detalhes sobre a vulnerabilidade.
+Este relatório inclui informações críticas que podem ser usados tooidentify Olá tipo de ameaça neste sistema vulnerável a, que inclui artigos do Microsoft KB Olá associados a atualização de segurança hello e hello Bulletin MS com mais detalhes sobre Olá vulnerabilidade.
 
 ### <a name="monitoring-identity-and-access"></a>Monitorando a identidade e o acesso
-Com usuários trabalhando em qualquer lugar, usando diferentes dispositivos e acessando uma grande quantidade de aplicativos na nuvem e locais, é fundamental que suas credenciais sejam protegidas. Ataques de roubo de credenciais são aqueles em que um invasor inicialmente obtém acesso às credenciais de um usuário comum para acessar um sistema na rede. Muitas vezes, esse ataque inicial é apenas uma maneira de obter acesso à rede, cuja meta última é descobrir contas com privilégios. 
+Com usuários trabalhando em qualquer lugar, usando diferentes dispositivos e acessando uma grande quantidade de aplicativos na nuvem e locais, é fundamental que suas credenciais sejam protegidas. Ataques de roubo de credenciais são aquelas em que um invasor inicialmente obtiver tooaccess de credenciais do usuário regular tooa acesso um sistema de rede de saudação. Muitas vezes, esse ataque inicial é apenas uma rede de toohello do modo tooget acesso, Olá principal objetivo é toodiscover contas de privilégio. 
 
-Os invasores permanecerão na rede, usando livremente as ferramentas disponíveis para extrair as credenciais das sessões de outras contas conectadas. Dependendo da configuração do sistema, essas credenciais podem ser extraídas na forma de hashes, tíquetes ou até mesmo senhas de texto sem formatação.  
+Os invasores permanecerá na rede hello, usando disponível gratuitamente ferramentas tooextract credenciais de sessões de saudação de outras contas de logon. Dependendo da configuração do sistema hello, essas credenciais podem ser extraídas na forma de saudação de hashes, permissões ou senhas em texto sem formatação mesmo.  
 
 > [!NOTE]
-> os computadores que são diretamente expostos à Internet terão muitas tentativas com falha em fazer logon usando todos os tipos de nomes de usuários conhecidos (por exemplo, Administrador). Na maioria dos casos, não haverá problemas se os nomes de usuário conhecidos não forem usados e se a senha for forte o suficiente.
+> as máquinas que são diretamente expostos toohello que Internet verá muitas falha tentativas que toologin tente usando todos os tipos de nomes de usuários conhecidos (por exemplo, administrador). Na maioria dos casos é Okey se não forem usados nomes de usuários conhecidos hello e se a senha de saudação é forte o suficiente.
 > 
 > 
 
-É possível identificar esses invasores antes que eles comprometam uma conta com privilégios. Você pode aproveitar a **solução de Segurança e Auditoria do OMS** para monitorar a identidade e o acesso. Siga as etapas abaixo para acessar o painel **Identidade e Acesso** :
+Ele é possível tooidentify esses invasores antes que eles afetem a uma conta com privilégios. Você pode aproveitar **OMS solução de segurança e auditoria** toomonitor identidades e acesso. Siga as etapas de saudação abaixo Olá tooaccess **de identidade e acesso** painel:
 
-1. No painel principal **Microsoft Operations Management Suite** , clique no bloco Segurança e Auditoria.
-2. No painel **Segurança e Auditoria**, clique em **Identidade e Acesso** em **Domínios de Segurança**. O painel **Identidade e Acesso** é exibido, conforme mostrado abaixo:
+1. Em Olá **Microsoft Operations Management Suite** painel principal, clique em segurança e auditoria lado a lado.
+2. Em Olá **segurança e auditoria** painel, clique em **de identidade e acesso** em **domínios de segurança**. Olá **de identidade e acesso** painel é exibido conforme mostrado abaixo:
 
 ![identidade e acesso](./media/oms-security-monitoring-resources/oms-security-monitoring-resources-fig6-ga.png)
 
-Como parte de sua estratégia de monitoramento regular, é necessário incluir o monitoramento de identidade. O Administrador de TI deverá examinar se houver um nome de usuário válido específico que apresenta várias tentativas. Isso pode indicar um invasor que obteve o nome de usuário real e tentou realizar um ataque de força bruta ou uma ferramenta automática que usa uma senha embutida em código que expirou.
+Como parte de sua estratégia de monitoramento regular, é necessário incluir o monitoramento de identidade. O Administrador de TI deverá examinar se houver um nome de usuário válido específico que apresenta várias tentativas. Isso pode indicar um invasor que adquiriu o nome de usuário real hello e tente forçar toobrute ou por uma ferramenta automática que usa a senha embutida que expirou.
 
-Este painel possibilita que o departamento de TI identifique rapidamente ameaças potenciais relacionadas à identidade e ao acesso aos recursos da empresa. É especificamente importante identificar também as tendências potencias, por exemplo, no bloco Logons ao longo do Tempo, é possível ver, por período, quantas vezes ocorreu uma tentativa de logon com falha. Nesse caso, o computador **FileServer** recebeu 35 tentativas de logon. É possível explorar mais detalhes sobre esse computador clicando nele. 
+Habilitar este painel IT tooquickly identificar os recursos do potenciais ameaças relacionadas tooidentity e acesso toocompany. É determinado importante tooalso identificar tendências potenciais, por exemplo no lado a lado Olá Logons ao longo do tempo, você pode ver por período de tempo quantas vezes uma tentativa de logon foi realizada. Nesse caso, Olá computador **FileServer** recebido 35 tentativas de logon. É possível explorar mais detalhes sobre esse computador clicando nele. 
 
 ![mais detalhes](./media/oms-security-monitoring-resources/oms-security-monitoring-resources-fig7-new.png)
 
-O relatório gerado para este computador traz detalhes importantes sobre este padrão. Observe que a coluna **ACCOUNT** fornece a conta de usuário que foi usada para tentar acessar o sistema, a coluna **TIMEGENERATED** fornece o intervalo de tempo no qual ocorreu a tentativa e a coluna **LOGONTYPENAME** fornece o local em que ocorreu essa tentativa. Caso essas tentativas tenha ocorrido localmente no sistema por um programa, a coluna **PROCESS** poderá mostrar o nome do processo. Em cenários em que a origem da tentativa de logon é um programa, você já terá o nome do processo disponível e será possível realizar agora uma investigação mais detalhada no sistema de destino.
+relatório de saudação gerado para este computador traz detalhes importantes sobre esse padrão. Notado que Olá **conta** fornece coluna Olá conta de usuário que foi usado tootry tooaccess Olá sistema, hello **TIMEGENERATED** fornece coluna Olá o intervalo de tempo no qual Olá tentativa foi feita e Olá **LOGONTYPENAME** fornece coluna Olá local em que essa tentativa foi feita. Se essas tentativas foram executadas localmente no sistema Olá por um programa, Olá **processo** coluna poderia ser mostrando o nome do processo de saudação. Em cenários onde a tentativa de logon de saudação vem de um programa, você já tem o nome do processo Olá disponível e agora você pode executar mais investigação no sistema de destino de saudação.
 
 ## <a name="see-also"></a>Consulte também
-Neste documento, você aprendeu a usar a solução de Segurança e Auditoria do OMS para monitorar seus recursos. Para saber mais sobre a Segurança do OMS, veja os seguintes artigos:
+Neste documento, você aprendeu como toomonitor de solução de segurança da OMS e auditoria toouse seus recursos. toolearn mais sobre a segurança do OMS, consulte Olá artigos a seguir:
 
 * [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
 * [Introdução à solução de Segurança e Auditoria do Operations Management Suite](oms-security-getting-started.md)
-* [Monitorando e respondendo a alertas de segurança na solução de Segurança e Auditoria do Operations Management Suite](oms-security-responding-alerts.md)
+* [Monitorando e respondendo tooSecurity alertas no Operations Management Suite solução de segurança e auditoria](oms-security-responding-alerts.md)
 

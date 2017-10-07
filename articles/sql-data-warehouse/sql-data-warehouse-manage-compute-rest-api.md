@@ -1,5 +1,5 @@
 ---
-title: Pausar, retomar, dimensionar com o REST no Azure SQL Data Warehouse | Microsoft Docs
+title: aaaPause, retomar, dimensionar com REST no Data Warehouse do Azure SQL | Microsoft Docs
 description: "Gerencie o poder de computação no SQL Data Warehouse por meio da REST, do T-SQL e do PowerShell."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 07/25/2017
 ms.author: elbutter
-ms.openlocfilehash: 24e43205c0c562fca9b1c2c0e5eed4da54e17ed7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: fc867febb118fb5c86c2637a41b232076021b95d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-rest"></a>Gerenciar poder de computação no SQL Data Warehouse do Azure (REST)
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ ms.lasthandoff: 08/03/2017
 ## <a name="scale-compute-power"></a>Dimensionar poder de computação
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
-Para alterar as DWUs, use a API REST [Criar ou Atualizar Banco de Dados][Create or Update Database]. O exemplo a seguir define o objetivo de nível de serviço como DW1000 para o banco de dados MySQLDW, que está hospedado no servidor MyServer. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1.
+Olá toochange DWUs, use Olá [criar ou atualizar banco de dados] [ Create or Update Database] API REST. Olá exemplo a seguir define serviço Olá nível tooDW1000 objetivo para banco de dados Olá MySQLDW que está hospedado no servidor MyServer. em um grupo de recursos do Azure, o servidor de saudação é denominado ResourceGroup1.
 
 ```
 PATCH https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -55,7 +55,7 @@ Content-Type: application/json; charset=UTF-8
 ## <a name="pause-compute"></a>Pausar computação
 [!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
-Para pausar um banco de dados, use a API REST [Pausar o banco de dados][Pause Database]. O exemplo a seguir pausa um banco de dados chamado Database02 hospedado em um servidor chamado Server01. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1.
+toopause um banco de dados, use Olá [banco de dados de pausa] [ Pause Database] API REST. Olá exemplo a seguir faz uma pausa um banco de dados denominado Database02 hospedado em um servidor chamado Server01. em um grupo de recursos do Azure, o servidor de saudação é denominado ResourceGroup1.
 
 ```
 POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/pause?api-version=2014-04-01-preview HTTP/1.1
@@ -66,7 +66,7 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 ## <a name="resume-compute"></a>Retomar a computação
 [!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
-Para iniciar um banco de dados, use a API REST [Retomar o banco de dados][Resume Database]. O exemplo a seguir inicia um banco de dados chamado Database02 hospedado em um servidor chamado Server01. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1. 
+toostart um banco de dados, use Olá [banco de dados de retomar] [ Resume Database] API REST. Olá, exemplo a seguir inicia um banco de dados denominado Database02 hospedado em um servidor chamado Server01. em um grupo de recursos do Azure, o servidor de saudação é denominado ResourceGroup1. 
 
 ```
 POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/resume?api-version=2014-04-01-preview HTTP/1.1

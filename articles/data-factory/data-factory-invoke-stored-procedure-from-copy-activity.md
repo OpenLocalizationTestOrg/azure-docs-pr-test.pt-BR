@@ -1,6 +1,6 @@
 ---
-title: "Invocar o procedimento armazenado de atividade de cópia do Azure Data Factory | Microsoft Docs"
-description: "Saiba como invocar um procedimento armazenado no Banco de Dados SQL do Azure ou SQL Server de uma atividade de cópia do Azure Data Factory."
+title: "aaaInvoke procedimento armazenado de atividade de cópia de fábrica de dados do Azure | Microsoft Docs"
+description: "Saiba como atividade de cópia tooinvoke um procedimento armazenado no banco de dados SQL ou SQL Server a partir de uma fábrica de dados do Azure."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
-ms.openlocfilehash: af6e4a57e726598c266ee766656aa2cc22e374e3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 986377118afb8c08607c2325fcc3ab00b3de9268
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Invocar procedimento armazenado de atividade de cópia no Azure Data Factory
-Ao copiar dados no [SQL Server](data-factory-sqlserver-connector.md) ou [Banco de Dados SQL do Azure](data-factory-azure-sql-connector.md), você pode configurar o **SqlSink** na atividade de cópia para invocar um procedimento armazenado. Talvez você queira usar o procedimento armazenado para executar algum processamento adicional (mesclar colunas, pesquisar valores, inserção em várias tabelas, etc.) necessário antes de inserir dados na tabela de destino. Esse recurso se beneficia de [parâmetros com valores de tabela](https://msdn.microsoft.com/library/bb675163.aspx). 
+Ao copiar dados no [do SQL Server](data-factory-sqlserver-connector.md) ou [banco de dados do SQL Azure](data-factory-azure-sql-connector.md), você pode configurar Olá **SqlSink** na atividade de cópia tooinvoke um procedimento armazenado. Talvez você queira toouse Olá armazenado procedimento tooperform qualquer processamento adicional (mesclagem de colunas, pesquisar valores de inserção em várias tabelas, etc.) é necessária antes de inserir dados na tabela de destino toohello. Esse recurso se beneficia de [parâmetros com valores de tabela](https://msdn.microsoft.com/library/bb675163.aspx). 
 
-A amostra a seguir mostra como invocar um procedimento armazenado em um banco de dados do SQL Server de um pipeline de Data Factory (atividade de cópia):  
+saudação de exemplo a seguir mostra como tooinvoke um procedimento armazenado em um SQL Server do banco de dados de um pipeline da fábrica de dados (Copiar atividade):  
 
 ## <a name="output-dataset-json"></a>JSON do conjunto de dados de saída
-No JSON do conjunto de dados de saída, defina **tipo** para: **SqlServerTable**. Defina-o como **AzureSqlTable** para usá-lo com um Banco de Dados SQL do Azure. O valor da propriedade **tableName** deve corresponder ao nome do primeiro parâmetro do procedimento armazenado.  
+Olá saída conjunto de dados JSON, defina Olá **tipo** para: **SqlServerTable**. Defina-o muito**AzureSqlTable** toouse com um banco de dados do SQL Azure. Olá valor **tableName** propriedade deve corresponder saudação do primeiro parâmetro do procedimento armazenado de saudação.  
 
 ```json
 {
@@ -45,7 +45,7 @@ No JSON do conjunto de dados de saída, defina **tipo** para: **SqlServerTable**
 ```
 
 ## <a name="sqlsink-section-in-copy-activity-json"></a>Seção SqlSink na atividade de cópia JSON
-Defina a seção **SqlSink** na atividade de cópia JSON conforme demonstrado a seguir. Para invocar um procedimento armazenado ao inserir dados no banco de dados do coletor/destino, especifique valores para ambas as propriedades **SqlWriterStoredProcedureName** e **SqlWriterTableType**. Para obter descrições dessas propriedades, consulte a [seção SqlSink no artigo de conector do SQL Server](data-factory-sqlserver-connector.md#sqlsink).
+Definir Olá **SqlSink** seção na atividade de cópia Olá JSON da seguinte maneira. tooinvoke um procedimento armazenado ao inserir dados no banco de dados de destino/coletor hello, especifique valores para os dois **SqlWriterStoredProcedureName** e **SqlWriterTableType** propriedades. Para obter descrições dessas propriedades, consulte [do SqlSink seção no artigo de conector do SQL Server Olá](data-factory-sqlserver-connector.md#sqlsink).
 
 ```json
 "sink":
@@ -64,7 +64,7 @@ Defina a seção **SqlSink** na atividade de cópia JSON conforme demonstrado a 
 ```
 
 ## <a name="stored-procedure-definition"></a>Definição do procedimento armazenado 
-No banco de dados, defina o procedimento armazenado com o mesmo nome que **SqlWriterStoredProcedureName**. O procedimento armazenado manipula dados de entrada do armazenamento de dados de origem e insere dados em uma tabela no banco de dados de destino. O nome do primeiro parâmetro do procedimento armazenado deve corresponder ao tableName definido no JSON do conjunto de dados (Marketing).
+No banco de dados, definir o procedimento de saudação armazenado com hello mesmo nome como **SqlWriterStoredProcedureName**. procedimento armazenado de saudação lida com dados de entrada de repositório de dados de origem hello e insere dados em uma tabela no banco de dados de destino de saudação. nome de saudação do primeiro parâmetro hello de procedimento armazenado deve corresponder tableName Olá definido no conjunto de dados Olá JSON (Marketing).
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
@@ -77,7 +77,7 @@ END
 ```
 
 ## <a name="table-type-definition"></a>Definição de tipo de tabela
-No banco de dados, defina o tipo de tabela com o mesmo nome que **SqlWriterTableType**. O esquema do tipo de tabela deve corresponder ao esquema de conjunto de dados de entrada.
+No banco de dados, definir o tipo de tabela de saudação com hello mesmo nome como **SqlWriterTableType**. esquema Olá Olá do tipo de tabela deve corresponder o esquema de saudação do conjunto de dados de entrada hello.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
@@ -87,7 +87,7 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Examine os artigos sobre conector a seguir para obter exemplos de JSON completos: 
+Examine Olá conector artigos para concluir os exemplos JSON a seguir: 
 
 - [Banco de Dados SQL do Azure](data-factory-azure-sql-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

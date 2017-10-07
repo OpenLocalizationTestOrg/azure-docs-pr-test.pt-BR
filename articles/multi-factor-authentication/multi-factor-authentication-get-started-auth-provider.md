@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao Provedor de Autenticação Multifator do Azure | Microsoft Docs"
-description: "Saiba como criar um Provedor de Autenticação Multifator do Azure."
+title: "aaaGet iniciado o provedor de autenticação multifator do Azure | Microsoft Docs"
+description: "Saiba como toocreate um provedor de autenticação multifator do Azure."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -15,38 +15,38 @@ ms.date: 07/28/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.openlocfilehash: ed14a5a762bab20a1ccde699504dd21f25009b52
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 00ea967a80b43baff38c1de586c54d95c9abac2c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="getting-started-with-an-azure-multi-factor-auth-provider"></a>Introdução a um Provedor de Autenticação Multifator do Azure
-A autenticação em duas etapas está disponível por padrão para os administradores globais que têm o Azure Active Directory e os usuários do Office 365. No entanto, se você quiser aproveitar os [recursos avançados](multi-factor-authentication-whats-next.md), então, deverá adquirir a versão completa da Autenticação Multifator do Azure (MFA).
+A autenticação em duas etapas está disponível por padrão para os administradores globais que têm o Azure Active Directory e os usuários do Office 365. No entanto, se desejar aproveitar tootake [recursos avançados](multi-factor-authentication-whats-next.md) , em seguida, você deve comprar uma versão completa da saudação do Azure multi-Factor Authentication (MFA).
 
-Um Provedor do Autenticação Multifator do Azure é usado para aproveitar as vantagens dos recursos fornecidos pela versão completa do Azure MFA. É para os usuários que **não têm licenças por meio do Azure MFA, Azure AD Premium ou Enterprise Mobility + Security (EMS)**.  O Azure MFA, o Azure AD Premium e o EMS incluem a versão completa do Azure MFA por padrão. Se você tiver licenças, não precisará de um Provedor de Autenticação Multifator do Azure.
+Um provedor de autenticação multifator do Azure é usado tootake proveito dos recursos fornecidos pelo versão completa de saudação do Azure MFA. É para os usuários que **não têm licenças por meio do Azure MFA, Azure AD Premium ou Enterprise Mobility + Security (EMS)**.  MFA do Azure, Azure AD Premium e EMS incluem a versão completa de saudação do Azure MFA por padrão. Se você tiver licenças, não precisará de um Provedor de Autenticação Multifator do Azure.
 
-Um provedor de Autenticação Multifator do Azure será requerido para baixar o SDK.
+Um provedor de Azure multi-Factor Auth é Olá toodownload necessário SDK.
 
 > [!IMPORTANT]
-> Para baixar o SDK, crie um Provedor de Autenticação Multifator do Azure mesmo que você tenha as licenças MFA, AAD Premium ou EMS do Azure.  Se você criar um Provedor de Autenticação Multifator do Azure para essa finalidade e já tiver licenças, crie o Provedor com o modelo **Por Usuário Habilitado**. Em seguida, vincule o Provedor ao diretório que contém as licenças MFA, Azure AD Premium ou EMS do Azure. Esta configuração garante que você não será cobrado, caso tenha mais usuários exclusivos executando a verificação em duas etapas do que o número de licenças possuídas.
+> toodownload Olá SDK, você precisa toocreate um provedor de autenticação multifator do Azure, mesmo se você tiver licenças de Azure MFA, AAD Premium ou EMS.  Se você criar um provedor de autenticação multifator do Azure para essa finalidade e já tiver licenças, ser Olá se toocreate provedor com hello **por usuário habilitado** modelo. Em seguida, vincule toohello diretório Olá provedor contém Olá licenças de Azure MFA, o Azure AD Premium ou EMS. Essa configuração garante que você será cobrado somente se você tiver mais de usuários exclusivos executar verificação de duas etapas que número de saudação de licenças que você possui.
 
 ## <a name="what-is-an-azure-multi-factor-auth-provider"></a>O que é um Provedor de Autenticação Multifator do Azure?
 
-Se você não tiver licenças para a Autenticação Multifator do Azure, poderá criar um provedor de autenticação para exigir a verificação em duas etapas para seus usuários. Se você estiver desenvolvendo um aplicativo personalizado e desejar habilitar a Azure MFA, crie um provedor de autenticação e [baixar o SDK](multi-factor-authentication-sdk.md).
+Se você não tiver licenças para o Azure multi-Factor Authentication, você pode criar uma verificação em duas etapas de toorequire de provedor de autenticação para os usuários. Se você estiver desenvolvendo um aplicativo personalizado e desejar tooenable MFA do Azure, crie um provedor de autenticação e [baixar Olá SDK](multi-factor-authentication-sdk.md).
 
-Há dois tipos de provedores de autenticação e a diferença está em torno de como a sua assinatura do Azure é cobrada. A opção por autenticação calcula o número de autenticações executadas em seu locatário em um mês. Essa será a melhor opção se você tiver um número de usuários que se autenticam apenas ocasionalmente, como se você exigir MFA para um aplicativo personalizado. A opção por usuário calcula o número de pessoas no seu locatário que executam a verificação em duas etapas em um mês. Essa é a melhor opção se você tiver alguns usuários com licenças, mas precisar estender MFA para mais usuários, além de seus limites de licença.
+Há dois tipos de provedores de autenticação e distinção de saudação é em torno de como a sua assinatura do Azure é cobrada. opção de por autenticação Olá calcula o número de Olá de autenticações executadas em seu locatário em um mês. Essa será a melhor opção se você tiver um número de usuários que se autenticam apenas ocasionalmente, como se você exigir MFA para um aplicativo personalizado. opção de por usuário Olá calcula o número de saudação de outras pessoas em seu locatário que execute a verificação em duas etapas em um mês. Essa é a melhor opção se você tiver alguns usuários com licenças, mas precisa de usuários do tooextend MFA toomore além dos limites de licença.
 
 ## <a name="create-a-multi-factor-auth-provider"></a>Criar um Provedor de Autenticação Multifator
-Use as etapas a seguir para criar um Provedor de Autenticação Multifator do Azure. Os Provedores de Autenticação Multifator do Azure só podem ser criados no Portal Clássico do Azure. Se você não puder entrar no Portal Clássico do Azure, verifique se o seu locatário do Azure AD está [associado a uma assinatura do Azure](../active-directory/active-directory-how-subscriptions-associated-directory.md). 
+Use Olá seguindo as etapas toocreate um provedor de autenticação multifator do Azure. Provedores de autenticação multifator do Azure só podem ser criados em Olá portal clássico do Azure. Se você não pode entrar toohello portal clássico do Azure, verifique toomake-se de que seu locatário do AD do Azure [associado a uma assinatura do Azure](../active-directory/active-directory-how-subscriptions-associated-directory.md). 
 
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com) como um administrador.
-2. Selecione **Active Directory**à esquerda.
-3. Na página do Active Directory, na parte superior, selecione **Provedores de Autenticação Multifator**.
+1. Entrar toohello [portal clássico do Azure](https://manage.windowsazure.com) como um administrador.
+2. Olá esquerda, selecione **do Active Directory**.
+3. Na página do Active Directory hello, na parte superior do hello, selecione **provedores de autenticação multifator**.
    
    ![Criação de um provedor MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider1.png)
 
-4. Na parte inferior, clique em **Novo**.
+4. Na parte inferior da saudação, clique em **novo**.
    
    ![Criação de um provedor MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider2.png)
 
@@ -58,31 +58,31 @@ Use as etapas a seguir para criar um Provedor de Autenticação Multifator do Az
    
    ![Criação de um provedor MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider4.png)
 
-7. Preencha os seguintes campos e selecione **Criar**.
-   1. **Nome** – o nome do Provedor de Autenticação Multifator.
+7. Preencha os campos a seguir de saudação e selecione **criar**.
+   1. **Nome** – hello nome da saudação provedor de autenticação multifator.
    2. **Modelo de Uso** – Escolha uma das duas opções:
       * Por Autenticação: modelo de compra que cobra por autenticação. Normalmente usado para cenários que usam o Autenticação Multifator do Azure em um aplicativo voltado para o consumidor.
-      * Por Usuário Habilitado: o modelo de compra que cobra por usuário habilitado. Normalmente usado para acesso de funcionários a aplicativos como o Office 365. Escolha esta opção se você tiver alguns usuários que já estão licenciados para o MFA do Azure.
-   3. **Diretório** – o locatário do Azure Active Directory ao qual o Provedor de Autenticação Multifator está associado. Esteja ciente do seguinte:
-      * Não é necessário um diretório do AD do Azure para criar um Provedor da Autenticação Multifator. Deixe essa caixa em branco se você quiser baixar apenas o Servidor de Autenticação Multifator do Azure ou o SDK.
-      * O Provedor da Autenticação Multifator precisa estar associado a um diretório do Azure AD para aproveitar os recursos avançados.
+      * Por Usuário Habilitado: o modelo de compra que cobra por usuário habilitado. Normalmente usado para tooapplications de acesso de funcionário como o Office 365. Escolha esta opção se você tiver alguns usuários que já estão licenciados para o MFA do Azure.
+   3. **Diretório** – Olá Active Directory do Azure locatário que Olá provedor do multi-Factor Authentication está associado. Esteja ciente do seguinte hello:
+      * Não é necessário um toocreate de diretório do AD do Azure um provedor de autenticação multifator. Deixe essa caixa em branco se você estiver planejando somente Olá toodownload servidor Azure multi-Factor Authentication ou o SDK.
+      * Olá provedor do multi-Factor Authentication deve ser associado uma vantagem de tootake de diretório do AD do Azure de Olá recursos avançados.
       * Somente um Provedor de Autenticação Multifator pode ser associado a um diretório do Azure AD.  
       ![Criação de um provedor MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
 
-8. Depois que você clicar em criar, o Provedor da Autenticação Multifator será criado e você deverá ver uma mensagem informando: **Provedor de Multi-Factor Authentication criado com êxito**. Clique em **OK**.  
+8. Depois de clicar em criar, hello provedor de autenticação multifator é criado e você verá uma mensagem dizendo: **criado com êxito o provedor de autenticação multifator**. Clique em **OK**.  
    
    ![Criação de um provedor MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)  
 
 ## <a name="manage-your-multi-factor-auth-provider"></a>Gerenciar um Provedor de Autenticação Multifator
 
-Não é possível alterar o modelo de uso (por usuário habilitado ou por autenticação) após a criação de um provedor de MFA. No entanto, você pode excluir o provedor de MFA e criar um modelo de uso diferente.
+Você não pode alterar o uso de saudação após a criação de um provedor de MFA de modelo (por usuário habilitado ou por autenticação). No entanto, você pode excluir o provedor MFA de saudação e, em seguida, criar uma com um modelo de uso diferentes.
 
-Se o Provedor de Autenticação Multifator atual estiver associado a um diretório do Azure AD (também conhecido como locatário do Azure AD) você poderá excluir com segurança o provedor de MFA e criar um vinculado ao mesmo locatário do Azure AD. Como alternativa, se você tiver adquirido suficiente MFA, Azure AD Premium, ou licenças do Premium (EMS) para cobrir todos os usuários que estão habilitados para MFA, você pode excluir o provedor MFA completamente.
+Se hello a atual provedor de autenticação multifator está associado um diretório do AD do Azure (também conhecido como um locatário Azure AD), com segurança poderá excluir o provedor MFA de saudação e criar um locatário toohello vinculado mesmo Azure AD. Como alternativa, se você adquiriu suficiente MFA, o Azure AD Premium, ou o Enterprise Mobility + a segurança (EMS) licenças toocover todos os usuários que estão habilitados para MFA, você pode excluir provedor MFA de saudação completamente.
 
-Se o seu provedor de MFA não estiver vinculado a um locatário do Azure AD, ou você vincula o novo provedor de MFA a um locatário diferente do Azure AD, as opções de definições de usuário e de configuração não serão transferidas. Além disso, os servidores MFA existentes do Azure precisarão ser reativados usando as credenciais de ativação geradas por meio do novo provedor de MFA. Reativar os servidores MFA para vinculá-los para o novo provedor de MFA não afete de telefonema e autenticação de mensagens de texto, mas as notificações de aplicativo móvel deixará de funcionar para todos os usuários até que eles reativarem o aplicativo móvel.
+Se seu provedor MFA não estiver vinculado tooan AD do Azure locatário ou vincular Olá novo MFA provedor tooa diferente do AD do Azure locatário, as configurações de usuário e opções de configuração não são transferidas. Além disso, servidores do Azure MFA existentes necessário toobe reativado usando credenciais de ativação gerados por meio de Olá novo provedor de MFA. Reativando Olá servidores MFA toolink-los toohello novo provedor de MFA não afeta a chamada telefônica e autenticação de mensagem de texto, mas o aplicativo móvel notificações irá parar de funcionar para todos os usuários até que eles reativarem o aplicativo móvel hello.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Baixe o SDK da Autenticação Multifator](multi-factor-authentication-sdk.md)
+[Baixar Olá SDK multi-Factor Authentication](multi-factor-authentication-sdk.md)
 
 [Definir as configurações da Autenticação Multifator](multi-factor-authentication-whats-next.md)

@@ -1,6 +1,6 @@
 ---
-title: "Solução Análise de DNS no Azure Log Analytics | Microsoft Docs"
-description: "Configure e use a solução Análise de DNS no Log Analytics para coletar informações relacionadas à segurança, ao desempenho e às operações na infraestrutura DNS."
+title: "aaaDNS solução de análise na análise de Log do Azure | Microsoft Docs"
+description: "Configurar e usar a solução de análise de DNS de saudação na análise de Log toogather um panorama de infraestrutura de DNS em operações de segurança e desempenho."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -14,169 +14,169 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: 0e8fc0ffb8e0d0bdf00bea46594fe050c00b6c8e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: be7982c54b65ba0c4b1c15ae7516d02eced313f8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Coletar informações sobre a infraestrutura DNS com a solução Visualização da Análise de DNS
+# <a name="gather-insights-about-your-dns-infrastructure-with-hello-dns-analytics-preview-solution"></a>Coletar informações sobre sua infraestrutura DNS com hello solução da visualização de análise do DNS
 
 ![Símbolo da Análise de DNS](./media/log-analytics-dns/dns-analytics-symbol.png)
 
-Este artigo descreve como configurar e usar a solução Análise de DNS do Azure no Azure Log Analytics para coletar informações relacionadas à segurança, ao desempenho e às operações na infraestrutura DNS.
+Este artigo descreve como tooset backup e use Olá solução de análise de DNS do Azure no Azure Log Analytics toogather um panorama de infraestrutura de DNS em operações de segurança e desempenho.
 
 A Análise de DNS ajuda você a:
 
-- Identificar clientes que tentam resolver nomes de domínio mal-intencionados.
+- Identificar clientes que tentam tooresolve nomes de domínio mal-intencionado.
 - Identificar registros de recursos obsoletos.
 - Identificar os nomes de domínio consultados com frequência e clientes DNS comunicativos.
 - Exibir a carga de solicitação em servidores DNS.
 - Exibir falhas de registro de DNS dinâmico.
 
-A solução coleta, analisa e correlaciona logs de auditoria e analíticos de DNS do Windows, bem como outros dados relacionados de seus servidores DNS.
+solução de saudação coleta, analisa e correlaciona analítica de DNS do Windows e logs de auditoria e outros dados relacionados de seus servidores DNS.
 
 ## <a name="connected-sources"></a>Fontes conectadas
 
-A seguinte tabela descreve as fontes conectadas que têm suporte nessa solução:
+Olá, a tabela a seguir descreve Olá conectado fontes que são suportadas por essa solução:
 
 | **Fonte conectada** | **Suporte** | **Descrição** |
 | --- | --- | --- |
-| [Agentes do Windows](log-analytics-windows-agents.md) | Sim | A solução coleta informações de DNS dos agentes do Windows. |
-| [Agentes do Linux](log-analytics-linux-agents.md) | Não | A solução não coleta informações de DNS dos agentes diretos do Linux. |
-| [Grupo de gerenciamento do System Center Operations Manager](log-analytics-om-agents.md) | Sim | A solução coleta informações de DNS dos agentes em um grupo de gerenciamento conectado do Operations Manager. Não é necessário ter uma conexão direta do agente do Operations Manager com o Operations Management Suite. Os dados são encaminhados do grupo de gerenciamento para o repositório do Operations Management Suite. |
-| [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | O armazenamento do Azure não é usado pela solução. |
+| [Agentes do Windows](log-analytics-windows-agents.md) | Sim | solução de saudação coleta informações de DNS de agentes do Windows. |
+| [Agentes do Linux](log-analytics-linux-agents.md) | Não | solução de saudação não coletará informações de DNS de agentes do Linux diretos. |
+| [Grupo de gerenciamento do System Center Operations Manager](log-analytics-om-agents.md) | Sim | solução de saudação coleta informações de DNS de agentes em um grupo de gerenciamento conectado do Operations Manager. Uma conexão direta de saudação do Operations Manager agent toohello Operations Management Suite não é necessária. Dados são encaminhados do repositório de Operations Management Suite toohello do grupo de gerenciamento de saudação. |
+| [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | Armazenamento do Azure não é usado pela solução de saudação. |
 
 ### <a name="data-collection-details"></a>Detalhes da coleta de dados
 
-A solução coleta dados relacionados a eventos e ao inventário DNS dos servidores DNS, onde um agente do Log Analytics está instalado. Esses dados são então carregados no Log Analytics e exibidos no painel da solução. Os dados relacionados ao inventário, como número de servidores DNS, zonas e registros de recursos, são coletados pela execução de cmdlets do PowerShell do DNS. Os dados são atualizados uma vez a cada dois dias. Os dados relacionados a eventos são coletados quase em tempo real dos [logs de análise e auditoria](https://technet.microsoft.com/library/dn800669.aspx#enhanc) fornecidos pelo log e diagnóstico avançado de DNS no Windows Server 2012 R2.
+solução Olá coleta de inventário DNS e dados relacionados a eventos do DNS dos servidores DNS Olá onde um agente de análise de Log está instalado. Esses dados são, em seguida, carregados tooLog análise e exibidos no painel de solução de saudação. Dados relacionados ao estoque, como o número de saudação de servidores DNS, zonas e registros de recursos, são coletados por executar os cmdlets do PowerShell do DNS hello. dados de saudação são atualizados uma vez a cada dois dias. dados relacionados a eventos de saudação são coletados quase em tempo real de saudação [analítica e logs de auditoria](https://technet.microsoft.com/library/dn800669.aspx#enhanc) fornecida pelo registro de DNS e o diagnóstico no Windows Server 2012 R2 aprimorados.
 
 ## <a name="configuration"></a>Configuração
 
-Use as seguintes informações para configurar a solução:
+Use Olá solução de saudação tooconfigure informações a seguir:
 
-- É necessário ter um agente do [Windows](log-analytics-windows-agents.md) ou do [Operations Manager](log-analytics-om-agents.md) em cada servidor DNS que você deseja monitorar.
-- É possível adicionar a solução Análise de DNS ao espaço de trabalho do Operations Management Suite por meio do [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). Você também pode usar o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).
+- Você deve ter uma [Windows](log-analytics-windows-agents.md) ou [Operations Manager](log-analytics-om-agents.md) agent em cada servidor DNS que você deseja toomonitor.
+- Você pode adicionar espaço de trabalho do hello DNS análise solução tooyour Operations Management Suite da saudação [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). Você também pode usar o processo de saudação descrito em [soluções de análise de Log adicionar da Galeria de soluções de saudação](log-analytics-add-solutions.md).
 
-A solução inicia a coleta de dados sem a necessidade de configuração adicional. No entanto, você pode usar a configuração a seguir para personalizar a coleta de dados.
+solução de saudação inicia a coleta de dados sem necessidade de saudação de configuração adicional. No entanto, você pode usar o hello coleta de dados de toocustomize de configuração a seguir.
 
-### <a name="configure-the-solution"></a>Configurar a solução
+### <a name="configure-hello-solution"></a>Configurar a solução de saudação
 
-No painel de solução, clique em **Configuração** para abrir a página Configuração de Análise de DNS. Há dois tipos de alteração de configuração que podem ser feitos:
+No painel de solução de saudação, clique em **configuração** tooopen página de configuração de DNS da análise de saudação. Há dois tipos de alteração de configuração que podem ser feitos:
 
-- **Nomes de Domínio na Lista de Permissões**. A solução não processa todas as consultas de pesquisa. Ela mantém uma lista de permissões de sufixos de nome de domínio. As consultas de pesquisa que são resolvidas para os nomes de domínio que correspondem aos sufixos de nome de domínio na lista de permissões não são processadas pela solução. O não processamento de nomes de domínio na lista de permissões ajuda a otimizar os dados enviados ao Log Analytics. A lista de permissões padrão inclui nomes de domínio público populares, como www.google.com e www.facebook.com. Você pode exibir a lista padrão completa com a barra de rolagem.
+- **Nomes de Domínio na Lista de Permissões**. solução de saudação não processa todas as consultas de pesquisa de saudação. Ela mantém uma lista de permissões de sufixos de nome de domínio. consultas de pesquisa de saudação que resolvam nomes de domínio toohello correspondentes sufixos de nome de domínio em que esta lista de permissões não são processadas pela solução de saudação. Nomes de domínio na lista de permissões de processamento não ajuda a dados de saudação toooptimize enviados tooLog análise. lista branca de padrão de saudação inclui nomes de domínio público populares, como www.google.com e www.facebook.com. Você pode exibir a lista de conclusão padrão de saudação rolando.
 
- É possível modificar a lista para adicionar qualquer sufixo de nome de domínio do qual você deseja exibir informações de pesquisa. Você também pode remover qualquer sufixo de nome de domínio do qual você não deseja exibir informações de pesquisa.
+ Você pode modificar Olá lista tooadd qualquer sufixo de nome de domínio que você deseja tooview insights de pesquisa para. Você também pode remover qualquer sufixo de nome de domínio que você não deseja tooview insights de pesquisa para.
 
-- **Limite de Cliente Comunicativo**. Os clientes DNS que excedem o limite do número de solicitações de pesquisa são realçados na folha **Clientes DNS**. O limite padrão é 1.000. Você pode editar o limite.
+- **Limite de Cliente Comunicativo**. Os clientes DNS que excedem o limite de saudação para número de saudação de solicitações de pesquisa é realçado no hello **clientes DNS** folha. limite do saudação padrão é 1.000. Você pode editar limite de saudação.
 
     ![Nomes de domínio na lista de permissões](./media/log-analytics-dns/dns-config.png)
 
 ## <a name="management-packs"></a>Pacotes de gerenciamento
 
-Se você estiver usando o Microsoft Monitoring Agent para se conectar ao espaço de trabalho do Operations Management Suite, o seguinte pacote de gerenciamento será instalado:
+Se você estiver usando o espaço de trabalho do hello Microsoft Monitoring Agent tooconnect tooyour Operations Management Suite, hello seguinte pacote de gerenciamento é instalado:
 
 - Pacote de Inteligência do Coletor de Dados DNS da Microsoft (Microsft.IntelligencePacks.Dns)
 
-Se o grupo de gerenciamento do Operations Manager estiver conectado ao espaço de trabalho do Operations Management Suite, os pacotes de gerenciamento a seguir serão instalados no Operations Manager quando você adicionar essa solução. Não há nenhuma manutenção nem configuração obrigatória destes pacotes de gerenciamento:
+Se seu grupo de gerenciamento do Operations Manager é um espaço de trabalho conectada tooyour Operations Management Suite, hello seguintes pacotes de gerenciamento são instalados no Operations Manager quando você adicionar essa solução. Não há nenhuma manutenção nem configuração obrigatória destes pacotes de gerenciamento:
 
 - Pacote de Inteligência do Coletor de Dados DNS da Microsoft (Microsft.IntelligencePacks.Dns)
 - Configuração da Análise de DNS do Microsoft System Center Advisor (Microsoft.IntelligencePack.Dns.Configuration)
 
-Para saber mais sobre como os pacotes de gerenciamento da solução são atualizados, veja [Conectar o Operations Manager ao Log Analytics](log-analytics-om-agents.md).
+Para obter mais informações sobre como os pacotes de gerenciamento da solução são atualizados, consulte [tooLog conectar o Operations Manager análise](log-analytics-om-agents.md).
 
-## <a name="use-the-dns-analytics-solution"></a>Usar a solução Análise de DNS
+## <a name="use-hello-dns-analytics-solution"></a>Usar a solução de análise de DNS de saudação
 
-Esta seção explica todas as funções do painel e como usá-las.
+Esta seção explica todas as funções de painel hello e como toouse-los.
 
-Depois de adicionar a solução ao espaço de trabalho, o bloco da solução na página Visão Geral do Operations Management Suite fornecerá um resumo rápido da infraestrutura DNS. Ela inclui o número de servidores DNS nos quais os dados estão sendo coletados. Também inclui o número de solicitações feitas pelos clientes para resolver domínios mal-intencionados nas últimas 24 horas. Quando você clica no bloco, o painel da solução é aberto.
+Depois de adicionar espaço de trabalho do hello solução tooyour, Olá solução lado a lado na página de visão geral do Operations Management Suite Olá fornece um resumo de sua infraestrutura DNS. Ele inclui o número de saudação de servidores DNS onde dados hello está sendo coletados. Ele também inclui o número de saudação de solicitações feitas por clientes tooresolve mal-intencionado domínios Olá últimas 24 horas. Quando você clica em bloco hello, painel de solução de saudação é aberto.
 
 ![bloco Análise de DNS](./media/log-analytics-dns/dns-tile.png)
 
 ### <a name="solution-dashboard"></a>Painel da solução
 
-O painel da solução mostra informações resumidas para os vários recursos da solução. Ele também inclui links para a exibição detalhada de diagnóstico e análise investigativa. Por padrão, os dados são mostrados para os últimos sete dias. Você pode alterar o intervalo de data e hora usando o **controle de seleção de data/hora**, conforme mostrado na seguinte imagem:
+Painel de solução de saudação mostra informações resumidas para Olá vários recursos de solução de saudação. Ele também inclui links toohello detalhadas de exibição de diagnóstico e análise forense. Por padrão, dados de saudação são mostrados para Olá últimos sete dias. Você pode alterar o intervalo de data e hora hello usando Olá **controle de seleção de data e hora**, conforme mostrado no Olá a imagem a seguir:
 
 ![Controle de seleção de hora](./media/log-analytics-dns/dns-time.png)
 
-O painel da solução mostra as seguintes folhas:
+Painel de solução Olá mostra Olá folhas a seguir:
 
-**Segurança DNS**. Relata os clientes DNS que estão tentando se comunicar com domínios mal-intencionados. Ao usar os feeds de inteligência em ameaças da Microsoft, a Análise de DNS pode detectar IPs do cliente que estão tentando acessar domínios mal-intencionados. Em muitos casos, os dispositivos infectados por malware “discam” para o centro de “comando e controle” do domínio mal-intencionado resolvendo o nome de domínio do malware.
+**Segurança DNS**. Relatórios Olá clientes DNS que estão tentando toocommunicate com domínios mal-intencionados. Usando feeds do Microsoft threat intelligence, análise de DNS pode detectar IPs que estão tentando domínios mal-intencionado tooaccess de cliente. Em muitos casos, os dispositivos infectados por malware "discar" toohello "comando e controle" Centro de saudação mal-intencionado domínio Resolvendo Olá nome de domínio de malware.
 
 ![folha Segurança DNS](./media/log-analytics-dns/dns-security-blade.png)
 
-Quando você clica em um IP do cliente na lista, a Pesquisa de Logs é aberta e mostra os detalhes da pesquisa da respectiva consulta. No seguinte exemplo, a Análise de DNS detectou que a comunicação foi feita com um [IRCbot](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=Win32/IRCbot):
+Quando você clica em um IP de cliente na lista de hello, pesquisa de Log abre e mostra detalhes de pesquisa de saudação de consulta respectivos hello. Olá exemplo a seguir, análise de DNS detectados que comunicação Olá foi feita com um [IRCbot](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=Win32/IRCbot):
 
 ![Resultados da pesquisa de logs mostrando ircbot](./media/log-analytics-dns/ircbot.png)
 
-As informações ajudam você a identificar:
+Olá informação ajuda você a tooidentify a:
 
-- o IP do cliente que iniciou a comunicação.
-- O nome de domínio que é resolvido para o IP mal-intencionado.
-- Os endereços IP para os quais o nome de domínio é resolvido.
+- Cliente IP que iniciou a comunicação de saudação.
+- Nome de domínio que seja resolvido IP mal-intencionado toohello.
+- Resolve endereços IP que Olá nome de domínio.
 - O endereço IP mal-intencionado.
-- A gravidade do problema.
-- O motivo para colocar o IP mal-intencionado na lista de bloqueios.
+- Severidade do problema de saudação.
+- Motivo para a lista negra de IP mal-intencionado hello.
 - O tempo de detecção.
 
-**Domínios Consultados**. Fornece os nomes de domínio consultados com mais frequência pelos clientes DNS no ambiente. É possível exibir a lista de todos os nomes de domínio consultados. Você também pode fazer uma busca detalhada dos detalhes da solicitação de pesquisa de um nome de domínio específico na Pesquisa de Logs.
+**Domínios Consultados**. Fornece os nomes de domínio mais frequentes hello está sendo consultados por clientes do hello DNS em seu ambiente. Você pode exibir a lista de saudação de todos os nomes de domínio Olá consultada. Você também pode fazer drill down nos detalhes de solicitação de pesquisa Olá de um nome de domínio específico na pesquisa de Log.
 
 ![Folha Domínios Consultados](./media/log-analytics-dns/domains-queried-blade.png)
 
-**Clientes DNS**. Relata os clientes que *violam o limite* do número de consultas no período escolhido. Você pode exibir a lista de todos os clientes DNS e os detalhes das consultas feitas por eles na Pesquisa de Logs.
+**Clientes DNS**. Relatórios Olá clientes *violação de limite de saudação* para o número de consultas em Olá escolhido o período de tempo. Você pode exibir a lista de saudação de todos os clientes DNS de saudação e detalhes de Olá Olá consultas feitas pelo-los na pesquisa de Log.
 
 ![Folha Clientes DNS](./media/log-analytics-dns/dns-clients-blade.png)
 
-**Registros de DNS Dinâmico**. Relata as falhas de registro de nome. Todas as falhas de [registros de recursos](https://en.wikipedia.org/wiki/List_of_DNS_record_types) do endereço (Tipo A e AAAA) são destacadas com os IPs do cliente que fizeram as solicitações de registro. Em seguida, é possível usar essas informações para encontrar a causa raiz da falha de registro seguindo estas etapas:
+**Registros de DNS Dinâmico**. Relata as falhas de registro de nome. Todas as falhas de registro de endereço [registros de recursos](https://en.wikipedia.org/wiki/List_of_DNS_record_types) (tipo A e AAAA) são realçados com cliente Olá IPs que são feitas solicitações de registro de saudação. Você pode usar este causa do informações toofind Olá de falha no registro de saudação seguindo estas etapas:
 
-1. Encontre a zona que é autoritativa para o nome que o cliente está tentando atualizar.
+1. Localize a zona Olá autoritativo para nome Olá Olá cliente está tentando tooupdate.
 
-2. Use a solução para verificar as informações de inventário dessa zona.
+2. Use informações de inventário de Olá Olá solução toocheck da zona.
 
-3. Verifique se a atualização dinâmica para a zona está habilitada.
+3. Verifique se que a atualização dinâmica Olá zona Olá estiver ativado.
 
-4. Verifique se a zona está configurada para atualização dinâmica segura ou não.
+4. Verifique se a zona hello está configurada para atualização dinâmica, ou não.
 
     ![folha Registros de DNS Dinâmico](./media/log-analytics-dns/dynamic-dns-reg-blade.png)
 
-**Solicitações de registro de nome**. O bloco superior mostra uma linha de tendência das solicitações de atualização dinâmica de DNS com êxito e com falha. O bloco inferior lista os 10 principais clientes que enviam solicitações de atualização DNS com falha aos servidores DNS, classificados pelo número de falhas.
+**Solicitações de registro de nome**. lado a lado superior Olá mostra uma linha de tendência de solicitações de atualização dinâmica de DNS bem-sucedidas e com falha. lado a lado inferior Olá lista clientes de 10 principais de saudação que estão enviando solicitações com falha de atualização DNS toohello os servidores DNS, classificados pelo número de saudação de falhas.
 
 ![folha Solicitações de registro de nome ](./media/log-analytics-dns/name-reg-req-blade.png)
 
-**Consultas de Análise de DDI de Exemplo**. Contém uma lista das consultas de pesquisa mais comuns que buscam dados analíticos brutos diretamente.
+**Consultas de Análise de DDI de Exemplo**. Contém uma lista hello mais comuns de consultas de pesquisa que buscar os dados brutos de análise diretamente.
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Consultas de exemplo](./media/log-analytics-dns/queries.png)
 
-Você pode usar essas consultas como um ponto de partida para criar suas próprias consultas para relatórios personalizados. As consultas são vinculadas à página Pesquisa de Logs da Análise de DNS na qual os resultados são exibidos:
+Você pode usar essas consultas como um ponto de partida para criar suas próprias consultas para relatórios personalizados. consultas de saudação do link toohello página de pesquisa de Log de análise de DNS onde os resultados são exibidos:
 
 - **Lista de Servidores DNS**. Mostra uma lista de todos os servidores DNS com seus FQDNs, nomes de domínio, nomes da floresta e IPs de servidor associados.
-- **Lista de Zonas DNS**. Mostra uma lista de todas as zonas DNS com o nome da zona, status de atualização dinâmica, servidores de nome e status de autenticação do DNSSEC associados.
-- **Registros de Recursos não Utilizados**. Mostra uma lista de todos os registros de recursos não utilizados/obsoletos. Essa lista contém o nome do registro de recurso, o tipo de registro de recurso, o servidor DNS associado, o tempo de geração de registro e o nome da zona. Você pode usar essa lista para identificar os registros de recursos DNS que não estão mais em uso. Com base nessas informações, é possível então remover essas entradas dos servidores DNS.
-- **Carga de Consulta de Servidores DNS**. Mostra informações de forma que você possa obter uma perspectiva da carga DNS nos servidores DNS. Essas informações podem ajudá-lo a planejar a capacidade dos servidores. Acesse a guia **Métricas** para alterar a exibição para uma visualização gráfica. Essa exibição ajuda a entender como a carga DNS é distribuída nos servidores DNS. Ela mostra as tendências da taxa de consulta DNS para cada servidor.
+- **Lista de Zonas DNS**. Mostra uma lista de todas as zonas DNS com o nome da zona associada hello, status de atualização dinâmica, servidores de nome e status de assinatura de DNSSEC.
+- **Registros de Recursos não Utilizados**. Mostra uma lista de todos os registros de recursos não utilizados/obsoleta hello. Essa lista contém o nome do registro de recurso hello, tipo de registro de recurso, Olá associado servidor DNS, o tempo de geração de registro e nome da zona. Você pode usar essa lista tooidentify Olá registros de recursos que não estão mais em uso. Com base nessas informações, você pode remover, em seguida, essas entradas de servidores DNS de saudação.
+- **Carga de Consulta de Servidores DNS**. Mostra informações de forma que você pode obter uma perspectiva de saudação que carregar DNS nos servidores DNS. Essas informações podem ajudá-lo a planejar a capacidade de saudação para servidores de saudação. Você pode ir toohello **métricas** guia visualização gráfica do tooa toochange Olá exibição. Este modo de exibição o ajuda a entender como Olá carregar DNS é distribuído entre os servidores DNS. Ela mostra as tendências da taxa de consulta DNS para cada servidor.
 
     ![Resultados da pesquisa de logs de consulta de servidores DNS](./media/log-analytics-dns/dns-servers-query-load.png)
 
-- **Carga de Consulta de Zonas DNS**. Mostra as estatísticas por segundo de consulta de zona DNS de todas as zonas nos servidores DNS que estão sendo gerenciados pela solução. Clique na guia **Métricas** para alterar a exibição de registros detalhados para uma visualização gráfica dos resultados.
-- **Eventos de Configuração**. Mostra todos os eventos de alteração de configuração de DNS e as mensagens associadas. Você pode filtrar esses eventos com base no horário do evento, na ID do evento, no servidor DNS ou na categoria da tarefa. Os dados podem ajudá-lo a auditar as alterações feitas em servidores DNS específicos em horários específicos.
-- **Log Analítico de DNS**. Mostra todos os eventos analíticos em todos os servidores DNS gerenciados pela solução. Em seguida, é possível filtrar esses eventos com base na hora do evento, na ID do evento, no servidor DNS, no IP do cliente que faz a consulta de pesquisa e na categoria da tarefa do tipo de consulta. Os eventos analíticos do servidor DNS permitem o rastreamento da atividade no servidor DNS. Um evento analítico é registrado em log sempre que o servidor envia ou recebe informações DNS.
+- **Carga de Consulta de Zonas DNS**. Mostra Olá estatísticas de consulta zona por segundo do DNS de todas as zonas de saudação em servidores DNS Olá sendo gerenciados pelo Gerenciador de saudação. Clique em Olá **métricas** guia toochange Olá modo de visualização de gráfico de tooa registros detalhados de resultados de saudação.
+- **Eventos de Configuração**. Mostra todos os eventos de alteração de configuração de DNS hello e mensagens associadas. Em seguida, você pode filtrar esses eventos com base na hora do servidor DNS do evento, ID de evento, hello, ou a categoria da tarefa. dados de saudação podem ajudá-lo a auditoria dos servidores DNS de toospecific as alterações feitas em momentos específicos.
+- **Log Analítico de DNS**. Mostra todos os eventos analíticos de saudação em todos os servidores DNS Olá gerenciados por solução hello. Em seguida, você pode filtrar esses eventos com base na hora do servidor DNS do evento, ID de evento, Olá, IP do cliente que fez Olá consulta de pesquisa e categoria de tipo de tarefa de consulta. Eventos analíticos do servidor DNS permitem atividade de controle no servidor DNS hello. Um evento analítico é registrado sempre que o servidor de saudação envia ou recebe informações de DNS.
 
 ### <a name="search-by-using-dns-analytics-log-search"></a>Pesquisar usando a Pesquisa de Logs da Análise de DNS
 
-Na página Pesquisa de Logs, é possível criar uma consulta. Você pode filtrar os resultados da pesquisa usando controles de faceta. Você também pode criar consultas avançadas para transformar, filtrar e relatar sobre seus resultados. Comece usando as seguintes consultas:
+Na página de pesquisa de Log hello, você pode criar uma consulta. Você pode filtrar os resultados da pesquisa usando controles de faceta. Você também pode criar consultas avançadas tootransform, filtrar e relatar seus resultados. Iniciar usando Olá consultas a seguir:
 
-1. Na **caixa de consulta de pesquisa**, digite `Type=DnsEvents` para exibir todos os eventos DNS gerados pelos servidores DNS gerenciados pela solução. Os resultados listam os dados de logs de todos os eventos relacionados às consultas de pesquisa, aos registros dinâmicos e às alterações de configuração.
+1. Em Olá **caixa Pesquisa**, tipo `Type=DnsEvents` tooview todos Olá eventos DNS gerados por servidores DNS Olá gerenciados por solução hello. dados de log Olá para todos os eventos relacionados toolookup consultas, registros dinâmicos e alterações de configuração de lista de resultados de saudação.
 
     ![Pesquisa de logs de DnsEvents](./media/log-analytics-dns/log-search-dnsevents.png)  
 
-    a. Para exibir os dados de logs das consultas de pesquisa, selecione **LookUpQuery** como o filtro **Subtipo** no controle de faceta à esquerda. É exibida uma tabela que lista os eventos de consulta de pesquisa do período selecionado.
+    a. dados de log de saudação tooview para consultas de pesquisa, selecione **LookUpQuery** como Olá **subtipo** filtro de controle de faceta Olá Olá esquerda. Uma tabela que lista todos os eventos de consulta de pesquisa Olá Olá para o período de tempo selecionado é exibida.
 
-    b. Para exibir os dados de logs dos registros dinâmicos, selecione **DynamicRegistration** como o filtro **Subtipo** no controle de faceta à esquerda. É exibida uma tabela que lista os eventos de registro dinâmico do período selecionado.
+    b. dados de log de saudação tooview para registros dinâmicos, selecione **DynamicRegistration** como Olá **subtipo** filtro de controle de faceta Olá Olá esquerda. Uma tabela que lista todos os eventos de registro dinâmico Olá para Olá período de tempo selecionado é exibida.
 
-    c. Para exibir os dados de logs das alterações de configuração, selecione **ConfigurationChange** como o filtro **Subtipo** no controle de faceta à esquerda. É exibida uma tabela que lista os eventos de alteração de configuração do período selecionado.
+    c. dados de log de saudação tooview para alterações de configuração, selecione **ConfigurationChange** como Olá **subtipo** filtro de controle de faceta Olá Olá esquerda. Uma tabela que lista todos os eventos de alteração de configuração Olá para Olá período de tempo selecionado é exibida.
 
-2. Na **caixa de consulta de pesquisa**, digite `Type=DnsInventory` para exibir todos os dados relacionados ao inventário DNS dos servidores DNS gerenciados pela solução. Os resultados listam os dados de log dos servidores DNS, das zonas DNS e dos registros de recursos.
+2. Em Olá **caixa Pesquisa**, tipo `Type=DnsInventory` tooview todos Olá dados relacionados ao inventário DNS para os servidores DNS Olá gerenciados por solução hello. dados de log de saudação para servidores DNS, zonas DNS e registros de recursos de lista de resultados de saudação.
 
     ![Pesquisa de logs de DnsInventory](./media/log-analytics-dns/log-search-dnsinventory.png)
 
@@ -184,9 +184,9 @@ Na página Pesquisa de Logs, é possível criar uma consulta. Você pode filtrar
 
 Há duas maneiras de enviar comentários:
 
-- **UserVoice**. Poste ideias para melhoria dos recursos da Análise de DNS. Visite a [página do UserVoice do Operations Management Suite](https://aka.ms/dnsanalyticsuservoice).
-- **Ingressar em nosso coorte**. Sempre estamos interessados em ter novos clientes em nossos coortes para que eles tenham acesso antecipado a novos recursos e nos ajudem a melhorar a Análise de DNS. Se estiver interessado em participar de nossos coortes, preencha esta [pesquisa rápida](https://aka.ms/dnsanalyticssurvey).
+- **UserVoice**. Poste ideias para toowork de recursos de análise de DNS no. Visite Olá [Operations Management Suite UserVoice página](https://aka.ms/dnsanalyticsuservoice).
+- **Ingressar em nosso coorte**. Sempre estamos interessados em ter novos clientes ingressar nossos recursos de toonew acesso antecipado do tooget colaboradores e ajude-na melhorar a análise de DNS. Se estiver interessado em participar de nossos coortes, preencha esta [pesquisa rápida](https://aka.ms/dnsanalyticssurvey).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Pesquisar logs](log-analytics-log-searches.md) para exibir registros de log DNS detalhados.
+[Pesquisar logs](log-analytics-log-searches.md) tooview detalhadas registros de log DNS.

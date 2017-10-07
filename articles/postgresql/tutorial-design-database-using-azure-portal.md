@@ -1,6 +1,6 @@
 ---
 title: Projetar seu primeiro Banco de Dados do Azure para PostgreSQL usando o portal do Azure | Microsoft Docs
-description: Este tutorial mostra como criar seu primeiro Banco de Dados do Azure para PostgreSQL usando o portal do Azure.
+description: "Este tutorial mostra como tooDesign do Azure primeiro banco de dados para PostgreSQL usando Olá portal do Azure."
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -10,21 +10,21 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.openlocfilehash: 2aa9d10749b54537495ad3e09566c43718f67a9e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fde7e9d1ae2bad4291d18bebd3356f4f8a2ac86a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Criar seu primeiro Banco de Dados do Azure para PostgreSQL usando o portal do Azure
+# <a name="design-your-first-azure-database-for-postgresql-using-hello-azure-portal"></a>Criar seu primeiro banco de dados do Azure para PostgreSQL usando Olá portal do Azure
 
-O Banco de Dados do Azure para PostgreSQL é um serviço gerenciado que permite executar, gerenciar e dimensionar os bancos de dados altamente disponíveis do PostgreSQL na nuvem. Usando o Portal do Azure, você pode gerenciar facilmente seu servidor e projetar um banco de dados.
+Banco de dados do Azure para PostgreSQL é um serviço gerenciado que permite que você toorun, gerenciar e dimensionar os bancos de dados PostgreSQL altamente disponíveis na nuvem hello. Usando Olá portal do Azure, você pode facilmente gerenciar seu servidor e criar um banco de dados.
 
-Neste tutorial, você usará o Portal do Azure para aprender a:
+Neste tutorial, você usar Olá toolearn portal do Azure como para:
 > [!div class="checklist"]
 > * Criar um Banco de Dados do Azure para o PostgreSQL
-> * Configurar o firewall do servidor
-> * Useo utilitário [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) para criar um banco de dados
+> * Configurar o firewall do servidor de saudação
+> * Use [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) toocreate utilitário um banco de dados
 > * Carregar dados de exemplo
 > * Consultar dados
 > * Atualizar dados
@@ -33,110 +33,110 @@ Neste tutorial, você usará o Portal do Azure para aprender a:
 ## <a name="prerequisites"></a>Pré-requisitos
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
-Faça logon no [Portal do Azure](https://portal.azure.com).
+## <a name="log-in-toohello-azure-portal"></a>Faça logon no toohello portal do Azure
+Faça logon no toohello [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-an-azure-database-for-postgresql"></a>Criar um Banco de Dados do Azure para o PostgreSQL
 
-Um Banco de Dados do Azure para PostgreSQL é criado com um conjunto definido de [recursos de computação e armazenamento](./concepts-compute-unit-and-storage.md). O servidor é criado dentro de um [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md).
+Um Banco de Dados do Azure para PostgreSQL é criado com um conjunto definido de [recursos de computação e armazenamento](./concepts-compute-unit-and-storage.md). Olá servidor será criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md).
 
-Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreSQL:
-1.  Clique no botão **Novo** no canto superior esquerdo do Portal do Azure.
-2.  Selecione **Bancos de dados** na página **Novo** e selecione **Banco de Dados do Azure para PostgreSQL** na página **Bancos de dados**.
- ![Banco de Dados do Azure para PostgreSQL – Criar o banco de dados](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
+Siga essas toocreate etapas um banco de dados do Azure para o servidor PostgreSQL:
+1.  Clique em Olá **+ novo** botão localizado no canto superior esquerdo de saudação do hello portal do Azure.
+2.  Selecione **bancos de dados** de saudação **novo** página e selecione **banco de dados do Azure para PostgreSQL** de saudação **bancos de dados** página.
+ ![Banco de dados do Azure para PostgreSQL - criar o banco de dados de saudação](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
-3.  Preencha o formulário de detalhes do novo servidor com as informações abaixo, conforme mostrado na imagem anterior:
-    - Nome do servidor: **mypgserver-20170401** (o nome de um servidor é mapeado para o nome DNS e, portanto, deve ser globalmente exclusivo) 
-    - Assinatura: se você tiver várias assinaturas, escolha a que for adequada, na qual o recurso exista ou é cobrado.
+3.  Preencha novo formulário de detalhes de servidor Olá com hello seguintes informações, conforme mostrado na saudação anterior imagem:
+    - Nome do servidor: **mypgserver 20170401** (o nome de um servidor mapeia o nome tooDNS e, portanto, é necessário toobe globalmente exclusivo) 
+    - Assinatura: Se você tiver várias assinaturas, escolha assinatura de saudação apropriado no qual o recurso de saudação existe ou é cobrado por.
     - Grupo de recursos: **myresourcegroup**
     - Logon e senha de administrador do servidor à sua escolha
     - Local
     - Versão do PostgreSQL
 
   > [!IMPORTANT]
-  > O logon de administrador do servidor e a senha que você especificar aqui são necessárias para fazer logon no servidor e em seus bancos de dados mais tarde neste início rápido. Lembre-se ou registre essas informações para o uso posterior.
+  > Olá administrador logon e senha que você especificar aqui são toolog necessária no servidor de toohello e seus bancos de dados mais tarde nesse início rápido. Lembre-se ou registre essas informações para o uso posterior.
 
-4.  Clique em **Tipo de preço** para especificar o nível de desempenho e o tipo de serviço para o novo banco de dados. Para esse início rápido, selecione a camada **Básica**, **50 Unidades de Computação** e **50 GB** de armazenamento incluído.
- ![Banco de Dados do Azure para PostgreSQL – escolher a camada de serviço](./media/tutorial-design-database-using-azure-portal/2-service-tier.png)
+4.  Clique em **preço** toospecify Olá desempenho e da camada de nível de serviço para o novo banco de dados. Para esse início rápido, selecione a camada **Básica**, **50 Unidades de Computação** e **50 GB** de armazenamento incluído.
+ ![Banco de dados do Azure para PostgreSQL - camada de serviço pick Olá](./media/tutorial-design-database-using-azure-portal/2-service-tier.png)
 5.  Clique em **OK**.
-6.  Clique em **Criar** para provisionar o servidor. O provisionamento demora alguns minutos.
+6.  Clique em **criar** tooprovision servidor de saudação. O provisionamento demora alguns minutos.
 
   > [!TIP]
-  > Marque a opção **Fixar no painel** para permitir o controle fácil de suas implantações.
+  > Verificar Olá **toodashboard Pin** opção tooallow facilidade no rastreamento de suas implantações.
 
-7.  Na barra de ferramentas, clique em **Notificações** para monitorar o processo de implantação.
+7.  Na barra de ferramentas hello, clique em **notificações** toomonitor processo de implantação de saudação.
  ![Banco de Dados do Azure para PostgreSQL – Ver notificações](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
    
-  Por padrão, o banco de dados **postgres** é criado em seu servidor. O [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) é um banco de dados padrão destinado a uso por usuários, utilitários e aplicativos de terceiros. 
+  Por padrão, o banco de dados **postgres** é criado em seu servidor. Olá [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) banco de dados é um banco de dados padrão devem ser usados pelos usuários, utilitários e aplicativos de terceiros. 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurar uma regra de firewall no nível de servidor
 
-O serviço do Banco de Dados do Azure para PostgreSQL cria um firewall no nível do servidor. Esse firewall impede que os aplicativos e ferramentas externos se conectem ao servidor e aos bancos de dados no servidor, a menos que uma regra de firewall seja criada para abrir o firewall para endereços IP específicos. 
+saudação de banco de dados PostgreSQL serviço cria um firewall no nível de servidor de saudação. Esse firewall impede que aplicativos externos e ferramentas conectando toohello server e bancos de dados no servidor de saudação, a menos que uma regra de firewall será criada tooopen firewall de saudação para endereços IP específicos. 
 
-1.  Após a implantação ser concluída, clique em **Todos os Recursos** no menu esquerdo e digite o nome **mypgserver-20170401**, para pesquisar o servidor recém-criado. Clique no nome do servidor listado nos resultados da pesquisa. A página **Visão geral** do servidor é aberta e oferece outras opções de configuração.
+1.  Após a conclusão da implantação hello, clique em **todos os recursos** do menu esquerdo hello e digite o nome de saudação **mypgserver 20170401** toosearch para seu servidor recém-criado. Clique em nome do servidor de saudação listado no resultado da pesquisa hello. Olá **visão geral** página para o servidor é aberta e oferece opções de configuração adicional.
  
  ![Banco de Dados do Azure para PostgreSQL – Pesquisar o servidor ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
-2.  Na folha do servidor, selecione **Segurança de Conexão**. 
-3.  Clique na caixa de texto em **Nome da regra,** e adicione uma nova regra de firewall para a lista de permissões de intervalo de IP para conectividade. Para este tutorial, vamos permitir todos os IPs digitando **Nome da regra = PermitirTodosIps**, **IP inicial = 0.0.0.0** e **IP final = 255.255.255.255** e, em seguida, clique em **Salvar**. Você pode definir uma regra de firewall que abranja um intervalo de IP aos quais você possa se conectar de sua rede.
+2.  Na folha do servidor de saudação, selecione **segurança de Conexão**. 
+3.  Clique na caixa de texto de saudação em **nome da regra,** e adicione um novo firewall regra toowhitelist Olá intervalo IP para conectividade. Para este tutorial, vamos permitir todos os IPs digitando **Nome da regra = PermitirTodosIps**, **IP inicial = 0.0.0.0** e **IP final = 255.255.255.255** e, em seguida, clique em **Salvar**. Você pode definir uma regra de firewall que abrange um tooconnect IP intervalo toobe capaz de sua rede.
  
  ![Banco de Dados do Azure para PostgreSQL – Criar regra de firewall](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 
-4.  Clique em **Salvar** e, em seguida, clique no **X** para fechar a página de **Segurança de Conexões**.
+4.  Clique em **salvar** e, em seguida, clique em Olá **X** tooclose Olá **conexões segurança** página.
 
   > [!NOTE]
-  > O servidor PostgreSQL do Azure se comunica pela porta 5432. Se você estiver tentando se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 5432 talvez não seja permitido pelo firewall de sua rede. Se isto acontecer, você não conseguirá se conectar ao servidor de Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 5432.
+  > O servidor PostgreSQL do Azure se comunica pela porta 5432. Se você estiver tentando tooconnect de dentro de uma rede corporativa, o tráfego de saída pela porta 5432 talvez não consigam pelo firewall da rede. Nesse caso, não será tooconnect capaz de servidor de banco de dados SQL de tooyour, a menos que o departamento de TI abre a porta 5432.
   >
 
 
-## <a name="get-the-connection-information"></a>Obter informações de conexão
+## <a name="get-hello-connection-information"></a>Obter informações de conexão Olá
 
-Quando criamos o nosso Banco de Dados do Azure para o servidor PostgreSQL, o banco de dados padrão **postgres** também foi criado. Para se conectar ao seu servidor de banco de dados, você precisa fornecer credenciais de acesso e informações de host.
+Quando criamos nosso banco de dados do Azure para o servidor PostgreSQL, Olá padrão **postgres** banco de dados também é criado. servidor de banco de dados de tooyour tooconnect, é necessário tooprovide credenciais de acesso e informações do host.
 
-1. No menu à esquerda no Portal do Azure, clique em **Todos os recursos** e pesquise pelo servidor que você acabou de criar **mypgserver-20170401**.
+1. No menu esquerdo de saudação no portal do Azure, clique em **todos os recursos** e procure o servidor de saudação que você acabou de criar **mypgserver 20170401**.
 
   ![Banco de Dados do Azure para PostgreSQL – Pesquisar o servidor ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
-3. Clique no nome do servidor **mypgserver-20170401**.
-4. Selecione a página **Visão geral** do servidor. Anote o **Nome do servidor** e o **Nome de logon de administrador do servidor**.
+3. Clique em nome do servidor de saudação **mypgserver 20170401**.
+4. Servidor de saudação selecione **visão geral** página. Anote Olá **nome do servidor** e **nome de logon do administrador de servidor**.
 
  ![Banco de Dados do Azure para PostgreSQL – Logon de administrador do servidor](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
 
 
-## <a name="connect-to-postgresql-database-using-psql-in-cloud-shell"></a>Conectar-se ao banco de dados PostgreSQL usando psql no Cloud Shell
+## <a name="connect-toopostgresql-database-using-psql-in-cloud-shell"></a>Conecte-se o banco de dados de tooPostgreSQL usando psql no Shell de nuvem
 
-Usaremos agora o utilitário de linha de comando psql para nos conectarmos ao Banco de Dados do Azure para o servidor PostgreSQL. 
-1. Inicie o Azure Cloud Shell por meio do ícone do terminal no painel de navegação superior.
+Agora vamos usar Olá psql utilitário de linha de comando tooconnect toohello banco de dados para o servidor PostgreSQL. 
+1. Inicie Olá Shell de nuvem do Azure através do ícone de terminal no painel de navegação superior Olá Olá.
 
    ![Banco de Dados do Azure para PostgreSQL – Ícone do terminal do Azure Cloud Shell](./media/tutorial-design-database-using-azure-portal/7-cloud-shell.png)
 
-2. O Azure Cloud Shell é aberto no seu navegador, permitindo que você digite comandos de bash.
+2. Olá Shell de nuvem do Azure é aberto no navegador, permitindo que você tootype bash comandos.
 
    ![Banco de Dados do Azure para PostgreSQL – Prompt de bash do Azure Shell](./media/tutorial-design-database-using-azure-portal/8-bash.png)
 
-3. No prompt do Cloud Shell, conecte-se ao Banco de Dados do Azure para servidor PostgreSQL usando os comandos psql. O formato a seguir é usado para conectar-se a um Banco de Dados do Azure para servidor PostgreSQL com o utilitário [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html):
+3. No prompt de Shell de nuvem hello, conecte-se tooyour banco de dados para o servidor PostgreSQL usando Olá psql comandos. Olá, formato a seguir é usado tooconnect tooan banco de dados para o servidor PostgreSQL com hello [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) utilitário:
    ```bash
    psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
    ```
 
-   Por exemplo, o comando a seguir se conecta ao banco de dados padrão chamado **postgres** no seu servidor PostgreSQL **mypgserver-20170401.postgres.database.azure.com** usando as credenciais de acesso. Insira a senha de administrador do servidor quando solicitado.
+   Por exemplo, Olá comando a seguir conecta o banco de dados padrão toohello chamado **postgres** no seu servidor PostgreSQL **mypgserver 20170401.postgres.database.azure.com** usando as credenciais de acesso. Insira a senha de administrador do servidor quando solicitado.
 
    ```bash
    psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
    ```
 
 ## <a name="create-a-new-database"></a>Criar um novo banco de dados
-Quando já estiver conectado ao servidor, crie um banco de dados em branco no prompt.
+Quando estiver conectado toohello server, crie um banco de dados em branco no prompt de saudação.
 ```bash
 CREATE DATABASE mypgsqldb;
 ```
 
-No prompt, execute o seguinte comando para mudar a conexão para o banco de dados **mypgsqldb** recém-criado.
+No prompt de hello, execute Olá após o banco de dados do comando tooswitch conexão toohello recém-criado **mypgsqldb**.
 ```bash
 \c mypgsqldb
 ```
-## <a name="create-tables-in-the-database"></a>Criar tabelas no banco de dados
-Agora que você sabe como se conectar ao Banco de Dados do Azure para o PostgreSQL, podemos falar sobre como concluir algumas tarefas básicas.
+## <a name="create-tables-in-hello-database"></a>Criar tabelas no banco de dados de saudação
+Agora que você sabe como tooconnect toohello banco de dados do Azure para PostgreSQL, podemos ir como toocomplete algumas tarefas básicas.
 
 Primeiro, criamos uma tabela e a carregamos com alguns dados. Vamos criar uma tabela que rastreia informações de inventário.
 ```sql
@@ -147,59 +147,59 @@ CREATE TABLE inventory (
 );
 ```
 
-Você agora pode ver a tabela recém-criada na lista de tabelas digitando:
+Você pode ver Olá recém-criado tabela na lista de saudação do tabvles agora digitando:
 ```sql
 \dt
 ```
 
-## <a name="load-data-into-the-tables"></a>Carregar dados nas tabelas
-Agora que temos uma tabela, podemos inserir alguns dados nela. Na janela do prompt de comando aberta, execute a consulta a seguir para inserir algumas linhas de dados
+## <a name="load-data-into-hello-tables"></a>Carregar dados em tabelas de saudação
+Agora que temos uma tabela, podemos inserir alguns dados nela. Na janela de prompt de comando aberta hello, executar Olá tooinsert de consulta a seguir algumas linhas de dados
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
 
-Você tem agora duas linhas de dados de exemplo na tabela criada anteriormente.
+Você tem agora duas linhas de dados de exemplo na tabela de saudação criado anteriormente.
 
-## <a name="query-and-update-the-data-in-the-tables"></a>Consultar e atualizar os dados nas tabelas
-Execute a seguinte consulta para recuperar as informações da tabela do banco de dados. 
+## <a name="query-and-update-hello-data-in-hello-tables"></a>Consultar e atualizar dados Olá nas tabelas de saudação
+Execute Olá consultar tooretrieve informações a seguir da tabela de banco de dados de saudação. 
 ```sql
 SELECT * FROM inventory;
 ```
 
-Também é possível atualizar os dados nas tabelas
+Você também pode atualizar dados Olá nas tabelas de saudação
 ```sql
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
 
-A linha é atualizada à medida que você recupera os dados.
+linha de saudação obtém atualizada quando você recuperar dados.
 ```sql
 SELECT * FROM inventory;
 ```
 
-## <a name="restore-data-to-a-previous-point-in-time"></a>Restaurar dados para um ponto anterior no tempo
-Imagine que você excluiu acidentalmente essa tabela. Essa situação é algo do qual você não pode se recuperar facilmente. O Banco de Dados do Azure para PostgreSQL permite que você volte até qualquer ponto no tempo (até os últimos 7 dias (Basic) e 35 dias (Standard)) e restaure esse ponto no tempo em um novo servidor. Use esse novo servidor para recuperar seus dados excluídos. As etapas a seguir restauram o servidor de exemplo para um ponto anterior à adição da tabela.
+## <a name="restore-data-tooa-previous-point-in-time"></a>Restaurar ponto de tooa de dados anterior no tempo
+Imagine que você excluiu acidentalmente essa tabela. Essa situação é algo do qual você não pode se recuperar facilmente. Banco de dados do Azure para PostgreSQL permite voltar tooany de toogo point-in-time (em Olá última too7 dias (Basic) e 35 dias (padrão)) e restaurar esse point-in-time tooa novo servidor. Você pode usar esse novo toorecover de servidor os dados excluídos. Olá etapas Olá exemplo server tooa ponto de restauração da seguir antes de saudação tabela foi adicionada.
 
-1.  Na página do Banco de Dados do Azure para PostgreSQL para o servidor, clique em **Restaurar** na barra de ferramentas. A página **Restaurar** será aberta.
+1.  No banco de dados do Azure Olá PostgreSQL página para o servidor, clique em **restaurar** na barra de ferramentas de saudação. Olá **restaurar** página será aberta.
   ![Portal do Azure - Opções do formulário de restauração](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
-2.  Preencha o formulário **Restaurar** com as informações necessárias:
+2.  Preencha Olá **restaurar** formulário com informações de saudação necessários:
 
   ![Portal do Azure - Opções do formulário de restauração](./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png)
-  - **Ponto de restauração**: selecione um ponto no tempo anterior à alteração do servidor
-  - **Servidor de destino**: forneça um novo nome de servidor no qual você deseja restaurar
-  - **Local**: não é possível selecionar a região; por padrão, ela é igual ao servidor de origem
-  - **Tipo de preço**: não é possível alterar esse valor ao restaurar um servidor. Ele é igual ao servidor de origem. 
-3.  3- Clique em **OK** para restaurar o servidor [em um ponto no tempo](./howto-restore-server-portal.md) anterior à exclusão das tabelas. A restauração de um servidor para um ponto diferente no tempo cria um novo servidor duplicado como o servidor original a partir do ponto no tempo especificado por você, desde que esteja dentro do período de retenção de sua [camada de serviço](./concepts-service-tiers.md).
+  - **Ponto de restauração**: selecione um point-in-time que ocorre antes que o servidor de saudação foi alterado
+  - **Servidor de destino**: forneça um novo nome de servidor que você deseja toorestore para
+  - **Local**: não é possível selecionar região hello, por padrão, ele é igual ao servidor de origem Olá
+  - **Tipo de preço**: não é possível alterar esse valor ao restaurar um servidor. É igual ao servidor de origem de saudação. 
+3.  Clique em **Okey** toorestore Olá servidor muito[restauração point-in-time tooa](./howto-restore-server-portal.md) antes de tabelas de saudação foi excluído. Restaurar o servidor tooa outro ponto no tempo cria um duplicado novo servidor como servidor de saudação original como de saudação ponto no tempo especificado, desde que está dentro do período de retenção de saudação de seu [camada de serviço](./concepts-service-tiers.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você aprendeu a usar o portal do Azure e outros utilitários para:
+Neste tutorial, você aprendeu como toouse Olá portal do Azure e outros utilitários para:
 > [!div class="checklist"]
 > * Criar um Banco de Dados do Azure para o PostgreSQL
-> * Configurar o firewall do servidor
-> * Useo utilitário [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) para criar um banco de dados
+> * Configurar o firewall do servidor de saudação
+> * Use [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) toocreate utilitário um banco de dados
 > * Carregar dados de exemplo
 > * Consultar dados
 > * Atualizar dados
 > * Restaurar dados
 
-Em seguida, aprenda como usar a CLI do Azure para executar tarefas semelhantes, consulte este tutorial: [Criar seu primeiro Banco de Dados do Azure para PostgreSQL usando a CLI do Azure](tutorial-design-database-using-azure-cli.md)
+Em seguida, Aprenda como tarefas semelhantes do toouse CLI do Azure toodo, examine este tutorial: [criar seu primeiro banco de dados do Azure para PostgreSQL usando a CLI do Azure](tutorial-design-database-using-azure-cli.md)

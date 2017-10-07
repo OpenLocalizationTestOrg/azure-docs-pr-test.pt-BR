@@ -1,6 +1,6 @@
 ---
-title: "Configurar o cluster do Azure Service Fabric autônomo | Microsoft Docs"
-description: "Aprenda a configurar seu cluster autônomo ou particular do Service Fabric."
+title: "aaaConfigure o cluster do Azure Service Fabric autônomo | Microsoft Docs"
+description: "Saiba como tooconfigure seu autônomo ou cluster do Service Fabric particular."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 9885dce18dabac4a945dafd219e3ae190e34a83b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ce2ad387162a05668bbd3a271c754776fe471850
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configuration-settings-for-standalone-windows-cluster"></a>Definições de configuração para o cluster autônomo no Windows
-Este artigo descreve como configurar um cluster autônomo do Service Fabric usando o arquivo ***ClusterConfig.JSON***. Use esse arquivo para especificar informações, como os nós do Service Fabric e seus endereços IP, tipos diferentes de nós no cluster, configurações de segurança, bem como a topologia da rede em termos de domínios de falha/atualização, para o cluster autônomo.
+Este artigo descreve como tooconfigure um cluster de malha do serviço autônomo usando Olá ***Clusterconfig*** arquivo. Você pode usar essas informações de toospecify de arquivo, como nós do Service Fabric hello e seus endereços IP, tipos diferentes de nós no cluster hello, as configurações de segurança hello, bem como topologia de rede de saudação em termos de domínios de falha/atualização, para o seu autônomo cluster.
 
-Quando você [baixa o pacote do Service Fabric autônomo](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), alguns exemplos do arquivo ClusterConfig.JSON são baixados em seu computador. Os exemplos com *DevCluster* em seus nomes ajudarão a criar um cluster com todos os três nós no mesmo computador, como nós lógicos. Fora isso, pelo menos um nó deve ser marcado como um nó principal. Este cluster é útil para um ambiente de desenvolvimento ou de teste, e não tem suporte como um cluster de produção. Os exemplos com *MultiMachine* em seus nomes ajudarão a criar um cluster de qualidade de produção, com cada nó em um computador separado.
+Quando você [baixar Olá autônomo do Service Fabric pacote](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), alguns exemplos de arquivo de Clusterconfig Olá são baixados tooyour trabalho máquina. exemplos de saudação tendo *DevCluster* em seus nomes ajuda a criar um cluster com todos os três nós no mesmo computador, como nós de lógicas de saudação. Fora isso, pelo menos um nó deve ser marcado como um nó principal. Este cluster é útil para um ambiente de desenvolvimento ou de teste, e não tem suporte como um cluster de produção. exemplos de saudação tendo *MultiMachine* em seus nomes, ajuda a criar um cluster de qualidade de produção, com cada nó em um computador separado.
 
-1. *ClusterConfig.Unsecure.DevCluster.JSON* e *ClusterConfig.Unsecure.MultiMachine.JSON* mostram como criar um cluster de teste ou de produção sem segurança, respectivamente. 
-2. *ClusterConfig.Windows.DevCluster.JSON* e *ClusterConfig.Windows.MultiMachine.JSON* mostram como criar um cluster de teste ou de produção protegido usando a [segurança do Windows](service-fabric-windows-cluster-windows-security.md).
-3. *ClusterConfig.X509.DevCluster.JSON* e *ClusterConfig.X509.MultiMachine.JSON* mostram como criar um cluster de teste ou de produção protegido usando a [segurança baseada no certificado X509](service-fabric-windows-cluster-x509-security.md). 
+1. *ClusterConfig.Unsecure.DevCluster.JSON* e *ClusterConfig.Unsecure.MultiMachine.JSON* mostram como toocreate um seguro teste ou produção do cluster respectivamente. 
+2. *ClusterConfig.Windows.DevCluster.JSON* e *ClusterConfig.Windows.MultiMachine.JSON* mostrar como cluster de teste ou produção toocreate, protegida usando [a segurança do Windows](service-fabric-windows-cluster-windows-security.md).
+3. *ClusterConfig.X509.DevCluster.JSON* e *ClusterConfig.X509.MultiMachine.JSON* mostrar como cluster de teste ou produção toocreate, protegida usando [X509 segurança baseada em certificado](service-fabric-windows-cluster-x509-security.md). 
 
-Agora, vamos examinar as várias seções de um arquivo ***ClusterConfig.JSON*** conforme mostrado a seguir.
+Agora vamos examinar Olá várias seções de um ***Clusterconfig*** arquivo como abaixo.
 
 ## <a name="general-cluster-configurations"></a>Configurações gerais do cluster
-Isso abrange as configurações específicas mais amplas do cluster, conforme mostra o trecho de JSON abaixo.
+Isso inclui configurações específicas do hello amplo de cluster, conforme mostrado no trecho JSON a saudação abaixo.
 
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
     "apiVersion": "01-2017",
 
-Você pode atribuir qualquer nome amigável ao cluster do Service Fabric, atribuindo a ele a variável **name** . O **clusterConfigurationVersion** é o número de versão do cluster; você deve aumentá-lo toda vez que atualizar seu cluster do Service Fabric. No entanto, deixe a **apiVersion** com o valor padrão.
+Você pode fornecer qualquer cluster do nome amigável tooyour Service Fabric atribuindo a ele toohello **nome** variável. Olá **clusterConfigurationVersion** é o número de versão de saudação do cluster; aumentá-lo toda vez que você atualizar seu cluster do Service Fabric. No entanto, você deve deixar Olá **apiVersion** toohello valor de padrão.
 
 <a id="clusternodes"></a>
 
-## <a name="nodes-on-the-cluster"></a>Nós no cluster
-Você pode configurar os nós no cluster de seu Service Fabric usando a seção **nós** , como mostra o trecho de código a seguir.
+## <a name="nodes-on-hello-cluster"></a>Nós no cluster Olá
+Você pode configurar nós de saudação no cluster do Service Fabric usando Olá **nós** seção, como Olá trecho a seguir mostra.
 
     "nodes": [{
         "nodeName": "vm0",
@@ -65,39 +65,39 @@ Você pode configurar os nós no cluster de seu Service Fabric usando a seção 
         "upgradeDomain": "UD2"
     }],
 
-Um cluster do Service Fabric deve conter pelo menos 3 nós. Você pode adicionar mais nós a esta seção de acordo com a sua configuração. A tabela a seguir explica as definições de configuração para cada nó.
+Um cluster do Service Fabric deve conter pelo menos 3 nós. Você pode adicionar mais uma seção toothis nós de acordo com a sua instalação. Olá a tabela a seguir explica as definições de configuração de saudação para cada nó.
 
 | **Configuração de nó** | **Descrição** |
 | --- | --- |
-| nodeName |Você pode atribuir qualquer nome amigável ao nó. |
-| iPAddress |Descubra o endereço IP do seu nó abrindo uma janela de comando e digitando `ipconfig`. Anote o endereço IPV4 e atribua a ele a variável **iPAddress** . |
-| nodeTypeRef |Cada nó pode ser receber um tipo de nó diferente. Os [tipos de nó](#nodetypes) são definidos na seção abaixo. |
-| faultDomain |Os domínios de falha permitem que os administradores de cluster definam os nós físicos que podem falhar ao mesmo tempo devido às dependências físicas compartilhadas. |
-| upgradeDomain |Os domínios de atualização descrevem conjuntos de nós que são desligados para atualizações do Service Fabric quase ao mesmo tempo. Você pode escolher quais nós atribuir a quais Domínios de atualização, pois eles não são limitados por quaisquer requisitos físicos. |
+| nodeName |Você pode fornecer qualquer nó de toohello nome amigável. |
+| iPAddress |Descobrir o endereço IP de saudação do nó abrindo uma janela de comando e digitando `ipconfig`. Observe o endereço IPV4 de saudação e atribuí-la toohello **iPAddress** variável. |
+| nodeTypeRef |Cada nó pode ser receber um tipo de nó diferente. Olá [tipos de nós](#nodetypes) estão definidos na seção de saudação abaixo. |
+| faultDomain |Falha domínios Habilitar administradores toodefine Olá físico nós de cluster que podem falhar em Olá a mesma hora devido a dependências físico tooshared. |
+| upgradeDomain |Domínios de atualização descrevem os conjuntos de nós que são encerrados para Service Fabric atualiza cada sobre Olá mesmo tempo. Você pode escolher quais toowhich tooassign de nós domínios de atualização, pois eles não são limitados por quaisquer requisitos físicos. |
 
 ## <a name="cluster-properties"></a>Propriedades do cluster
-A seção **propriedades** no ClusterConfig.JSON é usada para configurar o cluster da seguinte maneira.
+Olá **propriedades** seção Olá Clusterconfig é cluster de saudação tooconfigure usado da seguinte maneira.
 
 <a id="reliability"></a>
 
 ### <a name="reliability"></a>Confiabilidade
-O conceito de **reliabilityLevel** define o número de réplicas ou as instâncias dos serviços de sistema do Service Fabric que podem ser executados em nós do cluster primários. Determina a confiabilidade desses serviços e, portanto, do cluster. O valor é calculado pelo sistema em tempo de criação e atualização de cluster.
+conceito de saudação do **reliabilityLevel** define o número Olá de réplicas ou instâncias de saudação do Service Fabric dos serviços do sistema que podem ser executados em nós primários de saudação do cluster de saudação. Ele determina a confiabilidade de saudação desses serviços e hello, portanto, o cluster. valor de saudação é calculada pelo sistema Olá em tempo de criação e atualização de cluster.
 
 ### <a name="diagnostics"></a>Diagnostics
-A seção **diagnosticsStore** permite configurar parâmetros para habilitar o diagnóstico e solucionar problemas de falhas de nó e do cluster, conforme mostra o trecho a seguir. 
+Olá **diagnosticsStore** seção permite que você tooconfigure diagnóstico de tooenable de parâmetros e nó de solução de problemas ou falhas de cluster, conforme mostrado no hello trecho de código a seguir. 
 
     "diagnosticsStore": {
-        "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
+        "metadata":  "Please replace hello diagnostics store with an actual file share accessible from all cluster machines.",
         "dataDeletionAgeInDays": "7",
         "storeType": "FileShare",
         "IsEncrypted": "false",
         "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
     }
 
-Os **metadados** são uma descrição do diagnóstico do cluster e podem ser definidos de acordo com sua configuração. Essas variáveis ajudam na coleta de logs de rastreamento ETW, despejos de memória e contadores de desempenho. Leia [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) e [Rastreamento ETW](https://msdn.microsoft.com/library/ms751538.aspx) para saber mais sobre os logs de rastreamento de ETW. Todos os logs que incluem [Despejos de memória](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) e [contadores de desempenho](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) podem ser direcionados para a pasta **connectionString** em seu computador. Você também pode usar *AzureStorage* para o armazenamento de diagnóstico. Veja abaixo um exemplo de trecho de código.
+Olá **metadados** é uma descrição do que o diagnóstico do cluster e pode ser definido de acordo com a sua instalação. Essas variáveis ajudam na coleta de logs de rastreamento ETW, despejos de memória e contadores de desempenho. Leia [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) e [Rastreamento ETW](https://msdn.microsoft.com/library/ms751538.aspx) para saber mais sobre os logs de rastreamento de ETW. Todos os logs, inclusive [despejos de memória](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) e [contadores de desempenho](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) pode ser direcionado toohello **connectionString** pasta no seu computador. Você também pode usar *AzureStorage* para o armazenamento de diagnóstico. Veja abaixo um exemplo de trecho de código.
 
     "diagnosticsStore": {
-        "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
+        "metadata":  "Please replace hello diagnostics store with an actual file share accessible from all cluster machines.",
         "dataDeletionAgeInDays": "7",
         "storeType": "AzureStorage",
         "IsEncrypted": "false",
@@ -105,7 +105,7 @@ Os **metadados** são uma descrição do diagnóstico do cluster e podem ser def
     }
 
 ### <a name="security"></a>Segurança
-A seção **segurança** é necessária para um cluster autônomo seguro do Service Fabric. O trecho a seguir mostra uma parte desta seção.
+Olá **segurança** seção é necessária para um cluster do Service Fabric autônomo segura. saudação de trecho de código a seguir mostra uma parte desta seção.
 
     "security": {
         "metadata": "This cluster is secured using X509 certificates.",
@@ -114,12 +114,12 @@ A seção **segurança** é necessária para um cluster autônomo seguro do Serv
         . . .
     }
 
-Os **metadados** são uma descrição de seu cluster seguro e podem ser definidos de acordo com sua configuração. O **ClusterCredentialType** e o **ServerCredentialType** determinam o tipo de segurança que o cluster e os nós implementarão. Eles podem ser definidos como *X509* para segurança baseada em certificados ou como *Windows* para segurança baseada no Azure Active Directory. O restante da seção **segurança** será baseado no tipo de segurança. Leia [Segurança baseada em certificados em um cluster autônomo](service-fabric-windows-cluster-x509-security.md) ou [Segurança do Windows em um cluster autônomo](service-fabric-windows-cluster-windows-security.md) para saber como preencher o restante da seção de **segurança**.
+Olá **metadados** é uma descrição do cluster seguro e pode ser definido de acordo com a sua instalação. Olá **ClusterCredentialType** e **ServerCredentialType** determinar o tipo de saudação de segurança que o cluster hello e nós Olá implementar. Eles podem ser definidos tooeither *X509* para segurança baseada em certificado, ou *Windows* para uma segurança baseada no Active Directory do Azure. Olá restante da saudação **segurança** seção se baseará no tipo de saudação de segurança de saudação. Leitura [segurança baseada em certificados em um cluster autônomo](service-fabric-windows-cluster-x509-security.md) ou [a segurança do Windows em um cluster autônomo](service-fabric-windows-cluster-windows-security.md) para obter informações sobre como toofill out Olá restante da saudação **segurança**seção.
 
 <a id="nodetypes"></a>
 
 ### <a name="node-types"></a>Tipos de nó
-A seção **nodeTypes** descreve o tipo de nó que seu cluster tem. Pelo menos um tipo de nó deve ser especificado para um cluster, como mostrado no fragmento a seguir. 
+Olá **nodeTypes** seção descreve o tipo de saudação de nós de saudação que seu cluster tem. Pelo menos um tipo de nó deve ser especificado para um cluster, conforme mostrado no trecho de saudação abaixo. 
 
     "nodeTypes": [{
         "name": "NodeType0",
@@ -140,20 +140,20 @@ A seção **nodeTypes** descreve o tipo de nó que seu cluster tem. Pelo menos u
         "isPrimary": true
     }]
 
-O **nome** é o nome amigável para esse tipo de nó específico. Para criar um nó desse tipo, atribua o nome amigável à variável **nodeTypeRef** para esse nó, conforme mencionado [acima](#clusternodes). Para cada tipo de nó, defina os pontos de extremidade de conexão que serão usados. Você pode escolher qualquer número de porta para esses pontos de extremidade de conexão, desde que eles não entrem em conflito com qualquer outro ponto de extremidade neste cluster. Em um cluster de vários nós, haverá um ou mais nós primários (ou seja, **isPrimary** definido como *true*), dependendo do [**reliabilityLevel**](#reliability). Leia [Considerações de planejamento de capacidade de cluster do Service Fabric](service-fabric-cluster-capacity.md) para obter informações sobre **nodeTypes** e **reliabilityLevel**, bem como para saber quais são os tipos de nó primários e não primários. 
+Olá **nome** é Olá o nome amigável para este tipo de nó específico. toocreate um nó do tipo de nó, atribuir o nome amigável toohello **nodeTypeRef** variável para esse nó, conforme mencionado [acima](#clusternodes). Para cada tipo de nó, defina pontos de extremidade de conexão de saudação que serão usados. Você pode escolher qualquer número de porta para esses pontos de extremidade de conexão, desde que eles não entrem em conflito com qualquer outro ponto de extremidade neste cluster. Em um cluster de vários nó, haverá um ou mais nós primários (ou seja, **isPrimary** definido muito*true*), dependendo da saudação [ **reliabilityLevel** ](#reliability). Leitura [considerações de planejamento de capacidade de cluster do Service Fabric](service-fabric-cluster-capacity.md) para obter informações sobre **nodeTypes** e **reliabilityLevel**e tooknow quais são principal e Olá tipos de nó não primário. 
 
-#### <a name="endpoints-used-to-configure-the-node-types"></a>Pontos de extremidade usados para configurar os tipos de nó
-* *clientConnectionEndpointPort* é a porta usada pelo cliente para se conectar ao cluster, ao usar as APIs de cliente. 
-* *clusterConnectionEndpointPort* é a porta na qual os nós se comuniquem entre si.
-* *leaseDriverEndpointPort* é a porta usada pelo driver de concessão de cluster para descobrir se os nós ainda estão ativos. 
-* *serviceConnectionEndpointPort* é a porta usada pelos aplicativos e serviços implantados em um nó, para se comunicar com o cliente do Service Fabric no nó específico.
-* *httpGatewayEndpointPort* é a porta usada pelo Service Fabric Explorer para se conectar ao cluster.
-* *ephemeralPorts* substituem as [portas dinâmicas usadas pelo sistema operacional](https://support.microsoft.com/kb/929851). O Service Fabric usará parte dessas portas como portas do aplicativo e o restante estará disponível para o SO. Ele também mapeará esse intervalo para o intervalo existente presente no SO. Então, para todas as finalidades, você pode usar os intervalos fornecidos nos arquivos JSON de exemplo. Você precisa certificar-se de que a diferença entre as portas de início e de fim é pelo menos 255. Você poderá encontrar conflitos se a diferença for muito baixa, uma vez que esse intervalo é compartilhado com o sistema operacional. Veja o intervalo de portas dinâmicas configurado executando `netsh int ipv4 show dynamicport tcp`.
-* *applicationPorts* são portas que serão usadas pelos aplicativos do Service Fabric. O intervalo de portas do aplicativo deve ser amplo o bastante para cobrir o requisito de ponto de extremidade dos aplicativos. Esse intervalo deve ser exclusivo no intervalo de portas dinâmico no computador, isto é, o intervalo *ephemeralPorts* conforme definido na configuração.  O Service Fabric usará essas portas sempre que novas portas forem necessárias, bem como cuidará de abrir o firewall para essas portas. 
+#### <a name="endpoints-used-tooconfigure-hello-node-types"></a>Pontos de extremidade usados tipos de nós de saudação tooconfigure
+* *clientConnectionEndpointPort* é Olá porta usada pelo Olá cliente tooconnect toohello cluster, ao usar APIs de cliente hello. 
+* *clusterConnectionEndpointPort* Olá porta em que nós de saudação se comunicam entre si.
+* *leaseDriverEndpointPort* Olá porta usada pelo Olá cluster concessão driver toofind out se nós Olá ainda estão ativas. 
+* *serviceConnectionEndpointPort* é a porta Olá usados por aplicativos de saudação e serviços implantados em um nó, toocommunicate com o cliente do Service Fabric Olá naquele nó específico.
+* *httpGatewayEndpointPort* Olá porta usados pelo Olá Service Fabric Explorer tooconnect toohello cluster.
+* *ephemeralPorts* substituir Olá [portas dinâmicas usadas pelo Olá OS](https://support.microsoft.com/kb/929851). Service Fabric usará uma parte dessas portas do aplicativo e Olá restantes estarão disponíveis para Olá sistema operacional. Ele também mapeará esse intervalo toohello intervalo existente presente no hello sistema operacional, então para todas as finalidades, você pode usar intervalos de saudação fornecidos nos arquivos de JSON de exemplo hello. Você precisa toomake-se de que a diferença Olá entre o início Olá Olá portas e end pelo menos 255. Você pode executar em conflitos se essa diferença é muito baixa, pois esse intervalo é compartilhado com o sistema operacional de saudação. Consulte o intervalo de portas dinâmicas de saudação configurado executando `netsh int ipv4 show dynamicport tcp`.
+* *applicationPorts* Olá portas que serão usados por aplicativos do Service Fabric hello. intervalo de portas de aplicativo Hello deve ser um requisito de ponto de extremidade de saudação toocover grande o suficiente de seus aplicativos. Esse intervalo deve ser exclusivo no intervalo de porta dinâmica Olá na máquina hello, ou seja, a saudação de *ephemeralPorts* intervalo conforme definido na configuração de saudação.  Malha do serviço será usá-los sempre que novas portas são necessárias, bem como o cuidam de abrir o firewall Olá para essas portas. 
 * *reverseProxyEndpointPort* é um ponto de extremidade de proxy reverso opcional. Consulte [Reverter Proxy do Service Fabric](service-fabric-reverseproxy.md) para obter mais detalhes. 
 
 ### <a name="log-settings"></a>Configurações de log
-A seção **fabricSettings** permite que você defina os diretórios raiz para os dados e logs do Service Fabric. Você pode personalizá-los somente durante a criação inicial do cluster. Veja abaixo um exemplo de trecho de código desta seção.
+Olá **fabricSettings** seção permite que você tooset Olá raiz diretórios Olá Service Fabric dados e logs. Você pode personalizar esses somente durante a criação de cluster inicial de saudação. Veja abaixo um exemplo de trecho de código desta seção.
 
     "fabricSettings": [{
         "name": "Setup",
@@ -165,11 +165,11 @@ A seção **fabricSettings** permite que você defina os diretórios raiz para o
             "value": "C:\\ProgramData\\SF\\Log"
     }]
 
-Recomendamos usar uma unidade não de SO, como FabricDataRoot e FabricLogRoot, pois isso proporciona mais confiabilidade contra falhas do SO. Observe que se você personalizar somente a raiz dos dados, a raiz do log será colocada um nível abaixo da raiz dos dados.
+É recomendável usando uma unidade não-OS como Olá FabricDataRoot e FabricLogRoot, pois ele oferece mais confiabilidade contra falhas do sistema operacional. Observe que se você personalizar somente raiz de dados hello, em seguida, raiz de log Olá será colocado um nível abaixo da raiz de dados hello.
 
 ### <a name="stateful-reliable-service-settings"></a>Configurações de Reliable Service com estado
-A seção **KtlLogger** permite que você defina as configurações globais dos Reliable Services. Para obter mais detalhes sobre essas configurações, leia [Configurar o Reliable Services com estado](service-fabric-reliable-services-configuration.md).
-O exemplo a seguir mostra como alterar o log de transações compartilhado que é criado para dar apoio às coleções confiáveis para serviços com estado.
+Olá **KtlLogger** seção permite que você tooset Olá configurações globais para serviços confiáveis. Para obter mais detalhes sobre essas configurações, leia [Configurar o Reliable Services com estado](service-fabric-reliable-services-configuration.md).
+exemplo Hello abaixo mostra como toochange Olá Olá compartilhado log de transações que obtém criados tooback todas as coleções confiáveis para serviços com monitoração de estado.
 
     "fabricSettings": [{
         "name": "KtlLogger",
@@ -180,7 +180,7 @@ O exemplo a seguir mostra como alterar o log de transações compartilhado que �
     }]
 
 ### <a name="add-on-features"></a>Recursos de complemento
-Para configurar recursos de complemento, a apiVersion deve ser configurada como ' 04-2017' ou superior e addonFeatures precisa ser configurado:
+recursos de complemento tooconfigure, Olá apiVersion deve ser configurado como ' 04-2017' ou superior e addonFeatures precisa toobe configurado:
 
     "apiVersion": "04-2017",
     "properties": {
@@ -191,9 +191,9 @@ Para configurar recursos de complemento, a apiVersion deve ser configurada como 
     }
 
 ### <a name="container-support"></a>Suporte a contêiner
-Para habilitar o suporte de contêiner para o contêiner do windows server e o contêiner do hyper-v para clusters autônomos, o recurso de complemento 'DnsService' deve ser habilitado.
+tooenable suporte de contêiner para o contêiner do windows server e o contêiner do hyper-v para clusters autônomos, recurso de complemento 'DnsService' hello precisa toobe habilitado.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois de configurar um arquivo ClusterConfig.JSON completo de acordo com a configuração do cluster independente, é possível implantar o cluster seguindo o artigo [Criar e gerenciar um cluster em execução no Windows Server](service-fabric-cluster-creation-for-windows-server.md) e continuando com [Visualizando o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+Uma vez que um arquivo Clusterconfig completo configurado de acordo com a configuração de cluster autônomo, você pode implantar o cluster usando o seguinte artigo Olá [criar um cluster do Service Fabric autônomo](service-fabric-cluster-creation-for-windows-server.md) e prossiga muito[visualizar seu cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 

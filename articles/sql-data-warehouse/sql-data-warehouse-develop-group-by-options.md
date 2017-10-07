@@ -1,5 +1,5 @@
 ---
-title: "Agrupar por opções no SQL Data Warehouse | Microsoft Docs"
+title: "aaaGroup pelas opções no SQL Data Warehouse | Microsoft Docs"
 description: "Dicas para implementar o agrupamento por opções no SQL Data Warehouse do Azure para desenvolver soluções."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,14 +15,14 @@ ms.workload: data-services
 ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.openlocfilehash: da71cb834c13da5d0f5690f471efc6c696163f30
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cc443c2af4e3ef2babd74d78aa6fb57bb3c1c7ea
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>Agrupar por opções de SQL Data Warehouse
-A cláusula [GROUP BY][GROUP BY] é usada para agregar dados a um conjunto de linhas de resumo. Ela também tem algumas opções que ampliam sua funcionalidade que precisam ser solucionadas pois não tem suporte diretamente pelo SQL Data Warehouse do Azure.
+Olá [GROUP BY] [ GROUP BY] cláusula é utilizada tooaggregate tooa resumo conjunto de dados linhas. Ele também tem algumas opções que estendem sua funcionalidade que toobe necessidade contornado como não são diretamente suportados pelo Azure SQL Data Warehouse.
 
 Essas opções são
 
@@ -31,9 +31,9 @@ Essas opções são
 * GROUP BY com CUBE
 
 ## <a name="rollup-and-grouping-sets-options"></a>O rollup e o agrupamento definem opções
-A opção mais simples é usar `UNION ALL` ao invés de executar o rollup do que contar com a sintaxe explícita. O resultado é exatamente o mesmo
+Olá, aqui a opção mais simples é toouse `UNION ALL` em vez disso, tooperform Olá rollup em vez de depender Olá sintaxe explícito. é o resultado de saudação exatamente Olá mesmo
 
-Abaixo está um exemplo de um agrupamento pela instrução usando a opção `ROLLUP` :
+Abaixo está um exemplo de um grupo pela instrução usando Olá `ROLLUP` opção:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -48,13 +48,13 @@ GROUP BY ROLLUP (
 ;
 ```
 
-Ao usar ROLLUP, solicitamos as seguintes agregações:
+Usando o pacote cumulativo de atualizações tenhamos solicitado Olá agregações a seguir:
 
 * país e região
 * País
 * Grande Total
 
-Para substituir isso, você precisará usar `UNION ALL`; especificar as agregações explicitamente necessárias para retornar os mesmos resultados:
+tooreplace isso será necessário toouse `UNION ALL`; especificando agregações Olá necessárias explicitamente tooreturn Olá os mesmos resultados:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -81,14 +81,14 @@ FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey;
 ```
 
-Para GROUPING SETS, tudo o que precisamos fazer é adotar a mesma entidade principal, mas apenas criar seções UNION ALL para os níveis de agregação que queremos ver
+Para conjuntos de AGRUPAMENTOS tudo o que precisamos toodo é adotar Olá mesmo principal, mas apenas criar seções UNION ALL para Olá níveis de agregação que desejamos toosee
 
 ## <a name="cube-options"></a>Opções Cube
-É possível criar uma instrução GROUP BY WITH CUBE usando a abordagem UNION ALL. O problema é que o código pode rapidamente se tornar complicado e difícil. Para atenuar isso, você pode usar essa abordagem mais avançada.
+É possível toocreate um GROUP BY WITH CUBE usando a abordagem de saudação UNION ALL. problema de saudação é código Olá rapidamente pode se tornar complicada e complicada. toomitigate isso você pode usar isso mais avançados abordagem.
 
-Vamos usar o exemplo anterior.
+Vamos usar o exemplo hello acima.
 
-A primeira etapa é definir o ‘cube’ que define todos os níveis de agregação que desejamos criar. É importante que você observe o CROSS JOIN das duas tabelas derivadas. Isso gera todos os níveis. O restante do código está lá para formatação.
+Olá primeira etapa é toodefine Olá 'cube' que define todos os níveis de saudação de agregação que desejamos toocreate. É importante tootake anote Olá CROSS JOIN das duas tabelas derivadas de saudação. Isso gera todos os níveis de saudação para nós. restante de saudação do código de saudação é realmente existe para a formatação.
 
 ```sql
 CREATE TABLE #Cube
@@ -119,11 +119,11 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-Os resultados de CTAS podem ser vistos abaixo:
+resultados de saudação do hello CTAS podem ser vistos abaixo:
 
 ![][1]
 
-A segunda etapa é especificar uma tabela de destino para armazenar os resultados intermediários:
+Olá segunda etapa é toospecify que resulta de uma provisória de toostore de tabela de destino:
 
 ```sql
 DECLARE
@@ -146,7 +146,7 @@ WITH
 ;
 ```
 
-A terceira etapa é executar um loop sobre o cubo de colunas realizando a agregação. A consulta será executada uma vez para cada linha na tabela temporária #Cube e armazenará os resultados na tabela temporária #Results
+Olá terceira etapa é tooloop em nosso cubo de colunas executar Olá agregação. consulta Olá será executado uma vez para cada linha na tabela temporária Olá #Cube e armazenar os resultados de saudação na tabela temporária Olá #Results
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -170,7 +170,7 @@ BEGIN
 END
 ```
 
-Por fim, retornamos os resultados apenas lendo da tabela temporária #Results
+Por fim, pode retornar resultados de hello, simplesmente lendo da tabela temporária Olá #Results
 
 ```sql
 SELECT *
@@ -179,7 +179,7 @@ ORDER BY 1,2,3
 ;
 ```
 
-Dividir o código em seções e gerar uma construção de loop, torna o código mais gerenciável e sustentável.
+Dividindo o código de saudação em seções e gerando uma saudação de construção de loop código se torna mais gerenciáveis e sustentável.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimento][development overview].

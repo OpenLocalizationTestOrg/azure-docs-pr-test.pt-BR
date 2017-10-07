@@ -1,6 +1,6 @@
 ---
-title: "Gerenciar potência de computação no SQL Data Warehouse do Azure (portal do Azure) | Microsoft Docs"
-description: "Tarefas do portal do Azure para gerenciar o poder de computação. Dimensionar recursos de computação ajustando as DWUs. Ou, para economizar custos, pause e retome os recursos de computação."
+title: "aaaManage computação power no Azure SQL Data Warehouse (portal do Azure) | Microsoft Docs"
+description: "Capacidade de computação toomanage tarefas do portal do Azure. Dimensionar recursos de computação ajustando as DWUs. Ou, pausar e retomar os custos de toosave de recursos de computação."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 63888d5dd103b585cf18e4787d3e779810163e3d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b2e84b3763e97ce88c190eecfb64b2d06f727229
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-azure-portal"></a>Gerenciar poder de computação no SQL Data Warehouse do Azure (portal do Azure)
 > [!div class="op_single_selector"]
@@ -35,15 +35,15 @@ ms.lasthandoff: 07/11/2017
 ## <a name="scale-compute-power"></a>Dimensionar poder de computação
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
-Para alterar recursos de computação:
+recursos de computação toochange:
 
-1. Abra o [Portal do Azure][Azure portal], abra seu banco de dados e clique em **Escala**.
+1. Olá abrir [portal do Azure][Azure portal], abra o banco de dados e clique em **escala**.
 
     ![Clique em Escala.][1]
-2. Na folha Escala, mova o controle deslizante para a esquerda ou direita para alterar a configuração de DWU.
+2. Na folha de escala hello, mova o controle deslizante de saudação à esquerda ou direita toochange configuração de DWU de saudação.
 
     ![Mover o controle deslizante][2]
-3. Clique em **Salvar**. Será exibida uma mensagem de confirmação. Clique em **sim** para confirmar ou em **não** para cancelar.
+3. Clique em **Salvar**. Será exibida uma mensagem de confirmação. Clique em **Sim** tooconfirm ou **sem** toocancel.
 
     ![Clique em Salvar][3]
 
@@ -52,16 +52,16 @@ Para alterar recursos de computação:
 ## <a name="pause-compute"></a>Pausar computação
 [!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
-Para pausar um banco de dados:
+toopause um banco de dados:
 
-1. Abra o [Portal do Azure][Azure portal] e abra seu banco de dados. Observe que o Status é **Online**.
+1. Olá abrir [portal do Azure] [ Azure portal] e abra o banco de dados. Observe que Olá Status é **Online**.
 
     ![Status online][6]
-2. Para suspender os recursos de computação e de memória, clique em **Pausar**e uma mensagem de confirmação será exibida. Clique em **sim** para confirmar ou em **não** para cancelar.
+2. Clique em recursos de computação e memória toosuspend, **pausar**, e, em seguida, será exibida uma mensagem de confirmação. Clique em **Sim** tooconfirm ou **sem** toocancel.
 
     ![Confirmar pausar][7]
-3. Enquanto o SQL Data Warehouse estiver iniciando o banco de dados, o status será **Pausando**.
-4. Quando o status for **Em pausa**, a operação de pausa terá sido concluída e você deixará de ser cobrado pelas DWUs.
+3. Quando o SQL Data Warehouse é iniciar o banco de dados do hello, status de saudação é **pausar**.
+4. Quando o status de saudação é **pausado**, Olá pausar operação seja concluída e você não está sendo cobradas DWUs.
 
     ![Status em pausa][4]
 
@@ -70,16 +70,16 @@ Para pausar um banco de dados:
 ## <a name="resume-compute"></a>Retomar a computação
 [!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
-Para retomar um banco de dados:
+tooresume um banco de dados:
 
-1. Abra o [Portal do Azure][Azure portal] e abra seu banco de dados. Observe que o Status é **Em pausa**.
+1. Olá abrir [portal do Azure] [ Azure portal] e abra o banco de dados. Observe que Olá Status é **pausado**.
 
     ![Pausar banco de dados][4]
-2. Para retomar o banco de dados, clique em **Iniciar**e uma mensagem de confirmação será exibida. Clique em **sim** para confirmar ou em **não** para cancelar.
+2. Clique em banco de dados de saudação tooresume **iniciar**, e, em seguida, será exibida uma mensagem de confirmação. Clique em **Sim** tooconfirm ou **sem** toocancel.
 
     ![Confirmar retomar][5]
-3. Enquanto o SQL Data Warehouse estiver iniciando o banco de dados, o status será “Continuando”.
-4. Quando o status for **online**, o banco de dados estará pronto.
+3. Enquanto o SQL Data Warehouse é iniciar o banco de dados de saudação, o status de saudação é "Retomando".
+4. Quando o status de saudação é **online**, Olá está pronto.
 
     ![Status online][6]
 

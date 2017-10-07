@@ -1,6 +1,6 @@
 ---
-title: "Replicar uma implantação do Citrix XenDesktop e XenApp de várias camadas usando o Azure Site Recovery | Microsoft Docs"
-description: "Este artigo descreve como proteger e recuperar implantações do Citrix XenDesktop e XenApp usando o Azure Site Recovery."
+title: "aaaReplicate uma implantação de várias camada Citrix XenDesktop e XenApp usando o Azure Site Recovery | Microsoft Docs"
+description: "Este artigo descreve como implantações tooprotect e recupere o Citrix XenDesktop e XenApp usando o Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: ponatara
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: ponatara
-ms.openlocfilehash: dc064352b1841ff346b705dc63186b12d79350b3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c4ea9f95f91c585cdcf9d776b02c0967f4c16ab0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Replicar uma implantação do Citrix XenApp e XenDesktop de várias camadas usando o Azure Site Recovery
 
 ## <a name="overview"></a>Visão geral
 
-O Citrix XenDesktop é uma solução de virtualização de área de trabalho que entrega aplicativos e áreas de trabalho como um serviço sob demanda a qualquer usuário, em qualquer lugar. Com tecnologia de entrega FlexCast, o XenDesktop pode fornecer aplicativos e áreas de trabalho aos usuários de forma rápida e com segurança.
+Citrix XenDesktop é uma solução de virtualização de área de trabalho que a entrega de aplicativos e áreas de trabalho como um ondemand tooany usuário do serviço, em qualquer lugar. Com tecnologia de entrega FlexCast XenDesktop pode rapidamente e com segurança fornecer aplicativos e áreas de trabalho toousers.
 Hoje, o Citrix XenApp não fornece qualquer capacidade de recuperação de desastre.
 
-Uma boa solução de recuperação de desastres deve permitir a modelagem de planos de recuperação em torno das arquiteturas de aplicativo complexas indicadas acima, e também tem a capacidade de adicionar etapas personalizadas para lidar com mapeamentos de aplicativo entre as várias camadas, fornecendo uma solução certeira acionada com um único clique no caso de um desastre resultar em um RTO inferior.
+Uma solução de recuperação de desastres BOM, deve permitir modelagem de planos de recuperação em torno de saudação acima arquiteturas de aplicativos complexos e também ter Olá capacidade tooadd personalizado etapas toohandle aplicativo mapeamentos entre várias camadas, portanto, fornecendo um Clique se captura solução no evento de saudação de um desastre esquerda tooa reduzir o RTO.
 
-Este documento fornece uma orientação passo a passo para a criação de uma solução de recuperação de desastre para suas implantações locais do Citrix XenApp em plataformas do Hyper-V e VMware vSphere. Este documento também descreve como executar um failover de teste (análise de recuperação de desastre) e o failover não planejado para o Azure usando planos de recuperação, as configurações com suporte e os pré-requisitos.
+Este documento fornece uma orientação passo a passo para a criação de uma solução de recuperação de desastre para suas implantações locais do Citrix XenApp em plataformas do Hyper-V e VMware vSphere. Este documento descreve também como tooperform um failover de teste (análise de recuperação de desastres) e o failover não planejado tooAzure usando planos de recuperação, configurações de saudação com suporte e os pré-requisitos.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, você precisa entender o seguinte:
+Antes de começar, certifique-se de que compreender o seguinte hello:
 
-1. [Replicar uma máquina virtual no Azure](site-recovery-vmware-to-azure.md)
-1. Como [criar uma rede de recuperação](site-recovery-network-design.md)
-1. [Executar um failover de teste no Azure](site-recovery-test-failover-to-azure.md)
-1. [Executar um failover no Azure](site-recovery-failover.md)
-1. Como [replicar um controlador de domínio](site-recovery-active-directory.md)
-1. Como [replicar o SQL Server](site-recovery-sql.md)
+1. [Replicando tooAzure uma máquina virtual](site-recovery-vmware-to-azure.md)
+1. Como muito[criar uma rede de recuperação](site-recovery-network-design.md)
+1. [Fazer um tooAzure de failover de teste](site-recovery-test-failover-to-azure.md)
+1. [Fazer um failover tooAzure](site-recovery-failover.md)
+1. Como muito[replicar um controlador de domínio](site-recovery-active-directory.md)
+1. Como muito[replicar do SQL Server](site-recovery-sql.md)
 
 ## <a name="deployment-patterns"></a>Padrões de implantação
 
-Um farm do Citrix XenApp e XenDesktop normalmente tem o seguinte padrão de implantação:
+Um farm do Citrix XenApp e XenDesktop normalmente tem saudação padrão de implantação a seguir:
 
 **Padrão de implantação**
 
@@ -56,35 +56,35 @@ A implantação do Citrix XenApp e XenDesktop com servidor DNS AD, servidor de b
 
 ## <a name="site-recovery-support"></a>Suporte do Site Recovery
 
-Com a finalidade deste artigo, as implantações do Citrix em máquinas virtuais VMware gerenciadas pelo vSphere 6.0/System Center VMM 2012 R2 foram usadas para configurar a recuperação de desastre.
+Para fins de saudação deste artigo, Citrix implantações em máquinas virtuais VMware gerenciadas por vSphere 6.0 / System Center VMM 2012 R2 foram usado toosetup DR.
 
 ### <a name="source-and-target"></a>Origem e destino
 
-**Cenário** | **Para um site secundário** | **Para o Azure**
+**Cenário** | **site secundário tooa** | **tooAzure**
 --- | --- | ---
 **Hyper-V** | Não está no escopo | Sim
 **VMware** | Não está no escopo | Sim
 **Servidor físico** | Não está no escopo | Sim
 
 ### <a name="versions"></a>Versões
-Os clientes podem implantar componentes do XenApp como máquinas virtuais em execução no Hyper-V ou VMware, ou como servidores físicos. O Azure Site Recovery pode proteger as implantações físicas e virtuais no Azure.
-Como o XenApp 7,7 ou posterior tem suporte no Azure, somente implantações com essas versões podem fazer failover no Azure para recuperação de desastre ou migração.
+Os clientes podem implantar componentes do XenApp como máquinas virtuais em execução no Hyper-V ou VMware, ou como servidores físicos. Recuperação de Site do Azure pode proteger tooAzure ambas as implantações físicas e virtuais.
+Como XenApp 7,7 ou posterior tem suporte no Azure, somente implantações com essas versões podem sofrer failover tooAzure para recuperação de desastres ou migração.
 
-### <a name="things-to-keep-in-mind"></a>Algumas coisas que se deve manter em mente
+### <a name="things-tookeep-in-mind"></a>Tookeep coisas em mente
 
-1. A proteção e a recuperação de implantações locais usando os computadores com o sistema operacional de servidor para entregar aplicativos publicados do XenApp e áreas de trabalho publicadas do XenApp.
+1. Proteção e recuperação de local há suporte para implantações usando o sistema operacional Server máquinas toodeliver XenApp aplicativos publicados e XenApp publicado áreas de trabalho.
 
-2. A proteção e a recuperação de implantações locais usando os computadores com o sistema operacional de área de trabalho para entregar VDI da área de trabalho para as áreas de trabalho virtuais do cliente, incluindo o Windows 10, não é suportada. Isso ocorre porque o ASR não dá suporte a recuperação de computadores com o sistema operacional de área de trabalho.  Além disso, alguns tipos de área de trabalho virtual do cliente (por exemplo, Windows 7) ainda não têm suporte para licenciamento no Azure. [Saiba mais](https://azure.microsoft.com/pricing/licensing-faq/) sobre licenciamento para áreas de trabalho de cliente/servidor no Azure.
+2. Não há suporte para a proteção e recuperação de implantações de local usando toodeliver de máquinas de SO da área de trabalho VDI de área de trabalho cliente áreas de trabalho virtuais, incluindo Windows 10. Isso ocorre porque a ASR não oferece suporte à recuperação de saudação de computadores com área de trabalho OS'es.  Além disso, alguns tipos de área de trabalho virtual do cliente (por exemplo, Windows 7) ainda não têm suporte para licenciamento no Azure. [Saiba mais](https://azure.microsoft.com/pricing/licensing-faq/) sobre licenciamento para áreas de trabalho de cliente/servidor no Azure.
 
 3.  O Azure Site Recovery não pode replicar e proteger clones MCS ou PVS locais existentes.
-Você precisa recriar esses clones usando o provisionamento do Azure RM do Controlador de entrega.
+É necessário toorecreate esses clones usando o Azure RM provisionamento do controlador de entrega.
 
-4. O NetScaler não pode ser protegido usando o Azure Site Recovery conforme o NetScaler baseia-se em FreeBSD e o Azure Site Recovery não oferece suporte a proteção do sistema operacional do FreeBSD. Você precisa implantar e configurar um novo dispositivo NetScaler do Azure Marketplace após o failover no Azure.
+4. O NetScaler não pode ser protegido usando o Azure Site Recovery conforme o NetScaler baseia-se em FreeBSD e o Azure Site Recovery não oferece suporte a proteção do sistema operacional do FreeBSD. Você precisa toodeploy e configurar um novo dispositivo NetScaler de mercado Azure após o failover tooAzure.
 
 
 ## <a name="replicating-virtual-machines"></a>Replicação de máquinas virtuais
 
-Os seguintes componentes da implantação do Citrix XenApp precisam ser protegidos para habilitar a replicação e a recuperação.
+Olá seguintes componentes do hello Citrix XenApp implantação necessário toobe protegido tooenable replicação e a recuperação.
 
 * Proteção do servidor DNS AD
 * Proteção do servidor de banco de dados SQL
@@ -96,52 +96,52 @@ Os seguintes componentes da implantação do Citrix XenApp precisam ser protegid
 
 **Replicação do servidor DNS AD**
 
-Consulte [Proteger o Active Directory e DNS com o Azure Site Recovery](site-recovery-active-directory.md) na orientação para a replicação e configurar de um controlador de domínio no Azure.
+Consulte também[proteger o Active Directory e DNS com o Azure Site Recovery](site-recovery-active-directory.md) na orientação para a replicação e configurar um controlador de domínio no Azure.
 
 **Replicação do servidor de banco de dados SQL**
 
-Consulte [Proteger o SQL Server com a recuperação de desastre do SQL Server e o Azure Site Recovery](site-recovery-sql.md) na orientação técnica detalhada das opções recomendadas para proteger os servidores SQL.
+Consulte também[proteger o SQL Server com a recuperação de desastres do SQL Server e o Azure Site Recovery](site-recovery-sql.md) para orientações técnicas detalhadas sobre Olá recomendado opções para proteger os servidores SQL.
 
-Siga [esta orientação](site-recovery-vmware-to-azure.md) para começar a replicar as outras máquinas virtuais de componente para o Azure.
+Execute [neste guia](site-recovery-vmware-to-azure.md) toostart replicando Olá outros tooAzure de máquinas virtuais do componente.
 
 ![Proteção dos componentes do XenApp](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-enablereplication.png)
 
 **Configurações de rede e de computação**
 
-Depois que os computadores estiverem protegidos (o status mostra como "Protegido" em Itens replicados), as configurações de rede e de computação precisam ser definidas.
-Em Computação e Rede > Propriedades de Computação, você pode especificar o nome da VM do Azure e o tamanho do destino.
-Modifique o nome para que ele fique em conformidade com os requisitos do Azure, se for necessário. Você também pode exibir e adicionar as informações sobre a rede de destino, a sub-rede e o endereço IP que será atribuído à VM do Azure.
+Depois de máquinas Olá protegidas (status mostra como "Protected" em itens replicados), Olá computação e as configurações de rede necessário toobe configurado.
+Em computação e rede > computação propriedades, você pode especificar o tamanho de destino e o nome de VM do Azure hello.
+Se for necessário, modifique Olá nome toocomply com os requisitos do Azure. Você também pode exibir e adicionar informações sobre a rede de destino hello, sub-rede e endereço IP que será atribuído toohello VM do Azure.
 
-Observe o seguinte:
+Observe o seguinte hello:
 
-* Você pode definir o endereço IP de destino. Se você não fornecer um endereço, o computador com failover usará o DHCP. Se você definir um endereço que não esteja disponível no failover, o failover não funcionará. O mesmo endereço IP de destino poderá ser usado para failover de teste caso o endereço esteja disponível na rede de failover de teste.
+* Você pode definir o endereço IP de destino hello. Se você não fornecer um endereço, Olá failover máquina usará o DHCP. Se você definir um endereço que não está disponível em failover, o failover de saudação não funcionará. saudação do mesmo endereço IP de destino pode ser usado para failover de teste se o endereço de saudação está disponível na rede de failover de teste de saudação.
 
-* Para o servidor DNS/AD, manter o endereço local permite que você especifique o mesmo endereço como o servidor DNS para a rede Virtual do Azure.
+* Para o servidor de AD/DNS hello, reter Olá local permite endereço que especificar Olá mesmo endereço como servidor DNS Olá para rede Virtual do Azure hello.
 
-O número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino, como a seguir:
+número de saudação de adaptadores de rede é determinado pelo tamanho de saudação especificado para a máquina de virtual de destino Olá, da seguinte maneira:
 
-*   Se o número de adaptadores de rede na máquina de origem for menor ou igual ao número de adaptadores permitido para o tamanho da máquina de destino, o destino terá o mesmo número de adaptadores que a origem.
-*   Se o número de adaptadores para máquina virtual de origem exceder o número permitido para o tamanho de destino e o tamanho máximo de destino será usado.
-* Por exemplo, se uma máquina de origem tiver dois adaptadores de rede e o tamanho da máquina de destino der suporte a quatro, a máquina de destino terá dois adaptadores. Se a máquina de origem tiver dois adaptadores, mas o tamanho de destino com suporte oferecer suporte apenas a uma máquina de destino, ela terá apenas um adaptador.
-*   Se a máquina virtual tiver vários adaptadores de rede, todos eles se conectarão à mesma rede.
-*   Se a máquina virtual tiver vários adaptadores de rede, o primeiro deles mostrado na lista se tornará o adaptador de rede Padrão na máquina virtual do Azure.
+*   Se Olá vários adaptadores de rede no computador de origem de saudação é menor ou igual toohello número de adaptadores permitido para o tamanho de máquina de destino Olá, então terá destino Olá Olá o mesmo número de adaptadores de fonte de saudação.
+*   Se número Olá dos adaptadores de saudação da máquina virtual de origem exceder o número de saudação permitido para o tamanho de destino hello e tamanho máximo da saudação destino será usado.
+* Por exemplo, se um computador de origem tem dois adaptadores de rede e o tamanho de máquina de destino Olá oferece suporte a quatro, computador de destino Olá terá dois adaptadores. Se o computador de origem Olá tem dois adaptadores, mas hello tamanho de destino com suporte apenas oferece suporte a um computador de destino Olá terá apenas um adaptador.
+*   Se a máquina virtual de saudação tem vários adaptadores de rede conectará todos toohello mesma rede.
+*   Se a máquina virtual de saudação tem vários adaptadores de rede, hello primeiro aquele mostrado na lista de saudação torna-se adaptador de rede saudação padrão em Olá máquina virtual do Azure.
 
 
 ## <a name="creating-a-recovery-plan"></a>Criar um plano de recuperação
 
-Após a replicação estar habilitada para as VMs de componente do XenApp, a próxima etapa é criar um plano de recuperação.
+Após a replicação está habilitada para Olá XenApp componente VMs, Olá próxima etapa é toocreate um plano de recuperação.
 Uma plano de recuperação agrupa as máquinas virtuais com requisitos semelhantes para failover e recuperação.  
 
-**Etapas para criar um plano de recuperação**
+**Etapas toocreate um plano de recuperação**
 
-1. Adicione máquinas virtuais de componente do XenApp no Plano de recuperação.
-2. Clique em Planos de Recuperação -> + Plano de Recuperação. Forneça um nome intuitivo para o plano de recuperação.
+1. Adicione máquinas virtuais do hello XenApp componente no plano de recuperação de saudação.
+2. Clique em Planos de Recuperação -> + Plano de Recuperação. Forneça um nome intuitivo para o plano de recuperação de saudação.
 3. Para máquinas virtuais do VMware: selecione a origem como o servidor de processo do VMware, o destino como o Microsoft Azure e o modelo de implantação como o Gerenciador de Recursos, e clique em Selecionar itens.
-4. Para máquinas virtuais do Hyper-V: selecione a origem como o servidor do VMM, o destino como o Microsoft Azure e o modelo de implantação como o Gerenciador de Recursos, e clique em Selecionar itens e, em seguida, selecione as VMs de implantação do XenApp.
+4. Para máquinas virtuais Hyper-V: Selecionar origem como o servidor do VMM, como o Microsoft Azure e o modelo de implantação como o Gerenciador de recursos de destino e clique em selecionar itens e selecione máquinas virtuais de implantação XenApp hello.
 
-### <a name="adding-virtual-machines-to-failover-groups"></a>Adicionar máquinas virtuais aos grupos de failover
+### <a name="adding-virtual-machines-toofailover-groups"></a>A adição de grupos de toofailover de máquinas virtuais
 
-Os planos de recuperação podem ser personalizados para adicionar grupos de failover para a ordem de inicialização específica, scripts ou ações manuais. Os grupos a seguir precisam ser adicionados ao plano de recuperação.
+Planos de recuperação podem ser personalizado tooadd failover grupos para ações de manual, a ordem ou scripts de inicialização específica. Olá grupos a seguir precisa de plano de recuperação toobe toohello adicionado.
 
 1. Grupo de failover 1: DNS AD
 2. Grupo de failover 2: VMs do SQL Server
@@ -149,44 +149,44 @@ Os planos de recuperação podem ser personalizados para adicionar grupos de fai
 3. Grupo de failover 4: controlador de entrega e VMs do servidor StoreFront
 
 
-### <a name="adding-scripts-to-the-recovery-plan"></a>Adicionar scripts ao plano de recuperação
+### <a name="adding-scripts-toohello-recovery-plan"></a>Adicionar plano de recuperação de toohello de scripts
 
 Os scripts podem ser executados antes ou depois de um grupo específico em um plano de recuperação. Ações manuais podem ser também incluídas e executadas durante o failover.
 
-O plano de recuperação personalizado parece com o seguinte:
+plano de recuperação personalizada Olá aparência Olá abaixo:
 
 1. Grupo de failover 1: DNS AD
 2. Grupo de failover 2: VMs do SQL Server
 3. Grupo de failover 3: VM de imagem do VDA Master
 
    >[!NOTE]     
-   >As etapas 4, 6 e 7, que contém ações manuais ou de script, são aplicáveis apenas a um XenApp local > ambiente com catálogos MCS/PVS.
+   >As etapas 4, 6 e 7, que contém ações manuais ou de script são aplicável tooonly um XenApp local > ambiente com catálogos MCS/PVS.
 
-4. Ação manual ou de script do grupo 3: desligamento da VM do VDA Master quando o failover para o Azure estiver em estado de execução. Para criar novos catálogos do MCS usando a hospedagem do Azure ARM, a VM do VDA mestre precisa estar com o estado Parada (alocada). Desligar a VM do Portal do Azure.
+4. Ação Manual ou script do grupo 3: Olá de VM VDA mestre desligamento mestre VDA VM quando o failover tooAzure estará em um estado de execução. toocreate novos catálogos MCS usando o Azure ARM de hospedagem, mestre de Olá VDA VM é necessário toobe em parado (de alocada) estado. Saudação de desligamento VM a partir do Portal do Azure.
 
 5. Grupo de failover 4: controlador de entrega e VMs do servidor StoreFront
 6. Ação manual ou de script do grupo 3 1:
 
     ***Adicionar conexão do host do Azure RM***
 
-    Crie uma conexão de host do Azure ARM no computador do Controlador de entrega para provisionar novos catálogos MCS no Azure. Siga as etapas, conforme explicado neste [artigo](https://www.citrix.com/blogs/2016/07/21/connecting-to-azure-resource-manager-in-xenapp-xendesktop/).
+    Crie conexão de host do Azure ARM no controlador de entrega máquina tooprovision novos catálogos MCS no Azure. Execute as etapas de saudação conforme explicado neste [artigo](https://www.citrix.com/blogs/2016/07/21/connecting-to-azure-resource-manager-in-xenapp-xendesktop/).
 
 7. Ação manual ou de script do grupo 3 2:
 
     ***Recriar os catálogos MCS no Azure***
 
-    Os clones MCS ou PVS existentes no site primário não serão replicados para o Azure. Você precisa recriar esses clones usando o provisionamento do VDA Master e do Azure ARM replicados do Controlador de entrega. Siga as etapas, conforme explicado neste [artigo](https://www.citrix.com/blogs/2016/09/12/using-xenapp-xendesktop-in-azure-resource-manager/) para criar catálogos MCS no Azure.
+    Olá existente MCS ou PVS clones no site primário Olá não será replicada tooAzure. É necessário toorecreate esses clones usando Olá replicado VDA mestre e ARM Azure provisionamento do controlador de entrega. Execute as etapas de saudação conforme explicado neste [artigo](https://www.citrix.com/blogs/2016/09/12/using-xenapp-xendesktop-in-azure-resource-manager/) toocreate MCS catálogos no Azure.
 
 ![Plano de recuperação para componentes do XenApp](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-recoveryplan.png)
 
 
    >[!NOTE]
-   >Você pode usar scripts no [local](https://github.com/Azure/azure-quickstart-templates/blob/>master/asr-automation-recovery/scripts) para atualizar o DNS com os novos IPs de failover > máquinas virtuais ou para anexar um balanceador de carga pela máquina virtual na qual o failover foi realizado, se necessário.
+   >Você pode usar scripts em [local](https://github.com/Azure/azure-quickstart-templates/blob/>master/asr-automation-recovery/scripts) tooupdate Olá DNS com hello novos IPs de saudação failover > máquinas virtuais ou tooattach um balanceador de carga Olá falha pela máquina virtual, se necessário.
 
 
 ## <a name="doing-a-test-failover"></a>Executar um failover de teste
 
-Siga [este guia](site-recovery-test-failover-to-azure.md) fazer um failover de teste.
+Execute [neste guia](site-recovery-test-failover-to-azure.md) toodo um failover de teste.
 
 ![Plano de Recuperação](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-tfo.png)
 
@@ -197,4 +197,4 @@ Siga [este guia](site-recovery-failover.md) quando estiver realizando um failove
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você pode [saber mais](https://aka.ms/citrix-xenapp-xendesktop-with-asr) sobre replicação de implantações do Citrix XenApp e XenDesktop neste white paper. Examine as orientações para [replicar outros aplicativos](site-recovery-workload.md) usando o Site Recovery.
+Você pode [saber mais](https://aka.ms/citrix-xenapp-xendesktop-with-asr) sobre replicação de implantações do Citrix XenApp e XenDesktop neste white paper. Examinar a orientação de saudação muito[replicar outros aplicativos](site-recovery-workload.md) com a recuperação de Site.

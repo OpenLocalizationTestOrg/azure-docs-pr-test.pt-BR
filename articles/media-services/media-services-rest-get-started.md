@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao fornecimento de conteúdo sob demanda usando a REST | Microsoft Docs"
-description: "Este tutorial orienta você pelas etapas de implementação de um aplicativo de fornecimento de conteúdo sob demanda com os Serviços de Mídia do Azure usando API REST."
+title: "aaaGet iniciado com o fornecimento de conteúdo sob demanda usando REST | Microsoft Docs"
+description: "Este tutorial orienta você pelas etapas de saudação da implementação de um aplicativo de entrega de conteúdo na demanda com os serviços de mídia do Azure usando a API REST."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,98 +14,98 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: f304f7671465862123f64c8b0f9af95a7c828cc2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f270ed59e9ae9745e8403ec6e19d5c3533fc82b7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introdução ao fornecimento de conteúdo sob demanda usando a REST
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-Este início rápido orienta você pelas etapas de implementação de um aplicativo de entrega de conteúdo de vídeo sob demanda (VoD) com as APIs REST dos Serviços de Mídia do Azure (AMS).
+Este guia de início rápido o guiará durante as etapas de saudação da implementação de um aplicativo de entrega de conteúdo de vídeo sob demanda (VoD) usando as APIs de REST de serviços de mídia do Azure (AMS).
 
-O tutorial apresenta o fluxo de trabalho básico dos Serviços de Mídia e os objetos e as tarefas de programação mais comuns necessárias para o desenvolvimento dos Serviços de Mídia do Microsoft Azure. No final do tutorial, você poderá transmitir ou baixar progressivamente um arquivo de mídia de exemplo que você carregou, codificou e baixou.
+tutorial de Olá apresenta o fluxo de trabalho de serviços de mídia básico hello e objetos de programação mais comuns hello e tarefas necessárias para o desenvolvimento de serviços de mídia. Na conclusão de saudação do tutorial Olá, você será capaz de toostream ou baixar progressivamente um arquivo de mídia de exemplo que você carregado, codificado e baixado.
 
-A imagem a seguir mostra alguns dos objetos mais usados ao desenvolver aplicativos VoD em relação ao modelo de OData de Serviços de Mídia.
+Hello imagem a seguir mostra alguns dos objetos hello mais comumente usada ao desenvolver aplicativos VoD em modelo de mídia serviços OData hello.
 
-Clique na imagem para exibi-la em tamanho normal.  
+Clique em Olá imagem tooview-tamanho máximo.  
 
 <a href="./media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a> 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Os seguintes pré-requisitos são necessários para começar a desenvolver com os serviços de mídia com APIs REST.
+Hello seguintes pré-requisitos são necessário toostart desenvolver com os serviços de mídia com APIs REST.
 
 * Uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, consulte [Como criar uma conta de Serviços de Mídia](media-services-portal-create-account.md).
-* Noções básicas sobre como desenvolver com API REST dos serviços de mídia. Para saber mais, consulte [Visão Geral da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
+* Uma conta dos Serviços de Mídia. toocreate uma conta de serviços de mídia, consulte [como tooCreate uma conta do Media Services](media-services-portal-create-account.md).
+* Compreensão de como toodevelop com a API de REST de serviços de mídia. Para saber mais, consulte [Visão Geral da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 * Um aplicativo de sua escolha que pode enviar solicitações e respostas HTTP. Este tutorial usa o [Fiddler](http://www.telerik.com/download/fiddler).
 
-As tarefas a seguir são mostradas neste guia de início rápido.
+Olá tarefas a seguir é mostrado neste guia de início rápido.
 
-1. Iniciar pontos de extremidade de streaming (usando o Portal do Azure).
-2. Conectar à conta de serviços de mídia com a API REST.
+1. Inicie o streaming de ponto de extremidade (usando Olá portal do Azure).
+2. Conecte-se toohello conta de serviços de mídia com a API REST.
 3. Criar um novo ativo e carregar um arquivo de vídeo com a API REST.
-4. Codificar o arquivo de origem em um conjunto de arquivos MP4 com taxa de bits adaptável com a API REST.
-5. Publicar o ativo e obter URLs de download progressivo e streaming com API REST.
+4. Codifica o arquivo de origem de saudação em um conjunto de arquivos MP4 com taxa de bits adaptável com a API REST.
+5. Publica ativo hello e get streaming e URLs de download progressivo com a API REST.
 6. Reproduzir o conteúdo.
 
 >[!NOTE]
->Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
+>Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Você deve usar Olá Olá a mesma ID de política se você estiver usando sempre mesmo dias acesso permissões, por exemplo, as políticas para localizadores são tooremain desejado no local por um longo período (políticas de carregamento não). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
 
 Para obter detalhes sobre as entidades do REST do AMS usadas neste tópico, consulte [Referência de API REST dos Serviços de Mídia do Azure](/rest/api/media/services/azure-media-services-rest-api-reference). Além disso, consulte [Conceitos dos Serviços de Mídia do Azure](media-services-concepts.md).
 
 >[!NOTE]
 >Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 
-## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Iniciar pontos de extremidade de streaming usando o portal do Azure
+## <a name="start-streaming-endpoints-using-hello-azure-portal"></a>Iniciar o streaming de pontos de extremidade usando Olá portal do Azure
 
-Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns o fornecimento de vídeo via streaming de taxa de bits adaptável. Os Serviços de Mídia fornecem um empacotamento dinâmico que permite a você enviar o conteúdo codificado para MP4 da taxa de bits adaptável nos formatos de transmissão suportados pelos Serviços de Mídia (MPEG DASH, HLS, Smooth Streaming) just-in-time, sem ter que armazenar as versões recolocadas de cada um dos formatos de transmissão.
-
->[!NOTE]
->Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**.
-
-Para iniciar o ponto de extremidade de streaming, faça o seguinte:
-
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. Na janela Configurações, clique em Pontos de extremidade de streaming.
-3. Clique no ponto de extremidade de streaming padrão.
-
-    A janela DETALHES DO PONTO DE EXTREMIDADE DE STREAMING PADRÃO é exibida.
-
-4. Clique no ícone Iniciar.
-5. Clique no botão Salvar para salvar as alterações.
-
-## <a id="connect"></a>Conectar-se à conta de Serviços de Mídia com a API REST
-
-Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+Ao trabalhar com o Azure Media Services, um dos cenários mais comuns de saudação está entregando vídeo por meio de streaming de taxa de bits adaptável. Serviços de mídia fornecem empacotamento dinâmico, que permite que você toodeliver sua taxa de bits adaptável MP4 codificados conteúdo de streaming formatos suportados pelo Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, sem a necessidade de toostore pacote predefinido versões de cada um desses formatos de fluxo contínuo.
 
 >[!NOTE]
->Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI.
+>Quando sua conta AMS é criada um **padrão** ponto de extremidade de streaming é adicionada conta tooyour Olá **parado** estado. toostart streaming seu conteúdo e execute aproveitar o empacotamento dinâmico e criptografia dinâmica, Olá ponto de extremidade de streaming do qual você deseja toostream conteúdo tem toobe em Olá **executando** estado.
 
-Por exemplo, se depois de tentar se conectar, você tem o seguinte:
+toostart Olá ponto de extremidade de streaming, Olá a seguir:
+
+1. Faça logon em Olá [portal do Azure](https://portal.azure.com/).
+2. Na janela de configurações de saudação, clique em pontos de extremidade de Streaming.
+3. Clique em padrão Olá ponto de extremidade de streaming.
+
+    saudação padrão detalhes do ponto de EXTREMIDADE de STREAMING de janela é exibida.
+
+4. Clique o ícone de início de saudação.
+5. Clique em Olá toosave de botão de salvar suas alterações.
+
+## <a id="connect"></a>Conecte-se a conta de serviços de mídia toohello com a API REST
+
+Para obter informações sobre como tooconnect toohello AMS API, consulte [Olá acesso API de serviços de mídia do Azure com a autenticação do AD do Azure](media-services-use-aad-auth-to-access-ams-api.md). 
+
+>[!NOTE]
+>Após conectar-se toohttps://media.windows.net, você receberá um redirecionamento 301 que especifica outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes toohello novo URI.
+
+Por exemplo, se depois de tentar tooconnect, você obteve seguinte hello:
 
     HTTP/1.1 301 Moved Permanently
     Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-Você deve postar suas chamadas de API subsequentes para https://wamsbayclus001rest-hs.cloudapp.net/api/.
+Você deve publicar seu subsequentes API chamadas toohttps://wamsbayclus001rest-hs.cloudapp.net/api/.
 
 ## <a id="upload"></a>Criar um novo ativo e carregar um arquivo de vídeo com a API REST
 
-Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. A entidade **Asset** pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos).  Depois que os arquivos são carregados no ativo, o conteúdo é armazenado com segurança na nuvem para processamento e transmissão adicionais.
+Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. Olá **ativo** entidade pode conter vídeo, áudio, imagens, coleções de miniaturas, texto rastreia e legenda codificada arquivos (e Olá metadados sobre esses arquivos.)  Quando arquivos Olá são carregados em Olá ativo, seu conteúdo é armazenado com segurança na nuvem de saudação para processamento adicional e streaming.
 
-Um dos valores que você precisa fornecer ao criar um ativo é opções de criação do ativo. A propriedade **Options** é um valor de enumeração que descreve as opções de criptografia em que um ativo pode ser criado. Um valor válido é um dos valores na lista abaixo, não uma combinação de valores desta lista:
+Um dos valores de saudação que você tenha tooprovide ao criar um ativo é opções de criação de ativo. Olá **opções** propriedade é um valor de enumeração que descreve as opções de criptografia de saudação um ativo pode ser criado com. Um valor válido é um dos valores de saudação da lista Olá abaixo, não uma combinação de valores da lista:
 
 * **Nenhuma** = **0** - nenhuma criptografia é usada. Ao usar essa opção, seu conteúdo não é protegido quando está em trânsito ou em repouso no armazenamento.
-    Se você pretende enviar um MP4 usando o download progressivo, use essa opção.
-* **StorageEncrypted** = **1** - criptografa o conteúdo limpo localmente usando a criptografia AES de 256 bits e, em seguida, carrega-o para o armazenamento do Azure, onde ele é armazenado, criptografado em rest. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um sistema de arquivos criptografado antes da codificação, então opcionalmente criptografados novamente antes do carregamento como um novo ativo de saída. O caso de uso primário para criptografia de armazenamento é quando você deseja proteger seus arquivos de mídia de entrada de alta qualidade com criptografia forte em repouso no disco.
+    Se você planejar toodeliver um MP4 usando o download progressivo, use essa opção.
+* **StorageEncrypted** = **1** - criptografa o conteúdo limpo localmente usando a criptografia AES de 256 bits e, em seguida, carrega tooAzure armazenamento onde ele está armazenado criptografado em repouso. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um tooencoding anterior do sistema de arquivos criptografados e, opcionalmente, criptografada novamente toouploading anterior como um novo ativo de saída. caso de uso primário Olá para criptografia de armazenamento é quando você deseja toosecure seus arquivos de mídia de entrada de alta qualidade com criptografia forte em rest no disco.
 * **CommonEncryptionProtected** = **2** — use esta opção se você estiver carregando conteúdo que já foi criptografado e protegido com criptografia comum ou DRM PlayReady (por exemplo, Smooth Streaming protegido com DRM PlayReady).
-* **EnvelopeEncryptionProtected** = **4** – use esta opção se você estiver carregando HLS criptografado com AES. Os arquivos devem ter sido codificados e criptografados pelo Gerenciador de Transformação.
+* **EnvelopeEncryptionProtected** = **4** – use esta opção se você estiver carregando HLS criptografado com AES. arquivos Olá devem ter sido codificados e criptografados pelo Transform Manager.
 
 ### <a name="create-an-asset"></a>Criar um ativo
-Um ativo é um contêiner para múltiplos tipos ou conjuntos de objetos nos serviços de mídia, incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda codificada. Na API REST, criar um ativo requer enviar solicitação POST para serviços de mídia e colocar qualquer informação de propriedade sobre seus ativos no corpo da solicitação.
+Um ativo é um contêiner para múltiplos tipos ou conjuntos de objetos nos serviços de mídia, incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda codificada. Olá API REST, criando um ativo requer o envio de POSTAGEM solicitar serviços tooMedia e colocar qualquer informação de propriedade sobre seus ativos no corpo da solicitação de saudação.
 
-O exemplo a seguir mostra como criar um ativo.
+Olá mostrado no exemplo a seguir como toocreate um ativo.
 
 **Solicitação HTTP**
 
@@ -126,7 +126,7 @@ O exemplo a seguir mostra como criar um ativo.
 
 **Resposta HTTP**
 
-Se for bem-sucedido, será retornado o seguinte:
+Se for bem-sucedido, a seguir Olá será retornada:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -157,9 +157,9 @@ Se for bem-sucedido, será retornado o seguinte:
     }
 
 ### <a name="create-an-assetfile"></a>Criar um AssetFile
-A entidade [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) representa um arquivo de áudio ou vídeo que é armazenado em um contêiner de blob. Um arquivo de ativo está sempre associado a um ativo, e um ativo pode conter um ou vários AssetFiles. A tarefa do Codificador dos serviços de mídia falha se um objeto de arquivo de ativo não estiver associado um arquivo digital em um contêiner de blob.
+Olá [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) entidade representa um arquivo de áudio ou vídeo que é armazenado em um contêiner de blob. Um arquivo de ativo está sempre associado a um ativo, e um ativo pode conter um ou vários AssetFiles. tarefa do Media Services Encoder Olá falhará se um objeto de arquivo do ativo não está associado um arquivo digital em um contêiner de blob.
 
-Depois de carregar o arquivo de mídia digital em um contêiner de blob, você usará a solicitação **MESCLAR** HTTP para atualizar o AssetFile com as informações sobre o arquivo de mídia (como mostrado posteriormente no tópico).
+Depois de carregar o arquivo de mídia digital em um contêiner de blob, você usar Olá **mesclar** Olá tooupdate de solicitação HTTP AssetFile com informações sobre o arquivo de mídia (conforme mostrado posteriormente no tópico Olá).
 
 **Solicitação HTTP**
 
@@ -218,10 +218,10 @@ Depois de carregar o arquivo de mídia digital em um contêiner de blob, você u
     }
 
 
-### <a name="creating-the-accesspolicy-with-write-permission"></a>Criando o AccessPolicy com permissão de gravação
-Antes de carregar todos os arquivos no armazenamento de blobs, defina os direitos de política de acesso para gravar em um ativo. Para fazer isso, POSTE uma solicitação HTTP para o conjunto de entidade AccessPolicies. Defina um valor de DurationInMinutes durante a criação ou você receberá uma mensagem de erro de servidor interno 500 em resposta. Para saber mais sobre AccessPolicies, consulte [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
+### <a name="creating-hello-accesspolicy-with-write-permission"></a>Criando Olá AccessPolicy com permissão de gravação
+Antes de carregar todos os arquivos no armazenamento de blob, defina acesso Olá direitos de política para gravar tooan ativo. Definir toodo que, após uma solicitação HTTP toohello entidade AccessPolicies. Defina um valor de DurationInMinutes durante a criação ou você receberá uma mensagem de erro de servidor interno 500 em resposta. Para saber mais sobre AccessPolicies, consulte [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
 
-O exemplo a seguir mostra como criar um AccessPolicy:
+Olá mostrado no exemplo a seguir como toocreate um AccessPolicy:
 
 **Solicitação HTTP**
 
@@ -240,7 +240,7 @@ O exemplo a seguir mostra como criar um AccessPolicy:
 
 **Resposta HTTP**
 
-Se for bem-sucedido, será retornada a seguinte resposta:
+Se for bem-sucedido, Olá resposta a seguir será retornada:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -266,23 +266,23 @@ Se for bem-sucedido, será retornada a seguinte resposta:
        "Permissions":2
     }
 
-### <a name="get-the-upload-url"></a>Obter a URL de carregamento
+### <a name="get-hello-upload-url"></a>Obter URL de carregamento de saudação
 
-Para receber a URL de carregamento real, crie um localizador de SAS. Os localizadores definem a hora de início e o tipo de ponto de extremidade de conexão para clientes que desejam acessar arquivos em um ativo. Você pode criar várias entidades de localizador para um determinado par de AccessPolicy e ativos para manipular solicitações e necessidades de clientes diferentes. Cada um destes localizadores usa o valor StartTime mais o valor de DurationInMinutes do AccessPolicy para determinar quanto tempo uma URL pode ser usada. Para saber mais, consulte [Localizador](https://docs.microsoft.com/rest/api/media/operations/locator).
+tooreceive Olá URL de carregamento real, crie um localizador SAS. Os localizadores definem a hora de início da saudação e o tipo de ponto de extremidade de conexão para clientes que deseja tooaccess arquivos em um ativo. Você pode criar várias entidades de localizador para um cliente AccessPolicy e ativos par toohandle diferente determinado solicitações e necessidades. Cada um destes localizadores usa o valor de StartTime hello mais valor DurationInMinutes Olá Olá AccessPolicy toodetermine Olá período que uma URL pode ser usada. Para saber mais, consulte [Localizador](https://docs.microsoft.com/rest/api/media/operations/locator).
 
-Uma URL SAS tem o seguinte formato:
+Uma URL SAS tem Olá formato a seguir:
 
     {https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}
 
 Algumas considerações se aplicam:
 
 * Você não pode ter mais do que cinco localizadores exclusivos associados a um determinado ativo ao mesmo tempo. Para saber mais, consulte Localizador.
-* Se você precisar carregar os arquivos imediatamente, você deve definir o valor StartTime como cinco minutos antes da hora atual. Isso ocorre porque pode haver uma defasagem horária entre o computador do cliente e os serviços de mídia. Além disso, o valor de StartTime deve estar no seguinte formato DateTime: AAAA-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").    
-* Pode haver um 30 a 40 segundos de atraso após a criação de um localizador quando ele está disponível para uso. Esse problema se aplica a URL SAS e localizadores de origem.
+* Se precisar tooupload seus arquivos imediatamente, você deve definir seu minutos de toofive valor StartTime antes Olá hora atual. Isso ocorre porque pode haver uma defasagem horária entre o computador do cliente e os serviços de mídia. Além disso, o valor StartTime deve estar no hello seguindo o formato de data e hora: AAAA-MM-ddTHH (por exemplo, "2014-05-23T17:53:50Z").    
+* Pode haver um 30 a 40 segundos atrasar após um localizador de criação toowhen está disponível para uso. Esse problema se aplica a tooboth URL SAS e localizadores de origem.
 
 Para saber mais sobre localizadores SAS, consulte [este](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
 
-O exemplo a seguir mostra como criar um localizador URL SAS, conforme definido pela propriedade Type no corpo da solicitação ("1" para um localizador SAS e "2" para um localizador de origem sob demanda). A propriedade **Path** retornada contém a URL que você deve usar para carregar seu arquivo.
+saudação de exemplo a seguir mostra como toocreate um localizador URL SAS, conforme definido pelo Olá propriedade Type no corpo da solicitação hello ("1" para um localizador SAS) e "2" para um localizador de origem sob demanda. Olá **caminho** propriedade retornada contém Olá URL que você deve usar tooupload seu arquivo.
 
 **Solicitação HTTP**
 
@@ -307,7 +307,7 @@ O exemplo a seguir mostra como criar um localizador URL SAS, conforme definido p
 
 **Resposta HTTP**
 
-Se for bem-sucedido, será retornada a seguinte resposta:
+Se for bem-sucedido, Olá resposta a seguir será retornada:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -338,17 +338,17 @@ Se for bem-sucedido, será retornada a seguinte resposta:
     }
 
 ### <a name="upload-a-file-into-a-blob-storage-container"></a>Carregar um arquivo em um contêiner de armazenamento de blobs
-Depois de definir AccessPolicy e Localizador, o arquivo real é carregado em um contêiner de armazenamento de blobs do Azure usando as APIs REST do Armazenamento do Azure. Você deve carregar os arquivos como blobs de blocos. Os blobs de páginas não são compatíveis com os Serviços de Mídia do Azure.  
+Depois que você tiver hello AccessPolicy e conjunto de localizador, real do arquivo hello é carregado tooan contêiner de armazenamento de BLOBs do Azure usando Olá APIs de REST do armazenamento do Azure. Você deve carregar arquivos hello como blobs de blocos. Os blobs de páginas não são compatíveis com os Serviços de Mídia do Azure.  
 
 > [!NOTE]
-> Você deve adicionar o nome do arquivo para o arquivo que você deseja carregar no valor **Path** do Localizador recebido na seção anterior. Por exemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+> Você deve adicionar o nome do arquivo hello arquivo hello deseja tooupload toohello localizador **caminho** valor recebido na seção anterior hello. Por exemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
 >
 >
 
 Para saber mais sobre como trabalhar com blobs de armazenamento do Azure, consulte [API REST do serviço Blob](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
-### <a name="update-the-assetfile"></a>Atualizar o AssetFile
-Agora que você carregou o arquivo, atualize as informações de tamanho do FileAsset (e outros). Por exemplo:
+### <a name="update-hello-assetfile"></a>Saudação de atualização AssetFile
+Agora que você carregou o arquivo, atualize as informações de FileAsset tamanho (e outros) de saudação. Por exemplo:
 
     MERGE https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
     Content-Type: application/json
@@ -371,12 +371,12 @@ Agora que você carregou o arquivo, atualize as informações de tamanho do File
 
 **Resposta HTTP**
 
-Se for bem-sucedido, será retornado o seguinte:
+Se for bem-sucedido, a seguir Olá será retornada:
 
     HTTP/1.1 204 No Content
     ...
 
-## <a name="delete-the-locator-and-accesspolicy"></a>Excluir o AccessPolicy e localizador
+## <a name="delete-hello-locator-and-accesspolicy"></a>Excluir hello localizador e AccessPolicy
 **Solicitação HTTP**
 
     DELETE https://wamsbayclus001rest-hs.cloudapp.net/api/Locators('nb%3Alid%3AUUID%3Aaf57bdd8-6751-4e84-b403-f3c140444b54') HTTP/1.1
@@ -391,7 +391,7 @@ Se for bem-sucedido, será retornado o seguinte:
 
 **Resposta HTTP**
 
-Se for bem-sucedido, será retornado o seguinte:
+Se for bem-sucedido, a seguir Olá será retornada:
 
     HTTP/1.1 204 No Content
     ...
@@ -409,23 +409,23 @@ Se for bem-sucedido, será retornado o seguinte:
 
 **Resposta HTTP**
 
-Se for bem-sucedido, será retornado o seguinte:
+Se for bem-sucedido, a seguir Olá será retornada:
 
     HTTP/1.1 204 No Content
     ...
 
-## <a id="encode"></a>Codificar o arquivo de origem em um conjunto de arquivos MP4 com taxa de bits adaptável
+## <a id="encode"></a>Codificar o arquivo de origem de saudação em um conjunto de arquivos MP4 com taxa de bits adaptável
 
-Após a inserção de Ativos nos Serviços de Mídia, a mídia poderá ser codificada, transmultiplexada, marcada com marca d'água e assim por diante, antes que seja entregue aos clientes. Essas atividades são agendadas e executadas em contraste com várias instâncias de função de plano de fundo para garantir a disponibilidade e desempenho elevados. Essas atividades são chamadas de Trabalhos, e cada Trabalho é composto por Tarefas atômicas, que fazem o trabalho real no arquivo do Ativo. (Para saber mais, consulte as descrições de [Trabalho](/rest/api/media/services/job), [Tarefa](/rest/api/media/services/task)).
+Após a ingestão de que ativos em serviços de mídia, mídia podem ser codificados, transmultiplexar, marca d'água e assim por diante, antes ele é distribuído tooclients. Essas atividades são agendadas e executadas várias em segundo plano função instâncias tooensure alto desempenho e disponibilidade. Essas atividades são chamadas de trabalhos e cada trabalho é composto de tarefas atômicas que Olá real trabalho no arquivo de ativo de saudação (para obter mais informações, consulte [trabalho](/rest/api/media/services/job), [tarefa](/rest/api/media/services/task) descrições).
 
-Como foi mencionado anteriormente, ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming com uma taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Os Serviços de Mídia podem empacotar dinamicamente um conjunto de arquivos MP4 com taxa de bit adaptável em um dos seguintes formatos: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH.
+Como mencionado anteriormente, ao trabalhar com o Azure Media Services um dos cenários mais comuns de saudação está entregando tooyour clientes de streaming de taxa de bits adaptável. Serviços de mídia pode empacotar dinamicamente um conjunto de arquivos MP4 com taxa de bits adaptável em uma saudação formatos a seguir: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 
-A seção a seguir mostra como criar um trabalho que contém uma tarefa de codificação. A tarefa especifica a transcodificação do arquivo de mezanino em um conjunto de MP4s de taxa de bits adaptável usando o **Codificador de Mídia Padrão**. A seção também mostra como monitorar o progresso de processamento de trabalho. Quando o trabalho for concluído, você poderá criar localizadores, que serão necessários para acessar seus ativos.
+Olá seção a seguir mostra como toocreate um trabalho que contém a codificação de uma tarefa. Olá tarefa Especifica arquivo de mezanino Olá tootranscode em um conjunto de MP4s de taxa de bits adaptável usando **codificador de mídia padrão**. seção de saudação também mostra como toomonitor Olá andamento do processamento de trabalho. Quando o trabalho de saudação for concluído, seria capaz de toocreate localizadores que são necessárias tooget acesso tooyour ativos.
 
 ### <a name="get-a-media-processor"></a>Obter um processador de mídia
-Nos Serviços de Mídia, um processador de mídia é um componente que manipula uma tarefa de processamento específica, como codificação, conversão de formato, criptografia ou descriptografia de conteúdo de mídia. Para a tarefa de codificação mostrada neste tutorial, usaremos o Codificador de Mídia Padrão.
+Nos Serviços de Mídia, um processador de mídia é um componente que manipula uma tarefa de processamento específica, como codificação, conversão de formato, criptografia ou descriptografia de conteúdo de mídia. Olá codificação tarefa mostrada neste tutorial, vamos toouse Olá codificador de mídia padrão.
 
-O código a seguir solicita a ID do codificador.
+id do codificador de saudação solicitações de código a seguir de saudação.
 
 **Solicitação HTTP**
 
@@ -469,9 +469,9 @@ O código a seguir solicita a ID do codificador.
     }
 
 ### <a name="create-a-job"></a>Criar um trabalho
-Cada trabalho pode ter uma ou mais tarefas dependendo do tipo de processamento que você deseja realizar. Por meio da API REST, você pode criar Trabalhos e as Tarefas relacionadas de uma destas duas maneiras: as Tarefas podem ser definidas embutidas por meio da propriedade de navegação Tarefas nas entidades de Trabalho ou por meio do processamento de lote OData. O SDK dos Serviços de Mídia usa o processamento em lotes. No entanto, para fins de legibilidade dos exemplos de código neste tópico, as tarefas serão definidas em linha. Para obter informações sobre o processamento em lotes, consulte [Processamento em lote do protocolo OData (Open Data)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Cada trabalho pode ter um ou mais tarefas dependendo do tipo de saudação de processamento que você deseja tooaccomplish. Por meio de Olá API REST, você pode criar trabalhos e as tarefas relacionadas em uma das duas maneiras: tarefas podem ser definidas embutidas por meio da propriedade de navegação Olá tarefas nas entidades de trabalho ou por meio do processamento de lote do OData. Olá SDK do Media Services usa processamento em lotes. No entanto, para facilitar a leitura Olá Olá exemplos de código neste tópico, tarefas são definidas embutidas. Para obter informações sobre o processamento em lotes, consulte [Processamento em lote do protocolo OData (Open Data)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-O exemplo a seguir mostra como criar e publicar um trabalho com uma tarefa definida para codificar um vídeo em uma determinada resolução e qualidade. A seção de documentação a seguir contém a lista de todas as [predefinições de tarefa](http://msdn.microsoft.com/library/mt269960) compatíveis com o processador do Codificador de Mídia Padrão.  
+saudação de exemplo a seguir mostra como toocreate e lançar um trabalho com uma tarefa definir tooencode um vídeo em uma resolução e qualidade específicas. Olá seção da documentação a seguir contém a lista de saudação de saudação todos os [predefinições de tarefa](http://msdn.microsoft.com/library/mt269960) suportadas pelo codificador de mídia padrão hello.  
 
 **Solicitação HTTP**
 
@@ -507,7 +507,7 @@ O exemplo a seguir mostra como criar e publicar um trabalho com uma tarefa defin
 
 **Resposta HTTP**
 
-Se for bem-sucedido, será retornada a seguinte resposta:
+Se for bem-sucedido, Olá resposta a seguir será retornada:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -567,35 +567,35 @@ Se for bem-sucedido, será retornada a seguinte resposta:
     }
 
 
-Há algumas coisas importantes a observar em qualquer solicitação de trabalho:
+Há toonote de algumas coisas importantes em qualquer solicitação de trabalho:
 
-* As propriedades TaskBody DEVEM usar XML literal para definir o número de entradas ou os ativos de saída que serão usados pela Tarefa. O tópico Tarefa contém a Definição de Esquema XML para o XML.
-* Na definição de TaskBody, cada valor interno para <inputAsset> e <outputAsset> deve ser definido como JobInputAsset(value) ou JobOutputAsset(value).
+* Propriedades TaskBody devem usar o número do literal XML toodefine Olá de entrada ou ativos de saída que são usados pela tarefa de saudação. tópico de tarefa Olá contém hello definição de esquema XML para Olá XML.
+* Olá definição de TaskBody, valor da cada interna de <inputAsset> e <outputAsset> deve ser definido como JobInputAsset(value) ou JobOutputAsset(value).
 * Uma tarefa pode ter vários ativos de saída. Um JobOutputAsset(x) só pode ser usado uma vez como uma saída de uma tarefa em um trabalho.
 * Você pode especificar JobInputAsset ou JobOutputAsset como um ativo de entrada de uma tarefa.
 * As tarefas não devem formar um ciclo.
-* O parâmetro de valor passado para JobInputAsset ou JobOutputAsset representa o valor de índice para um ativo. Os ativos reais são definidos nas propriedades de navegação InputMediaAssets e OutputMediaAssets na definição de entidade de tarefa.
+* parâmetro de valor de saudação que você passe tooJobInputAsset ou JobOutputAsset representa o valor de índice Olá para um ativo. Olá ativos reais são definidos nas propriedades de navegação InputMediaAssets e OutputMediaAssets de saudação em Olá definição de entidade de trabalho.
 
 > [!NOTE]
-> Como os serviços de mídia são baseados no OData v3, os ativos individuais nas coleções de propriedade de navegação InputMediaAssets e OutputMediaAssets são referenciados por meio de um par nome-valor "__metadata : uri".
+> Porque os serviços de mídia é desenvolvido no OData v3, Olá ativos individuais nas InputMediaAssets e OutputMediaAssets coleções de propriedades de navegação são referenciadas por meio de um " Metadata: uri" par nome-valor.
 >
 >
 
-* Os InputMediaAssets mapeiam para um ou mais ativos que você criou nos serviços de mídia. Os OutputMediaAssets são criados pelo sistema. Eles não fazem referência a um ativo existente.
-* Os OutputMediaAssets podem ser nomeados usando o atributo assetName. Se esse atributo não estiver presente, então o nome do OutputMediaAsset será tudo o que é o valor de texto interno do elemento <outputAsset> com um sufixo do valor do nome do trabalho ou o valor da ID de trabalho (no caso em que a propriedade Nome não esteja definida). Por exemplo, se você definir um valor de assetName como "Amostra", a propriedade Nome de OutputMediaAsset deve ser definida como "Amostra". No entanto, se você não definiu um valor para assetName, mas definiu o nome do trabalho como "NewJob", o nome do OutputMediaAsset poderia ser "JobOutputAsset(value)_NewJob".
+* Os InputMediaAssets mapeiam tooone ou mais ativos que você criou nos serviços de mídia. Os OutputMediaAssets são criados pelo sistema hello. Eles não fazem referência a um ativo existente.
+* Os OutputMediaAssets podem ser nomeados usando o atributo assetName hello. Se esse atributo não estiver presente, o nome de saudação do hello OutputMediaAsset é qualquer valor de texto interno de saudação do hello <outputAsset> elemento for com um sufixo do valor do nome do trabalho hello, ou valor de Id do trabalho hello (no caso de Olá onde a propriedade de nome de saudação não está definida). Por exemplo, se você definir um valor para assetName muito "Sample", em seguida, Olá propriedade Name de OutputMediaAsset será definida muito "Sample". No entanto, se você não definiu um valor para assetName, mas definido o nome do trabalho Olá muito "Novotrabalho" e, em seguida, Olá Name de OutputMediaAsset seria "JobOutputAsset (valor) novotrabalho".
 
-    O exemplo a seguir mostra como definir o atributo assetName:
+    saudação de exemplo a seguir mostra como tooset Olá atributo assetName:
 
         "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"
-* Para habilitar o encadeamento de tarefas:
+* tooenable encadeamento de tarefas:
 
   * Um trabalho deve ter, pelo menos, duas tarefas
-  * Deve haver pelo menos uma tarefa cujas entradas são a saída de outra tarefa no trabalho.
+  * Deve haver pelo menos uma tarefa cuja entrada é saída de outra tarefa no trabalho de saudação.
 
-Para saber mais, consulte [Criar um trabalho de codificação com a API REST dos Serviços de Mídia.](media-services-rest-encode-asset.md)
+Para obter mais informações, consulte [criar um trabalho de codificação com hello API REST do Media Services](media-services-rest-encode-asset.md).
 
 ### <a name="monitor-processing-progress"></a>Monitorar o progresso de processamento
-Você pode recuperar o status do trabalho, usando a propriedade State, conforme mostrado no exemplo a seguir.
+Você pode recuperar o status do trabalho hello usando a propriedade de estado hello, conforme mostrado no exemplo a seguir de saudação.
 
 **Solicitação HTTP**
 
@@ -612,7 +612,7 @@ Você pode recuperar o status do trabalho, usando a propriedade State, conforme 
 
 **Resposta HTTP**
 
-Se for bem-sucedido, será retornada a seguinte resposta:
+Se for bem-sucedido, Olá resposta a seguir será retornada:
 
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -630,9 +630,9 @@ Se for bem-sucedido, será retornada a seguinte resposta:
 
 
 ### <a name="cancel-a-job"></a>Cancelar um trabalho
-Os serviços de mídia permitem cancelar trabalhos em execução com a função CancelJob. Esta chamada retornará um código de erro 400 se você tentar cancelar um Trabalho quando seu estado estiver definido como Cancelado, Cancelando, Erro ou Concluído.
+Serviços de mídia permitem toocancel trabalhos em execução por meio de saudação função CancelJob. Essa chamada retornará um código de 400 erro se você tentar toocancel um trabalho quando seu estado é cancelado, cancelando, erro ou concluído.
 
-O exemplo a seguir mostra como chamar a função CancelJob.
+Olá mostrado no exemplo a seguir como toocall CancelJob.
 
 **Solicitação HTTP**
 
@@ -649,12 +649,12 @@ O exemplo a seguir mostra como chamar a função CancelJob.
 Se tiver êxito, uma resposta de código 204 é retornada sem corpo de mensagem.
 
 > [!NOTE]
-> Você deve codificar a URL da ID do trabalho (normalmente nb:jid:UUID: algumvalor) ao passá-la como um parâmetro para CancelJob.
+> Você deve codificar URL id do trabalho hello (normalmente nb:jid:UUID: algumvalor) ao passá-lo como um parâmetro tooCancelJob.
 >
 >
 
-### <a name="get-the-output-asset"></a>Obtenha o ativo de saída
-O código a seguir mostra como solicitar a ID do ativo de saída.
+### <a name="get-hello-output-asset"></a>Obter Olá ativo de saída
+Olá código a seguir mostra como toorequest Olá saída ID de ativo.
 
 **Solicitação HTTP**
 
@@ -703,42 +703,42 @@ O código a seguir mostra como solicitar a ID do ativo de saída.
 
 
 
-## <a id="publish_get_urls"></a>Publicar o ativo e obter URLs de download progressivo e streaming com API REST
+## <a id="publish_get_urls"></a>Publicar ativo hello e get streaming e URLs de download progressivo com a API REST
 
-Para transmitir ou baixar um ativo, primeiro você precisa "publicá-lo" criando um localizador. Os localizadores fornecem acesso aos arquivos contidos no ativo. Os Serviços de Mídia oferecem suporte a dois tipos de localizador: OnDemandOrigin, usados para transmitir mídia por streaming (por exemplo, MPEG DASH, HLS ou Smooth Streaming) e SAS (Assinatura de Acesso), usados para baixar arquivos de mídia. Para saber mais sobre localizadores SAS, consulte [este](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
+toostream ou baixar um ativo, você primeiro precisa muito "Publicar"-lo criando um localizador. Os localizadores fornecem acesso toofiles contidos em Olá ativo. Serviços de mídia oferece suporte a dois tipos de localizadores: OnDemandOrigin localizadores, mídia toostream usado (por exemplo, MPEG DASH, HLS ou Smooth Streaming) e localizadores da assinatura de acesso (SAS), usados arquivos de mídia toodownload. Para saber mais sobre localizadores SAS, consulte [este](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
 
-Depois de criar os localizadores, você pode criar as URLs usadas para transmitir ou baixar os arquivos.
+Depois de criar localizadores hello, você pode criar URLs Olá toostream usado ou baixar os arquivos.
 
 >[!NOTE]
->Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**.
+>Quando sua conta AMS é criada um **padrão** ponto de extremidade de streaming é adicionada conta tooyour Olá **parado** estado. toostart streaming seu conteúdo e execute aproveitar o empacotamento dinâmico e criptografia dinâmica, Olá ponto de extremidade de streaming do qual você deseja toostream conteúdo tem toobe em Olá **executando** estado.
 
-Uma URL de streaming para Smooth Streaming tem o seguinte formato:
+Uma URL de streaming para Smooth Streaming tem Olá formato a seguir:
 
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-Uma URL de streaming para HLS tem o seguinte formato:
+Uma URL de streaming para HLS tem Olá formato a seguir:
 
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-Uma URL de streaming para MPEG DASH tem o seguinte formato:
+Uma URL de streaming MPEG DASH tem Olá formato a seguir:
 
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
 
-Uma URL SAS usada para baixar arquivos tem o seguinte formato:
+Arquivos de toodownload uma URL SAS usada tem Olá formato a seguir:
 
     {blob container name}/{asset name}/{file name}/{SAS signature}
 
-Esta seção mostra como executar as seguintes tarefas necessárias para "publicar" seus ativos.  
+Esta seção mostra como a seguir Olá tooperform as tarefas necessárias muito "Publicar" seus ativos.  
 
-* Criando o AccessPolicy com permissão de leitura
+* Criando Olá AccessPolicy com permissão de leitura
 * Criando uma URL SAS para download de conteúdo
 * Criando uma URL de origem para conteúdo de streaming
 
-### <a name="creating-the-accesspolicy-with-read-permission"></a>Criando o AccessPolicy com permissão de leitura
-Antes de baixar ou realizar streaming de qualquer conteúdo de mídia primeiro defina um AccessPolicy com permissões de leitura e crie a entidade do localizador apropriada que especifica o tipo de mecanismo de entrega que você deseja habilitar para seus clientes. Para saber mais sobre as propriedades disponíveis, consulte [Propriedades da entidade AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy#accesspolicy_properties).
+### <a name="creating-hello-accesspolicy-with-read-permission"></a>Criando Olá AccessPolicy com permissão de leitura
+Antes de baixar ou qualquer conteúdo de mídia de streaming, primeiro defina um AccessPolicy com permissões de leitura e criar hello entidade do localizador apropriada que especifica o tipo de saudação do mecanismo de entrega, você deseja tooenable para seus clientes. Para obter mais informações sobre as propriedades de saudação disponíveis, consulte [propriedades da entidade AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy#accesspolicy_properties).
 
-O exemplo a seguir mostra como especificar o AccessPolicy para permissões de leitura para um determinado ativo.
+saudação de exemplo a seguir mostra como toospecify Olá AccessPolicy para permissões de leitura para um determinado ativo.
 
     POST https://wamsbayclus001rest-hs.net/API/AccessPolicies HTTP/1.1
     Content-Type: application/json
@@ -753,15 +753,15 @@ O exemplo a seguir mostra como especificar o AccessPolicy para permissões de le
 
     {"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
 
-Se tiver êxito, um código de sucesso 201 é retornado descrevendo a entidade AccessPolicy que você criou. Em seguida, você usará a ID do AccessPolicy com a ID do Ativo que contém o arquivo que você deseja fornecer (como um ativo de saída) para criar a entidade do Localizador.
+Se for bem-sucedido, um código de 201 sucesso é retornado descrevendo a entidade AccessPolicy Olá que você criou. Você, em seguida, usar Olá Id de AccessPolicy com hello Id do ativo de saudação que contém o arquivo hello deseja toodeliver (como um ativo de saída) toocreate Olá localizador entidade.
 
 > [!NOTE]
-> Esse fluxo de trabalho básico é o mesmo utilizado para carregar um arquivo ao ingerir um ativo (como foi discutido neste tópico). Além disso, como o carregamento de arquivos, se você (ou seus clientes) precisarem acessar os arquivos imediatamente, defina o valor StartTime para cinco minutos antes da hora atual Essa ação é necessária porque pode haver uma defasagem horária entre o cliente e os serviços de mídia. O valor de StartTime deve estar no seguinte formato de DateTime: AAAA-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").
+> Este fluxo de trabalho básico é Olá mesmo como carregar um arquivo quando uma ingestão de ativos (conforme foi discutido neste tópico). Além disso, como carregar arquivos, se você (ou seus clientes) precisam tooaccess arquivos imediatamente, defina seu minutos de toofive valor StartTime antes Olá hora atual. Essa ação é necessária porque pode haver relógio defasagem horária entre o cliente hello e serviços de mídia. Olá valor StartTime deve estar no hello seguindo o formato de data e hora: AAAA-MM-ddTHH (por exemplo, "2014-05-23T17:53:50Z").
 >
 >
 
 ### <a name="creating-a-sas-url-for-downloading-content"></a>Criando uma URL SAS para download de conteúdo
-O código a seguir mostra como obter uma URL que pode ser usada para baixar um arquivo de mídia criado e carregado anteriormente. O AccessPolicy tem o conjunto de permissões de leitura e o caminho do localizador se refere a uma URL de download SAS.
+saudação de código a seguir mostra como a tooget uma URL que pode ser usado toodownload um arquivo de mídia criado e carregado anteriormente. Olá AccessPolicy tem o conjunto de permissões de leitura e caminho do localizador Olá refere-se a URL de download do tooa SAS.
 
     POST https://wamsbayclus001rest-hs.net/API/Locators HTTP/1.1
     Content-Type: application/json
@@ -776,7 +776,7 @@ O código a seguir mostra como obter uma URL que pode ser usada para baixar um a
 
     {"AccessPolicyId": "nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8", "AssetId" : "nb:cid:UUID:71d2dd33-efdf-ec43-8ea1-136a110bd42c", "StartTime" : "2014-05-17T16:45:53", "Type":1}
 
-Se for bem-sucedido, será retornada a seguinte resposta:
+Se for bem-sucedido, Olá resposta a seguir será retornada:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -819,24 +819,24 @@ Se for bem-sucedido, será retornada a seguinte resposta:
     }
 
 
-A propriedade **Path** retornada contém a URL de SAS.
+Olá retornado **caminho** propriedade contém Olá URL SAS.
 
 > [!NOTE]
-> Se você baixar o conteúdo de armazenamento criptografado, deverá manualmente descriptografá-lo antes de renderizá-lo ou usar o MediaProcessor de descriptografia de armazenamento em uma tarefa de processamento para arquivos processados de saída de modo transparente para um OutputAsset e, em seguida, fazer o download deste ativo. Para saber mais sobre processamento, consulte Criar um trabalho de codificação com a API REST dos serviços de mídia. Além disso, os localizadores URL SAS não podem ser atualizados depois que eles foram criados. Por exemplo, você não pode reutilizar o mesmo localizador com um valor StartTime atualizado. Isso é devido ao modo como as URLs SAS são criadas. Se você quiser acessar um ativo para baixar após um localizador ter expirado, você deve criar um novo com um novo StartTime.
+> Se você baixar o conteúdo de armazenamento criptografado, deve manualmente descriptografá-lo antes de renderizá-lo ou usar Olá MediaProcessor de descriptografia de armazenamento em um toooutput de tarefa de processamento processou arquivos no hello limpar tooan OutputAsset e, em seguida, faça o download deste ativo. Para obter mais informações sobre o processamento, consulte Criar um trabalho de codificação com hello API de REST de serviços de mídia. Além disso, os localizadores URL SAS não podem ser atualizados depois que eles foram criados. Por exemplo, não é possível reutilizar Olá mesmo localizador com um valor StartTime atualizado. Isso é devido à forma como o hello URLs SAS são criadas. Se você quiser tooaccess um ativo para download após um localizador tiver expirado, você deve criar um novo com um novo StartTime.
 >
 >
 
 ### <a name="download-files"></a>Baixar arquivos
-Depois de definir AccessPolicy e localizador, você pode baixar arquivos usando as APIs de REST do armazenamento do Azure.  
+Depois que você tiver hello AccessPolicy e conjunto de localizador, você pode baixar arquivos usando Olá APIs de REST do armazenamento do Azure.  
 
 > [!NOTE]
-> Você deve adicionar o nome do arquivo para o arquivo que você deseja carregar no valor de **Path** do Localizador recebido na seção anterior. Por exemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+> Você deve adicionar o nome do arquivo hello arquivo hello deseja toodownload toohello localizador **caminho** valor recebido na seção anterior hello. Por exemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
 >
 >
 
 Para saber mais sobre como trabalhar com blobs de armazenamento do Azure, consulte [API REST do serviço Blob](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
-Como resultado do trabalho de codificação que você executou anteriormente (codificação no conjunto de MP4 adaptável), você tem vários arquivos MP4 que pode baixar progressivo. Por exemplo:    
+Como resultado da saudação codificação trabalho executado anteriormente (codificação em conjunto de MP4 adaptável), você tem vários arquivos MP4 que você pode baixar progressivamente. Por exemplo:    
 
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
@@ -856,7 +856,7 @@ Como resultado do trabalho de codificação que você executou anteriormente (co
 
 
 ### <a name="creating-a-streaming-url-for-streaming-content"></a>Criando uma URL de streaming para conteúdo de streaming
-O código a seguir mostra como criar um localizador de URL de streaming:
+Olá mostrado no código a seguir como toocreate um localizador URL de streaming:
 
     POST https://wamsbayclus001rest-hs/API/Locators HTTP/1.1
     Content-Type: application/json
@@ -871,7 +871,7 @@ O código a seguir mostra como criar um localizador de URL de streaming:
 
     {"AccessPolicyId": "nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8", "AssetId" : "nb:cid:UUID:eb5540a2-116e-4d36-b084-7e9958f7f3c3", "StartTime" : "2014-05-17T16:45:53",, "Type":2}
 
-Se for bem-sucedido, será retornada a seguinte resposta:
+Se for bem-sucedido, Olá resposta a seguir será retornada:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -913,23 +913,23 @@ Se for bem-sucedido, será retornada a seguinte resposta:
        }
     }
 
-Para transmitir uma URL de origem de Smooth Streaming em um reprodutor de mídia de streaming, você deve acrescentar a propriedade do Caminho com o nome do arquivo manifesto do Smooth Streaming, seguido de "/manifest".
+toostream uma URL de origem Smooth Streaming em um reprodutor de mídia de streaming, você deve acrescentar a propriedade Path Olá com nome Olá Olá Smooth Streaming manifesto do arquivo, seguido de "/manifest".
 
     http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest
 
-Para transmitir HLS, anexe (format=m3u8-aapl) após o "/manifest".
+toostream HLS, acrescente (format = m3u8-aapl) após hello "/manifest".
 
     http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
-Para transmitir MPEG DASH, anexe (format=mpd-time-csf) após o "/manifest".
+toostream MPEG DASH, acrescente (formato = mpd-tempo-csf) após hello "/manifest".
 
     http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
 ## <a id="play"></a>Reproduzir o conteúdo
-Para o fluxo de vídeo, use [Player dos Serviços de Mídia do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+toostream vídeo, você use [Player de serviços de mídia do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-Para testar o download progressivo, cole uma URL em um navegador (por exemplo, IE, Chrome, Safari).
+tootest progressivo baixar, cole uma URL em um navegador (por exemplo, Internet Explorer, Chrome, Safari).
 
 ## <a name="next-steps-media-services-learning-paths"></a>Próximas etapas: roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

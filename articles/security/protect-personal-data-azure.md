@@ -1,6 +1,6 @@
 ---
-title: Proteger dados pessoais no Microsoft Azure | Microsoft Docs
-description: "Primeiro artigo de uma série de artigos para ajudá-lo a usar o Azure para proteger dados pessoais"
+title: dados pessoais de aaaProtect no Microsoft Azure | Microsoft Docs
+description: "Primeiro artigo em uma série de artigos toohelp você usar dados pessoais tooprotect do Azure"
 services: security
 documentationcenter: na
 author: Barclayn
@@ -15,21 +15,21 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: dfb046374397c8a19672ce6b67741903fff6e178
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: cbffd3872552cbd0f12539535898c41ecf7789e8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="protect-personal-data-in-microsoft-azure"></a>Proteger dados pessoais no Microsoft Azure
 
-Este artigo apresenta uma série de artigos que ajuda a usar as tecnologias e os serviços de segurança do Azure para proteger dados pessoais. Este é um requisito fundamental para muitas iniciativas de governança e conformidade corporativas e do setor. O cenário, a declaração do problema e as metas da empresa são incluídos aqui.
+Este artigo apresenta uma série de artigos que ajudarão a usar a segurança do Azure tecnologias e serviços tooprotect dados pessoais. Este é um requisito fundamental para muitas iniciativas de governança e conformidade corporativas e do setor. cenário de Hello, metas de instrução e da empresa do problema são incluídas aqui.
 
 ## <a name="scenario-and-problem-statement"></a>Cenário e declaração do problema
 
-Uma empresa de cruzeiro de grande porte, com sede nos Estados Unidos, está expandindo suas operações para oferecer roteiros nos mares Mediterrâneo, Adriático e Báltico, bem como nas Ilhas Britânicas. Para dar suporte a esses esforços, ela adquiriu várias linhas de cruzeiro menores localizadas na Itália, na Alemanha, na Dinamarca e no Reino Unido.
+Uma empresa cruzeiro grandes, com sede Olá dos Estados Unidos, está expandindo suas roteiros de toooffer operações Mediterrâneo hello, Adriatic e mares báltico, bem como Olá Britânicas. toosupport os esforços adquiriu várias linhas de cruzeiro menores na Itália, Alemanha, Dinamarca e hello UK
 
-A empresa usa o Microsoft Azure para armazenar dados corporativos na nuvem. Isso pode incluir funcionário e/ou informações do cliente, como:
+empresa de saudação usa dados corporativos do Microsoft Azure toostore na nuvem hello. Isso pode incluir funcionário e/ou informações do cliente, como:
 
 - endereços
 - números de telefone
@@ -37,23 +37,23 @@ A empresa usa o Microsoft Azure para armazenar dados corporativos na nuvem. Isso
 - informações de médicas
 - informações de cartão de crédito
 
-A empresa deve proteger a privacidade dos dados de funcionário e o cliente ao fazer dados acessíveis para os departamentos que precisam dela. (como departamentos de folha de pagamento e reservas)
+empresa Olá deve proteger a privacidade de Olá do funcionário e dados do cliente ao fazer departamentos toothose acessível de dados que precisam dela. (como departamentos de folha de pagamento e reservas)
 
 ## <a name="company-goals"></a>Metas da empresa 
 
 - As fontes de dados que contêm dados pessoais são criptografadas quando residem no armazenamento em nuvem.
 
-- Os dados pessoais transferidos de um local para outro são criptografados enquanto estão em trânsito. Isso será verdadeiro se os dados estiverem viajando pela rede virtual ou na Internet entre os data centers corporativos e a nuvem do Azure.
+- Dados pessoais que são transferidos de um local tooanother são criptografados ao mesmo tempo em trânsito. Isso é verdadeiro se dados saudação está viajando em rede virtual hello ou Olá Internet entre o datacenter corporativo hello e hello nuvem do Azure.
 
 - A confidencialidade e a integridade dos dados pessoais são protegidas contra o acesso não autorizado por tecnologias de controle de acesso e gerenciamento de identidade forte.
 
 - Os dados pessoais são protegidos contra a exposição por meio da violação de dados com o monitoramento de ameaças e vulnerabilidades.
 
-- O estado de segurança dos serviços do Azure que armazenam ou transmitem dados pessoais é avaliado para identificar oportunidades para proteger melhor os dados pessoais.
+- Olá estado de segurança de serviços do Azure que armazenam ou transmitir dados pessoais é avaliado tooidentify oportunidades toobetter proteger dados pessoais.
 
 ## <a name="data-protection-guidance"></a>Diretrizes de proteção de dados
 
-Os seguintes artigos contêm diretrizes de instruções técnicas que ajudarão você a atingir as metas de proteção de dados pessoais listadas acima:
+Olá artigos a seguir contêm técnica tooguidance como que ajudarão você a atingir os objetivos de proteção de dados pessoais Olá listados acima:
 
 - [Tecnologias de criptografia do Azure](protect-personal-data-at-rest.md)
 

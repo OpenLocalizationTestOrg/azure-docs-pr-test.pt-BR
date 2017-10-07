@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de distribuição global do Azure Cosmos DB para a API do DocumentDB | Microsoft Docs"
-description: "Saiba como configurar a distribuição global do Azure Cosmos DB usando a API do DocumentDB."
+title: "tutorial de distribuição global aaaAzure Cosmos DB para a API DocumentDB | Microsoft Docs"
+description: "Saiba como distribuição global usando o banco de dados do Azure Cosmos toosetup Olá API DocumentDB."
 services: cosmos-db
 keywords: "distribuição global, documentDB"
 documentationcenter: 
@@ -15,51 +15,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: f4d8efe9814bd28bb902567a23b541bc9b5414a1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a1d5f01faa62407fbbc9c078ef4a9589a1a29219
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-documentdb-api"></a>Como configurar a distribuição global do Azure Cosmos DB usando a API do DocumentDB
+# <a name="how-toosetup-azure-cosmos-db-global-distribution-using-hello-documentdb-api"></a>Como a distribuição global usando o banco de dados do Azure Cosmos toosetup Olá API DocumentDB
 
-Neste artigo, mostraremos como usar o Portal do Azure para configurar a distribuição global do Azure Cosmos DB e, depois, conectar-se usando a API do DocumentDB.
+Neste artigo, mostramos como toouse Olá toosetup portal do Azure distribuição global do banco de dados do Azure Cosmos e, em seguida, conecte-se usando Olá API DocumentDB.
 
-Este artigo aborda as seguintes tarefas: 
+Este artigo aborda Olá tarefas a seguir: 
 
 > [!div class="checklist"]
-> * Configurar a distribuição global usando o Portal do Azure
-> * Configurar a distribuição global usando a [API do DocumentDB](documentdb-introduction.md)
+> * Configurar a distribuição global usando Olá portal do Azure
+> * Configurar a distribuição global usando Olá [APIs do DocumentDB](documentdb-introduction.md)
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-documentdb-api"></a>Conectar-se a uma região preferencial usando a API do DocumentDB
+## <a name="connecting-tooa-preferred-region-using-hello-documentdb-api"></a>Conectar-se a região preferida tooa usando Olá API DocumentDB
 
-Para aproveitar a [distribuição global](distribute-data-globally.md), os aplicativos cliente podem especificar a lista de preferências ordenadas de regiões a serem usadas para executar operações de documento. Isso pode ser feito definindo a política de conexão. Com base na configuração da conta do Azure Cosmos DB, na disponibilidade regional atual e na lista de preferências especificada, o ponto de extremidade mais adequado será escolhido pelo SDK do DocumentDB para executar operações de gravação e leitura.
+Em ordem tootake aproveitar [distribuição global](distribute-data-globally.md), aplicativos cliente podem especificar Olá ordenados lista de preferência de regiões toobe usada tooperform operações de documento. Isso pode ser feito definindo a diretiva de conexão hello. Com base na configuração de conta do banco de dados do Azure Cosmos hello, disponibilidade regional atual e a lista de preferência de saudação especificado, Olá ponto de extremidade mais ideal será escolhido por Olá SDK do DocumentDB tooperform gravar e operações de leitura.
 
-Essa lista de preferências é especificada ao inicializar uma conexão usando os SDKs do DocumentDB. Os SDKs aceitam um parâmetro opcional "PreferredLocations", que é uma lista ordenada de regiões do Azure.
+Esta lista de preferência é especificada durante a inicialização de uma conexão usando Olá SDKs do DocumentDB. Olá SDKs aceitar um parâmetro opcional "PreferredLocations" que é uma lista ordenada de regiões do Azure.
 
-O SDK enviará automaticamente todas as gravações para a região de gravação atual.
+Olá SDK enviará automaticamente todas as gravações toohello gravação região atual.
 
-Todas as leituras serão enviadas para a primeira região disponível na lista PreferredLocations. Se a solicitação falhar, o cliente não fará o envio para a próxima região da lista, e assim por diante.
+Todas as leituras serão enviadas toohello primeira região disponível na lista de PreferredLocations hello. Se Olá solicitação falhar, o cliente Olá falhar para baixo próxima região do hello lista toohello e assim por diante.
 
-Os SDKs tentarão ler apenas das regiões especificadas em PreferredLocations. Desse modo, se a Conta do Banco de Dados estiver disponível em três regiões, por exemplo, mas o cliente especificar apenas duas das regiões de não gravação para PreferredLocations, nenhuma leitura será atendida fora da região de gravação, mesmo no caso de failover.
+Olá SDKs somente tentará tooread de regiões de saudação especificado em PreferredLocations. Assim, por exemplo, se Olá conta de banco de dados está disponível em três regiões, mas somente cliente Olá especifica duas regiões de gravação não Olá para PreferredLocations, em seguida, nenhuma leitura será servida fora da região de gravação hello, mesmo no caso de saudação de failover.
 
-O aplicativo pode verificar o ponto de extremidade de gravação e o ponto de extremidade de leitura atuais escolhidos pelo SDK marcando duas propriedades, WriteEndpoint e ReadEndpoint, disponíveis no SDK versão 1.8 e superiores.
+aplicativo Hello pode verificar o ponto de extremidade de gravação atual Olá e ler escolhido pelo Olá SDK pela verificação duas propriedades, WriteEndpoint e ReadEndpoint, disponível no SDK versão 1.8 e acima do ponto de extremidade.
 
-Se a propriedade PreferredLocations não estiver definida, todas as solicitações serão atendidas na região de gravação atual.
+Se Olá PreferredLocations propriedade não for definida, todas as solicitações serão atendidas a partir de região de gravação atual hello.
 
 ## <a name="net-sdk"></a>SDK .NET
-O SDK pode ser usado sem qualquer mudança de código. Nesse caso, o SDK direciona automaticamente as leituras e gravações para a região de gravação atual.
+Olá SDK pode ser usado sem quaisquer alterações de código. Nesse caso, hello SDK automaticamente ambas as leituras e gravações toohello região de gravação atual.
 
-Na versão 1.8 e posteriores do SDK para .NET, o parâmetro ConnectionPolicy do construtor DocumentClient tem uma propriedade chamada Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Essa propriedade é do tipo `<string>` de Coleção e deve conter uma lista de nomes de região. Os valores de cadeia de caracteres são formatados de acordo com a coluna Nome da Região na página [Regiões do Azure][regions], sem espaços antes ou depois do primeiro e último caracteres, respectivamente.
+Na versão 1.8 e mais recente do SDK .NET de hello, o parâmetro de ConnectionPolicy Olá para construtor de DocumentClient Olá tem uma propriedade chamada Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Essa propriedade é do tipo `<string>` de Coleção e deve conter uma lista de nomes de região. valores de cadeia de caracteres de saudação são formatados por coluna de nome de região Olá Olá [regiões do Azure] [ regions] página, sem espaços antes ou depois de saudação primeiro e último caractere respectivamente.
 
-Os pontos de extremidade atuais de gravação e leitura estão disponíveis em DocumentClient.WriteEndpoint e DocumentClient.ReadEndpoint, respectivamente.
+pontos de extremidade de leitura e gravação atual Olá estão disponíveis em DocumentClient.WriteEndpoint e DocumentClient.ReadEndpoint respectivamente.
 
 > [!NOTE]
-> As URLs para os pontos de extremidade não devem ser consideradas como constantes de vida longa. O serviço pode atualizá-las a qualquer momento. O SDK lida com essa alteração automaticamente.
+> Olá URLs para pontos de extremidade de saudação não devem ser consideradas como constantes e longa duração. serviço de saudação pode atualizar essas a qualquer momento. Olá SDK manipula essa alteração automaticamente.
 >
 >
 
@@ -81,44 +81,44 @@ DocumentClient docClient = new DocumentClient(
     accountKey,
     connectionPolicy);
 
-// connect to DocDB
+// connect tooDocDB
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
 ## <a name="nodejs-javascript-and-python-sdks"></a>SDKs para NodeJS, JavaScript e Python
-O SDK pode ser usado sem qualquer mudança de código. Nesse caso, o SDK direcionará automaticamente as leituras e gravações para a região de gravação atual.
+Olá SDK pode ser usado sem quaisquer alterações de código. Nesse caso, Olá que SDK direcionará automaticamente os lê e grava toohello região de gravação atual.
 
-Na versão 1.8 e posteriores de cada SDK, o parâmetro ConnectionPolicy do construtor DocumentClient tem uma nova propriedade chamada DocumentClient.ConnectionPolicy.PreferredLocations. Esse parâmetro é uma matriz de cadeias de caracteres que usa uma lista de nomes de região. Os nomes são formatados de acordo com a coluna Nome da Região na página [Regiões do Azure][regions]. Você também pode usar as constantes predefinidas no objeto de conveniência AzureDocuments.Regions
+Na versão 1.8 e mais tarde de cada SDK, Olá ConnectionPolicy parâmetro para o construtor de DocumentClient Olá uma nova propriedade chamada DocumentClient.ConnectionPolicy.PreferredLocations. Esse parâmetro é uma matriz de cadeias de caracteres que usa uma lista de nomes de região. nomes de saudação são formatados por coluna de nome de região de Olá Olá [regiões do Azure] [ regions] página. Você também pode usar constantes Olá predefinido no objeto de conveniência Olá AzureDocuments.Regions
 
-Os pontos de extremidade atuais de gravação e leitura estão disponíveis em DocumentClient.getWriteEndpoint e DocumentClient.getReadEndpoint, respectivamente.
+pontos de extremidade de leitura e gravação atual Olá estão disponíveis em DocumentClient.getWriteEndpoint e DocumentClient.getReadEndpoint respectivamente.
 
 > [!NOTE]
-> As URLs para os pontos de extremidade não devem ser consideradas como constantes de vida longa. O serviço pode atualizá-las a qualquer momento. O SDK tratará dessa mudança automaticamente.
+> Olá URLs para pontos de extremidade de saudação não devem ser consideradas como constantes e longa duração. serviço de saudação pode atualizar essas a qualquer momento. Olá SDK tratará essa alteração automaticamente.
 >
 >
 
-Veja abaixo um exemplo de código para NodeJS/Javascript. Python e Java seguirão o mesmo padrão.
+Veja abaixo um exemplo de código para NodeJS/Javascript. Python e Java seguirá Olá mesmo padrão.
 
 ```java
 // Creating a ConnectionPolicy object
 var connectionPolicy = new DocumentBase.ConnectionPolicy();
 
-// Setting read region selection preference, in the following order -
+// Setting read region selection preference, in hello following order -
 // 1 - West US
 // 2 - East US
 // 3 - North Europe
 connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe'];
 
-// initialize the connection
+// initialize hello connection
 var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPolicy);
 ```
 
 ## <a name="rest"></a>REST
-Assim que uma conta de banco de dados tiver sido disponibilizada em várias regiões, os clientes poderão consultar sua disponibilidade executando uma solicitação GET no URI a seguir.
+Depois que uma conta de banco de dados tenha sido disponibilizada em várias regiões, os clientes podem consultar sua disponibilidade ao executar uma solicitação GET em Olá URI a seguir.
 
     https://{databaseaccount}.documents.azure.com/
 
-O serviço retornará uma lista de regiões e seus URIs de pontos de extremidade do Azure Cosmos DB correspondentes para as réplicas. A região de gravação atual será indicada na resposta. O cliente pode selecionar o ponto de extremidade apropriado para todas as solicitações adicionais de API REST como se segue.
+serviço de saudação retornará uma lista de regiões e seu banco de dados do Azure Cosmos ponto de extremidade correspondente URIs para réplicas de saudação. região de gravação atual Olá será indicado na resposta de saudação. cliente Olá pode selecionar ponto de extremidade apropriado para todas as solicitações da API REST Olá da seguinte maneira.
 
 Exemplo de resposta
 
@@ -153,27 +153,27 @@ Exemplo de resposta
     }
 
 
-* Todas as solicitações All PUT, POST e DELETE devem ir para o URI de gravação indicado
-* Todas as solicitações GET e outras somente leitura (por exemplo: consultas) podem ir para qualquer ponto de extremidade de escolha do cliente
+* PUT, POST e DELETE todas as solicitações devem ir toohello indicado gravar URI
+* Obtém todas as e outras solicitações somente leitura (por exemplo, consultas) podem ir tooany de ponto de extremidade de escolha do cliente Olá
 
-As solicitações de gravação para regiões somente leitura falharão com o código de erro 403 de HTTP ("Proibido").
+Grave solicitações regiões de somente tooread falhará com o código de erro HTTP 403 ("proibido").
 
-Se a região de gravação mudar depois da fase de descoberta inicial do cliente, as gravações subsequentes na região de gravação anterior falharão com o código de erro 403 de HTTP ("Proibido"). O cliente deve obter (GET) a lista de regiões novamente para que a região de gravação seja atualizada.
+Se a região de gravação da saudação alterações após a fase de descoberta inicial do cliente hello, subsequente grava toohello anterior região de gravação falhará com o código de erro HTTP 403 ("proibido"). cliente Olá deve, em seguida, obter Olá lista de regiões novamente região do tooget Olá gravação atualizado.
 
-Assim, concluímos este tutorial. Aprenda a gerenciar a consistência de sua conta globalmente replicada lendo [Níveis de consistência no Azure Cosmos DB](consistency-levels.md). E para saber mais sobre como a replicação de banco de dados global funciona no Azure Cosmos DB, veja [Distribuir dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
+Assim, concluímos este tutorial. Você pode aprender como toomanage Olá consistência da sua conta global replicada lendo [níveis de consistência no banco de dados do Azure Cosmos](consistency-levels.md). E para saber mais sobre como a replicação de banco de dados global funciona no Azure Cosmos DB, veja [Distribuir dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você fez o seguinte:
+Neste tutorial, você fez a seguir hello:
 
 > [!div class="checklist"]
-> * Configurar a distribuição global usando o Portal do Azure
-> * Configurar a distribuição global usando a API do DocumentDB
+> * Configurar a distribuição global usando Olá portal do Azure
+> * Configurar a distribuição global usando Olá APIs do DocumentDB
 
-Agora você pode prosseguir para o próximo tutorial e aprender a desenvolver localmente usando o emulador local do Azure Cosmos DB.
+Você pode continuar toolearn tutorial do próximo toohello como toodevelop localmente usando Olá emulador local do banco de dados do Azure Cosmos.
 
 > [!div class="nextstepaction"]
-> [Desenvolver localmente com o emulador](local-emulator.md)
+> [Desenvolva localmente com o emulador de saudação](local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
 

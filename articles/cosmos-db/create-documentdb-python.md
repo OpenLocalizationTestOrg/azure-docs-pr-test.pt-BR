@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: compilar um aplicativo com Python e com a API do DocumentDB | Microsoft Docs'
-description: "Apresenta um exemplo de código Python que pode ser usado para se conectar à API do DocumentDB do Azure Cosmos DB e consultá-la"
+title: "Cosmos do Azure DB: Criar um aplicativo com Python e Olá API DocumentDB | Microsoft Docs"
+description: "Apresenta um exemplo de código do Python pode usar tooconnect tooand consulta Olá API DocumentDB do Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -15,21 +15,21 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 05/13/2017
 ms.author: mimig
-ms.openlocfilehash: 08d467ea27484e7d1d07d6c21b2e04b6525fbcd8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e66965ab493c6ef693e88a3767a401d39e1bde2a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-cosmos-db-build-a-documentdb-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB: compilar um aplicativo de API do DocumentDB com o Python e com o Portal do Azure
+# <a name="azure-cosmos-db-build-a-documentdb-api-app-with-python-and-hello-azure-portal"></a>Banco de dados do Azure do Cosmos: Criar um aplicativo de API de documentos com Python e Olá portal do Azure
 
-O Azure Cosmos DB é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
+O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. Você pode criar e consultar documentos, chave/valor e bancos de dados do gráfico, que se beneficiar de distribuição global hello e recursos de escala horizontal no núcleo de saudação do banco de dados do Azure Cosmos rapidamente. 
 
-Este início rápido demonstra como criar uma conta do Azure Cosmos DB, um banco de dados de documento e uma coleção usando o Portal do Azure. Em seguida, você compila e executa um aplicativo de console criado na [API do Python do DocumentDB](documentdb-sdk-python.md).
+Este guia rápido demonstra como toocreate uma conta de banco de dados do Azure Cosmos, o banco de dados de documento e a coleção usando Olá portal do Azure. Você, em seguida, compilar e executar um aplicativo de console criado em Olá [API de Python do DocumentDB](documentdb-sdk-python.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Antes que possa executar esta amostra, você deverá ter os seguintes pré-requisitos:
+* Antes de executar este exemplo, você deve ter Olá pré-requisitos a seguir:
     * [Visual Studio 2015](http://www.visualstudio.com/) ou superior.
     * Ferramentas Python para o Visual Studio do [GitHub](http://microsoft.github.io/PTVS/). Este tutorial usa as Ferramentas Python para o VS 2015.
     * Python 2.7 de [python.org](https://www.python.org/downloads/release/python-2712/)
@@ -44,26 +44,26 @@ Este início rápido demonstra como criar uma conta do Azure Cosmos DB, um banco
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
+## <a name="clone-hello-sample-application"></a>Clonar um aplicativo de exemplo hello
 
-Agora, vamos clonar um aplicativo de API do DocumentDB do GitHub, defina a cadeia de conexão e execute-o. Você verá como é fácil trabalhar usando dados de forma programática. 
+Agora vamos clone uma API de documentos de aplicativo do github, defina a cadeia de caracteres de conexão hello e executá-lo. Você verá como é fácil toowork com dados programaticamente. 
 
-1. Abra uma janela de terminal do Git, como git bash, e `cd` para um diretório de trabalho.  
+1. Abra uma janela de terminal de git, como git bash, e `cd` tooa diretório de trabalho.  
 
-2. Execute o comando a seguir para clonar o repositório de exemplo. 
+2. Execute Olá repositório de exemplo do comando tooclone Olá a seguir. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-python-getting-started.git
     ```  
-## <a name="review-the-code"></a>Examine o código
+## <a name="review-hello-code"></a>Examine o código de saudação
 
-Façamos uma rápida análise do que está acontecendo no aplicativo. Abra o arquivo DocumentDBGetStarted.py e você verá que essas linhas de código criam os recursos do Azure Cosmos DB. 
+Vamos fazer uma rápida revisão do que está acontecendo no aplicativo hello. Olá abrir DocumentDBGetStarted.py de arquivo e você encontrará que essas linhas de código criam Olá recursos de banco de dados do Azure Cosmos. 
 
 
-* O DocumentClient é inicializado.
+* Olá DocumentClient é inicializado.
 
     ```python
-    # Initialize the Python DocumentDB client
+    # Initialize hello Python DocumentDB client
     client = document_client.DocumentClient(config['ENDPOINT'], {'masterKey': config['MASTERKEY']})
     ```
 
@@ -120,47 +120,47 @@ Façamos uma rápida análise do que está acontecendo no aplicativo. Abra o arq
 
 ## <a name="update-your-connection-string"></a>Atualizar sua cadeia de conexão
 
-Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
+Agora volte toohello tooget portal do Azure suas informações de cadeia de caracteres de conexão e copie-o em um aplicativo hello.
 
-1. No [Portal do Azure](http://portal.azure.com/), na sua conta do Azure Cosmos DB, no painel de navegação esquerdo, clique em **Chaves** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar o URI e a Chave Primária para o arquivo `DocumentDBGetStarted.py` na próxima etapa.
+1. Em Olá [portal do Azure](http://portal.azure.com/), em seu banco de dados do Cosmos do Azure da conta, na barra de navegação esquerda de saudação, clique em **chaves**e, em seguida, clique em **chaves de leitura-gravação**. Você usará botões de cópia de saudação na direita de saudação do hello toocopy da tela hello URI e a chave primária em Olá `DocumentDBGetStarted.py` arquivo na próxima etapa do hello.
 
-    ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/create-documentdb-dotnet/keys.png)
+    ![Exibir e copiar uma folha de chaves, a chave de acesso no portal do Azure de saudação](./media/create-documentdb-dotnet/keys.png)
 
-2. Abra o arquivo `DocumentDBGetStarted.py`. 
+2. Em aberto Olá `DocumentDBGetStarted.py` arquivo. 
 
-3. Copie o valor do URI do portal (usando o botão de cópia) e transforme-o no valor da chave do ponto de extremidade em `DocumentDBGetStarted.py`. 
+3. Copie o valor URI do portal de saudação (usando o botão de cópia de saudação) e torná-lo Olá o valor da chave do ponto de extremidade Olá no `DocumentDBGetStarted.py`. 
 
     `config.ENDPOINT : "https://FILLME.documents.azure.com"`
 
-4. Em seguida, copie o valor da CHAVE PRIMÁRIA do portal e transforme-o no valor de `config.MASTERKEY` em `DocumentDBGetStarted.py`. Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o Azure Cosmos DB. 
+4. Em seguida, copie o valor de chave primária do portal de saudação e torná-lo Olá valor Olá `config.MASTERKEY` em `DocumentDBGetStarted.py`. Agora que você atualizou seu aplicativo com todas as informações de saudação precisa toocommunicate com o banco de dados do Azure Cosmos. 
 
     `config.MASTERKEY : "FILLME"`
     
-## <a name="run-the-app"></a>Execute o aplicativo
-1. No Visual Studio, clique com o botão direito do mouse no projeto no **Gerenciador de Soluções**, selecione o ambiente atual do Python e, em seguida, clique com o botão direito do mouse.
+## <a name="run-hello-app"></a>Executar o aplicativo hello
+1. No Visual Studio, clique com botão direito no projeto Olá no **Solution Explorer**, selecione o ambiente atual de Python hello e clique com botão direito.
 
 2. Selecione Instalar Pacote do Python e digite **pydocumentdb**
 
-3. Pressione F5 para executar o aplicativo. Seu aplicativo é exibido no navegador. 
+3. Execute o aplicativo de hello toorun F5. Seu aplicativo é exibido no navegador. 
 
-Agora, é possível voltar ao Data Explorer e ver a consulta, modificar e trabalhar com esses novos dados. 
+Agora você pode voltar tooData Explorer e consulte a consulta, modificar e trabalhar com esses novos dados. 
 
-## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
+## <a name="review-slas-in-hello-azure-portal"></a>Examine os SLAs em Olá portal do Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você não continuar usando este aplicativo, exclua todos os recursos criados por esse início rápido no portal do Azure com as seguintes etapas:
+Se você não vai toocontinue toouse este aplicativo, exclua todos os recursos criados por este guia de início rápido Olá portal do Azure com hello etapas a seguir:
 
-1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e depois clique no nome do recurso criado. 
-2. Em sua página de grupo de recursos, clique em **Excluir**, digite o nome do recurso para excluir na caixa de texto e depois clique em **Excluir**.
+1. No menu esquerdo de saudação do hello portal do Azure, clique em **grupos de recursos** e clique em nome de saudação do recurso de saudação criado por você. 
+2. Na sua página de grupo de recursos, clique em **excluir**, digite o nome de saudação do hello recurso toodelete na caixa de texto de saudação e, em seguida, clique em **excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB, como criar uma coleção usando o Data Explorer e como executar um aplicativo. Agora, é possível importar outros dados para sua conta do BD Cosmos. 
+Este guia de início rápido, você aprendeu como toocreate uma conta de banco de dados do Azure Cosmos, crie uma coleção usando Olá Explorador de dados e executar o aplicativo. Agora você pode importar a conta de banco de dados do Cosmos tooyour dados adicionais. 
 
 > [!div class="nextstepaction"]
-> [Importar dados para o Azure Cosmos DB para a API do DocumentDB](import-data.md)
+> [Importe dados para o banco de dados do Azure Cosmos para Olá API DocumentDB](import-data.md)
 
 

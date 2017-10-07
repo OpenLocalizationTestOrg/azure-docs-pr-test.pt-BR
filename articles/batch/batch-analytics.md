@@ -1,5 +1,5 @@
 ---
-title: "Análise de lote do Azure | Documentos do Microsoft"
+title: "aaaAzure análise de lote | Microsoft Docs"
 description: "Referência para análise de lote do Azure."
 services: batch
 author: tamram
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-ms.openlocfilehash: 7d634e1bb595a84b8af339e5bc5a483a7849e7f7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 462fbad1ac522b485ae18c1e8891b9d2cabd45e0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="batch-analytics"></a>Análise de lote
-Os tópicos na Análise de lote contêm informações de referência para os eventos e alertas disponíveis para recursos de serviço em lotes.
+tópicos de saudação na análise do lote contêm informações de referência para eventos de saudação e alertas disponíveis para os recursos de serviço de lote.
 
 Consulte [Registro em log de diagnóstico de Lote do Azure](https://azure.microsoft.com/documentation/articles/batch-diagnostics/) para obter mais informações sobre como habilitar e consumir logs de diagnóstico de lote.
 
 ## <a name="diagnostic-logs"></a>Logs de diagnóstico
 
-O serviço Lote do Azure emite os eventos de log de diagnóstico a seguir durante o tempo de vida de determinados recursos do lote.
+Olá serviço de lote do Azure emite Olá eventos de log de diagnóstico a seguir durante a vida útil de saudação de determinados recursos de lote.
 
 **Eventos do Log de Serviço**
 * [Criação de pool](batch-pool-create-event.md)

@@ -1,6 +1,6 @@
 ---
-title: "Usando o Elasticsearch como um repositório de rastreamento do aplicativo do Service Fabric | Microsoft Docs"
-description: Descreve como os aplicativos do Service Fabric podem usar o Elasticsearch e o Kibana para armazenar, indexar e pesquisar os rastreamentos do aplicativo (logs)
+title: "aaaUsing Elasticsearch como um repositório de rastreamento de aplicativo do Service Fabric | Microsoft Docs"
+description: "Descreve como aplicativos de serviço de malha podem usar toostore Elasticsearch e Kibana, índice e pesquisa por meio de rastreamentos do aplicativo (registros)"
 services: service-fabric
 documentationcenter: .net
 author: karolz-ms
@@ -15,64 +15,64 @@ ms.workload: NA
 ms.date: 04/07/2017
 ms.author: karolz@microsoft.com
 redirect_url: /azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow
-ms.openlocfilehash: 2d2ceceea131b41ad1a1735aaa2a859d035ab098
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b5977c54e69319e3caa376e44a02f971b66a3254
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-elasticsearch-as-a-service-fabric-application-trace-store"></a>Usar o Elasticsearch como um repositório de rastreamento do aplicativo Service Fabric
 ## <a name="introduction"></a>Introdução
 Este artigo descreve como os aplicativos do [Azure Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric/) podem usar o **Elasticsearch** e o **Kibana** para armazenamento de rastreamento do aplicativo, indexação e pesquisa. [Elasticsearch](https://www.elastic.co/guide/index.html) é um mecanismo de análise e pesquisa em tempo real escalonável, distribuído de software livre adequado para essa tarefa. Ele pode ser instalado em máquinas virtuais Windows ou Linux em execução no Microsoft Azure. O Elasticsearch pode processar de maneira eficiente os rastreamentos *estruturados* produzidos usando tecnologias como **ETW (Rastreamento de Eventos para Windows)**.
 
-O ETW é usado pelo tempo de execução do Service Fabric para originar informações de diagnóstico (rastreamentos). É o método recomendado para aplicativos de Service Fabric para a originar suas informações de diagnóstico também. Usar o mesmo mecanismo possibilita correlacionar os rastreamentos fornecidos pelo aplicativo e pelo tempo de execução e facilita a solução de problemas. Os modelos de projeto de Malha de Serviço no Visual Studio incluem uma API de log (baseada na classe .NET **EventSource** ) que emite rastreamentos ETW por padrão. Para obter uma visão geral do rastreamento de aplicativo do Service Fabric usando o ETW, consulte [Monitorar e diagnosticar serviços em uma configuração de desenvolvimento do computador local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
+O ETW é usado pelo Service Fabric runtime toosource informações de diagnóstico (rastreamentos). É Olá recomendado suas informações de diagnóstico de método para toosource de aplicativos do Service Fabric muito. Usando o mesmo mecanismo permite a correlação entre fornecidas pelo aplicativo e fornecidos pelo tempo de execução de rastreamentos e torna a solução de problemas de saudação. Modelos de projeto de malha do serviço no Visual Studio incluem uma API de registro em log (com base em Olá .NET **EventSource** classe) que emite rastreamentos ETW por padrão. Para obter uma visão geral do rastreamento de aplicativo do Service Fabric usando o ETW, consulte [Monitorar e diagnosticar serviços em uma configuração de desenvolvimento do computador local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
-Para os rastreamentos que aparecerão em Elasticsearch, eles precisam ser capturados nos nós de cluster do Service Fabric em tempo real (enquanto o aplicativo estiver em execução) e enviados ao ponto de extremidade Elasticsearch. Há duas opções principais para a captura de rastreamento:
+Para rastreamentos de saudação tooshow backup em Elasticsearch, eles precisam toobe capturados em nós de cluster do Service Fabric Olá em tempo real (enquanto o aplicativo hello está sendo executado) e enviadas tooan Elasticsearch endpoint. Há duas opções principais para a captura de rastreamento:
 
 * **Captura de rastreamento dentro do processo**  
-  o aplicativo, ou mais precisamente, o processo de serviço, é responsável por enviar os dados de diagnóstico para o repositório de rastreamento (Elasticsearch).
+  aplicativo Hello, ou mais precisamente, processo de serviço, é responsável pelo envio de repositório de rastreamento de toohello de dados de diagnóstico de saudação (Elasticsearch).
 * **Captura de rastreamento fora do processo**  
-  um agente separado captura rastreamentos dos processos de serviço e os envia para o repositório de rastreamento.
+  Um agente separado é capturar rastreamentos de processo do serviço hello ou processos e enviá-los toohello repositório de rastreamento.
 
-A seguir, descreveremos como configurar o Elasticsearch no Azure, discutiremos os prós e contras de ambas as opções de captura e explicaremos como configurar um serviço do Service Fabric para enviar dados para o Elasticsearch.
+Abaixo descrevemos como tooset backup Elasticsearch no Azure, discuta profissionais hello e contras tanto para capturar as opções e explicam como tooconfigure uma malha de serviço serviço toosend tooElasticsearch de dados.
 
 ## <a name="set-up-elasticsearch-on-azure"></a>Configurar o Elasticsearch no Azure
-A maneira mais simples de configurar o serviço Elasticsearch no Azure é por meio de [**modelos do Azure Resource Manager**](../azure-resource-manager/resource-group-overview.md). Um [modelo do Gerenciador de Recursos do Azure de início rápido para Elasticsearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) abrangente está disponível no repositório de modelos de início rápido do Azure. Este modelo usa contas de armazenamento separada para as unidades de escala (grupos de nós). Ele também pode provisionar nós de cliente e servidor separados com configurações diferentes e vários números de discos de dados anexados.
+Olá tooset de maneira mais direta o serviço de Elasticsearch Olá no Azure é por meio de [ **modelos do Azure Resource Manager**](../azure-resource-manager/resource-group-overview.md). Um [modelo do Gerenciador de Recursos do Azure de início rápido para Elasticsearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) abrangente está disponível no repositório de modelos de início rápido do Azure. Este modelo usa contas de armazenamento separada para as unidades de escala (grupos de nós). Ele também pode provisionar nós de cliente e servidor separados com configurações diferentes e vários números de discos de dados anexados.
 
-Aqui, usaremos outro modelo, chamado **ES-MultiNode** do [repositório de ferramentas de diagnóstico do Azure](https://github.com/Azure/azure-diagnostics-tools). Esse modelo é mais fácil de usar e cria um cluster do Elasticsearch protegido pela autenticação HTTP básica. Antes de continuar, baixe o repositório do GitHub em seu computador (clonando o repositório ou baixando um arquivo zip). O modelo ES-MultiNode está localizado na pasta com o mesmo nome.
+Aqui, podemos usar outro modelo, chamado **ES-vários nós** de saudação [repositório de ferramentas de diagnóstico do Azure](https://github.com/Azure/azure-diagnostics-tools). Este modelo é mais fácil toouse e cria um cluster Elasticsearch protegido pela autenticação básica HTTP. Antes de prosseguir, baixe repositório de saudação do GitHub tooyour máquina (por clonagem do repositório de saudação ou baixar um arquivo zip). modelo de saudação ES-vários nós está localizado na pasta de saudação com hello mesmo nome.
 
-### <a name="prepare-a-machine-to-run-elasticsearch-installation-scripts"></a>Preparar um computador para executar scripts de instalação do ElasticSearch
-A maneira mais fácil de usar o modelo ES-MultiNode é por meio de um script fornecido pelo Azure PowerShell chamado `CreateElasticSearchCluster`. Para usar esse script, você precisará instalar os módulos do PowerShell e uma ferramenta chamada **openssl**. Essa ferramenta é necessária para criar uma chave SSH que pode ser usada para administrar o cluster do Elasticsearch remotamente.
+### <a name="prepare-a-machine-toorun-elasticsearch-installation-scripts"></a>Preparar uma máquina toorun Elasticsearch scripts de instalação
+Olá modelo de saudação ES-vários nós de toouse de maneira mais fácil é através de um script do PowerShell do Azure fornecido chamado `CreateElasticSearchCluster`. toouse esse script, você precisa de módulos do PowerShell tooinstall e uma ferramenta chamada **openssl**. Olá este último é necessário para criar uma chave SSH que pode ser usado tooadminister cluster Elasticsearch remotamente.
 
-`CreateElasticSearchCluster` foi desenvolvido para facilitar o uso com o modelo ES-MultiNode em um computador com o Windows. É possível usar o modelo em um computador diferente do Windows, mas esse cenário está além do escopo deste artigo.
+`CreateElasticSearchCluster`script destina-se a facilidade de uso com o modelo de saudação ES-vários nós de um computador Windows. É possível toouse Olá modelo em um computador diferente do Windows, mas esse cenário está além do escopo deste artigo hello.
 
 1. Se você ainda não os tiver instalado, instale os [**módulos do Azure PowerShell**](http://aka.ms/webpi-azps). Quando solicitado, clique em **Executar** e em **Instalar**. O Azure PowerShell 1.3 ou mais recente é necessário.
-2. A ferramenta **openssl** está incluída na distribuição de [**Git para Windows**](http://www.git-scm.com/downloads). Se ainda não tiver feito isso, instale agora o [Git para Windows](http://www.git-scm.com/downloads) . (As opções de instalação padrão estão OK.)
-3. Supondo que o Git foi instalado, mas não incluído no caminho do sistema, abra uma janela do Microsoft Azure PowerShell e execute os seguintes comandos:
+2. Olá **openssl** ferramenta está incluída na distribuição de saudação de [ **Git para Windows**](http://www.git-scm.com/downloads). Se ainda não tiver feito isso, instale agora o [Git para Windows](http://www.git-scm.com/downloads) . (opções de instalação padrão Olá são Okey).
+3. Supondo que Git foi instalado, mas não incluído no caminho do sistema hello, abra uma janela do Microsoft Azure PowerShell e execute Olá comandos a seguir:
    
     ```powershell
     $ENV:PATH += ";<Git installation folder>\usr\bin"
     $ENV:OPENSSL_CONF = "<Git installation folder>\usr\ssl\openssl.cnf"
     ```
    
-    Substitua o `<Git installation folder>` pelo local do Git em seu computador; o padrão é **"C:\Program Files\Git"**. Observe o caractere ponto e vírgula no início do primeiro caminho.
-4. Verifique se você está conectado ao Azure (por meio do cmdlet [`Add-AzureRmAccount`](https://msdn.microsoft.com/library/mt619267.aspx) ) e se a assinatura que deve ser usada para criar o cluster do Elastic Search foi selecionada. Você pode verificar se a assinatura correta foi selecionada usando os cmdlets `Get-AzureRmContext` e `Get-AzureRmSubscription`.
-5. Se você ainda não fez isso, altere o diretório atual para a pasta ES-MultiNode.
+    Substituir saudação `<Git installation folder>` com o local do Git de saudação em seu computador; padrão Olá é **"C:\Program Files\Git"**. Observe o caractere de ponto e vírgula Olá no início de saudação do caminho de saudação primeiro.
+4. Certifique-se de que você está conectado tooAzure (via [ `Add-AzureRmAccount` ](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet) e que você selecionou a assinatura de saudação que deve ser usado toocreate cluster pesquisa Elástico. Você pode verificar se a assinatura correta foi selecionada usando os cmdlets `Get-AzureRmContext` e `Get-AzureRmSubscription`.
+5. Se você ainda não tiver feito isso, altere a pasta de toohello ES-vários nós de diretório atual do hello.
 
-### <a name="run-the-createelasticsearchcluster-script"></a>Executar o script CreateElasticSearchCluster
-Antes de executar o script, abra o arquivo `azuredeploy-parameters.json` e verifique ou forneça valores para os parâmetros do script. Os parâmetros a seguir são fornecidos:
+### <a name="run-hello-createelasticsearchcluster-script"></a>Executar script de CreateElasticSearchCluster Olá
+Antes de executar o script hello, abra Olá `azuredeploy-parameters.json` de arquivo e verificar ou fornecer valores para parâmetros de script hello. Olá parâmetros a seguir é fornecido:
 
 | Nome do Parâmetro | Descrição |
 | --- | --- |
-| dnsNameForLoadBalancerIP |Esse é o nome que será usado para criar o nome DNS publicamente visível para o cluster do Elastic Search (anexando o domínio da região do Azure ao nome fornecido). Por exemplo, se esse valor de parâmetro é "myBigCluster" e a região do Azure escolhida é Oeste dos EUA, o nome DNS resultante para o cluster é myBigCluster.westus.cloudapp.azure.com. <br /><br />Esse nome também servirá como uma raiz para nomes de vários artefatos associados ao cluster do Elastic Search, como os nomes de nó de dados. |
-| adminUsername |O nome da conta de administrador para gerenciar o cluster do Elastic Search (as chaves SSH correspondentes são geradas automaticamente). |
-| dataNodeCount |O número de nós no cluster do Elasticsearch. A versão atual do script não faz distinção entre nós de dados e consultas; todos os nós executam as duas funções. O valor padrão é 3 nós. |
-| dataDiskSize |O tamanho dos discos de dados (em GB) que será alocado para cada nó de dados. Cada nó receberá 4 discos de dados, dedicados exclusivamente ao serviço Elastic Search. |
-| region |O nome da região do Azure onde o cluster do Elasticsearch deve estar localizado. |
-| esUserName |O nome de usuário que é configurado para ter acesso ao cluster do Elastic Search (sujeito à autenticação HTTP básica). A senha não faz parte do arquivo de parâmetros e deverá ser fornecida quando o script `CreateElasticSearchCluster` for invocado. |
-| vmSizeDataNodes |O tamanho da máquina virtual do Azure para nós do cluster do Elasticsearch. O padrão é Standard_D2. |
+| dnsNameForLoadBalancerIP |Olá nome que seja toocreate usado Olá publicamente visível DNS de cluster de pesquisa Elástico Olá (acrescentando nome de toohello fornecido Olá região do Azure domínio). Por exemplo, se esse valor de parâmetro é "myBigCluster" e a região do Azure Olá escolhido é Oeste dos EUA, o nome DNS resultante do Olá para cluster Olá é myBigCluster.westus.cloudapp.azure.com. <br /><br />Esse nome também serve como um nome de raiz para muitos artefatos associados Olá pesquisa Elástico cluster, como nomes de nó de dados. |
+| adminUsername |nome de Olá Olá da conta de administrador para o gerenciamento de cluster de pesquisa Elástico hello (chaves SSH correspondentes são geradas automaticamente). |
+| dataNodeCount |número de saudação de nós no cluster de pesquisa Elástico hello. versão atual de saudação do script hello não faz distinção entre nós de dados e consultas. todos os nós de executar as duas funções. Padrões too3 nós. |
+| dataDiskSize |tamanho de saudação de discos de dados (em GB) que é alocado para cada nó de dados. Cada nó recebe 4 discos de dados, tooElastic dedicado exclusivamente o serviço de pesquisa. |
+| region |nome de saudação da região do Azure em que o cluster de pesquisa Elástico Olá deve estar localizado. |
+| esUserName |Olá, nome do usuário de saudação que é configurado cluster tooES de acesso toohave (autenticação básica do assunto tooHTTP). Olá senha não é parte do arquivo de parâmetros e deve ser fornecida quando `CreateElasticSearchCluster` script é invocado. |
+| vmSizeDataNodes |Olá tamanho de máquina virtual do Azure para nós de cluster de pesquisa Elástico. TooStandard_D2 padrões. |
 
-Agora você está pronto para executar os aplicativos. Emita o seguinte comando:
+Agora você está pronto toorun script de saudação. Saudação de problema comando a seguir:
 
 ```powershell
 CreateElasticSearchCluster -ResourceGroupName <es-group-name> -Region <azure-region> -EsPassword <es-password>
@@ -82,86 +82,86 @@ onde
 
 | Nome do parâmetro do script | Descrição |
 | --- | --- |
-| `<es-group-name>` |O nome do grupo de recursos do Azure que conterá todos os recursos do cluster do Elastic Search. |
-| `<azure-region>` |O nome da região do Azure em que o cluster do Elastic Search deve ser criado. |
-| `<es-password>` |A senha para o usuário do Elastic Search. |
+| `<es-group-name>` |nome de Olá Olá do Azure do grupo de recursos que contém todos os recursos de cluster de pesquisa Elástico. |
+| `<azure-region>` |nome de saudação do hello região do Azure, onde o cluster de pesquisa Elástico Olá deve ser criado. |
+| `<es-password>` |senha Olá Olá Elástico pesquisar usuário. |
 
 > [!NOTE]
-> Se você esquecer de fazer logon no Azure (`Add-AzureRmAccount`), receberá uma NullReferenceException do cmdlet Test-AzureResourceGroup.
+> Se você receber uma NullReferenceException de cmdlet Olá AzureResourceGroup de teste, você esqueceu toolog em tooAzure (`Add-AzureRmAccount`).
 > 
 > 
 
-Se você receber um erro de execução do script e você determinar que o erro foi causado por um valor de parâmetro de modelo errado, corrija o arquivo de parâmetro e executar o script novamente com um nome de grupo de recursos diferente. Você também pode reutilizar o mesmo nome de grupo de recursos e fazer com que o script limpe o antigo adicionando o parâmetro `-RemoveExistingResourceGroup` à invocação do script.
+Se você receber um erro de execução de script hello e você determinar que o erro de saudação foi causado por um valor de parâmetro incorreto de modelo, corrija o arquivo de parâmetro hello e execute o script hello novamente com um nome de grupo de recursos diferente. Também é possível reutilizar Olá o mesmo nome do grupo de recursos e têm o script hello limpar Olá antigo adicionando Olá `-RemoveExistingResourceGroup` invocação de script do parâmetro toohello.
 
-### <a name="result-of-running-the-createelasticsearchcluster-script"></a>Resultado da execução do script CreateElasticSearchCluster
-Depois de executar o script `CreateElasticSearchCluster` , os seguintes artefatos principais serão criados. Para esse exemplo, vamos supor que você tenha usado "myBigCluster" como o valor do parâmetro `dnsNameForLoadBalancerIP` e a região onde você criou o cluster é Oeste dos EUA.
+### <a name="result-of-running-hello-createelasticsearchcluster-script"></a>Resultado da execução do script de CreateElasticSearchCluster Olá
+Depois de executar Olá `CreateElasticSearchCluster` script hello artefatos principais a seguir será criado. Para este exemplo, vamos supor que você usou "myBigCluster" como valor de saudação do hello `dnsNameForLoadBalancerIP` parâmetro e região Olá em que você criou o cluster Olá é Oeste dos EUA.
 
 | Artefato | Nome, local e comentários |
 | --- | --- |
-| Chave SSH para administração remota |arquivo myBigCluster.key (no diretório onde o CreateElasticSearchCluster foi executado). <br /><br />Esse arquivo de chave pode ser usado para conectar o nó de administração e (por meio do nó de administração) a nós de dados do cluster. |
-| Nó de Admin |myBigCluster-admin.westus.cloudapp.azure.com  <br /><br />Uma VM dedicada para a administração remota do cluster do Elasticsearch, a única que permite conexões SSH externas. Ela é executada na mesma rede virtual que todos os nós de cluster Elasticsearch, mas não executa serviços do Elasticsearch. |
-| Nós de dados |myBigCluster1 ... myBigCluster*N* <br /><br />Os nós de dados que estão executando os serviços Elasticsearch e Kibana. Você pode se conectar via SSH para cada nó, mas somente via o nó de administração. |
-| Cluster Elasticsearch |http://myBigCluster.westus.cloudapp.azure.com/es/ <br /><br />O ponto de extremidade principal para o cluster do Elasticsearch (observe o sufixo /es). Ele é protegido por autenticação HTTP básica (as credenciais eram os parâmetros esUserName/esPassword especificados do modelo ES-MultiNode). O cluster também tem o plug-in de cabeçalho instalada (http://myBigCluster.westus.cloudapp.azure.com/es/_plugin/head) para administração de cluster básico. |
-| Serviço Kibana |http://myBigCluster.westus.cloudapp.azure.com <br /><br />O serviço Kibana está configurado para mostrar dados do cluster do Elasticsearch criado. Ele é protegido pelas mesmas credenciais de autenticação como o próprio cluster. |
+| Chave SSH para administração remota |arquivo myBigCluster.key (no diretório de saudação de quais Olá CreateElasticSearchCluster foi executada). <br /><br />Esse arquivo pode ser usado tooconnect toohello admin nó e (por meio do nó de administração de saudação) toodata nós no cluster de saudação. |
+| Nó de Admin |myBigCluster-admin.westus.cloudapp.azure.com  <br /><br />Uma VM dedicada para administração remota do cluster Elasticsearch - Olá apenas um que permita conexões externas do SSH. Ele é executado em Olá mesma rede virtual, como todos os nós de cluster Elasticsearch hello, mas não execute todos os serviços Elasticsearch. |
+| Nós de dados |myBigCluster1 ... myBigCluster*N* <br /><br />Os nós de dados que estão executando os serviços Elasticsearch e Kibana. Você pode se conectar via SSH tooeach nó, mas apenas por meio do nó de administração de saudação. |
+| Cluster Elasticsearch |http://myBigCluster.westus.cloudapp.azure.com/es/ <br /><br />Olá ponto de extremidade primário para o cluster de Elasticsearch de saudação (sufixo do Observação Olá /es). Ele é protegido por autenticação HTTP básica (credenciais Olá foram Olá especificado esUserName/esPassword parâmetros de modelo Olá ES-vários nós). cluster Olá também tem Olá head plug-in instalado (http://myBigCluster.westus.cloudapp.azure.com/es/_plugin/head) para a administração de cluster básico. |
+| Serviço Kibana |http://myBigCluster.westus.cloudapp.azure.com <br /><br />Olá Kibana serviço é configurar os dados de tooshow de saudação criada cluster Elasticsearch. Ele é protegido por Olá mesmas credenciais de autenticação de saudação do cluster em si. |
 
 ## <a name="in-process-versus-out-of-process-trace-capturing"></a>Captura de rastreamento dentro do processo versus fora do processo
-Na introdução mencionamos duas maneiras fundamentais de coleta de dados de diagnóstico: dentro do processo e fora de processo. Cada uma tem suas vantagens e desvantagens.
+Introdução de saudação mencionamos duas maneiras fundamentais de coleta de dados de diagnóstico: em processo e fora de processo. Cada uma tem suas vantagens e desvantagens.
 
-As vantagens da **captura de rastreamento dentro do processo** incluem:
+Vantagens da saudação **-processo de captura de rastreamento** incluem:
 
 1. *Fácil Configuração e implantação*
    
-   * A configuração de coleta de dados de diagnóstico é apenas uma parte da configuração do aplicativo. É fácil sempre mantê-la "sincronizada" com o restante do aplicativo.
+   * configuração de saudação da coleta de dados de diagnóstico é apenas parte da configuração de aplicativo hello. É fácil tooalways manter "sincronizado" com hello-rest do aplicativo hello.
    * A configuração por aplicativo ou por serviço é facilmente realizável.
-   * A captura de rastreamento fora do processo normalmente requer a implantação e a configuração separadas do agente de diagnóstico, que é uma tarefa administrativa extra e uma possível fonte de erros. Geralmente, a tecnologia de agente específico permite apenas uma instância do agente de por máquina virtual (nó). Isso significa que a configuração para a coleção da configuração de diagnóstico é compartilhada entre todos os aplicativos e serviços em execução nesse nó.
+   * Captura de rastreamento de saída do processo normalmente requer uma implantação separada e a configuração do agente de diagnóstico hello, que é uma tarefa administrativa adicional e uma fonte de erros em potencial. a tecnologia de determinado agente Olá geralmente permite apenas uma instância do agente de saudação por máquina virtual (nó). Isso significa que a configuração para a coleção de saudação da configuração de diagnóstico de saudação é compartilhada entre todos os aplicativos e serviços em execução nesse nó.
 2. *Flexibilidade*
    
-   * O aplicativo pode enviar os dados sempre que eles forem necessários, desde que exista uma biblioteca de cliente que ofereça suporte ao sistema de armazenamento de dados de destino. Novos coletores podem ser adicionados conforme desejado.
+   * aplicativo Hello pode enviar dados Olá sempre que ele precisa toogo, enquanto há uma biblioteca de cliente que oferece suporte ao sistema de armazenamento de dados Olá direcionado. Novos coletores podem ser adicionados conforme desejado.
    * Regras de captura complexa, filtragem e agregação de dados podem ser implementadas.
-   * Uma capturar de rastreamento fora do processo geralmente é limitada pelos coletores de dados para os quais o agente oferece suporte. Alguns agentes são extensíveis.
-3. *Acesso a dados de aplicativos internos e contexto*
+   * Capturar um rastreamento de saída do processo geralmente é limitado pelo Coletores de dados de saudação que Olá agent dá suporte a. Alguns agentes são extensíveis.
+3. *Contexto e acessar dados de aplicativo toointernal*
    
-   * O subsistema de diagnóstico em execução dentro do processo de serviço/do aplicativo pode facilmente aumentar os rastreamentos com informações contextuais.
-   * Na abordagem fora de processo, os dados devem ser enviados a um agente por meio de um mecanismo de comunicação entre processos, como Rastreamento de Eventos para Windows. Esse mecanismo pode impor limitações adicionais.
+   * subsistema de diagnóstico Olá em execução no processo de aplicativo/serviço Olá facilmente pode aumentar rastreamentos Olá com informações contextuais.
+   * Na abordagem de fora do processo Olá, dados saudação devem ser enviados tooan agent por meio de um mecanismo de comunicação entre processos, como o rastreamento de eventos do Windows. Esse mecanismo pode impor limitações adicionais.
 
-As vantagens da **captura de rastreamento fora do processo** incluem:
+Vantagens da saudação **rastreamento fora do processo de captura** incluem:
 
-1. *A capacidade de monitorar aplicativos e coletar despejos de memória*
+1. *Olá capacidade toomonitor Olá aplicativos e coletar despejos de memória*
    
-   * A captura de rastreamento dentro do processo pode não ser bem-sucedida se o aplicativo não puder ser iniciado ou falhar. Um agente independente tem muito mais chances de capturar informações de solução de problemas cruciais.<br /><br />
+   * Captura de rastreamento em processo pode ser bem-sucedida se o aplicativo hello falha toostart ou falha. Um agente independente tem muito mais chances de capturar informações de solução de problemas cruciais.<br /><br />
 2. *Maturidade, eficiência e desempenho comprovados*
    
-   * Um agente desenvolvido pelo fornecedor da plataforma (como o agente do Diagnóstico do Microsoft Azure) foi submetido a rigorosos testes em situações adversas.
-   * Com a captura de rastreamento dentro do processo deve ser tomado cuidado para garantir que a atividade de envio de dados de diagnóstico de um processo de aplicativo não interfere nas tarefas principais do aplicativo ou apresenta problemas de desempenho ou intervalo. Um agente independente em execução é menos propenso a esses problemas e é especificamente concebido para limitar seu impacto no sistema.
+   * Um agente desenvolvido por um fornecedor de plataforma (como um agente de diagnóstico do Microsoft Azure) foi toorigorous assunto de teste e otimização batalha.
+   * Com o rastreamento em processo captura, tome cuidado tooensure atividade de saudação do envio de dados de diagnóstico de um processo de aplicativo não interferir com tarefas principal do aplicativo hello ou introduzir problemas de desempenho ou de tempo. Um agente de forma independente em execução é diminui a probabilidade de problemas de toothese e é especificamente projetado toolimit seu impacto no sistema de saudação.
 
-É possível combinar e aproveitar ambas as abordagens. Na verdade, essa pode ser a melhor solução para muitos aplicativos.
+É possível toocombine e se beneficiam de ambas as abordagens. Na verdade, talvez seja melhor solução Olá para muitos aplicativos.
 
-Aqui, utilizamos a **biblioteca Microsoft.Diagnostic.Listeners** e a captura de rastreamento dentro do processo para enviar dados de um aplicativo do Service Fabric para um cluster do Elasticsearch.
+Aqui, podemos usar Olá **Microsoft.Diagnostic.Listeners biblioteca** e Olá em processo rastreamento captura dados toosend de um cluster do Service Fabric application tooan Elasticsearch.
 
-## <a name="use-the-listeners-library-to-send-diagnostic-data-to-elasticsearch"></a>Usar a biblioteca Listeners para enviar dados de diagnóstico para o Elasticsearch
-A biblioteca Microsoft.Diagnostic.Listeners faz parte do aplicativo Service Fabric de exemplo PartyCluster. Para usá-lo:
+## <a name="use-hello-listeners-library-toosend-diagnostic-data-tooelasticsearch"></a>Use Olá ouvintes biblioteca toosend dados de diagnóstico tooElasticsearch
+a biblioteca de Microsoft.Diagnostic.Listeners Olá é parte do aplicativo de serviço de malha de exemplo PartyCluster. toouse-lo:
 
-1. Baixe [o exemplo PartyCluster](https://github.com/Azure-Samples/service-fabric-dotnet-management-party-cluster) do GitHub.
-2. Copie os projetos Microsoft.Diagnostics.Listeners e Microsoft.Diagnostics.Listeners.Fabric (pastas inteiras) do diretório do exemplo PartyCluster para a pasta de solução do aplicativo que deve enviar os dados para o Elasticsearch.
-3. Abra a solução de destino, clique com o botão direito do mouse no nó de solução no Gerenciador de Soluções e escolha **Adicionar Projeto Existente**. Adicione o projeto Microsoft.Diagnostics.Listeners à solução. Repita o mesmo para o projeto Microsoft.Diagnostics.Listeners.Fabric.
-4. Adicione uma referência de projeto de seus projetos de serviço aos dois projetos adicionados. (Cada serviço que deve enviar dados para o Elasticsearch deve referenciar Microsoft.Diagnostics.EventListeners e Microsoft.Diagnostics.EventListeners.Fabric).
+1. Baixar [exemplo de PartyCluster hello](https://github.com/Azure-Samples/service-fabric-dotnet-management-party-cluster) do GitHub.
+2. Copiar projetos Olá Microsoft.Diagnostics.Listeners e Microsoft.Diagnostics.Listeners.Fabric (pastas inteiros) de saudação PartyCluster exemplo diretório toohello pasta de solução de aplicativo hello que supostamente toosend Olá dados tooElasticsearch .
+3. Abrir a solução de destino hello, clique nó solução Olá Olá Gerenciador de soluções e escolha **Adicionar projeto existente**. Adicione Olá Microsoft.Diagnostics.Listeners projeto toohello solução. Repetir hello mesmo para projeto de Microsoft.Diagnostics.Listeners.Fabric hello.
+4. Adicione uma referência de projeto de seus projetos toohello dois adicionados projetos de serviço. (Cada serviço que supostamente toosend dados tooElasticsearch deve fazer referência Microsoft.Diagnostics.EventListeners e Microsoft.Diagnostics.EventListeners.Fabric).
    
-    ![Referências de projeto às bibliotecas Microsoft.Diagnostics.EventListeners e Microsoft.Diagnostics.EventListeners.Fabric][1]
+    ![Bibliotecas de Microsoft.Diagnostics.EventListeners.Fabric e tooMicrosoft.Diagnostics.EventListeners de referências de projeto][1]
 
 ### <a name="service-fabric-general-availability-release-and-microsoftdiagnosticstracing-nuget-package"></a>A versão de Disponibilidade Geral do Service Fabric e o pacote Nuget Microsoft.Diagnostics.Tracing
-Os aplicativos criados com a versão de Disponibilidade Geral do Service Fabric (2.0.135, lançada em 31 de março de 2016) são voltados para o **.NET Framework 4.5.2**. Essa é a versão mais recente do .NET Framework compatível com o Azure no momento da versão de Disponibilidade Geral. Infelizmente, essa versão do Framework não tem determinadas APIs EventListener que a biblioteca Microsoft.Diagnostics.Listeners precisa. Como o EventSource (o componente que forma a base de APIs de registro em aplicativos do Fabric) e o EventListener são rigidamente integrados, cada projeto que usa a biblioteca Microsoft.Diagnostics.Listeners deve usar uma implementação alternativa de EventSource. Essa implementação é fornecida pelo **pacote Nuget Microsoft.Diagnostics.Tracing**criado pela Microsoft. O pacote é totalmente compatível com versões anteriores do EventSource incluído na estrutura, portanto, não deve ser necessária nenhuma alteração de código que não as alterações de namespace referenciado.
+Os aplicativos criados com a versão de Disponibilidade Geral do Service Fabric (2.0.135, lançada em 31 de março de 2016) são voltados para o **.NET Framework 4.5.2**. Esta versão é a versão mais recente de saudação do hello suportada pelo Azure no momento de saudação da versão GA de saudação do .NET Framework. Infelizmente, essa versão do framework de saudação não tem determinadas APIs EventListener que Olá Microsoft.Diagnostics.Listeners precisa de biblioteca. Como EventSource (componente do hello que constitui a base saudação do log de APIs em aplicativos de malha) e EventListener estreitamente ligado, cada projeto que usa a biblioteca de Microsoft.Diagnostics.Listeners Olá deve usar uma implementação alternativa de EventSource. Essa implementação é fornecida pelo Olá **pacote Microsoft.Diagnostics.Tracing Nuget**, criados pela Microsoft. pacote de saudação é totalmente compatível com EventSource incluído na estrutura de hello, portanto, nenhuma alteração de código deve ser necessária que não sejam as alterações de namespace referenciado.
 
-Para começar a usar a implementação Microsoft.Diagnostics.Tracing da classe EventSource, siga estas etapas para cada projeto de serviço que precisa para enviar dados ao Elasticsearch:
+toostart usando Olá Microsoft.Diagnostics.Tracing implementação da classe de EventSource hello, siga estas etapas para cada projeto de serviço que precisa toosend dados tooElasticsearch:
 
-1. Clique com o botão direito do mouse no projeto de serviço e escolha **Gerenciar Pacotes Nuget**.
-2. Mude para a origem do pacote nuget.org (se ainda não estiver selecionada) e procure por "**Microsoft.Diagnostics.Tracing**".
-3. Instale o pacote `Microsoft.Diagnostics.Tracing.EventSource` (e suas dependências).
-4. Abra arquivo **ServiceEventSource.cs** ou **ActorEventSource.cs** no seu projeto de serviço e substitua a diretiva `using System.Diagnostics.Tracing` no começo do arquivo pela diretiva `using Microsoft.Diagnostics.Tracing`.
+1. Clique com botão direito no projeto de serviço hello e escolha **gerenciar pacotes Nuget**.
+2. Alternar toohello nuget.org origem do pacote (se não já estiver selecionada) e procure "**Microsoft.Diagnostics.Tracing**".
+3. Instalar Olá `Microsoft.Diagnostics.Tracing.EventSource` pacote (e suas dependências).
+4. Olá abrir **ServiceEventSource.cs** ou **ActorEventSource.cs** do arquivo em seu projeto de serviço e substitua Olá `using System.Diagnostics.Tracing` diretiva na parte superior do arquivo hello com hello `using Microsoft.Diagnostics.Tracing` diretiva.
 
-Estas etapas não serão necessárias depois que o **.NET Framework 4.6** for compatível com o Microsoft Azure.
+Essas etapas não será necessárias uma vez Olá **do .NET Framework 4.6** é suportado pelo Microsoft Azure.
 
 ### <a name="elasticsearch-listener-instantiation-and-configuration"></a>Configuração e instanciação de ouvinte de Elasticsearch
-A etapa final para enviar dados de diagnóstico ao Elasticsearch é criar uma instância de `ElasticSearchListener` e configurá-la com dados de conexão do Elasticsearch. O ouvinte captura automaticamente todos os eventos gerados por meio de classes EventSource definidas no projeto de serviço. Ele precisa estar ativo durante o tempo de vida do serviço, portanto, o melhor lugar para criá-lo é no código de inicialização do serviço. Aqui está como o código de inicialização para um serviço sem estado pode parecer após as alterações necessárias (as adições estão destacadas nos comentários começando com `****`):
+Olá etapa final para enviar dados de diagnóstico tooElasticsearch é toocreate uma instância de `ElasticSearchListener` e configurá-lo com dados de conexão Elasticsearch. ouvinte de saudação captura automaticamente todos os eventos gerados por meio de classes de EventSource definidas no projeto de serviço de saudação. Ele precisa toobe ativo durante o tempo de vida de saudação do serviço hello, então Olá melhor colocar toocreate está no código de inicialização do serviço de saudação. Aqui está como código de inicialização de saudação para um serviço sem monitoração de estado pode parecer após as alterações necessárias hello (adições indicadas em comentários, começando com `****`):
 
 ```csharp
 using System;
@@ -171,7 +171,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Services.Runtime;
 
-// **** Add the following directives
+// **** Add hello following directives
 using Microsoft.Diagnostics.EventListeners;
 using Microsoft.Diagnostics.EventListeners.Fabric;
 
@@ -180,7 +180,7 @@ namespace Stateless1
     internal static class Program
     {
         /// <summary>
-        /// This is the entry point of the service host process.
+        /// This is hello entry point of hello service host process.
         /// </summary>        
         private static void Main()
         {
@@ -194,10 +194,10 @@ namespace Stateless1
                     esListener = new ElasticSearchListener(configProvider, new FabricHealthReporter("ElasticSearchEventListener"));
                 }
 
-                // The ServiceManifest.XML file defines one or more service type names.
-                // Registering a service maps a service type name to a .NET type.
+                // hello ServiceManifest.XML file defines one or more service type names.
+                // Registering a service maps a service type name tooa .NET type.
                 // When Service Fabric creates an instance of this service type,
-                // an instance of the class is created in this host process.
+                // an instance of hello class is created in this host process.
 
                 ServiceRuntime.RegisterServiceAsync("Stateless1Type", 
                     context => new Stateless1(context)).GetAwaiter().GetResult();
@@ -207,7 +207,7 @@ namespace Stateless1
                 // Prevents this host process from terminating so services keep running.
                 Thread.Sleep(Timeout.Infinite);
 
-                // **** Ensure that the ElasticSearchListner instance is not garbage-collected prematurely
+                // **** Ensure that hello ElasticSearchListner instance is not garbage-collected prematurely
                 GC.KeepAlive(esListener);
             }
             catch (Exception e)
@@ -220,7 +220,7 @@ namespace Stateless1
 }
 ```
 
-Os dados de conexão do Elasticsearch devem ser colocados em uma seção separada no arquivo de configuração de serviço (**PackageRoot\Config\Settings.xml**). O nome da seção deve corresponder ao valor passado para o construtor `FabricConfigurationProvider` , por exemplo:
+Dados de conexão Elasticsearch devem ser colocados em uma seção separada no arquivo de configuração do serviço de saudação (**PackageRoot\Config\Settings.xml**). nome de saudação da seção de saudação deve corresponder toohello valor passado toohello `FabricConfigurationProvider` construtor, por exemplo:
 
 ```xml
 <Section Name="ElasticSearchEventListener">
@@ -230,10 +230,10 @@ Os dados de conexão do Elasticsearch devem ser colocados em uma seção separad
   <Parameter Name="indexNamePrefix" Value="myapp" />
 </Section>
 ```
-Os valores dos parâmetros `serviceUri`, `userName` e `password` correspondem ao endereço do ponto de extremidade do cluster Elasticsearch, ao nome de usuário Elasticsearch e senha, respectivamente. `indexNamePrefix` é o prefixo para índices do Elasticsearch; a biblioteca Microsoft.Diagnostics.Listeners cria um novo índice para seus dados diariamente.
+Olá valores de `serviceUri`, `userName` e `password` parâmetros correspondem endereço de ponto de extremidade de cluster toohello Elasticsearch Elasticsearch nome de usuário e senha, respectivamente. `indexNamePrefix`é o prefixo Olá para índices de Elasticsearch; biblioteca de Microsoft.Diagnostics.Listeners Olá cria um novo índice para seus dados diariamente.
 
 ### <a name="verification"></a>Verificação
-É isso! Agora sempre que o serviço for executado, ele será iniciado enviando rastreamentos para o serviço de Elasticsearch especificado na configuração. Você pode verificar isso abrindo a interface do usuário do Kibana associada à instância de Elasticsearch de destino. Em nosso exemplo, o endereço da página é http://myBigCluster.westus.cloudapp.azure.com/. Verifique se os índices com o prefixo do nome escolhido para a instância `ElasticSearchListener` realmente foram criados e preenchidos com dados.
+É isso! Agora, sempre que o serviço de saudação é executado, ele começa a enviar o serviço de Elasticsearch toohello rastreamentos especificado na configuração de saudação. Você pode verificar isso Olá abertura que kibana UI associado com a instância do hello destino Elasticsearch. Em nosso exemplo, o endereço da página Olá é http://myBigCluster.westus.cloudapp.azure.com/. Verifique se os índices com prefixo de nome de saudação escolhido para hello `ElasticSearchListener` instância realmente foram criados e preenchidos com dados.
 
 ![Kibana mostrando os eventos do aplicativo PartyCluster][2]
 

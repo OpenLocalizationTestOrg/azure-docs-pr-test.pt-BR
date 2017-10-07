@@ -1,6 +1,6 @@
 ---
 title: "Migrar: Utilitário de Migração do Data Warehouse | Microsoft Docs"
-description: Migrar para o SQL Data Warehouse.
+description: Migre tooSQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
-ms.openlocfilehash: 2466e823c448ada4dc7bc5769b1b7f10bbb5dc7d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c89909883fb42b0b04dd87a9973e5ee3e30d8f0f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="data-warehouse-migration-utility-preview"></a>Utilitário de Migração do Data Warehouse (visualização)
 > [!div class="op_single_selector"]
@@ -27,37 +27,37 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-O Utilitário de Migração do Data Warehouse é uma ferramenta criada para migrar o esquema e os dados do SQL Server e do Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure. Durante a migração do esquema, a ferramenta mapeia automaticamente o esquema correspondente da origem para o destino. Depois de migrar o esquema, as ferramentas fornecem a opção de mover os dados com scripts gerados automaticamente.
+Olá utilitário de migração do Data Warehouse é que uma ferramenta projetada toomigrate esquema e dados do SQL Server e banco de dados do SQL Azure tooAzure SQL Data Warehouse. Durante a migração de esquema, a ferramenta Olá mapeia automaticamente esquema correspondente de saudação do toodestination de origem. Depois de migrar o esquema hello, ferramentas de saudação fornece Olá opção toomove dados com scripts gerados automaticamente.
 
-Além do esquema e da migração de dados, essa ferramenta fornece a opção de gerar relatórios de compatibilidade que resumem as incompatibilidades entre as instâncias de origem e destino que impediriam uma migração simplificada.
+Além disso, tooschema e migração de dados, essa ferramenta permite Olá opção toogenerate compatibilidade relatórios resumem incompatibilidades entre instâncias de origem e destino Olá que o impediriam simplificada migração.
 
 ## <a name="get-started"></a>Introdução
-Como um pré-requisito para a instalação, você precisará do utilitário de linha de comando BCP para executar scripts de migração e do Office para exibir o relatório de compatibilidade. Depois de iniciar o arquivo executável baixado, você deverá aceitar o Contrato de Licença de Usuário Final padrão antes de instalar a ferramenta.
+Como um pré-requisito para a instalação, você precisará de scripts de migração toorun do utilitário de linha de comando de BCP hello e relatório de compatibilidade do Office tooview hello. Depois de iniciar o hello executável que é baixado você será tooaccept solicitada EULA padrão antes de ferramenta Olá será instalada.
 
-Além disso, para executar o Utilitário de Migração, você precisará das seguintes permissões no banco de dados que pretende migrar: CRIAR BANCO DE DADOS, ALTERAR QUALQUER BANCO DE DADOS ou EXIBIR QUALQUER DEFINIÇÃO.
+Além disso, Olá toorun Utiliy de migração, você será necessário Olá um no banco de dados de saudação que você está procurando toomigrate as seguintes permissões: CREATE DATABASE, ALTER ANY DATABASE ou VIEW ANY DEFINITION.
 
-### <a name="launching-the-tool-and-connecting"></a>Iniciando a ferramenta e conectando
-Inicie a ferramenta clicando no ícone da área de trabalho que aparece após a instalação. Ao abrir a ferramenta, você verá uma página de conexão inicial, na qual você poderá escolher a origem e o destino da ferramenta de migração. No momento, há suporte para o SQL Server e o Banco de Dados SQL do Azure como origens e para o SQL Data Warehouse como um destino. Depois de selecionar essa opção, você será solicitado a se conectar ao seu servidor de origem, preenchendo o nome do servidor, autenticando e clicando em “Conectar”.
+### <a name="launching-hello-tool-and-connecting"></a>Ferramenta de saudação e conectar-se
+Ferramenta de inicialização de saudação clicando no ícone de área de trabalho de saudação que aparece após instalar. Ao abrir a ferramenta Olá, você será solicitado com uma página de conexão inicial, onde você pode escolher a origem e destino para a ferramenta de migração hello. No momento, há suporte para o SQL Server e o Banco de Dados SQL do Azure como origens e para o SQL Data Warehouse como um destino. Depois de selecionar essa opção você será solicitado o servidor de origem tooyour tooconnect preenchendo em nome do servidor e autenticação e, em seguida, clicando em 'Conectar'.
 
-Após a autenticação, a ferramenta mostrará uma lista de bancos de dados que estão presentes no servidor ao qual você se conectou. Você pode começar a migração selecionando um banco de dados que deseja migrar e depois clicando em “Migrar selecionado”.
+Depois de autenticar, a ferramenta de saudação mostrará uma lista de bancos de dados que estão presentes no servidor de saudação que você está conectado. Você pode começar a migração de saudação selecionando um banco de dados que você gostaria de toomigrate e, em seguida, clicando em 'Migrar selecionada'.
 
 ## <a name="migration-report"></a>Relatório de migração
-Selecionar a opção “Verificar a Compatibilidade do Banco de Dados” na ferramenta gerará um relatório que resume todas as incompatibilidades nos objetos do banco de dados que você solicitou a migração. Uma lista mais abrangente de algumas das funcionalidades do SQL Server que não estão presentes no SQL Data Warehouse pode ser encontrada em nosso [documentação de migração][migration documentation]. Depois de gerar o relatório, você poderá salvar e abri-lo no Excel.
+Selecionar 'Verificar a compatibilidade do banco de dados' na ferramenta de saudação irá gerar um relatório de resumo de todas as incompatibilidades de objeto no banco de dados de saudação solicitado toomigrate. Uma lista mais ampla de algumas das Olá funcionalidade do SQL Server que não está presente no SQL Data Warehouse pode ser encontrada em nosso [documentação de migração][migration documentation]. Depois Olá relatório é gerado, você será capaz de toosave e relatório Olá abrir no Excel.
 
-Vale lembrar que, ao gerar o esquema de migração, a maioria dos problemas identificados como “Objeto” será ajustada para permitir a migração imediata desses dados. Reveja as alterações para garantir que você não deseje fazer ajustes adicionais antes de aplicar o esquema.
+Observe que, quando a geração de esquema de migração hello, a maioria dos problemas identificados como 'Object' será ajustada em migração imediata do pedido tooallow desses dados. Analise Olá alterações tooensure você não quiser ajustes adicionais toomake antes de aplicar o esquema de saudação.
 
 ## <a name="migrate-schema"></a>Migrar o esquema
-Depois de se conectar, a seleção de “Migrar esquema” gerará um script de migração de esquema para as tabelas selecionadas. Esse script compatibiliza a estrutura da tabela, mapeia os tipos de dados incompatíveis para formulários mais compatíveis e cria o esquema e as credenciais de segurança, caso isso seja indicado pelo usuário nas configurações de migração. Este código pode ser executado na instância do SQL Data Warehouse de destino, salvo em um arquivo, copiado para a área de transferência ou até mesmo editado em linha antes de realizar outras ações.  
+Após a conexão, selecionando 'Migrar o esquema' irá gerar um script de migração de esquema para tabelas de saudação selecionada. Essa estrutura de saudação do script portas da tabela Olá, mapeia dados incompatíveis tipos toomore compatível formulários e cria o esquema e as credenciais de segurança se isso é indicado pelo usuário Olá nas configurações de migração de saudação. Esse código pode ser executado na instância do SQL Data Warehouse de Olá direcionado, tooa arquivo salvo, copiado na área de transferência tooyour ou mesmo editado na linha antes de fazer mais nada.  
 
-Como mencionamos acima, ao fazer a migração, o esquema analisa as alterações de migração feitas pela ferramenta para garantir um entendimento completo sobre elas.  
+Como mencionado acima, quando migrar migração do esquema revisão Olá alterações que Olá ferramenta fez em ordem tooensure que que você compreenda plenamente-los.  
 
 ## <a name="migrate-data"></a>Migrar dados
-Ao clicar na opção “Migrar dados”, é possível gerar scripts BCP que moverão os dados primeiro para arquivos simples no servidor e depois diretamente para o SQL Data Warehouse. Recomendamos esse processo para mudança de pequenas quantidades de dados e, como novas tentativas não são internas, falhas poderão ocorrer se houver uma perda da conexão de rede. Para executá-lo, você precisará ter o utilitário de linha de comando BCP instalado e o esquema para os dados já deve ter sido criado.
+Clicando em opção de migrar dados Olá, é possível gerar scripts BCP que moverá os arquivos de tooflat dados primeiro em seu servidor e, em seguida, diretamente no Data Warehouse do SQL. É recomendável que esse processo para transferir pequenas quantidades de dados e, como repetições não são internos e falhas podem ocorrer se houver uma perda de conexão de rede de saudação. Em ordem toorun isso, você precisará toohave Olá de linha de comando utilitário BCP instalado e esquema Olá para dados saudação já deve ter sido criada.
 
-Depois de preencher os parâmetros acima, basta clicar em “Executar migração” para que um conjunto de dois pacotes seja gerado no local especificado. Execute o arquivo de exportação para exportar os dados da origem de migração para arquivos simples, e execute o arquivo de importação para importar os dados para o SQL Data Warehouse.
+Depois de preencher os parâmetros de saudação anteriormente, você simplesmente precisa tooclick executar migração e será gerado um conjunto de dois pacotes tooyour especificado local. Execute o arquivo de exportação de saudação dados de pedidos tooexport da fonte de migração em arquivos simples e execute o arquivo de importação Olá em ordem tooimport seus dados no SQL Data Warehouse.
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você já migrou alguns dados, confira como [desenvolvê-los][develop].
+Agora que você já migrou alguns dados, confira como muito[desenvolver][develop].
 
 <!--Image references-->
 

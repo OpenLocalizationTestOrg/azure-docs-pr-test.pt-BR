@@ -1,6 +1,6 @@
 ---
-title: "Migrar dados de usuário do Azure RemoteApp | Microsoft Docs"
-description: "Saiba como migrar seus dados de usuário para dentro e fora do Azure RemoteApp."
+title: "dados de usuário aaaMigrate do Azure RemoteApp | Microsoft Docs"
+description: "Saiba como toomigrate seus dados de usuário dentro e fora do Azure RemoteApp."
 services: remoteapp
 documentationcenter: 
 author: msmbaldwin
@@ -13,57 +13,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.openlocfilehash: ba3cf4c6834279bbd7f94d666fd8abbb7ac05bf0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: aefc6ccc2c6173754acf6cad06102f27c8cb1d26
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-migrate-data-into-and-out-of-azure-remoteapp"></a>Como migrar dados para dentro e fora do Azure RemoteApp
+# <a name="how-toomigrate-data-into-and-out-of-azure-remoteapp"></a>Como toomigrate dados dentro e fora do Azure RemoteApp
 > [!IMPORTANT]
-> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Saudação de leitura [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
-Você pode usar várias ferramentas e métodos diferentes para transferir [dados de usuário](remoteapp-upd.md) para dentro e fora do Azure RemoteApp. Veja alguns métodos:
+Você pode usar várias ferramentas diferentes e métodos tootransfer [dados de usuário](remoteapp-upd.md) dentro e fora do Azure RemoteApp. Veja alguns métodos:
 
 * Copiar e colar usando o compartilhamento da área de transferência
-* Copiar arquivos e dados para um servidor de arquivos
-* Copiar arquivos para o OneDrive for Business por meio de um navegador
+* Copiar arquivos e dados do servidor de arquivos tooa
+* Copiar arquivos tooOneDrive para os negócios por meio de um navegador
 * Copiar os arquivos usando o redirecionamento
 
 > [!NOTE]
-> Não é possível habilitar os agentes de sincronização do OneDrive for Business ou para Consumidor - eles [não têm suporte](remoteapp-onedrive.md) no Azure RemoteApp.
+> Não é possível habilitar Olá OneDrive para agentes de sincronização de consumidor ou de negócios - eles [não há suporte para](remoteapp-onedrive.md) no Azure RemoteApp.
 > 
 > 
 
 ## <a name="use-copy-and-paste-in-file-explorer"></a>Usar copiar e colar no Explorador de Arquivos
-Copiar e colar usando a área de transferência está habilitado nas implantações do RemoteApp [por padrão](remoteapp-redirection.md). Isso permite que os usuários copiem arquivos entre seus PCs locais e aplicativos do RemoteApp. Muitas vezes, durante o curso normal de utilização de aplicativos no RemoteApp, os usuários salvam arquivos em seus UPDs – e é fácil mover dados para fora do RemoteApp:
+Copiar e colar usando a área de transferência hello está habilitado em implantações de RemoteApp [por padrão](remoteapp-redirection.md). Isso permite que os usuários copiem arquivos entre seus PCs locais e aplicativos do RemoteApp. Em geral, por meio de curso normal de saudação do uso de aplicativos no RemoteApp, os usuários salvou os arquivos tootheir UPDs - movendo que os dados do RemoteApp são fácil:
 
 1. [Publicar o Explorador de Arquivos como um aplicativo](remoteapp-publish.md) em uma coleção de RemoteApp. (Observe que se trata de uma tarefa administrativa).
-2. Direcione os usuários para iniciar o aplicativo do Explorador de Arquivos que você publicou e usá-lo para copiar e colar arquivos em seu UPD e para fora dele.
+2. Direcione seus usuários toolaunch Olá Explorador de arquivos aplicativo publicado e toouse que toocopy e colar arquivos em sua UPD e fora dele.
 
-## <a name="upload-files-and-data-to-a-file-server-by-using-standard-network-file-copy"></a>Carregar arquivos e dados em um servidor de arquivos usando a cópia de arquivos de rede padrão
-Normalmente, as organizações usam servidores de arquivos para armazenar dados gerais. Se você souber o nome ou o local do servidor, os usuários poderão procurá-lo na rede local e copiar seus arquivos, assim como fizeram acima. Novamente, convém publicar o Explorador de Arquivos no RemoteApp e compartilhá-lo com seus usuários.
+## <a name="upload-files-and-data-tooa-file-server-by-using-standard-network-file-copy"></a>Upload de arquivos e o servidor de arquivos tooa dados usando a cópia de arquivos de rede padrão
+As organizações usam dados gerais de toostore de servidores de arquivos. Se você souber o nome do servidor de saudação ou local, os usuários podem procurar na rede local para o servidor de saudação hello e copie seus arquivos, bem como acima. Novamente você deseja toopublish tooRemoteApp de Explorador de arquivos e compartilhá-lo com seus usuários.
 
 > [!NOTE]
-> O servidor de arquivos deve estar na rede roteável na qual o RemoteApp foi implantado.
+> servidor de arquivo Hello deve estar na rede roteável de saudação RemoteApp implantado em.
 > 
 > 
 
-## <a name="copy-files-to-onedrive-for-business"></a>Copiar um arquivo no OneDrive for Business
-Embora não seja possível habilitar o agente de sincronização do OneDrive for Business no RemoteApp, você ainda pode copiar arquivos de seu UPD para o OneDrive for Business por meio de um navegador. 
+## <a name="copy-files-tooonedrive-for-business"></a>Copiar arquivos tooOneDrive para empresas
+Embora você não pode habilitar hello OneDrive para o agente de sincronização de negócios no RemoteApp, você ainda pode copiar arquivos de seu tooOneDrive UDP para os negócios por meio de um navegador. 
 
-1. Publique o Explorador de Arquivos no RemoteApp e, depois, peça aos usuários para acessarem os arquivos por meio desse aplicativo. 
-2. É mais fácil transferir arquivos se eles estiverem compactados. Portanto, os usuários devem criar um arquivo .zip contendo todos os arquivos a fim de movê-lo para o OneDrive for Business.
-3. Peça aos usuários para acessarem o Portal do Office 365 e, em seguida, acesse o OneDrive e carregue o arquivo .zip.
+1. Publicar tooRemoteApp Explorador de arquivos e, em seguida, informe a usuários tooaccess Olá arquivos por meio desse aplicativo. 
+2. É mais fácil arquivos de tootransfer se eles são compactados, para que os usuários devem criar um arquivo. zip que contém todos os tooOneDrive de toomove arquivos hello para empresas.
+3. Peça ao portal de toohello Office 365 toogo dos usuários e, em seguida, vá tooOneDrive e carregar o arquivo. zip de saudação.
 
 ## <a name="copy-files-by-using-drive-redirection"></a>Copiar arquivos usando o redirecionamento de unidade
-Se tiver habilitado o [redirecionamento de unidade](remoteapp-redirection.md), você já terá criado uma unidade mapeada para seus usuários. Nesse caso, eles poderão compactar seus arquivos na unidade redirecionada e salvá-los em seu computador local.
+Se tiver habilitado o [redirecionamento de unidade](remoteapp-redirection.md), você já terá criado uma unidade mapeada para seus usuários. Nesse caso, pode seus arquivos na unidade de saudação redirecionada zip e, em seguida, salvá-los tootheir PC local.
 
 ## <a name="how-administrators-can-export-data"></a>Como os administradores podem exportar dados
 
-Os administradores do Azure RemoteApp podem exportar todos os UPDs (discos de perfil do usuário) de todas as coleções de uma assinatura para o Armazenamento do Azure usando o cmdlet Export-AzureRemoteAppUserDisk do Azure PowerShell.  Não é possível selecionar UPDs individuais.  Quando o comando do PowerShell for executado, cada disco de usuário terá 50 GB de disco fixo e será exportado para o armazenamento do Azure.  Os custos de armazenamento do Azure incorrerão imediatamente para esse armazenamento.  Ao executar esse comando, verifique se não existem sessões; caso contrário, a exportação falhará.
+Administra para o Azure RemoteApp pode exportar todos os discos de perfil de usuário (UDP) para todas as coleções dentro de uma assinatura de tooAzure armazenamento usando o Azure PowerShell cmdlet Export-AzureRemoteAppUserDisk.  Não há nenhuma capacidade tooselect individuais UPD.  Quando Olá comando do PowerShell é executado, cada disco de usuário será um 50gb de tamanho de disco fixo e ser armazenamento tooAzure exportado.  Os custos de armazenamento do Azure incorrerão imediatamente para esse armazenamento.  Quando a execução desse comando Certifique-se de não existem sessões exportação de saudação caso contrário, falhará.
 
-UPDs para implantações do Azure RemoteApp ingressadas no domínio só podem ser usados novamente em uma implantação do RDS; implantações ingressadas fora do domínio não podem ser usadas.  Se esses discos forem ser usados em uma implantação do RDS, recomendamos o uso de nossos [scripts automatizados](https://github.com/arcadiahlyy/aramigration), que exportarão, converterão e importarão os UDPs para uma implantação do RDS.
+UPDs para implantações do Azure RemoteApp ingressadas no domínio só podem ser usados novamente em uma implantação do RDS; implantações ingressadas fora do domínio não podem ser usadas.  Se esses discos serão usados em uma implantação de RDS é recomendável toouse nosso [automatizada scripts](https://github.com/arcadiahlyy/aramigration) que será exportar, converter e importar saudação do UDP para uma implantação de RDS.
 

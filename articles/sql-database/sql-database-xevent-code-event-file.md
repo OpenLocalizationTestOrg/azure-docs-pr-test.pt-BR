@@ -1,6 +1,6 @@
 ---
-title: "Código do Arquivo de Evento de XEvent para o Banco de Dados SQL | Microsoft Docs"
-description: "Fornece PowerShell e Transact-SQL para um exemplo de código de duas fases que demonstra o destino de Arquivo de evento em um evento estendido no Banco de Dados SQL do Azure. O Armazenamento do Azure é uma parte obrigatória deste cenário."
+title: "código do arquivo de evento para o banco de dados SQL do aaaXEvent | Microsoft Docs"
+description: "Fornece o PowerShell e Transact-SQL para obter um exemplo de código em duas fases que demonstra o destino de arquivo de evento de saudação em um evento estendido no banco de dados do SQL Azure. O Armazenamento do Azure é uma parte obrigatória deste cenário."
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -16,27 +16,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: genemi
-ms.openlocfilehash: e8c7a9af11ac4c22be00426337ab7c8b8ff0860f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4457bd3250f4644b54da2f7daddb9da12070e93a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Código de destino do Arquivo de evento para eventos estendidos no Banco de Dados SQL
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Você deseja um exemplo de código completo para uma maneira robusta de capturar e relatar informações para um evento estendido.
+Você deseja um exemplo de código completo para informações de toocapture e relatório de maneira robusta para um evento estendido.
 
-No Microsoft SQL Server, o [destino de Arquivo de Evento](http://msdn.microsoft.com/library/ff878115.aspx) é usado para armazenar as saídas de eventos em um arquivo do disco rígido local. Porém, esses arquivos não estão disponíveis para o Banco de Dados SQL do Azure. Em vez disso, usamos o serviço de Armazenamento do Azure para oferecer suporte ao destino de Arquivo de evento.
+No Microsoft SQL Server, Olá [destino de arquivo de evento](http://msdn.microsoft.com/library/ff878115.aspx) é usado toostore saídas de eventos em um arquivo de disco rígido local. Mas esses arquivos não estão disponível tooAzure banco de dados SQL. Em vez disso, usamos o destino de arquivo de evento Olá do toosupport de serviço de armazenamento do Azure hello.
 
 Este tópico apresenta um exemplo de código em duas fases:
 
-* PowerShell, a fim de criar o contêiner de Armazenamento do Azure na nuvem.
+* PowerShell, um contêiner de armazenamento do Azure na nuvem de saudação do toocreate.
 * Transact-SQL:
   
-  * Para atribuir o contêiner de Armazenamento do Azure a um destino de Arquivo de evento.
-  * Para criar e iniciar a sessão de evento etc.
+  * destino de arquivo de evento do tooan contêiner do tooassign Olá armazenamento do Azure.
+  * toocreate e reinicie a sessão de evento Olá e assim por diante.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,29 +45,29 @@ Este tópico apresenta um exemplo de código em duas fases:
   
   * Como alternativa, você pode [criar um banco de dados de demonstração do **AdventureWorksLT**](sql-database-get-started.md) em questão minutos.
 * O SQL Server Management Studio (ssms.exe), idealmente na sua versão de atualização mensal mais recente. 
-  Você pode baixar o ssms.exe mais recente de:
+  Você pode baixar Olá o ssms.exe mais recentes de:
   
   * Tópico [Baixar o SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
-  * [Um link direto para o download.](http://go.microsoft.com/fwlink/?linkid=616025)
-* Você deve ter os [módulos do Azure PowerShell](http://go.microsoft.com/?linkid=9811175) instalados.
+  * [Download de toohello um link direto.](http://go.microsoft.com/fwlink/?linkid=616025)
+* Você deve ter Olá [módulos do PowerShell do Azure](http://go.microsoft.com/?linkid=9811175) instalado.
   
-  * Os módulos fornecem comandos como: **New-AzureStorageAccount**.
+  * módulos de saudação fornecem comandos como - **AzureStorageAccount novo**.
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: código do PowerShell para o contêiner de Armazenamento do Azure
 
-Esse PowerShell é a fase 1 do exemplo de código de duas fases.
+Este PowerShell é a fase 1 Olá em duas fases do exemplo de código.
 
-O script começa com comandos para limpeza após uma possível execução anterior e é reutilizável.
+script Hello é iniciado com comandos tooclean depois de uma possível anterior executar e rerunnable.
 
-1. Cole o script do PowerShell em um editor de texto simples, como o Notepad.exe, e salve o script como um arquivo com a extensão **.ps1**.
+1. Cole o script do PowerShell Olá em um editor de texto simples como Notepad.exe e salve o script hello como um arquivo com extensão Olá **. ps1**.
 2. Inicie o ISE do PowerShell como Administrador.
-3. No prompt, digite<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>e pressione Enter.
-4. No ISE do PowerShell, abra seu arquivo **.ps1** . Execute o script.
-5. Primeiro, o script inicia uma nova janela para efetuar logon no Azure.
+3. No prompt de hello, digite<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>e pressione Enter.
+4. No ISE do PowerShell, abra seu arquivo **.ps1** . Execute o script hello.
+5. script Hello iniciado pela primeira vez uma nova janela na qual você fez logon no tooAzure.
    
-   * Se você executar novamente o script sem interromper a sessão, terá a opção conveniente de comentar o comando **Add-AzureAccount** .
+   * Se você executar novamente o script hello sem interromper a sessão, você tem a opção de conveniente de saudação do comentando Olá **Add-AzureAccount** comando.
 
-![ISE do PowerShell, com o módulo do Azure instalado e pronto para executar o script.][30_powershell_ise]
+![ISE do PowerShell, com o módulo do Azure instalado, script toorun pronto.][30_powershell_ise]
 
 
 ### <a name="powershell-code"></a>Código do PowerShell
@@ -79,10 +79,10 @@ O script começa com comandos para limpeza após uma possível execução anteri
 
 
 # You can comment out or skip this Add-AzureAccount
-# command after the first run.
-# Current PowerShell environment retains the successful outcome.
+# command after hello first run.
+# Current PowerShell environment retains hello successful outcome.
 
-'Expect a pop-up window in which you log in to Azure.'
+'Expect a pop-up window in which you log in tooAzure.'
 
 
 Add-AzureAccount
@@ -91,11 +91,11 @@ Add-AzureAccount
 
 
 '
-TODO: Edit the values assigned to these variables, especially the first few!
+TODO: Edit hello values assigned toothese variables, especially hello first few!
 '
 
-# Ensure the current date is between
-# the Expiry and Start time values that you edit here.
+# Ensure hello current date is between
+# hello Expiry and Start time values that you edit here.
 
 $subscriptionName    = 'YOUR_SUBSCRIPTION_NAME'
 $policySasExpiryTime = '2016-01-28T23:44:56Z'
@@ -115,11 +115,11 @@ $policySasPermission = 'rwl'
 #--------------- 3 -----------------------
 
 
-# The ending display lists your Azure subscriptions.
-# One should match the $subscriptionName value you assigned
+# hello ending display lists your Azure subscriptions.
+# One should match hello $subscriptionName value you assigned
 #   earlier in this PowerShell script. 
 
-'Choose an existing subscription for the current PowerShell environment.'
+'Choose an existing subscription for hello current PowerShell environment.'
 
 
 Select-AzureSubscription -SubscriptionName $subscriptionName
@@ -129,7 +129,7 @@ Select-AzureSubscription -SubscriptionName $subscriptionName
 
 
 '
-Clean up the old Azure Storage Account after any previous run, 
+Clean up hello old Azure Storage Account after any previous run, 
 before continuing this new run.'
 
 
@@ -157,7 +157,7 @@ New-AzureStorageAccount `
 
 
 '
-Get the primary access key for your storage account.
+Get hello primary access key for your storage account.
 '
 
 
@@ -174,9 +174,9 @@ Remainder of PowerShell .ps1 script continues.
 #--------------- 6 -----------------------
 
 
-# The context will be needed to create a container within the storage account.
+# hello context will be needed toocreate a container within hello storage account.
 
-'Create a context object from the storage account and its primary access key.
+'Create a context object from hello storage account and its primary access key.
 '
 
 $context = New-AzureStorageContext `
@@ -184,7 +184,7 @@ $context = New-AzureStorageContext `
     -StorageAccountKey  $primaryAccessKey_ForStorageAccount
 
 
-'Create a container within the storage account.
+'Create a container within hello storage account.
 '
 
 
@@ -193,7 +193,7 @@ $containerObjectInStorageAccount = New-AzureStorageContainer `
     -Context $context
 
 
-'Create a security policy to be applied to the SAS token.
+'Create a security policy toobe applied toohello SAS token.
 '
 
 New-AzureStorageContainerStoredAccessPolicy `
@@ -205,7 +205,7 @@ New-AzureStorageContainerStoredAccessPolicy `
     -StartTime  $policySasStartTime 
 
 '
-Generate a SAS token for the container.
+Generate a SAS token for hello container.
 '
 Try
 {
@@ -222,7 +222,7 @@ Catch
 #-------------- 7 ------------------------
 
 
-'Display the values that YOU must edit into the Transact-SQL script next!:
+'Display hello values that YOU must edit into hello Transact-SQL script next!:
 '
 
 "storageAccountName: $storageAccountName"
@@ -234,42 +234,42 @@ REMINDER: sasTokenWithPolicy here might start with "?" character, which you must
 '
 
 '
-(Later, return here to delete your Azure Storage account. See the preceding - Remove-AzureStorageAccount -StorageAccountName $storageAccountName)'
+(Later, return here toodelete your Azure Storage account. See hello preceding - Remove-AzureStorageAccount -StorageAccountName $storageAccountName)'
 
 '
-Now shift to the Transact-SQL portion of the two-part code sample!'
+Now shift toohello Transact-SQL portion of hello two-part code sample!'
 
 # EOFile
 ```
 
 
-Anote os valores nomeados que o script do PowerShell imprime quando termina. Você deve editar esses valores no script Transact-SQL na fase 2.
+Anote Olá alguns valores nomeados que o script do PowerShell Olá imprime quando ele termina. Você deve editar esses valores em Olá script Transact-SQL que segue a fase 2.
 
 ## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Fase 2: código Transact-SQL que usa o contêiner de Armazenamento do Azure
 
-* Na fase 1 deste exemplo de código, você executou um script PowerShell para criar um contêiner de Armazenamento do Azure.
-* Em seguida na fase 2, o script Transact-SQL a seguir deverá usar o contêiner.
+* Na etapa 1 deste exemplo de código, você executou um toocreate de script do PowerShell um contêiner de armazenamento do Azure.
+* Em seguida na fase 2, hello script Transact-SQL a seguir deve usar o contêiner de saudação.
 
-O script começa com comandos para limpeza após uma possível execução anterior e é reutilizável.
+script Hello é iniciado com comandos tooclean depois de uma possível anterior executar e rerunnable.
 
-O script PowerShell imprimiu alguns valores nomeados quando terminou. Você precisa editar o script Transact-SQL a fim de usar esses valores. Localize **TODO** no script Transact-SQL para localizar os pontos de edição.
+Olá script do PowerShell impressas alguns valores nomeados quando ele foi encerrado. Você deve editar Olá Transact-SQL script toouse esses valores. Localizar **TODO** saudação do hello Transact-SQL script toolocate Editar pontos.
 
 1. Abra o SQL Server Management Studio (ssms.exe).
-2. Conecte-se ao seu Banco de Dados SQL do Azure.
-3. Clique para abrir um novo painel de consulta.
-4. Cole o script Transact-SQL a seguir no painel de consulta.
-5. Localize todos os **TODO** no script e faça as edições apropriadas.
-6. Salve e execute o script.
+2. Conecte-se o banco de dados do tooyour banco de dados SQL.
+3. Clique em tooopen um novo painel de consulta.
+4. Colar Olá script Transact-SQL a seguir no painel de consulta hello.
+5. Localizar cada **TODO** em Olá script e faça edições de saudação apropriado.
+6. Salve e execute o script hello.
 
 
 > [!WARNING]
-> O valor da chave de SAS gerada pelo script do PowerShell anterior pode começar com um '?' (ponto de interrogação). Quando você usa a chave de SAS no script T-SQL a seguir, deve *remover os '?' iniciais*. Caso contrário, seus esforços poderão ser bloqueados pela segurança.
+> Olá valor de chave de SAS gerado pelo Olá precede o script do PowerShell pode começar com um '?' (ponto de interrogação). Quando você usa a chave de SAS Olá em Olá script T-SQL a seguir, você deve *remover à esquerda de saudação '?'* . Caso contrário, seus esforços poderão ser bloqueados pela segurança.
 
 
 ### <a name="transact-sql-code"></a>Transact-SQL code
 
 ```sql
----- TODO: First, run the PowerShell portion of this two-part code sample.
+---- TODO: First, run hello PowerShell portion of this two-part code sample.
 ---- TODO: Second, find every 'TODO' in this Transact-SQL file, and edit each.
 
 ---- Transact-SQL code for Event File target on Azure SQL Database.
@@ -322,11 +322,11 @@ GO
 
 IF EXISTS
     (SELECT * FROM sys.database_scoped_credentials
-        -- TODO: Assign AzureStorageAccount name, and the associated Container name.
+        -- TODO: Assign AzureStorageAccount name, and hello associated Container name.
         WHERE name = 'https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent')
 BEGIN
     DROP DATABASE SCOPED CREDENTIAL
-        -- TODO: Assign AzureStorageAccount name, and the associated Container name.
+        -- TODO: Assign AzureStorageAccount name, and hello associated Container name.
         [https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent] ;
 END
 GO
@@ -336,18 +336,18 @@ CREATE
     DATABASE SCOPED
     CREDENTIAL
         -- use '.blob.',   and not '.queue.' or '.table.' etc.
-        -- TODO: Assign AzureStorageAccount name, and the associated Container name.
+        -- TODO: Assign AzureStorageAccount name, and hello associated Container name.
         [https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent]
     WITH
         IDENTITY = 'SHARED ACCESS SIGNATURE',  -- "SAS" token.
-        -- TODO: Paste in the long SasToken string here for Secret, but exclude any leading '?'.
+        -- TODO: Paste in hello long SasToken string here for Secret, but exclude any leading '?'.
         SECRET = 'sv=2014-02-14&sr=c&si=gmpolicysastoken&sig=EjAqjo6Nu5xMLEZEkMkLbeF7TD9v1J8DNB2t8gOKTts%3D'
     ;
 GO
 
 
 ------  Step 3.  Create (define) an event session.  --------
-------  The event session has an event with an action,
+------  hello event session has an event with an action,
 ------  and a has a target.
 
 IF EXISTS
@@ -376,8 +376,8 @@ CREATE
     ADD TARGET
         package0.event_file
             (
-            -- TODO: Assign AzureStorageAccount name, and the associated Container name.
-            -- Also, tweak the .xel file name at end, if you like.
+            -- TODO: Assign AzureStorageAccount name, and hello associated Container name.
+            -- Also, tweak hello .xel file name at end, if you like.
             SET filename =
                 'https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent/anyfilenamexel242b.xel'
             )
@@ -388,12 +388,12 @@ CREATE
 GO
 
 
-------  Step 4.  Start the event session.  ----------------
-------  Issue the SQL Update statements that will be traced.
-------  Then stop the session.
+------  Step 4.  Start hello event session.  ----------------
+------  Issue hello SQL Update statements that will be traced.
+------  Then stop hello session.
 
-------  Note: If the target fails to attach,
-------  the session must be stopped and restarted.
+------  Note: If hello target fails tooattach,
+------  hello session must be stopped and restarted.
 
 ALTER
     EVENT SESSION
@@ -425,7 +425,7 @@ ALTER
 GO
 
 
--------------- Step 5.  Select the results. ----------
+-------------- Step 5.  Select hello results. ----------
 
 SELECT
         *, 'CLICK_NEXT_CELL_TO_BROWSE_ITS_RESULTS!' as [CLICK_NEXT_CELL_TO_BROWSE_ITS_RESULTS],
@@ -433,7 +433,7 @@ SELECT
     FROM
         sys.fn_xe_file_target_read_file
             (
-                -- TODO: Fill in Storage Account name, and the associated Container name.
+                -- TODO: Fill in Storage Account name, and hello associated Container name.
                 'https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent/anyfilenamexel242b',
                 null, null, null
             );
@@ -449,7 +449,7 @@ DROP
 GO
 
 DROP DATABASE SCOPED CREDENTIAL
-    -- TODO: Assign AzureStorageAccount name, and the associated Container name.
+    -- TODO: Assign AzureStorageAccount name, and hello associated Container name.
     [https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent]
     ;
 GO
@@ -457,12 +457,12 @@ GO
 DROP TABLE gmTabEmployee;
 GO
 
-PRINT 'Use PowerShell Remove-AzureStorageAccount to delete your Azure Storage account!';
+PRINT 'Use PowerShell Remove-AzureStorageAccount toodelete your Azure Storage account!';
 GO
 ```
 
 
-Se o destino não for anexado durante a execução, você deverá parar e reiniciar a sessão de eventos:
+Se o destino de saudação falhar tooattach quando você executa, pare e reinicie a sessão de evento hello:
 
 ```sql
 ALTER EVENT SESSION ... STATE = STOP;
@@ -474,7 +474,7 @@ GO
 
 ## <a name="output"></a>Saída
 
-Após a conclusão do script Transact-SQL, clique em uma célula sob o cabeçalho da coluna **event_data_XML**. Um elemento **<event>** é exibido mostrando uma instrução UPDATE.
+Quando Olá script Transact-SQL é concluída, clique em uma célula em Olá **event_data_XML** cabeçalho de coluna. Um elemento **<event>** é exibido mostrando uma instrução UPDATE.
 
 Veja um elemento **<event>** gerado durante o teste:
 
@@ -519,32 +519,32 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 ```
 
 
-O script Transact-SQL anterior usou a função de sistema a seguir para ler event_file:
+Olá Olá de script usado Transact-SQL anterior sistema função tooread Olá event_file a seguir:
 
 * [sys.fn_xe_file_target_read_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
 
-Há uma explicação das opções avançadas para a visualização de dados de eventos estendidos disponível em:
+Obter uma explicação das opções avançadas para a exibição de saudação de dados de eventos estendidos está disponível em:
 
 * [Exibição avançada de dados de destino de eventos estendidos](http://msdn.microsoft.com/library/mt752502.aspx)
 
 
-## <a name="converting-the-code-sample-to-run-on-sql-server"></a>Convertendo o exemplo de código para execução no SQL Server
+## <a name="converting-hello-code-sample-toorun-on-sql-server"></a>Convertendo Olá toorun de exemplo de código no SQL Server
 
-Vamos supor que você queira executar o exemplo anterior de Transact-SQL no Microsoft SQL Server.
+Suponha que você desejava Olá toorun precede o exemplo de Transact-SQL no Microsoft SQL Server.
 
-* Para manter a simplicidade, convém substituir completamente o uso do contêiner de Armazenamento do Azure por um arquivo simples, como **C:\myeventdata.xel**. O arquivo seria gravado no disco rígido local do computador que hospeda o SQL Server.
+* Para simplificar, você desejaria toocompletely substituir use hello Azure do contêiner de armazenamento com um arquivo simples como **C:\myeventdata.xel**. arquivo Hello seria toohello as unidade de disco rígido local do computador de Olá que hospeda o SQL Server.
 * Você não precisaria de nenhuma variante de instrução Transact-SQL para **CREATE MASTER KEY** e **CREATE CREDENTIAL**.
-* Na instrução **CREATE EVENT SESSION**, em sua cláusula **ADD TARGET**, você pode substituir o valor de Http atribuído a **filename=** por uma cadeia de caracteres de caminho completo, como **C:\myfile.xel**.
+* Em Olá **CREATE EVENT SESSION** instrução, no seu **Adicionar destino** cláusula, você poderia substituir valor de Http Olá atribuído feitas muito**filename =** com uma cadeia de caracteres de caminho completo como  **C:\myfile.xel**.
   
   * Não é necessário envolver qualquer conta de Armazenamento do Azure.
 
 ## <a name="more-information"></a>Mais informações
 
-Para saber mais sobre contas e contêineres no serviço de Armazenamento do Azure, consulte:
+Para obter mais informações sobre contas e os contêineres Olá serviço de armazenamento do Azure, consulte:
 
-* [Como usar o Armazenamento de blob do .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+* [Como toouse armazenamento de BLOBs no .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [Nomeando e referenciando contêineres, blobs e metadados](http://msdn.microsoft.com/library/azure/dd135715.aspx)
-* [Trabalhando com o contêiner raiz](http://msdn.microsoft.com/library/azure/ee395424.aspx)
+* [Trabalhando com hello contêiner raiz](http://msdn.microsoft.com/library/azure/ee395424.aspx)
 * [Lição 1: Criar uma política de acesso armazenado e uma assinatura de acesso compartilhado em um contêiner do Azure](http://msdn.microsoft.com/library/dn466430.aspx)
   * [Lição 2: Criar uma credencial do SQL Server usando uma assinatura de acesso compartilhado](http://msdn.microsoft.com/library/dn466435.aspx)
 

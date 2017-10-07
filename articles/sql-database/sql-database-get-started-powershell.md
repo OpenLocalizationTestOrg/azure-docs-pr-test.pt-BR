@@ -1,6 +1,6 @@
 ---
 title: 'Azure PowerShell: criar um Banco de Dados SQL | Microsoft Docs'
-description: "Aprenda a criar um servidor lógico do Banco de Dados SQL, uma regra de firewall no nível de servidor e bancos de dados com o portal do Azure."
+description: "Saiba como toocreate um servidor lógico do banco de dados SQL, regra de firewall de nível de servidor e bancos de dados em Olá portal do Azure."
 keywords: tutorial do banco de dados SQL, criar um banco de dados SQL
 services: sql-database
 documentationcenter: 
@@ -16,23 +16,23 @@ ms.devlang: PowerShell
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: carlrab
-ms.openlocfilehash: 44ed4a603977617c898315c4fc0b2d3dd3a8f16a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e89f68b44083a3b64e61f95117dbbedfa6647ccb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-single-azure-sql-database-using-powershell"></a>Criar um único Banco de Dados SQL do Azure usando o PowerShell
 
-O PowerShell é usado para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este guia detalha o uso do PowerShell para implantar um Banco de Dados SQL do Azure em um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) em um [servidor lógico do Banco de Dados SQL do Azure](sql-database-features.md).
+PowerShell é usado toocreate e gerenciar recursos do Azure Olá linha de comando ou em scripts. Este guia de detalhes usando o PowerShell toodeploy um banco de dados do SQL Azure em um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) em uma [servidor lógico do banco de dados do Azure SQL](sql-database-features.md).
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Este tutorial requer o módulo do Azure PowerShell, versão 4.0 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Este tutorial requer hello Azure PowerShell versão 4.0 ou posterior do módulo. Executar ` Get-Module -ListAvailable AzureRM` toofind versão de saudação. Se você precisar tooinstall ou atualização, consulte [instalar o módulo PowerShell Azure](/powershell/azure/install-azurerm-ps). 
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
+## <a name="log-in-tooazure"></a>Faça logon no tooAzure
 
-Faça logon em sua assinatura do Azure usando o comando [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) e siga as instruções na tela.
+Login tooyour assinatura do Azure usando Olá [AzureRmAccount adicionar](/powershell/module/azurerm.profile/add-azurermaccount) de comando e siga o hello instruções na tela.
 
 ```powershell
 Add-AzureRmAccount
@@ -40,35 +40,35 @@ Add-AzureRmAccount
 
 ## <a name="create-variables"></a>Criar variáveis
 
-Defina as variáveis para usar nos scripts neste início rápido.
+Defina variáveis para uso em scripts Olá esse início rápido.
 
 ```powershell
-# The data center and resource name for your resources
+# hello data center and resource name for your resources
 $resourcegroupname = "myResourceGroup"
 $location = "WestEurope"
-# The logical server name: Use a random value or replace with your own value (do not capitalize)
+# hello logical server name: Use a random value or replace with your own value (do not capitalize)
 $servername = "server-$(Get-Random)"
 # Set an admin login and password for your database
-# The login information for the server
+# hello login information for hello server
 $adminlogin = "ServerAdmin"
 $password = "ChangeYourAdminPassword1"
-# The ip address range that you want to allow to access your server - change as appropriate
+# hello ip address range that you want tooallow tooaccess your server - change as appropriate
 $startip = "0.0.0.0"
 $endip = "0.0.0.0"
-# The database name
+# hello database name
 $databasename = "mySampleDatabase"
 ```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usando o comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo. O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `westeurope`.
+Criar um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usando Olá [AzureRmResourceGroup novo](/powershell/module/azurerm.resources/new-azurermresourcegroup) comando. Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo. Olá, exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` em Olá `westeurope` local.
 
 ```powershell
 New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## <a name="create-a-logical-server"></a>Criar um servidor lógico
 
-Crie um [servidor lógico do Banco de Dados SQL do Azure](sql-database-features.md) usando o comando [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver). Um servidor lógico contém um grupo de bancos de dados gerenciados conjuntamente. O exemplo a seguir cria um servidor nomeado aleatoriamente no seu grupo de recursos com logon de administrador `ServerAdmin` e senha `ChangeYourAdminPassword1`. Substitua esses valores predefinidos como desejado.
+Criar um [servidor lógico do banco de dados do Azure SQL](sql-database-features.md) usando Olá [AzureRmSqlServer novo](/powershell/module/azurerm.sql/new-azurermsqlserver) comando. Um servidor lógico contém um grupo de bancos de dados gerenciados conjuntamente. Olá exemplo a seguir cria um servidor nomeado aleatoriamente em seu grupo de recursos com um logon de administrador denominado `ServerAdmin` e uma senha de `ChangeYourAdminPassword1`. Substitua esses valores predefinidos como desejado.
 
 ```powershell
 New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
@@ -79,7 +79,7 @@ New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-firewall-rule"></a>Configurar uma regra de firewall de servidor
 
-Crie uma [regra de firewall no nível do servidor do Banco de Dados SQL do Azure](sql-database-firewall-configure.md) usando o comando [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule). Uma regra de firewall no nível de servidor permite que um aplicativo externo, como o SQL Server Management Studio ou o utilitário SQLCMD, se conecte ao banco de dados SQL através do firewall do serviço de Banco de Dados SQL. No exemplo a seguir, o firewall está aberto somente para os outros recursos do Azure. Para habilitar a conectividade externa, altere o endereço IP para um endereço apropriado para seu ambiente. Para abrir todos os endereços IP, use 0.0.0.0 como o endereço IP inicial e 255.255.255.255 como o endereço final.
+Criar um [regra de firewall de nível de servidor de banco de dados do Azure SQL](sql-database-firewall-configure.md) usando Olá [AzureRmSqlServerFirewallRule novo](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) comando. Uma regra de firewall de nível de servidor permite que um aplicativo externo, como SQL Server Management Studio ou hello SQLCMD utilitário tooconnect tooa banco de dados SQL por meio do firewall do serviço de banco de dados SQL hello. No hello exemplo a seguir, o firewall Olá só é aberto para outros recursos do Azure. conectividade externa tooenable, change Olá IP endereço tooan apropriado para seu ambiente. tooopen todos os endereços IP, use 0.0.0.0 como Olá Iniciando endereço IP e 255.255.255.255 como Olá endereço final.
 
 ```powershell
 New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
@@ -88,12 +88,12 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> O Banco de Dados SQL se comunica pela porta 1433. Se você estiver tentando conectar-se a partir de uma rede corporativa, o tráfego de saída pela porta 1433 poderá não ser permitido pelo firewall de sua rede. Se isto acontecer, você não conseguirá conectar seu servidor do Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
+> O Banco de Dados SQL se comunica pela porta 1433. Se você estiver tentando tooconnect de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 talvez não consigam pelo firewall da rede. Nesse caso, não será tooconnect capaz de servidor de banco de dados SQL de tooyour, a menos que o departamento de TI abre a porta 1433.
 >
 
-## <a name="create-a-database-in-the-server-with-sample-data"></a>Criar um banco de dados no servidor com dados de exemplo
+## <a name="create-a-database-in-hello-server-with-sample-data"></a>Criar um banco de dados no servidor de saudação com dados de exemplo
 
-Crie um banco de dados com um [Nível de desempenho do S0](sql-database-service-tiers.md) no servidor usando o comando [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase). O exemplo a seguir cria um banco de dados denominado `mySampleDatabase` e carrega os dados de exemplo AdventureWorksLT nesse banco de dados. Substitua os valores predefinidos conforme desejado (outros inícios rápidos nesta coleção aproveitam os valores neste início rápido).
+Criar um banco de dados com um [nível de desempenho S0](sql-database-service-tiers.md) no servidor de saudação usando Olá [AzureRmSqlDatabase novo](/powershell/module/azurerm.sql/new-azurermsqldatabase) comando. Olá, exemplo a seguir cria um banco de dados chamado `mySampleDatabase` e carrega Olá dados de exemplo AdventureWorksLT para este banco de dados. Substituir essas predefinidos valores conforme desejado (outros inícios rápidos nesta compilação da coleção após valores hello esse início rápido).
 
 ```powershell
 New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
@@ -108,7 +108,7 @@ New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
 Outros inícios rápidos nessa coleção aproveitam esse início rápido. 
 
 > [!TIP]
-> Se você planeja continuar trabalhando com os inícios rápidos subsequentes, não limpe os recursos criados nesse início rápido. Caso contrário, siga estas etapas para excluir todos os recursos criados por esse início rápido no Portal do Azure.
+> Se você planeja toocontinue toowork com inícios rápidos subsequentes, não limpar os recursos de saudação criados nesse rápido inicie. Se você não planeja toocontinue, use Olá seguindo as etapas toodelete todos os recursos criados por esse início rápido no portal do Azure de saudação.
 >
 
 ```powershell

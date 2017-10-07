@@ -1,6 +1,6 @@
 ---
-title: Exportar os certificados do Emulador do Azure Cosmos DB | Microsoft Docs
-description: "Ao desenvolver em linguagens e em tempos de execução que não usam o Repositório de Certificados do Windows, você precisará exportar e gerenciar os certificados SSL. Esta postagem fornece instruções passo a passo."
+title: "certificados de emulador do Azure Cosmos DB Olá aaaExport | Microsoft Docs"
+description: "Ao desenvolver em idiomas e tempos de execução que não usam o repositório de certificados do Windows hello será necessário tooexport e gerencie certificados SSL de saudação. Esta postagem fornece instruções passo a passo."
 services: cosmos-db
 documentationcenter: 
 keywords: Emulador do Azure Cosmos DB
@@ -16,36 +16,36 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4add5028d50972316902cecd8c399781c012cb77
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: db56cda856fccf93d71ae5b21c4090ccb9aa40a0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exportar os certificados do Emulador do Azure Cosmos DB para uso com Java, Python e Node.js
+# <a name="export-hello-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exportar hello Azure Cosmos DB emulador certificados para uso com o Java, Python e Node.js
 
-[**Baixar o Emulador**](https://aka.ms/cosmosdb-emulator)
+[**Baixar Olá emulador**](https://aka.ms/cosmosdb-emulator)
 
-O Emulador do Azure Cosmos DB fornece um ambiente local que emula o serviço Azure Cosmos DB para fins de desenvolvimento, incluindo seu uso de conexões SSL. Esta postagem demonstra como exportar os certificados SSL para uso em linguagens e em tempos de execução que não são integrados ao Repositório de Certificados do Windows, por exemplo, Java, que usa seu próprio [repositório de certificados](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) e Python, que usa [wrappers de soquete](https://docs.python.org/2/library/ssl.html) e .Node.js que usa [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). Leia mais sobre o emulador em [Usar o Emulador do Azure Cosmos DB para desenvolvimento e teste](./local-emulator.md).
+Hello Azure Cosmos DB emulador fornece um ambiente local que emula Olá serviço de banco de dados do Azure Cosmos para fins de desenvolvimento, incluindo o uso de conexões SSL. Esta postagem demonstra como tooexport Olá SSL certificados para uso em idiomas e tempos de execução que não integram Olá repositório de certificados do Windows, como Java que usa seu próprio [repositório de certificados](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) e Python que usa [wrappers de soquete](https://docs.python.org/2/library/ssl.html) e Node. js que usa [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). Você pode ler mais sobre o emulador de saudação do [Olá Use Azure Cosmos DB Emulator para desenvolvimento e teste](./local-emulator.md).
 
-Este tutorial cobre as seguintes tarefas:
+Este tutorial aborda Olá tarefas a seguir:
 
 > [!div class="checklist"]
 > * Rotação de certificados
 > * Exportando o certificado SSL
-> * Aprendendo a usar o certificado no Java, Python e Node.js
+> * Aprender como toouse Olá certificado em Java, Python e Node.js
 
 ## <a name="certification-rotation"></a>Rotação de certificação
 
-Os certificados no Emulador Local do Azure Cosmos DB são gerados na primeira vez que o emulador é executado. Há dois certificados. Um usado para conexão com o emulador do local, e outro para gerenciar segredos no emulador. O certificado que você quer exportar é o certificado de conexão com o nome amigável "DocumentDBEmulatorCertificate".
+Certificados no hello que emulador Local do banco de dados do Azure Cosmos são gerados Olá primeira execução do emulador hello. Há dois certificados. Um usado para conectar um emulador local toohello e para gerenciar segredos no emulador de saudação. Olá certificado tooexport é certificado de conexão de saudação com o nome amigável do hello "DocumentDBEmulatorCertificate".
 
-Os dois certificados podem ser gerados novamente clicando em **Redefinir Dados**, conforme mostrado abaixo no Emulador do Azure Cosmos DB em execução na Bandeja do Windows. Se você gerar novamente os certificados e instalá-los no repositório de certificados Java, ou usá-los em outro lugar, será necessário atualizá-los, caso contrário, seu aplicativo não conectará mais ao emulador local.
+Ambos os certificados podem ser regenerados clicando **Redefinir dados** conforme mostrado abaixo do Azure Cosmos DB emulador em execução no hello bandeja do Windows. Se você gerar novamente os certificados de saudação e instalou-los no repositório de certificados do Java hello ou usá-los em outro lugar, você precisará tooupdate-las, caso contrário, se seu aplicativo não conectará toohello um emulador local.
 
 ![Redefinição de dados do emulador local do Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-reset-data.png)
 
-## <a name="how-to-export-the-azure-cosmos-db-ssl-certificate"></a>Como exportar o certificado SSL do Azure Cosmos DB
+## <a name="how-tooexport-hello-azure-cosmos-db-ssl-certificate"></a>Como tooexport Olá certificado SSL de banco de dados do Azure Cosmos
 
-1. Inicie o gerenciador de Certificados do Windows executando certlm.msc, navegue até a pasta Pessoal-> Certificados e abra o certificado com o nome amigável **DocumentDbEmulatorCertificate**.
+1. Inicie o Gerenciador de certificados do Windows hello executando certlm.msc e navegue toohello pessoal -> pasta certificados e certificado Olá aberta com o nome amigável da saudação **DocumentDbEmulatorCertificate**.
 
     ![Etapa 1 de exportação do emulador local do Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-1.png)
 
@@ -53,7 +53,7 @@ Os dois certificados podem ser gerados novamente clicando em **Redefinir Dados**
 
     ![Etapa 2 de exportação do emulador local do Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-2.png)
 
-3. Clique em **Copiar para arquivo...**.
+3. Clique em **copiar tooFile... **.
 
     ![Etapa 3 de exportação do emulador local do Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png)
 
@@ -69,7 +69,7 @@ Os dois certificados podem ser gerados novamente clicando em **Redefinir Dados**
 
     ![Etapa 6 de exportação do emulador local do Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-6.png)
 
-7. Dê um nome ao certificado. Nesse caso, **documentdbemulatorcert** e, em seguida, clique em **Avançar**.
+7. Dê um nome de certificado hello. Nesse caso, **documentdbemulatorcert** e, em seguida, clique em **Avançar**.
 
     ![Etapa 7 de exportação do emulador local do Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-7.png)
 
@@ -77,32 +77,32 @@ Os dois certificados podem ser gerados novamente clicando em **Redefinir Dados**
 
     ![Etapa 8 de exportação do emulador local do Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-8.png)
 
-## <a name="how-to-use-the-certificate-in-java"></a>Como usar o certificado em Java
+## <a name="how-toouse-hello-certificate-in-java"></a>Como toouse Olá certificado em Java
 
-Durante a execução de aplicativos Java ou MongoDB que usam o cliente Java, é mais fácil instalar o certificado no repositório de certificados Java padrão do que passar os sinalizadores "-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>. Por exemplo, o [aplicativo de demonstração Java](https://localhost:8081/_explorer/index.html) incluído depende do repositório de certificados padrão.
+Durante a execução de aplicativos Java ou MongoDB que usam o cliente de Java Olá é mais fácil certificado de saudação tooinstall no repositório de certificados do hello Java padrão que passando hello "-Djavax.net.ssl.trustStore=<keystore> - Djavax.net.ssl.trustStorePassword= "<password>" sinalizadores. Por exemplo hello incluído [aplicativo Java demonstração](https://localhost:8081/_explorer/index.html) depende do repositório de certificados saudação padrão.
 
-Siga as instruções em [Adicionar um certificado ao Repositório de Certificados de AC Java](https://docs.microsoft.com/azure/java-add-certificate-ca-store) para importar o certificado X.509 no repositório de certificados Java padrão. Lembre-se de que você trabalhará no diretório %JAVA_HOME% durante a execução da keytool.
+Siga as instruções de Olá Olá [adicionando um toohello certificado repositório de certificados de autoridade de certificação de Java](https://docs.microsoft.com/azure/java-add-certificate-ca-store) tooimport Olá x. 509 do certificado no repositório de certificados de Java saudação padrão. Lembre-Lembre-se estará trabalhando no diretório Olá % JAVA_HOME % durante a execução keytool.
 
-Após a instalação do certificado SSL “CosmosDBEmulatorCertificate”, seu aplicativo deverá conseguir se conectar e usar o Emulador local do Azure Cosmos DB. Se você continuar tendo problemas, siga o artigo [Depuração de conexões SSL/TLS](http://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html). É muito provável que o certificado não esteja instalado no repositório %JAVA_HOME%/jre/lib/security/cacerts. Por exemplo, se você tiver várias versões do Java instaladas, seu aplicativo poderá usar um repositório de cacerts diferente daquele que você atualizou.
+Uma vez hello "CosmosDBEmulatorCertificate" SSL certificado está instalado seu aplicativo deve ser capaz de tooconnect e use Olá emulador local de banco de dados de Cosmos do Azure. Se você continuar toohave problemas convém Olá toofollow [conexões de SSL/TLS depuração](http://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html) artigo. É muito provável certificado Olá não está instalado no repositório de %JAVA_HOME%/jre/lib/security/cacerts hello. Por exemplo, se você tiver várias versões instaladas do Java seu aplicativo pode estar usando um repositório cacerts diferentes de Olá uma atualização.
 
-## <a name="how-to-use-the-certificate-in-python"></a>Como usar o certificado em Python
+## <a name="how-toouse-hello-certificate-in-python"></a>Como toouse Olá certificado no Python
 
-Por padrão, o [SDK do Python (versão 2.0.0 ou superior)](documentdb-sdk-python.md) para a API do DocumentDB não tentará usar o certificado SSL ao se conectar ao emulador local. Se, no entanto, você quiser usar a validação de SSL, siga os exemplos na documentação [Wrappers de soquete Python](https://docs.python.org/2/library/ssl.html).
+Por saudação padrão [SDK(version 2.0.0 or higher) Python](documentdb-sdk-python.md) para Olá API DocumentDB não tente e usar certificado SSL da saudação ao se conectar a um emulador local toohello. Se, no entanto, você deseja toouse SSL validação, você pode seguir exemplos Olá Olá [Python soquete wrappers](https://docs.python.org/2/library/ssl.html) documentação.
 
-## <a name="how-to-use-the-certificate-in-nodejs"></a>Como usar o certificado no Node.js
+## <a name="how-toouse-hello-certificate-in-nodejs"></a>Como toouse Olá certificado no Node. js
 
-Por padrão, o [SDK do Node.js (versão 1.10.1 ou superior)](documentdb-sdk-node.md) para a API do DocumentDB não tentará usar o certificado SSL ao se conectar ao emulador local. Se, no entanto, você quiser usar a validação de SSL, siga os exemplos na [Documentação do Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+Por saudação padrão [Node.js SDK(version 1.10.1 or higher)](documentdb-sdk-node.md) para Olá API DocumentDB não tente e usar certificado SSL da saudação ao se conectar a um emulador local toohello. Se, no entanto, você deseja toouse SSL validação, você pode seguir exemplos Olá Olá [Node. js documentação](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você fez o seguinte:
+Neste tutorial, você fez a seguir hello:
 
 > [!div class="checklist"]
 > * Trocou certificados
-> * Exportou o certificado SSL
-> * Aprendeu a usar o certificado no Java, Python e Node.js
+> * Certificado SSL hello exportada
+> * Aprendeu como toouse Olá certificado em Java, Python e Node.js
 
-Agora você pode seguir para a seção Conceitos para obter mais informações sobre o Cosmos DB.
+Você pode continuar toohello seção conceitos para obter mais informações sobre o banco de dados do Cosmos.
 
 > [!div class="nextstepaction"]
 > [Distribuição global](distribute-data-globally.md) 

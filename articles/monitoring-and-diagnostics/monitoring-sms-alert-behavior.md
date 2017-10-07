@@ -1,6 +1,6 @@
 ---
-title: "Comportamento dos alertas por SMS em grupos de ação | Microsoft Docs"
-description: Formato de mensagem SMS e como responder a mensagens SMS para cancelar a assinatura, assinar novamente ou solicitar ajuda.
+title: "comportamento de alerta aaaSMS em grupos de ação | Microsoft Docs"
+description: Formato de mensagem SMS e respondendo toounsubscribe tooSMS de mensagens, assinar novamente ou solicitar ajuda.
 author: anirudhcavale
 manager: orenr
 editor: 
@@ -14,63 +14,63 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: 3e4eca174209eeb9cbce1d45111d1e5cc30af8b0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3cd09b1903e3472f6402f62b74409d97e7e7ea97
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportamento dos alertas por SMS em grupos de ação
 ## <a name="overview"></a>Visão geral ##
-Os grupos de ações permitem configurar uma lista de destinatários. Esses grupos podem, então, ser utilizados ao definir alertas de log de atividades, garantindo que um grupo de ação específico seja notificado quando o alerta de log de atividades for disparado. Um dos mecanismos de alerta com suporte é o SMS; os alertas dão suporte à comunicação bidirecional. Um usuário pode responder a um alerta para:
+Grupos de ação de habilitar tooconfigure uma lista de destinatários. Esses grupos podem ser aproveitados ao definir alertas de log de atividades; garantir que um grupo de ação em particular seja notificado quando hello atividade log alerta é disparado. Uma saudação suporte de mecanismos de alerta é SMS; alertas de saudação oferecem suporte a comunicação bidirecional. Um usuário pode responder tooan do alerta:
 
 - **Cancelar a assinatura de alertas:** um usuário pode cancelar a assinatura de todos os alertas por SMS de todos os grupos de ação ou de um grupo de ação individual.  
-- **Assinar os alertas novamente:** um usuário pode assinar novamente todos os alertas por SMS de todos os grupos de ação ou de um grupo de ação individual.  
-- **Solicitar ajuda:** um usuário pode solicitar mais informações sobre o SMS. Ele será redirecionado para este artigo
+- **Assinar novamente tooalerts:** um usuário pode assinar novamente tooall alertas SMS para todos os grupos de ação ou um grupo de ação singular.  
+- **Solicitar ajuda:** um usuário pode pedir para obter mais informações sobre Olá SMS. Eles serão redirecionadas toothis artigo
 
-Este artigo aborda o comportamento dos alertas por SMS e as ações de resposta que o usuário pode executar de acordo com a localidade do usuário:
+Este artigo aborda o comportamento de saudação de alertas SMS hello e hello resposta ações Olá usuário pode executar com base na localidade de saudação do usuário hello:
 
 ## <a name="usacanada-sms-behavior"></a>Comportamento de SMS nos EUA e no Canadá
 ### <a name="receiving-an-sms-alert"></a>Recebendo um alerta por SMS
-Um receptor de SMS, configurado como parte de um grupo de ação, receberá um SMS quando um alerta for acionado. O SMS trará as seguintes informações:
-* Nome curto do grupo de ação ao qual esse alerta foi enviado
-- Título do alerta
+Um receptor de SMS, configurado como parte de um grupo de ação, receberá um SMS quando um alerta for acionado. Olá SMS realizará a saudação informações a seguir:
+* Nome curto do grupo de ação Olá este alerta foi enviado para
+- Título do alerta Olá
 
 ### <a name="unsubscribing-from-sms-alerts-for-one-action-group"></a>Cancelando a assinatura de alertas por SMS de um grupo de ação
-Um usuário pode cancelar a assinatura do SMS para alertas de um grupo de ação respondendo ao código curto 20873 com as palavras-chave: “DISABLE &lt;Nome curto do grupo de ação&gt;”.
+Um usuário pode cancelar a assinatura do SMS para alertas para o grupo de uma ação por shortcode respondendo toohello 20873 com palavras-chave de saudação: "Desabilitar &lt;nome curto do grupo de ação&gt;".
 
-Ex.: Um usuário que deseja cancelar a assinatura dos alertas de um grupo de ação com o nome curto “Azure” enviará um SMS para o código curto 20873 que indica “DISABLE Azure”
+Ex.: Um usuário que toounsubscribe de alertas de um grupo com o nome curto do hello "Azure", poderia enviar um SMS toohello shortcode 20873 que diz "Desabilitar Azure"
 
 ### <a name="unsubscribing-from-sms-alerts-for-all-action-groups"></a>Cancelando a assinatura de alertas por SMS de todos os grupos de ação
-Um usuário pode cancelar a assinatura de todos os alertas por SMS de todos os grupos de ação respondendo ao código curto 20873 com uma das seguintes palavras-chave:
+Um usuário pode cancelar a assinatura de todos os alertas SMS para todos os grupos de ação por shortcode respondendo toohello 20873 com qualquer um de saudação palavras-chave a seguir:
 * STOP
 
-Ex.: Um usuário que deseja cancelar a assinatura de todos os alertas por SMS de todos os grupos de ação enviará um SMS para o código curto 20873 que indica “STOP”
+Ex.: Um usuário que toounsubscribe de todos os alertas SMS para todos os grupos de ação, poderia enviar um SMS toohello shortcode 20873 que diz "STOP"
 
 >[!NOTE]
->Se um usuário tiver cancelado a assinatura de alertas por SMS, mas, em seguida, ele for adicionado a um novo grupo de ação, ele receberá alertas por SMS para esse novo grupo de ação, mas a assinatura de todos os grupos de ação anteriores permanecerá cancelada.
+>Se um usuário cancelou a assinatura de alertas SMS, mas é adicionado tooa novo grupo de ação. eles serão receber alertas SMS para esse novo grupo de ação, mas permanecem cancelados todos os grupos de ação anterior.
 >
 >
 
-### <a name="resubscribing-to-sms-alerts-for-one-action-group"></a>Assinando novamente alertas por SMS de um grupo de ação
-Um usuário pode assinar o SMS novamente para receber alertas de um grupo de ação respondendo ao código curto 20873 com as palavras-chave: “ENABLE &lt;Nome curto do grupo de ação&gt;”.
+### <a name="resubscribing-toosms-alerts-for-one-action-group"></a>Resubscribing tooSMS alertas para um grupo de ação
+Um usuário pode assinar novamente tooSMS para alertas para o grupo de uma ação por shortcode respondendo toohello 20873 com palavras-chave de saudação: "habilitar &lt;nome curto do grupo de ação&gt;".
 
-Ex.: Um usuário que deseja assinar novamente os alertas de um grupo de ação com o nome curto “Azure” enviará um SMS para o código curto 20873 que indica “ENABLE Azure”
+Ex.: Um usuário que tooalerts tooresubscribe para um grupo de ação com o nome curto do hello "Azure", poderia enviar um SMS toohello shortcode 20873 que diz "Habilitar Azure"
 
-### <a name="resubscribing-to-sms-alerts-for-all-action-groups"></a>Assinando novamente alertas por SMS de todos os grupos de ação
-Um usuário pode assinar todos os SMS novamente para receber alertas de todos os grupos de ação respondendo ao código curto 20873 com uma das seguintes palavras-chave:
+### <a name="resubscribing-toosms-alerts-for-all-action-groups"></a>Resubscribing tooSMS alertas para todos os grupos de ação
+Um usuário pode assinar novamente tooall SMS para alertas para todos os grupos de ação por shortcode respondendo toohello 20873 com qualquer um de saudação palavras-chave a seguir:
 
 * START
 
-Ex.: Um usuário que deseja cancelar a assinatura de todos os alertas por SMS de todos os grupos de ação enviará um SMS para o código curto 20873 que indica “START”
+Ex.: Um usuário que toounsubscribe de todos os alertas SMS para todos os grupos de ação, poderia enviar um SMS toohello shortcode 20873 que diz "Iniciar"
 
 ### <a name="requesting-help-via-sms"></a>Solicitando ajuda por SMS
-Um usuário pode solicitar mais informações sobre o SMS que recebeu respondendo ao código curto 20873 com uma das seguintes palavras-chave:
+Um usuário pode pedir para obter mais informações sobre Olá SMS recebeu por resposta toohello shortcode 20873 com qualquer Olá palavras-chave a seguir:
 * HELP
 
-Uma resposta será enviada para o usuário com um link para este artigo.
+Uma resposta será enviada toohello usuário com um artigo de toothis do link.
 
 ## <a name="next-steps"></a>Próximas etapas
-Obtenha uma [visão geral dos alertas do log de atividades](monitoring-overview-alerts.md) e saiba como receber alertas  
+Obter um [visão geral de alertas de log de atividade](monitoring-overview-alerts.md) e saiba como tooget alerta  
 Saiba mais sobre a [limitação de taxa de SMS](monitoring-alerts-rate-limiting.md)  
 Saiba mais sobre [grupos de ação](monitoring-action-groups.md)

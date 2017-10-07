@@ -1,6 +1,6 @@
 ---
-title: "Verificar a conectividade com o Observador de Rede do Azure – portal do Azure | Microsoft Docs"
-description: "Esta página explica como usar a verificação de conectividade com o Observador de Rede usando o portal do Azure"
+title: aaaCheck conectividade com o observador de rede do Azure - portal do Azure | Microsoft Docs
+description: "Esta página explica como toouse conectividade para verificar com o observador de rede usando Olá portal do Azure"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: gwallace
-ms.openlocfilehash: 84774d0f40e06a819ca6de6cf0be68e17ba474e4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ef6ecccd688f06f70003a5b59771c15bcbe8f3e2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Verificar a conectividade com o Observador de Rede do Azure usando o portal do Azure
+# <a name="check-connectivity-with-azure-network-watcher-using-hello-azure-portal"></a>Verifique a conectividade com o observador de rede do Azure usando Olá portal do Azure
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
@@ -27,38 +27,38 @@ ms.lasthandoff: 08/29/2017
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [API REST do Azure](network-watcher-connectivity-rest.md)
 
-Saiba como usar a conectividade para verificar se uma conexão TCP direta de uma máquina virtual para um determinado ponto de extremidade pode ser estabelecida.
+Saiba como toouse tooverify de conectividade se uma conexão TCP direto de tooa uma máquina virtual que recebe o ponto de extremidade pode ser estabelecida.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo pressupõe que você tenha os seguintes recursos:
+Este artigo pressupõe que você tenha Olá recursos a seguir:
 
-* Uma instância do Observador de Rede na região em que você deseja verificar a conectividade.
+* Uma instância do observador de rede na região Olá deseja toocheck conectividade.
 
-* Máquinas virtuais com as quais verificar a conectividade.
+* Conectividade de toocheck de máquinas virtuais com.
 
 > [!IMPORTANT]
-> A verificação de conectividade requer uma extensão de máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
+> A verificação de conectividade requer uma extensão de máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão de saudação em uma VM do Windows, visite [extensão de máquina virtual do agente do Inspetor de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a visita de VM do Linux [extensão de máquina virtual do agente do Inspetor de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
 
-## <a name="check-connectivity-to-a-virtual-machine"></a>Verificar a conectividade com uma máquina virtual
+## <a name="check-connectivity-tooa-virtual-machine"></a>Verifique a conectividade tooa virtual machine
 
-Este exemplo verifica a conectividade a uma máquina virtual de destino pela porta 80.
+Este exemplo verifica a máquina de virtual de destino conectividade tooa pela porta 80.
 
-Navegue até o observador de rede e clique em **Verificação de conectividade (versão prévia)**. Selecione a máquina virtual para verificar a conectividade. No **destino** seção escolher **selecione uma máquina virtual** e escolha a máquina virtual correta e a porta para testar.
+Navegue tooyour observador de rede e clique em **verificação de conectividade (visualização)**. Selecione a conectividade de toocheck de máquina virtual de saudação do. Em Olá **destino** seção escolher **selecione uma máquina virtual** e escolha a máquina virtual correta de saudação e porta tootest.
 
-Depois de clicar em **verificar**, a conectividade entre as máquinas virtuais na porta especificada está marcada. No exemplo, o VM de destino está inacessível, uma lista de saltos serão mostrados.
+Depois de clicar em **verificar**, conectividade de saudação entre máquinas virtuais Olá Olá porta especificada são verificadas. No exemplo hello, destino Olá VM está inacessível, uma lista de saltos serão mostrados.
 
 ![Verificar os resultados de conectividade para uma máquina virtual][1]
 
 ## <a name="check-remote-endpoint-connectivity"></a>Verificar a conectividade de ponto de extremidade remoto
 
-Para verificar a conectividade e a latência para um ponto de extremidade, escolha o **especificar manualmente** botão de opção no **destino** seção, a url e a porta de entrada e clique em **verificar**.  Isso é usado para pontos de extremidade remotos como pontos de extremidade de sites e de armazenamento.
+conectividade de saudação toocheck e latência tooa ponto de extremidade remoto, escolha Olá **especificar manualmente** botão de opção na Olá **destino** seção, Olá url e a porta de saudação de entrada e clique em **verificar** .  Isso é usado para pontos de extremidade remotos como pontos de extremidade de sites e de armazenamento.
 
 ![Resultados da verificação de conectividade para um site Web][2]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como automatizar as capturas de pacotes com alertas da Máquina Virtual exibindo [Criar uma captura de pacotes disparada por alertas](network-watcher-alert-triggered-packet-capture.md)
+Saiba como o pacote tooautomate captura com alertas de máquina Virtual por meio da exibição [criar uma captura de pacote de disparo de alerta](network-watcher-alert-triggered-packet-capture.md)
 
 Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando [Verificar o fluxo do IP](network-watcher-check-ip-flow-verify-portal.md)
 

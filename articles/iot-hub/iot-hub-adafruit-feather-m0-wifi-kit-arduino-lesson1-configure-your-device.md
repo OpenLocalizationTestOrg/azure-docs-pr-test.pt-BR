@@ -1,12 +1,12 @@
 ---
-title: "Conectar o Arduino (C) ao IoT do Azure - Lição 1: configurar dispositivo | Microsoft Docs"
+title: "Connect Arduino (C) tooAzure IoT - lição 1: Configurar dispositivo | Microsoft Docs"
 description: Configure o Adafruit Feather M0 WiFi para o primeiro uso.
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: "configurar arduino, conectar arduino ao pc, configuração arduino, placa arduino"
+keywords: "arduino configurado, conecte-se arduino toopc, arduino de instalação, arduino board"
 ROBOTS: NOINDEX
 redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
 ms.assetid: f5b334f0-a148-41aa-b374-ce7b9f5b305a
@@ -17,49 +17,49 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 9e319292e5d30dea7e45857e435825861aad1c84
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 30b764e8ff6221995456283a226e79f064b2d74e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-your-device"></a>Configurar seu dispositivo
 ## <a name="what-you-will-do"></a>O que você fará
-Configure sua placa Adafruit Feather M0 WiFi Arduino para o primeiro uso montando a placa e ligando-a. Se você tiver problemas, procure as soluções na [página de solução de problemas](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md).
+Configure seu quadro Adafruit difusão M0 WiFi Arduino para uso pela primeira vez com a montagem de quadro hello, ligar. Se você tiver problemas, procure por soluções em Olá [página de solução de problemas](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md).
 
 ## <a name="what-you-need"></a>O que você precisa
-Para concluir esta operação, você precisará das seguintes partes do seu Kit de início do Adafruit Feather M0 WiFi:
+toocomplete essa operação, você precisa Olá partes a seguir para o Adafruit difusão M0 WiFi Starter Kit:
 
-* A placa Adafruit Feather M0 Wi-Fi
-* Um cabo USB do tipo Micro B para Tipo A
+* Olá Adafruit difusão M0 WiFi board
+* Um tooType Micro B um cabo
 
 ![kit][kit]
 
 Você também precisará de:
 
 * Um computador executando o Windows, Mac ou Linux.
-* Uma conexão sem fio com a qual a placa Arduino se conectará.
-* Uma conexão com a Internet para baixar a ferramenta de configuração.
+* Uma conexão sem fio para seu tooconnect de quadro Arduino para.
+* Uma ferramenta de configuração de toodownload de conexão de Internet.
 
 ## <a name="what-you-will-learn"></a>O que você aprenderá
 Neste artigo, você aprenderá:
 
-* Como montar sua placa Arduino e ligá-la para as lições seguintes.
-* Como adicionar permissões de porta serial no Ubuntu.
+* Como tooassemble sua placa Arduino e power-a para Olá seguintes lições.
+* Como as permissões de porta serial tooadd no Ubuntu.
 
-## <a name="connect-your-arduino-board-to-your-computer"></a>Conectar sua placa Arduino ao computador
+## <a name="connect-your-arduino-board-tooyour-computer"></a>Conectar o computador de tooyour Arduino board
 
-1. Conecte o cabo micro USB à porta micro USB superior.
+1. Conecte cabo micro Olá Olá superior micro porta.
 
    ![Porta micro USB superior][top-micro-usb-port]
 
-2. Conecte a outra extremidade do cabo USB ao computador.
+2. Plug Olá outra extremidade do cabo USB em seu computador.
 
    ![USB do computador][computer-usb]
 
 ## <a name="add-serial-port-permissions-on-ubuntu"></a>Adicionar permissões de porta serial no Ubuntu
 
-Você pode ignorar esta seção se usar Windows ou macOS. Para o Ubuntu, você precisa das seguintes etapas para certificar-se de que o usuário normal do Linux tenha as permissões para operar na porta USB da placa Arduino.
+Você pode ignorar esta seção se usar Windows ou macOS. Para Ubuntu, você precisa Olá etapas toomake se usuário do linux normal de saudação tem Olá permissões toooperate na porta USB Olá seu quadro Arduino a seguir.
 
 1. Agora, como usuário normal do terminal:
 
@@ -77,25 +77,25 @@ Você pode ignorar esta seção se usar Windows ou macOS. Para o Ubuntu, você p
    crw-rw---- 1 root dialout 188, 0 5 apr 23.01 ttyACM0
    ```
 
-   O "0" pode ser um número diferente ou várias entradas podem ser retornadas. No primeiro caso, os dados de que precisamos são `uucp`, no segundo são `dialout`, que é o proprietário do grupo do arquivo.
+   Olá "0" pode ser um número diferente ou várias entradas poderá ser retornadas. Dados de caso de saudação primeiro Olá precisamos é `uucp`, Olá segundo é `dialout`, que é o proprietário do grupo de saudação do arquivo hello.
 
-2. Adicionar usuário ao grupo:
+2. Adicione usuário toohello toohello grupo:
 
    ```bash
    sudo usermod -a -G group-name username
    ```
 
-   Em que `group-name` são os dados encontrados na primeira etapa e `username` é o nome de usuário do Linux.
+   Onde `group-name` dados Olá encontrada na primeira etapa de Olá, e `username` é o nome de usuário do linux.
 
-3. Você precisará fazer logoff e fazer logon novamente para que esta alteração entre em vigor e a instalação seja concluída.
+3. Será necessário toolog sair e entrar novamente para essa alteração tootake efeito e instalação Olá concluída.
 
 ## <a name="summary"></a>Resumo
-Neste artigo, você aprendeu como configurar sua placa Arduino. A próxima tarefa é instalar as ferramentas e o software necessários para preparar a execução de um aplicativo de exemplo na placa Arduino.
+Neste artigo, você aprendeu como tooconfigure seu quadro Arduino. Olá próxima tarefa é o software em preparação para a execução de um aplicativo de exemplo em seu quadro Arduino e ferramentas necessárias do tooinstall hello.
 
 ![O hardware está pronto][hardware-is-ready]
 
 ## <a name="next-steps"></a>Próximas etapas
-[Obter as ferramentas][get-the-tools]
+[Obter ferramentas Olá][get-the-tools]
 <!-- Images and links -->
 
 [kit]: media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson1/kit.png

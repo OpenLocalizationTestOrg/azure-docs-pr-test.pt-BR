@@ -1,5 +1,5 @@
 ---
-title: "Conectar o Intel Edison (C) ao IoT do Azure - Lição 2: ferramentas do Azure (macOS)| Microsoft Docs"
+title: "Connect Intel Edison (C) tooAzure IoT - lição 2: ferramentas do Azure (macOS) | Microsoft Docs"
 description: Instale o Python e a CLI do Azure (Interface de Linha de Comando do Azure) no macOS.
 services: iot-hub
 documentationcenter: 
@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 97beb04781f3f9809cdafc945d9499e71cbbd9b1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0dfc9ff90e879d5fd03040016ac71a9fe4f4a744
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-azure-tools-macos-1010"></a>Obtenha as ferramentas do Azure (macOS 10.10)
 > [!div class="op_single_selector"]
@@ -30,49 +30,49 @@ ms.lasthandoff: 07/11/2017
 > * [macOS 10.10][macos]
 
 ## <a name="what-you-will-do"></a>O que você fará
-Instalar a interface de linha de comando do Azure (CLI do Azure). Se você tiver problemas, procure por soluções na [página de solução de problemas][troubleshooting].
+Instale hello Azure interface de linha de comando (CLI do Azure). Se você tiver problemas, procure por soluções em Olá [página de solução][troubleshooting].
 
 ## <a name="what-you-will-learn"></a>O que você aprenderá
 Neste artigo, você aprenderá:
-* Como instalar a CLI do Azure.
-* Como adicionar um subgrupo de IoT da CLI do Azure.
+* Como tooinstall CLI do Azure.
+* Como tooadd um subgrupo de IoT de saudação CLI do Azure.
 
 ## <a name="what-you-need"></a>O que você precisa
 * Um Mac com conexão com a Internet.
 * Uma assinatura ativa do Azure. Se não tiver uma conta do Azure, você pode [criar uma conta gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 
 ## <a name="install-python"></a>Instalar o Python
-Embora o macOS venha com o Python 2.7 integrado, recomendamos que você instale o Python por meio do Homebrew. Consulte [Instalando Python no macOS](http://docs.python-guide.org/en/latest/starting/install/osx/).
+Embora macOS vem com Python 2.7 imediato saudação, recomendamos que você instale Python por meio de Homebrew. Consulte [Instalando Python no macOS](http://docs.python-guide.org/en/latest/starting/install/osx/).
 
-Instale o Python e o pip executando o seguinte comando:
+Instale o Python e pip executando Olá comando a seguir:
 
 ```bash
 brew install python
 ```
 
-## <a name="install-the-azure-cli"></a>Instalar a CLI do Azure
-A CLI do Azure fornece uma experiência de linha de comando multiplataforma do Azure. Você trabalha diretamente a partir de sua linha de comando para provisionar e gerenciar recursos. 
+## <a name="install-hello-azure-cli"></a>Instalar Olá CLI do Azure
+Olá CLI do Azure fornece uma experiência de linha de comando em várias plataformas para o Azure. Trabalhar diretamente no seu tooprovision de linha de comando e gerenciar recursos. 
 
-Para instalar a CLI do Azure mais recente, siga estas etapas:
+tooinstall hello mais recente CLI do Azure, siga estas etapas:
 
-1. Execute os seguintes comandos em uma janela de terminal. Pode levar cinco minutos para instalar a CLI do Azure.
+1. Olá executar comandos em uma janela de terminal a seguir. Pode levar cinco minutos tooinstall Olá CLI do Azure.
 
    ```bash
    pip install --upgrade azure-cli
    pip install --upgrade azure-cli-iot
    ```
-2. Verifique a instalação executando o comando a seguir:
+2. Verificar a instalação de saudação executando Olá comando a seguir:
 
    ```bash
    az iot -h
    ```
 
-Se a instalação for bem-sucedida, você verá a seguinte saída.
+Você verá a seguinte Olá saída se a instalação de saudação foi bem-sucedida.
 
 ![Saída que indica êxito](media/iot-hub-intel-edison-lessons/lesson2/az_iot_help_osx.png)
 
 ## <a name="summary"></a>Resumo
-Você instalou a CLI do Azure. Sua próxima tarefa é criar sua identidade de dispositivo e Hub IoT do Azure usando a CLI do Azure.
+Você instalou Olá CLI do Azure. A próxima tarefa é toocreate sua identidade de dispositivo e o hub IoT do Azure usando Olá CLI do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar seu Hub IoT e registrar o Intel Edison][create-your-iot-hub-and-register-intel-edison]

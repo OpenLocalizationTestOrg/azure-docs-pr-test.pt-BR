@@ -1,5 +1,5 @@
 ---
-title: "Notas de versão do Catálogo de Dados do Azure | Microsoft Docs"
+title: "Notas de versão do catálogo de dados aaaAzure | Microsoft Docs"
 description: "Notas de versão do Catálogo de Dados do Azure."
 services: data-catalog
 documentationcenter: 
@@ -15,57 +15,57 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.openlocfilehash: d3db9bee0558cac5fb4f5b8fb4ab67a35ce0f141
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 661826f66020ba72a885c6b14522b53c8b469d20
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-data-catalog-release-notes"></a>Notas de versão do Catálogo de Dados do Azure
-## <a name="notes-for-the-november-20-2015-release-of-azure-data-catalog"></a>Notas da versão de 20 de novembro de 2015 do Catálogo de Dados do Azure
+## <a name="notes-for-hello-november-20-2015-release-of-azure-data-catalog"></a>Notas de versão de 20 de novembro de 2015 saudação do catálogo de dados do Azure
 ### <a name="opening-data-sources-in-power-bi-desktop"></a>Abrindo fontes no Power BI Desktop
-Ao usar a opção "Abrir no Power BI Desktop" no portal do **Catálogo de Dados do Azure** , os usuários podem encontrar um de dois problemas no aplicativo Power BI Desktop:
+Ao usar a opção de hello "Abrir no Power BI Desktop" hello **Data Catalog do Azure** portal, os usuários podem encontrar um dos dois problemas em Olá aplicativo Power BI Desktop:
 
-* Será exibida uma caixa de diálogo com o título "Não é possível abrir o documento"
-* O Power BI Desktop abre, mas o arquivo parece estar vazio
+* É exibida uma caixa de diálogo com o título hello "Não é possível tooOpen documento"
+* Olá aplicativo Power BI Desktop é aberto, mas arquivo hello aparece toobe vazio
 
-Para cada situação, o problema pode ser resolvido ao baixar e instalar a versão mais recente do Power BI Desktop em [PowerBI.com](https://powerbi.com).
+Para cada situação, o problema de Olá pode ser resolvido ao baixar e instalar a versão mais recente de saudação do Power BI Desktop de [PowerBI.com](https://powerbi.com).
 
-## <a name="notes-for-the-november-13-2015-release-of-azure-data-catalog"></a>Notas da versão de 13 de novembro de 2015 do Catálogo de Dados do Azure
-### <a name="registering-and-connecting-to-teradata"></a>Registrando e conectando ao Teradata
-Ao se conectar a fontes de dados Teradata, os usuários devem ter instalado o driver ODBC correto do Teradata que coincida com o número de bits (32 bits ou 64 bits) do software que está sendo usado.
+## <a name="notes-for-hello-november-13-2015-release-of-azure-data-catalog"></a>Notas de versão de 13 de novembro de 2015 saudação do catálogo de dados do Azure
+### <a name="registering-and-connecting-tooteradata"></a>Registrar e conectar-se tooTeradata
+Ao se conectar a fontes de dados de tooTeradata usuários devem ter instalado o driver ODBC Teradata correto de saudação que corresponde ao bitness da saudação (32 bits ou 64 bits) do software hello está sendo usado.
 
-A partir dessa data de lançamento do ADC, o [driver ODBC do Teradata para windows (versão 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) mais recente é compatível com o Office 2013, mas não com o Office 2016.
+A partir dessa ADC data de lançamento, Olá mais recente [driver ODBC Teradata para windows (versão 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) é compatível com o Office 2013, mas não com o Office 2016.
 
-## <a name="notes-for-the-july-13-2015-release-of-azure-data-catalog"></a>Notas da versão de 13 de julho de 2015 do Catálogo de Dados do Azure
-### <a name="registering-and-connecting-to-oracle-database"></a>Registrando e conectando-se ao Banco de Dados do Oracle
-Ao conectar-se às fontes de dados do banco de dados Oracle, os usuários devem ter instalado os drivers corretos do Oracle que correspondem ao número de bits (32 bits ou 64 bits) do software que está sendo usado.
+## <a name="notes-for-hello-july-13-2015-release-of-azure-data-catalog"></a>Notas de versão de 13 de julho de 2015 saudação do catálogo de dados do Azure
+### <a name="registering-and-connecting-toooracle-database"></a>Registrar e conectar-se tooOracle banco de dados
+Quando se conectar tooOracle usuários de fontes de dados de banco de dados deve ter instalado drivers Oracle corretos Olá que corresponde ao bitness da saudação (32 bits ou 64 bits) do software hello está sendo usado.
 
-* Ao registrar fontes de dados Oracle em um computador executando o Windows de 32 bits, os drivers do Oracle de 32 bits serão usados
-* Ao registrar fontes de dados Oracle em um computador executando o Windows de 64 bits, os drivers do Oracle de 64 bits serão usados
-* Ao conectar-se às fontes de dados Oracle usando o Excel em um computador executando a versão de 32 bits do Microsoft Office, inclusive no Windows de 64 bits, os drivers do Oracle de 32 bits serão usados
-* Ao conectar-se às fontes de dados Oracle usando o Excel em um computador executando a versão de 64 bits do Microsoft Office, os drivers do Oracle de 64 bits serão usados
+* Ao registrar fontes de dados Oracle em um computador executando o Windows de 32 bits, drivers de Oracle de 32 bits Olá serão usados.
+* Ao registrar fontes de dados Oracle em um computador executando o Windows de 64 bits, drivers de Oracle de 64 bits Olá serão usados.
+* Ao se conectar a fontes de dados tooOracle usando o Excel em um computador executando a versão de 32 bits de saudação do Microsoft Office, inclusive no Windows de 64 bits, drivers de Oracle de 32 bits Olá serão usados
+* Ao se conectar a fontes de dados tooOracle usando o Excel em um computador executando a versão de 64 bits de saudação do Microsoft Office, drivers de Oracle de 64 bits Olá serão usados.
 
-### <a name="registering-and-connecting-to-sql-server-reporting-services"></a>Registro e conexão ao SQL Server Reporting Services
-Atualmente, o suporte para as fontes de dados do SSRS (SQL Server Reporting Services) está limitado somente a servidores do Modo Nativo. O suporte para o SSRS no modo SharePoint será adicionado em uma versão posterior.
+### <a name="registering-and-connecting-toosql-server-reporting-services"></a>Registrar e conectar-se tooSQL Server Reporting Services
+Suporte para fontes de dados do SQL Server Reporting Services (SSRS) é atualmente limitada tooNative modo somente os servidores. O suporte para o SSRS no modo SharePoint será adicionado em uma versão posterior.
 
 ### <a name="opening-data-assets-in-excel"></a>Abrindo ativos de dados no Excel
-Ao abrir os ativos de dados no Microsoft Excel, no portal do **Catálogo de Dados do Azure**, os usuários poderão ver uma caixa de diálogo **Aviso de Segurança do Microsoft Excel**. Esse é um comportamento padrão e esperado, e os usuários podem selecionar **Habilitar** para continuar.
+Ao abrir ativos de dados no Microsoft Excel de saudação **Data Catalog do Azure** portal, os usuários podem ser solicitados com uma **aviso de segurança do Microsoft Excel** caixa de diálogo. Este é o padrão, comportamento esperado e os usuários podem selecionar **habilitar** toocontinue.
 
 Para obter mais informações, veja [Habilitar ou desabilitar alertas de segurança sobre links e arquivos de sites suspeitos](https://support.office.com/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
 ### <a name="proxy-and-policy-configuration-and-data-source-registration"></a>Registro da fonte de dados e configuração de proxy e política
-Os usuários podem encontrar uma situação em que podem acessar o portal do Catálogo de Dados do Azure, mas quando tentam fazer logon na ferramenta de registro da fonte de dados encontram uma mensagem de erro que impede o logon.
+Os usuários podem encontrar uma situação em que eles podem fazer logon no portal do toohello Data Catalog do Azure, mas quando tentarem toolog na ferramenta de registro de origem toohello dados encontram uma mensagem de erro que impede o registro em log.
 
 Há duas causas possíveis para esse comportamento de problema:
 
-**Causa 1: configuração dos Serviços de Federação do Active Directory** A ferramenta de registro de fonte de dados usa a Autenticação de formulários para validar logons de usuário no Active Directory. Para um logon bem-sucedido, a autenticação de formulários deve ser habilitada na Política de Autenticação Global por um administrador do Active Directory.
+**Causa 1: Configuração de serviços de Federação do Active Directory** ferramenta de registro de fonte de dados Olá usa autenticação de formulários toovalidate logons de usuário no Active Directory. Para um logon bem-sucedido, autenticação de formulários deve ser habilitada na política de autenticação Global de saudação pelo administrador do Active Directory.
 
-Em algumas situações, esse comportamento de erro pode ocorrer apenas quando o usuário está na rede da empresa, ou quando está se conectando de fora da rede da empresa. A Política de Autenticação Global permite que os métodos de autenticação sejam habilitados separadamente para conexões intranet e extranet. Erros de logon poderão ocorrer se a autenticação de formulários não estiver habilitada para a rede por meio da qual o usuário está se conectando.
+Em algumas situações, esse comportamento de erro pode ocorrer somente quando o usuário Olá é na rede da empresa de hello, ou somente quando o usuário hello está se conectando fora Olá rede da empresa. Olá política de autenticação Global permite toobe de métodos de autenticação habilitado separadamente para conexões de intranet e extranet. Erros de logon poderão ocorrer se a autenticação de formulários não está habilitada para rede de saudação do qual Olá usuário está se conectando.
 
 Para obter mais informações, consulte [Configurando políticas de autenticação](https://technet.microsoft.com/library/dn486781.aspx).
 
-**Causa 2: configuração de proxy da rede** Se a rede corporativa usar um servidor proxy, a ferramenta de registro não poderá se conectar ao Active Directory do Azure por meio do proxy. Os usuários podem garantir a ferramenta de registro editando o arquivo de configuração da ferramenta, adicionando esta seção ao arquivo:
+**Causa 2: Configuração de proxy de rede** se a rede corporativa Olá usa um servidor proxy, ferramenta de registro de saudação pode não ser capaz de tooconnect tooAzure do Active Directory por meio do proxy de saudação. Os usuários podem garantir essa ferramenta de registro de saudação editando o arquivo de configuração da ferramenta Olá, adicionar este arquivo de toohello seção:
 
       <system.net>
         <defaultProxy useDefaultCredentials="true" enabled="true">
@@ -76,4 +76,4 @@ Para obter mais informações, consulte [Configurando políticas de autenticaç�
       </system.net>
 
 
-Para localizar o arquivo RegistrationTool.exe.config, inicie a ferramenta de registro e, em seguida, abra o utilitário Gerenciador de Tarefas do Windows. Na guia Detalhes do Gerenciador de tarefas, clique com o botão direito em RegistrationTool.exe e escolha Abrir local do arquivo no menu pop-up.
+arquivo de RegistrationTool.exe.config de saudação toolocate, inicie a ferramenta de registro de saudação e, em seguida, abra o utilitário do Gerenciador de tarefas do Windows hello. Na guia de detalhes de saudação no Gerenciador de tarefas, clique duas vezes em RegistrationTool.exe e escolha Abrir local do arquivo no menu pop-up de saudação.

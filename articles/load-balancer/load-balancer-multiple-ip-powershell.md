@@ -1,5 +1,5 @@
 ---
-title: "Balanceamento de carga em várias configurações de IP no Azure | Microsoft Docs"
+title: "aaaLoad balanceamento em várias configurações de IP no Azure | Microsoft Docs"
 description: "Balanceamento de carga entre as configurações de IP primárias e secundárias."
 services: load-balancer
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: annahar
-ms.openlocfilehash: a8550519f094ca7afcd868a14b313337627f97d3
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: fe1cdb317350942ff759229491c2025e98dd24a1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Balanceamento de carga em várias configurações de IP usando o PowerShell
 
@@ -27,16 +27,16 @@ ms.lasthandoff: 08/18/2017
 > * [CLI](load-balancer-multiple-ip-cli.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 
-Este artigo descreve como usar o Azure Load Balancer com vários endereços IP em uma interface de rede secundária (NIC). Para este cenário, temos duas VMs executando o Windows, cada uma com uma NIC principal e uma secundária. Cada uma das NICs secundárias possui duas configurações de IP. Cada VM hospeda os sites contoso.com e fabrikam.com. Cada site está associado a uma das configurações de IP na NIC secundária. Usamos o Azure Load Balancer para expor dois endereços IP front-end, um para cada site, a fim de distribuir o tráfego para a respectiva configuração de IP do site. Esse cenário usa o mesmo número de porta entre os front-ends, bem como os dois endereços IP do pool de back-end.
+Este artigo descreve como toouse balanceador de carga do Azure com o IP de vários endereços em uma interface de rede secundária (NIC). Para este cenário, temos duas VMs executando o Windows, cada uma com uma NIC principal e uma secundária. Cada um dos secundários de saudação NICs têm duas configurações de IP. Cada VM hospeda os sites contoso.com e fabrikam.com. Cada site é associado tooone Olá de configurações de IP em uma NIC secundário. Olá Usamos o balanceador de carga do Azure tooexpose dois front-end endereços IP, uma para cada site, toodistribute tráfego toohello respectiva configuração de IP para o site de saudação. Esse cenário usa Olá o mesmo número de porta entre os front-ends, bem como os dois endereços IP do pool de back-end.
 
 ![Imagem de cenário do LB](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
-## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>Etapas para o balanceamento de carga em várias configurações de IP
+## <a name="steps-tooload-balance-on-multiple-ip-configurations"></a>Saldo de tooload etapas em várias configurações de IP
 
-Execute as etapas abaixo para obter o cenário descrito neste artigo:
+Siga as próximas etapas, Olá cenário de saudação tooachieve descritos neste artigo:
 
-1. Instale o PowerShell do Azure. Confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
-2. Crie um grupo de recursos usando as seguinte configurações:
+1. Instale o PowerShell do Azure. Consulte [como tooinstall e configurar o Azure PowerShell](/powershell/azure/overview) para obter informações sobre como instalar a versão mais recente de saudação do PowerShell do Azure, selecione sua assinatura e tooyour conta de assinatura.
+2. Crie um grupo de recursos usando Olá configurações a seguir:
 
     ```powershell
     $location = "westcentralus".
@@ -45,13 +45,13 @@ Execute as etapas abaixo para obter o cenário descrito neste artigo:
 
     Para saber mais, consulte a Etapa 2 [Criar um grupo de recursos](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
-3. [Criar um conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fload-balancer%2ftoc.json) para suas VMs. Para esse cenário, use o comando a seguir:
+3. [Criar um conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fload-balancer%2ftoc.json) toocontain suas VMs. Para este cenário, use Olá comando a seguir:
 
     ```powershell
     New-AzureRmAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset" -Location "West Central US"
     ```
 
-4. Siga as instruções das etapas 3 a 5 no artigo [Criar uma VM do Windows](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) para preparar a criação de uma VM com uma única NIC. Execute a etapa 6.1 e use o seguinte, em vez da etapa 6.2:
+4. Siga as instruções as etapas de 3 a 5 [criar uma VM do Windows](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) artigo tooprepare criação de saudação de uma VM com uma única placa de rede. Execute a etapa 6.1 e use o seguinte Olá em vez de etapa 6.2:
 
     ```powershell
     $availset = Get-AzureRmAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset"
@@ -60,7 +60,7 @@ Execute as etapas abaixo para obter o cenário descrito neste artigo:
 
     Em seguida, conclua as etapas 6.3 a 6.8 [Criar uma VM do Windows](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
-5. Adicione uma segunda configuração de IP para cada uma das VMs. Siga as instruções no artigo [Atribuir vários endereços IP para máquinas virtuais](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add). Use as seguintes configurações:
+5. Adicione um segundo tooeach de configuração de IP de saudação VMs. Siga as instruções de saudação em [atribuir vários endereços IP máquinas toovirtual](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add) artigo. Use Olá definições de configuração a seguir:
 
     ```powershell
     $NicName = "VM1-NIC2"
@@ -70,11 +70,11 @@ Execute as etapas abaixo para obter o cenário descrito neste artigo:
     $Subnet1 = Get-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet" -VirtualNetwork $myVnet
     ```
 
-    Não é necessário associar as configurações de IP secundárias aos IPs públicos para este tutorial. Edite o comando para remover a parte pública de associação de IP.
+    Não é necessário tooassociate Olá secundário as configurações de IP com IPs públicos para finalidade de saudação deste tutorial. Edite saudação comando tooremove Olá IP associação parte pública.
 
-6. Conclua as etapas 4 a 6 deste artigo novamente para a VM2. Substitua o nome da VM para VM2 ao fazer isso. Observe que você não precisa criar uma rede virtual para a segunda VM. Você pode ou não criar uma nova sub-rede com base em seu caso de uso.
+6. Conclua as etapas 4 a 6 deste artigo novamente para a VM2. Ser tooreplace se Olá VM nome tooVM2 ao fazer isso. Observe que você não precisa toocreate uma rede virtual para Olá segundo VM. Você pode ou não criar uma nova sub-rede com base em seu caso de uso.
 
-7. Crie dois endereços IP públicos e armazene-os nas variáveis apropriadas, conforme mostrado:
+7. Crie dois endereços IP públicos e armazená-los em variáveis apropriadas hello, conforme mostrado:
 
     ```powershell
     $publicIP1 = New-AzureRmPublicIpAddress -Name PublicIp1 -ResourceGroupName contosofabrikam -Location 'West Central US' -AllocationMethod Dynamic -DomainNameLabel contoso
@@ -109,7 +109,7 @@ Execute as etapas abaixo para obter o cenário descrito neste artigo:
     $mylb = New-AzureRmLoadBalancer -ResourceGroupName contosofabrikam -Name mylb -Location 'West Central US' -FrontendIpConfiguration $frontendIP1 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
     ```
 
-11. Adicione o segundo pool de endereços back-end e a configuração de IP de front-end ao seu balanceador de carga recém-criado:
+11. Adicione Olá segundo back-end endereço front-end e pool de IP configuration tooyour recém-criado balanceador de carga:
 
     ```powershell
     $mylb = Get-AzureRmLoadBalancer -Name "mylb" -ResourceGroupName $myResourceGroup | Add-AzureRmLoadBalancerBackendAddressPoolConfig -Name fabrikampool | Set-AzureRmLoadBalancer
@@ -119,7 +119,7 @@ Execute as etapas abaixo para obter o cenário descrito neste artigo:
     Add-AzureRmLoadBalancerRuleConfig -Name HTTP -LoadBalancer $mylb -FrontendIpConfiguration $frontendIP2 -BackendAddressPool $beaddresspool2 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80 | Set-AzureRmLoadBalancer
     ```
 
-12. Os comandos a seguir obtêm as NICs e adicionam as duas configurações de IP de cada NIC ao pool de endereços de back-end do balanceador de carga:
+12. comandos de saudação abaixo obtém Olá NICs e, em seguida, adicione o que balanceador de carga de ambas as configurações de IP cada secundário NIC toohello back-end do pool de endereços de saudação:
 
     ```powershell
     $nic1 = Get-AzureRmNetworkInterface -Name "VM1-NIC2" -ResourceGroupName "MyResourcegroup";
@@ -136,8 +136,8 @@ Execute as etapas abaixo para obter o cenário descrito neste artigo:
     $nic2 | Set-AzureRmNetworkInterface
     ```
 
-13. Por fim, você deve configurar os registros de recurso DNS para apontar para o endereço IP do endereço IP front-end do Balanceador de Carga. Você pode hospedar seus domínios no DNS do Azure. Para saber mais sobre como usar o DNS do Azure com o Load Balancer, confira [Usar o DNS do Azure com outros serviços do Azure](../dns/dns-for-azure-services.md).
+13. Por fim, você deve configurar o recurso registros toopoint toohello front-end respectivo endereço IP de DNS Olá balanceador de carga. Você pode hospedar seus domínios no DNS do Azure. Para saber mais sobre como usar o DNS do Azure com o Load Balancer, confira [Usar o DNS do Azure com outros serviços do Azure](../dns/dns-for-azure-services.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre como combinar os serviços de balanceamento de carga no Azure em [Usando os serviços de balanceamento de carga no Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Saiba como é possível usar diferentes tipos de logs no Azure para gerenciar e solucionar problemas do balanceador de carga em [Análise de log para o Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Saiba mais sobre como o balanceamento de carga de toocombine serviços no Azure em [usando os serviços de balanceamento de carga no Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
+- Saiba como você pode usar diferentes tipos de logs no Azure toomanage e solucionar problemas de Balanceador de carga no [de análise de Log para o balanceador de carga do Azure](../load-balancer/load-balancer-monitor-log.md).

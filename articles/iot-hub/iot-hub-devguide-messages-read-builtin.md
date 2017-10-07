@@ -1,6 +1,6 @@
 ---
-title: Entenda o ponto de extremidade interno Azure Hub IoT | Microsoft Docs
-description: "Guia do desenvolvedor - descreve como usar o ponto de extremidade compatível com evento interno Hub para ler mensagens de dispositivo para nuvem."
+title: aaaUnderstand hello Azure IoT Hub interno ponto de extremidade | Microsoft Docs
+description: "Guia do desenvolvedor - descreve como toouse Olá interno, mensagens de dispositivo para nuvem compatível com o evento Hub endpoint toread."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -13,63 +13,63 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.openlocfilehash: fcc3743028e369fdc42b71887d49fb41fba2c0dc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 15484c1b1828151ffcae5f4a1407264374223da1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para a nuvem do ponto de extremidade interno
+# <a name="read-device-to-cloud-messages-from-hello-built-in-endpoint"></a>Ler mensagens de dispositivo para a nuvem de ponto de extremidade internos Olá
 
-Por padrão, as mensagens são roteadas para o ponto de extremidade voltado para o serviço interno (**mensagens/eventos**) compatíveis com [Hubs de Eventos][lnk-event-hubs]. Esse ponto de extremidade é atualmente apenas exposto usando o protocolo [AMQP][lnk-amqp] na porta 5671. Um Hub IoT expõe as propriedades a seguir para permitir que você controle as **mensagens/eventos** do ponto de extremidade do sistema de mensagens interno compatível com o Hub de Eventos.
+Por padrão, as mensagens são roteadas toohello internos voltados para o serviço endpoint (**mensagens de eventos**), que é compatível com [Hubs de eventos][lnk-event-hubs]. Esse ponto de extremidade está exposta somente usando Olá [AMQP] [ lnk-amqp] protocolo na porta 5671. Um hub IoT expõe Olá seguintes propriedades tooenable toocontrol você Olá compatível com o evento Hub mensagens ponto de extremidade integrado **mensagens de eventos**.
 
 | Propriedade            | Descrição |
 | ------------------- | ----------- |
-| **Contagem de partição** | Defina essa propriedade no momento da criação e define o número de [partições][lnk-event-hub-partitions] para inclusão do evento do dispositivo para a nuvem. |
-| **Período de retenção**  | Esta propriedade especifica por quanto tempo, em dias, as mensagens são retidas pelo Hub IoT. O padrão é de um dia, mas pode ser aumentado para sete dias. |
+| **Contagem de partição** | Defina essa propriedade no número de saudação toodefine criação de [partições] [ lnk-event-hub-partitions] para inclusão de eventos de dispositivo para a nuvem. |
+| **Período de retenção**  | Esta propriedade especifica por quanto tempo, em dias, as mensagens são retidas pelo Hub IoT. saudação padrão é um dia, mas pode ser aumentada tooseven dias. |
 
-O Hub IoT também permite que você gerencie grupos de consumidores no ponto de extremidade de recebimento do dispositivo para a nuvem interno.
+IoT Hub também permite que você toomanage grupos de consumidores no hello internos dispositivo para nuvem receber o ponto de extremidade.
 
-Por padrão, todas as mensagens que não correspondem explicitamente a uma regra de roteamento de mensagem são gravadas no ponto de extremidade interno. Se você desabilitar esta rota de fallback, as mensagens que não corresponderão explicitamente a nenhuma regra de roteamento de mensagem são descartadas.
+Por padrão, todas as mensagens que não coincidem explicitamente uma regra de roteamento de mensagem são gravadas toohello ponto de extremidade internos. Se você desabilitar esta rota de fallback, as mensagens que não corresponderão explicitamente a nenhuma regra de roteamento de mensagem são descartadas.
 
-Você pode modificar o tempo de retenção, seja de maneira programática por meio das [APIs REST do provedor de recursos do Hub IoT][lnk-resource-provider-apis] ou usando o [portal do Azure][lnk-management-portal].
+Você pode modificar o tempo de retenção de saudação programaticamente por meio de saudação [APIs REST de provedor de recursos do IoT Hub][lnk-resource-provider-apis], ou usando Olá [portal do Azure] [ lnk-management-portal].
 
-O Hub IoT expõe um ponto de extremidade interno de **mensagens/eventos** para os serviços de back-end lerem as mensagens de dispositivo para nuvem recebidas por seu hub. Este ponto de extremidade é compatível com o Hub de Eventos, o que permite que você use qualquer um dos mecanismos para os quais o serviço Hubs de Eventos dá suporte para ler as mensagens.
+IoT Hub expõe Olá **mensagens de eventos** mensagens de dispositivo para nuvem saudação tooread recebidas pelo seu hub de serviços de ponto de extremidade interno para o back-end. Esse ponto de extremidade é um evento de Hub compatível, que permite que você toouse qualquer serviço de Hubs de eventos de Olá Olá mecanismos oferece suporte para leitura de mensagens.
 
-## <a name="read-from-the-built-in-endpoint"></a>Leitura do ponto de extremidade interno
+## <a name="read-from-hello-built-in-endpoint"></a>Leitura do ponto de extremidade internos Olá
 
-Ao usar o [SDK do Barramento de Serviço do Azure para .NET][lnk-servicebus-sdk] ou [Hubs de Eventos – Host Processador de Evento][lnk-eventprocessorhost], você pode usar qualquer cadeia de conexão do Hub IoT com as permissões corretas. Em seguida, use **mensagens/eventos** como o nome do Hub de Eventos.
+Quando você usa Olá [SDK do barramento de serviço do Azure para .NET] [ lnk-servicebus-sdk] ou hello [Hubs de eventos - evento processador Host][lnk-eventprocessorhost], você pode usar qualquer conexão de IoT Hub cadeias de caracteres com as permissões corretas hello. Em seguida, use **mensagens de eventos** como nome do Hub de eventos de saudação.
 
-Ao usar os SDKs (ou integrações de produtos) que não reconhecem o Hub IoT, será necessário recuperar um ponto de extremidade compatível com os Hubs de Eventos e o nome do Hub de Eventos das configurações do Hub IoT no [Portal do Azure][lnk-management-portal]:
+Quando você usa SDKs (ou integrações de produto) que não estiver ciente de IoT Hub, você deve recuperar um ponto de extremidade compatível com o evento Hub e um nome compatível com o evento Hub das configurações de Hub IoT Olá Olá [portal do Azure] [ lnk-management-portal]:
 
-1. Na folha de Hub IoT, clique em **Pontos de Extremidade**.
-1. Na seção **Pontos de extremidade internos**, clique em **Eventos**. A folha contém os seguintes valores: **Ponto de extremidade compatível com o Hub de Eventos**, **Nome compatível com o Hub de Eventos**, **Partições**, **Ponto de retenção** e **Grupos de consumidores**.
+1. Na folha de hub do IoT hello, clique em **pontos de extremidade**.
+1. Em Olá **pontos de extremidade internos** seção, clique em **eventos**. Olá, folha contém Olá valores a seguir: **ponto de extremidade de Hub de eventos-compatível com**, **nome compatível com o evento Hub**, **partições**, **detempoderetenção**, e **grupos de consumidores**.
 
     ![Configurações de dispositivo para a nuvem][img-eventhubcompatible]
 
-O SDK do Hub IoT requer o nome de ponto de extremidade do Hub IoT, que é **mensagens/eventos** conforme mostrado na folha **Pontos de extremidade**.
+Olá IoT Hub SDK requer Olá nome de ponto de extremidade de IoT Hub, que é **mensagens de eventos** conforme Olá **pontos de extremidade** folha.
 
-Se o SDK sendo usado exigir um valor de **Nome do host** ou **Namespace**, remova o esquema do **Ponto de extremidade compatível com o Hub de Eventos**. Por exemplo, se o ponto de extremidade compatível com o Hub de Eventos fosse **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, o **Nome do host** seria **iothub-ns-myiothub-1234.servicebus.windows.net** e o **Namespace** seria **iothub-ns-myiothub-1234**.
+Se Olá SDK que você está usando requer um **Hostname** ou **Namespace** valor, remova o esquema de saudação da saudação **ponto de extremidade compatível com o evento Hub**. Por exemplo, se o ponto de extremidade compatível com o evento Hub é **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, Olá **Hostname** seria  **Hub IOT ns-myiothub 1234.servicebus.windows.net**e hello **Namespace** seria **ns hub IOT-1234 myiothub**.
 
-Dessa forma, você poderá usar qualquer política de acesso compartilhado com permissões **ServiceConnect** para se conectar ao Hub de Eventos especificado.
+Você pode usar qualquer política de acesso compartilhado que tenha Olá **ServiceConnect** toohello de tooconnect de permissões especificado de Hub de eventos.
 
-Caso você precise criar uma cadeia de conexão do Hub de Eventos usando as informações anteriores, use o seguinte padrão:
+Se você precisar toobuild uma cadeia de caracteres de conexão do Hub de eventos usando as informações anteriores Olá, use o saudação padrão a seguir:
 
 `Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy name};SharedAccessKey={iot hub policy key}`
 
-Os SDKs e integrações que você pode usar com os pontos de extremidade compatíveis com o Hub de Eventos expostos pelo Hub IoT incluem os itens a seguir na lista:
+Olá SDKs e integrações que você pode usar com pontos de extremidade compatível com o evento Hub IoT Hub expõe inclui os itens Olá Olá lista a seguir:
 
 * [Cliente Java dos Hubs de Eventos](https://github.com/hdinsight/eventhubs-client).
-* [Spout do Apache Storm](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). Você pode exibir a [fonte do spout](https://github.com/apache/storm/tree/master/external/storm-eventhubs) no GitHub.
+* [Spout do Apache Storm](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). Você pode exibir uma saudação [spout origem](https://github.com/apache/storm/tree/master/external/storm-eventhubs) no GitHub.
 * [Integração do Apache Spark](../hdinsight/hdinsight-apache-spark-eventhub-streaming.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre pontos de extremidade do Hub IoT, consulte [Pontos de extremidade do Hub IoT][lnk-endpoints].
+Para saber mais sobre pontos de extremidade do Hub IoT, confira [Pontos de extremidade do Hub IoT][lnk-endpoints].
 
-Os tutoriais [Comece][lnk-get-started] mostram como enviar mensagens de dispositivo para nuvem de dispositivos simulados e ler as mensagens do ponto de extremidade interno. Para obter mais informações, confira o tutorial [Como processar as mensagens entre o dispositivo e a nuvem do Hub IoT usando rotas][lnk-d2c-tutorial].
+Olá [começar] [ lnk-get-started] tutoriais mostram como mensagens de dispositivo para nuvem toosend de simulados dispositivos e leem mensagens de saudação do ponto de extremidade internos hello. Para obter mais detalhes, consulte Olá [mensagens de dispositivo para nuvem processo IoT Hub usando rotas] [ lnk-d2c-tutorial] tutorial.
 
-Se você quiser encaminhar as mensagens de dispositivo para nuvem para pontos de extremidade personalizados, consulte [Usar rotas de mensagens e pontos de extremidade personalizados para mensagens de dispositivo para nuvem][lnk-custom].
+Se você quiser tooroute seu dispositivo para nuvem mensagens toocustom pontos de extremidade, consulte [usar rotas de mensagens e pontos de extremidade personalizados para mensagens de dispositivo para nuvem][lnk-custom].
 
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png
 

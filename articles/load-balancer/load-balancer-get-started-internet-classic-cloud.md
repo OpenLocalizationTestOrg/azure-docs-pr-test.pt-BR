@@ -1,6 +1,6 @@
 ---
-title: "Criar um balanceador de carga voltado para a Internet dos serviços de nuvem do Azure| Microsoft Docs"
-description: "Saiba como criar um balanceador de carga para a Internet no modelo de implantação clássico para serviços de nuvem"
+title: "aaaCreate um voltados para Internet balanceador de carga para serviços de nuvem do Azure | Microsoft Docs"
+description: "Saiba como toocreate voltado para a Internet um balanceador de carga no modelo de implantação clássico para serviços de nuvem"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: 1ceaafebcaebecb04314c7da62c69b2e9b5ba39a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d93cf76d417cbfc744cf07ba48c43a63cc14df69
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>Introdução à criação de um balanceador de carga para a Internet para serviços de nuvem
 
@@ -31,17 +31,17 @@ ms.lasthandoff: 07/11/2017
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
-> Antes de trabalhar com os recursos do Azure, é importante entender que, no momento, o Azure apresenta dois modelos de implantação: Azure Resource Manager e clássico. Verifique se você entendeu [os modelos e as ferramentas de implantação](../azure-classic-rm.md) antes de trabalhar com qualquer recurso do Azure. Você pode exibir a documentação para ferramentas diferentes clicando nas guias na parte superior deste artigo. Este artigo aborda o modelo de implantação clássico. Também é possível [Saber como criar um balanceador de carga para a Internet usando o Gerenciador de Recursos do Azure](load-balancer-get-started-internet-arm-ps.md).
+> Antes de trabalhar com recursos do Azure, é importante toounderstand que o Azure atualmente tem dois modelos de implantação: Gerenciador de recursos do Azure e clássico. Verifique se você entendeu [os modelos e as ferramentas de implantação](../azure-classic-rm.md) antes de trabalhar com qualquer recurso do Azure. Você pode exibir a documentação de saudação para diferentes ferramentas clicando Olá guias na parte superior da saudação deste artigo. Este artigo aborda o modelo de implantação clássico hello. Você também pode [aprender a usar o Gerenciador de recursos do Azure de Balanceador de carga de toocreate um voltados à Internet de como](load-balancer-get-started-internet-arm-ps.md).
 
-Serviços de nuvem são automaticamente configurados com um balanceador de carga e podem ser personalizados por meio do modelo de serviço.
+Serviços de nuvem são automaticamente configurados com um balanceador de carga e podem ser personalizados por meio do modelo de serviço hello.
 
-## <a name="create-a-load-balancer-using-the-service-definition-file"></a>Criar um balanceador de carga usando o arquivo de definição de serviço
+## <a name="create-a-load-balancer-using-hello-service-definition-file"></a>Criar um balanceador de carga usando o arquivo de definição de serviço Olá
 
-Você pode aproveitar o SDK do Azure para .NET 2.5 para atualizar seu serviço de nuvem. As configurações de ponto de extremidade para serviços de nuvem são feitas no arquivo .csdef da [definição de serviço](https://msdn.microsoft.com/library/azure/gg557553.aspx).
+Você pode aproveitar hello Azure SDK para .NET 2.5 tooupdate seu serviço de nuvem. Configurações de ponto de extremidade para serviços de nuvem são feitas no hello [definição de serviço](https://msdn.microsoft.com/library/azure/gg557553.aspx) arquivo. csdef.
 
-O exemplo a seguir mostra como um arquivo servicedefinition.csdef é configurado para uma implantação na nuvem:
+Olá exemplo a seguir mostra como um arquivo servicedefinition. csdef para uma implantação em nuvem é configurado:
 
-Ao verificar o trecho de código do arquivo .csdef gerado por uma implantação na nuvem, você pode ver o ponto de extremidade externo configurado para usar portas HTTP na porta 10000, 10001 e 10002.
+Verificando o trecho Olá Olá. csdef arquivo gerado por uma implantação de nuvem, você pode ver Olá externo de ponto de extremidade configurado toouse portas HTTP na porta 10000 e 10001 10002.
 
 ```xml
 <ServiceDefinition name=“Tenant“>
@@ -66,7 +66,7 @@ Ao verificar o trecho de código do arquivo .csdef gerado por uma implantação 
 
 ## <a name="check-load-balancer-health-status-for-cloud-services"></a>Verificar o status de integridade do balanceador de carga para serviços de nuvem
 
-A seguir, um exemplo de como criar uma investigação:
+Olá seguinte é um exemplo de um teste de integridade:
 
 ```xml
 <LoadBalancerProbes>
@@ -74,13 +74,13 @@ A seguir, um exemplo de como criar uma investigação:
 </LoadBalancerProbes>
 ```
 
-O balanceador de carga combina as informações do ponto de extremidade e as informações de investigação para criar uma URL na forma de `http://{DIP of VM}:80/Probe.aspx`, que podem ser usadas para consultar a integridade do serviço.
+Olá balanceador de carga combina informações de saudação do ponto de extremidade de saudação e informações de saudação de Olá investigação toocreate uma URL na forma de saudação de `http://{DIP of VM}:80/Probe.aspx` que pode ser usado tooquery Olá integridade do serviço de saudação.
 
-O serviço detecta as investigações periódicas do mesmo endereço IP. Esta é a solicitação de investigação de integridade proveniente do host do nó no qual a máquina virtual está sendo executada. O serviço deve responder com um código de status HTTP 200 para que o balanceador de carga presuma que o serviço esteja íntegro. Qualquer outro código de status HTTP (por exemplo, 503) leva diretamente à máquina virtual da rotação.
+serviço Hello detecta investigações periódicas de saudação mesmo endereço IP. Isso é a solicitação de investigação de integridade hello proveniente do host de saudação do nó de saudação onde a máquina virtual de hello está sendo executado. serviço de saudação tem toorespond com um código de status HTTP 200 para Olá carga balanceador tooassume que o serviço de saudação está íntegro. Qualquer outro status do HTTP de código (por exemplo, 503) diretamente leva Olá a máquina virtual da rotação.
 
-A definição da investigação também controla a frequência da investigação. No caso acima, o balanceador de carga está investigando o ponto de extremidade a cada 5 segundos. Se nenhuma resposta positiva for recebida em 10 segundos (dois intervalos de investigação), a investigação será considerada inativa e a máquina virtual sairá da rotação. Da mesma forma, se o serviço estiver fora de rotação e uma resposta positiva for recebida, o serviço será colocado de volta à rotação imediatamente. Se o serviço estiver flutuando entre íntegro e não íntegro, o balanceador de carga pode optar por atrasar a reintrodução do serviço na rotação até que ele esteja íntegro para um número de investigações.
+definição de investigação de saudação também controla a frequência de saudação do teste de saudação. Em nosso caso acima, o balanceador de carga Olá é sondando ponto de extremidade Olá cada 5 segundos. Se nenhuma resposta positiva for recebida para 10 segundos (dois intervalos de teste), teste Olá será considerado inativo e máquina virtual de saudação é retirada da rotação. Da mesma forma, se o serviço hello está fora da rotação e uma resposta positiva é recebida, o serviço de saudação é colocado de volta toorotation imediatamente. Se o serviço de saudação está flutuando entre íntegro e não íntegro, balanceador de carga Olá pode decidir toodelay Olá nova Introdução Olá serviço back toorotation até que ele tenha sido íntegro para um número de testes.
 
-Verifique o esquema de definição de serviço para a [investigação de integridade](https://msdn.microsoft.com/library/azure/jj151530.aspx) para obter mais informações.
+Verifique o esquema de definição de serviço Olá para Olá [investigação de integridade](https://msdn.microsoft.com/library/azure/jj151530.aspx) para obter mais informações.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,6 +1,6 @@
 ---
-title: "Consultar um índice (API .NET - Azure Search) | Microsoft Docs"
-description: "Crie uma consulta de pesquisa na Pesquisa do Azure e use parâmetros de pesquisa para filtrar e classificar os resultados da pesquisa."
+title: "AAA \"consultar um índice (API .NET - pesquisa do Azure) | Microsoft Docs\""
+description: "Criar uma consulta de pesquisa na pesquisa do Azure e usar os resultados da pesquisa pesquisa parâmetros toofilter e classificação."
 services: search
 manager: jhubbard
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/19/2017
 ms.author: brjohnst
-ms.openlocfilehash: 52bd0fd4cf70401dcf881c7f28d5cd91397bb059
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8b3ba1cd1270aad038fb48d9053fcff35d243e13
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="query-your-azure-search-index-using-the-net-sdk"></a>Consultar seu índice de Pesquisa do Azure usando o SDK do .NET
+# <a name="query-your-azure-search-index-using-hello-net-sdk"></a>Consultar seu índice de pesquisa do Azure usando o SDK .NET de saudação
 > [!div class="op_single_selector"]
 > * [Visão geral](search-query-overview.md)
 > * [Portal](search-explorer.md)
@@ -28,31 +28,31 @@ ms.lasthandoff: 08/03/2017
 > 
 > 
 
-Este artigo mostrará como consultar um índice usando o [SDK do .NET da Pesquisa do Azure](https://aka.ms/search-sdk).
+Este artigo mostra como tooquery um índice usando Olá [SDK .NET da pesquisa do Azure](https://aka.ms/search-sdk).
 
 Antes de começar este passo a passo, você já deve ter [criado um índice do Azure Search](search-what-is-an-index.md), e este já deve estar [preenchido com os dados](search-what-is-data-import.md).
 
 > [!NOTE]
-> Todos os códigos de exemplo neste artigo foram escritos em C#. Você pode encontrar o código-fonte completo [no GitHub](http://aka.ms/search-dotnet-howto). Você também pode ler sobre o [SDK .NET do Azure Search](search-howto-dotnet-sdk.md) para passo a passo mais detalhado do código de exemplo.
+> Todos os códigos de exemplo neste artigo foram escritos em C#. Você pode encontrar o código-fonte completo Olá [no GitHub](http://aka.ms/search-dotnet-howto). Você também pode ler sobre Olá [SDK .NET da pesquisa do Azure](search-howto-dotnet-sdk.md) para um mais detalhado passo a passo do código de exemplo hello.
 
 ## <a name="identify-your-azure-search-services-query-api-key"></a>Identificar sua api-key de consulta do serviço de Pesquisa do Azure
-Agora que criou um índice de Pesquisa do Azure, você está quase pronto para emitir consultas usando o SDK do .NET. Primeiro, você precisará obter uma das chaves da API de consulta que foram geradas para o serviço de pesquisa que provisionou. O SDK do .NET enviará essa chave de API em cada solicitação para o serviço. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
+Agora que você criou um índice de pesquisa do Azure, você está quase pronto tooissue consultas usando Olá SDK do .NET. Primeiro, você precisará tooobtain uma saudação consulta chaves de api que foi gerado para o serviço de pesquisa Olá que você provisionou. Olá .NET SDK enviará esta chave de api em cada solicitação de serviço tooyour. Ter uma chave válida estabelece confiança, em uma base por solicitação, entre solicitação de envio Olá Olá aplicativo e serviço de saudação que lida com ele.
 
-1. Para localizar as api-keys de seu serviço, você deve fazer logon no [portal do Azure](https://portal.azure.com/)
-2. Vá para a folha do serviço de Pesquisa do Azure
-3. Clique no ícone de "Chaves"
+1. toofind chaves do serviço de api pode entrar toohello [portal do Azure](https://portal.azure.com/)
+2. Vá folha do serviço de pesquisa do Azure tooyour
+3. Clique em Olá ícone "Chaves"
 
 O serviço terá *chaves de administração* e *chaves de consulta*.
 
-* Suas *chaves de administração* principal e secundária concedem direitos totais para todas as operações, incluindo a capacidade de gerenciar o serviço, criar e excluir índices, indexadores e fontes de dados. Há duas chaves para que você possa continuar a usar a chave secundária se decidir regenerar a chave primária e vice-versa.
-* As *chaves de consulta* concedem acesso somente leitura a índices e documentos e normalmente são distribuídas para aplicativos cliente que emitem solicitações de pesquisa.
+* O primário e secundário *chaves de administração* conceder direitos totais tooall operações, incluindo Olá capacidade toomanage Olá serviço, criar e excluir índices, indexadores e fontes de dados. Há duas chaves para que você possa continuar chave secundária do toouse Olá se você decidir chave primária do tooregenerate hello e vice-versa.
+* O *chaves de consulta* conceder acesso somente leitura tooindexes e documentos, e são normalmente distribuídos tooclient aplicativos que emitem solicitações de pesquisa.
 
-Para consultar um índice, você pode usar uma de suas chaves de consulta. As chaves de administração também podem ser usadas para consultas, mas você deve usar uma chave de consulta no código do aplicativo, já que isso segue melhor o [Princípio do privilégio mínimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
+Para fins de saudação de consultar um índice, você pode usar uma de suas chaves de consulta. As chaves de administração também podem ser usadas para consultas, mas você deve usar uma chave de consulta no código do aplicativo, isso melhor da seguinte maneira Olá [princípio de menos privilégios](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-## <a name="create-an-instance-of-the-searchindexclient-class"></a>Criar uma instância da classe SearchIndexClient
-Para emitir consultas com o SDK do .NET da Pesquisa do Azure, você precisará criar uma instância da classe `SearchIndexClient` . Essa classe tem vários construtores. A classe desejada usa o nome do serviço de pesquisa, nome do índice e um objeto `SearchCredentials` como parâmetros. `SearchCredentials` encapsula sua api-key.
+## <a name="create-an-instance-of-hello-searchindexclient-class"></a>Crie uma instância da classe SearchIndexClient de saudação
+consultas de tooissue com hello SDK .NET da pesquisa do Azure, você precisará toocreate uma instância de saudação `SearchIndexClient` classe. Essa classe tem vários construtores. Olá você deseja usa o nome do serviço de pesquisa, o nome do índice e uma `SearchCredentials` objeto como parâmetros. `SearchCredentials` encapsula sua api-key.
 
-O código a seguir cria um `SearchIndexClient` novo para o índice "hotéis" (criado em [Como criar um índice do Azure Search usando o SDK do .NET](search-create-index-dotnet.md)) usando valores para o nome do serviço de pesquisa e a api-key armazenados no arquivo de configuração do aplicativo (`appsettings.json` em caso do [aplicativo de exemplo](http://aka.ms/search-dotnet-howto)):
+Olá código a seguir cria um novo `SearchIndexClient` para índice de "hotéis" hello (criado em [criar um índice de pesquisa do Azure usando o SDK .NET de saudação](search-create-index-dotnet.md)) usando valores para o nome do serviço de pesquisa hello e chave de api que são armazenados na configuração do aplicativo hello arquivo (`appsettings.json` no caso de saudação de saudação [aplicativo de exemplo](http://aka.ms/search-dotnet-howto)):
 
 ```csharp
 private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
@@ -65,24 +65,24 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 }
 ```
 
-`SearchIndexClient` tem uma propriedade `Documents`. Essa propriedade fornece todos os métodos necessários para consultar índices de Pesquisa do Azure.
+`SearchIndexClient` tem uma propriedade `Documents`. Esta propriedade fornece que todos os Olá métodos que você precisa tooquery índices de pesquisa do Azure.
 
 ## <a name="query-your-index"></a>Consultar o índice
-Pesquisar com o SDK do .NET é tão simples quanto chamar o método `Documents.Search` em seu `SearchIndexClient`. Este método usa alguns parâmetros, incluindo o texto de pesquisa, junto com um objeto `SearchParameters` que pode ser usado para refinar mais a consulta.
+Pesquisando com hello .NET SDK é tão simple quanto Olá chamada `Documents.Search` método no seu `SearchIndexClient`. Este método usa alguns parâmetros, incluindo o texto de pesquisa hello, juntamente com um `SearchParameters` objeto que pode ser usado toofurther refinar Olá consulta.
 
 #### <a name="types-of-queries"></a>Tipos de Consultas
-Os dois [tipos de consulta](search-query-overview.md#types-of-queries) principais que você usará são `search` e `filter`. Uma consulta `search` procura um ou mais termos em todos os campos *pesquisáveis* no índice. Uma consulta `filter` avalia uma expressão booliana em todos os campos *filtráveis* em um índice.
+principal Olá dois [tipos de consulta](search-query-overview.md#types-of-queries) você usará são `search` e `filter`. Uma consulta `search` procura um ou mais termos em todos os campos *pesquisáveis* no índice. Uma consulta `filter` avalia uma expressão booliana em todos os campos *filtráveis* em um índice.
 
-As pesquisas e os filtros são executados usando o método `Documents.Search` . Uma consulta de pesquisa pode ser passada no parâmetro `searchText`, enquanto uma expressão de filtro pode ser passada na propriedade `Filter` da classe `SearchParameters`. Para filtrar sem pesquisar, basta passar `"*"` para o parâmetro `searchText`. Para pesquisar sem filtrar, deixe a propriedade `Filter` indefinida ou simplesmente não passe uma instância `SearchParameters`.
+Pesquisa e filtros são executados usando Olá `Documents.Search` método. Uma consulta de pesquisa pode ser passada no hello `searchText` parâmetro, enquanto uma expressão de filtro pode ser passada em Olá `Filter` propriedade Olá `SearchParameters` classe. toofilter sem procurando, basta passar `"*"` para Olá `searchText` parâmetro. toosearch sem filtragem, deixe Olá `Filter` propriedade unset, ou não passar um `SearchParameters` instância em todos os.
 
 #### <a name="example-queries"></a>Consultas de Exemplo
-O código de exemplo a seguir mostra algumas maneiras diferentes de consultar o índice "hotéis" definido em [Criar um índice de Pesquisa do Azure usando o SDK do .NET](search-create-index-dotnet.md#DefineIndex). Observe que os documentos retornados com os resultados da pesquisa são instâncias da classe `Hotel` , que foi definida em [Importação de dados na Pesquisa do Azure usando o SDK do .NET](search-import-data-dotnet.md#HotelClass). O código de exemplo usa um método `WriteDocuments` para enviar os resultados da pesquisa para o console. Esse método é descrito na próxima seção.
+Olá, código de exemplo a seguir mostra algumas maneiras diferentes tooquery hello "hotéis" índice definido na [criar um índice de pesquisa do Azure usando o SDK .NET de saudação](search-create-index-dotnet.md#DefineIndex). Observe que os documentos Olá retornados com os resultados da pesquisa Olá são instâncias de saudação `Hotel` classe, que foi definida no [importação de dados de pesquisa do Azure usando Olá .NET SDK](search-import-data-dotnet.md#HotelClass). Olá código de exemplo usa um `WriteDocuments` console toohello resultados de pesquisa do método toooutput hello. Esse método é descrito na próxima seção, Olá.
 
 ```csharp
 SearchParameters parameters;
 DocumentSearchResult<Hotel> results;
 
-Console.WriteLine("Search the entire index for the term 'budget' and return only the hotelName field:\n");
+Console.WriteLine("Search hello entire index for hello term 'budget' and return only hello hotelName field:\n");
 
 parameters =
     new SearchParameters()
@@ -94,8 +94,8 @@ results = indexClient.Documents.Search<Hotel>("budget", parameters);
 
 WriteDocuments(results);
 
-Console.Write("Apply a filter to the index to find hotels cheaper than $150 per night, ");
-Console.WriteLine("and return the hotelId and description:\n");
+Console.Write("Apply a filter toohello index toofind hotels cheaper than $150 per night, ");
+Console.WriteLine("and return hello hotelId and description:\n");
 
 parameters =
     new SearchParameters()
@@ -108,8 +108,8 @@ results = indexClient.Documents.Search<Hotel>("*", parameters);
 
 WriteDocuments(results);
 
-Console.Write("Search the entire index, order by a specific field (lastRenovationDate) ");
-Console.Write("in descending order, take the top two results, and show only hotelName and ");
+Console.Write("Search hello entire index, order by a specific field (lastRenovationDate) ");
+Console.Write("in descending order, take hello top two results, and show only hotelName and ");
 Console.WriteLine("lastRenovationDate:\n");
 
 parameters =
@@ -124,7 +124,7 @@ results = indexClient.Documents.Search<Hotel>("*", parameters);
 
 WriteDocuments(results);
 
-Console.WriteLine("Search the entire index for the term 'motel':\n");
+Console.WriteLine("Search hello entire index for hello term 'motel':\n");
 
 parameters = new SearchParameters();
 results = indexClient.Documents.Search<Hotel>("motel", parameters);
@@ -133,7 +133,7 @@ WriteDocuments(results);
 ```
 
 ## <a name="handle-search-results"></a>Controlar os resultados da pesquisa
-O método `Documents.Search` retorna um objeto `DocumentSearchResult` que contém os resultados da consulta. O exemplo na seção anterior usou um método denominado `WriteDocuments` para enviar os resultados da pesquisa para o console:
+Olá `Documents.Search` método retorna um `DocumentSearchResult` objeto que contém Olá resultados de consulta de saudação. exemplo Hello na seção anterior Olá usado um método chamado `WriteDocuments` console toohello de resultados de pesquisa do toooutput hello:
 
 ```csharp
 private static void WriteDocuments(DocumentSearchResult<Hotel> searchResults)
@@ -147,27 +147,27 @@ private static void WriteDocuments(DocumentSearchResult<Hotel> searchResults)
 }
 ```
 
-Os resultados das consultas da seção anterior se parecem com esses, supondo que o índice "hotéis" seja preenchido com os dados de exemplo em [Importação de dados na Pesquisa do Azure usando o SDK do .NET](search-import-data-dotnet.md):
+Aqui está o que os resultados de saudação aparência para consultas de saudação na seção anterior hello, assumindo índice de hotéis"hello" é populado com dados de exemplo hello no [importação de dados de pesquisa do Azure usando Olá .NET SDK](search-import-data-dotnet.md):
 
 ```
-Search the entire index for the term 'budget' and return only the hotelName field:
+Search hello entire index for hello term 'budget' and return only hello hotelName field:
 
 Name: Roach Motel
 
-Apply a filter to the index to find hotels cheaper than $150 per night, and return the hotelId and description:
+Apply a filter toohello index toofind hotels cheaper than $150 per night, and return hello hotelId and description:
 
 ID: 2   Description: Cheapest hotel in town
-ID: 3   Description: Close to town hall and the river
+ID: 3   Description: Close tootown hall and hello river
 
-Search the entire index, order by a specific field (lastRenovationDate) in descending order, take the top two results, and show only hotelName and lastRenovationDate:
+Search hello entire index, order by a specific field (lastRenovationDate) in descending order, take hello top two results, and show only hotelName and lastRenovationDate:
 
 Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
 Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
 
-Search the entire index for the term 'motel':
+Search hello entire index for hello term 'motel':
 
 ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
 ```
 
-O código de exemplo acima usa o console para gerar os resultados da pesquisa. Da mesma forma, você precisará exibir os resultados da pesquisa em seu próprio aplicativo. Consulte [este exemplo no GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample) de como renderizar os resultados da pesquisa em um aplicativo Web baseado no ASP.NET MVC.
+Olá exemplo de código acima usa os resultados da pesquisa Olá console toooutput. Da mesma forma, você precisará toodisplay resultados da pesquisa em seu próprio aplicativo. Consulte [Este exemplo no GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample) para obter um exemplo de como os resultados de pesquisa toorender em um aplicativo web do ASP.NET MVC.
 

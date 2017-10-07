@@ -1,6 +1,6 @@
 ---
-title: Transformar dados usando o script U-SQL - Azure | Microsoft Docs
-description: "Saiba como processar ou transformar dados executando scripts U-SQL no serviço de computação do Azure Data Lake Analytics."
+title: aaaTransform dados usando o script U-SQL - Azure | Microsoft Docs
+description: "Saiba como o serviço de computação tooprocess ou transformar dados executando os scripts de U-SQL na análise do Azure Data Lake."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 49a809af92ed1bc6664fbdd3bf1aabf36afb8180
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 51fdb40334d0c131720f65c3a96b4c5045a98b24
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transforme dados executando scripts U-SQL no serviço de computação do Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -33,46 +33,46 @@ ms.lasthandoff: 08/18/2017
 > * [Atividade do U-SQL do Data Lake Analytics](data-factory-usql-activity.md)
 > * [Atividade Personalizada do .NET](data-factory-use-custom-activities.md)
 
-Um pipeline em uma fábrica de dados do Azure processa dados nos serviços de armazenamento vinculados utilizando serviços de computação vinculados. Ela contém uma sequência de atividades em que cada atividade executa uma operação de processamento específica. Este artigo descreve a **Atividade do U-SQL do Data Lake Analytics** que executa um script **U-SQL** em um serviço vinculado de computação do **Azure Data Lake Analytics**. 
+Um pipeline em uma fábrica de dados do Azure processa dados nos serviços de armazenamento vinculados utilizando serviços de computação vinculados. Ela contém uma sequência de atividades em que cada atividade executa uma operação de processamento específica. Este artigo descreve Olá **atividade U-SQL do Data Lake análise** que executa um **U-SQL** script em um **análise Azure Data Lake** serviço vinculado de computação. 
 
 > [!NOTE]
-> Crie uma conta do Azure Data Lake Analytics antes de criar um pipeline com uma atividade do U-SQL do Data Lake Analytics. Para saber mais sobre o Azure Data Lake Analytics, veja [Introdução ao Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+> Crie uma conta do Azure Data Lake Analytics antes de criar um pipeline com uma atividade do U-SQL do Data Lake Analytics. toolearn sobre análise Azure Data Lake, consulte [Introdução à análise Azure Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 > 
-> Veja o tutorial [Criar seu primeiro pipeline](data-factory-build-your-first-pipeline.md) para obter etapas detalhadas de como criar um Data Factory, serviços vinculados, conjuntos de dados e um pipeline. Use os trechos de código JSON com o Editor do Data Factory, Visual Studio ou Azure PowerShell para criar as entidades do Data Factory.
+> Saudação de revisão [criar seu primeiro tutorial pipeline](data-factory-build-your-first-pipeline.md) para obter etapas detalhadas toocreate uma fábrica de dados, vinculada a um pipeline, conjuntos de dados e serviços. Use trechos de código JSON com o Editor de fábrica de dados ou entidades de fábrica de dados toocreate Visual Studio ou o Azure PowerShell.
 
 ## <a name="supported-authentication-types"></a>Tipos de autenticação com suporte
 A atividade do U-SQL dá suporte aos tipos de autenticação abaixo no Data Lake Analytics:
 * Autenticação de entidade de serviço
 * Autenticação de credencial do usuário (OAuth) 
 
-Recomendamos o uso da autenticação de entidade de serviço, especialmente para uma execução de U-SQL agendada. O comportamento de expiração do token pode ocorrer com autenticação de credenciais do usuário. Para obter os detalhes de configuração, consulte a seção [Propriedades do serviço vinculado](#azure-data-lake-analytics-linked-service).
+Recomendamos o uso da autenticação de entidade de serviço, especialmente para uma execução de U-SQL agendada. O comportamento de expiração do token pode ocorrer com autenticação de credenciais do usuário. Para obter detalhes de configuração, consulte Olá [vinculado propriedades do serviço](#azure-data-lake-analytics-linked-service) seção.
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Serviço Vinculado da Análise Azure Data Lake
-Você cria um serviço vinculado do **Azure Data Lake Analytics** para vincular um serviço de computação do Azure Data Lake Analytics a um Azure Data Factory. A atividade de U-SQL do Data Lake Analytics no pipeline se refere a esse serviço vinculado. 
+Você cria um **análise Azure Data Lake** vinculado serviço toolink uma análise do Azure Data Lake computação serviço tooan data factory do Azure. Hello atividade U-SQL do Data Lake análise no pipeline de saudação refere-se serviço toothis vinculado. 
 
-A tabela a seguir apresenta as descrições das propriedades genéricas usadas na definição JSON. Você ainda pode escolher entre a autenticação de credencial do usuário e entidade de serviço.
+Olá tabela a seguir fornece descrições para Olá genéricas propriedades usadas em Olá definição JSON. Você ainda pode escolher entre a autenticação de credencial do usuário e entidade de serviço.
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| **tipo** |A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. |Sim |
+| **tipo** |propriedade de tipo Hello deve ser definida como: **AzureDataLakeAnalytics**. |Sim |
 | **accountName** |Nome da conta da Análise Azure Data Lake. |Sim |
 | **dataLakeAnalyticsUri** |URI da Análise Azure Data Lake. |Não |
-| **subscriptionId** |Id de assinatura do Azure |Não (se não for especificado, a assinatura do Data Factory é usada). |
-| **resourceGroupName** |Nome do grupo de recursos do Azure |Não (se não for especificado, o grupo de recursos do Data Factory é usado). |
+| **subscriptionId** |Id de assinatura do Azure |Não (se não especificado, a assinatura de saudação fábrica de dados é usada). |
+| **resourceGroupName** |Nome do grupo de recursos do Azure |Não (se não especificado, o grupo de recursos de saudação fábrica de dados é usada). |
 
 ### <a name="service-principal-authentication-recommended"></a>Autenticação de entidade de serviço (recomendada)
-Para usar a autenticação de entidade de serviço, registre uma entidade de aplicativo no Azure AD (Azure Active Directory) e conceda a ela o acesso ao Data Lake Store. Para encontrar as etapas detalhadas, consulte [Autenticação de serviço a serviço](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Anote os seguintes valores, que são usados para definir o serviço vinculado:
+autenticação principal do serviço toouse, registre uma entidade de aplicativo no Azure Active Directory (AD do Azure) e conceda ele Olá acessar tooData Lake repositório. Para encontrar as etapas detalhadas, consulte [Autenticação de serviço a serviço](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Anote Olá valores, que você usar a seguir toodefine Olá vinculado de serviço:
 * ID do aplicativo
 * Chave do aplicativo 
 * ID do locatário
 
-Use a autenticação de entidade de serviço especificando as seguintes propriedades:
+Use autenticação principal do serviço especificando Olá propriedades a seguir:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | Especifique a ID do cliente do aplicativo. | Sim |
-| **servicePrincipalKey** | Especifique a chave do aplicativo. | Sim |
-| **tenant** | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | Sim |
+| **servicePrincipalId** | Especifique a ID do cliente. do aplicativo hello | Sim |
+| **servicePrincipalKey** | Especifique a chave de aplicativo hello. | Sim |
+| **tenant** | Especifique as informações de locatário hello (ID de locatário ou de nome de domínio) em que o aplicativo reside. Você pode recuperá-la por focalização mouse Olá no canto superior direito Olá Olá portal do Azure. | Sim |
 
 **Exemplo: autenticação de entidade de serviço**
 ```json
@@ -94,12 +94,12 @@ Use a autenticação de entidade de serviço especificando as seguintes propried
 ```
 
 ### <a name="user-credential-authentication"></a>Autenticação de credenciais de usuário
-Como alternativa, você pode usar a autenticação de credenciais do usuário do Data Lake Analytics especificando as seguintes propriedades:
+Como alternativa, você pode usar a autenticação de credenciais de usuário para análise Data Lake especificando Olá propriedades a seguir:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| **authorization** | Clique no botão **Autorizar** no Editor do Data Factory e insira as suas credenciais, que atribuem a URL de autorização gerada automaticamente a essa propriedade. | Sim |
-| **sessionId** | A ID de sessão OAuth da sessão de autorização OAuth. Cada ID da sessão é exclusiva e pode ser usada somente uma vez. Essa configuração é gerada automaticamente quando você usa o Editor do Data Factory. | Sim |
+| **authorization** | Clique em Olá **autorizar** botão no hello Editor da fábrica de dados e insira suas credenciais que atribui a propriedade toothis de URL de autorização do hello gerado automaticamente. | Sim |
+| **sessionId** | ID de sessão do OAuth da sessão de autorização de OAuth hello. Cada ID da sessão é exclusiva e pode ser usada somente uma vez. Essa configuração é gerada automaticamente quando você usa Olá Editor da fábrica de dados. | Sim |
 
 **Exemplo: autenticação de credenciais do usuário**
 ```json
@@ -120,14 +120,14 @@ Como alternativa, você pode usar a autenticação de credenciais do usuário do
 ```
 
 #### <a name="token-expiration"></a>Expiração do token
-O código de autorização gerado usando o botão **Autorizar** expira após algum tempo. Confira a tabela a seguir para ver os tempos de expiração para os diferentes tipos de contas de usuário. Talvez você veja a mensagem de erro a seguir quando o **token de autenticação expirar**: Erro de operação de credencial: invalid_grant - AADSTS70002: erro ao validar as credenciais. AADSTS70008: a concessão de acesso fornecida expirou ou foi revogada. ID do Rastreamento: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID da Correlação: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Carimbo de data/hora: 2015-12-15 21:09:31Z
+Olá código de autorização gerado usando Olá **autorizar** botão expira após algum tempo. Consulte a tabela a seguir para tempos de expiração de saudação para diferentes tipos de contas de usuário de saudação. Você pode ver Olá a seguinte mensagem de erro hello quando a autenticação **token expira**: erro na operação de credencial: invalid_grant - AADSTS70002: erro ao validar credenciais. AADSTS70008: Olá fornecido a concessão de acesso expirou ou foi revogado. ID do Rastreamento: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID da Correlação: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Carimbo de data/hora: 2015-12-15 21:09:31Z
 
 | Tipo de usuário | Expira após |
 |:--- |:--- |
 | Contas de usuário NÃO gerenciadas pelo Azure Active Directory (@hotmail.com, @live.com etc.) |12 horas |
-| Contas de usuários gerenciadas pelo AAD (Azure Active Directory) |14 dias após a última execução da fatia. <br/><br/>90 dias, se uma fatia com base em serviços vinculados do OAuth for executada pelo menos uma vez a cada 14 dias. |
+| Contas de usuários gerenciadas pelo AAD (Azure Active Directory) |Execute a 14 dias após a última fatia de saudação. <br/><br/>90 dias, se uma fatia com base em serviços vinculados do OAuth for executada pelo menos uma vez a cada 14 dias. |
 
-Para evitar/resolver este erro, reautorize usando o botão **Autorizar** quando o **token expirar** e reimplante o serviço vinculado. Você também pode gerar valores para as propriedades **sessionId** e **authorization** de modo programático usando o código da seguinte maneira:
+tooavoid e resolver esse erro, autorize novamente usando Olá **autorizar** botão quando hello **token expira** e reimplante o serviço vinculado de saudação. Você também pode gerar valores para as propriedades **sessionId** e **authorization** de modo programático usando o código da seguinte maneira:
 
 ```csharp
 if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
@@ -154,16 +154,16 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }
 ```
 
-Veja os tópicos [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) para obter detalhes sobre as classes do Data Factory usadas no código. Adicione uma referência a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para a classe WindowsFormsWebAuthenticationDialog. 
+Consulte [AzureDataLakeStoreLinkedService classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), e [AuthorizationSessionGetResponse classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) tópicos para obter detalhes sobre classes de fábrica de dados Olá usadas no código de saudação. Adicione uma referência a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para Olá WindowsFormsWebAuthenticationDialog classe. 
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Atividade do U-SQL da Análise Data Lake
-O seguinte trecho de código JSON define um pipeline com uma Atividade do U-SQL da Análise Data Lake. A definição de atividade tem uma referência para o serviço vinculado da Análise Azure Data Lake criado anteriormente.   
+Olá trecho JSON a seguir define um pipeline com uma atividade de U-SQL análise Data Lake. definição de atividade Olá tem uma referência toohello serviço vinculado de análise do Azure Data Lake criado anteriormente.   
 
 ```json
 {
     "name": "ComputeEventsByRegionPipeline",
     "properties": {
-        "description": "This is a pipeline to compute events for en-gb locale and date less than 2012/02/19.",
+        "description": "This is a pipeline toocompute events for en-gb locale and date less than 2012/02/19.",
         "activities": 
         [
             {
@@ -210,25 +210,25 @@ O seguinte trecho de código JSON define um pipeline com uma Atividade do U-SQL 
 }
 ```
 
-A tabela a seguir descreve os nomes e as descrições de propriedades que são específicas a esta atividade. 
+Olá tabela a seguir descreve os nomes e descrições das propriedades de atividade toothis específico. 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo |A propriedade type deve ser definida como **DataLakeAnalyticsU-SQL**. |Sim |
-| scriptPath |Caminho para a pasta que contém o script U-SQL. O nome do arquivo diferencia maiúsculas de minúsculas. |Não (se você usar o script) |
-| scriptLinkedService |Serviço vinculado que vincula o armazenamento que contém o script para a fábrica de dados |Não (se você usar o script) |
+| type |propriedade do tipo Hello deve ser definida muito**DataLakeAnalyticsU SQL**. |Sim |
+| scriptPath |Toofolder de caminho que contém o script hello U-SQL. Nome do arquivo hello diferencia maiusculas de minúsculas. |Não (se você usar o script) |
+| scriptLinkedService |Serviço vinculado que vincula o armazenamento de saudação que contém a fábrica de dados Olá script toohello |Não (se você usar o script) |
 | script |Especificar script embutido em vez de especificar scriptPath e scriptLinkedService. Por exemplo: `"script": "CREATE DATABASE test"`. |Não (se você usar scriptPath e scriptLinkedService) |
-| degreeOfParallelism |O número máximo de nós usados simultaneamente para executar o trabalho. |Não |
-| prioridade |Determina quais trabalhos de todos os que estão na fila devem ser selecionados para serem executados primeiro. Quanto menor o número, maior a prioridade. |Não |
-| parameters |Parâmetros do script U-SQL |Não |
-| runtimeVersion | Versão de tempo de execução do mecanismo U-SQL a ser usado | Não | 
-| compilationMode | <p>Modo de compilação do U-SQL. Deve ser um destes valores:</p> <ul><li>**Semantic:** apenas realize verificações de semântica e as verificações de integridade necessárias.</li><li>**Full:** execute a compilação completa, incluindo verificação de sintaxe, otimização, geração de código, etc.</li><li>**SingleBox:** execute a compilação completa, com a configuração de TargetType como SingleBox.</li></ul><p>Se você não especificar um valor para essa propriedade, o servidor determinará o modo de compilação ideal. </p>| Não | 
+| degreeOfParallelism |número máximo de saudação de nós usados simultaneamente toorun trabalho de saudação. |Não |
+| prioridade |Determina quais trabalhos entre todos os que estão na fila devem ser selecionada toorun primeiro. Olá Olá número menor, Olá Olá prioridade. |Não |
+| parâmetros |Parâmetros de script hello U-SQL |Não |
+| runtimeVersion | Versão de tempo de execução do toouse do mecanismo de saudação U-SQL | Não | 
+| compilationMode | <p>Modo de compilação do U-SQL. Deve ser um destes valores:</p> <ul><li>**Semantic:** apenas realize verificações de semântica e as verificações de integridade necessárias.</li><li>**Completo:** executar Olá de compilação completo, incluindo verificação de sintaxe, otimização, geração de código, etc.</li><li>**SingleBox:** executar compilação completa hello, com tooSingleBox de configuração de TargetType.</li></ul><p>Se você não especificar um valor para essa propriedade, o servidor de saudação determina o modo de compilação ideal de saudação. </p>| Não | 
 
-Consulte [Definição do Script SearchLogProcessing.txt](#sample-u-sql-script) para ver a definição do script. 
+Consulte [SearchLogProcessing.txt Script definição](#sample-u-sql-script) para definição de saudação do script. 
 
 ## <a name="sample-input-and-output-datasets"></a>Conjuntos de dados de entrada e saída de exemplo
 ### <a name="input-dataset"></a>Conjunto de dados de entrada
-Neste exemplo, os dados de entrada residem em um Repositório Azure Data Lake (arquivo SearchLog.tsv na pasta datalake/input). 
+Neste exemplo, os dados de entrada hello residem em um repositório Azure Data Lake (SearchLog.tsv arquivo na pasta de datalake/entrada hello). 
 
 ```json
 {
@@ -254,7 +254,7 @@ Neste exemplo, os dados de entrada residem em um Repositório Azure Data Lake (a
 ```
 
 ### <a name="output-dataset"></a>Conjunto de dados de saída
-Neste exemplo, os dados de saída produzidos pelo script U-SQL são armazenados em um Repositório Azure Data Lake (pasta datalake/output). 
+Neste exemplo, os dados de saída de hello produzidos pelo Olá script U-SQL são armazenados em um repositório Azure Data Lake (pasta datalake/saída). 
 
 ```json
 {
@@ -274,7 +274,7 @@ Neste exemplo, os dados de saída produzidos pelo script U-SQL são armazenados 
 ```
 
 ### <a name="sample-data-lake-store-linked-service"></a>Exemplo de serviço vinculado do Data Lake Store
-Veja a definição de exemplo de serviço vinculado do Azure Data Lake Store usado pelos conjuntos de dados de entrada/saída. 
+Esta é a definição de saudação do exemplo hello que repositório Azure Data Lake vinculado usado por conjuntos de dados de entrada/saída de saudação do serviço. 
 
 ```json
 {
@@ -291,7 +291,7 @@ Veja a definição de exemplo de serviço vinculado do Azure Data Lake Store usa
 }
 ```
 
-Consulte o artigo [Mover dados de e para o Azure Data Lake Store](data-factory-azure-datalake-connector.md) para obter descrições das propriedades de JSON. 
+Consulte [mover tooand de dados do repositório Azure Data Lake](data-factory-azure-datalake-connector.md) artigo para obter descrições das propriedades JSON. 
 
 ## <a name="sample-u-sql-script"></a>Exemplo de script U-SQL
 
@@ -318,16 +318,16 @@ WHERE Region == "en-gb";
     WHERE Start <= DateTime.Parse("2012/02/19");
 
 OUTPUT @rs1   
-    TO @out
+    too@out
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-Os valores dos parâmetros **@in** e **@out** no script U-SQL são passados dinamicamente pelo ADF usando a seção “parameters”. Veja a seção "parâmetros" na definição do pipeline.
+Olá valores para  **@in**  e  **@out**  parâmetros no script hello U-SQL são transmitidos dinamicamente por ADF usando Olá 'parameters' seção. Consulte a seção de 'parameters' de saudação na definição do pipeline de saudação.
 
-Você pode especificar outras propriedades, por exemplo, degreeOfParallelism e prioridade, bem como em sua definição de pipeline para os trabalhos executados no serviço Data Lake Analytics.
+Você pode especificar outras propriedades, como prioridade e degreeOfParallelism também em sua definição de pipeline para trabalhos de saudação que são executados em Olá serviço de análise do Azure Data Lake.
 
 ## <a name="dynamic-parameters"></a>Parâmetros dinâmicos
-Na definição de pipeline de exemplo, os parâmetros in e out são atribuídos com valores embutidos em código. 
+Na definição de pipeline de exemplo hello, e parâmetros são atribuídos com valores codificados. 
 
 ```json
 "parameters": {
@@ -336,7 +336,7 @@ Na definição de pipeline de exemplo, os parâmetros in e out são atribuídos 
 }
 ```
 
-É possível usar parâmetros dinâmicos em vez disso. Por exemplo: 
+Em vez disso, é parâmetros dinâmicos toouse possíveis. Por exemplo: 
 
 ```json
 "parameters": {
@@ -345,5 +345,5 @@ Na definição de pipeline de exemplo, os parâmetros in e out são atribuídos 
 }
 ```
 
-Nesse caso, os arquivos de entrada ainda são obtidos da pasta /datalake/input e os arquivos de saída são gerados na pasta /datalake/output. Os nomes de arquivo são dinâmicos com base na hora de início da fatia.  
+Nesse caso, arquivos de entrada ainda são retirados da pasta de /datalake/input hello e arquivos de saída são gerados na pasta de /datalake/output hello. nomes de arquivo Hello são dinâmicos com base na hora de início de fatia hello.  
 

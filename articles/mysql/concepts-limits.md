@@ -1,5 +1,5 @@
 ---
-title: "Limitações no Banco de Dados do Azure para MySQL | Microsoft Docs"
+title: aaaLimitations no banco de dados do Azure para MySQL | Microsoft Docs
 description: "Descreve as limitações de visualização no Banco de Dados para MySQL."
 services: mysql
 author: jasonh
@@ -9,19 +9,19 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/10/2017
-ms.openlocfilehash: c61d70897b66c2ffee819ac98c38ab75000db907
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9c877c592bf640f62182d8761c9c51363882d706
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="limitations-in-azure-database-for-mysql-preview"></a>Limitações no Banco de Dados do Azure para MySQL (Visualização)
-O Banco de Dados do Azure para o serviço do MySQL está em visualização pública. As seções a seguir descrevem a capacidade e os limites funcionais no serviço de banco de dados.
+saudação de banco de dados do Azure para o serviço MySQL está em visualização pública. Olá seções a seguir descrevem funcionais limites no serviço de banco de dados de saudação e capacidade.
 
 ## <a name="service-tier-maximums"></a>Limites máximos da camada de serviço
 O Banco de Dados do Azure para MySQL tem vários níveis de serviço que você pode escolher ao criar um servidor. Para saber mais, confira [Entenda o que está disponível em cada camada de serviço](concepts-service-tiers.md).  
 
-Há um número máximo de conexões, unidades de computação e armazenamento em cada camada de serviço durante a visualização do serviço, da seguinte maneira: 
+Há um número máximo de conexões, as unidades de computação e armazenamento em cada camada de serviço durante a visualização de serviço hello, da seguinte maneira: 
 
 |                            |                   |
 | :------------------------- | :---------------- |
@@ -39,7 +39,7 @@ Há um número máximo de conexões, unidades de computação e armazenamento em
 | Camada de serviço Básica         | 1 TB              |
 | Camada de serviço Standard      | 1 TB              |
 
-Quando um número excessivo de conexões for atingido, você receberá o seguinte erro:
+Quando muitas conexões são alcançadas, você pode receber Olá erro a seguir:
 > ERRO 1040 (08004): número excessivo de conexões
 
 ## <a name="preview-functional-limitations"></a>Limitações funcionais de visualização:
@@ -55,7 +55,7 @@ Quando um número excessivo de conexões for atingido, você receberá o seguint
 - Não há suporte para mover dinamicamente servidores criados previamente entre a assinatura e o grupo de recursos.
 
 ### <a name="point-in-time-restore"></a>Recuperação pontual:
-1.  Não é permitido restaurar para a camada de serviço diferente e/ou Unidades de computação e Tamanho do armazenamento.
+1.  Não é permitido restaurar toodifferent da camada de serviço e/ou tamanho de unidades de computação e armazenamento.
 2.  Não há suporte para restaurar um servidor eliminado.
 
 ## <a name="next-steps"></a>Próximas etapas:

@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB: API do DocumentDB | Microsoft Docs'
-description: "Aprenda a usar o Azure Cosmos DB para armazenar e consultar grandes volumes de documentos JSON com baixa latência usando o SQL e o JavaScript."
+description: "Saiba como você pode usar o banco de dados do Azure Cosmos toostore e consultar grandes volumes de documentos JSON com baixa latência usando SQL e JavaScript."
 keywords: banco de dados JSON, banco de dados de documentos
 services: cosmos-db
 author: mimig1
@@ -15,61 +15,61 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
-ms.openlocfilehash: 2cb4bd74ea973c8ff980d208a8c5f63a98ec1edd
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: c96dfa5e2685782a99d2bcaf992f88dd2bef920b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Introdução ao Azure Cosmos DB: API do DocumentDB
+# <a name="introduction-tooazure-cosmos-db-documentdb-api"></a>Introdução tooAzure Cosmos DB: API de documentos
 
-O [Azure Cosmos DB](introduction.md) é o serviço multimodelo de banco de dados da Microsoft, distribuído globalmente, para aplicativos críticos. O Azure Cosmos DB fornece [distribuição global imediata](distribute-data-globally.md), [dimensionamento elástico da taxa de transferência e do armazenamento](partition-data.md) mundialmente, latências de milissegundos de um dígito no 99º percentil, [cinco níveis de consistência bem-definidos](consistency-levels.md) e garantia de alta disponibilidade, tudo isso com suporte de [SLAs líderes do setor](https://azure.microsoft.com/support/legal/sla/cosmos-db/). O Azure Cosmos DB [indexa dados automaticamente](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sem a necessidade de lidar com o gerenciamento do esquema e do índice. Ele tem vários modelos e suporta modelos de dados de colunas, gráficos, valores-chave e documentos. 
+O [Azure Cosmos DB](introduction.md) é o serviço multimodelo de banco de dados da Microsoft, distribuído globalmente, para aplicativos críticos. Banco de dados do Azure Cosmos fornece [distribuição global turnkey](distribute-data-globally.md), [dimensionamento Elástico de taxa de transferência e armazenamento](partition-data.md) latências de milissegundo em todo o mundo, dígito no percentual de 99th hello, [cinco níveis de consistência bem definidos](consistency-levels.md)e a garantia de alta disponibilidade, apoiada por [SLAs do setor](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Banco de dados do Azure Cosmos [indexa automaticamente os dados](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sem exigir que você toodeal com o gerenciamento de esquema e de índice. Ele tem vários modelos e suporta modelos de dados de colunas, gráficos, valores-chave e documentos. 
 
 ![API do Azure DocumentDB](./media/documentdb-introduction/cosmosdb-documentdb.png) 
 
-Com a API do DocumentDB, o Azure Cosmos DB oferece [recursos de consulta SQL](documentdb-sql-query.md) familiares e avançados com menos latências consistentes em dados JSON sem esquemas. Neste artigo, fornecemos uma visão geral da API do DocumentDB do Azure Cosmos DB, como você pode usá-lo para armazenar grandes volumes de dados JSON, consultá-los em ordem de latência de milissegundos e evoluir facilmente o esquema. 
+Com hello API DocumentDB, o banco de dados do Azure Cosmos fornece avançada e familiar [capacidades de consulta SQL](documentdb-sql-query.md) com latência baixa consistente sobre os dados JSON sem esquema. Neste artigo, nós fornecemos uma visão geral do hello Azure Cosmos DB API DocumentDB e como você pode usá-lo toostore grandes volumes de dados JSON, consultá-los em ordem de latência de milissegundos e evoluir esquema Olá facilmente. 
 
 ## <a name="what-capabilities-and-key-features-does-azure-cosmos-db-offer"></a>Quais benefícios e os principais recursos que o Azure Cosmos DB oferece?
-O Azure Cosmos DB, oferece os seguintes principais recursos e benefícios por meio da API do DocumentDB:
+DB de Cosmos do Azure, por meio de saudação API DocumentDB, oferece Olá principais recursos e benefícios a seguir:
 
-* **Taxa de transferência e armazenamento elasticamente escalonáveis:** escalone o seu banco de dados JSON para atender às necessidades do seu aplicativo. Os dados são armazenados em SSD (discos de estado sólido) para fornecer latências baixas previsíveis. O Azure Cosmos DB dá suporte a contêineres para armazenar dados JSON chamados de coleções, que podem ser dimensionados para tamanhos de armazenamento praticamente ilimitados e taxa de transferência provisionada. Você pode dimensionar elasticamente o Azure Cosmos DB com desempenho previsível à medida que o aplicativo cresce. 
-
-
-* **Replicação de várias regiões:** o Azure Cosmos DB replica de forma transparente os seus dados para todas as regiões associadas à sua conta, permitindo que você desenvolva aplicativos que exigem acesso global aos dados e fornecendo compensações entre consistência, disponibilidade e desempenho, tudo isso com garantias correspondentes. O Azure Cosmos DB fornece failover regional transparente com APIs de hospedagem múltipla, e capacidade de dimensionar de forma elástica a taxa de transferência e o armazenamento em todo o mundo. Saiba mais em [Como distribuir dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
-
-* **Consultas ad hoc com sintaxe SQL familiar:** armazene documentos JSON heterogêneos e consulte-os com uma sintaxe SQL familiar. O Azure Cosmos DB utiliza uma tecnologia de indexação estruturada por log, sem bloqueio e altamente simultânea para indexar automaticamente todo o conteúdo do documento. Isso habilita consultas avançadas em tempo real sem a necessidade de especificar dicas de esquema, índices secundários ou exibições. Saiba mais em [Consulta do Azure Cosmos DB](documentdb-sql-query.md). 
-* **Execução de JavaScript dentro do banco de dados:** expresse a lógica do aplicativo como procedimentos armazenados, gatilhos e UDFs usando JavaScript padrão. Isso permite que a lógica do aplicativo opere em dados sem se preocupar com incompatibilidade entre o aplicativo e o esquema do banco de dados. A API do DocumentDB oferece execução transacional completa da lógica do aplicativo em JavaScript diretamente dentro do mecanismo do banco de dados. A profunda integração do JavaScript habilita a execução das operações INSERT, REPLACE, DELETE e SELECT por meio de um programa JavaScript como uma transação isolada. Saiba mais em [Programação no lado servidor do DocumentDB](programming.md).
-
-* **Níveis de consistência ajustáveis:** escolha entre cinco níveis de consistência bem-definidos para chegar ao equilíbrio ideal entre consistência e desempenho. Para operações de consulta e leitura, o Azure Cosmos DB oferece cinco níveis de consistência diferentes: forte, desatualização limitada, sessão, prefixo constante e eventual. Esses níveis de consistência granulares e bem-definidos permitem que você faça compensações seguras entre consistência, disponibilidade e latência. Saiba mais em [Como usar níveis de consistência para maximizar a disponibilidade e o desempenho](consistency-levels.md).
-
-* **Completamente gerenciado:** elimine a necessidade de gerenciar recursos de banco de dados e máquina. Como um serviço do Microsoft Azure totalmente gerenciado, você não precisa gerenciar máquinas virtuais, implantar e configurar software,gerenciar o dimensionamento nem lidar com atualizações de camadas de dados complexas. Cada banco de dados é salvo em backup automaticamente e protegido contra falhas regionais. Você pode adicionar facilmente uma conta do Azure Cosmos DB e provisionar a capacidade conforme for necessário, permitindo que você se concentre em seu aplicativo sem se preocupar com a operação e com o gerenciamento do banco de dados. 
-
-* **Aberto pelo design:** comece a usar o Banco de Dados de Documentos rapidamente, com habilidades e ferramentas já existentes. A programação da API do DocumentDB é simples, acessível e não requer a adoção de novas ferramentas nem a adesão de extensões personalizadas para JSON ou JavaScript. Você pode acessar toda a funcionalidade do banco de dados, incluindo CRUD, consulta e processamento do JavaScript em uma interface HTTP RESTful simples. A API do DocumentDB engloba formatos, linguagens e padrões existentes, além de oferecer recursos de banco de dados de alto valor.
-
-* **Indexação automática:** por padrão, o Azure Cosmos DB indexa automaticamente todos os documentos no banco de dados e não espera nem exige qualquer esquema ou criação de índices secundários. Não deseja indexar tudo? Não se preocupe, você também pode [recusar caminhos nos arquivos JSON](indexing-policies.md) .
-
-* **Suporte ao feed de alterações:** o feed de alterações fornece uma lista classificada de documentos em uma coleção do Azure Cosmos DB na ordem em que eles foram modificados. Este feed pode ser usado para escutar as modificações nos dados para replicar dados, disparar chamadas de API ou executar o processamento de fluxo em atualizações. O feed de alterações é habilitado automaticamente e fácil de usar: [saiba mais sobre o feed de alterações](https://docs.microsoft.com/azure/cosmos-db/change-feed). 
-
-## <a name="data-management"></a>Como gerenciar dados com a API do DocumentDB?
-A API do DocumentDB ajuda a gerenciar os dados JSON por meio de recursos do banco de dados bem-definidos. Esses recursos são replicados para alta disponibilidade e são endereçáveis exclusivamente por seu URI lógico. A API do DocumentDB oferece um modelo de programação RESTful baseado em HTTP simples para todos os recursos. 
+* **Taxa de transferência de forma escalonável e armazenamento:** facilmente aumentar ou reduzir sua toomeet de banco de dados JSON em que seu aplicativo precisa. Os dados são armazenados em SSD (discos de estado sólido) para fornecer latências baixas previsíveis. Banco de dados do Azure Cosmos oferece suporte a contêineres para armazenar dados JSON chamado coleções que podem ser dimensionado toovirtually tamanhos de armazenamento ilimitado e taxa de transferência fornecida. Você pode dimensionar elasticamente o Azure Cosmos DB com desempenho previsível à medida que o aplicativo cresce. 
 
 
-A conta de banco de dados do Azure Cosmos DB é um namespace exclusivo que fornece acesso ao Azure Cosmos DB. Antes de criar uma conta de banco de dados, você deve ter uma assinatura do Azure, que dá acesso a uma variedade de serviços do Azure. 
+* **Replicação de várias regiões:** Azure Cosmos DB transparentemente replica seu tooall as regiões de dados que você associou com sua conta do banco de dados do Azure Cosmos, permitindo que você toodevelop aplicativos que exigem acesso global toodata proporcionando Alternar entre consistência, disponibilidade e desempenho, todos com garantias correspondentes. Banco de dados do Azure Cosmos fornece failover transparente de regional com APIs de hospedagem múltipla e a taxa de transferência da escala tooelastically Olá capacidade e armazenamento globo hello. Saiba mais em [Como distribuir dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
+
+* **Consultas ad hoc com sintaxe SQL familiar:** armazene documentos JSON heterogêneos e consulte-os com uma sintaxe SQL familiar. Banco de dados do Azure Cosmos utiliza um bloqueio de nível de simultaneidade, livre, log estruturado de índice de tooautomatically tecnologia indexação todo o conteúdo de documento. Isso permite consultas em tempo real avançadas sem dicas de esquema Olá necessidade toospecify, índices secundários ou modos de exibição. Saiba mais em [Consulta do Azure Cosmos DB](documentdb-sql-query.md). 
+* **Execução de JavaScript no banco de dados de saudação:** Express lógica do aplicativo, como procedimentos armazenados, gatilhos e funções definidas pelo usuário (UDFs) usando JavaScript padrão. Isso permite que seu toooperate de lógica de aplicativo sobre dados sem se preocupar incompatibilidade Olá entre o aplicativo hello e o esquema de banco de dados de saudação. Olá API DocumentDB fornece uma execução transacional JavaScript da lógica de aplicativo diretamente no mecanismo de banco de dados de saudação. integração profunda de saudação do JavaScript permite a execução de saudação de operações de inserção, substituição, DELETE e SELECT de dentro de um programa JavaScript como uma transação a isoladas. Saiba mais em [Programação no lado servidor do DocumentDB](programming.md).
+
+* **Níveis de consistência ajustáveis:** Select de cinco bem definidas compensação ideal de tooachieve do níveis de consistência entre a consistência e desempenho. Para operações de consulta e leitura, o Azure Cosmos DB oferece cinco níveis de consistência diferentes: forte, desatualização limitada, sessão, prefixo constante e eventual. Esses níveis de consistência bem definidos, granular permitem toomake som prós e contras latência, a disponibilidade e a consistência. Saiba mais em [usar consistência níveis de desempenho e disponibilidade de toomaximize](consistency-levels.md).
+
+* **Totalmente gerenciado:** eliminar Olá necessidade toomanage banco de dados e máquina recursos. Como um serviço do Microsoft Azure totalmente gerenciado, você faça não necessidade toomanage VMs, implanta e configurar o software, gerenciar dimensionamento ou lida com as atualizações da camada de dados complexos. Cada banco de dados é salvo em backup automaticamente e protegido contra falhas regionais. Você pode facilmente adicionar uma conta de banco de dados do Azure Cosmos e provisionar capacidade conforme necessário, permitindo que você toofocus em seu aplicativo em vez de operar e gerenciar seu banco de dados. 
+
+* **Aberto pelo design:** comece a usar o Banco de Dados de Documentos rapidamente, com habilidades e ferramentas já existentes. Programar Olá API DocumentDB é simples e acessível e não requerem que você tooadopt novas ferramentas ou aderir toocustom extensões tooJSON ou JavaScript. Você pode acessar toda a funcionalidade de banco de dados de saudação incluindo CRUD, consulta e processamento em uma interface simples de HTTP RESTful de JavaScript. Olá API DocumentDB adote formatos existentes, linguagens e padrões, oferecendo recursos de banco de dados-los de alto valor.
+
+* **A indexação automática:** por padrão, o banco de dados do Azure Cosmos automaticamente indexa todos os documentos de saudação no banco de dados de saudação e não espera nem exigir qualquer esquema ou a criação de índices secundários. Não quer tooindex tudo? Não se preocupe, você também pode [recusar caminhos nos arquivos JSON](indexing-policies.md) .
+
+* **Suporte de feed de alteração:** feed de alteração fornece uma lista ordenada de documentos em uma coleção de banco de dados do Azure Cosmos na ordem de saudação na qual elas foram modificadas. Este feed pode ser usado toolisten para toodata modificações nos dados de tooreplicate ordem, disparar chamadas de API ou executar o processamento de fluxo em atualizações. Feed de alterações é habilitado automaticamente e fácil toouse: [saber mais sobre como alterar o feed](https://docs.microsoft.com/azure/cosmos-db/change-feed). 
+
+## <a name="data-management"></a>Como gerenciar dados com hello API DocumentDB?
+Olá API DocumentDB ajuda a gerenciar dados JSON por meio de recursos de banco de dados bem definido. Esses recursos são replicados para alta disponibilidade e são endereçáveis exclusivamente por seu URI lógico. Olá API DocumentDB oferece um HTTP simple com base em modelo de programação RESTful para todos os recursos. 
+
+
+conta de banco de dados do banco de dados do Azure Cosmos Olá é um namespace exclusivo que lhe dá acesso tooAzure Cosmos DB. Antes de criar uma conta de banco de dados, você deve ter uma assinatura do Azure, que dá a você acessar tooa variedade de serviços do Azure. 
 
 Todos os recursos do Azure Cosmos DB são modelados e armazenados como documentos JSON. Os recursos são gerenciados como itens, que são documentos JSON contendo metadados e como feeds que são coleções de itens. Conjuntos de itens estão contidos dentro de seus respectivos feeds.
 
-A imagem abaixo mostra os relacionamentos entre os recursos do Azure Cosmos DB:
+imagem de saudação abaixo mostra as relações de saudação entre os recursos de banco de dados do Azure Cosmos Olá:
 
-![A relação hierárquica entre os recursos no Azure Cosmos DB][1] 
+![relação hierárquica entre os recursos no banco de dados do Azure Cosmos Olá][1] 
 
-Uma conta do banco de dados é formada por um conjunto de bancos de dados, cada um contendo diversas coleções, cada uma delas pode conter procedimentos armazenados, gatilhos, UDFs, documentos e anexos relacionados. Um banco de dados também possui usuários associados, cada um com um conjunto de permissões para acessar várias outras coleções, procedimentos armazenados, gatilhos, UDFs, documentos ou anexos. Enquanto bancos de dados, usuários, permissões e coleções são recursos definidos pelo sistema com esquemas bastante conhecidos, os documentos, procedimentos armazenados, gatilhos, UDFs e anexos possuem conteúdo JSON arbitrário e definido pelo usuário.  
+Uma conta do banco de dados é formada por um conjunto de bancos de dados, cada um contendo diversas coleções, cada uma delas pode conter procedimentos armazenados, gatilhos, UDFs, documentos e anexos relacionados. Um banco de dados também tem usuários associados, cada um com um conjunto de permissões tooaccess várias outras coleções, procedimentos armazenados, disparadores, UDFs, documentos ou anexos. Enquanto bancos de dados, usuários, permissões e coleções são recursos definidos pelo sistema com esquemas bastante conhecidos, os documentos, procedimentos armazenados, gatilhos, UDFs e anexos possuem conteúdo JSON arbitrário e definido pelo usuário.  
 
 > [!NOTE]
-> Como a API do DocumentDB estava disponível anteriormente como o serviço do Azure DocumentDB, você pode continuar a provisionar, monitorar e gerenciar as contas criadas por meio da API REST de gerenciamento de recursos do Azure ou por ferramentas usando nomes de recursos do Azure DocumentDB ou do Azure Cosmos DB. Usamos os nomes intercambiáveis para se referir às APIs do Azure DocumentDB. 
+> Como Olá API DocumentDB estava disponível anteriormente como Olá serviço DocumentDB do Azure, você pode continuar tooprovision, monitorar e gerenciar as contas criadas por meio de saudação do Azure API de REST de gerenciamento de recursos ou ferramentas usando Olá DocumentDB do Azure ou o banco de dados do Azure Cosmos nomes de recursos. Usamos os nomes de saudação alternadamente quando se referirem toohello APIs do DocumentDB do Azure. 
 
-## <a name="develop"></a>Como é possível desenvolver aplicativos com a API do DocumentDB?
+## <a name="develop"></a>Como é possível desenvolver aplicativos com hello API DocumentDB?
 
-O Azure Cosmos DB expõe recursos pode meio de APIs REST que podem ser chamadas por qualquer linguagem capacitada para fazer solicitações HTTP/HTTPS. Além disso, oferecemos bibliotecas de programação para várias linguagens populares para a API do DocumentDB. Essas bibliotecas de cliente manipulam detalhes para simplificar aspectos do trabalho com a API , como cache de endereço, gerenciamento de exceções, novas tentativas automáticas e assim por diante. Atualmente, as bibliotecas estão disponíveis para as seguintes linguagens e plataformas:  
+Banco de dados do Azure Cosmos expõe recursos por meio de saudação APIs REST que pode ser chamado por qualquer linguagem capaz de fazer solicitações HTTP/HTTPS. Além disso, nós oferecemos bibliotecas de programação para vários idiomas populares para Olá API DocumentDB. bibliotecas de cliente Olá simplificam muitos aspectos de trabalhar com hello API ao manipular detalhes de como o cache de endereço, gerenciamento de exceções, novas tentativas automáticas e assim por diante. Bibliotecas estão disponíveis atualmente para Olá plataformas e idiomas a seguir:  
 
 | Baixar | Documentação |
 | --- | --- |
@@ -82,21 +82,21 @@ O Azure Cosmos DB expõe recursos pode meio de APIs REST que podem ser chamadas 
 | n/d | [API para MongoDB](mongodb-introduction.md)
 
 
-Com o [Emulador do Azure Cosmos DB](local-emulator.md), você pode desenvolver e testar seu aplicativo localmente com a API do DocumentDB sem criar uma assinatura do Azure nem incidir custos. Quando estiver satisfeito com o funcionamento de seu aplicativo no emulador, você pode passar a usar uma conta do Azure Cosmos DB na nuvem.
+Usando Olá [emulador de banco de dados do Azure Cosmos](local-emulator.md), você pode desenvolver e testar seu aplicativo localmente com hello API DocumentDB, sem criar uma assinatura do Azure ou incorrer em todos os custos. Quando estiver satisfeito com o funcionamento seu aplicativo no emulador hello, você pode alternar toousing uma conta de banco de dados do Azure Cosmos na nuvem hello.
 
-Além das operações básicas de criação, leitura, atualização e exclusão, a API do DocumentDB fornece uma interface de consulta SQL avançada para recuperar documentos JSON e suporte do servidor para a execução transacional da lógica do aplicativo JavaScript. As interfaces de execução de script e consulta estão disponíveis em todas as bibliotecas da plataforma, bem como as APIs REST. 
+Além do basic criar, ler, atualizar e excluir operações, Olá API DocumentDB fornece uma interface de consulta avançada do SQL para recuperar documentos JSON e suporte do servidor para execução transacional da lógica do aplicativo JavaScript. interfaces de execução de consulta e script Hello estão disponíveis por meio de todas as bibliotecas de plataforma, bem como Olá APIs REST. 
 
 ### <a name="sql-query"></a>Consulta SQL
-A API do DocumentDB dá suporte à consulta de documentos usando uma linguagem SQL baseada no sistema do tipo JavaScript e em expressões com suporte a consultas relacionais, hierárquicas e espaciais. A linguagem de consulta do DocumentDB é uma interface simples, mas poderosa para consultar documentos JSON. A linguagem suporta um subconjunto da gramática ANSI SQL e adiciona profunda integração do objeto JavaScript, matrizes, construção de objetos e invocação de funções. A PI do DocumentDB fornece seu modelo de consulta sem nenhum esquema explícito ou dicas de indexação do desenvolvedor.
+Olá API DocumentDB oferece suporte a consultar documentos JavaScript usando uma linguagem SQL, que está enraizada no hello digite sistema e expressões com suporte para consultas relacionais, espaciais e hierárquicas. linguagem de consulta do DocumentDB Olá é simples e poderosas interface tooquery JSON documentos. idioma Olá suporta um subconjunto de gramática SQL ANSI e adiciona integração profunda do objeto, matrizes, construção de objeto e invocação de função JavaScript. Olá API DocumentDB fornece seu modelo de consulta sem qualquer esquema explícito ou dicas de indexação de desenvolvedor hello.
 
-As Funções definidas (UDFs) de usuário podem ser registradas com a API do DocumentDB e referenciadas como parte de uma consulta SQL, estendendo a gramática para dar suporte à lógica personalizada do aplicativo. Essas UDFs são gravadas como programas JavaScript e executadas no banco de dados. 
+Funções definidas pelo usuário (UDFs) pode ser registradas com hello API DocumentDB e referenciadas como parte de uma consulta SQL, estendendo assim a lógica de aplicativo personalizado em toosupport Olá gramática. Esses UDFs são gravados como programas de JavaScript e executados no banco de dados de saudação. 
 
-O [SDK do .NET](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx) da API do DocumentDB também oferece um provedor de consultas LINQ para desenvolvedores .NET. 
+Para desenvolvedores .NET, Olá API DocumentDB [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx) também oferece um provedor de consulta LINQ. 
 
 ### <a name="transactions-and-javascript-execution"></a>Execução de transações e do JavaScript
-A API do DocumentDB permite gravar a lógica do aplicativo como programas nomeados escritos inteiramente em JavaScript. Esses programas são registrados para uma coleção e podem emitir operações de banco de dados nos documentos dentro de determinada coleção. O JavaScript pode ser registrado para execução como gatilho, procedimento armazenado ou função definida pelo usuário (UDF). Procedimentos armazenados e gatilhos podem criar, ler, atualizar e excluir documentos enquanto executar funções definidas pelo usuário como parte da lógica de execução de consulta sem acesso de gravação à coleção.
+Olá API DocumentDB permite que você toowrite a lógica do aplicativo como programas nomeados escritos inteiramente em JavaScript. Esses programas são registrados para uma coleção e podem executar operações de banco de dados em documentos hello dentro de uma determinada coleção. O JavaScript pode ser registrado para execução como gatilho, procedimento armazenado ou função definida pelo usuário (UDF). Procedimentos armazenados e gatilhos podem criar, ler, atualizar e excluir documentos enquanto executar funções definidas pelo usuário como parte da lógica de execução de consulta Olá sem acesso de gravação toohello coleção.
 
-A execução do JavaScript dentro do BD Cosmos é baseada nos conceitos suportados pelos sistemas do banco de dados relacional, com o JavaScript sendo uma substituição moderna para Transact-SQL. Toda lógica do JavaScript é executada em uma transação ACID ambiente com isolamento de instantâneo. Durante sua execução, se o JavaScript lançar uma exceção, então, toda a transação será abortada.
+Execução de JavaScript em Olá Cosmos DB é modelada conceitos Olá suportados por sistemas de banco de dados relacional, com JavaScript como uma substituição moderna para o Transact-SQL. Toda lógica do JavaScript é executada em uma transação ACID ambiente com isolamento de instantâneo. Durante o curso de saudação de sua execução, se Olá JavaScript lança uma exceção, em seguida, Olá toda transação foi anulada.
 
 ## <a name="are-there-any-online-courses-on-azure-cosmos-db"></a>Há algum processo online no Azure Cosmos DB?
 

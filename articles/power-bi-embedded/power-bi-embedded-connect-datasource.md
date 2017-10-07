@@ -1,6 +1,6 @@
 ---
-title: Microsoft Power BI Embedded - Conectando-se a uma fonte de dados
-description: Power BI Embedded, conectar-se a fontes de dados
+title: aaaMicrosoft Power BI inserido - conectar fonte de dados tooa
+description: Power BI inserido, conecte-se a fontes de toodata
 services: power-bi-embedded
 documentationcenter: 
 author: guyinacube
@@ -15,25 +15,25 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/06/2017
 ms.author: asaxton
-ms.openlocfilehash: 9f614bbc63eae788aa52132c8f0e42ad8963559a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b1aad6e638104716d90f7e1d060eefcbc9daedbc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-to-a-data-source"></a>Conectar-se a uma fonte de dados
-Com o **Power BI Embedded**, você pode inserir relatórios em seu próprio aplicativo. Quando você insere um relatório do Power BI em seu aplicativo, o relatório conecta-se aos dados subjacentes por meio da **importação** de uma cópia dos dados ou **conectando-se diretamente** à fonte de dados usando o **DirectQuery**.
+# <a name="connect-tooa-data-source"></a>Conecte-se a fonte de dados tooa
+Com o **Power BI Embedded**, você pode inserir relatórios em seu próprio aplicativo. Quando você insere um relatório do Power BI em seu aplicativo, o relatório de saudação se conecta toohello base de dados por **importando** uma cópia dos dados de saudação ou por **conectando diretamente** toohello fonte de dados usando  **DirectQuery**.
 
-Estas são as diferenças entre o uso de **Importar** e **DirectQuery**.
+Aqui estão Olá diferenças entre usar **importação** e **DirectQuery**.
 
 | Importar | DirectQuery |
 | --- | --- |
-| Tabelas, colunas, *e dados* são importados ou copiados para o conjunto de dados do relatório. Para ver as alterações ocorridas nos dados subjacentes, você deve atualizar ou importar novamente um conjunto de dados completo e atual. |Somente *tabelas e colunas* são importados ou copiados para o conjunto de dados do relatório. Você sempre pode exibir os dados mais atuais. |
+| Tabelas, colunas, *e dados* são importados ou copiados para o conjunto de dados do relatório hello. toosee altera os dados subjacentes toohello ocorreu, você deve atualizar ou importar novamente um dataset completo e atual. |Somente *tabelas e colunas* são importados ou copiados para o conjunto de dados do relatório hello. Você sempre pode exibir dados mais atuais da saudação. |
 
 Com o Power BI Embedded, você pode usar DirectQuery com fontes de dados de nuvem, mas não em fontes de dados locais no momento.
 
 > [!NOTE]
-> Não há suporte para o Gateway de Dados Local com o Power BI Embedded no momento. Isso significa que não é possível usar o DirectQuery com fontes de dados locais.
+> Olá Gateway de dados no local não é suportado com o Power BI inserido no momento. Isso significa que não é possível usar o DirectQuery com fontes de dados locais.
 
 ## <a name="supported-data-sources"></a>Fontes de dados com suporte
 
@@ -43,31 +43,31 @@ Com o Power BI Embedded, você pode usar DirectQuery com fontes de dados de nuve
 
 **Importaçãoação**
 
-É possível importar usando todas as fontes de dados disponíveis dentro do Power BI Desktop. **Não** é possível atualizar esses dados dentro do Power BI Embedded. É necessário carregar as alterações feitas no arquivo PBIX no Power BI Embedded. Isso ocorre quando não há gateways disponíveis. 
+Você pode importar usando todas as fontes de dados disponíveis Olá no Power BI Desktop. Você vai **não** ser capaz de toorefresh esses dados no Power BI inserido. Você terá as alterações de tooupload tooyour PBIX arquivo tooPower BI inserido. Isso é devido gateway disponível toono. 
 
 ## <a name="benefits-of-using-directquery"></a>Benefícios do uso do DirectQuery
 Há duas vantagens principais ao usar **DirectQuery**:
 
-* **DirectQuery** permite compilar visualizações em conjuntos de dados muito grandes nos quais, caso contrário, seria inviável importar primeiro todos os dados.
-* Alterações de dados subjacentes podem exigir uma atualização de dados e, para alguns relatórios, a necessidade de exibir dados atuais pode exigir grandes transferências de dados, tornando a importação de dados novamente inviável. Por outro lado, relatórios do **DirectQuery** sempre usam dados atuais.
+* **DirectQuery** Olá de permite que você cria visualizações de conjuntos de dados muito grandes, onde caso contrário, seria impraticável toofirst importar todos os dados.
+* Alterações de dados subjacentes podem exigir uma atualização de dados e para alguns relatórios, hello precisam de dados atuais toodisplay pode exigir transferências de dados grandes, tornando os dados de reimportação impraticável. Por outro lado, relatórios do **DirectQuery** sempre usam dados atuais.
 
 ## <a name="limitations-of-directquery"></a>Limitações do DirectQuery
-   Há algumas limitações no uso do **DirectQuery**:
+   Há alguns toousing de limitações **DirectQuery**:
 
 * Todas as tabelas devem vir de um banco de dados individual.
-* Se a consulta for excessivamente complexa, ocorrerá um erro. Para corrigir o erro, você deve refatorar a consulta para que se torne menos complexa. Se for necessário que a consulta seja complexa, você precisará importar os dados em vez de usar o **DirectQuery**.
-* Filtragem de relação é limitada a uma única direção, em vez de ambos os trajetos.
-* Você não pode alterar o tipo de dados de uma coluna.
+* Se a consulta de saudação for excessivamente complexa, ocorrerá um erro. Erro de saudação tooremedy deve refatorar consulta Olá é menos complexo. Se Olá consulta deve ser complexa, você terá dados de saudação tooimport em vez de usar **DirectQuery**.
+* A filtragem de relação é limitada tooa única direção, em vez de ambas as direções.
+* Não é possível alterar o tipo de dados de saudação de uma coluna.
 * Por padrão, as limitações são colocadas em expressões DAX permitidas em medidas. Consulte [DirectQuery e medidas](#measures).
 
 <a name="measures"/>
 
 ## <a name="directquery-and-measures"></a>DirectQuery e medidas
-Para garantir que as consultas enviadas à fonte de dados subjacente tenham um desempenho aceitável, limitações são impostas para as medidas. Ao usar o **Power BI Desktop**, usuários avançados podem optar por ignorar essa limitação, escolhendo **Arquivo > Opções e configurações > Opções**. Na caixa de diálogo **Opções**, escolha **DirectQuery** e selecione a opção **Permitir medidas irrestritas no modo DirectQuery**. Quando essa opção estiver selecionada, qualquer expressão DAX válida para uma determinada medida poderá ser usada. No entanto, os usuários devem estar cientes de algumas expressões que funcionam muito bem quando os dados são importados podem resultar em consultas muito lentas para a origem de back-end no modo **DirectQuery** . 
+consultas de tooensure enviadas toohello fonte de dados têm um desempenho aceitável, são impostas limitações às medidas. Ao usar **Power BI Desktop**avançado os usuários podem escolher essa limitação de toobypass escolhendo **arquivo > Opções e configurações > Opções**. Em Olá **opções** caixa de diálogo, escolha **DirectQuery**e selecione a opção de saudação **permitir medidas irrestritas no modo DirectQuery**. Quando essa opção estiver selecionada, qualquer expressão DAX válida para uma determinada medida poderá ser usada. Os usuários devem estar cientes; No entanto, que algumas expressões que funcionam muito bem quando os dados de saudação são importados pode resultar em consultas muito lentas toohello backend de origem no **DirectQuery** modo. 
 
 ## <a name="see-also"></a>Consulte também
 * [Introdução ao Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-Mais perguntas? [Experimentar a comunidade do Power BI](http://community.powerbi.com/)
+Mais perguntas? [Tente Olá comunidade do Power BI](http://community.powerbi.com/)
 

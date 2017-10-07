@@ -1,6 +1,6 @@
 ---
-title: "Restaurar uma única tabela do backup do Banco de Dados SQL do Azure | Microsoft Docs"
-description: "Saiba como restaurar uma única tabela do backup do Banco de Dados SQL do Azure."
+title: "uma única tabela de backup de banco de dados SQL do aaaRestore | Microsoft Docs"
+description: "Saiba como toorestore uma única tabela de backup de banco de dados SQL."
 services: sql-database
 documentationcenter: 
 author: dalechen
@@ -15,35 +15,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: daleche
-ms.openlocfilehash: 8c750c503d10ea63b9665958b96db2dfea3d9a3c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 696d2ac87a70bccdf063bfecb8255723404aa5bd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-restore-a-single-table-from-an-azure-sql-database-backup"></a>Como restaurar uma única tabela de um backup do Banco de Dados SQL do Azure
-É possível se deparar com uma situação na qual você acidentalmente modificou alguns dados no banco de dados SQL e agora deseja recuperar a única tabela afetada. Este artigo descreve como restaurar uma única tabela em um banco de dados de um dos [backups automáticos](sql-database-automated-backups.md)do Banco de Dados SQL.
+# <a name="how-toorestore-a-single-table-from-an-azure-sql-database-backup"></a>Como toorestore uma única tabela de um backup de banco de dados SQL
+Você pode encontrar uma situação na qual você modificados acidentalmente alguns dados em um banco de dados SQL e agora quer toorecover Olá única afetados tabela. Este artigo descreve como toorestore uma única tabela em um banco de dados de uma saudação banco de dados SQL [backups automáticos](sql-database-automated-backups.md).
 
-## <a name="preparation-steps-rename-the-table-and-restore-a-copy-of-the-database"></a>Etapas de preparação: renomear a tabela e restaurar uma cópia do banco de dados
-1. Identifique a tabela no banco de dados SQL do Azure que deseja substituir pela cópia restaurada. Use o Microsoft SQL Management Studio para renomear a tabela. Por exemplo, renomeie a tabela como &lt;nome da tabela&gt;_old.
+## <a name="preparation-steps-rename-hello-table-and-restore-a-copy-of-hello-database"></a>Etapas de preparação: renomear a tabela hello e restaure uma cópia do banco de dados de saudação
+1. Identifique Olá tabela no banco de dados SQL do Azure que você deseja tooreplace com cópia Olá restaurado. Use a tabela do Microsoft SQL Management Studio toorename hello. Por exemplo, renomeie a tabela hello como &lt;nome de tabela&gt;old.
    
    > [!NOTE]
-   > Para evitar o bloqueio, certifique-se de que não há nenhuma atividade em execução na tabela que está sendo renomeada. Se tiver problemas, lembre-se de executar esse procedimento durante uma janela de manutenção.
+   > tooavoid sendo bloqueado, certifique-se de que não há nenhuma atividade em execução em tabela Olá que você está renomeando. Se tiver problemas, lembre-se de executar esse procedimento durante uma janela de manutenção.
    >
 
-2. Restaure um backup do banco de dados para um estado que deseja recuperar usando as etapas de [Restauração pontual](sql-database-recovery-using-backups.md#point-in-time-restore).
+2. Restaurar um backup de seu banco de dados tooa pontual que você deseja toorecover toousing Olá [restauraçãoPoint-In_Time](sql-database-recovery-using-backups.md#point-in-time-restore) etapas.
    
    > [!NOTE]
-   > O nome do banco de dados restaurado estará no formato DBName+TimeStamp; por exemplo, **Adventureworks2012_2016-01-01T22-12Z**. Essa etapa não substitui o nome do banco de dados existente no servidor. Esta é uma medida de segurança, e destina-se a permitir que você verifique o banco de dados restaurado antes de remover seu banco de dados atual e renomear o banco de dados restaurado para uso em produção.
+   > nome de saudação do banco de dados restaurado de saudação será no formato de carimbo de hora + DBName Olá; Por exemplo, **Adventureworks2012_2016-01-01T22-12Z**. Essa etapa não substitui o nome de banco de dados existente Olá no servidor de saudação. Esta é uma medida de segurança, e destina-se tooallow Olá de tooverify você restaurou o banco de dados antes de descartar o banco de dados atual e renomear Olá restaurado de banco de dados para uso em produção.
    
-## <a name="copying-the-table-from-the-restored-database-by-using-the-sql-database-migration-tool"></a>Copiando a tabela do banco de dados restaurado usando a Ferramenta de migração do Banco de Dados SQL
+## <a name="copying-hello-table-from-hello-restored-database-by-using-hello-sql-database-migration-tool"></a>Copiando a tabela Olá da saudação restaurou o banco de dados usando a ferramenta de migração do banco de dados SQL Olá
 
-1. Baixe e instale o [SQL Database Migration Wizard](https://sqlazuremw.codeplex.com).
-2. Abra o SQL Database Migration Wizard e, na página **Selecionar Processo**, selecione **Banco de Dados em Analisar/Migrar** e clique em **Avançar**.
+1. Baixe e instale Olá [SQL Database Migration Wizard](https://sqlazuremw.codeplex.com).
+2. Abra Olá SQL Database Migration Wizard no hello **Selecionar processo** , selecione **banco de dados em analisar/migrar**e, em seguida, clique em **próximo**.
 
    ![SQL Database Migration Wizard – Selecionar processo](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/1.png)
 
-3. Na caixa de diálogo **Conectar ao Servidor** , aplique as seguintes configurações:
+3. Em Olá **conectar tooServer** caixa de diálogo caixa, aplicar Olá configurações a seguir:
 
    * Nome do servidor: **seu SQL Server**
    * Autenticação: **autenticação do SQL Server**
@@ -52,31 +52,31 @@ ms.lasthandoff: 07/11/2017
    * Banco de dados: **banco de dados mestre (listar todos os bancos de dados)**
    
    > [!NOTE]
-   > O assistente salva as informações de logon por padrão. Se não desejar que essas informações sejam salvas, selecione **Esquecer Informações de Logon**.
+   > Por padrão o assistente Olá salva suas informações de logon. Se não desejar que essas informações sejam salvas, selecione **Esquecer Informações de Logon**.
    >
    
      ![SQL Database Migration Wizard – Selecionar origem – etapa 1](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/2.png)
-4. Na caixa de diálogo **Selecionar Origem**, selecione o nome do banco de dados restaurado na seção **Etapas de preparação** como a origem e clique em **Avançar**.
+4. Em Olá **Selecionar origem** caixa de diálogo, o nome do banco de dados selecione Olá restaurado da saudação **etapas de preparação** seção como sua fonte e, em seguida, clique em **próximo**.
    
     ![SQL Database Migration Wizard – Selecionar origem – etapa 2](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/3.png)
-5. Na caixa de diálogo **Escolher Objetos**, escolha a opção **Selecionar objetos de bancos de dados específicos** e a tabela (ou as tabelas) que você deseja migrar para o servidor de destino.
+5. Em Olá **escolher objetos** caixa de diálogo, selecione Olá **selecionar objetos de banco de dados específico** opção e selecione Olá table(or tables) que você deseja que o servidor de destino do toomigrate toohello.
    ![SQL Database Migration Wizard – Escolher objetos](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/4.png)
-6. Na página **Resumo do Assistente para criação de script**, clique em **Sim** quando perguntado se você está pronto para gerar um script SQL. Você também tem a opção de salvar o Script TSQL para uso posterior.
+6. Em Olá **resumo do Assistente de Script** , clique em **Sim** quando você for avisado sobre esteja pronto toogenerate um script SQL. Você também tem Olá opção toosave Olá Script TSQL para uso posterior.
    ![SQL Database Migration Wizard – Resumo do Assistente para criação de script](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/5.png)
-7. Na página **Resumo dos Resultados**, clique em **Avançar**.
+7. Em Olá **resumo de resultados** , clique em **próximo**.
    ![SQL Database Migration Wizard – Resumo dos resultados](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/6.png)
-8. Na página **Configurar Conexão do Servidor de Destino**, clique em **Conectar ao Servidor** e insira os detalhes da seguinte maneira:
+8. Em Olá **Conexão de servidor de destino de instalação** , clique em **conectar tooServer**e, em seguida, insira os detalhes de saudação da seguinte maneira:
    
    * **Nome do Servidor**: instância do servidor de destino
    * **Autenticação**: **autenticação do SQL Server**. Insira suas credenciais de logon.
-   * **Banco de dados**: **banco de dados mestre (listar todos os bancos de dados)**. Esta opção lista todos os bancos de dados no servidor de destino.
+   * **Banco de dados**: **banco de dados mestre (listar todos os bancos de dados)**. Essa opção lista todos os bancos de dados de saudação no servidor de destino de saudação.
      
      ![SQL Database Migration Wizard – Configurar conexão do servidor de destino](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/7.png)
-9. Clique em **Conectar**, selecione o banco de dados de destino para o qual deseja mover a tabela e clique em **Avançar**. Isso deverá terminar a execução do script gerado anteriormente e você deverá ver a tabela recém-movida copiada no banco de dados de destino.
+9. Clique em **conectar**, selecione banco de dados de destino de saudação que você deseja toomove Olá tabela e, em seguida, clique em **próximo**. Isso deve terminar de executar o script hello gerado anteriormente, e você deverá ver Olá recentemente movido banco de dados de destino do tabela toohello copiado.
 
 ## <a name="verification-step"></a>Etapa de verificação
 
-- Consulte e teste a tabela recém-copiada para certificar-se de que os dados estão intactos. Após a confirmação, é possível remover a tabela renomeada na seção **Etapas de preparação**. (por exemplo, &lt;nome da tabela&gt;_old).
+- Saudação de consulta e teste copiado recentemente tabela toomake-se de que dados saudação estão intactos. Após confirmação, você pode remover o formato de tabela Olá renomeado **etapas de preparação** seção. (por exemplo, &lt;nome da tabela&gt;_old).
 
 ## <a name="next-steps"></a>Próximas etapas
 [Backups automáticos do Banco de Dados SQL](sql-database-automated-backups.md)

@@ -1,7 +1,7 @@
 ---
 redirect_url: /azure/sql-data-warehouse/sql-data-warehouse-load-with-data-factory
-title: Carregar dados com o Azure Data Factory | Microsoft Docs
-description: Saiba como carregar dados com o Azure Data Factory
+title: dados de aaaLoad com o Azure Data Factory | Microsoft Docs
+description: Saiba mais dados tooload com o Azure Data Factory
 services: sql-data-warehouse
 documentationcenter: NA
 author: twounder
@@ -17,11 +17,11 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
 ms.custom: loading
-ms.openlocfilehash: 0b01c77c916b616974545fc3da442e72e5336399
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4186bd88d14be33f90130a41e8df06ce1d7cbab2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="load-data-with-azure-data-factory"></a>Carregar dados com o Azure Data Factory
 > [!div class="op_single_selector"]
@@ -32,47 +32,47 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Este tutorial mostra como criar um pipeline no Azure Data Factory para mover dados do Blob de Armazenamento do Azure para o SQL Data Warehouse do Azure. Com as etapas a seguir, você vai:
+Este tutorial mostra como toocreate um pipeline de dados do Azure Data Factory toomove de tooAzure de Blob de armazenamento do Azure SQL Data Warehouse. Com hello etapas a seguir, você irá:
 
 * Configurar dados de exemplo em um Blob de Armazenamento do Azure.
-* Conectar recursos ao Azure Data Factory.
-* Crie um pipeline para mover dados de Blobs de Armazenamento para o SQL Data Warehouse.
+* Conecte-se recursos tooAzure fábrica de dados.
+* Crie um pipeline de dados de toomove de tooSQL de Blobs de armazenamento do Data Warehouse.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-Azure-SQL-Data-Warehouse-with-Azure-Data-Factory/player]
 > 
 > 
 
 ## <a name="before-you-begin"></a>Antes de começar
-Para se familiarizar com o Azure Data Factory, confira a [Introdução ao Azure Data Factory][Introduction to Azure Data Factory].
+toofamiliarize-se com a fábrica de dados do Azure, consulte [tooAzure Introdução fábrica de dados][Introduction tooAzure Data Factory].
 
 ### <a name="create-or-identify-resources"></a>Criar ou identificar recursos
-Antes de iniciar este tutorial, você precisa ter os recursos a seguir:
+Antes de iniciar este tutorial, você precisa toohave Olá recursos a seguir:
 
-* **Blob de Armazenamento do Azure**: este tutorial usa o Blob de Armazenamento do Azure como a fonte de dados para o pipeline do Azure Data Factory. Portanto, você precisa ter um disponível para armazenar os dados de exemplo. Se você não tiver um, saiba como [Criar uma conta de armazenamento][Create a storage account].
-* **SQL Data Warehouse**: Este tutorial move os dados do Blob de Armazenamento do Azure para o SQL Data Warehouse e, portanto, precisa ter um data warehouse online que é carregado com os dados de exemplo AdventureWorksDW. Se você ainda não tiver um data warehouse, saiba como [provisionar um][Create a SQL Data Warehouse]. Se você tiver um data warehouse, mas não o tiver provisionado com os dados de exemplo, poderá [carregá-lo manualmente][Load sample data into SQL Data Warehouse].
-* **Azure Data Factory**: o Azure Data Factory completa a carga real, assim, você precisa ter um para poder usar e compilar o pipeline de movimentação de dados. Se você ainda não tiver um, saiba como criá-lo na Etapa 1 da [Introdução ao Azure Data Factory (Editor do Data Factory)][Get started with Azure Data Factory (Data Factory Editor)].
-* **AZCopy**: você precisa do AZCopy para copiar os dados de exemplo do cliente local para o Blob de Armazenamento do Azure. Para obter instruções de instalação, confira a [Documentação do AZCopy][AZCopy documentation].
+* **Blob de armazenamento do Azure**: Este tutorial usa blobs de armazenamento do Azure como fonte de dados Olá para o pipeline do Azure Data Factory hello e, portanto você precisa de dados de exemplo de saudação do toohave um toostore disponíveis. Se você não tiver um já, saiba como muito[criar uma conta de armazenamento][Create a storage account].
+* **SQL Data Warehouse**: estes tutorial move Olá dados de Blob de armazenamento do Azure muito SQL Data Warehouse e, portanto precisam de toohave um data warehouse online que é carregado com hello dados de exemplo AdventureWorksDW. Se você ainda não tiver um data warehouse, saiba como muito[provisionar um][Create a SQL Data Warehouse]. Se você tiver um data warehouse, mas não foi provisionada com dados de exemplo hello, você pode [carregá-lo manualmente][Load sample data into SQL Data Warehouse].
+* **O Azure Data Factory**: Azure Data Factory conclui a carga real hello e portanto, você precisa toohave um que você pode usar o pipeline de movimentação de dados toobuild hello. Se você não tiver um já, saiba como toocreate uma etapa 1 de [Introdução ao Azure Data Factory (Editor de fábrica de dados)][Get started with Azure Data Factory (Data Factory Editor)].
+* **AZCopy**: você precisa os dados de exemplo hello AZCopy toocopy do tooyour seu cliente local Blob de armazenamento do Azure. Para obter instruções de instalação, consulte Olá [AZCopy documentação][AZCopy documentation].
 
-## <a name="step-1-copy-sample-data-to-azure-storage-blob"></a>Etapa 1: copiar dados de exemplo para o Blob de Armazenamento do Azure
-Depois que todas as partes estiverem prontas, você estará pronto para copiar dados de exemplo para o Blob de Armazenamento do Azure.
+## <a name="step-1-copy-sample-data-tooazure-storage-blob"></a>Etapa 1: Copiar dados de exemplo tooAzure Blob de armazenamento
+Uma vez que todas as partes da saudação prontas, você está pronto toocopy exemplo dados tooyour Blob de armazenamento do Azure.
 
-1. [Baixe os dados de exemplo][Download sample data]. Esses dados adicionam outros três anos de dados de vendas aos dados de exemplo de AdventureWorksDW.
-2. Use este comando do AZCopy para copiar os três anos de dados para o Blob de Armazenamento do Azure.
+1. [Baixe os dados de exemplo][Download sample data]. Esses dados adiciona outro três anos de dados de vendas tooyour dados de exemplo AdventureWorksDW.
+2. Use esta saudação do AZCopy comando toocopy três anos de dados tooyour Blob de armazenamento do Azure.
    
     ````
     AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core.windows.net/<container name> /DestKey:<storage key> /Pattern:FactInternetSales.csv
     ````
 
-## <a name="step-2-connect-resources-to-azure-data-factory"></a>Etapa 2: conectar recursos ao Azure Data Factory
-Agora que os dados estão no lugar certo, podemos criar o pipeline do Azure Data Factory para mover os dados do armazenamento de blob do Azure para o SQL Data Warehouse.
+## <a name="step-2-connect-resources-tooazure-data-factory"></a>Etapa 2: Conectar recursos tooAzure fábrica de dados
+Agora que os dados de saudação estão em vigor podemos criar dados de saudação do hello Azure Data Factory pipeline toomove do armazenamento de BLOBs do Azure no SQL Data Warehouse.
 
-Para começar, abra o [Portal do Azure][Azure portal] e selecione o data factory no menu à esquerda.
+tooget iniciado, abra Olá [portal do Azure] [ Azure portal] e selecione sua fábrica de dados no menu esquerdo hello.
 
 ### <a name="step-21-create-linked-service"></a>Etapa 2.1: criar serviço vinculado
-Vincule sua conta de armazenamento do Azure e oi SQL Data Warehouse ao data factory.  
+Vincule sua conta de armazenamento do Azure e a fábrica de dados do SQL Data Warehouse tooyour.  
 
-1. Primeiro, inicie o processo de registro clicando na seção 'Serviços Vinculados' de sua fábrica de dados e clique em 'Novo armazenamento de dados'. Escolha um nome para registrar seu armazenamento do azure, selecione o Armazenamento do Azure como seu tipo e insira o Nome de Conta e a Chave da Conta.
-2. Para registrar o SQL Data Warehouse, navegue até a seção 'Criar e Implantar', selecionar 'Novo Armazenamento de Dados' e 'Azure SQL Data Warehouse'. Copie e cole nesse modelo e, em seguida, preencha as informações específicas.
+1. Primeiro, iniciar o processo de registro de saudação clicando seção 'Serviços vinculados' hello sua fábrica de dados e, em seguida, clique em 'Novo repositório de dados.' Escolha um nome tooregister o armazenamento do azure no armazenamento do Azure selecione como o tipo e, em seguida, insira o nome da conta e chave de conta.
+2. tooregister SQL Data Warehouse navegue toohello seção de 'Criar e implantar', selecione 'Novo repositório de dados' e 'Azure SQL Data Warehouse'. Copie e cole nesse modelo e, em seguida, preencha as informações específicas.
    
     ```JSON
     {
@@ -87,11 +87,11 @@ Vincule sua conta de armazenamento do Azure e oi SQL Data Warehouse ao data fact
     }
     ```
 
-### <a name="step-22-define-the-dataset"></a>Etapa 2.2: definir o conjunto de dados
-Depois de criar os serviços vinculados, teremos de definir os conjuntos de dados.  Aqui, isso significa definir a estrutura dos dados que está sendo movida do armazenamento para o data warehouse.  Ler mais sobre a criação
+### <a name="step-22-define-hello-dataset"></a>Etapa 2.2: Definir o conjunto de dados de saudação
+Depois de criar hello serviços vinculados, temos toodefine Olá os conjuntos de dados.  Aqui, isso significa definir Olá estrutura de dados de saudação que está sendo movidos de seu data warehouse de tooyour de armazenamento.  Ler mais sobre a criação
 
-1. Inicie este processo navegando até a seção 'Criar e Implantar' de sua fábrica de dados.
-2. Clique em 'Novo conjunto de dados' e em 'Armazenamento de Blob do Azure' para vincular o armazenamento à fábrica de dados.  Você pode usar o script abaixo para definir os dados no armazenamento de Blob do Azure:
+1. Inicie esse processo navegando seção 'Criar e implantar' toohello sua fábrica de dados.
+2. Clique em 'Novo conjunto de dados' e 'Armazenamento de BLOBs do Azure' toolink sua fábrica de dados do armazenamento tooyour.  Você pode usar o hello abaixo script toodefine seus dados no armazenamento de BLOBs do Azure:
    
     ```JSON
     {
@@ -123,7 +123,7 @@ Depois de criar os serviços vinculados, teremos de definir os conjuntos de dado
         }
     }
     ```
-3. Agora, definiremos nosso conjunto de dados para o SQL Data Warehouse. Começamos da mesma forma, clicando em 'Novo conjunto de dados' e em 'Azure SQL Data Warehouse'.
+3. Agora, definiremos nosso conjunto de dados para o SQL Data Warehouse. Começamos Olá mesma forma, clicando em 'Novo conjunto de dados' e, em seguida, 'Azure SQL Data Warehouse'.
    
     ```JSON
     {
@@ -143,9 +143,9 @@ Depois de criar os serviços vinculados, teremos de definir os conjuntos de dado
     ```
 
 ## <a name="step-3-create-and-run-your-pipeline"></a>Etapa 3: criar e executar o pipeline
-Por fim, vamos configurar e executar o pipeline no Azure Data Factory.  Esta é a operação que concluirá a movimentação de dados reais.  Você pode encontrar uma exibição completa das operações que podem ser executadas com o SQL Data Warehouse e o Azure Data Factory [aqui][Move data to and from Azure SQL Data Warehouse using Azure Data Factory].
+Finalmente, configurar e executar o pipeline de saudação do Azure Data Factory.  Essa é a operação de saudação que conclui a movimentação de dados reais de saudação.  Você pode encontrar uma exibição completa de operações de saudação que pode ser concluída com o SQL Data Warehouse e o Azure Data Factory [aqui][Move data tooand from Azure SQL Data Warehouse using Azure Data Factory].
 
-Na seção 'Criar e Implantar', clique em 'Mais Comandos' e em 'Novo Pipeline'.  Depois de criar o pipeline, você poderá usar o código abaixo para transferir os dados para o data warehouse:
+Na seção 'Criar e implantar' do hello, clique em 'Mais comandos' e, em seguida, 'Novo Pipeline'.  Depois de criar o pipeline hello, você pode usar o hello abaixo código tootransfer Olá dados tooyour do data warehouse:
 
 ```JSON
 {
@@ -196,15 +196,15 @@ Na seção 'Criar e Implantar', clique em 'Mais Comandos' e em 'Novo Pipeline'. 
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais, comece exibindo o seguinte:
+Além disso, inicie toolearn exibindo:
 
 * [Roteiro de aprendizagem do Azure Data Factory][Azure Data Factory learning path].
-* [Conector do SQL Data Warehouse do Azure][Azure SQL Data Warehouse Connector]. Este é o tópico de referência principal para usar o Azure Data Factory com o SQL Data Warehouse do Azure.
+* [Conector do SQL Data Warehouse do Azure][Azure SQL Data Warehouse Connector]. Este é um tópico de referência principal Olá para o uso do Azure Data Factory do Azure SQL Data warehouse.
 
-Estes tópicos fornecem informações detalhadas sobre o Azure Data Factory. Eles abordam o Banco de Dados SQL do Azure ou o HDinsight, mas as informações também se aplicam ao SQL Data Warehouse do Azure.
+Estes tópicos fornecem informações detalhadas sobre o Azure Data Factory. Discussão de banco de dados do SQL Azure ou HDInsight, mas Olá informações também se aplicam a tooAzure SQL Data Warehouse.
 
-* [Tutorial: introdução ao Azure Data Factory][Tutorial: Get started with Azure Data Factory] Este é o tutorial principal para processar dados com o Azure Data Factory. Neste tutorial, você criará seu primeiro pipeline que usa HDInsight para transformar e analisar logs da web mensalmente. Observe que não há nenhuma atividade de cópia neste tutorial.
-* [Tutorial: copiar dados do Blob de Armazenamento do Azure para o Banco de Dados SQL do Azure][Tutorial: Copy data from Azure Storage Blob to Azure SQL Database]. Neste tutorial, você criará um pipeline no Azure Data Factory para copiar dados do Blob de Armazenamento do Azure para o Banco de Dados SQL do Azure.
+* [Tutorial: Introdução ao Azure Data Factory] [ Tutorial: Get started with Azure Data Factory] este é Olá tutorial de núcleo para processamento de dados com o Azure Data Factory. Neste tutorial, você criará seu pipeline primeiro que usa tootransform HDInsight e analise logs da web mensalmente. Observe que não há nenhuma atividade de cópia neste tutorial.
+* [Tutorial: Copiar dados de Blob de armazenamento do Azure tooAzure banco de dados SQL][Tutorial: Copy data from Azure Storage Blob tooAzure SQL Database]. Neste tutorial, você pode criar um pipeline de dados do Azure Data Factory toocopy de Blob de armazenamento do Azure tooAzure banco de dados SQL.
 
 <!--Image references-->
 
@@ -216,11 +216,11 @@ Estes tópicos fornecem informações detalhadas sobre o Azure Data Factory. Ele
 [Create a storage account]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [Data Factory]: sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Get started with Azure Data Factory (Data Factory Editor)]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
-[Introduction to Azure Data Factory]: ../data-factory/data-factory-introduction.md
+[Introduction tooAzure Data Factory]: ../data-factory/data-factory-introduction.md
 [Load sample data into SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
-[Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
+[Move data tooand from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
-[Tutorial: Copy data from Azure Storage Blob to Azure SQL Database]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+[Tutorial: Copy data from Azure Storage Blob tooAzure SQL Database]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [Tutorial: Get started with Azure Data Factory]: ../data-factory/data-factory-build-your-first-pipeline.md
 
 <!--MSDN references-->

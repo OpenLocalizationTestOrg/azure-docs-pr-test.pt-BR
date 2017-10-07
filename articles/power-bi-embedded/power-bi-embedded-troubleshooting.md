@@ -1,5 +1,5 @@
 ---
-title: "Solução de problemas da Preview do Microsoft Power BI Embedded"
+title: "solução de problemas de visualização do Power BI Embedded aaaMicrosoft"
 description: "Solução de problemas da Preview do Microsoft Power BI Embedded"
 services: power-bi-embedded
 documentationcenter: 
@@ -15,25 +15,25 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/06/2017
 ms.author: asaxton
-ms.openlocfilehash: f406d23e578acc825514aa5bd9eabcbf160bf9ec
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a0a25cd73977c0ea0bd6b7c82e215412245771bc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoft-power-bi-embedded-preview-troubleshooting"></a>Solução de problemas da Preview do Microsoft Power BI Embedded
-Este artigo fornece respostas para saber como solucionar problemas do **Power BI Embedded**.
+Este artigo fornece respostas para como tootroubleshoot **Power BI inserido**.
 
 <a name="connection-string"/>
 
 ## <a name="setting-sql-server-connection-strings"></a>Configurando cadeias de conexão do SQL Server
-Para definir uma cadeia de conexão do SQL Server, você precisará seguir um formato específico. Abaixo está um exemplo da cadeia de conexão para o SQL Server.
+tooset uma cadeia de caracteres de conexão do SQL Server, você precisa toofollow um formato específico. Abaixo está um exemplo da cadeia de conexão para o SQL Server.
 
 ```
 "Persist Security Info=False;Integrated Security=true;Initial Catalog=Northwind;server=(local)"
 ```
 
-Para saber mais sobre cadeias de conexão do SQL Server, consulte os seguintes artigos:
+toolearn mais informações sobre cadeias de caracteres de conexão do SQL Server, consulte Olá artigos a seguir:
 
 * [Cadeias de Conexão do SQL Server](https://msdn.microsoft.com/library/jj653752.aspx)
 * [SqlConnection.ConnectionString](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.connectionstring.aspx)
@@ -41,7 +41,7 @@ Para saber mais sobre cadeias de conexão do SQL Server, consulte os seguintes a
 <a name="credentials"/>
 
 ## <a name="setting-credentials"></a>Configurando credenciais
-Em um caso em que você tenha as credenciais para um ambiente de preparo ou de desenvolvimento, como nome de usuário e senha, talvez seja necessário atualizar as credenciais que correspondem a uma solução de produção.
+No caso de Olá onde você tem credenciais para um desenvolvimento ou ambiente de preparo, como nome de usuário e senha, talvez seja necessário tooupdate credenciais que correspondem a uma solução de produção.
 
 ## <a name="see-also"></a>Consulte também
 * [Introdução a exemplos](power-bi-embedded-get-started-sample.md)

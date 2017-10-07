@@ -1,5 +1,5 @@
 ---
-title: "Solução de problemas do Diagnóstico do Azure | Microsoft Docs"
+title: "aaaTroubleshooting diagnóstico do Azure | Microsoft Docs"
 description: "Solucionar problemas ao usar o diagnóstico do Azure no Service Fabric, Serviços de Nuvem e Máquinas Virtuais do Azure."
 services: monitoring-and-diagnostics
 documentationcenter: .net
@@ -14,24 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: a0cb529836b14df71e83616f4f625a002c535b7b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: daaf9fa4c40982eb9ba04030d7e8ea1ad9fe085b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solução de problemas do Diagnóstico do Azure
-Informações sobre solução de problemas relevantes ao uso do Diagnóstico do Azure. Para obter mais informações sobre o Diagnóstico do Azure, confira [Visão geral do Diagnóstico do Azure](azure-diagnostics.md).
+Solução de problemas informações relevantes toousing diagnóstico do Azure. Para obter mais informações sobre o Diagnóstico do Azure, confira [Visão geral do Diagnóstico do Azure](azure-diagnostics.md).
 
 ## <a name="logical-components"></a>Componentes lógicos
-**Iniciador do plug-in de diagnóstico (DiagnosticsPluginLauncher.exe)**: inicia a extensão de Diagnóstico do Microsoft Azure. Serve como o processo do ponto de entrada.
+**Iniciador de plug-in de diagnóstico (DiagnosticsPluginLauncher.exe)**: extensão de diagnóstico do Azure Olá é iniciado. Serve como entrada hello o processo de ponto.
 
-**Plug-in de diagnóstico (DiagnosticsPlugin.exe)**: processo principal que é iniciado pelo iniciador acima e configura o Agente de monitoramento, inicia ele e gerencia seu tempo de vida. 
+**Plug-in de diagnóstico (DiagnosticsPlugin.exe)**: processo principal que é iniciado pelo iniciador da saudação acima e configura o agente de monitoramento de saudação, inicia e gerencia seu tempo de vida. 
 
-**Agente de monitoramento (processos do MonAgent\*.exe)**: esses processos fazem a maior parte do trabalho; ou seja, monitoramento, coleta e transferência de dados de diagnóstico.  
+**Agente de monitoramento (MonAgent\*.exe processos)**: esses processos Olá em massa de trabalho Olá; ou seja, o monitoramento, coleção e a transferência de Olá dados de diagnóstico.  
 
 ## <a name="logartifact-paths"></a>Caminhos de log/artefato
-Estes são os caminhos para alguns logs e artefatos importantes. Vamos manter as referências a eles em todo o restante do documento:
+Aqui estão os artefatos e logs do hello caminhos toosome importantes. Vamos manter referindo-se toothese em todo o restante de saudação do documento hello:
 ### <a name="cloud-services"></a>Serviços de Nuvem
 | Artefato | Caminho |
 | --- | --- |
@@ -56,11 +56,11 @@ Estes são os caminhos para alguns logs e artefatos importantes. Vamos manter as
 | **Arquivo de log MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-show-in-azure-portal"></a>Os dados de métrica não são exibidos no portal do Azure
-O Diagnóstico do Azure fornece um conjunto de dados de métrica, que podem ser exibidos no portal do Azure. Se você tiver problemas para ver esses dados no portal, verifique a conta de armazenamento de diagnóstico -> tabela WADMetrics\* para ver se os registros correspondentes de métrica existem. Aqui, PartitionKey da tabela é a ID de recurso da máquina virtual ou do conjunto de dimensionamento de máquinas virtuais, e a RowKey é o nome da métrica, ou seja, o nome do contador de desempenho.
+O Diagnóstico do Azure fornece um conjunto de dados de métrica, que podem ser exibidos no portal do Azure. Se você tiver problemas com ver esses dados no portal, a conta de armazenamento de diagnóstico seleção Olá -> WADMetrics\* tabela toosee se existem registros correspondentes de métrica hello. Aqui, Olá PartitionKey da tabela de saudação é Olá ID do recurso de máquina virtual ou conjunto de escalas da máquina virtual e Olá RowKey é o nome da métrica hello ou seja, o nome de contador de desempenho.
 
-Se a ID de recurso estiver incorreta, verifique Configuração de Diagnósticos -> Métricas -> ResourceId para ver se a ID de recurso está definida corretamente.
+Se a ID de recurso Olá estiver incorreto, verifique a configuração de diagnóstico -> métricas -> ResourceId toosee se a ID de recurso hello está definida corretamente.
 
-Se não houver dados para a métrica específica, verifique Configuração de Diagnóstico -> PerformanceCounter para ver se a métrica (contador de desempenho) está incluída. Habilitamos os seguintes contadores por padrão.
+Se não houver nenhum dado de métrica específica hello, verificação de configuração de diagnóstico -> PerformanceCounter toosee se a métrica de saudação (contador de desempenho) é incluída. Habilitamos Olá contadores a seguir por padrão.
 - \Processador(_Total)\% Tempo do processador
 - \Memória\Bytes Disponíveis
 - \Aplicativos ASP.NET (__Total__)\Solicitações/s
@@ -80,60 +80,60 @@ Se não houver dados para a métrica específica, verifique Configuração de Di
 - \LogicalDisk(D:)\Bytes de Gravação de Disco/s
 - \LogicalDisk(D:)\Bytes de Leitura de Disco/s
 
-Se a configuração estiver definida corretamente, mas você ainda não conseguir ver os dados da métrica, siga as diretrizes abaixo para investigar mais.
+Se a configuração hello está definida corretamente, mas você não pode ver dados de métrica hello, diretrizes Olá abaixo para investigação futura hello.
 
 
 ## <a name="azure-diagnostics-is-not-starting"></a>Azure Diagnostics não está iniciando
-Analise os arquivos **DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** do local dos arquivos de log para obter informações sobre porque o diagnóstico não pode ser iniciado. 
+Examinar **DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** arquivos de log de arquivos do local de saudação do hello fornecido acima para obter informações sobre por que diagnóstico falha toostart. 
 
-Se esses logs indicam `Monitoring Agent not reporting success after launch`, isso significa que houve uma falha ao iniciar MonAgentHost.exe. Examine os logs em busca disso no local indicado para `MonAgentHost log file` na seção acima.
+Se esses logs indicam `Monitoring Agent not reporting success after launch`, isso significa que houve uma falha ao iniciar MonAgentHost.exe. Examine os logs de saudação para que no local de saudação indicado para `MonAgentHost log file` na seção de saudação acima.
 
-A última linha dos arquivos de log contém o código de saída.  
+a última linha Olá Olá dos arquivos de log contém código de saída de hello.  
 
 ```
 DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] DiagnosticPlugin exited with code 0
 ```
-Se você encontrar um código de saída **negativo**, consulte a [tabela de códigos de saída](#azure-diagnostics-plugin-exit-codes) em [Referências](#references).
+Se você encontrar um **negativo** código de saída, consulte toohello [tabela de código de saída](#azure-diagnostics-plugin-exit-codes) em Olá [referências](#references).
 
-## <a name="diagnostics-data-is-not-logged-to-azure-storage"></a>Os dados de diagnósticos não estão registrados no Armazenamento do Azure
-Determine se nenhum dado é exibido ou apenas alguns dos dados não estão sendo exibidos.
+## <a name="diagnostics-data-is-not-logged-tooazure-storage"></a>Dados de diagnóstico estão conectado não tooAzure armazenamento
+Determine se nenhum dado é exibido ou apenas alguns dos dados de saudação não estão aparecendo.
 
 ### <a name="diagnostics-infrastructure-logs"></a>Logs de infraestrutura de diagnósticos
-Logs da Infraestrutura de diagnóstico é onde o diagnóstico do Azure registra quaisquer erros que são encontrados. Verifique se você habilitou ([como?](#how-to-check-diagnostics-extension-configuration)) a captura de logs da Infraestrutura de Diagnóstico em sua configuração e procure rapidamente erros relevantes que aparecem na tabela `DiagnosticInfrastructureLogsTable` em sua conta de armazenamento configurada.
+Logs da Infraestrutura de diagnóstico é onde o diagnóstico do Azure registra quaisquer erros que são encontrados. Verifique se você habilitou ([como?](#how-to-check-diagnostics-extension-configuration)) captura de logs de infraestrutura de diagnóstico em sua configuração e rapidamente procure erros relevantes que aparecem no hello `DiagnosticInfrastructureLogsTable` tabela em sua conta de armazenamento configurado.
 
 ### <a name="no-data-is-showing-up"></a>Nenhum dado está sendo exibido
-A causa mais comum da completa ausência de dados de evento é uma informação de conta de armazenamento definida incorretamente.
+Olá causa mais comum de dados de evento totalmente ausente é informações da conta de armazenamento definida incorretamente.
 
 Solução: corrija sua configuração do Diagnóstico e o reinstale.
 
-Se a conta de armazenamento está configurada corretamente na área de trabalho remota do computador, verifique se DiagnosticsPlugin.exe e MonAgentCore.exe estão em execução. Se eles não estiverem em execução, siga [Diagnóstico do Azure não está iniciando](#azure-diagnostics-is-not-starting). Se estiver executando os processos, vá para [Os dados estão sendo capturados localmente](#is-data-getting-captured-locally) e siga este guia.
+Se a conta de armazenamento de saudação está configurado corretamente, remoto da área de trabalho em make e máquina Olá se DiagnosticsPlugin.exe e MonAgentCore.exe estão em execução. Se eles não estiverem em execução, siga [Diagnóstico do Azure não está iniciando](#azure-diagnostics-is-not-starting). Se estiver executando processos hello, ir muito[dados obtendo capturados localmente](#is-data-getting-captured-locally) e siga este guia de lá.
 
-### <a name="part-of-the-data-is-missing"></a>Parte dos dados está ausente
-Se você estiver obtendo alguns dados, mas não outros. Isso significa que a coleta de dados/transferência de pipeline está definida corretamente. Siga as subseções aqui para restringir qual é o problema:
+### <a name="part-of-hello-data-is-missing"></a>Parte dos dados hello está ausente
+Se você estiver obtendo alguns dados, mas não outros. Isso significa que a coleta de dados Olá / pipeline de transferência está definida corretamente. Siga subseções Olá aqui toonarrow o problema de saudação é:
 #### <a name="is-collection-configured"></a>A coleção foi configurada: 
-A Configuração de diagnóstico contém a parte que instrui para um determinado tipo de dados a ser coletado. [Examine a configuração](#how-to-check-diagnostics-extension-configuration) para certificar-se de que você não está procurando dados que foram configurados para a coleta.
-#### <a name="is-the-host-generating-data"></a>O host está gerando dados:
-- **Contadores de desempenho**: abra o perfmon e verifique o contador.
-- **Logs de rastreamento**: a área de trabalho remota na VM e adicione um TextWriterTraceListener ao arquivo de configuração do aplicativo.  Confira http://msdn.microsoft.com/library/sk36c28t.aspx para configurar o ouvinte de texto.  Verifique se o elemento `<trace>` tem `<trace autoflush="true">`.<br />
+Configuração de diagnóstico contém parte Olá que instrui para um tipo específico de toobe dados coletado. [Examine a configuração](#how-to-check-diagnostics-extension-configuration) toomake-se de que você não está procurando dados você não tiver configurado para a coleção.
+#### <a name="is-hello-host-generating-data"></a>É o host Olá gerando dados:
+- **Contadores de desempenho**: Abra o perfmon e verifique o contador de saudação.
+- **Logs de rastreamento**: área de trabalho remota Olá VM e adicione o arquivo de configuração do aplicativo de toohello um TextWriterTraceListener.  Consulte tooset http://msdn.microsoft.com/library/sk36c28t.aspx o ouvinte de texto de saudação.  Verifique se Olá `<trace>` tem elemento `<trace autoflush="true">`.<br />
 Se você não vir os logs de rastreamento sendo gerados, execute [Mais sobre logs de rastreamento ausentes](#more-about-trace-logs-missing).
-- **Rastreamentos do ETW**: a área de trabalho remota para a VM e instale o PerfView.  No PerfView, execute Arquivo -> Comando de Usuário -> Escutar etwprovder1,etwprovider2,etc.  Observe que o comando Escutar diferencia letras maiúsculas de minúsculas e não pode haver espaços entre a lista separada por vírgulas dos provedores do ETW.  Se o comando falhar na execução, você pode clicar no botão de “Log” no canto inferior direito da ferramenta Perfview para ver o que tentou executar e qual foi o resultado.  Supondo que a entrada está correta, em seguida, uma nova janela será exibida e em alguns segundos você começará a ver os rastreamentos do ETW.
-- **Logs de evento**: área de trabalho remota na VM. Abra `Event Viewer` e verifique se os eventos existem.
+- **Rastreamentos ETW**: área de trabalho remota Olá VM e instalar PerfView.  No PerfView, execute Arquivo -> Comando de Usuário -> Escutar etwprovder1,etwprovider2,etc.  Observe que o comando de escuta Olá diferencia maiusculas de minúsculas e não pode haver espaços entre a lista separada por vírgulas Olá dos provedores do ETW.  Se o comando Olá falhar toorun, você pode clicar botão de 'Log' hello na parte inferior direita Olá da Olá Perfview ferramenta toosee que qual foi tentada toorun e o resultado de saudação foi.  Supondo que a entrada hello está correta, em seguida, uma nova janela será exibida para cima e em alguns segundos, você começará ver rastreamentos ETW.
+- **Logs de eventos**: área de trabalho remota Olá VM. Abra `Event Viewer` e certifique-se de que existem Olá eventos.
 #### <a name="is-data-getting-captured-locally"></a>Os dados estão sendo capturados localmente:
-Em seguida, certifique-se de que os dados estão sendo capturados localmente.
-Os dados são armazenados localmente em arquivos `*.tsf` no [armazenamento local para dados de diagnóstico](#log-artifacts-path). Diferentes tipos de logs coletados em diferentes arquivos `.tsf`. Os nomes são semelhantes aos nomes de tabela no armazenamento do Azure. Por exemplo `Performance Counters` é coletado no `PerformanceCountersTable.tsf`, Logs de eventos coletados no `WindowsEventLogsTable.tsf`. Use as instruções na seção [Extração de log local](#local-log-extraction) para abrir os arquivos de coleta local e verifique se você os vê sendo coletados no disco.
+Em seguida, certifique-se de dados saudação obtendo capturados localmente.
+dados de saudação são armazenados localmente em `*.tsf` arquivos [repositório local de saudação para dados de diagnóstico](#log-artifacts-path). Diferentes tipos de logs coletados em diferentes arquivos `.tsf`. nomes de saudação são nomes de tabela toohello semelhantes no armazenamento do azure. Por exemplo `Performance Counters` é coletado no `PerformanceCountersTable.tsf`, Logs de eventos coletados no `WindowsEventLogsTable.tsf`. Use instruções de saudação em [extração de Log Local](#local-log-extraction) tooopen Olá coleta local arquivos da seção e verifique se você vê-los obtendo coletados no disco.
 
-Se não vir logs sendo coletados localmente e já tiver verificado que o host está gerando dados, você provavelmente tem um problema de configuração. Analise a configuração com cuidado para a seção apropriada. Também analise a configuração gerada para MonitoringAgent [MaConfig.xml](#log-artifacts-path) e verifique se há alguma seção que descreve a origem do log relevante e se ele não foi perdido na conversão entre a configuração de diagnóstico do Azure e a configuração do agente de monitoramento.
+Se você não ver logs obtendo coletados localmente e já tiver verificado que o host hello está gerando dados, você provavelmente tem um problema de configuração. Examine a configuração cuidadosamente para seção apropriada de saudação. Revise também a configuração de saudação gerada para MonitoringAgent [MaConfig.xml](#log-artifacts-path) e verifique se há alguma seção que descreve a origem de log relevantes hello e que não sejam perdido em conversão entre a configuração de diagnóstico do azure e configuração do agente de monitoramento.
 #### <a name="is-data-getting-transferred"></a>Os dados estão sendo transferidos:
-Se você verificou se os dados estão sendo capturados localmente, mas ainda não estiver visível na sua conta de armazenamento: 
-- Primeiramente, certifique-se de que você forneceu uma conta de armazenamento correta e se não tiver substituído as chaves etc para a conta de armazenamento determinada. Para serviços de nuvem, às vezes, podemos ver que as pessoas não atualizam seus `useDevelopmentStorage=true`.
-- Se a conta de armazenamento fornecida está correta. Certifique-se de que você não tem algumas restrições de rede que não permitem que os componentes alcancem os pontos de extremidade de armazenamento público. Uma maneira de fazer isso é tornar a área de trabalho remota no computador e tente gravar algo na mesma conta de armazenamento por conta própria.
-- Por fim, você pode tentar e ver quais falhas estão sendo relatadas pelo Agente de monitoramento. O Agente de monitoramento grava logs no `maeventtable.tsf` localizado no [armazenamento local para dados de diagnóstico](#log-artifacts-path). Siga as instruções na seção [Extração de log local](#local-log-extraction) para abrir este arquivo e experimentar e descobrir se há `errors` indicando falhas para ler os arquivos locais ou de gravação para o armazenamento.
+Se você tiver verificado dados saudação obtendo capturados localmente, mas você ainda não estiver visível na sua conta de armazenamento: 
+- Primeiramente, verifique se você forneceu uma conta de armazenamento correta e que você não rodado chaves etc.for Olá considerando a conta de armazenamento. Para serviços de nuvem, às vezes, podemos ver que as pessoas não atualizam seus `useDevelopmentStorage=true`.
+- Se a conta de armazenamento fornecida está correta. Verifique se que você não tem algumas restrições de rede que não permitem componentes Olá tooreach pontos de extremidade de armazenamento público. Toodo unidirecional que é a área de trabalho tooremote saudação do computador e tente toowrite algo toohello mesmo armazenamento de conta por conta própria.
+- Por fim, você pode tentar e ver quais falhas estão sendo relatadas pelo Agente de monitoramento. Agente de monitoramento grava logs `maeventtable.tsf` localizado em [repositório local para dados de diagnóstico de Olá](#log-artifacts-path). Siga as instruções em [extração de Log Local](#local-log-extraction) seção tooopen esse arquivo e tente e descobrir se há `errors` indicando arquivos locais do tooread falhas ou gravar toostorage.
 
 ### <a name="capturing--archiving-logs"></a>Capturando/arquivando logs
-Você seguiu as etapas acima, mas não foi possível descobrir o que estava errado e está pensando sobre como entrar em contato com o suporte. A primeira coisa que eles podem solicitar a você é para coletar logs do seu computador. Você pode poupar tempo fazendo isso você mesmo. Execute o utilitário `CollectGuestLogs.exe` no [Caminho do Utilitário de Coleta de Log](#log-artifacts-path) e ele gerará um arquivo zip com todos os logs relevantes do Azure na mesma pasta.
+Você passou pelo Olá acima etapas, mas não foi possível calcular o que estava incorreto e estão pensando sobre como contatar o suporte. Olá primeiro podem pedir que você é toocollect logs em seu computador. Você pode poupar tempo fazendo isso você mesmo. Executar Olá `CollectGuestLogs.exe` utilitário em [caminho de utilitário de coleta de Log](#log-artifacts-path) e gera um arquivo zip com todos os logs do azure relevantes no hello mesma pasta.
 
 ## <a name="diagnostics-data-tables-not-found"></a>Tabelas dos dados de diagnósticos não encontradas
-As tabelas no armazenamento do Azure que contêm eventos do ETW são nomeadas usando o código a seguir:
+tabelas de Olá no armazenamento do Azure, mantendo eventos ETW são nomeadas usando Olá código a seguir:
 
 ```C#
         if (String.IsNullOrEmpty(eventDestination)) {
@@ -195,69 +195,69 @@ Isso gera quatro tabelas:
 
 ## <a name="references"></a>Referências
 
-### <a name="how-to-check-diagnostics-extension-configuration"></a>Como verificar a Configuração da extensão de diagnóstico
-A maneira mais fácil de verificar sua configuração de extensão é navegar até http://resources.azure.com, vá até a máquina virtual ou serviço de nuvem no qual a extensão do Diagnóstico do Azure (IaaSDiagnostics/PaaDiagnostics) em questão está.
+### <a name="how-toocheck-diagnostics-extension-configuration"></a>Como toocheck configuração de extensão de diagnóstico
+Olá toocheck de maneira mais fácil a configuração de extensão toonavigate toohttp://resources.azure.com, navegar toohello virtual machine ou serviço em nuvem na qual extensão de diagnóstico do Azure hello (IaaSDiagnostics / PaaDiagnostics) em questão.
 
-Como alternativa, torne a área de trabalho remota no computador e analise o arquivo de Configuração do diagnóstico do Azure descrito na seção apropriada [aqui](#log-artifacts-path).
+Como alternativa, área de trabalho remota na máquina hello e examine o arquivo de configuração de diagnóstico do Azure Olá descrito na seção apropriada de saudação [aqui](#log-artifacts-path).
 
-Em ambos os casos, pesquise por **Microsoft.Azure.Diagnostics** e, em seguida, pelo campo **xmlCfg** ou **WadCfg**. 
+No caso procurar **Microsoft.Azure.Diagnostics** , em seguida, para Olá **xmlCfg** ou **WadCfg** campo. 
 
-No caso de máquinas virtuais, se o campo WadCfg estiver presente, isso significa que a configuração está em JSON. Se o campo xmlCfg estiver presente, isso significará que a configuração está em XML e é codificada em base64. Você precisa [decodificá-la](http://www.bing.com/search?q=base64+decoder) para ver o XML que foi carregado pelo Diagnóstico.
+No caso de máquinas virtuais, se Olá WadCfg campo não estiver presente, isso significa Olá configuração está em JSON. Se houver um campo de xmlCfg Olá, isso significa Olá config é em XML e é codificada em base64. É necessário muito[decodificá-la](http://www.bing.com/search?q=base64+decoder) toosee Olá XML que foi carregado pelo diagnóstico.
 
-Para a função do Serviço de nuvem, se você escolher a configuração do disco, os dados são base64 codificados, então você precisará [decodificá-los](http://www.bing.com/search?q=base64+decoder) para ver o XML que foi carregado pelo Diagnóstico.
+Para função de serviço de nuvem, se você escolher a configuração de saudação do disco, dados de saudação serão codificação base64 para que você precisará de muito[decodificá-la](http://www.bing.com/search?q=base64+decoder) toosee Olá XML que foi carregado pelo diagnóstico.
 
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Códigos de saída do plug-in do Diagnóstico do Microsoft Azure
-O plug-in retorna os seguintes códigos de saída:
+plug-in de saudação retorna Olá códigos de saída a seguir:
 
 | Código de Saída | Descrição |
 | --- | --- |
 | 0 |Sucesso. |
 | -1 |Erro genérico. |
-| -2 |Não foi possível carregar o arquivo rcf.<p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM. |
-| -3 |Não é possível carregar o arquivo de configuração do Diagnóstico.<p><p>Solução: causado por um arquivo de configuração que não passa pela validação do esquema. A solução é fornecer um arquivo de configuração que cumpre com o esquema. |
-| -4 |Outra instância do agente de monitoramento do Diagnostics já está usando o diretório de recurso local.<p><p>Solução: especifique um valor diferente para **LocalResourceDirectory**. |
-| -6 |O iniciador de plug-in do agente de convidado tentou iniciar o Diagnóstico com uma linha de comando inválida.<p><p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM. |
-| -10 |O plug-in de Diagnostics saiu com uma exceção sem tratamento. |
-| -11 |O agente convidado não pôde criar o processo responsável por iniciar e monitorar o agente de monitoramento.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos.<p> |
-| -101 |Argumentos inválidos ao chamar o plug-in de Diagnóstico.<p><p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM. |
-| -102 |O processo do plug-in não consegue inicializar-se sozinho.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos. |
-| -103 |O processo do plug-in não consegue inicializar-se sozinho. Especificamente, não consegue criar o objeto do agente.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos. |
-| -104 |Não foi possível carregar o arquivo rcf fornecido pelo agente convidado.<p><p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM. |
-| -105 |O plug-in de Diagnóstico não consegue abrir o arquivo de configuração do Diagnóstico.<p><p>Esse erro interno deve acontecer apenas se plug-in do Diagnóstico é invocado manual e incorretamente na VM. |
-| -106 |Não é possível ler o arquivo de configuração do Diagnóstico.<p><p>Solução: causado por um arquivo de configuração que não passa pela validação do esquema. Então a solução é fornecer um arquivo de configuração que cumpre com o esquema. Consulte [Como verificar a Configuração da extensão de diagnóstico](#how-to-check-diagnostics-extension-configuration). |
-| -107 |O diretório de recursos que passa para o agente de monitoramento é inválido.<p><p>Este erro interno deve acontecer apenas se o agente de monitoramento é invocado manualmente, incorretamente, na VM.</p> |
-| -108 |Não é possível converter o arquivo de configuração de Diagnóstico para o arquivo de configuração do agente de monitoramento.<p><p>Esse erro interno deve acontecer somente se o plug-in de diagnóstico é invocado manualmente com um arquivo de configuração inválido. |
-| -110 |Erro de configuração de diagnóstico geral.<p><p>Esse erro interno deve acontecer somente se o plug-in de diagnóstico é invocado manualmente com um arquivo de configuração inválido. |
-| -111 |Não foi possível iniciar o agente de monitoramento.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos. |
+| -2 |Arquivo de rcf de saudação tooload não é possível.<p>Esse erro interno só deve acontecer se o iniciador de plug-in do agente de convidado Olá é invocada manualmente, incorretamente, em Olá VM. |
+| -3 |Não é possível carregar o arquivo de configuração de diagnóstico de saudação.<p><p>Solução: causado por um arquivo de configuração que não passa pela validação do esquema. solução de saudação é tooprovide um arquivo de configuração que esteja em conformidade com o esquema de saudação. |
+| -4 |Outra instância do hello diagnóstico de agente de monitoramento já está usando o diretório do recurso local hello.<p><p>Solução: especifique um valor diferente para **LocalResourceDirectory**. |
+| -6 |iniciador de plug-in do agente de convidado Olá tentativa toolaunch diagnóstico com uma linha de comando inválida.<p><p>Esse erro interno só deve acontecer se o iniciador de plug-in do agente de convidado Olá é invocada manualmente, incorretamente, em Olá VM. |
+| -10 |Olá plug-in de diagnóstico foi encerrado com uma exceção sem tratamento. |
+| -11 |o agente convidado Olá era o processo de saudação de toocreate não é possível responsável por iniciar e monitorar Olá agente de monitoramento.<p><p>Solução: Verifique se os recursos de sistema suficientes disponíveis toolaunch novos processos.<p> |
+| -101 |Argumentos inválidos ao chamar hello plug-in de diagnóstico.<p><p>Esse erro interno só deve acontecer se o iniciador de plug-in do agente de convidado Olá é invocada manualmente, incorretamente, em Olá VM. |
+| -102 |processo do plug-in de saudação é tooinitialize não é possível em si.<p><p>Solução: Verifique se os recursos de sistema suficientes disponíveis toolaunch novos processos. |
+| -103 |processo do plug-in de saudação é tooinitialize não é possível em si. Especificamente, é objeto de agente de log Olá toocreate não é possível.<p><p>Solução: Verifique se os recursos de sistema suficientes disponíveis toolaunch novos processos. |
+| -104 |Tooload não é possível Olá rcf o arquivo fornecido pelo agente de convidado hello.<p><p>Esse erro interno só deve acontecer se o iniciador de plug-in do agente de convidado Olá é invocada manualmente, incorretamente, em Olá VM. |
+| -105 |plug-in de diagnóstico de saudação não é possível abrir o arquivo de configuração de diagnóstico de saudação.<p><p>Esse erro interno só deve acontecer se o plug-in de diagnóstico de saudação é invocada manualmente, incorretamente, em Olá VM. |
+| -106 |Não é possível ler o arquivo de configuração de diagnóstico de saudação.<p><p>Solução: causado por um arquivo de configuração que não passa pela validação do esquema. Portanto, solução Olá é tooprovide um arquivo de configuração que esteja em conformidade com o esquema de saudação. Consulte [como toocheck configuração de extensão de diagnóstico](#how-to-check-diagnostics-extension-configuration). |
+| -107 |Olá recurso directory passagem toohello agente de monitoramento é inválido.<p><p>Esse erro interno só deve acontecer se Olá agente de monitoramento é invocada manualmente, incorretamente, em Olá VM.</p> |
+| -108 |Não é possível tooconvert o arquivo de configuração de diagnóstico de saudação em Olá arquivo de configuração do agente de monitoramento.<p><p>Esse erro interno deve ocorrer somente se o plug-in de diagnóstico Olá manualmente é invocado com um arquivo de configuração inválido. |
+| -110 |Erro de configuração de diagnóstico geral.<p><p>Esse erro interno deve ocorrer somente se o plug-in de diagnóstico Olá manualmente é invocado com um arquivo de configuração inválido. |
+| -111 |Agente de monitoramento não é possível toostart hello.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos. |
 | -112 |Erro geral |
 
 ### <a name="local-log-extraction"></a>Extração de log local
-O agente de monitoramento coleta logs e artefatos como arquivos `.tsf`. O arquivo `.tsf` não está legível, mas você pode convertê-lo em um `.csv` da seguinte maneira: 
+Olá, agente de monitoramento coleta logs e artefatos como `.tsf` arquivos. O arquivo `.tsf` não está legível, mas você pode convertê-lo em um `.csv` da seguinte maneira: 
 
 ```
 <Azure diagnostics extension package>\Monitor\x64\table2csv.exe <relevantLogFile>.tsf
 ```
-Um novo arquivo chamado `<relevantLogFile>.csv` será criado no mesmo caminho correspondente do arquivo `.tsf`.
+Um novo arquivo chamado `<relevantLogFile>.csv` será criado no hello mesmo caminho como Olá correspondente `.tsf` arquivo.
 
-**OBSERVAÇÃO**: você só precisa executar este utilitário contra o arquivo tsf principal (por exemplo, PerformanceCountersTable.tsf). Os arquivos complementares (por exemplo, PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002.tsf etc.) serão processados automaticamente.
+**Observação**: basta toorun este utilitário em arquivo tsf principal de saudação (por exemplo, PerformanceCountersTable.tsf). Olá arquivos complementares (por exemplo, PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002. tsf etc.) será processado automaticamente.
 
 ### <a name="more-about-trace-logs-missing"></a>Mais informações sobre Logs de rastreamento ausentes
 
-**Observação:** isso principalmente se aplica aos serviços de nuvem apenas, a menos que você tenha configurado o DiagnosticsMonitorTraceListener em um aplicativo em execução na sua VM IaaS. 
+**Observação:** principalmente aplica-se serviços toocloud somente a menos que você configurou Olá DiagnosticsMonitorTraceListener em um aplicativo em execução na sua VM IaaS. 
 
-- Certifique-se de que o DiagnosticMonitorTraceListener está configurado no web.config ou app.config.  Ele é configurado por padrão em projetos do serviço de nuvem, mas alguns clientes comentam sobre ele, o que fará com que as instruções de rastreamento não sejam coletadas pelo diagnóstico. 
-- Se os logs não estiverem sendo gravados a partir do OnStart ou do método Executar, certifique-se de que o DiagnosticMonitorTraceListener está no app.config.  Por padrão, ele está no web.config, mas ele se aplica somente a execução de códigos dentro do w3wp.exe; portanto, você precisa dele no app.config para capturar a execução de rastreamentos no WaIISHost.exe.
-- Certifique-se de que você está usando Diagnostics.Trace.TraceXXX em vez de Diagnostics.Debug.WriteXXX.  As instruções de depuração serão removidas a partir de uma compilação de versão.
-- Certifique-se de que o código compilado, na verdade, tem as linhas Diagnostics.Trace (use Reflector, ildasm ou ILSpy para verificar).  Os comandos Diagnostics.Trace são removidos do binário compilado, a menos que você use o símbolo de compilação condicional TRACE.  Se estiver usando msbuild para compilar o projeto, então esse é um problema comum.
+- Verifique se Olá que diagnosticmonitortracelistener está configurado no Olá Web. config ou App. config.  Isso é configurado por padrão em projetos de serviço de nuvem, mas alguns clientes de comentário fora que fará com que a saudação toonot de instruções de rastreamento seja coletado pelo diagnóstico. 
+- Se não estão obtendo gravados logs de Olá OnStart ou executar método Certifique-se de que Olá que diagnosticmonitortracelistener está em Olá App. config.  Por padrão, ele está em Olá Web. config, mas que se aplica apenas toocode em execução no w3wp.exe; Portanto, você precisa-lo em App. config toocapture rastreamentos em execução no WaIISHost.exe.
+- Certifique-se de que você está usando Diagnostics.Trace.TraceXXX em vez de Diagnostics.Debug.WriteXXX.  Olá instruções de depuração serão removidas de uma compilação de versão.
+- Verifique se o código compilado de saudação realmente tem linhas de trace hello (use tooverify Reflector, ildasm ou ILSpy).  Trace comandos são removidos do binário Olá compilado, a menos que você usar o símbolo de compilação condicional Olá rastreamento.  Se usar o projeto do msbuild toobuild Olá, esta será uma toorun problema comum em.
 
 ## <a name="known-issues-and-mitigations"></a>Problemas e mitigações conhecidos
 Aqui está uma lista dos problemas conhecidos com mitigações conhecidas:
 
 **1. Dependência do .NET 4.5:**
 
-WAD tem uma dependência de tempo de execução no .NET framework 4.5 ou superior. No momento da gravação dele, todos os computadores provisionados para os serviços de nuvem, bem como todas as imagens das máquinas virtuais oficiais do Azure, têm o .NET 4.5 ou superior instalado. No entanto, ainda é possível recair em uma situação na qual você tente executar WAD em um computador que não tem o .NET 4.5 ou superior. Isso acontece quando você cria seu computador fora de uma imagem antiga ou instantâneo; ou traz seu próprio disco personalizado.
+WAD tem uma dependência de tempo de execução no .NET framework 4.5 ou superior. Em tempo de saudação de gravação de isso, todos os computadores provisionados para os serviços de nuvem, bem como todos os oficial do azure base imagens da máquina Virtual tem o .NET 4.5 ou acima instalado. É possível ainda porém tooland em uma situação em que você tente toorun WAD em um computador que não tem o .NET 4.5 ou superior. Isso acontece quando você cria seu computador fora de uma imagem antiga ou instantâneo; ou traz seu próprio disco personalizado.
 
-Isso geralmente se manifesta como um código de saída **255** ao executar o DiagnosticsPluginLauncher.exe. A falha ocorre devido à exceção sem tratamento: 
+Isso geralmente se manifesta como um código de saída **255** ao executar o DiagnosticsPluginLauncher.exe. Falha ocorre devido a toohello sem tratamento de exceção: 
 ```
 System.IO.FileLoadException: Could not load file or assembly 'System.Threading.Tasks, Version=1.5.11.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies
 ```
@@ -266,8 +266,8 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 
 **2. Dados de Contadores de desempenho estão disponíveis no armazenamento, mas não são mostrados no portal**
 
-A experiência do portal de máquinas virtuais mostra determinados contadores de desempenho por padrão. Se você não os vir e souber que os dados estão sendo gerados porque ele está disponível no armazenamento. Verificação:
-- Se os dados no armazenamento possuírem nomes do contador em inglês. Se os nomes do contador não estão em inglês, o gráfico de métrica do portal não poderá reconhecê-los.
-- Se você estiver usando caracteres curinga (\*) em seus nomes do contador de desempenho, o portal não poderá correlacionar o contador coletado e configurado.
+A experiência do portal de máquinas virtuais mostra determinados contadores de desempenho por padrão. Se você não vê-los e você sabe que estão sendo gerados dados saudação porque ele está disponível no armazenamento. Verificação:
+- Se dados Olá no armazenamento possui nomes de contador em inglês. Se os nomes de contadores de saudação não estão em inglês, portal gráfico de métrica não será capaz de toorecognize-lo.
+- Se você estiver usando caracteres curinga (\*) em seus nomes de contador de desempenho, o portal de Olá não será capaz de toocorrelate Olá configurado e coletados contador.
 
-**Mitigação**: altera o idioma do computador para inglês para as contas do sistema. Painel de Controle -> Região -> Administrativos -> Configurações de Cópia -> desmarque "Bem-vindo às contas de tela e do sistema" para que o idioma personalizado não seja aplicado à conta do sistema. Verifique também se você não usa caracteres curinga, se quiser que o portal seja sua experiência de consumo principal.
+**Mitigação**: alterar tooEnglish de idioma do computador Olá para contas do sistema. Painel de controle -> região -> administrativo -> configurações de cópia -> desmarque "Bem-vindo ao sistema e tela contas" para que não seja de idioma personalizado Olá aplicado toosystem conta. Verifique também se que você não usar curingas, se você quiser toobe portal sua experiência de consumo principal.

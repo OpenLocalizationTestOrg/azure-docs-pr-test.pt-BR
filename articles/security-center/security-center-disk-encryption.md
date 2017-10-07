@@ -1,6 +1,6 @@
 ---
-title: "Criptografar uma máquina virtual do Azure | Microsoft Docs"
-description: "Este documento ajudará você a criptografar uma Máquina Virtual do Azure depois de receber um alerta da Central de Segurança do Azure."
+title: "aaaEncrypt uma máquina Virtual do Azure | Microsoft Docs"
+description: "Este documento ajuda tooencrypt uma máquina Virtual Azure depois de receber um alerta da Central de segurança do Azure."
 services: security, security-center
 documentationcenter: na
 author: TomShinder
@@ -14,134 +14,134 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.openlocfilehash: 8d39aafb0ab7b0e87afdf4d2f50f1e224b8d251f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7c7c6eed39d16bde8a0dfaffe3a3331c58101634
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Criptografar uma Máquina Virtual do Azure
-A Central de Segurança do Azure alertará você se houver máquinas virtuais que não estejam criptografadas. Esses alertas serão mostrados como Alta Severidade e a recomendação é criptografar essas máquinas virtuais.
+A Central de Segurança do Azure alertará você se houver máquinas virtuais que não estejam criptografadas. Esses alertas mostrará como recomendação de alta gravidade e hello é tooencrypt essas máquinas virtuais.
 
 ![Recomendação de criptografia de disco](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> As informações neste documento se aplicam à criptografia de máquinas virtuais sem usar uma Chave de Criptografia de Chave (que é necessária para fazer backup de máquinas virtuais usando o Backup do Azure). Confira o artigo [Azure Disk Encryption para máquinas virtuais do Azure do Windows e do Linux](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) para obter informações sobre como usar uma Chave de Criptografia de Chave para dar suporte ao Backup do Azure para Máquinas Virtuais do Azure criptografadas.
+> Olá informações deste documento se aplicam a máquinas virtuais de tooencrypting sem usar uma chave de criptografia de chave (que é necessário para fazer backup de máquinas virtuais usando o Backup do Azure). Consulte o artigo de saudação [disco criptografia para o Microsoft Azure e máquinas virtuais do Linux Azure](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) para obter informações sobre como toouse toosupport uma chave de criptografia de chave do Azure Backup para criptografados máquinas virtuais do Azure.
 >
 >
 
-Para criptografar as Máquinas Virtuais do Azure identificadas pela Central de Segurança do Azure como precisando de criptografia, recomendamos as seguintes etapas:
+tooencrypt máquinas virtuais do Azure que foram identificados pela Central de segurança do Azure que precisam de criptografia, é recomendável Olá etapas a seguir:
 
-* Instalar e configurar o PowerShell do Azure. Isso permitirá que você execute os comandos do PowerShell necessários para a configuração dos pré-requisitos exigidos para criptografar as Máquinas Virtuais do Azure.
-* Obter e executar o script Pré-requisitos de Azure Disk Encryption do Azure PowerShell
+* Instalar e configurar o PowerShell do Azure. Isso permitirá que você toorun Olá PowerShell comandos necessário tooset a saudação de pré-requisitos necessários tooencrypt máquinas virtuais do Azure.
+* Obter e executar o script do PowerShell do Azure disco criptografia pré-requisitos do Azure Olá
 * Criptografar suas máquinas virtuais
 
-O objetivo deste documento é permitir que você criptografe suas máquinas virtuais, mesmo se tiver pouca ou nenhuma experiência com o Azure PowerShell.
-Este documento presume que você esteja usando o Windows 10 como o computador cliente do qual configurará a Azure Disk Encryption.
+meta de saudação deste documento é tooenable você tooencrypt as máquinas virtuais, mesmo se você tem pouca ou nenhuma experiência no Azure PowerShell.
+Este documento assume que você está usando o Windows 10 como computador de cliente de saudação do qual você irá configurar a criptografia de disco do Azure.
 
-Há várias abordagens que podem ser usadas para configurar os pré-requisitos e para configurar a criptografia para Máquinas Virtuais do Azure. Se você já estiver bem familiarizado com o Azure PowerShell ou a CLI do Azure, poderá preferir usar abordagens alternativas.
+Há várias abordagens que podem ser usados toosetup Olá pré-requisitos e criptografia tooconfigure para máquinas virtuais do Azure. Se você já estiver bem familiarizado com Azure PowerShell ou CLI do Azure, talvez você prefira abordagens alternativas toouse.
 
 > [!NOTE]
-> Para saber mais sobre as abordagens alternativas para configurar a criptografia para as máquinas virtuais do Azure, confira [Azure Disk Encryption para Máquinas Virtuais do Azure do Windows e do Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
+> toolearn mais informações sobre criptografia de tooconfiguring métodos alternativos para máquinas virtuais do Azure, consulte [disco criptografia para o Microsoft Azure e máquinas virtuais do Linux Azure](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
 >
 >
 
 ## <a name="install-and-configure-azure-powershell"></a>Instalar e configurar o PowerShell do Azure
-Você precisa do Azure PowerShell versão 1.2.1, ou superior, instalado no computador. O artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) contém todas as etapas necessárias para provisionar o computador para trabalhar com o Azure PowerShell. A abordagem mais simples é usar a abordagem de instalação do Web PI mencionado no artigo. Mesmo que você já tenha instalado o Azure PowerShell, instale novamente usando a abordagem do Web PI para que você tenha a versão mais recente do PowerShell do Azure.
+Você precisa do Azure PowerShell versão 1.2.1, ou superior, instalado no computador. artigo Olá [como tooinstall e configurar o Azure PowerShell](/powershell/azure/overview) contém todas as etapas de saudação precisar tooprovision toowork seu computador com o Azure PowerShell. Olá mais simples é mencionada no artigo abordagem de instalação toouse Olá Web PI. Mesmo se você já tiver o Azure PowerShell instalado, instale novamente usando a abordagem de Web PI Olá para que você tenha a versão mais recente de saudação do PowerShell do Azure.
 
-## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Obtenha e execute o script de configuração de pré-requisitos de criptografia de disco do Azure.
-O Script de Configuração de Pré-requisitos de Azure Disk Encryption configurará todos os pré-requisitos necessários para a criptografia de suas Máquinas Virtuais do Azure.
+## <a name="obtain-and-run-hello-azure-disk-encryption-prerequisites-configuration-script"></a>Obter e executar script de configuração de pré-requisitos de criptografia de disco do Azure Olá
+Olá Script de configuração de pré-requisitos de criptografia do Azure disco irá configurar todos os pré-requisitos de saudação necessários para criptografar as máquinas virtuais do Azure.
 
-1. Acesse a página do GitHub com o [Script de Configuração de Pré-requisito de Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
-2. Na página do GitHub, clique no botão **Bruto** .
-3. Use **CTRL-A** para selecionar todo o texto na página e use **CTRL-C** para copiar todo o texto da página para a área de transferência.
-4. Abra o **Bloco de Notas** e cole nele o texto copiado.
+1. Página do GitHub toohello vá com hello [Script de instalação pré-requisitos do Azure disco criptografia](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+2. Na página de GibHub hello, clique em Olá **Raw** botão.
+3. Use **CTRL-A** tooselect todos os Olá texto na página hello e, em seguida, usar **CTRL-C** toocopy todos Olá texto na área de transferência do hello página toohello.
+4. Abra **o bloco de notas** e cole o texto de saudação copiada no bloco de notas.
 5. Crie uma nova pasta na unidade C: denominada **AzureADEScript**.
-6. Salve o arquivo do Bloco de Notas. Clique em **Arquivo** e em **Salvar como**. Na caixa Nome do arquivo, digite **"ADEPrereqScript.ps1"** e clique em **Salvar**. (coloque aspas ao redor do nome, caso contrário, ele salvará o arquivo com uma extensão .txt).
+6. Salve o arquivo do bloco de notas hello – clique **arquivo**, em seguida, clique em **Salvar como**. No texto de nome de arquivo hello, digite **"ADEPrereqScript.ps1"** e clique em **salvar**. (Verifique se você colocar Olá Olá nome aspas, caso contrário, ele salvará o arquivo hello com uma extensão de arquivo. txt).
 
-Agora que o conteúdo do script está salvo, abra o script no ISE do PowerShell:
+Agora que o conteúdo do script hello for salvo, abra script Olá Olá ISE do PowerShell:
 
-1. No Menu Iniciar, clique em **Cortana**. Solicite “PowerShell” à **Cortana** digitando **PowerShell** na caixa de texto de pesquisa da Cortana.
+1. No Menu Iniciar do hello, clique em **Cortana**. Peça **Cortana** "PowerShell" digitando **PowerShell** na caixa de texto de pesquisa Olá Cortana.
 2. Clique com o botão direito do mouse em **ISE do Windows PowerShell** e clique em **Executar como administrador**.
-3. Na janela **Administrador: ISE do Windows PowerShell**, clique em **Exibir** e clique em **Mostrar Painel de Script**.
-4. Se você vir o painel **Comandos** no lado direito da janela, clique no **"x"** no canto superior direito do painel para fechá-lo. Se o texto for muito pequeno para visualização, use **CTRL+Adicionar** ("Adicionar" é o sinal "+"). Se o texto for muito grande, use **CTRL+Subtrair** (Subtrair é o sinal "-").
-5. Clique em **Arquivo** e clique em **Abrir**. Navegue até a pasta **C:\AzureADEScript** e clique duas vezes no **ADEPrereqScript**.
-6. O conteúdo de **ADEPrereqScript** já deve aparecer no ISE do PowerShell e está codificado por cor para ajudar você a ver diversos componentes, como comandos, parâmetros e variáveis com maior facilidade.
+3. Em Olá **administrador: ISE do Windows PowerShell** janela, clique em **exibição** e, em seguida, clique em **Mostrar painel de Script**.
+4. Se você vir Olá **comandos** painel Olá direita da janela de saudação, clique em Olá **"x"** no canto superior direito de saudação do hello painel tooclose-lo. Se o texto de saudação é muito pequeno para você toosee, use **CTRL + adicionar** ("Adição" Olá "+" assinar). Se o texto de saudação é muito grande, use **CTRL + Subtract** (subtrair é hello "-" logon).
+5. Clique em **Arquivo** e clique em **Abrir**. Navegue toohello **C:\AzureADEScript** pasta e hello clique duas vezes em Olá **ADEPrereqScript**.
+6. Olá **ADEPrereqScript** conteúdo agora deve aparecer em Olá PowerShell ISE e é codificada por cor toohelp você ver vários componentes, como comandos, parâmetros e variáveis com mais facilidade.
 
-Agora você verá algo como a figura abaixo.
+Agora você verá algo parecido com hello figura abaixo.
 
 ![Janela do ISE do PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig2.png)
 
-O painel superior é conhecido como o "painel de script" e o painel inferior é conhecido como "console". Usaremos esses termos neste artigo.
+painel superior Olá é chamado tooas hello "painel de script" e painel inferior de saudação é chamado tooas hello "console". Usaremos esses termos neste artigo.
 
-## <a name="run-the-azure-disk-encryption-prerequisites-powershell-command"></a>Executar o comando do PowerShell de pré-requisitos de criptografia de disco do Azure
-O script Pré-requisitos de Azure Disk Encryption solicitará as informações a seguir depois de iniciar o script:
+## <a name="run-hello-azure-disk-encryption-prerequisites-powershell-command"></a>Execute o comando de PowerShell do hello disco Azure criptografia pré-requisitos
+Olá script pré-requisitos de criptografia de disco do Azure pedirá Olá informações a seguir depois de iniciar o script hello:
 
-* **Nome do Grupo de Recursos** - nome do Grupo de Recursos no qual você deseja colocar o Cofre da Chave.  Um novo Grupo de Recursos com o nome inserido será criado caso ainda não haja um com esse nome. Se você já tiver um Grupo de Recursos que deseja usar nesta assinatura, insira o nome desse Grupo de Recursos.
-* **Nome do Cofre da Chave** - nome do Cofre da Chave no qual as chaves de criptografia devem ser colocadas. Um novo Cofre da Chave com esse nome será criado caso você ainda não tenha um com esse nome. Se você já tiver um Cofre da Chave que deseja usar, insira o nome do cofre existente.
-* **Local** - o local do Cofre da Chave. Verifique se o Cofre da Chave e as VMs a serem criptografados estão no mesmo local. Se você não souber o local, há etapas posteriores neste artigo que mostram como encontrá-lo.
-* **Nome do Aplicativo do Active Directory do Azure** - nome do aplicativo do Azure Active Directory que será usado para gravar segredos no Cofre da Chave. Será criado um novo aplicativo com esse nome caso ele não exista. Se você já tiver um aplicativo do Azure Active Directory que deseja usar, insira o nome do aplicativo do Azure Active Directory.
+* **Nome do grupo de recursos** - nome de grupo de recursos que você deseja tooput do hello Olá Cofre de chaves em.  Um novo grupo de recurso com nome de saudação será criado se já houver um com esse nome criado. Se você já tiver um grupo de recursos que você deseja toouse nesta assinatura, em seguida, digite o nome de saudação desse grupo de recursos.
+* **Nome do Cofre de chave** -nome do Cofre de chaves de saudação em que a criptografia chaves são toobe colocado. Um novo Cofre da Chave com esse nome será criado caso você ainda não tenha um com esse nome. Se você já tiver um cofre de chaves que você deseja toouse, digite o nome de saudação do hello existente Cofre de chaves.
+* **Local** -local do hello Cofre de chaves. Verifique se toobe Cofre de chaves e VMs Olá criptografado no hello mesmo local. Se você não souber o local do hello, há etapas neste artigo que lhe mostrará como toofind-out.
+* **Nome do Azure de aplicativo do Active Directory** -nome de aplicativo do Active Directory do Azure que será usado toowrite segredos toohello Cofre de chaves do hello. Será criado um novo aplicativo com esse nome caso ele não exista. Se você já tiver um aplicativo do Active Directory do Azure que você deseja toouse, insira o nome de saudação do aplicativo do Azure Active Directory.
 
 > [!NOTE]
-> Se você estiver curioso sobre o motivo de precisar criar um aplicativo do Azure Active Directory, confira a seção *Registrar um aplicativo no Azure Active Directory* do artigo [Introdução ao Cofre da Chave do Azure](../key-vault/key-vault-get-started.md).
+> Se você estiver curioso como toowhy precisar toocreate um aplicativo do Active Directory do Azure, consulte *registrar um aplicativo com o Azure Active Directory* seção Olá artigo [guia de Introdução ao Azure Key Vault](../key-vault/key-vault-get-started.md).
 >
 >
 
-Execute as etapas a seguir para criptografar uma Máquina Virtual do Azure:
+Execute Olá seguindo as etapas tooencrypt uma máquina Virtual do Azure:
 
-1. Se você tiver fechado o ISE do PowerShell, abra uma instância com privilégios elevados do ISE do PowerShell. Siga as instruções mostradas anteriormente neste artigo se o ISE do PowerShell ainda não estiver aberto. Se você tiver fechado o script, abra o **ADEPrereqScript.ps1** clicando em **Arquivo**, em **Abrir** e selecionando o script na pasta **c:\AzureADEScript**. Se você estiver seguindo este artigo desde o início, vá para a próxima etapa.
-2. No console do ISE do PowerShell (o painel inferior do ISE do PowerShell), altere o foco para o local do script ao digitar **cd c:\AzureADEScript** e pressione **ENTER**.
-3. Defina a política de execução em seu computador para que você possa executar o script. Digite **Set-ExecutionPolicy Unrestricted** no console e pressione ENTER. Se você vir uma caixa de diálogo informando sobre os efeitos da alteração da política de execução, clique em **Sim para tudo** ou em **Sim** (se você vir **Sim para tudo**, selecione essa opção; se não vir **Sim para todos**, clique em **Sim**).
-4. Faça logon na sua conta do Azure. No console, digite **Login-AzureRmAccount** e pressione **ENTER**. Será exibida uma caixa de diálogo na qual você vai inserir suas credenciais (verifique se tem direitos para alterar as máquinas virtuais. Caso não tenha direitos, não poderá criptografá-las. Se você não tiver certeza, pergunte ao proprietário da assinatura ou ao administrador). Você deverá ver informações sobre seu **Ambiente**, **Conta**, **TenantId**, **SubscriptionId** e **CurrentStorageAccount**. Copie o **SubscriptionId** no bloco de notas. Você precisará usá-la na etapa 6.
-5. Descubra a assinatura à qual sua máquina virtual pertence e sua localização. Entre em [https://portal.azure.com](ttps://portal.azure.com) e faça logon.  No lado esquerdo da página, clique em **Máquinas Virtuais**. Você verá uma lista de suas máquinas virtuais e as assinaturas às quais elas pertencem.
+1. Se você fechou Olá ISE do PowerShell, abra uma instância com privilégios elevados do hello PowerShell ISE. Siga as instruções de saudação neste artigo se Olá que PowerShell ISE não ainda estiver aberto. Se você fechou o script hello, abra Olá **ADEPrereqScript.ps1** clicando em **arquivo**, em seguida, **abrir** e selecionando o script hello da saudação **c:\ AzureADEScript** pasta. Se você seguiu neste artigo do início do hello, apenas vá toohello próxima etapa.
+2. No console de saudação do hello PowerShell ISE (painel do hello inferior da saudação PowerShell ISE), alterar Olá foco toohello local do script hello digitando **cd c:\AzureADEScript** e pressione **ENTER**.
+3. Definir política de execução de saudação em seu computador para que você possa executar o script hello. Tipo **Set-ExecutionPolicy Unrestricted** em Olá console e pressione ENTER. Se você vir uma caixa de diálogo informando sobre os efeitos de saudação da política de tooexecution de alteração de saudação, clique em **Sim tooall** ou **Sim** (se você vir **Sim tooall**, selecione a opção – se Você não vir **Sim tooall**, em seguida, clique em **Sim**).
+4. Faça logon na sua conta do Azure. No console do hello, digite **Login AzureRmAccount** e pressione **ENTER**. Será exibida uma caixa de diálogo em que você insira suas credenciais (Verifique se você tem máquinas virtuais do direitos toochange hello – se você não tiver direitos, não será capaz de tooencrypt-los. Se você não tiver certeza, pergunte ao proprietário da assinatura ou ao administrador). Você deverá ver informações sobre seu **Ambiente**, **Conta**, **TenantId**, **SubscriptionId** e **CurrentStorageAccount**. Saudação de cópia **SubscriptionId** tooNotepad. Você precisará toouse isso na etapa &#6;.
+5. Localizar sua máquina virtual de qual assinatura pertence tooand seu local. Vá muito[https://portal.azure.com](ttps://portal.azure.com) e faça logon.  No hello lado esquerdo da página de saudação, clique em **máquinas virtuais**. Você verá uma lista de suas máquinas virtuais e assinaturas de saudação pertencerem a.
 
    ![Máquinas Virtuais](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)
-6. Volte para o ISE do PowerShell. Defina o contexto da assinatura no qual o script será executado. No console, digite **Select-AzureRmSubscription –SubscriptionId <sua_Id_assinatura >** (substitua **<sua_Id_assinatura >** por sua ID de assinatura real) e pressione **ENTER**. Você deverá ver informações sobre seu Ambiente, **Conta**, **TenantId**, **SubscriptionId** e **CurrentStorageAccount**.
-7. Agora você está pronto para executar o script. Clique no botão **Executar Script** ou pressione **F5** no teclado.
+6. Retorne toohello PowerShell ISE. Definir Olá assinatura contexto no qual o script hello será executado. No console do hello, digite **AzureRmSubscription selecione – SubscriptionId < your_subscription_Id >** (substitua **< your_subscription_Id >** com sua ID de assinatura real) e pressione  **Digite**. Você verá informações sobre Olá ambiente, **conta**, **TenantId**, **SubscriptionId** e **CurrentStorageAccount**.
+7. Agora você está pronto toorun script de saudação. Clique em Olá **Executar Script** botão ou pressione **F5** teclado hello.
 
    ![Execução de script do PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig4.png)
-8. O script solicita o **resourceGroupName:** – insira o nome do *Grupo de Recursos* que você deseja usar e pressione **ENTER**. Se você não tiver um, insira um nome que você deseja usar em um novo grupo. Se você já tiver um *Grupo de Recursos* que deseja usar (como aquele em que sua máquina virtual está), insira o nome do Grupo de Recursos existente.
-9. O script solicita o **keyVaultName** : - insira o nome do *Cofre da Chave* que você deseja usar e pressione ENTER. Se você não tiver um, insira um nome que você deseja usar em um novo grupo. Se você já tiver um Cofre da Chave que deseja usar, insira o nome do *Cofre da Chave*existente.
-10. O script solicita o **local:** – insira o nome do local no qual a VM que você deseja criptografar está localizada e pressione **ENTER** a seguir. Se você não se lembrar do local, volte para a etapa 5.
-11. O script solicita o **aadAppName:** – insira o nome do aplicativo do *Azure Active Directory* que você deseja usar e pressione **ENTER**. Se você não tiver um, insira um nome que você deseja usar em um novo grupo. Se você já tiver um *aplicativo do Azure Active Directory* que deseja usar, insira o nome do *aplicativo do Azure Active Directory* existente.
-12. Será exibida uma caixa de diálogo de logon. Forneça suas credenciais (sim, você fez logon uma vez, mas agora precisa fazer novamente).
-13. O script é executado e, quando for concluído, solicitará que você copie os valores da **aadClientID**, do **aadClientSecret**, da **diskEncryptionKeyVaultUrl** e da **keyVaultResourceId**. Copie cada um desses valores para a área de transferência e cole-os no Bloco de Notas.
-14. Volte para o ISE do PowerShell e coloque o cursor do mouse no final da última linha e pressione **ENTER**.
+8. script Hello solicita **resourceGroupName:** -Insira nome de saudação do *grupo de recursos* você deseja toouse, em seguida, pressione **ENTER**. Se você não tiver um, insira um nome que você deseja toouse para um novo. Se você já tiver um *grupo de recursos* que você deseja toouse (como Olá um que sua máquina virtual está em), digite nome Olá Olá grupo de recursos existente.
+9. script Hello solicita **keyVaultName:** -Insira nome de saudação do hello *Cofre de chaves* desejado toouse e pressione ENTER. Se você não tiver um, insira um nome que você deseja toouse para um novo. Se você já tiver um cofre de chaves que você deseja toouse, digite o nome de saudação do hello existente *Cofre de chaves*.
+10. script Hello solicita **local:** - Insira nome de saudação do local de saudação em qual Olá VM que você deseja tooencrypt está localizado, e pressione **ENTER**. Se você não lembrar local hello, volte toostep #5.
+11. script Hello solicita **aadAppName:** -Insira nome de saudação do hello *Active Directory do Azure* aplicativo deseja toouse, em seguida, pressione **ENTER**. Se você não tiver um, insira um nome que você deseja toouse para um novo. Se você já tiver um *aplicativo do Azure Active Directory* que você deseja toouse, digite nome de saudação do hello existente *aplicativo do Azure Active Directory*.
+12. Será exibida uma caixa de diálogo de logon. Forneça suas credenciais (Sim, você fez uma vez, mas agora, é necessário toodo-lo novamente).
+13. executa o script Hello e ao concluir solicitará que você toocopy valores Olá Olá **aadClientID**, **aadClientSecret**, **diskEncryptionKeyVaultUrl**e **keyVaultResourceId**. Copiar cada área de transferência de toohello esses valores e colá-los no bloco de notas.
+14. Retornar toohello PowerShell ISE e coloque o cursor Olá final Olá Olá última linha e pressione **ENTER**.
 
-A saída do script deve ser semelhante à tela abaixo:
+saída de saudação do script hello deve ser semelhante a tela hello abaixo:
 
 ![Saída do PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig5.png)
 
-## <a name="encrypt-the-azure-virtual-machine"></a>Criptografar a máquina virtual do Azure
-Agora você está pronto para criptografar sua máquina virtual. Se sua máquina virtual estiver localizada no mesmo Grupo de Recursos que seu Cofre da Chave, você poderá prosseguir para a seção de etapas de criptografia. No entanto, se sua máquina virtual não estiver no mesmo Grupo de Recursos que o Cofre da Chave, será necessário inserir o seguinte no console do ISE do PowerShell:
+## <a name="encrypt-hello-azure-virtual-machine"></a>Criptografar Olá máquina virtual do Azure
+Você está agora pronto tooencrypt sua máquina virtual. Se sua máquina virtual está localizada em Olá mesmo grupo de recursos, como seu Cofre de chave, você pode mover na seção de etapas de criptografia toohello. No entanto, se sua máquina virtual não está em hello mesmo recurso de grupo como seu Cofre de chaves, você precisará tooenter seguinte Olá console Olá Olá ISE do PowerShell:
 
 **$resourceGroupName = <’GR_da_Máquina_Virtual’>**
 
-Substitua **<GR_da_Máquina_Virtual>** pelo nome do Grupo de Recursos no qual suas máquinas virtuais estão contidas, entre aspas simples. Em seguida, pressione **ENTER**.
-Para confirmar se o nome do Grupo de Recursos correto foi inserido, digite o seguinte no console do ISE do PowerShell:
+Substituir **< Virtual_Machine_RG >** com nome Olá Olá do grupo de recursos contidas na qual as máquinas virtuais, delimitados por aspas simples. Em seguida, pressione **ENTER**.
+tooconfirm Olá correto foi digitado o nome de grupo de recursos, digite a seguir Olá Olá console de ISE do PowerShell:
 
 **$resourceGroupName**
 
-Pressione **ENTER**. Você deverá ver o nome do Grupo de Recursos em que suas máquinas virtuais estão localizadas. Por exemplo:
+Pressione **ENTER**. Você deve ver o nome de saudação do grupo de recursos localizados em suas máquinas virtuais. Por exemplo:
 
 ![Saída do PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig6.png)
 
 ### <a name="encryption-steps"></a>Etapas de criptografia
-Primeiro, você precisa dizer ao PowerShell o nome da máquina virtual que deseja criptografar. No console, digite:
+Primeiro, é necessário o nome de saudação do PowerShell tootell da máquina virtual de saudação desejado tooencrypt. No console do hello, digite:
 
 **$vmName = <’nome_da_sua_vm’>**
 
-Substitua **<'nome_da_sua_vm ' >** pelo nome da sua VM (verifique se o nome está entre aspas simples) e pressione **ENTER**.
+Substituir **<'your_vm_name ' >** com o nome de saudação da VM (Verifique se o nome hello está circundada por uma aspa simples) e, em seguida, pressione **ENTER**.
 
-Para confirmar se o nome correto da VM foi inserido, digite:
+tooconfirm que Olá correto VM nome foi inserido, digite:
 
 **$vmName**
 
-Pressione **ENTER**. Você deverá ver o nome da máquina virtual que deseja criptografar. Por exemplo:
+Pressione **ENTER**. Você deve ver Olá nome da máquina virtual de saudação desejado tooencrypt. Por exemplo:
 
 ![Saída do PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 
-Há dois métodos para executar o comando de criptografia para criptografar todas as unidades na máquina virtual. O primeiro método é digitar o seguinte comando no console do ISE do PowerShell:
+Há dois métodos toorun Olá criptografia comando tooencrypt todas as unidades na máquina virtual de saudação. Olá primeiro método é Olá tootype comando no hello console de ISE do PowerShell a seguir:
 
 ~~~
 Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId -VolumeType All
@@ -149,32 +149,32 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMNa
 
 Depois de digitar esse comando, pressione **ENTER**.
 
-O segundo método é clicar no painel de script (o painel superior do ISE do PowerShell) e rolar até o final do script. Realce o comando listado acima, clique com o botão direito do mouse nele e clique em **Executar Seleção** ou pressione **F8** no teclado.
+Olá segundo método é tooclick no painel de script hello (painel superior Olá de saudação PowerShell ISE) e role para baixo toohello inferior do script hello. Realce comando Olá listado acima e, em seguida, clique com botão direito-lo e, em seguida, clique em **executar seleção** ou pressione **F8** teclado hello.
 
 ![ISE do PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig8.png)
 
-Independentemente do método usado, será exibida uma caixa de diálogo informando que a operação levará de 10 a 15 minutos para ser concluída. Clique em **Sim**.
+Independentemente do método hello você usar uma caixa de diálogo será exibida informando que levará 10 a 15 minutos para Olá operação toocomplete. Clique em **Sim**.
 
-Durante o processo de criptografia, é possível retornar ao Portal do Azure e ver o status da máquina virtual. No lado esquerdo da página, clique em **Máquinas Virtuais** e, na folha **Máquinas Virtuais**, clique no nome da máquina virtual que você está criptografando. Na folha exibida, você observará que o **Status** diz **Atualizando**. Isso demonstra que a criptografia está em andamento.
+Durante o processo de criptografia Olá, você pode retornar toohello Portal do Azure e ver o status de saudação da máquina virtual de saudação. No hello lado esquerdo da página de saudação, clique em **máquinas virtuais**, em seguida no hello **máquinas virtuais** folha, clique Olá nome da máquina virtual de saudação estiver criptografando. Na folha de saudação que aparece, você observará que Olá **Status** diz que é **atualização**. Isso demonstra que a criptografia está em andamento.
 
-![Mais detalhes sobre a VM](./media/security-center-disk-encryption/security-center-disk-encryption-fig9.png)
+![Para obter mais detalhes sobre Olá VM](./media/security-center-disk-encryption/security-center-disk-encryption-fig9.png)
 
-Volte para o ISE do PowerShell. Quando o script for concluído, você verá o que aparece na figura abaixo.
+Retorne toohello PowerShell ISE. Quando o script hello for concluído, você verá o que é exibido na figura abaixo a saudação.
 
 ![Saída do PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig10.png)
 
-Para demonstrar que a máquina virtual já está criptografada, retorne ao Portal do Azure e clique em **Máquinas Virtuais** no lado esquerdo da página. Clique no nome da máquina virtual que você criptografou. Na folha **Configurações**, clique em **Discos**.
+toodemonstrate que Olá máquina virtual agora é criptografada, retornar toohello Portal do Azure e clique em **máquinas virtuais** em Olá lado esquerdo da página de saudação. Clique Olá nome da máquina virtual de saudação que você criptografou. Em Olá **configurações** folha, clique em **discos**.
 
 ![Opções de configurações](./media/security-center-disk-encryption/security-center-disk-encryption-fig11.png)
 
-Na folha **Discos**, você verá que a **Criptografia** está **Habilitada**.
+Em Olá **discos** folha, você verá que **criptografia** é **habilitado**.
 
 ![Propriedades de discos](./media/security-center-disk-encryption/security-center-disk-encryption-fig12.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste documento, você aprendeu a criptografar uma Máquina Virtual do Azure. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:
+Neste documento, você aprendeu como tooencrypt uma máquina Virtual do Azure. toolearn mais sobre o Centro de segurança do Azure, consulte o seguinte hello:
 
-* [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure
-* [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
-* [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço
+* [Monitoramento de integridade de segurança na Central de segurança do Azure](security-center-monitoring.md) – Saiba como toomonitor Olá a integridade de seus recursos do Azure
+* [Gerenciando e respondendo toosecurity alertas na Central de segurança do Azure](security-center-managing-and-responding-alerts.md) -Saiba como alertas de toosecurity toomanage e responder
+* [Perguntas frequentes sobre o Centro de segurança do Azure](security-center-faq.md) – localizar perguntas frequentes sobre como usar o serviço de saudação
 * [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure

@@ -1,6 +1,6 @@
 ---
-title: "Resultados de teste para replicação do Hyper-V entre sites com o Azure Site Recovery | Microsoft Docs"
-description: "Este artigo fornece informações sobre os testes de desempenho para a replicação do local para o local de VMs do Hyper-V usando o Azure Site Recovery."
+title: "resultados de aaaTest para replicação do Hyper-V entre sites com o Azure Site Recovery | Microsoft Docs"
+description: "Este artigo fornece informações sobre o teste de desempenho para replicação de tooon local no local de VMs Hyper-V usando o Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,62 +14,62 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/24/2017
 ms.author: raynew
-ms.openlocfilehash: a9bec774b5482de87eefcd0c87844a2adbd98bbe
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3b37542fc88e0af05e05cee78183983667618816
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="test-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>Resultados do teste para a replicação Hyper-V do local para o local com o Site Recovery
+# <a name="test-results-for-on-premises-tooon-premises-hyper-v-replication-with-site-recovery"></a>Resultados de teste para replicação de Hyper-V local tooon local com a recuperação de Site
 
-Você pode usar o Microsoft Azure Site Recovery para orquestrar e gerenciar a replicação de máquinas virtuais e de servidores físicos para o Azure ou em um datacenter secundário. Este artigo fornece os resultados do teste de desempenho que fizemos ao replicar máquinas virtuais do Hyper-V entre dois datacenters locais.
+Você pode usar o Microsoft Azure Site Recovery tooorchestrate e gerenciar a replicação de máquinas virtuais e servidores físicos tooAzure ou datacenter secundário tooa. Este artigo fornece resultados de saudação do teste de desempenho que fizemos ao replicar máquinas virtuais Hyper-V entre dois locais datacenters.
 
 ## <a name="test-goals"></a>Objetivos do teste
 
-O objetivo do teste é examinar o desempenho do Azure Site Recovery durante a replicação em estado estável. A replicação em estado estável ocorre após a conclusão da replicação inicial das máquinas virtuais e durante a sincronizando das alterações delta. É importante medir o desempenho usando o estado estável, pois esse é o estado no qual a maioria das máquinas virtuais permanece, a menos que ocorra alguma interrupção inesperada.
+meta de saudação do teste foi tooexamine como o Azure Site Recovery executa durante a replicação de estado estacionário. A replicação em estado estável ocorre após a conclusão da replicação inicial das máquinas virtuais e durante a sincronizando das alterações delta. É importante toomeasure desempenho usando o estado constante porque é Olá o estado em que a maioria das máquinas virtuais permanecem a menos que ocorram interrupções inesperadas.
 
-A implantação de teste é formada por dois sites locais com um servidor VMM em cada site. Essa implantação de teste é típica de uma implantação de sede/filial, na qual a sede age como o site primário e a filial como o site secundário, ou de recuperação.
+implantação de teste Olá consistia em dois sites locais com um servidor VMM em cada site. Esta implantação de teste é típica de uma implantação de escritório de sede/filial, com sede agindo como o site primário hello e filial hello como o site secundário ou de recuperação de saudação.
 
 ## <a name="what-we-did"></a>O que fizemos
 
-Veja o que fizemos no teste aprovado:
+Aqui está o que no teste de saudação passamos:
 
 1. Criação de máquinas virtuais usando modelos do VMM.
 2. Inicialização das máquinas virtuais e captura das métricas de desempenho de linha de base durante 12 horas.
 3. Criação de nuvens em servidores VMM primário e de recuperação.
 4. Configuração da proteção da nuvem no Azure Site Recovery, incluindo o mapeamento de nuvens de origem e de recuperação.
-5. Habilitação da proteção para máquinas virtuais e permissão para conclusão da replicação inicial.
+5. Habilitar a proteção para máquinas virtuais e permitir que eles toocomplete a replicação inicial.
 6. Espera de algumas horas para a estabilização do sistema.
 7. Captura de métricas de desempenho durante 12 horas, garantindo que todas as máquinas virtuais permaneçam em um estado de replicação esperado durante essas 12 horas.
-8. Medição do delta entre as métricas de desempenho de linha de base e as métricas de desempenho de replicação.
+8. Medir delta Olá entre métricas de desempenho de linha de base de saudação e Olá métricas de desempenho de replicação.
 
 
 ## <a name="primary-server-performance"></a>Desempenho do servidor primário
 
-* A Réplica do Hyper-V armazena de forma assíncrona as alterações em um arquivo de log, com o mínimo de sobrecarga de armazenamento no servidor primário.
-* A Réplica do Hyper-V utiliza um cache de memória mantido automaticamente para minimizar a sobrecarga de IOPS do armazenamento. Ela armazena gravações feitas no VHDX na memória e as descarrega no arquivo de log antes de o log ser enviado ao site de recuperação. Também ocorrerá uma limpeza do disco se as gravações atingirem um limite predeterminado.
-* O gráfico abaixo mostra a sobrecarga de IOPS em estado estável para replicação. Podemos ver que a sobrecarga de IOPS causada pela replicação é de aproximadamente 5%, que é um valor muito baixo.
+* Réplica do Hyper-V arquivo de log de tooa alterações com sobrecarga mínima de armazenamento no servidor primário Olá controla de forma assíncrona.
+* Réplica do Hyper-V utiliza memória automantido cache toominimize IOPS sobrecarga para o rastreamento. Ele armazena gravações toohello VHDX em memória e liberações-los para o arquivo de log Olá Olá antes de tempo que o log Olá é enviado toohello site de recuperação. Uma limpeza de disco também acontecerá se Olá gravações atingirem um limite predeterminado.
+* gráfico de saudação abaixo mostra a sobrecarga IOPS de estado estacionário Olá para replicação. Podemos ver que Olá tooreplication vencimento sobrecarga de IOPS é aproximadamente 5% que é muito baixa.
 
 ![Resultados primários](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744913.png)
 
-A Réplica do Hyper-V utiliza a memória no servidor primário para aprimorar o desempenho do disco. Conforme mostra o gráfico a seguir, a sobrecarga da memória em todos os servidores no cluster primário é insignificante. A sobrecarga da memória exibida é a porcentagem da memória usada pela replicação em comparação à memória total instalada no servidor Hyper-V.
+Réplica do Hyper-V utiliza memória no desempenho do disco de toooptimize Olá servidor primário. Conforme mostrado na Olá gráfico a seguir, a sobrecarga de memória em todos os servidores no cluster primário Olá é marginal. Olá sobrecarga de memória mostrada é a porcentagem de saudação de memória usada pela replicação em comparação comparada memória de toohello total instalada no servidor do Hyper-V hello.
 
 ![Resultados primários](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744914.png)
 
-A Réplica do Hyper-V tem uma sobrecarga mínima de CPU. Conforme mostra o gráfico, a sobrecarga de replicação está na faixa de 2 a 3%.
+A Réplica do Hyper-V tem uma sobrecarga mínima de CPU. Conforme mostrado no gráfico de hello, sobrecarga de replicação está no intervalo de saudação do % 2 a 3.
 
 ![Resultados primários](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744915.png)
 
 ## <a name="secondary-recovery-server-performance"></a>Desempenho do servidor secundário (recuperação)
 
-A Réplica do Hyper-V usa uma pequena quantidade de memória no servidor de recuperação para otimizar o número de operações de armazenamento. O gráfico resume o uso da memória no servidor de recuperação. A sobrecarga da memória exibida é a porcentagem da memória usada pela replicação em comparação à memória total instalada no servidor Hyper-V.
+Réplica do Hyper-V usa uma pequena quantidade de memória no número de Olá Olá recuperação servidor toooptimize de operações de armazenamento. gráfico de Olá resume o uso de memória Olá no servidor de recuperação de saudação. Olá sobrecarga de memória mostrada é a porcentagem de saudação de memória usada pela replicação em comparação comparada memória de toohello total instalada no servidor do Hyper-V hello.
 
 ![Resultados secundários](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744916.png)
 
-A quantidade de operações de E/S no site de recuperação é uma função do número de operações de gravação no site primário. Vamos examinar o total de operações de E/S no site de recuperação, em comparação com o total de operações de E/S e de operações de gravação no site primário. Os gráficos mostram que o total de IOPS no site de recuperação é de
+quantidade de saudação de operações de e/s no site de recuperação de saudação é uma função do número de saudação de operações de gravação no site primário hello. Vamos examinar a operações de e/s total Olá no site de recuperação de saudação em comparação com operações de e/s total hello e operações de gravação em um site primário hello. gráficos de saudação mostram esse total de Olá que IOPS no site de recuperação de saudação é
 
-* Cerca de 1,5 vezes o IOPS de gravação no primário.
-* Cerca de 37% do IOPS total no site primário.
+* Saudação de cerca de 1,5 vezes IOPS de gravação em Olá primário.
+* Em torno 37% da saudação total de IOPS no site primário hello.
 
 ![Resultados secundários](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744917.png)
 
@@ -77,35 +77,35 @@ A quantidade de operações de E/S no site de recuperação é uma função do n
 
 ## <a name="effect-on-network-utilization"></a>Efeito na utilização da rede
 
-Foi usada uma média de 275 MB por segundo de largura de banda de rede entre os nós primário e de recuperação (com compactação habilitada) de uma largura de banda existente de 5 GB por segundo.
+Uma média de 275 Mb por segundo de largura de banda de rede foi usada entre hello primário e nós de recuperação (com compactação habilitada) em relação a uma largura de banda existente de 5 Gb por segundo.
 
 ![Resultados da utilização da rede](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744919.png)
 
 ## <a name="effect-on-vm-performance"></a>Efeito no desempenho da VM
 
-Uma consideração importante é o impacto da replicação nas cargas de trabalho de produção em execução nas máquinas virtuais. Se o site primário for adequadamente provisionado para replicação, não deverá haver qualquer impacto nas cargas de trabalho. O mecanismo leve de controle leve da Réplica do Hyper-V garante que as cargas de trabalho em execução nas máquinas virtuais não sejam afetadas durante a replicação em estado estável. Os gráficos a seguir ilustram isso.
+Uma consideração importante é o impacto de saudação da replicação nas cargas de trabalho de produção em execução em máquinas virtuais de saudação. Se o site primário hello está configurado adequadamente para replicação, não deve haver qualquer impacto em cargas de trabalho de saudação. Mecanismo de controle de leve da réplica do Hyper-V garante que as cargas de trabalho em execução em máquinas virtuais de saudação não sejam afetadas durante a replicação de estado estacionário. Isso é ilustrado no hello gráficos a seguir.
 
-Este gráfico mostra o IOPS realizado por máquinas virtuais executando cargas de trabalho diferentes, antes e depois da habilitação da replicação. Perceba que não há diferença entre elas.
+Este gráfico mostra o IOPS realizado por máquinas virtuais executando cargas de trabalho diferentes, antes e depois da habilitação da replicação. Você pode observar que não há nenhuma diferença entre hello dois.
 
 ![Resultados do efeito de réplica](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744920.png)
 
-O gráfico a seguir mostra a taxa de transferência de máquinas virtuais executando cargas de trabalho diferentes, antes e depois da habilitação da replicação. Você pode observar que a replicação não tem impacto significativo.
+Olá gráfico a seguir mostra taxa de transferência de saudação de máquinas virtuais executando cargas de trabalho diferentes antes e depois que a replicação foi habilitada. Você pode observar que a replicação não tem impacto significativo.
 
 ![Efeitos da réplica dos resultados](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744921.png)
 
 ## <a name="conclusion"></a>Conclusão
 
-Os resultados mostram claramente que o Azure Site Recovery, junto com a Réplica do Hyper-V, se ajusta muito bem com uma sobrecarga mínima para um cluster grande.  O Azure Site Recovery oferece implantação, replicação, gerenciamento e monitoramento simplificado. A Réplica do Hyper-V fornece a infraestrutura necessária para o ajuste da replicação. Para planejar uma implantação ideal, sugerimos que você baixe o [Capacity Planner da Réplica Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057).
+resultados de saudação mostram claramente a Azure Site Recovery, juntamente com a réplica do Hyper-V, pode ser dimensionado com sobrecarga mínima para um cluster grande.  O Azure Site Recovery oferece implantação, replicação, gerenciamento e monitoramento simplificado. Réplica do Hyper-V fornece infraestrutura necessária Olá para dimensionamento de replicação com êxito. Para planejar uma implantação ideal, sugerimos que você baixe Olá [Planejador de capacidade de réplica do Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057).
 
 ## <a name="test-environment-details"></a>Detalhes do ambiente de teste
 
 ### <a name="primary-site"></a>Site primário
 
-* O site primário tem um cluster com cinco servidores Hyper-V executando 470 máquinas virtuais.
-* As máquinas virtuais executam cargas de trabalho diferentes e todas têm a proteção do Azure Site Recovery habilitada.
-* O armazenamento para o nó do cluster é fornecido por uma SAN do iSCSI. Modelo – Hitachi HUS130.
+* site primário Olá tem um cluster com cinco servidores Hyper-V executando 470 máquinas virtuais.
+* máquinas virtuais de saudação executar cargas de trabalho diferentes, e todos têm a proteção do Azure Site Recovery habilitada.
+* O armazenamento para o nó de cluster Olá é fornecido por uma SAN iSCSI. Modelo – Hitachi HUS130.
 * Cada servidor de cluster tem quatro placas de rede (NICs) de um Gbps cada.
-* Duas das placas de rede estão conectadas a uma rede iSCSI privada e duas estão conectadas a uma rede empresarial externa. Uma das redes externas está reservada apenas para comunicações de cluster.
+* Duas das placas de rede Olá são rede privada de iSCSI conectado tooan e dois são rede empresarial externa de tooan conectado. Uma das redes externas Olá é reservada para comunicações de cluster apenas.
 
 ![Principais requisitos de hardware](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744922.png)
 
@@ -116,8 +116,8 @@ Os resultados mostram claramente que o Azure Site Recovery, junto com a Réplica
 
 ### <a name="secondary-recovery-site"></a>Site secundário (recuperação)
 
-* O site secundário tem um cluster de failover com seis nós.
-* O armazenamento para o nó do cluster é fornecido por uma SAN do iSCSI. Modelo – Hitachi HUS130.
+* site secundário Olá tem um cluster de failover de seis nós.
+* O armazenamento para o nó de cluster Olá é fornecido por uma SAN iSCSI. Modelo – Hitachi HUS130.
 
 ![Principais especificações de hardware](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744923.png)
 
@@ -131,8 +131,8 @@ Os resultados mostram claramente que o Azure Site Recovery, junto com a Réplica
 ### <a name="server-workloads"></a>Cargas de trabalho do servidor
 
 * Para fins de teste, escolhemos as cargas de trabalho normalmente usadas em cenários de clientes empresariais.
-* Usamos [IOMeter](http://www.iometer.org) com as características de carga de trabalho resumidas na tabela para fins de simulação.
-* Todos os perfis do IOMeter são definidos para gravar bytes aleatórios a fim de simular os piores padrões de gravação para cargas de trabalho.
+* Usamos [IOMeter](http://www.iometer.org) com característica de carga de trabalho Olá resumida na tabela Olá para simulação.
+* Todos os perfis do IOMeter são definidos padrões de gravação do pior caso de toosimulate toowrite bytes aleatórios para cargas de trabalho.
 
 | Carga de trabalho | Tamanho de E/S (KB) | % de acesso | % de leitura | E/Ss pendentes | Padrão de E/S |
 | --- | --- | --- | --- | --- | --- |
@@ -144,9 +144,9 @@ Os resultados mostram claramente que o Azure Site Recovery, junto com a Réplica
 
 ### <a name="vm-configuration"></a>Configuração da VM
 
-* 470 máquinas virtuais no cluster primário.
+* 470 máquinas virtuais no cluster primário hello.
 * Todas as máquinas virtuais com disco VHDX.
-* Máquinas virtuais executando cargas de trabalho resumidas na tabela. Todas foram criadas com modelos do VMM.
+* Máquinas virtuais executando cargas de trabalho resumidas na tabela de saudação. Todas foram criadas com modelos do VMM.
 
 | Carga de trabalho | Nº de VMs | RAM mínima (GB) | RAM máxima (GB) | Tamanho de disco lógico (GB) por VM | IOPS máximo |
 | --- | --- | --- | --- | --- | --- |
@@ -159,10 +159,10 @@ Os resultados mostram claramente que o Azure Site Recovery, junto com a Réplica
 
 ### <a name="site-recovery-settings"></a>Configurações do Site Recovery
 
-* O Azure Site Recovery foi configurada para do local para o local
-* O servidor VMM tem quatro nuvens configuradas e contendo servidores de cluster do Hyper-V e suas máquinas virtuais.
+* O Azure Site Recovery foi configurado para proteção local tooon de local
+* servidor do VMM Olá tem quatro nuvens configuradas, que contém servidores de cluster do Hyper-V hello e suas máquinas virtuais.
 
-| Nuvem VMM primária | Máquinas virtuais protegidas na nuvem | Frequência de replicação | Pontos de recuperação adicionais |
+| Nuvem VMM primária | Máquinas virtuais na nuvem Olá protegidas | Frequência de replicação | Pontos de recuperação adicionais |
 | --- | --- | --- | --- |
 | PrimaryCloudRpo15m |142 |15 min |Nenhum |
 | PrimaryCloudRpo30s |47 |30 segundos |Nenhum |
@@ -171,7 +171,7 @@ Os resultados mostram claramente que o Azure Site Recovery, junto com a Réplica
 
 ### <a name="performance-metrics"></a>Métricas de desempenho
 
-A tabela resume as métricas e os contadores de desempenho medidos na implantação.
+tabela Olá resume as métricas de desempenho de saudação e contadores que foram medidos na implantação de saudação.
 
 | Métrica | Contador |
 | --- | --- |

@@ -1,6 +1,6 @@
 ---
-title: "Controlar alterações com o Azure Log Analytics | Microsoft Docs"
-description: "A solução Controle de Alterações no Log Analytics ajuda a identificar alterações no software e nos Serviços Windows que ocorrem no ambiente."
+title: "alterações de aaaTrack com análise de logs do Azure | Microsoft Docs"
+description: "Olá solução de controle de alterações na análise de Log ajuda a identificar o software e alterações de serviço do Windows que ocorrem em seu ambiente."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -15,52 +15,52 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 2bb1938caad25101e167927200ac3ef495120fe0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações de software no ambiente com a solução Controle de Alterações
+# <a name="track-software-changes-in-your-environment-with-hello-change-tracking-solution"></a>Controlar as alterações de software em seu ambiente com hello solução controle de alterações
 
 ![Símbolo do Controle de Alterações](./media/log-analytics-change-tracking/change-tracking-symbol.png)
 
-Este artigo ajuda você a usar a solução de Controle de Alterações em Log Analytics para identificar facilmente as alterações em seu ambiente. A solução rastreia as alterações no software Windows e Linux, nos arquivos Windows e chaves do Registro, nos serviços Windows e nos daemons do Linux. Identificar as alterações de configuração pode ajudá-lo a detectar problemas operacionais.
+Este artigo ajuda você a use Olá solução de controle de alterações na análise de Log tooeasily identificar alterações em seu ambiente. solução de saudação rastreia alterações tooWindows e software Linux, arquivos do Windows e chaves do registro, serviços do Windows e Linux daemons. Identificar as alterações de configuração pode ajudá-lo a detectar problemas operacionais.
 
-Instale a solução para atualizar o tipo de agente já instalado. Alterações de software instalado, serviços do Windows e Linux daemons nos servidores monitorados são lidos. Em seguida, os dados são enviados para o serviço de análise de Log na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas à sua infraestrutura de servidor.
+Instalar o tipo de saudação do hello solução tooupdate de agente que você instalou. Alterações tooinstalled software, serviços do Windows e daemons do Linux em servidores de saudação monitorada são lidos. Olá os dados são enviados de serviço de análise de Log toohello na nuvem Olá para processamento. Lógica é aplicada toohello recebida dados e o serviço de nuvem Olá registra dados de saudação. Usando informações de saudação no painel de controle de alterações de saudação, você pode ver facilmente as alterações de saudação que foram feitas em sua infraestrutura de servidor.
 
-## <a name="installing-and-configuring-the-solution"></a>Instalando e configurando a solução
-Use as informações a seguir para instalar e configurar a solução.
+## <a name="installing-and-configuring-hello-solution"></a>Instalando e configurando a solução Olá
+Use Olá tooinstall informações a seguir e configurar a solução de saudação.
 
-* Você deve ter um agente do [Windows](log-analytics-windows-agents.md), do [Operations Manager](log-analytics-om-agents.md) ou do [Linux](log-analytics-linux-agents.md) em cada computador no qual deseja controlar as alterações.
-* Adicionar a solução de controle de alterações ao seu espaço de trabalho do OMS a [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview). Ou, você pode adicionar a solução usando as informações em [soluções de análise de Log adicionar da Galeria de soluções](log-analytics-add-solutions.md). Nenhuma configuração adicional é necessária.
+* Você deve ter uma [Windows](log-analytics-windows-agents.md), [Operations Manager](log-analytics-om-agents.md), ou [Linux](log-analytics-linux-agents.md) agente em cada computador em que você deseja toomonitor alterações.
+* Adicionar Olá Change Tracking solução tooyour OMS espaço de trabalho de saudação [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview). Ou, você pode adicionar solução hello usando informações Olá [soluções de análise de Log adicionar da Galeria de soluções de saudação](log-analytics-add-solutions.md). Nenhuma configuração adicional é necessária.
 
-### <a name="configure-linux-files-to-track"></a>Configurar arquivos do Linux para controle
-Use as etapas a seguir para configurar arquivos para controle em computadores Linux.
+### <a name="configure-linux-files-tootrack"></a>Configurar tootrack de arquivos Linux
+Use Olá seguindo as etapas tooconfigure arquivos tootrack em computadores Linux.
 
-1. No portal do OMS, clique em **Configurações** (símbolo de engrenagem).
-2. Na página **Configurações**, clique em **Dados** e, em seguida, clique em **Controle de Arquivos do Linux**.
-3. Em Controle de Alterações de Arquivos do Linux, digite o caminho completo, incluindo o nome do arquivo que você deseja controlar e, em seguida, clique no símbolo **Adicionar**. Por exemplo: “/etc/*.conf”
+1. No portal do OMS hello, clique em **configurações** (símbolo de engrenagem Olá).
+2. Em Olá **configurações** , clique em **dados**e, em seguida, clique em **controle de arquivo do Linux**.
+3. Em controle de alterações do arquivo de Linux, digite o caminho inteiro hello, incluindo nome do arquivo de saudação do arquivo hello que você deseja tootrack e, em seguida, clique em Olá **adicionar** símbolo. Por exemplo: “/etc/*.conf”
 4. Clique em **Salvar**.  
 
 > [!NOTE]
 > O controle de arquivos do Linux tem funcionalidades adicionais, incluindo controle de diretórios, recursão por diretórios e controle de curingas.
 
-### <a name="configure-windows-files-to-track"></a>Configurar os arquivos do Windows para controlar
-Use as etapas a seguir para configurar os arquivos para controle em computadores Windows.
+### <a name="configure-windows-files-tootrack"></a>Configurar tootrack de arquivos do Windows
+Use Olá seguindo as etapas tooconfigure arquivos tootrack em computadores Windows.
 
-1. No portal do OMS, clique em **Configurações** (símbolo de engrenagem).
-2. Na página **Configurações**, clique em **Dados** e, em seguida, clique em **Rastreamento de Arquivos do Windows**.
-3. Em Controle de Alterações do Arquivo do Windows, digite o caminho completo, incluindo o nome do arquivo do arquivo que você deseja rastrear e, em seguida, clique no símbolo **Adicionar**. Por exemplo: C:\Program Files (x86)\Internet Explorer\iexplore.exe ou C:\Windows\System32\drivers\etc\hosts.
+1. No portal do OMS hello, clique em **configurações** (símbolo de engrenagem Olá).
+2. Em Olá **configurações** , clique em **dados**e, em seguida, clique em **controle de arquivo do Windows**.
+3. Em controle de alterações do arquivo de Windows, digite o caminho inteiro hello, incluindo nome do arquivo de saudação do arquivo hello que você deseja tootrack e, em seguida, clique em Olá **adicionar** símbolo. Por exemplo: C:\Program Files (x86)\Internet Explorer\iexplore.exe ou C:\Windows\System32\drivers\etc\hosts.
 4. Clique em **Salvar**.  
    ![Controle de Alterações de Arquivo do Windows](./media/log-analytics-change-tracking/windows-file-change-tracking.png)
 
-### <a name="configure-windows-registry-keys-to-track"></a>Configurar chaves do Registro do Windows para rastrear
-Use as etapas a seguir para configurar as chaves do Registro para rastrear em computadores Windows.
+### <a name="configure-windows-registry-keys-tootrack"></a>Configurar tootrack de chaves de registro do Windows
+Use Olá tootrack de chaves de registro de tooconfigure as etapas a seguir em computadores Windows.
 
-1. No portal do OMS, clique em **Configurações** (símbolo de engrenagem).
-2. Na página **Configurações**, clique em **Dados** e, em seguida, clique em **Rastreamento de Registro do Windows**.
-3. Em Controle de Alterações do Registro do Windows, digite a chave completa que você deseja rastrear e, em seguida, clique no símbolo **Adicionar**.
+1. No portal do OMS hello, clique em **configurações** (símbolo de engrenagem Olá).
+2. Em Olá **configurações** , clique em **dados**e, em seguida, clique em **controle de registro do Windows**.
+3. Em controle de alterações de registro de Windows, digite Olá toda a chave que você deseja tootrack e, em seguida, clique em Olá **adicionar** símbolo.
 4. Clique em **Salvar**.  
    ![Controle de alterações de Registro de Windows](./media/log-analytics-change-tracking/windows-registry-change-tracking.png)
 
@@ -68,19 +68,19 @@ Use as etapas a seguir para configurar as chaves do Registro para rastrear em co
 1. **Tipo**
    * **Arquivo** (relate os metadados do arquivo – tamanho, data de modificação, hash, etc.)
    * **Diretório** (relate os metadados do diretório – tamanho, data de modificação, etc.)
-2. **Links** (manipulação de referências de symlink do Linux para outros arquivos ou diretórios)
-   * **Ignorar** (ignore os symlinks durante as recursões para não incluir os arquivos/diretórios referenciados)
-   * **Seguir** (siga os symlinks durante a recursão para incluir também os arquivos/diretórios referenciados)
-   * **Gerenciar** (siga os symlinks e altere o tratamento do conteúdo retornado)
+2. **Links** (Linux tratamento symlink referencia tooother arquivos ou diretórios)
+   * **Ignorar** (links simbólicos de ignorar durante recurions toonot incluem hello arquivos/diretórios referenciados)
+   * **Execute** (seguir links simbólicos de saudação durante recursão tooalso incluem hello arquivos/diretórios referenciados)
+   * **Gerenciar** (siga os links simbólicos do hello e alterar o tratamento de saudação do conteúdo retornado)
 
    > [!NOTE]   
-   > A opção "Gerenciar" links não é recomendada. Não há suporte para a recuperação de conteúdo do arquivo.
+   > não é recomendável Hello "Gerenciar" opção de links. Não há suporte para a recuperação de conteúdo do arquivo.
 
-3. **Realizar recursão** (realize recursão nos níveis de pasta e controle todos os arquivos que atendem à instrução de caminho)
+3. **Recurse** (Recurse por níveis de pasta e acompanhar todos os arquivos que correspondem a instrução de caminho Olá)
 4. **Sudo** (habilite o acesso a arquivos ou diretórios que exigem privilégios do sudo)
 
 ### <a name="limitations"></a>Limitações
-A solução de Controle de Alterações atualmente não dá suporte ao seguinte:
+Olá solução controle de alterações não oferece suporte a saudação itens a seguir:
 
 * Pastas (diretórios) para o Controle de Arquivos do Windows
 * Recursão para o Controle de Arquivos do Windows
@@ -91,45 +91,45 @@ A solução de Controle de Alterações atualmente não dá suporte ao seguinte:
 
 Outras limitações:
 
-* Os valores e a coluna **Tamanho máximo de arquivo** não são utilizados na implementação atual.
-* Se você coletar mais de 2500 arquivos no ciclo de coleta de 30 minutos, o desempenho da solução poderá ser prejudicado.
-* Quando o tráfego de rede for alto, registros de alteração poderão levar até um máximo de seis horas para exibir.
-* Se você modificar a configuração enquanto um computador for desligado, o computador poderá lançar as alterações de arquivo que pertenciam à configuração anterior.
+* Olá **tamanho máximo de arquivo** coluna e valores são usados na implementação atual de saudação.
+* Se você coletar arquivos de mais de 2500 no ciclo de coleta de 30 minutos de saudação, o desempenho da solução pode ser degradado.
+* Quando o tráfego de rede for alto, registros de alteração podem levar até tooa máximo de seis horas toodisplay.
+* Se você modificar a configuração de saudação enquanto um computador é desligado, computador Olá pode lançar alterações no arquivo pertenciam a configuração anterior toohello.
 
 ## <a name="change-tracking-data-collection-details"></a>Detalhes de coleta de dados do Controle de Alterações
-O Controle de Alterações coletará inventário de software e metadados do serviço Windows usando os agentes que você tiver habilitado.
+Controle de alterações coleta de inventário de software e metadados de serviço do Windows usando Olá agentes que você tiver habilitado.
 
-A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre como os dados são coletados para o Controle de Alterações.
+Olá tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre como os dados são coletados para o controle de alterações.
 
 | plataforma | Agente direto | Agente do Operations Manager | Agente do Linux | Armazenamento do Azure | Operations Manager necessário? | Dados de agente do Operations Manager enviados por meio do grupo de gerenciamento | frequência de coleta |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows e Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 5 minutos para 50 minutos, dependendo do tipo de alteração. Confira a tabela a seguir para saber mais. |
+| Windows e Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 5 minutos too50 minutos, dependendo do tipo de alteração de saudação. Consulte Olá tabela para obter mais informações a seguir. |
 
 
-A tabela a seguir mostra a frequência da coleta de dados para os tipos de alterações.
+Olá tabela a seguir mostra frequência de coleta de dados Olá para tipos de saudação de alterações.
 
 | **change type** | **frequency** | **O** **agente** **envia as diferenças quando encontradas?**  |
 | --- | --- | --- |
 | Registro do Windows | 50 minutos | Não |
 | Arquivo do Windows | 30 minutos | Sim. Se não houver nenhuma alteração em até 24 horas, um instantâneo é enviado. |
 | Arquivo Linux | 15 minutos | Sim. Se não houver nenhuma alteração em até 24 horas, um instantâneo é enviado. |
-| Serviços do Windows | 30 minutos | Sim, quando as alterações são encontradas a cada 30 minutos. A cada 24 horas um instantâneo é enviado, independentemente da mudança. Portanto, o instantâneo é enviado até mesmo quando não há nenhuma alteração. |
+| Serviços do Windows | 30 minutos | Sim, quando as alterações são encontradas a cada 30 minutos. A cada 24 horas um instantâneo é enviado, independentemente da mudança. Portanto, instantâneo Olá é enviado até mesmo quando não há nenhuma alteração. |
 | Daemons Linux | 5 minutos | Sim. Se não houver nenhuma alteração em até 24 horas, um instantâneo é enviado. |
-| Software do Windows | 30 minutos | Sim, quando as alterações são encontradas a cada 30 minutos. A cada 24 horas um instantâneo é enviado, independentemente da mudança. Portanto, o instantâneo é enviado até mesmo quando não há nenhuma alteração. |
+| Software do Windows | 30 minutos | Sim, quando as alterações são encontradas a cada 30 minutos. A cada 24 horas um instantâneo é enviado, independentemente da mudança. Portanto, instantâneo Olá é enviado até mesmo quando não há nenhuma alteração. |
 | Software Linux | 5 minutos | Sim. Se não houver nenhuma alteração em até 24 horas, um instantâneo é enviado. |
 
 ### <a name="registry-key-change-tracking"></a>Controle de alterações de chave do Registro
 
-O Log Analytics realiza o monitoramento e rastreamento de chaves do Registro do Windows com a solução de Controle de Alterações. O objetivo de monitorar alterações às chaves do registro é identificar os pontos de extensibilidade em que código de terceiros e o malware podem ser ativados. A lista a seguir mostra as chaves do Registro padrão que são rastreadas pela solução e o motivo pelo qual cada uma delas é rastreada.
+Análise de log executa monitoramento e rastreamento com hello solução controle de alterações de registro do Windows. finalidade de saudação do monitoramento de alterações tooregistry chaves é toopinpoint pontos de extensibilidade onde o código de terceiros e malware podem ativar. lista a seguir de saudação chaves mostra saudação padrão do registro que são controlados pela solução hello e por que cada um é rastreada.
 
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup
     - Monitora scripts que são executados na inicialização.
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown
     - Monitora scripts que são executados no desligamento.
 - HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
-    - Monitora as chaves que são carregadas antes da usuário se autentica em suas contas do Windows. A chave é usada para programas de 32 bits em execução em computadores de 64 bits.
+    - Monitora as chaves que são carregadas antes Olá usuário se autentica no tootheir conta do Windows. Olá chave é usada para programas de 32 bits em execução em computadores de 64 bits.
 - HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components
-    - Monitora as alterações às configurações do aplicativo.
+    - Monitora as alterações tooapplication configurações.
 - HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers
     - Monitores entradas comuns de inicialização automática que se conectam diretamente ao Windows Explorer e geralmente são executadas no processo com o Explorer.exe.
 - HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers
@@ -141,32 +141,32 @@ O Log Analytics realiza o monitoramento e rastreamento de chaves do Registro do 
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
     - Monitora o registro do manipulador de sobreposição de ícone para programas de 32 bits executados em computadores de 64 bits.
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
-    - Monitora os novos plug-ins de objeto auxiliar de navegador para o Internet Explorer. Usado para acessar o modelo DOM (Modelo de Objeto do Documento) da página atual e para controlar a navegação.
+    - Monitora os novos plug-ins de objeto auxiliar de navegador para o Internet Explorer. Tooaccess usados Olá DOM Document Object Model () de navegação atual de página e toocontrol hello.
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
-    - Monitora os novos plug-ins de objeto auxiliar de navegador para o Internet Explorer. Usado para acessar o modelo DOM (Modelo de Objeto do Documento) da página atual e para controlar a navegação para programas de 32 bits em execução em computadores de 64 bits.
+    - Monitora os novos plug-ins de objeto auxiliar de navegador para o Internet Explorer. Tooaccess usados Olá DOM Document Object Model () do hello página e toocontrol navegação atual para programas de 32 bits em execução em computadores de 64 bits.
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Internet Explorer\Extensions
     - Monitora novas extensões do Internet Explorer, tais como menus de ferramentas personalizadas e botões da barra de ferramentas personalizada.
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions
     - Monitora novas extensões do Internet Explorer, como menus de ferramentas personalizadas e botões de barra de ferramentas personalizada para programas de 32 bits executados em computadores de 64 bits.
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
-    - Monitora os drivers de 32 bits associados com wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc. Semelhante à seção [drivers] no arquivo SYSTEM.INI.
+    - Monitora os drivers de 32 bits Olá associados wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc. Seção toohello [drivers] semelhante Olá sistema. Arquivo INI.
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
-    - Monitora os drivers de 32 bits associados com wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc para programas de 32 bits executados em computadores de 64 bits. Semelhante à seção [drivers] no arquivo SYSTEM.INI.
+    - Drivers de 32 bits Olá monitores associados wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc para programas de 32 bits em execução em computadores de 64 bits. Seção toohello [drivers] semelhante Olá sistema. Arquivo INI.
 - HKEY\_LOCAL\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls
-    - Monitora a lista de DLLs de sistema conhecidas ou comumente usadas; esse sistema impede que pessoas explorem as permissões de diretório de aplicativo fracas via depósito de versões com cavalo de troia das DLLs do sistema.
+    - Monitores Olá lista conhecido ou usada das DLLs do sistema; Este sistema impede que pessoas explorando permissões de diretório de aplicativo fraca soltando em cavalo de Troia versões de DLLs do sistema.
 - HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify
-    - Monitora a lista de pacotes capaz de receber notificações de eventos do Winlogon, o modelo de suporte de logon interativo para o sistema operacional Windows.
+    - Monitores Olá lista pacotes tooreceive capaz de notificações de eventos do Winlogon, o modelo de suporte de logon interativo Olá para o sistema de operacional do Windows hello.
 
 
 ## <a name="use-change-tracking"></a>Use o Controle de Alterações
-Após instalar a solução, você pode exibir o resumo das alterações nos servidores monitorados usando o bloco **Controle de Alterações** na página **Visão geral** do OMS.
+Depois Olá solução estiver instalada, você pode exibir o resumo de saudação de alterações para os servidores monitorados usando Olá **Change Tracking** bloco Olá **visão geral** página no OMS.
 
 ![imagem de bloco Controle de Alterações](./media/log-analytics-change-tracking/change-tracking-tile.png)
 
-Você pode exibir as alterações à sua infraestrutura e então analisar em detalhes para as seguintes categorias:
+Você pode exibir as alterações tooyour infraestrutura e então analisar em detalhes para Olá categorias a seguir:
 
 * Alterações por tipo de configuração para serviços de software e do Windows
-* Alterações de software para aplicativos e atualizações para servidores individuais
+* Alterações de software tooapplications e atualizações para servidores individuais
 * Número total de alterações de software para cada aplicativo
 * Pacotes do Linux
 * Alterações no serviço Windows para servidores individuais
@@ -176,10 +176,10 @@ Você pode exibir as alterações à sua infraestrutura e então analisar em det
 
 ![imagem do painel Controle de Alterações](./media/log-analytics-change-tracking/change-tracking-dash02.png)
 
-### <a name="to-view-changes-for-any-change-type"></a>Para exibir as alterações para qualquer tipo de alteração
-1. Na página **Visão Geral**, clique no bloco **Controle de Alterações**.
-2. No painel **Controle de Alterações**, examine as informações resumidas em uma das folhas de tipo de alteração e, em seguida, clique em uma para exibir informações detalhadas sobre ela na página de **pesquisa de log**.
-3. Em qualquer uma das páginas de pesquisa de log, você pode exibir os resultados por tempo, resultados detalhados e o histórico de pesquisa de log. Você também pode filtrar por facetas para restringir os resultados.
+### <a name="tooview-changes-for-any-change-type"></a>alterações de tooview para qualquer tipo de alterações
+1. Em Olá **visão geral** , clique em Olá **Change Tracking** lado a lado.
+2. Em Olá **Change Tracking** painel, examine as informações de resumo de saudação em uma das folhas de tipo de alteração de saudação e, em seguida, clique em uma tooview informações detalhadas sobre ele no hello **pesquisa de log** página.
+3. Em qualquer uma das páginas de pesquisa de log hello, você pode exibir os resultados por tempo, resultados detalhados e o histórico de pesquisa de log. Você também pode filtrar pelos resultados de saudação toonarrow facetas.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Use [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir dados detalhados do controle de alterações.
+* Use [pesquisas de Log na análise de Log](log-analytics-log-searches.md) tooview obter dados de controle de alterações.

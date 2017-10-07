@@ -1,5 +1,5 @@
 ---
-title: "Preços do Azure Cloud Shell (versão prévia) | Microsoft Docs"
+title: "aaaAzure preços do Shell de nuvem (visualização) | Microsoft Docs"
 description: "Visão geral dos preços do Azure Cloud Shell"
 services: 
 documentationcenter: 
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: juluk
-ms.openlocfilehash: aacb7173392b1903b39b82fabb152d076b142ce9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ca88b43de5fe416e9d0f2f5e4095c6d0318186e5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="pricing"></a>Preços
 
 ## <a name="compute-cost"></a>Custo de computação
-O Azure Cloud Shell é executado em um computador fornecido gratuitamente, mas exige um compartilhamento de arquivos do Azure anexado para ser usado. 
+Shell de nuvem do Azure é executado em um computador fornecido gratuitamente, mas requer uma toouse de compartilhamento de arquivo do Azure anexado. 
 
 ## <a name="storage-cost"></a>Custo de armazenamento
-O Cloud Shell cria uma imagem de 5 GB padrão no compartilhamento de arquivos para manter seu diretório $HOME. Compartilhamentos de arquivos do Azure geram custos regulares.
+Shell de nuvem cria uma imagem de 5GB de padrão no seu toopersist de compartilhamento de arquivo, seu diretório $HOME. Compartilhamentos de arquivos do Azure geram custos regulares.
 
 Clique em [aqui para obter detalhes sobre os custos de arquivos do Azure](https://azure.microsoft.com/pricing/details/storage/files/). 

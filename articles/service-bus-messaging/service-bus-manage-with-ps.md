@@ -1,6 +1,6 @@
 ---
-title: "Usar o PowerShell para gerenciar recursos do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Use o módulo do PowerShell para criar e gerenciar recursos do Barramento de Serviço"
+title: "recursos de barramento de serviço do Azure aaaUse PowerShell toomanage | Microsoft Docs"
+description: "Usar toocreate de módulo do PowerShell e gerenciar recursos do barramento de serviço"
 services: service-bus-messaging
 documentationcenter: .NET
 author: sethmanheim
@@ -14,99 +14,99 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/06/2017
 ms.author: sethm
-ms.openlocfilehash: 1205f9fcabf5788c970fbce257aa5ad04f32cddc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 737044def913c5798e7e05fc4f1aeece76c8f4dd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-powershell-to-manage-service-bus-resources"></a>Use o módulo do PowerShell para gerenciar recursos do Barramento de Serviço
+# <a name="use-powershell-toomanage-service-bus-resources"></a>Usar recursos de barramento de serviço do PowerShell toomanage
 
-O PowerShell do Microsoft Azure é um ambiente de script que você pode usar para controlar e automatizar a implantação e o gerenciamento dos serviços do Azure. Este artigo descreve como usar o [Módulo do PowerShell do Resource Manager do Barramento de Serviço](/powershell/module/azurerm.servicebus) para provisionar e gerenciar entidades do Barramento de Serviço (namespaces, filas, tópicos e assinaturas) usando um script ou console local do Azure PowerShell.
+Microsoft Azure PowerShell é um ambiente de script que você pode usar toocontrol e automatizar a implantação de saudação e o gerenciamento de serviços do Azure. Este artigo descreve como Olá toouse [módulo PowerShell do Gerenciador de recursos do barramento de serviço](/powershell/module/azurerm.servicebus) tooprovision e gerenciar entidades do barramento de serviço (namespaces, filas, tópicos e assinaturas) usando um console local do PowerShell do Azure ou script.
 
-Também é possível gerenciar entidades do Barramento de Serviço usando modelos do Azure Resource Manager. Para obter mais informações, consulte o artigo [Criar recursos do Barramento de Serviço usando modelos do Azure Resource Manager](service-bus-resource-manager-overview.md).
+Também é possível gerenciar entidades do Barramento de Serviço usando modelos do Azure Resource Manager. Para obter mais informações, consulte o artigo Olá [recursos de barramento de serviço criar usando modelos do Azure Resource Manager](service-bus-resource-manager-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, você precisará do seguinte:
+Antes de começar, você precisará seguir hello:
 
 * Uma assinatura do Azure. Para saber mais sobre como adquirir uma assinatura, confira [Opções de compra][purchase options], [ofertas para membros][member offers] ou [conta gratuita][free account].
 * Um computador com o PowerShell do Azure. Para obter instruções, consulte [Introdução aos cmdlets do Azure PowerShell](/powershell/azure/get-started-azureps).
-* Um entendimento geral dos scripts do PowerShell, dos pacotes NuGet e do .NET Framework.
+* Uma compreensão geral dos scripts do PowerShell, pacotes do NuGet e saudação do .NET Framework.
 
 ## <a name="get-started"></a>Introdução
 
-A primeira etapa é usar o PowerShell para fazer logon em sua conta do Azure e assinatura do Azure. Siga as instruções contidas em [Introdução aos cmdlets do Azure PowerShell](/powershell/azure/get-started-azureps) para fazer logon em sua conta do Azure e recuperar e acessar os recursos em sua assinatura do Azure.
+Olá primeira etapa é toouse PowerShell toolog em tooyour conta do Azure e assinatura do Azure. Siga as instruções de saudação em [Introdução aos cmdlets do PowerShell do Azure](/powershell/azure/get-started-azureps) toolog tooyour conta do Azure e recuperar e acessar recursos de saudação em sua assinatura do Azure.
 
 ## <a name="provision-a-service-bus-namespace"></a>Provisionar um namespace do Barramento de Serviço
 
-Ao trabalhar com namespaces do Barramento de Serviço, você pode usar os cmdlets [Get-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespace), [New-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespace), [Remove-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespace) e [Set-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespace).
+Ao trabalhar com namespaces de barramento de serviço, você pode usar o hello [Get-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespace), [New-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespace), [Remove-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespace), e [AzureRmServiceBusNamespace conjunto](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespace) cmdlets.
 
-Este exemplo cria algumas variáveis locais no script; `$Namespace` e `$Location`.
+Este exemplo cria algumas variáveis locais no script hello; `$Namespace` e `$Location`.
 
-* `$Namespace` é o nome do namespace do Barramento de Serviço com o qual queremos trabalhar.
-* `$Location` identifica o datacenter em que iremos provisionar o namespace.
-* `$CurrentNamespace` armazena o namespace de referência que recuperamos (ou criamos).
+* `$Namespace`é o nome de saudação do namespace de barramento de serviço Olá com a qual queremos toowork.
+* `$Location`identifica Olá data center em que podemos provisionará Olá namespace.
+* `$CurrentNamespace`armazena o namespace de referência Olá recuperar (ou criar).
 
 Em um script real, `$Namespace` e `$Location` podem ser passados como parâmetros.
 
-Esta parte do script tem a seguinte função:
+Esta parte do script Olá Olá a seguir:
 
-1. Tenta recuperar um namespace do Barramento de Serviço com o nome especificado.
-2. Se o namespace for encontrado, ele informará o que foi encontrado.
-3. Se o namespace não for encontrado, ele vai criar o namespace e, em seguida, recuperar o namespace recentemente criado.
+1. Tentativas tooretrieve um namespace de barramento de serviço com hello nome especificado.
+2. Se Olá namespace for encontrado, ele informa o que foi encontrado.
+3. Se Olá namespace não for encontrado, ele cria Olá namespace e recupera Olá recém-criado namespace.
    
     ``` powershell
-    # Query to see if the namespace currently exists
+    # Query toosee if hello namespace currently exists
     $CurrentNamespace = Get-AzureRMServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace
    
-    # Check if the namespace already exists or needs to be created
+    # Check if hello namespace already exists or needs toobe created
     if ($CurrentNamespace)
     {
-        Write-Host "The namespace $Namespace already exists in the $Location region:"
+        Write-Host "hello namespace $Namespace already exists in hello $Location region:"
         # Report what was found
         Get-AzureRMServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace
     }
     else
     {
-        Write-Host "The $Namespace namespace does not exist."
-        Write-Host "Creating the $Namespace namespace in the $Location region..."
+        Write-Host "hello $Namespace namespace does not exist."
+        Write-Host "Creating hello $Namespace namespace in hello $Location region..."
         New-AzureRmServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace -Location $Location
         $CurrentNamespace = Get-AzureRMServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace
-        Write-Host "The $Namespace namespace in Resource Group $ResGrpName in the $Location region has been successfully created."
+        Write-Host "hello $Namespace namespace in Resource Group $ResGrpName in hello $Location region has been successfully created."
                 
     }
     ```
 
 ### <a name="create-a-namespace-authorization-rule"></a>Criar uma regra de autorização de namespace
 
-O exemplo a seguir mostra como gerenciar regras de autorização de namespace usando os cmdlets [New-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespaceauthorizationrule), [Get-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespaceauthorizationrule), [Set-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespaceauthorizationrule) e [Remove-AzureRmServiceBusNamespaceAuthorizationRule cmdlets](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespaceauthorizationrule).
+Olá exemplo a seguir mostra como regras de autorização de namespace toomanage usando Olá [New-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespaceauthorizationrule), [Get-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespaceauthorizationrule), [Conjunto AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespaceauthorizationrule), e [AzureRmServiceBusNamespaceAuthorizationRule remover cmdlets](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespaceauthorizationrule).
 
 ```powershell
-# Query to see if rule exists
+# Query toosee if rule exists
 $CurrentRule = Get-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
 
-# Check if the rule already exists or needs to be created
+# Check if hello rule already exists or needs toobe created
 if ($CurrentRule)
 {
-    Write-Host "The $AuthRule rule already exists for the namespace $Namespace."
+    Write-Host "hello $AuthRule rule already exists for hello namespace $Namespace."
 }
 else
 {
-    Write-Host "The $AuthRule rule does not exist."
-    Write-Host "Creating the $AuthRule rule for the $Namespace namespace..."
+    Write-Host "hello $AuthRule rule does not exist."
+    Write-Host "Creating hello $AuthRule rule for hello $Namespace namespace..."
     New-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule -Rights @("Listen","Send")
     $CurrentRule = Get-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
-    Write-Host "The $AuthRule rule for the $Namespace namespace has been successfully created."
+    Write-Host "hello $AuthRule rule for hello $Namespace namespace has been successfully created."
 
-    Write-Host "Setting rights on the namespace"
+    Write-Host "Setting rights on hello namespace"
     $authRuleObj = Get-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
 
     Write-Host "Remove Send rights"
     $authRuleObj.Rights.Remove("Send")
     Set-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
 
-    Write-Host "Add Send and Manage rights to the namespace"
+    Write-Host "Add Send and Manage rights toohello namespace"
     $authRuleObj.Rights.Add("Send")
     Set-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
     $authRuleObj.Rights.Add("Manage")
@@ -122,7 +122,7 @@ else
 
 ## <a name="create-a-queue"></a>Criar uma fila
 
-Para criar uma fila ou um tópico, execute uma verificação de namespace usando o script na seção anterior. Em seguida, crie a fila:
+toocreate uma fila ou tópico, execute uma verificação de namespace usando o script hello na seção anterior hello. Em seguida, crie uma fila de saudação:
 
 ```powershell
 # Check if queue already exists
@@ -130,21 +130,21 @@ $CurrentQ = Get-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName
 
 if($CurrentQ)
 {
-    Write-Host "The queue $QueueName already exists in the $Location region:"
+    Write-Host "hello queue $QueueName already exists in hello $Location region:"
 }
 else
 {
-    Write-Host "The $QueueName queue does not exist."
-    Write-Host "Creating the $QueueName queue in the $Location region..."
+    Write-Host "hello $QueueName queue does not exist."
+    Write-Host "Creating hello $QueueName queue in hello $Location region..."
     New-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName -EnablePartitioning $True
     $CurrentQ = Get-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName
-    Write-Host "The $QueueName queue in Resource Group $ResGrpName in the $Location region has been successfully created."
+    Write-Host "hello $QueueName queue in Resource Group $ResGrpName in hello $Location region has been successfully created."
 }
 ```
 
 ### <a name="modify-queue-properties"></a>Modificar propriedades da fila
 
-Após executar o script na seção anterior, você pode usar o cmdlet [Set-AzureRmServiceBusQueue](/powershell/module/azurerm.servicebus/set-azurermservicebusqueue) para atualizar as propriedades de uma fila, como no exemplo a seguir:
+Depois de executar o script de saudação em Olá anterior seção, você pode usar o hello [AzureRmServiceBusQueue conjunto](/powershell/module/azurerm.servicebus/set-azurermservicebusqueue) propriedades de saudação do cmdlet tooupdate de uma fila, como no exemplo a seguir de saudação:
 
 ```powershell
 $CurrentQ.DeadLetteringOnMessageExpiration = $True
@@ -157,18 +157,18 @@ Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace 
 
 ## <a name="provisioning-other-service-bus-entities"></a>Provisionamento de outras entidades do Barramento de Serviço
 
-Você pode usar o [Módulo do PowerShell do Barramento de Serviço](/powershell/module/azurerm.servicebus) para provisionar outras entidades, como tópicos e assinaturas. Esses cmdlets são sintaticamente semelhantes aos cmdlets de criação de fila demonstrados na seção anterior.
+Você pode usar o hello [módulo PowerShell do barramento de serviço](/powershell/module/azurerm.servicebus) tooprovision outras entidades, como tópicos e assinaturas. Esses cmdlets são sintaticamente semelhantes cmdlets de criação de fila toohello demonstrado na seção anterior hello.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte a documentação completa sobre o módulo do PowerShell do Resource Manager do Barramento de Serviço [aqui](/powershell/module/azurerm.servicebus). Esta página lista todos os cmdlets disponíveis.
-- Para obter informações sobre o uso de modelos do Azure Resource Manager, consulte o artigo [Criar recursos do Barramento de Serviço usando modelos do Azure Resource Manager](service-bus-resource-manager-overview.md).
+- Consulte a documentação completa de módulo PowerShell Gerenciador de recursos do barramento de serviço Olá [aqui](/powershell/module/azurerm.servicebus). Esta página lista todos os cmdlets disponíveis.
+- Para obter informações sobre como usar modelos do Azure Resource Manager, consulte o artigo Olá [recursos de barramento de serviço criar usando modelos do Azure Resource Manager](service-bus-resource-manager-overview.md).
 - Informações sobre [Bibliotecas de gerenciamento .NET do Barramento de Serviço](service-bus-management-libraries.md).
 
-Há algumas formas alternativas de gerenciar entidades do Barramento de Serviço, conforme descrito nessas postagens de blog:
+Há algumas formas alternativas toomanage entidades do barramento de serviço, conforme descrito nessas postagens de blog:
 
-* [Como criar filas, tópicos e assinaturas do Barramento de Serviço usando um script do PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-* [Como criar um namespace do Barramento de Serviço e um Hub de Eventos usando um script do PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+* [Como toocreate Service Bus filas, tópicos e assinaturas usando um script do PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+* [Como toocreate um Namespace de barramento de serviço e um Hub de eventos usando um script do PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 * [Scripts do PowerShell do Barramento de Serviço](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->

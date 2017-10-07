@@ -1,6 +1,6 @@
 ---
-title: "Obtenha a mesma experiência do Office 365 em qualquer dispositivo com Azure RemoteApp | Microsoft Docs"
-description: "Aprenda a compartilhar qualquer aplicativo de Office 365 com os usuários usando o RemoteApp do Azure."
+title: "aaaGet Olá a mesma experiência do Office 365 em qualquer dispositivo com o Azure RemoteApp | Microsoft Docs"
+description: "Saiba como tooshare qualquer aplicativo do Office 365 com seus usuários usando o Azure RemoteApp."
 services: remoteapp
 documentationcenter: 
 author: guscatalano
@@ -14,47 +14,47 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 11/23/2016
 ms.author: guscatal;elizapo
-ms.openlocfilehash: 584c781c97097cda3c1455ade05cba8659f11073
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 140056c22c8c69b9ec605318e35a72b144da07eb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-the-same-office-365-experience-on-any-device-with-azure-remoteapp"></a>Obter a mesma experiência de Office 365 em qualquer dispositivo com RemoteApp do Azure
+# <a name="get-hello-same-office-365-experience-on-any-device-with-azure-remoteapp"></a>Get hello a mesma experiência do Office 365 em qualquer dispositivo com o Azure RemoteApp
 > [!IMPORTANT]
-> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Saudação de leitura [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
-Este artigo abordará como implantar o Office 365 em qualquer dispositivo em sua empresa. Os usuários possam obter as mesmas capacidades e a experiência de interface de usuário em Android, Apple e Windows.
+Este artigo abordará como toodeploy Office 365 em qualquer dispositivo em sua empresa. Os usuários podem obter Olá mesmos recursos e experiência de interface do usuário no Android, Apple e no Windows.
 
 Faremos isso usando o RemoteApp do Azure hospedando o Office 365 em máquinas virtuais com capacidade de dimensionamento no Azure, às quais os usuários possam se conectar. Chamamos esse conjunto de máquinas virtuais de uma “coleção nuvem”.
 
 ## <a name="create-a-cloud-collection"></a>Criar uma coleção na nuvem
-Pela primeira vez depois de criar uma conta do Azure, navegue até **RemoteApp** clicando no link no lado esquerdo.
-![Mostrando o Azure RemoteApp no Portal do Azure](./media/remoteapp-tutorial-o365anywhere/1-menu.png)
+Navega pela primeira vez depois de criar uma conta do Azure, muito**RemoteApp** clicando no link Olá no lado esquerdo de saudação.
+![Mostrando o Azure RemoteApp em Olá Portal do Azure](./media/remoteapp-tutorial-o365anywhere/1-menu.png)
 
-Depois, prossiga clicando em **novo** na parte inferior e fazendo a "criação rápida" de uma coleção. Forneça um nome, região, assinatura, plano e imagem "Office Professional 2013" que fornecemos.
+Continue clicando em **novo** inferior hello e "Criando rápida" uma coleção. Forneça um nome, região hello, assinatura hello, plano hello e imagem hello "Proffesional do Office 2013" que fornecemos.
 ![Caixa de diálogo Criar](./media/remoteapp-tutorial-o365anywhere/2-quickcreate.png)
 
-Depois de você concluir o formulário, o processo de criação de coleção deve começar. Isso pode levar até uma hora ou mais.
+Depois de concluir o processo de criação de coleção do hello formulário Olá deve começar. Isso pode levar horas tooan mais ou menos.
 
 ![Aguardando](./media/remoteapp-tutorial-o365anywhere/3-waiting.png)
 
-Depois que o processo for concluído, ele terá a aparência a seguir. Se clicarmos em **Publicação** , podemos ver que a maioria dos aplicativos do Office já foram publicados para nós.
+Depois de processo hello, terá aparência semelhante a esta. Se clicarmos em **Publicação** , podemos ver que a maioria dos aplicativos do Office já foram publicados para nós.
 ![Coleção criada](./media/remoteapp-tutorial-o365anywhere/4-done.png)
 
 ![Aplicativos publicados](./media/remoteapp-tutorial-o365anywhere/5-publish.png)
 
-Nesse ponto você também pode adicionar mais usuários que têm acesso a esta coleção, clicando em **Acesso de usuário**.
+Agora você também pode adicionar mais usuários que têm acesso toothis coleção clicando **acesso de usuário**.
 ![Configurar o acesso do usuário](./media/remoteapp-tutorial-o365anywhere/6-user.png)
 
-Agora vamos experimentar conectar ao Office 365!
+Agora vamos testar conexão tooOffice 365!
 
-## <a name="connect-to-office-365"></a>Conectar ao Office 365
-Vamos acessar [https://www.remoteapp.windowsazure.com/](https://www.remoteapp.windowsazure.com/), rolar para baixo e clicar em **Baixar clientes** para instalar o cliente do Azure RemoteApp no dispositivo no qual você está. As capturas de tela abaixo são para o Windows.
+## <a name="connect-toooffice-365"></a>Conecte-se tooOffice 365
+Podemos entrará em muito[https://www.remoteapp.windowsazure.com/](https://www.remoteapp.windowsazure.com/), role para baixo e clique em **baixar clientes** tooinstall cliente de Azure RemoteApp Olá no dispositivo Olá que você está usando. Olá capturas de tela abaixo são para Windows.
 
-Depois que o aplicativo for iniciado, você será solicitado a entrar com a conta da Microsoft (chamada anteriormente de “Live ID”), insira a mesma usada na sua conta do Azure por enquanto. Quando você tiver feito logon, você deve receber uma notificação sobre novos convites, clique nos mesmos e você deve ver uma lista como a mostrada abaixo. Aceite o convite que corresponde ao seu e-mail de proprietário de conta do Azure.
+Depois que o aplicativo hello inicia deverá toosign com sua conta da Microsoft (anteriormente chamada de "Live ID"), use Olá mesmo que sua conta do Azure agora. Quando você tiver feito logon, você deve receber uma notificação sobre novos convites, clique nos mesmos e você deve ver uma lista como a mostrada abaixo. Aceite o convite de saudação que corresponde a seu email do proprietário de conta do Azure.
 
 ![Novo convite](./media/remoteapp-tutorial-o365anywhere/7-araclient.png)
 
@@ -62,11 +62,11 @@ Abaixo, sua aparência quando há novos convites.
 
 ![Aceite um aplicativo](./media/remoteapp-tutorial-o365anywhere/8-invitation.png)
 
-Depois de aceitar o convite, você deve ver todos os aplicativos do Office no cliente do RemoteApp do Azure.
+Depois de aceitar o convite hello, você deve ver todos os aplicativos do Office Olá no cliente do Azure RemoteApp hello.
 
 ![Lista de aplicativos](./media/remoteapp-tutorial-o365anywhere/9-work.png)
 
-Quando você clica em qualquer um desses, o aplicativo deve ser iniciado na máquina virtual do Azure e você deve estar com tudo pronto! Aproveite!
+Quando você clicar em qualquer um desses aplicativos, Olá deve começar em Olá máquina virtual do Azure e devem ser definidos! Aproveite!
 
 ![iniciando](./media/remoteapp-tutorial-o365anywhere/10-arastart.png)
 

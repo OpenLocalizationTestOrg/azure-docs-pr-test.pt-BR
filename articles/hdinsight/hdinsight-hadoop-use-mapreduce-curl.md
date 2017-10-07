@@ -1,6 +1,6 @@
 ---
-title: "Usar o MapReduce e Curl com o Hadoop no HDInsight – Azure | Microsoft Docs"
-description: Saiba como executar trabalhos MapReduce remotamente com Hadoop no HDInsight usando o Curl.
+title: aaaUse MapReduce e Curl com Hadoop no HDInsight - Azure | Microsoft Docs
+description: "Saiba como tooremotely executar trabalhos de MapReduce com Hadoop no HDInsight usando a rotação."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
-ms.openlocfilehash: 8238bb829df95dcb8c99c0b7fff53c627a56f47c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 16920205bacf9699f88090568099e0508a172b3b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>Executar trabalhos MapReduce com Hadoop no HDInsight usando REST
 
-Saiba como usar a API REST do WebHCat para executar trabalhos MapReduce em um Hadoop no cluster HDInsight. O Curl é usado para demonstrar como você pode interagir com o HDInsight usando solicitações HTTP brutas para executar trabalhos MapReduce.
+Saiba como toouse Olá WebHCat REST API toorun MapReduce trabalhos em um Hadoop no cluster HDInsight. Ondulação é usado toodemonstrate como você pode interagir com o HDInsight usando bruto toorun de solicitações HTTP trabalhos MapReduce.
 
 > [!NOTE]
-> Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas for iniciante no HDInsight, consulte o documento [O que você precisa saber sobre Hadoop baseado em Linux no HDInsight](hdinsight-hadoop-linux-information.md).
+> Se você já estiver familiarizado com o uso de servidores baseados em Linux Hadoop, mas são tooHDInsight novo, consulte Olá [o que você precisa tooknow sobre baseados em Linux Hadoop no HDInsight](hdinsight-hadoop-linux-information.md) documento.
 
 
 ## <a id="prereq"></a>Pré-requisitos
@@ -39,64 +39,64 @@ Saiba como usar a API REST do WebHCat para executar trabalhos MapReduce em um Ha
 ## <a id="curl"></a>Executar trabalhos MapReduce usando o Curl
 
 > [!NOTE]
-> Ao usar o Curl ou quaisquer outras comunicações do REST com WebHCat, deve autenticar as solicitações fornecendo o nome de usuário de administrador de cluster HDInsight e a senha. Você também deve usar o nome do cluster como parte do URI usado para enviar as solicitações para o servidor.
+> Quando você usa Ondulação ou quaisquer outras comunicações do REST com WebHCat, você deve autenticar solicitações de hello, fornecendo a senha e nome de usuário do administrador de cluster de HDInsight hello. Você deve usar o nome do cluster hello como parte do URI é usado toosend Olá solicitações toohello servidor de saudação.
 >
-> Para os comandos nesta seção, substitua **USERNAME** pelo usuário para autenticar o cluster, e **PASSWORD** pela senha da conta de usuário. Substitua **CLUSTERNAME** pelo nome do cluster.
+> Para comandos Olá nesta seção, substitua **USERNAME** com cluster de toohello tooauthenticate do usuário Olá, e **senha** com senha Olá Olá conta de usuário. Substituir **CLUSTERNAME** com nome de saudação do cluster.
 >
-> A API REST é protegida usando [autenticação básica de acesso](http://en.wikipedia.org/wiki/Basic_access_authentication). Você deve sempre fazer solicitações usando HTTPS para garantir que suas credenciais sejam enviadas com segurança para o servidor.
+> Olá API REST é protegida usando [autenticação de acesso básico](http://en.wikipedia.org/wiki/Basic_access_authentication). Você sempre deve fazer solicitações usando HTTPS tooensure que suas credenciais são enviadas com segurança toohello server.
 
 
-1. De uma linha de comando, use o seguinte comando para verificar se você pode se conectar ao cluster HDInsight:
+1. De uma linha de comando, use Olá tooverify de comando que você pode conectar o cluster do HDInsight tooyour a seguir:
 
     ```bash
     curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
     ```
 
-    Você deve receber uma resposta semelhante ao seguinte JSON:
+    Você deve receber um toohello semelhante de resposta JSON a seguir:
 
         {"status":"ok","version":"v1"}
 
-    Os parâmetros usados nesse comando são os seguintes:
+    Estes são os parâmetros de saudação usados neste comando:
 
-   * **-u**: o nome de usuário e a senha usada para autenticar a solicitação
+   * **-u**: indica Olá nome de usuário e a senha usada tooauthenticate solicitação de saudação
    * **-G**: indica que essa operação é uma solicitação GET
 
-     O início do URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será o mesmo para todas as solicitações.
+     Olá a partir de saudação URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, Olá mesmo para todas as solicitações.
 
-2. Para enviar um trabalho MapReduce, use o seguinte comando:
+2. toosubmit um trabalho de MapReduce, use Olá comando a seguir:
 
     ```bash
     curl -u USERNAME:PASSWORD -d user.name=USERNAME -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
     ```
 
-    O final do URI (/mapreduce/jar) informa ao WebHCat que essa solicitação inicia um trabalho MapReduce de uma classe em um arquivo jar. Os parâmetros usados nesse comando são os seguintes:
+    fim de saudação do hello URI (mapreduce/jar) informa WebHCat que essa solicitação inicia um trabalho de MapReduce de uma classe em um arquivo jar. Estes são os parâmetros de saudação usados neste comando:
 
-   * **-d** já que `-G` não é usado; a solicitação padrão será o método POST. `-d` especifica os valores de dados que são enviados com a solicitação.
-    * **user.name**: o usuário que está executando o comando
-    * **jar**: o local do arquivo jar que contém a classe para ser executada
-    * **class**: a classe que contém a lógica do MapReduce
-    * **arg**: os argumentos a serem passados para o trabalho MapReduce. Nesse caso, o arquivo de texto de entrada e o diretório usados para a saída
+   * **-d**: `-G` não é usado, então a solicitação Olá padrão é o método POST de toohello. `-d`Especifica valores de dados de saudação que são enviados com a solicitação de saudação.
+    * **User.Name**: usuário de saudação que está executando o comando Olá
+    * **JAR**: local de saudação do arquivo jar Olá que contém a classe toobe foi executado
+    * **classe**: Olá classe que contém a lógica de MapReduce Olá
+    * **arg**: Olá toobe de argumentos passado toohello trabalho de MapReduce. Nesse caso, o diretório de arquivo e hello de texto que são usados para saída de hello de entrada hello
 
-     Esse comando deve retornar uma ID de trabalho que pode ser usada para verificar o status do trabalho:
+     Este comando deve retornar uma ID de trabalho que pode ser toocheck usado Olá status do trabalho de saudação:
 
        {"id":"job_1415651640909_0026"}
 
-3. Para verificar o status do trabalho, use o comando a seguir:
+3. status de Olá toocheck de trabalho Olá Olá use comandos a seguir:
 
     ```bash
     curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
     ```
 
-    Substitua o **JOBID** pelo valor retornado na etapa anterior. Por exemplo, se o valor retornado foi `{"id":"job_1415651640909_0026"}`, JOBID será `job_1415651640909_0026`.
+    Substituir saudação **JOBID** com hello valor retornado na etapa anterior hello. Por exemplo, se hello retornar o valor era `{"id":"job_1415651640909_0026"}`, em seguida, Olá JOBID seria `job_1415651640909_0026`.
 
-    Se o trabalho for concluído, o estado retornado será `SUCCEEDED`.
+    Se o trabalho de saudação for concluído, o estado de saudação retornado é `SUCCEEDED`.
 
    > [!NOTE]
-   > Essa solicitação de Curl retorna um documento JSON com informações sobre o trabalho. Jq é usado para recuperar apenas o valor de estado.
+   > Essa solicitação de ondulação retorna um documento JSON com informações sobre o trabalho de saudação. Jq é usada tooretrieve Olá apenas o valor de estado.
 
-4. Depois que o estado do trabalho for alterado para `SUCCEEDED`, você poderá recuperar os resultados do trabalho do Armazenamento de Blobs do Azure. O parâmetro `statusdir` transmitido com a consulta contém o local do arquivo de saída. Neste exemplo, o local é `/example/curl`. Esse endereço armazena a saída do trabalho no armazenamento padrão de clusters em `/example/curl`.
+4. Quando o estado de saudação do trabalho Olá foi alterado muito`SUCCEEDED`, você pode recuperar os resultados de saudação do trabalho de saudação do armazenamento de BLOBs do Azure. Olá `statusdir` parâmetro que é passado com hello consulta contém o local de Olá Olá do arquivo de saída. Neste exemplo, o local de saudação é `/example/curl`. Esse endereço armazena a saída de saudação do trabalho Olá no armazenamento padrão da saudação clusters em `/example/curl`.
 
-Você pode listar e baixar esses arquivos usando a [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Para obter mais informações sobre como trabalhar com blobs na CLI do Azure, consulte o documento [Usar a CLI 2.0 do Azure com o Armazenamento do Azure](../storage/common/storage-azure-cli.md#create-and-manage-blobs).
+Você pode listar e baixar esses arquivos usando Olá [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Para obter mais informações sobre como trabalhar com blobs de saudação CLI do Azure, consulte Olá [usando Olá 2.0 do CLI do Azure com o armazenamento do Azure](../storage/common/storage-azure-cli.md#create-and-manage-blobs) documento.
 
 ## <a id="nextsteps"></a>Próximas etapas
 
@@ -109,4 +109,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
 
-Para obter mais informações sobre a interface REST usada nesse artigo, consulte a [Referência de WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).
+Para obter mais informações sobre a interface REST Olá que é usada neste artigo, consulte Olá [WebHCat referência](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).

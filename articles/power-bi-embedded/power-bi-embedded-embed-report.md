@@ -1,6 +1,6 @@
 ---
-title: "Inserir um relatório no Azure Power BI Embedded | Microsoft Docs"
-description: "Saiba como inserir um relatório no Power BI Embedded em seu aplicativo."
+title: "aaaEmbed um relatório no Azure Power BI inserido | Microsoft Docs"
+description: "Saiba como tooembed um relatório no Power BI inserido em seu aplicativo."
 services: power-bi-embedded
 documentationcenter: 
 author: guyinacube
@@ -15,31 +15,31 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/11/2017
 ms.author: asaxton
-ms.openlocfilehash: 3d865af2418c9c557c861a379766a125d75cebf1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f25344bbd0b9c092ef19da04d0b455d453b426a4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="embed-a-report-in-power-bi-embedded"></a>Inserir um relatório em um Power BI Embedded
 
-Saiba como inserir um relatório no Power BI Embedded em seu aplicativo.
+Saiba como tooembed um relatório no Power BI inserido em seu aplicativo.
 
-Vamos examinar como realmente inserir um relatório em seu aplicativo. Isso presume que você já tenha um relatório que existe dentro de um espaço de trabalho em sua coleção de espaço de trabalho. Se você ainda não fez essa etapa, consulte [Introdução ao Power BI Embedded](power-bi-embedded-get-started.md).
+Veremos como tooactually inserir um relatório em seu aplicativo. Isso presume que você já tenha um relatório que existe dentro de um espaço de trabalho em sua coleção de espaço de trabalho. Se você ainda não fez essa etapa, consulte [Introdução ao Power BI Embedded](power-bi-embedded-get-started.md).
 
-É possível usar o SDK para .NET (C#) ou Node.js junto com o JavaScript para criar seu aplicativo facilmente com o Power BI Embedded. 
+Você pode usar o hello .NET (c#) ou o SDK do Node. js, juntamente com JavaScript, tooeasily criar seu aplicativo com o Power BI inserido. 
 
-## <a name="using-the-access-keys-to-use-rest-apis"></a>Usando as teclas de acesso para usar APIs REST
+## <a name="using-hello-access-keys-toouse-rest-apis"></a>Usando toouse de chaves de acesso Olá APIs REST
 
-Para chamar a API REST, você pode passar a tecla de acesso que você pode obter no Portal do Azure para uma determinada coleção de espaço de trabalho. Para obter mais informações, consulte [Introdução ao Power BI Embedded](power-bi-embedded-get-started.md).
+Na saudação de toocall ordem API REST, você pode passar chave de acesso de saudação que você pode obter de saudação portal do Azure para uma coleção de espaço de trabalho fornecido. Para obter mais informações, consulte [Introdução ao Power BI Embedded](power-bi-embedded-get-started.md).
 
 ## <a name="get-a-report-id"></a>Obter uma ID de relatório
 
-Cada token de acesso se baseia em um relatório. Você precisará obter a ID de relatório específica do relatório que você deseja inserir. Isso pode ser feito com base em chamadas para a API REST [Obter Relatórios](https://msdn.microsoft.com/library/azure/mt711510.aspx). Isso retornará a ID do relatório e a URL de inserção. Isso pode ser feito usando o SDK do .NET do Power BI ou chamando a API REST diretamente.
+Cada token de acesso se baseia em um relatório. Você precisará Olá tooget id de relatório fornecida para relatório de saudação que você deseja tooembed. Isso pode ser feito com base em chamadas toohello [obter relatórios](https://msdn.microsoft.com/library/azure/mt711510.aspx) API REST. Isso retornará relatório Olá id e hello inserem a url. Isso pode ser feito usando Olá SDK .NET do Power BI ou chamar hello API REST diretamente.
 
-### <a name="using-the-power-bi-net-sdk"></a>Usando o SDK do .NET do Power BI
+### <a name="using-hello-power-bi-net-sdk"></a>Usando Olá SDK .NET do Power BI
 
-Ao usar o SDK do .NET, você precisará criar uma credencial de token que se baseia na tecla de acesso que você obtém do Portal do Azure. Isso exige que você instale o [pacote NuGet da API do Power BI](https://www.nuget.org/profiles/powerbi).
+Ao usar o hello .NET SDK, você precisará toocreate uma credencial de token que se baseia a chave de acesso Olá obtido Olá portal do Azure. Isso requer que você instale Olá [pacote NuGet de API do Power BI](https://www.nuget.org/profiles/powerbi).
 
 **Instalar o pacote NuGet**
 
@@ -59,10 +59,10 @@ client.BaseUri = new Uri(https://api.powerbi.com);
 
 var reports = (IList<Report>)client.Reports.GetReports(workspaceCollectionName, workspaceId).Value;
 
-// Select the report that you want to work with from the collection of reports.
+// Select hello report that you want toowork with from hello collection of reports.
 ```
 
-### <a name="calling-the-rest-api-directly"></a>Chamar a API REST diretamente
+### <a name="calling-hello-rest-api-directly"></a>Chamar hello API REST diretamente
 
 ```
 System.Net.WebRequest request = System.Net.WebRequest.Create("https://api.powerbi.com/v1.0/collections/{collectionName}/workspaces/{workspaceId}/Reports") as System.Net.HttpWebRequest;
@@ -75,7 +75,7 @@ using (var response = request.GetResponse() as System.Net.HttpWebResponse)
 {
     using (var reader = new System.IO.StreamReader(response.GetResponseStream()))
     {
-        // Work with JSON response to get the report you want to work with.
+        // Work with JSON response tooget hello report you want toowork with.
     }
 
 }
@@ -83,11 +83,11 @@ using (var response = request.GetResponse() as System.Net.HttpWebResponse)
 
 ## <a name="create-an-access-token"></a>Criar um token de acesso
 
-O Power BI Embedded usa tokens de inserção, que são Tokens Web JSON assinados por HMAC. Os tokens são assinados com a tecla de acesso da sua coleção de espaço de trabalho do Azure Power BI Embedded. Tokens de inserção, por padrão, são usados para fornecer acesso somente leitura a um relatório a ser inserido em um aplicativo. Tokens de inserção são emitidos para um relatório específico e devem ser associados uma URL de inserção.
+O Power BI Embedded usa tokens de inserção, que são Tokens Web JSON assinados por HMAC. Olá tokens são assinados com a chave de acesso Olá da coleção de espaço de trabalho do Azure Power BI inserido. Inserir tokens, por padrão, são usada tooprovide ler apenas acesso tooa tooembed de relatório em um aplicativo. Tokens de inserção são emitidos para um relatório específico e devem ser associados uma URL de inserção.
 
-Tokens de acesso devem ser criados no servidor conforme as chaves de acesso são usadas para assinar/criptografar os tokens. Para obter informações sobre como criar um token de acesso, consulte [Autenticação e autorização com o Power BI Embedded](power-bi-embedded-app-token-flow.md). Você também pode examinar o método [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_). Aqui está um exemplo de qual seria a aparência disso usando o SDK do .NET para o Power BI.
+Tokens de acesso devem ser criados no servidor de saudação como chaves de acesso hello são usadas toosign/criptografar tokens de saudação. Para obter informações sobre como toocreate um token de acesso, consulte [autenticando e autorizar com o Power BI Embedded](power-bi-embedded-app-token-flow.md). Você também pode analisar Olá [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) método. Aqui está um exemplo de como isso seria usando o SDK .NET de saudação do Power BI.
 
-Você usará a ID de relatório que você recuperou anteriormente. Depois de criar o token de inserção, você usará a tecla de acesso para gerar o token que você pode usar da perspectiva do javascript. A *classe PowerBIToken* exige que você instale o [pacote NuGet do Power BI Core](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
+Você usará a id de relatório de saudação que você recuperou anteriormente. Depois de inserir Olá token é criado, usará token Olá de toogenerate chave de acesso de saudação que você pode usar do ponto de vista do hello javascript. Olá *PowerBIToken classe* exige que você instale Olá [NuGut do pacote do Power BI Core](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
 
 **Instalar o pacote NuGet**
 
@@ -106,16 +106,16 @@ embedToken = PowerBIToken.CreateReportEmbedToken(workspaceCollectionName, worksp
 var token = embedToken.Generate("{access key}");
 ```
 
-### <a name="adding-permission-scopes-to-embed-tokens"></a>Adicionando escopos de permissão para tokens de inserção
+### <a name="adding-permission-scopes-tooembed-tokens"></a>Adicionando tokens de tooembed de escopos de permissão
 
-Ao usar os tokens de inserção, convém restringir o uso de recursos aos quais você concede acesso. Por esse motivo, você pode gerar um token com as permissões no escopo. Para obter mais informações, consulte [Escopos](power-bi-embedded-app-token-flow.md#scopes)
+Ao usar tokens de inserção, talvez você queira toorestrict de uso dos recursos de saudação que concedem acesso ao. Por esse motivo, você pode gerar um token com as permissões no escopo. Para obter mais informações, consulte [Escopos](power-bi-embedded-app-token-flow.md#scopes)
 
 ## <a name="embed-using-javascript"></a>Inserir usando JavaScript
 
-Depois de ter o token de acesso e a ID do relatório, é possível inserir o relatório usando JavaScript. Isso exige que você instale o [pacote JavaScript Power BI](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/) do NuGet. O embedUrl será apenas https://embedded.powerbi.com/appTokenReportEmbed.
+Depois de ter o token de acesso de saudação e a id de relatório hello, podemos pode inserir relatório hello usando JavaScript. Isso requer que você instalar o nuget Olá [pacote Power BI JavaScript](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). Olá embedUrl será apenas https://embedded.powerbi.com/appTokenReportEmbed.
 
 > [!NOTE]
-> Você pode usar a [Amostra de inserção de relatório JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/) para testar a funcionalidade. Ele também fornece exemplos de código para as diferentes operações que estão disponíveis.
+> Você pode usar o hello [JavaScript relatório incorporar exemplo](https://microsoft.github.io/PowerBI-JavaScript/demo/) tootest funcionalidade. Ele também fornece exemplos de código para operações diferentes de saudação que estão disponíveis.
 
 **Instalar o pacote NuGet**
 
@@ -140,9 +140,9 @@ var $reportContainer = $('#reportContainer');
 var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
 ```
 
-### <a name="set-the-size-of-embedded-elements"></a>Defina o tamanho dos elementos inseridos
+### <a name="set-hello-size-of-embedded-elements"></a>Tamanho de saudação do conjunto de elementos inseridos
 
-O relatório será inserido automaticamente com base no tamanho do respectivo contêiner. Substituir o tamanho padrão das inserções simplesmente adiciona um atributo de classe CSS ou estilos embutidos para largura e altura.
+relatório de saudação será inserido automaticamente com base no tamanho de saudação de seu contêiner. tamanho de padrão de saudação toooverride de saudação incorpora simplesmente adicionar um estilos CSS de embutido ou atributo de classe de largura e altura.
 
 ## <a name="see-also"></a>Consulte também
 
@@ -155,4 +155,4 @@ O relatório será inserido automaticamente com base no tamanho do respectivo co
 [Pacote NuGet do Power BI Core](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  
 [Repositório de Git PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
 [Repositório de Git PowerBI-Node](https://github.com/Microsoft/PowerBI-Node)  
-Mais perguntas? [Experimentar a comunidade do Power BI](http://community.powerbi.com/)
+Mais perguntas? [Tente Olá comunidade do Power BI](http://community.powerbi.com/)

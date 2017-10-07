@@ -1,5 +1,5 @@
 ---
-title: "Configurações de porta da Retransmissão do Azure | Microsoft Docs"
+title: "configurações de porta de retransmissão aaaAzure | Microsoft Docs"
 description: "Detalhes sobre os valores de porta da Retransmissão do Azure."
 services: service-bus-relay
 documentationcenter: na
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: sethm
-ms.openlocfilehash: 5906495c565dad583e74a43b2e5eed57e0c68df1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e66785f786ee241c974d250f9ec29dfcc1fdc3fe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-relay-port-settings"></a>Configurações de porta de Retransmissão do Azure
 
-A tabela a seguir descreve a configuração necessária dos valores de porta para uma Retransmissão do Azure.
+Olá tabela a seguir descreve Olá necessária uma configuração de valores de porta de retransmissão do Azure.
 
 ## <a name="hybrid-connections"></a>Conexões Híbridas
-As Conexões Híbridas usam WebSockets como o mecanismo de transporte subjacente, que usa apenas **HTTPS**. 
+Conexões híbridas usa WebSockets como Olá subjacente do mecanismo de transporte, que usa **HTTPS** somente. 
 
 ## <a name="wcf-relays"></a>Retransmissões de WCF
   
@@ -49,6 +49,6 @@ As Conexões Híbridas usam WebSockets como o mecanismo de transporte subjacente
 |[Classe WS2007HttpRelayBinding](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (serviço)|Você pode usar o|9351/HTTP|
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre a Retransmissão do Azure, visite estes links:
+toolearn mais informações sobre a retransmissão do Azure, visite esses links:
 * [O que é Retransmissão do Azure?](relay-what-is-it.md)
 * [Perguntas frequentes sobre retransmissão](relay-faq.md)
