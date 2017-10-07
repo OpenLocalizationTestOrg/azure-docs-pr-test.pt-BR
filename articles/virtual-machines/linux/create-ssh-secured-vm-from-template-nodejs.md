@@ -1,6 +1,6 @@
 ---
-title: Criar uma VM do Linux usando um modelo do Azure com a CLI 1.0 do Azure | Microsoft Docs
-description: Crie uma VM do Linux no Azure usando a CLI 1.0 do Azure e um modelo do Azure Resource Manager.
+title: aaaCreate uma VM do Linux usando um modelo do Azure com o Azure CLI 1.0 | Microsoft Docs
+description: Crie uma VM do Linux no Azure usando hello 1.0 da CLI do Azure e um modelo do Gerenciador de recursos do Azure.
 services: virtual-machines-linux
 documentationcenter: 
 author: vlivech
@@ -16,26 +16,26 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: v-livech
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33d4aaa78fcdf3bd9e2e236606f2d3049f464a8a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b694cc8247a8431b7ef4b24cc7dc2b4cdb9660ac
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-create-a-linux-vm-using-the-azure-cli-10-an-azure-resource-manager-template"></a>Como criar uma VM do Linux usando a CLI 1.0 do Azure e um modelo do Azure Resource Manager
-Este artigo mostra como implantar rapidamente uma máquina virtual do Linux usando a CLI 1.0 do Azure e um Modelo do Azure Resource Manager. O artigo exige:
+# <a name="how-toocreate-a-linux-vm-using-hello-azure-cli-10-an-azure-resource-manager-template"></a>Como toocreate uma VM do Linux usando Olá CLI do Azure 1.0 um modelo do Gerenciador de recursos do Azure
+Este artigo mostra como tooquickly implantar uma máquina Virtual do Linux usando hello 1.0 da CLI do Azure e um modelo do Gerenciador de recursos do Azure. artigo Olá requer:
 
 * uma conta do Azure ([obtenha uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)).
-* a [CLI 1.0 do Azure](../../cli-install-nodejs.md) conectada com o `azure login`.
-* A CLI do Azure *deve estar no* modo Azure Resource Manager `azure config mode arm`.
+* Olá [Azure CLI 1.0](../../cli-install-nodejs.md) conectado `azure login`.
+* Olá CLI do Azure *devem estar no* modo do Azure Resource Manager `azure config mode arm`.
 
-Você também pode implantar rapidamente um modelo de VM do Linux usando o [portal do Azure](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Você pode implantar rapidamente um modelo de VM do Linux usando Olá [portal do Azure](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
-Você pode concluir a tarefa usando uma das seguintes versões da CLI:
+## <a name="cli-versions-toocomplete-hello-task"></a>Tarefa de saudação do CLI versões toocomplete
+Você pode concluir a tarefa hello usando uma saudação versões da CLI a seguir:
 
-- [CLI 1.0 do Azure](#quick-command-summary) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos (este artigo)
-- [CLI 2.0 do Azure](create-ssh-secured-vm-from-template.md) – nossa última geração de CLI para o modelo de implantação de gerenciamento de recursos
+- [1.0 de CLI do Azure](#quick-command-summary) – nosso CLI para Olá clássico e o recurso de gerenciamento modelos de implantação (Este artigo)
+- [2.0 do CLI do Azure](create-ssh-secured-vm-from-template.md) -nossa próxima geração CLI para o modelo de implantação do gerenciamento de recursos de saudação
 
 ## <a name="quick-command-summary"></a>Resumo rápido do comando
 ```azurecli
@@ -46,12 +46,12 @@ azure group create \
 ```
 
 ## <a name="detailed-walkthrough"></a>Passo a passo detalhado
-Os modelos permitem criar VMs no Azure com as configurações que você deseja personalizar durante a inicialização, como nomes de usuário e nomes de host. Neste artigo, estamos iniciando um modelo do Azure utilizando uma VM do Ubuntu junto com um grupo de segurança de rede (NSG) com a porta 22 aberta para o SSH.
+Modelos permitem toocreate VMs no Azure com as configurações que você deseja toocustomize durante a inicialização de hello, configurações, como nomes de usuário e nomes de host. Neste artigo, estamos iniciando um modelo do Azure utilizando uma VM do Ubuntu junto com um grupo de segurança de rede (NSG) com a porta 22 aberta para o SSH.
 
-Os modelos do Azure Resource Manager são arquivos JSON que podem ser usados para tarefas únicas simples, como iniciar uma VM Ubuntu, como feito neste artigo.  Os Modelos do Azure também podem ser usados para construir configurações complexas do Azure de ambientes inteiros como uma pilha de implantação de teste, desenvolvimento ou produção.
+Os modelos do Azure Resource Manager são arquivos JSON que podem ser usados para tarefas únicas simples, como iniciar uma VM Ubuntu, como feito neste artigo.  Modelos do Azure também podem ser usado tooconstruct as configurações do Azure complexas de ambientes inteiros como uma pilha de implantação de produção, desenvolvimento ou teste.
 
-## <a name="create-the-linux-vm"></a>Criar a VM Linux
-O exemplo de código a seguir mostra como chamar o `azure group create` para criar um grupo de recursos e implantar uma VM do Linux protegida por SSH ao mesmo tempo usando [este modelo do Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). Lembre-se de que, em seu exemplo, você precisará usar nomes que sejam exclusivos para seu ambiente. Esse exemplo usa *myResourceGroup* como o nome do grupo de recursos e *myVM* como o nome da VM.
+## <a name="create-hello-linux-vm"></a>Criar hello VM do Linux
+Olá mostra exemplo de código a seguir como toocall `azure group create` toocreate um recurso de grupo e implantar uma VM do Linux protegidos SSH no hello mesmo tempo usando [este modelo do Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). Lembre-se de que o exemplo é necessário toouse nomes de ambiente tooyour exclusivo. Este exemplo usa *myResourceGroup* como nome do grupo de recursos hello e *myVM* como nome da VM hello.
 
 ```azurecli
 azure group create \
@@ -60,14 +60,14 @@ azure group create \
     --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
-A saída deve ser semelhante ao bloco de saída a seguir:
+saída de Hello deve ter aparência Olá bloco de saída a seguir:
 
 ```azurecli
 info:    Executing command group create
 + Getting resource group myResourceGroup
 + Creating resource group myResourceGroup
 info:    Created resource group myResourceGroup
-info:    Supply values for the following parameters
+info:    Supply values for hello following parameters
 sshKeyData: ssh-rsa AAAAB3Nza<..ssh public key text..>VQgwjNjQ== myAdminUser@myVM
 + Initializing template configurations and parameters
 + Creating a deployment
@@ -81,8 +81,8 @@ data:
 info:    group create command OK
 ```
 
-Este exemplo implantou uma VM usando o parâmetro `--template-uri` .  Você também pode baixar ou criar um modelo localmente e passar o modelo usando o parâmetro `--template-file` com um caminho para o arquivo de modelo como um argumento. A CLI do Azure solicita os parâmetros necessários ao modelo.
+Esse exemplo implantado uma VM usando Olá `--template-uri` parâmetro.  Você também pode baixar ou criar um modelo localmente e passar o modelo de saudação usando Olá `--template-file` parâmetro com um arquivo de modelo do caminho toohello como um argumento. Olá CLI do Azure solicita parâmetros Olá exigidos pelo modelo de saudação.
 
 ## <a name="next-steps"></a>Próximas etapas
-Pesquise a [galeria de modelos](https://azure.microsoft.com/documentation/templates/) para descobrir quais estruturas de aplicativos implantar em seguida.
+Saudação de pesquisa [Galeria de modelos](https://azure.microsoft.com/documentation/templates/) toodiscover que toodeploy de estruturas de aplicativo Avançar.
 

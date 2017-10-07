@@ -1,5 +1,5 @@
 ---
-title: "Alta disponibilidade de Máquinas Virtuais do Azure para SAP NetWeaver no SUSE Linux Enterprise Server para aplicativos SAP | Microsoft Docs"
+title: "Máquinas virtuais alta disponibilidade para o SAP NetWeaver no SUSE Linux Enterprise Server para aplicativos SAP de aaaAzure | Microsoft Docs"
 description: Guia de alta disponibilidade do SAP NetWeaver no SUSE Linux Enterprise Server para aplicativos SAP
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: 16e09797926f29bc18cb05671c986c74f9c2d4f8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e944103df92d5ffec9196189f138e25972bea79f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidade do SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicativos SAP
 
@@ -50,13 +50,13 @@ ms.lasthandoff: 08/03/2017
 
 [sap-hana-ha]:sap-hana-high-availability.md
 
-Este artigo descreve como implantar as máquinas virtuais, configurar as máquinas virtuais, instalar a estrutura de cluster e instalar um sistema SAP NetWeaver 7.50 com alta disponibilidade.
-Nas configurações de exemplo, comandos de instalação etc. A instância do ASCS número 00, a número da instância do ERS 02 e o NWS de ID do sistema SAP são usados. Os nomes dos recursos (por exemplo, máquinas virtuais, redes virtuais) no exemplo pressupõem que você tenha usado o [modelo convergido][template-converged] com o NWS de ID do sistema SAP para criar os recursos.
+Este artigo descreve como máquinas virtuais do toodeploy Olá, configurar máquinas virtuais de hello, instalar o framework de cluster hello e instalar um sistema SAP NetWeaver 7,50 altamente disponível.
+Em configurações de exemplo hello, comandos de instalação etc. A instância do ASCS número 00, a número da instância do ERS 02 e o NWS de ID do sistema SAP são usados. Olá nomes de recursos de saudação (por exemplo, máquinas virtuais, redes virtuais) no exemplo hello pressupõem que você usou Olá [convergido modelo] [ template-converged] com recursos de saudação do SAP sistema ID NWS toocreate.
 
-Primeiro, leia os seguintes documentos e Notas SAP
+Saudação de leitura a seguir observações sobre o SAP e documentos primeiro
 
 * A Nota SAP [1928533], que tem:
-  * Lista de tamanhos de VM do Azure que têm suporte para a implantação de software SAP
+  * Lista de tamanhos de VM do Azure que têm suporte para implantação de saudação do software SAP
   * Informações importantes sobre capacidade para tamanhos de VM do Azure
   * Software SAP e combinações de SO (sistema operacional) e banco de dados com suporte
   * A versão do kernel do SAP necessária para Windows e para Linux no Microsoft Azure
@@ -65,32 +65,32 @@ Primeiro, leia os seguintes documentos e Notas SAP
 * A Nota SAP [2205917] tem configurações de SO recomendadas para SUSE Linux Enterprise Server para aplicativos SAP
 * A Nota SAP [1944799] tem Diretrizes SAP HANA para SUSE Linux Enterprise Server para aplicativos SAP
 * A Nota SAP [2178632] contém informações detalhadas sobre todas as métricas de monitoramentos relatadas para o SAP no Azure.
-* A Nota SAP [2191498] tem a versão necessária do SAP Host Agent para Linux no Azure.
+* Nota da SAP [2191498] Olá exigiu versão SAP Host Agent para Linux no Azure.
 * A Nota SAP [2243692] tem informações sobre o licenciamento do SAP no Linux no Azure.
 * A Nota SAP [1984787] tem informações gerais sobre o SUSE Linux Enterprise Server 12.
-* A Nota SAP [1999351] tem informações de solução de problemas adicionais para a Extensão de Monitoramento Avançado do Azure para SAP.
+* Nota da SAP [1999351] tem informações adicionais de solução de problemas para hello Azure extensão de monitoramento aprimorada para SAP.
 * [WIKI da comunidade do SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as Notas SAP necessárias para Linux.
 * [Planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP no Linux (este artigo)][deployment-guide]
 * [Implantação de Máquinas Virtuais do Azure do DBMS para SAP no Linux][dbms-guide]
 * [Cenário otimizado para desempenho da SR SAP HANA][suse-hana-ha-guide]  
-  O guia contém todas as informações necessárias para configurar a Replicação do Sistema SAP HANA no local. Use este guia como uma linha de base.
-* [Armazenamento de NFS altamente disponível com DRBD e Pacemaker][suse-drbd-guide] O guia contém todas as informações necessárias para configurar um servidor NFS altamente disponível. Use este guia como uma linha de base.
+  Guia de saudação contém tooset de todas as informações necessárias a replicação de sistema do SAP HANA local. Use este guia como uma linha de base.
+* [Armazenamento de NFS altamente disponível com DRBD e Pacemaker] [ suse-drbd-guide] guia Olá contém todos os tooset as informações necessárias a um servidor NFS altamente disponível. Use este guia como uma linha de base.
 
 
 ## <a name="overview"></a>Visão geral
 
-Para obter alta disponibilidade, o SAP NetWeaver requer um servidor NFS. O servidor NFS está configurado em um cluster separado e pode ser usado por vários sistemas SAP.
+alta disponibilidade tooachieve, SAP NetWeaver requer um servidor NFS. Olá servidor é configurado em um cluster separado e pode ser usado por vários sistemas SAP.
 
 ![Visão geral da Alta Disponibilidade do SAP NetWeaver](./media/high-availability-guide-suse/img_001.png)
 
-O servidor NFS, ASCS do SAP NetWeaver, SCS do SAP NetWeaver, ERS do SAP NetWeaver e o banco de dados SAP HANA usam um nome do host virtual e endereços IP virtuais. No Azure, um balanceador de carga é necessário para usar um endereço IP virtual. A lista a seguir mostra a configuração do balanceador de carga.
+Olá servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver es e banco de dados do SAP HANA Olá usar nome de máquina virtual e endereços IP virtuais. No Azure, um balanceador de carga é necessário toouse um endereço IP virtual. Olá lista a seguir mostra a configuração Olá Olá do balanceador de carga.
 
 ### <a name="nfs-server"></a>Servidor NFS
 * Configuração de front-end
   * Endereço IP 10.0.0.4
 * Configuração de back-end
-  * Conectado aos adaptadores de rede primários de todas as máquinas virtuais que devem ser parte do cluster NFS
+  * Conectado tooprimary interfaces de rede de todas as máquinas virtuais que devem fazer parte do cluster NFS Olá
 * Porta de Investigação
   * Porta 61000
 * Regras de balanceamento de carga
@@ -101,7 +101,7 @@ O servidor NFS, ASCS do SAP NetWeaver, SCS do SAP NetWeaver, ERS do SAP NetWeave
 * Configuração de front-end
   * Endereço IP 10.0.0.10
 * Configuração de back-end
-  * Conectado aos adaptadores de rede primários de todas as máquinas virtuais que devem ser parte do cluster (A)SCS/ERS
+  * Interfaces de rede conectados tooprimary de todas as máquinas virtuais que devem ser parte de saudação (A) SCS/es cluster
 * Porta de Investigação
   * Porta 620**&lt;nr&gt;**
 * Regras de balanceamento de carga
@@ -117,7 +117,7 @@ O servidor NFS, ASCS do SAP NetWeaver, SCS do SAP NetWeaver, ERS do SAP NetWeave
 * Configuração de front-end
   * Endereço IP 10.0.0.11
 * Configuração de back-end
-  * Conectado aos adaptadores de rede primários de todas as máquinas virtuais que devem ser parte do cluster (A)SCS/ERS
+  * Interfaces de rede conectados tooprimary de todas as máquinas virtuais que devem ser parte de saudação (A) SCS/es cluster
 * Porta de Investigação
   * Porta 621**&lt;nr&gt;**
 * Regras de balanceamento de carga
@@ -130,7 +130,7 @@ O servidor NFS, ASCS do SAP NetWeaver, SCS do SAP NetWeaver, ERS do SAP NetWeave
 * Configuração de front-end
   * Endereço IP 10.0.0.12
 * Configuração de back-end
-  * Conectado aos adaptadores de rede primários de todas as máquinas virtuais que devem ser parte do cluster HANA
+  * Conectado tooprimary interfaces de rede de todas as máquinas virtuais que devem fazer parte do cluster do HANA Olá
 * Porta de Investigação
   * Porta 625**&lt;nr&gt;**
 * Regras de balanceamento de carga
@@ -141,23 +141,23 @@ O servidor NFS, ASCS do SAP NetWeaver, SCS do SAP NetWeaver, ERS do SAP NetWeave
 
 ### <a name="deploying-linux"></a>Implantação do Linux
 
-O Azure Marketplace contém uma imagem para SUSE Linux Enterprise Server for SAP Applications 12 que você pode usar para implantar novas máquinas virtuais.
-Você pode usar um dos modelos de início rápido no github para implantar todos os recursos necessários. O modelo implanta as máquinas virtuais, o balanceador de carga, o conjunto de disponibilidade etc. Siga estas etapas para implantar o modelo:
+Hello Azure Marketplace contém uma imagem para SUSE Linux Enterprise Server para 12 de aplicativos SAP que você pode usar máquinas virtuais da nova toodeploy.
+Você pode usar um dos modelos de início rápido de saudação no github toodeploy todos os recursos necessários. modelo de saudação implanta máquinas virtuais de saudação, o balanceador de carga hello, disponibilidade definida etc. Siga o modelo de saudação de toodeploy essas etapas:
 
-1. Abra o [modelo de servidor de arquivo do SAP][template-file-server] no Portal do Azure   
-1. Defina os seguintes parâmetros
+1. Olá abrir [modelo de servidor de arquivo do SAP] [ template-file-server] em Olá portal do Azure   
+1. Digite hello parâmetros a seguir
    1. Prefixo de recursos  
-      Digite o prefixo que você deseja usar. O valor é usado como um prefixo para os recursos que serão implantados.
+      Insira o prefixo Olá deseja toouse. valor de saudação é usado como um prefixo para recursos de saudação que são implantados.
    2. Tipo de sistema operacional  
-      Selecione uma das distribuições do Linux. Para este exemplo, selecione SLES 12
+      Selecione uma saudação distribuições do Linux. Para este exemplo, selecione SLES 12
    3. Nome de Usuário de Administrador e Senha do Administrador  
-      É criado um novo usuário que pode ser usado para fazer logon no computador.
+      Um novo usuário é criado que pode ser usado toolog toohello máquina.
    4. ID da Sub-rede  
-      A ID da sub-rede à qual as máquinas virtuais devem estar conectadas. Deixe vazio se você deseja criar uma nova rede virtual ou selecione a sub-rede da sua VPN ou a rede virtual da ExpressRoute para conectar a máquina virtual à sua rede local. A ID geralmente tem esta aparência: /subscriptions/**&lt;id da assinatura&gt;**/resourceGroups/**&lt;nome do grupo de recursos&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nome de rede virtual&gt;**/subnets/**&lt;nome da sub-rede&gt;**
+      Olá ID das máquinas virtuais do hello sub-rede toowhich Olá deve ser conectado ao. Deixe em branco se você desejar toocreate uma nova rede virtual ou selecione Olá sub-rede de sua VPN ou rota expressa rede virtual tooconnect Olá máquina virtual tooyour na rede local. Olá ID geralmente parece com /subscriptions/**&lt;id da assinatura&gt;**/resourceGroups/**&lt;nome do grupo de recursos&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;nome de rede virtual&gt;**/subnets/**&lt;nome da sub-rede&gt;**
 
 ### <a name="installation"></a>Instalação
 
-Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **[1]** – aplicável somente ao nó 1 ou **[2]** – aplicável somente ao nó 2.
+Olá itens a seguir são prefixados com um **[A]** -nós tooall aplicável, **[1]** -toonode aplicável apenas 1 ou **[2]** -somente aplicável toonode 2.
 
 1. **[A]** Atualizar o SLES
 
@@ -170,11 +170,11 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <pre><code>
    sudo ssh-keygen -tdsa
    
-   # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
+   # Enter file in which toosave hello key (/root/.ssh/id_dsa): -> ENTER
    # Enter passphrase (empty for no passphrase): -> ENTER
    # Enter same passphrase again: -> ENTER
    
-   # copy the public key
+   # copy hello public key
    sudo cat /root/.ssh/id_dsa.pub
    </code></pre>
 
@@ -183,21 +183,21 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <pre><code>
    sudo ssh-keygen -tdsa
 
-   # insert the public key you copied in the last step into the authorized keys file on the second server
+   # insert hello public key you copied in hello last step into hello authorized keys file on hello second server
    sudo vi /root/.ssh/authorized_keys
    
-   # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
+   # Enter file in which toosave hello key (/root/.ssh/id_dsa): -> ENTER
    # Enter passphrase (empty for no passphrase): -> ENTER
    # Enter same passphrase again: -> ENTER
    
-   # copy the public key   
+   # copy hello public key   
    sudo cat /root/.ssh/id_dsa.pub
    </code></pre>
 
 1. **[1]** Habilitar o acesso ssh
 
    <pre><code>
-   # insert the public key you copied in the last step into the authorized keys file on the first server
+   # insert hello public key you copied in hello last step into hello authorized keys file on hello first server
    sudo vi /root/.ssh/authorized_keys
    </code></pre>
 
@@ -209,17 +209,17 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
 1. **[A]** Configurar a resolução de nome do host   
 
-   Você pode usar um servidor DNS ou modificar /etc/hosts em todos os nós. Este exemplo mostra como usar o arquivo /etc/hosts.
-   Substitua o endereço IP e o nome do host nos comandos a seguir
+   Você pode usar um servidor DNS ou modificar /etc/hosts Olá em todos os nós. Este exemplo mostra como toouse Olá arquivo /etc/hosts.
+   Substituir endereço IP de saudação e nome de host Olá no hello comandos a seguir
 
    <pre><code>
    sudo vi /etc/hosts
    </code></pre>
    
-   Insira as seguintes linhas para /etc/hosts. Altere o endereço IP e o nome do host para corresponder ao seu ambiente   
+   Inserir saudação linhas muito/etc/hosts a seguir. Alterar o ambiente de saudação IP toomatch de endereço e o nome do host   
    
    <pre><code>
-   # IP address of the load balancer frontend configuration for NFS
+   # IP address of hello load balancer frontend configuration for NFS
    <b>10.0.0.4 nws-nfs</b>
    </code></pre>
 
@@ -228,39 +228,39 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <pre><code>
    sudo ha-cluster-init
    
-   # Do you want to continue anyway? [y/N] -> y
-   # Network address to bind to (for example: 192.168.1.0) [10.79.227.0] -> ENTER
+   # Do you want toocontinue anyway? [y/N] -> y
+   # Network address toobind too(for example: 192.168.1.0) [10.79.227.0] -> ENTER
    # Multicast address (for example: 239.x.x.x) [239.174.218.125] -> ENTER
    # Multicast port [5405] -> ENTER
-   # Do you wish to use SBD? [y/N] -> N
-   # Do you wish to configure an administration IP? [y/N] -> N
+   # Do you wish toouse SBD? [y/N] -> N
+   # Do you wish tooconfigure an administration IP? [y/N] -> N
    </code></pre>
 
-1. **[2]** Adicionar nó ao cluster
+1. **[2]**  Adicionar nó toocluster
    
    <pre><code> 
    sudo ha-cluster-join
 
-   # WARNING: NTP is not configured to start at system boot.
-   # WARNING: No watchdog device found. If SBD is used, the cluster will be unable to start without a watchdog.
-   # Do you want to continue anyway? [y/N] -> y
+   # WARNING: NTP is not configured toostart at system boot.
+   # WARNING: No watchdog device found. If SBD is used, hello cluster will be unable toostart without a watchdog.
+   # Do you want toocontinue anyway? [y/N] -> y
    # IP address or hostname of existing node (for example: 192.168.1.1) [] -> IP address of node 1 for example 10.0.0.10
    # /root/.ssh/id_dsa already exists - overwrite? [y/N] N
    </code></pre>
 
-1. **[A]** Alterar a senha hacluster para a mesma senha
+1. **[A]**  Alteração hacluster senha toohello mesma senha
 
    <pre><code> 
    sudo passwd hacluster
    </code></pre>
 
-1. **[A]** Configurar corosync para usar outro transporte e adicione nodelist. Caso contrário, o cluster não funcionará.
+1. **[A]**  Configurar corosync toouse outro transporte e adicionar nodelist. Caso contrário, o cluster não funcionará.
    
    <pre><code> 
    sudo vi /etc/corosync/corosync.conf   
    </code></pre>
 
-   Adicione o conteúdo em negrito a seguir ao arquivo.
+   Adicione Olá negrito toohello conteúdo de arquivo a seguir.
    
    <pre><code> 
    [...]
@@ -283,7 +283,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
      [...]
    </code></pre>
 
-   Em seguida, reinicie o serviço corosync
+   Em seguida, reinicie o serviço de corosync Olá
 
    <pre><code>
    sudo service corosync restart
@@ -295,7 +295,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo zypper install drbd drbd-kmp-default drbd-utils
    </code></pre>
 
-1. **[A]** Criar uma partição para o dispositivo drbd
+1. **[A]**  Criar uma partição para o dispositivo de drbd Olá
 
    <pre><code>
    sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/sdc'
@@ -309,13 +309,13 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo lvcreate -l 100%FREE -n <b>NWS</b> vg_NFS
    </code></pre>
 
-1. **[A]** Criar o dispositivo drbd do NFS
+1. **[A]**  Dispositivo de drbd criar hello NFS
 
    <pre><code>
    sudo vi /etc/drbd.d/<b>NWS</b>_nfs.res
    </code></pre>
 
-   Inserir a configuração para o novo dispositivo drbd e sair
+   Inserir configuração Olá para o novo dispositivo de drbd hello e sair
 
    <pre><code>
    resource <b>NWS</b>_nfs {
@@ -338,7 +338,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    }
    </code></pre>
 
-   Criar o dispositivo drbd e iniciá-lo
+   Criar um dispositivo drbd hello e iniciá-lo
 
    <pre><code>
    sudo drbdadm create-md <b>NWS</b>_nfs
@@ -351,13 +351,13 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo drbdadm new-current-uuid --clear-bitmap <b>NWS</b>_nfs
    </code></pre>
 
-1. **[1]**  Definir o nó principal
+1. **[1]**  Nó primário do conjunto Olá
 
    <pre><code>
    sudo drbdadm primary --force <b>NWS</b>_nfs
    </code></pre>
 
-1. **[1]** Aguardar até que os novos dispositivos drbd sejam sincronizados
+1. **[1]**  Aguarde até que novos dispositivos de drbd Olá são sincronizados
 
    <pre><code>
    sudo cat /proc/drbd
@@ -368,7 +368,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    #    ns:0 nr:0 dw:0 dr:912 al:8 bm:0 lo:0 pe:0 ua:0 ap:0 ep:1 wo:f oos:0
    </code></pre>
 
-1. **[1]** Criar sistemas de arquivos nos dispositivos drbd
+1. **[1]**  Criar sistemas de arquivos no hello drbd dispositivos
 
    <pre><code>
    sudo mkfs.xfs /dev/drbd0
@@ -377,7 +377,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
 ### <a name="configure-cluster-framework"></a>Configurar a estrutura do cluster
 
-1. **[1]** Alterar as configurações padrão
+1. **[1]**  Alterar as configurações padrão de saudação
 
    <pre><code>
    sudo crm configure
@@ -388,7 +388,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    crm(live)configure# exit
    </code></pre>
 
-1. **[1]** Adicionar o dispositivo de drbd do NFS à configuração do cluster
+1. **[1]**  Configuração de cluster Adicionar Olá NFS drbd dispositivo toohello
 
    <pre><code>
    sudo crm configure
@@ -407,7 +407,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    crm(live)configure# exit
    </code></pre>
 
-1. **[1]** Criar o servidor NFS
+1. **[1]**  Servidor criar Olá
 
    <pre><code>
    sudo crm configure
@@ -422,7 +422,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    crm(live)configure# exit
    </code></pre>
 
-1. **[1]** Criar os recursos do sistema de arquivos NFS
+1. **[1]**  Criar recursos de sistema de arquivos NFS Olá
 
    <pre><code>
    sudo crm configure
@@ -446,7 +446,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    crm(live)configure# exit
    </code></pre>
 
-1. **[1]** Criar as exportações do NFS
+1. **[1]**  Criar hello exportações NFS
 
    <pre><code>
    sudo mkdir /srv/nfs/<b>NWS</b>/sidsys
@@ -469,7 +469,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    crm(live)configure# exit
    </code></pre>
 
-1. **[1]** Criar um recurso de IP virtual e a investigação de integridade para o balanceador de carga interno
+1. **[1]**  Criar um recurso IP virtual e a investigação de integridade para o balanceador de carga interno Olá
 
    <pre><code>
    sudo crm configure
@@ -491,39 +491,39 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
 ### <a name="create-stonith-device"></a>Criar dispositivo STONITH
 
-O dispositivo STONITH usa uma Entidade de Serviço para autorização no Microsoft Azure. Siga estas etapas para criar uma Entidade de Serviço.
+dispositivo STONITH Olá usa tooauthorize uma entidade de serviço no Microsoft Azure. Siga essas etapas toocreate uma entidade de serviço.
 
-1. Acesse <https://portal.azure.com>
-1. Abra a folha Azure Active Directory  
-   Vá para Propriedades e anote a ID do Diretório. Essa é a **id de locatário**.
+1. Vá muito<https://portal.azure.com>
+1. Folha de Active Directory do Azure Olá aberto  
+   Vá tooProperties e anote Olá ID de diretório. Isso é hello **id de locatário**.
 1. Clique em Registros do Aplicativo
 1. Clique em Adicionar
 1. Digite um Nome, selecione Tipo de Aplicativo "Aplicativo Web/API", insira uma URL de logon (por exemplo, http://localhost) e clique em Criar
-1. A URL de logon não é usada e pode ser qualquer URL válida
-1. Selecione o novo Aplicativo e clique em Chaves na guia Configurações
+1. URL de entrada Hello não é usado e pode ser qualquer URL válido
+1. Selecione Olá novo aplicativo e clique em chaves no guia de configurações de saudação
 1. Insira uma descrição para uma nova chave, selecione "Nunca expira" e clique em Salvar
-1. Anote o Valor. Ele é usado como **senha** da Entidade de Serviço
-1. Anote a ID do Aplicativo. Ela é usada como nome de usuário (**id de logon** nas etapas abaixo) da Entidade de Serviço
+1. Anote o valor de saudação. Ele é usado como Olá **senha** para Olá entidade de serviço
+1. Anote a saudação ID do aplicativo. Ele é usado como Olá username (**id de logon** nas etapas de saudação abaixo) de saudação entidade de serviço
 
-A Entidade de Serviço não tem permissões para acessar os recursos do Azure por padrão. Você precisa fornecer as permissões da Entidade de Serviço para iniciar e parar (desalocar) todas as máquinas virtuais do cluster.
+Olá entidade de serviço não tem permissões tooaccess seus recursos do Azure por padrão. Você precisa toogive toostart de permissões de entidade de serviço de saudação e parar (desalocar) todas as máquinas virtuais do cluster hello.
 
-1. Acesse https://portal.azure.com
-1. Abra a folha Todos os recursos
-1. Selecione a máquina virtual
+1. Vá toohttps://portal.azure.com
+1. Abrir Olá folha de todos os recursos
+1. Selecione a máquina virtual de saudação
 1. Clique em Controle de acesso (IAM)
 1. Clique em Adicionar
-1. Selecione a função Proprietário
-1. Digite o nome do aplicativo criado acima
+1. Selecione a função hello proprietário
+1. Insira nome de saudação do aplicativo hello criado acima
 1. Clique em OK
 
-#### <a name="1-create-the-stonith-devices"></a>**[1]** Criar os dispositivos STONITH
+#### <a name="1-create-hello-stonith-devices"></a>**[1]**  Criar hello STONITH dispositivos
 
-Depois de editar as permissões das máquinas virtuais, você pode configurar os dispositivos STONITH no cluster.
+Depois de editar permissões Olá para máquinas virtuais de hello, você pode configurar dispositivos STONITH de saudação em cluster hello.
 
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace hello bold string with your subscription id, resource group, tenant id, service principal id and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
@@ -537,7 +537,7 @@ crm(live)configure# commit
 crm(live)configure# exit
 </code></pre>
 
-#### <a name="1-enable-the-use-of-a-stonith-device"></a>**[1]** Habilitar o uso de um dispositivo STONITH
+#### <a name="1-enable-hello-use-of-a-stonith-device"></a>**[1]**  Habilitar o uso de saudação de um dispositivo STONITH
 
 <pre><code>
 sudo crm configure property stonith-enabled=true 
@@ -547,34 +547,34 @@ sudo crm configure property stonith-enabled=true
 
 ### <a name="deploying-linux"></a>Implantação do Linux
 
-O Azure Marketplace contém uma imagem para SUSE Linux Enterprise Server for SAP Applications 12 que você pode usar para implantar novas máquinas virtuais. A imagem do Marketplace contém o agente de recurso para SAP NetWeaver.
+Hello Azure Marketplace contém uma imagem para SUSE Linux Enterprise Server para 12 de aplicativos SAP que você pode usar máquinas virtuais da nova toodeploy. imagem do marketplace Olá contém agente de recurso Olá para SAP NetWeaver.
 
-Você pode usar um dos modelos de início rápido no github para implantar todos os recursos necessários. O modelo implanta as máquinas virtuais, o balanceador de carga, o conjunto de disponibilidade etc. Siga estas etapas para implantar o modelo:
+Você pode usar um dos modelos de início rápido de saudação no github toodeploy todos os recursos necessários. modelo de saudação implanta máquinas virtuais de saudação, o balanceador de carga hello, disponibilidade definida etc. Siga o modelo de saudação de toodeploy essas etapas:
 
-1. Abra o [modelo multi-SID do ASCS/SCS][template-multisid-xscs] ou o [modelo convergido][template-converged] no Portal do Azure. O modelo de ASCS/SCS cria apenas as regras de balanceamento de carga para instâncias ERS (somente Linux) e ASCS/SCS do SAP NetWeaver, enquanto o modelo convergido também cria as regras de balanceamento de carga para um banco de dados (por exemplo, Microsoft SQL Server ou SAP HANA). Se você planeja instalar um sistema baseado no SAP NetWeaver e também quer instalar o banco de dados nos mesmos computadores, use o [modelo convergido][template-converged].
-1. Defina os seguintes parâmetros
+1. Olá abrir [modelo ASCS/SCS várias SID] [ template-multisid-xscs] ou hello [convergido modelo] [ template-converged] em Olá Olá portal do Azure ASCS/SCS somente modelo cria regras de balanceamento de carga de saudação para hello ASCS/SCS do SAP NetWeaver e instâncias de ES (Linux) enquanto o modelo convergida Olá também cria regras de balanceamento de carga Olá para um banco de dados (por exemplo, Microsoft SQL Server ou SAP HANA). Se você planejar tooinstall um sistema baseados no SAP NetWeaver e você deseja que o banco de dados do tooinstall Olá na Olá mesmas máquinas, use Olá [convergido modelo][template-converged].
+1. Digite hello parâmetros a seguir
    1. Prefixo de recurso (somente modelo multi-SID do ASCS/SCS)  
-      Digite o prefixo que você deseja usar. O valor é usado como um prefixo para os recursos que serão implantados.
+      Insira o prefixo Olá deseja toouse. valor de saudação é usado como um prefixo para recursos de saudação que são implantados.
    3. ID do sistema SAP (somente modelo convergido)  
-      Insira a ID do sistema SAP do sistema SAP, que você deseja instalar. A ID é usada como um prefixo para os recursos que serão implantados.
+      Insira o sistema SAP de hello, Id de saudação sistema SAP que você deseja tooinstall. Olá Id é usado como um prefixo para recursos de saudação que são implantados.
    4. Tipo de Pilha  
-      Selecionar o tipo de pilha do SAP NetWeaver
+      Selecione o tipo de pilha do SAP NetWeaver Olá
    5. Tipo de sistema operacional  
-      Selecione uma das distribuições do Linux. Para este exemplo, selecione SLES 12 BYOS
+      Selecione uma saudação distribuições do Linux. Para este exemplo, selecione SLES 12 BYOS
    6. Tipo de banco de dados  
       Selecionar HANA
    7. Tamanho do sistema SAP  
-      A quantidade de SAPs que o novo sistema fornece. Se não tiver certeza de quantos SAPS o sistema precisará, pergunte ao Parceiro de Tecnologia SAP ou ao Integrador de Sistemas
+      quantidade de saudação do sistema novo do SAPS Olá fornece. Se não tiver certeza do sistema de saudação SAPS quantos requer, peça ao seu parceiro de tecnologia do SAP ou o integrador de sistema
    8. Disponibilidade do sistema  
       Selecione HA
    9. Nome de Usuário de Administrador e Senha do Administrador  
-      É criado um novo usuário que pode ser usado para fazer logon no computador.
+      Um novo usuário é criado que pode ser usado toolog toohello máquina.
    10. ID da Sub-rede  
-   A ID da sub-rede à qual as máquinas virtuais devem estar conectadas.  Deixe em branco se você deseja criar uma nova rede virtual ou selecione a mesma sub-rede usada ou criada como parte da implantação do servidor NFS. A ID geralmente tem esta aparência: /subscriptions/**&lt;id da assinatura&gt;**/resourceGroups/**&lt;nome do grupo de recursos&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nome de rede virtual&gt;**/subnets/**&lt;nome da sub-rede&gt;**
+   Olá ID das máquinas virtuais do hello sub-rede toowhich Olá deve ser conectado ao.  Deixe em branco se você quiser toocreate uma nova rede virtual ou selecione Olá mesma sub-rede que é usado ou criado como parte da implantação do servidor NFS hello. Olá ID geralmente parece com /subscriptions/**&lt;id da assinatura&gt;**/resourceGroups/**&lt;nome do grupo de recursos&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;nome de rede virtual&gt;**/subnets/**&lt;nome da sub-rede&gt;**
 
 ### <a name="installation"></a>Instalação
 
-Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **[1]** – aplicável somente ao nó 1 ou **[2]** – aplicável somente ao nó 2.
+Olá itens a seguir são prefixados com um **[A]** -nós tooall aplicável, **[1]** -toonode aplicável apenas 1 ou **[2]** -somente aplicável toonode 2.
 
 1. **[A]** Atualizar o SLES
 
@@ -587,11 +587,11 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <pre><code>
    sudo ssh-keygen -tdsa
    
-   # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
+   # Enter file in which toosave hello key (/root/.ssh/id_dsa): -> ENTER
    # Enter passphrase (empty for no passphrase): -> ENTER
    # Enter same passphrase again: -> ENTER
    
-   # copy the public key
+   # copy hello public key
    sudo cat /root/.ssh/id_dsa.pub
    </code></pre>
 
@@ -600,21 +600,21 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <pre><code>
    sudo ssh-keygen -tdsa
 
-   # insert the public key you copied in the last step into the authorized keys file on the second server
+   # insert hello public key you copied in hello last step into hello authorized keys file on hello second server
    sudo vi /root/.ssh/authorized_keys
    
-   # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
+   # Enter file in which toosave hello key (/root/.ssh/id_dsa): -> ENTER
    # Enter passphrase (empty for no passphrase): -> ENTER
    # Enter same passphrase again: -> ENTER
    
-   # copy the public key   
+   # copy hello public key   
    sudo cat /root/.ssh/id_dsa.pub
    </code></pre>
 
 1. **[1]** Habilitar o acesso ssh
 
    <pre><code>
-   # insert the public key you copied in the last step into the authorized keys file on the first server
+   # insert hello public key you copied in hello last step into hello authorized keys file on hello first server
    sudo vi /root/.ssh/authorized_keys
    </code></pre>
 
@@ -626,19 +626,19 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
 1. **[A]** Atualizar agentes de recurso SAP  
    
-   Um patch para o pacote de agentes de recurso é necessário para usar a nova configuração, que é descrita neste artigo. Você pode verificar, se o patch já está instalado com o comando a seguir
+   Um patch para o pacote de recursos agentes Olá é necessário toouse Olá nova configuração, que é descrita neste artigo. Você pode verificar, se o patch de saudação já está instalado com o comando a seguir de saudação
 
    <pre><code>
    sudo grep 'parameter name="IS_ERS"' /usr/lib/ocf/resource.d/heartbeat/SAPInstance
    </code></pre>
 
-   A saída deverá ser semelhante a
+   saída de Hello deve ser semelhante a
 
    <pre><code>
    &lt;parameter name="IS_ERS" unique="0" required="0"&gt;
    </code></pre>
 
-   Se o comando grep não localizar o parâmetro IS_ERS, você precisará instalar o patch listado na [página de download do SUSE](https://download.suse.com/patch/finder/#bu=suse&familyId=&productId=&dateRange=&startDate=&endDate=&priority=&architecture=&keywords=resource-agents)
+   Se o comando grep de saudação não encontrar o parâmetro IS_ERS hello, você precisa tooinstall patch de saudação listado em [Olá SUSE página de download](https://download.suse.com/patch/finder/#bu=suse&familyId=&productId=&dateRange=&startDate=&endDate=&priority=&architecture=&keywords=resource-agents)
 
    <pre><code>
    # example for patch for SLES 12 SP1
@@ -649,23 +649,23 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
 1. **[A]** Configurar a resolução de nome do host   
 
-   Você pode usar um servidor DNS ou modificar /etc/hosts em todos os nós. Este exemplo mostra como usar o arquivo /etc/hosts.
-   Substitua o endereço IP e o nome do host nos comandos a seguir
+   Você pode usar um servidor DNS ou modificar /etc/hosts Olá em todos os nós. Este exemplo mostra como toouse Olá arquivo /etc/hosts.
+   Substituir endereço IP de saudação e nome de host Olá no hello comandos a seguir
 
    <pre><code>
    sudo vi /etc/hosts
    </code></pre>
    
-   Insira as seguintes linhas para /etc/hosts. Altere o endereço IP e o nome do host para corresponder ao seu ambiente   
+   Inserir saudação linhas muito/etc/hosts a seguir. Alterar o ambiente de saudação IP toomatch de endereço e o nome do host   
    
    <pre><code>
-   # IP address of the load balancer frontend configuration for NFS
+   # IP address of hello load balancer frontend configuration for NFS
    <b>10.0.0.4 nws-nfs</b>
-   # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS/SCS
+   # IP address of hello load balancer frontend configuration for SAP NetWeaver ASCS/SCS
    <b>10.0.0.10 nws-ascs</b>
-   # IP address of the load balancer frontend configuration for SAP NetWeaver ERS
+   # IP address of hello load balancer frontend configuration for SAP NetWeaver ERS
    <b>10.0.0.11 nws-ers</b>
-   # IP address of the load balancer frontend configuration for database
+   # IP address of hello load balancer frontend configuration for database
    <b>10.0.0.12 nws-db</b>
    </code></pre>
 
@@ -674,39 +674,39 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <pre><code>
    sudo ha-cluster-init
    
-   # Do you want to continue anyway? [y/N] -> y
-   # Network address to bind to (for example: 192.168.1.0) [10.79.227.0] -> ENTER
+   # Do you want toocontinue anyway? [y/N] -> y
+   # Network address toobind too(for example: 192.168.1.0) [10.79.227.0] -> ENTER
    # Multicast address (for example: 239.x.x.x) [239.174.218.125] -> ENTER
    # Multicast port [5405] -> ENTER
-   # Do you wish to use SBD? [y/N] -> N
-   # Do you wish to configure an administration IP? [y/N] -> N
+   # Do you wish toouse SBD? [y/N] -> N
+   # Do you wish tooconfigure an administration IP? [y/N] -> N
    </code></pre>
 
-1. **[2]** Adicionar nó ao cluster
+1. **[2]**  Adicionar nó toocluster
    
    <pre><code> 
    sudo ha-cluster-join
 
-   # WARNING: NTP is not configured to start at system boot.
-   # WARNING: No watchdog device found. If SBD is used, the cluster will be unable to start without a watchdog.
-   # Do you want to continue anyway? [y/N] -> y
+   # WARNING: NTP is not configured toostart at system boot.
+   # WARNING: No watchdog device found. If SBD is used, hello cluster will be unable toostart without a watchdog.
+   # Do you want toocontinue anyway? [y/N] -> y
    # IP address or hostname of existing node (for example: 192.168.1.1) [] -> IP address of node 1 for example 10.0.0.10
    # /root/.ssh/id_dsa already exists - overwrite? [y/N] N
    </code></pre>
 
-1. **[A]** Alterar a senha hacluster para a mesma senha
+1. **[A]**  Alteração hacluster senha toohello mesma senha
 
    <pre><code> 
    sudo passwd hacluster
    </code></pre>
 
-1. **[A]** Configurar corosync para usar outro transporte e adicione nodelist. Caso contrário, o cluster não funcionará.
+1. **[A]**  Configurar corosync toouse outro transporte e adicionar nodelist. Caso contrário, o cluster não funcionará.
    
    <pre><code> 
    sudo vi /etc/corosync/corosync.conf   
    </code></pre>
 
-   Adicione o conteúdo em negrito a seguir ao arquivo.
+   Adicione Olá negrito toohello conteúdo de arquivo a seguir.
    
    <pre><code> 
    [...]
@@ -729,7 +729,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
      [...]
    </code></pre>
 
-   Em seguida, reinicie o serviço corosync
+   Em seguida, reinicie o serviço de corosync Olá
 
    <pre><code>
    sudo service corosync restart
@@ -741,7 +741,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo zypper install drbd drbd-kmp-default drbd-utils
    </code></pre>
 
-1. **[A]** Criar uma partição para o dispositivo drbd
+1. **[A]**  Criar uma partição para o dispositivo de drbd Olá
 
    <pre><code>
    sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/sdc'
@@ -756,13 +756,13 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo lvcreate -l 50%FREE -n <b>NWS</b>_ERS vg_<b>NWS</b>
    </code></pre>
 
-1. **[A]** Criar o dispositivo drbd do SCS
+1. **[A]**  Dispositivo de drbd criar hello SCS
 
    <pre><code>
    sudo vi /etc/drbd.d/<b>NWS</b>_ascs.res
    </code></pre>
 
-   Inserir a configuração para o novo dispositivo drbd e sair
+   Inserir configuração Olá para o novo dispositivo de drbd hello e sair
 
    <pre><code>
    resource <b>NWS</b>_ascs {
@@ -785,20 +785,20 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    }
    </code></pre>
 
-   Criar o dispositivo drbd e iniciá-lo
+   Criar um dispositivo drbd hello e iniciá-lo
 
    <pre><code>
    sudo drbdadm create-md <b>NWS</b>_ascs
    sudo drbdadm up <b>NWS</b>_ascs
    </code></pre>
 
-1. **[A]** Criar o dispositivo drbd do ERS
+1. **[A]**  Dispositivo de drbd criar hello es
 
    <pre><code>
    sudo vi /etc/drbd.d/<b>NWS</b>_ers.res
    </code></pre>
 
-   Inserir a configuração para o novo dispositivo drbd e sair
+   Inserir configuração Olá para o novo dispositivo de drbd hello e sair
 
    <pre><code>
    resource <b>NWS</b>_ers {
@@ -821,7 +821,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    }
    </code></pre>
 
-   Criar o dispositivo drbd e iniciá-lo
+   Criar um dispositivo drbd hello e iniciá-lo
 
    <pre><code>
    sudo drbdadm create-md <b>NWS</b>_ers
@@ -835,14 +835,14 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo drbdadm new-current-uuid --clear-bitmap <b>NWS</b>_ers
    </code></pre>
 
-1. **[1]**  Definir o nó principal
+1. **[1]**  Nó primário do conjunto Olá
 
    <pre><code>
    sudo drbdadm primary --force <b>NWS</b>_ascs
    sudo drbdadm primary --force <b>NWS</b>_ers
    </code></pre>
 
-1. **[1]** Aguardar até que os novos dispositivos drbd sejam sincronizados
+1. **[1]**  Aguarde até que novos dispositivos de drbd Olá são sincronizados
 
    <pre><code>
    sudo cat /proc/drbd
@@ -857,7 +857,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    #     ns:5142732 nr:0 dw:5142732 dr:5133924 al:30 bm:0 lo:0 pe:0 ua:0 ap:0 ep:1 wo:f oos:0
    </code></pre>
 
-1. **[1]** Criar sistemas de arquivos nos dispositivos drbd
+1. **[1]**  Criar sistemas de arquivos no hello drbd dispositivos
 
    <pre><code>
    sudo mkfs.xfs /dev/drbd0
@@ -867,7 +867,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
 ### <a name="configure-cluster-framework"></a>Configurar a estrutura do cluster
 
-**[1]** Alterar as configurações padrão
+**[1]**  Alterar as configurações padrão de saudação
 
    <pre><code>
    sudo crm configure
@@ -880,7 +880,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
 ## <a name="prepare-for-sap-netweaver-installation"></a>Preparar para a instalação do SAP NetWeaver
 
-1. **[A]** Criar os diretórios compartilhados
+1. **[A]**  Saudação criar os diretórios compartilhados
 
    <pre><code>
    sudo mkdir -p /sapmnt/<b>NWS</b>
@@ -897,7 +897,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <pre><code>
    sudo vi /etc/auto.master
 
-   # Add the following line to the file, save and exit
+   # Add hello following line toohello file, save and exit
    +auto.master
    /- /etc/auto.direct
    </code></pre>
@@ -907,13 +907,13 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <pre><code>
    sudo vi /etc/auto.direct
 
-   # Add the following lines to the file, save and exit
+   # Add hello following lines toohello file, save and exit
    /sapmnt/<b>NWS</b> -nfsvers=4,nosymlink,sync <b>nws-nfs</b>:/sapmntsid
    /usr/sap/trans -nfsvers=4,nosymlink,sync <b>nws-nfs</b>:/trans
    /usr/sap/<b>NWS</b>/SYS -nfsvers=4,nosymlink,sync <b>nws-nfs</b>:/sidsys
    </code></pre>
 
-   Reiniciar o autofs para montar os novos compartilhamentos
+   Reiniciar autofs toomount novos compartilhamentos Olá
 
    <pre><code>
    sudo systemctl enable autofs
@@ -925,17 +925,17 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <pre><code>
    sudo vi /etc/waagent.conf
 
-   # Set the property ResourceDisk.EnableSwap to y
+   # Set hello property ResourceDisk.EnableSwap tooy
    # Create and use swapfile on resource disk.
    ResourceDisk.EnableSwap=<b>y</b>
 
-   # Set the size of the SWAP file with property ResourceDisk.SwapSizeMB
-   # The free space of resource disk varies by virtual machine size. Make sure that you do not set a value that is too big. You can check the SWAP space with command swapon
-   # Size of the swapfile.
+   # Set hello size of hello SWAP file with property ResourceDisk.SwapSizeMB
+   # hello free space of resource disk varies by virtual machine size. Make sure that you do not set a value that is too big. You can check hello SWAP space with command swapon
+   # Size of hello swapfile.
    ResourceDisk.SwapSizeMB=<b>2000</b>
    </code></pre>
 
-   Reiniciar o agente para ativar a alteração
+   Reiniciar alteração de Olá Olá agente tooactivate
 
    <pre><code>
    sudo service waagent restart
@@ -943,7 +943,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
 ### <a name="installing-sap-netweaver-ascsers"></a>Instalação do ASCS/ERS do SAP NetWeaver
 
-1. **[1]** Criar um recurso de IP virtual e a investigação de integridade para o balanceador de carga interno
+1. **[1]**  Criar um recurso IP virtual e a investigação de integridade para o balanceador de carga interno Olá
 
    <pre><code>
    sudo crm node standby <b>nws-cl-1</b>
@@ -987,7 +987,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    crm(live)configure# exit
    </code></pre>
 
-   Verifique se o status do cluster é ok e se todos os recursos estão iniciados. Não importa em qual nó os recursos estão sendo executados.
+   Certifique-se de que o status de saudação do cluster é okey e que todos os recursos são iniciados. Não é importante em quais recursos de saudação do nó estão em execução.
 
    <pre><code>
    sudo crm_mon -r
@@ -1008,15 +1008,15 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
 1. **[1]** Instalar o ASCS do SAP NetWeaver  
 
-   Instalar o ASCS do SAP NetWeaver como raiz no primeiro nó usando um nome de host virtual que mapeia para o endereço IP de configuração de front-end do balanceador de carga para o ASCS, por exemplo, <b>nws-ascs</b>, <b>10.0.0.10</b> e o número de instância que você usou para a investigação do balanceador de carga, por exemplo, <b>00</b>.
+   Instalar o SAP NetWeaver ASCS como raiz no primeiro nó de saudação usando um nome de host virtual que mapeia o endereço IP toohello de configuração de front-end de Balanceador de carga de saudação para Olá ASCS por exemplo <b>nws ascs</b>, <b>10.0.0.10</b>e número de instância Olá que você usou para investigação Olá Olá do balanceador de carga, por exemplo <b>00</b>.
 
-   Você pode usar o parâmetro sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um usuário não raiz se conecte ao sapinst.
+   Você pode usar o hello sapinst parâmetro SAPINST_REMOTE_ACCESS_USER tooallow toosapinst de tooconnect um usuário não-raiz.
 
    <pre><code>
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-1. **[1]** Criar um recurso de IP virtual e a investigação de integridade para o balanceador de carga interno
+1. **[1]**  Criar um recurso IP virtual e a investigação de integridade para o balanceador de carga interno Olá
 
    <pre><code>
    sudo crm node standby <b>nws-cl-0</b>
@@ -1058,13 +1058,13 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    
    crm(live)configure# commit
    # WARNING: Resources nc_NWS_ASCS,nc_NWS_ERS,nc_NWS_nfs violate uniqueness for parameter "binfile": "/usr/bin/nc"
-   # Do you still want to commit (y/n)? y
+   # Do you still want toocommit (y/n)? y
 
    crm(live)configure# exit
    
    </code></pre>
  
-   Verifique se o status do cluster é ok e se todos os recursos estão iniciados. Não importa em qual nó os recursos estão sendo executados.
+   Certifique-se de que o status de saudação do cluster é okey e que todos os recursos são iniciados. Não é importante em quais recursos de saudação do nó estão em execução.
 
    <pre><code>
    sudo crm_mon -r
@@ -1092,34 +1092,34 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
 1. **[2]** Instalar o ERS do SAP NetWeaver  
 
-   Instalar o ERS do SAP NetWeaver como raiz no segundo nó usando um nome de host virtual que mapeia para o endereço IP de configuração de front-end do balanceador de carga para o ERS, por exemplo, <b>nws-ers</b>, <b>10.0.0.11</b> e o número de instância que você usou para a investigação do balanceador de carga, por exemplo, <b>02</b>.
+   Instalar o SAP NetWeaver es como raiz no nó de segundo hello usando um nome de host virtual que mapeia o endereço IP toohello de configuração de front-end de Balanceador de carga de saudação para Olá es por exemplo <b>nws es</b>, <b>10.0.0.11</b> e o número de instância Olá que você usou para investigação Olá Olá do balanceador de carga, por exemplo <b>02</b>.
 
-   Você pode usar o parâmetro sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um usuário não raiz se conecte ao sapinst.
+   Você pode usar o hello sapinst parâmetro SAPINST_REMOTE_ACCESS_USER tooallow toosapinst de tooconnect um usuário não-raiz.
 
    <pre><code>
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
    > [!NOTE]
-   > Use SWPM SP 20 PL 05 ou superior. Versões anteriores não configurarão as permissões corretamente e a instalação falhará.
+   > Use SWPM SP 20 PL 05 ou superior. Versões anteriores não definir corretamente as permissões de saudação e haverá falha na instalação de saudação.
    > 
 
-1. **[1]** Adaptar os perfis de instância do ASCS/SCS e do ERS
+1. **[1]**  Adaptar Olá ASCS/SCS e es instância perfis
  
    * Perfil do ASCS/SCS
 
    <pre><code> 
    sudo vi /sapmnt/<b>NWS</b>/profile/<b>NWS</b>_<b>ASCS00</b>_<b>nws-ascs</b>
 
-   # Change the restart command to a start command
+   # Change hello restart command tooa start command
    #Restart_Program_01 = local $(_EN) pf=$(_PF)
    Start_Program_01 = local $(_EN) pf=$(_PF)
 
-   # Add the following lines
+   # Add hello following lines
    service/halib = $(DIR_CT_RUN)/saphascriptco.so
    service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
 
-   # Add the keep alive parameter
+   # Add hello keep alive parameter
    enque/encni/set_so_keepalive = true
    </code></pre>
 
@@ -1128,7 +1128,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <pre><code> 
    sudo vi /sapmnt/<b>NWS</b>/profile/<b>NWS</b>_ERS<b>02</b>_<b>nws-ers</b>
 
-   # Add the following lines
+   # Add hello following lines
    service/halib = $(DIR_CT_RUN)/saphascriptco.so
    service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
    </code></pre>
@@ -1136,32 +1136,32 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
 1. **[A]** Configurar Keep Alive
 
-   A comunicação entre o servidor de aplicativos do SAP NetWeaver e o ASCS/SCS é roteada por meio de um balanceador de carga de software. O balanceador de carga desconecta conexões inativas após um tempo limite configurável. Para evitar isso, você precisa definir um parâmetro no perfil do SAP NetWeaver ASCS/SCS e alterar as configurações do sistema Linux. Leia a [Nota SAP 1410736][1410736] para obter mais informações.
+   a comunicação entre o servidor de aplicativos do SAP NetWeaver hello e hello ASCS/SCS Olá é roteada por meio de um balanceador de carga de software. o balanceador de carga Olá desconecta conexões inativas após um tempo limite configurável. tooprevent isso você precisa tooset um parâmetro hello perfil ASCS/SCS do SAP NetWeaver e alterar configurações do sistema Linux hello. Leia a [Nota SAP 1410736][1410736] para obter mais informações.
    
-   O parâmetro enque/encni/set_so_keepalive do perfil do ASCS/SCS já foi adicionado na última etapa.
+   Olá ASCS/SCS perfil parâmetro enfileirar/encni/set_so_keepalive já foi adicionado na última etapa do hello.
 
    <pre><code> 
-   # Change the Linux system configuration
+   # Change hello Linux system configuration
    sudo sysctl net.ipv4.tcp_keepalive_time=120
    </code></pre>
 
-1. **[A]** Configurar os usuários do SAP após a instalação
+1. **[A]**  Configurar os usuários do SAP Olá após a instalação de saudação
  
    <pre><code>
-   # Add sidadm to the haclient group
+   # Add sidadm toohello haclient group
    sudo usermod -aG haclient <b>nws</b>adm   
    </code></pre>
 
-1. **[1]** Adicionar os serviços de ERS SAP ASCS ao arquivo sapservice
+1. **[1]**  Adicionar Olá ASCS e SAP es toohello sapservice arquivo services
 
-   Adicione a entrada de serviço do ASCS ao segundo nó e copie a entrada de serviço de ERS para o primeiro nó.
+   Adicione Olá ASCS serviço entrada toohello segundo nó e cópia Olá es entrada toohello primeiro nó de serviço.
 
    <pre><code>
    cat /usr/sap/sapservices | grep ASCS<b>00</b> | sudo ssh <b>nws-cl-1</b> "cat >>/usr/sap/sapservices"
    sudo ssh <b>nws-cl-1</b> "cat /usr/sap/sapservices" | grep ERS<b>02</b> | sudo tee -a /usr/sap/sapservices
    </code></pre>
 
-1. **[1]** Criar os recursos de cluster do SAP
+1. **[1]**  Criar recursos de cluster Olá SAP
 
    <pre><code>
    sudo crm configure property maintenance-mode="true"
@@ -1195,7 +1195,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo crm node online <b>nws-cl-0</b>
    </code></pre>
 
-   Verifique se o status do cluster é ok e se todos os recursos estão iniciados. Não importa em qual nó os recursos estão sendo executados.
+   Certifique-se de que o status de saudação do cluster é okey e que todos os recursos são iniciados. Não é importante em quais recursos de saudação do nó estão em execução.
 
    <pre><code>
    sudo crm_mon -r
@@ -1224,39 +1224,39 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
 ### <a name="create-stonith-device"></a>Criar dispositivo STONITH
 
-O dispositivo STONITH usa uma Entidade de Serviço para autorização no Microsoft Azure. Siga estas etapas para criar uma Entidade de Serviço.
+dispositivo STONITH Olá usa tooauthorize uma entidade de serviço no Microsoft Azure. Siga essas etapas toocreate uma entidade de serviço.
 
-1. Acesse <https://portal.azure.com>
-1. Abra a folha Azure Active Directory  
-   Vá para Propriedades e anote a ID do Diretório. Essa é a **id de locatário**.
+1. Vá muito<https://portal.azure.com>
+1. Folha de Active Directory do Azure Olá aberto  
+   Vá tooProperties e anote Olá ID de diretório. Isso é hello **id de locatário**.
 1. Clique em Registros do Aplicativo
 1. Clique em Adicionar
 1. Digite um Nome, selecione Tipo de Aplicativo "Aplicativo Web/API", insira uma URL de logon (por exemplo, http://localhost) e clique em Criar
-1. A URL de logon não é usada e pode ser qualquer URL válida
-1. Selecione o novo Aplicativo e clique em Chaves na guia Configurações
+1. URL de entrada Hello não é usado e pode ser qualquer URL válido
+1. Selecione Olá novo aplicativo e clique em chaves no guia de configurações de saudação
 1. Insira uma descrição para uma nova chave, selecione "Nunca expira" e clique em Salvar
-1. Anote o Valor. Ele é usado como **senha** da Entidade de Serviço
-1. Anote a ID do Aplicativo. Ela é usada como nome de usuário (**id de logon** nas etapas abaixo) da Entidade de Serviço
+1. Anote o valor de saudação. Ele é usado como Olá **senha** para Olá entidade de serviço
+1. Anote a saudação ID do aplicativo. Ele é usado como Olá username (**id de logon** nas etapas de saudação abaixo) de saudação entidade de serviço
 
-A Entidade de Serviço não tem permissões para acessar os recursos do Azure por padrão. Você precisa fornecer as permissões da Entidade de Serviço para iniciar e parar (desalocar) todas as máquinas virtuais do cluster.
+Olá entidade de serviço não tem permissões tooaccess seus recursos do Azure por padrão. Você precisa toogive toostart de permissões de entidade de serviço de saudação e parar (desalocar) todas as máquinas virtuais do cluster hello.
 
-1. Acesse https://portal.azure.com
-1. Abra a folha Todos os recursos
-1. Selecione a máquina virtual
+1. Vá toohttps://portal.azure.com
+1. Abrir Olá folha de todos os recursos
+1. Selecione a máquina virtual de saudação
 1. Clique em Controle de acesso (IAM)
 1. Clique em Adicionar
-1. Selecione a função Proprietário
-1. Digite o nome do aplicativo criado acima
+1. Selecione a função hello proprietário
+1. Insira nome de saudação do aplicativo hello criado acima
 1. Clique em OK
 
-#### <a name="1-create-the-stonith-devices"></a>**[1]** Criar os dispositivos STONITH
+#### <a name="1-create-hello-stonith-devices"></a>**[1]**  Criar hello STONITH dispositivos
 
-Depois de editar as permissões das máquinas virtuais, você pode configurar os dispositivos STONITH no cluster.
+Depois de editar permissões Olá para máquinas virtuais de hello, você pode configurar dispositivos STONITH de saudação em cluster hello.
 
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace hello bold string with your subscription id, resource group, tenant id, service principal id and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
@@ -1270,9 +1270,9 @@ crm(live)configure# commit
 crm(live)configure# exit
 </code></pre>
 
-#### <a name="1-enable-the-use-of-a-stonith-device"></a>**[1]** Habilitar o uso de um dispositivo STONITH
+#### <a name="1-enable-hello-use-of-a-stonith-device"></a>**[1]**  Habilitar o uso de saudação de um dispositivo STONITH
 
-Habilitar o uso de um dispositivo STONITH
+Habilitar o uso de saudação de um dispositivo STONITH
 
 <pre><code>
 sudo crm configure property stonith-enabled=true 
@@ -1280,16 +1280,16 @@ sudo crm configure property stonith-enabled=true
 
 ## <a name="install-database"></a>Instalar banco de dados
 
-Neste exemplo, uma replicação de sistema do SAP HANA está instalada e configurada. O SAP HANA será executado no mesmo cluster que o ASCS/SCS e o ERS do SAP NetWeaver. Você também pode instalar o SAP HANA em um cluster dedicado. Veja [Alta disponibilidade do SAP HANA em VMs (máquinas virtuais) do Azure][sap-hana-ha] para obter mais informações.
+Neste exemplo, uma replicação de sistema do SAP HANA está instalada e configurada. SAP HANA será executado no mesmo cluster como hello ASCS/SCS do SAP NetWeaver e es de saudação. Você também pode instalar o SAP HANA em um cluster dedicado. Veja [Alta disponibilidade do SAP HANA em VMs (máquinas virtuais) do Azure][sap-hana-ha] para obter mais informações.
 
 ### <a name="prepare-for-sap-hana-installation"></a>Preparar para a instalação do SAP HANA
 
-Normalmente, é recomendável usar LVM para volumes que armazenam arquivos de log e dados. Para fins de teste, você também pode escolher armazenar os dados e o arquivo de log diretamente em um disco simples.
+Normalmente, é recomendável usar LVM para volumes que armazenam arquivos de log e dados. Para fins de teste, você também pode escolher arquivo de log e dados de saudação de toostore diretamente em um disco simples.
 
 1. **[A]** LVM  
-   O exemplo abaixo pressupõe que as máquinas virtuais tenham quatro discos de dados anexados que devem ser usados para criar dois volumes.
+   Olá exemplo a seguir supõe que máquinas virtuais de saudação tiver quatro discos de dados anexados que devem ser usado toocreate dois volumes.
    
-   Crie volumes físicos para todos os discos que queira usar.
+   Crie volumes físicos de todos os discos que você deseja toouse.
    
    <pre><code>
    sudo pvcreate /dev/sdd
@@ -1298,7 +1298,7 @@ Normalmente, é recomendável usar LVM para volumes que armazenam arquivos de lo
    sudo pvcreate /dev/sdg
    </code></pre>
    
-   Crie um grupo de volume para os arquivos de dados, um grupo de volume para os arquivos de log e um para o diretório compartilhado do SAP HANA
+   Criar um grupo de volumes para arquivos de dados hello, um grupo de volumes para arquivos de log hello e um diretório compartilhado de saudação do SAP HANA
    
    <pre><code>
    sudo vgcreate vg_hana_data /dev/sdd /dev/sde
@@ -1306,7 +1306,7 @@ Normalmente, é recomendável usar LVM para volumes que armazenam arquivos de lo
    sudo vgcreate vg_hana_shared /dev/sdg
    </code></pre>
    
-   Criar os volumes lógicos
+   Criar hello volumes lógicos
    
    <pre><code>
    sudo lvcreate -l 100%FREE -n hana_data vg_hana_data
@@ -1317,7 +1317,7 @@ Normalmente, é recomendável usar LVM para volumes que armazenam arquivos de lo
    sudo mkfs.xfs /dev/vg_hana_shared/hana_shared
    </code></pre>
    
-   Crie os diretórios de montagem e copie a UUID de todos os volumes lógicos
+   Criar diretórios de montagem hello e copie Olá UUID de todos os volumes lógicos
    
    <pre><code>
    sudo mkdir -p /hana/data
@@ -1326,17 +1326,17 @@ Normalmente, é recomendável usar LVM para volumes que armazenam arquivos de lo
    sudo chattr +i /hana/data
    sudo chattr +i /hana/log
    sudo chattr +i /hana/shared
-   # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+   # write down hello id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
    sudo blkid
    </code></pre>
    
-   Criar entradas autofs para os três volumes lógicos
+   Crie entradas de autofs para Olá três volumes lógicos
    
    <pre><code>
    sudo vi /etc/auto.direct
    </code></pre>
    
-   Inserir essa linha em sudo vi /etc/auto.direct
+   Inserir essa linha toosudo vi /etc/auto.direct
    
    <pre><code>
    /hana/data -fstype=xfs :UUID=<b>&lt;UUID of /dev/vg_hana_data/hana_data&gt;</b>
@@ -1344,7 +1344,7 @@ Normalmente, é recomendável usar LVM para volumes que armazenam arquivos de lo
    /hana/shared -fstype=xfs :UUID=<b>&lt;UUID of /dev/vg_hana_shared/hana_shared&gt;</b>
    </code></pre>
    
-   Monte os novos volumes
+   Montar Olá novos volumes
    
    <pre><code>
    sudo service autofs restart 
@@ -1352,22 +1352,22 @@ Normalmente, é recomendável usar LVM para volumes que armazenam arquivos de lo
 
 1. **[A]** Discos simples  
 
-   Para sistemas pequenos ou de demonstração, você pode colocar os arquivos de log e dados do HANA em um disco. Os comandos a seguir criam uma partição em /dev/sdc e a formatam com xfs.
+   Para sistemas pequenos ou de demonstração, você pode colocar os arquivos de log e dados do HANA em um disco. Olá comandos a seguir criar uma partição em /dev/sdc e formate-o com xfs.
    ```bash
    sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/sdd'
    sudo mkfs.xfs /dev/sdd1
    
-   # write down the id of /dev/sdd1
+   # write down hello id of /dev/sdd1
    sudo /sbin/blkid
    sudo vi /etc/auto.direct
    ```
    
-   Inserir essa linha em /etc/auto.direct
+   Inserir essa linha too/etc/auto.direct
    <pre><code>
    /hana -fstype=xfs :UUID=<b>&lt;UUID&gt;</b>
    </code></pre>
    
-   Crie o diretório de destino e monte o disco.
+   Criar o diretório de destino hello e montar o disco de saudação.
    
    <pre><code>
    sudo mkdir /hana
@@ -1377,9 +1377,9 @@ Normalmente, é recomendável usar LVM para volumes que armazenam arquivos de lo
 
 ### <a name="installing-sap-hana"></a>Instalando o SAP HANA
 
-As etapas a seguir se baseiam no capítulo 4 do [guia Cenário Otimizado para Desempenho da SR SAP HANA][suse-hana-ha-guide] para instalar a Replicação do Sistema SAP HANA. Leia antes de continuar a instalação.
+Olá etapas a seguir se baseiam no capítulo 4 do hello [guia de cenário de otimização de desempenho do SAP HANA SR] [ suse-hana-ha-guide] tooinstall replicação de sistema do SAP HANA. Leia antes de continuar a instalação de saudação.
 
-1. **[A]** Executar hdblcm no DVD do HANA
+1. **[A]**  Executar hdblcm de saudação HANA DVD
    
    <pre><code>
    sudo hdblcm --sid=<b>HDB</b> --number=<b>03</b> --action=install --batch --password=<b>&lt;password&gt;</b> --system_user_password=<b>&lt;password for system user&gt;</b>
@@ -1389,18 +1389,18 @@ As etapas a seguir se baseiam no capítulo 4 do [guia Cenário Otimizado para De
 
 1. **[A]** Atualizar o Agente do Host do SAP
 
-   Baixe o arquivo mais recente do Agente do Host do SAP em [SAP Softwarecenter][sap-swcenter] e execute o comando a seguir para fazer upgrade do agente. Substitua o caminho do arquivo de modo a apontar para o arquivo que você baixou.
+   Baixe o arquivo de SAP Host Agent mais recente de saudação do hello [SAP Softwarecenter] [ sap-swcenter] e execução hello comando tooupgrade Olá agente a seguir. Substitua saudação caminho toohello toopoint toohello arquivo baixado.
    <pre><code>
-   sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <b>&lt;path to SAP Host Agent SAR&gt;</b> 
+   sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <b>&lt;path tooSAP Host Agent SAR&gt;</b> 
    </code></pre>
 
 1. **[1]** Criar uma replicação HANA (como raiz)  
 
-   Execute o comando a seguir. Não se esqueça de substituir cadeias de caracteres em negrito (HDB da ID do Sistema HANA e o número de instância 03) pelos valores da sua instalação SAP HANA.
+   Execute Olá comando a seguir. Verifique se tooreplace negrito cadeias de caracteres (HANA HDB de ID de sistema e instância número 03) com valores de saudação da instalação do SAP HANA.
    <pre><code>
    PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
    hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"' 
-   hdbsql -u system -i <b>03</b> 'GRANT DATA ADMIN TO <b>hdb</b>hasync' 
+   hdbsql -u system -i <b>03</b> 'GRANT DATA ADMIN too<b>hdb</b>hasync' 
    hdbsql -u system -i <b>03</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME' 
    </code></pre>
 
@@ -1418,14 +1418,14 @@ As etapas a seguir se baseiam no capítulo 4 do [guia Cenário Otimizado para De
    hdbsql -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')" 
    </code></pre>
 
-1. **[1]** Mudar para o usuário sapsid (por exemplo, hdbadm) do HANA e criar o site primário.
+1. **[1]**  Alternar toohello HANA sapsid usuário e criar o site primário hello.
 
    <pre><code>
    su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
    </code></pre>
 
-1. **[2]** Mudar para o usuário sapsid (por exemplo, hdbadm) do HANA e criar o site secundário.
+1. **[2]**  Alternar toohello HANA sapsid usuário e criar site secundário hello.
 
    <pre><code>
    su - <b>hdb</b>adm
@@ -1435,12 +1435,12 @@ As etapas a seguir se baseiam no capítulo 4 do [guia Cenário Otimizado para De
 
 1. **[1]** Criar os recursos de cluster do SAP HANA
 
-   Primeiro, crie a topologia.
+   Primeiro, crie uma topologia de saudação.
    
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number and HANA system id
+   # replace hello bold string with your instance number and HANA system id
    
    crm(live)configure# primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b>   ocf:suse:SAPHanaTopology \
      operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -1456,12 +1456,12 @@ As etapas a seguir se baseiam no capítulo 4 do [guia Cenário Otimizado para De
    crm(live)configure# exit
    </code></pre>
    
-   Em seguida, crie os recursos do HANA
+   Em seguida, crie Olá recursos HANA
    
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+   # replace hello bold string with your instance number, HANA system id and hello frontend IP address of hello Azure load balancer. 
     
    crm(live)configure# primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
      operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -1499,7 +1499,7 @@ As etapas a seguir se baseiam no capítulo 4 do [guia Cenário Otimizado para De
    crm(live)configure# exit
    </code></pre>
 
-   Verifique se o status do cluster é ok e se todos os recursos estão iniciados. Não importa em qual nó os recursos estão sendo executados.
+   Certifique-se de que o status de saudação do cluster é okey e que todos os recursos são iniciados. Não é importante em quais recursos de saudação do nó estão em execução.
 
    <pre><code>
    sudo crm_mon -r
@@ -1536,11 +1536,11 @@ As etapas a seguir se baseiam no capítulo 4 do [guia Cenário Otimizado para De
    # rsc_st_azure_2  (stonith:fence_azure_arm):      <b>Started nws-cl-1</b>
    </code></pre>
 
-1. **[1]** Instalar a instância de banco de dados do SAP NetWeaver
+1. **[1]**  Instância de banco de dados do instalar Olá SAP NetWeaver
 
-   Instale a instância de banco de dados do SAP NetWeaver como raiz usando um nome de host virtual que mapeia para o endereço IP de configuração de front-end do balanceador de carga para o banco de dados, por exemplo, <b>nws-db</b> e <b>10.0.0.12</b>.
+   Instalar Olá instância de banco de dados SAP NetWeaver como raiz usando um nome de host virtual que mapeia o endereço IP toohello de configuração de front-end de Balanceador de carga de saudação do banco de dados de saudação por exemplo <b>nws db</b> e <b>10.0.0.12</b>.
 
-   Você pode usar o parâmetro sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um usuário não raiz se conecte ao sapinst.
+   Você pode usar o hello sapinst parâmetro SAPINST_REMOTE_ACCESS_USER tooallow toosapinst de tooconnect um usuário não-raiz.
 
    <pre><code>
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
@@ -1548,30 +1548,30 @@ As etapas a seguir se baseiam no capítulo 4 do [guia Cenário Otimizado para De
 
 ## <a name="sap-netweaver-application-server-installation"></a>Instalação de servidor de aplicativos do SAP NetWeaver
 
-Siga estas etapas para instalar um servidor de aplicativos SAP. As etapas abaixo pressupõem que você instale o servidor de aplicativos em um servidor diferente dos servidores do ASCS/SCS e do HANA. Caso contrário, algumas das etapas abaixo (como configurar a resolução de nome do host) não são necessárias.
+Siga essas etapas tooinstall um servidor de aplicativos SAP. Olá etapas abaixo supõem que você instale o servidor de aplicativos de saudação em um servidor diferente do hello ASCS/SCS e servidores do HANA. Caso contrário, algumas das etapas de saudação abaixo (como configurar a resolução de nome de host) não são necessários.
 
 1. Configurar a resolução de nome do host    
-   Você pode usar um servidor DNS ou modificar /etc/hosts em todos os nós. Este exemplo mostra como usar o arquivo /etc/hosts.
-   Substitua o endereço IP e o nome do host nos comandos a seguir
+   Você pode usar um servidor DNS ou modificar /etc/hosts Olá em todos os nós. Este exemplo mostra como toouse Olá arquivo /etc/hosts.
+   Substituir endereço IP de saudação e nome de host Olá no hello comandos a seguir
    ```bash
    sudo vi /etc/hosts
    ```
-   Insira as seguintes linhas para /etc/hosts. Altere o endereço IP e o nome do host para corresponder ao seu ambiente    
+   Inserir saudação linhas muito/etc/hosts a seguir. Alterar o ambiente de saudação IP toomatch de endereço e o nome do host    
     
    <pre><code>
-   # IP address of the load balancer frontend configuration for NFS
+   # IP address of hello load balancer frontend configuration for NFS
    <b>10.0.0.4 nws-nfs</b>
-   # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS/SCS
+   # IP address of hello load balancer frontend configuration for SAP NetWeaver ASCS/SCS
    <b>10.0.0.10 nws-ascs</b>
-   # IP address of the load balancer frontend configuration for SAP NetWeaver ERS
+   # IP address of hello load balancer frontend configuration for SAP NetWeaver ERS
    <b>10.0.0.11 nws-ers</b>
-   # IP address of the load balancer frontend configuration for database
+   # IP address of hello load balancer frontend configuration for database
    <b>10.0.0.12 nws-db</b>
-   # IP address of the application server
+   # IP address of hello application server
    <b>10.0.0.8 nws-di-0</b>
    </code></pre>
 
-1. Criar o diretório sapmnt
+1. Criar o diretório de sapmnt Olá
 
    <pre><code>
    sudo mkdir -p /sapmnt/<b>NWS</b>
@@ -1586,7 +1586,7 @@ Siga estas etapas para instalar um servidor de aplicativos SAP. As etapas abaixo
    <pre><code>
    sudo vi /etc/auto.master
 
-   # Add the following line to the file, save and exit
+   # Add hello following line toohello file, save and exit
    +auto.master
    /- /etc/auto.direct
    </code></pre>
@@ -1596,12 +1596,12 @@ Siga estas etapas para instalar um servidor de aplicativos SAP. As etapas abaixo
    <pre><code>
    sudo vi /etc/auto.direct
 
-   # Add the following lines to the file, save and exit
+   # Add hello following lines toohello file, save and exit
    /sapmnt/<b>NWS</b> -nfsvers=4,nosymlink,sync <b>nws-nfs</b>:/sapmntsid
    /usr/sap/trans -nfsvers=4,nosymlink,sync <b>nws-nfs</b>:/trans
    </code></pre>
 
-   Reiniciar o autofs para montar os novos compartilhamentos
+   Reiniciar autofs toomount novos compartilhamentos Olá
 
    <pre><code>
    sudo systemctl enable autofs
@@ -1613,17 +1613,17 @@ Siga estas etapas para instalar um servidor de aplicativos SAP. As etapas abaixo
    <pre><code>
    sudo vi /etc/waagent.conf
 
-   # Set the property ResourceDisk.EnableSwap to y
+   # Set hello property ResourceDisk.EnableSwap tooy
    # Create and use swapfile on resource disk.
    ResourceDisk.EnableSwap=<b>y</b>
 
-   # Set the size of the SWAP file with property ResourceDisk.SwapSizeMB
-   # The free space of resource disk varies by virtual machine size. Make sure that you do not set a value that is too big. You can check the SWAP space with command swapon
-   # Size of the swapfile.
+   # Set hello size of hello SWAP file with property ResourceDisk.SwapSizeMB
+   # hello free space of resource disk varies by virtual machine size. Make sure that you do not set a value that is too big. You can check hello SWAP space with command swapon
+   # Size of hello swapfile.
    ResourceDisk.SwapSizeMB=<b>2000</b>
    </code></pre>
 
-   Reiniciar o agente para ativar a alteração
+   Reiniciar alteração de Olá Olá agente tooactivate
 
    <pre><code>
    sudo service waagent restart
@@ -1633,7 +1633,7 @@ Siga estas etapas para instalar um servidor de aplicativos SAP. As etapas abaixo
 
    Instale um servidor de aplicativos do SAP NetWeaver primário ou adicional.
 
-   Você pode usar o parâmetro sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um usuário não raiz se conecte ao sapinst.
+   Você pode usar o hello sapinst parâmetro SAPINST_REMOTE_ACCESS_USER tooallow toosapinst de tooconnect um usuário não-raiz.
 
    <pre><code>
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
@@ -1641,7 +1641,7 @@ Siga estas etapas para instalar um servidor de aplicativos SAP. As etapas abaixo
 
 1. Atualizar o repositório seguro do SAP HANA
 
-   Atualize o repositório seguro do SAP HANA para apontar para o nome virtual do programa de instalação da replicação de sistema do SAP HANA.
+   Saudação de atualização segura do SAP HANA armazenar toopoint toohello virtual nome do programa de instalação de replicação de sistema do SAP HANA hello.
    <pre><code>
    su - <b>nws</b>adm
    hdbuserstore SET DEFAULT <b>nws-db</b>:3<b>03</b>15 <b>SAPABAP1</b> <b>&lt;password of ABAP schema&gt;</b>
@@ -1651,5 +1651,5 @@ Siga estas etapas para instalar um servidor de aplicativos SAP. As etapas abaixo
 * [Planejamento e implementação de Máquinas Virtuais do Azure para SAP][planning-guide]
 * [Implantação de Máquinas Virtuais do Azure para SAP][deployment-guide]
 * [Implantação DBMS de Máquinas Virtuais do Azure para SAP][dbms-guide]
-* Para saber como estabelecer a alta disponibilidade e o plano de recuperação de desastres do SAP HANA no Azure (instâncias grandes), confira [Alta disponibilidade e recuperação de desastres do SAP HANA (instâncias grandes) no Azure](hana-overview-high-availability-disaster-recovery.md).
-* Para saber como estabelecer a alta disponibilidade e o plano de recuperação de desastre do SAP HANA em VMs do Azure, confira [Alta disponibilidade do SAP HANA em VMs (Máquinas Virtuais) do Azure][sap-hana-ha]
+* toolearn como tooestablish alta disponibilidade e o plano de recuperação de desastres do HANA SAP no Azure (instâncias grandes), consulte [SAP HANA (instâncias grandes) alta disponibilidade e recuperação de desastres no Azure](hana-overview-high-availability-disaster-recovery.md).
+* toolearn como tooestablish alta disponibilidade e o plano de recuperação de desastres do HANA SAP em VMs do Azure, consulte [disponibilidade alta do SAP HANA em máquinas virtuais do Azure (VMs)][sap-hana-ha]

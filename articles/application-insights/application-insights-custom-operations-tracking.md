@@ -1,5 +1,5 @@
 ---
-title: "Acompanhar operações personalizadas com o SDK do .NET do Azure Application Insights | Microsoft Docs"
+title: "operações de aaaTrack personalizadas com o SDK do .NET do Azure Application Insights | Microsoft Docs"
 description: "Acompanhar operações personalizadas com o SDK do .NET do Azure Application Insights"
 services: application-insights
 documentationcenter: .net
@@ -12,19 +12,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/31/2017
 ms.author: sergkanz
-ms.openlocfilehash: b31d38fe2f7060597956a1ee9c66f43ce39d7240
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fe338d3e2b17a3dae43c96c60a19f57b3f46f0a5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Acompanhar operações personalizadas com o SDK do .NET do Application Insights
 
-SDKs do Azure Application Insights acompanham automaticamente as solicitações HTTP de entrada e chamadas para serviços dependentes, como solicitações HTTP e consultas SQL. O acompanhamento e a correlação de solicitações e dependências fornecem visibilidade sobre a capacidade de resposta e a confiabilidade do aplicativo inteiro em todos os microsserviços que combinados nesse aplicativo. 
+Azure SDKs do Application Insights automaticamente acompanhar solicitações de HTTP de entrada e chama toodependent serviços, como solicitações HTTP e consultas SQL. Rastreamento e a correlação de solicitações e dependências ofereçam visibilidade em capacidade de resposta e a confiabilidade do aplicativo inteiro hello em todos os microservices que combinam este aplicativo. 
 
 Há uma classe de padrões de aplicativo que não pode ter suporte de maneira genérica. O monitoramento adequado de tais padrões requer a instrumentação de código manual. Este artigo aborda alguns padrões que podem exigir a instrumentação manual, tais como processamento de fila personalizada e execução de tarefas em segundo plano de longa execução.
 
-Este documento fornece diretrizes sobre como controlar operações personalizadas com o SDK do Application Insights. Esta documentação é relevante para:
+Este documento fornece orientação sobre como operações personalizadas de tootrack com hello SDK do Application Insights. Esta documentação é relevante para:
 
 - Application Insights para a .NET (também conhecido como o SDK de Base) versão 2.4+.
 - Application Insights para aplicativos Web (executando ASP.NET) versão 2.4+.
@@ -33,19 +33,19 @@ Este documento fornece diretrizes sobre como controlar operações personalizada
 ## <a name="overview"></a>Visão geral
 Uma operação é um trabalho lógico executado por um aplicativo. Ela tem nome, hora de início, duração e resultado, além de um contexto de execução como nome de usuário, propriedades e resultado. Se a operação A tiver sido iniciada pela operação B, então a operação B será definida como pai para A. Uma operação pode ter somente um pai, mas pode ter muitas operações filhas. Para obter mais informações sobre as operações e a correlação de telemetria, consulte [Correlação de telemetria do Azure Application Insights](application-insights-correlation.md).
 
-No SDK do .NET do Application Insights, a operação é descrita pela classe abstrata [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/Extensibility/Implementation/OperationTelemetry.cs) e seus descendentes [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/RequestTelemetry.cs) e [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/DependencyTelemetry.cs).
+Olá SDK .NET do Application Insights, operação Olá é descrita por classe abstrata Olá [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/Extensibility/Implementation/OperationTelemetry.cs) e seus descendentes [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/RequestTelemetry.cs) e [DependencyTelemetry ](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/DependencyTelemetry.cs).
 
 ## <a name="incoming-operations-tracking"></a>Acompanhamento de operações de entrada 
-O SDK da Web do Application Insights coleta automaticamente as solicitações HTTP para aplicativos ASP.NET executados em um pipeline do IIS e para todos os aplicativos do ASP.NET Core. Há soluções com suporte da comunidade para outras plataformas e estruturas. No entanto, se o aplicativo não tiver suporte por nenhuma das soluções padrão ou com suporte pela comunidade, você poderá instrumentá-lo manualmente.
+Olá web Application Insights que SDK coleta automaticamente as solicitações HTTP para aplicativos ASP.NET executados em um pipeline IIS e todos os aplicativos do ASP.NET Core. Há soluções com suporte da comunidade para outras plataformas e estruturas. No entanto, se o aplicativo hello não é suportado por qualquer uma das padrão hello ou soluções com suporte da comunidade, você pode instrumentá-lo manualmente.
 
-Outro exemplo que requer um acompanhamento personalizado é o trabalho que recebe os itens da fila. Para alguns filas, a chamada para adicionar uma mensagem a essa fila é acompanhada como dependência. No entanto, a operação de alto nível que descreve o processamento de mensagens não é automaticamente coletada.
+Outro exemplo que requer um controle personalizado é trabalho Olá que recebe os itens da fila de saudação. Para alguns filas, Olá chamar tooadd uma mensagem na fila de toothis é controlada como uma dependência. No entanto, operação Olá de alto nível que descreve o processamento de mensagens não é automaticamente coletada.
 
 Vamos ver como podemos acompanhar essas operações.
 
-Em um nível alto, a tarefa é criar `RequestTelemetry` e definir propriedades conhecidas. Depois que a operação for concluída, você poderá acompanhar a telemetria. O exemplo a seguir demonstra essa tarefa.
+Em um nível alto, a tarefa de saudação é toocreate `RequestTelemetry` e definir propriedades conhecidas. Após a conclusão da operação de hello, você pode acompanhar telemetria hello. saudação de exemplo a seguir demonstra essa tarefa.
 
 ### <a name="http-request-in-owin-self-hosted-app"></a>Solicitação HTTP no aplicativo autohospedado Owin
-Neste exemplo, seguimos o [Protocolo HTTP para correlação](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Espere receber cabeçalhos descritos lá.
+Neste exemplo, seguimos Olá [protocolo HTTP para correlação](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Você deve esperar cabeçalhos tooreceive descritos existe.
 
 ``` C#
 public class ApplicationInsightsMiddleware : OwinMiddleware
@@ -62,11 +62,11 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
             Name = $"{context.Request.Method} {context.Request.Uri.GetLeftPart(UriPartial.Path)}"
         };
 
-        // If there is a Request-Id received from the upstream service, set the telemetry context accordingly.
+        // If there is a Request-Id received from hello upstream service, set hello telemetry context accordingly.
         if (context.Request.Headers.ContainsKey("Request-Id"))
         {
             var requestId = context.Request.Headers.Get("Request-Id");
-            // Get the operation ID from the Request-Id (if you follow the HTTP Protocol for Correlation).
+            // Get hello operation ID from hello Request-Id (if you follow hello HTTP Protocol for Correlation).
             requestTelemetry.Context.Operation.Id = GetOperationId(requestId);
             requestTelemetry.Context.Operation.ParentId = requestId;
         }
@@ -76,7 +76,7 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
         // and initializes start time and duration on telemetry items.
         var operation = telemetryClient.StartOperation(requestTelemetry);
 
-        // Process the request.
+        // Process hello request.
         try
         {
             await Next.Invoke(context);
@@ -100,14 +100,14 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
                 requestTelemetry.Success = false;
             }
 
-            // Now it's time to stop the operation (and track telemetry).
+            // Now it's time toostop hello operation (and track telemetry).
             telemetryClient.StopOperation(operation);
         }
     }
     
     public static string GetOperationId(string id)
     {
-        // Returns the root ID from the '|' to the first '.' if any.
+        // Returns hello root ID from hello '|' toohello first '.' if any.
         int rootEnd = id.IndexOf('.');
         if (rootEnd < 0)
             rootEnd = id.Length;
@@ -118,31 +118,31 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 }
 ```
 
-O protocolo HTTP para correlação também declara o cabeçalho `Correlation-Context`. No entanto, é omitido aqui para manter a simplicidade.
+Olá protocolo HTTP para correlação também declara Olá `Correlation-Context` cabeçalho. No entanto, é omitido aqui para manter a simplicidade.
 
 ## <a name="queue-instrumentation"></a>Instrumentação de fila
-Para a comunicação HTTP, criamos um protocolo para passar os detalhes de correlação. Com alguns protocolos de filas, você pode passar metadados adicionais junto com a mensagem e, com outros, não.
+Para comunicação HTTP, criamos um protocolo toopass detalhes de correlação. Com protocolos de alguns dos filas, você pode transmitir metadados adicionais junto com a mensagem de saudação e com outras pessoas que não é possível.
 
 ### <a name="service-bus-queue"></a>Fila do Barramento de Serviço
-Com a [fila do Barramento de Serviço](../service-bus-messaging/index.md) do Azure, você pode passar um recipiente de propriedades junto com a mensagem. É usada para passar a ID de correlação.
+Com hello Azure [fila do barramento de serviço](../service-bus-messaging/index.md), você pode passar um recipiente de propriedades, junto com a mensagem de saudação. Nós usamos uma ID de correlação toopass hello.
 
-A Fila do Barramento de Serviço usa protocolos baseados em TCP. O Application Insights não acompanha automaticamente as operações de fila, então nós as acompanhamos manualmente. A operação de remover da fila é uma API de estilo push e não é possível acompanhá-la.
+fila do barramento de serviço Olá usa protocolos baseados em TCP. O Application Insights não acompanha automaticamente as operações de fila, então nós as acompanhamos manualmente. Olá dequeue operação é uma API de estilo push e estamos não é possível tootrack-lo.
 
 #### <a name="enqueue"></a>Enfileirar
 
 ```C#
 public async Task Enqueue(string payload)
 {
-    // StartOperation is a helper method that initializes the telemetry item
+    // StartOperation is a helper method that initializes hello telemetry item
     // and allows correlation of this operation with its parent and children.
     var operation = telemetryClient.StartOperation<DependencyTelemetry>("enqueue " + queueName);
     operation.Telemetry.Type = "Queue";
     operation.Telemetry.Data = "Enqueue " + queueName;
 
     var message = new BrokeredMessage(payload);
-    // Service Bus queue allows the property bag to pass along with the message.
-    // We will use them to pass our correlation identifiers (and other context)
-    // to the consumer.
+    // Service Bus queue allows hello property bag toopass along with hello message.
+    // We will use them toopass our correlation identifiers (and other context)
+    // toohello consumer.
     message.Properties.Add("ParentId", operation.Telemetry.Id);
     message.Properties.Add("RootId", operation.Telemetry.Context.Operation.Id);
 
@@ -171,13 +171,13 @@ public async Task Enqueue(string payload)
 ```C#
 public async Task Process(BrokeredMessage message)
 {
-    // After the message is taken from the queue, create RequestTelemetry to track its processing.
-    // It might also make sense to get the name from the message.
+    // After hello message is taken from hello queue, create RequestTelemetry tootrack its processing.
+    // It might also make sense tooget hello name from hello message.
     RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "Dequeue " + queueName };
 
     var rootId = message.Properties["RootId"].ToString();
     var parentId = message.Properties["ParentId"].ToString();
-    // Get the operation ID from the Request-Id (if you follow the HTTP Protocol for Correlation).
+    // Get hello operation ID from hello Request-Id (if you follow hello HTTP Protocol for Correlation).
     requestTelemetry.Context.Operation.Id = rootId;
     requestTelemetry.Context.Operation.ParentId = parentId;
 
@@ -201,35 +201,35 @@ public async Task Process(BrokeredMessage message)
 ```
 
 ### <a name="azure-storage-queue"></a>Fila de Armazenamento do Azure
-O exemplo a seguir mostra como acompanhar operações da [fila de Armazenamento do Azure](../storage/queues/storage-dotnet-how-to-use-queues.md) e correlacionar telemetria entre o produtor, o consumidor e o Armazenamento do Azure. 
+Olá mostrado no exemplo a seguir como Olá tootrack [fila de armazenamento do Azure](../storage/queues/storage-dotnet-how-to-use-queues.md) operações e correlacionar telemetria entre o produtor hello, consumidor hello e armazenamento do Azure. 
 
-A fila de Armazenamento tem uma API HTTP. Todas as chamadas à fila são rastreadas pelo coletor de dependência do Application Insights para solicitações HTTP.
-Certifique-se de que `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` esteja em `applicationInsights.config`. Se você não tem, adicione-o programaticamente, conforme descrito em [Filtragem e pré-processamento no SDK do Azure Application Insights](app-insights-api-filtering-sampling.md).
+fila de armazenamento Olá tem uma API HTTP. Fila de toohello todas as chamadas são controladas pelo hello coletor de dependência do Application Insights para solicitações HTTP.
+Certifique-se de que `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` esteja em `applicationInsights.config`. Se você não o fez, adicione-o programaticamente, conforme descrito em [filtragem e o pré-processamento de saudação do Azure SDK do Application Insights](app-insights-api-filtering-sampling.md).
 
 Se você configurar o Application Insights manualmente, certifique-se de criar e inicializar `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule` de maneira similar a:
  
 ``` C#
 DependencyTrackingTelemetryModule module = new DependencyTrackingTelemetryModule();
 
-// You can prevent correlation header injection to some domains by adding it to the excluded list.
-// Make sure you add a Storage endpoint. Otherwise, you might experience request signature validation issues on the Storage service side.
+// You can prevent correlation header injection toosome domains by adding it toohello excluded list.
+// Make sure you add a Storage endpoint. Otherwise, you might experience request signature validation issues on hello Storage service side.
 module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.windows.net");
 module.Initialize(TelemetryConfiguration.Active);
 
-// Do not forget to dispose of the module during application shutdown.
+// Do not forget toodispose of hello module during application shutdown.
 ```
 
-Também convém correlacionar a ID da operação do Application Insights à ID de solicitação de Armazenamento. Para obter informações sobre como definir e obter um cliente de solicitação de Armazenamento e uma ID de solicitação do servidor, consulte [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Azure](../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
+Você também poderá toocorrelate Olá ID da operação do Application Insights com ID de solicitação de armazenamento hello. Para obter informações sobre como tooset e obter um armazenamento de solicitação de cliente e uma ID de solicitação do servidor, consulte [monitorar, diagnosticar e solucionar problemas de armazenamento do Azure](../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
 #### <a name="enqueue"></a>Enfileirar
-Como as filas de Armazenamento do Azure dão suporte a API HTTP, todas as operações com a fila automaticamente são acompanhadas pelo Application Insights. Em muitos casos, essa instrumentação deve ser suficiente. No entanto, para correlacionar rastreamentos no lado do consumidor com rastreamentos de produtor, você deve passar algum contexto de correlação de forma similar a como fazemos em Protocolo HTTP para Correlação. 
+Como as filas de armazenamento oferecem suporte a saudação API HTTP, todas as operações com fila Olá automaticamente são rastreadas pelo Application Insights. Em muitos casos, essa instrumentação deve ser suficiente. No entanto, toocorrelate rastreamentos no lado do consumidor Olá com rastreamentos de produtor, você deve passar algum contexto de correlação da mesma forma toohow fazemos isso no hello protocolo HTTP para correlação. 
 
-Neste exemplo, podemos acompanhar a operação opcional `Enqueue`. Você pode:
+Neste exemplo, podemos controlar Olá opcional `Enqueue` operação. Você pode:
 
- - **Correlacionar novas tentativas (se houver)**: todas têm um pai comum que é a operação `Enqueue`. Caso contrário, elas são acompanhadas como filhos da solicitação de entrada. Se houver várias solicitações lógicas para a fila, pode ser difícil descobrir qual chamada resultou em novas tentativas.
+ - **Correlacionar tentativas (se houver)**: tiverem um pai comum que é hello `Enqueue` operação. Caso contrário, eles são rastreados como filhos da solicitação de entrada hello. Se houver várias filas de toohello solicitações lógico, talvez seja difícil toofind chamada resultou em novas tentativas.
  - **Correlacione os logs do Armazenamento (se e quando necessário)**: são correlacionados à telemetria do Application Insights.
 
-A operação `Enqueue` é filho de uma operação pai (por exemplo, uma solicitação de HTTP entrada). A chamada de dependência de HTTP é o filho da operação `Enqueue` e o neto da solicitação de entrada:
+Olá `Enqueue` operação é filho de saudação de uma operação do pai (por exemplo, uma solicitação de HTTP entrada). chamada de dependência Olá HTTP é filho Olá Olá `Enqueue` neto hello e de operação de solicitação de entrada hello:
 
 ```C#
 public async Task Enqueue(CloudQueue queue, string message)
@@ -239,8 +239,8 @@ public async Task Enqueue(CloudQueue queue, string message)
     operation.Telemetry.Data = "Enqueue " + queue.Name;
 
     // MessagePayload represents your custom message and also serializes correlation identifiers into payload.
-    // For example, if you choose to pass payload serialized to JSON, it might look like
-    // {'RootId' : 'some-id', 'ParentId' : '|some-id.1.2.3.', 'message' : 'your message to process'}
+    // For example, if you choose toopass payload serialized tooJSON, it might look like
+    // {'RootId' : 'some-id', 'ParentId' : '|some-id.1.2.3.', 'message' : 'your message tooprocess'}
     var jsonPayload = JsonConvert.SerializeObject(new MessagePayload
     {
         RootId = operation.Telemetry.Context.Operation.Id,
@@ -250,7 +250,7 @@ public async Task Enqueue(CloudQueue queue, string message)
     
     CloudQueueMessage queueMessage = new CloudQueueMessage(jsonPayload);
 
-    // Add operation.Telemetry.Id to the OperationContext to correlate Storage logs and Application Insights telemetry.
+    // Add operation.Telemetry.Id toohello OperationContext toocorrelate Storage logs and Application Insights telemetry.
     OperationContext context = new OperationContext { ClientRequestID = operation.Telemetry.Id};
 
     try
@@ -272,18 +272,18 @@ public async Task Enqueue(CloudQueue queue, string message)
 }  
 ```
 
-Para reduzir a quantidade de telemetria que o seu aplicativo relata ou se você não quiser acompanhar a operação `Enqueue` por outros motivos, use a API `Activity` diretamente:
+relatórios de seu aplicativo com a quantidade de saudação tooreduce de telemetria ou se você não quiser Olá tootrack `Enqueue` operação por outros motivos, use Olá `Activity` API diretamente:
 
-- Crie (e inicie) um novo `Activity` em vez de iniciar a operação do Application Insights. Você *não* precisa atribuir nenhuma propriedade a ele, exceto o nome da operação.
-- Serializar `yourActivity.Id` para o conteúdo da mensagem, em vez de `operation.Telemetry.Id`. Você também pode usar `Activity.Current.Id`.
+- Criar (e iniciar) um novo `Activity` em vez de começar a operação do Application Insights hello. Fazer *não* necessário tooassign as propriedades nele, exceto o nome da operação hello.
+- Serializar `yourActivity.Id` na carga de mensagem de saudação em vez de `operation.Telemetry.Id`. Você também pode usar `Activity.Current.Id`.
 
 
 #### <a name="dequeue"></a>Remover da fila
-Da mesma forma que `Enqueue`, a solicitação HTTP real para a fila de Armazenamento é acompanhada automaticamente pelo Application Insights. No entanto, a operação `Enqueue` supostamente ocorre no contexto de pai, como um contexto de solicitação de entrada. Os SDKs do Application Insights correlacionam automaticamente tal operação (e a parte HTTP dela) com a solicitação pai e outra telemetria relatada no mesmo escopo.
+Da mesma forma muito`Enqueue`, automaticamente, uma fila de armazenamento real toohello de solicitação HTTP é controlada pelo Application Insights. No entanto, Olá `Enqueue` operação supostamente ocorre no contexto de pai hello, como um contexto de solicitação de entrada. SDKs do Application Insights correlacionar automaticamente essa operação (e sua parte HTTP) com a solicitação de pai hello e outros telemetria relatado no hello mesmo escopo.
 
-A operação `Dequeue` é complicada. O SDK do Application Insights acompanha automaticamente as solicitações HTTP. No entanto, ele não sabe o contexto de correlação até que a mensagem seja analisada. Não é possível correlacionar a solicitação HTTP para obter a mensagem com o restante da telemetria.
+Olá `Dequeue` operação é complicada. Olá SDK do Application Insights controla automaticamente as solicitações HTTP. No entanto, ele não sabe o contexto de correlação de saudação até que a mensagem de saudação é analisada. Não é uma mensagem de saudação toocorrelate possíveis Olá HTTP solicitação tooget com rest Olá de telemetria hello.
 
-Em muitos casos, pode ser útil correlacionar a solicitação HTTP à fila em outros rastreamentos também. O exemplo a seguir demonstra como fazer isso:
+Em muitos casos, talvez seja útil toocorrelate fila de toohello da solicitação de Olá HTTP com outros rastreamentos também. Olá exemplo a seguir demonstra como toodo-lo:
 
 ``` C#
 public async Task<MessagePayload> Dequeue(CloudQueue queue)
@@ -304,13 +304,13 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
         {
             var payload = JsonConvert.DeserializeObject<MessagePayload>(message.AsString);
 
-            // If there is a message, we want to correlate the Dequeue operation with processing.
-            // However, we will only know what correlation ID to use after we get it from the message,
-            // so we will report telemetry after we know the IDs.
+            // If there is a message, we want toocorrelate hello Dequeue operation with processing.
+            // However, we will only know what correlation ID toouse after we get it from hello message,
+            // so we will report telemetry after we know hello IDs.
             telemetry.Context.Operation.Id = payload.RootId;
             telemetry.Context.Operation.ParentId = payload.ParentId;
 
-            // Delete the message.
+            // Delete hello message.
             return payload;
         }
     }
@@ -334,14 +334,14 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 
 #### <a name="process"></a>Processo
 
-No exemplo a seguir, acompanharemos uma mensagem de entrada da mesma forma como podemos acompanhar uma solicitação HTTP de entrada:
+Em Olá exemplo a seguir, é uma mensagem de entrada de rastreamento de uma maneira da mesma forma toohow é um HTTP de entrada de rastreamento de solicitação:
 
 ```C#
 public async Task Process(MessagePayload message)
 {
-    // After the message is dequeued from the queue, create RequestTelemetry to track its processing.
+    // After hello message is dequeued from hello queue, create RequestTelemetry tootrack its processing.
     RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "Dequeue " + queueName };
-    // It might also make sense to get the name from the message.
+    // It might also make sense tooget hello name from hello message.
     requestTelemetry.Context.Operation.Id = message.RootId;
     requestTelemetry.Context.Operation.ParentId = message.ParentId;
 
@@ -366,22 +366,22 @@ public async Task Process(MessagePayload message)
 
 Da mesma forma, outras operações de fila podem ser instrumentadas. Uma operação de espiar deve ser instrumentada da mesma maneira que uma operação de remoção da fila. A instrumentação de operações de gerenciamento de fila não é necessária. O Application Insights acompanha operações como HTTP e, na maioria dos casos, isso é suficiente.
 
-Ao instrumentar a exclusão de mensagem, verifique se você definiu os identificadores da operação (correlação). Como alternativa, você pode usar a API `Activity`. Assim, você não precisa definir identificadores de operação nos itens de telemetria porque o Application Insights faz isso para você:
+Quando você instrumentar a exclusão de mensagem, verifique se que definiu operação Olá identificadores (correlação). Como alternativa, você pode usar o hello `Activity` API. Em seguida, você não precisa tooset identificadores de operação em itens de telemetria Olá porque Application Insights faz isso para você:
 
-- Crie um novo `Activity` depois que tiver obtido um item da fila.
-- Use `Activity.SetParentId(message.ParentId)` para correlacionar os logs de produtor e consumidor.
-- Inicie o `Activity`.
-- Acompanhe as operações de remoção da fila, processamento e exclusão usando auxiliares `Start/StopOperation`. Faça isso do mesmo fluxo de controle assíncrono (contexto de execução). Dessa forma, elas são correlacionadas corretamente.
-- Pare o `Activity`.
+- Criar um novo `Activity` depois que você tem um item da fila de saudação.
+- Use `Activity.SetParentId(message.ParentId)` toocorrelate logs de produtor e consumidor.
+- Iniciar Olá `Activity`.
+- Acompanhe as operações de remoção da fila, processamento e exclusão usando auxiliares `Start/StopOperation`. Fazer isso da saudação mesmo assíncrona (contexto de execução) do fluxo de controle. Dessa forma, elas são correlacionadas corretamente.
+- Saudação de parada `Activity`.
 - Use `Start/StopOperation` ou chame a telemetria `Track` manualmente.
 
 ### <a name="batch-processing"></a>Processamento em lotes
-Com algumas filas, você pode remover da fila várias mensagens com uma solicitação. O processamento dessas mensagens é supostamente independente e pertence a diferentes operações lógicas. Nesse caso, não é possível correlacionar a operação `Dequeue` a um processamento de mensagem específico.
+Com algumas filas, você pode remover da fila várias mensagens com uma solicitação. Processar essas mensagens supostamente independente e pertence toohello diferentes operações lógicas. Nesse caso, não é possível toocorrelate Olá `Dequeue` processamento de mensagem de operação tooparticular.
 
-Cada mensagem deve ser processada no seu próprio fluxo de controle assíncrono. Para obter mais informações, consulte a seção [Acompanhamento de dependências de saída](#outgoing-dependencies-tracking).
+Cada mensagem deve ser processada no seu próprio fluxo de controle assíncrono. Para obter mais informações, consulte Olá [dependências de saída de rastreamento](#outgoing-dependencies-tracking) seção.
 
 ## <a name="long-running-background-tasks"></a>Tarefas em segundo plano de execução longa
-Alguns aplicativos iniciam operações de longa execução que podem ser causadas por solicitações de usuário. Da perspectiva do rastreamento/instrumentação, isso não é diferente da instrumentação de solicitação ou de dependência: 
+Alguns aplicativos iniciam operações de longa execução que podem ser causadas por solicitações de usuário. Da perspectiva do rastreamento/instrumentação hello, não é diferente da instrumentação de solicitação ou de dependência: 
 
 ``` C#
 async Task BackgroundTask()
@@ -393,7 +393,7 @@ async Task BackgroundTask()
         int progress = 0;
         while (progress < 100)
         {
-            // Process the task.
+            // Process hello task.
             telemetryClient.TrackTrace($"done {progress++}%");
         }
         // Update status code and success as appropriate.
@@ -411,24 +411,24 @@ async Task BackgroundTask()
 }
 ```
 
-Neste exemplo, usamos `telemetryClient.StartOperation` para criar `RequestTelemetry` e preencher o contexto de correlação. Digamos que você tem uma operação pai criada por solicitações de entrada que agendaram a operação. Desde que `BackgroundTask` inicie no mesmo fluxo de controle assíncrono que uma solicitação de entrada, ela será correlacionada com essa operação pai. `BackgroundTask` e todos os itens de telemetria aninhados são automaticamente correlacionados com a solicitação a causou, mesmo após o término da solicitação.
+Neste exemplo, usamos `telemetryClient.StartOperation` toocreate `RequestTelemetry` e o contexto de correlação de saudação do preenchimento. Digamos que você tenha uma operação de pai que foi criada por solicitações de entrada que Olá operação agendada. Enquanto `BackgroundTask` inicia no Olá mesmo fluxo de controle assíncrono como uma solicitação de entrada, ele está correlacionado a operação pai. `BackgroundTask`e todos os itens de telemetria aninhados são automaticamente correlacionados a solicitação de saudação que fez com que ele, mesmo depois do término solicitação hello.
 
-Quando a tarefa inicia do thread em segundo plano que não tem nenhuma operação (`Activity`) associada a ele, `BackgroundTask` não tem nenhum pai. No entanto, ela pode ter operações aninhadas. Todos os itens de telemetria relatados da tarefa estão correlacionados à `RequestTelemetry` criada na `BackgroundTask`.
+Quando a tarefa de saudação inicia de thread em segundo plano Olá que não tem qualquer operação (`Activity`) associado a ele, `BackgroundTask` não tem nenhum pai. No entanto, ela pode ter operações aninhadas. Todos os itens de telemetria informados da tarefa de saudação são correlacionado toohello `RequestTelemetry` criado no `BackgroundTask`.
 
 ## <a name="outgoing-dependencies-tracking"></a>Acompanhamento de dependências de saída
 Você pode controlar sua própria variante de dependência ou uma operação sem suporte pelo Application Insights.
 
-O método `Enqueue` na fila do Barramento de Serviço ou fila de Armazenamento pode servir como exemplos de tal acompanhamento personalizado.
+Olá `Enqueue` método na fila do barramento de serviço hello ou fila de armazenamento Olá pode servir como exemplos de tal personalizado de controle.
 
-A abordagem geral ao acompanhamento de dependência personalizado é:
+a abordagem geral Olá para controle de dependência personalizada é:
 
-- Chamar o método `TelemetryClient.StartOperation` (extensão) que preencha as propriedades `DependencyTelemetry` necessárias para correlação e algumas outras propriedades (carimbo de data/hora de início, duração).
-- Definir outras propriedades personalizadas no `DependencyTelemetry`: tais como nome e qualquer outro contexto necessário.
+- Chamar hello `TelemetryClient.StartOperation` método (extensão) que preenche Olá `DependencyTelemetry` propriedades necessárias para correlação e algumas outras propriedades (hora de início do carimbo, duração).
+- Definir outras propriedades personalizadas em Olá `DependencyTelemetry`, como nome de saudação e qualquer outro contexto é necessário.
 - Fazer uma chamada de dependência e esperar por ela.
-- Interromper a operação com `StopOperation` quando concluída.
+- Parar a operação de saudação com `StopOperation` quando ele for concluído.
 - Tratar exceções.
 
-`StopOperation` somente interrompe a operação que foi iniciada. Se a operação de execução atual não corresponder à que você deseja interromper, `StopOperation` não fará nada. Essa situação acontecer se você iniciar várias operações em paralelo no mesmo contexto de execução:
+`StopOperation`somente para operação de saudação que foi iniciada. Se operação em execução atual de saudação não corresponder a saudação um toostop, você deseja `StopOperation` não fará nada. Essa situação pode ocorrer se você iniciar várias operações em paralelo no hello mesmo contexto de execução:
 
 ```C#
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
@@ -440,7 +440,7 @@ var secondTask = RunMyTaskAsync();
 
 await firstTask;
 
-// This will do nothing and will not report telemetry for the first operation
+// This will do nothing and will not report telemetry for hello first operation
 // as currently secondOperation is active.
 telemetryClient.StopOperation(firstOperation); 
 
@@ -470,8 +470,8 @@ public async Task RunMyTaskAsync()
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Aprenda noções básicas de [correlação de telemetria](application-insights-correlation.md) no Application Insights.
-- Consulte o [modelo de dados](application-insights-data-model.md) para modelo de dados e tipos do Application Insights.
-- Relate [eventos e métricas](app-insights-api-custom-events-metrics.md) personalizados para o Application Insights.
+- Conheça os fundamentos de saudação do [correlação de telemetria](application-insights-correlation.md) no Application Insights.
+- Consulte Olá [modelo de dados](application-insights-data-model.md) para modelo de dados e tipos de informações do aplicativo.
+- Relatório personalizado [eventos e métricas](app-insights-api-custom-events-metrics.md) tooApplication Insights.
 - Confira a [configuração](app-insights-configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) padrão para a coleção de propriedades de contexto.
-- Confira o [Guia do Usuário de System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) para ver como correlacionar telemetria.
+- Verificar Olá [guia do usuário System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) toosee como correlacionamos telemetria.

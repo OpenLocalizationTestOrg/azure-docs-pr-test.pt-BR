@@ -1,6 +1,6 @@
 ---
-title: "Serviço de Metadados de Instância do Azure para VMs do Linux | Microsoft Docs"
-description: "A Interface RESTful para obter informações sobre a computação, a rede e os eventos de manutenção futura da VM do Linux."
+title: "aaaAzure serviço de metadados de instância para VMs do Linux | Microsoft Docs"
+description: "Interface rESTful tooget obter informações sobre de Linux VM computação, rede e eventos de manutenção futura."
 services: virtual-machines-linux
 documentationcenter: 
 author: harijay
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/11/2017
 ms.author: harijay
-ms.openlocfilehash: a61acbe0532ece3a6a26ceb366c12c69db4c304c
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 138822addea322c6e565b39a1b2002d7305f5fc7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-instance-metadata-service-for-linux-vms"></a>Serviço de metadados da instância do Azure para VMs do Linux
 
 
-O Serviço de metadados de instância do Azure fornece informações sobre instâncias da máquina virtual em execução que podem ser usadas para gerenciar e configurar suas máquinas virtuais.
+saudação de serviço de metadados de instância do Azure fornece informações sobre instâncias de máquina virtual que podem ser usado toomanage e configurar as máquinas virtuais em execução.
 Isso inclui informações como SKU, configuração de rede e eventos de manutenção futura. Para obter mais informações sobre o tipo de informação que está disponível, consulte [categorias de metadados](#instance-metadata-data-categories).
 
-O serviço de metadados de instância do Azure é um ponto de extremidade REST disponível para todas as máquinas virtuais de IaaS criadas por meio [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). O ponto de extremidade está disponível em um endereço IP não roteável conhecido (`169.254.169.254`) que pode ser acessado somente de dentro da máquina virtual.
+Serviço de metadados de instância do Azure é um ponto de extremidade REST tooall acessível IaaS VMs criada por meio do hello [do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). ponto de extremidade Hello está disponível em um endereço IP não roteável conhecido (`169.254.169.254`) que podem ser acessados somente de dentro de saudação VM.
 
 > [!IMPORTANT]
-> Esse serviço é **disponível geralmente** em regiões do Azure globais. Ele está em visualização pública para o governo, China e em nuvem alemã do Azure. Regularmente, ele recebe atualizações para expor informações novas sobre instâncias de máquina virtual. Esta página reflete as atualizadas [categorias de dados](#instance-metadata-data-categories) disponíveis.
+> Esse serviço é **disponível geralmente** em regiões do Azure globais. Ele está em visualização pública para o governo, China e em nuvem alemã do Azure. Regularmente, ele recebe atualizações tooexpose novas informações sobre instâncias de máquina virtual. Esta página reflete Olá atualizada [categorias de dados](#instance-metadata-data-categories) disponíveis.
 
 ## <a name="service-availability"></a>Disponibilidade do serviço
-Esse serviço é disponível geralmente em regiões do Azure globais. O serviço está em visualização pública nas regiões governamentais, China ou Alemanha.
+serviço de saudação está disponível em todas as regiões do Azure Global disponíveis. serviço de saudação está em visualização pública no hello governamentais, China, Alemanha regiões.
 
 Regiões                                        | Disponibilidade?
 -----------------------------------------------|-----------------------------------------------
@@ -41,26 +41,26 @@ Regiões                                        | Disponibilidade?
 [Azure China:](https://www.azure.cn/)                                                           | Na visualização
 [Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)                    | Na visualização
 
-Esta tabela é atualizada quando o serviço está disponível em outras nuvens do Azure.
+Esta tabela é atualizada quando o serviço Olá torna-se disponível em outras nuvens do Azure.
 
-Para testar o serviço de metadados de instância, crie uma VM do [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) ou [portal do Azure](http://portal.azure.com) nas regiões acima e siga os exemplos abaixo.
+tootry out Olá instância metadados de serviço, criar uma VM do [do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) ou hello [portal do Azure](http://portal.azure.com) em Olá acima regiões e siga Olá exemplos abaixo.
 
 ## <a name="usage"></a>Uso
 
 ### <a name="versioning"></a>Controle de versão
-O Serviço de Metadados de Instância tem controle de versão. As versões são obrigatórias e a versão atual é `2017-04-02`.
+Olá serviço de metadados de instância é com controle de versão. As versões são obrigatórias e Olá a versão atual é `2017-04-02`.
 
 > [!NOTE] 
-> Versões de visualização anteriores de eventos agendados compatíveis {mais recentes} como a api-version. Esse formato não é mais suportado e será substituído no futuro.
+> Versões anteriores de visualização de eventos agendados suportados {mais recente} como Olá api-version. Esse formato não é mais suportado e será substituído em Olá futuras.
 
-Como adicionamos versões mais recentes, as versões mais antigas ainda podem ser acessadas para fins de compatibilidade se os scripts tiverem dependências de formatos de dados específicos. Entretanto, observe que a versão de visualização atual (2017-03-01) poderá não estar disponível quando o serviço estiver totalmente disponível.
+Como adicionamos versões mais recentes, as versões mais antigas ainda podem ser acessadas para fins de compatibilidade se os scripts tiverem dependências de formatos de dados específicos. No entanto, observe que version(2017-03-01) de visualização atual Olá pode não estar disponível quando o serviço de saudação estiver disponível.
 
 ### <a name="using-headers"></a>Uso de cabeçalhos
-Ao consultar o Serviço de Metadados você deverá fornecer o cabeçalho `Metadata: true` para garantir que a solicitação não seja redirecionada de forma involuntária.
+Quando você consulta Olá instância metadados de serviço, você deve fornecer o cabeçalho Olá `Metadata: true` solicitação de saudação tooensure não foi redirecionada acidentalmente.
 
 ### <a name="retrieving-metadata"></a>Configurando e recuperando os metadados
 
-Os metadados de instância estão disponíveis para a execução de máquinas virtuais criadas/gerenciadas usando o [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Acessar todas as categorias de dados para uma instância de máquina virtual usando a seguinte solicitação:
+Os metadados de instância estão disponíveis para a execução de máquinas virtuais criadas/gerenciadas usando o [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Acesse todas as categorias de dados para uma instância de máquina virtual usando Olá solicitação a seguir:
 
 ```
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
@@ -70,34 +70,34 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > Todas as consultas de metadados de instância diferenciam maiúsculas de minúsculas.
 
 ### <a name="data-output"></a>Saída de dados
-Por padrão, o serviço de metadados de instância retorna dados em formato JSON (`Content-Type: application/json`). No entanto, diferentes APIs podem retornar dados em formatos diferentes, se solicitado.
-A tabela a seguir é uma referência de outros formatos de dados que pode oferecer suporte a APIs.
+Por padrão, Olá instância metadados de serviço retorna dados em formato JSON (`Content-Type: application/json`). No entanto, diferentes APIs podem retornar dados em formatos diferentes, se solicitado.
+Olá tabela a seguir é uma referência de outros formatos de dados que pode oferecer suporte a APIs.
 
 API | Formato de dados padrão | Outros formatos
 --------|---------------------|--------------
 /instance | json | texto
 /scheduledevents | json | nenhum
 
-Para acessar um formato de resposta não padrão, especifique o formato solicitado como um parâmetro querystring na solicitação. Por exemplo:
+tooaccess um formato de resposta não padrão, especificar o formato solicitado hello como um parâmetro de querystring na solicitação de saudação. Por exemplo:
 
 ```
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
 ```
 
 ### <a name="security"></a>Segurança
-O ponto de extremidade de metadados de instância está acessível somente dentro da instância de máquina virtual em execução em um endereço IP não roteável. Além disso, qualquer solicitação com `X-Forwarded-For`Cabeçalho é rejeitada pelo serviço.
-Também exigimos que as solicitações contenham um `Metadata: true` cabeçalho para garantir que a solicitação real tenha sido desejada diretamente e não faça parte de um redirecionamento não intencional. 
+ponto de extremidade de serviço de metadados de instância de saudação é acessível somente dentro Olá executando a instância de máquina virtual em um endereço IP não roteável. Além disso, qualquer solicitação com um `X-Forwarded-For` cabeçalho é rejeitado pelo serviço de saudação.
+Também precisamos solicitações toocontain um `Metadata: true` tooensure de cabeçalho que Olá solicitação real diretamente foi pretendido e não faz parte do redirecionamento não intencional. 
 
 ### <a name="error"></a>Erro
-Se houver um elemento de dados não encontrado ou solicitações malformadas, o serviço de metadados da instância retornará o erro de HTTP padrão. Por exemplo:
+Se houver um elemento de dados não encontrado ou uma solicitação incorreta, Olá instância metadados de serviço retorna erros HTTP padrão. Por exemplo:
 
 Código de status HTTP | Motivo
 ----------------|-------
 200 OK |
 400 Solicitação Inválida | Faltando `Metadata: true` cabeçalho
-404 Não Encontrado | O elemento solicitado não existe 
+404 Não Encontrado | Olá does't elemento solicitado existe 
 405 método não permitido | Somente as solicitações `GET` e `POST` são suportadas
-429 Número excessivo de solicitações | A API atualmente suporta um máximo de 5 consultas por segundo
+429 Número excessivo de solicitações | Olá API atualmente suporta um máximo de 5 consultas por segundo
 500 Erro do serviço     | Aguarde um pouco e tente novamente
 
 ### <a name="examples"></a>Exemplos
@@ -116,7 +116,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 **Resposta**
 
 > [!NOTE] 
-> A resposta é uma cadeia de caracteres JSON. Todas as respostas de exemplo a seguir são estilos de formatação para facilitar a leitura.
+> resposta de saudação é uma cadeia de caracteres JSON. saudação de resposta de exemplo a seguir é impresso de formatação para facilitar a leitura.
 
 ```
 {
@@ -163,7 +163,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 **Resposta**
 
 > [!NOTE] 
-> A resposta é uma cadeia de caracteres JSON. Todas as respostas de exemplo a seguir são estilos de formatação para facilitar a leitura.
+> resposta de saudação é uma cadeia de caracteres JSON. saudação de resposta de exemplo a seguir é impresso de formatação para facilitar a leitura.
 
 ```
 {
@@ -211,13 +211,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 **Solicitação**
 
-Os metadados de instância podem ser recuperados no Windows por meio do utilitário do Powershell`curl`: 
+Metadados de instância podem ser recuperados no Windows por meio de saudação do PowerShell utilitário `curl`: 
 
 ```
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-04-02 | select -ExpandProperty Content
 ```
 
-Ou por meio de `Invoke-RestMethod` cmdlet:
+Ou por meio de saudação `Invoke-RestMethod` cmdlet:
     
 ```
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
@@ -226,7 +226,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 **Resposta**
 
 > [!NOTE] 
-> A resposta é uma cadeia de caracteres JSON. Todas as respostas de exemplo a seguir são estilos de formatação para facilitar a leitura.
+> resposta de saudação é uma cadeia de caracteres JSON. saudação de resposta de exemplo a seguir é impresso de formatação para facilitar a leitura.
 
 ```
 {
@@ -273,26 +273,26 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ```
 
 ## <a name="instance-metadata-data-categories"></a>Categorias de dados de metadados de instância
-As seguintes categorias de dados estão disponíveis por meio do serviço de metadados da instância:
+Olá categorias de dados a seguir está disponível por meio de saudação instância metadados de serviço:
 
 Dados | Descrição
 -----|------------
-location | Região do Azure na qual a máquina virtual está sendo executada
-name | Nome da VM 
-oferta | Oferece informações para a imagem VM. Esse valor só está presente para as imagens implantadas na Galeria de imagens do Azure.
-publicador | Publicador da imagem da máquina virtual
-sku | SKU específica para a imagem da máquina virtual  
-version | Versão da imagem da máquina virtual 
+location | Saudação de região do Azure VM está em execução
+name | Nome da saudação VM 
+oferta | Oferece informações para a imagem VM hello. Esse valor só está presente para as imagens implantadas na Galeria de imagens do Azure.
+publicador | Editor de imagem de VM Olá
+sku | SKU específica para a imagem VM Olá  
+version | Versão da imagem VM Olá 
 osType | Linux ou Windows 
-platformUpdateDomain |  [Domínio de atualização](manage-availability.md) no qual a máquina virtual está sendo executada
-platformFaultDomain | [Domínio de falha](manage-availability.md) no qual a máquina virtual está sendo executada
-vmId | [Identificador exclusivo](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para a máquina virtual
+platformUpdateDomain |  [Domínio de atualização](manage-availability.md) Olá VM está em execução em
+platformFaultDomain | [Domínio de falha](manage-availability.md) Olá VM está em execução em
+vmId | [Identificador exclusivo](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para Olá VM
 vmSize | [Tamanho da VM](sizes.md)
-IPv4/privateIpAddress | Endereço IPv4 local da máquina virtual 
-IPv4/privateIpAddress | Endereço IPv4 local da máquina virtual
-subnet/address | Endereço sub-rede da máquina virtual
+IPv4/privateIpAddress | Endereço IPv4 local da saudação VM 
+IPv4/privateIpAddress | Endereço IPv4 público da saudação VM
+subnet/address | Endereço de sub-rede de saudação VM
 subnet/prefix | Prefixo de sub-rede, exemplo 24
-ipv6/ipAddress | Endereço IPv6 local da máquina virtual
+ipv6/ipAddress | Endereço IPv6 local da saudação VM
 macAddress | Endereço mac da máquina virtual 
 scheduledevents | No momento em Consulte de visualização pública [aventosagendados](scheduled-events.md)
 
@@ -300,7 +300,7 @@ scheduledevents | No momento em Consulte de visualização pública [aventosagen
 
 ### <a name="tracking-vm-running-on-azure"></a>VM de controle em execução no Azure
 
-Como provedor de serviço, você talvez precise controlar o número de máquinas virtuais que executam o seu software ou ter agentes que precisam controlar a exclusividade da máquina virtual. Para obter uma ID exclusiva de uma máquina virtual, use o `vmId` campo do serviço de metadados de instância.
+Como um provedor de serviço, pode exigir o número de saudação do tootrack de VMs que executam o software ou tiver agentes que precisam tootrack exclusividade de saudação VM. toobe tooget capaz de uma ID exclusiva de uma VM, use Olá `vmId` campo do serviço de metadados de instância.
 
 **Solicitação**
 
@@ -316,8 +316,8 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 
 ### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>Posicionamento de contêineres, partições de dados com base em domínio de falha/atualização 
 
-Para determinados cenários nos quais o posicionamento de réplicas diferentes é de vital importância. Por exemplo, o [posicionamento de réplica de HDFS](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) ou o posicionamento do contêiner por meio de um [organizador](https://kubernetes.io/docs/user-guide/node-selection/) podem exigir que você conheça os `platformFaultDomain` e `platformUpdateDomain` nas quais a máquina virtual está sendo executada.
-Você pode consultar esses dados diretamente por meio de serviço de metadados.
+Para determinados cenários nos quais o posicionamento de réplicas diferentes é de vital importância. Por exemplo, [posicionamento de réplica do HDFS](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) ou a colocação de contêiner por meio de um [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) pode exigir o hello tooknow `platformFaultDomain` e `platformUpdateDomain` Olá VM está em execução no.
+Você pode consultar esses dados diretamente por meio de saudação serviço de metadados de instância.
 
 **Solicitação**
 
@@ -331,9 +331,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platform
 0
 ```
 
-### <a name="getting-more-information-about-the-vm-during-support-case"></a>Obtendo mais informações sobre a máquina virtual durante a ocorrência de suporte 
+### <a name="getting-more-information-about-hello-vm-during-support-case"></a>Obtendo mais informações sobre Olá VM durante o caso de suporte 
 
-Como provedor de serviços, você poderá receber uma chamada de suporte na qual gostaria de ter mais informações sobre a máquina virtual. Pedir ao cliente para informar os metadados de computação pode fornecer informações básicas para o profissional de suporte saber o tipo de VM no Azure. 
+Como um provedor de serviço, você pode obter uma chamada de suporte em que você deseja tooknow mais informações sobre Olá VM. Solicitando Olá cliente tooshare Olá computação metadados podem fornecer informações básicas para tooknow profissional de suporte de saudação sobre o tipo de saudação do VM no Azure. 
 
 **Solicitação**
 
@@ -344,7 +344,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 **Resposta**
 
 > [!NOTE] 
-> A resposta é uma cadeia de caracteres JSON. Todas as respostas de exemplo a seguir são estilos de formatação para facilitar a leitura.
+> resposta de saudação é uma cadeia de caracteres JSON. saudação de resposta de exemplo a seguir é impresso de formatação para facilitar a leitura.
 
 ```
 {
@@ -364,9 +364,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 }
 ```
 
-### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Exemplos de como chamar o serviço de metadados usando diferentes idiomas dentro da VM 
+### <a name="examples-of-calling-metadata-service-using-different-languages-inside-hello-vm"></a>Exemplos de como chamar o serviço de metadados usando linguagens diferentes dentro de saudação VM 
 
-Linguagem | Exemplo 
+idioma | Exemplo 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
 Vá Lan   | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
@@ -379,23 +379,23 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
     
 
 ## <a name="faq"></a>Perguntas frequentes
-1. Estou recebendo o erro `400 Bad Request, Required metadata header not specified`. O que isso significa?
-   * O serviço de metadados de instância exige que o cabeçalho `Metadata: true` seja passado na solicitação. Passar o cabeçalho na chamada de REST permite acessar o serviço de metadados de instância. 
+1. Estou recebendo o erro de saudação `400 Bad Request, Required metadata header not specified`. O que isso significa?
+   * Olá instância metadados de serviço requer cabeçalho Olá `Metadata: true` toobe passado na solicitação de saudação. Passar esse cabeçalho na chamada REST Olá permite acesso toohello serviço de metadados de instância. 
 2. Por que não estou obtendo informações de computação para minha máquina virtual?
-   * Atualmente o serviço de metadados de instância suporta apenas instâncias criadas com o Gerenciador de recursos do Azure. No futuro, poderemos adicionar suporte para VMs de serviço de nuvem.
+   * Atualmente Olá instância metadados de serviço suporta apenas instâncias criadas com o Gerenciador de recursos do Azure. Olá futuras, podemos pode adicionar suporte para VMs de serviço de nuvem.
 3. Criei minha máquina virtual com o Azure Resource Manager há algum tempo. Por que não consigo ver as informações de metadados de computação?
-   * Para todas as máquinas virtuais criadas depois de setembro de 2016, adicione uma [marca](../../azure-resource-manager/resource-group-using-tags.md) para começar a ver os metadados de computação. Para máquinas virtuais mais antigas (criadas antes de setembro de 2016), adicione ou remova extensões ou dados de discos à máquina virtual para atualizar os metadados.
-4. Por que estou recebendo o erro `500 Internal Server Error`?
-   * Repita a solicitação com base no sistema de retirada exponencial. Se o problema persistir, contate o suporte do Azure.
+   * Para todas as máquinas virtuais criadas depois de setembro de 2016, adicione um [marca](../../azure-resource-manager/resource-group-using-tags.md) toostart ver metadados de computação. Para VMs mais antigas (criadas antes de setembro de 2016), adicionar ou remover extensões ou dados discos toohello VM toorefresh metadados.
+4. Por que estou recebendo o erro de saudação `500 Internal Server Error`?
+   * Repita a solicitação com base no sistema de retirada exponencial. Se o problema de saudação persistir, contate o suporte do Azure.
 5. Onde posso publicar comentários/perguntas adicionais?
    * Envie seus comentários em http://feedback.azure.com.
 7. Isso funcionaria para Instância do Conjunto de Dimensionamento da Máquina Virtual?
    * Sim, o serviço de metadados está disponível para instâncias de conjunto de escala. 
-6. Como posso obter suporte para o serviço?
-   * Para obter suporte para o serviço, crie um problema de suporte no portal do Azure para a máquina virtual na qual você não consegue obter resposta de metadados após várias tentativas 
+6. Como obter suporte para o serviço Olá?
+   * suporte tooget para serviço hello, criar um problema de suporte no portal do Azure para Olá VM em que não é capaz de tooget metadados resposta após várias tentativas longo 
 
    ![Serviço de Metadados de Instância](./media/instance-metadata-service/InstanceMetadata-support.png)
     
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre a API dos [Eventos Agendados](scheduled-events.md) **em visualização pública** fornecida pelo serviço Metadados de Instância.
+- Saiba mais sobre Olá [eventos agendados](scheduled-events.md) API **em visualização pública** fornecida pelo Olá metadados da instância de serviço.

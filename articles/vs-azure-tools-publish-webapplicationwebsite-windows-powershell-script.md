@@ -1,6 +1,6 @@
 ---
-title: Publish-WebApplicationWebSite (script do Windows PowerShell) | Microsoft Docs
-description: "Saiba como publicar um projeto Web em um site do Azure. Se os recursos necessários não existirem, este script criará tais recursos em sua assinatura do Azure."
+title: aaaPublish-WebApplicationWebSite (script do Windows PowerShell) | Microsoft Docs
+description: "Saiba como toopublish uma web projeto tooan site do Azure. Este script cria recursos Olá necessários em sua assinatura do Azure se não existirem."
 services: visual-studio-online
 documentationcenter: na
 author: kraigb
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.openlocfilehash: 07d21b7ce6cd8aee1cff704d316e7a2ca8c00437
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d46904e30e3c2e040e57888fa31543e8e366527f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="publish-webapplicationwebsite-windows-powershell-script"></a>Publish-WebApplicationWebSite (script do Windows PowerShell)
 ## <a name="syntax"></a>Sintaxe
-Publica um projeto Web em um site do Azure. Se os recursos necessários não existirem, o script criará tais recursos em sua assinatura do Azure.
+Publica um tooan do projeto web site do Azure. script Hello cria recursos Olá necessários em sua assinatura do Azure se não existirem.
 
     Publish-WebApplicationWebSite
     –Configuration <configuration>
@@ -34,7 +34,7 @@ Publica um projeto Web em um site do Azure. Se os recursos necessários não exi
 
 
 ## <a name="configuration"></a>Configuração
-O caminho para o arquivo de configuração de JSON que descreve os detalhes da implantação.
+Olá caminho toohello arquivo de configuração JSON que descreve os detalhes de saudação da implantação de saudação.
 
 | Parâmetro | Valor padrão |
 | --- | --- |
@@ -46,7 +46,7 @@ O caminho para o arquivo de configuração de JSON que descreve os detalhes da i
 | Aceitar caracteres curinga? |false |
 
 ## <a name="subscriptionname"></a>SubscriptionName
-O nome da assinatura do Azure na qual você deseja criar o site.
+nome de saudação do hello assinatura do Azure que você quiser que toocreate Olá site no.
 
 | Parâmetro | Valor padrão |
 | --- | --- |
@@ -58,7 +58,7 @@ O nome da assinatura do Azure na qual você deseja criar o site.
 | Aceitar caracteres curinga? |false |
 
 ## <a name="webdeploypackage"></a>WebDeployPackage
-O caminho para o pacote de implantação Web a publicar no site. Você pode criar este pacote usando o assistente Publicar Web no Visual Studio. Para obter mais informações, consulte [Introdução aos serviços de nuvem do Azure e ASP.NET](http://go.microsoft.com/fwlink/p/?LinkID=623089).
+Olá caminho toohello web pacote toopublish toohello site de implantação. Você pode criar esse pacote usando o Assistente de publicar Web Olá no Visual Studio. Para obter mais informações, consulte [Introdução aos serviços de nuvem do Azure e ASP.NET](http://go.microsoft.com/fwlink/p/?LinkID=623089).
 
 | Parâmetro | Valor padrão |
 | --- | --- |
@@ -70,7 +70,7 @@ O caminho para o pacote de implantação Web a publicar no site. Você pode cria
 | Aceitar caracteres curinga? |false |
 
 ## <a name="databaseserverpassword"></a>DatabaseServerPassword
-O nome do administrador e a senha do Banco de Dados SQL no Azure.
+saudação de nome de usuário e senha Olá banco de dados SQL no Azure.
 
 | Parâmetro | Valor padrão |
 | --- | --- |
@@ -82,7 +82,7 @@ O nome do administrador e a senha do Banco de Dados SQL no Azure.
 | Aceitar caracteres curinga? |false |
 
 ## <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
-Se seu valor for true, imprimir mensagens do script para o fluxo de saída.
+Se true, impressão mensagens de saudação script toohello fluxo de saída.
 
 | Parâmetro | Valor padrão |
 | --- | --- |
@@ -94,9 +94,9 @@ Se seu valor for true, imprimir mensagens do script para o fluxo de saída.
 | Aceitar caracteres curinga? |false |
 
 ## <a name="remarks"></a>Comentários
-Para obter uma explicação completa de como usar o script para criar ambientes de desenvolvimento e teste, consulte [Usando scripts do Windows PowerShell para publicar para ambientes de desenvolvimento e teste](vs-azure-tools-publishing-using-powershell-scripts.md).
+Para obter uma explicação completa de como toouse Olá script toocreate desenvolvimento e ambientes de teste, consulte [ambientes de teste e usando Scripts do Windows PowerShell tooPublish tooDev](vs-azure-tools-publishing-using-powershell-scripts.md).
 
-O arquivo de configuração JSON especifica os detalhes daquilo que está para ser implantado. Ele inclui as informações que você especificou quando criou o projeto, como o nome e também o nome de usuário para o site. Ele também inclui o banco de dados a provisionar, se houver. O código a seguir mostra um exemplo de arquivo de configuração JSON:
+arquivo de configuração JSON Olá Especifica detalhes de saudação do que é toobe implantado. Ela inclui informações de saudação que você especificou quando criou o projeto hello, como nome de saudação e o nome de usuário para o site de saudação. Ele também inclui Olá tooprovision do banco de dados, se houver. saudação de código a seguir mostra um exemplo de arquivo de configuração de JSON:
 
     {
         "environmentSettings": {
@@ -120,7 +120,7 @@ O arquivo de configuração JSON especifica os detalhes daquilo que está para s
         }
     }
 
-Você pode editar o arquivo de configuração JSON para alterar o que é implantado. Uma seção de site é obrigatória, mas a seção de banco de dados é opcional.
+Você pode editar o arquivo de configuração do hello JSON toochange o que foi implantado. Uma seção do site é necessária, mas a seção de banco de dados de saudação é opcional.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações, consulte [WebApplicationVM de publicação (script do Windows PowerShell)](vs-azure-tools-publish-webapplicationvm.md)

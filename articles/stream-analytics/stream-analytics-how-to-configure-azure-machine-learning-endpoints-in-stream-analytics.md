@@ -1,5 +1,5 @@
 ---
-title: Use pontos de extremidade do Azure Machine Learning no Stream Analytics | Microsoft Docs
+title: "aaaUse pontos de extremidade de aprendizado de máquina do Azure no Stream Analytics | Microsoft Docs"
 description: "Funções definidas pelo usuário da Linguagem de Máquina no Stream Analytics"
 keywords: 
 documentationcenter: 
@@ -15,42 +15,40 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-ms.openlocfilehash: d3a46190dd802bf31ea03ef38304d58e6e63b66d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 013b841ee85b1e0b6d8139a9ba0dde88fc3f8ad0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Integração do Machine Learning ao Stream Analytics
-O Stream Analytics dá suporte a funções definidas pelo usuário que chamam pontos de extremidade do Azure Machine Learning. O suporte da API REST para esse recurso é detalhado na [biblioteca de API REST do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artigo fornece informações complementares necessárias para a implementação bem-sucedida desse recurso no Stream Analytics. Um tutorial também foi publicado e está disponível [aqui](stream-analytics-machine-learning-integration-tutorial.md).
+Análise de fluxo dá suporte a funções definidas pelo usuário que chamar tooAzure pontos de extremidade do aprendizado de máquina. Suporte de API REST para esse recurso é detalhado no hello [biblioteca de API de REST de análise de fluxo](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artigo fornece informações complementares necessárias para a implementação bem-sucedida desse recurso no Stream Analytics. Um tutorial também foi publicado e está disponível [aqui](stream-analytics-machine-learning-integration-tutorial.md).
 
 ## <a name="overview-azure-machine-learning-terminology"></a>Visão geral: terminologia do Azure Machine Learning
-O Microsoft Azure Machine Learning fornece uma ferramenta colaborativa do tipo "arrastar e soltar", que você pode usar para criar, testar e implantar soluções de análise preditiva em seus dados. Essa ferramenta é chamada de *Azure Machine Learning Studio*. O estúdio é usado para interagir com os recursos do Machine Learning e para compilar, testar e iterar facilmente em seu design. Veja abaixo esses recursos e suas definições.
+Aprendizado de máquina do Microsoft Azure fornece uma ferramenta de colaboração, arrastar e soltar, você pode usar toobuild, testar e implantar soluções de análise preditiva em seus dados. Essa ferramenta é chamada hello *estúdio de aprendizado de máquina do Azure*. studio Olá é toointeract usado com hello recursos de aprendizagem de máquina e facilmente criar, testar e itere o design. Veja abaixo esses recursos e suas definições.
 
-* 
-            **Espaço de trabalho**: o *espaço de trabalho* é um contêiner que mantém todos os outros recursos de Machine Learning em um contêiner para gerenciamento e controle.
-* **Experimento**: os *Experimentos* são criados por cientistas de dados a fim de usar conjuntos de dados e treinar um modelo de aprendizado de máquina.
-* 
-            **Ponto de extremidade**: os *Pontos de extremidade* são objetos de Azure Machine Learning usados para aproveitar recursos como entrada, aplicar um modelo de aprendizado de máquina especificado e retornar a saída pontuada.
+* **Espaço de trabalho**: Olá *espaço de trabalho* é um contêiner que contém todos os outros recursos de aprendizado de máquina em um contêiner para gerenciamento e controle.
+* **Experiência**: *experiências* são criados por dados cientistas tooutilize conjuntos de dados e treinar um modelo de aprendizado de máquina.
+* **Ponto de extremidade**: *pontos de extremidade* são Olá aprendizado de máquina do Azure recursos de tootake de objeto usado como entrada, aplicar um modelo de aprendizado de máquina especificado e retorna a saída classificada.
 * **Serviço da Web de Pontuação**: um *serviço da Web de pontuação* é uma coleção de pontos de extremidade, conforme mencionado acima.
 
-Cada ponto de extremidade tem APIs para execução em lote e execução síncrona. O Stream Analytics usa a execução síncrona. O serviço específico é chamado de [Serviço de Solicitação/Resposta](../machine-learning/machine-learning-consume-web-services.md) no Estúdio AM do Azure.
+Cada ponto de extremidade tem APIs para execução em lote e execução síncrona. O Stream Analytics usa a execução síncrona. serviço específico de saudação é chamado um [serviço de solicitação/resposta](../machine-learning/machine-learning-consume-web-services.md) no studio AzureML.
 
 ## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>Recursos de Machine Learning necessários para trabalhos do Stream Analytics
-Para que o processamento de trabalhos do Stream Analytics seja bem-sucedido, é necessário ter um ponto de extremidade de Solicitação/Resposta, uma [apikey](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md)e uma definição do Swagger. O Stream Analytics tem um ponto de extremidade adicional que constrói a URL do ponto de extremidade de swagger, procura a interface e retorna uma definição de UDF padrão para o usuário.
+Para fins de saudação da análise de fluxo de trabalho de processamento, um ponto de extremidade de solicitação/resposta, uma [apikey](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md), e uma definição de swagger são todos necessários para a execução bem-sucedida. Análise de fluxo tem um ponto de extremidade adicional que constrói Olá url de ponto de extremidade de swagger, procura interface hello e retorna um usuário de toohello definição padrão UDF.
 
 ## <a name="configure-a-stream-analytics-and-machine-learning-udf-via-rest-api"></a>Configurar uma UDF de Stream Analytics e Machine Learning por meio da API REST
-Com as APIs REST, você pode configurar seu trabalho para chamar funções de Linguagem de Máquina do Azure. As etapas são as seguintes:
+Usando APIs REST, você pode configurar funções trabalho toocall linguagem de máquina do Azure. etapas de saudação são da seguinte maneira:
 
 1. Criar um trabalho de Stream Analytics
 2. Definir uma entrada
 3. Definir uma saída
 4. Criar uma UDF (função definida pelo usuário)
-5. Criar uma transformação do Stream Analytics que chama a UDF
-6. Iniciar o trabalho
+5. Gravar uma transformação de análise de fluxo chamadas Olá UDF
+6. Iniciar trabalho Olá
 
 ## <a name="creating-a-udf-with-basic-properties"></a>Criação de uma UDF com propriedades básicas
-Por exemplo, o exemplo de código a seguir cria uma UDF escalar chamada *newudf* que realiza um vínculo a um ponto de extremidade de Azure Machine Learning. Observe que o *ponto de extremidade* (URI de serviço) pode ser encontrado na página de ajuda da API do serviço escolhido e a *apiKey* pode ser encontrada na página principal de Serviços.
+Por exemplo, Olá código de exemplo a seguir cria uma UDF escalar denominada *newudf* que associa o ponto de extremidade de aprendizado de máquina do Azure tooan. Observe que Olá *ponto de extremidade* (URI do serviço) pode ser encontrado na página de ajuda de saudação API para Olá escolhido serviço e hello *apiKey* podem ser encontradas na página principal de serviços de saudação.
 
 ````
     PUT : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>  
@@ -77,7 +75,7 @@ Exemplo de corpo de solicitação:
 ````
 
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>Chamar o ponto de extremidade RetrieveDefaultDefinition para UDF padrão
-Após a criação do esqueleto da UDF, é necessário obter a definição completa da UDF. O ponto de extremidade RetreiveDefaultDefinition ajuda a obter a definição padrão para uma função escalar associada a um ponto de extremidade de Azure Machine Learning. A carga abaixo exige que você obtenha definição padrão da UDF para uma função escalar associada a um ponto de extremidade de Azure Machine Learning. Ela não especifica o ponto de extremidade real, pois ele já foi fornecido durante a solicitação PUT. O Stream Analytics chamará o ponto de extremidade fornecido na solicitação se ele for fornecido explicitamente. Caso contrário, ele usa o ponto referenciado originalmente. Neste exemplo, a UDF usa um parâmetro de cadeia única (uma sentença) e retorna uma única saída do tipo de cadeia de caracteres que indica o rótulo "sentimento" daquela sentença.
+Uma vez Olá esqueleto que UDF é criado a definição completa de saudação do hello que UDF é necessária. o ponto de extremidade do Hello RetreiveDefaultDefinition ajuda a obter saudação padrão definição para uma função escalar que é o ponto de extremidade de aprendizado de máquina do Azure tooan associado. carga de saudação abaixo requer tooget Olá UDF definição para uma função escalar que é o ponto de extremidade de aprendizado de máquina do Azure tooan associado. Ela não especifica o ponto de extremidade real Olá pois ele já foi fornecido durante a solicitação PUT. Análise de fluxo chama o ponto de extremidade de saudação fornecido na solicitação de saudação se ele é fornecido explicitamente. Caso contrário, ele usa Olá um originalmente referenciada. Olá aqui usa UDF uma única cadeia de caracteres (uma frase) de parâmetro e retorna uma única saída de tipo de cadeia de caracteres que indica o rótulo "sentimento" hello essa frase.
 
 ````
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>
@@ -135,8 +133,8 @@ Um exemplo disso teria uma aparência como esta.
     }
 ````
 
-## <a name="patch-udf-with-the-response"></a>Aplicar patch à UDF com a resposta
-Agora a UDF deve ser corrigida com a resposta anterior, conforme exibido abaixo.
+## <a name="patch-udf-with-hello-response"></a>Patch do UDF com resposta Olá
+Agora hello UDF deve ser corrigido com resposta anterior de saudação, conforme mostrado abaixo.
 
 ````
 PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
@@ -182,8 +180,8 @@ Corpo da solicitação (saída de RetrieveDefaultDefinition):
     }
 ````
 
-## <a name="implement-stream-analytics-transformation-to-call-the-udf"></a>Implementar uma transformação do Stream Analytics que chama a UDF
-Agora, consulte a UDF (chamada aqui de scoreTweet) para cada evento de entrada e grave uma resposta para esse evento em uma saída.  
+## <a name="implement-stream-analytics-transformation-toocall-hello-udf"></a>Implementar o Stream Analytics transformação toocall Olá UDF
+Agora consultar Olá UDF (aqui chamado scoreTweet) para cada evento de entrada e gravar uma resposta para a saída de tooan esse evento.  
 
 ````
     {
@@ -200,7 +198,7 @@ Agora, consulte a UDF (chamada aqui de scoreTweet) para cada evento de entrada e
 Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
+* [Introdução tooAzure Stream Analytics](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)

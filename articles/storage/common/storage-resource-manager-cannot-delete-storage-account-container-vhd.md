@@ -1,5 +1,5 @@
 ---
-title: "Solucione erros ao excluir contas de Armazenamento do Azure, contêineres ou VHDs | Microsoft Docs"
+title: "erros de aaaTroubleshoot quando você excluir contas de armazenamento do Azure, contêineres ou VHDs | Microsoft Docs"
 description: "Solucione erros ao excluir contas de Armazenamento do Azure, contêineres ou VHDs"
 services: storage
 documentationcenter: 
@@ -15,95 +15,95 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: genli
-ms.openlocfilehash: 11944dd38b1cc30106c0b76a108480c018ca39d4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 33261562a2dd2614b35bc1118924513f8c624d6a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-errors-when-you-delete-azure-storage-accounts-containers-or-vhds"></a>Solucione erros ao excluir contas de Armazenamento do Azure, contêineres ou VHDs
 
-Você pode receber erros ao tentar excluir a conta de armazenamento do Azure, o contêiner ou o VHD (disco rígido virtual) no [Portal do Azure](https://portal.azure.com). Este artigo fornece orientação a fim de ajudar a resolver o problema em uma implantação do Azure Resource Manager.
+Você poderá receber erros ao tentar toodelete uma conta de armazenamento do Azure, um contêiner ou um disco rígido virtual (VHD) no hello [portal do Azure](https://portal.azure.com). Este artigo fornece uma solução orientação toohelp resolver Olá problema em uma implantação do Azure Resource Manager.
 
-Se este artigo não solucionar o problema do Azure, visite os fóruns do Azure na [MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Você pode postar seu problema nesses fóruns ou usando @AzureSupport no Twitter. Além disso, você pode registrar uma solicitação de suporte do Azure selecionando **Obter suporte** no site de [suporte do Azure](https://azure.microsoft.com/support/options/) .
+Se este artigo não resolver o problema do Azure, visite Olá fóruns do Azure em [MSDN e o estouro de pilha](https://azure.microsoft.com/support/forums/). Você pode lançar seu problema nesses fóruns ou too@AzureSupport no Twitter. Além disso, você pode emitir uma solicitação de suporte do Azure, selecionando **obter suporte** em Olá [suporte do Azure](https://azure.microsoft.com/support/options/) site.
 
 ## <a name="symptoms"></a>Sintomas
 ### <a name="scenario-1"></a>Cenário 1
-Quando você tenta excluir um VHD em uma conta de armazenamento de uma implantação do Resource Manager, a seguinte mensagem de erro é exibida:
+Quando você tenta toodelete um VHD em uma conta de armazenamento em uma implantação do Gerenciador de recursos, você receberá Olá a seguinte mensagem de erro:
 
-**Falha ao excluir o blob 'vhds/BlobName.vhd'. Erro: Atualmente, há uma concessão no blob e nenhuma ID de concessão foi especificada na solicitação**
+**Falha ao blob toodelete 'vhds/BlobName.vhd'. Erro: Há uma concessão no blob hello e nenhuma ID de concessão foi especificada na solicitação de saudação.**
 
-Esse problema pode ocorrer porque uma VM (máquina virtual) tem uma concessão no VHD que você está tentando excluir.
+Esse problema pode ocorrer porque uma máquina virtual (VM) tem uma concessão no VHD que você está tentando toodelete de saudação.
 
 ### <a name="scenario-2"></a>Cenário 2
-Quando você tenta excluir um contêiner em uma conta de armazenamento de uma implantação do Resource Manager, a seguinte mensagem de erro é exibida:
+Quando você tenta toodelete um contêiner em uma conta de armazenamento em uma implantação do Gerenciador de recursos, você receberá Olá a seguinte mensagem de erro:
 
-**Falha ao excluir o contêiner de armazenamento 'vhds'. Erro: Atualmente, há uma concessão no contêiner e nenhuma ID de concessão foi especificada na solicitação.**
+**Falha no contêiner de armazenamento de toodelete 'vhds'. Erro: Há uma concessão no contêiner hello e nenhuma ID de concessão foi especificada na solicitação de saudação.**
 
-Esse problema pode ocorrer porque o contêiner tem um VHD que está bloqueado no estado de concessão.
+Esse problema pode ocorrer porque o contêiner de saudação tem um VHD que está bloqueado no estado de concessão de saudação.
 
 ### <a name="scenario-3"></a>Cenário 3
-Quando você tenta excluir uma conta de armazenamento em uma conta de armazenamento em uma implantação do Resource Manager, a seguinte mensagem de erro é exibida:
+Quando você tenta toodelete uma conta de armazenamento em uma implantação do Gerenciador de recursos, você receberá Olá a seguinte mensagem de erro:
 
-**Falha ao excluir a conta de armazenamento 'StorageAccountName'. Erro: A conta de armazenamento não pode ser excluída, pois seus artefatos estão em uso.**
+**Falha na conta de armazenamento toodelete 'StorageAccountName'. Erro: a conta de armazenamento Olá não pode ser excluída devido tooits artefatos estão em uso.**
 
-Esse problema pode ocorrer porque a conta de armazenamento tem um VHD que está em estado de concessão.
+Esse problema pode ocorrer porque a conta de armazenamento Olá contém um VHD que está em estado de concessão de saudação.
 
 ## <a name="solution"></a>Solução 
-Para resolver esses problemas, você deve identificar o VHD que está causando o erro e a VM associada. Em seguida, desanexe o VHD da VM (para discos de dados) ou exclua a VM que está usando o VHD (para discos do sistema operacional). Isso remove a concessão do VHD e permite que ele seja excluído. 
+tooresolve esses problemas, você deve identificar Olá VHD que está causando o erro hello e Olá associados a VM. Em seguida, desanexar Olá VHD da VM da saudação (para discos de dados) ou excluir Olá VM que está usando Olá VHD (para discos do sistema operacional). Isso remove a concessão Olá Olá VHD e permite que ele toobe excluído. 
 
-Para tal, use um dos seguintes métodos:
+toodo isso, usar um dos métodos a seguir de saudação:
 
 ### <a name="method-1---use-azure-storage-explorer"></a>Método 1 – Usar o Gerenciador de Armazenamento do Azure
 
-### <a name="step-1-identify-the-vhd-that-prevent-deletion-of-the-storage-account"></a>Etapa 1 Identificar o VHD que impede a exclusão da conta de armazenamento
+### <a name="step-1-identify-hello-vhd-that-prevent-deletion-of-hello-storage-account"></a>Etapa 1 identificar Olá VHD que impedem a exclusão da conta de armazenamento Olá
 
-1. Quando você excluir a conta de armazenamento, será exibida uma caixa de diálogo de mensagem como a seguinte: 
+1. Quando você exclui a conta de armazenamento hello, será exibida uma caixa de diálogo de mensagem, como a seguir hello: 
 
-    ![mensagem ao excluir a conta de armazenamento](././media/storage-resource-manager-cannot-delete-storage-account-container-vhd/delete-storage-error.png) 
+    ![mensagem ao excluir a conta de armazenamento Olá](././media/storage-resource-manager-cannot-delete-storage-account-container-vhd/delete-storage-error.png) 
 
-2. Verifique a **URL do Disco** para identificar a conta de armazenamento e o VHD que impede a exclusão da conta de armazenamento. No exemplo a seguir, a cadeia de caracteres antes de “.blob.core.windows.net “ é o nome da conta de armazenamento e “SCCM2012-2015-08-28.vhd” é o nome do VHD.  
+2. Verificar Olá **disco URL** conta de armazenamento tooidentify hello e hello VHD que impede que você excluir a conta de armazenamento de saudação. Em Olá exemplo a seguir, Olá cadeia de caracteres antes de ". n e t" é o nome de conta de armazenamento hello e "SCCM2012-2015-08-28.vhd" é o nome do VHD de saudação.  
 
         https://portalvhds73fmhrw5xkp43.blob.core.windows.net/vhds/SCCM2012-2015-08-28.vhd
 
-### <a name="step-2-delete-the-vhd-by-using-azure-storage-explorer"></a>Etapa 2 Excluir o VHD usando o Gerenciador de Armazenamento do Azure
+### <a name="step-2-delete-hello-vhd-by-using-azure-storage-explorer"></a>Saudação de exclusão de etapa 2 VHD usando o Azure Storage Explorer
 
-1. Baixe e instale a versão mais recente do [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/). Essa ferramenta é um aplicativo independente da Microsoft que permite trabalhar com os dados do Armazenamento do Azure no Windows, macOS e Linux.
-2. Abra o Gerenciador de Armazenamento do Azure e selecione ![o ícone de conta](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/account.png) na barra de ferramentas à esquerda, selecione seu ambiente do Azure e entre na conta.
+1. Download e instalação Olá última versão do [Azure Storage Explorer](http://storageexplorer.com/). Essa ferramenta é um aplicativo autônomo da Microsoft que permite que você tooeasily o trabalho com dados de armazenamento do Azure no Windows e Linux e macOS.
+2. Abra o Gerenciador de Armazenamento do Azure e selecione ![o ícone de conta](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/account.png) na barra de saudação à esquerda, selecione seu ambiente do Azure e entrar.
 
-3. Selecione todas as assinaturas ou a assinatura que contém a conta de armazenamento que você deseja excluir.
+3. Selecione todas as assinaturas ou assinatura Olá que contém a conta de armazenamento Olá que deseja toodelete.
 
     ![adicionar assinatura](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/addsub.png)
 
-4. Acesse a conta de armazenamento obtida da URL do disco anteriormente, selecione os **Contêineres de Blob** > **vhds** e pesquise o VHD que impede a exclusão da conta de armazenamento.
-5. Se o VHD for encontrado, verifique a coluna **Nome da VM** para encontrar a máquina virtual que está usando esse VHD.
+4. Vá toohello conta de armazenamento que são obtidos Olá disco URL anterior, selecione Olá **contêineres de Blob** > **vhds** e procure Olá VHD que impede que você excluir conta de armazenamento de saudação.
+5. Se Olá VHD for encontrado, verifique Olá **nome da VM** Olá toofind de coluna VM que está usando este VHD.
 
     ![Verifique a VM](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/check-vm.png)
 
-6. Remova a concessão do VHD usando o Portal do Azure. Para obter mais informações, consulte [Remover a concessão do VHD](#remove-the-lease-from-the-vhd). 
+6. Remova concessão Olá Olá VHD usando o portal do Azure. Para obter mais informações, consulte [remover concessão de saudação do hello VHD](#remove-the-lease-from-the-vhd). 
 
-7. Acesse o Gerenciador de Armazenamento do Azure, clique com o botão direito no VHD e selecione Excluir.
+7. Vá toohello Azure Storage Explorer, clique com botão direito Olá VHD e, em seguida, selecione Excluir.
 
-8. Excluir a conta de armazenamento.
+8. Exclua a conta de armazenamento hello.
 
 ### <a name="method-2---use-azure-portal"></a>Método 2 – Usar o Portal do Azure 
 
-#### <a name="step-1-identify-the-vhd-that-prevent-deletion-of-the-storage-account"></a>Etapa 1 Identificar o VHD que impede a exclusão da conta de armazenamento
+#### <a name="step-1-identify-hello-vhd-that-prevent-deletion-of-hello-storage-account"></a>Etapa 1: Identificar Olá VHD que impedem a exclusão da conta de armazenamento Olá
 
-1. Quando você excluir a conta de armazenamento, será exibida uma caixa de diálogo de mensagem como a seguinte: 
+1. Quando você exclui a conta de armazenamento hello, será exibida uma caixa de diálogo de mensagem, como a seguir hello: 
 
-    ![mensagem ao excluir a conta de armazenamento](././media/storage-resource-manager-cannot-delete-storage-account-container-vhd/delete-storage-error.png) 
+    ![mensagem ao excluir a conta de armazenamento Olá](././media/storage-resource-manager-cannot-delete-storage-account-container-vhd/delete-storage-error.png) 
 
-2. Verifique a **URL do Disco** para identificar a conta de armazenamento e o VHD que impede a exclusão da conta de armazenamento. No exemplo a seguir, a cadeia de caracteres antes de “.blob.core.windows.net “ é o nome da conta de armazenamento e “SCCM2012-2015-08-28.vhd” é o nome do VHD.  
+2. Verificar Olá **disco URL** conta de armazenamento tooidentify hello e hello VHD que impede que você excluir a conta de armazenamento de saudação. Em Olá exemplo a seguir, Olá cadeia de caracteres antes de ". n e t" é o nome de conta de armazenamento hello e "SCCM2012-2015-08-28.vhd" é o nome do VHD de saudação.  
 
         https://portalvhds73fmhrw5xkp43.blob.core.windows.net/vhds/SCCM2012-2015-08-28.vhd
 
-2. Entre no [Portal do Azure](https://portal.azure.com).
-3. No menu Hub, selecione **Todos os recursos**. Vá para a conta de armazenamento e selecione **Blobs** > **vhds**.
+2. Entrar toohello [portal do Azure](https://portal.azure.com).
+3. No menu de Hub hello, selecione **todos os recursos**. Vá toohello conta de armazenamento e, em seguida, selecione **Blobs** > **vhds**.
 
-    ![Captura de tela do portal, com a conta de armazenamento e o contêiner "vhds" realçados](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/opencontainer.png)
+    ![Captura de tela de portal hello, com conta de armazenamento hello e contêiner de "vhds" hello realçado](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/opencontainer.png)
 
-4. Localize o VHD obtido da URL de disco anteriormente. Em seguida, determine qual VM está usando o VHD. Normalmente, você pode determinar qual VM armazena o VHD verificando o nome do VHD:
+4. Localize Olá VHD que são obtidos da URL de disco Olá anteriormente. Em seguida, determinar quais usando a VM Olá VHD. Normalmente, você pode determinar qual VM contém Olá VHD verificando o nome da saudação VHD:
 
 VM no modelo de desenvolvimento do Resource Manager
 
@@ -115,38 +115,38 @@ VM no modelo de desenvolvimento clássico
    * Discos de sistema operacional geralmente seguem esta convenção de nomenclatura: CloudServiceName-VMName-YYYY-MM-DD-HHMMSS.vhd
    * Discos de dados geralmente seguem esta convenção de nomenclatura: CloudServiceName-VMName-YYYY-MM-DD-HHMMSS.vhd
 
-#### <a name="step-2-remove-the-lease-from-the-vhd"></a>Etapa 2: Remover a concessão do VHD
+#### <a name="step-2-remove-hello-lease-from-hello-vhd"></a>Etapa 2: Remover a concessão de saudação do hello VHD
 
-[Remova a concessão do VHD](#remove-the-lease-from-the-vhd) e exclua a conta de armazenamento.
+[Remova a concessão Olá Olá VHD](#remove-the-lease-from-the-vhd)e, em seguida, excluir a conta de armazenamento hello.
 
 ## <a name="what-is-a-lease"></a>O que é uma concessão?
-Uma concessão é um bloqueio que pode ser usado para controlar o acesso a um blob (por exemplo, um VHD). Quando um blob é concedido, somente os proprietários da concessão podem acessar o blob. Uma concessão é importante pelos seguintes motivos:
+Uma concessão é um bloqueio que pode ser usado toocontrol acesso tooa blob (por exemplo, um VHD). Quando um blob é concedido, somente os proprietários de saudação de concessão de saudação podem acessar o blob de saudação. Uma concessão é importante para Olá motivos a seguir:
 
-* Ele impede a corrupção de dados se vários proprietários tentarem gravar na mesma parte do blob ao mesmo tempo.
-* Ela impede a exclusão do blob se algo o estiver usando ativamente (por exemplo, uma VM).
-* Ela impede a exclusão da conta de armazenamento se algo a estiver usando ativamente (por exemplo, uma VM).
+* Isso impede a corrupção de dados se vários proprietários tente toowrite toohello mesma parte do blob de saudação no hello simultaneamente.
+* Ela impede que o blob hello está sendo excluído se algo estiver usando ativamente (por exemplo, uma máquina virtual).
+* Isso impedirá a conta de armazenamento Olá sejam excluídas se algo estiver usando ativamente (por exemplo, uma máquina virtual).
 
-### <a name="remove-the-lease-from-the-vhd"></a>Remover a concessão do VHD
-Se o VHD for um disco do sistema operacional, você deverá excluir a VM para remover a concessão:
+### <a name="remove-hello-lease-from-hello-vhd"></a>Remova a concessão Olá Olá VHD
+Se Olá VHD é um disco do sistema operacional, você deve excluir a concessão de Olá Olá VM tooremove:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. No menu do **Hub**, selecione **Máquinas Virtuais**.
-3. Selecione a VM que contém uma concessão no VHD.
-4. Certifique-se de que nada esteja usando ativamente a máquina virtual, e que você não precise mais da máquina virtual.
-5. Na parte superior da folha **Detalhes da VM**, selecione **Excluir** e clique em **Sim** para confirmar.
-6. A VM deve ser excluída, mas o VHD pode ser mantido. No entanto, o VHD não deve ter mais uma concessão. Talvez demore alguns minutos para o serviço ser liberado. Para verificar se a concessão foi liberada, acesse **Todos os recursos** > **Nome da Conta de Armazenamento** > **Blobs** > **vhds**. No painel **Propriedades de blob**, o valor do **Status de Concessão** deve ser **Desbloqueado**.
+1. Entrar toohello [portal do Azure](https://portal.azure.com).
+2. Em Olá **Hub** menu, selecione **máquinas virtuais**.
+3. Selecione Olá VM que contém uma concessão no VHD de saudação.
+4. Certifique-se de que nada está usando ativamente Olá de máquina virtual, e que você não precisa Olá máquina virtual.
+5. Na parte superior de saudação do hello **VM detalhes** folha, selecione **excluir**e, em seguida, clique em **Sim** tooconfirm.
+6. Olá VM deve ser excluído, mas Olá VHD pode ser mantido. No entanto, Olá VHD não deve ter uma concessão nele. Ele pode levar alguns minutos para Olá toobe de concessão liberada. tooverify que Olá concessão for liberada, vá muito**todos os recursos** > **nome da conta de armazenamento** > **Blobs**  >  **vhds**. Em Olá **propriedades de Blob** painel, Olá **Status de concessão** o valor deve ser **desbloqueado**.
 
-Se o VHD for um disco de dados, desanexe o VHD da VM para remover a concessão:
+Se Olá VHD é um disco de dados, desanexe Olá VHD de concessão de Olá Olá VM tooremove:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. No menu do **Hub**, selecione **Máquinas Virtuais**.
-3. Selecione a VM que contém uma concessão no VHD.
-4. Selecione **Discos** na folha **Detalhes da VM**.
-5. Selecione o disco de dados que contém uma concessão no VHD. Você pode determinar qual VHD está anexado ao disco verificando a URL do VHD.
-6. Determine com certeza que nada está usando ativamente o disco de dados.
-7. Clique em **Desanexar** na folha **Detalhes do disco**.
-8. Agora, o disco deve ser desanexado da VM, e o VHD não deve ter mais uma concessão. Talvez demore alguns minutos para o serviço ser liberado. Para verificar se a concessão foi liberada, acesse **Todos os recursos** > **Nome da Conta de Armazenamento** > **Blobs** > **vhds**. No painel **Propriedades de blob**, o valor do **Status de Concessão** deve ser **Desbloqueado**.
+1. Entrar toohello [portal do Azure](https://portal.azure.com).
+2. Em Olá **Hub** menu, selecione **máquinas virtuais**.
+3. Selecione Olá VM que contém uma concessão no VHD de saudação.
+4. Selecione **discos** em Olá **VM detalhes** folha.
+5. Selecione Olá disco de dados que contém uma concessão no VHD de saudação. Você pode determinar que o VHD está anexado no disco Olá verificando URL Olá Olá VHD.
+6. Determine com certeza que nada está usando ativamente o disco de dados hello.
+7. Clique em **desanexar** em Olá **disco detalhes** folha.
+8. disco Olá agora deve ser desanexado de saudação VM e Olá VHD não deve ter uma concessão nele. Ele pode levar alguns minutos para Olá toobe de concessão liberada. tooverify que Olá concessão foi liberado, vá muito**todos os recursos** > **nome da conta de armazenamento** > **Blobs**  >  **vhds**. Em Olá **propriedades de Blob** painel, Olá **Status de concessão** o valor deve ser **desbloqueado**.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Excluir uma conta de armazenamento](storage-create-storage-account.md#delete-a-storage-account)
-* [How to break the locked lease of blob storage in Microsoft Azure (PowerShell) (Como interromper a liberação de bloqueio do armazenamento de blobs no Microsoft Azure (PowerShell))](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
+* [Como toobreak Olá bloqueado concessão de armazenamento de blob no Microsoft Azure (PowerShell)](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)

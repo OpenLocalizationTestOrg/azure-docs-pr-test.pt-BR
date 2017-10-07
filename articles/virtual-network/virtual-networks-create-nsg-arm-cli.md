@@ -1,6 +1,6 @@
 ---
-title: "Criação de grupos de segurança de rede - CLI 2.0 do Azure | Microsoft Docs"
-description: "Aprenda a criar e implantar grupos de segurança de rede usando a CLI 2.0 do Azure."
+title: "aaaCreate 2.0 do CLI do Azure de grupos de segurança - rede | Microsoft Docs"
+description: "Saiba como toocreate e implantar grupos de segurança de rede usando Olá 2.0 do CLI do Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,36 +16,36 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8efb3ab66d07875b51f723fed5594bcb477ed025
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 30b1d60676331bf5e2bbbb046c747477be9d3338
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-network-security-groups-using-the-azure-cli-20"></a>Como criar grupos de segurança de rede usando a CLI 2.0 do Azure
+# <a name="create-network-security-groups-using-hello-azure-cli-20"></a>Criar grupos de segurança usando hello Azure CLI 2.0 de rede
 
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
-## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa 
+## <a name="cli-versions-toocomplete-hello-task"></a>Tarefa de saudação do CLI versões toocomplete 
 
-Você pode concluir a tarefa usando uma das seguintes versões da CLI: 
+Você pode concluir a tarefa hello usando uma saudação versões da CLI a seguir: 
 
-- [CLI do Azure 1.0](virtual-networks-create-nsg-cli-nodejs.md) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos 
-- [CLI do Azure 2.0](#Create-the-nsg-for-the-front-end-subnet) – nossa CLI da próxima geração para o modelo de implantação do resource manager (este artigo)
+- [1.0 de CLI do Azure](virtual-networks-create-nsg-cli-nodejs.md) – nosso CLI para modelos de implantação de gerenciamento de recursos e clássico de Olá 
+- [2.0 do CLI do Azure](#Create-the-nsg-for-the-front-end-subnet) -nossa próxima geração CLI para modelo de implantação de gerenciamento de recursos de saudação (Este artigo)
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-Os comandos da CLI 2.0 do Azure de exemplo a seguir esperam um ambiente simples, já criado com base no cenário anterior. 
+exemplo Hello Azure CLI 2.0 comandos a seguir espera um ambiente simples já criado com base no cenário de saudação anterior. 
 
-## <a name="create-the-nsg-for-the-frontend-subnet"></a>Como criar o NSG para a `FrontEnd` sub-rede
+## <a name="create-hello-nsg-for-hello-frontend-subnet"></a>Criar hello NSG para Olá `FrontEnd` sub-rede
 
-Siga as etapas abaixo para criar um NSG chamado *NSG-FrontEnd* com base no cenário anterior.
+toocreate um NSG denominado *NSG-front-end* com base no cenário de saudação anterior, execute o seguinte de etapas de saudação.
 
-1. Caso ainda não tenha feito isso, instale e configure a versão mais recente da [CLI do Azure 2.0](/cli/azure/install-az-cli2) e faça logon na conta do Azure usando [az login](/cli/azure/#login). 
+1. Se você ainda não tiver ainda, instalar e configurar hello mais recente [2.0 do CLI do Azure](/cli/azure/install-az-cli2) e fazer logon na conta do Azure usando o tooan [logon az](/cli/azure/#login). 
 
-2. Crie um NSG usando o comando [az network nsg create](/cli/azure/network/nsg#create). 
+2. Criar um NSG usando Olá [criar az rede nsg](/cli/azure/network/nsg#create) comando. 
 
     ```azurecli
     az network nsg create \
@@ -56,11 +56,11 @@ Siga as etapas abaixo para criar um NSG chamado *NSG-FrontEnd* com base no cená
 
     Parâmetros:
    
-   * `--resource-group`: nome do grupo de recursos em que o NSG será criado. Para o nosso cenário, *TestRG*.
-   * `--location`: região do Azure onde o novo NSG é criado. Para o nosso cenário, *westus*.
-   * `--name`: nome para o novo NSG. Para o nosso cenário, *NSG-FrontEnd*.
+   * `--resource-group`: Nome do grupo de recursos de saudação onde Olá NSG é criado. Para o nosso cenário, *TestRG*.
+   * `--location`: Região do azure onde hello novo NSG é criado. Para o nosso cenário, *westus*.
+   * `--name`: Nome Olá novo NSG. Para o nosso cenário, *NSG-FrontEnd*.
 
-    A saída esperada é uma grande quantidade de informações, incluindo uma lista de todas as regras padrão. O exemplo a seguir mostra as regras padrão usando um filtro de consulta JMESPATH com o formato de saída `table`:
+    Olá esperado a saída é uma grande quantidade de informações, incluindo uma lista de todas as regras padrão de saudação. Olá, exemplo a seguir mostra regras de padrão de saudação com um filtro de consulta JMESPATH Olá `table` formato de saída:
 
     ```azurecli
     az network nsg show \
@@ -77,16 +77,16 @@ Siga as etapas abaixo para criar um NSG chamado *NSG-FrontEnd* com base no cená
         Allow     Allow inbound traffic from all VMs in VNET              *                Inbound           65000
         Allow     Allow inbound traffic from azure load balancer          *                Inbound           65001
         Deny      Deny all inbound traffic                                *                Inbound           65500
-        Allow     Allow outbound traffic from all VMs to all VMs in VNET  *                Outbound          65000
-        Allow     Allow outbound traffic from all VMs to Internet         *                Outbound          65001
+        Allow     Allow outbound traffic from all VMs tooall VMs in VNET  *                Outbound          65000
+        Allow     Allow outbound traffic from all VMs tooInternet         *                Outbound          65001
         Deny      Deny all outbound traffic                               *                Outbound          65500
 
 
 
-3. Execute o comando [az network nsg rule create](/cli/azure/network/nsg/rule#create) para criar uma regra que permite o acesso à porta 3389 (RDP) a partir da Internet.
+3. Criar uma regra que permita acesso tooport 3389 (RDP) da saudação da Internet com hello [criar regra de nsg rede az](/cli/azure/network/nsg/rule#create) comando.
 
     > [!NOTE]
-    > Dependendo do shell que você está usando, talvez seja necessário modificar o caractere `*` nos argumentos a seguir para evitar a expansão do argumento antes da execução.
+    > Dependendo de você estiver usando o shell de hello, talvez seja necessário toomodify Olá `*` caracteres nos argumentos Olá após assim como não tooexpand de argumento Olá antes da execução.
    
     ```azurecli
     az network nsg rule create \
@@ -126,21 +126,21 @@ Siga as etapas abaixo para criar um NSG chamado *NSG-FrontEnd* com base no cená
 
     Parâmetros:
 
-    * `--resource-group testrg`: o grupo de recursos para usar. Observe que ele diferencia maiúsculas de minúsculas.
-    * `--nsg-name NSG-FrontEnd`: nome do NSG no qual a regra será criada.
-    * `--name rdp-rule`: nome para a nova regra.
-    * `--access Allow`: nível de acesso para a regra (Negar ou Permitir).
+    * `--resource-group testrg`: Olá toouse do grupo de recursos. Observe que ele diferencia maiúsculas de minúsculas.
+    * `--nsg-name NSG-FrontEnd`: Nome do NSG Olá no qual Olá regra é criada.
+    * `--name rdp-rule`: O nome para a nova regra de saudação.
+    * `--access Allow`: Nível de acesso para regra de saudação (Deny ou permitir).
     * `--protocol Tcp`:protocolo (Tcp, Udp ou *).
-    * `--direction Inbound`: direção da conexão (Entrada ou Saída).
-    * `--priority 100`: prioridade da regra.
+    * `--direction Inbound`: Direção da conexão de saudação (entrada ou saída).
+    * `--priority 100`: Prioridade para a regra de saudação.
     * `--source-address-prefix Internet`: prefixo do endereço de origem no CIDR ou uso de rótulos padrão.
-    * `--source-port-range "*"`: porta de origem ou intervalo de porta. Porta que abriu a conexão.
+    * `--source-port-range "*"`: porta de origem ou intervalo de porta. Porta aberta conexão hello.
     * `--destination-address-prefix "*"`: prefixo do endereço de destino no CIDR ou uso de rótulos padrão.
-    * `--destination-port-range 3389`: porta de destino ou intervalo de porta. Porta que recebe a solicitação de conexão.
+    * `--destination-port-range 3389`: porta de destino ou intervalo de porta. Porta que recebe a solicitação de conexão de saudação.
 
 
 
-4. Execute o comando **az network nsg rule create** para criar uma regra que permite o acesso à porta 80 (HTTP) a partir da Internet.
+4. Criar uma regra que permita acesso tooport 80 (HTTP) do hello Internet **criar regra de nsg rede az** comando.
    
     ```azurecli
     az network nsg rule create \
@@ -178,7 +178,7 @@ Siga as etapas abaixo para criar um NSG chamado *NSG-FrontEnd* com base no cená
     }
     ```
 
-5. Associe o NSG à sub-rede do **FrontEnd** rede com o comando [az network vnet subnet update](/cli/azure/network/vnet/subnet#update).
+5. Associar Olá NSG toohello **front-end** sub-rede com hello [atualização de sub-rede da rede virtual de rede az](/cli/azure/network/vnet/subnet#update) comando.
         
     ```azurecli
     az network vnet subnet update \
@@ -231,10 +231,10 @@ Siga as etapas abaixo para criar um NSG chamado *NSG-FrontEnd* com base no cená
     }
     ```
 
-## <a name="create-the-nsg-for-the-backend-subnet"></a>Como criar o NSG para a `BackEnd` sub-rede
-Siga as etapas abaixo para criar um NSG chamado *NSG-BackEnd* com base no cenário anterior.
+## <a name="create-hello-nsg-for-hello-backend-subnet"></a>Criar hello NSG para Olá `BackEnd` sub-rede
+toocreate um NSG denominado *back-end NSG* com base no cenário de saudação anterior, execute o seguinte de etapas de saudação.
 
-1. Crie o NSG `NSG-BackEnd` com **az network nsg create**.
+1. Criar hello `NSG-BackEnd` NSG com **criar az rede nsg**.
    
     ```azurecli
     az network nsg create \
@@ -243,9 +243,9 @@ Siga as etapas abaixo para criar um NSG chamado *NSG-BackEnd* com base no cenár
     --location centralus
     ```
    
-    Como na etapa 2 anterior, a saída esperada é muito grande, incluindo regras padrão.
+    Como na etapa 2, anterior, Olá esperado saída é muito grande, incluindo as regras padrão.
    
-2. Execute o comando **az network nsg rule create** para criar uma regra que permite o acesso à porta 1433 (SQL) a partir da sub-rede `FrontEnd`.
+2. Criar uma regra que permita acesso tooport 1433 (SQL) do hello `FrontEnd` sub-rede com hello **criar regra de nsg rede az** comando.
    
     ```azurecli
     az network nsg rule create \
@@ -283,7 +283,7 @@ Siga as etapas abaixo para criar um NSG chamado *NSG-BackEnd* com base no cenár
     }
     ```
 
-3. Execute o comando **az network nsg rule create** para criar uma regra que recusa o acesso à Internet.
+3. Criar uma regra que nega acesso toohello à Internet usando Olá **criar regra de nsg rede az** comando.
    
     ```azurecli
     az network nsg rule create \
@@ -321,7 +321,7 @@ Siga as etapas abaixo para criar um NSG chamado *NSG-BackEnd* com base no cenár
     }
     ```
 
-4. Associe o NSG à sub-rede `BackEnd` usando o comando **az network vnet subnet set**.
+4. Associar Olá NSG toohello `BackEnd` sub-rede usando Olá **conjunto de sub-rede de rede virtual de rede az** comando.
    
     ```azurecli
     az network vnet subnet update \

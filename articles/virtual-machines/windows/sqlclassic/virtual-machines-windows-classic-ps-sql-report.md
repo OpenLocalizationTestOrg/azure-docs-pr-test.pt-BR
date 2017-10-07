@@ -1,6 +1,6 @@
 ---
-title: "Usar o PowerShell para criar uma VM com um servidor de relatório no modo nativo | Microsoft Docs"
-description: "Este tópico descreve e fornece orientação para a implantação e a configuração de um servidor de relatório em modo nativo do SQL Server Reporting Services em uma Máquina Virtual do Azure. "
+title: "aaaUse PowerShell tooCreate uma VM com um modo de servidor de relatório nativo | Microsoft Docs"
+description: "Este tópico descreve e orienta você durante implantação hello e a configuração de um servidor de relatório de modo nativo do SQL Server Reporting Services em uma máquina Virtual do Azure. "
 services: virtual-machines-windows
 documentationcenter: na
 author: guyinacube
@@ -15,36 +15,36 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-ms.openlocfilehash: 5e5c11251cd316e8161dbe362b300be76927ac01
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e7791199c87dff106132f1535da12de40a8dbc9c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Use o PowerShell para criar uma VM do Azure com um servidor de relatório em modo nativo
+# <a name="use-powershell-toocreate-an-azure-vm-with-a-native-mode-report-server"></a>Use o PowerShell tooCreate um Azure VM com um modo de servidor de relatório nativo
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda usando o modelo de implantação clássico hello. A Microsoft recomenda que mais novas implantações de usam o modelo do Gerenciador de recursos de saudação.
 
-Este tópico descreve e fornece orientação para a implantação e a configuração de um servidor de relatório em modo nativo do SQL Server Reporting Services em uma Máquina Virtual do Azure. As etapas neste documento usam uma combinação de etapas manuais para criar a máquina virtual e um script do Windows PowerShell para configurar o Reporting Services na VM. O script de configuração inclui a abertura de uma porta de firewall para HTTP ou HTTPs.
+Este tópico descreve e orienta você durante implantação hello e a configuração de um servidor de relatório de modo nativo do SQL Server Reporting Services em uma máquina Virtual do Azure. Olá etapas neste documento, use uma combinação de etapas manuais toocreate Olá VM e um script do Windows PowerShell tooconfigure Reporting Services em Olá VM. script de configuração de saudação inclui a abertura de uma porta de firewall para HTTP ou HTTPs.
 
 > [!NOTE]
-> Se você não precisar de **HTTPS** no servidor de relatório, **ignorar a etapa 2**.
+> Se você não precisa **HTTPS** no servidor de relatório hello, **pular a etapa 2**.
 > 
-> Depois de criar a VM na etapa 1, vá até a seção Usar o script para configurar o servidor de relatório e HTTP. Após a execução do script, o servidor de relatório estará pronto para ser usado.
+> Depois de criar hello VM na etapa 1, acesse servidor de relatório toohello seção Use script tooconfigure hello e HTTP. Depois de executar o script hello, o servidor de relatório de saudação é toouse pronto.
 
 ## <a name="prerequisites-and-assumptions"></a>Pré-requisitos e suposições
-* **Assinatura do Azure**: verifique o número de núcleos disponíveis em sua Assinatura do Azure. Se você criar o tamanho recomendado de VM, **A3**, precisará de **4** núcleos disponíveis. Se você usar um tamanho de VM **A2**, precisará de **2** núcleos disponíveis.
+* **Assinatura do Azure**: Verifique se o número de saudação de núcleos disponíveis em sua assinatura do Azure. Se você criar hello recomendado tamanho da VM do **A3**, você precisa **4** núcleos disponíveis. Se você usar um tamanho de VM **A2**, precisará de **2** núcleos disponíveis.
   
-  * Para verificar o limite de núcleos de sua assinatura, no portal clássico do Azure, clique em CONFIGURAÇÕES no painel esquerdo e clique em USO no menu superior.
-  * Para aumentar a cota de núcleos, entre em contato com o [Suporte do Azure](https://azure.microsoft.com/support/options/). Para saber mais sobre o tamanho da VM, consulte [Tamanhos de máquinas virtuais do Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* **Script do Windows PowerShell**: o tópico supõe que você tenha um conhecimento funcional básico do Windows PowerShell. Para saber mais sobre como usar o Windows PowerShell, consulte o seguinte:
+  * limite de núcleo de saudação tooverify de sua assinatura, Olá portal clássico do Azure, clique em configurações no painel esquerdo do hello e, em seguida, clique em uso no menu superior hello.
+  * cota de núcleo Olá tooincrease, entre em contato com [suporte do Azure](https://azure.microsoft.com/support/options/). Para saber mais sobre o tamanho da VM, consulte [Tamanhos de máquinas virtuais do Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* **Scripts do Windows PowerShell**: tópico Olá pressupõe que você tenha um conhecimento prático básico do Windows PowerShell. Para obter mais informações sobre como usar o Windows PowerShell, consulte o seguinte hello:
   
   * [Iniciando o Windows PowerShell no Windows Server](https://technet.microsoft.com/library/hh847814.aspx)
   * [Introdução ao Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx)
 
 ## <a name="step-1-provision-an-azure-virtual-machine"></a>Etapa 1: provisionar uma máquina virtual do Azure
-1. Navegue até o portal clássico do Azure.
-2. Clique em **Máquinas Virtuais** no painel esquerdo.
+1. Procure toohello portal clássico do Azure.
+2. Clique em **máquinas virtuais** no painel esquerdo da saudação.
    
     ![máquinas virtuais do microsoft azure](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
 3. Clique em **Novo**.
@@ -53,124 +53,124 @@ Este tópico descreve e fornece orientação para a implantação e a configura�
 4. Clique em **Da Galeria**.
    
     ![nova vm da galeria](./media/virtual-machines-windows-classic-ps-sql-report/IC692020.gif)
-5. Clique em **SQL Server 2014 RTM Standard – Windows Server 2012 R2** e clique na seta para continuar.
+5. Clique em **SQL Server 2014 RTM Standard – Windows Server 2012 R2** e, em seguida, clique em Olá seta toocontinue.
    
     ![Próximo](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
    
-    Se você precisar do recurso de assinaturas voltadas para dados do Reporting Services, escolha **SQL Server 2014 RTM Enterprise – Windows Server 2012 R2**. Para saber mais sobre as edições do SQL Server e o suporte dos recursos, consulte [Recursos com Suporte das Edições do SQL Server 2012](https://msdn.microsoft.com/library/cc645993.aspx#Reporting).
-6. Na página **Configuração da máquina virtual** , edite os seguintes campos:
+    Se precisar de dados do Reporting Services Olá controlados por recursos de assinaturas, escolha **SQL Server 2014 RTM Enterprise – Windows Server 2012 R2**. Para obter mais informações sobre o suporte de recursos e edições do SQL Server, consulte [recursos com suporte Olá edições do SQL Server 2012](https://msdn.microsoft.com/library/cc645993.aspx#Reporting).
+6. Em Olá **configuração de máquina Virtual** página, edite Olá campos a seguir:
    
-   * Se houver mais de uma **DATA DE LANÇAMENTO DA VERSÃO**, selecione a versão mais recente.
-   * **Nome da Máquina Virtual**: o nome da máquina também é usado na próxima página de configuração como o nome DNS do Serviço de Nuvem padrão. O nome DNS deve ser exclusivo em todo o serviço do Azure. Considere a configuração da VM com um nome de computador que descreva a utilização da VM. Por exemplo, ssrsnativecloud.
+   * Se houver mais de um **data de lançamento de versão**, selecione Olá a versão mais recente.
+   * **Nome da máquina virtual**: nome da máquina Olá também é usado na próxima página de configuração hello como nome de DNS do serviço de nuvem saudação padrão. nome DNS Olá deve ser exclusivo entre saudação do serviço do Azure. Considere configurar Olá VM com um nome de computador que descreve quais Olá VM é usada para. Por exemplo, ssrsnativecloud.
    * **Camada**: Standard
-   * **Tamanho:A3** é o tamanho recomendado da VM para as cargas de trabalho do SQL Server. Se uma VM for usada apenas como um servidor de relatório, o tamanho de VM A2 será suficiente, a menos que o servidor de relatório enfrente uma grande carga de trabalho. Para saber mais sobre preços da VM, consulte [Preços das Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
-   * **Novo Nome de Usuário**: o nome fornecido é criado como um administrador na VM.
-   * **Nova Senha** e **Confirmar**. Essa senha será usada para a nova conta de administrador, portanto, recomendamos o uso de uma senha forte.
+   * **Tamanho: A3** Olá recomenda tamanho da VM para cargas de trabalho do SQL Server. Se uma VM é usada apenas como um servidor de relatório, um tamanho VM de A2 será suficiente a menos que o servidor de relatório Olá experimente uma grande carga de trabalho. Para saber mais sobre preços da VM, consulte [Preços das Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
+   * **Novo nome de usuário**: nome de saudação fornecido é criado como um administrador no hello VM.
+   * **Nova Senha** e **Confirmar**. Essa senha é usada para a nova conta de administrador hello e é recomendável que usar uma senha forte.
    * Clique em **Avançar**. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
-7. Na próxima página edite os campos a seguir:
+7. Na página seguinte do hello, edite Olá campos a seguir:
    
    * **Serviço de Nuvem**: selecione **Criar um novo Serviço de Nuvem**.
-   * **Nome DNS do Serviço de Nuvem**: é o nome DNS público do Serviço de Nuvem associado à VM. O nome padrão é o nome que você digitou para a VM. Se em etapas posteriores do tópico você criar um certificado SSL confiável e o nome DNS for usado para o valor de "**Emitido para**" do certificado.
-   * **Região/Grupo de Afinidades/Rede Virtual**: escolha a região mais próxima de seus usuários finais.
+   * **Nome DNS do serviço de nuvem**: Este é o nome DNS público de saudação do hello serviço de nuvem que está associado a saudação VM. saudação padrão é Olá nome digitado no nome da VM hello. Se em etapas posteriores do tópico hello, você cria um certificado SSL confiável e, em seguida, o nome DNS de saudação é usado para valor Olá Olá "**emitido para**" do certificado de saudação.
+   * **Afinidade de região/grupo/Rede Virtual**: escolha Olá região mais próxima tooyour os usuários finais.
    * **Conta de Armazenamento**: use uma conta de armazenamento gerada automaticamente.
    * **Conjunto de Disponibilidades**: nenhum.
-   * **PONTOS DE EXTREMIDADE**: mantenha os pontos de extremidade **Área de Trabalho Remota** e **PowerShell** e adicione o ponto de extremidade HTTP ou HTTPS, dependendo de seu ambiente.
+   * **Pontos de EXTREMIDADE** manter Olá **área de trabalho remota** e **PowerShell** pontos de extremidade e, em seguida, adicione o ponto de extremidade HTTP ou HTTPS, dependendo do seu ambiente.
      
-     * **HTTP**: as portas pública e privada padrão são **80**. Se você usar uma porta privada diferente de 80, modifique **$HTTPport = 80** no script http.
-     * **HTTPS**: as portas pública e privada padrão são **443**. Uma prática recomendada de segurança é alterar a porta privada e configurar o firewall e o servidor de relatório para usar a porta privada. Para saber mais sobre os pontos de extremidade, consulte [Como Configurar a Comunicação com uma Máquina Virtual](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Se você usar uma porta diferente da 443, altere o parâmetro **$HTTPsport = 443** no script HTTPS.
+     * **HTTP**: Olá padrão portas públicas e privadas são **80**. Observe que se você usar uma porta privada diferente de 80, modifique **$HTTPport = 80** no script de http hello.
+     * **HTTPS**: Olá padrão portas públicas e privadas são **443**. Uma prática recomendada de segurança é a porta privada do toochange hello e configurar seu firewall e hello relatório toouse Olá privada porta do servidor. Para obter mais informações sobre pontos de extremidade, consulte [como tooSet a comunicação com uma máquina Virtual](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Observe que se você usar uma porta diferente de 443, altere o parâmetro hello **$HTTPsport = 443** em Olá script HTTPS.
    * Clique em Próximo. ![Próximo](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
-8. Na última página do assistente, mantenha o padrão **Instalar o agente de VM** selecionado. As etapas neste tópico não utilizam o agente de VM, mas se você planeja manter essa VM, o agente de VM e as extensões permitirão o aprimoramento da VM.  Para saber mais sobre o agente de VM, consulte [Agente de VM e Extensões – Parte 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Uma das extensões padrão instaladas e em execução é a “BGINFO”, que exibe na área de trabalho da VM informações sobre o sistema, por exemplo, o IP interno e o espaço disponível na unidade.
+8. Na última página do Assistente de Olá Olá, mantenha o padrão de saudação **instalar agente de VM de saudação** selecionado. Olá etapas neste tópico não utilizam o agente de VM hello, mas se você planejar tookeep essa VM, extensões e agente VM Olá permitirá que você tooenhance he CM.  Para obter mais informações sobre o agente de VM hello, consulte [agente de VM e extensões – parte 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Uma saudação extensões padrão instaladas em execução é extensão "BGINFO" hello exibidas na área de trabalho VM hello, informações do sistema, como IP interno e sem espaço em disco.
 9. Clique em Concluído. ![Ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
-10. O **Status** da VM é exibido como **Iniciando (Provisionando)** durante o processo de provisionamento. Em seguida, é exibido como **Executando** quando a VM é provisionada e está pronta para ser usada.
+10. Olá **Status** de saudação VM exibe como **iniciando (Provisionando)** durante o processo de provisionamento de saudação e, em seguida, é exibido como **executando** quando Olá VM é provisionada e pronta toouse.
 
 ## <a name="step-2-create-a-server-certificate"></a>Etapa 2: criar um certificado de servidor
 > [!NOTE]
-> Se você não exigir o HTTPS no servidor de relatório, poderá **ignorar a etapa 2** e ir para a seção **Usar o script para configurar o servidor de relatório e HTTP**. Use o script HTTP para configurar rapidamente o servidor de relatório e deixá-lo pronto para uso.
+> Se você não exigir HTTPS no servidor de relatório hello, você pode **pular a etapa 2** e vá seção toohello **usar HTTP e o servidor de relatório de saudação do script tooconfigure**. Use Olá HTTP script tooquickly configurar servidor de relatório hello e relatório Olá servidor será toouse pronto.
 
-Para usar HTTPS na VM, será necessário um certificado SSL confiável. Dependendo do cenário, você poderá usar um dos dois métodos a seguir:
+Na ordem toouse HTTPS na VM de Olá, é necessário um certificado SSL confiável. Dependendo do cenário, você pode usar uma saudação dois métodos a seguir:
 
-* Um certificado SSL válido emitido por uma Autoridade de Certificação (CA) e de confiança da Microsoft. Exige-se que os certificados raiz de CA sejam distribuídos por meio do Microsoft Root Certificate Program. Para saber mais sobre esse programa, consulte [SSL Root Certificate Program (CAs membros) do Windows](http://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) e do [Windows Phone 8 e Introdução ao Microsoft Root Certificate Program](http://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx).
+* Um certificado SSL válido emitido por uma Autoridade de Certificação (CA) e de confiança da Microsoft. certificados de raiz da autoridade de certificação Olá são necessário toobe distribuído por meio de saudação Microsoft Root Certificate Program. Para obter mais informações sobre este programa, consulte [Windows e Windows Phone 8 SSL Root Certificate Program (membros CAs)](http://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) e [toohello de Introdução do Microsoft Root Certificate Program](http://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx).
 * Um certificado autoassinado. Os certificados autoassinados não são recomendados para ambientes de produção.
 
-### <a name="to-use-a-certificate-created-by-a-trusted-certificate-authority-ca"></a>Para usar um certificado criado por uma Autoridade de Certificação (CA) confiável
-1. **Solicite um certificado do servidor para o site em uma autoridade de certificação**. 
+### <a name="toouse-a-certificate-created-by-a-trusted-certificate-authority-ca"></a>toouse um certificado criado por uma autoridade de certificação confiável (CA)
+1. **Solicitar um certificado de servidor para o site de saudação de uma autoridade de certificação**. 
    
-    Você pode usar o Assistente de Certificado de Servidor Web para gerar um arquivo de solicitação de certificado (Certreq.txt) e enviá-lo a uma autoridade de certificação ou para gerar uma solicitação para uma autoridade de certificação online. Por exemplo, os Serviços de Certificados da Microsoft no Windows Server 2012. Dependendo do nível de garantia de identificação oferecido por seu certificado de servidor, talvez demore alguns dias até vários meses para que a autoridade de certificação aprove sua solicitação e envie um arquivo de certificado. 
+    Você pode usar o hello Assistente de certificado de servidor Web ou toogenerate um arquivo de solicitação de certificado (Certreq.txt) que você enviar tooa autoridade de certificação ou toogenerate uma solicitação para uma autoridade de certificação online. Por exemplo, os Serviços de Certificados da Microsoft no Windows Server 2012. Dependendo do nível de saudação de garantia de identificação fornecida pelo certificado de servidor, é dias tooseveral meses para tooapprove de autoridade de certificação Olá sua solicitação e envie um arquivo de certificado. 
    
-    Para saber mais sobre como solicitar certificados de servidor, consulte o seguinte: 
+    Para obter mais informações sobre como solicitar certificados de servidor, consulte o seguinte hello: 
    
    * Use [Certreq](https://technet.microsoft.com/library/cc725793.aspx), [Certreq](https://technet.microsoft.com/library/cc725793.aspx).
-   * Ferramentas de segurança para administrar o Windows Server 2012.
+   * TooAdminister de ferramentas de segurança do Windows Server 2012.
      
-     [Ferramentas de segurança para administrar o Windows Server 2012](https://technet.microsoft.com/library/jj730960.aspx)
+     [TooAdminister de ferramentas de segurança do Windows Server 2012](https://technet.microsoft.com/library/jj730960.aspx)
      
      > [!NOTE]
-     > O campo **emitido para** do certificado SSL confiável deve ser igual ao **NOME DNS do Serviço de Nuvem** usado para a nova VM.
+     > Olá **emitido para** campo de saudação confiável certificado SSL deve ser Olá mesmo como Olá **nome de DNS do serviço de nuvem** você usou para Olá nova VM.
 
-2. **Instale o certificado do servidor no servidor Web**. Nesse caso, o servidor Web é a VM que hospeda o servidor de relatório, e o site é criado em etapas posteriores durante a configuração do Reporting Services. Para saber mais sobre como instalar o certificado do servidor no servidor Web usando o snap-in do MMC de Certificados, consulte [Instalar um certificado de servidor](https://technet.microsoft.com/library/cc740068).
+2. **Instalar o certificado de servidor de saudação no servidor de Web hello**. Nesse caso, o servidor de Web Hello é Olá VM que hospeda Olá servidor de relatório e site Olá é criado em etapas posteriores quando você configurar o Reporting Services. Para obter mais informações sobre como instalar o certificado do servidor de saudação no servidor de Web hello usando o snap-in do MMC do certificado hello, consulte [instalar um certificado de servidor](https://technet.microsoft.com/library/cc740068).
    
-    Se você quiser usar o script incluído neste tópico para configurar o servidor de relatório, o valor de **impressão digital** dos certificados será exigido como um parâmetro do script. Consulte a próxima seção para obter detalhes sobre como obter a impressão digital do certificado.
-3. Atribua o certificado do servidor ao servidor de relatório. A atribuição será concluída na próxima seção, após a configuração do servidor de relatório.
+    Se você quiser que o script de saudação toouse incluído neste tópico, o servidor de relatório Olá tooconfigure, Olá valor de certificados Olá **impressão digital** é exigido como um parâmetro de script hello. Consulte Olá próxima seção para obter detalhes sobre como tooobtain Olá a impressão digital do certificado de saudação.
+3. Atribua o servidor de relatório toohello do certificado de servidor hello. atribuição de saudação é concluída na próxima seção, hello quando você configura o servidor de relatório hello.
 
-### <a name="to-use-the-virtual-machines-self-signed-certificate"></a>Para usar o certificado autoassinado de máquinas virtuais
-Um certificado autoassinado foi criado na VM quando a VM foi provisionada. O certificado tem o mesmo nome que o nome DNS da VM. Para evitar erros de certificado, é necessário que o certificado seja de confiança na própria VM e também de todos os usuários do site.
+### <a name="toouse-hello-virtual-machines-self-signed-certificate"></a>Olá toouse certificado autoassinado de máquinas virtuais
+Um certificado autoassinado foi criado no hello VM quando Olá VM foi provisionada. certificado de saudação tem Olá mesmo nome como Olá nome DNS da VM. Erros de certificado tooavoid ordem, é necessário certificado Olá é confiável no hello própria VM e também por todos os usuários do site de saudação.
 
-1. Para confiar na CA raiz do certificado na VM Local, adicione o certificado às **Autoridades de Certificação Raiz Confiáveis**. A seguir, um resumo dos métodos exigidos. Para obter etapas detalhadas sobre como confiar na CA, consulte [Instalar um Certificado do Servidor](https://technet.microsoft.com/library/cc740068).
+1. tootrust Olá autoridade de certificação raiz do certificado Olá Olá VM Local, adicione Olá certificado toohello **autoridades de certificação raiz confiáveis**. seguir Olá é um resumo das etapas de saudação necessárias. Para obter etapas detalhadas sobre como tootrust Olá autoridade de certificação, consulte [instalar um certificado de servidor](https://technet.microsoft.com/library/cc740068).
    
-   1. No portal clássico do Azure, selecione a VM e clique em conectar. Dependendo da configuração do navegador, talvez seja necessário salvar um arquivo .rdp para conectar-se à VM.
+   1. Olá portal clássico do Azure, selecione Olá VM e clique em conectar. Dependendo da configuração do navegador, talvez seja solicitado toosave um arquivo. rdp para conexão toohello VM.
       
-       ![conectar-se à máquina virtual do azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use o nome de usuário da VM, o nome de usuário e a senha que você configurou na criação da VM. 
+       ![Conecte-se a máquina virtual de tooazure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use o nome da VM Olá usuário, nome de usuário e senha configurados quando você criou Olá VM. 
       
-       Por exemplo, na imagem a seguir, o nome da VM é **ssrsnativecloud** e o nome de usuário é **testuser**.
+       Por exemplo, Olá a imagem a seguir, Olá VM nome é **ssrsnativecloud** e nome de usuário Olá **testuser**.
       
        ![o logon inclui o nome da vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
-   2. Execute mmc.exe. Para saber mais, consulte [Como Exibir Certificados com o Snap-in do MMC](https://msdn.microsoft.com/library/ms788967.aspx).
-   3. No menu **Arquivo** do aplicativo do console, adicione o snap-in **Certificados**, selecione **Conta de Computador** quando solicitado e clique em **Próximo**.
-   4. Selecione **Computador Local** para gerenciar e clique em **Concluir**.
-   5. Clique em **Ok**, expanda os nós **Certificados - Pessoal** e clique em **Certificados**. O certificado recebe o nome com base no nome DNS da VM e termina com **cloudapp.net**. Clique com o botão direito do mouse no nome do certificado e clique em **Copiar**.
-   6. Expanda o nó **Autoridades de Certificação Raiz Confiáveis**, clique com botão direito do mouse em **Certificados** e clique em **Colar**.
-   7. Para validar, clique duas vezes no nome do certificado em **Autoridades de Certificação Raiz Confiáveis** , verifique se não há erros e veja seu certificado. Se você quiser usar o script HTTPS incluído neste tópico para configurar o servidor de relatório, o valor da **Impressão digital** dos certificados será exigido como um parâmetro do script. **Para obter o valor da impressão digital**, preencha o seguinte. Também há um exemplo do PowerShell para recuperar a impressão digital na seção [Usar o script para configurar o servidor de relatório e HTTPS](#use-script-to-configure-the-report-server-and-HTTPS).
+   2. Execute mmc.exe. Para obter mais informações, consulte [como: exibir certificados com hello Snap-in do MMC](https://msdn.microsoft.com/library/ms788967.aspx).
+   3. No aplicativo de console hello **arquivo** menu Adicionar Olá **certificados** snap-in, selecione **conta de computador** quando solicitado e, em seguida, clique em **Avançar**.
+   4. Selecione **computador Local** toomanage e, em seguida, clique em **concluir**.
+   5. Clique em **Okey** e, em seguida, expanda Olá **certificados - Personal** nós e clique **certificados**. Olá certificado é nomeado após o nome DNS de saudação do hello VM e termina com **cloudapp.net**. Nome do certificado Olá de mouse e clique em **cópia**.
+   6. Expanda Olá **autoridades de certificação raiz confiáveis** nó e, em seguida, clique com botão direito **certificados** e, em seguida, clique em **colar**.
+   7. toovalidate, duplo clique no nome do certificado de saudação em **autoridades de certificação raiz confiáveis** e verifique se não existem erros e veja seu certificado. Se você quiser toouse Olá HTTPS script incluído neste tópico, o servidor de relatório do tooconfigure hello, Olá valor de certificados Olá **impressão digital** é exigido como um parâmetro de script hello. **valor de impressão digital Olá tooget**, conclua Olá seguinte. Há também uma impressão digital saudação do PowerShell exemplo tooretrieve na seção [usar HTTPS e servidor de relatório do script tooconfigure Olá](#use-script-to-configure-the-report-server-and-HTTPS).
       
-      1. Clique duas vezes no nome do certificado, por exemplo, ssrsnativecloud.cloudapp.net.
-      2. Clique na guia **Detalhes** .
-      3. Clique em **Impressão digital**. O valor da impressão digital é exibido no campo detalhes, por exemplo, ‎a6 08 3c df f9 0b f7 e3 7c 25 ed a4 ed 7e ac 91 9c 2c fb 2f.
-      4. Copie a impressão digital e salve o valor para mais tarde ou edite o script agora.
-      5. (*) Antes de executar o script, remova os espaços entre os pares de valores. Por exemplo, a impressão digital observada anteriormente agora seria ‎a6083cdff90bf7e37c25eda4ed7eac919c2cfb2f.
-      6. Atribua o certificado do servidor ao servidor de relatório. A atribuição será concluída na próxima seção, após a configuração do servidor de relatório.
+      1. Clique duas vezes no nome de saudação do certificado de hello, por exemplo ssrsnativecloud.cloudapp.net.
+      2. Clique em Olá **detalhes** guia.
+      3. Clique em **Impressão digital**. valor de saudação da impressão digital de saudação é exibido no campo de detalhes hello, por exemplo, a6 08 3C df f9 0b f7 e3 7c 25 ed a4 ed 7e CA 91 9C 2C fb 2f.
+      4. Copie a impressão digital de saudação e salvar o valor de saudação para mais tarde ou edite o script hello agora.
+      5. (*) Antes de executar o script hello, remova os espaços de saudação entre Olá pares de valores. Por exemplo impressão digital de saudação observada anteriormente agora seria a6083cdff90bf7e37c25eda4ed7eac919c2cfb2f.
+      6. Atribua o servidor de relatório toohello do certificado de servidor hello. atribuição de saudação é concluída na próxima seção, hello quando você configura o servidor de relatório hello.
 
-Se você estiver usando um certificado SSL autoassinado, o nome no certificado já corresponderá ao nome de host da VM. Portanto, o DNS da máquina já estará registrado globalmente e poderá ser acessado de qualquer cliente.
+Se você estiver usando um certificado SSL autoassinado, o nome de Olá no certificado Olá corresponde já Olá hostname de saudação VM. Portanto, Olá DNS da máquina Olá já estará registrado globalmente e pode ser acessado de qualquer cliente.
 
-## <a name="step-3-configure-the-report-server"></a>Etapa 3: configurar servidor de relatório
-Esta seção descreve a configuração da VM como um servidor de relatório em modo nativo do Reporting Services. Você pode usar um dos métodos a seguir para configurar o servidor de relatório:
+## <a name="step-3-configure-hello-report-server"></a>Etapa 3: Configurar Olá servidor de relatório
+Esta seção explica como configurar Olá VM como um servidor de relatório de modo nativo do Reporting Services. Você pode usar um Olá servidor de relatório de saudação de tooconfigure métodos a seguir:
 
-* Usar o script para configurar o servidor de relatório
-* Usar o Gerenciador de Configuração para configurar o servidor de relatório.
+* Usar o servidor de relatório do hello script tooconfigure Olá
+* Olá tooConfigure Use o Gerenciador de configuração do servidor de relatório.
 
-Para obter etapas mais detalhadas, consulte a seção [Conectar a Máquina Virtual e Iniciar o Gerenciador de Configuração do Reporting Services](virtual-machines-windows-classic-ps-sql-bi.md#connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager).
+Para obter etapas mais detalhadas, consulte a seção de saudação [toohello conectar máquina Virtual e iniciar Olá Reporting Services Configuration Manager](virtual-machines-windows-classic-ps-sql-bi.md#connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager).
 
-**Nota de Autenticação:** a autenticação do Windows é o método de autenticação recomendado e é a autenticação padrão do Reporting Services. Somente os usuários configurados na VM podem acessar o Reporting Services e podem receber as funções do Reporting Services.
+**Observação de autenticação:** a autenticação do Windows é hello método de autenticação recomendado e é autenticação do saudação padrão do Reporting Services. Somente os usuários que estão configurados em Olá VM podem acessar o Reporting Services e atribuído tooReporting funções dos serviços.
 
-### <a name="use-script-to-configure-the-report-server-and-http"></a>Usar o script para configurar o servidor de relatório e HTTP
-Para usar o script do Windows PowerShell a fim de configurar o servidor de relatório, conclua as etapas a seguir. A configuração inclui HTTP, não HTTPS:
+### <a name="use-script-tooconfigure-hello-report-server-and-http"></a>Usar servidor de relatório do script tooconfigure hello e HTTP
+toouse saudação do Windows PowerShell script tooconfigure Olá servidor de relatório, Olá concluir as etapas a seguir. configuração de saudação inclui HTTP, HTTPS não:
 
-1. No portal clássico do Azure, selecione a VM e clique em conectar. Dependendo da configuração do navegador, talvez seja necessário salvar um arquivo .rdp para conectar-se à VM.
+1. Olá portal clássico do Azure, selecione Olá VM e clique em conectar. Dependendo da configuração do navegador, talvez seja solicitado toosave um arquivo. rdp para conexão toohello VM.
    
-    ![conectar-se à máquina virtual do azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use o nome de usuário da VM, o nome de usuário e a senha que você configurou na criação da VM. 
+    ![Conecte-se a máquina virtual de tooazure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use o nome da VM Olá usuário, nome de usuário e senha configurados quando você criou Olá VM. 
    
-    Por exemplo, na imagem a seguir, o nome da VM é **ssrsnativecloud** e o nome de usuário é **testuser**.
+    Por exemplo, Olá a imagem a seguir, Olá VM nome é **ssrsnativecloud** e nome de usuário Olá **testuser**.
    
     ![o logon inclui o nome da vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
-2. Na VM, abra **ISE do Windows PowerShell** com privilégios administrativos. O ISE do PowerShell está instalado por padrão no Windows Server 2012. Recomendamos o uso do ISE, em vez de uma janela padrão do Windows PowerShell, para que você possa colar o script no ISE, modificar e executar o script.
-3. No ISE do Windows PowerShell, clique no menu **Exibir** e clique em **Mostrar Painel de Script**.
-4. Copie o script a seguir e cole-o no painel de script do ISE do Windows PowerShell.
+2. No hello VM, abra **o Windows PowerShell ISE** com privilégios administrativos. Olá PowerShell ISE é instalado por padrão no Windows server 2012. É recomendável que usar Olá ISE em vez de uma janela padrão do Windows PowerShell para que colar o script hello em Olá ISE, modificar o script hello e, em seguida, execute o script hello.
+3. No ISE do Windows PowerShell, clique em Olá **exibição** menu e clique **Mostrar painel de Script**.
+4. Copiar Olá script a seguir e, em seguida, cole o script hello no painel de script do Windows PowerShell ISE hello.
    
         ## This script configures a Native mode report server without HTTPS
         $ErrorActionPreference = "Stop"
    
         $server = $env:COMPUTERNAME
-        $HTTPport = 80 # change the value if you used a different port for the private HTTP endpoint when the VM was created.
+        $HTTPport = 80 # change hello value if you used a different port for hello private HTTP endpoint when hello VM was created.
    
-        ## Set PowerShell execution policy to be able to run scripts
+        ## Set PowerShell execution policy toobe able toorun scripts
         Set-ExecutionPolicy RemoteSigned -Force
    
         ## Utility method for verifying an operation's result
@@ -189,13 +189,13 @@ Para usar o script do Windows PowerShell a fim de configurar o servidor de relat
         $dbName='ReportServer'
    
         ## Register for MSReportServer_ConfigurationSetting
-        ## Change the version portion of the path to "v11" to use the script for SQL Server 2012
+        ## Change hello version portion of hello path too"v11" toouse hello script for SQL Server 2012
         $RSObject = Get-WmiObject -class "MSReportServer_ConfigurationSetting" -namespace "root\Microsoft\SqlServer\ReportServer\RS_MSSQLSERVER\v12\Admin"
    
         ## Report Server Configuration Steps
    
-        ## Setting the web service URL ##
-        write-host -foregroundcolor green "Setting the web service URL"
+        ## Setting hello web service URL ##
+        write-host -foregroundcolor green "Setting hello web service URL"
         write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
         $time=Get-Date
         write-host -foregroundcolor DarkGray $time
@@ -210,22 +210,22 @@ Para usar o script do Windows PowerShell a fim de configurar o servidor de relat
             $r = $RSObject.ReserveURL('ReportServerWebService',"http://+:$HTTPport",1033)
             CheckResult $r "ReserveURL for ReportServer port $HTTPport" 
    
-        ## Setting the Database ##
-        write-host -foregroundcolor green "Setting the Database"
+        ## Setting hello Database ##
+        write-host -foregroundcolor green "Setting hello Database"
         write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
         $time=Get-Date
         write-host -foregroundcolor DarkGray $time
    
-        ## GenerateDatabaseScript - for creating the database
+        ## GenerateDatabaseScript - for creating hello database
             write-host "Calling GenerateDatabaseCreationScript for database $dbName"
             $r = $RSObject.GenerateDatabaseCreationScript($dbName,1033,$false)
             CheckResult $r "GenerateDatabaseCreationScript"
             $script = $r.Script
    
-        ## Execute sql script to create the database
+        ## Execute sql script toocreate hello database
             write-host 'Executing Database Creation Script'
             $savedcvd = Get-Location
-            Import-Module SQLPS              ## this automatically changes to sqlserver provider
+            Import-Module SQLPS              ## this automatically changes toosqlserver provider
             Invoke-SqlCmd -Query $script
             Set-Location $savedcvd
    
@@ -248,9 +248,9 @@ Para usar o script do Windows PowerShell a fim de configurar o servidor de relat
             $r = $RSObject.SetDatabaseConnection($server,$dbName,2,'','')
             CheckResult $r "SetDatabaseConnection"  
    
-        ## Setting the Report Manager URL ##
+        ## Setting hello Report Manager URL ##
    
-        write-host -foregroundcolor green "Setting the Report Manager URL"
+        write-host -foregroundcolor green "Setting hello Report Manager URL"
         write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
         $time=Get-Date
         write-host -foregroundcolor DarkGray $time
@@ -278,43 +278,43 @@ Para usar o script do Windows PowerShell a fim de configurar o servidor de relat
         write-host -foregroundcolor DarkGray $starttime StartTime
         $time=Get-Date
         write-host -foregroundcolor DarkGray $time
-5. Se você criou a VM com uma porta HTTP diferente de 80, modifique o parâmetro $HTTPport = 80.
-6. Atualmente, o script está configurado para o Reporting Services. Se você quiser executar o script do Reporting Services, modifique a parte da versão do caminho até o namespace para "v11", na instrução Get-WmiObject.
-7. Execute o script.
+5. Se você criou Olá VM com uma porta HTTP diferente de 80, modifique o parâmetro hello $HTTPport = 80.
+6. script Hello está configurado atualmente para o Reporting Services. Se você quiser toorun script de saudação do Reporting Services, modificar a parte de saudação caminho toohello namespace versão Olá muito "v11" na instrução Olá Get-WmiObject.
+7. Execute o script hello.
 
-**Validação**: para verificar se a funcionalidade básica do servidor de relatório está funcionando, consulte a seção [Verificar a configuração](#verify-the-configuration) , mais adiante neste tópico.
+**Validação**: tooverify funcionalidade de servidor de relatório básico hello está funcionando, consulte Olá [Verificar configuração de saudação](#verify-the-configuration) seção mais adiante neste tópico.
 
-### <a name="use-script-to-configure-the-report-server-and-https"></a>Usar o script para configurar o servidor de relatório e HTTPS
-Para usar o Windows PowerShell a fim de configurar o servidor de relatório, conclua as etapas a seguir. A configuração inclui HTTPS, não HTTP.
+### <a name="use-script-tooconfigure-hello-report-server-and-https"></a>Usar o servidor de relatório do script tooconfigure hello e HTTPS
+toouse do Windows PowerShell tooconfigure Olá servidor de relatório, Olá concluir as etapas a seguir. configuração de saudação inclui HTTPS, não HTTP.
 
-1. No portal clássico do Azure, selecione a VM e clique em conectar. Dependendo da configuração do navegador, talvez seja necessário salvar um arquivo .rdp para conectar-se à VM.
+1. Olá portal clássico do Azure, selecione Olá VM e clique em conectar. Dependendo da configuração do navegador, talvez seja solicitado toosave um arquivo. rdp para conexão toohello VM.
    
-    ![conectar-se à máquina virtual do azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use o nome de usuário da VM, o nome de usuário e a senha que você configurou na criação da VM. 
+    ![Conecte-se a máquina virtual de tooazure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use o nome da VM Olá usuário, nome de usuário e senha configurados quando você criou Olá VM. 
    
-    Por exemplo, na imagem a seguir, o nome da VM é **ssrsnativecloud** e o nome de usuário é **testuser**.
+    Por exemplo, Olá a imagem a seguir, Olá VM nome é **ssrsnativecloud** e nome de usuário Olá **testuser**.
    
     ![o logon inclui o nome da vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
-2. Na VM, abra **ISE do Windows PowerShell** com privilégios administrativos. O ISE do PowerShell está instalado por padrão no Windows Server 2012. Recomendamos o uso do ISE, em vez de uma janela padrão do Windows PowerShell, para que você possa colar o script no ISE, modificar e executar o script.
-3. Para habilitar a execução de scripts, execute o seguinte comando do Windows PowerShell:
+2. No hello VM, abra **o Windows PowerShell ISE** com privilégios administrativos. Olá PowerShell ISE é instalado por padrão no Windows server 2012. É recomendável que usar Olá ISE em vez de uma janela padrão do Windows PowerShell para que colar o script hello em Olá ISE, modificar o script hello e, em seguida, execute o script hello.
+3. tooenable a execução de scripts, executados Olá comando do Windows PowerShell a seguir:
    
         Set-ExecutionPolicy RemoteSigned
    
-    Em seguida, você pode executar o seguinte procedimento para verificar a política:
+    Você pode executar Olá política de saudação tooverify a seguir:
    
         Get-ExecutionPolicy
-4. No ISE do **Windows PowerShell**, clique no menu **Exibir** e clique em **Mostrar Painel de Script**.
-5. Copie o script a seguir e cole-o no painel de script do ISE do Windows PowerShell.
+4. Em **o Windows PowerShell ISE**, clique em Olá **exibição** menu e clique **Mostrar painel de Script**.
+5. Copie Olá seguinte script e cole-o no painel de script do Windows PowerShell ISE hello.
    
-        ## This script configures the report server, including HTTPS
+        ## This script configures hello report server, including HTTPS
         $ErrorActionPreference = "Stop"
-        $httpsport=443 # modify if you used a different port number when the HTTPS endpoint was created.
+        $httpsport=443 # modify if you used a different port number when hello HTTPS endpoint was created.
    
-        # You can run the following command to get (.cloudapp.net certificates) so you can copy the thumbprint / certificate hash
+        # You can run hello following command tooget (.cloudapp.net certificates) so you can copy hello thumbprint / certificate hash
         #dir cert:\LocalMachine -rec | Select-Object * | where {$_.issuer -like "*cloudapp*" -and $_.pspath -like "*root*"} | select dnsnamelist, thumbprint, issuer
         #
-        # The certifacte hash is a REQUIRED parameter
+        # hello certifacte hash is a REQUIRED parameter
         $certificatehash="" 
-        # the certificate hash should not contain spaces
+        # hello certificate hash should not contain spaces
    
         if ($certificatehash.Length -lt 1) 
         {
@@ -323,7 +323,7 @@ Para usar o Windows PowerShell a fim de configurar o servidor de relatório, con
         # Certificates should be all lower case
         $certificatehash=$certificatehash.ToLower()
         $server = $env:COMPUTERNAME
-        # If the certificate is not a wildcard certificate, comment out the following line, and enable the full $DNSNAme reference.
+        # If hello certificate is not a wildcard certificate, comment out hello following line, and enable hello full $DNSNAme reference.
         $DNSName="+"
         #$DNSName="$server.cloudapp.net"
         $DNSNameAndPort = $DNSName + ":$httpsport"
@@ -343,16 +343,16 @@ Para usar o Windows PowerShell a fim de configurar o servidor de relatório, con
         ## ReportServer Database name - this can be changed if needed
         $dbName='ReportServer'
    
-        write-host "The script will use $DNSNameAndPort as the DNS name and port" 
+        write-host "hello script will use $DNSNameAndPort as hello DNS name and port" 
    
         ## Register for MSReportServer_ConfigurationSetting
-        ## Change the version portion of the path to "v11" to use the script for SQL Server 2012
+        ## Change hello version portion of hello path too"v11" toouse hello script for SQL Server 2012
         $RSObject = Get-WmiObject -class "MSReportServer_ConfigurationSetting" -namespace "root\Microsoft\SqlServer\ReportServer\RS_MSSQLSERVER\v12\Admin"
    
         ## Reporting Services Report Server Configuration Steps
    
-        ## 1. Setting the web service URL ##
-        write-host -foregroundcolor green "Setting the web service URL"
+        ## 1. Setting hello web service URL ##
+        write-host -foregroundcolor green "Setting hello web service URL"
         write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
         $time=Get-Date
         write-host -foregroundcolor DarkGray $time
@@ -377,22 +377,22 @@ Para usar o Windows PowerShell a fim de configurar o servidor de relatório, con
             $r = $RSObject.CreateSSLCertificateBinding('ReportServerWebService',$certificatehash,'0.0.0.0',$httpsport,1033)
             CheckResult $r "CreateSSLCertificateBinding for ReportServer port $httpsport" 
    
-        ## 2. Setting the Database ##
-        write-host -foregroundcolor green "Setting the Database"
+        ## 2. Setting hello Database ##
+        write-host -foregroundcolor green "Setting hello Database"
         write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
         $time=Get-Date
         write-host -foregroundcolor DarkGray $time
    
-        ## GenerateDatabaseScript - for creating the database
+        ## GenerateDatabaseScript - for creating hello database
             write-host "Calling GenerateDatabaseCreationScript for database $dbName"
             $r = $RSObject.GenerateDatabaseCreationScript($dbName,1033,$false)
             CheckResult $r "GenerateDatabaseCreationScript"
             $script = $r.Script
    
-        ## Execute sql script to create the database
+        ## Execute sql script toocreate hello database
             write-host 'Executing Database Creation Script'
             $savedcvd = Get-Location
-            Import-Module SQLPS                    ## this automatically changes to sqlserver provider
+            Import-Module SQLPS                    ## this automatically changes toosqlserver provider
             Invoke-SqlCmd -Query $script
             Set-Location $savedcvd
    
@@ -415,9 +415,9 @@ Para usar o Windows PowerShell a fim de configurar o servidor de relatório, con
             $r = $RSObject.SetDatabaseConnection($server,$dbName,2,'','')
             CheckResult $r "SetDatabaseConnection"  
    
-        ## 3. Setting the Report Manager URL ##
+        ## 3. Setting hello Report Manager URL ##
    
-        write-host -foregroundcolor green "Setting the Report Manager URL"
+        write-host -foregroundcolor green "Setting hello Report Manager URL"
         write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
         $time=Get-Date
         write-host -foregroundcolor DarkGray $time
@@ -455,156 +455,156 @@ Para usar o Windows PowerShell a fim de configurar o servidor de relatório, con
         write-host -foregroundcolor DarkGray $starttime StartTime
         $time=Get-Date
         write-host -foregroundcolor DarkGray $time
-6. Modifique o parâmetro **$certificatehash** no script:
+6. Modificar Olá **$certificatehash** parâmetro no script hello:
    
-   * Esse é um parâmetro **obrigatório** . Se você não tiver salvo o valor do certificado nas etapas anteriores, use um dos métodos a seguir para copiar o valor de hash do certificado da impressão digital dos certificados:
+   * Esse é um parâmetro **obrigatório** . Se você não salvar o valor de saudação do certificado de etapas anteriores Olá, use um dos Olá após o valor de hash de certificado do métodos toocopy Olá da impressão digital de certificados hello.:
      
-       Na VM, abra o ISE do Windows PowerShell e execute o seguinte comando:
+       No hello VM, abra o Windows PowerShell ISE e execute Olá comando a seguir:
      
            dir cert:\LocalMachine -rec | Select-Object * | where {$_.issuer -like "*cloudapp*" -and $_.pspath -like "*root*"} | select dnsnamelist, thumbprint, issuer
      
-       A saída parecerá com o seguinte: Se o script retornar uma linha em branco, a VM não terá um certificado configurado, por exemplo. Consulte a seção [Para usar o Certificado Autoassinado das Máquinas Virtuais](#to-use-the-virtual-machines-self-signed-certificate).
+       saída de Hello procurará a seguir toohello semelhante. Se o script hello retorna uma linha em branco, Olá VM não tem um certificado configurado por exemplo, consulte a seção Olá [toouse Olá certificado autoassinado de máquinas virtuais](#to-use-the-virtual-machines-self-signed-certificate).
      
      OU
-   * Na VM, execute mmc.exe e adicione o snap-in **Certificados** .
-   * Sob o nó **Autoridades de Certificação Raiz Confiáveis** , clique duas vezes no nome do certificado. Se você estiver usando o certificado autoassinado da VM, o certificado receberá o nome com base no nome DNS da VM e terminará com **cloudapp.net**.
-   * Clique na guia **Detalhes** .
-   * Clique em **Impressão digital**. O valor da impressão digital é exibido no campo detalhes, por exemplo, af 11 60 b6 4b 28 8d 89 0a 82 12 ff 6b a9 c3 66 4f 31 90 48
-   * **Antes de executar o script**, remova os espaços entre os pares de valores. Por exemplo, af1160b64b288d890a8212ff6ba9c3664f319048
-7. Modifique o parâmetro **$httpsport** : 
+   * Em Olá VM executar mmc.exe e adicione Olá **certificados** snap-in.
+   * Em Olá **autoridades de certificação raiz confiáveis** nó clique duas vezes em seu nome de certificado. Se você estiver usando um certificado autoassinado de saudação do hello VM, o certificado de saudação é nomeado após o nome DNS de saudação do hello VM e termina com **cloudapp.net**.
+   * Clique em Olá **detalhes** guia.
+   * Clique em **Impressão digital**. valor de saudação da impressão digital de saudação é exibido no campo de detalhes hello, por exemplo af 11 60 b6 4b 28 8 d 89 0a 82 12 ff 6b a9 4f 66 c3 31 90 48
+   * **Antes de executar o script hello**, remova os espaços de saudação entre Olá pares de valores. Por exemplo, af1160b64b288d890a8212ff6ba9c3664f319048
+7. Modificar Olá **$httpsport** parâmetro: 
    
-   * Se você usou a porta 443 para o ponto de extremidade HTTPS, não será necessário atualizar esse parâmetro no script. Caso contrário, use o valor de porta selecionado quando você configurou o ponto de extremidade HTTPS privado na VM.
-8. Modifique o parâmetro **$DNSName** : 
+   * Se você usou a porta 443 para o ponto de extremidade HTTPS hello, em seguida, você não é necessário tooupdate esse parâmetro no script hello. Caso contrário, use o valor da porta Olá selecionado quando você configurou o ponto de extremidade privado de HTTPS de saudação em Olá VM.
+8. Modificar Olá **$DNSName** parâmetro: 
    
-   * O script é configurado para obter um certificado curinga $DNSName = "+". Se você não quiser configurar uma associação de certificado curinga, comente $DNSName ="+"e habilite a linha a seguir, a referência completa de $DNSNAme, ##$DNSName="$server.cloudapp.net".
+   * Olá script está configurado para um certificado curinga $DNSName = "+". Se você não fizer nenhuma tooconfigure desejados para uma associação de certificado curinga, comente $DNSName = "+"e habilitar Olá após a linha, referência de $DNSNAme completo hello, $DNSName="$server.cloudapp.net # #".
      
-       Altere o valor de $DNSName se não quiser usar o nome DNS da máquina virtual para o Reporting Services. Se você usar o parâmetro, o certificado também deverá usar esse nome, e será necessário registrar o nome globalmente em um servidor DNS.
-9. Atualmente, o script está configurado para o Reporting Services. Se você quiser executar o script do Reporting Services, modifique a parte da versão do caminho até o namespace para "v11", na instrução Get-WmiObject.
-10. Execute o script.
+       Altere o valor de saudação $DNSName se você não quiser que o nome DNS de toouse Olá máquina virtual do Reporting Services. Se você usar o parâmetro hello, certificado Olá também deve usar esse nome e registrar Olá nome globalmente em um servidor DNS.
+9. script Hello está configurado atualmente para o Reporting Services. Se você quiser toorun script de saudação do Reporting Services, modificar a parte de saudação caminho toohello namespace versão Olá muito "v11" na instrução Olá Get-WmiObject.
+10. Execute o script hello.
 
-**Validação**: para verificar se a funcionalidade básica do servidor de relatório está funcionando, consulte a seção [Verificar a configuração](#verify-the-connection) , mais adiante neste tópico. Para verificar a associação do certificado, abra um prompt de comando com privilégios administrativos e execute o seguinte comando:
+**Validação**: tooverify funcionalidade de servidor de relatório básico hello está funcionando, consulte Olá [Verificar configuração de saudação](#verify-the-connection) seção mais adiante neste tópico. associação de certificado Olá tooverify abra um prompt de comando com privilégios administrativos e execute Olá comando a seguir:
 
     netsh http show sslcert
 
-O resultado incluirá o seguinte:
+resultado de saudação incluirá o seguinte hello:
 
     IP:port                      : 0.0.0.0:443
 
     Certificate Hash             : f98adf786994c1e4a153f53fe20f94210267d0e7
 
-### <a name="use-configuration-manager-to-configure-the-report-server"></a>Usar o Gerenciador de Configuração para configurar o servidor de relatório
-Se você não quiser executar o script do PowerShell para configurar o servidor de relatório, execute as etapas nesta seção para usar o gerenciador de configuração em modo nativo do Reporting Services para configurar o servidor de relatório.
+### <a name="use-configuration-manager-tooconfigure-hello-report-server"></a>Olá tooConfigure Use o Gerenciador de configuração do servidor de relatório
+Se você não quiser que servidor de relatório toorun Olá PowerShell script tooconfigure hello, siga as etapas de saudação essa seção toouse Olá Reporting Services modo nativo configuration manager tooconfigure Olá servidor de relatório.
 
-1. No portal clássico do Azure, selecione a VM e clique em conectar. Use o nome de usuário e a senha configurados durante a criação da VM.
+1. Olá portal clássico do Azure, selecione Olá VM e clique em conectar. Use o nome de usuário hello e senha configurados quando você criou Olá VM.
    
-    ![conectar-se à máquina virtual do azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)
-2. Execute a atualização do Windows e instale as atualizações da VM. Se for necessário reinicializar a VM, reinicie e reconecte-se à VM no portal clássico do Azure.
-3. No menu Iniciar da VM, digite **Reporting Services** e abra o **Gerenciador de Configuração do Reporting Services**.
-4. Mantenha os valores padrão para **Nome do Servidor** e **Instância do Servidor de Relatório**. Clique em **Conectar**.
-5. No painel esquerdo, clique em **URL do Serviço Web**.
-6. Por padrão, o RS está configurado para a porta HTTP 80 com IP "Todos Atribuídos". Para adicionar HTTPS:
+    ![Conecte-se a máquina virtual de tooazure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)
+2. Execute o Windows update e instalar atualizações toohello VM. Se for necessária uma reinicialização de saudação VM, reiniciar Olá VM e reconecte toohello VM de saudação portal clássico do Azure.
+3. Saudação do menu de início em Olá VM, digite **Reporting Services** e abra **Reporting Services Configuration Manager**.
+4. Deixe valores padrão de saudação para **nome do servidor** e **instância de servidor de relatório**. Clique em **Conectar**.
+5. No painel esquerdo do hello, clique em **URL do serviço Web**.
+6. Por padrão, o RS está configurado para a porta HTTP 80 com IP "Todos Atribuídos". tooadd HTTPS:
    
-   1. Em **Certificado SSL**: selecione o certificado que você deseja usar, por exemplo, [nome da VM].cloudapp.net. Se não houver um certificado listado, consulte a seção **Etapa 2: Criar um Certificado do Servidor** para obter informações sobre como instalar e confiar no certificado na VM.
-   2. Em **Porta SSL**: escolha 443. Se você tiver configurado o ponto de extremidade HTTPS privado na VM com uma porta privada diferente, use esse valor aqui.
-   3. Clique em **Aplicar** e aguarde a conclusão da operação.
-7. No painel esquerdo, clique em **Banco de Dados**.
+   1. Em **certificado SSL**: Olá selecione certificado toouse, por exemplo, [nome da VM]. cloudapp.net. Se nenhum certificado estiver listado, consulte a seção de saudação **etapa 2: criar um certificado de servidor** para obter informações sobre como tooinstall e confiança Olá certificado Olá VM.
+   2. Em **Porta SSL**: escolha 443. Se você configurou o ponto de extremidade privado de HTTPS de saudação em Olá VM com uma porta particular diferente, use esse valor aqui.
+   3. Clique em **aplicar** e aguarde Olá operação toocomplete.
+7. No painel esquerdo do hello, clique em **banco de dados**.
    
    1. Clique em **Alterar Banco de Dado**s.
    2. Clique em **Criar um novo banco de dados do servidor de relatório** e clique em **Próximo**.
-   3. Mantenha o **Nome do Servidor** padrão: como o nome da VM e mantenha o **Tipo de Autenticação** padrão como **Usuário Atual** – **Segurança Integrada**. Clique em **Avançar**.
-   4. Mantenha o **Nome do Banco de Dados** padrão como **ReportServer** e clique em **Próximo**.
-   5. Mantenha o **Tipo de Autenticação** padrão como **Credenciais do Serviço** e clique em **Próximo**.
-   6. Clique em **Próximo** on the **Resumo** .
-   7. Quando a configuração estiver concluída, clique em **Concluir**.
-8. No painel esquerdo, clique em **URL do Gerenciador de Relatórios**. Mantenha o **Diretório Virtual** padrão como **Relatórios** e clique em **Aplicar**.
-9. Clique em **Sair** para fechar o Gerenciador de Configuração do Reporting Services.
+   3. Deixe o padrão de saudação **nome do servidor**: Nomeie Olá VM e deixe o padrão de saudação **tipo de autenticação** como **usuário atual** – **asegurançaintegrada**. Clique em **Avançar**.
+   4. Deixe o padrão de saudação **nome do banco de dados** como **ReportServer** e clique em **próximo**.
+   5. Deixe o padrão de saudação **tipo de autenticação** como **credenciais de serviço** e clique em **próximo**.
+   6. Clique em **próximo** em Olá **resumo** página.
+   7. Quando a configuração de saudação estiver concluída, clique em **concluir**.
+8. No painel esquerdo do hello, clique em **URL do Report Manager**. Deixe o padrão de saudação **Diretório Virtual** como **relatórios** e clique em **aplicar**.
+9. Clique em **Exit** tooclose Olá Reporting Services Configuration Manager.
 
 ## <a name="step-4-open-windows-firewall-port"></a>Etapa 4: abrir a porta do Firewall do Windows
 > [!NOTE]
-> Se você tiver usado um dos scripts para configurar o servidor de relatório, ignore esta seção. O script incluiu uma etapa para abrir a porta do firewall. A porta padrão era 80 para HTTP e 443 para HTTPS.
+> Se você tiver usado um Olá scripts tooconfigure saudação do servidor de relatório, você poderá ignorar esta seção. script Hello incluída uma porta de firewall etapa tooopen hello. padrão de saudação era a porta 80 para HTTP e 443 para HTTPS.
 > 
 > 
 
-Para se conectar remotamente ao Gerenciador de Relatórios ou ao Servidor de Relatório na máquina virtual, será necessário ter um ponto de extremidade TCP na VM. É necessário abrir a mesma porta no firewall da VM. O ponto de extremidade foi criado durante o provisionamento da VM.
+tooconnect remotamente tooReport Manager ou Olá relatório Server na máquina virtual de saudação, um ponto de extremidade TCP é necessária no hello VM. É necessário tooopen Olá mesma porta no firewall da VM Olá. ponto de extremidade de saudação foi criado quando Olá VM foi provisionada.
 
-Esta seção fornece informações básicas sobre como abrir a porta do firewall. Para saber mais, consulte [Configurar um firewall para acesso ao servidor de relatório](https://technet.microsoft.com/library/bb934283.aspx)
+Esta seção fornece informações básicas sobre como tooopen Olá porta do firewall. Para saber mais, consulte [Configurar um firewall para acesso ao servidor de relatório](https://technet.microsoft.com/library/bb934283.aspx)
 
 > [!NOTE]
-> Se você tiver usado o script para configurar o servidor de relatório, ignore esta seção. O script incluiu uma etapa para abrir a porta do firewall.
+> Se você usou o servidor de relatório do hello script tooconfigure hello, você poderá ignorar esta seção. script Hello incluída uma porta de firewall etapa tooopen hello.
 > 
 > 
 
-Se você tiver configurado uma porta privada para HTTPS diferente de 443, modifique o script a seguir adequadamente. Para abrir a porta **443** no Firewall do Windows, faça o seguinte:
+Se você configurou uma porta privada para HTTPS diferente de 443, modifique Olá script a seguir apropriadamente. porta tooopen **443** no hello Firewall do Windows, conclua o seguinte hello:
 
 1. Abra uma janela do Windows PowerShell com privilégios administrativos.
-2. Se você tiver usado uma porta diferente de 443 ao configurar o ponto de extremidade HTTPS na VM, atualize a porta no comando a seguir e execute o comando:
+2. Se você usou uma porta diferente de 443 ao configurar o ponto de extremidade HTTPS de saudação em Olá VM, atualizar porta Olá Olá comando a seguir e, em seguida, execute o comando de saudação:
    
         New-NetFirewallRule -DisplayName “Report Server (TCP on port 443)” -Direction Inbound –Protocol TCP –LocalPort 443
-3. Após a conclusão do comando, **Ok** será exibido no prompt de comando.
+3. Quando o comando Olá for concluído, **Okey** é exibido no prompt de comando hello.
 
-Para verificar se a porta está aberta, abra uma janela do Windows PowerShell e execute o seguinte comando:
+tooverify que porta Olá é aberta, abra uma janela de Windows PowerShell e a execução Olá comando a seguir:
 
     get-netfirewallrule | where {$_.displayname -like "*report*"} | select displayname,enabled,action
 
-## <a name="verify-the-configuration"></a>Verificar a configuração
-Para verificar se a funcionalidade básica do servidor de relatório está funcionando, abra seu navegador com privilégios administrativos e navegue até as seguintes URLs do servidor de relatório e do gerenciador de relatório:
+## <a name="verify-hello-configuration"></a>Verificar a configuração de saudação
+tooverify a funcionalidade do servidor de relatório básico hello está funcionando agora, abra seu navegador com privilégios administrativos e, em seguida, procura toohello seguinte relatório Gerenciador de relatórios do servidor ad URLS:
 
-* Na VM, navegue até a URL do servidor de relatório:
+* Na VM do hello, procure toohello URL do servidor de relatório:
   
         http://localhost/reportserver
-* Na VM, navegue até a URL do gerenciador de relatório:
+* Na VM do hello, procure toohello URL do Gerenciador de relatórios:
   
         http://localhost/Reports
-* No computador local, navegue até o Gerenciador de relatório **remoto** na VM. Atualize o nome DNS no exemplo a seguir, conforme apropriado. Quando receber uma solicitação por uma senha, use as credenciais de administrador que você criou durante o provisionamento da VM. O nome de usuário está no formato [Domínio]\[nome de usuário], em que o domínio é o nome de computador da VM, por exemplo, ssrsnativecloud\testuser. Se você não estiver usando HTTP**S**, remova o **s** da URL. Consulte a próxima seção para saber mais sobre como criar usuários adicionais na VM.
+* No computador local, navegue toohello **remoto** Gerenciador de relatórios em Olá VM. Atualize o nome de DNS Olá Olá seguinte exemplo conforme apropriado. Quando for solicitada uma senha, use credenciais de administrador de saudação criado quando Olá VM foi provisionada. nome de usuário Hello está em Olá [domínio]\[nome de usuário] formato, onde o domínio de saudação é o nome do computador VM hello, por exemplo ssrsnativecloud\testuser. Se você não estiver usando HTTP**S**, remover Olá **s** na URL de saudação. Consulte a próxima seção Olá para obter informações sobre como criar usuários adicionais na VM.
   
         https://ssrsnativecloud.cloudapp.net/Reports
-* No computador local, navegue até a URL do servidor de relatório remoto. Atualize o nome DNS no exemplo a seguir, conforme apropriado. Se você não estiver usando HTTPS, remova o s da URL.
+* No computador local, procure toohello URL do servidor de relatório remoto. Atualize o nome de DNS Olá Olá seguinte exemplo conforme apropriado. Se você não estiver usando HTTPS, remova s Olá Olá URL.
   
         https://ssrsnativecloud.cloudapp.net/ReportServer
 
 ## <a name="create-users-and-assign-roles"></a>Criar usuários e atribuir funções
-Após a configuração e verificação do servidor de relatório, uma tarefa administrativa comum é criar um ou mais usuários e atribuir usuários às funções do Reporting Services. Para saber mais, confira o seguinte:
+Depois de configurar e verificar a saudação de servidor de relatório, uma tarefa administrativa comum é toocreate um ou mais usuários e atribuir usuários a funções de serviços tooReporting. Para obter mais informações, consulte o seguinte hello:
 
 * [Criar uma conta de usuário local](https://technet.microsoft.com/library/cc770642.aspx)
-* [Conceder ao Usuário Acesso a um Servidor de Relatório (Gerenciador de Relatórios)](https://msdn.microsoft.com/library/ms156034.aspx))
+* [Conceder acesso ao usuário tooa o servidor de relatório (Gerenciador de relatórios)](https://msdn.microsoft.com/library/ms156034.aspx))
 * [Criar e gerenciar atribuições de função](https://msdn.microsoft.com/library/ms155843.aspx)
 
-## <a name="to-create-and-publish-reports-to-the-azure-virtual-machine"></a>Para criar e publicar relatórios na máquina virtual do Azure
-A tabela a seguir resume algumas opções disponíveis para publicação de relatórios existentes de um computador local para o servidor de relatório hospedado na Máquina Virtual do Microsoft Azure:
+## <a name="toocreate-and-publish-reports-toohello-azure-virtual-machine"></a>tooCreate e publicar relatórios toohello Máquina Virtual do Azure
+Olá tabela a seguir resume alguns dos relatórios existentes do hello opções toopublish disponíveis de um servidor de relatório local computador toohello hospedado em Olá Máquina Virtual do Microsoft Azure:
 
-* **Script RS.exe**: use o script RS.exe para copiar itens de relatório de um servidor de relatório existente para sua Máquina Virtual do Microsoft Azure. Para saber mais, consulte a seção "Modo nativo para Modo nativo – Máquina Virtual do Microsoft Azure" em [Exemplo de Script rs.exe do Reporting Services para Migrar o Conteúdo entre os Servidores de Relatório](https://msdn.microsoft.com/library/dn531017.aspx).
-* **Construtor de Relatórios**: a máquina virtual inclui a versão de um clique do Construtor de Relatórios do Microsoft SQL Server. Para iniciar o Construtor de relatórios pela primeira vez na máquina virtual:
+* **Script RS.exe**: itens de relatório Use RS.exe script toocopy do e tooyour de servidor de relatório existente Máquina Virtual do Microsoft Azure. Para obter mais informações, consulte a seção de hello "tooNative de modo nativo – modo de máquina Virtual do Microsoft Azure" em [Sample Reporting Services rs.exe Script tooMigrate conteúdo entre servidores de relatório](https://msdn.microsoft.com/library/dn531017.aspx).
+* **Construtor de relatórios**: máquina virtual de saudação inclui Olá clique-uma vez a versão do construtor de relatórios do Microsoft SQL Server. saudação de construtor relatório toostart primeira vez na máquina virtual de saudação:
   
   1. Inicie o navegador com privilégios administrativos.
-  2. Navegue até o gerenciador de relatórios na máquina virtual e clique em **Construtor de Relatórios** na faixa de opções.
+  2. Procurar tooreport manager na máquina virtual de saudação e clique em **Report Builder** na faixa de opções de saudação.
      
      Para saber mais, consulte [Instalando, Desinstalando e Dando Suporte ao Construtor de Relatórios](https://technet.microsoft.com/library/dd207038.aspx).
-* **SQL Server Data Tools: VM**: se você criou a VM com o SQL Server 2012, o SQL Server Data Tools estará instalado na máquina virtual e poderá ser usado para criar **Projetos do Servidor de Relatório** e relatórios na máquina virtual. O SQL Server Data Tools pode publicar os relatórios no servidor de relatório na máquina virtual.
+* **SQL Server Data Tools: VM**: se você criou Olá VM com o SQL Server 2012, SQL Server Data Tools está instalado na máquina virtual de saudação e pode ser usado toocreate **projetos do servidor de relatório** e relatórios sobre Olá virtual máquina. SQL Server Data Tools pode publicar o servidor de relatório de toohello Olá relatórios na máquina virtual de saudação.
   
-    Se você tiver criado a VM com o SQL Server 2014, instale o SQL Server Data Tools - BI para Visual Studio. Para saber mais, confira o seguinte:
+    Se você criou Olá VM com o SQL server 2014, você pode instalar o SQL Server Data Tools - BI para visual Studio. Para obter mais informações, consulte o seguinte hello:
   
   * [Microsoft SQL Server Data Tools - Business Intelligence para Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313)
   * [Microsoft SQL Server Data Tools - Business Intelligence para Visual Studio 2012](https://www.microsoft.com/download/details.aspx?id=36843)
   * [SQL Server Data Tools e SQL Server Business Intelligence (SSDT-BI)](http://curah.microsoft.com/30004/sql-server-data-tools-ssdt-and-sql-server-business-intelligence)
-* **SQL Server Data Tools: Remoto**: no computador local, crie um projeto do Reporting Services no SQL Server Data Tools que contenha os relatórios do Reporting Services. Configure o projeto para conectar-se à URL do serviço Web.
+* **SQL Server Data Tools: Remoto**: no computador local, crie um projeto do Reporting Services no SQL Server Data Tools que contenha os relatórios do Reporting Services. Configure projeto Olá toohello tooconnect URL do serviço web.
   
     ![propriedades de projeto ssdt para projeto SSRS](./media/virtual-machines-windows-classic-ps-sql-report/IC650114.gif)
-* **Usar script**: use o script para copiar o conteúdo do servidor de relatório. Para saber mais, consulte [Exemplo de Script rs.exe do Reporting Services para Migrar o Conteúdo entre os Servidores de Relatório](https://msdn.microsoft.com/library/dn531017.aspx).
+* **Usar script**: usar o conteúdo do servidor de relatório de toocopy de script. Para obter mais informações, consulte [Sample Reporting Services rs.exe Script tooMigrate conteúdo entre servidores de relatório](https://msdn.microsoft.com/library/dn531017.aspx).
 
-## <a name="minimize-cost-if-you-are-not-using-the-vm"></a>Minimizar o custo se você não estiver usando a VM
+## <a name="minimize-cost-if-you-are-not-using-hello-vm"></a>Minimizar o custo se você não estiver usando Olá VM
 > [!NOTE]
-> Para minimizar os encargos de suas Máquinas Virtuais do Azure quando elas não estiverem em uso, finalize a VM no portal clássico do Azure. Se você usar as opções de energia do Windows em uma VM para desligá-la, ainda receberá a cobrança do mesmo valor para a máquina virtual. Para reduzir os encargos, é necessário finalizar a VM no portal clássico do Azure. Se você não precisar mais da VM, lembre-se de excluí-la e também os arquivos .vhd associados para evitar os encargos de armazenamento. Para saber mais, consulte a seção de perguntas frequentes em [Detalhes de Preços das Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
+> toominimize encargos para suas máquinas virtuais do Azure quando não estiver em uso, desligue Olá VM de saudação portal clássico do Azure. Se você usar opções de energia do Windows hello dentro de um tooshut VM para baixo Olá VM, você ainda será cobrado Olá mesmo valor para Olá VM. tooreduce encargos, você precisa tooshut inativo saudação VM no portal clássico do Azure de saudação. Se você não precisar mais Olá VM, lembre-se de toodelete Olá VM e Olá encargos de armazenamento de tooavoid de arquivos. vhd associado. Para obter mais informações, consulte a seção de saudação perguntas Frequentes em [detalhes de preços de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 ## <a name="more-information"></a>Mais informações
 ### <a name="resources"></a>Recursos
-* Para obter um conteúdo semelhante relacionado a uma implantação de servidor único do Business Intelligence do SQL Server e do SharePoint 2013, consulte [Usar o Windows PowerShell para Criar uma VM do Azure com o BI do SQL Server e o SharePoint 2013](https://msdn.microsoft.com/library/azure/dn385843.aspx).
-* Para obter um conteúdo semelhante relacionado a uma implantação com vários servidores do Business Intelligence do SQL Server e do SharePoint 2013, consulte [Implantar o Business Intelligence do SQL Server nas Máquinas Virtuais do Azure](https://msdn.microsoft.com/library/dn321998.aspx).
-* Para obter informações gerais relacionadas às implantações do Business Intelligence do SQL Server nas Máquinas Virtuais do Azure, consulte [Business Intelligence do SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-classic-ps-sql-bi.md).
-* Para saber mais sobre o custo dos encargos de computação do Azure, consulte a guia Máquinas Virtuais da [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines).
+* Para obter conteúdo semelhante relacionado a implantação de servidor único tooa do Business Intelligence do SQL Server e SharePoint 2013, consulte [tooCreate de usar o Windows PowerShell uma VM do Azure com SQL Server BI e SharePoint 2013](https://msdn.microsoft.com/library/azure/dn385843.aspx).
+* Para tooa relacionado de conteúdo semelhante a implantação de vários servidores de Business Intelligence do SQL Server e SharePoint 2013, consulte [implantar o SQL Server Business Intelligence em máquinas virtuais Azure](https://msdn.microsoft.com/library/dn321998.aspx).
+* Para obter informações gerais relacionadas toodeployments do SQL Server Business Intelligence em máquinas de virtuais do Azure, consulte [SQL Server Business Intelligence em máquinas virtuais Azure](virtual-machines-windows-classic-ps-sql-bi.md).
+* Para obter mais informações sobre o custo de saudação de encargos de computação do Azure, consulte o guia de máquinas virtuais de saudação do [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines).
 
 ### <a name="community-content"></a>Conteúdo da comunidade
-* Para obter instruções detalhadas sobre como criar um servidor de relatório em modo nativo do Reporting Services sem usar script, consulte [Hospedando o serviço Relatórios SQL na máquina virtual Azure](http://adititechnologiesblog.blogspot.in/2012/07/hosting-sql-reporting-service-on-azure.html).
+* Para obter instruções passo a passo sobre como toocreate um modo nativo do Reporting Services servidor de relatório sem usar o script, consulte [hospedando SQL Reporting Service na máquina Virtual Azure](http://adititechnologiesblog.blogspot.in/2012/07/hosting-sql-reporting-service-on-azure.html).
 
-### <a name="links-to-other-resources-for-sql-server-in-azure-vms"></a>Links para outros recursos para SQL Server em VMs do Azure
+### <a name="links-tooother-resources-for-sql-server-in-azure-vms"></a>Recursos de tooother links para o SQL Server em VMs do Azure
 [Visão geral do SQL Server em máquinas virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 

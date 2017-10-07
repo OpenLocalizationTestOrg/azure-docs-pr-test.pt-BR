@@ -1,6 +1,6 @@
 ---
-title: "Gerenciar vários ambientes no Service Fabric | Microsoft Docs"
-description: "Os aplicativos do Service Fabric podem ser executados em clusters que variam de tamanho de um computador para milhares de computadores. Em alguns casos, você desejará configurar seu aplicativo de forma diferente para esses ambientes variados. Este artigo aborda como definir parâmetros de aplicativo diferentes por ambiente."
+title: "aaaManage vários ambientes na malha do serviço | Microsoft Docs"
+description: "Aplicativos de malha do serviço podem ser executados em clusters que variam em tamanho de um toothousands de máquina de máquinas. Em alguns casos, você desejará tooconfigure seu aplicativo diferentes para esses ambientes variados. Este artigo aborda como parâmetros de aplicativo diferente de toodefine por ambiente."
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: mikkelhegn
-ms.openlocfilehash: 9317b3f0b7984e795c4205360ed58e2c4f3fbcb1
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 2b3327e0e1a3bbd35a50835e720619f308b1b501
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-application-parameters-for-multiple-environments"></a>Gerenciar parâmetros do aplicativo para vários ambientes
-Você pode criar clusters do Service Fabric usando em qualquer lugar de um a milhares de computadores. Embora os binários de aplicativo possam ser executados sem modificação em um amplo espectro de ambientes, com frequência, você desejará configurar o aplicativo de forma diferente, dependendo do número de computadores em que ele estiver sendo implantado.
+Você pode criar clusters de malha do serviço do Azure, usando qualquer parte de um toomany milhares de máquinas. Enquanto os binários de aplicativo podem ser executado sem modificação nesse amplo espectro de ambientes, você geralmente deseja tooconfigure Olá aplicativo diferente, dependendo do número de saudação de máquinas que você estiver implantando em.
 
-Como um exemplo simples, considere a `InstanceCount` para um serviço sem estado. Quando você estiver executando aplicativos no Azure, geralmente, você desejará definir esse parâmetro como o valor especial “-1”. Essa configuração garante que o serviço esteja em execução em cada nó no cluster (ou em todos os nós no tipo de nó, caso você tenha definido uma restrição de posicionamento). No entanto, essa configuração não é adequada para um cluster de um único computador, pois não é possível ter vários processos escutando o mesmo ponto de extremidade em um único computador. Em vez disso, normalmente, você define `InstanceCount` como “1”.
+Como um exemplo simples, considere a `InstanceCount` para um serviço sem estado. Quando você estiver executando aplicativos no Azure, geralmente convém tooset este toohello especial valor de parâmetro "-1". Essa configuração garante que o serviço está em execução em cada nó no cluster hello (ou todos os nós no tipo de nó Olá se você tiver definido uma restrição de posicionamento). No entanto, essa configuração não é adequada para um cluster de computador único porque você não pode ter vários processos escutando Olá mesmo ponto de extremidade em um único computador. Em vez disso, você normalmente define `InstanceCount` muito "1".
 
 ## <a name="specifying-environment-specific-parameters"></a>Especificando parâmetros específicos do ambiente
-A solução para esse problema de configuração é um conjunto de serviços padrão parametrizados e arquivos de parâmetros do aplicativo que preencham os valores de parâmetro para um determinado ambiente. Os parâmetros padrão dos serviços e do aplicativo são configurados nos manifestos do aplicativo e do serviço. A definição de esquema dos arquivos ServiceManifest.xml e ApplicationManifest.xml é instalada com o SDK do e as ferramentas do Service Fabric em *C:\Arquivos de Programas\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+problema de configuração de toothis Olá solução é um conjunto de serviços padrão com parâmetros e arquivos de parâmetro de aplicativo que preencham os valores de parâmetro para um determinado ambiente. Serviços padrão e parâmetros do aplicativo são configurados no aplicativo hello e manifestos do serviço. Olá definição de esquema para arquivos ServiceManifest.xml e ApplicationManifest.xml de saudação é instalada com hello SDK do Service Fabric e ferramentas muito*C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ### <a name="default-services"></a>Serviços padrão
-Os aplicativos do Service Fabric são compostos de uma coleção de instâncias de serviço. Embora seja possível para você criar um aplicativo vazio e, em seguida, criar dinamicamente todas as instâncias de serviço, a maioria dos aplicativos tem um conjunto de serviços principais que sempre deverá ser criado quando o aplicativo for instanciado. Eles são chamados de "serviços padrão". Eles são especificados no manifesto do aplicativo, com espaços reservados para configuração por ambiente incluídos entre colchetes adicionais:
+Os aplicativos do Service Fabric são compostos de uma coleção de instâncias de serviço. Enquanto é possível toocreate um aplicativo vazio e, em seguida, criar dinamicamente todas as instâncias de serviço, a maioria dos aplicativos têm um conjunto de serviços principais que sempre deve ser criada quando o aplicativo hello é instanciado. Esses são chamados tooas "serviços padrão". Eles são especificados no manifesto de aplicativo hello, com espaços reservados para a configuração de per ambiente incluído entre colchetes:
 
 ```xml
   <DefaultServices>
@@ -49,7 +49,7 @@ Os aplicativos do Service Fabric são compostos de uma coleção de instâncias 
   </DefaultServices>
 ```
 
-Cada um dos parâmetros nomeados deve ser definido dentro do elemento Parameters do manifesto do aplicativo:
+Cada Olá parâmetros nomeado deve ser definida no elemento de parâmetros Olá Olá do manifesto do aplicativo:
 
 ```xml
     <Parameters>
@@ -59,24 +59,24 @@ Cada um dos parâmetros nomeados deve ser definido dentro do elemento Parameters
     </Parameters>
 ```
 
-O atributo DefaultValue especifica o valor a ser usado na ausência de um parâmetro mais específico para um determinado ambiente.
+atributo DefaultValue de saudação especifica Olá valor toobe usado na ausência de saudação de um parâmetro mais específicas para um determinado ambiente.
 
 > [!NOTE]
-> Nem todos os parâmetros da instância de serviço são adequados para a configuração por ambiente. No exemplo acima, os valores LowKey e HighKey para o esquema de particionamento do serviço são definidos explicitamente para todas as instâncias do serviço, já que o intervalo de partição é uma função do domínio de dados, não do ambiente.
+> Nem todos os parâmetros da instância de serviço são adequados para a configuração por ambiente. O exemplo hello acima, Olá LowKey e HighKey valores para o esquema de particionamento do serviço Olá são definidos explicitamente para todas as instâncias do serviço de saudação desde que o intervalo de partição Olá é uma função de saudação do domínio de dados, não o ambiente hello.
 > 
 > 
 
 ### <a name="per-environment-service-configuration-settings"></a>Definições de configuração de serviço por ambiente
-O [modelo de aplicativo do Service Fabric](service-fabric-application-model.md) permite que os serviços incluam pacotes de configuração com pares de chave e valor personalizados legíveis em tempo de execução. Os valores dessas configurações também podem ser diferenciados pelo ambiente por meio da especificação de uma `ConfigOverride` no manifesto do aplicativo.
+Olá [o modelo de aplicativo do Service Fabric](service-fabric-application-model.md) habilita serviços tooinclude pacotes de configuração que contém pares chave-valor personalizados que podem ser lidos em tempo de execução. os valores Hello dessas configurações também podem ser diferenciados pelo ambiente especificando um `ConfigOverride` no manifesto de aplicativo hello.
 
-Suponha que você tenha a seguinte configuração no arquivo Config\Settings.xml para o serviço `Stateful1`:
+Suponha que você tenha Olá após a configuração no arquivo Config\Settings.xml Olá Olá `Stateful1` serviço:
 
 ```xml
   <Section Name="MyConfigSection">
      <Parameter Name="MaxQueueSize" Value="25" />
   </Section>
 ```
-Para substituir esse valor por um par de aplicativo/ambiente específico, crie uma `ConfigOverride` ao importar o manifesto do serviço no manifesto do aplicativo.
+toooverride esse valor para um par de aplicativo/ambiente específico, crie um `ConfigOverride` quando você importa o manifesto do serviço Olá no manifesto de aplicativo hello.
 
 ```xml
   <ConfigOverrides>
@@ -89,16 +89,16 @@ Para substituir esse valor por um par de aplicativo/ambiente específico, crie u
      </ConfigOverride>
   </ConfigOverrides>
 ```
-Esse parâmetro pode então ser configurado pelo ambiente como mostrado acima. Você pode fazer isso declarando-o na seção de parâmetros do manifesto do aplicativo e especificando valores específicos nos arquivos de parâmetro do aplicativo.
+Esse parâmetro pode então ser configurado pelo ambiente como mostrado acima. Você pode fazer isso declará-la na seção de parâmetros de saudação do manifesto de aplicativo hello e especificando valores específicos de ambiente nos arquivos de parâmetro de aplicativo hello.
 
 > [!NOTE]
-> No caso de definições de configuração de serviço, há três locais onde o valor de uma chave pode ser definido: o pacote de configuração de serviço, o manifesto do aplicativo e o arquivo de parâmetro do aplicativo. O Service Fabric sempre escolherá o arquivo de parâmetro de aplicativo primeiro (se especificado), o manifesto do aplicativo e, por fim, o pacote de configuração.
+> No caso de saudação de definições de configuração de serviço, há três locais em que o valor de saudação de uma chave pode ser definido: pacote de configuração de serviço hello, o manifesto do aplicativo hello e arquivo de parâmetro de aplicativo hello. Malha do serviço será sempre escolher Olá parâmetro do arquivo de aplicativo primeiro (se especificado), em seguida, Olá manifesto do aplicativo e hello, por fim, o pacote de configuração.
 > 
 > 
 
 ### <a name="setting-and-using-environment-variables"></a>Configurando e usando variáveis de ambiente 
-Você pode especificar e definir variáveis de ambiente no arquivo ServiceManifest.xml e, em seguida, substituí-las no arquivo ApplicationManifest.xml de acordo com a instância.
-O exemplo abaixo mostra duas variáveis de ambiente, uma com um valor definido e a outra é substituída. Você pode usar os parâmetros de aplicativo para definir valores de variáveis de ambiente da mesma forma que eles foram usados para substituições de configuração.
+Você pode especificar e definir variáveis de ambiente no arquivo ServiceManifest.xml de saudação e, em seguida, substituir no arquivo de ApplicationManifest.xml Olá em uma base por instância.
+Olá exemplo a seguir mostra duas variáveis de ambiente, um com um valor definido e outros Olá é substituído. Você pode usar parâmetros de valores de variáveis de ambiente tooset em Olá mesma forma que eles foram usados para substituições de configuração do aplicativo.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -127,7 +127,7 @@ O exemplo abaixo mostra duas variáveis de ambiente, uma com um valor definido e
   <DataPackage Name="MyData" Version="DataVersion1" />
 </ServiceManifest>
 ```
-Para substituir as variáveis de ambiente no ApplicationManifest.xml, faça referência ao pacote de códigos no ServiceManifest com o elemento `EnvironmentOverrides`.
+variáveis de ambiente toooverride Olá no hello ApplicationManifest.xml, pacote de códigos de saudação de referência em Olá ServiceManifest com hello `EnvironmentOverrides` elemento.
 
 ```xml
   <ServiceManifestImport>
@@ -137,14 +137,14 @@ Para substituir as variáveis de ambiente no ApplicationManifest.xml, faça refe
     </EnvironmentOverrides>
   </ServiceManifestImport>
  ``` 
- Depois que a instância de serviço nomeada for criada, você poderá acessar as variáveis de ambiente no código. Por exemplo, em C#, você pode fazer o seguinte
+ Quando Olá serviço instância nomeada é criado, você pode acessar variáveis de ambiente de saudação do código. Por exemplo, no c# Faça a seguir Olá
 
 ```csharp
     string EnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
 ```
 
 ### <a name="service-fabric-environment-variables"></a>Variáveis de ambiente do Service Fabric
-O Service Fabric tem variáveis de ambiente internas definidas para cada instância de serviço. A lista completa de variáveis de ambiente pode ser consultada logo abaixo. Os itens destacados em negrito são os que você utilizará em seu serviço; o restante será usado pelo tempo de execução do Service Fabric. 
+O Service Fabric tem variáveis de ambiente internas definidas para cada instância de serviço. Olá lista completa de variáveis de ambiente é abaixo, onde hello aqueles em negrito são Olá aquelas que você usará em seu serviço, Olá outros que está sendo usada pelo tempo de execução do Service Fabric. 
 
 * Fabric_ApplicationHostId
 * Fabric_ApplicationHostType
@@ -166,7 +166,7 @@ O Service Fabric tem variáveis de ambiente internas definidas para cada instân
 * Fabric_ServicePackageVersionInstance
 * FabricPackageFileName
 
-O código abaixo mostra como listar as variáveis de ambiente do Service Fabric
+Olá belows de código mostra como toolist Olá variáveis de ambiente do Service Fabric
  ```csharp
     foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
     {
@@ -176,7 +176,7 @@ O código abaixo mostra como listar as variáveis de ambiente do Service Fabric
         }
     }
 ```
-Veja abaixo exemplos de variáveis de ambiente para um tipo de aplicativo chamado `GuestExe.Application` com um tipo de serviço chamado `FrontEndService` quando executado no computador de desenvolvimento local.
+Olá, estes são exemplos de variáveis de ambiente para um tipo de aplicativo chamado `GuestExe.Application` com um tipo de serviço chamado `FrontEndService` quando executado em sua máquina de desenvolvimento local.
 
 * **Fabric_ApplicationName = fabric:/GuestExe.Application**
 * **Fabric_CodePackageName = Code**
@@ -185,7 +185,7 @@ Veja abaixo exemplos de variáveis de ambiente para um tipo de aplicativo chamad
 * **Fabric_NodeName = _Node_2**
 
 ### <a name="application-parameter-files"></a>Arquivos de parâmetros de aplicativo
-O projeto de aplicativo do Service Fabric pode incluir um ou mais arquivos de parâmetro de aplicativo. Cada um deles define os valores específicos para os parâmetros definidos no manifesto do aplicativo:
+projeto de aplicativo do Service Fabric Olá pode incluir um ou mais arquivos de parâmetro de aplicativo. Cada uma delas define valores específicos de saudação para parâmetros de saudação que são definidos no manifesto de aplicativo hello:
 
 ```xml
     <!-- ApplicationParameters\Local.xml -->
@@ -202,25 +202,25 @@ Por padrão, um novo aplicativo inclui três arquivos de parâmetro de aplicativ
 
 ![Arquivos de parâmetros de aplicativo no Gerenciador de Soluções][app-parameters-solution-explorer]
 
-Para criar um arquivo de parâmetro, basta copiar e colar um existente e fornecer um novo nome a ele.
+toocreate um arquivo de parâmetro, simplesmente copie e cole um existente e dê a ele um novo nome.
 
 ## <a name="identifying-environment-specific-parameters-during-deployment"></a>Identificando parâmetros específicos do ambiente durante a implantação
-No momento da implantação, você precisa escolher o arquivo de parâmetro adequado para aplicar ao seu aplicativo. Você pode fazer isso por meio da caixa de diálogo Publicar no Visual Studio ou por meio do PowerShell.
+No momento da implantação, você precisa toochoose Olá parâmetro apropriado arquivo tooapply com seu aplicativo. Você pode fazer isso por meio da caixa de diálogo de publicação de saudação no Visual Studio ou PowerShell.
 
 ### <a name="deploy-from-visual-studio"></a>Implantar com o Visual Studio
-Você pode escolher na lista de arquivos de parâmetro disponíveis ao publicar seu aplicativo no Visual Studio.
+Você pode escolher na lista de saudação de arquivos de parâmetros disponíveis quando você publicar seu aplicativo no Visual Studio.
 
-![Escolher um arquivo de parâmetro na caixa de diálogo Publicar][publishdialog]
+![Escolha um arquivo de parâmetro na caixa de diálogo de publicação Olá][publishdialog]
 
 ### <a name="deploy-from-powershell"></a>Implantar do PowerShell
-O script `Deploy-FabricApplication.ps1` do PowerShell incluído no modelo de projeto de aplicativo aceita um perfil de publicação como parâmetro, e o PublishProfile contém uma referência para o arquivo de parâmetros do aplicativo.
+Olá `Deploy-FabricApplication.ps1` script do PowerShell incluído no modelo de projeto de aplicativo hello aceita como um parâmetro de um perfil de publicação e Olá PublishProfile contém um arquivo de parâmetros de aplicativo de toohello de referência.
 
   ```PowerShell
     ./Deploy-FabricApplication -ApplicationPackagePath <app_package_path> -PublishProfileFile <publishprofile_path>
   ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre alguns dos principais conceitos discutidos neste tópico, confira a [visão geral técnica do Service Fabric](service-fabric-technical-overview.md). Para obter informações sobre outras funcionalidades de gerenciamento de aplicativo disponíveis no Visual Studio, confira [Gerenciar seus aplicativos do Service Fabric no Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+toolearn mais sobre alguns dos conceitos básicos de saudação que são abordados neste tópico, consulte Olá [visão geral técnica do Service Fabric](service-fabric-technical-overview.md). Para obter informações sobre outras funcionalidades de gerenciamento de aplicativo disponíveis no Visual Studio, confira [Gerenciar seus aplicativos do Service Fabric no Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!-- Image references -->
 

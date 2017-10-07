@@ -1,6 +1,6 @@
 ---
-title: "Visão geral do Microsoft Azure StorSimple e do programa Cloud Solutions Provider | Microsoft Docs"
-description: "Uma visão geral sobre o StorSimple e o CSP para parceiros do StorSimple."
+title: "aaaMicrosoft StorSimple do Azure e visão geral do programa de provedor de soluções de nuvem | Microsoft Docs"
+description: "Uma visão geral sobre Olá StorSimple e o CSP para parceiros do StorSimple."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,93 +14,93 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: c8cb51093142146fc7d43b51a62d949f6cc38988
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b5d999f2fbb9a27e7404ff454957b29dbef56af6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Implantar o StorSimple Virtual Array para o programa Cloud Solution Provider
 
 ## <a name="overview"></a>Visão geral
 
-Matriz de StorSimple Virtual pode ser implantado pelos parceiros de provedor de solução de nuvem (CSP) para seus clientes. Um parceiro CSP pode criar um serviço do Gerenciador de dispositivos do StorSimple. Esse serviço, em seguida, pode ser usado para implantar e gerenciar a matriz Virtual do StorSimple e os compartilhamentos associados, volumes e backups.
+Matriz Virtual StorSimple pode ser implantado por parceiros de provedor de solução de nuvem (CSP) Olá para seus clientes. Um parceiro CSP pode criar um serviço do Gerenciador de dispositivos do StorSimple. Esse serviço pode ser usado toodeploy e gerenciar matriz Virtual do StorSimple e Olá associados compartilhamentos, volumes e backups.
 
-Este artigo descreve como um parceiro CSP pode adicionar um cliente ou uma nova assinatura para um cliente existente e, em seguida, crie um serviço para implantar uma matriz Virtual StorSimple no CSP.
+Este artigo descreve como um parceiro CSP pode adicionar um cliente ou um novo cliente de assinatura tooan existente e, em seguida, criar um serviço toodeploy uma matriz Virtual do StorSimple no CSP.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se:
 
-- Você está inscrito no programa CSP.
-- Você tem credenciais de logon válidas do [Partner Center](http://partnercenter.microsoft.com/). As credenciais permitem que você entrar no portal de parceiros para adicionar novos clientes, procurar clientes ou navegar para uma conta de cliente no painel do parceiro. O CSP pode funcionar como um administrador do StorSimple em nome do cliente no portal do Azure.
+- Você está inscrito no programa CSP hello.
+- Você tem credenciais de logon válidas do [Partner Center](http://partnercenter.microsoft.com/). Olá credenciais permitem toosign novos clientes do toohello parceiro tooadd portal, procurar clientes ou navegue tooa conta do cliente do painel de parceiro hello. Olá CSP pode funcionar como um administrador do StorSimple em nome do cliente Olá Olá portal do Azure.
                              
 ## <a name="add-a-customer"></a>Adicionar um cliente
 
-Se você adicionar um cliente, uma assinatura é criada automaticamente. Para adicionar um cliente (e criar automaticamente uma assinatura), execute as seguintes etapas no portal de parceiros.
+Se você adicionar um cliente, uma assinatura é criada automaticamente. um cliente de tooadd (e criar automaticamente uma assinatura), executar Olá seguindo as etapas no portal de parceiros de saudação.
 
-1. Vá para o [Partner Center](http://partnercenter.microsoft.com/) e entre usando suas credenciais do CSP. Clique em **Painel**.
+1. Vá toohello [Partner Center](http://partnercenter.microsoft.com/) e entre com suas credenciais do CSP. Clique em **Painel**.
 
      ![Painel no Partner Center](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. No painel esquerdo, clique em **Clientes**. No painel direito, clique em **adicionar clientes**. Insira os detalhes do cliente. Clique em **próximo: assinaturas** para criar uma assinatura de cliente.
+2. No painel esquerdo do hello, clique em **clientes**. No painel direito de saudação, clique em **adicionar clientes**. Insira detalhes de saudação do cliente hello. Clique em **próximo: assinaturas** toocreate uma assinatura de cliente.
 
     ![Adicionar cliente](./media/storsimple-partner-csp-deploy/image2.png)
 
-3.  Selecione a oferta **Microsoft Azure**. Role até a parte inferior da página e clique em **revisão**.
+3.  Selecione a oferta **Microsoft Azure**. Rolar para o fim da página hello e clique em toohello **revisão**.
 
     ![Revise as informações da assinatura](./media/storsimple-partner-csp-deploy/image3.png)
                               
-4. Examine as informações e clique em **Enviar**.
+4. Revise as informações de saudação e clique em **enviar**.
 
     ![Assinatura de envio](./media/storsimple-partner-csp-deploy/image4.png)
 
-5. Salve as informações de confirmação para referência futura.
+5. Salve as informações de confirmação de saudação para referência futura.
 
     ![Salvar confirmação](./media/storsimple-partner-csp-deploy/image5.png)
 
-6. Localizar ou navegue até o cliente você acabou de adicionar. Clique no **Nome da empresa** para fazer drill down nos detalhes.
+6. Localizar ou navegar cliente toohello que você acabou de adicionar. Clique em Olá **nome da empresa** toodrill para baixo em detalhes de saudação.
 
-    ![Procurar o cliente](./media/storsimple-partner-csp-deploy/image6.png)  
+    ![Pesquisa de cliente Olá](./media/storsimple-partner-csp-deploy/image6.png)  
 
-7. No painel esquerdo, selecione **Gerenciamento de serviços**. No painel direito, em **Administrar serviços**, clique em **Portal de Gerenciamento do Microsoft Azure** para entrar como um administrador do Azure para seu cliente.
+7. No painel esquerdo do hello, selecione **gerenciamento de serviço**. Em Olá painel direito, em **administrar serviços**, clique em **Portal de gerenciamento do Microsoft Azure** toosign em como um administrador do Azure para seu cliente.
 
-    ![Fazer logon no portal do Azure](./media/storsimple-partner-csp-deploy/image9.png)
+    ![Faça logon no portal de tooAzure](./media/storsimple-partner-csp-deploy/image9.png)
 
-8. Para criar um Gerenciador de Dispositivos do StorSimple, clique em **+ Novo** e procure ou navegue até **Série de Dispositivos Virtuais do StorSimple**. Para saber mais, vá para [Implantar um serviço do Gerenciador de Dispositivos do StorSimple](storsimple-virtual-array-manage-service.md).
+8. toocreate um Gerenciador de dispositivos de StorSimple, clique em **+ novo** e pesquise ou navegue muito**série de dispositivo Virtual StorSimple**. Para obter mais informações, vá muito[implantar um serviço de Gerenciador de dispositivos de StorSimple](storsimple-virtual-array-manage-service.md).
 
     ![Criar serviço Gerenciador de Dispositivos do StorSimple](./media/storsimple-partner-csp-deploy/image8.png)
 
 
 ## <a name="add-a-subscription"></a>Adicionar uma assinatura
 
-Em alguns casos, você pode ter um cliente existente e você precisa adicionar uma assinatura. Para adicionar uma assinatura a um cliente existente, execute as seguintes etapas no portal de parceiros.
+Em alguns casos, você pode ter um cliente existente e você precisa tooadd uma assinatura. tooadd um cliente existente do tooan de assinatura, execute Olá seguindo as etapas no portal de parceiros de saudação.
 
-1. Vá para o [Partner Center](http://partnercenter.microsoft.com/) e entre usando suas credenciais do CSP. Clique em **Painel**.
+1. Vá toohello [Partner Center](http://partnercenter.microsoft.com/) e entre com suas credenciais do CSP. Clique em **Painel**.
 
      ![Painel no Partner Center](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. No painel esquerdo, clique em **Clientes**. Localizar ou navegue para o cliente para o qual você deseja adicionar uma assinatura. Clique o ![ícone de verificação de expansão](./media/storsimple-partner-csp-deploy/expand_pane_icon.png) ícone para expandir a linha para o nome da empresa para o cliente. Em detalhes, clique em **adicionar assinaturas**.
+2. No painel esquerdo do hello, clique em **clientes**. Localizar ou navegar toohello cliente que quiser tooadd uma assinatura. Clique em Olá ![ícone de verificação de expansão](./media/storsimple-partner-csp-deploy/expand_pane_icon.png) ícone tooexpand Olá linha hello da empresa para o cliente. Nos detalhes de saudação, clique em **adicionar assinaturas**.
 
     ![Clientes](./media/storsimple-partner-csp-deploy/image10.png)
 
-3. Verificar **Microsoft Azure** para o **principais ofertas** na assinatura e clique em **enviar**. Isso cria uma nova assinatura.
+3. Verificar **Microsoft Azure** para Olá **principais ofertas** na assinatura hello e clique em **enviar**. Isso cria uma nova assinatura.
 
     ![Adicionar nova assinatura](./media/storsimple-partner-csp-deploy/image11.png)
 
-6. Depois de uma nova assinatura for criada, clique em  **<-- Clientes** no painel esquerdo para voltar para a página de **Clientes**. Pesquisa do cliente para o qual você acabou de criar uma assinatura. Clique no **Nome da empresa** para fazer drill down nos detalhes.
+6. Depois que uma nova assinatura é criada, clique em **< – clientes** em Olá painel esquerdo tooreturn toohello **clientes** página. Pesquisa de cliente Olá para o qual você acabou de criar uma assinatura. Clique em Olá **nome da empresa** toodrill para baixo em detalhes de saudação.
 
-    ![Procurar o cliente](./media/storsimple-partner-csp-deploy/image6.png)  
+    ![Pesquisa de cliente Olá](./media/storsimple-partner-csp-deploy/image6.png)  
 
-7. No painel esquerdo, selecione **Gerenciamento de serviços**. No painel direito, em **Administrar serviços**, clique em **Portal de Gerenciamento do Microsoft Azure** para entrar como um administrador do Azure para seu cliente.
+7. No painel esquerdo do hello, selecione **gerenciamento de serviço**. Em Olá painel direito, em **administrar serviços**, clique em **Portal de gerenciamento do Microsoft Azure** toosign em como um administrador do Azure para seu cliente.
 
-    ![Fazer logon no portal do Azure](./media/storsimple-partner-csp-deploy/image9.png)
+    ![Faça logon no portal de tooAzure](./media/storsimple-partner-csp-deploy/image9.png)
 
-8. Para criar um Gerenciador de Dispositivos do StorSimple, clique em **+ Novo** e procure ou navegue até **Série de Dispositivos Virtuais do StorSimple**. Para saber mais, vá para [Implantar um serviço do Gerenciador de Dispositivos do StorSimple](storsimple-virtual-array-manage-service.md).
+8. toocreate um Gerenciador de dispositivos de StorSimple, clique em **+ novo** e pesquise ou navegue muito**série de dispositivo Virtual StorSimple**. Para obter mais informações, vá muito[implantar um serviço de Gerenciador de dispositivos de StorSimple](storsimple-virtual-array-manage-service.md).
 
     ![Criar serviço Gerenciador de Dispositivos do StorSimple](./media/storsimple-partner-csp-deploy/image8.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se tiver mais dúvidas relacionadas ao StorSimple no CSP, visite [StorSimple for CSP: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple no CSP: perguntas frequentes).
-- Se você estiver pronto para implantar seu StorSimple, acesse [Implantar o StorSimple para CSP](storsimple-partner-csp-deploy.md).
+- Se você tiver mais dúvidas sobre Olá StorSimple no CSP, vá muito[StorSimple no CSP: perguntas frequentes](storsimple-partner-csp-faq.md).
+- Se você estiver pronto toodeploy seu StorSimple, ir muito[implantar seu StorSimple no CSP](storsimple-partner-csp-deploy.md).

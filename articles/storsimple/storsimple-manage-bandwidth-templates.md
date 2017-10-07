@@ -1,6 +1,6 @@
 ---
-title: Gerenciar seus modelos de largura de banda do StorSimple | Microsoft Docs
-description: Descreve como gerenciar modelos de largura do StorSimple, que permitem controlar o consumo da largura de banda.
+title: aaaManage seus modelos de largura de banda de StorSimple | Microsoft Docs
+description: "Descreve como os modelos de largura de banda StorSimple toomanage, que permitem que você toocontrol consumo de largura de banda."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,146 +14,146 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: alkohli
-ms.openlocfilehash: df3ae8bf775370432b3648459a7c942afe69fb17
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3f767e985667121e977106e7a1f8e5a3ad25f022
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-the-storsimple-manager-service-to-manage-storsimple-bandwidth-templates"></a>Usar o serviço StorSimple Manager para gerenciar modelos de largura de banda do StorSimple
+# <a name="use-hello-storsimple-manager-service-toomanage-storsimple-bandwidth-templates"></a>Usar modelos de largura de banda Olá StorSimple Manager serviço toomanage StorSimple
 ## <a name="overview"></a>Visão geral
-Os modelos de largura de banda permitem configurar a largura de banda de rede em várias agendas do dia para dispor os dados do dispositivo StorSimple em camadas na nuvem.
+Os modelos de largura de banda permitem tooconfigure uso de largura de banda de rede em vários agendamentos de hora do dia tootier Olá data de saudação StorSimple dispositivo toohello nuvem.
 
 Com agendas de limitação da largura de banda, você pode:
 
-* Especifica as agendas de largura de banda personalizadas dependendo dos usos da rede de carga de trabalho.
-* Centralizar o gerenciamento e reutilizar as agendas em vários dispositivos de uma maneira fácil e direta.
+* Especifica agendas de largura de banda personalizada dependendo usos de rede de carga de trabalho de saudação.
+* Centralizar o gerenciamento e reutilizar os agendamentos de saudação em vários dispositivos de uma maneira fácil e contínua.
 
 > [!NOTE]
 > Esse recurso está disponível somente para dispositivos físicos do StorSimple, e não para dispositivos virtuais.
 > 
 > 
 
-Todos os modelos de largura de banda para seu serviço são exibidos em um formato de tabela e contêm as seguintes informações:
+Todos os modelos de largura de banda Olá para o serviço são exibidos em um formato tabular e contêm Olá informações a seguir:
 
-* **Nome** : um nome exclusivo atribuído ao modelo de largura de banda quando ele foi criado.
-* **Agenda** : o número de agendas contidas em um determinado modelo de largura de banda.
-* **Usado por** : o número de volumes usando os modelos de largura de banda.
+* **Nome do** – modelo de largura de banda de toohello um nome exclusivo atribuído quando ele foi criado.
+* **Agenda** – Olá número de agendamentos contidos em um modelo de determinada largura de banda.
+* **Usado por** – Olá número de volumes usando modelos de largura de banda de saudação.
 
-Use a página **Configurar** do serviço StorSimple Manager no Portal clássico do Azure para gerenciar modelos de largura de banda.
+Usar o serviço StorSimple Manager Olá **configurar** página em modelos de largura de banda Olá toomanage de portal clássico do Azure.
 
-Você também pode encontrar informações adicionais que ajudam a configurar modelos de largura de banda em:
+Você também pode encontrar informações adicionais toohelp configurar modelos de largura de banda em:
 
 * Perguntas e respostas sobre modelos de largura de banda
 * Práticas recomendadas para modelos de largura de banda
 
 ## <a name="add-a-bandwidth-template"></a>Adicionar um modelo de largura de banda
-Execute as etapas a seguir para criar um novo modelo de largura de banda.
+Execute Olá seguindo as etapas toocreate um novo modelo de largura de banda.
 
-#### <a name="to-add-a-bandwidth-template"></a>Para adicionar um modelo de largura de banda
-1. Na página **Configurar** do serviço StorSimple Manager, clique em **adicionar/editar modelo de largura de banda**.
-2. Na caixa de diálogo **Adicionar/Editar Modelo de Largura de Banda** :
+#### <a name="tooadd-a-bandwidth-template"></a>tooadd um modelo de largura de banda
+1. Em Olá serviço StorSimple Manager **configurar** , clique em **Adicionar/Editar modelo de largura de banda**.
+2. Em Olá **Adicionar/Editar modelo de largura de banda** caixa de diálogo:
    
-   1. Na lista suspensa **Modelo**, selecione **Criar novo** para adicionar um novo modelo de largura de banda.
+   1. De saudação **modelo** lista suspensa, selecione **criar novo** tooadd um novo modelo de largura de banda.
    2. Especifique um nome exclusivo para o modelo de largura de banda.
-3. Defina uma **Agenda de Largura de Banda**. Para criar uma agenda:
+3. Defina uma **Agenda de Largura de Banda**. toocreate uma agenda:
    
-   1. Na lista suspensa, escolha os dias da semana para os quais a agenda é configurada. Você pode selecionar vários dias marcando as caixas de seleção localizadas antes dos respectivos dias na lista.
-   2. Selecione a opção **Dia Inteiro** se a agenda for imposta para o dia inteiro. Quando essa opção é marcada, você não pode especificar uma **Hora de Início** ou uma **Hora de Término**. A agenda é válida das 0:00 às 23:59.
-   3. Na lista suspensa, selecione uma **Hora de Início**. Essa é a hora em que a agenda será iniciada.
-   4. Na lista suspensa, selecione uma **Hora de Término**. Essa é a hora em que a agenda será encerrada.
+   1. Da lista suspensa de saudação, escolha dias Olá da agenda de saudação do hello semana é configurado para. Você pode selecionar vários dias, marcando caixas de seleção Olá localizadas antes do respectivos dias Olá na lista de saudação.
+   2. Selecione Olá **dia inteiro** opção se a agenda de saudação é imposta para o dia inteiro hello. Quando essa opção é marcada, você não pode especificar uma **Hora de Início** ou uma **Hora de Término**. agenda de saudação é executada de 12:00 AM too11: 59 PM.
+   3. Na lista suspensa de Olá, selecione um **Start Time**. Isso é quando o agendamento Olá começará.
+   4. Na lista suspensa de Olá, selecione um **hora de término**. Isso é quando o agendamento de saudação irá parar.
       
       > [!NOTE]
-      > Não há permissão para os agendamentos sobrepostos. Se as horas de início e término resultarem em um agendamento sobreposto, você verá uma mensagem de erro sobre isso.
+      > Não há permissão para os agendamentos sobrepostos. Se hello horários de início e término resultarem em um agendamento sobreposto, você verá um efeito de toothat de mensagem de erro.
       > 
       > 
-   5. Especifique a **Taxa da Largura de Banda**. Essa é a largura de banda em Megabits por segundo (Mbps) usada pelo dispositivo StorSimple em operações que envolvem a nuvem (uploads e downloads). Forneça um número entre 1 e 1.000 para esse campo.
-   6. Clique no ícone de verificação ![Ícone de verificação](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). O modelo que você criou será adicionado à lista de modelos de largura de banda na página **Configurar** do serviço.
+   5. Especifique a saudação **taxa de largura de banda**. Isso é Olá largura de banda em Megabits por segundo (Mbps) usada por seu dispositivo StorSimple em operações que envolvem a nuvem de saudação (carregamentos e downloads). Forneça um número entre 1 e 1.000 para esse campo.
+   6. Clique o ícone de verificação Olá ![ícone de verificação](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). modelo Olá que você criou será adicionado toohello lista de modelos de largura de banda no serviço Olá **configurar** página.
       
       ![Criar novo modelo de largura de banda](./media/storsimple-manage-bandwidth-templates/HCS_CreateNewBT1.png)
-4. Clique em **Salvar** na parte inferior da página e em **Sim** quando solicitada a confirmação. Isso salvará as alterações de configuração que você fez.
+4. Clique em **salvar** na parte inferior da saudação de página hello e clique **Sim** quando for solicitada a confirmação. Isso salvará as alterações de configuração de saudação que você fez.
 
 ## <a name="edit-a-bandwidth-template"></a>Editar um modelo de largura de banda
-Execute as etapas a seguir para editar um modelo de largura de banda.
+Execute Olá seguindo as etapas tooedit um modelo de largura de banda.
 
-### <a name="to-edit-a-bandwidth-template"></a>Para editar um modelo de largura de banda
+### <a name="tooedit-a-bandwidth-template"></a>tooedit um modelo de largura de banda
 1. Clique em **adicionar/editar modelo de largura de banda**.
-2. Na caixa de diálogo **Adicionar/Editar Modelo de Largura de Banda** :
+2. Em Olá **Adicionar/Editar modelo de largura de banda** caixa de diálogo:
    
-   1. Na lista suspensa **Modelo** , escolha um modelo de largura de banda existente que deseja modificar.
-   2. Conclua as alterações. (Você pode modificar qualquer uma das configurações existentes.)
-   3. Clique no ícone de verificação  ![Ícone de verificação](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). Você verá o modelo modificado na lista de modelos de largura de banda na página Configurar do serviço.
-3. Para salvar as alterações, clique em **Salvar** na parte inferior da página. Clique em **Sim** quando solicitada a confirmação.
+   1. De saudação **modelo** lista suspensa, escolha uma largura de banda de modelo que você deseja toomodify.
+   2. Conclua as alterações. (Você pode modificar qualquer uma das configurações existentes hello.)
+   3. Clique o ícone de verificação Olá ![Ícone de verificação](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). Você verá Olá o modelo modificado na lista de saudação de modelos de largura de banda na página de configuração do serviço de saudação.
+3. toosave suas alterações, clique em **salvar** final Olá Olá página. Clique em **Sim** quando solicitada a confirmação.
 
 > [!NOTE]
-> Você não poderá salvar as alterações se a agenda editada sobrepuser uma agenda existente no modelo de largura de banda que você está modificando.
+> Você não poderá ser toosave agendar suas alterações se o agendamento editado Olá se sobrepõe a uma já existente no modelo de largura de banda de saudação que você está modificando.
 > 
 > 
 
 ## <a name="delete-a-bandwidth-template"></a>Excluir um modelo de largura de banda
-Execute as etapas a seguir para excluir um modelo de largura de banda.
+Execute Olá seguindo as etapas toodelete um modelo de largura de banda.
 
-#### <a name="to-delete-a-bandwidth-template"></a>Para excluir um modelo de largura de banda
-1. Na lista de tabela dos modelos de largura de banda para seu serviço, selecione o modelo que deseja excluir. Um ícone de exclusão (**x**) aparecerá à extrema direita do modelo selecionado. Clique no ícone **x** para excluir o modelo.
-2. Será solicitada a sua confirmação. Clique em **OK** para continuar.
+#### <a name="toodelete-a-bandwidth-template"></a>toodelete um modelo de largura de banda
+1. Na lista tabular de saudação de modelos de largura de banda de saudação para seu serviço, selecione o modelo de Olá que você deseja toodelete. Um ícone de exclusão (**x**) será exibido toohello extrema direita do modelo selecionado hello. Clique em Olá **x** modelo de saudação do ícone toodelete.
+2. Será solicitada a sua confirmação. Clique em **Okey** tooproceed.
 
-Se o modelo estiver sendo usado por algum volume, você não poderá excluí-lo. Você verá uma mensagem de erro indicando que o modelo está em uso. Uma caixa de diálogo de mensagem de erro será exibida avisando que todas as referências ao modelo devem ser removidas.
+Se o modelo de saudação está em uso por qualquer volume, você não poderá ser toodelete-lo. Você verá uma mensagem de erro indicando que esse modelo hello está em uso. Uma caixa de diálogo de mensagem de erro será exibida informando que todos os Olá referências toohello deve ser removido.
 
-É possível excluir todas as referências ao modelo acessando a página **Contêineres de Volume** e modificando os contêineres de volume que usam esse modelo para que eles usem outro modelo ou usem uma configuração de largura de banda personalizada ou ilimitada. Quando todas as referências forem removidas, você poderá excluir o modelo.
+Você pode excluir todos os modelo de toohello de referências de saudação acessando Olá **contêineres de Volume** página e modificando os contêineres de volume Olá que usam esse modelo para que eles usem outro modelo ou usam uma largura de banda personalizada ou ilimitada configuração. Quando todas as referências de saudação foram removidas, você pode excluir o modelo de saudação.
 
 ## <a name="use-a-default-bandwidth-template"></a>Usar um modelo de largura de banda padrão
-Um modelo de largura de banda padrão é fornecido e usado pelos contêineres de volume, por padrão, para impor controles de largura de banda durante o acesso à nuvem. O modelo padrão também serve como uma referência pronta para os usuários que criam seus próprios modelos. Os detalhes desse modelo padrão são:
+Um modelo de largura de banda padrão é fornecido e é usado pelos contêineres de volume por controles de largura de banda padrão tooenforce ao acessar a nuvem de saudação. modelo de padrão de saudação também serve como uma referência pronta para os usuários que criam seus próprios modelos. Olá detalhes desse modelo padrão são:
 
 * **Nome** : noites e fins de semana ilimitados
-* **Agenda** : uma única agenda de segunda-feira a sexta-feira que se aplica a uma taxa de largura de banda de 1 Mbps no horário das 8:00 às 17:00 do dispositivo. A largura de banda é definida como Ilimitada para o restante da semana.
+* **Agenda** – um único agendamento de segunda-feira tooFriday que se aplica a uma taxa de largura de banda de 1 Mbps entre 8: 00 e 17: 00 horário do dispositivo. largura de banda de saudação é definida tooUnlimited restante de saudação da semana hello.
 
-O modelo padrão pode ser editado. O uso desse modelo (incluindo versões editadas) é rastreado.
+modelo de padrão de saudação pode ser editado. saudação de uso desse modelo (incluindo versões editadas) é rastreada.
 
 ## <a name="create-an-all-day-bandwidth-template-that-starts-at-a-specified-time"></a>Criar um modelo de largura de banda de dia inteiro que comece em uma hora especificada
-Siga este procedimento para criar uma agenda que comece em uma hora especificada e seja executada o dia todo. No exemplo, a agenda inicia às 9:00 e é executada até às 9:00 do dia seguinte. É importante observar que as horas de início e término de uma determinada agenda devem estar contidas na mesma agenda de 24 horas e não podem abranger vários dias. Se precisar configurar modelos de largura de banda que se estendam por vários dias, você precisará usar várias agendas (conforme mostrado no exemplo).
+Siga este procedimento toocreate uma agenda que inicia em um horário especificado e executa todos os dias. Exemplo hello, agenda Olá inicia às 9: 00 Olá manhã e é executada até Olá 9: 00 manhã seguinte. É importante toonote que Olá início e horários de término para uma determinada agenda devem ser incluídos na Olá mesmo 24 horas agendar e não pode abranger vários dias. Se você precisar tooset modelos de largura de banda que abrangem vários dias, você precisará toouse várias agendas (conforme mostrado no exemplo hello).
 
-#### <a name="to-create-an-all-day-bandwidth-template"></a>Para criar um modelo de largura de banda de dia inteiro
-1. Crie uma agenda que inicie às 9:00 e seja executada até a meia-noite.
-2. Adicione outra agenda. Configure a segunda agenda para execução da meia-noite até às 9:00.
-3. Salve o modelo de largura de banda.
+#### <a name="toocreate-an-all-day-bandwidth-template"></a>toocreate um modelo de largura de banda de dia inteiro
+1. Crie uma agenda que inicia às 9: 00 Olá manhã e é executado até meia-noite.
+2. Adicione outra agenda. Configure Olá segundo agendamento toorun da meia-noite até 9: 00 Olá manhã.
+3. Salve o modelo de largura de banda de saudação.
 
-A agenda composta terá início na hora de sua escolha e será executa o dia todo.
+agendamento composto Olá será, em seguida, iniciar em um horário de sua escolha e executado o dia inteiro.
 
 ## <a name="questions-and-answers-about-bandwidth-templates"></a>Perguntas e respostas sobre modelos de largura de banda
-**P**. O que acontece aos controles de largura de banda quando você está entre as agendas? (Uma agenda foi encerrada e outra ainda não foi iniciada.)
+**P**. O que acontece toobandwidth controles quando está entre agendamentos Olá? (Uma agenda foi encerrada e outra ainda não foi iniciada.)
 
-**R**. Nesses casos, nenhum controle de largura de banda será utilizado. Isso significa que o dispositivo pode usar a largura de banda ilimitada ao dispor dados em camadas na nuvem.
+**R**. Nesses casos, nenhum controle de largura de banda será utilizado. Isso significa que o dispositivo Olá pode usar a largura de banda ilimitada quando camadas toohello de dados na nuvem.
 
 **P**. Você pode modificar os modelos de largura de banda em um dispositivo offline?
 
-**R**. Você não poderá modificar os modelos de largura de banda em contêineres de volumes se o dispositivo correspondente estiver offline.
+**R**. Não será capaz de toomodify modelos de largura de banda em contêineres de volume se o dispositivo correspondente hello está offline.
 
-**P**. Você pode editar um modelo de largura de banda associado a um contêiner de volume quando os volumes associados estão offline?
+**P**. Você pode editar um modelo de largura de banda associado a um contêiner de volume quando os volumes Olá associado estão offline?
 
-**R**. Você pode modificar um modelo de largura de banda associado a um contêiner de volume cujos volumes estejam offline. Observe que quando os volumes estiverem offline, nenhum dado será disposto em camadas do dispositivo para a nuvem.
+**R**. Você pode modificar um modelo de largura de banda associado a um contêiner de volume cujos volumes estejam offline. Observe que, quando os volumes estão offline, nenhum dado será hierárquico de saudação dispositivo toohello nuvem.
 
 **P**. Você pode excluir um modelo padrão?
 
-**R**. Embora você possa excluir um modelo padrão, não é uma boa ideia fazer isso. O uso de um modelo padrão, incluindo versões editadas, é rastreado. Os dados de rastreamento são analisados e, ao longo do tempo, são usados para melhorar o modelo padrão.
+**R**. Embora você pode excluir um modelo padrão, não é uma boa ideia toodo assim. saudação de uso de um modelo padrão, incluindo versões editadas, é rastreada. Olá, dados de rastreamento é analisado e decorrer Olá de tempo, é o modelo de padrão de saudação do tooimprove usado.
 
-**P**. Como determinar se seus modelos de largura de banda precisam ser modificados?
+**P**. Como determinar seus modelos de largura de banda necessário toobe modificado?
 
-**R**. Um dos sinais que indicam que é preciso modificar os modelos de largura de banda é quando você começa a perceber a lentidão da rede ou reduções várias vezes no dia. Se isso acontecer, monitore a rede de armazenamento e uso examinando os gráficos do desempenho de E/S e da taxa de transferência de rede.
+**R**. Olá sinais de que você precisa de modelos de largura de banda de saudação toomodify é quando você iniciar vendo rede Olá lento ou ter interferências várias vezes em um dia. Se isso acontecer, monitore a rede de armazenamento e uso de saudação examinando os gráficos de desempenho de e/s e a taxa de transferência de rede hello.
 
-Com os dados de taxa de transferência da rede, identifique a hora do dia e os contêineres de volume em que ocorre o afunilamento da rede. Se isso ocorre quando dados estão sendo dispostos em camada na nuvem (obtenha essa informação do desempenho de E/S de todos os contêineres de volume do dispositivo para nuvem), você precisará modificar os modelos de largura de banda associados aos seus contêineres de volume.
+De dados de taxa de transferência de rede hello, identifique o tempo de saudação do dia e Olá contêineres de volume no qual Olá afunilamento de rede ocorre. Se isso ocorrer quando os dados estão sendo toohello hierárquico nuvem (obtenha essas informações de desempenho de e/s para todos os contêineres de volume para o dispositivo toocloud), em seguida, você precisará de modelos de largura de banda de saudação toomodify associados aos seus contêineres de volume.
 
-Depois que os modelos modificados estiverem em uso, você precisara monitorar a rede novamente em busca de latências significativas. Se elas ainda existirem, você precisará rever seus modelos de largura de banda.
+Após a modificação de saudação modelos estão em uso, você precisará rede de saudação toomonitor novamente quanto a latências significativas. Se elas ainda existirem, em seguida, você precisará toorevisit seus modelos de largura de banda.
 
-**P**. O que acontece se vários contêineres de volume em meu dispositivo tiverem agendas que se sobrepõem, mas diferentes limites se aplicarem a cada uma?
+**P**. O que acontece se vários contêineres de volume em meu dispositivo tiverem agendamentos sobrepostos, mas tooeach de aplicar limites diferentes?
 
-**R**. Vamos supor que você tenha um dispositivo com 3 contêineres de volume. As agendas associadas a esses contêineres se sobrepõem completamente. Para cada um desses contêineres, os limites de largura de banda usados são 5, 10 e 15 Mbps, respectivamente. Quando a E/S estiver ocorrendo em todos esses contêineres ao mesmo tempo, o mínimo dos 3 limites de largura de banda poderá ser aplicado: nesse caso, 5 Mbps, pois essas solicitações de E/S de saída compartilham a mesma fila.
+**R**. Vamos supor que você tenha um dispositivo com 3 contêineres de volume. Olá agendamentos associados a esses contêineres completamente sobreponham. Para cada um desses contêineres, limites de largura de banda Olá usados são 5, 10 e 15 Mbps respectivamente. Quando a e/s estão ocorrendo em todos esses contêineres em Olá ao mesmo tempo, no mínimo, Olá Olá 3 limites de largura de banda pode ser aplicado: nesse caso, pois isso compartilhamento de solicitações de e/s de saída de 5 Mbps Olá mesma fila.
 
 ## <a name="best-practices-for-bandwidth-templates"></a>Práticas recomendadas para modelos de largura de banda
 Siga estas práticas recomendadas para seu dispositivo StorSimple:
 
-* Configure modelos de largura de banda em seu dispositivo para habilitar a limitação variável da taxa de transferência da rede pelo dispositivo em diferentes horas do dia. Esses modelos de largura de banda quando usados com agendas de backup podem aproveitar eficientemente largura de banda de rede adicionais para operações de nuvem fora dos horários de pico.
-* Calcule a largura de banda real necessária para uma implantação específica com base no tamanho da implantação e no RTO (objetivo de tempo de recuperação) necessário.
+* Configure modelos de largura de banda em seu dispositivo tooenable limitação variável da taxa de transferência de rede Olá por dispositivo Olá em diferentes momentos do dia de saudação. Esses modelos de largura de banda quando usados com agendas de backup podem aproveitar eficientemente largura de banda de rede adicionais para operações de nuvem fora dos horários de pico.
+* Calcule a largura de banda real Olá necessária para uma implantação específica com base no tamanho de saudação da implantação de saudação e objetivo de tempo de recuperação necessário hello (RTO).
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+Saiba mais sobre [usando Olá tooadminister de serviço do Gerenciador do StorSimple em seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 

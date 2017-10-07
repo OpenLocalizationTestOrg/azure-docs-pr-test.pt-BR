@@ -1,5 +1,5 @@
 ---
-title: "Solucionar problemas de implantação da VM Windows no Azure| Microsoft Docs"
+title: "aaaTroubleshoot implantação de VM do Windows no Azure | Microsoft Docs"
 description: "Solucionar problemas de implantação do Resource Manager ao criar uma nova máquina virtual Windows no Azure"
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86795ba6eab3505a3d539e4fc4e032bdeecc2e78
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: c27d4f63b67db2d1c9f117f05a2eba9ef130ef37
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Solucionar problemas de implantação ao criar uma nova VM Windows no Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -33,60 +33,60 @@ ms.lasthandoff: 08/18/2017
 Para outros problemas de implantação de VM e perguntas, confira [Solucionar problemas de implantação de máquina virtual Windows no Azure](troubleshoot-deploy-vm.md).
 
 ## <a name="collect-activity-logs"></a>Coletar logs de atividades
-Para iniciar a solução de problemas, colete os logs de atividades para identificar o erro associado ao problema. Os links a seguir contêm informações detalhadas sobre o processo a ser seguido.
+toostart solução de problemas, atividade de coletar Olá registra o erro de saudação de tooidentify associado Olá problema. Hello links a seguir contêm informações detalhadas sobre Olá processo toofollow.
 
 [Exibir operações de implantação](../../azure-resource-manager/resource-manager-deployment-operations.md)
 
-[Exibir logs de atividades para gerenciar recursos do Azure](../../resource-group-audit.md)
+[Exibir logs de atividade toomanage Azure recursos](../../resource-group-audit.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
 [!INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
 
-**Y:** se o sistema operacional for Windows generalizado e ele for carregado e/ou capturado com a configuração generalizada, não haverá erros. Da mesma forma, se o sistema operacional for Windows especializado e ele for carregado e/ou capturado com a configuração especializada, não haverá erros.
+**Y:** se Olá sistema operacional for Windows generalizado e ele é carregado e/ou capturado com hello generalizado configuração, não haja erros. Da mesma forma, se Olá SO é especializada do Windows, e ele é carregado e/ou capturado com hello especializado configuração, e não haja erros.
 
 **Erros de upload:**
 
-**N<sup>1</sup>:** se o sistema operacional for Windows generalizado e ele for carregado como especializado, você receberá um erro de tempo limite de provisionamento, com a VM paralisada na tela do OOBE.
+**N<sup>1</sup>:** se Olá sistema operacional for Windows generalizado e ele é carregado como especializado, você obterá um erro de tempo limite de provisionamento com hello VM presa na tela OOBE hello.
 
-**N<sup>2</sup>:** se o sistema operacional for Windows especializado e ele for carregado como generalizado, você receberá um erro de falha no provisionamento com a VM paralisada na tela do OOBE, pois a nova VM estará em execução com o nome do computador, nome de usuário e senha originais.
+**N<sup>2</sup>:** se Olá SO é especializada do Windows, e ele é carregado como generalizado, você receberá um erro de falha de provisionamento com hello VM presa na tela OOBE Olá porque hello nova máquina virtual está em execução com o computador original Olá nome, nome de usuário e senha.
 
 **Resolução**
 
-Para resolver ambos os erros, use o [Add-AzureRmVhd para carregar o VHD original](https://msdn.microsoft.com/library/mt603554.aspx), disponível localmente, com a mesma configuração usada para o SO (generalizado/especializado). Para carregar como generalizado, lembre-se de executar sysprep primeiro.
+tooresolve ambos esses erros, use [tooupload AzureRmVhd adicionar Olá VHD original](https://msdn.microsoft.com/library/mt603554.aspx), disponíveis no local, com hello configuração mesmo que para hello (generalizado/especializado) de sistema operacional. tooupload como generalizado, lembre-se sysprep toorun primeiro.
 
 **Erros de captura:**
 
-**N<sup>3</sup>:** se o sistema operacional for Windows generalizado e ele for capturado como especializado, você receberá um erro de tempo limite de provisionamento, pois a VM original não será utilizável, já que estará marcada como generalizada.
+**N<sup>3</sup>:** se Olá sistema operacional for Windows generalizada e ele é capturado como especializado, você obterá um erro de tempo limite de provisionamento porque Olá original VM não é utilizável que está marcado como generalizado.
 
-**N<sup>4</sup>:** se o sistema operacional for Windows especializado e ele for capturado como generalizado, você receberá um erro de falha no provisionamento, pois a nova VM estará em execução com o nome do computador, nome de usuário e senha originais. Além disso, a VM original não será utilizável, já que estará marcada como especializada.
+**N<sup>4</sup>:** se Olá SO é especializada do Windows, e eles são capturados como generalizado, você receberá um erro de falha no provisionamento porque hello nova máquina virtual está em execução com o nome do computador original hello, username e password. Além disso, Olá original VM não é utilizável porque ele está marcado como especializadas.
 
 **Resolução**
 
-Para resolver ambos os erros, exclua a imagem atual do portal e [recapture-a dos VHDs atuais](create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) com a mesma configuração usada para o sistema operacional (generalizado/especializado).
+tooresolve ambos esses erros, excluir imagem atual de saudação do portal de saudação e [recapturá-lo da saudação VHDs atuais](create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) com Olá a mesma configuração que para hello (generalizado/especializado) de sistema operacional.
 
 ## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>Problema: imagem personalizada/da galeria/do Marketplace; falha de alocação
-Esse erro ocorre em situações nas quais a nova solicitação de VM é fixada em um cluster que não tem suporte para o tamanho da VM sendo solicitado ou não tem espaço livre disponível para acomodar a solicitação.
+Esse erro ocorre em situações quando Olá nova solicitação VM é cluster tooa fixo que não oferece suporte a tamanho da VM hello está sendo solicitado ou não tem uma solicitação de saudação do tooaccommodate de espaço livre disponível.
 
-**Causa 1:** o cluster não dá suporte ao tamanho de VM solicitado.
+**Causa 1:** não oferece suporte a cluster Olá Olá solicitado tamanho da VM.
 
 **Resolução 1:**
 
-* Repita a solicitação com um tamanho de VM menor.
-* Se o tamanho da VM solicitada não puder ser alterado:
-  * Pare todas as VMs no conjunto de disponibilidade.
+* Repita a solicitação de saudação com um tamanho menor de VM.
+* Se hello tamanho Olá solicitado de que VM não pode ser alterada:
+  * Pare todas as VMs Olá Olá conjunto de disponibilidade.
     Clique em **Grupos de recursos** > *seu grupo de recursos* > **Recursos** > *seu conjunto de disponibilidade* > **Máquinas Virtuais** > *sua máquina virtual* > **Parar**.
-  * Depois de parar todas as máquinas virtuais, crie a nova VM no tamanho desejado.
-  * Inicie a nova VM primeiro e, em seguida, selecione cada uma das VMs paradas e clique em **Iniciar**.
+  * Depois que todos hello parar máquinas virtuais, criar hello nova VM no hello desejado de tamanho.
+  * Iniciar Olá nova VM primeiro e, em seguida, selecione Olá interrompido VMs e clique em **iniciar**.
 
-**Causa 2:** o cluster não tem recursos livres.
+**Causa 2:** Olá cluster não tem recursos gratuitos.
 
 **Resolução 2:**
 
-* Repita a solicitação mais tarde.
-* Se a nova VM puder ser parte de um conjunto de disponibilidade diferente
-  * Crie uma nova VM em um conjunto de disponibilidade diferente (na mesma região).
-  * Adicione a nova VM à mesma rede virtual.
+* Repita a solicitação de hello mais tarde.
+* Se hello nova VM pode ser definida parte de uma disponibilidade diferente
+  * Criar uma nova VM em um conjunto de disponibilidade diferente (em Olá mesma região).
+  * Adicionar Olá nova VM toohello mesma rede virtual.
 
 ## <a name="next-steps"></a>Próximas etapas
 Se você encontrar problemas ao iniciar uma VM do Windows parada ou redimensionar uma VM do Windows existente no Azure, consulte [Solucionar problemas de implantação do Resource Manager com a reinicialização ou o redimensionamento de uma máquina virtual Windows no Azure](restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

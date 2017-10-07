@@ -1,5 +1,5 @@
 ---
-title: "Visão Geral dos Conjuntos de dimensionamento de máquinas virtuais do Azure | Microsoft Docs"
+title: "Visão geral dos conjuntos de escala de máquinas virtuais aaaAzure | Microsoft Docs"
 description: "Saiba mais sobre os Conjuntos de dimensionamento de máquinas virtuais do Azure"
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -16,16 +16,16 @@ ms.topic: get-started-article
 ms.date: 07/03/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b2fbc230faf01797109114d6ebdffe5ec50e48b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 788b2d1636e0bf4ef3fbf94aed9b3303c5fafa82
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>O que são conjuntos de dimensionamento de máquinas virtuais no Azure?
-Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você pode usar para implantar e gerenciar um conjunto de VMs idênticas. Com todas as VMs configuradas igualmente, os conjuntos de dimensionamento são projetados para dar suporte total ao dimensionamento e nenhum pré-provisionamento de VMs é necessário. Portanto, é mais fácil criar serviços em larga escala direcionados para Big Compute, Big Data e cargas de trabalho em contêineres.
+Conjuntos de escala de máquinas virtuais são um recurso de computação do Azure que você pode usar toodeploy e gerenciar um conjunto de VMs idênticos. Com todas as máquinas virtuais configuradas Olá mesmo, conjuntos de escala são AutoEscala true toosupport projetado e nenhum provisionamento prévio de VMs é necessária. Portanto, é mais fácil serviços em grande escala toobuild que se destinam a computação intensa, dados grandes e cargas de trabalho em contêineres.
 
-Para aplicativos que necessitam dimensionar os recursos de computação, as operações de dimensionamento são balanceadas implicitamente entre domínios de falha e atualização. Para ver uma introdução aos conjuntos de dimensionamento, confira o [Comunicado no blog do Azure](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
+Para aplicativos que precisam de recursos de computação tooscale e em escala operações implicitamente são balanceadas entre domínios de falha e atualização. Define um adicional tooscale de Introdução, consulte toohello [comunicado do blog do Azure](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
 
 Para saber mais sobre conjuntos de dimensionamento, assista a estes vídeos:
 
@@ -33,24 +33,24 @@ Para saber mais sobre conjuntos de dimensionamento, assista a estes vídeos:
 * [Conjuntos de Dimensionamento de Máquina Virtual com Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>Criando e gerenciando conjuntos de dimensionamento
-Você pode criar um conjunto de dimensionamento no [Portal do Azure](https://portal.azure.com) selecionando **novo** e digitando **escala** na barra de pesquisa. **Conjunto de dimensionamento de máquinas virtuais** está listado nos resultados. A partir daí, você pode preencher os campos obrigatórios para personalizar e implantar o conjunto de dimensionamento. Você também tem opções para configurar as regras básicas de dimensionamento automático baseadas no uso da CPU no portal.
+Você pode criar uma escala definida no hello [portal do Azure](https://portal.azure.com) selecionando **novo** e digitando **escala** na barra de pesquisa de saudação. **Conjunto de escalas da máquina virtual** está listado nos resultados de saudação. A partir daí, você pode preencher Olá necessários campos toocustomize e implantar seu conjunto de escala. Você também tem opções tooset as regras básicas de dimensionamento automático com base no uso de CPU em portal hello.
 
 Você pode definir e implantar conjuntos de dimensionamento usando modelos JSON e [APIs REST](https://msdn.microsoft.com/library/mt589023.aspx), assim como as VMs individuais do Azure Resource Manager. Portanto, você pode usar qualquer método de implantação do Azure Resource Manager padrão. Para obter mais informações sobre modelos, confira [Criação de modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
-Você pode encontrar um conjunto de modelos de exemplo para conjunto de dimensionamento de máquinas virtuais no [repositório GitHub de modelos do Guia de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates). (Procure modelos com **vmss** no título.)
+Você pode encontrar define um conjunto de modelos de exemplo para a escala de máquinas virtuais em Olá [repositório do GitHub de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates). (Procurar os modelos com **vmss** no título hello.)
 
-Para exemplos do modelo Início Rápido, um botão "Implantação do Azure" no arquivo leiame para cada modelo os vincula ao recurso de implantação no portal. Para implantar o conjunto de dimensionamento, clique no botão e preencha todos os parâmetros obrigatórios no portal. 
+Para obter exemplos de modelo de início rápido da saudação, um botão "Implantar tooAzure" hello Leiame para cada modelo vincula toohello recurso de implantação do portal. escala de saudação toodeploy definido, clique botão de saudação e, em seguida, preencha os parâmetros que são necessários no portal de saudação. 
 
 ## <a name="scaling-a-scale-set-out-and-in"></a>Expandindo e reduzindo um conjunto de dimensionamento
-Você pode alterar a capacidade de um conjunto de dimensionamento definido no portal do Azure clicando na seção **Dimensionamento** em **Configurações**. 
+Você pode alterar a capacidade de saudação de uma escala definida no portal do Azure de saudação clicando Olá **Scaling** seção em **configurações**. 
 
-Para alterar a capacidade do conjunto de dimensionamento na linha de comando, use o comando **scale** na [CLI do Azure](https://github.com/Azure/azure-cli). Por exemplo, use este comando para definir um conjunto de dimensionamento definido com capacidade de 10 VMs:
+capacidade de conjunto de escala de toochange na linha de comando hello, use Olá **escala** do [CLI do Azure](https://github.com/Azure/azure-cli). Por exemplo, use este comando tooset uma capacidade de tooa do conjunto de escala de 10 VMs:
 
 ```bash
 az vmss scale -g resourcegroupname -n scalesetname --new-capacity 10 
 ```
 
-Para definir o número de VMs em um conjunto de dimensionamento definido usando o PowerShell, use o comando **Update-AzureRmVmss**:
+número de saudação tooset de VMs em uma escala de definir usando o PowerShell, use Olá **AzureRmVmss atualização** comando:
 
 ```PowerShell
 $vmss = Get-AzureRmVmss -ResourceGroupName resourcegroupname -VMScaleSetName scalesetname  
@@ -58,15 +58,15 @@ $vmss.Sku.Capacity = 10
 Update-AzureRmVmss -ResourceGroupName resourcegroupname -Name scalesetname -VirtualMachineScaleSet $vmss
 ```
 
-Para aumentar ou diminuir o número de máquinas virtuais em um conjunto de dimensionamento, usando um modelo do Azure Resource Manager, altere a propriedade **capacity** e reimplante o modelo. Essa simplicidade facilita a integração de conjuntos de dimensionamento com o dimensionamento automático do Azure ou a criação de sua própria camada de dimensionamento personalizada se você precisar definir eventos de escala personalizada que não têm suporte do dimensionamento automático do Azure. 
+tooincrease diminuição Olá número de máquinas virtuais em uma escala de definido por meio de um modelo do Gerenciador de recursos do Azure, altere Olá **capacidade** propriedade e reimplantar o modelo de saudação. Essa simplicidade torna fácil toointegrate conjuntos de escala com o dimensionamento automático do Azure ou toowrite que sua própria camada dimensionamento personalizada se você precisar de eventos de escala personalizada toodefine que o dimensionamento automático do Azure não dá suporte. 
 
-Se estiver reimplantando um modelo do Azure Resource Manager para alterar a capacidade, você pode definir um modelo muito menor que inclui apenas o pacote de propriedades **SKU** com a capacidade atualizada. [Aqui está um exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
+Se estiver reimplantando uma capacidade de saudação do Azure Resource Manager modelo toochange, você pode definir um muito modelo menor que inclui apenas Olá **SKU** pacote de propriedade com hello atualizado capacidade. [Aqui está um exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
 ## <a name="autoscale"></a>Autoscale
 
-Um conjunto de dimensionamento pode ser configurado opcionalmente com configurações de dimensionamento automático quando é criado no portal do Azure. O número de VMs pode ser aumentado ou diminuído com base na utilização média da CPU. 
+Um conjunto de escala pode ser configurado opcionalmente com configurações de dimensionamento automático quando ele é criado no hello portal do Azure. número de saudação de VMs pode, em seguida, aumento ou redução com base no uso médio da CPU. 
 
-Muitos dos modelos de conjunto de dimensionamento nos [modelos de Início rápido do Azure](https://github.com/Azure/azure-quickstart-templates) definem configurações de dimensionamento automático. Você também pode adicionar configurações de dimensionamento automático a um conjunto de dimensionamento existente. Por exemplo, este script do Azure PowerShell adiciona o dimensionamento automático de CPU com base em um conjunto de dimensionamento:
+Muitos hello dimensionar os modelos de conjunto em Olá [modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates) definir configurações de dimensionamento automático. Você também pode adicionar tooan de configurações de dimensionamento automático existentes do conjunto de escala. Por exemplo, este script do PowerShell do Azure adiciona o conjunto de escala do dimensionamento automático com base em CPU tooa:
 
 ```PowerShell
 
@@ -81,20 +81,20 @@ $profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -
 Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGroup $rgname -TargetResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -AutoscaleProfiles $profile1
 ```
 
-Você pode encontrar uma lista de métricas válidas para dimensionar nas [Métricas com suporte no Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md) sob o título “Microsoft.Compute/virtualMachineScaleSets”. Existem opções de dimensionamento automático mais avançadas disponíveis, incluindo o dimensionamento automático com base em agendamento e o uso de webhooks para integração com sistemas de alertas.
+Você pode encontrar uma lista de métricas válido tooscale em [suporte para métricas com o Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md) em Olá título "Microsoft.Compute/virtualMachineScaleSets". As opções mais avançadas de dimensionamento automático também estão disponíveis, incluindo o dimensionamento automático com base em agendamento e usando webhooks toointegrate com sistemas de alerta.
 
 ## <a name="monitoring-your-scale-set"></a>Monitorando seu conjunto de dimensionamento
-O [portal do Azure](https://portal.azure.com) lista os conjuntos de dimensionamento e mostra suas propriedades. O portal também dá suporte a operações de gerenciamento. Você pode executar operações de gerenciamento nos conjuntos de dimensionamento e nas VMs individuais em um conjunto de dimensionamento. O portal também fornece um gráfico de uso de recursos personalizável. 
+Olá [portal do Azure](https://portal.azure.com) listas escala define e mostra suas propriedades. portal de saudação também oferece suporte a operações de gerenciamento. Você pode executar operações de gerenciamento nos conjuntos de dimensionamento e nas VMs individuais em um conjunto de dimensionamento. portal de saudação também fornece um gráfico de uso do recurso personalizável. 
 
-Se você precisar ver ou editar a definição JSON subjacente de um recurso do Azure, também poderá usar o [Gerenciador de Recursos do Azure](https://resources.azure.com). Os conjuntos de dimensionamento são um recurso no provedor de recursos do Azure Microsoft.Compute. Nesse site, você pode vê-los expandindo os links abaixo:
+Se você precisa toosee ou editar Olá subjacente definição JSON de um recurso do Azure, você também pode usar [Gerenciador de recursos do Azure](https://resources.azure.com). Conjuntos de escala são um recurso em Olá provedor de recursos do Azure da Microsoft. Compute. Neste site, você pode vê-los expandindo Olá links a seguir:
 
 **Assinaturas** > **sua assinatura** > **resourceGroups** > **provedores** > **Microsoft.Compute** > **virtualMachineScaleSets** > **seu conjunto de dimensionamento** > etc.
 
 ## <a name="scale-set-scenarios"></a>Cenários do conjunto de dimensionamento
 Esta seção lista alguns cenários típicos de conjunto de dimensionamento. Além disso, alguns serviços do Azure de nível mais alto (como Lote, Service Fabric e Serviço de Contêiner) usam esses cenários.
 
-* **Use RDP/SSH para se conectar a instâncias de conjunto de dimensionamento**: um conjunto de dimensionamento é criado dentro de uma rede virtual e as VMs individuais dentro dele não são endereços IP públicos alocados por padrão. Essa política evita a sobrecarga de despesas e de gerenciamento da alocação de endereços IP públicos diferentes para todos os nós na sua grade de computação. Se você precisa direcionar conexões externas para VMs de conjunto de dimensionamento, pode configurar um conjunto de dimensionamento para atribuir endereços IP públicos para novas VMs automaticamente. Como alternativa, você pode se conectar às VMs de outros recursos em sua rede virtual que possam receber endereços IP públicos, por exemplo, balanceadores de carga e máquinas virtuais autônomas. 
-* **Conectar-se às VMs usando regras NAT**: você pode criar um endereço IP público, atribuí-lo a um balanceador de carga e definir um pool NAT de entrada. Essas ações mapeiam portas no endereço IP para uma porta em uma VM no conjunto de dimensionamento. Por exemplo:
+* **Usar RDP ou SSH tooconnect tooscale conjunto de instâncias**: um conjunto de escala é criado dentro de uma rede virtual e VMs individuais no conjunto de escala de saudação não estão alocadas endereços IP públicos por padrão. Esta política evita despesas hello e sobrecarga de gerenciamento de alocação de IP público separado endereços tooall nós Olá a grade de computação. Se você precisa direcionar conexões externas tooscale definir VMs, você pode configurar uma escala conjunto tooautomatically atribuir pública IP endereços toonew VMs. Como alternativa, você pode conectar tooVMs de outros recursos em sua rede virtual pode estar endereços IP públicos, por exemplo, balanceadores de carga e máquinas virtuais autônomas. 
+* **Conecte-se tooVMs usando regras NAT**: você pode criar um endereço IP público, atribua-o balanceador de carga tooa e definir um pool NAT de entrada. Essas ações portas Olá IP endereço tooa porta em uma máquina virtual no conjunto de escala de saudação do mapa. Por exemplo:
   
   | Fonte | Porta de origem | Destino | Porta de destino |
   | --- | --- | --- | --- |
@@ -102,38 +102,38 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento. Al�
   |  IP público |Porta 50001 |vmss\_1 |Porta 22 |
   |  IP público |Porta 50002 |vmss\_2 |Porta 22 |
   
-   [Neste exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat), as regras NAT são definidas para habilitar uma conexão SSH para todas as VMs em um conjunto de dimensionamento usando um único endereço IP público.
+   Em [Este exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat), regras de NAT são definida tooenable um tooevery de conexão SSH VM em um conjunto de escala, usando um IP público único endereço.
   
-   [Este exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat) faz o mesmo com RDP e Windows.
-* **Conectar às VMs usando uma "jumpbox"** - Se você criar um conjunto de dimensionamento e uma VM autônoma na mesma rede virtual, a VM autônoma e o conjunto de dimensionamento podem se conectar um ao outro usando seus endereços IP internos, conforme definido pela sub-rede ou rede virtual. Se você criar um endereço IP público e atribuí-lo à VM autônoma, poderá usar RDP ou SSH para se conectar à VM autônoma. Em seguida, você pode conectar-se dessa máquina às instâncias de conjunto de dimensionamento. Você pode perceber, nesse momento, que um simples conjunto de dimensionamento é inerentemente mais seguro do que uma simples VM autônoma com um endereço IP público em sua configuração padrão.
+   [Este exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat) Olá mesmo com o RDP e o Windows.
+* **Conecte-se tooVMs usando "jumpbox"**: se você criar um conjunto de escala e uma VM autônoma em Olá mesmo virtual de rede, hello autônomo VM e hello conjunto de escala de VM pode se conectar tooone endereços de outra usando seu endereço IP interno, conforme definido pelo Olá virtual rede ou sub-rede. Se você criar um endereço IP público e atribuí-la toohello autônomo VM, você pode usar RDP ou SSH tooconnect toohello VM autônoma. Você pode conectar da que máquina tooyour conjunto de escala de instâncias. Você pode perceber, nesse momento, que um simples conjunto de dimensionamento é inerentemente mais seguro do que uma simples VM autônoma com um endereço IP público em sua configuração padrão.
   
    Por exemplo, [este modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-jumpbox) implanta um conjunto de dimensionamento simples com uma VM autônoma. 
-* **Balanceamento de carga para instâncias de conjunto de dimensionamento**: se desejar entregar trabalho a um cluster de VMs de cálculo usando uma abordagem round-robin, você poderá configurar um balanceador de carga do Azure com regras de balanceamento de carga de camada 4 apropriadas. É possível definir investigações para verificar se o aplicativo está em execução ao executar ping de portas com um protocolo especificado, intervalo e caminho de solicitação. O [Gateway de Aplicativo](https://azure.microsoft.com/services/application-gateway/) do Azure também oferece suporte aos conjuntos de dimensionamento, além de cenários de balanceamento de carga de camada 7 e mais sofisticados.
+* **Tooscale conjunto de instâncias de balanceamento de carga**: se você quiser tooa toodeliver trabalho cluster de computação de VMs usando uma abordagem de rodízio, você pode configurar um balanceador de carga do Azure com regras de balanceamento de carga de camada 4 adequadamente. Você pode definir testes tooverify que seu aplicativo é executado usando o comando ping portas com um protocolo especificado, o intervalo e o caminho da solicitação. O [Gateway de Aplicativo](https://azure.microsoft.com/services/application-gateway/) do Azure também oferece suporte aos conjuntos de dimensionamento, além de cenários de balanceamento de carga de camada 7 e mais sofisticados.
   
-   [Este exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-web-ssl) cria um conjunto de dimensionamento que executa servidores Web Apache e usa um balanceador de carga para balancear a carga que cada VM recebe. (observe o tipo de recurso Microsoft.Network/loadBalancers, bem como networkProfile e extensionProfile em virtualMachineScaleSet)
+   [Este exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-web-ssl) cria um conjunto de escala que é executado de servidores web Apache e usa uma toobalance Olá carga que cada VM recebe. (Observe o tipo de recurso de Microsoft.Network/loadBalancers hello e networkProfile e extensionProfile em virtualMachineScaleSet.)
 
    [Este exemplo de Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-app-gateway) e [Este exemplo de Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-app-gateway) usam o Gateway de Aplicativo.  
 
-* **Implantar um conjunto de dimensionamento como um cluster de cálculo em um gerenciador de cluster de PaaS**: os conjuntos de dimensionamento são muitas vezes descritos como uma função de trabalho de próxima geração. Embora seja uma descrição válida, eles correm o risco de confundir os recursos de conjunto de dimensionamento com recursos dos Serviços de Nuvem do Azure. De certa forma, os conjuntos de dimensionamento oferecem uma verdadeira função ou recurso de trabalho. Eles são um recurso de computação generalizado que independe da plataforma/do tempo de execução, é personalizável e se integra ao IaaS do Azure Resource Manager.
+* **Implantar um conjunto de dimensionamento como um cluster de cálculo em um gerenciador de cluster de PaaS**: os conjuntos de dimensionamento são muitas vezes descritos como uma função de trabalho de próxima geração. Embora uma descrição válida, ele corre o risco de saudação de escala confuso conjunto de recursos com recursos de serviços de nuvem do Azure. De certa forma, os conjuntos de dimensionamento oferecem uma verdadeira função ou recurso de trabalho. Eles são um recurso de computação generalizado que independe da plataforma/do tempo de execução, é personalizável e se integra ao IaaS do Azure Resource Manager.
   
    Uma função de trabalho dos Serviços de Nuvem é limitada em termos de suporte de plataforma/tempo de execução (somente imagens da plataforma Windows). Mas ele também inclui serviços como permuta VIP, configurações de atualização editáveis e configurações específicas de implantação de aplicativo/tempo de execução. Esses serviços não estão *ainda* disponíveis nos conjuntos de dimensionamento ou são fornecidos por outros serviços de PaaS de nível mais alto, como o Azure Service Fabric. Você pode examinar os conjuntos de dimensionamento como uma infraestrutura que dá suporte a PaaS. Soluções PaaS como o [Service Fabric](https://azure.microsoft.com/services/service-fabric/) criam com base nessa infraestrutura.
   
    [Neste exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) da abordagem, o [Serviço de Contêiner do Azure](https://azure.microsoft.com/services/container-service/) implanta um cluster com base em conjuntos de dimensionamento com um orquestrador de contêiner.
 
 ## <a name="scale-set-performance-and-scale-guidance"></a>Orientação de dimensionamento e desempenho do conjunto de dimensionamento
-* Um conjunto de escala dá suporte a até 1.000 VMs. Se você criar e carregar suas próprias imagens VM personalizadas, o limite será 100. Para considerações sobre o uso de conjuntos de dimensionamento grandes, confira [Trabalhando com conjuntos de dimensionamento de máquinas virtuais grandes](virtual-machine-scale-sets-placement-groups.md).
-* Você não precisa criar contas de armazenamento do Azure previamente para usar conjuntos de dimensionamento. Os conjuntos de dimensionamento dão suporte a discos gerenciados do Azure, o que elimina as preocupações de desempenho em relação ao número de discos por conta de armazenamento. Para saber mais, confira [Conjuntos de dimensionamento de máquinas virtuais do Azure e discos gerenciados](virtual-machine-scale-sets-managed-disks.md).
+* Uma escala conjunto oferece suporte a too1, 000 VMs. Se você criar e carregar suas próprias imagens VM personalizadas, o limite de saudação é 100. Para considerações sobre o uso de conjuntos de dimensionamento grandes, confira [Trabalhando com conjuntos de dimensionamento de máquinas virtuais grandes](virtual-machine-scale-sets-placement-groups.md).
+* Você não tem toopre-criar conjuntos de escala de toouse de contas de armazenamento do Azure. Suporte a conjuntos de escala do Azure gerenciados discos, o que negar questões de desempenho sobre o número de saudação de discos por conta de armazenamento. Para saber mais, confira [Conjuntos de dimensionamento de máquinas virtuais do Azure e discos gerenciados](virtual-machine-scale-sets-managed-disks.md).
 * Considere o uso de armazenamento Premium do Azure, em vez de Armazenamento do Azure para ter tempos de provisionamento de VM mais rápidos e mais previsíveis, além de um melhor desempenho de E/S.
-* A cota de núcleos na região em que você está implantando limita o número de VMs que você pode criar. Talvez seja necessário contatar o Atendimento ao Cliente para aumentar o limite da cota de computação mesmo que hoje você tenha um limite alto de núcleos para uso com Serviços de Nuvem do Azure. Para consultar a cota, execute este comando da CLI do Azure: `azure vm list-usage`. Ou execute este comando do PowerShell: `Get-AzureRmVMUsage`.
+* cota de núcleo Olá na região Olá no qual você está implantando limita o número de saudação de VMs, você pode criar. Talvez seja necessário toocontact atendimento tooincrease seu limite de cota de computação, mesmo se você tiver um limite mais alto de núcleos para uso com os serviços de nuvem do Azure hoje. tooquery sua cota, execute este comando CLI do Azure: `azure vm list-usage`. Ou execute este comando do PowerShell: `Get-AzureRmVMUsage`.
 
 ## <a name="frequently-asked-questions-for-scale-sets"></a>Perguntas frequentes sobre os conjuntos de dimensionamento
 **P.** Quantas VMs posso ter em um conjunto de dimensionamento?
 
-**A.** Um conjunto de dimensionamento pode ter de 0 a 1.000 VMs baseadas em imagens da plataforma ou de 0 a 100 VM máquinas virtuais baseadas em imagens personalizadas. 
+**A.** Um conjunto de escala pode ter too1 0, 000 VMs baseiam em imagens de plataforma ou 0 VMs de too100 com base em imagens personalizadas. 
 
 **P.** Há suporte para os discos de dados nos conjuntos de dimensionamento?
 
-**A.** Sim. Um conjunto de dimensionamento pode definir uma configuração de discos de dados anexados que se aplica a todas as máquinas virtuais no conjunto. Para saber mais, confira [Conjuntos de dimensionamento do Azure e discos de dados anexados](virtual-machine-scale-sets-attached-disks.md). Outras opções para armazenamento de dados incluem:
+**A.** Sim. Um conjunto de escala pode definir uma configuração de discos de dados anexado que se aplica a tooall VMs no conjunto de saudação. Para saber mais, confira [Conjuntos de dimensionamento do Azure e discos de dados anexados](virtual-machine-scale-sets-attached-disks.md). Outras opções para armazenamento de dados incluem:
 
 * Arquivos do Azure (unidades compartilhada de SMB)
 * Unidade do sistema operacional
@@ -149,20 +149,20 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento. Al�
 
 **A.** Crie um disco gerenciado com base em seu VHD de imagem personalizada e faça referência a ele em seu modelo de conjunto de dimensionamento. [Aqui está um exemplo](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os).
 
-**P.** Se eu reduzir a capacidade do meu conjunto de dimensionamento de 20 para 15, quais VMs serão removidas?
+**P.** Se eu reduzo meu conjunto de escala de capacidade de 20 too15, que VMs são removidas?
 
-**A.** Máquinas virtuais são removidas do conjunto de dimensionamento uniformemente entre domínios de atualização e domínios de falha para maximizar a disponibilidade. VMs com as IDs mais altas são removidas primeiro.
+**A.** Máquinas virtuais são removidas da saudação escala definidas uniformemente entre os domínios de atualização e a disponibilidade de toomaximize de domínios de falha. VMs com hello que mais altos IDs são removidos primeiro.
 
-**P.** E se eu aumentar a capacidade de 15 para 18?
+**P.** E se, em seguida, aumentar a capacidade de saudação do too18 15?
 
-**A.** Se você aumentar a capacidade para 18, serão criadas três novas VMs. Em casa caso, a ID da instância VM será incrementada do valor mais alto anterior (por exemplo, 20, 21, 22). As VMs são balanceadas entre domínios de falha e domínios de atualização.
+**A.** Se você aumentar capacidade too18, 3 novas VMs são criadas. Cada vez, ID de instância VM Olá é incrementado de saudação anterior valor mais alto (por exemplo, 20, 21, 22). As VMs são balanceadas entre domínios de falha e domínios de atualização.
 
 **P.** Ao usar várias extensões em um conjunto de dimensionamento, posso impor uma sequência de execução?
 
-**A.** Não diretamente, mas para a extensão de customScript, o script poderia aguardar por outra extensão ser concluída. Encontre orientações adicionais sobre o sequenciamento de extensão nesta postagem de blog: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)(Sequenciamento de extensão em conjuntos de dimensionamento de VMs do Azure).
+**A.** Não diretamente, mas para a extensão de customScript hello, o script pode aguardar toofinish de outra extensão. Para obter orientação adicional sobre sequenciamento de extensão na postagem de blog Olá [sequenciamento de extensão em conjuntos de escala de VM do Azure](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
 
 **P.** Os conjuntos de dimensionamento funcionam com os conjuntos de disponibilidade do Azure?
 
-**A.** Sim. Um conjunto de dimensionamento é um conjunto de disponibilidade implícita com cinco domínios de falha e cinco domínios de atualização. Os conjuntos de dimensionamento com mais de 100 máquinas virtuais abrangem vários *grupos de posicionamento* que são equivalentes a vários conjuntos de disponibilidade. Para saber mais sobre grupos de posicionamento, confira [Como trabalhar com conjuntos de dimensionamento grandes de máquinas virtuais](virtual-machine-scale-sets-placement-groups.md). Um conjunto de disponibilidade de máquinas virtuais pode existir na mesma rede virtual como um conjunto de escala de VMs. Uma configuração comum é colocar as VMs que geralmente exigem configuração exclusiva no conjunto de disponibilidade do nó de controle e colocar nós de dados no conjunto de dimensionamento.
+**A.** Sim. Um conjunto de dimensionamento é um conjunto de disponibilidade implícita com cinco domínios de falha e cinco domínios de atualização. Escala de conjuntos de mais de 100 VMs abrangem vários *grupos de posicionamento*, que são conjuntos de disponibilidade toomultiple equivalente. Para saber mais sobre grupos de posicionamento, confira [Como trabalhar com conjuntos de dimensionamento grandes de máquinas virtuais](virtual-machine-scale-sets-placement-groups.md). Um conjunto de disponibilidade de máquinas virtuais pode existir em Olá mesma rede virtual como um conjunto de escala de máquinas virtuais. Uma configuração comum é tooput controle VMs do nó (que geralmente requerem configuração exclusivas) em um disponibilidade definida e colocar os nós de dados no conjunto de escala de saudação.
 
-Você pode encontrar mais respostas para perguntas sobre conjuntos de dimensionamento nas [Perguntas frequentes sobre conjuntos de dimensionamento de máquinas virtuais do Azure](virtual-machine-scale-sets-faq.md).
+Você pode encontrar mais tooquestions respostas sobre a escala define Olá [escala de máquina virtual do Azure define perguntas frequentes sobre](virtual-machine-scale-sets-faq.md).

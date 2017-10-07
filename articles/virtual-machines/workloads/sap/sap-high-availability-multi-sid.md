@@ -1,6 +1,6 @@
 ---
-title: "Criar uma configuração multi-SID do SAP no Azure | Microsoft Docs"
-description: "Guia para configuração multi-SID do SAP NetWeaver de alta disponibilidade em máquinas virtuais do Windows"
+title: "aaaCreate uma configuração de multi-SID do SAP no Azure | Microsoft Docs"
+description: "Configuração de várias SID do guia toohigh disponibilidade SAP NetWeaver em máquinas virtuais do Windows"
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
 author: goraco
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b48df78df9f53ac7bf0804f55a8d36a2fe2f86b4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e2a4b12928231743c59af86dab72595ad38d364b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Criar uma configuração multi-SID do SAP NetWeaver
 
@@ -47,45 +47,45 @@ ms.lasthandoff: 07/11/2017
 [sap-ha-guide-9.6]:sap-high-availability-guide.md#0ba4a6c1-cc37-4bcf-a8dc-025de4263772 
 [sap-ha-guide-10]:sap-high-availability-guide.md#18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9
 
-Em setembro de 2016, a Microsoft lançou um recurso com o qual é possível gerenciar vários endereços IP virtual usando um balanceador de carga interno do Azure. Essa funcionalidade já existe no balanceador externo de carga do Azure.
+Em setembro de 2016, a Microsoft lançou um recurso com o qual é possível gerenciar vários endereços IP virtual usando um balanceador de carga interno do Azure. Essa funcionalidade já existe no balanceador de carga externo do Azure hello.
 
-Se você tiver uma implantação do SAP, será possível usar um balanceador de carga interno para criar uma configuração de cluster do Windows para SAP ASCS/SCS, conforme documentado no [guia para SAP NetWeaver de alta disponibilidade em VMs do Windows][sap-ha-guide].
+Se você tiver uma implantação do SAP, você pode usar um balanceador de carga interno toocreate uma configuração de cluster do Windows para o SAP ASCS/SCS, conforme documentado no hello [guia para alta disponibilidade SAP NetWeaver nas máquinas virtuais do Windows] [ sap-ha-guide].
 
-Este artigo aborda como mudar de uma instalação ASCS/SCS única para uma configuração Multi-SID do SAP com a instalação de instâncias em cluster do SAP ASCS/SCS adicionais em um cluster WSFC (Windows Server Failover Clustering) existente. Quando esse processo for concluído, você já terá um cluster multi-SID do SAP configurado.
+Este artigo se concentra em como toomove de uma única ASCS/SCS instalação tooan SAP várias SID configuração instalando adicional SAP ASCS/SCS instâncias clusterizadas em um cluster existente do Windows Server Failover Clustering (WSFC). Quando esse processo for concluído, você já terá um cluster multi-SID do SAP configurado.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Você já configurou um cluster WSFC usado para uma instância SAP ASCS/SCS, conforme discutido no [guia para SAP NetWeaver de alta disponibilidade em VMs do Windows][sap-ha-guide] e conforme mostrado neste diagrama.
+Você já tiver configurado um cluster WSFC que é usado para uma instância SAP ASCS/SCS, conforme discutido em Olá [guia para alta disponibilidade SAP NetWeaver nas máquinas virtuais do Windows] [ sap-ha-guide] e conforme mostrado neste diagrama.
 
 ![Instância do SAP ASCS/SCS de alta disponibilidade][sap-ha-guide-figure-6001]
 
 ## <a name="target-architecture"></a>Arquitetura de destino
 
-A meta é instalar várias instâncias clusterizadas do SAP ABAP ASCS ou do SAP Java SCS no mesmo cluster WSFC, conforme ilustrado aqui:
+Olá meta é tooinstall vários SAP ABAP ASCS ou SAP Java SCS clusterizado instâncias Olá mesmo cluster WSFC, conforme ilustrado aqui:
 
 ![Várias instâncias clusterizadas do SAP ASCS/SCS no Azure][sap-ha-guide-figure-6002]
 
 > [!NOTE]
->Há um limite no número de IPs de front-end privado para cada balanceador de carga interno do Azure.
+>Há um número de toohello limite de IPs privados de front-end para cada balanceador de carga interno do Azure.
 >
->O número máximo de instâncias do SAP ASCS/SCS em um cluster WSFC é igual ao número máximo de IPs de front-end privado para cada balanceador de carga interno do Azure.
+>número máximo de saudação de instâncias SAP ASCS/SCS em um cluster WSFC é igual toohello o número máximo de IPs privados de front-end para cada balanceador de carga interno do Azure.
 >
 
 Para obter mais informações sobre limites do balanceador de carga, consulte “IP de front-end privado por balanceador de carga” em [Limites de Rede: Azure Resource Manager][networking-limits-azure-resource-manager].
 
-O cenário completo com dois sistemas SAP de alta disponibilidade seria assim:
+cenário completo de saudação com dois sistemas SAP de alta disponibilidade deve ter esta aparência:
 
 ![Instalação multi-SID de alta disponibilidade do SAP com dois SIDs do sistema SAP][sap-ha-guide-figure-6003]
 
 > [!IMPORTANT]
-> A instalação deve atender às seguintes condições:
-> - As instâncias do SAP ASCS/SCS deverão compartilhar o mesmo cluster WSFC.
+> instalação de saudação deve atender aos Olá condições a seguir:
+> - Olá SAP ASCS/SCS instâncias devem compartilhar Olá mesmo cluster WSFC.
 > - Cada DBMS SID deverá ter seu próprio cluster WSFC dedicado.
-> - Os servidores de aplicativos SAP que pertencem a um SID do sistema SAP deverão ter suas próprias VMs dedicadas.
+> - Servidores de aplicativos SAP que pertencem o sistema SAP de tooone SID devem ter suas próprias VMs dedicados.
 
 
-## <a name="prepare-the-infrastructure"></a>Preparar a infraestrutura
-Para preparar sua infra-estrutura, é possível instalar uma instância do SAP ASCS/SCS adicional com os seguintes parâmetros:
+## <a name="prepare-hello-infrastructure"></a>Preparar a infraestrutura de saudação
+tooprepare sua infra-estrutura, você pode instalar uma instância adicional do SAP ASCS/SCS com hello parâmetros a seguir:
 
 | Nome do parâmetro | Valor |
 | --- | --- |
@@ -101,37 +101,37 @@ Para preparar sua infra-estrutura, é possível instalar uma instância do SAP A
 >
 >Para nosso fim, como a porta de investigação 62300 já está reservada, estamos usando a porta de investigação 62350.
 
-É possível instalar instâncias do SAP ASCS/SCS adicionais no cluster WSFC existente com dois nós:
+Você pode instalar instâncias adicionais do SAP ASCS/SCS no cluster WSFC existente de saudação com dois nós:
 
 | Função da máquina virtual | Nome do host de máquina virtual | Endereço IP estático |
 | --- | --- | --- |
 | 1º nó de cluster para a instância do ASCS/SCS |pr1-ascs-0 |10.0.0.10 |
 | 2º nó de cluster para a instância do ASCS/SCS |pr1-ascs-1 |10.0.0.9 |
 
-### <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance-on-the-dns-server"></a>Criar um nome de host virtual para a instância do SAP ASCS/SCS clusterizada no servidor DNS
+### <a name="create-a-virtual-host-name-for-hello-clustered-sap-ascsscs-instance-on-hello-dns-server"></a>Criar um nome de host virtual para instância do SAP ASCS/SCS Olá clusterizado no servidor DNS Olá
 
-É possível criar uma entrada DNS para o nome de host virtual da instância do ASCS/SCS usando os seguintes parâmetros:
+Você pode criar uma entrada DNS para o nome de host virtual Olá da instância do ASCS/SCS hello usando Olá parâmetros a seguir:
 
 | Novo nome de host virtual do SAP ASCS/SCS | Endereço IP associado |
 | --- | --- | --- |
 |pr5-sap-cl |10.0.0.50 |
 
-O novo nome de host e endereço IP são exibidos no Gerenciador DNS, conforme mostrado na seguinte captura de tela:
+Olá novo nome de host e endereço IP são exibidos no hello Gerenciador DNS, conforme mostrado no hello captura de tela a seguir:
 
-![Lista do Gerenciador DNS que destaca a entrada DNS definida para o nome virtual do novo cluster SAP ASCS/SCS e para o endereço TCP/IP][sap-ha-guide-figure-6004]
+![Lista de Gerenciador de DNS realce Olá definida a entrada DNS Olá novo SAP ASCS/SCS cluster virtual nome e endereço TCP/IP][sap-ha-guide-figure-6004]
 
-O procedimento para criar uma entrada DNS também é descrito em detalhes no principal [guia para SAP NetWeaver de alta disponibilidade em VMs do Windows][sap-ha-guide-9.1.1].
+procedimento de saudação para criar uma entrada de DNS também está descrito detalhadamente no hello principal [guia para alta disponibilidade SAP NetWeaver nas máquinas virtuais do Windows][sap-ha-guide-9.1.1].
 
 > [!NOTE]
-> O novo endereço IP atribuído ao nome de host virtual da instância do ASCS/SCS adicional deve ser igual ao novo endereço IP atribuído ao Azure Load Balancer do SAP.
+> Olá novo endereço IP que você atribuir o nome de host virtual toohello de instância adicional de ASCS/SCS Olá deve ser Olá igual a saudação novo endereço IP que você atribuiu o balanceador de carga do Azure do SAP toohello.
 >
->Em nosso cenário, o endereço IP é 10.0.0.50.
+>Em nosso cenário, o endereço IP de saudação é 10.0.0.50.
 
-### <a name="add-an-ip-address-to-an-existing-azure-internal-load-balancer-by-using-powershell"></a>Adicionar um endereço IP a um balanceador de carga interno do Azure existente usando o PowerShell
+### <a name="add-an-ip-address-tooan-existing-azure-internal-load-balancer-by-using-powershell"></a>Adicionar um balanceador de carga interno do Azure existente do IP endereço tooan usando o PowerShell
 
-Para criar mais de uma instância do SAP ASCS/SCS no mesmo cluster WSFC, use o PowerShell para adicionar um endereço IP a um balanceador de carga interno do Azure existente. Cada endereço IP requer suas próprias regras de balanceamento de carga, porta de investigação, pool IP de front-end e pool de back-end.
+toocreate mais de uma instância SAP ASCS/SCS no hello WSFC mesmo cluster, use PowerShell tooadd um tooan de endereço IP existente balanceador de carga interno do Azure. Cada endereço IP requer suas próprias regras de balanceamento de carga, porta de investigação, pool IP de front-end e pool de back-end.
 
-O script a seguir adiciona um novo endereço IP a um balanceador de carga existente. Atualize as variáveis do PowerShell para seu ambiente. O script criará todas as regras de balanceamento de carga necessárias para todas as portas do SAP ASCS /SCS.
+Olá, script a seguir adiciona um novo IP endereço tooan balanceador de carga. Atualize as variáveis do PowerShell de saudação para seu ambiente. script Hello criará necessárias todas as regras de balanceamento de carga para todas as portas do SAP ASCS/SCS.
 
 ```powershell
 
@@ -152,7 +152,7 @@ $count = $ILB.FrontendIpConfigurations.Count + 1
 $FrontEndConfigurationName ="lbFrontendASCS$count"
 $LBProbeName = "lbProbeASCS$count"
 
-# Get the Azure VNet and subnet
+# Get hello Azure VNet and subnet
 $VNet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $ResourceGroupName
 $Subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $VNet -Name $SubnetName
 
@@ -175,14 +175,14 @@ $BEConfig = Add-AzureRmLoadBalancerBackendAddressPoolConfig -Name $BackEndConfig
 # Get new updated config
 $ILB = Get-AzureRmLoadBalancer -Name $ILBname -ResourceGroupName $ResourceGroupName
 
-# Assign VM NICs to backend pool
+# Assign VM NICs toobackend pool
 $BEPool = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigurationName -LoadBalancer $ILB
 foreach($VMName in $VMNames){
         $VM = Get-AzureRmVM -ResourceGroupName $ResourceGroupName -Name $VMName
         $NICName = ($VM.NetworkInterfaceIDs[0].Split('/') | select -last 1)        
         $NIC = Get-AzureRmNetworkInterface -name $NICName -ResourceGroupName $ResourceGroupName                
         $NIC.IpConfigurations[0].LoadBalancerBackendAddressPools += $BEPool
-        Write-Host "Assigning network card '$NICName' of the '$VMName' VM to the backend pool '$BackEndConfigurationName' ..." -ForegroundColor Green
+        Write-Host "Assigning network card '$NICName' of hello '$VMName' VM toohello backend pool '$BackEndConfigurationName' ..." -ForegroundColor Green
         Set-AzureRmNetworkInterface -NetworkInterface $NIC
         #start-AzureRmVM -ResourceGroupName $ResourceGroupName -Name $VM.Name
 }
@@ -195,76 +195,76 @@ $FEConfig = get-AzureRMLoadBalancerFrontendIpConfig -Name $FrontEndConfiguration
 $BEConfig = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigurationName -LoadBalancer $ILB
 $HealthProbe  = Get-AzureRmLoadBalancerProbeConfig -Name $LBProbeName -LoadBalancer $ILB
 
-Write-Host "Creating load balancing rules for the ports: '$Ports' ... " -ForegroundColor Green
+Write-Host "Creating load balancing rules for hello ports: '$Ports' ... " -ForegroundColor Green
 
 foreach ($Port in $Ports) {
 
         $LBConfigrulename = "lbrule$Port" + "_$count"
-        Write-Host "Creating load balancing rule '$LBConfigrulename' for the port '$Port' ..." -ForegroundColor Green
+        Write-Host "Creating load balancing rule '$LBConfigrulename' for hello port '$Port' ..." -ForegroundColor Green
 
         $ILB | Add-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig  -BackendAddressPool $BEConfig -Probe $HealthProbe -Protocol tcp -FrontendPort  $Port -BackendPort $Port -IdleTimeoutInMinutes 30 -LoadDistribution Default -EnableFloatingIP   
 }
 
 $ILB | Set-AzureRmLoadBalancer
 
-Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
+Write-Host "Succesfully added new IP '$ILBIP' toohello internal load balancer '$ILBName'!" -ForegroundColor Green
 
 ```
-Depois que o script tiver sido executado, os resultados serão exibidos no portal do Azure, conforme mostrado na seguinte captura de tela:
+Depois que o script hello foi executado, Olá resultados são exibidos no hello portal do Azure, conforme mostrado no hello captura de tela a seguir:
 
-![Novo pool IP front-end no portal do Azure][sap-ha-guide-figure-6005]
+![Novo pool IP de front-end no hello portal do Azure][sap-ha-guide-figure-6005]
 
-### <a name="add-disks-to-cluster-machines-and-configure-the-sios-cluster-share-disk"></a>Adicionar discos a máquinas de cluster e configurar o disco de compartilhamento do cluster SIOS
+### <a name="add-disks-toocluster-machines-and-configure-hello-sios-cluster-share-disk"></a>Adicionar discos toocluster máquinas e configurar Olá SIOS cluster compartilhamento de disco
 
-É necessário adicionar um novo disco de compartilhamento de cluster para cada nova instância do SAP ASCS/SCS adicional. Para o Windows Server 2012 R2, o disco de compartilhamento do cluster WSFC atualmente em uso é a solução de software SIOS DataKeeper.
+É necessário adicionar um novo disco de compartilhamento de cluster para cada nova instância do SAP ASCS/SCS adicional. Para Windows Server 2012 R2, o disco de compartilhamento de cluster WSFC de saudação atualmente em uso é a solução de software SIOS DataKeeper hello.
 
-Faça o seguinte:
-1. Inclua discos adicionais com o mesmo tamanho (que você precisa distribuir) para cada um dos nós de cluster e formate-os.
+Olá a seguir:
+1. Adicionar adicional em disco ou discos de Olá mesmo tamanho (que é necessário toostripe) tooeach de saudação nós de cluster e formatá-los.
 2. Configure a replicação de armazenamento com SIOS DataKeeper.
 
-Este procedimento pressupõe que você já tenha instalado o SIOS DataKeeper em computadores do cluster WSFC. Se você o tiver instalado, agora será necessário configurar a replicação entre os computadores. O processo é descrito em detalhes no principal [guia para SAP NetWeaver de alta disponibilidade em VMs do Windows][sap-ha-guide-8.12.3.3].  
+Este procedimento pressupõe que você já instalou SIOS DataKeeper em máquinas de cluster WSFC hello. Se você tiver instalado a ele, agora você deve configurar a replicação entre máquinas hello. Olá processo é descrito em detalhes no hello principal [guia para alta disponibilidade SAP NetWeaver nas máquinas virtuais do Windows][sap-ha-guide-8.12.3.3].  
 
-![Espelhamento síncrono do DataKeeper para o novo disco de compartilhamento do SAP ASCS/SCS][sap-ha-guide-figure-6006]
+![DataKeeper para Olá novo SAP ASCS/SCS compartilhamento de disco de espelhamento síncrono][sap-ha-guide-figure-6006]
 
 ### <a name="deploy-vms-for-sap-application-servers-and-dbms-cluster"></a>Implantar VMs em servidores de aplicativos SAP e cluster DBMS
 
-Para concluir a preparação da infraestrutura para o segundo sistema SAP, faça o seguinte:
+preparação da infraestrutura toocomplete Olá para o sistema SAP da segunda hello, Olá a seguir:
 
 1. Implante VMs dedicadas para servidores de aplicativos SAP e coloque-as no seu próprio grupo de disponibilidade dedicado.
 2. Implante VMs dedicadas para o cluster DBMS e coloque-as no seu próprio grupo de disponibilidade dedicado.
 
 
-## <a name="install-the-second-sap-sid2-netweaver-system"></a>Instalar o segundo sistema SAP SID2 NetWeaver
+## <a name="install-hello-second-sap-sid2-netweaver-system"></a>Instalar o sistema SAP NetWeaver de SID2 da segunda Olá
 
-O processo completo de instalação de um segundo sistema SAP SID2 é descrito no principal [guia para SAP NetWeaver de alta disponibilidade em VMs do Windows][sap-ha-guide-9].
+concluir o processo de instalação de um sistema SAP SID2 segundo Olá Olá principal descrito [guia para alta disponibilidade SAP NetWeaver nas máquinas virtuais do Windows][sap-ha-guide-9].
 
-O procedimento de alto nível é o seguinte:
+procedimento de alto nível de saudação é da seguinte maneira:
 
-1. [ Instalar o primeiro nó do cluster do SAP][sap-ha-guide-9.1.2].  
- Nesta etapa, instale o SAP com uma instância do ASCS/SCS de alta disponibilidade no **nó de cluster WSFC EXISTENTE 1**.
+1. [Instalar Olá SAP primeiro nó de cluster][sap-ha-guide-9.1.2].  
+ Nesta etapa, você está instalando o SAP com uma instância do ASCS/SCS de alta disponibilidade em Olá **nó do cluster WSFC existente 1**.
 
-2. [Modificar o perfil SAP da instância do ASCS/SCS][sap-ha-guide-9.1.3].
+2. [Modificar Olá SAP perfil da instância do ASCS/SCS Olá][sap-ha-guide-9.1.3].
 
 3. [Configurar uma investigação][sap-ha-guide-9.1.4].  
- Nesta etapa, você configurará uma porta de investigação SAP-SID2-IP do recurso do cluster SAP usando o PowerShell. Execute essa configuração em um dos nós do cluster SAP ASCS/SCS.
+ Nesta etapa, você configurará uma porta de investigação SAP-SID2-IP do recurso do cluster SAP usando o PowerShell. Execute essa configuração em um de nós de cluster Olá SAP ASCS/SCS.
 
-4. [Instale a instância do banco de dados][sap-ha-guide-9.2].  
+4. [Instale a instância de banco de dados de saudação] [sap-ha-guia-9.2].  
  Nesta etapa, você instalará o DBMS em um cluster WSFC dedicado.
 
-5. [Instale o segundo nó de cluster][sap-ha-guide-9.3].  
- Nesta etapa, instale o SAP com uma instância do ASCS/SCS de alta disponibilidade no nó de cluster WSFC existente 2.
+5. [Instalação do segundo nó de cluster Olá] [sap-ha-guia-9.3].  
+ Nesta etapa, você está instalando o SAP com uma instância do ASCS/SCS de alta disponibilidade no nó de cluster WSFC existente do hello 2.
 
-6. Abra portas do Firewall do Windows para a instância do SAP ASCS /SCS e ProbePort.  
- Em ambos os nós de cluster usados para as instâncias do SAP ASCS/SCS, abra todas as portas do Firewall do Windows usadas pelo SAP ASCS/SCS. Essas portas estão listadas no principal [guia para SAP NetWeaver de alta disponibilidade em VMs do Windows][sap-ha-guide-8.8].  
- Além disso, abra a porta de investigação do balanceador de carga interno do Azure, que, neste cenário, é 62350.
+6. Abrir portas de Firewall do Windows para a instância do SAP ASCS/SCS hello e ProbePort.  
+ Em ambos os nós de cluster usados para as instâncias do SAP ASCS/SCS, abra todas as portas do Firewall do Windows usadas pelo SAP ASCS/SCS. Essas portas são listadas no hello [guia para alta disponibilidade SAP NetWeaver nas máquinas virtuais do Windows][sap-ha-guide-8.8].  
+ Também abra Olá interno de carga do Azure balanceador porta de investigação, que é 62350 em nosso cenário.
 
-7. [Alterar o tipo de início da instância do serviço Windows ERS do SAP][sap-ha-guide-9.4].
+7. [Alterar tipo de inicialização de saudação da instância de serviço do Windows de ES do SAP Olá][sap-ha-guide-9.4].
 
-8. [Instale o servidor de aplicativos SAP principal][sap-ha-guide-9.5] na nova VM dedicada.
+8. [Instalar o servidor de aplicativo principal SAP Olá] [ sap-ha-guide-9.5] em Olá novo dedicado a VM.
 
-9. [Instale o servidor de aplicativos SAP adicional][sap-ha-guide-9.6] na nova VM dedicada.
+9. [Instalar o servidor de aplicativos adicionais de SAP Olá] [ sap-ha-guide-9.6] em Olá novo dedicado a VM.
 
-10. [Testar o failover da instância do SAP ASCS/SCS e a replicação do SIOS][sap-ha-guide-10].
+10. [Testar o failover de instância SAP ASCS/SCS hello e replicação SIOS][sap-ha-guide-10].
 
 ## <a name="next-steps"></a>Próximas etapas
 

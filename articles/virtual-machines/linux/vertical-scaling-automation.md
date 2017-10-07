@@ -1,6 +1,6 @@
 ---
-title: "Dimensionar verticalmente uma máquina virtual do Azure com a Automação do Azure | Microsoft Docs"
-description: "Como dimensionar verticalmente uma Máquina Virtual do Linux em resposta a alertas de monitoramento com a Automação do Azure"
+title: "escala de aaaVertically máquina virtual do Azure na automação do Azure | Microsoft Docs"
+description: "Como toovertically dimensionar uma máquina Virtual Linux em alertas de toomonitoring de resposta na automação do Azure"
 services: virtual-machines-linux
 documentationcenter: 
 author: singhkays
@@ -16,27 +16,27 @@ ms.topic: article
 ms.date: 03/29/2016
 ms.author: singhkay
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ffcecf1e61fc0cd9ee668514fbb913dafe39bd8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ee4c1c33a588bd907d107f1828380a8afdaa725e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>Dimensionar verticalmente uma máquina virtual Linux do Azure com a Automação do Azure
-A escala vertical é o processo de aumentar ou diminuir os recursos de um computador em resposta à carga de trabalho. No Azure, isso pode ser feito alterando o tamanho da máquina virtual. Isso pode ajudar nos cenários a seguir
+Dimensionamento vertical é o processo de saudação de aumentar ou diminuir os recursos de saudação de um computador na carga de trabalho de toohello de resposta. No Azure, isso pode ser feito alterando o tamanho de saudação do hello Máquina Virtual. Isso pode ajudar os seguintes cenários de saudação
 
-* Se a máquina virtual não está sendo usado com frequência, você pode redimensioná-la para um tamanho menor, a fim de reduzir os custos mensais
-* Se a máquina virtual está enfrentando um pico de carga, ela pode ser redimensionada para um tamanho maior, a fim de aumentar sua capacidade
+* Se Olá Máquina Virtual não está sendo usado com frequência, você pode redimensioná-la para baixo tooa menor tamanho tooreduce os custos mensais
+* Se Olá Máquina Virtual está vendo uma carga de pico, ele pode ser redimensionada tooa maior tamanho tooincrease sua capacidade
 
-Veja abaixo a descrição das etapas para fazer isso
+tópicos Olá Olá etapas tooaccomplish trata como abaixo
 
-1. Configurar a Automação do Azure para acessar suas máquinas virtuais
-2. Importar os runbooks de Escala Vertical da Automação do Azure para sua assinatura
-3. Adicionar um webhook ao seu Runbook
-4. Adicionar um alerta à sua máquina virtual
+1. Instalação de automação do Azure tooaccess suas máquinas virtuais
+2. Importar runbooks do hello escala Vertical de automação do Azure para sua assinatura
+3. Adicionar um runbook de tooyour do webhook
+4. Adicionar um alerta tooyour Máquina Virtual
 
 > [!NOTE]
-> Devido ao tamanho da primeira máquina virtual, os tamanhos para expansão podem ser limitados devido à disponibilidade de outros tamanhos no cluster em que a máquina virtual atual está implantada. Nos Runbooks de automação publicados usados neste artigo, levamos isso em conta e dimensionamos apenas dentro dos pares de tamanhos da VM abaixo. Isso significa que uma máquina virtual Standard_D1v2 não será expandida repentinamente para Standard_G5 ou reduzida para Basic_A0.
+> Devido ao tamanho de saudação do hello primeira Máquina Virtual, ele pode ser dimensionado, de tamanhos de saudação poderá ficar limitado devido a disponibilidade de toohello de saudação outros tamanhos de cluster Olá atual Máquina Virtual é implantada no. Olá publicadas runbooks de automação usados neste artigo, podemos cuidar da ocorrência e dimensionar somente dentro de saudação abaixo pares de tamanho VM. Isso significa que uma máquina Virtual de Standard_D1v2 não repentinamente ser aumentadas tooStandard_G5 ou tooBasic_A0 foi reduzido.
 > 
 > | Par de dimensionamento de tamanhos de VM |  |
 > | --- | --- |
@@ -56,38 +56,38 @@ Veja abaixo a descrição das etapas para fazer isso
 > 
 > 
 
-## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>Configurar a Automação do Azure para acessar suas máquinas virtuais
-A primeira coisa que você precisa fazer é criar uma conta de Automação do Azure que hospedará os Runbooks usados para dimensionar as instâncias do Conjunto de Escala de VM. O serviço de Automação introduziu recentemente o recurso "Executar como conta" que facilita a configuração da Entidade de Serviço para execução automática de Runbooks em nome do usuário. Leia mais sobre isso no artigo abaixo:
+## <a name="setup-azure-automation-tooaccess-your-virtual-machines"></a>Instalação de automação do Azure tooaccess suas máquinas virtuais
+Olá primeira coisa toodo é criar uma conta de automação do Azure que hospedará Olá runbooks usado tooscale Olá conjunto de escala de VM instâncias. Serviço de automação Olá introduzidos recentemente recurso "Executar como conta" hello que torna Configurando Olá entidade de serviço para execução automática Olá runbooks em nome do usuário Olá muito fácil. Você pode ler mais sobre isso em um artigo de saudação abaixo:
 
-* [Autenticar runbooks com uma conta Executar como do Azure](../../automation/automation-sec-configure-azure-runas-account.md)
+* [Autenticar Runbooks com uma conta Executar como do Azure](../../automation/automation-sec-configure-azure-runas-account.md)
 
-## <a name="import-the-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importar os runbooks de Escala Vertical da Automação do Azure para sua assinatura
-Os Runbooks necessários para dimensionar verticalmente a sua máquina virtual já estão publicados na Galeria de Runbook da Automação do Azure. Você precisará importá-los para sua assinatura. Saiba como importar Runbooks lendo o seguinte artigo:
+## <a name="import-hello-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importar runbooks do hello escala Vertical de automação do Azure para sua assinatura
+Olá runbooks que são necessários para escalar verticalmente sua máquina Virtual já estão publicados em Olá Galeria de Runbook de automação do Azure. Você precisará tooimport-los em sua assinatura. Você pode aprender como runbooks tooimport lendo Olá artigo a seguir.
 
 * [Galerias de runbook e de módulos para a Automação do Azure](../../automation/automation-runbook-gallery.md)
 
-Os Runbooks que precisam ser importados são mostrados na imagem abaixo
+Olá runbooks que precisam toobe importado são mostrados na imagem de saudação abaixo
 
 ![Importar Runbooks](./media/vertical-scaling-automation/scale-runbooks.png)
 
-## <a name="add-a-webhook-to-your-runbook"></a>Adicionar um webhook ao seu Runbook
-Depois de ter importado os Runbooks, você precisará adicionar um webhook ao Runbook para que ele possa ser disparado por um alerta de uma máquina virtual. Os detalhes da criação de um webhook para seu Runbook podem ser lidos aqui
+## <a name="add-a-webhook-tooyour-runbook"></a>Adicionar um runbook de tooyour do webhook
+Depois de importar runbooks Olá precisará tooadd um runbook de toohello webhook para que ele pode ser acionado por um alerta de uma máquina Virtual. detalhes de saudação da criação de um webhook para seu Runbook podem ser lido aqui
 
 * [Webhooks da Automação do Azure](../../automation/automation-webhooks.md)
 
-Copie o webhook antes de fechar a caixa de diálogo do webhook, pois você precisará disso na próxima seção.
+Certifique-se de que copiar Olá webhook antes de fechar a caixa de diálogo de webhook hello como ele será necessário na próxima seção, Olá.
 
-## <a name="add-an-alert-to-your-virtual-machine"></a>Adicionar um alerta à sua máquina virtual
+## <a name="add-an-alert-tooyour-virtual-machine"></a>Adicionar um alerta tooyour Máquina Virtual
 1. Selecione Configurações da Máquina Virtual
 2. Selecione “Regras de alerta”
 3. Selecione “Adicionar alerta”
-4. Selecione uma métrica na qual acionar o alerta
-5. Selecione uma condição que, quando cumprida, fará com que o alerta seja acionado
-6. Selecione um limite para a condição na Etapa 5. a ser cumprida
-7. Selecione um período no qual o serviço de monitoramento verificará a condição e o limite nas Etapas 5 e 6
-8. Cole o webhook que você copiou da seção anterior.
+4. Selecione um alerta de saudação toofire métrica em
+5. Selecione uma condição que, quando atendida será causar toofire alerta Olá
+6. Selecione um limite para a condição de saudação na etapa 5. toobe atendida
+7. Selecionar um período sobre quais Olá monitorando o serviço irá verificar para a condição de saudação e limite as etapas 5 e 6
+8. Cole o webhook Olá copiada da seção anterior hello.
 
-![Adicionar alerta à máquina virtual 1](./media/vertical-scaling-automation/add-alert-webhook-1.png)
+![Adicionar alerta tooVirtual máquina 1](./media/vertical-scaling-automation/add-alert-webhook-1.png)
 
-![Adicionar alerta à máquina virtual 2](./media/vertical-scaling-automation/add-alert-webhook-2.png)
+![Adicionar alerta tooVirtual Machine 2](./media/vertical-scaling-automation/add-alert-webhook-2.png)
 

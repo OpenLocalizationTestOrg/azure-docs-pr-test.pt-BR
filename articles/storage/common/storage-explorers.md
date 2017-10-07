@@ -1,6 +1,6 @@
 ---
-title: Ferramentas para trabalhar com o Armazenamento do Azure | Microsoft Docs
-description: Uma lista de ferramentas que permite exibir/interagir com os dados do Armazenamento do Azure.
+title: aaaTools para trabalhar com o armazenamento do Azure | Microsoft Docs
+description: "Uma lista de ferramentas que permitem que você tooview/interagir com os dados de armazenamento do Azure."
 services: storage
 documentationcenter: 
 author: dineshmurthy
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: dineshmurthy
-ms.openlocfilehash: 620efda06d8225b21b6bb9b104b79061ebb6515c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3308de2153099a05a676ab1d76426bd932e8a96c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-client-tools"></a>Ferramentas de Cliente do Armazenamento do Azure
-Com frequência, os usuários do Armazenamento do Azure desejam poder exibir/interagir com seus dados usando uma ferramenta de cliente do Armazenamento do Azure. Nas tabelas abaixo, listamos várias ferramentas que permitem que você faça isso. Colocamos um "X" em cada bloco caso a ferramenta forneça a capacidade de enumerar e/ou acessar a abstração de dados. A tabela também mostra se as ferramentas são gratuitas ou não. "Avaliação" indica que há uma avaliação gratuita, mas o produto completo não é gratuito. "S/N" indica que uma versão está disponível gratuitamente, enquanto outra versão está disponível para compra.
+Os usuários do armazenamento do Azure frequentemente querem toobe capaz de tooview/interagir com seus dados usando uma ferramenta de cliente de armazenamento do Azure. Nas tabelas de saudação abaixo, listamos várias ferramentas que permitem que você toodo isso. Colocamos um "X" em cada bloco se ele possibilita Olá tooeither enumerar e/ou acesso a abstração de dados hello. tabela de saudação também mostra se as ferramentas de saudação está livre ou não. "Avaliação" indica que há uma avaliação gratuita, mas não está completa do produto Olá livre. "S/N" indica que uma versão está disponível gratuitamente, enquanto outra versão está disponível para compra.
 
-Fornecemos somente um instantâneo das ferramentas de cliente do Armazenamento do Azure disponíveis. Essas ferramentas poderão continuar a evoluir e expandir sua funcionalidade. Se houver correções ou atualizações, deixe um comentário para nos contar. O mesmo é verdadeiro se você conhecer ferramentas que deveriam estar aqui – ficaríamos felizes de adicioná-las.
+Somente fornecemos um instantâneo de ferramentas de cliente de armazenamento do Azure disponíveis hello. Essas ferramentas podem continuar tooevolve e aumento na funcionalidade. Se houver atualizações ou correções, deixe um toolet comentário que nos. Olá mesmo é verdadeiro se você souber de ferramentas que devia toobe aqui - Ficaríamos feliz tooadd-los.
 
 **Ferramentas de Cliente do Armazenamento do Microsoft Azure**
 
@@ -91,7 +91,7 @@ Fornecemos somente um instantâneo das ferramentas de cliente do Armazenamento d
 
 **Ferramentas de Cliente de terceiros do Armazenamento do Azure**
 
-Nós não verificamos a funcionalidade nem a qualidade declarada pelas ferramentas de terceiros indicadas a seguir e sua listagem não implica o endosso da Microsoft.
+Nós não verificou a funcionalidade de saudação ou qualidade declarado por Olá ferramentas de terceiros e a listagem a seguir não implica endosso da Microsoft.
 
 <table>
   <tr>

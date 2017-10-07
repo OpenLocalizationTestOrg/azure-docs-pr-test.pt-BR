@@ -1,6 +1,6 @@
 ---
-title: "Redefinir um gateway de VPN do Azure para restabelecer túneis IPsec | Microsoft Docs"
-description: "Este artigo orienta você pela redefinição de seu Gateway de VPN do Azure para reestabelecer os túneis IPsec. O artigo se aplica a gateways de VPN tanto nos modelos de implantação clássicos quanto nos modelos de implantação do Resource Manager."
+title: "Redefinir um tooreestablish de gateway de VPN do Azure túneis IPsec | Microsoft Docs"
+description: "Este artigo o orienta por meio da redefinição os túneis do IPsec de tooreestablish Gateway de VPN do Azure. artigo Olá aplica gateways tooVPN Olá clássico e modelos de implantação do Gerenciador de recursos de saudação."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,53 +15,53 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.openlocfilehash: 7c5ba9310568571991708ab54a5275df6ea84a39
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 84dd741f0bebd6b18cb235216a68a88da5fe17b9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reset-a-vpn-gateway"></a>Redefinir um Gateway de VPN
 
-Redefinir um gateway de VPN do Azure é útil se você perde a conectividade VPN entre locais em um ou mais túneis de VPN site a site. Nessa situação, os dispositivos VPN locais estão funcionando corretamente, mas não são capazes de estabelecer túneis IPsec com os gateways de VPN do Azure. Este artigo ajuda-o a redefinir o gateway de VPN.
+Redefinir um gateway de VPN do Azure é útil se você perde a conectividade VPN entre locais em um ou mais túneis de VPN site a site. Nessa situação, os seus dispositivos VPN local são todos funcionando corretamente, mas são tooestablish não é possível túneis IPsec com gateways de VPN do Azure hello. Este artigo ajuda-o a redefinir o gateway de VPN.
 
 ### <a name="what-happens-during-a-reset"></a>O que acontece durante uma redefinição?
 
-Um gateway de VPN é composto de duas instâncias de VM em execução em uma configuração de modo em espera ativo. Quando você redefine o gateway, ele reinicializa o gateway e aplica novamente as configurações entre instalações a ele. O gateway mantém o endereço IP público que já tem. Isso significa que você não precisa atualizar a configuração do roteador VPN com um novo endereço IP público do gateway de VPN do Azure.
+Um gateway de VPN é composto de duas instâncias de VM em execução em uma configuração de modo em espera ativo. Quando você redefinir o gateway hello, ela reinicia gateway Olá, e, em seguida, Olá reaplica entre locais tooit configurações. gateway Olá mantém o endereço IP público Olá já possui. Isso significa que você não precisará configuração do roteador tooupdate Olá VPN com um novo endereço IP público para o gateway de VPN do Azure.
 
-Ao emitir o comando para redefinir o gateway, a instância ativa atual do gateway de VPN do Azure é imediatamente reiniciada. Haverá um breve intervalo durante o failover da instância ativa (que está sendo reinicializada) à instância em espera. O intervalo deve ser menor que um minuto.
+Quando você emitir o gateway de Olá Olá comando tooreset, instância ativa atual de saudação do gateway de VPN do Azure Olá é reinicializada imediatamente. Haverá uma breve interrupção durante o failover de saudação do hello instância ativa (que está sendo reinicializado), instância de toohello em espera. intervalo de saudação deve ser menor que um minuto.
 
-Se a conexão não é restaurada após a primeira reinicialização, execute o mesmo comando novamente para reiniciar a segunda instância VM (o novo gateway ativo). Se as duas reinicializações são solicitadas uma após a outra, haverá um período um pouco mais longo durante o qual as duas instâncias da VM (ativas e em espera) estão sendo reinicializadas. Isso causará um intervalo maior na conectividade VPN, exigindo até 2 a 4 minutos para que as VMs concluam as reinicializações.
+Se a conexão de saudação não é restaurado após a primeira reinicialização do hello, problema Olá mesmo comando novamente tooreboot instância VM segundo hello (Olá novo active gateway). Se duas reinicializações de saudação tooback back solicitada, haverá um pouco maior período em que as duas instâncias VM (ativas e em espera) estão sendo reinicializadas. Isso fará com que um intervalo mais conectividade VPN hello, backup too2 too4 minutos para reinicializações de saudação toocomplete VMs.
 
-Após duas reinicializações, se você ainda estiver tendo problemas de conectividade entre instalações, abra uma solicitação de suporte no portal do Azure.
+Depois de duas reinicializações, se você ainda tiver problemas de conectividade entre locais, abra uma solicitação de suporte de saudação portal do Azure.
 
 ## <a name="before"></a>Antes de começar
 
-Antes de redefinir o gateway, verifique os principais itens listados abaixo para cada túnel VPN Site a Site (S2S) de IPsec. Qualquer incompatibilidade nos itens resultará na desconexão de túneis VPN S2S. Verificar e corrigir as configurações para seus gateways de VPN do Azure e locais faz com que você evite reinicializações desnecessárias e interrupções para as outras conexões de trabalho nos gateways.
+Antes de redefinir o gateway, verifique se itens importantes Olá listados abaixo para cada túnel VPN IPsec Site a Site (S2S). Qualquer incompatibilidade nos itens Olá resulta em Desconectar Olá de túneis de VPN S2S. Verificar e corrigir configurações de saudação para seu local e gateways de VPN do Azure evita que você reinicializações desnecessárias e interrupções de Olá outras conexões de trabalho em gateways de saudação.
 
-Verifique os itens a seguir antes de redefinir seu gateway:
+Verifique se Olá itens a seguir antes de redefinir o gateway:
 
-* Os VIPs (endereços IP da Internet) para o gateway de VPN do Azure e o gateway de VPN local estão configurados corretamente em ambas a políticas de VPN do Azure e de VPN local.
-* A chave pré-compartilhada deve ser a mesma em ambos o gateway de VPN do Azure e o gateway de VPN local.
-* Se você aplicar a configuração de IPsec/IKE específica, como criptografia, algoritmos de hash e PFS (Perfect Forward Secrecy), verifique se que o gateway de VPN do Azure e o gateway de VPN local têm as mesmas configurações.
+* Olá IP Internet endereços (VIPs) para o gateway de VPN do Azure ambos hello e Olá gateway VPN estão configurados corretamente em ambas as políticas hello Azure e hello local VPN ao local.
+* chave pré-compartilhada Olá deve ser Olá mesmo em gateways VPN do Azure e no local.
+* Se você aplicar configuração do IPsec/IKE específica, como criptografia, algoritmos de hash e PFS (sigilo), certifique-se de ambos hello Azure e gateways de VPN local têm Olá mesmas configurações.
 
 ## <a name="portal"></a>Portal do Azure
 
-Você pode redefinir um gateway de VPN do Resource Manager usando o Portal do Azure. Se você quiser redefinir um gateway clássico, veja as etapas [PowerShell](#resetclassic).
+Você pode redefinir um gateway de VPN do Gerenciador de recursos usando Olá portal do Azure. Se você quiser tooreset um gateway clássico, consulte Olá [PowerShell](#resetclassic) etapas.
 
 ### <a name="resource-manager-deployment-model"></a>Modelo de implantação do Gerenciador de Recursos
 
-1. Abra o [Portal do Azure](https://portal.azure.com) e navegue até o gateway de rede virtual do Gerenciador de Recursos que deseja redefinir.
-2. Na folha do gateway de rede virtual, clique em "Redefinir".
+1. Olá abrir [portal do Azure](https://portal.azure.com) e navegue gateway de rede virtual do Gerenciador de recursos do toohello que você deseja tooreset.
+2. Na folha de saudação para gateway de rede virtual Olá, clique em 'Redefinir'.
 
   ![Folha Redefinir Gateway de VPN](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
-3. Na folha Redefinir, clique no botão **Reiniciar**.
+3. Na saudação redefinir folha, clique em Olá **redefinir** botão.
 
 ## <a name="ps"></a>PowerShell
 
 ### <a name="resource-manager-deployment-model"></a>Modelo de implantação do Gerenciador de Recursos
 
-O cmdlet para redefinição de um gateway é **Reset-AzureRmVirtualNetworkGateway**. Antes de realizar uma redefinição, certifique-se de possui a última versão dos [cmdlets do Resource Manager PowerShell ](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0). O exemplo a seguir redefine um gateway de rede virtual nomeado VNet1GW no grupo de recursos TestRG1:
+Olá cmdlet para redefinir um gateway é **AzureRmVirtualNetworkGateway redefinição**. Antes de executar uma redefinição, verifique se você tem a versão mais recente de saudação do hello [cmdlets do PowerShell do Gerenciador de recursos](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0). Olá, exemplo a seguir redefine um gateway de rede virtual denominado VNet1GW no grupo de recursos de TestRG1 hello:
 
 ```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroup TestRG1
@@ -70,11 +70,11 @@ Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
 
 Resultado:
 
-Ao receber um resultado de retorno, você poderá assumir que a redefinição do gateway foi bem-sucedida. No entanto, não há nada no resultado de retorno que indica explicitamente que a redefinição foi bem-sucedida. Caso queira analisar detalhadamente o histórico para visualizar exatamente quando ocorreu a redefinição do gateway, é possível visualizar essas informações no [Portal do Azure](https://portal.azure.com). No portal, navegue até **'GatewayName' -> Resource Health**.
+Quando você receber um resultado de retorno, você pode presumir Olá redefinição de gateway foi bem-sucedida. No entanto, há nada no resultado de retorno de saudação que indica explicitamente que redefinem Olá foi bem-sucedida. Se você quiser toolook perto na Olá histórico toosee exatamente quando redefinir gateway Olá ocorreu, você pode exibir essas informações no hello [portal do Azure](https://portal.azure.com). No portal de hello, navegue até muito**'GatewayName' -> integridade do recurso**.
 
 ### <a name="resetclassic"></a> Modelo de implantação clássico
 
-O cmdlet para redefinição de um gateway é **Reset-AzureVNetGateway**. Antes de realizar uma redefinição, certifique-se de que possui a última versão dos [cmdlets do PowerShell do Gerenciamento de Serviços (SM) ](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0). O exemplo a seguir redefine o gateway para uma rede virtual nomeada "ContosoVNet":
+Olá cmdlet para redefinir um gateway é **Reset-AzureVNetGateway**. Antes de executar uma redefinição, verifique se você tem a versão mais recente de saudação do hello [cmdlets do PowerShell de gerenciamento de serviço (SM)](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0). Olá, exemplo a seguir redefine gateway Olá para uma rede virtual denominada "ContosoVNet":
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”
@@ -93,7 +93,7 @@ StatusCode     : OK
 
 ## <a name="cli"></a>Azure CLI
 
-Para redefinir o gateway, utilize o comando [az network vnet-gateway reset](https://docs.microsoft.com/cli/azure/network/vnet-gateway#reset). O exemplo a seguir redefine um gateway de rede virtual nomeado VNet5GW no grupo de recursos TestRG5:
+gateway tooreset Olá Olá use [vnet-gateway de rede az redefinir](https://docs.microsoft.com/cli/azure/network/vnet-gateway#reset) comando. Olá, exemplo a seguir redefine um gateway de rede virtual denominado VNet5GW no grupo de recursos de TestRG5 hello:
 
 ```azurecli
 az network vnet-gateway reset -n VNet5GW -g TestRG5
@@ -101,4 +101,4 @@ az network vnet-gateway reset -n VNet5GW -g TestRG5
 
 Resultado:
 
-Ao receber um resultado de retorno, você poderá assumir que a redefinição do gateway foi bem-sucedida. No entanto, não há nada no resultado de retorno que indica explicitamente que a redefinição foi bem-sucedida. Caso queira analisar detalhadamente o histórico para visualizar exatamente quando ocorreu a redefinição do gateway, é possível visualizar essas informações no [Portal do Azure](https://portal.azure.com). No portal, navegue até **'GatewayName' -> Resource Health**.
+Quando você receber um resultado de retorno, você pode presumir Olá redefinição de gateway foi bem-sucedida. No entanto, há nada no resultado de retorno de saudação que indica explicitamente que redefinem Olá foi bem-sucedida. Se você quiser toolook perto na Olá histórico toosee exatamente quando redefinir gateway Olá ocorreu, você pode exibir essas informações no hello [portal do Azure](https://portal.azure.com). No portal de hello, navegue até muito**'GatewayName' -> integridade do recurso**.

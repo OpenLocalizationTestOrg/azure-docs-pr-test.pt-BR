@@ -1,6 +1,6 @@
 ---
-title: Controlar dispositivos virtuais e de roteamento usando a CLI do Azure 2.0 | Microsoft Docs
-description: Aprenda a controlar dispositivos virtuais e de roteamento usando a CLI do Azure 2.0.
+title: "dispositivos de roteamento e virtual de aaaControl usando Olá 2.0 do CLI do Azure | Microsoft Docs"
+description: "Saiba como dispositivos de roteamento e virtual de toocontrol usando Olá 2.0 do CLI do Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/12/2017
 ms.author: jdial
-ms.openlocfilehash: e5d9519998346619093f443b740c8904283f76e8
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 79b908848932a4365dab1b7497b6a0dbf44bbaf8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-user-defined-routes-udr-using-the-azure-cli-20"></a>Criar UDRs (Rotas Definidas pelo Usuário) usando a CLI do Azure 2.0
+# <a name="create-user-defined-routes-udr-using-hello-azure-cli-20"></a>Criar rotas definidas pelo usuário (UDR) usando Olá 2.0 do CLI do Azure
 
 > [!div class="op_single_selector"]
 > * [PowerShell](virtual-network-create-udr-arm-ps.md)
@@ -30,12 +30,12 @@ ms.lasthandoff: 08/18/2017
 > * [PowerShell (Implantação clássica)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (Implantação clássica)](virtual-network-create-udr-classic-cli.md)
 
-## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa 
+## <a name="cli-versions-toocomplete-hello-task"></a>Tarefa de saudação do CLI versões toocomplete 
 
-Você pode concluir a tarefa usando uma das seguintes versões da CLI: 
+Você pode concluir a tarefa hello usando uma saudação versões da CLI a seguir: 
 
-- [CLI do Azure 1.0](virtual-network-create-udr-arm-cli-nodejs.md) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos 
-- [CLI do Azure 2.0](#Create-the-UDR-for-the-front-end-subnet) – nossa CLI da próxima geração para o modelo de implantação do resource manager (este artigo)
+- [1.0 de CLI do Azure](virtual-network-create-udr-arm-cli-nodejs.md) – nosso CLI para modelos de implantação de gerenciamento de recursos e clássico de Olá 
+- [2.0 do CLI do Azure](#Create-the-UDR-for-the-front-end-subnet) -nossa próxima geração CLI para modelo de implantação de gerenciamento de recursos de saudação (Este artigo)
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
@@ -45,13 +45,13 @@ Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
-Os comandos da CLI do Azure de exemplo abaixo esperam um ambiente simples já criado com base no cenário acima. Se você quiser executar os comandos conforme eles são exibidos neste documento, primeiro crie o ambiente de teste ao implantar [esse modelo](http://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR-Before), clique em **Implantar no Azure**, substitua os valores de parâmetro padrão, se necessário, e siga as instruções no portal.
+comandos de CLI do Azure de exemplo Hello abaixo esperam um ambiente simples já criado com base no cenário de saudação acima. Se você quiser comandos de saudação toorun conforme elas são exibidas neste documento, primeiro criar o ambiente de teste Olá implantando [este modelo](http://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR-Before), clique em **implantar tooAzure**, substitua os valores de parâmetro padrão Olá Se necessário e siga as instruções de saudação em Olá portal.
 
 
-## <a name="create-the-udr-for-the-front-end-subnet"></a>Criar a UDR para a sub-rede de front-end
-Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end com base no cenário acima, siga as etapas abaixo.
+## <a name="create-hello-udr-for-hello-front-end-subnet"></a>Criar hello UDR para sub-rede front-end Olá
+tabela de rotas toocreate hello e rotas necessárias para a sub-rede de front-end de saudação com base no cenário de saudação acima, siga as etapas de saudação abaixo.
 
-1. Criar uma tabela de rota para a sub-rede front-end com o comando [az network route-table create](/cli/azure/network/route-table#create):
+1. Criar uma tabela de rotas para sub-rede front-end Olá com hello [criar tabela de rotas de rede de az](/cli/azure/network/route-table#create) comando:
 
     ```azurecli
     az network route-table create \
@@ -77,7 +77,7 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end c
     }
     ```
 
-2. Crie uma rota que envia todo o tráfego destinado à sub-rede de back-end (192.168.2.0/24) para a VM **FW1** (192.168.0.4) com o comando [az network route-table route create](/cli/azure/network/route-table/route#create):
+2. Crie uma rota que envia todo o tráfego destinado toohello sub-rede de back-end (192.168.2.0/24) toohello **FW1** VM (192.168.0.4) usando Olá [criar rota de tabela de rotas de rede az](/cli/azure/network/route-table/route#create) comando:
 
     ```azurecli 
     az network route-table route create \
@@ -105,12 +105,12 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end c
     ```
     Parâmetros:
 
-    * **--route-table-name**. Nome da tabela de rotas à qual a rota será adicionada. Para nosso cenário, *UDR-FrontEnd*.
-    * **--address-prefix**. Prefixo de endereço para a sub-rede à qual os pacotes são destinados. Para nosso cenário, *192.168.2.0/24*.
+    * **--route-table-name**. Nome da tabela de rota Olá onde rota Olá será adicionada. Para nosso cenário, *UDR-FrontEnd*.
+    * **--address-prefix**. Prefixo de endereço de sub-rede Olá onde os pacotes são destinados a. Para nosso cenário, *192.168.2.0/24*.
     * **--next-hop-type**. Tipo de objeto ao qual o tráfego será enviado. Os valores possíveis são *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* ou *None*.
     * **--next-hop-ip-address**. Endereço IP do próximo salto. Para o nosso cenário, *192.168.0.4*.
 
-3. Execute o comando [az network vnet subnet update](/cli/azure/network/vnet/subnet#update) para associar a tabela de rotas criada acima à sub-rede de **FrontEnd**:
+3. Executar Olá [atualização de sub-rede da rede virtual de rede az](/cli/azure/network/vnet/subnet#update) tabela de rotas do comando tooassociate Olá criado acima com hello **front-end** sub-rede:
 
     ```azurecli
     az network vnet subnet update \
@@ -150,13 +150,13 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end c
 
     Parâmetros:
     
-    * **--vnet-name**. Nome da VNet na qual a sub-rede está localizada. Para o nosso cenário, *TestVNet*.
+    * **--vnet-name**. Nome de rede virtual onde está localizada a sub-rede de saudação do hello. Para o nosso cenário, *TestVNet*.
 
-## <a name="create-the-udr-for-the-back-end-subnet"></a>Criar o UDR para a sub-rede de back-end
+## <a name="create-hello-udr-for-hello-back-end-subnet"></a>Criar hello UDR para a sub-rede de back-end Olá
 
-Para criar a tabela de rotas e a rota necessária para a sub-rede de back-end com base no cenário acima, conclua as etapas a seguir:
+tabela de rotas de saudação toocreate e rotear necessários para a sub-rede de back-end de saudação com base no cenário de saudação acima, Olá concluir as etapas a seguir:
 
-1. Execute o comando a seguir para criar uma tabela de rota para a sub-rede de back-end:
+1. Execute Olá toocreate de comando a seguir uma tabela de rotas para sub-rede de back-end hello:
 
     ```azurecli
     az network route-table create \
@@ -165,7 +165,7 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de back-end co
     --location centralus
     ```
 
-2. Execute o comando a seguir para criar uma rota na tabela de rotas para enviar todo o tráfego destinado à sub-rede de front-end (192.168.1.0/24) para a VM **FW1** (192.168.0.4):
+2. Executar Olá após o comando toocreate uma rota no toosend de tabela de rota Olá todo o tráfego destinado toohello sub-rede front-end (192.168.1.0/24) toohello **FW1** VM (192.168.0.4):
 
     ```azurecli
     az network route-table route create \
@@ -177,7 +177,7 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de back-end co
     --next-hop-ip-address 192.168.0.4
     ```
 
-3. Execute o comando a seguir para associar a tabela de rotas à sub-rede de **BackEnd**:
+3. Execução hello após a tabela de rotas do comando tooassociate Olá com hello **back-end** sub-rede:
 
     ```azurecli
     az network vnet subnet update \
@@ -189,9 +189,9 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de back-end co
 
 ## <a name="enable-ip-forwarding-on-fw1"></a>Habilite o encaminhamento de IP em FW1
 
-Para habilitar o encaminhamento IP na NIC usada por **FW1**, conclua as seguintes etapas:
+encaminhamento de IP tooenable em Olá NIC usada por **FW1**completa Olá seguintes etapas:
 
-1. Execute o comando [az network nic show](/cli/azure/network/nic#show) com um filtro JMESPATH para exibir o valor atual de **enable-ip-forwarding** para **Habilitar encaminhamento de IP**. Ele deve ser definido como *falso*.
+1. Executar Olá [Mostrar de nic de rede az](/cli/azure/network/nic#show) com uma saudação de toodisplay JMESPATH filtro atual **ativar encaminhamento ip** valor para **encaminhamento IP habilitar**. Ele deve ser definido muito*false*.
 
     ```azurecli
     az network nic show \
@@ -204,7 +204,7 @@ Para habilitar o encaminhamento IP na NIC usada por **FW1**, conclua as seguinte
 
         false
 
-2. Execute o seguinte comando para habilitar o encaminhamento IP:
+2. Execute Olá encaminhamento de IP de tooenable de comando a seguir:
 
     ```azurecli
     az network nic update \
@@ -213,7 +213,7 @@ Para habilitar o encaminhamento IP na NIC usada por **FW1**, conclua as seguinte
     --ip-forwarding true
     ```
 
-    Você pode examinar a saída transmitida ao console ou apenas testar novamente para um valor de **enableIpForwarding** específico:
+    Você pode examinar o console de toohello em fluxo de saída de hello ou apenas testar novamente para Olá específico **enableIpForwarding** valor:
 
     ```azurecli
     az network nic show -g testrg -n nicfw1 --query 'enableIpForwarding' -o tsv

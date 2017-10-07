@@ -1,6 +1,6 @@
 ---
-title: Implantar estruturas de aplicativo em VMs Linux no Azure | Microsoft Docs
-description: Crie estruturas de aplicativo populares em VMs Linux usando modelos do Azure Resource Manager para instalar o Active Directory, o Docker e muito mais.
+title: estruturas de aplicativo aaaDeploy em VMs do Linux no Azure | Microsoft Docs
+description: Crie estruturas de aplicativos populares em VMs do Linux usando o Gerenciador de recursos do Azure modelos tooinstall do Active Directory, Docker e muito mais.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: squillace
@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: rasquill
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c5d0d064c0afc4a9a5cb802fce66e219d23dc1ca
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5e3e2d65639680e09d83d50be69d8fe2d86e3bda
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-popular-application-frameworks-on-linux-using-azure-resource-manager-templates"></a>Implantar estruturas de aplicativo populares no Linux usando modelos do Azure Resource Manager
 
-Geralmente, as cargas de trabalho exigem muitos recursos para funcionarem de acordo com o desejado. Os modelos do Gerenciador de Recursos do Azure permitem que você não só defina como os aplicativos são configurados, mas também como os recursos são implantados para permitir aplicativos configurados. Este artigo apresenta os modelos mais populares da galeria e fornece informações sobre como usar o portal do Azure, a CLI do Azure ou o PowerShell para implantá-los.
+Cargas de trabalho geralmente exigem muitos toofunction de recursos de acordo com o toodesign. Gerenciador de recursos do Azure modelos possibilitam que você toonot apenas definir como os aplicativos são configurados, mas também como recursos de saudação são implantados aplicativos toosupport configurado. Este artigo apresenta modelos mais populares de toohello na Galeria de saudação e fornece informações sobre como usar o hello portal do Azure, CLI do Azure ou do PowerShell toodeploy-los.
 
 [!INCLUDE [virtual-machines-common-app-frameworks](../../../includes/virtual-machines-common-app-frameworks.md)]
 

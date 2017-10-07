@@ -1,6 +1,6 @@
 ---
-title: "Criar e gerenciar VMs do Windows com o módulo do Azure PowerShell | Microsoft Docs"
-description: "Tutorial - Criar e gerenciar VMs do Windows com o módulo do Azure PowerShell"
+title: "aaaCreate e gerenciar máquinas virtuais do Windows com hello módulo PowerShell do Azure | Microsoft Docs"
+description: "Tutorial - criar e gerenciar máquinas virtuais do Windows com hello módulo PowerShell do Azure"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -16,40 +16,40 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ec1bb7834beb66dc28dd5b1db764bd358243292c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 20adcb673ef4de683e6ad82d048a9625a1dc838c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Criar e gerenciar VMs do Windows com o módulo do Azure PowerShell
+# <a name="create-and-manage-windows-vms-with-hello-azure-powershell-module"></a>Criar e gerenciar máquinas virtuais do Windows com hello módulo PowerShell do Azure
 
 Máquinas virtuais do Azure fornecem um ambiente de computação totalmente configurável e flexível. Este tutorial aborda itens básicos de implantação de máquina virtual do Azure, como a seleção de um tamanho de VM, seleção de uma imagem de VM e implantação de uma VM. Você aprenderá como:
 
 > [!div class="checklist"]
-> * Criar e conectar-se a uma VM
+> * Criar e conectar tooa VM
 > * Selecionar e usar imagens de VM
 > * Exibir e usar tamanhos específicos de VM
 > * Redimensionar uma VM
 > * Exibir e compreender o estado da VM
 
-Este tutorial requer o módulo do Azure PowerShell, versão 3.6 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Este tutorial requer hello Azure PowerShell versão 3.6 ou posterior do módulo. Executar ` Get-Module -ListAvailable AzureRM` toofind versão de saudação. Se você precisar tooupgrade, consulte [instalar o módulo PowerShell Azure](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Crie um grupo de recursos com o comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
+Criar um grupo de recursos com hello [AzureRmResourceGroup novo](/powershell/module/azurerm.resources/new-azurermresourcegroup) comando. 
 
-Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você deve criar um grupo de recursos antes de criar uma máquina virtual. Neste exemplo, criaremos um grupo de recursos chamado *myResourceGroupVM* na região *EastUS*. 
+Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você deve criar um grupo de recursos antes de criar uma máquina virtual. Neste exemplo, um grupo de recursos denominado *myResourceGroupVM* é criado no hello *EastUS* região. 
 
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroupVM -Location EastUS
 ```
 
-O grupo de recursos é especificado ao criar ou modificar uma VM, que pode ser visto durante este tutorial.
+grupo de recursos de saudação é especificado ao criar ou modificar uma VM, que pode ser vista em todo este tutorial.
 
 ## <a name="create-virtual-machine"></a>Criar máquina virtual
 
-Uma máquina virtual precisa estar conectada a uma rede virtual. Você se comunica com a máquina virtual usando um endereço IP público por meio de uma placa da interface de rede.
+Uma máquina virtual deve ser uma rede virtual tooa conectado. Você se comunicar com a máquina virtual de saudação usando um endereço IP público por meio de uma placa de interface de rede.
 
 ### <a name="create-virtual-network"></a>Criar rede virtual
 
@@ -98,9 +98,9 @@ $nic = New-AzureRmNetworkInterface `
 
 ### <a name="create-network-security-group"></a>Criar um grupo de segurança de rede
 
-Um [grupo de segurança de rede](../../virtual-network/virtual-networks-nsg.md) (NSG) do Azure controla o tráfego de entrada e saída em uma ou mais máquinas virtuais. As regras de grupo de segurança de rede permitem ou negam o tráfego de rede em uma porta específica ou em um intervalo de porta. Essas regras também podem incluir um prefixo do endereço de origem para que somente o tráfego originado em uma fonte predefinida possa se comunicar com uma máquina virtual. Para acessar o servidor da Web do IIS que você está instalando, adicione uma regra NSG de entrada.
+Um [grupo de segurança de rede](../../virtual-network/virtual-networks-nsg.md) (NSG) do Azure controla o tráfego de entrada e saída em uma ou mais máquinas virtuais. As regras de grupo de segurança de rede permitem ou negam o tráfego de rede em uma porta específica ou em um intervalo de porta. Essas regras também podem incluir um prefixo do endereço de origem para que somente o tráfego originado em uma fonte predefinida possa se comunicar com uma máquina virtual. tooaccess Olá IIS Web farm que você está instalando, você deve adicionar uma regra de entrada do NSG.
 
-Para criar uma regra NSG de entrada, use [Add-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/add-azurermnetworksecurityruleconfig). O exemplo a seguir cria uma regra NSG chamada *myNSGRule* que abre a porta *3389* para a máquina virtual:
+toocreate uma regra de entrada NSG, use [AzureRmNetworkSecurityRuleConfig adicionar](/powershell/module/azurerm.network/add-azurermnetworksecurityruleconfig). Olá, exemplo a seguir cria uma regra NSG denominada *myNSGRule* que abre a porta *3389* para a máquina virtual de saudação:
 
 ```powershell
 $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
@@ -115,7 +115,7 @@ $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-Crie a NSG usando *myNSGRule* com [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup):
+Criar hello NSG usando *myNSGRule* com [AzureRmNetworkSecurityGroup novo](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup):
 
 ```powershell
 $nsg = New-AzureRmNetworkSecurityGroup `
@@ -125,7 +125,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
     -SecurityRules $nsgRule
 ```
 
-Adicione a NSG à sub-rede na rede virtual com [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig):
+Adicionar sub-rede de toohello NSG Olá na rede virtual de saudação com [AzureRmVirtualNetworkSubnetConfig conjunto](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig):
 
 ```powershell
 Set-AzureRmVirtualNetworkSubnetConfig `
@@ -135,7 +135,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
     -AddressPrefix 192.168.1.0/24
 ```
 
-Atualize a rede virtual com [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork):
+Rede virtual de saudação de atualização com [AzureRmVirtualNetwork conjunto](/powershell/module/azurerm.network/set-azurermvirtualnetwork):
 
 ```powershell
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
@@ -143,21 +143,21 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 ### <a name="create-virtual-machine"></a>Criar máquina virtual
 
-Há várias opções disponíveis ao criar uma máquina virtual, como a imagem do sistema operacional, as credenciais administrativas e o dimensionamento do disco. Neste exemplo, uma máquina virtual é criada com um nome de *myVM* executando a versão mais recente do Windows Server 2016 Datacenter.
+Há várias opções disponíveis ao criar uma máquina virtual, como a imagem do sistema operacional, as credenciais administrativas e o dimensionamento do disco. Neste exemplo, uma máquina virtual é criada com um nome de *myVM* versão mais recente de execução saudação do Datacenter do Windows Server 2016.
 
-Defina o nome de usuário e a senha necessários para a conta de administrador na máquina virtual com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Definir Olá nome de usuário e a senha necessários para a conta de administrador de saudação em máquina virtual Olá [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```powershell
 $cred = Get-Credential
 ```
 
-Crie a configuração inicial para a máquina virtual com [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig):
+Criar a configuração inicial da máquina virtual de saudação com hello [AzureRmVMConfig novo](/powershell/module/azurerm.compute/new-azurermvmconfig):
 
 ```powershell
 $vm = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D1
 ```
 
-Adicione as informações do sistema operacional à configuração da máquina virtual com [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem):
+Adicionar sistema operacional Olá informações sobre configuração de máquina virtual toohello com [AzureRmVMOperatingSystem conjunto](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem):
 
 ```powershell
 $vm = Set-AzureRmVMOperatingSystem `
@@ -168,7 +168,7 @@ $vm = Set-AzureRmVMOperatingSystem `
     -ProvisionVMAgent -EnableAutoUpdate
 ```
 
-Adicione as informações da imagem á configuração da máquina virtual com [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage):
+Adicionar configuração da máquina virtual Olá imagem informações toohello com [AzureRmVMSourceImage conjunto](/powershell/module/azurerm.compute/set-azurermvmsourceimage):
 
 ```powershell
 $vm = Set-AzureRmVMSourceImage `
@@ -179,7 +179,7 @@ $vm = Set-AzureRmVMSourceImage `
     -Version latest
 ```
 
-Adicione as configurações de disco do sistema operacional à configuração da máquina virtual com [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk):
+Adicionar configurações do hello sistema operacional disco toohello máquina virtual com [AzureRmVMOSDisk conjunto](/powershell/module/azurerm.compute/set-azurermvmosdisk):
 
 ```powershell
 $vm = Set-AzureRmVMOSDisk `
@@ -190,29 +190,29 @@ $vm = Set-AzureRmVMOSDisk `
     -Caching ReadWrite
 ```
 
-Adicione a placa de interface de rede que você criou anteriormente à configuração da máquina virtual com [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface):
+Adicionar Olá placa de rede que você criou anteriormente toohello configuração da máquina virtual com [adicionar AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface):
 
 ```powershell
 $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 ```
 
-Crie a máquina virtual com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+Criar a máquina virtual Olá [AzureRmVM novo](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```powershell
 New-AzureRmVM -ResourceGroupName myResourceGroupVM -Location EastUS -VM $vm
 ```
 
-## <a name="connect-to-vm"></a>Conectar-se a uma VM
+## <a name="connect-toovm"></a>Conecte-se tooVM
 
-Após a implantação, crie uma conexão de área de trabalho remota com a máquina virtual.
+Após a implantação de hello, crie uma conexão de área de trabalho remota com a máquina virtual de saudação.
 
-Execute os comandos a seguir para retornar o endereço IP público da máquina virtual. Anote esse endereço IP para se conectar a ele com o navegador para testar a conectividade à Web em uma etapa futura.
+Execute Olá comandos tooreturn Olá endereço IP público da máquina virtual de saudação a seguir. Anote esse endereço IP para tooit possa se conectar com a conectividade do navegador tootest web em uma etapa futura.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupVM  | Select IpAddress
 ```
 
-Use o seguinte comando para criar uma sessão de área de trabalho remota com a máquina virtual. Substitua o endereço IP pelo *publicIPAdress* da sua máquina virtual. Quando solicitado, insira as credenciais usadas ao criar a máquina virtual.
+A seguir Olá Use o comando toocreate uma sessão de área de trabalho remota com a máquina virtual de saudação. Substitua o endereço IP de saudação com hello *publicIPAddress* de sua máquina virtual. Quando solicitado, insira as credenciais de saudação usadas ao criar a máquina virtual de saudação.
 
 ```powershell
 mstsc /v:<publicIpAddress>
@@ -220,15 +220,15 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="understand-vm-images"></a>Entender as imagens de VM
 
-O Azure Marketplace inclui várias imagens de máquina virtual que podem ser usadas para criar uma nova máquina virtual. Nas etapas anteriores, uma máquina virtual foi criada usando a imagem do Windows Server 2016-Datacenter. Nesta etapa, o módulo do PowerShell é usado para pesquisar no marketplace por outras imagens do Windows, que também pode servir como base para novas VMs. Esse processo consiste em localizar o nome do editor, da oferta e da imagem (Sku). 
+Olá marketplace do Azure inclui várias imagens de máquinas virtuais que podem ser usada toocreate uma nova máquina virtual. Nas etapas anteriores do hello, uma máquina virtual foi criada usando a imagem do Windows Server 2016-Datacenter hello. Nesta etapa, o módulo do PowerShell de saudação está marketplace de saudação toosearch usado para outras imagens do Windows, que pode também como base para novas VMs. Esse processo consiste em localizar publicador hello, oferta e nome da imagem hello (Sku). 
 
-Use o comando [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) para retornar uma lista de editores de imagem.  
+Saudação de uso [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) tooreturn comando uma lista de editores de imagem.  
 
 ```powersehll
 Get-AzureRmVMImagePublisher -Location "EastUS"
 ```
 
-Use o comando [Get-AzureRmVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer) para retornar uma lista de ofertas de imagem. Com este comando, a lista retornada é filtrada no editor especificado. 
+Saudação de uso [Get-AzureRmVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer) tooreturn uma lista de ofertas de imagem. Com este comando, Olá retornado lista é filtrada no publicador especificado hello. 
 
 ```powershell
 Get-AzureRmVMImageOffer -Location "EastUS" -PublisherName "MicrosoftWindowsServer"
@@ -242,7 +242,7 @@ WindowsServer     MicrosoftWindowsServer EastUS
 WindowsServer-HUB MicrosoftWindowsServer EastUS   
 ```
 
-O comando [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) filtrará o nome do editor e da oferta para retornar uma lista com nomes de imagem.
+Olá [AzureRmVMImageSku Get](/powershell/module/azurerm.compute/get-azurermvmimagesku) comando, em seguida, filtrará Olá tooreturn de nome de publicador e oferecem uma lista de nomes de imagem.
 
 ```powershell
 Get-AzureRmVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
@@ -263,7 +263,7 @@ Skus                            Offer         PublisherName          Location
 2016-Nano-Server                WindowsServer MicrosoftWindowsServer EastUS
 ```
 
-Essas informações podem ser usadas para implantar uma VM com uma imagem específica. Este exemplo define o nome da imagem no objeto da VM. Consulte os exemplos anteriores neste tutorial para obter as etapas completas de implantação.
+Essas informações podem ser usada toodeploy uma VM com uma imagem específica. Este exemplo define o nome da imagem Olá no objeto da VM hello. Consulte os exemplos anteriores toohello neste tutorial para etapas de implantação completa.
 
 ```powershell
 $vm = Set-AzureRmVMSourceImage `
@@ -276,17 +276,17 @@ $vm = Set-AzureRmVMSourceImage `
 
 ## <a name="understand-vm-sizes"></a>Entender os tamanhos de VM
 
-Um tamanho de máquina virtual determina a quantidade de recursos de computação, como memória, CPU e GPU que estão disponíveis para a máquina virtual. As máquinas virtuais precisam ser criadas com um tamanho apropriado para a carga de trabalho esperada. Se a carga de trabalho aumentar, uma máquina virtual existente pode ser redimensionada.
+Um tamanho de máquina virtual determina a quantidade de saudação de recursos de computação, como memória, CPU e GPU que são feitas a máquina virtual de toohello disponíveis. Máquinas virtuais precisam toobe criado com um tamanho apropriado para Olá espera que a carga de trabalho. Se a carga de trabalho aumentar, uma máquina virtual existente pode ser redimensionada.
 
 ### <a name="vm-sizes"></a>Tamanhos de VM
 
-A tabela a seguir categoriza tamanhos em casos de uso.  
+Olá, a tabela a seguir categoriza tamanhos em casos de uso.  
 
 | Tipo                     | Tamanhos           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| Propósito geral         |DSv2, Dv2, DS, D, Av2, A0-7| CPU/memória equilibrados. Ideal para desenvolvimento/teste e para aplicativos de pequeno a médio porte e soluções de dados.  |
+| Propósito geral         |DSv2, Dv2, DS, D, Av2, A0-7| CPU/memória equilibrados. Ideal para desenvolvimento / teste e pequenas toomedium soluções de aplicativos e dados.  |
 | Otimizado para computação      | Fs, F             | Relação de CPU/memória alta. Boa para aplicativos de tráfego médio, dispositivos de rede e processos em lote.        |
-| Otimizado para memória       | GS, G, DSv2, DS, Dv2, D   | Relação de memória/núcleo alta. Ótima para banco de dados relacionais, caches médios a grandes e análises na memória.                 |
+| Otimizado para memória       | GS, G, DSv2, DS, Dv2, D   | Relação de memória/núcleo alta. Excelente para bancos de dados relacionais, caches toolarge médios e análise de memória.                 |
 | Otimizado para armazenamento       | Ls                | Alta taxa de transferência de disco e de E/S. Ideal para Big Data, SQL e bancos de dados NoSQL.                                                         |
 | GPU           | NV, NC            | VMs especializadas, destinadas para renderização gráfica e edição de vídeo pesadas.       |
 | Alto desempenho | H, A8-11          | Nossas VMs de CPU mais potentes com adaptadores de rede de alto rendimento (RDMA) opcionais. 
@@ -294,7 +294,7 @@ A tabela a seguir categoriza tamanhos em casos de uso.
 
 ### <a name="find-available-vm-sizes"></a>Encontrar tamanhos de VM disponíveis
 
-Para ver uma lista de tamanhos de VM disponíveis em uma região específica, use o comando [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize).
+toosee uma lista de VM tamanhos disponíveis em uma determinada região, use Olá [AzureRmVMSize Get](/powershell/module/azurerm.compute/get-azurermvmsize) comando.
 
 ```powershell
 Get-AzureRmVMSize -Location EastUS
@@ -302,15 +302,15 @@ Get-AzureRmVMSize -Location EastUS
 
 ## <a name="resize-a-vm"></a>Redimensionar uma VM
 
-Após a implantação de uma VM, ela pode ser redimensionada para aumentar ou diminuir a alocação de recursos.
+Depois que uma máquina virtual foi implantada, pode ser redimensionada tooincrease ou diminuir a alocação de recursos.
 
-Antes de redimensionar uma VM, verifique se o tamanho desejado está disponível no cluster da VM atual. O comando [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) retorna uma lista de tamanhos. 
+Antes de redimensionar uma VM, verifique se hello tamanho desejado está disponível no cluster da VM atual hello. Olá [AzureRmVMSize Get](/powershell/module/azurerm.compute/get-azurermvmsize) comando retorna uma lista de tamanhos. 
 
 ```powershell
 Get-AzureRmVMSize -ResourceGroupName myResourceGroupVM -VMName myVM 
 ```
 
-Se o tamanho desejado estiver disponível, a VM poderá ser redimensionada a partir de um estado ligado. No entanto, ela é reinicializada durante a operação.
+Se Olá desejado tamanho estiver disponível, hello VM pode ser redimensionada de um estado ligado, mas ele é reinicializado durante a operação de saudação.
 
 ```powershell
 $vm = Get-AzureRmVM -ResourceGroupName myResourceGroupVM  -VMName myVM 
@@ -318,7 +318,7 @@ $vm.HardwareProfile.VmSize = "Standard_D4"
 Update-AzureRmVM -VM $vm -ResourceGroupName myResourceGroupVM 
 ```
 
-Se o tamanho desejado não estiver no cluster atual, a VM precisará ser desalocada antes que a operação de redimensionamento ocorra. Observe que quando a VM é ligada novamente, quaisquer dados no disco temporário são removidos, e o endereço IP público muda, a menos que um endereço IP estático esteja sendo usado. 
+Se o tamanho desejado de saudação não está em cluster atual hello, Olá VM necessidades toobe desalocada antes da operação de redimensionamento Olá pode ocorrer. Observe que, quando Olá VM está ligada novamente, os dados no disco temporário Olá são removidos e endereço IP público de saudação alterar, a menos que um endereço IP estático está sendo usado. 
 
 ```powershell
 Stop-AzureRmVM -ResourceGroupName myResourceGroupVM -Name "myVM" -Force
@@ -330,23 +330,23 @@ Start-AzureRmVM -ResourceGroupName myResourceGroupVM  -Name $vm.name
 
 ## <a name="vm-power-states"></a>Estados de energia da VM
 
-Uma VM do Azure pode ter um dentre vários estados de energia. Esse estado representa o estado atual da VM do ponto de vista do hipervisor. 
+Uma VM do Azure pode ter um dentre vários estados de energia. Nesse estado representa o estado atual de saudação do hello VM do ponto de vista de saudação do hipervisor Olá. 
 
 ### <a name="power-states"></a>Estados de energia
 
 | Estado de energia | Descrição
 |----|----|
-| Iniciando | Indica que a máquina virtual está sendo iniciada. |
-| Executando | Indica que a máquina virtual está em execução. |
-| Parando | Indica que a máquina virtual está sendo interrompida. | 
-| Parada | Indica que a máquina virtual foi parada. Observe que máquinas virtuais no estado parado ainda incorrem em encargos de computação.  |
-| Desalocando | Indica que a máquina virtual está sendo desalocada. |
-| Desalocada | Indica que a máquina virtual foi completamente removidos do hipervisor, mas ainda está disponível no plano de controle. Máquinas virtuais no estado Desalocado não incorrem em encargos de computação. |
-| - | Indica que o estado de energia da máquina virtual é desconhecido. |
+| Iniciando | Indica a máquina virtual de hello está sendo iniciada. |
+| Executando | Indica que a máquina virtual hello está em execução. |
+| Parando | Indica que a máquina virtual hello está sendo interrompida. | 
+| Parada | Indica que a máquina virtual hello está parada. Observe que máquinas virtuais no estado interrompido de saudação ainda incorrerá em encargos de computação.  |
+| Desalocando | Indica que a máquina virtual hello está sendo desalocada. |
+| Desalocada | Indica que a máquina virtual Olá foi completamente removida do hipervisor Olá mas ainda estará disponível no plano de controle de saudação. Máquinas virtuais no estado desalocada da saudação não incorrerá em encargos de computação. |
+| - | Indica que o estado de energia de saudação da máquina virtual de saudação é desconhecido. |
 
 ### <a name="find-power-state"></a>Localizar o estado de energia
 
-Para recuperar o estado de uma VM específica, use o comando [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm). Especifique um nome válido para uma máquina virtual e grupo de recursos. 
+estado de saudação tooretrieve de uma VM específica, use Olá [AzureRmVM Get](/powershell/module/azurerm.compute/get-azurermvm) comando. Ser toospecify se um nome válido para uma máquina virtual e o grupo de recursos. 
 
 ```powershell
 Get-AzureRmVM `
@@ -365,7 +365,7 @@ PowerState/running
 
 ## <a name="management-tasks"></a>Tarefas de gerenciamento
 
-Durante o ciclo de vida de uma máquina virtual, é possível que você queira executar tarefas de gerenciamento, como inicialização, interrupção ou exclusão de uma máquina virtual. Além disso, é possível que você queira criar scripts para automatizar tarefas repetitivas ou complexas. Usando o Azure PowerShell, muitas tarefas comuns de gerenciamento podem ser executadas em linha de comando ou em scripts.
+Durante a saudação do ciclo de vida de uma máquina virtual, talvez você queira toorun tarefas de gerenciamento como iniciar, parar ou excluir uma máquina virtual. Além disso, talvez você queira toocreate scripts tooautomate repetitivas ou complexas tarefas. Usando o Azure PowerShell, muitas tarefas comuns de gerenciamento podem ser executadas da linha de comando hello, ou em scripts.
 
 ### <a name="stop-virtual-machine"></a>Como interromper uma máquina virtual
 
@@ -375,7 +375,7 @@ Pare e desaloque uma máquina virtual com [Stop-AzureRmVM](/powershell/module/az
 Stop-AzureRmVM -ResourceGroupName myResourceGroupVM -Name "myVM" -Force
 ```
 
-Se você quiser manter a máquina virtual em um estado de provisionamento, use o parâmetro -StayProvisioned.
+Se você quiser tookeep Olá VM em um estado de provisionamento, use o parâmetro de - StayProvisioned de saudação.
 
 ### <a name="start-virtual-machine"></a>Como iniciar uma máquina virtual
 
@@ -396,13 +396,13 @@ Remove-AzureRmResourceGroup -Name myResourceGroupVM -Force
 Neste tutorial, você aprendeu sobre a criação e o gerenciamento básico de VM e como:
 
 > [!div class="checklist"]
-> * Criar e conectar-se a uma VM
+> * Criar e conectar tooa VM
 > * Selecionar e usar imagens de VM
 > * Exibir e usar tamanhos específicos de VM
 > * Redimensionar uma VM
 > * Exibir e compreender o estado da VM
 
-Avança para o próximo tutorial para saber mais sobre os discos de VM.  
+Avançar toohello toolearn próximo de tutorial sobre discos de VM.  
 
 > [!div class="nextstepaction"]
 > [Criar e gerenciar discos de VM](./tutorial-manage-data-disk.md)

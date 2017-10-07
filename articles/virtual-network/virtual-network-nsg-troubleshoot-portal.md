@@ -1,6 +1,6 @@
 ---
-title: "Solucionar problemas de grupos de segurança de rede – Portal | Microsoft Docs"
-description: "Saiba como solucionar problemas de Grupos de segurança de rede no modelo de implantação do Azure Resource Manager usando o Portal do Azure."
+title: "aaaTroubleshoot grupos de segurança de rede - Portal | Microsoft Docs"
+description: "Saiba como grupos de segurança de rede tootroubleshoot na implantação do Azure Resource Manager Olá modelo usando Olá Portal do Azure."
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
@@ -15,137 +15,137 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: f01d3b43a7953697a6b03e176dace33448d95cd9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0d3d2110fe1507f36e3b933de924a0876db2747a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Solucionar problemas de grupos de segurança de rede usando o Portal do Azure
+# <a name="troubleshoot-network-security-groups-using-hello-azure-portal"></a>Solucionar problemas de grupos de segurança de rede usando Olá Portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal do Azure](virtual-network-nsg-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
 > 
 > 
 
-Se você configurou NSGs (grupos de segurança de rede) em sua VM (máquina virtual) e está tendo problemas de conectividade com a VM, este artigo fornece uma visão geral dos recursos de diagnóstico para NSGs a fim de ajudar a solucionar outros problemas.
+Se configurado os grupos de segurança de rede (NSGs) em sua máquina virtual (VM) e estão com problemas de conectividade VM, este artigo fornece uma visão geral dos recursos de diagnóstico para os NSGs toohelp solucionar outros problemas.
 
-Os NSGs permitem que você controle os tipos de tráfego que fluem para dentro e fora de suas VMs (máquinas virtuais). Os NSGs podem ser aplicados a sub-redes em uma VNet (rede virtual) do Azure, à NIC (adaptadores de rede) ou ambas. As regras em vigor aplicadas a uma NIC são uma agregação das regras que existem nos NSGs aplicados a uma NIC e à sub-rede à qual ela está conectada. As regras nesses NSGs podem, às vezes, entrar em conflito umas com as outras e afetar a conectividade de rede de uma VM.  
+Os NSGs permitem que você toocontrol tipos de saudação do tráfego de fluxo para dentro e fora de suas máquinas virtuais (VMs). Os NSGs podem ser aplicadas toosubnets em uma rede Virtual do Azure (VNet), interfaces de rede (NIC) ou ambos. Olá efetivo regras aplicadas tooa NIC são uma agregação das regras de saudação que existem no hello NSGs aplicados tooa NIC e hello sub-rede está conectado ao. As regras nesses NSGs podem, às vezes, entrar em conflito umas com as outras e afetar a conectividade de rede de uma VM.  
 
-Você pode ver todas as regras de segurança em vigor em seus NSGs, conforme aplicado nas NICs da sua VM. Este artigo mostra como solucionar problemas de conectividade da VM usando essas regras no modelo de implantação do Azure Resource Manager. Se você não estiver familiarizado com conceitos de VNet e NSG, leia os artigos de visão geral de [Rede virtual](virtual-networks-overview.md) e [Grupos de segurança de rede](virtual-networks-nsg.md).
+Você pode exibir todas as regras de segurança efetiva de saudação do seus NSGs aplicados ao NICs da VM. Este artigo mostra como problemas de conectividade VM tootroubleshoot usando essas regras em Olá modelo de implantação do Gerenciador de recursos do Azure. Se você não estiver familiarizado com conceitos de rede virtual e NSG, leia Olá [rede Virtual](virtual-networks-overview.md) e [grupos de segurança de rede](virtual-networks-nsg.md) artigos de visão geral.
 
-## <a name="using-effective-security-rules-to-troubleshoot-vm-traffic-flow"></a>Usando regras de segurança em vigor para solucionar problemas de fluxo de tráfego da VM
-O cenário a seguir é um exemplo de um problema de conexão comum:
+## <a name="using-effective-security-rules-tootroubleshoot-vm-traffic-flow"></a>Usando o fluxo de tráfego VM de tootroubleshoot de regras de segurança efetiva
+cenário de saudação que segue é um exemplo de um problema de conexão comum:
 
-Uma VM denominada *VM1* faz parte de uma sub-rede denominada *Subnet1* em uma VNet denominada *WestUS-VNet1*. Falha em uma tentativa de conectar-se à VM usando o RDP por meio da porta TCP 3389. Os NSGs são aplicados tanto na NIC *VM1-NIC1* quanto na sub-rede *Subnet1*. O tráfego para a porta TCP 3389 é permitido no NSG associado ao adaptador de rede *VM1-NIC1*. No entanto, ocorre uma falha no ping do TCP para a porta 3389 da VM1.
+Uma VM denominada *VM1* faz parte de uma sub-rede denominada *Subnet1* em uma VNet denominada *WestUS-VNet1*. Toohello de tooconnect uma tentativa de VM usando o RDP usando a porta TCP 3389 falhará. Os NSGs são aplicados em ambos os Olá NIC *VM1 NIC1* e Olá sub-rede *Subnet1*. TooTCP porta 3389 do tráfego é permitida em Olá associado à interface de rede de saudação do NSG *VM1 NIC1*, no entanto, porta 3389 ocorre uma falha da tooVM1 ping do TCP.
 
-Embora este exemplo use a porta TCP 3389, as etapas a seguir podem ser seguidas para determinar falhas de conexão de entrada e saída em qualquer porta.
+Embora este exemplo usa a porta TCP 3389, Olá seguintes etapas pode ser usada toodetermine falhas de conexão de entrada e saída em qualquer porta.
 
 ### <a name="vm"></a>Exibir regras de segurança em vigor para uma máquina virtual
-Siga as etapas a seguir para solucionar problemas de NSGs em uma VM:
+Concluir Olá seguindo as etapas tootroubleshoot NSGs para uma VM:
 
-Você pode exibir uma lista completa das regras de segurança em vigor em uma NIC, por meio da VM em si. Você também poderá adicionar, modificar e excluir tanto a NIC quanto as regras NSG da sub-rede da folha regras em vigor, se você tiver permissões para realizar essas operações.
+Você pode exibir a lista completa de regras de segurança efetiva de saudação em uma NIC, de saudação própria máquina virtual. Você também pode adicionar, modificar e excluir as regras NSG NIC e de sub-rede da folha de regras efetivo hello, se você tiver permissões tooperform essas operações.
 
-1. Entre no Portal do Azure em https://portal.azure.com.
-2. Clique em **Mais serviços** e em **Máquinas virtuais** na lista exibida.
-3. Selecione uma VM para solucionar problemas na lista, e uma folha da VM com opções é exibida.
-4. Clique em **Diagnosticar e resolver problemas** e selecione um problema comum. Neste exemplo, **Não é possível me conectar à minha VM do Windows** está selecionado. 
+1. Logon toohello portal do Azure em https://portal.azure.com.
+2. Clique em **mais serviços**, em seguida, clique em **máquinas virtuais** na lista de saudação que aparece.
+3. Selecione tootroubleshoot uma VM na lista de saudação que é exibido e uma folha VM com opções é exibida.
+4. Clique em **Diagnosticar e resolver problemas** e selecione um problema comum. Neste exemplo, **toomy VM do Windows não consigo conectar** está selecionado. 
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image1.png)
-5. As etapas são exibidas embaixo do problema, conforme mostrado na imagem a seguir: 
+5. Etapas aparecem em problema hello, conforme mostrado na figura abaixo de saudação: 
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image2.png)
    
-    Clique em *regras efetivas do grupo de segurança* na lista de etapas recomendadas.
-6. A folha **Obter regras de segurança em vigor** é exibida, conforme mostrado na imagem a seguir:
+    Clique em *regras de grupo de segurança efetiva* na lista de saudação de etapas recomendadas.
+6. Olá **obter regras de segurança efetiva** folha é exibida, conforme mostrado na figura abaixo de saudação:
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image3.png)
    
-    Observe as seguintes seções da imagem:
+    Observe Olá seções de imagem Olá a seguir:
    
-   * **Escopo:** defina a VM selecionada na etapa 3 como *VM1*.
-   * **Adaptador de rede:** *VM1-NIC1* foi selecionado. Uma VM pode ter vários adaptadores de rede (NIC). Cada NIC pode ter regras de segurança em vigor únicas. Ao solucionar problemas, talvez seja necessário exibir as regras de segurança em vigor para cada NIC.
-   * **NSGs associados:** os NSGs podem ser aplicados tanto à NIC quanto à sub-rede à qual a NIC está conectada. Na imagem, um NSG foi aplicado à NIC e à sub-rede na qual ela está conectada. Você pode clicar nos nomes do NSG para modificar diretamente as regras nos NSGs.
-   * **Guia VM1-nsg:** a lista de regras exibidas na imagem é para o NSG aplicado à NIC. Várias regras padrão são criadas pelo Azure sempre que um NSG é criado. Não é possível remover as regras padrão, mas você pode substituí-las por regras com prioridade mais alta. Para saber mais sobre regras padrão, leia o artigo [Visão geral do NSG](virtual-networks-nsg.md#default-rules) .
-   * **Coluna DESTINO:** algumas regras têm texto na coluna, enquanto outras têm prefixos de endereço. O texto é o nome de marcações padrão aplicadas à regra de segurança quando ela foi criada. As marcações são identificadores fornecidos pelo sistema que representam vários prefixos. A seleção de uma regra com uma marcação, como *AllowInternetOutBound*, lista os prefixos na folha **Prefixos de endereços** .
-   * **Baixar:** a lista de regras pode ser longa. Você pode baixar um arquivo. csv das regras para análise offline clicando em **Baixar** e salvando o arquivo.
-   * **AllowRDP** : essa regra possibilita conexões RDP com a VM.
-7. Clique na guia **Subnet1-NSG** para exibir as regras em vigor do NSG aplicado à sub-rede, conforme mostrado na imagem a seguir: 
+   * **Escopo:** definido muito*VM1*, Olá VM selecionado na etapa 3.
+   * **Adaptador de rede:** *VM1-NIC1* foi selecionado. Uma VM pode ter vários adaptadores de rede (NIC). Cada NIC pode ter regras de segurança em vigor únicas. Ao solucionar problemas, regras de segurança efetiva Olá tooview talvez seja necessário para cada NIC.
+   * **Os NSGs associados:** NSGs podem ser aplicado tooboth Olá NIC e hello sub-rede Olá NIC está conectada ao. Figura hello, um NSG foi aplicada tooboth Olá NIC e hello subrede a que ele está conectado. Você pode clicar nos nomes NSG Olá toodirectly modificar as regras em Olá NSGs.
+   * **Guia VM1 nsg:** lista Olá das regras exibidas na imagem de saudação é para Olá NSG aplicado NIC toohello. Várias regras padrão são criadas pelo Azure sempre que um NSG é criado. Não é possível remover as regras padrão hello, mas você pode substituí-los com as regras de prioridade mais alta. toolearn mais sobre as regras padrão, ler Olá [visão geral do NSG](virtual-networks-nsg.md#default-rules) artigo.
+   * **Coluna de destino:** algumas regras Olá com texto na coluna hello, enquanto outros têm prefixos de endereço. texto de saudação é o nome de saudação de regra de segurança padrão marcas aplicadas toohello quando ele foi criado. marcas de saudação são identificadores fornecidos pelo sistema que representam vários prefixos. Selecionar uma regra com uma marca, como *AllowInternetOutBound*, lista de prefixos de Olá Olá **prefixos de endereço** folha.
+   * **Download:** lista Olá de regras pode ser longa. Você pode baixar um arquivo. csv de regras de saudação para análise offline clicando **baixar** e salvar arquivo hello.
+   * **AllowRDP** regra de entrada: essa regra permite que o RDP conexões toohello VM.
+7. Clique em Olá **Subnet1 NSG** guia tooview Olá efetivo regras Olá NSG aplicado sub-rede toohello, conforme mostrado na figura abaixo de saudação: 
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image4.png)
    
-    Observe a regra de *entrada* **denyRDP** . As regras de entrada aplicadas na sub-rede são avaliadas antes das regras aplicadas no adaptador de rede. Como a regra negar é aplicada na sub-rede, a solicitação para se conectar à TCP 3389 falha, porque a regra permitir na NIC nunca é avaliada. 
+    Saudação de aviso *denyRDP* **entrada** regra. Aplicado na sub-rede Olá as regras de entrada são avaliadas antes das regras aplicadas na interface de rede de saudação. Como Olá negar regra será aplicada na sub-rede Olá, Olá solicitação tooconnect tooTCP 3389 falha, porque Olá permitem que a regra no hello NIC nunca é calculada. 
    
-    A regra *denyRDP* é a razão por que a conexão RDP está falhando. Removê-la deve resolver o problema.
+    Olá *denyRDP* regra é motivo Olá por Olá conexão de RDP está falhando. Removendo deve resolver o problema de saudação.
    
    > [!NOTE]
-   > Se a VM associada à NIC não estiver no estado de execução ou os NSGs não tiverem sido aplicados à NIC ou à sub-rede, nenhuma regra será mostrada.
+   > Se Olá VM associados com hello NIC não está em um estado de execução, ou os NSGs ainda não foram aplicado toohello NIC ou sub-rede, nenhuma regra será mostrada.
    > 
    > 
-8. Para editar as regras do NSG, clique em *Subnet1-NSG* na seção **NSGs associados** .
-   Isso abre a folha **Subnet1-NSG** . Você pode editar as regras diretamente clicando em **Regras de segurança de entrada**.
+8. regras do NSG tooedit, clique em *Subnet1 NSG* em Olá **NSGs associado** seção.
+   Isso abre o hello **Subnet1 NSG** folha. Você pode editar diretamente regras Olá clicando em **regras de segurança de entrada**.
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image7.png)
-9. Depois de remover a regra de entrada *denyRDP* na **Subnet1-NSG** e adicionar uma regra *allowRDP*, a lista de regras em vigor será semelhante à imagem a seguir:
+9. Depois de remover Olá *denyRDP* Olá da regra de entrada **Subnet1 NSG** e adicionando um *allowRDP* regra, a lista de regras efetivo Olá aparência Olá figura abaixo:
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image8.png)
    
-    Confirme que a porta TCP 3389 está aberta abrindo uma conexão RDP com a VM ou usando a ferramenta PsPing. Você pode saber mais sobre o PsPing lendo a [página de download do PsPing](https://technet.microsoft.com/sysinternals/psping.aspx).
+    Confirme que a porta TCP 3389 esteja aberta abrindo uma conexão de RDP toohello VM ou usando a ferramenta de PsPing hello. Você pode aprender mais sobre PsPing ao ler Olá [página de download do PsPing](https://technet.microsoft.com/sysinternals/psping.aspx).
 
 ### <a name="nic"></a>Exibir regras de segurança em vigor para um adaptador de rede
-Se seu fluxo de tráfego da VM for afetado para uma NIC específica, você poderá ver uma lista completa das regras em vigor para a NIC no contexto de adaptadores de rede concluindo as seguintes etapas:
+Se o fluxo de tráfego VM é afetado para uma NIC específica, você pode exibir uma lista completa de regras efetivo Olá Olá NIC do contexto de interfaces de rede Olá Concluindo Olá etapas a seguir:
 
-1. Entre no Portal do Azure em https://portal.azure.com.
-2. Clique em **Mais serviços** e em **Adaptadores de rede** na lista exibida.
-3. Selecione um adaptador de rede. Na imagem a seguir, uma NIC denominada *VM1-NIC1* foi selecionada.
+1. Logon toohello portal do Azure em https://portal.azure.com.
+2. Clique em **mais serviços**, em seguida, clique em **interfaces de rede** na lista de saudação que aparece.
+3. Selecione um adaptador de rede. Olá a imagem a seguir, uma NIC denominado *NIC1 VM1* é selecionado.
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image5.png)
    
-    Observe que **Escopo** foi definido para o adaptador de rede selecionado. Para saber mais sobre as informações adicionais mostradas, leia a etapa 6 da seção **Solucionar problemas de NSGs para uma VM** deste artigo.
+    Observe que Olá **escopo** é definido toohello interface de rede selecionada. Saiba mais sobre toolearn Olá informações adicionais mostradas, ler etapa 6 do hello **NSGs solucionar problemas de uma VM** deste artigo.
    
    > [!NOTE]
-   > Se um NSG for removido em um adaptador de rede, o NSG da sub-rede ainda estará em vigor na NIC fornecida. Nesse caso, a saída só mostraria regras do NSG da sub-rede. As regras serão exibidas somente se a NIC estiver conectada a uma VM.
+   > Se um NSG é removido de uma interface de rede, Olá sub-rede NSG é ainda em vigor em Olá fornecido NIC. Nesse caso, saída de hello só mostra regras de sub-rede Olá NSG. Regras somente aparecerão se Olá NIC é anexado tooa VM.
    > 
    > 
-4. Você pode editar diretamente as regras para NSGs associados a uma NIC e a uma sub-rede. Para saber como fazer isso, leia a etapa 8 da seção **Exibir regras de segurança em vigor para uma máquina virtual** deste artigo.
+4. Você pode editar diretamente as regras para NSGs associados a uma NIC e a uma sub-rede. toolearn como, leia a etapa 8 de saudação **exibir regras de segurança efetiva para uma máquina virtual** deste artigo.
 
 ## <a name="nsg"></a>Exibir regras de segurança em vigor para um NSG (grupo de segurança de rede)
-Ao modificar as regras do NSG, convém analisar o impacto das regras que estão sendo adicionadas em uma VM específica. Agora você pode ver uma lista completa das regras de segurança em vigor para todas as NICs às quais um NSG fornecido é aplicado, sem precisar mudar o contexto da folha de NSG fornecida. Para solucionar problemas de regras em vigor em um NSG, siga as etapas a seguir:
+Ao modificar as regras NSG, talvez você queira tooreview impacto de saudação de regras de saudação que está sendo adicionado em uma VM específica. Você pode exibir uma lista completa das regras de segurança efetiva Olá para todos os Olá NICs que um determinado NSG é aplicado, sem ter que tooswitch o contexto da saudação dada folha NSG. tootroubleshoot regras efetivo dentro de um NSG, Olá concluir as etapas a seguir:
 
-1. Entre no Portal do Azure em https://portal.azure.com.
-2. Clique em **Mais serviços** e em **Grupos de segurança de rede** na lista exibida.
-3. Selecione um NSG. Na imagem a seguir, um NSG denominado VM1-nsg foi selecionado.
+1. Logon toohello portal do Azure em https://portal.azure.com.
+2. Clique em **mais serviços**, em seguida, clique em **grupos de segurança de rede** na lista de saudação que aparece.
+3. Selecione um NSG. Na figura abaixo de Olá, um NSG denominado VM1 nsg foi selecionado.
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image6.png)
    
-    Observe as seguintes seções da imagem anterior:
+    Observe Olá seções da imagem anterior Olá a seguir:
    
-   * **Escopo:** defina para o NSG selecionado.
-   * **Máquina Virtual:** quando um NSG é aplicado a uma sub-rede, ele é aplicado a todos os adaptadores de rede conectados a todas as VMs conectadas à sub-rede. Esta lista mostra todas as VMs às quais este NSG foi aplicado. Você pode selecionar qualquer VM na lista.
+   * **Escopo:** definir toohello NSG selecionado.
+   * **Máquina virtual:** quando um NSG sub-rede tooa aplicadas, é aplicada tooall interfaces tooall anexado VMs toohello conectado sub-rede. Esta lista mostra todas as VMs às quais este NSG foi aplicado. Você pode selecionar qualquer VM na lista de saudação.
      
      > [!NOTE]
-     > Se um NSG for aplicado a apenas uma sub-rede vazia, as VMs não serão listadas. Se um NSG for aplicado a uma NIC não associada a uma VM, essas NICs também não serão listadas. 
+     > Se um NSG está tooonly aplicada uma sub-rede vazia, máquinas virtuais não serão listados. Se um NSG é aplicado tooa NIC que não está associado uma VM, as NICs também não serão listadas. 
      > 
      > 
-   * **Adaptador de rede:** uma VM pode ter vários adaptadores de rede. Você pode selecionar um adaptador de rede conectado à VM selecionada.
-   * **AssociatedNSGs:** a qualquer momento, uma NIC pode ter até dois NSGs em vigor, um aplicado à NIC e o outro, à sub-rede. Embora o escopo tenha sido selecionado como VM1-nsg, se a NIC tiver um NSG de sub-rede em vigor, a saída mostrará os dois NSGs.
-4. Você pode editar diretamente as regras para NSGs associados a uma NIC ou a uma sub-rede. Para saber como fazer isso, leia a etapa 8 da seção **Exibir regras de segurança em vigor para uma máquina virtual** deste artigo.
+   * **Adaptador de rede:** uma VM pode ter vários adaptadores de rede. Você pode selecionar uma interface de rede conectado toohello selecionado de VM.
+   * **AssociatedNSGs:** a qualquer momento, um NIC pode ter até tootwo efetivos NSGs, um aplicado toohello NIC e Olá toohello as outras sub-redes. Embora o escopo de saudação for selecionado como VM1-nsg se Olá NIC tem uma sub-rede efetivada NSG, saída de hello mostrará dois NSGs.
+4. Você pode editar diretamente as regras para NSGs associados a uma NIC ou a uma sub-rede. toolearn como, leia a etapa 8 de saudação **exibir regras de segurança efetiva para uma máquina virtual** deste artigo.
 
-Para saber mais sobre as outras informações mostradas, leia a etapa 6 da seção **Exibir regras de segurança em vigor para uma máquina virtual** deste artigo.
+Saiba mais sobre toolearn Olá informações adicionais mostradas, ler etapa 6 do hello **exibir regras de segurança efetiva para uma máquina virtual** deste artigo.
 
 > [!NOTE]
-> Embora uma sub-rede e a NIC possam ter apenas um NSG aplicado a elas, um NSG pode ser associado a várias NICs e a várias sub-redes.
+> Embora uma sub-rede e a NIC podem ter toothem de apenas um NSG aplicada, um NSG pode ser associado toomultiple NICs e várias sub-redes.
 > 
 > 
 
 ## <a name="considerations"></a>Considerações
-Considere os seguintes pontos ao solucionar problemas de conectividade:
+Considere Olá pontos a seguir ao solucionar problemas de conectividade:
 
-* As regras NSG padrão bloquearão o acesso de entrada da Internet e permitirão apenas o tráfego de entrada da VNet. As regras devem ser adicionadas explicitamente para permitir acesso de entrada da Internet, conforme necessário.
-* Se não houver nenhuma regra de segurança NSG que faça a conectividade de rede da VM falhar, o problema poderá ser devido a:
-  * Software de firewall em execução no sistema operacional da VM
-  * Rotas configuradas para soluções de virtualização ou tráfego local. O tráfego da Internet pode ser redirecionado para o local por meio do túnel forçado. Uma conexão RDP/SSH da Internet para sua VM pode não funcionar com essa configuração, dependendo de como o hardware de rede local trata esse tráfego. Leia o artigo [Solucionando problemas de rotas](virtual-network-routes-troubleshoot-powershell.md) para saber como diagnosticar problemas de rotas que podem estar impedindo o fluxo de tráfego de entrada e saída da VM. 
-* Se você tiver VNets emparelhadas, por padrão, a marcação VIRTUAL_NETWORK expandirá automaticamente para incluir prefixos para VNets emparelhadas. Você pode exibir esses prefixos na lista **ExpandedAddressPrefix** , para solucionar os problemas relacionados à conectividade de emparelhamento da VNet. 
-* As regras de segurança em vigor serão mostradas apenas se houver um NSG associado à NIC e/ou sub-rede da VM. 
-* Se não houver nenhum NSG associado à NIC ou à sub-rede e você tiver um endereço IP público atribuído à sua VM, todas as portas estarão abertas para acesso de entrada e saída. Se a VM tem um endereço IP público, recomenda-se aplicar NSGs à NIC ou à sub-rede.
+* As regras NSG padrão bloqueará o acesso de entrada de saudação à internet e permitir VNet o tráfego de entrada. As regras devem ser adicionadas explicitamente tooallow acesso de entrada da Internet, conforme necessário.
+* Se não houver nenhuma regra de segurança NSG causando toofail de conectividade de rede da VM, problema de saudação pode ser devido a:
+  * Software de firewall em execução no sistema operacional da VM Olá
+  * Rotas configuradas para soluções de virtualização ou tráfego local. Tráfego de Internet pode ser redirecionado tooon local por meio de túnel forçado. Uma conexão de RDP/SSH de saudação Internet tooyour VM pode não funcionar com essa configuração, dependendo de como o hardware de rede local Olá lida com esse tráfego. Saudação de leitura [rotas de solução de problemas](virtual-network-routes-troubleshoot-powershell.md) artigo toolearn como toodiagnose encaminhar os problemas que podem estar impedindo Olá fluxo do tráfego do hello VM. 
+* Se você tiver emparelhadas VNets, por padrão, Olá marca VIRTUAL_NETWORK expandirá automaticamente tooinclude prefixos para emparelhadas VNets. Você pode exibir esses prefixos no hello **ExpandedAddressPrefix** listar, tootroubleshoot qualquer tooVNet relacionados problemas emparelhamento de conectividade. 
+* Regras de segurança efetiva são mostradas apenas se houver que um NSG associado da VM Olá NIC e ou uma sub-rede. 
+* Se não há nenhum NSGs associados Olá NIC ou sub-rede e tiver um endereço IP público atribuído tooyour VM, todas as portas será abertas para acesso de entrada e saído. Se Olá VM tem um endereço IP público, aplicar os NSGs toohello NIC ou sub-rede é recomendável.
 

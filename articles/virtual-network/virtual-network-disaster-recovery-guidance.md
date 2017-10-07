@@ -1,6 +1,6 @@
 ---
-title: "O que fazer caso uma interrupção de serviço do Azure afete as Redes Virtuais do Azure | Microsoft Docs"
-description: "Saiba o que fazer caso uma interrupção de serviço do Azure afete as Redes Virtuais do Azure."
+title: "toodo aaaWhat no evento de saudação de uma interrupção de serviço do Azure afetando redes virtuais do Azure | Microsoft Docs"
+description: "Saiba quais toodo no evento de saudação de uma interrupção de serviço do Azure afetando redes virtuais do Azure."
 services: virtual-network
 documentationcenter: 
 author: NarayanAnnamalai
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: narayan;aglick
-ms.openlocfilehash: 4e125406d2e798138c45e3fbbf61a610afab69fc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: db022d2a042d255cf8ec6afb68cd8436aeecfe08
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="virtual-network--business-continuity"></a>Rede Virtual – Continuidade de Negócios
 ## <a name="overview"></a>Visão geral
-Uma Rede Virtual (VNet) é uma representação da sua rede na nuvem. Ela permite que você defina seu próprio espaço de endereço IP privado e segmente a rede em sub-redes. As VNets servem como um limite de confiança para hospedar seus recursos de computação, como as Máquinas Virtuais e os Serviços de Nuvem do Azure (funções web/de trabalho). Uma VNet permite a comunicação de IP privada direta entre os recursos hospedados nela. Uma Rede Virtual também pode ser vinculada a uma rede local por meio de uma das opções híbridas, como um Gateway de VPN ou ExpressRoute.
+Uma rede Virtual (VNet) é uma representação lógica da rede em nuvem hello. Ele permite que você toodefine sua própria privada IP endereço espaço e segmento Olá de rede em sub-redes. VNets serve como um toohost de limite de confiança seus recursos de computação como máquinas virtuais do Azure e os serviços de nuvem (funções web/trabalho). Uma rede virtual permite a comunicação de IP privada direta entre os recursos de saudação hospedado nela. Uma rede Virtual também pode ser vinculado tooan rede de local por meio de uma das opções de híbrida hello como um Gateway de VPN ou rota expressa.
 
-Uma VNet é criada dentro do escopo de uma região. Você pode criar VNets com o mesmo espaço de endereço em duas regiões diferentes (ou seja, Leste dos EUA e Oeste dos EUA, mas não é possível conectá-las entre si diretamente). 
+Uma rede virtual é criada no escopo de saudação de uma região. Você pode criar VNets com o mesmo espaço de endereço em duas regiões diferentes (ou seja, nos Leste e Oeste dos EUA, mas não é possível conectá-los tooone outro diretamente). 
 
 ## <a name="business-continuity"></a>Continuidade dos negócios
-O seu aplicativo pode ser interrompido de várias maneiras diferentes. Uma determinada região poderia ser cortada completamente devido a um desastre natural ou a um desastre parcial devido a uma falha de vários dispositivos/serviços. O impacto sobre o serviço de Rede Virtual é diferente em cada uma dessas situações.
+O seu aplicativo pode ser interrompido de várias maneiras diferentes. Uma determinada região poderia ser totalmente cortada devido a desastres naturais tooa ou um desastre parcial devido a falha de tooa de vários dispositivos/serviços. impacto de saudação no hello serviço de rede virtual é diferente em cada uma dessas situações.
 
-**P: O que fazer caso ocorra uma interrupção em uma região inteira? Por exemplo, se uma região fosse completamente cortada devido a um desastre natural? O que acontece com as Redes Virtuais hospedadas na região?**
+**P: o que fazer em caso de saudação de uma interrupção tooan toda a região? Por exemplo, se uma região é completamente corte devido a desastres naturais tooa? O que acontece toohello redes virtuais hospedadas em região Olá?**
 
-R: A Rede Virtual e os recursos na região afetada permanecem inacessíveis durante o tempo de interrupção do serviço.
+R: os recursos Olá Olá e de rede de Virtual em Olá afetados região permanece inacessível durante o tempo de saudação da interrupção do serviço hello.
 
 ![Diagrama de Rede Virtual Simples](./media/virtual-network-disaster-recovery-guidance/vnet.png)
 
-**P: O que posso fazer para recriar a mesma Rede Virtual em uma região diferente?**
+**P: qual é possível toodo recriar Olá a mesma rede Virtual em uma região diferente?**
 
-R: A Rede Virtual (VNet) é um recurso relativamente leve. Você pode invocar as APIs do Azure para criar uma VNet com o mesmo espaço de endereço em uma região diferente. Para recriar o mesmo ambiente que estava presente na região afetada, você precisará fazer chamadas à API para reimplantar seus serviços de nuvem (funções web/de trabalho) e as máquinas virtuais que você tinha. Você também precisará criar um Gateway de VPN e se conectar à sua rede local, se você tiver conectividade local (como em uma implantação híbrida).
+R: A Rede Virtual (VNet) é um recurso relativamente leve. Você pode chamar APIs do Azure toocreate uma rede virtual com hello mesmo espaço de endereço em uma região diferente. toore-criar hello mesmo ambiente que estava presente no hello afetado região, você tem toomake API chamadas toore-implante seus serviços de nuvem (funções web/trabalho) e máquinas virtuais que você tinha. Você também terá toospin até um Gateway de VPN e conectar-se a rede de local de tooyour se você tiver conectividade de local (como em uma implantação híbrida).
 
-As instruções para criar uma VNet são encontradas [aqui](virtual-networks-create-vnet-arm-pportal.md). 
+instruções de saudação para criar uma rede virtual são encontradas [aqui](virtual-networks-create-vnet-arm-pportal.md). 
 
 **P: Uma réplica de uma VNet em uma determinada região pode ser recriada em outra região antecipadamente?**
 
-R: Sim, você pode criar duas VNets usando o mesmo espaço de endereço IP privado e os recursos em duas regiões diferentes antecipadamente. Se o cliente estivesse hospedando serviços voltados para a Internet na VNet, ele poderia ter configurado o Gerenciador de Tráfego para distribuir o tráfego geograficamente para a região que está ativa. No entanto, um cliente não pode conectar duas VNets com o mesmo espaço de endereço de rede local, uma vez que isso causaria problemas de roteamento. No momento de um desastre e da perda de uma VNet em uma região, o cliente pode se conectar a outra VNet na região disponível com espaço de endereço correspondente a rede local.
+R: Sim, você pode criar dois VNets usando Olá mesmo IP privado espaço de endereço e recursos em duas regiões diferentes depois do tempo. Se um cliente foi hospedando serviços em redes de saudação da internet, eles podem ter configurar toogeo Gerenciador de tráfego de rota tráfego toohello região que está ativa. No entanto, um cliente não pode se conectar a dois VNets com hello mesmo endereço rede de local de tootheir espaço como ele pode causar problemas de roteamento. No tempo de saudação de um desastre e a perda de uma rede virtual em uma região, um cliente pode se conectar Olá outra VNet na região de saudação disponível com a rede local correspondente endereço espaço tootheir.
 
-As instruções para criar uma VNet são encontradas [aqui](virtual-networks-create-vnet-arm-pportal.md).
+instruções de saudação para criar uma rede virtual são encontradas [aqui](virtual-networks-create-vnet-arm-pportal.md).
 

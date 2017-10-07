@@ -1,5 +1,5 @@
 ---
-title: Exemplo de script do Azure PowerShell - Fazer upgrade de um aplicativo do Service Fabric | Microsoft Docs
+title: "aaaAzure exemplo de Script do PowerShell - atualizar um aplicativo de malha do serviço | Microsoft Docs"
 description: Exemplo de script do Azure PowerShell - Fazer upgrade de um aplicativo do Service Fabric.
 services: service-fabric
 documentationcenter: 
@@ -15,39 +15,39 @@ ms.topic: article
 ms.date: 08/23/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 454849f82ddb23ddb9d71459f86e3cf5a1589254
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4f4777607bd6b35a76029e09ddb441006565d4cb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="upgrade-a-service-fabric-application"></a>Fazer upgrade de um aplicativo do Service Fabric
 
-Esse exemplo de script faz upgrade de uma instância de aplicativo do Service Fabric em execução para a versão 1.3.0. O script copia o novo pacote de aplicativos para o repositório de imagens de cluster, registra o tipo de aplicativo, inicia um upgrade monitorado e verifica o status do upgrade continuamente até que o upgrade seja concluído ou revertido. Personalize os parâmetros conforme necessário. 
+Esse script de exemplo atualiza um tooversion da instância de aplicativo do Service Fabric em execução 1.3.0. script Hello copia Olá novo aplicativo toohello cluster imagem repositório do pacote, registra o tipo de aplicativo hello, inicia uma atualização monitorada e verifica continuamente o status da atualização Olá até que a atualização Olá é concluída ou revertida. Personalize parâmetros Olá conforme necessário. 
 
-Se necessário, instale o módulo Service Fabric do PowerShell com o [SDK do Service Fabric](../service-fabric-get-started.md). 
+Se necessário, instale o módulo do PowerShell do Service Fabric Olá com hello [SDK do Service Fabric](../service-fabric-get-started.md). 
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[main](../../../powershell_scripts/service-fabric/upgrade-application/upgrade-application.ps1 "Upgrade de um aplicativo")]
+[!code-powershell[main](../../../powershell_scripts/service-fabric/upgrade-application/upgrade-application.ps1 "Upgrade an application")]
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
+Esse script usa Olá comandos a seguir. Cada comando na documentação específica do toocommand Olá tabela links.
 
 | Command | Observações |
 |---|---|
-| [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) | Obtém todos os aplicativos no cluster do Service Fabric ou um aplicativo específico.  |
-| [Get-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/get-servicefabricapplicationupgrade?view=azureservicefabricps) | Obtém o status do upgrade de um aplicativo do Service Fabric. |
-| [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) | Obtém os tipos de aplicativo do Service Fabric registrados no cluster do Service Fabric. |
+| [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) | Obtém todos os aplicativos de saudação no cluster do Service Fabric hello ou um aplicativo específico.  |
+| [Get-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/get-servicefabricapplicationupgrade?view=azureservicefabricps) | Obtém o status de saudação de uma atualização de aplicativo do Service Fabric. |
+| [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) | Obtém os tipos de aplicativos do Service Fabric Olá registrados no cluster do Service Fabric hello. |
 | [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) | Cancela o registro de um tipo de aplicativo do Service Fabric.  |
-| [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | Copia um pacote de aplicativos do Service Fabric para o repositório de imagens.  |
+| [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | Copia uma imagem de toohello do pacote de aplicativo do Service Fabric repositório.  |
 | [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) | Registra um tipo de aplicativo do Service Fabric. |
-| [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps) | Faz upgrade de um aplicativo do Service Fabric para a versão do tipo de aplicativo especificado. |
+| [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps) | Atualiza uma versão de tipo do Service Fabric application toohello aplicativo especificado. |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o módulo do PowerShell do Service Fabric, confira [Documentação do Azure PowerShell](/powershell/azure/service-fabric/?view=azureservicefabricps).
+Para obter mais informações sobre o módulo do PowerShell do Service Fabric hello, consulte [documentação do Azure PowerShell](/powershell/azure/service-fabric/?view=azureservicefabricps).
 
-Mais exemplos do PowerShell para o Azure Service Fabric podem ser encontrados nos [exemplos do Azure PowerShell](../service-fabric-powershell-samples.md).
+Exemplos adicionais do Powershell para Azure Service Fabric podem ser encontrados no hello [exemplos do PowerShell do Azure](../service-fabric-powershell-samples.md).

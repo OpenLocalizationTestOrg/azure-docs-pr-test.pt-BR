@@ -1,6 +1,6 @@
 ---
-title: "Instalar a Atualização 5 no dispositivo StorSimple da Série 8000 | Microsoft Docs"
-description: "Explica como instalar a Atualização 4 do StorSimple série 8000 em seu dispositivo StorSimple série 8000."
+title: "aaaInstall atualização 5 em dispositivo da série StorSimple 8000 | Microsoft Docs"
+description: "Explica como tooinstall StorSimple 8000 Series atualização 4 no seu dispositivo da série StorSimple 8000."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,46 +14,46 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/22/2017
 ms.author: alkohli
-ms.openlocfilehash: 84056daaada94875af3d969847ead41c003a1606
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a832f9953e8e39408efeeed375e3afe8eee8d0e5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Instalar a Atualização 5 em seu dispositivo StorSimple
 
 ## <a name="overview"></a>Visão geral
 
-Este tutorial explica como instalar a Atualização 5 em um dispositivo StorSimple que executa uma versão de software anterior pelo Portal do Azure e usando o método de hotfix. O método de hotfix é usado quando um gateway é configurado em uma interface de rede que não seja DATA 0 do dispositivo StorSimple e quando você está tentando atualizar de uma versão de software anterior à Atualização 1.
+Este tutorial explica como tooinstall atualização 5 em um dispositivo StorSimple executando uma versão anterior do software via Olá portal do Azure e usando o método de hotfix hello. método de hotfix Hello é usado quando um gateway é configurado em uma interface de rede diferente de DATA 0 do dispositivo do StorSimple hello e você está tentando tooupdate de uma versão de software 1 pré-atualização.
 
-A Atualização 5 inclui o software de dispositivo, Storport e Spaceport, as atualizações de segurança do SO e as atualizações do SO, bem como atualizações de firmware de disco.  O software do dispositivo, o Spaceport, o Storport, a segurança e outras atualizações do SO não são atualizações que causam interrupções. As atualizações não interruptivas ou regulares podem ser aplicadas pelo Portal do Azure ou por meio do método de hotfix. As atualizações de firmware de disco causam interrupção e são aplicadas quando o dispositivo está em modo de manutenção, por meio do método de hotfix, usando a interface do Windows PowerShell do dispositivo.
+A Atualização 5 inclui o software de dispositivo, Storport e Spaceport, as atualizações de segurança do SO e as atualizações do SO, bem como atualizações de firmware de disco.  o software de dispositivo Hello, Spaceport, Storport, segurança e outras atualizações do sistema operacional são as atualizações sem interrupção. Olá sem interrupções ou regulares atualizações podem ser aplicadas por meio de saudação portal do Azure ou método de hotfix hello. atualizações de firmware de disco Olá atualizações precisam de interrupção e são aplicadas ao dispositivo hello está no modo de manutenção por meio do método de hotfix hello usando a interface do Windows PowerShell de saudação do dispositivo hello.
 
 > [!IMPORTANT]
-> * Um conjunto de verificações prévias manuais e automáticas para são realizadas antes da instalação para determinar a integridade do dispositivo em termos de conectividade de rede e estado do hardware. Essas pré-verificações serão executadas somente se você aplicar as atualizações no Portal do Azure.
-> * É recomendável instalar a atualização do software e outras atualizações regulares pelo Portal do Azure. Você só deve ir para a interface do Windows PowerShell do dispositivo (para instalar atualizações) se a verificação de pré-atualização de gateway falhar no portal. Dependendo da versão da qual você está atualizando, as atualizações podem levar 4 horas (ou mais) para serem instaladas. As atualizações do modo de manutenção devem ser instaladas por meio da interface do Windows PowerShell do dispositivo. Como as atualizações do modo de manutenção são atualizações que ocasionam interrupção, elas causam tempo de inatividade em seu dispositivo.
-> * Se estiver executando o StorSimple Snapshot Manager opcional, verifique se você atualizou a versão do Snapshot Manager para a Atualização 5 antes de atualizar o dispositivo.
+> * Um conjunto de pré-verificações de manuais e automáticas terminar instalação anterior toohello toodetermine integridade do dispositivo Olá em termos de conectividade de rede e estado do hardware. Essas pré-verificações de são executadas somente se você aplicar atualizações de saudação do hello portal do Azure.
+> * É recomendável que você instale software hello e outras atualizações regulares via Olá portal do Azure. Você só deve ficar toohello do Windows PowerShell interface de dispositivo de saudação (tooinstall atualizações) se a verificação de pré-atualização gateway de saudação falhar no portal de saudação. Dependendo da versão de hello estiver atualizando a partir, Olá atualizações podem demorar 4 horas (ou superior) tooinstall. Olá atualizações do modo de manutenção devem ser instaladas por meio de interface do Windows PowerShell de saudação do dispositivo hello. Como as atualizações do modo de manutenção são atualizações que ocasionam interrupção, elas causam tempo de inatividade em seu dispositivo.
+> * Se a execução hello opcional StorSimple Snapshot Manager, certifique-se de que você atualizou seu dispositivo de saudação do Gerenciador de instantâneos versão tooUpdate 5 tooupdating anterior.
 
 
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
-## <a name="install-update-5-via-the-azure-portal"></a>Instalar a Atualização 5 por meio do Portal do Azure
-Realize as etapas a seguir para atualizar o dispositivo para a [Atualização 5](storsimple-update5-release-notes.md).
+## <a name="install-update-5-via-hello-azure-portal"></a>Instalar a atualização 5 via Olá portal do Azure
+Executar seu dispositivo Olá seguindo as etapas tooupdate muito[atualização 5](storsimple-update5-release-notes.md).
 
 > [!NOTE]
-> Microsoft efetua pull de informações adicionais de diagnóstico do dispositivo. Como resultado, quando nossa equipe de operações identifica dispositivos com problemas, estamos mais bem equipados para coletar informações do dispositivo e diagnosticar problemas.
+> Microsoft extrai informações de diagnóstico adicionais de dispositivo de saudação. Como resultado, quando a nossa equipe de operações identifica dispositivos que estão tendo problemas, estamos melhores toocollect equipado informações de dispositivo de saudação e diagnosticar problemas.
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update5-via-portal.md)]
 
-Verifique se seu dispositivo está executando a **Atualização 5 do StorSimple Série 8000 (6.3.9600.17845)**. A **Data da última atualização** deve ser modificada.
+Verifique se seu dispositivo está executando a **Atualização 5 do StorSimple Série 8000 (6.3.9600.17845)**. Olá **Data da última atualização** devem ser modificados.
 
-* Agora, você também verá que as atualizações do modo de Manutenção estão disponíveis (essa mensagem pode continuar sendo exibida por até 24 horas após a instalação das atualizações). As atualizações do modo de manutenção são atualizações interrompidas que resultam em tempo de inatividade do dispositivo e podem ser aplicadas apenas por meio da interface do Windows PowerShell de seu dispositivo.
+* Agora você verá que as atualizações do modo de manutenção de saudação estão disponíveis (essa mensagem pode continuar toobe exibido para o too24 horas após a instalação Olá atualizações). Atualizações do modo de manutenção são atualizações sem interrupção resultam em tempo de inatividade do dispositivo e só podem ser aplicadas por meio da interface do Windows PowerShell de saudação do seu dispositivo.
 
-* Baixe as atualizações do modo de manutenção usando as etapas listadas em [para baixar os hotfixes](#to-download-hotfixes) a fim de pesquisar e baixar a KB4011837, que instala atualizações de firmware de disco (a essa altura, as outras atualizações já devem estar instaladas). Siga as etapas listadas em [instalar e verificar hotfixes do modo de manutenção](#to-install-and-verify-maintenance-mode-hotfixes) para instalar as atualizações do modo de manutenção.
+* Baixar atualizações do modo de manutenção hello usando Olá etapas listadas na [toodownload hotfixes](#to-download-hotfixes) toosearch para e baixar KB4011837, que instala atualizações de firmware de disco (hello outras atualizações já devem estar instaladas agora). Execute as etapas de saudação listadas na [instalar e verificar os hotfixes do modo de manutenção](#to-install-and-verify-maintenance-mode-hotfixes) tooinstall Olá atualizações do modo de manutenção.
 
 ## <a name="install-update-5-as-a-hotfix"></a>Instalar a Atualização 5 como um hotfix
 
 
-As versões de software que podem ser atualizadas usando o método de hotfix são:
+Olá versões de software que podem ser atualizadas usando o método de hotfix hello são:
 
 * Atualização 0.1, 0.2, 0.3
 * Atualização 1, 1.1, 1.2
@@ -62,29 +62,29 @@ As versões de software que podem ser atualizadas usando o método de hotfix sã
 * Atualização 4
 
 > [!NOTE] 
-> O método recomendado para instalar a Atualização 5 é pelo Portal do Azure. Use este procedimento se a verificação de gateway falhar ao tentar instalar as atualizações por meio do Portal do Azure. A verificação falha quando você tem um gateway atribuído a um adaptador de rede diferente de DATA 0 e o dispositivo está executando uma versão de software anterior à Atualização 1.
+> Olá recomendado tooinstall do método que Update 5 é por meio de saudação portal do Azure. Use este procedimento se você não seleção de gateway Olá durante a tentativa de atualizações de saudação tooinstall por meio de saudação portal do Azure. verificação de saudação falha quando você tiver um gateway atribuído tooa dados não interface de rede 0 e o dispositivo está executando uma versão de software anteriores à atualização 1.
 
-O método de hotfix envolve as três etapas a seguir:
+método de hotfix Hello envolve Olá três etapas a seguir:
 
-1. Baixe os hotfixes do Catálogo do Microsoft Update.
-2. Instale e verifique os hotfixes do modo normal.
-3. Instale e verifique o hotfix do modo de manutenção.
+1. Baixe Olá hotfixes do hello catálogo do Microsoft Update.
+2. Instalar e verificar Olá hotfixes do modo normal.
+3. Instalar e verifique se o hotfix do modo de manutenção hello.
 
 #### <a name="download-updates-for-your-device"></a>Baixar atualizações para seu dispositivo
 
-Você deve baixar e instalar os seguintes hotfixes na ordem descrita e as pastas sugeridas:
+Você deve baixar e instalar Olá seguintes hotfixes no hello prescrita ordenar e Olá pastas sugeridas:
 
 | Classificar | KB | Descrição | Tipo de atualização | Hora da instalação |Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4037264 |Atualização de software<br> Baixar o _HcsSfotwareUpdate.exe_ e o _CisMSDAgent.exe_ |Regular  <br></br>Não interruptiva |Aproxim. 25 minutos |FirstOrderUpdate|
 
-Se estiver atualizando de um dispositivo que executa a Atualização 4, você só precisará instalar as atualizações cumulativas do SO como atualizações de segunda ordem.
+Se a atualização de um dispositivo que executa a atualização 4, você só precisa atualizações cumulativas do sistema operacional tooinstall hello como atualizações de segunda ordem.
 
 | Classificar | KB | Descrição | Tipo de atualização | Hora da instalação |Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
 | 2A. |KB4025336 |Pacote de atualizações cumulativas do SO <br> Baixar a versão Windows Server 2012 R2 |Regular  <br></br>Não interruptiva |- |SecondOrderUpdate|
 
-Se estiver instalando de um dispositivo que executa a Atualização 3 ou anterior, instale o seguinte, além das atualizações cumulativas.
+Se a instalação de um dispositivo que executa a atualização 3 ou anterior, instale Olá além de seguir as atualizações cumulativas toohello.
 
 | Classificar | KB | Descrição | Tipo de atualização | Hora da instalação |Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
@@ -93,7 +93,7 @@ Se estiver instalando de um dispositivo que executa a Atualização 3 ou anterio
 | 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |Pacote de atualizações do SO <br> Baixar a versão Windows Server 2012 R2 |Regular  <br></br>Não interruptiva |- |SecondOrderUpdate|
 
 
-Você também precisa instalar as atualizações de firmware de disco além de todas as atualizações mostradas nas tabelas anteriores. Você pode verificar se precisa de atualizações de firmware de disco executando o cmdlet `Get-HcsFirmwareVersion` . Se estiver executando as versões de firmware `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, você não precisará instalar essas atualizações.
+Talvez também seja necessário tooinstall atualizações de firmware de disco na parte superior de todas as atualizações de saudação mostradas no hello tabelas anteriores. Você pode verificar se você precisa Olá atualizações de firmware de disco executando Olá `Get-HcsFirmwareVersion` cmdlet. Se você estiver executando essas versões de firmware: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, em seguida, você não precisa tooinstall essas atualizações.
 
 | Classificar | KB | Descrição | Tipo de atualização | Hora da instalação | Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
@@ -102,15 +102,15 @@ Você também precisa instalar as atualizações de firmware de disco além de t
 <br></br>
 
 > [!IMPORTANT]
-> * Se você estiver atualizando da Atualização 4, o tempo total de instalação será próximo de 4 horas.
-> * Antes de usar este procedimento para aplicar a atualização, certifique-se de que ambos os controladores de dispositivo estão online e todos os componentes de hardware estão íntegros.
+> * Se a atualização da atualização 4, tempo de instalação total de saudação é fechar too4 horas.
+> * Antes de usar este Olá tooapply de procedimento de atualização, certifique-se de que ambos os controladores de dispositivo Olá estão online e todos os componentes de hardware Olá estão íntegros.
 
-Execute as seguintes etapas para baixar e instalar os hotfixes.
+Executar Olá toodownload as etapas a seguir e instalar os hotfixes hello.
 
 [!INCLUDE [storsimple-install-update5-hotfix](../../includes/storsimple-install-update5-hotfix.md)]
 
 [!INCLUDE [storsimple-install-troubleshooting](../../includes/storsimple-install-troubleshooting.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre a [versão da Atualização 5](storsimple-update5-release-notes.md).
+Saiba mais sobre Olá [versão de atualização 5](storsimple-update5-release-notes.md).
 

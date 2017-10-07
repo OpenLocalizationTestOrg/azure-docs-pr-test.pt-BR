@@ -1,5 +1,5 @@
 ---
-title: "Planejar a rede de VMware para replicação do Azure com o Site Recovery| Microsoft Docs"
+title: "aaaPlan de rede para replicação de tooAzure do VMware com o Site Recovery | Microsoft Docs"
 description: "Este artigo aborda o planejamento de rede necessário ao replicar VMs do Azure com o Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/01/2017
 ms.author: sujayt
-ms.openlocfilehash: 7b37e853f6b97ba313111f9201f877846a28fae9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e4036351ca707bd4966cf2a855d4a162f88153e8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="step-3-plan-networking-for-azure-vm-replication"></a>Etapa 3: planejar a rede para a replicação de VM do Azure
 
-Após verificar os [pré-requisitos de implantação](azure-to-azure-walkthrough-prerequisites.md), leia este artigo para entender as considerações de rede ao replicar e recuperar VMs (máquinas virtuais) do Azure de uma região do Azure para outra usando o serviço Azure Site Recovery. 
+Após ter verificado Olá [os pré-requisitos de implantação](azure-to-azure-walkthrough-prerequisites.md), ler Olá de toounderstand este artigo considerações sobre a replicação e a recuperação de máquinas virtuais (VMs) do Azure de uma região do Azure tooanother, acesso à rede usando Olá Serviço de recuperação de Site do Azure. 
 
-- Quando você concluir o artigo, deverá saber como configurar o acesso de saída de VMs do Azure que deseja replicar e como conectar às VMs do seu site local.
-- Publique eventuais comentários no final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+- Quando você terminar de artigo hello, você deve ter uma clara compreensão de como tooset a saída de acesso para máquinas virtuais do Azure você deseja tooreplicate e como tooconnect do local do site toothose VMs.
+- Lançar os comentários na parte inferior da saudação deste artigo, ou fazer perguntas no hello [Fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 >[!NOTE]
 > Atualmente, a replicação de VM do Azure com o Site Recovery está em versão prévia.
@@ -34,48 +34,48 @@ Após verificar os [pré-requisitos de implantação](azure-to-azure-walkthrough
 
 ## <a name="network-overview"></a>Visão geral da rede
 
-Normalmente, suas VMs do Azure estão localizadas em uma rede virtual/sub-rede do Azure e há uma conexão de seu site local com o Azure usando o Azure ExpressRoute ou uma conexão VPN.
+Normalmente suas VMs do Azure estão localizados em uma Azure virtual/sub-rede da rede, e há uma conexão de seu tooAzure de site local usando o rota expressa do Azure, ou uma conexão VPN.
 
-As redes geralmente são protegidas usando firewalls e/ou NSGs (grupos de segurança de rede). Os firewalls podem usar listas baseadas em URL ou baseadas em IP para controlar a conectividade de rede. Os NSGs usam regras baseadas em intervalos de IP. 
-
-
-Para o Site Recovery trabalhar conforme o esperado, você precisa fazer algumas alterações na conectividade de rede de saída das máquinas virtuais que você deseja replicar. O Site Recovery não dá suporte ao uso de um proxy de autenticação para controlar a conectividade de rede. Se você tem um proxy de autenticação, a replicação não pode ser habilitada. 
+As redes geralmente são protegidas usando firewalls e/ou NSGs (grupos de segurança de rede). Firewalls podem usar baseadas na URL na lista com base em IP, toocontrol conectividade de rede. Os NSGs usam regras baseadas em intervalos de IP. 
 
 
-O diagrama a seguir ilustra um ambiente típico do Azure para um aplicativo em execução em VMs do Azure.
+Para recuperação de Site toowork de espera, você precisa toomake algumas alterações na conectividade de rede de saída, de máquinas virtuais que você deseja tooreplicate. Recuperação de site não oferece suporte a usar uma autenticação proxy toocontrol de conectividade de rede. Se você tem um proxy de autenticação, a replicação não pode ser habilitada. 
+
+
+Olá diagrama a seguir mostra um ambiente típico para um aplicativo em execução em VMs do Azure.
 
 ![ambiente do cliente](./media/azure-to-azure-walkthrough-network/source-environment.png)
 
 **Ambiente de VM do Azure**
 
-Você também pode configurar uma conexão com o Azure de seu site local usando o Azure ExpressRoute ou uma conexão VPN. 
+Você também pode ter uma conexão tooAzure configurar de seu site local, usando o rota expressa do Azure ou uma conexão VPN. 
 
 ![ambiente do cliente](./media/azure-to-azure-walkthrough-network/source-environment-expressroute.png)
 
-**Conexão local com o Azure**
+**TooAzure de conexão local**
 
 
 
 ## <a name="outbound-connectivity-for-urls"></a>Conectividade de saída para URLs
 
-Se você está usando um proxy de firewall baseado em URL para controlar a conectividade de saída, verifique se você permitiu as URLs usadas pelo Site Recovery
+Se você estiver usando a conectividade de saída toocontrol um firewall baseado em URL do proxy, verifique se você permitir que as URLs usadas pela recuperação de Site
 
 **URL** | **Detalhes**  
 --- | ---
-*.blob.core.windows.net | Permite que os dados sejam gravados da VM para conta de armazenamento de cache da região de origem.
-login.microsoftonline.com | Fornece autorização e autenticação para as URLs do serviço Site Recovery.
-*.hypervrecoverymanager.windowsazure.com | Permite a comunicação com o serviço Site Recovery da VM.
-*.servicebus.windows.net | Necessário para que os dados de monitoramento e diagnóstico de recuperação de Site possam ser gravados da VM.
+*.blob.core.windows.net | Permite que dados toobe gravado do hello VM, a conta de armazenamento de cache toohello na região de origem de saudação.
+login.microsoftonline.com | Fornece tooSite de autenticação e autorização de URLs do serviço de recuperação.
+*.hypervrecoverymanager.windowsazure.com | Permite a comunicação com hello serviço de recuperação de Site do hello VM.
+*.servicebus.windows.net | Necessário para que os dados de monitoramento e diagnóstico de recuperação de Site Olá podem ser gravados de saudação VM.
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
 
-- Você pode criar as regras necessárias automaticamente no NSG baixando e executando [este script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702).
-- É recomendável que você crie as regras NSG necessárias em um NSG de teste e verifique se não há nenhum problema antes de criar as regras em um NSG de produção.
-- Para criar o número necessário de regras NSG, certifique-se de que sua assinatura está na lista de permissões. Contate o suporte para aumentar o limite de regra NSG em sua assinatura.
-Se você estiver usando qualquer proxy firewall baseado em IP ou regras NSG para controlar a conectividade de saída, os seguintes intervalos IP devem estar na lista de permissões, dependendo dos locais de origem e destino das máquinas virtuais:
+- Você pode criar automaticamente regras de Olá necessárias no hello NSG baixando e executando [esse script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702).
+- É recomendável que você crie regras do NSG Olá necessários em um teste de NSG e verifique se não há nenhum problema, antes de criar regras de saudação em um NSG de produção.
+- número de saudação necessário toocreate de regras do NSG, certifique-se de que sua assinatura está na lista de permissões. Contate o suporte tooincrease Olá NSG regra limite na sua assinatura.
+Se você estiver usando qualquer proxy firewall baseado em IP ou conectividade de saída regras toocontrol NSG, hello seguintes intervalos de IP precisam toobe na lista de permissões, dependendo de locais de origem e destino de saudação de máquinas virtuais de saudação:
 
-    - Todos os intervalos de endereços IP que correspondem ao local de origem. Baixe os [intervalos](https://www.microsoft.com/download/confirmation.aspx?id=41653).) A colocação na lista de permissões é necessária para que os dados possam ser gravados para a conta de armazenamento de cache da região de origem da VM.
-    - Todos os intervalos IP que correspondam ao Office 365 [identidade e autenticação de pontos de extremidade do IP V4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity). Se novos IPs forem adicionados aos intervalos de IP do Office 365, você precisará criar novas regras NSG.
+    - Todos os intervalos de endereços IP que correspondam toohello local de origem. Saudação de download [intervalos](https://www.microsoft.com/download/confirmation.aspx?id=41653).) Lista branca é necessária, para que os dados podem ser gravados toohello conta de armazenamento de cache de saudação VM.
+    - Todos os intervalos IP que correspondam tooOffice 365 [identidade e autenticação de pontos de extremidade do IP V4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity). Se novos IPs são adicionados tooOffice 365 intervalos IP, será necessário toocreate novas regras do NSG.
 -     Endereços IP de ponto de extremidade do Site Recovery ([disponíveis em um arquivo XML](https://aka.ms/site-recovery-public-ips)), que depende de seu local de destino: 
 
    **Local de destino** | **Serviço de Recuperação do Site IPs** |  **Monitoramento de Recuperação de site IP**
@@ -106,18 +106,18 @@ Se você estiver usando qualquer proxy firewall baseado em IP ou regras NSG para
 
 ## <a name="example-nsg-configuration"></a>Exemplo de Configuração do NSG
 
-Esta seção mostra como configurar regras de NSG, para que as replicações funcionem para uma máquina virtual. Se você está usando regras NSG para controlar a conectividade de saída, use regras de "Permitir HTTPS de saída" para todos os intervalos IP necessários.
+Esta seção mostra como as regras de tooconfigure NSG, para que as replicações funciona para uma máquina virtual. Se você estiver usando a conectividade de saída regras toocontrol NSG, use regras de "Permitir HTTPS saída" para todos os intervalos IP hello necessário.
 
-Neste exemplo, o local de origem da VM é "Leste dos EUA". O local de destino de replicação é EUA Central.
+Neste exemplo, Olá local de origem da VM é "Leste dos Estados Unidos". local de destino de replicação de saudação é centro dos EUA.
 
 
 ### <a name="example"></a>Exemplo
 
 #### <a name="east-us"></a>Leste dos EUA
 
-1. Criar regras que correspondam aos [intervalos de IP do Leste dos EUA](https://www.microsoft.com/download/confirmation.aspx?id=41653). Isso é necessário para que os dados possam ser gravados para a conta de armazenamento de cache da VM.
-2. Criar regras para todos os intervalos IP que correspondam ao Office 365 [identidade e autenticação de pontos de extremidade do IP V4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-3. Criar regras que correspondam ao local de destino:
+1. Criar regras que correspondem muito[intervalos de IP do Leste dos EUA](https://www.microsoft.com/download/confirmation.aspx?id=41653). Isso é necessário para que os dados podem ser gravados toohello conta de armazenamento de cache de saudação VM.
+2. Criar regras para todos os intervalos IP que correspondam tooOffice 365 [identidade e autenticação de pontos de extremidade do IP V4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+3. Crie regras que correspondem a toohello local de destino:
 
    **Localidade** | **Serviço de Recuperação do Site IPs** |  **Monitoramento de Recuperação de site IP**
     --- | --- | ---
@@ -125,11 +125,11 @@ Neste exemplo, o local de origem da VM é "Leste dos EUA". O local de destino de
 
 #### <a name="central-us"></a>Centro dos EUA
 
-Essas regras são necessárias para que a replicação possa ser ativada da região de destino para a região de origem após o failover.
+Essas regras são necessárias para que a replicação pode ser habilitada na região de origem do toohello de região de destino hello, após o failover.
 
-1. Crie regras que correspondam aos [intervalos de IP do EUA Central](https://www.microsoft.com/download/confirmation.aspx?id=41653).
-2. Criar regras para todos os intervalos IP que correspondam ao Office 365 [identidade e autenticação de pontos de extremidade do IP V4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-3. Crie regras que correspondam ao local de origem:
+1. Criar regras que correspondem muito[intervalos de IP de Central dos EUA](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+2. Criar regras para todos os intervalos IP que correspondam tooOffice 365 [identidade e autenticação de pontos de extremidade do IP V4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+3. Crie regras que correspondem a toohello local de origem:
 
    **Localidade** | **Serviço de Recuperação do Site IPs** |  **Monitoramento de Recuperação de site IP**
     --- | --- | ---
@@ -138,18 +138,18 @@ Essas regras são necessárias para que a replicação possa ser ativada da regi
 
 ## <a name="existing-on-premises-connection"></a>Conexão local existente
 
-Se você tem uma conexão de ExpressRoute ou VPN entre seu site local e o local de origem no Azure, siga estas orientações:
+Se você tiver uma conexão de rota expressa ou VPN entre o site local e o local de origem Olá no Azure, siga estas diretrizes:
 
 **Configuração** | **Detalhes**
 --- | ---
-**Túnel forçado** | Normalmente, uma rota padrão (0.0.0.0/0) força o tráfego de Internet de saída a fluir pelo local. Não recomendamos isso. O tráfego de replicação e as comunicações do Site Recovery devem permanecer no Azure.<br/><br/> Como solução, adicione UDRs (rotas definidas pelo usuário) para [esses intervalos IP](#outbound-connectivity-for-azure-site-recovery-ip-ranges) para que o tráfego não seja local.
-**Conectividade** | Se os aplicativos precisam se conectar a computadores locais ou se os clientes locais se conectam ao aplicativo localmente por VPN/ExpressRoute, verifique se você tem pelo menos uma [conexão site a site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) entre o região do Azure de destino e o site local.<br/><br/> Se os volumes de tráfego estão altos entre a região do Azure de destino e o site local, crie outra [conexão do ExpressRoute](../expressroute/expressroute-introduction.md) entre a região de destino e o local.<br/><br/> Se você deseja manter IPs para as VMs depois do failover, mantenha a conexão de site para site/ExpressRoute da região de destino em um estado desconectado. Isso faz com que não haja nenhum conflito de intervalos entre os intervalos de endereços IP de origem e destino.
-**ExpressRoute** | Crie um circuito de ExpressRoute nas regiões de origem e de destino.<br/><br/> Crie uma conexão entre a rede de origem e o circuito do ExpressRoute e entre a rede de destino e o circuito.<br/><br/> É recomendável que você use intervalos IP diferentes em regiões de origem e destino. O circuito não será capaz de se conectar a mais de uma rede do Azure com os mesmos intervalos IP ao mesmo tempo.<br/><br/> Você pode criar redes virtuais com os mesmos intervalos IP em ambas as regiões e, em seguida, criar circuitos de ExpressRoute em ambas as regiões. No caso de um failover, desconecte o circuito da rede virtual de origem e conecte o circuito na rede virtual de destino.<br/><br/> Se a região principal estiver completamente inativa, a operação de desconectar poderá falhar. Nesse caso, a rede virtual de destino não terá a conectividade do ExpressRoute.
-**ExpressRoute Premium** | Você pode criar circuitos na mesma região geopolítica.<br/><br/> Para criar circuitos em diferentes regiões geopolíticas, é necessário ter o Azure ExpressRoute Premium.<br/><br/> Com o Premium, o custo é incremental. Se você já o está usando, não há nenhum custo adicional.<br/><br/> Saiba mais sobre [locais](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) e [preço](https://azure.microsoft.com/pricing/details/expressroute/).
+**Túnel forçado** | Normalmente, uma rota padrão (0.0.0.0/0) força saída tooflow de tráfego de internet por meio de saudação no local. Não recomendamos isso. O tráfego de replicação e as comunicações do Site Recovery devem permanecer no Azure.<br/><br/> Como uma solução, adicione rotas definidas pelo usuário (UDRs) para [desses intervalos IP](#outbound-connectivity-for-azure-site-recovery-ip-ranges), de modo que o tráfego de saudação não for local.
+**Conectividade** | Se tooconnect máquinas de tooon local precisam de aplicativos ou clientes locais conectam o aplicativo de toohello sobre locais pela VPN/rota expressa, verifique se você tem pelo menos um [conexão site a site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), entre o destino de saudação região do Azure e Olá no site local.<br/><br/> Se os volumes de tráfego são altos entre Olá no site local e o destino de saudação região do Azure, crie outro [conexão de rota expressa](../expressroute/expressroute-introduction.md), entre locais e de região de destino hello.<br/><br/> Se você quiser tooretain IPs para máquinas virtuais após o failover, manter a conexão de site para site/ExpressRoute da região de destino Olá em um estado desconectado. Isso garante que não há nenhum conflitos de intervalo entre intervalos de endereços IP de origem e destino de saudação.
+**ExpressRoute** | Crie um circuito de rota expressa em Olá regiões de origem e destino.<br/><br/> Crie uma conexão entre a rede de origem de hello e o circuito de rota expressa hello e entre a rede de destino de saudação e circuito hello.<br/><br/> É recomendável que você use intervalos IP diferentes em regiões de origem e destino. Olá circuito não será capaz de tooconnect toomore de um Azure redes com hello mesmo intervalos IP, a saudação simultaneamente.<br/><br/> Você pode criar redes virtuais com hello mesmo IP intervalos em ambas as regiões e crie circuitos de rota expressa em ambas as regiões. Para failover, circuito Olá desconectar da rede virtual de origem hello e conecte-se o circuito Olá na rede virtual de destino de saudação.<br/><br/> Se a região primária hello está completamente inoperante, Olá desconectar a operação pode falhar. Nesse caso, rede virtual de destino Olá não terá conectividade de rota expressa.
+**ExpressRoute Premium** | Você pode criar circuitos Olá mesma região geopolíticas.<br/><br/> toocreate circuitos em diferentes regiões geopolíticas, você precisa Premium de rota expressa do Azure.<br/><br/> Com o Premium, o custo de saudação é incremental. Se você já o está usando, não há nenhum custo adicional.<br/><br/> Saiba mais sobre [locais](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) e [preço](https://azure.microsoft.com/pricing/details/expressroute/).
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Vá para a [Etapa 4: criar um cofre](azure-to-azure-walkthrough-vault.md)
+Vá muito[etapa 4: criar um cofre](azure-to-azure-walkthrough-vault.md)
 

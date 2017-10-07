@@ -1,5 +1,5 @@
 ---
-title: "Recursos e extensões da máquina virtual para Windows no Azure | Microsoft Docs"
+title: "aaaVirtual computador extensões e recursos do Windows no Azure | Microsoft Docs"
 description: "Saiba quais extensões estão disponíveis para as máquinas virtuais do Azure, agrupadas pelas funcionalidades fornecidas ou aperfeiçoadas."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,41 +16,41 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ce0eebd2585c9457d7f922898d7f2fa3e7ffad7
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 61ccfd696b38e9be1026d836d5796c2346fd650f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
-Extensões da máquina virtual do Azure são pequenos aplicativos que fornecem tarefas de configuração e automação pós-implantação nas máquinas virtuais do Azure. Por exemplo, se uma máquina virtual exigir a instalação de software, proteção antivírus ou a configuração do Docker, uma extensão da VM poderá ser usada para concluir essas tarefas. As extensões da VM do Azure podem ser executadas usando a CLI do Azure, o PowerShell, modelos do Azure Resource Manager e o Portal do Azure. Extensões podem ser agrupadas com uma nova implantação de máquina virtual ou executar qualquer sistema existente.
+Extensões da máquina virtual do Azure são pequenos aplicativos que fornecem tarefas de configuração e automação pós-implantação nas máquinas virtuais do Azure. Por exemplo, se uma máquina virtual requer a instalação de software, proteção contra vírus ou a configuração do Docker, uma extensão de VM pode ser usado toocomplete essas tarefas. Extensões VM do Azure podem ser executadas usando Olá CLI do Azure, o PowerShell, modelos do Gerenciador de recursos do Azure e Olá portal do Azure. Extensões podem ser agrupadas com uma nova implantação de máquina virtual ou executar qualquer sistema existente.
 
-Este documento fornece uma visão geral das extensões da máquina virtual, pré-requisitos para utilização das extensões da máquina virtual e orientação sobre como detectar, gerenciar e remover extensões da máquina virtual. Este documento fornece informações generalizadas, pois há muitas extensões de VM disponíveis e cada uma delas tem uma configuração possivelmente exclusiva. Encontre detalhes específicos sobre cada extensão na documentação individual.
+Este documento fornece uma visão geral de extensões de máquina virtual, pré-requisitos para usar extensões de máquina virtual e orientação sobre como toodetect, gerenciar e remover extensões de máquina virtual. Este documento fornece informações generalizadas, pois há muitas extensões de VM disponíveis e cada uma delas tem uma configuração possivelmente exclusiva. Detalhes de extensão podem ser encontrados em cada extensão individuais do documento toohello específico.
 
 ## <a name="use-cases-and-samples"></a>Casos de uso e exemplos
 
 Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um caso de uso específico. Alguns exemplos de caso de uso são:
 
-- Aplique as configurações de Estado Desejado do PowerShell a uma máquina virtual usando a extensão de DSC para Windows. Para saber mais, confira [Extensão de configuração de Estado Desejado do Azure](extensions-dsc-overview.md).
-- Configure o monitoramento da máquina virtual usando a extensão de VM do Microsoft Monitoring Agent. Para saber mais, veja [Conectar máquinas virtuais do Azure ao Log Analytics](../../log-analytics/log-analytics-azure-vm-extension.md).
-- Configure o monitoramento de sua infraestrutura do Azure com a extensão Datadog. Para saber mais, confira [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
+- Se aplicam a máquina virtual do PowerShell Desired estado configurações tooa usando a extensão de saudação DSC para Windows. Para saber mais, confira [Extensão de configuração de Estado Desejado do Azure](extensions-dsc-overview.md).
+- Configure o monitoramento de máquina virtual usando a extensão de VM do agente de monitoramento Microsoft hello. Para obter mais informações, consulte [tooLog de máquinas virtuais do Azure conectar análise](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Configure o monitoramento da infra-estrutura do Azure com hello Datadog extensão. Para obter mais informações, consulte Olá [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Configure uma máquina virtual do Azure usando o Chef. Para saber mais, veja [Automatizar a implantação de máquina virtual do Azure com o Chef](chef-automation.md).
 
-Além de extensões específicas ao processo, uma extensão de Script Personalizado está disponível para máquinas virtuais Windows e Linux. A extensão de Script personalizado para Windows permite a execução de qualquer script do PowerShell em uma máquina virtual. Isso é útil para a criação de implantações do Azure que exigem uma configurações que vão além da capacidade das ferramentas nativas do Azure. Para saber mais, veja [Extensão de Script personalizado de VM do Windows](extensions-customscript.md).
+Além disso extensões específicas de tooprocess, uma extensão de Script personalizado está disponível para máquinas virtuais Windows e Linux. Olá extensão de Script personalizado para o Windows permite que qualquer toobe de script do PowerShell executado em uma máquina virtual. Isso é útil para a criação de implantações do Azure que exigem uma configurações que vão além da capacidade das ferramentas nativas do Azure. Para saber mais, veja [Extensão de Script personalizado de VM do Windows](extensions-customscript.md).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Cada extensão da máquina virtual pode ter seu próprio conjunto de pré-requisitos. Por exemplo, a extensão de VM do Docker tem um pré-requisito de uma distribuição Linux com suporte. Os requisitos específicos das extensões estão detalhados na documentação associada.
+Cada extensão da máquina virtual pode ter seu próprio conjunto de pré-requisitos. Por exemplo, Olá extensão da VM Docker tem um pré-requisito de uma distribuição de Linux com suporte. Requisitos das extensões individuais são detalhados na documentação do hello específicas da extensão.
 
 ### <a name="azure-vm-agent"></a>Agente de VM do Azure
-O Agente de VM do Azure gerencia a interação entre uma máquina virtual do Azure e o controlador de malha do Azure. O agente de VM é responsável por muitos aspectos funcionais de implantação e gerenciamento de máquinas virtuais do Azure, incluindo a execução de extensões da VM. O agente de VM do Azure é pré-instalado em imagens do Azure Marketplace e pode ser instalado em sistemas operacionais compatíveis.
+Agente de VM do Azure Olá gerencia a interação entre uma máquina virtual do Azure e o controlador de malha do Azure hello. Olá VM agent é responsável por muitos aspectos funcionais de implantação e gerenciamento de máquinas virtuais do Azure, incluindo a execução de extensões de VM. Agente de VM do Azure Olá foi pré-instalado no imagens do Azure Marketplace e pode ser instalado em sistemas operacionais com suporte.
 
 Para saber mais sobre os sistemas operacionais com suporte e as instruções de instalação, confira [Agente de máquina virtual do Azure](agent-user-guide.md).
 
 ## <a name="discover-vm-extensions"></a>Descobrir extensões de VM
-Muitas extensões de VM diferentes estão disponíveis para uso com as máquinas virtuais do Azure. Para ver uma lista completa, execute o comando a seguir com o módulo do Azure Resource Manager PowerShell. Especifique o local desejado ao executar esse comando.
+Muitas extensões de VM diferentes estão disponíveis para uso com as máquinas virtuais do Azure. toosee uma lista completa, execute Olá comando com o módulo do PowerShell do Azure Resource Manager Olá a seguir. Tornar-se de local de saudação desejada de toospecify quando você estiver executando este comando.
 
 ```powershell
 Get-AzureRmVmImagePublisher -Location WestUS | `
@@ -60,19 +60,19 @@ Get-AzureRmVMExtensionImage | Select Type, Version
 
 ## <a name="run-vm-extensions"></a>Executar extensões de VM
 
-As extensões da máquina virtual do Azure podem ser executadas em máquinas virtuais existentes, o que é útil quando você precisa fazer alterações de configuração ou recuperar a conectividade em uma VM já implantada. As extensões de VM também podem ser agrupadas com implantações de modelo do Azure Resource Manager. Ao usar extensões com modelos do Resource Manager, as máquinas virtuais do Azure podem ser implantadas e configuradas sem a necessidade de intervenção pós-implantação.
+Extensões de máquina virtual do Azure podem ser executadas em máquinas virtuais existentes, que é útil quando você precisa toomake alterações de configuração ou recuperar de conectividade em uma VM já implantada. As extensões de VM também podem ser agrupadas com implantações de modelo do Azure Resource Manager. Usando extensões com modelos do Gerenciador de recursos, você pode habilitar toobe de máquinas virtuais do Azure implantadas e configuradas sem necessidade de saudação de intervenção de pós-implantação.
 
-Os métodos a seguir podem ser usados para executar uma extensão em uma máquina virtual existente.
+Olá métodos a seguir pode ser usado toorun uma extensão em uma máquina virtual existente.
 
 ### <a name="powershell"></a>PowerShell
 
-Há vários comandos do PowerShell para a execução de extensões individuais. Para ver uma lista, execute os comandos do PowerShell a seguir.
+Há vários comandos do PowerShell para a execução de extensões individuais. toosee executar Olá comandos do PowerShell a seguir uma lista.
 
 ```powershell
 get-command Set-AzureRM*Extension* -Module AzureRM.Compute
 ```
 
-O resultado é semelhante ao seguinte:
+Isso fornece o seguinte de toohello semelhante de saída:
 
 ```powershell
 CommandType     Name                                               Version    Source
@@ -91,7 +91,7 @@ Cmdlet          Set-AzureRmVMExtension                             2.2.0      Az
 Cmdlet          Set-AzureRmVMSqlServerExtension                    2.2.0      AzureRM.Compute
 ```
 
-O exemplo a seguir usa a extensão de Script personalizado para baixar um script de um repositório do GitHub para a máquina virtual de destino e, em seguida, executa o script. Para saber mais sobre como usar a extensão de Script personalizado, veja [Visão geral da extensão de Script personalizado](extensions-customscript.md).
+Hello exemplo a seguir usa toodownload de extensão de Script personalizado Olá um script de um repositório GitHub em Olá máquina de virtual de destino e, em seguida, execute o script hello. Para obter mais informações sobre Olá extensão de Script personalizado, consulte [visão geral de extensões de Script personalizado](extensions-customscript.md).
 
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
@@ -100,7 +100,7 @@ Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -Run "Create-File.ps1" -Location "West US"
 ```
 
-Neste exemplo, a extensão de acesso à VM é usada para redefinir a senha administrativa de uma máquina virtual Windows. Para saber mais sobre a extensão de acesso à VM, veja [Serviço de redefinição de área de trabalho remota em uma VM do Windows](reset-rdp.md).
+Neste exemplo, Olá extensão de acesso da máquina virtual é a senha administrativa do hello tooreset usados de uma máquina virtual do Windows. Para obter mais informações sobre Olá extensão de acesso da máquina virtual, consulte [serviço de redefinição de área de trabalho remota em uma VM do Windows](reset-rdp.md).
 
 ```powershell
 $cred=Get-Credential
@@ -110,22 +110,22 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-O comando `Set-AzureRmVMExtension` pode ser usado para iniciar qualquer extensão de VM. Para saber mais, veja a [referência de Set-AzureRmVMExtension](https://msdn.microsoft.com/en-us/library/mt603745.aspx).
+Olá `Set-AzureRmVMExtension` comando pode ser usado toostart qualquer extensão VM. Para obter mais informações, consulte Olá [referência de conjunto AzureRmVMExtension](https://msdn.microsoft.com/en-us/library/mt603745.aspx).
 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-É possível aplicar extensões de VM a uma máquina virtual existente por meio do Portal do Azure. Para fazer isso, selecione a máquina virtual que deseja usar, escolha **Extensões** e clique em **Adicionar**. Isso fornece uma lista de extensões disponíveis. Selecione a desejada e siga as instruções no assistente.
+Uma extensão de VM pode ser aplicado tooan de máquina virtual existente por meio de saudação portal do Azure. toodo portanto, selecione a máquina virtual de saudação deseja toouse, escolha **extensões**e clique em **adicionar**. Isso fornece uma lista de extensões disponíveis. Selecione Olá desejada e siga as etapas de saudação do Assistente de saudação.
 
-A imagem a seguir mostra a instalação da extensão Microsoft Antimalware no Portal do Azure.
+Olá imagem a seguir mostra instalação Olá Olá extensão Antimalware da Microsoft da saudação portal do Azure.
 
 ![Instalar a extensão de antimalware](./media/extensions-features/installantimalwareextension.png)
 
 ### <a name="azure-resource-manager-templates"></a>Modelos do Gerenciador de Recursos do Azure
 
-É possível adicionar extensões de VM a um modelo do Azure Resource Manager e executá-las com a implantação do modelo. Implantar extensões com um modelo é útil para a criação de implantações do Azure totalmente configuradas. Por exemplo, o JSON a seguir é obtido de um modelo do Resource Manager que implanta um conjunto de máquinas virtuais com balanceamento de carga e um banco de dados SQL do Azure e, em seguida, instala um aplicativo .NET Core em cada VM. A extensão da VM se encarrega da instalação do software.
+Extensões de VM podem ser adicionado tooan Azure Resource Manager modelo e executado com a implantação de saudação do modelo de saudação. Implantar extensões com um modelo é útil para a criação de implantações do Azure totalmente configuradas. Por exemplo, hello que JSON a seguir é obtido de um modelo do Gerenciador de recursos que implanta um conjunto de VMs com balanceamento de carga e um banco de dados do SQL Azure e, em seguida, instala um aplicativo .NET Core em cada VM. Olá extensão de VM cuida Olá da instalação do software.
 
-Para saber mais, confira o [Modelo completo do Resource Manager](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
+Para obter mais informações, consulte Olá [modelo completo do Gerenciador de recursos](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
 ```json
 {
@@ -161,9 +161,9 @@ Para saber mais, veja [Criação de modelos do Azure Resource Manager com extens
 
 ## <a name="secure-vm-extension-data"></a>Proteger dados de extensão da VM
 
-Quando você estiver executando uma extensão de VM, talvez seja necessário incluir informações confidenciais, como credenciais, nomes de conta de armazenamento e chaves de acesso da conta de armazenamento. Muitas extensões de VM incluem uma configuração protegida que criptografa dados e os descriptografa somente dentro da máquina virtual de destino. Cada extensão tem um esquema específico de configuração protegida, e cada um é detalhado na documentação específica associada à extensão.
+Quando você estiver executando uma extensão de VM, talvez seja necessário tooinclude informações confidenciais, como as credenciais, nomes de conta de armazenamento e chaves de acesso da conta de armazenamento. Muitas extensões VM incluem uma configuração protegida que criptografa os dados e a descriptografa apenas dentro de saudação máquina de virtual de destino. Cada extensão tem um esquema específico de configuração protegida, e cada um é detalhado na documentação específica associada à extensão.
 
-O exemplo a seguir mostra uma instância da extensão Script personalizado para Windows. Observe que o comando a ser executado inclui um conjunto de credenciais. Neste exemplo, o comando a ser executado não será criptografado.
+saudação de exemplo a seguir mostra uma instância do hello extensão de Script personalizado para o Windows. Observe que tooexecute de comando Olá inclui um conjunto de credenciais. Neste exemplo, a saudação comando tooexecute não será criptografado.
 
 
 ```json
@@ -194,7 +194,7 @@ O exemplo a seguir mostra uma instância da extensão Script personalizado para 
 }
 ```
 
-Proteja a cadeia de caracteres de execução movendo a propriedade **command to execute** para a configuração **protected**.
+Proteger a cadeia de caracteres de execução de saudação movendo Olá **comando tooexecute** propriedade toohello **protegido** configuração.
 
 ```json
 {
@@ -228,19 +228,19 @@ Proteja a cadeia de caracteres de execução movendo a propriedade **command to 
 
 ## <a name="troubleshoot-vm-extensions"></a>Solucionar problemas de extensões de VM
 
-Cada extensão de VM pode ter etapas de solução de problemas específicas. Por exemplo, quando você está usando a extensão Script personalizado, é possível encontrar detalhes da execução do script localmente na máquina virtual na qual a extensão foi executada. As etapas de solução de problemas específicas à extensão são detalhadas na documentação associada.
+Cada extensão de VM pode ter etapas de solução de problemas específicas. Por exemplo, quando você estiver usando a extensão de Script personalizado hello, detalhes de execução de script podem ser encontrados localmente na Olá máquina virtual no qual a extensão de saudação foi executado. As etapas de solução de problemas específicas à extensão são detalhadas na documentação associada.
 
-As etapas de solução de problemas a seguir aplicam-se a todas as extensões da máquina virtual.
+Olá etapas de solução de problemas a seguir se aplicam a tooall extensões de máquina virtual.
 
 ### <a name="view-extension-status"></a>Exibir o status da extensão
 
-Após a execução da extensão da máquina virtual em uma máquina virtual, use o seguinte comando do PowerShell para retornar o status da extensão. Substitua os nomes de parâmetro de exemplo por seus próprios valores. O parâmetro `Name` usa o nome fornecido à extensão no momento da execução.
+Depois que uma extensão de máquina virtual tiver sido executada em uma máquina virtual, use Olá status da extensão de tooreturn comando PowerShell a seguir. Substitua os nomes de parâmetro de exemplo por seus próprios valores. Olá `Name` parâmetro aceita nome hello dado toohello extensão em tempo de execução.
 
 ```PowerShell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
-A saída se parece com o seguinte:
+saída de Hello semelhante ao seguinte hello:
 
 ```json
 ResourceGroupName       : myResourceGroup
@@ -261,21 +261,21 @@ AutoUpgradeMinorVersion : False
 ForceUpdateTag          :
 ```
 
-O status de execução da extensão também pode ser encontrado no Portal do Azure. Para exibir o status de uma extensão, selecione a máquina virtual, escolha **Extensões** e selecione a extensão desejada.
+Status da extensão de execução também podem ser encontradas no hello portal do Azure. status de saudação tooview de uma extensão, a máquina virtual de select Olá, escolha **extensões**, e selecione Olá extensão desejado.
 
 ### <a name="rerun-vm-extensions"></a>Executar extensões de VM novamente
 
-Pode haver casos nos quais uma extensão da máquina virtual precisa ser executada novamente. Faça isso removendo a extensão e, em seguida, executando novamente a extensão com um método de execução de sua escolha. Para remover uma extensão, execute o seguinte comando com o módulo do Azure PowerShell. Substitua os nomes de parâmetro de exemplo por seus próprios valores.
+Pode haver casos em que uma extensão de máquina virtual deve toobe novamente. Você pode fazer isso, removendo a extensão hello e, em seguida, executar novamente a extensão de saudação com um método de execução de sua escolha. tooremove uma extensão, executar Olá comando com o módulo do PowerShell do Azure Olá a seguir. Substitua os nomes de parâmetro de exemplo por seus próprios valores.
 
 ```powershell
 Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
-Uma extensão também pode ser removida usando o Portal do Azure. Para fazer isso:
+Uma extensão também pode ser removida usando Olá portal do Azure. toodo para:
 
 1. Selecione uma máquina virtual.
 2. Selecione **Extensões**.
-3. Escolha a extensão desejada.
+3. Escolha a extensão de saudação desejada.
 4. Selecione **Desinstalar**.
 
 ## <a name="common-vm-extensions-reference"></a>Referência a extensões de VM comuns

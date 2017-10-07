@@ -1,5 +1,5 @@
 ---
-title: "Implantar um conjunto de dimensionamento de máquinas virtuais usando o Visual Studio | Microsoft Docs"
+title: "aaaDeploy conjunto de escala de máquinas virtuais usando o Visual Studio | Microsoft Docs"
 description: "Implantar um conjunto de escala de máquina virtual usando o Visual Studio e um modelo do Resource Manager"
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -16,21 +16,21 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78a4b0c8d305f57f495402cecb92d18425ff6bff
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c89a9f2478ccc3d22989aea604a4273bcc46df82
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Como criar um Conjunto de Dimensionamento de Máquinas Virtuais com o Visual Studio
-Este artigo mostra como implantar um Conjunto de Escala de Máquina Virtual do Azure usando uma Implantação de Grupo de Recursos do Visual Studio.
+# <a name="how-toocreate-a-virtual-machine-scale-set-with-visual-studio"></a>Como toocreate uma escala de máquina Virtual definido com o Visual Studio
+Este artigo mostra como toodeploy uma escala de máquina Virtual do Azure definido usando uma implantação de grupo do Visual Studio recursos.
 
-Os [Conjuntos de Dimensionamento de Máquinas Virtuais do Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) são um recurso de Computação do Azure para implantar e gerenciar uma coleção de máquinas virtuais semelhantes com escala automática e balanceamento de carga. É possível provisionar e implantar os Conjuntos de Dimensionamento de Máquinas Virtuais usando os [Modelos do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates). Os Modelos do Azure Resource Manager podem ser implantados usando a CLI do Azure, o PowerShell, a REST e também diretamente por meio do Visual Studio. O Visual Studio fornece um conjunto de modelos de exemplo, que podem ser implantados como parte de um projeto de Implantação de Grupo de Recursos do Azure.
+[Conjuntos de escala de máquinas virtuais do Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) é um toodeploy de recursos de computação do Azure e gerenciar uma coleção de máquinas virtuais semelhantes com o dimensionamento automático e o balanceamento de carga. É possível provisionar e implantar os Conjuntos de Dimensionamento de Máquinas Virtuais usando os [Modelos do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates). Os Modelos do Azure Resource Manager podem ser implantados usando a CLI do Azure, o PowerShell, a REST e também diretamente por meio do Visual Studio. O Visual Studio fornece um conjunto de modelos de exemplo, que podem ser implantados como parte de um projeto de Implantação de Grupo de Recursos do Azure.
 
-As implantações de Grupo de Recursos do Azure são uma maneira de agrupar e publicar um conjunto de recursos relacionados do Azure em uma única operação de implantação. Saiba mais sobre eles aqui: [Criando e implantando grupos de recursos do Azure por meio do Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Implantações de grupo de recursos do Azure são uma maneira toogroup e publicam um conjunto de recursos do Azure relacionados em uma única operação de implantação. Saiba mais sobre eles aqui: [Criando e implantando grupos de recursos do Azure por meio do Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ## <a name="pre-requisites"></a>Pré-requisitos
-Para começar a implantar Conjuntos de Dimensionamento de Máquinas Virtuais no Visual Studio, você precisa do seguinte:
+tooget iniciar a implantação de conjuntos de escala de máquina Virtual no Visual Studio, você precisa seguir hello:
 
 * Visual Studio 2013 ou posterior.
 * SDK do Azure 2.7, 2.8 ou 2.9
@@ -43,57 +43,57 @@ Para começar a implantar Conjuntos de Dimensionamento de Máquinas Virtuais no 
    
     ![Arquivo novo][file_new]
 
-2. Em **Visual C# | Nuvem**, escolha **Azure Resource Manager** para criar um projeto para implantar um Modelo do Azure Resource Manager.
+2. Em **Visual c# | Nuvem**, escolha **do Azure Resource Manager** toocreate um projeto para implantar um modelo do Gerenciador de recursos do Azure.
    
     ![Criar projeto][create_project]
 
-3. Na lista de Modelos, selecione o Modelo de Conjunto de Escala de Máquina Virtual do Windows ou do Linux.
+3. Saudação de modelos, selecione lista Olá Linux ou definir modelo de escala de máquina Virtual Windows.
    
    ![Selecionar modelo][select_Template]
 
-4. Depois de criar o projeto, você verá scripts de implantação do PowerShell, um Modelo do Azure Resource Manager e um arquivo de parâmetros para o Conjunto de Dimensionamento de Máquinas Virtuais.
+4. Depois de criar seu projeto Consulte scripts de implantação do PowerShell, um modelo do Gerenciador de recursos do Azure e um arquivo de parâmetro hello conjunto de escala de máquina Virtual.
    
     ![Gerenciador de Soluções][solution_explorer]
 
 ## <a name="customize-your-project"></a>Personalizar seu projeto
-Agora você pode editar o Modelo para personalizá-lo de acordo com as necessidades de seu aplicativo, como adicionar propriedades de extensão de VM ou editar regras de balanceamento de carga. Por padrão, os Modelos do Conjunto de Dimensionamento de Máquinas Virtuais são configurados para implantar a extensão AzureDiagnostics, que facilita a adição de regras de escala automática. Ela também implanta um balanceador de carga com um endereço IP público, configurado com regras NAT de entrada. 
+Agora você pode editar Olá modelo toocustomize-lo para as necessidades do seu aplicativo, como adicionar propriedades de extensão VM ou edição carregar regras de balanceamento. Por padrão ao definir modelos de escala de máquina Virtual Olá são toodeploy configurado Olá AzureDiagnostics extensão que torna fácil tooadd regras de dimensionamento automático. Ela também implanta um balanceador de carga com um endereço IP público, configurado com regras NAT de entrada. 
 
-O balanceador de carga permite que você se conecte às instâncias da VM com o SSH (Linux) ou o RDP (Windows). O intervalo de portas de front-end começa em 50000. Para o Linux, isso significa que, se você usar o SSH para a porta 50000, será roteado para a porta 22 da primeira VM no Conjunto de Dimensionamento. A conexão à porta 50001 é roteada para a porta 22 da segunda VM e assim por diante.
+o balanceador de carga Olá permite que você se conectar a instâncias de VM toohello com SSH (Linux) ou RDP (Windows). intervalo de portas de front-end de saudação inicia em 50000. Para linux, isso significa que, se você SSH tooport 50000, é roteada tooport 22 de Olá primeira VM no hello conjunto de escala. Conectar-se tooport 50001 é roteado tooport 22 de saudação segundo VM e assim por diante.
 
- Uma boa maneira de editar os Modelos com o Visual Studio é usar a Estrutura de Tópicos JSON para organizar os parâmetros, as variáveis e os recursos. Com uma compreensão do esquema do Visual Studio, é possível detectar erros em seu Modelo antes de implantá-lo.
+ Uma boa maneira tooedit seus modelos com o Visual Studio é parâmetros de saudação toouse Olá JSON tópicos tooorganize, variáveis e recursos. Uma compreensão de saudação esquema Visual Studio pode apontar erros em seu modelo antes de implantá-lo.
 
 ![Gerenciador JSON][json_explorer]
 
-## <a name="deploy-the-project"></a>Implantar o projeto
-1. Implante o Modelo do Azure Resource Manager para criar o recurso Conjunto de Dimensionamento de Máquinas Virtuais. Clique com o botão direito do mouse no nó do projeto e escolha **Implantar | Nova Implantação**.
+## <a name="deploy-hello-project"></a>Implantar projeto Olá
+1. Implante o recurso de conjunto de escala de máquina Virtual Olá toocreate modelo do Gerenciador de recursos do Azure hello. Clique com botão direito no nó do projeto hello e escolha **implantar | Nova implantação**.
    
     ![Implantar o modelo][5deploy_Template]
     
-2. Selecione sua assinatura no diálogo “Implantar no Grupo de Recursos”.
+2. Selecione sua assinatura na caixa de diálogo hello "Implantar tooResource grupo".
    
     ![Implantar o modelo][6deploy_Template]
 
-3. Aqui, é possível criar um Grupo de Recursos do Azure no qual o Modelo será implantado.
+3. A partir daqui, você pode criar seu modelo para toodeploy um grupo de recursos do Azure.
    
     ![Novo grupo de recursos][new_resource]
 
-4. Em seguida, clique em **Editar Parâmetros** para inserir parâmetros que são passados para o Modelo. Forneça o nome de usuário e a senha do sistema operacional, que é necessária para criar a implantação. Se não tiver as Ferramentas PowerShell para Visual Studio instaladas, será recomendável marcar **Salvar senhas** para evitar um prompt oculto de linha de comando do PowerShell ou usar o [suporte do keyvault](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/).
+4. Em seguida, clique em **Editar parâmetros** tooenter parâmetros que são passados tooyour modelo. Forneça Olá username e password para Olá sistema operacional, é necessário toocreate Olá implantação. Se você não tiver as ferramentas do PowerShell para Visual Studio instaladas, é recomendável toocheck **salvar senhas** tooavoid um oculto de linha de comando do PowerShell prompt ou use [keyvault suporte](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/).
    
     ![Editar Parâmetros][edit_parameters]
 
-5. Agora clique em **Implantar**. A janela **Saída** mostra o progresso da implantação. Observe que a ação executa o script **Deploy-AzureResourceGroup.ps1**.
+5. Agora clique em **Implantar**. Olá **saída** janela mostra o progresso da implantação hello. Observe que a ação de saudação está executando Olá **implantar AzureResourceGroup.ps1** script.
    
    ![Janela de saída][output_window]
 
 ## <a name="exploring-your-virtual-machine-scale-set"></a>Explorando o Conjunto de Dimensionamento de Máquinas Virtuais
-Depois que a implantação for concluída, é possível exibir o novo Conjunto de Dimensionamento de Máquinas Virtuais no **Cloud Explorer** do Visual Studio (basta atualizar a lista). O Gerenciador de Nuvem permite que você gerencie recursos do Azure no Visual Studio ao mesmo tempo que desenvolve aplicativos. Você também pode exibir o Conjunto de Dimensionamento de Máquinas Virtuais no [portal do Azure](https://portal.azure.com) e no [Gerenciador de Recursos do Azure](https://resources.azure.com/).
+Após a conclusão da implantação Olá, é possível exibir hello nova máquina Virtual conjunto de escala no Visual Studio de saudação **Cloud Explorer** (atualização Olá lista). O Gerenciador de Nuvem permite que você gerencie recursos do Azure no Visual Studio ao mesmo tempo que desenvolve aplicativos. Você também pode exibir o conjunto de escala de máquinas virtuais em Olá [portal do Azure](https://portal.azure.com) e [Gerenciador de recursos do Azure](https://resources.azure.com/).
 
 ![Gerenciador de Nuvem][cloud_explorer]
 
- O portal fornece a melhor maneira de gerenciar visualmente sua infraestrutura do Azure com um navegador da Web, enquanto o Gerenciador de Recursos do Azure oferece uma maneira fácil de explorar e depurar recursos do Azure, proporcionando uma janela para a “exibição de instância”, além de mostrar comandos do PowerShell para os recursos que você está examinando.
+ Olá portal fornece a melhor maneira de saudação toovisually gerenciar sua infraestrutura do Azure com um navegador da web, enquanto o Gerenciador de recursos do Azure fornece uma maneira fácil de tooexplore e depurar recursos do Azure, fornecendo uma janela em hello "instância exibir" e também mostrando PowerShell comandos para recursos de saudação que você está observando.
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois de implantar os Conjuntos de Dimensionamento de Máquinas Virtuais com êxito por meio do Visual Studio, é possível personalizar o projeto ainda mais para atender às necessidades do aplicativo. Por exemplo, configurar a escala automática adicionando um recurso do **Insights**, adicionar a infraestrutura ao Modelo (como VMs independentes) ou implantar aplicativos usando a extensão de script personalizado. Encontre bons modelos de exemplo no repositório GitHub de [Modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates) (pesquise “vmss”).
+Depois que você implantou com êxito os conjuntos de escala de máquina Virtual por meio do Visual Studio, você pode personalizar seu projeto toosuit seus requisitos de aplicativo. Por exemplo, configurar o dimensionamento automático, adicionando um **Insights** recursos, adicionando infraestrutura tooyour modelo (como as máquinas virtuais autônomas) ou implantação de aplicativos usando a extensão do script personalizado hello. Modelos de bom exemplo podem ser encontrados na Olá [modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates) repositório GitHub (procure "vmss").
 
 [file_new]: ./media/virtual-machine-scale-sets-vs-create/1-FileNew.png
 [create_project]: ./media/virtual-machine-scale-sets-vs-create/2-CreateProject.png

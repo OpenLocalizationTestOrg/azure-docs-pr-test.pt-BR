@@ -1,5 +1,5 @@
 ---
-title: Visualizar seu cluster usando o Service Fabric Explorer | Microsoft Docs
+title: aaaVisualizing o cluster usando o Gerenciador do Service Fabric | Microsoft Docs
 description: "O Explorador do Service Fabric é uma ferramenta baseada na Web para inspecionar e gerenciar aplicativos em nuvem e nós em um cluster do Service Fabric do Microsoft Azure."
 services: service-fabric
 documentationcenter: .net
@@ -14,84 +14,84 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2017
 ms.author: ryanwi
-ms.openlocfilehash: 789793a7f50170188d688881a9178546c3074018
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 73adc4fc254cf6b949b4419b02a046cee3f6a83d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizando o cluster com o Service Fabric Explorer
-O Explorador do Service Fabric é uma ferramenta baseada na Web para inspecionar e gerenciar aplicativos e nós em um cluster do Service Fabric do Azure. O Explorador do Service Fabric é hospedado diretamente dentro do cluster para estar sempre disponível, independentemente de onde o cluster estiver sendo executado.
+O Explorador do Service Fabric é uma ferramenta baseada na Web para inspecionar e gerenciar aplicativos e nós em um cluster do Service Fabric do Azure. Gerenciador do Service Fabric está hospedado diretamente no cluster hello, para que ele estará sempre disponível, independentemente de onde o cluster está em execução.
 
 ## <a name="video-tutorial"></a>Tutorial em vídeo
 
-Para saber como usar o Service Fabric Explorer, assista ao seguinte vídeo da Microsoft Virtual Academy:
+toolearn como toouse Service Fabric Explorer, assista Olá vídeo Microsoft Virtual Academy a seguir:
 
 [<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
 
-## <a name="connect-to-service-fabric-explorer"></a>Conectar ao Explorador do Service Fabric
-Se você seguiu as instruções para [preparar o seu ambiente de desenvolvimento](service-fabric-get-started.md), pode inicializar o Explorador do Service Fabric no cluster local navegando para http://localhost:19080/Explorer.
+## <a name="connect-tooservice-fabric-explorer"></a>Conecte-se tooService Fabric Explorer
+Se você seguiu as instruções de saudação muito[preparar seu ambiente de desenvolvimento](service-fabric-get-started.md), você pode iniciar o Gerenciador do Service Fabric no cluster local navegando toohttp://localhost:19080 / Explorer.
 
-## <a name="understand-the-service-fabric-explorer-layout"></a>Entender o layout do Explorador do Service Fabric
-Você pode navegar pelo Explorador do Service Fabric usando a árvore à esquerda. Na raiz da árvore, o painel do cluster fornece uma visão geral do cluster, incluindo um resumo do aplicativo e a integridade do nó.
+## <a name="understand-hello-service-fabric-explorer-layout"></a>Entender o layout do Service Fabric Explorer Olá
+Você pode navegar por meio do Gerenciador do Service Fabric usando árvore Olá Olá esquerda. Na raiz de saudação da árvore Olá, painel de cluster de saudação fornece uma visão geral do cluster, incluindo um resumo do aplicativo e a integridade do nó.
 
 ![Painel de clusters do Explorador do Service Fabric][sfx-cluster-dashboard]
 
-### <a name="view-the-clusters-layout"></a>Exibir o layout do cluster
-Nós em um cluster do Service Fabric são colocados em uma grade bidimensional de domínios de falha e domínios de atualização. Esse posicionamento garante que seus aplicativos permaneçam disponíveis na presença de falhas de hardware e atualizações de aplicativos. Você pode exibir o layout do cluster atual usando o mapa de clusters.
+### <a name="view-hello-clusters-layout"></a>Exibir o layout do cluster Olá
+Nós em um cluster do Service Fabric são colocados em uma grade bidimensional de domínios de falha e domínios de atualização. Esse posicionamento garante que os aplicativos permanecem disponíveis na presença de saudação de falhas de hardware e atualizações de aplicativo. Você pode exibir como o cluster atual Olá é distribuído usando o mapa de cluster hello.
 
 ![Mapa de clusters do Explorador do Service Fabric][sfx-cluster-map]
 
 ### <a name="view-applications-and-services"></a>Exibir aplicativos e serviços
-O cluster contém duas subárvores: uma para aplicativos e outra para nós.
+cluster Olá contém duas subárvores: um para aplicativos e outra para nós.
 
-Você pode usar a exibição de aplicativos para navegar pela hierarquia lógica do Service Fabric: aplicativos, serviços, partições e réplicas.
+Você pode usar o hello aplicativo exibição toonavigate a hierarquia lógica da malha do serviço: aplicativos, serviços, partições e réplicas.
 
-No exemplo abaixo, o aplicativo **MyApp** é composto por dois serviços, **MyStatefulService** e **WebService**. Como o **MyStatefulService** tem monitoração de estado, ele inclui uma partição com uma réplica principal e duas secundárias. Por outro lado, o WebSvcService é sem monitoração de estado e contém uma única instância.
+O exemplo hello abaixo, Olá aplicativo **MyApp** consiste em dois serviços, **MyStatefulService** e **WebService**. Como o **MyStatefulService** tem monitoração de estado, ele inclui uma partição com uma réplica principal e duas secundárias. Por outro lado, o WebSvcService é sem monitoração de estado e contém uma única instância.
 
 ![Exibição do aplicativo do Explorador do Service Fabric][sfx-application-tree]
 
-Em cada nível da árvore, o painel principal mostra informações pertinentes sobre o item. Por exemplo, você pode ver o status de integridade e a versão de um serviço específico.
+Em cada nível da árvore de hello, painel principal Olá mostra informações pertinentes sobre o item de saudação. Por exemplo, você pode ver o status de integridade de saudação e versão para um serviço específico.
 
 ![Painel essencial do Explorador do Service Fabric][sfx-service-essentials]
 
-### <a name="view-the-clusters-nodes"></a>Exibir os nós do cluster
-A exibição de nós mostra o layout físico do cluster. Para um nó específico, você pode inspecionar quais aplicativos têm código implantado naquele nó. Mais especificamente, você pode ver quais réplicas estão sendo executadas lá atualmente.
+### <a name="view-hello-clusters-nodes"></a>Visualizar os nós do cluster Olá
+exibição do nó de saudação mostra o layout físico de saudação do cluster hello. Para um nó específico, você pode inspecionar quais aplicativos têm código implantado naquele nó. Mais especificamente, você pode ver quais réplicas estão sendo executadas lá atualmente.
 
 ## <a name="actions"></a>Ações
-O Explorador do Service Fabric oferece uma maneira rápida de invocar ações em nós, aplicativos e serviços no cluster.
+Service Fabric Explorer oferece uma maneira rápida de tooinvoke ações em nós, aplicativos e serviços em cluster.
 
-Por exemplo, para excluir uma instância do aplicativo, escolha o aplicativo na árvore à esquerda e escolha **Ações** > **Excluir Aplicativo**.
+Por exemplo, toodelete uma instância de aplicativo, escolha o aplicativo hello da árvore Olá Olá esquerda e, em seguida, escolha **ações** > **excluir aplicativo**.
 
 ![Excluir um aplicativo no Explorador do Service Fabric][sfx-delete-application]
 
 > [!TIP]
-> Você pode executar as mesmas ações clicando nas reticências ao lado de cada elemento.
+> Você pode executar Olá ações clicando Olá reticências próximo tooeach elemento.
 >
 >
 
-A tabela a seguir lista as ações disponíveis para cada entidade:
+Olá tabela a seguir lista as ações de saudação disponíveis para cada entidade:
 
 | **Entidade** | **Ação** | **Descrição** |
 | --- | --- | --- |
-| Tipo de aplicativo |Remover o provisionamento de tipo |Remover o pacote de aplicativos do repositório de imagens do cluster. Requer que todos os aplicativos desse tipo sejam removidos em primeiro lugar. |
-| Aplicativo |Excluir Aplicativo |Exclua o aplicativo, incluindo todos os seus serviços e o estado (se houver). |
-| O Barramento de |Excluir serviço |Exclua o serviço e seu estado (se houver). |
-| Nó |Ativar |Ative o nó. |
-| Nó | Desativar (pausa) | Pause o nó em seu estado atual. Os serviços continuam sendo executados, mas o Service Fabric não move nada dele ou para ele proativamente, exceto se for necessário para impedir uma interrupção ou inconsistência de dados. Essa ação normalmente é usada para habilitar serviços de depuração em um nó específico a fim de garantir que não sejam movidos durante a inspeção. | |
-| Nó | Desativar (reiniciar) | Mova todos os serviços na memória de um nó com segurança e feche os serviços persistentes. Normalmente usado quando os processos de host ou o computador precisam ser reiniciados. | |
-| Nó | Desativar (remover dados) | Feche com segurança todos os serviços em execução no nó após a criação de réplicas de reposição suficientes. Normalmente usado quando um nó (ou pelo menos seu armazenamento) é desabilitado permanentemente. | |
-| Nó | Remover o estado do nó | Remova o conhecimento das réplicas do nó do cluster. Normalmente usado quando um nó com falha já é considerado irrecuperável. | |
-| Nó | Reiniciar | Simule a falha de nó reiniciando o nó. Mais informações podem ser obtidas [aqui](/powershell/module/servicefabric/restart-servicefabricnode?view=azureservicefabricps) | |
+| Tipo de aplicativo |Remover o provisionamento de tipo |Remove o pacote de aplicativo de saudação do cluster de saudação repositório de imagens. Requer que todos os aplicativos de que toobe tipo removido primeiro. |
+| Aplicativo |Excluir Aplicativo |Exclua aplicativo hello, incluindo todos os seus serviços e seus estados (se houver). |
+| O Barramento de |Excluir serviço |Exclua serviço hello e seu estado (se houver). |
+| Nó |Ativar |Ative nó hello. |
+| Nó | Desativar (pausa) | Pausa no nó Olá em seu estado atual. Serviços continuam toorun mas Service Fabric não proativamente mover tudo para ou dela, a menos que ele é necessário tooprevent uma interrupção ou inconsistência de dados. Esta ação é normalmente usada tooenable depurando serviços em tooensure um nó específico que eles não serão movidos durante a inspeção. | |
+| Nó | Desativar (reiniciar) | Mova todos os serviços na memória de um nó com segurança e feche os serviços persistentes. Geralmente usado quando os processos de host hello ou máquina necessidade toobe reiniciado. | |
+| Nó | Desativar (remover dados) | Feche com segurança todos os serviços em execução no nó Olá após a criação de réplicas de reposição suficientes. Normalmente usado quando um nó (ou pelo menos seu armazenamento) é desabilitado permanentemente. | |
+| Nó | Remover o estado do nó | Remova dados de conhecimento das réplicas de um nó de cluster de saudação. Normalmente usado quando um nó com falha já é considerado irrecuperável. | |
+| Nó | Reiniciar | Simule uma falha de nó, reiniciando nó hello. Mais informações podem ser obtidas [aqui](/powershell/module/servicefabric/restart-servicefabricnode?view=azureservicefabricps) | |
 
-Como muitas ações são destrutivas, talvez seja necessário confirmar sua intenção antes que a ação seja concluída.
+Como muitas ações são destrutivas, talvez seja solicitado tooconfirm sua intenção antes da conclusão da ação de saudação.
 
 > [!TIP]
-> Todas as ações que podem ser executadas usando o Explorador do Service Fabric também podem ser executadas usando o PowerShell ou uma API REST para habilitar a automação.
+> Todas as ações que podem ser executadas por meio do Gerenciador do Service Fabric também podem ser executadas por meio do PowerShell ou uma API REST, tooenable automação.
 >
 >
 
-Você também pode usar o Service Fabric Explorer para criar instâncias de aplicativo para um determinado tipo e versão de aplicativo. Escolha o tipo de aplicativo no modo de exibição de árvore, clique no link **Create app instance (Criar instância de aplicativo)** ao lado da versão desejada no painel da direita.
+Você também pode usar instâncias de aplicativos do Service Fabric Explorer toocreate para um tipo determinado aplicativo e a versão. Escolha o tipo de aplicativo de Olá Olá na exibição em árvore, clique em Olá **criar instância de aplicativo** versão toohello próximo link no painel direito da saudação.
 
 ![Criar uma instância de aplicativo no Service Fabric Explorer][sfx-create-app-instance]
 
@@ -100,20 +100,20 @@ Você também pode usar o Service Fabric Explorer para criar instâncias de apli
 >
 >
 
-## <a name="connect-to-a-remote-service-fabric-cluster"></a>Conectar a um cluster remoto do Service Fabric
-Conhecendo o ponto de extremidade do cluster e com permissões suficientes, você pode acessar o Service Fabric Explorer de qualquer navegador. Isso porque o Service Fabric Explorer é apenas outro serviço executado no cluster.
+## <a name="connect-tooa-remote-service-fabric-cluster"></a>Conecte-se o cluster de malha do serviço remoto tooa
+Se você souber o ponto de extremidade do cluster hello e tem permissões suficientes, você pode acessar Service Fabric Explorer em qualquer navegador. Isso ocorre porque o Service Fabric Explorer é apenas outro serviço que é executado no cluster hello.
 
-### <a name="discover-the-service-fabric-explorer-endpoint-for-a-remote-cluster"></a>Descobrir o ponto de extremidade do Explorador do Service Fabric para um cluster remoto
-A fim de acessar o Service Fabric Explorer para um determinado cluster, aponte o navegador para:
+### <a name="discover-hello-service-fabric-explorer-endpoint-for-a-remote-cluster"></a>Descobrir ponto de extremidade do hello Service Fabric Explorer para um cluster remoto
+tooreach Service Fabric Explorer para um determinado cluster, aponte seu navegador para:
 
 http://&lt;your-cluster-endpoint&gt;:19080/Explorer
 
-Para clusters do Azure, a URL completa também está disponível no painel de noções básicas do cluster do Portal do Azure.
+Para clusters do Azure, Olá a URL completa também está disponível no painel de essentials de cluster de saudação do hello portal do Azure.
 
-### <a name="connect-to-a-secure-cluster"></a>Conectar a um cluster seguro
-Você pode controlar o acesso do cliente ao cluster do Service Fabric com certificados ou usando o AAD (Azure Active Directory).
+### <a name="connect-tooa-secure-cluster"></a>Conecte-se o cluster seguro tooa
+Você pode controlar o cliente tooyour Service Fabric cluster de acesso com certificados ou usando o Azure Active Directory (AAD).
 
-Se você tentar se conectar ao Service Fabric Explorer em um cluster seguro, dependendo da configuração do cluster, será preciso apresentar um certificado de cliente ou fazer logon usando o AAD.
+Se você tentar tooconnect tooService Fabric Explorer em um cluster seguro, dependendo da configuração do cluster de saudação você vai ser toopresent necessário um certificado de cliente ou faça logon usando o AAD.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Visão geral da Possibilidade de Teste](service-fabric-testability-overview.md)

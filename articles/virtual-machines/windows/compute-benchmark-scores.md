@@ -1,5 +1,5 @@
 ---
-title: "Pontuações de parâmetro de comparação de computação de VMs do Windows | Microsoft Docs"
+title: "pontuações de benchmark aaaCompute para máquinas virtuais do Windows | Microsoft Docs"
 description: "Compare as pontuações de parâmetro de comparação de computação do SPECint de VMs do Linux que executam o Windows Server"
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cynthn
-ms.openlocfilehash: dc715a9bf4e5366e1719de7c649feb06b0c4bee7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3037d69790cb193161122b902e85fb838285cf81
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Pontuações de parâmetro de comparação de computação de VMs do Windows
-As pontuações de parâmetro de comparação SPECInt a seguir mostram o desempenho de computação de uma lista organizada de VMs de alto desempenho do Azure que executam o Windows Server. As pontuações de parâmetro de comparação de computação também estão disponíveis para [VMs do Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+desempenho de linha VM de alto desempenho do Azure executando o Windows Server de computação Olá SPECInt Mostrar de pontuações de comparação a seguir. As pontuações de parâmetro de comparação de computação também estão disponíveis para [VMs do Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="a-series---compute-intensive"></a>Série A – computação intensiva
 | Tamanho | vCPUs | Nós NUMA | CPU | Execuções | Taxa base média | StdDev |
@@ -65,7 +65,7 @@ As pontuações de parâmetro de comparação SPECInt a seguir mostram o desempe
 | Standard_H16mr |16 |2 |Intel Xeon E5-2667 v3 a 3,2 GHz |7 |569,6 |2.8 |
 
 ## <a name="about-specint"></a>Sobre o SPECint
-Os números do Windows foram calculados executando o [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) no Windows Server. O SPECint foi executado usando a opção de taxa base (SPECint_rate2006), com uma cópia por núcleo. O SPECint consiste em 12 testes separados, cada um deles executado três vezes, usando o valor mediano de cada teste e ponderando-os para formar uma pontuação composta. Em seguida, eles foram executados em várias VMs para fornecer as pontuações médias mostradas.
+Os números do Windows foram calculados executando o [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) no Windows Server. SPECint foi executada usando a opção de taxa base da saudação (resultados SPECint_rate2006), com uma cópia por núcleo. SPECint consiste em 12 testes separados, cada executada três vezes, levando o valor mediano de saudação de cada teste e peso a eles tooform uma pontuação composta. Esses testes foram executados, em seguida, em várias VMs tooprovide Olá médias pontuações mostradas.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter capacidades de armazenamento, detalhes do disco e considerações adicionais sobre como escolher um dos diferentes tamanhos de VM, veja [Tamanhos das máquinas virtuais](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

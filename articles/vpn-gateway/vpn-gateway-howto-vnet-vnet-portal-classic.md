@@ -1,6 +1,6 @@
 ---
 title: "Criar uma conexão entre redes virtuais: clássico: portal do Azure | Microsoft Docs"
-description: "Como conectar redes virtuais do Azure entre si usando o PowerShell e o Portal Clássico do Azure."
+description: "Como tooconnect virtuais do Azure redes juntos usando o PowerShell e Olá portal clássico do Azure."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
-ms.openlocfilehash: 77097d59077cd8e199acdb5dc0d8427369565eea
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f29c3c091d049ff96cf59f4c28ab86a100bcb5fc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurar uma conexão entre redes virtuais (clássico)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-Este artigo mostra como criar uma conexão de gateway de VPN entre redes virtuais. As redes virtuais podem estar na mesma região ou em regiões diferentes, e com a mesma assinatura ou em assinaturas diferentes. As etapas neste artigo se aplicam ao modelo de implantação clássico e o portal do Azure. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
+Este artigo mostra como toocreate uma conexão de gateway VPN entre redes virtuais. Olá redes virtuais podem ser Olá mesmas ou em diferentes regiões e de Olá mesmo ou em assinaturas diferentes. Olá etapas neste artigo se aplicam a toohello modelo de implantação clássico e hello portal do Azure. Você também pode criar essa configuração usando uma ferramenta de implantação diferente ou um modelo de implantação, selecionando uma opção diferente de saudação lista a seguir:
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -33,67 +33,67 @@ Este artigo mostra como criar uma conexão de gateway de VPN entre redes virtuai
 > * [CLI do Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal do Azure (clássico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Conectar modelos de implantação diferentes – portal do Azure](vpn-gateway-connect-different-deployment-models-portal.md)
-> * [Conectar modelos de implantação diferentes – PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
+> * [Conectar modelos de implantação diferentes - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
 
-![Diagrama de conectividade VNet a VNet](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
+![Rede virtual tooVNet diagrama de conectividade](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
 
 ## <a name="about-vnet-to-vnet-connections"></a>Sobre conexões de rede virtual a rede virtual
 
-Conectar uma rede virtual a outra rede virtual (VNet a VNet) no modelo de implantação clássico usando um gateway de VPN é semelhante a conectar uma rede virtual a um site local. Os dois tipos de conectividade usam um gateway de VPN para fornecer um túnel seguro usando IPsec/IKE.
+Conectar-se a uma rede virtual tooanother VPN (rede virtual a rede) no modelo de implantação clássico hello usando um gateway VPN é semelhante tooconnecting uma rede virtual tooan no site local. Ambos os tipos de conectividade usam um gateway VPN tooprovide um túnel seguro usando IPsec/IKE.
 
-As VNets que você conecta podem estar em regiões e assinaturas diferentes. Você pode combinar a comunicação de VNet a VNet usando configurações multissite. Isso permite estabelecer topologias de rede que combinam conectividade entre instalações a conectividade de rede intervirtual.
+Olá VNets que você conecta pode estar em diferentes assinaturas e regiões diferentes. Você pode combinar a comunicação VNet tooVNet com configurações de vários locais. Isso permite estabelecer topologias de rede que combinam conectividade entre instalações a conectividade de rede intervirtual.
 
-![Conexão VNet a VNet](./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png)
+![Rede virtual tooVNet conexões](./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png)
 
 ### <a name="why"></a>Por que conectar redes virtuais?
 
-Você talvez queira conectar redes virtuais pelos seguintes motivos:
+Você talvez queira redes virtuais tooconnect para Olá motivos a seguir:
 
 * **Redundância geográfica entre regiões e presença geográfica**
 
   * Você pode configurar sua própria sincronização ou replicação geográfica com conectividade segura sem passar por pontos de extremidade voltados para a Internet.
-  * Com o Azure Load Balancer e a tecnologia de clustering da Microsoft ou de terceiros, você pode configurar uma carga de trabalho altamente disponível com redundância geográfica entre várias regiões do Azure. Um exemplo importante é configurar o Always On do SQL com Grupos de Disponibilidade espalhados por várias regiões do Azure.
+  * Com o Azure Load Balancer e a tecnologia de clustering da Microsoft ou de terceiros, você pode configurar uma carga de trabalho altamente disponível com redundância geográfica entre várias regiões do Azure. Um exemplo importante é tooset backup SQL Always On com grupos de disponibilidade espalhados por várias regiões do Azure.
 * **Aplicativos multicamadas regionais com limite de isolamento forte**
 
-  * Na mesma região, você pode configurar aplicativos multicamadas com várias VNets conectadas com isolamento forte e comunicação entre camadas segura.
+  * Olá na mesma região, você pode configurar aplicações multicamadas com múltiplas VNets conectado com isolamento forte e comunicação entre camadas segura.
 * **Comunicação entre organizações e assinaturas no Azure**
 
   * Se você tem várias assinaturas do Azure, agora é possível se conectar a cargas de trabalho de assinaturas diferentes com segurança entre redes virtuais.
   * Para empresas ou provedores de serviço, é possível habilitar a comunicação entre organizações usando a tecnologia VPN segura no Azure.
 
-Para saber mais sobre conexões de Rede Virtual a Rede Virtual, confira as [Considerações sobre Rede Virtual para Rede Virtual](#faq) no final deste artigo.
+Para obter mais informações sobre conexões de rede virtual a rede, consulte [VNet para VNet considerações](#faq) final Olá deste artigo.
 
 ### <a name="before-you-begin"></a>Antes de começar
 
-Antes de iniciar este exercício, baixe e instale a versão mais recente dos cmdlets do PowerShell do Azure Service Management (SM). Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview): Podemos usar o portal para a maioria das etapas, mas você deve usar o PowerShell para criar conexões entre as redes virtuais. Você não pode criar as conexões usando o portal do Azure.
+Antes de iniciar este exercício, baixe e instale a versão mais recente de saudação do hello cmdlets do PowerShell de gerenciamento de serviço do Azure (SM). Para obter mais informações, consulte [como tooinstall e configurar o Azure PowerShell](/powershell/azure/overview). Podemos usar o portal de saudação para a maioria das etapas de saudação, mas é necessário usar PowerShell toocreate Olá conexões entre hello VNets. Não é possível criar conexões hello usando Olá portal do Azure.
 
 ## <a name="plan"></a>Etapa 1 – Planejar os intervalos de endereços IP
 
-É importante decidir os intervalos que você usará para configurar as redes virtuais. Para esta configuração, você deve garantir que nenhum dos intervalos de VNet se sobreponham entre si ou aos das redes locais às quais se conectam.
+É importante toodecide intervalos de saudação que você usará tooconfigure suas redes virtuais. Para essa configuração, você deve garantir que nenhum dos intervalos de rede virtual se sobreponham entre si ou com qualquer uma das redes de local de saudação que se conectam ao.
 
-A tabela a seguir mostra um exemplo de como definir as VNets. Use os intervalos apenas como uma diretriz. Anote os intervalos para suas redes virtuais. Você precisa dessas informações para etapas posteriores.
+Olá, tabela a seguir mostra um exemplo de como toodefine seus VNets. Use os intervalos de saudação apenas como uma diretriz. Anote os intervalos de saudação para suas redes virtuais. Você precisa dessas informações para etapas posteriores.
 
 **Exemplo**
 
-| Rede Virtual | Espaço de endereço | Região | Conecta ao site de rede local |
+| Rede Virtual | Espaço de endereço | Região | Conecta-se o site de rede toolocal |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Leste dos EUA |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Oeste dos EUA |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
-## <a name="vnetvalues"></a>Etapa 2 – Criar as redes virtuais
+## <a name="vnetvalues"></a>Etapa 2: criar hello redes virtuais
 
-Crie duas redes virtuais no [portal do Azure](https://portal.azure.com). Para ver as etapas para criar redes virtuais clássicas, confira [Criar uma rede virtual clássica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). 
+Criar duas redes virtuais no hello [portal do Azure](https://portal.azure.com). Para redes virtuais clássicas do toocreate as etapas hello, consulte [criar uma rede virtual clássica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). 
 
-Ao usar o portal para criar uma rede virtual clássica, navegue até a folha de rede virtual usando as etapas a seguir, caso contrário, a opção para criar uma rede virtual clássica não aparecerá:
+Ao usar o hello portal toocreate uma rede virtual clássica, você deve navegar toohello folha de rede virtual usando Olá seguir etapas, caso contrário, Olá opção toocreate uma rede virtual clássica não aparece:
 
-1. Clique no sinal “+” para abrir a folha “Novo”.
-2. No campo “Pesquisar no Marketplace”, digite “Rede Virtual”. Se você selecionar, em vez disso, Rede -> Rede Virtual, você não terá a opção de criar uma VNet clássica.
-3. Localize “Rede Virtual” na lista retornada e clique para abrir a folha Rede Virtual. 
-4. Na folha da rede virtual, selecione “Clássica” para criar uma VNet clássica. 
+1. Clique em Olá folha de 'New' de saudação tooopen '+'.
+2. No campo de 'Marketplace de saudação de pesquisa' hello, digite 'Rede Virtual'. Se você selecionar em vez disso, a rede -> Rede Virtual, você não obterá Olá opção toocreate uma rede virtual clássica.
+3. Localize 'Rede Virtual' de saudação retornada da lista e clique em folha de rede Virtual Olá tooopen. 
+4. Na folha de rede virtual hello, selecione uma rede virtual clássica de toocreate 'Clássico'. 
 
-Se estiver usando este artigo como um exercício, você poderá usar os seguintes valores de exemplo:
+Se você estiver usando este artigo como um exercício, você pode usar o hello valores de exemplo a seguir:
 
 **Valores para TestVNet1**
 
@@ -115,155 +115,155 @@ Grupo de recursos: ClassicRG<br>
 Local: Oeste dos EUA<br>
 GatewaySubnet: 10.41.1.0/27
 
-**Ao criar suas redes virtuais, lembre-se das seguintes configurações:**
+**Ao criar seus VNets, lembre-Olá se as configurações a seguir:**
 
-* **Espaços de Endereço de Rede Virtual** – na página Espaços de Endereço de Rede Virtual, especifique o intervalo de endereços que você deseja usar para sua rede virtual. Esses são os endereços IP dinâmicos que serão atribuídos às VMs e a outras instâncias de função que você implantar nessa rede virtual.<br>Os espaços de endereço selecionados não podem sobrepor os espaços de endereço de qualquer outra VNet ou os locais em que essa VNet se conectará.
+* **Espaços de endereço de rede virtual** – na página de espaços de endereço de rede Virtual hello, especifique Olá intervalo de endereços que você deseja toouse para sua rede virtual. Esses são os endereços IP dinâmicos Olá que serão atribuídos toohello VMs e outras instâncias de função que você implantar a rede virtual toothis.<br>endereço de saudação espaços que você selecionar não podem se sobrepor com espaços de endereço Olá para qualquer um dos Olá outros locais VNets locais ou na qual esta rede será conectado.
 
-* **Local** – ao criar uma rede virtual, você a associa a um local do Azure (região). Por exemplo, se você desejar que as VMs implantadas em sua rede virtual estejam localizadas fisicamente no oeste dos EUA, selecione esse local. Você não pode alterar o local associado à sua rede virtual depois de criá-la.
+* **Local** – ao criar uma rede virtual, você a associa a um local do Azure (região). Por exemplo, se você quiser que suas VMs que são implantados toobe de rede virtual tooyour fisicamente localizado no Oeste dos EUA, selecione esse local. Você não pode alterar o local de saudação associado à sua rede virtual depois de criá-lo.
 
-**Depois de criar suas VNets, você poderá adicionar as seguintes configurações:**
+**Depois de criar seus VNets, você pode adicionar Olá configurações a seguir:**
 
-* **Espaço de endereço** – espaço de endereço adicional não é necessário para essa configuração, mas você pode incluir espaço de endereço adicional após a criação da VNet.
+* **Espaço de endereço** – o espaço de endereço adicional não é necessário para essa configuração, mas você pode adicionar espaço de endereço adicionais depois de criar hello VNet.
 
-* **Sub-redes** – sub-redes adicionais não são necessárias para essa configuração, mas pode ser conveniente ter suas VMs em uma sub-rede separada das outras instâncias de função.
+* **Subredes** – subredes adicionais não são necessários para essa configuração, mas talvez você queira toohave suas VMs em uma sub-rede separada de outras instâncias de função.
 
-* **Servidores DNS** – insira o nome do servidor DNS e o endereço IP. Essa configuração não cria um servidor DNS. Ela permite que você especifique os servidores DNS que deseja usar para a resolução de nomes dessa rede virtual.
+* **Servidores DNS** – insira o nome do servidor DNS hello e endereço IP. Essa configuração não cria um servidor DNS. Ele permite que os servidores toospecify Olá DNS que você deseja toouse para resolução de nome para essa rede virtual.
 
-Nesta seção, você configura o tipo de conexão, o site local e cria o gateway.
+Nesta seção, você configurar o tipo de conexão hello, site local do hello e criar gateway hello.
 
-## <a name="localsite"></a>Etapa 3 – Configurar o site local
+## <a name="localsite"></a>Etapa 3 – configurar o site local Olá
 
-O Azure usa as configurações especificadas em cada site de rede local para determinar como rotear o tráfego entre as VNets. Cada VNet deve apontar para a respectiva rede local à qual você deseja rotear o tráfego. Você determina o nome que deseja usar para se referir a cada site de rede local. É melhor usar algo descritivo.
+Configurações do Azure usa Olá especificado em cada toodetermine do site de rede local como tooroute tráfego entre hello VNets. Cada rede virtual deve apontar toohello respectiva rede local que você deseja que o tráfego de tooroute. Determinar o nome hello você deseja que o site de rede local toouse toorefer tooeach. É melhor toouse algo descritivo.
 
-Por exemplo, a TestVNet1 conecta-se a um site de rede local que você criou chamado "VNet4Local". As configurações de VNet4Local contêm os prefixos de endereço para TestVNet4.
+Por exemplo, TestVNet1 conecta tooa site de rede local que você criar chamado 'VNet4Local'. configurações de saudação para VNet4Local contêm prefixos de endereço Olá para TestVNet4.
 
-O site local para cada VNet é a outra VNet. Os seguintes valores de exemplo são usados para nossa configuração:
+Olá local do site para cada rede virtual é Olá outras redes. Olá valores de exemplo a seguir é usada para a configuração:
 
-| Rede Virtual | Espaço de endereço | Região | Conecta ao site de rede local |
+| Rede Virtual | Espaço de endereço | Região | Conecta-se o site de rede toolocal |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Leste dos EUA |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Oeste dos EUA |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
-1. Localize TestVNet1 no portal do Azure. Na seção **Conexões VPN** da folha, clique em **Gateway**.
+1. Localize TestVNet1 no hello portal do Azure. Em Olá **conexões VPN** seção da folha de saudação, clique em **Gateway**.
 
     ![Sem gateway](./media/vpn-gateway-howto-vnet-vnet-portal-classic/nogateway.png)
-2. Na página **Nova Conexão VPN**, selecione **Site a Site**.
-3. Clique em **Site local** para abrir a página Site local e defina as configurações.
-4. Na página **Site local**, nomeie o site local. Em nosso exemplo, demos ao site local o nome de "VNet4Local".
-5. Para **Endereço IP do gateway de VPN**, você pode usar qualquer endereço IP desejado, desde que ele esteja em um formato válido. Normalmente, você usaria o endereço IP externo real para um dispositivo VPN. Mas, para uma configuração clássica de VNet a VNet, você usa o endereço IP público que é atribuído ao gateway da sua VNet. Considerando que você ainda não criou o gateway de rede virtual, especifique qualquer endereço IP público válido como um espaço reservado.<br>Não deixe em branco. Não é opcional para essa configuração. Em uma etapa posterior, você voltará para essas configurações e as definirá com os endereços IP de gateway de rede virtual correspondentes assim que forem gerados pelo Azure.
-6. Para **Espaço de Endereço do Cliente**, use o espaço de endereço da outra VNet. Consulte seu exemplo de planejamento. Clique em **OK** para salvar as configurações e retornar para a folha **Nova Conexão VPN**.
+2. Em Olá **nova Conexão de VPN** página, selecione **Site a Site**.
+3. Clique em **site Local** tooopen Olá página do site Local e definir configurações de saudação.
+4. Em Olá **site Local** de página, o nome do seu site local. Em nosso exemplo, podemos nomear site local Olá 'VNet4Local'.
+5. Para **Endereço IP do gateway de VPN**, você pode usar qualquer endereço IP desejado, desde que ele esteja em um formato válido. Normalmente, você usaria real endereço IP externo Olá para um dispositivo VPN. Mas, para uma configuração de VNet para VNet clássica, você usar o endereço IP público Olá atribuído toohello gateway para sua rede virtual. Considerando que você ainda não criou gateway de rede virtual hello, você especificar qualquer endereço IP público válido como um espaço reservado.<br>Não deixe em branco. Não é opcional para essa configuração. Em uma etapa posterior, volte para essas configurações e configurá-los com endereços IP de gateway de rede virtual correspondentes de saudação depois que o Azure gerá-los.
+6. Para **espaço de endereço de cliente**, usar o espaço de endereço de saudação do hello outras redes. Consulte tooyour planejamento de exemplo. Clique em **Okey** toosave suas configurações e retorno toohello back **nova Conexão de VPN** folha.
 
     ![site local](./media/vpn-gateway-howto-vnet-vnet-portal-classic/localsite.png)
 
-## <a name="gw"></a>Etapa 4 – Criar o gateway de rede virtual
+## <a name="gw"></a>Etapa 4 - criar o gateway de rede virtual Olá
 
-Cada rede virtual deve ter um gateway de rede virtual. O gateway de rede virtual roteia e criptografa o tráfego.
+Cada rede virtual deve ter um gateway de rede virtual. Olá rotas de gateway de rede virtual e criptografa o tráfego.
 
-1. Na folha **Nova Conexão VPN**, marque a caixa de seleção **Criar gateway imediatamente**.
-2. Clique em **Sub-rede, tamanho e tipo de roteamento**. Na folha **Configuração de gateway**, clique em **Sub-rede**.
-3. O nome da sub-rede de gateway é preenchido automaticamente com o nome 'GatewaySubnet' exigido. O **Intervalo de endereços** contém os endereços IP que estão alocados para os serviços de gateway de VPN. Algumas configurações permitem uma sub-rede de gateway de /29, mas é melhor usar uma de /28 ou /27 para acomodar futuras configurações que possam exigir mais endereços IP para os serviços de gateway. Em nossas configurações de exemplo, usamos 10.11.1.0/27. Ajuste o espaço de endereço e clique em **OK**.
-4. Configure o **Tamanho do Gateway**. Essa configuração refere-se ao [SKU do Gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
-5. Configurar o **Tipo de Roteamento**. O tipo de roteamento para essa configuração deve ser **Dinâmico**. Não é possível alterar o tipo de roteamento, a menos que você destrua o gateway e crie um novo.
+1. Em Olá **nova Conexão de VPN** folha, a caixa de seleção select Olá **criar gateway imediatamente**.
+2. Clique em **Sub-rede, tamanho e tipo de roteamento**. Em Olá **configuração de Gateway** folha, clique em **sub-rede**.
+3. nome de sub-rede de gateway Olá é preenchido automaticamente com nome necessário de saudação 'GatewaySubnet'. Olá **um intervalo de endereços** contém endereços IP hello alocados toohello serviços de gateway VPN. Algumas configurações permitem uma sub-rede do gateway de /29, mas é melhor toouse um /28 ou /27 tooaccommodate configurações futuras que podem exigir mais endereços IP para os serviços de gateway de saudação. Em nossas configurações de exemplo, usamos 10.11.1.0/27. Ajustar o espaço de endereço de saudação, clique em **Okey**.
+4. Configurar Olá **tamanho Gateway**. Essa configuração se refere a toohello [SKU de Gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+5. Configurar Olá **tipo de roteamento**. Olá tipo de roteamento para essa configuração deve ser **dinâmico**. Você não pode alterar o tipo de roteamento hello mais tarde, a menos que você subdividir gateway hello e cria um novo.
 6. Clique em **OK**.
-7. Na folha **Nova Conexão VPN**, clique em **OK** para começar a criar o gateway de rede virtual. Criar um gateway pode levar 45 minutos ou mais, dependendo do SKU de gateway selecionado.
+7. Em Olá **nova Conexão de VPN** folha, clique em **Okey** toobegin criando Olá gateway de rede virtual. Criar um gateway pode levar até 45 minutos ou mais, dependendo da SKU do gateway Olá selecionado.
 
 ## <a name="vnet4settings"></a>Etapa 5 – Definir as configurações de TestVNet4
 
-Repita as etapas para [Criar um site local](#localsite) e [Criar o gateway de rede virtual](#gw) a fim de configurar TestVNet4, substituindo os valores quando necessário. Se você estiver fazendo isso como um exercício, use os [valores de exemplo](#vnetvalues).
+Repita as etapas de saudação muito[criar um site local](#localsite) e [criar gateway de rede virtual Olá](#gw) tooconfigure TestVNet4, substituindo valores hello quando necessário. Se você estiver fazendo isso como um exercício, use Olá [valores de exemplo](#vnetvalues).
 
-## <a name="updatelocal"></a>Etapa 6 – Atualizar os sites locais
+## <a name="updatelocal"></a>Etapa 6 - sites locais de saudação de atualização
 
-Depois que os gateways de rede virtual tiverem sido criados para ambas as VNets, você deverá ajustar os valores do **endereço IP do gateway de VPN** dos sites locais.
+Depois que seus gateways de rede virtual foram criadas para ambos os VNets, você deve ajustar sites locais Olá **endereço IP do gateway VPN** valores.
 
 |Nome da VNet|Site conectado|Endereço IP do gateway|
 |:--- |:--- |:--- |
 |TestVNet1|VNet4Local|Endereço IP do gateway de VPN para TestVNet4|
 |TestVNet4|VNet1Local|Endereço IP do gateway de VPN para TestVNet1|
 
-### <a name="part-1---get-the-virtual-network-gateway-public-ip-address"></a>Parte 1 – Obter o endereço IP público do gateway de rede virtual
+### <a name="part-1---get-hello-virtual-network-gateway-public-ip-address"></a>Parte 1 - Get hello rede virtual público endereço IP do gateway
 
-1. Localize a rede virtual no portal do Azure.
-2. Clique para abrir a folha **Visão geral** da VNet. Na folha, em **Conexões VPN**, você pode exibir o endereço IP do seu gateway de rede virtual.
+1. Localize sua rede virtual no hello portal do Azure.
+2. Clique em Olá tooopen VNet **visão geral** folha. Na folha de saudação em **conexões VPN**, você pode exibir o endereço IP de saudação do seu gateway de rede virtual.
 
   ![IP público](./media/vpn-gateway-howto-vnet-vnet-portal-classic/publicIP.png)
-3. Copie o endereço IP. Você o usará na próxima seção.
+3. Copie o endereço IP hello. Você o usará na próxima seção, Olá.
 4. Repita essas etapas para TestVNet4
 
-### <a name="part-2---modify-the-local-sites"></a>Parte 2 – Modificar os sites locais
+### <a name="part-2---modify-hello-local-sites"></a>Parte 2 - modificar sites locais Olá
 
-1. Localize a rede virtual no portal do Azure.
-2. Na folha **Visão geral** da VNet, clique no site local.
+1. Localize sua rede virtual no hello portal do Azure.
+2. Em redes de saudação **visão geral** folha, clique em site local hello.
 
   ![Site local criado](./media/vpn-gateway-howto-vnet-vnet-portal-classic/local.png)
-3. Na folha **Conexões VPN Site a Site**, clique no nome do site local que você quer modificar.
+3. Em Olá **conexões VPN Site a Site** folha, clique em nome de saudação do site local do hello que você deseja toomodify.
 
   ![Abrir site local](./media/vpn-gateway-howto-vnet-vnet-portal-classic/openlocal.png)
-4. Clique no **Site local** que quer modificar.
+4. Clique em Olá **site Local** que você deseja toomodify.
 
   ![modificar site](./media/vpn-gateway-howto-vnet-vnet-portal-classic/connections.png)
-5. Atualize o **endereço IP do gateway de VPN** e clique em **OK** para salvar as configurações.
+5. Saudação de atualização **endereço IP do gateway VPN** e clique em **Okey** toosave configurações de saudação.
 
   ![IP do gateway](./media/vpn-gateway-howto-vnet-vnet-portal-classic/gwupdate.png)
-6. Feche as outras folhas.
+6. Olá feche outros folhas.
 7. Repita essas etapas para TestVNet4.
 
-## <a name="getvalues"></a>Etapa 7 – Recuperar valores do arquivo de configuração de rede
+## <a name="getvalues"></a>Etapa 7 - recuperar os valores do arquivo de configuração de rede Olá
 
-Quando você cria VNets clássicas no portal do Azure, o nome que você vê não é o nome completo usado para o PowerShell. Por exemplo, uma VNet que parece ter o nome **TestVNet1** no portal, pode ter um nome muito mais longo no arquivo de configuração de rede. O nome pode ser algo parecido com: **Grupo ClassicRG TestVNet1**. Ao criar suas conexões, é importante usar os valores que você vê no arquivo de configuração de rede.
+Quando você cria VNets clássico no hello portal do Azure, nome de saudação que você exibir não é nome completo de saudação que você usa para o PowerShell. Por exemplo, uma rede virtual que aparece toobe chamado **TestVNet1** no portal de hello, pode ter um nome muito mais no arquivo de configuração de rede hello. Olá nome pode ter esta aparência: **grupo ClassicRG TestVNet1**. Quando você cria suas conexões, é valores de saudação toouse importante que você vê no arquivo de configuração de rede hello.
 
-Nas etapas a seguir, você vai se conectar à sua conta do Azure, bem como baixar e exibir o arquivo de configuração de rede para obter os valores que são necessários para as conexões.
+No hello etapas a seguir, você se conectará tooyour conta do Azure e baixar e exibir valores de Olá Olá de tooobtain de arquivo de configuração de rede que são necessários para as conexões.
 
-1. Baixe e instale a versão mais recente dos cmdlets do PowerShell do SM (Gerenciamento de Serviços) do Azure. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview):
+1. Baixe e instale a versão mais recente de saudação do hello cmdlets do PowerShell de gerenciamento de serviço do Azure (SM). Para obter mais informações, consulte [como tooinstall e configurar o Azure PowerShell](/powershell/azure/overview).
 
-2. Abra o console do PowerShell com direitos elevados e conecte-se à sua conta. Use o exemplo a seguir para ajudar a se conectar:
+2. Abra o console do PowerShell com direitos elevados e conecte-se a conta de tooyour. Use Olá toohelp de exemplo que você se conectar a seguir:
 
   ```powershell
   Login-AzureRmAccount
   ```
 
-  Verificar as assinaturas da conta.
+  Verificar as assinaturas de saudação para conta de saudação.
 
   ```powershell
   Get-AzureRmSubscription
   ```
 
-  Se você tiver mais de uma assinatura, selecione a assinatura que deseja usar.
+  Se você tiver mais de uma assinatura, selecione a assinatura de saudação que você deseja toouse.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
   ```
 
-  Use o cmdlet a seguir para adicionar sua assinatura do Azure ao PowerShell para o modelo de implantação clássico.
+  Em seguida, use Olá tooadd cmdlet a seguir tooPowerShell sua assinatura do Azure para o modelo de implantação clássico hello.
 
   ```powershell
   Add-AzureAccount
   ```
-3. Exporte e exiba o arquivo de configuração de rede. Crie um diretório em seu computador e exporte o arquivo de configuração de rede para o diretório. Neste exemplo, o arquivo de configuração de rede é exportado para **C:\AzureNet**.
+3. Exportar e exibir o arquivo de configuração de rede hello. Crie um diretório no seu computador e, em seguida, exportar diretório toohello de arquivo de configuração do hello rede. Neste exemplo, o arquivo de configuração de rede Olá é exportado muito**C:\AzureNet**.
 
   ```powershell
   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
   ```
-4. Abra o arquivo com um editor de texto e exiba os nomes dos sites e VNets. Esses serão os nomes usados na criação de suas conexões.<br>Os nomes de VNet são listados como **VirtualNetworkSite name =**<br>Os nomes de site são listados como **LocalNetworkSiteRef name =**
+4. Abra o arquivo de saudação com um editor e exibição Olá nomes de texto para seus sites e VNets. Esses serão nome hello usado quando você cria suas conexões.<br>Os nomes de VNet são listados como **VirtualNetworkSite name =**<br>Os nomes de site são listados como **LocalNetworkSiteRef name =**
 
-## <a name="createconnections"></a>Etapa 8 – Criar as conexões do gateway de VPN
+## <a name="createconnections"></a>Etapa 8 — criar hello conexões de gateway VPN
 
-Quando todas as etapas anteriores tiverem sido concluídas, você poderá definir as chaves pré-compartilhadas IPsec/IKE e criar a conexão. Esse conjunto de etapas usa o PowerShell. As conexões de VNet a VNet para o modelo de implantação clássico não podem ser configurados no portal do Azure.
+Quando todas as etapas anteriores de saudação tiverem sido concluídas, você pode definir chaves pré-compartilhadas de IPsec/IKE hello e criar conexão hello. Esse conjunto de etapas usa o PowerShell. Não podem ser configuradas conexões VNet para VNet para o modelo de implantação clássico Olá Olá portal do Azure.
 
-Nos exemplos, observe que a chave compartilhada é exatamente a mesma. A chave compartilhada sempre deve corresponder. Certifique-se de substituir os valores nesses exemplos pelos nomes exatos de seus Sites de Rede Local e VNets.
+Exemplos de hello, observe que Olá chave compartilhada é exatamente Olá mesmo. chave compartilhada Olá deve sempre corresponder. Ser tooreplace se valores hello nesses exemplos com nomes exatos de saudação para seus VNets e Sites de rede Local.
 
-1. Crie a conexão de TestVNet1 a TestVNet4.
+1. Crie conexão de tooTestVNet4 TestVNet1 hello.
 
   ```powershell
   Set-AzureVNetGatewayKey -VNetName 'Group ClassicRG TestVNet1' `
   -LocalNetworkSiteName '17BE5E2C_VNet4Local' -SharedKey A1b2C3D4
   ```
-2. Crie a conexão de TestVNet4 a TestVNet1.
+2. Crie conexão de tooTestVNet1 TestVNet4 hello.
 
   ```powershell
   Set-AzureVNetGatewayKey -VNetName 'Group ClassicRG TestVNet4' `
   -LocalNetworkSiteName 'F7F7BFC7_VNet1Local' -SharedKey A1b2C3D4
   ```
-3. Aguarde até que as conexões sejam inicializadas. Depois que o gateway tiver sido inicializado, o Status será 'Êxito'.
+3. Aguarde Olá conexões tooinitialize. Depois de saudação gateway for inicializado, Olá Status é 'Êxito'.
 
   ```
   Error          :
@@ -275,17 +275,17 @@ Nos exemplos, observe que a chave compartilhada é exatamente a mesma. A chave c
   ```
 
 ## <a name="faq"></a>Considerações de VNet a VNet para VNets clássicas
-* As redes virtuais podem estar na mesma assinatura ou em assinaturas diferentes.
-* As redes virtuais podem estar na mesma região ou em regiões diferentes do Azure (locais).
+* redes virtuais Olá podem estar em Olá iguais ou diferentes assinaturas.
+* redes virtuais Olá podem estar em Olá mesmas ou em diferentes regiões do Azure (locais).
 * Um serviço de nuvem ou um ponto de extremidade de balanceamento de carga não pode abranger redes virtuais, mesmo que elas estejam conectadas entre si.
 * A conexão de várias redes virtuais entre si não exige nenhum dispositivo VPN.
-* O recurso VNet a VNet dá suporte à conexão de Redes Virtuais do Azure. Ele não dá suporte à conexão de máquinas virtuais ou de serviços de nuvem que não estejam implantados em uma rede virtual.
+* O recurso VNet a VNet dá suporte à conexão de Redes Virtuais do Azure. Não dá suporte a conexão de máquinas virtuais ou serviços de nuvem que não são implantados rede virtual tooa.
 * VNet a VNet requer gateways de roteamento dinâmico. Não há suporte para gateways de roteamento estático do Azure.
-* A conectividade de rede virtual pode ser usada simultaneamente com VPNs de multissite. Há um máximo 10 túneis de VPN para um gateway de VPN de rede virtual conectado a outras redes virtuais ou a sites locais.
-* Os espaços de endereço das redes virtuais e os sites de redes locais não devem se sobrepor. A sobreposição de espaços de endereço causará a falha da criação de redes virtuais ou do carregamento de arquivos de configuração netcfg.
+* A conectividade de rede virtual pode ser usada simultaneamente com VPNs de multissite. Há um máximo de 10 túneis VPN para um gateway VPN de rede virtual conectando tooeither outras redes virtuais ou sites locais.
+* Olá espaços de endereço de redes virtuais hello e sites de rede local não devem se sobrepor ao local. Espaços de endereço sobrepostos causarão Olá na criação de redes virtuais ou carregar toofail de arquivos de configuração netcfg.
 * Não há suporte a túneis redundantes entre um par de redes virtuais.
-* Todos os túneis de VPN para VNet, incluindo VPNs P2S, compartilham a largura de banda disponível no gateway de VPN e o mesmo SLA de tempo de ativação de gateway de VPN no Azure.
-* O tráfego da rede virtual com rede virtual viaja pelo backbone do Azure.
+* Todos os túneis de VPN para Olá VNet, incluindo VPNs P2S, compartilham a largura de banda disponível para o gateway VPN Olá Olá e Olá mesmo SLA de tempo de atividade de gateway VPN no Azure.
+* Tráfego de rede virtual a rede percorrem Olá backbone do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 Verifique as conexões. Confira [Verificar uma conexão de Gateway de VPN](vpn-gateway-verify-connection-resource-manager.md).

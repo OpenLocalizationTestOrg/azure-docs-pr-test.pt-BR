@@ -1,6 +1,6 @@
 ---
-title: "Solução de problemas de conexão VPN site a site do Azure | Microsoft Docs"
-description: "Saiba como solucionar problemas de conexão VPN site a site que repentinamente para de funcionar e não pode ser reconectada."
+title: "aaaTroubleshoot uma conexão de VPN site a site do Azure que não é possível conectar | Microsoft Docs"
+description: "Saiba como tootroubleshoot uma conexão de VPN site a site que repentinamente para de funcionar e não pode ser reconectada."
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
@@ -14,96 +14,96 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/21/2017
 ms.author: genli
-ms.openlocfilehash: e7a3da64895f0307e5d6c3563672205a2f93a7d2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 632c75bfcfb93a532eeead2855d43e6614569a99
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solução de problemas: uma conexão VPN site a site do Azure não consegue se conectar e deixa de funcionar
 
-Depois de configurar uma conexão VPN site a site entre uma rede local e uma rede virtual do Azure, a conexão VPN repentinamente deixa de funcionar e não pode ser reconectada. Este artigo apresenta etapas para a solução de problemas para ajudá-lo a resolver esse problema. 
+Depois de configurar uma conexão de VPN site a site entre uma rede local e uma rede virtual do Azure, Olá conexão VPN, de repente, para de funcionar e não pode ser reconectada. Este artigo fornece toohelp de etapas de solução de problemas é resolver esse problema. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
 
-Para resolver o problema, primeiro tente [redefinir o gateway de VPN do Azure](vpn-gateway-resetgw-classic.md) e redefinir o túnel do dispositivo VPN local. Se o problema persistir, siga essas etapas para identificar a causa do problema.
+problema de saudação tooresolve, primeiro tente muito[gateway de VPN do Azure Olá redefinição](vpn-gateway-resetgw-classic.md) e redefinir o túnel de saudação do dispositivo VPN de local de saudação. Se Olá problema persistir, siga estas causa etapas tooidentify Olá problema de saudação.
 
 ### <a name="prerequisite-step"></a>Etapa de pré-requisito
 
-Verifique o tipo do gateway de VPN do Azure.
+Verifique o tipo de saudação do gateway de VPN do Azure hello.
 
-1. Vá para o [Portal do Azure](https://portal.azure.com).
+1. Vá toohello [portal do Azure](https://portal.azure.com).
 
-2. Verifique a página **Visão Geral** do gateway de VPN para as informações de tipo.
+2. Verificar Olá **visão geral** página do gateway de VPN Olá para obter informações de tipo hello.
     
-    ![Visão geral do gateway](media\vpn-gateway-troubleshoot-site-to-site-cannot-connect\gatewayoverview.png)
+    ![Visão geral do gateway de saudação](media\vpn-gateway-troubleshoot-site-to-site-cannot-connect\gatewayoverview.png)
 
-### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>Etapa 1. Verifique se o dispositivo VPN local está validado
+### <a name="step-1-check-whether-hello-on-premises-vpn-device-is-validated"></a>Etapa 1. Verifique se o dispositivo VPN de local de saudação é validado
 
-1. Verifique se você está usando um [dispositivo VPN e uma versão do sistema operacional validados](vpn-gateway-about-vpn-devices.md#devicetable). Se o dispositivo não for um dispositivo VPN validado, talvez seja necessário contatar o fabricante do dispositivo para verificar se há algum problema de compatibilidade.
+1. Verifique se você está usando um [dispositivo VPN e uma versão do sistema operacional validados](vpn-gateway-about-vpn-devices.md#devicetable). Se o dispositivo de saudação não for um dispositivo VPN validado, você terá toocontact Olá dispositivo fabricante toosee se houver um problema de compatibilidade.
 
-2. Verifique se o dispositivo VPN está configurado corretamente. Para obter mais informações, consulte [Editar exemplos de configuração de dispositivo](/vpn-gateway-about-vpn-devices.md#editing).
+2. Verifique se o que dispositivo VPN hello está configurado corretamente. Para obter mais informações, consulte [Editar exemplos de configuração de dispositivo](/vpn-gateway-about-vpn-devices.md#editing).
 
-### <a name="step-2-verify-the-shared-key"></a>Etapa 2. Verifique a chave compartilhada
+### <a name="step-2-verify-hello-shared-key"></a>Etapa 2. Verifique se a chave compartilhada Olá
 
-Compare a chave compartilhada do dispositivo VPN local e VPN de Rede Virtual do Azure para assegurar que as chaves correspondem. 
+Compare a chave compartilhada Olá Olá local VPN dispositivo toohello VPN de rede Virtual do Azure toomake se chaves Olá correspondem. 
 
-Para exibir a chave compartilhada para a conexão VPN do Azure, utilize um dos seguintes métodos:
+chave compartilhada do tooview Olá para Olá conexão VPN do Azure, use um dos métodos a seguir de saudação:
 
 **Portal do Azure**
 
-1. Vá para a conexão site a site do gateway de VPN que você criou.
+1. Vá conexão site a site de gateway VPN de toohello que você criou.
 
-2. Na seção **Configurações**, clique em **Chave Compartilhada**.
+2. Em Olá **configurações** seção, clique em **chave compartilhada**.
     
     ![Chave compartilhada](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/sharedkey.png)
 
 **PowerShell do Azure**
 
-Para o modelo de implantação do Azure Resource Manager:
+Para o modelo de implantação do Azure Resource Manager hello:
 
     Get-AzureRmVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group name>
 
-Para o modelo de implantação clássico:
+Para o modelo de implantação clássico hello:
 
     Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
 
-### <a name="step-3-verify-the-vpn-peer-ips"></a>Etapa 3. Verifique os IPs pares de VPN
+### <a name="step-3-verify-hello-vpn-peer-ips"></a>Etapa 3. Verifique se o par VPN Olá IPs
 
--   A definição do IP no objeto do **Gateway de Rede Local** no Azure deve corresponder com o IP do dispositivo local.
--   A definição de IP do gateway do Azure que está configurada no dispositivo local deve corresponder ao IP de gateway do Azure.
+-   Olá definição de IP no hello **Gateway de rede Local** objeto no Azure deve corresponder o IP do dispositivo local hello.
+-   Olá definição de IP do gateway do Azure que é definida em hello local dispositivo deve corresponder a saudação IP de gateway do Azure.
 
-### <a name="step-4-check-udr-and-nsgs-on-the-gateway-subnet"></a>Etapa 4. Verifique UDR e NSGs na sub-rede do gateway
+### <a name="step-4-check-udr-and-nsgs-on-hello-gateway-subnet"></a>Etapa 4. Verifique UDR e NSGs na sub-rede de gateway Olá
 
-Verifique e remova o UDR (roteamento definido pelo usuário) ou NSG (grupos de segurança de rede) na sub-rede de gateway e, em seguida, teste o resultado. Se o problema for resolvido, valide as configurações aplicadas pelo UDR ou NSG.
+Verificar e remover roteamento definido pelo usuário (UDR) ou grupos de segurança de rede (NSGs) na sub-rede de gateway de saudação e, em seguida, o resultado de saudação de teste. Se Olá problema for resolvido, valide configurações Olá UDR ou NSG aplicada.
 
-### <a name="step-5-check-the-on-premises-vpn-device-external-interface-address"></a>Etapa 5. Verifique o endereço da interface externa do dispositivo VPN local
+### <a name="step-5-check-hello-on-premises-vpn-device-external-interface-address"></a>Etapa 5. Saudação de verificação de endereço de interface externa do dispositivo VPN local
 
-- Se o endereço IP voltado para a Internet do dispositivo VPN estiver incluído na definição de **Rede local** no Azure, você poderá experimentar desconexões esporádicas.
-- A interface externa do dispositivo deve estar diretamente na Internet. Não deve haver nenhuma conversão de endereços de rede ou firewall entre a Internet e o dispositivo.
-- Para configurar o clustering de firewall para ter um IP virtual, será necessário interromper o cluster e expor o dispositivo VPN diretamente a uma interface pública com a qual o gateway pode se conectar.
+- Se Olá endereço IP da Internet do dispositivo VPN hello está incluído no hello **rede Local** definição no Azure, você pode experimentar desconexões esporádicas.
+- Olá interface externa do dispositivo deve ser diretamente no hello da Internet. Não deve haver nenhuma conversão de endereços de rede ou um firewall entre hello da Internet e o dispositivo hello.
+- tooconfigure firewall toohave clustering um IP virtual, interrompa o cluster hello e expor o dispositivo de VPN Olá diretamente a interface pública tooa gateway Olá pode fazer a interface com.
 
-### <a name="step-6-verify-that-the-subnets-match-exactly-azure-policy-based-gateways"></a>Etapa 6. Verifique se as sub-redes coincidem exatamente (gateways baseados em políticas do Azure)
+### <a name="step-6-verify-that-hello-subnets-match-exactly-azure-policy-based-gateways"></a>Etapa 6. Verifique se as sub-redes de saudação correspondem exatamente (gateways com base na política do Azure)
 
--   Verifique se as sub-redes correspondem exatamente entre a rede virtual do Azure e as definições locais para a rede virtual do Azure.
--   Verifique se as sub-redes correspondem exatamente entre o **Gateway de Rede Local** e as definições locais para a rede local.
+-   Verifique se as sub-redes de saudação correspondem exatamente entre hello rede virtual do Azure e definições de local para Olá rede virtual do Azure.
+-   Verifique se as sub-redes de saudação correspondem exatamente entre hello **Gateway de rede Local** e definições de rede do local de saudação local.
 
-### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Etapa 7. Verifique a investigação de integridade do gateway do Azure
+### <a name="step-7-verify-hello-azure-gateway-health-probe"></a>Etapa 7. Verifique se a investigação de integridade de gateway do Azure Olá
 
-1. Vá para a [investigação de integridade](https://&lt;YourVirtualNetworkGatewayIP&gt;:8081/healthprobe).
+1. Vá toohello [investigação de integridade](https://&lt;YourVirtualNetworkGatewayIP&gt;:8081/healthprobe).
 
-2. Clique no aviso do certificado.
-3. Se você receber uma resposta, o gateway de VPN será considerado íntegro. Se você não receber uma resposta, o gateway poderá não estar íntegro ou um NSG na sub-rede do gateway estará causando o problema. O texto a seguir é uma resposta de exemplo:
+2. Clique em aviso de saudação do certificado.
+3. Se você receber uma resposta, o gateway VPN Olá será considerada íntegra. Se você não receber uma resposta, gateway Olá pode não ser Íntegro ou um NSG na sub-rede de gateway hello está causando o problema de saudação. Olá texto a seguir é um exemplo de resposta:
 
     &lt;?xml version="1.0"?>  <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Instância primária: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string&gt;
 
-### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>Etapa 8. Verifique se o dispositivo VPN local tem o recurso PFS habilitado
+### <a name="step-8-check-whether-hello-on-premises-vpn-device-has-hello-perfect-forward-secrecy-feature-enabled"></a>Etapa 8. Verifique se Olá local dispositivo VPN tem Olá sigilo habilitado
 
-O recurso PFS pode causar os problemas de desconexão. Se o dispositivo VPN estiver com PFS habilitado, desabilite o recurso. Em seguida, atualize a política IPsec do gateway de VPN.
+recurso de sigilo Olá pode causar problemas de desconexão. Se o dispositivo de VPN Olá sigilo total, desabilite o recurso de hello. Atualize política de IPsec de gateway VPN hello.
 
 ## <a name="next-steps"></a>Próximas etapas
 
--   [Configurar uma conexão site a site para uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+-   [Configurar uma rede virtual de tooa conexão site a site](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -   [Configurar uma política IPsec/IKE para conexões VPN site a site](vpn-gateway-ipsecikepolicy-rm-powershell.md)

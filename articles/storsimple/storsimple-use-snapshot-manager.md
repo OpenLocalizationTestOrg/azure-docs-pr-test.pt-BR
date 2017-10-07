@@ -1,6 +1,6 @@
 ---
-title: "Interface do usuário do StorSimple Snapshot Manager | Microsoft Docs"
-description: "Descreve a interface do usuário do StorSimple Snapshot Manager e explica como usá-la para gerenciar trabalhos de backup e o catálogo de backups."
+title: "interface de usuário do Gerenciador de instantâneos aaaStorSimple | Microsoft Docs"
+description: "Descreve a interface de usuário do Gerenciador de instantâneos StorSimple hello e explica como toouse ela trabalhos de backup toomanage e hello catálogo de backup."
 services: storsimple
 documentationcenter: NA
 author: SharS
@@ -15,23 +15,23 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.custom: 
-ms.openlocfilehash: b48c507e38eb7cadff56259f617e336e4efe5708
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 865520fdaf1b559714b52b428ad136b084d65c99
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Usar a interface de usuário do StorSimple Snapshot Manager para gerenciar trabalhos de backup e catálogo de backups
+# <a name="use-storsimple-snapshot-manager-user-interface-toomanage-backup-jobs-and-backup-catalog"></a>Use o Gerenciador do StorSimple Snapshot usuário interface toomanage os trabalhos de backup e o catálogo de backup
 
 ## <a name="overview"></a>Visão geral
-O StorSimple Snapshot Manager traz uma interface do usuário intuitiva que pode ser usada para fazer e gerenciar backups. Este tutorial fornece uma introdução à interface do usuário e explica como usar cada um dos componentes. Para obter uma descrição detalhada do StorSimple Snapshot Manager, confira a seção [O que é o StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
+Olá StorSimple Snapshot Manager tem uma interface de usuário intuitiva que você pode usar tootake e gerenciar backups. Este tutorial fornece uma interface do usuário toohello Introdução e, em seguida, explica como toouse componentes hello. Para obter uma descrição detalhada da saudação StorSimple Snapshot Manager, consulte [o que é StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
 ### <a name="console-description"></a>Descrição do console
-Para exibir a interface do usuário, clique no ícone do StorSimple Snapshot Manager na área de trabalho. A janela de console aparece, conforme mostrado na ilustração a seguir.
+usuário de saudação tooview interface, clique no ícone do Gerenciador de instantâneos StorSimple Olá na área de trabalho. janela de console Olá for exibida, conforme mostrado na ilustração a seguir de saudação.
 
 ![Painéis do Gerenciador de instantâneos do StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_gui_panes.png)
 
-A janela do console tem cinco elementos principais. Clique no link apropriado para obter uma descrição completa de cada elemento.
+janela de saudação do console possui cinco elementos principais. Clique o link apropriado de saudação para obter uma descrição completa de cada elemento.
 
 * [Barra de menus](#menu-bar) 
 * [Barra de ferramentas](#tool-bar) 
@@ -39,192 +39,192 @@ A janela do console tem cinco elementos principais. Clique no link apropriado pa
 * [Painel Resultados](#results-pane) 
 * [Painel Ações](#actions-pane) 
 
-Além disso, o StorSimple Snapshot Manager dá suporte à [navegação por teclado e diversos atalhos](#keyboard-navigation-and-shortcuts).
+Além disso, a saudação dá suporte ao Gerenciador de instantâneos StorSimple [navegação e um número de atalhos de teclado](#keyboard-navigation-and-shortcuts).
 
 ### <a name="console-accessibility"></a>Acessibilidade do console
-A interface do usuário do StorSimple Snapshot Manager dá suporte aos recursos de acessibilidade fornecidos pelo sistema operacional Windows e o MMC (Console de Gerenciamento Microsoft), bem como alguns atalhos de teclado específicos ao StorSimple Snapshot Manager. 
+interface de usuário do Gerenciador de instantâneos StorSimple Olá dá suporte a recursos de acessibilidade do hello fornecidos pelo sistema de operacional do Windows hello e Olá Microsoft Management Console (MMC), bem como alguns atalhos de teclado do Gerenciador de instantâneos do StorSimple específico. 
 
-* Para obter uma descrição dos recursos de acessibilidade do Windows, vá até [Atalhos de teclado para o Windows](https://support.microsoft.com/kb/126449). 
-* Para obter uma descrição dos recursos de acessibilidade do MMC, vá até [Acessibilidade para o MMC 3.0](https://technet.microsoft.com/library/cc766075.aspx)
-* Para obter uma descrição dos recursos de acessibilidade do StorSimple Snapshot Manager, vá até [Navegação por teclado e atalhos](#keyboard-navigation-and-shortcuts).
+* Para obter uma descrição dos recursos de acessibilidade do Windows hello, ir muito[atalhos de teclado do Windows](https://support.microsoft.com/kb/126449). 
+* Para obter uma descrição dos recursos de acessibilidade do MMC hello, ir muito[acessibilidade do MMC 3.0](https://technet.microsoft.com/library/cc766075.aspx)
+* Para obter uma descrição dos recursos de acessibilidade do Gerenciador de instantâneos StorSimple hello, ir muito[navegação e atalhos de teclado](#keyboard-navigation-and-shortcuts).
 
 ## <a name="menu-bar"></a>Barra de menus
-A barra de menus na parte superior da janela do console contém os menus [Arquivo](#file-menu), [Ação](#action-menu), [Exibição](#view-menu), [Favoritos](#favorites-menu), [Janela](#window-menu) e [Ajuda](#help-menu).
+saudação de barra de menus na parte superior de saudação da janela do console Olá contém [arquivo](#file-menu), [ação](#action-menu), [exibição](#view-menu), [Favoritos](#favorites-menu), [janela ](#window-menu), e [ajuda](#help-menu) menus.
 
-Clique em qualquer item na barra de menus para ver uma lista dos comandos disponíveis nesse menu. O exemplo a seguir mostra o menu **Exibição** selecionado na barra de menus.
+Clique em qualquer item na toosee barra de menu Olá uma lista de comandos disponíveis nesse menu. Olá, exemplo a seguir mostra Olá **exibição** menu selecionado na barra de menus do hello.
 
 ![Menu de Exibição selecionado](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
 
 ### <a name="file-menu"></a>Menu Arquivo
-O menu **Arquivo** contém comandos padrão do MMC (Console de Gerenciamento Microsoft).
+Olá **arquivo** menu contém comandos padrão do Microsoft Management Console (MMC).
 
 #### <a name="menu-access"></a>Acesso ao menu
-Para exibir o menu **Arquivo**, clique em **Arquivo** na barra de menus. O seguinte menu será exibido.
+Olá tooview **arquivo** menu, clique em **arquivo** na barra de menus do hello. Olá menu a seguir é exibida.
 
 ![Menu Arquivo do StorSimple Snapshot Manager](./media/storsimple-use-snapshot-manager/HCS_SSM_FileMenu.png) 
 
 #### <a name="menu-description"></a>Descrição do menu
-A tabela a seguir descreve os itens que aparecem no menu **Arquivo** .
+Olá tabela a seguir descreve os itens que aparecem no hello **arquivo** menu.
 
 | Item de menu | Descrição |
 |:--- |:--- |
-| Novo |Clique em **Novo** para criar um novo console com base no StorSimple Snapshot Manager. |
-| Aberto |Clique em **Abrir** para abrir um console existente. |
-| Salvar |Clique em **Salvar** para salvar o console atual. |
-| Salvar como |Clique em **Salvar Como** para criar uma nova instância renomeada do console atual. Use a opção **Salvar como** para personalizar uma exibição e salvá-la para recuperação posterior. Por exemplo, você pode criar snap-ins do StorSimple Snapshot Manager que apontem para servidores específicos. |
-| Adicionar/Remover Snap-in |Clique em **Adicionar/Remover Snap-in** para adicionar ou remover snap-ins e organizar nós no painel **Escopo**. Para obter mais informações, vá para [Adicionar, Remover e Organizar Snap-ins e Extensões no MMC 3.0](https://technet.microsoft.com/library/cc722035.aspx). |
-| Opções |Clique em **Opções** para alterar o ícone do console, especificar permissões e modos de acesso do usuário ou excluir arquivos de console para aumentar o espaço em disco disponível. |
-| Lista de caminhos de arquivo |Clique em um caminho na lista numerada para reabrir um arquivo que você abriu recentemente. |
-| Sair |Clique em **Sair** para fechar o menu **Arquivo**. |
+| Novo |Clique em **novo** toocreate um novo console com base em Olá StorSimple Snapshot Manager. |
+| Aberto |Clique em **abrir** tooopen um console existente. |
+| Salvar |Clique em **salvar** console atual do toosave hello. |
+| Salvar como |Clique em **Salvar como** toocreate uma nova instância do console atual Olá renomeada. Saudação de uso **Salvar como** opção toocustomize um modo de exibição e salvá-lo para recuperação posterior. Por exemplo, você poderia criar Gerenciador de instantâneos StorSimple snap-ins servidores toospecific ponto. |
+| Adicionar/Remover Snap-in |Clique em **Adicionar/Remover Snap-in** tooadd ou remover snap-ins e tooorganize nós Olá **escopo** painel. Para obter mais informações, vá muito[adicionar, remover e organizar Snap-ins e extensões no MMC 3.0](https://technet.microsoft.com/library/cc722035.aspx). |
+| Opções |Clique em **opções** toochange ícone de console hello, especificar modos de acesso do usuário e permissões, ou excluir espaço em disco disponível do console arquivos tooincrease. |
+| Lista de caminhos de arquivo |Clique em um caminho na Olá numerada lista tooreopen um arquivo que você abriu recentemente. |
+| Sair |Clique em **Exit** tooclose Olá **arquivo** menu. |
 
 ### <a name="action-menu"></a>Menu Ação
-Use o menu **Ação** para selecionar uma das ações disponíveis. Os itens disponíveis dependem da seleção feita no painel **Escopo** ou no painel **Resultados**.
+Saudação de uso **ação** tooselect do menu de ações disponíveis. Olá itens disponíveis tooyou dependem da seleção de saudação feitas no hello **escopo** painel ou **resultados** painel.
 
 #### <a name="menu-access"></a>Acesso ao menu
-Para exibir o menu **Ação** , siga um destes procedimentos:
+Olá tooview **ação** menu, siga um destes procedimentos hello:
 
-* Clique com o botão direito do mouse em um item no painel **Escopo** ou no painel **Resultados**.
-* Selecione um item no painel **Escopo** ou no painel **Resultados** e clique em **Ação** na barra de menus. 
+* Clique com botão direito em Olá um item **escopo** painel ou **resultados** painel.
+* Selecione um item no hello **escopo** painel ou **resultados** painel e clique **ação** na barra de menus do hello. 
 
-Por exemplo, se você selecionar o nó superior do painel **Escopo** e depois clicar com o botão direito do mouse em **Ação** na barra de menus, o seguinte menu aparece.
+Por exemplo, se você selecionar o nó superior da saudação em Olá **escopo** painel e, em seguida, clique ou **ação** na barra de menus do hello, hello seguinte menu será exibido.
 
 ![Menu Ação do StorSimple Snapshot Manager](./media/storsimple-use-snapshot-manager/HCS_SSM_Action_menu.png)
 
-O painel **Ações** (à direita do console) contém a mesma lista de ações que o menu **Ação**. Além disso, o painel **Ações** contém as opções do menu **Exibição**, que permitem criar uma exibição personalizada do painel **Resultados**.
+Olá **ações** painel (Olá direita do console de saudação) contém Olá mesma lista de ações como Olá **ação** menu. Além disso, Olá **ações** painel contém Olá **exibição** opções de menu, que permitem que você toocreate uma exibição personalizada de saudação **resultados** painel.
 
 ![Painel Ações com o menu Exibição aberto](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
 
 #### <a name="menu-description"></a>Descrição do menu
-A tabela a seguir contém uma lista em ordem alfabética das ações do StorSimple Snapshot Manager. 
+Olá, a tabela a seguir contém uma lista alfabética das ações do Gerenciador de instantâneos do StorSimple. 
 
-* A coluna **Ação** lista ações que você pode realizar em nós e resultados. 
-* A coluna **Navegação** explica como exibir o menu **Ação** apropriado para que você possa selecionar a ação. Algumas ações aparecem em vários menus **Ação** . Para essas ações, selecione uma opção de **Navegação** da lista com marcadores. 
-* A coluna **Descrição** descreve como utilizar cada ação do menu **Ação** ou do painel Ações e explica o que ela faz.
+* Olá **ação** coluna lista as ações que podem ser executadas em nós e resultados. 
+* Olá **navegação** coluna explica como toodisplay Olá apropriado **ação** menu para que você possa selecionar ação de saudação. Algumas ações aparecem em vários menus **Ação** . Para essas ações, selecione uma **navegação** opção de lista com marcadores de saudação. 
+* Olá **descrição** coluna descreve como toouse cada ação Olá **ação** menu ou painel de ações e explica o que ele faz.
 
 > [!NOTE]
-> O painel **Ações** e os menus **Ação** contêm opções adicionais, como **Exibição**, **Nova Janela daqui**, **Atualizar**, **Exportar Lista** e **Ajuda**. Essas opções estão disponíveis como parte do MMC e não são específicas ao StorSimple Snapshot Manager. A tabela inclui descrições dessas opções.
+> Olá **ações** painel e **ação** menus contêm opções adicionais, como **exibição**, **nova janela a partir daqui**,  **Atualizar**, **exportar lista**, e **ajuda**. Essas opções estão disponíveis como parte de saudação do MMC e não são específica tooStorSimple Gerenciador de instantâneos. tabela de saudação inclui descrições dessas opções.
 > 
 > 
 
 | Ação | Navegação | Descrição |
 |:--- |:--- |:--- |
-| Autenticar |Clique no nó **Dispositivos** e clique com o botão direito do mouse em um dispositivo no painel **Resultados**. |Clique em **Autenticar** para digitar a senha que você configurou para o dispositivo. |
-| Clone |Expanda **Catálogo de Backup**s, expanda **Instantâneos em Nuvem**, clique em um backup com data e selecione um volume no painel **Resultados**. |Clique em **Clone** para criar uma cópia de um instantâneo de nuvem e armazená-la em um local que você designar. |
-| Configurar um Dispositivo |Clique com o botão direito do mouse no nó **Dispositivos** . |Clique em **Configurar um Dispositivo** para configurar um ou vários dispositivos para se conectar ao host do Windows. |
-| Criar Política de Backup |Faça uma das opções a seguir:<ul><li>Clique com botão direito do mouse em **Políticas de Backup**.</li><li>Clique ou expanda **Grupos de volumes** e clique com o botão direito do mouse em um grupo de volumes.</li><li>Clique ou expanda **Catálogo de Backup** e clique com o botão direito do mouse em um grupo de volumes.</li></ul> |Clique em **Criar Política de Backup** para configurar um backup agendado para um grupo de volumes. |
-| Criar Grupo de Volumes |Faça uma das opções a seguir:<ul><li>Clique no nó **Volumes** e, em seguida, clique com o botão direito do mouse em um volume no painel **Resultados**.</li><li>Clique com o botão direito do mouse no nó **Grupos de Volumes** .</li></ul> |Clique em **Criar Grupo de Volumes** para atribuir volumes a um grupo de volumes. |
-| Excluir |Clique em um nó ou resultado (esse item aparece em vários menus de **Ação** e nos painéis de **Ações**.) |Clique em **Excluir** para excluir o nó ou o resultado que você selecionou. Quando a caixa de diálogo de confirmação aparecer, confirme ou cancele a exclusão. |
-| Detalhes |Clique no nó **Dispositivos** e, em seguida, clique com o botão direito do mouse em um dispositivo no painel **Resultados**. |Clique em **Detalhes** para ver os detalhes da configuração de um dispositivo. |
-| Editar |Clique em **Políticas de Backup** e clique com o botão direito do mouse em uma política no painel **Resultados**. |Clique em **Editar** para alterar o agendamento de backup de um grupo de volumes. |
-| Exportar Lista |Clique em um nó ou resultado (esse item aparece em todos os menus de **Ação** e nos painéis de **Ações**.) |Clique em **Exportar Lista** para salvar uma lista em um arquivo CSV (valores separados por vírgulas). Em seguida, você pode importar esse arquivo para um aplicativo de planilha para análise. |
-| Ajuda |Clique em qualquer nó ou resultado. (Esse item aparece em todos os menus de **Ação** e painéis de **Ações**.) |Clique em **Ajuda** para abrir a Ajuda online em uma janela separada do navegador. |
-| Nova Janela a Partir Daqui |Clique em um nó ou resultado (esse item aparece em todos os menus de **Ação** e nos painéis de **Ações**.) |Clique em **Nova Janela a Partir Daqui** para abrir uma nova janela do StorSimple Snapshot Manager. |
-| Atualizar |Clique em um nó ou resultado (esse item aparece em todos os menus de **Ação** e nos painéis de **Ações**.) |Clique em **Atualizar** para atualizar a janela StorSimple Snapshot Manager exibida atualmente. |
-| Atualizar Dispositivo |Clique no nó **Dispositivos** e clique com o botão direito do mouse em um dispositivo no painel **Resultados**. |Clique em **Atualizar Dispositivo** para sincronizar um dispositivo específico conectado ao StorSimple Snapshot Manager. |
-| Atualizar Dispositivos |Clique com o botão direito do mouse no nó **Dispositivos** . |Clique em **Atualizar Dispositivos** para sincronizar sua lista de dispositivos conectados com o StorSimple Snapshot Manager. |
-| Examinar volumes novamente |Clique com o botão direito do mouse no nó **Volumes** . |Clique em **Examinar volumes novamente** para atualizar a lista de volumes que aparece no painel **Resultados**. |
-| Restaurar |Expanda **Catálogo de Backup**, expanda um grupo de volumes, expanda **Instantâneos Locais** ou **Instantâneos em Nuvem** e clique com o botão direito do mouse em um backup. |Clique em **Restaurar** para substituir os dados do grupo de volumes atual pelos dados do backup selecionado. |
-| Fazer Backup |Faça uma das opções a seguir:<ul><li>Expanda **Grupos de volumes** e clique com o botão direito do mouse em um grupo de volumes.</li><li>Expanda **Catálogo de Backup** e clique com o botão direito do mouse em um grupo de volumes.</li></ul> |Clique em **Fazer Backup** para iniciar um trabalho de backup imediatamente. |
-| Alternar Exibição de Importações |Clique com o botão direito do mouse no nó superior do painel **Escopo** (o nó **StorSimple Snapshot Manager** nos exemplos). |Clique em **Alternar Exibição de Importações** para mostrar ou ocultar os grupos de volumes e backups associados que foram importados do painel de serviço do Gerenciador de Dispositivos StorSimple. |
+| Autenticar |Clique em Olá **dispositivos** nó e o direito de um dispositivo no hello **resultados** painel. |Clique em **autenticar** tooenter senha de saudação que você configurou para o dispositivo de saudação. |
+| Clone |Expanda **catálogo de Backup**, expanda **instantâneos em nuvem**, clique em um backup com data e, em seguida, selecione um volume na Olá **resultados** painel. |Clique em **Clone** toocreate uma cópia de uma nuvem de instantâneo e armazená-lo em um local que você designar. |
+| Configurar um Dispositivo |Saudação de atalho **dispositivos** nó. |Clique em **configurar um dispositivo** tooconfigure um dispositivo único ou vários hosts de Windows dispositivos tooconnect toohello. |
+| Criar Política de Backup |Execute um dos seguintes hello:<ul><li>Clique com botão direito do mouse em **Políticas de Backup**.</li><li>Clique ou expanda **Grupos de volumes** e clique com o botão direito do mouse em um grupo de volumes.</li><li>Clique ou expanda **Catálogo de Backup** e clique com o botão direito do mouse em um grupo de volumes.</li></ul> |Clique em **Criar política de Backup** tooconfigure um backup agendado para um grupo de volumes. |
+| Criar Grupo de Volumes |Execute um dos seguintes hello:<ul><li>Clique em Olá **Volumes** nó e, em seguida, clique com botão direito um volume no hello **resultados** painel.</li><li>Saudação de atalho **grupos de Volume** nó.</li></ul> |Clique em **criar grupo de Volume** tooassign grupo de volumes de tooa de volumes. |
+| Exclusão |Clique em um nó ou resultado (esse item aparece em vários menus de **Ação** e nos painéis de **Ações**.) |Clique em **excluir** toodelete Olá nó ou resultado que você selecionou. Quando for exibida a caixa de diálogo de confirmação de hello, confirme ou cancele a exclusão de saudação. |
+| Detalhes |Clique em Olá **dispositivos** nó e, em seguida, clique com botão direito um dispositivo no hello **resultados** painel. |Clique em **detalhes** toosee detalhes de configuração de saudação para um dispositivo. |
+| Editar |Clique em **políticas de Backup**e clique em uma política de saudação **resultados** painel. |Clique em **editar** toochange agendamento de backup Olá para um grupo de volumes. |
+| Exportar Lista |Clique em um nó ou resultado (esse item aparece em todos os menus de **Ação** e nos painéis de **Ações**.) |Clique em **exportar lista** toosave uma lista em um arquivo de valores separados por vírgulas (CSV). Em seguida, você pode importar esse arquivo para um aplicativo de planilha para análise. |
+| Ajuda |Clique em qualquer nó ou resultado. (Esse item aparece em todos os menus de **Ação** e painéis de **Ações**.) |Clique em **ajuda** tooopen ajuda online em uma janela separada do navegador. |
+| Nova Janela a Partir Daqui |Clique em um nó ou resultado (esse item aparece em todos os menus de **Ação** e nos painéis de **Ações**.) |Clique em **nova janela a partir daqui** tooopen uma nova janela do Gerenciador de instantâneos do StorSimple. |
+| Atualizar |Clique em um nó ou resultado (esse item aparece em todos os menus de **Ação** e nos painéis de **Ações**.) |Clique em **atualização** janela de Gerenciador de instantâneos StorSimple tooupdate Olá exibido atualmente. |
+| Atualizar Dispositivo |Clique em Olá **dispositivos** nó e o direito de um dispositivo no hello **resultados** painel. |Clique em **atualizar dispositivo** toosynchronize um dispositivo conectado específico com o Gerenciador de instantâneos do StorSimple. |
+| Atualizar Dispositivos |Saudação de atalho **dispositivos** nó. |Clique em **atualizar dispositivos** toosynchronize sua lista de dispositivos conectados com o Gerenciador de instantâneos do StorSimple. |
+| Examinar volumes novamente |Saudação de atalho **Volumes** nó. |Clique em **examinar volumes novamente** tooupdate Olá lista de volumes exibida no hello **resultados** painel. |
+| Restaurar |Expanda **Catálogo de Backup**, expanda um grupo de volumes, expanda **Instantâneos Locais** ou **Instantâneos em Nuvem** e clique com o botão direito do mouse em um backup. |Clique em **restaurar** tooreplace Olá atual grupo dados do volume com dados de saudação do backup selecionado hello. |
+| Fazer Backup |Execute um dos seguintes hello:<ul><li>Expanda **Grupos de volumes** e clique com o botão direito do mouse em um grupo de volumes.</li><li>Expanda **Catálogo de Backup** e clique com o botão direito do mouse em um grupo de volumes.</li></ul> |Clique em **fazer Backup** toostart imediatamente um trabalho de backup. |
+| Alternar Exibição de Importações |Com o botão direito Olá nó superior Olá **escopo** painel (Olá **StorSimple Snapshot Manager** nó nos exemplos de saudação). |Clique em **alternar a exibição das importações** tooshow ou ocultar grupos de volume hello e backups associados que foram importados do hello painel de serviço do Gerenciador de dispositivos do StorSimple. |
 
 ### <a name="view-menu"></a>Menu Exibir
-Use o menu **Exibir** para criar uma exibição personalizada do conteúdo do painel **Resultados**. O menu **Exibir** contém as opções **Adicionar/Remover Colunas** e **Personalizar**.
+Saudação de uso **exibição** menu toocreate uma exibição personalizada de saudação **resultados** conteúdo do painel. Olá **exibição** menu contém **Adicionar/remover colunas** e **personalizar** opções.
 
 #### <a name="menu-access"></a>Acesso ao menu
-Você pode acessar o menu **Exibir** na barra de menus ou no painel **Ações**.
+Você pode acessar Olá **exibição** menu na barra de menus do hello, ou em Olá **ações** painel.
 
 ![Menu Exibir do StorSimple Snapshot Manager](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png) 
 
 #### <a name="menu-description"></a>Descrição do menu
-A tabela a seguir descreve os itens que aparecem no menu **Exibir** .
+Olá tabela a seguir descreve os itens que aparecem no hello **exibição** menu.
 
 | Item de menu | Descrição |
 |:--- |:--- |
-| Adicionar/Remover Colunas |Clique em **Adicionar/Remover Colunas** para adicionar ou remover colunas do painel **Resultados**. |
-| Personalizar |Clique em **Personalizar** para mostrar ou ocultar itens na janela do console do StorSimple Snapshot Manager. |
+| Adicionar/Remover Colunas |Clique em **Adicionar/remover colunas** tooadd ou remover colunas em Olá **resultados** painel. |
+| Personalizar |Clique em **personalizar** tooshow ou ocultar itens na janela de console do Gerenciador de instantâneos StorSimple hello. |
 
 ### <a name="favorites-menu"></a>Menu Favoritos
-Use o menu **Favoritos** para adicionar, remover e organizar exibições de página e tarefas que você usa com frequência. 
+Use Olá **Favoritos** menu tooadd, remover e organizar exibições de página e as tarefas que você usa com frequência. 
 
 #### <a name="menu-access"></a>Acesso ao menu
-Você pode acessar o menu **Favoritos** na barra de menus.
+Você pode acessar Olá **Favoritos** menu na barra de menus do hello.
 
 ![Menu Favoritos do StorSimple Snapshot Manager](./media/storsimple-use-snapshot-manager/HCS_SSM_FavoritesMenu.png)
 
 #### <a name="menu-description"></a>Descrição do menu
-A tabela a seguir descreve os itens que aparecem no menu **Favoritos** .
+Olá tabela a seguir descreve os itens que aparecem no hello **Favoritos** menu.
 
 | Item de menu | Descrição |
 |:--- |:--- |
-| Adicionar aos Favoritos |Clique em **Adicionar aos Favoritos** para adicionar a exibição atual à sua lista de favoritos. |
-| Organizar Favoritos |Clique em **Organizar Favoritos** para organizar o conteúdo da pasta Favoritos. |
+| Adicionar tooFavorites |Clique em **adicionar tooFavorites** tooadd Olá atual tooyour lista de exibição de favoritos. |
+| Organizar Favoritos |Clique em **Organizar Favoritos** tooorganize conteúdo de saudação da pasta Favoritos. |
 
 ### <a name="window-menu"></a>Menu Janela
-Use o menu **Janela** para adicionar e reorganizar as janelas do console do StorSimple Snapshot Manager.
+Saudação de uso **janela** menu tooadd e reorganizar StorSimple Snapshot Manager janelas do console.
 
 #### <a name="menu-access"></a>Acesso ao menu
-Você pode acessar o menu **Janela** na barra de menus.
+Você pode acessar Olá **janela** menu na barra de menus do hello.
 
 ![Menu Janela do StorSimple Snapshot Manager](./media/storsimple-use-snapshot-manager/HCS_SSM_WindowMenu.png)
 
-A lista numerada na parte inferior do menu mostra as janelas que estão abertas. Clique em qualquer janela da lista para trazer a janela ao primeiro plano. 
+lista numerada de saudação na parte inferior de saudação do menu Olá mostra Olá janelas que estão atualmente abertas. Clique em qualquer janela na janela lista toobring Olá em primeiro plano da saudação. 
 
 #### <a name="menu-description"></a>Descrição do menu
-A tabela a seguir descreve os itens que aparecem no menu da Janela.
+Olá tabela a seguir descreve Olá itens que aparecem no menu da janela de saudação.
 
 | Item de menu | Descrição |
 |:--- |:--- |
-| Nova Janela |Clique em **Nova Janela** para abrir uma nova janela do console (além da janela existente). |
-| Em cascata |Clique em **Em cascata** para exibir as janelas abertas do console no estilo em cascata. |
-| Lado a lado horizontalmente |Clique em **Lado a lado horizontalmente** para exibir as janelas abertas do console lado a lado (ou em grade). |
-| Organizar Ícones |Se você tiver várias janelas do console abertas e dispersas em sua área de trabalho, minimize-as e clique em **Organizar Ícones** para organizá-las em uma linha horizontal na parte inferior da tela. |
+| Nova Janela |Clique em **nova janela** tooopen uma nova janela de console (na janela existente do adição toohello). |
+| Em cascata |Clique em **Cascade** toodisplay janelas de console abertas Olá em cascata. |
+| Lado a lado horizontalmente |Clique em **lado a lado horizontalmente** toodisplay janelas de console abertas Olá em um formato lado a lado (ou grade). |
+| Organizar Ícones |Se você tiver vários console windows abrir e dispersos em sua área de trabalho, minimize-as e, em seguida, clique em **organizar ícones** tooarrange-los em uma linha horizontal na parte inferior da saudação da tela. |
 
 ### <a name="help-menu"></a>Menu Ajuda
-Use o menu **Ajuda** para exibir a ajuda online disponível para o MMC e o StorSimple Snapshot Manager. Você também pode exibir informações sobre as versões de software do MMC e do StorSimple Snapshot Manager que estão instaladas no sistema. 
+Saudação de uso **ajuda** menu tooview ajuda online disponível para o Gerenciador de instantâneos do StorSimple e hello MMC. Você também pode exibir informações sobre Olá MMC e Gerenciador de instantâneos StorSimple versões de software que estão atualmente instalados no seu sistema. 
 
-Você pode acessar o menu **Ajuda** na barra de menus. Você também pode acessar os tópicos de ajuda do StorSimple Snapshot Manager no painel **Ações** .
+Você pode acessar Olá **ajuda** menu na barra de menus do hello. Você também pode acessar os tópicos de Ajuda do Gerenciador de instantâneos do StorSimple da saudação **ações** painel.
 
 ![Menu Ajuda do StorSimple Snapshot Manager](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpMenu.png)
 
 #### <a name="menu-description"></a>Descrição do menu
-A tabela a seguir descreve os itens que aparecem no menu Ajuda.
+Olá a tabela a seguir descreve os itens que aparecem no menu Ajuda do hello.
 
 | Item de menu | Descrição |
 |:--- |:--- |
-| Ajuda no StorSimple Snapshot Manager |Clique em **Ajuda no StorSimple Snapshot Manager** para abrir a ajuda do StorSimple Snapshot Manager em uma janela separada. |
-| Tópicos de Ajuda |Clique em **Tópicos de Ajuda** para abrir a ajuda online do MMC em uma janela separada. |
-| Site do TechCenter |Clique em **Site da Web do TechCenter** para abrir a home page do Microsoft TechNet Tech Center em uma janela separada. |
-| No Console de Gerenciamento Microsoft |Clique em **Sobre o Console de Gerenciamento Microsoft** para ver qual versão do Console de Gerenciamento Microsoft está instalada em seu sistema. |
-| Sobre o StorSimple Snapshot Manager |Clique em **Sobre o StorSimple Snapshot Manager** para ver qual versão do snap-in está instalada em seu sistema. |
+| Ajuda no StorSimple Snapshot Manager |Clique em **ajuda no Gerenciador de instantâneos do StorSimple** tooopen StorSimple Snapshot Manager ajuda em uma janela separada. |
+| Tópicos de Ajuda |Clique em **tópicos da Ajuda** tooopen ajuda online do MMC em uma janela separada. |
+| Site do TechCenter |Clique em **Site do TechCenter** tooopen Olá Microsoft TechNet Tech Center home página em uma janela separada. |
+| No Console de Gerenciamento Microsoft |Clique em **sobre o Console de gerenciamento Microsoft** toosee Olá de qual versão do Console de gerenciamento Microsoft está instalado em seu sistema. |
+| Sobre o StorSimple Snapshot Manager |Clique em **sobre o Gerenciador de instantâneos do StorSimple** toosee qual versão do snap-in hello está instalada no sistema. |
 
 ## <a name="tool-bar"></a>Barra de ferramentas
-A barra de ferramentas, localizada abaixo da barra de menus, contém ícones de navegação e tarefas. Cada ícone é um atalho para uma tarefa específica.
+barra de ferramentas Hello, localizada abaixo da barra de menus Olá, contém ícones de tarefa e navegação. Cada ícone é uma tarefa específica de tooa de atalho.
 
 ### <a name="icon-descriptions"></a>Descrições dos ícones
-A tabela a seguir descreve os ícones que aparecem na barra de ferramentas. 
+Olá tabela a seguir descreve os ícones de saudação que aparecem na barra de ferramentas de saudação. 
 
 | ícone | Descrição |
 |:--- |:--- |
-| ![Seta para a esquerda](./media/storsimple-use-snapshot-manager/HCS_SSM_LeftArrow.png) |Clique no ícone de seta para a esquerda para retornar à página anterior. |
-| ![Seta para a direita](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) |Clique na seta para a direita para ir para a próxima página (se a seta estiver cinza, a ação estará indisponível). |
-| ![Ícone para cima](./media/storsimple-use-snapshot-manager/HCS_SSM_Up.png) |Clique no ícone para cima para subir um nível na árvore do console (o painel **Escopo** ). |
-| ![Mostrar/ocultar árvore de console](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowConsoleTree.png) |Clique no ícone mostrar/ocultar da árvore do console para mostrar ou ocultar o painel **Escopo** . |
-| ![Exportar Lista](./media/storsimple-use-snapshot-manager/HCS_SSM_ExportListIcon.png) |Clique no ícone exportar lista para exportar uma lista para um arquivo CSV que você especificar. |
-| ![Ícone de ajuda](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpIcon.png) |Clique no ícone de ajuda para abrir um tópico de ajuda online do MMC. |
-| ![Mostrar/ocultar painel de Ações](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowAction.png) |Clique no ícone mostrar/ocultar do painel **Ações** para mostrar ou ocultar o painel **Ações**. |
+| ![Seta para a esquerda](./media/storsimple-use-snapshot-manager/HCS_SSM_LeftArrow.png) |Clique em Olá seta para a esquerda ícone tooreturn toohello página anterior. |
+| ![Seta para a direita](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) |Clique em Olá seta para a direita toogo toohello próxima página (se Olá seta for cinza, Olá ação ficará indisponível). |
+| ![Ícone para cima](./media/storsimple-use-snapshot-manager/HCS_SSM_Up.png) |Clique Olá backup toogo ícone um nível acima na árvore de console hello (Olá **escopo** painel). |
+| ![Mostrar/ocultar árvore de console](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowConsoleTree.png) |Clique em Olá Mostrar/ocultar console árvore ícone tooshow ou ocultar Olá **escopo** painel. |
+| ![Exportar Lista](./media/storsimple-use-snapshot-manager/HCS_SSM_ExportListIcon.png) |Clique em Olá exportar lista ícone tooexport um arquivo CSV tooa de lista que você especificar. |
+| ![Ícone de ajuda](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpIcon.png) |Clique em Olá ajuda ícone tooopen um tópico de Ajuda online do MMC. |
+| ![Mostrar/ocultar painel de Ações](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowAction.png) |Clique em Mostrar/ocultar Olá **ações** Olá de tooshow ou ocultar ícone painel **ações** painel. |
 
 ## <a name="scope-pane"></a>Painel Escopo
-O painel **Escopo** é o painel esquerdo da interface do usuário do StorSimple Snapshot Manager. Ele contém a árvore do console (ou nó) e é o principal mecanismo de navegação do StorSimple Snapshot Manager. 
+Olá **escopo** painel é painel mais à esquerda Olá Olá UI StorSimple Snapshot Manager. Ele contém a árvore de console (ou nó) do hello e é o mecanismo de navegação principal Olá para o Gerenciador de instantâneos do StorSimple. 
 
 ### <a name="scope-pane-structure"></a>Estrutura do painel Escopo
-O painel **Escopo** contém uma série de objetos que podem ser clicados (nós), organizados em uma estrutura de árvore. 
+Olá **escopo** painel contém uma série de objetos clicáveis (nós) organizada em uma estrutura de árvore. 
 
 ![Painel Escopo](./media/storsimple-use-snapshot-manager/HCS_SSM_Scope_pane.png) 
 
-* Para expandir ou recolher um nó, clique no ícone de seta ao lado do nome do nó.
-* Para exibir o status ou o conteúdo de um nó, clique no nome do nó. As informações são exibidas no painel **Resultados** . 
+* tooexpand ou recolher um nó, clique em nome de nó do hello seta ícone próximo toohello.
+* status de saudação tooview ou conteúdo de um nó, clique em nome do nó hello. informações de saudação aparecem no hello **resultados** painel. 
 
-O painel **Escopo** contém os seguintes nós: 
+Olá **escopo** painel contém Olá nós a seguir: 
 
 * [Nó Dispositivos](#devices-node) 
 * [Nó Volumes](#volumes-node) 
@@ -234,153 +234,153 @@ O painel **Escopo** contém os seguintes nós:
 * [Nó Trabalhos](#jobs-node) 
 
 ### <a name="scope-pane-tasks"></a>Tarefas do painel Escopo
-Você pode usar o painel **Escopo** para concluir uma ação em um nó específico. Para selecionar uma tarefa, siga um destes procedimentos:
+Você pode usar o hello **escopo** painel toocomplete uma ação em um nó específico. tooselect uma tarefa, faça o seguinte de saudação:
 
-* Clique com o botão direito no nó e selecione a tarefa no menu que aparece.
-* Clique no nó e clique na barra de menus **Ação** . Selecione a tarefa no menu que aparece.
-* Clique no nó e selecione a ação no painel **Ações** .
+* Nó hello e, em seguida, selecione tarefa Olá menu Olá que aparece.
+* Clique no nó hello e, em seguida, clique em **ação** na barra de menus do hello. Selecione a tarefa de saudação de menu Olá que aparece.
+* Clique em nó hello e ação Olá Olá, em seguida, selecione **ações** painel.
 
-Quando você seleciona um nó e usa qualquer um desses métodos para ver uma lista de tarefas, apenas as ações que podem ser executadas nesse nó são mostradas.
+Quando você seleciona um nó e usa qualquer um desses métodos toosee uma lista de tarefas, apenas as ações que podem ser executadas nesse nó são mostradas.
 
 ### <a name="devices-node"></a>Nó Dispositivos
-O nó **Dispositivos** representa os dispositivos do StorSimple e os dispositivos virtuais do StorSimple que estão conectados ao StorSimple Snapshot Manager. Selecione esse nó para conectar e configurar um dispositivo e importar seus volumes associados, grupos de volumes e cópias de backup existentes. Vários dispositivos podem ser conectados a um único host.
+Olá **dispositivos** nó representa dispositivos de StorSimple hello e dispositivos virtuais StorSimple que estão conectado tooStorSimple Gerenciador de instantâneos. Selecione este nó tooconnect e configurar um dispositivo e importar seus volumes associados, grupos de volumes e cópias de backup existentes. Vários dispositivos podem ser conectados tooa único host.
 
-* Para expandir o nó, clique no ícone de seta ao lado de **Dispositivos**.
-* Para ver um menu das ações disponíveis, clique com o botão direito no nó **Dispositivos** ou em qualquer um de nós que aparecem na exibição expandida.
-* Para ver uma lista dos dispositivos configurados, clique em **Dispositivos** no painel **Escopo**. A lista de dispositivos, com informações sobre cada dispositivo, aparece no painel **Resultados** .
+* nó de saudação tooexpand, clique no ícone de seta Olá lado muito**dispositivos**.
+* toosee um menu de ações disponíveis, clique com botão direito Olá **dispositivos** nó ou o botão direito do mouse qualquer um de nós de saudação que aparecem no hello visualização expandida.
+* toosee uma lista de dispositivos configurados, clique em **dispositivos** em Olá **escopo** painel. lista de saudação de dispositivos, juntamente com informações sobre cada dispositivo, aparece no hello **resultados** painel.
 
 ### <a name="volumes-node"></a>Nó Volumes
-O nó **Volumes** representa as unidades que correspondem aos volumes montados pelo host, incluindo aqueles descobertos através do iSCSI e os descobertos através de um dispositivo. Use este nó para exibir a lista de volumes disponíveis e atribuir volumes individuais aos grupos de volumes.
+Olá **Volumes** nó representa unidades de saudação que correspondem a toohello volumes montados pelo host hello, incluindo os descobertos através de iSCSI e aqueles descobertos através de um dispositivo. Use esta lista de saudação do tooview de nó de volumes disponíveis e atribuir volumes individuais toovolume grupos.
 
-* Para expandir o nó, clique no ícone de seta ao lado de **Volumes**.
-* Para ver um menu das ações disponíveis, clique com o botão direito no nó **Volumes** ou em qualquer um dos nós que aparecem na exibição expandida.
-* Para ver uma lista de volumes, clique em **Volumes** no painel **Escopo**. A lista de volumes, com informações sobre cada volume, aparece no painel **Resultados** .
+* nó de saudação tooexpand, clique no ícone de seta Olá lado muito**Volumes**.
+* toosee um menu de ações disponíveis, clique com botão direito Olá **Volumes** nó ou o botão direito do mouse qualquer um de nós de saudação que aparecem no hello visualização expandida.
+* toosee uma lista de volumes, clique em **Volumes** em Olá **escopo** painel. lista de saudação de volumes, juntamente com informações sobre cada volume, aparece no hello **resultados** painel.
 
 ### <a name="volume-groups-node"></a>Nó Grupos de Volumes
-Grupos de volumes também são conhecidos como grupos de consistência. Cada grupo de volumes é um pool de volumes relacionados ao aplicativo que ajuda a garantir a consistência do aplicativo durante operações de backup. Use o nó **Grupos de Volumes** para configurar esses grupos e para fazer backups interativos ou criar agendamentos de backup. 
+Grupos de volumes também são conhecidos como grupos de consistência. Cada grupo de volume é um conjunto de volumes relacionados ao aplicativo que ajuda a consistência do aplicativo tooensure durante operações de backup. Saudação de uso **grupos de Volume** nó tooconfigure esses grupos e backups interativos tootake ou criar agendas de backup. 
 
-* Para expandir o nó, clique no ícone de seta ao lado de **Grupos de Volumes**.
-* Para ver um menu das ações disponíveis, clique com o botão direito do mouse no nó **Grupos de Volumes** ou em qualquer um dos nós que aparecem na exibição expandida.
-* Para ver uma lista de grupos de volumes, clique em **Grupos de Volumes** no painel **Escopo**. A lista de grupos de volumes, com informações sobre cada grupo de volumes, aparece no painel **Resultados** .
+* nó de saudação tooexpand, clique no ícone de seta Olá lado muito**grupos de Volume**.
+* toosee um menu de ações disponíveis, clique com botão direito Olá **grupos de Volume** nó ou o botão direito do mouse qualquer um de nós de saudação que aparecem no hello visualização expandida.
+* toosee uma lista de grupos de volumes, clique em **grupos de Volume** em Olá **escopo** painel. lista de saudação de grupos de volume, junto com informações sobre cada grupo de volume, aparece no hello **resultados** painel.
 
 ### <a name="backup-policies-node"></a>Nó Políticas de Backup
-Políticas de backup são agendas de trabalhos para instantâneos locais e na nuvem. Use o nó **Políticas de Backup** para especificar a frequência com que um backup é criado e por quanto tempo ele deve ser mantido. 
+Políticas de backup são agendas de trabalhos para instantâneos locais e na nuvem. Saudação de uso **políticas de Backup** toospecify nó frequência um backup é criado e quanto tempo um backup deve ser mantido. 
 
-* Para expandir o nó, clique no ícone de seta ao lado de **Políticas de Backup**.
-* Para ver um menu das ações disponíveis, clique com o botão direito do mouse no nó **Políticas de Backup** ou em qualquer um dos nós que aparecem na exibição expandida.
-* Para ver uma lista de políticas de backup, clique em **Políticas de Backup** no painel **Escopo**. A lista de políticas de backup, com informações sobre cada política, aparece no painel **Resultados** .
+* nó de saudação tooexpand, clique no ícone de seta Olá lado muito**políticas de Backup**.
+* toosee um menu de ações disponíveis, clique com botão direito Olá **políticas de Backup** nó ou o botão direito do mouse qualquer um de nós de saudação que aparecem no hello visualização expandida.
+* toosee uma lista de políticas de backup, clique em **políticas de Backup** em Olá **escopo** painel. lista de saudação de políticas de backup, junto com informações sobre cada política aparece no hello **resultados** painel.
 
 > [!NOTE]
 > Você pode manter um máximo de 64 backups.
 
 
 ### <a name="backup-catalog-node"></a>Nó Catálogo de Backups
-O nó **Catálogo de Backups** contém listas de backups locais e externos de volumes do Azure StorSimple. Este nó é organizado por grupo de volumes e cada contêiner do grupo de volumes contém estruturas separadas para instantâneos locais (o nó **Instantâneos Locais**) e instantâneos em nuvem (o nó de **Instantâneos em Nuvem**). Quando expandido, cada contêiner de grupo de volumes lista todos os backups bem-sucedidos que foram feitos interativamente ou por uma política configurada.
+Olá **catálogo de Backup** nó contém listas de locais e fora de backups de volumes do StorSimple do Azure. Este nó é organizado por grupo de volume e cada contêiner de grupo de volume contém estruturas separadas para instantâneos locais (Olá **instantâneo Local**nó s) e instantâneos em nuvem (Olá **instantâneos em nuvem** nó ). Quando expandido, cada contêiner de grupo de volume lista todos os backups bem-sucedidos Olá foram realizados interativamente ou por uma política configurada.
 
-* Para expandir o nó, clique no ícone de seta ao lado de **Catálogo de Backups**.
-* Para ver um menu das ações disponíveis, clique com o botão direito do mouse no nó **Catálogo de Backups** ou em qualquer um dos nós que aparecem na exibição expandida.
-* Para ver uma lista de instantâneos de backup, clique em **Catálogo de Backup** no painel **Escopo**. A lista de instantâneos, com informações sobre cada um deles, aparece no painel **Resultados** .
+* nó de saudação tooexpand, clique no ícone de seta Olá lado muito**catálogo de Backup**.
+* toosee um menu de ações disponíveis, clique com botão direito Olá **catálogo de Backup** nó ou o botão direito do mouse qualquer um de nós de saudação que aparecem no hello visualização expandida.
+* toosee uma lista de instantâneos de backup, clique em **catálogo de Backup** em Olá **escopo** painel. lista de saudação de instantâneos, juntamente com informações sobre cada instantâneo, aparece no hello **resultados** painel.
 
 ### <a name="local-snapshots-node"></a>Nó Instantâneos Locais
-O nó **Instantâneos Locais** relaciona os instantâneos locais para um grupo de volumes específico. O nó está localizado no nó **Catálogo de Backup** no painel **Escopo**. Instantâneos locais são cópias momentâneas de dados de volume armazenados no dispositivo Azure StorSimple. Normalmente, esse tipo de backup pode ser criado e restaurado rapidamente. Você pode usar um instantâneo local como faria com uma cópia de backup local.
+Olá **instantâneos locais** nó da lista de instantâneos locais para um grupo de volumes específico. Olá nó está localizado em Olá **catálogo de Backup** nó Olá **escopo** painel. Os instantâneos locais são cópias point-in-time de dados de volume que estão armazenados no dispositivo Azure StorSimple de saudação. Normalmente, esse tipo de backup pode ser criado e restaurado rapidamente. Você pode usar um instantâneo local como faria com uma cópia de backup local.
 
-* Para expandir o nó, clique no ícone de seta ao lado de **Instantâneos Locais**.
-* Para ver um menu das ações disponíveis, clique com o botão direito no nó **Instantâneos Locais** ou em qualquer um dos nós que aparecem na exibição expandida.
-* Para ver uma lista de instantâneos locais, clique em **Instantâneos Locais** no painel **Escopo**. A lista de instantâneos, com informações sobre cada um deles, aparece no painel **Resultados** .
+* nó de saudação tooexpand, clique no ícone de seta Olá lado muito**instantâneos locais**.
+* toosee um menu de ações disponíveis, clique com botão direito Olá **instantâneos locais** nó ou o botão direito do mouse qualquer um de nós de saudação que aparecem no hello visualização expandida.
+* toosee uma lista de instantâneos locais, clique em **instantâneos locais** em Olá **escopo** painel. lista de saudação de instantâneos, juntamente com informações sobre cada instantâneo, aparece no hello **resultados** painel.
 
 ### <a name="cloud-snapshots-node"></a>Nó Instantâneos de Nuvem
-O nó **Instantâneos de Nuvem** lista os instantâneos locais para um grupo de volumes específico. O nó está localizado no nó **Catálogo de Backup** no painel **Escopo**. Instantâneos de nuvem são cópias momentâneas de dados de volume armazenados na nuvem. Um instantâneo de nuvem é equivalente a um instantâneo duplicado em um sistema de armazenamento externo diferente. Instantâneos de nuvem são particularmente úteis em cenários de recuperação de desastres.
+Olá **instantâneos em nuvem** nó da lista de instantâneos na nuvem para um grupo de volumes específico. Olá nó está localizado em Olá **catálogo de Backup** nó Olá **escopo** painel. Instantâneos de nuvem são cópias point-in-time de dados de volume que estão armazenados na nuvem hello. Um instantâneo de nuvem é equivalente instantâneo tooa replicado em um sistema de armazenamento externo, diferentes. Instantâneos de nuvem são particularmente úteis em cenários de recuperação de desastres.
 
-* Para expandir o nó, clique no ícone de seta ao lado de **Instantâneos de Nuvem**.
-* Para ver um menu das ações disponíveis, clique com o botão direito do mouse no nó **Instantâneos de Nuvem** ou em qualquer um dos nós que aparecem na exibição expandida.
-* Para ver uma lista de instantâneos de nuvem, clique em **Instantâneos de Nuvem** no painel **Escopo**. A lista de instantâneos, com informações sobre cada um deles, aparece no painel **Resultados** .
+* nó de saudação tooexpand, clique no ícone de seta Olá lado muito**instantâneos em nuvem**.
+* toosee um menu de ações disponíveis, clique com botão direito Olá **instantâneos em nuvem** nó ou o botão direito do mouse qualquer um de nós de saudação que aparecem no hello visualização expandida.
+* toosee uma lista de instantâneos de nuvem, clique em **instantâneos em nuvem** em Olá **escopo** painel. lista de saudação de instantâneos, juntamente com informações sobre cada instantâneo, aparece no hello **resultados** painel.
 
 ### <a name="jobs-node"></a>Nó Trabalhos
-O nó **Trabalhos** contém informações sobre trabalhos de backup agendados, em execução e concluídos recentemente. 
+Olá **trabalhos** nó contém informações sobre os trabalhos de backup agendados, em execução e concluídos recentemente. 
 
-* Para expandir o nó, clique no ícone de seta ao lado de **Trabalhos**.
-* Para ver um menu das ações disponíveis, clique com o botão direito do mouse no nó **Trabalhos** ou em qualquer um dos nós que aparecem na exibição expandida.
-* Para ver uma lista dos trabalhos agendados, expanda o nó **Trabalhos** e clique em **Agendado**. A lista de trabalhos configurados anteriormente e informações sobre cada trabalho aparecem no painel **Resultados** . 
-* Para ver uma lista de trabalhos concluídos recentemente, expanda o nó **Trabalhos** e clique em **Últimas 24 horas**. É exibida uma lista de trabalhos que foram concluídos nas últimas 24 horas no painel **Resultados** . O painel **Resultados** também contém informações sobre cada trabalho concluído.
-* Para ver uma lista dos trabalhos que estão sendo executados, expanda o nó **Trabalhos** e clique em **Em execução**. A lista de trabalhos em execução e informações sobre cada trabalho aparece no painel **Resultados** .
+* nó de saudação tooexpand, clique no ícone de seta Olá lado muito**trabalhos**.
+* toosee um menu de ações disponíveis, clique com botão direito Olá **trabalhos** nó ou o botão direito do mouse qualquer um de nós de saudação que aparecem no hello visualização expandida.
+* toosee uma lista dos trabalhos agendados, expanda Olá **trabalhos** nó e, em seguida, clique **agendada**. Olá lista de trabalhos configurados anteriormente e informações sobre cada trabalho aparece no hello **resultados** painel. 
+* toosee uma lista dos trabalhos concluídos recentemente, expanda Olá **trabalhos** nó e, em seguida, clique **últimas 24 horas**. É exibida uma lista de trabalhos que foram concluídas no hello últimas 24 horas em Olá **resultados** painel. Olá **resultados** painel também contém informações sobre cada trabalho concluído.
+* toosee uma lista de trabalhos que estão sendo executados, expanda Olá **trabalhos** nó e, em seguida, clique **executando**. lista de saudação de trabalhos em execução e informações sobre cada trabalho aparece no hello **resultados** painel.
 
 ## <a name="results-pane"></a>Painel Resultados
-O painel **Resultados** é o painel central da UI do StorSimple Snapshot Manager. Ele contém listas e informações de status detalhadas para o nó selecionado no painel **Escopo** .
+Olá **resultados** painel é painel center Olá Olá UI StorSimple Snapshot Manager. Ele contém listas e informações detalhadas para o nó de saudação selecionado na Olá **escopo** painel.
 
 ### <a name="example"></a>Exemplo
-Para ver o exemplo a seguir, clique no nó **Grupos de Volumes** no painel **Escopo**. O painel **Resultados** exibe uma lista de grupos de volumes com detalhes sobre cada grupo.
+Olá toosee exemplo, a seguir clique Olá **grupos de Volume** nó Olá **escopo** painel. Olá **resultados** painel exibe uma lista de grupos de volume com detalhes sobre cada grupo.
 
 ![Painel Resultados](./media/storsimple-use-snapshot-manager/HCS_SSM_Results_pane.png) 
 
-Você pode configurar os detalhes mostrados no painel **Resultados**: clique com o botão direito do mouse em um nó no painel **Escopo**, clique em **Exibir** e clique em **Adicionar/Remover Colunas**.
+Você pode configurar os detalhes de saudação mostrados no hello **resultados** painel: clique de um nó em Olá **escopo** painel, clique em **exibição**e, em seguida, clique em **Adicionar/remover Colunas**.
 
 ## <a name="actions-pane"></a>Painel Ações
-O painel **Ações** é o painel direito da UI do StorSimple Snapshot Manager. Ele contém um menu de operações que podem ser executadas no nó, na exibição ou nos dados que você seleciona no painel **Escopo** ou no painel **Resultados**. O painel **Ações** contém os mesmos comandos que os menus de **Ação** que estão disponíveis para itens no painel **Escopo** e no painel **Resultados**. Para obter uma descrição de cada ação, confira a tabela na seção do menu **Ação** .
+Olá **ações** painel é Olá direita Olá UI StorSimple Snapshot Manager. Ele contém um menu de operações que você pode executar no nó hello, exibição ou dados que você selecionar no hello **escopo** painel ou **resultados** painel. Olá **ações** painel contém Olá mesmo comandos como Olá **ação** menus estão disponíveis para itens no hello **escopo** painel e **resultados**painel. Para obter uma descrição de cada ação, consulte a tabela Olá Olá **ação** seção do menu.
 
 ### <a name="examples"></a>Exemplos
-Para ver o exemplo a seguir, no painel **Escopo**, expanda o nó **Trabalhos** e clique em **Agendado**. O painel **Ações** exibe as ações disponíveis para o nó **Agendado**.
+Olá toosee seguindo o exemplo hello **escopo** painel, expanda Olá **trabalhos** nó e clique em **agendada**. Olá **ações** painel exibe as ações disponíveis para Olá Olá **agendada** nó.
 
 ![Exemplo de trabalhos agendados do painel Ações](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane.png) 
 
-Para ver mais opções, no painel **Escopo**, expanda o nó **Trabalhos**, clique em **Agendado** e clique em um trabalho agendado no painel **Resultados**. O painel **Ações** exibe as ações disponíveis para o trabalho agendado, conforme mostrado no exemplo a seguir.
+toosee mais opções, no hello **escopo** painel, expanda Olá **trabalhos** nó, clique em **agendada**e, em seguida, clique em um trabalho agendado em Olá **resultados**painel. Olá **ações** painel exibe as ações disponíveis para o trabalho agendado do hello, Olá, conforme mostrado no exemplo a seguir de saudação.
 
 ![Exemplo de ações de trabalho do painel Ações](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
 
 ## <a name="keyboard-navigation-and-shortcuts"></a>Navegação por teclado e atalhos
-O StorSimple Snapshot Manager permite que os recursos de acessibilidade do sistema operacional Windows e do MMC (Console de Gerenciamento Microsoft). Ele também inclui alguns recursos de navegação por teclado e atalhos que são específicos ao StorSimple Snapshot Manager, conforme descrito nas seções a seguir.
+Gerenciador de instantâneos StorSimple permite que os recursos de acessibilidade de saudação do sistema de operacional do Windows hello e hello Microsoft Management Console (MMC). Ele também inclui alguns recursos de navegação do teclado e atalhos específico toohello StorSimple Snapshot Manager, conforme descrito em Olá seções a seguir.
 
 * [Teclas de navegação de teclado](#keyboard-navigation-keys) 
 * [Teclas de atalho da barra de menus](#menu-bar-shortcut-keys) 
 * [Teclas de atalho do painel Escopo](#scope-pane-shortcut-keys) 
 
 ### <a name="keyboard-navigation-keys"></a>Teclas de navegação de teclado
-A tabela a seguir descreve as teclas que você pode usar para navegar pela interface do usuário do StorSimple Snapshot Manager. 
+Olá tabela a seguir descreve chaves Olá que você pode usar a interface do usuário toonavigate Olá StorSimple Snapshot Manager. 
 
 | Tecla de navegação | Ação |
 |:--- |:--- |
-| Seta para baixo |Use a tecla de seta para baixo para mover verticalmente para o próximo item em um menu ou painel. |
-| Digite |Pressione a tecla Enter para concluir uma ação e ir para a etapa seguinte. Por exemplo, você pode pressionar Enter para selecionar **Avançar**, **OK** ou **Criar** e ir para a etapa seguinte em um assistente. |
-| Esc |Pressione a tecla Esc para fechar um menu ou para cancelar e fechar uma página. |
-| F1 |Pressione a tecla F1 para exibir um tópico da ajuda para a janela ativa no momento. |
-| F5 |Pressione a tecla F5 para atualizar um nó. |
-| F6 |Pressione a tecla F6 para mover do painel **Escopo** para o painel **Resultados**. |
-| F10 |Pressione a tecla F10 para ir para a barra de menus. |
-| Tecla de seta para a esquerda |Use a tecla de seta para a esquerda para mover horizontalmente de uma opção da barra de menus para a opção anterior. Quando você move para o item anterior na barra de menus, aparece o menu de ação (ou contexto) para o item anterior. |
-| Tecla de seta para a direita |Use a tecla de seta para a direita para mover horizontalmente de uma opção da barra de menus para a próxima. Quando você move para o próximo item na barra de menus, o menu de ação (ou contexto) para o novo item é exibido. |
-| Tecla TAB |Use a tecla Tab para mover para o próximo painel no console ou para a próxima caixa de seleção ou texto em uma página. |
-| Tecla de seta para cima |Use a tecla de seta para cima para mover verticalmente para o item anterior em um menu ou painel. |
+| Seta para baixo |Usar o hello para baixo toomove teclas de seta verticalmente toohello próximo item em um menu ou painel. |
+| Digite |Pressione Enter Olá toocomplete com chave uma ação e continue toohello próxima etapa. Por exemplo, você pode pressionar Enter tooselect **próximo**, **Okey**, ou **criar**, e, em seguida, vá toohello próxima etapa em um assistente. |
+| Esc |Pressione Olá Esc tooclose chave um menu ou toocancel e fechar uma página. |
+| F1 |Pressione tooview chave de F1 de saudação um tópico da Ajuda para a janela ativa no momento da saudação. |
+| F5 |Pressione F5 Olá toorefresh com chave um nó. |
+| F6 |Pressione Olá F6 chave toomove de saudação **escopo** painel toohello **resultados** painel. |
+| F10 |Pressione a barra de menus do hello F10 toogo chave toohello. |
+| Tecla de seta para a esquerda |Use Olá deixado toomove teclas de seta horizontal de uma opção anterior toohello da opção menu barra. Quando você move toohello anterior menu item em Olá menu barra, ação hello (ou contexto) para o item anterior da saudação é exibida. |
+| Tecla de seta para a direita |Use Olá seta para a direita chave toomove horizontalmente de um menu barra toohello opção ao lado. Quando você move toohello próximo menu item em Olá menu barra, ação hello (ou contexto) para o novo item de saudação é exibida. |
+| Tecla TAB |Use Olá guia toomove chave toohello próximo painel no hello console ou toohello próxima seleção ou caixa de texto em uma página. |
+| Tecla de seta para cima |Use Olá backup toomove teclas de seta verticalmente toohello o item anterior em um menu ou painel. |
 
 ### <a name="menu-bar-shortcut-keys"></a>Teclas de atalho da barra de menus
-A tabela a seguir descreve as combinações de teclas de atalho da barra de menus. Após você pressionar as teclas de atalho e o menu abrir, você pode usar teclas de atalho do menu (as chaves sublinhadas no menu). Para obter mais informações sobre a barra de menus, acesse [Barra de menus](#menu-bar).
+Olá tabela a seguir descreve combinações de teclas de atalho Olá Olá barra de menus. Depois de você pressionar teclas de atalho hello e Olá menu é aberto, você pode usar as teclas de atalho (Olá teclas sublinhadas no menu de saudação). Para obter mais informações sobre a barra de menus do hello, vá muito[barra de menus](#menu-bar).
 
 | Atalho | Result | Tecla de atalho do menu | Result |
 |:--- |:--- |:--- |:--- |
-| ALT + F |Abre o menu **Arquivo** . |N |Abre uma nova instância do console. |
-|  |O |Abre a página **Ferramentas Administrativas** . | |
-|  |S |Salva o console do StorSimple Snapshot Manager. | |
-|  |Uma |Abre a página **Salvar Como** . | |
-|  |M |Abre a página **Adicionar/Remover Snap-in** . | |
-|  |P |Abre a página **Opções** . | |
+| ALT + F |Olá abre **arquivo** menu. |N |Abre uma nova instância do console. |
+|  |O |Olá abre **ferramentas administrativas** página. | |
+|  |S |Salva o console do Gerenciador de instantâneos StorSimple hello. | |
+|  |Uma |Olá abre **Salvar como** página. | |
+|  |M |Olá abre **Adicionar/Remover Snap-in** página. | |
+|  |P |Olá abre **opções** página. | |
 |  |H |Abre a Ajuda online. | |
-| ALT+A |Abre o menu **Ação** . |I |Ativa e desativa a opção de exibição de importação. |
+| ALT+A |Olá abre **ação** menu. |I |Ativa e desativa a opção de exibição de importação de saudação. |
 |  |W |Abre um novo console do StorSimple Snapshot Manager. | |
-|  |F |Atualiza o console do StorSimple Snapshot Manager. | |
-|  |L |Abre a página **Exportar Lista** . | |
+|  |F |Atualiza o console do Gerenciador de instantâneos StorSimple hello. | |
+|  |L |Olá abre **exportar lista** página. | |
 |  |H |Abre a Ajuda online. | |
-| ALT+V |Abre o menu **Exibição** . |Uma |Abre a página **Adicionar/Remover Colunas** . |
-|  |U |Abre a página **Personalizar Modo de Exibição** . | |
-| ALT+O |Abre o menu **Favoritos** . |Uma |Abre a página **Adicionar aos Favoritos** . |
-|  |O |Abre a página **Organizar Favoritos** . | |
-| ALT+W |Abre o menu **Janela** . |N |Abre outra janela do StorSimple Snapshot Manager. |
+| ALT+V |Olá abre **exibição** menu. |Uma |Olá abre **Adicionar/remover colunas** página. |
+|  |U |Olá abre **Personalizar modo de exibição** página. | |
+| ALT+O |Olá abre **Favoritos** menu. |Uma |Olá abre **adicionar tooFavorites** página. |
+|  |O |Olá abre **Organizar Favoritos** página. | |
+| ALT+W |Olá abre **janela** menu. |N |Abre outra janela do StorSimple Snapshot Manager. |
 |  |C |Exibe todas as janelas de console abertas em um estilo em cascata. | |
 |  |T |Exibe todas as janelas de console abertas em um padrão de grade. | |
-|  |I |Organiza os ícones em uma linha horizontal na parte inferior da tela. | |
-| ALT+H |Abre o menu **Ajuda** . |H |Abre a Ajuda online. |
-|  |T |Abre a página da Web do Microsoft TechNet Tech Center. | |
-|  |Uma |Abre a página **Sobre o Console de Gerenciamento Microsoft** . | |
+|  |I |Organiza os ícones em uma linha horizontal na parte inferior da saudação da tela. | |
+| ALT+H |Olá abre **ajuda** menu. |H |Abre a Ajuda online. |
+|  |T |Abre a página de web do Microsoft TechNet Tech Center hello. | |
+|  |Uma |Olá abre **sobre o Console de gerenciamento Microsoft** página. | |
 
 ### <a name="scope-pane-shortcut-keys"></a>Teclas de atalho do painel Escopo
-As tabelas a seguir mostram as combinações de teclas de atalho para cada nó no painel **Escopo** . 
+Olá tabelas a seguir mostram atalho Olá combinações de teclas para cada nó no hello **escopo** painel. 
 
 * [Teclas de atalho do nó Dispositivos](#devices-node-shortcut-keys)
 * [Teclas de atalho do nó Volumes](#volumes-node-shortcut-keys)
@@ -392,61 +392,61 @@ As tabelas a seguir mostram as combinações de teclas de atalho para cada nó n
 #### <a name="devices-node-shortcut-keys"></a>Teclas de atalho do nó Dispositivos
 | Atalho de menu | Result |
 |:--- |:--- |
-| C |Abre a página **Configurar um Dispositivo** . |
-| D |Atualiza a lista de dispositivos e detalhes do dispositivo. |
-| V |Abre o menu **Exibição** . |
-| W |Abre um novo console do StorSimple Snapshot Manager voltado para o nó **Detalhes** . |
-| F |Atualiza o console do StorSimple Snapshot Manager. |
-| L |Abre a página **Exportar Lista** . |
+| C |Olá abre **configurar um dispositivo** página. |
+| D |Atualiza a lista de saudação de dispositivos e detalhes do dispositivo. |
+| V |Olá abre **exibição** menu. |
+| W |Abre um novo console do Gerenciador de instantâneos StorSimple voltado Olá **detalhes** nó. |
+| F |Atualiza o console do Gerenciador de instantâneos StorSimple hello. |
+| L |Olá abre **exportar lista** página. |
 | H |Abre a Ajuda online. |
 
 #### <a name="volumes-node-shortcut-keys"></a>Teclas de atalho do nó Volumes
 | Atalho de menu | Result |
 |:--- |:--- |
-| V |Atualiza a lista de volumes. |
-| V (pressione duas vezes) |Abre o menu **Exibição** . |
-| W |Abre um novo console do StorSimple Snapshot Manager voltado para o nó **Volumes** . |
-| F |Atualiza o console do StorSimple Snapshot Manager. |
-| L |Abre a página **Exportar Lista** . |
+| V |Lista de saudação de atualizações de volumes. |
+| V (pressione duas vezes) |Olá abre **exibição** menu. |
+| W |Abre um novo console do Gerenciador de instantâneos StorSimple voltado Olá **Volumes** nó. |
+| F |Atualiza o console do Gerenciador de instantâneos StorSimple hello. |
+| L |Olá abre **exportar lista** página. |
 | H |Abre a Ajuda online. |
 
 #### <a name="volume-groups-node-shortcut-keys"></a>Teclas de atalho do nó Grupos de Volumes
 | Atalho de menu | Result |
 |:--- |:--- |
-| G |Abre a página **Criar um Grupo de Volumes** . |
-| V |Abre o menu **Exibição** . |
-| W |Abre um novo console do StorSimple Snapshot Manager voltado para o nó **Grupos de Volumes** . |
-| F |Atualiza o console do StorSimple Snapshot Manager. |
-| L |Abre a página **Exportar Lista** . |
+| G |Olá abre **criar um grupo de volumes** página. |
+| V |Olá abre **exibição** menu. |
+| W |Abre um novo console do Gerenciador de instantâneos StorSimple voltado Olá **grupos de Volume** nó. |
+| F |Atualiza o console do Gerenciador de instantâneos StorSimple hello. |
+| L |Olá abre **exportar lista** página. |
 | H |Abre a Ajuda online. |
 
 #### <a name="backup-policies-node-shortcut-keys"></a>Teclas de atalho do nó Políticas de Backup
 | Atalho de menu | Result |
 |:--- |:--- |
-| B |Abre a página **Criar uma Política** . |
-| V |Abre o menu **Exibição** . |
-| W |Abre um novo console do StorSimple Snapshot Manager voltado para o nó **Grupos de Volumes** . |
-| F |Atualiza o console do StorSimple Snapshot Manager. |
-| L |Abre a página **Exportar Lista**. |
+| B |Olá abre **criar uma política de** página. |
+| V |Olá abre **exibição** menu. |
+| W |Abre um novo console do Gerenciador de instantâneos StorSimple voltado Olá **grupos de Volume** nó. |
+| F |Atualiza o console do Gerenciador de instantâneos StorSimple hello. |
+| L |Olá abre * * exportar lista * * página. |
 | H |Abre a Ajuda online. |
 
 #### <a name="backup-catalog-node-shortcut-keys"></a>Teclas de atalho do nó Catálogo de Backups
 | Atalho de menu | Result |
 |:--- |:--- |
-| W |Abre um novo console do StorSimple Snapshot Manager voltado para o nó **Grupos de Volumes** . |
-| F |Atualiza o console do StorSimple Snapshot Manager. |
+| W |Abre um novo console do Gerenciador de instantâneos StorSimple voltado Olá **grupos de Volume** nó. |
+| F |Atualiza o console do Gerenciador de instantâneos StorSimple hello. |
 | H |Abre a Ajuda online. |
 
 #### <a name="jobs-node-shortcut-keys"></a>Teclas de atalho do nó Trabalhos
 | Atalho de menu | Result |
 |:--- |:--- |
-| V |Abre o menu **Exibição** . |
-| W |Abre um novo console do StorSimple Snapshot Manager voltado para o nó **Trabalhos** . |
-| F |Atualiza o console do StorSimple Snapshot Manager. |
-| L |Abre a página **Exportar Lista** . |
+| V |Olá abre **exibição** menu. |
+| W |Abre um novo console do Gerenciador de instantâneos StorSimple voltado Olá **trabalhos** nó. |
+| F |Atualiza o console do Gerenciador de instantâneos StorSimple hello. |
+| L |Olá abre **exportar lista** página. |
 | H |Abre a Ajuda online |
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba como [usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
-* Saiba como [usar o StorSimple Snapshot Manager para conectar e gerenciar dispositivos](storsimple-snapshot-manager-manage-devices.md).
+* Saiba como muito[usar o Gerenciador de instantâneos StorSimple tooadminister sua solução StorSimple](storsimple-snapshot-manager-admin.md).
+* Saiba como muito[usar o Gerenciador de instantâneos StorSimple tooconnect e gerenciar dispositivos](storsimple-snapshot-manager-manage-devices.md).
 

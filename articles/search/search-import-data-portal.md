@@ -1,6 +1,6 @@
 ---
-title: Importar dados para o Azure Search no portal | Microsoft Docs
-description: "Use o Assistente de Dados de Importação do Azure Search no Portal do Azure para rastrear dados do Azure desde o Azure Cosmos DB NoSQL, o armazenamento de Blobs, o armazenamento de tabelas, o Banco de Dados SQL e o SQL Server em VMs do Azure."
+title: "dados de aaaImport na pesquisa do Azure no portal de saudação | Microsoft Docs"
+description: "Use Olá Assistente de importação de dados do Azure pesquisa em hello Azure Portal toocrawl dados do Azure do banco de dados do SQL Azure Cosmos, armazenamento de Blob, o armazenamento de tabela, banco de dados SQL e SQL Server em VMs do Azure."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -15,30 +15,30 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 00b0e59594560c0cdaea748df196518e9fba3834
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="import-data-to-azure-search-using-the-portal"></a>Importar dados para a Pesquisa do Azure usando o portal
-O portal do Azure fornece um assistente de **Importação de dados** no painel do Azure Search para carregar os dados em um índice. 
+# <a name="import-data-tooazure-search-using-hello-portal"></a>Importar dados tooAzure pesquisa usando o portal de saudação
+Olá portal do Azure fornece um **importar dados** assistente no painel de pesquisa do Azure Olá para carregar dados em um índice. 
 
-  ![Importar Dados na barra de comandos][1]
+  ![Importar dados na barra de comandos Olá][1]
 
-Internamente, o assistente configura e invoca um *indexador*, automatizando várias etapas do processo de indexação: 
+Internamente, o Assistente de saudação configura e invoca uma *indexador*, automatizando várias etapas do processo de indexação de saudação: 
 
-* Conexão a uma fonte de dados externa na mesma assinatura do Azure
-* Gerar um esquema de índice modificável com base na estrutura de dados de origem
-* Carregar documentos JSON em um índice usando um conjunto de registros recuperado da fonte de dados
+* Conecte-se a fonte de dados externa tooan Olá mesma assinatura do Azure
+* Gerar um esquema de índice pode ser modificado com base na estrutura de dados de origem de saudação
+* Carregar documentos JSON em um índice usando um conjunto de linhas recuperado da fonte de dados de saudação
 
-Você pode experimentar este fluxo de trabalho usando dados de exemplo no Azure Cosmos DB. Visite [Introdução ao Azure Search no Portal do Azure](search-get-started-portal.md) para obter instruções.
+Você pode experimentar este fluxo de trabalho usando dados de exemplo no Azure Cosmos DB. Visite [Introdução à pesquisa do Azure no hello Azure Portal](search-get-started-portal.md) para obter instruções.
 
 > [!NOTE]
-> Você pode iniciar o assistente **Importar dados** do painel do Azure Cosmos DB para simplificar a indexação dessa fonte de dados. Em navegação à esquerda, vá para **Coleções** > **Adicionar Azure Search** para começar.
+> Você pode iniciar Olá **importar dados** Assistente do hello Azure Cosmos DB painel toosimplify indexação da fonte de dados. Esquerda de navegação, vá muito**coleções** > **Adicionar pesquisa do Azure** tooget iniciado.
 
-## <a name="data-sources-supported-by-the-import-data-wizard"></a>Fontes de dados com suporte do Assistente para Importação de Dados
-O Assistente de importação de dados oferece suporte às seguintes fontes de dados: 
+## <a name="data-sources-supported-by-hello-import-data-wizard"></a>Fontes de dados suportadas pelo Olá Assistente de importação de dados
+Assistente de importação de dados Olá dá suporte a saudação fontes de dados a seguir: 
 
 * Banco de Dados SQL do Azure
 * Dados relacionais do SQL Server em uma VM do Azure
@@ -46,71 +46,71 @@ O Assistente de importação de dados oferece suporte às seguintes fontes de da
 * Armazenamento do Blob do Azure
 * Armazenamento da tabela do Azure
 
-Um conjunto de dados bidimensional é uma entrada exigida. Você só pode importar de uma única tabela, exibição do banco de dados ou estrutura de dados equivalente. Você deve criar essa estrutura de dados antes de executar o assistente.
+Um conjunto de dados bidimensional é uma entrada exigida. Você só pode importar de uma única tabela, exibição do banco de dados ou estrutura de dados equivalente. Você deve criar essa estrutura de dados antes de executar o Assistente de saudação.
 
-## <a name="connect-to-your-data"></a>Conectar aos seus dados
-1. Entre no [portal do Azure](https://portal.azure.com) e abra o painel de serviço. Você pode clicar em **Mais serviços** na barra de salto para procurar os “serviços de pesquisa” existentes na assinatura atual. 
-2. Clique em **Importar Dados** na barra de comandos para deslizar e abrir a folha Importar Dados.  
-3. Clique em **Conectar a seus dados** para especificar uma definição de fonte de dados usada por um indexador. Para fontes de dados dentro da assinatura, normalmente o assistente pode detectar e ler as informações de conexão, reduzindo os requisitos gerais de configuração.
+## <a name="connect-tooyour-data"></a>Conecte-se a dados tooyour
+1. Entrar toohello [portal do Azure](https://portal.azure.com) e painel de serviço Olá aberto. Você pode clicar em **mais serviços** em Olá salto barra toosearch existente "serviços de pesquisa" na assinatura atual hello. 
+2. Clique em **importar dados** na folha de dados de importação Olá abrir tooslide da barra de comandos de saudação.  
+3. Clique em **conectar dados tooyour** toospecify uma definição de fonte de dados usada por um indexador. Para fontes de dados de assinatura de dentro do próprio assistente Olá geralmente pode detectar e ler as informações de conexão, minimizando os requisitos gerais de configuração.
 
 |  |  |
 | --- | --- |
 | **Fonte de dados existente** |Se já houver indexadores definidos em seu serviço de pesquisa, selecione uma definição de fonte de dados existente para outra importação. |
-| **Banco de Dados SQL do Azure** |É possível especificar o nome do serviço, credenciais para um usuário de banco de dados com permissão de leitura e um nome de banco de dados na página ou por meio de uma cadeia de conexão do ADO.NET. Escolha a opção de cadeia de conexão para exibir ou personalizar as propriedades. <br/><br/>A tabela ou exibição que fornece o conjunto de linhas deve ser especificada na página. Essa opção aparece após o êxito da conexão, fornecendo uma lista suspensa para que você possa fazer uma seleção. |
-| **SQL Server em VM do Azure** |Especifique um nome de serviço totalmente qualificado, a ID e a senha de usuário e um banco de dados como uma cadeia de conexão. Para usar esta fonte de dados, você deve ter instalado um certificado no repositório local que criptografa a conexão. Para obter instruções, veja [Conexão de VM do SQL ao Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>A tabela ou exibição que fornece o conjunto de linhas deve ser especificada na página. Essa opção aparece após o êxito da conexão, fornecendo uma lista suspensa para que você possa fazer uma seleção. |
-| **Azure Cosmos DB** |Os requisitos incluem a conta, o banco de dados e a coleção. Todos os documentos na coleção serão incluídos no índice. Você pode definir uma consulta para nivelar ou filtrar o conjunto de linhas, ou para detectar documentos alterados para operações de atualização de dados subsequentes. |
-| **Armazenamento de Blobs do Azure** |Os requisitos incluem a conta de armazenamento e um contêiner. Como opção, se os nomes de blob seguirem uma convenção de nomenclatura virtual para fins de agrupamento, você poderá especificar a parte do diretório virtual do nome como uma pasta no contêiner. Confira [Indexação do Armazenamento de Blobs](search-howto-indexing-azure-blob-storage.md) para saber mais. |
-| **Armazenamento de Tabelas do Azure** |Os requisitos incluem a conta de armazenamento e um nome de tabela. Como opção, você pode especificar uma consulta para recuperar um subconjunto das tabelas. Confira [Indexação do Armazenamento de Tabelas](search-howto-indexing-azure-tables.md) para saber mais. |
+| **Banco de Dados SQL do Azure** |Nome do serviço, as credenciais para um usuário de banco de dados com permissões de leitura e um nome de banco de dados podem ser especificado na página de saudação ou por meio de uma cadeia de caracteres de conexão ADO.NET. Escolha Olá tooview de opção de cadeia de caracteres de conexão ou personalizar as propriedades. <br/><br/>Olá tabela ou exibição fornece um conjunto de linhas de saudação deve ser especificada na página de saudação. Essa opção é exibida depois conexão Olá for bem-sucedida, fornecendo uma lista suspensa para que você possa fazer uma seleção. |
+| **SQL Server em VM do Azure** |Especifique um nome de serviço totalmente qualificado, a ID e a senha de usuário e um banco de dados como uma cadeia de conexão. toouse esta fonte de dados, você deve ter instalado um certificado no repositório local de saudação que criptografa conexão hello. Para obter instruções, consulte [tooAzure de conexão SQL VM pesquisa](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>Olá tabela ou exibição fornece um conjunto de linhas de saudação deve ser especificada na página de saudação. Essa opção é exibida depois conexão Olá for bem-sucedida, fornecendo uma lista suspensa para que você possa fazer uma seleção. |
+| **Banco de dados do Azure Cosmos** |Requisitos incluem conta hello, banco de dados e coleção. Todos os documentos na coleção hello serão incluídos no índice de saudação. Você pode definir uma consulta tooflatten ou filtrar o conjunto de linhas de saudação ou toodetect alterado documentos para operações de atualização de dados subsequentes. |
+| **Armazenamento de Blobs do Azure** |Requisitos incluem hello conta de armazenamento e um contêiner. Opcionalmente, se os nomes de blob seguem uma convenção de nomenclatura virtual para fins de agrupamento, você pode especificar parte do diretório virtual de saudação do nome de saudação como uma pasta no contêiner. Confira [Indexação do Armazenamento de Blobs](search-howto-indexing-azure-blob-storage.md) para saber mais. |
+| **Armazenamento de Tabelas do Azure** |Os requisitos incluem conta de armazenamento hello e um nome de tabela. Opcionalmente, você pode especificar uma consulta tooretrieve um subconjunto das tabelas de saudação. Confira [Indexação do Armazenamento de Tabelas](search-howto-indexing-azure-tables.md) para saber mais. |
 
 ## <a name="customize-target-index"></a>Personalizar o índice de destino
-Normalmente, um índice preliminar é inferido do conjunto de dados. Adicionar, editar ou excluir campos para concluir o esquema. Além disso, defina os atributos no nível do campo para determinar seus comportamentos de pesquisa subsequentes.
+Um índice preliminar normalmente é inferido do conjunto de dados de saudação. Adicionar, editar ou excluir campos toocomplete Olá esquema. Além disso, definir atributos em toodetermine de nível de campo Olá seus comportamentos de busca subsequentes.
 
-1. Em **Personalizar índice de destino**, especifique o nome e uma **Chave** usados para identificar exclusivamente cada documento. A Chave deve ser uma cadeia de caracteres. Se os valores de campo incluem espaços ou traços, defina as opções avançadas em **Importar seus dados** para suprimir a verificação de validação para esses caracteres.
-2. Analise e revise os campos restantes. O nome e o tipo do campo geralmente são preenchidos para você. Você pode alterar o tipo de dados até que o índice é criado. Alterá-la posteriormente exigirá uma recompilação.
+1. Em **índice de destino de personalizar**, especifique o nome da saudação e um **chave** toouniquely usada identificar cada documento. Olá chave deve ser uma cadeia de caracteres. Se os valores de campo incluem espaços ou traços ser se tooset opções avançadas no **importar seus dados** toosuppress Olá verificação de validação para esses caracteres.
+2. Analise e revise Olá restante. O nome e o tipo do campo geralmente são preenchidos para você. Você pode alterar o tipo de dados de saudação até Olá índice é criado. Alterá-la posteriormente exigirá uma recompilação.
 3. Defina os atributos de índice de cada campo:
    
-   * Recuperável retorna o campo nos resultados da pesquisa.
-   * Filtrável permite que o campo seja referenciado em expressões de filtro.
-   * Classificável permite que o campo seja usado em uma classificação.
-   * Com faceta habilita o campo para a navegação com faceta.
+   * Recuperáveis retorna campo Olá nos resultados da pesquisa.
+   * Podem ser filtrados permite Olá campo toobe referenciada em expressões de filtro.
+   * Classificável permite Olá toobe de campo usada em uma classificação.
+   * Facetable permite que o campo de saudação para navegação facetada.
    * Pesquisável habilita a pesquisa de texto completo.
-4. Clique na guia **Analisador** se desejar especificar um analisador de idiomas no nível do campo. Somente os analisadores de idioma podem ser especificados no momento. O uso de um analisador personalizado ou de um analisador que não é de linguagem, como o Keyword, o Pattern etc., exige código.
+4. Clique em Olá **analisador** guia se você quiser toospecify um analisador de idioma no nível de campo hello. Somente os analisadores de idioma podem ser especificados no momento. O uso de um analisador personalizado ou de um analisador que não é de linguagem, como o Keyword, o Pattern etc., exige código.
    
-   * Clique em **Pesquisável** para designar a pesquisa de texto completo no campo e habilitar a lista suspensa Analisador.
-   * Escolha o analisador que quiser. Confira [Criar um índice para documentos em vários idiomas](search-language-support.md) para obter detalhes.
-5. Clique em **Sugestor** para habilitar o preenchimento automático de sugestões de consulta nos campos selecionados.
+   * Clique em **pesquisável** toodesignate texto completo de pesquisa no campo hello e habilitar lista de saudação suspensa do analisador.
+   * Escolha o analisador de saudação desejado. Confira [Criar um índice para documentos em vários idiomas](search-language-support.md) para obter detalhes.
+5. Clique em Olá **sugestão** tooenable sugestões de preenchimento automático de consulta nos campos selecionados.
 
 ## <a name="import-your-data"></a>Importar seus dados
-1. Em **Importar seus dados**, forneça um nome para o indexador. Lembre-se de que o produto do assistente para Importação de Dados é um indexador. Posteriormente, se você quiser exibir ou editá-lo, selecione-o no portal em vez de executar novamente o assistente. 
-2. Especifique o cronograma, que tem base no fuso horário regional no qual o serviço é provisionado.
-3. Defina opções avançadas para especificar os limites de continuação da indexação no caso de um documento ser descartado. Além disso, você pode especificar se os campos **Chave** podem conter espaços e barras.  
-4. Clique em **OK** para criar o índice e importar os dados.
+1. Em **importar seus dados**, forneça um nome para o indexador hello. Lembre-se de que o produto saudação do hello importar dados Assistente é um indexador. Posteriormente, se você quiser tooview ou editá-lo, você selecionará do portal de saudação em vez de executar novamente o Assistente de saudação. 
+2. Especifique o agendamento de saudação, que se baseia em Olá fuso horário em que o serviço de saudação é provisionado.
+3. Definir limites de toospecify de opções avançadas em se a indexação pode continuar se um documento é descartado. Além disso, você pode especificar se **chave** campos são permitidos espaços toocontain e barras.  
+4. Clique em **Okey** toocreate Olá índice e importar dados de saudação.
 
-Você pode monitorar a indexação no portal. Como documentos são carregados, a contagem de documentos se expandirão para o índice que você definiu. Às vezes, demora alguns minutos para que a página do portal obtenham as atualizações mais recentes.
+Você pode monitorar a indexação no portal de saudação. Como documentos são carregados, contagem de documentos Olá aumentará para índice Olá que você definiu. Às vezes, leva alguns minutos para toopick de página do portal Olá as atualizações mais recentes de saudação.
 
-O índice estará pronto para consulta assim que todos os documentos forem carregados.
+índice de saudação é tooquery pronto assim que todos os documentos de saudação são carregados.
 
 ## <a name="query-an-index-using-search-explorer"></a>Consultar um índice usando o Search Explorer
 
-O portal inclui **Search Explorer** para que você possa consultar um índice sem precisar escrever nenhum código. Você pode usar o [Search Explorer](search-explorer.md) em qualquer índice.
+Olá portal inclui **Search Explorer** para que você pode consultar um índice sem ter que toowrite qualquer código. Você pode usar o [Search Explorer](search-explorer.md) em qualquer índice.
 
-A experiência de pesquisa se baseia nas configurações padrão, como a [sintaxe simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e padrão[searchMode query parameter(https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+Olá experiência de pesquisa é com base nas configurações padrão, como Olá [sintaxe simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e padrão [parâmetro de consulta searchMode (https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
-Os resultados são retornados em JSON, em um formato detalhado, para que você possa inspecionar o documento inteiro.
+Resultados são retornados em JSON, em um formato detalhado, para que você pode inspecionar o documento inteiro hello.
 
 ## <a name="edit-an-existing-indexer"></a>Editar um indexador existente
-Conforme observado, o Assistente de importação de dados cria um **indexador**, que você pode modificar como uma construção autônomo no portal.
+Conforme observado, o Assistente de importação de dados de saudação cria um **indexador**, que você pode modificar como uma construção autônomo no portal de saudação.
 
-No painel do serviço, clique duas vezes no bloco Indexador para deslizar uma lista de todos os indexadores criados para sua assinatura. Clique duas vezes em um dos indexadores para executá-lo, editá-lo ou excluí-lo. Você pode substituir o índice por outro existente, alterar a fonte de dados e definir opções para os limites de erro durante a indexação.
+No painel de serviço hello, clique duas vezes em Olá indexador bloco tooslide uma lista de todos os indexadores criado para sua assinatura. Clique duas vezes em uma saudação indexadores toorun, editar ou excluí-lo. Substituir o índice de saudação com outro existente, alterar a fonte de dados hello e definir opções para os limites de erro durante a indexação.
 
 ## <a name="edit-an-existing-index"></a>Editar um indexador existente
-O assistente também criado um **índice**. No Azure Search, estruturais atualizações em um índice exigirá uma recriação de índice. Uma recriação exige a exclusão do índice, recriando o índice usando um esquema revisado que tem as alterações desejadas e recarregar os dados. As atualizações estruturais incluem alterar um tipo de dados e renomear ou excluir um campo.
+Assistente Olá também criado um **índice**. Na pesquisa do Azure, índice de tooan atualizações estrutural exigirá uma recriação de índice. Uma recompilação envolve Excluir índice hello, recriando o índice hello usando um esquema revisado que tem alterações de saudação desejado e recarregar os dados. As atualizações estruturais incluem alterar um tipo de dados e renomear ou excluir um campo.
 
 As edições que não exigem a recriação incluem adicionar um novo campo, alterar os perfis de pontuação, mudar as sugestões ou alterar os analistas de linguagem. Consulte [Atualizar Índice](https://msdn.microsoft.com/library/azure/dn800964.aspx) para obter mais informações.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte estes links para saber mais sobre os indexadores:
+Revise esses toolearn links mais sobre indexadores:
 
 * [Indexação do Banco de Dados SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Indexação do Azure Cosmos DB](search-howto-index-documentdb.md)

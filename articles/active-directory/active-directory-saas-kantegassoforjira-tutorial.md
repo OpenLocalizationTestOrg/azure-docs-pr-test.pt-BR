@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory ao SSO do Kantega para o JIRA | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o SSO do Kantega para o JIRA."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Kantega SSO para JIRA."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,139 +13,139 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 06a1d301818f025270137f7eaa9f40e5e4503112
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: 67894cc55ef91d0991c62e0e4f1be712723cb474
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>Tutorial: Integração do Azure Active Directory ao SSO do Kantega para o JIRA
 
-Neste tutorial, você aprende a integrar o SSO do Kantega para o JIRA ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como toointegrate Kantega SSO para JIRA com o Azure Active Directory (AD do Azure).
 
-A integração do SSO do Kantega para o JIRA ao Azure AD oferece os seguintes benefícios:
+Integrando Kantega SSO para JIRA com o AD do Azure fornece Olá benefícios a seguir:
 
-- No Azure AD, é possível controlar quem tem acesso ao SSO do Kantega para o JIRA
-- É possível permitir que os usuários se conectem automaticamente ao SSO do Kantega para o JIRA (Logon Único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um única localização: o Portal do Azure
+- Você pode controlar no AD do Azure que tenha tooKantega acesso SSO para JIRA
+- Você pode habilitar seu usuários tooautomatically get conectado tooKantega SSO para JIRA (logon único) com suas contas do AD do Azure
+- Você pode gerenciar suas contas em um local central - Olá portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao SSO do Kantega para o JIRA, você precisa dos seguintes itens:
+tooconfigure integração do AD do Azure com Kantega SSO para JIRA, você precisa Olá itens a seguir:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura habilitada para logon único do SSO do Kantega para o JIRA
 
 > [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
 
-1. Adicionando o SSO do Kantega para o JIRA por meio da galeria
+1. Adicionando Kantega SSO para JIRA da Galeria de saudação
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-kantega-sso-for-jira-from-the-gallery"></a>Adicionando o SSO do Kantega para o JIRA por meio da galeria
-Para configurar a integração do SSO do Kantega para o JIRA ao Azure AD, é necessário adicionar o SSO do Kantega para o JIRA à lista de aplicativos SaaS gerenciados por meio da galeria.
+## <a name="adding-kantega-sso-for-jira-from-hello-gallery"></a>Adicionando Kantega SSO para JIRA da Galeria de saudação
+integração de saudação tooconfigure do Kantega SSO para JIRA no AD do Azure, você precisa tooadd Kantega SSO para JIRA na lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
 
-**Para adicionar o SSO do Kantega para o JIRA por meio da galeria, realize as seguintes etapas:**
+**tooadd Kantega SSO para JIRA da Galeria hello, execute Olá etapas a seguir:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
 
     ![Aplicativos][3]
 
-4. Na caixa de pesquisa, digite **SSO do Kantega para o JIRA**.
+4. Na caixa de pesquisa hello, digite **Kantega SSO para JIRA**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_search.png)
 
-5. No painel de resultados, selecione **SSO do Kantega para o JIRA** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+5. No painel de resultados de saudação, selecione **Kantega SSO para JIRA**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configura e testa o logon único do Azure AD com o SSO do Kantega para o JIRA, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do SSO do Kantega para o JIRA é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do SSO do Kantega para o JIRA.
+Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no Kantega SSO para JIRA é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação em Kantega SSO para JIRA precisa toobe estabelecida.
 
-No SSO do Kantega para o JIRA, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+Kantega SSO para JIRA, atribuir valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
 
-Para configurar e testar o logon único do Azure AD com o SSO do Kantega para o JIRA, você precisa concluir os seguintes blocos de construção:
+tooconfigure e testar logon único do AD do Azure com o SSO Kantega JIRA, você precisa Olá toocomplete blocos de construção a seguir:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criando um usuário de teste do SSO do Kantega para o JIRA](#creating-a-kantega-sso-for-jira-test-user)** – para ter um equivalente de Brenda Fernandes no SSO do Kantega para o JIRA que esteja vinculado à representação de usuário do Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
+3. **[Criando um Kantega SSO para o usuário de teste JIRA](#creating-a-kantega-sso-for-jira-test-user)**  -toohave um equivalente do Britta Simon em Kantega SSO para JIRA é vinculado toohello AD do Azure representação do usuário.
+4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
+5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo SSO do Kantega para o JIRA.
+Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no seu Kantega SSO para aplicativos JIRA.
 
-**Para configurar o logon único do Azure AD com o SSO do Kantega para o JIRA, realize as seguintes etapas:**
+**tooconfigure logon único do AD do Azure com o SSO Kantega para JIRA, execute Olá etapas a seguir:**
 
-1. No portal do Azure, na página de integração do aplicativo **SSO do Kantega para o JIRA**, clique em **Logon único**.
+1. Em Olá portal do Azure, Olá **Kantega SSO para JIRA** página de integração de aplicativos, clique em **o logon único**.
 
     ![Configurar Logon Único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
  
     ![Configurar Logon Único](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_samlbase.png)
 
-3. No modo iniciado pelo **IDP**, na seção **Domínio e URLs do SSO do Kantega para o JIRA**, realize a seguinte etapa:
+3. Em **IDP** iniciada modo em Olá **Kantega SSO para o domínio de JIRA e URLs** seção executar Olá etapa a seguir:
 
     ![Configurar Logon Único](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_url1.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    a. Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
-    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    b. Em Olá **URL de resposta** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
-4. No modo iniciado pelo **SP**, marque a opção **Mostrar configurações de URL avançadas** e realize a seguinte etapa:
+4. Em **SP** modo iniciado, verifique **Mostrar configurações de URL avançadas** e executar Olá etapa a seguir:
 
     ![Configurar Logon Único](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_url2.png)
 
-    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. Esses valores são recebidos durante a configuração do plug-in do Jira, que é explicada adiante no tutorial.
+    > Esses valores não são reais. Atualizar esses valores com hello real identificador, URL de resposta e URL de logon. Esses valores são recebidos durante a configuração de saudação do plugin Jira, que é explicada posteriormente no tutorial de saudação.
 
-5. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+5. Em Olá **o certificado de autenticação SAML** seção, clique em **Metadata XML** e, em seguida, salve o arquivo de metadados de saudação em seu computador.
 
-    ![Configurar o logon único](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_certificate.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_certificate.png) 
 
 6. Clique no botão **Salvar** .
 
     ![Configurar Logon Único](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_general_400.png)
     
-7. Em outra janela do navegador da Web, faça logon no servidor local do JIRA como administrador.
+7. Em uma janela de navegador web diferente, faça logon em tooyour JIRA no servidor local como um administrador.
 
-8. Passe o cursor do mouse sobre a engrenagem e clique em **Complementos**.
+8. Passe o mouse sobre engrenagem e clique em Olá **complementos**.
 
     ![Configurar Logon Único](./media/active-directory-saas-kantegassoforjira-tutorial/addon1.png)
 
-9. Na seção da guia Complementos, clique em **Localizar novos complementos**. Pesquise **SSO do Kantega para o JIRA (SAML e Kerberos)** e clique no botão **Instalar** para instalar o novo plug-in do SAML.
+9. Na seção da guia Complementos, clique em **Localizar novos complementos**. Pesquisa **Kantega SSO para JIRA (SAML e Kerberos)** e clique em **instalar** tooinstall botão Olá novo plug-in SAML.
 
     ![Configurar Logon Único](./media/active-directory-saas-kantegassoforjira-tutorial/addon2.png)
 
-10. A instalação do plug-in é iniciada.
+10. Inicia a instalação do plug-in de saudação.
 
     ![Configurar Logon Único](./media/active-directory-saas-kantegassoforjira-tutorial/addon3.png)
 
-11. Quando a instalação for concluída. Clique em **fechar**
+11. Após a conclusão da instalação de saudação. Clique em **fechar**
 
     ![Configurar Logon Único](./media/active-directory-saas-kantegassoforjira-tutorial/addon33.png)
 
@@ -153,11 +153,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar Logon Único](./media/active-directory-saas-kantegassoforjira-tutorial/addon34.png)
     
-13. O novo plug-in é listado em **INTEGRAÇÕES**. Clique em **Configurar** para configurar o novo plug-in.
+13. O novo plug-in é listado em **INTEGRAÇÕES**. Clique em **configurar** tooconfigure Olá novo plug-in.
 
     ![Configurar Logon Único](./media/active-directory-saas-kantegassoforjira-tutorial/addon35.png)
 
-14. Na seção **SAML**. Selecione **Azure AD (Azure Active Directory)** na lista suspensa **Adicionar provedor de identidade**.
+14. Em Olá **SAML** seção. Selecione **do Azure Active Directory (AD do Azure)** de saudação **Adicionar provedor de identidade** lista suspensa.
 
     ![Configurar Logon Único](./media/active-directory-saas-kantegassoforjira-tutorial/addon4.png)
 
@@ -165,15 +165,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar Logon Único](./media/active-directory-saas-kantegassoforjira-tutorial/addon5.png)     
 
-16. Na seção **Propriedades do aplicativo**, realize as seguintes etapas: 
+16. Em Olá **propriedades do aplicativo** seção, execute as seguintes etapas: 
 
     ![Configurar Logon Único](./media/active-directory-saas-kantegassoforjira-tutorial/addon6.png)
 
-    a. Copie o valor da **URI da ID do Aplicativo** e use-o como **o Identificador, a URL de Resposta e a URL de Logon** na seção **Domínio e URLs do SSO do Kantega para o JIRA** do portal do Azure.
+    a. Saudação de cópia **URI da ID do aplicativo** valor e usá-lo como **identificador, o URL de resposta e a URL de logon** em Olá **Kantega SSO para o domínio de JIRA e URLs** seção no portal do Azure.
 
     b. Clique em **Avançar**.
 
-17. Na seção **Importação de metadados**, realize as seguintes etapas: 
+17. Em Olá **importar metadados** seção, execute as seguintes etapas: 
 
     ![Configurar Logon Único](./media/active-directory-saas-kantegassoforjira-tutorial/addon7.png)
 
@@ -181,23 +181,23 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     b. Clique em **Avançar**.
 
-18. Na seção **Nome e localização de SSO**, realize as seguintes etapas:
+18. Em Olá **nome e SSO local** seção, execute as seguintes etapas:
 
     ![Configurar Logon Único](./media/active-directory-saas-kantegassoforjira-tutorial/addon8.png)
     
-    a. Adicione Nome do Provedor de Identidade à caixa de texto **Nome do provedor de identidade** (por exemplo, Azure AD).
+    a. Adicionar o nome do provedor de identidade de saudação em **nome do provedor de identidade** caixa de texto (por exemplo, o AD do Azure).
 
     b. Clique em **Avançar**.
 
-19. Verifique o Certificado de autenticação e clique em **Avançar**.
+19. Verifique se o certificado de autenticação de saudação e clique em **próximo**.
 
     ![Configurar Logon Único](./media/active-directory-saas-kantegassoforjira-tutorial/addon9.png)
 
-20. Na seção **Contas de usuário do JIRA**, realize as seguintes etapas:
+20. Em Olá **contas de usuário JIRA** seção, execute as seguintes etapas:
 
     ![Configurar Logon Único](./media/active-directory-saas-kantegassoforjira-tutorial/addon10.png)
 
-    a. Selecione **Criar usuários no Diretório interno do JIRA, se necessário** e insira o nome apropriado do grupo de usuários (podem ser vários números de grupos separados por vírgula).
+    a. Selecione **criar usuários no diretório interno do JIRA se necessário** e insira nome apropriado saudação do grupo de saudação para usuários (pode ser não vários. de grupos separados por vírgula).
 
     b. Clique em **Avançar**.
 
@@ -205,60 +205,60 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar Logon Único](./media/active-directory-saas-kantegassoforjira-tutorial/addon11.png)
 
-22. Na seção **Domínios conhecidos do Azure AD**, realize as seguintes etapas: 
+22. Em Olá **conhecido domínios do AD do Azure** seção, execute as seguintes etapas: 
 
     ![Configurar Logon Único](./media/active-directory-saas-kantegassoforjira-tutorial/addon12.png)
 
-    a. Selecione **Domínios conhecidos** no painel esquerdo da página.
+    a. Selecione **conhecido domínios** do painel esquerdo de saudação da página de saudação.
 
-    b. Insira o nome de domínio na caixa de texto **Domínios conhecidos**.
+    b. Digite o nome de domínio em Olá **conhecido domínios** caixa de texto.
 
     c. Clique em **Salvar**. 
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
 
 ![Criar um usuário do AD do Azure][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
 
-1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kantegassoforjira-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kantegassoforjira-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kantegassoforjira-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kantegassoforjira-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
 
-    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-kantega-sso-for-jira-test-user"></a>Criando um usuário de teste do SSO do Kantega para o JIRA
 
-Para permitir que os usuários do Azure AD façam logon no JIRA, eles devem ser provisionados no JIRA. No SSO do Kantega para o JIRA, o provisionamento é uma tarefa manual.
+tooenable AD do Azure usuários toolog em tooJIRA, eles devem ser provisionados no JIRA. No SSO do Kantega para o JIRA, o provisionamento é uma tarefa manual.
 
-**Para provisionar uma conta de usuário, execute as seguintes etapas:**
+**tooprovision uma conta de usuário, execute Olá etapas a seguir:**
 
-1. Faça logon no servidor local do JIRA como administrador.
+1. Faça logon tooyour JIRA no servidor local como um administrador.
 
-2. Passe o cursor do mouse sobre a engrenagem e clique em **Gerenciamento de usuário**.
+2. Passe o mouse sobre engrenagem e clique em Olá **gerenciamento de usuário**.
 
     ![Adicionar Funcionário](./media/active-directory-saas-kantegassoforjira-tutorial/user1.png) 
 
@@ -266,37 +266,37 @@ Para permitir que os usuários do Azure AD façam logon no JIRA, eles devem ser 
 
     ![Adicionar Funcionário](./media/active-directory-saas-kantegassoforjira-tutorial/user2.png) 
 
-4. Na página da caixa de diálogo **"Criar novo usuário"**, execute as seguintes etapas:
+4. Em Olá **"Criar novo usuário"** caixa de diálogo de página, execute Olá etapas a seguir:
 
     ![Adicionar Funcionário](./media/active-directory-saas-kantegassoforjira-tutorial/user3.png) 
 
-    a. Na caixa de texto **Endereço de email**, digite o endereço de email do usuário, como Brittasimon@contoso.com.
+    a. Em Olá **endereço de Email** caixa de texto, como o endereço de email do tipo saudação do usuário Brittasimon@contoso.com.
 
-    b. Na caixa de texto **Nome completo**, digite o nome completo do usuário, como Brenda Fernandes.
+    b. Em Olá **nome completo** caixa de texto, nome completo do tipo de usuário hello como Britta Simon.
 
-    c. Na caixa de texto **Nome de usuário**, digite o email do usuário, como Brittasimon@contoso.com.
+    c. Em Olá **Username** caixa de texto, como o email de saudação do tipo de usuário Brittasimon@contoso.com.
 
-    d. Na caixa de texto **Senha**, digite a senha do usuário.
+    d. Em Olá **senha** caixa de texto, digite a senha de saudação do usuário.
 
     e. Clique em **Criar usuário**.   
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
 
-Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao SSO do Kantega para o JIRA.
+Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooKantega SSO para JIRA.
 
 ![Atribuir usuário][200] 
 
-**Para atribuir Brenda Fernandes ao SSO do Kantega para o JIRA, realize as seguintes etapas:**
+**tooassign Britta Simon tooKantega SSO para JIRA, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **SSO do Kantega para o JIRA**.
+2. Na lista de aplicativos hello, selecione **Kantega SSO para JIRA**.
 
     ![Configurar Logon Único](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -304,7 +304,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -312,14 +312,14 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
 
-Quando você clicar no bloco do SSO do Kantega para o JIRA no Painel de Acesso, deverá ser conectado automaticamente ao aplicativo SSO do Kantega para o JIRA.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md). 
+Quando você clica em hello Kantega SSO para bloco JIRA Olá painel de acesso, você deve obter automaticamente assinado em tooyour Kantega SSO para o aplicativo JIRA.
+Para obter mais informações sobre o painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

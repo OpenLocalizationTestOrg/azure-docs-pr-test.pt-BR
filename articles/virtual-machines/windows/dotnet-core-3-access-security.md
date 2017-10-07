@@ -1,5 +1,5 @@
 ---
-title: "Acesso e segurança em modelos do Azure para VMs do Windows | Microsoft Docs"
+title: "aaaAccess e segurança em modelos do Azure para máquinas virtuais do Windows | Microsoft Docs"
 description: "Tutorial principal de DotNet da máquina virtual do Azure"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,24 +16,24 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad1b5c4763cf56f681a50bb1bccc825311bbfdf5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4b8227ae745b3b0a22d136e98d18479f8b1504c8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="access-and-security-in-azure-resource-manager-templates-for-windows-vms"></a>Acesso e segurança em modelos do Azure Resource Manager para VMs Windows
 
-Aplicativos hospedados no Azure provavelmente precisam ser acessados pela Internet ou por uma VPN/conexão de rota expressa com o Azure. Com o exemplo de aplicativo de Loja de Música, o site da Web é disponibilizado na Internet com um endereço IP público. Com acesso estabelecido, as conexões com o aplicativo e o acessa aos recursos de máquina virtual devem ser protegidos. Essa segurança de acesso é fornecida com um Grupo de Segurança de Rede. 
+Aplicativos hospedados no Azure necessidade provavelmente toobe acesso pela hello, internet ou uma VPN / conexão de rota expressa com o Azure. Com o exemplo de aplicativo de repositório de música hello, Olá web site é disponibilizado em Olá internet com um endereço IP público. Com acesso estabelecido, conexões toohello aplicativos e acesso toohello recursos da máquina virtual se devem ser protegidos. Essa segurança de acesso é fornecida com um Grupo de Segurança de Rede. 
 
-Este documento fornece detalhes sobre como o aplicativo de Loja de Música é protegido no modelo do Azure Resource Manager de exemplo. Todas as dependências e configurações exclusivas são realçadas. Para obter a melhor experiência, pré-implante uma instância da solução em sua assinatura do Azure e trabalhe com o modelo do Azure Resource Manager. O modelo completo pode ser encontrado aqui – [Implantação de Loja de Música no Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
+Este documento detalha como Olá aplicativo de repositório de música é protegido no modelo de Gerenciador de recursos do Azure do exemplo hello. Todas as dependências e configurações exclusivas são realçadas. Para melhor experiência de hello, pré-implante uma instância do hello solução tooyour assinatura do Azure e trabalha junto com o modelo do Azure Resource Manager hello. modelo completo Olá pode ser encontrado aqui – [implantação de repositório de música no Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
 ## <a name="public-ip-address"></a>Endereço IP público
-Para fornecer acesso público a um recurso do Azure, um recurso de endereço IP público pode ser usado. O endereço IP público pode ser configurado com um endereço IP estático ou dinâmico. Se um endereço dinâmico for usado e a máquina virtual for interrompida e desalocada, os endereços serão removidos. Quando o computador for iniciado novamente, ele poderá ser atribuído um endereço IP público diferente. Para impedir a alteração de um endereço IP, um endereço IP reservado pode ser usado. 
+tooprovide acesso público tooan recursos do Azure, um recurso de endereço IP público pode ser usado. O endereço IP público pode ser configurado com um endereço IP estático ou dinâmico. Se um endereço dinâmico é usado e máquina virtual de saudação for interrompida e desalocada, endereços de saudação é removido. Quando a máquina de saudação for iniciada novamente, ele pode ser atribuído um endereço IP público diferente. tooprevent um IP endereço alterem, um endereço IP reservado pode ser usado. 
 
-Um endereço IP público pode ser adicionado a um modelo do Azure Resource Manager usando o Assistente para Adicionar Novos Recursos do Visual Studio ou inserindo JSON válido no modelo. 
+Um endereço IP público pode ser adicionado o modelo do Azure Resource Manager tooan usando Olá Visual Studio novo Assistente para adicionar recurso, ou inserindo um JSON válido em um modelo. 
 
-Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Endereço IP público](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L110).
+Siga este exemplo JSON do link toosee Olá no modelo do Gerenciador de recursos de hello – [endereço IP público](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L110).
 
 ```json
 {
@@ -54,9 +54,9 @@ Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Endere
 }
 ```
 
-Um endereço IP público pode ser associado a um adaptador de rede virtual ou a um balanceador de carga. Neste exemplo, como o site de Loja de Música tem carga balanceada entre várias máquinas virtuais, o endereço IP público está conectado ao balanceador de carga.
+Um endereço IP público pode ser associado a um adaptador de rede virtual ou a um balanceador de carga. Neste exemplo, porque Olá site do repositório de música carga balanceada entre várias máquinas virtuais, Olá endereço IP público é anexado toohello balanceador de carga.
 
-Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Associação de endereço IP público com balanceador de carga](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L211).
+Siga este exemplo JSON do link toosee Olá no modelo do Gerenciador de recursos de hello – [associação de endereços IP públicos com o balanceador de carga](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L211).
 
 ```json
 "frontendIPConfigurations": [
@@ -71,16 +71,16 @@ Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Associ
 ]
 ```
 
-O endereço IP público como visto no portal do Azure. Observe que o endereço IP público está associado a um balanceador de carga, e não a uma máquina virtual. Balanceadores de carga de rede são detalhados no seguinte documento desta série.
+Olá endereço IP público como visto no hello portal do Azure. Observe que o endereço IP público de saudação é associado tooa balanceador de carga e não uma máquina virtual. Balanceadores de carga de rede são detalhadas no próximo documento hello desta série.
 
 ![Endereço IP público](./media/dotnet-core-3-access-security/pubip-win.png)
 
 Para obter mais informações sobre os endereços IP públicos do Azure, consulte [Endereços IP no Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
 ## <a name="network-security-group"></a>Grupo de Segurança de Rede
-Depois de estabelecer acesso aos recursos do Azure, esse acesso deve ser limitado. Para máquinas virtuais do Azure, proteger o acesso é feito usando um grupo de segurança de rede. Com o exemplo do aplicativo de Loja de Música, todo o acesso à máquina virtual é restrito exceto pela porta 80 para o acesso http e a porta 3389 para acesso do RDP. Um grupo de segurança de rede pode ser adicionado a um modelo do Azure Resource Manager usando o Assistente para Adicionar Novos Recursos do Visual Studio ou inserindo JSON válido no modelo.
+Depois que o acesso foi estabelecida tooAzure recursos, esse acesso deve ser limitado. Para máquinas virtuais do Azure, proteger o acesso é feito usando um grupo de segurança de rede. Com exemplo de aplicativo de repositório de música hello, todas as máquinas de virtuais toohello de acesso é restrito exceto pela porta 80 para acesso http e a porta 3389 para acesso RDP. Um grupo de segurança de rede podem ser adicionado como modelo do Azure Resource Manager tooan usando Olá Visual Studio novo Assistente para adicionar recurso, ou inserindo um JSON válido em um modelo.
 
-Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Grupo de segurança de rede](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L57).
+Siga este exemplo JSON do link toosee Olá no modelo do Gerenciador de recursos de hello – [grupo de segurança de rede](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L57).
 
 ```json
 {
@@ -113,9 +113,9 @@ Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Grupo 
 },
 ```
 
-Neste exemplo, o grupo de segurança de rede é associado com o objeto de sub-rede declarado no recurso de Rede Virtual. 
+Neste exemplo, o grupo de segurança de rede de Olá é associado ao objeto da sub-rede Olá declarado no recurso de rede Virtual hello. 
 
-Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Associação de grupo de segurança de rede com Rede Virtual](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L143).
+Siga este exemplo JSON do link toosee Olá no modelo do Gerenciador de recursos de hello – [associação de grupo de segurança de rede com a rede Virtual](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L143).
 
 ```json
 "subnets": [
@@ -131,7 +131,7 @@ Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Associ
 ]
 ```
 
-Aqui está a aparência do grupo de segurança de rede no portal do Azure. Observe que um NSG pode associar-se a um adaptador de sub-rede e/ou rede. Nesse caso, o NSG é associado a uma sub-rede. Nessa configuração, as regras de entrada se aplicam a todas as máquinas virtuais conectadas à sub-rede.
+É o grupo de segurança de rede Olá semelhante ao seguinte da saudação portal do Azure. Observe que um NSG pode associar-se a um adaptador de sub-rede e/ou rede. Nesse caso, Olá NSG é associado tooa sub-rede. Nessa configuração, hello entradas regras se aplicam tooall máquinas virtuais conectadas toohello sub-rede.
 
 ![Grupo de Segurança de Rede](./media/dotnet-core-3-access-security/nsg-win.png)
 
