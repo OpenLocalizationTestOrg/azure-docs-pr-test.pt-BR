@@ -1,6 +1,6 @@
 ---
-title: Desanexar um disco de uma VM do Linux no Azure | Microsoft Docs
-description: "Saiba como desanexar um disco de dados de uma máquina virtual do Azure criada usando o modelo de implantação clássica."
+title: aaaDetach um disco de uma VM do Linux no Azure | Microsoft Docs
+description: "Saiba toodetach um disco de dados de uma máquina virtual do Azure criado usando o modelo de implantação clássico hello."
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: ac982bc153d523de29940af9b9e2609a39cd48a6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d0ae362ab756dc4636bf5574deca7471223fb7f8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-detach-a-disk-from-a-linux-virtual-machine"></a><span data-ttu-id="343ac-103">Como desanexar um disco de uma máquina virtual Linux</span><span class="sxs-lookup"><span data-stu-id="343ac-103">How to Detach a Disk from a Linux Virtual Machine</span></span>
+# <a name="how-toodetach-a-disk-from-a-linux-virtual-machine"></a><span data-ttu-id="900f8-103">Como tooDetach um disco de uma máquina Virtual Linux</span><span class="sxs-lookup"><span data-stu-id="900f8-103">How tooDetach a Disk from a Linux Virtual Machine</span></span>
 > [!IMPORTANT] 
-> <span data-ttu-id="343ac-104">O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="343ac-104">Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md).</span></span> <span data-ttu-id="343ac-105">Este artigo aborda o uso do modelo de implantação Clássica.</span><span class="sxs-lookup"><span data-stu-id="343ac-105">This article covers using the Classic deployment model.</span></span> <span data-ttu-id="343ac-106">A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.</span><span class="sxs-lookup"><span data-stu-id="343ac-106">Microsoft recommends that most new deployments use the Resource Manager model.</span></span>
+> <span data-ttu-id="900f8-104">O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="900f8-104">Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md).</span></span> <span data-ttu-id="900f8-105">Este artigo aborda usando o modelo de implantação clássico hello.</span><span class="sxs-lookup"><span data-stu-id="900f8-105">This article covers using hello Classic deployment model.</span></span> <span data-ttu-id="900f8-106">A Microsoft recomenda que mais novas implantações de usam o modelo do Gerenciador de recursos de saudação.</span><span class="sxs-lookup"><span data-stu-id="900f8-106">Microsoft recommends that most new deployments use hello Resource Manager model.</span></span>
 
 [!INCLUDE [howto-detach-disk-windows-linux](../../../../includes/howto-detach-disk-linux.md)]
 
-## <a name="next-steps"></a><span data-ttu-id="343ac-107">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="343ac-107">Next steps</span></span>
-<span data-ttu-id="343ac-108">Você pode ler mais sobre como usar sua VM do Linux nos seguintes artigos:</span><span class="sxs-lookup"><span data-stu-id="343ac-108">You can read more about using your Linux VM in the following articles:</span></span>
+## <a name="next-steps"></a><span data-ttu-id="900f8-107">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="900f8-107">Next steps</span></span>
+<span data-ttu-id="900f8-108">Você pode ler mais sobre como usar a VM do Linux em Olá artigos a seguir:</span><span class="sxs-lookup"><span data-stu-id="900f8-108">You can read more about using your Linux VM in hello following articles:</span></span>
 
-* [<span data-ttu-id="343ac-109">Como anexar um disco de dados na Máquina Virtual Linux</span><span class="sxs-lookup"><span data-stu-id="343ac-109">How to Attach a Data Disk to a Linux Virtual Machine</span></span>](attach-disk.md)
-* [<span data-ttu-id="343ac-110">Usando a CLI do Azure com o modelo de implantação Clássico</span><span class="sxs-lookup"><span data-stu-id="343ac-110">Using the Azure CLI with the Classic deployment model</span></span>](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [<span data-ttu-id="900f8-109">Como tooAttach tooa um disco de dados Máquina Virtual do Linux</span><span class="sxs-lookup"><span data-stu-id="900f8-109">How tooAttach a Data Disk tooa Linux Virtual Machine</span></span>](attach-disk.md)
+* [<span data-ttu-id="900f8-110">Usando Olá CLI do Azure com o modelo de implantação clássico Olá</span><span class="sxs-lookup"><span data-stu-id="900f8-110">Using hello Azure CLI with hello Classic deployment model</span></span>](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 

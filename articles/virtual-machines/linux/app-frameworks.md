@@ -1,6 +1,6 @@
 ---
-title: Implantar estruturas de aplicativo em VMs Linux no Azure | Microsoft Docs
-description: Crie estruturas de aplicativo populares em VMs Linux usando modelos do Azure Resource Manager para instalar o Active Directory, o Docker e muito mais.
+title: estruturas de aplicativo aaaDeploy em VMs do Linux no Azure | Microsoft Docs
+description: Crie estruturas de aplicativos populares em VMs do Linux usando o Gerenciador de recursos do Azure modelos tooinstall do Active Directory, Docker e muito mais.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: squillace
@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: rasquill
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c5d0d064c0afc4a9a5cb802fce66e219d23dc1ca
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5e3e2d65639680e09d83d50be69d8fe2d86e3bda
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-popular-application-frameworks-on-linux-using-azure-resource-manager-templates"></a><span data-ttu-id="2de44-103">Implantar estruturas de aplicativo populares no Linux usando modelos do Azure Resource Manager</span><span class="sxs-lookup"><span data-stu-id="2de44-103">Deploy popular application frameworks on Linux using Azure Resource Manager templates</span></span>
+# <a name="deploy-popular-application-frameworks-on-linux-using-azure-resource-manager-templates"></a><span data-ttu-id="99ae3-103">Implantar estruturas de aplicativo populares no Linux usando modelos do Azure Resource Manager</span><span class="sxs-lookup"><span data-stu-id="99ae3-103">Deploy popular application frameworks on Linux using Azure Resource Manager templates</span></span>
 
-<span data-ttu-id="2de44-104">Geralmente, as cargas de trabalho exigem muitos recursos para funcionarem de acordo com o desejado.</span><span class="sxs-lookup"><span data-stu-id="2de44-104">Workloads usually require many resources to function according to design.</span></span> <span data-ttu-id="2de44-105">Os modelos do Gerenciador de Recursos do Azure permitem que você não só defina como os aplicativos são configurados, mas também como os recursos são implantados para permitir aplicativos configurados.</span><span class="sxs-lookup"><span data-stu-id="2de44-105">Azure Resource Manager templates make it possible for you to not only define how applications are configured, but also how the resources are deployed to support configured applications.</span></span> <span data-ttu-id="2de44-106">Este artigo apresenta os modelos mais populares da galeria e fornece informações sobre como usar o portal do Azure, a CLI do Azure ou o PowerShell para implantá-los.</span><span class="sxs-lookup"><span data-stu-id="2de44-106">This article introduces you to the most popular templates in the gallery and gives you information for using the Azure portal, Azure CLI, or PowerShell to deploy them.</span></span>
+<span data-ttu-id="99ae3-104">Cargas de trabalho geralmente exigem muitos toofunction de recursos de acordo com o toodesign.</span><span class="sxs-lookup"><span data-stu-id="99ae3-104">Workloads usually require many resources toofunction according toodesign.</span></span> <span data-ttu-id="99ae3-105">Gerenciador de recursos do Azure modelos possibilitam que você toonot apenas definir como os aplicativos são configurados, mas também como recursos de saudação são implantados aplicativos toosupport configurado.</span><span class="sxs-lookup"><span data-stu-id="99ae3-105">Azure Resource Manager templates make it possible for you toonot only define how applications are configured, but also how hello resources are deployed toosupport configured applications.</span></span> <span data-ttu-id="99ae3-106">Este artigo apresenta modelos mais populares de toohello na Galeria de saudação e fornece informações sobre como usar o hello portal do Azure, CLI do Azure ou do PowerShell toodeploy-los.</span><span class="sxs-lookup"><span data-stu-id="99ae3-106">This article introduces you toohello most popular templates in hello gallery and gives you information for using hello Azure portal, Azure CLI, or PowerShell toodeploy them.</span></span>
 
 [!INCLUDE [virtual-machines-common-app-frameworks](../../../includes/virtual-machines-common-app-frameworks.md)]
 

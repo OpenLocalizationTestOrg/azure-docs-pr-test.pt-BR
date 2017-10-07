@@ -1,7 +1,7 @@
 # Matriz Virtual do StorSimple
 
 ## Visão geral
-### [Qual é a solução?](storsimple-ova-overview.md)
+### [O que é a solução Olá?](storsimple-ova-overview.md)
 
 ## Introdução
 ### Plano
@@ -10,7 +10,7 @@
 #### [Examinar práticas recomendadas](storsimple-ova-best-practices.md)
 
 ### Implantar
-#### [Preparar-se para implantar](storsimple-virtual-array-deploy1-portal-prep.md)
+#### [Preparar toodeploy](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [Implantar um serviço do StorSimple Manager](storsimple-virtual-array-manage-service.md)
 #### [Provisionar no Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [Provisionar no VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
@@ -53,7 +53,7 @@
 # StorSimple 8000 Series (Portal do Azure)
 
 ## Visão geral
-### [Qual é a solução?](storsimple-overview.md)
+### [O que é a solução Olá?](storsimple-overview.md)
 ### [Mapa de aprendizagem do StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Considerações de segurança](storsimple-8000-security.md)
 
@@ -87,12 +87,12 @@
 #### [Usar o serviço do StorSimple Manager](storsimple-8000-manager-service-administration.md)
 ##### [Restaurar de um backup](storsimple-8000-restore-from-backup-set-u2.md)
 ##### [Clonar um volume](storsimple-8000-clone-volume-u2.md)
-##### [Conectar-se remotamente a seu dispositivo](storsimple-8000-remote-connect.md)
+##### [Conectar-se remotamente tooyour dispositivo](storsimple-8000-remote-connect.md)
 ##### [Desativar e excluir seu dispositivo](storsimple-8000-deactivate-and-delete-device.md)
 ##### [Fazer failover de seu dispositivo](storsimple-8000-device-failover-disaster-recovery.md)
-###### [Failover para dispositivo físico](storsimple-8000-device-failover-physical-device.md)
-###### [Failover para o dispositivo de nuvem](storsimple-8000-device-failover-cloud-appliance.md)
-###### [Failover para o mesmo dispositivo](storsimple-8000-device-failover-same-device.md)
+###### [O failover de dispositivo toophysical](storsimple-8000-device-failover-physical-device.md)
+###### [O failover de dispositivo toocloud](storsimple-8000-device-failover-cloud-appliance.md)
+###### [O failover de dispositivo toosame](storsimple-8000-device-failover-same-device.md)
 ##### [Gerenciar catálogo de backup](storsimple-8000-manage-backup-catalog.md)
 ##### [Gerenciar políticas de backup](storsimple-8000-manage-backup-policies-u2.md)
 ##### [Gerenciar contas de armazenamento](storsimple-8000-manage-storage-accounts.md)
@@ -132,7 +132,7 @@
 #### [StorSimple com o Veeam](storsimple-configure-backup-target-veeam.md)
 #### [StorSimple com o Veritas Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)
 #### [StorSimple com o Veritas NetBackup](storsimple-configure-backuptarget-netbackup.md)
-#### [Automatizar DR do servidor de arquivos para Azure](storsimple-disaster-recovery-using-azure-site-recovery.md)
+#### [Automatizar a recuperação de desastres tooAzure de servidor de arquivos](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [StorSimple com ExpressRoute](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 #### [StorSimple com o VMware](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
 #### [StorSimple com o Hyper-V](https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6)
@@ -163,7 +163,7 @@
 
 ### Migrar
 #### [Da série 5000-7000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
-#### [De outros dispositivos de armazenamento](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+#### [De outros dispositivos de armazenamento](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data tooStorSimple Volumes_09-02-15.pdf)
 
 ### Atualização
 #### [Instalar a Atualização 5 - atual](storsimple-8000-install-update-5.md)
@@ -191,7 +191,7 @@
 # StorSimple 8000 Series (Portal clássico)
 
 ## Visão geral
-### [Qual é a solução?](storsimple-overview.md)
+### [O que é a solução Olá?](storsimple-overview.md)
 ### [Mapa de aprendizagem do StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Considerações de segurança](storsimple-8000-security.md)
 
@@ -230,7 +230,7 @@
 ###### [Restaurar de um backup](storsimple-restore-from-backup-set.md)
 ##### [Clonar um volume](storsimple-clone-volume-u2.md)
 ###### [Clonar um volume](storsimple-clone-volume.md)
-##### [Conectar-se remotamente a seu dispositivo](storsimple-remote-connect.md)
+##### [Conectar-se remotamente tooyour dispositivo](storsimple-remote-connect.md)
 ##### [Desativar e excluir seu dispositivo](storsimple-deactivate-and-delete-device.md)
 ##### [Fazer failover de seu dispositivo](storsimple-device-failover-disaster-recovery.md)
 ##### [Gerenciar catálogo de backup](storsimple-manage-backup-catalog.md)
@@ -273,7 +273,7 @@
 #### [StorSimple com o Veeam](storsimple-configure-backup-target-veeam.md)
 #### [StorSimple com o Veritas Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)
 #### [StorSimple com o Veritas NetBackup](storsimple-configure-backuptarget-netbackup.md)
-#### [Automatizar DR do servidor de arquivos para Azure](storsimple-disaster-recovery-using-azure-site-recovery.md)
+#### [Automatizar a recuperação de desastres tooAzure de servidor de arquivos](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [StorSimple com ExpressRoute](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 #### [StorSimple com o VMware](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
 #### [StorSimple com o Hyper-V](https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6)
@@ -302,7 +302,7 @@
 
 ### Migrar
 #### [Da série 5000-7000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
-#### [De outros dispositivos de armazenamento](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+#### [De outros dispositivos de armazenamento](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data tooStorSimple Volumes_09-02-15.pdf)
 
 ### Atualização
 #### [Instalar a Atualização 4](storsimple-install-update-4.md)
@@ -329,20 +329,20 @@
 # Gerenciador de dados do StorSimple (Visualização particular)
 
 ## Visão geral
-### [Qual é a solução?](storsimple-data-manager-overview.md)
+### [O que é a solução Olá?](storsimple-data-manager-overview.md)
 
 ## Introdução
 ### [Usando o Gerenciador de dados do StorSimple](storsimple-data-manager-ui.md)
 
 ## Como
-### [Usar o .NET para iniciar trabalhos](storsimple-data-manager-dotnet-jobs.md)
-### [Usar a Automação para iniciar trabalhos](storsimple-data-manager-job-using-automation.md)
+### [Usar .NET toostart trabalhos](storsimple-data-manager-dotnet-jobs.md)
+### [Usar automação toostart trabalhos](storsimple-data-manager-job-using-automation.md)
 ### [Alterar o caminho de blob padrão](storsimple-data-manager-change-default-blob-path.md)
 
 # StorSimple para parceiros
 
 ## Visão geral
-### [Qual é a solução?](storsimple-partner-csp-overview.md)
+### [O que é a solução Olá?](storsimple-partner-csp-overview.md)
 
 ## Introdução
 ### [Implantar matriz virtual para o CSP](storsimple-partner-csp-deploy.md)

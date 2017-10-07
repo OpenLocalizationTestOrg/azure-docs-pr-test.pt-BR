@@ -1,6 +1,6 @@
 ---
-title: "Criação de grupos de segurança de rede - CLI 2.0 do Azure | Microsoft Docs"
-description: "Aprenda a criar e implantar grupos de segurança de rede usando a CLI 2.0 do Azure."
+title: "aaaCreate 2.0 do CLI do Azure de grupos de segurança - rede | Microsoft Docs"
+description: "Saiba como toocreate e implantar grupos de segurança de rede usando Olá 2.0 do CLI do Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,36 +16,36 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8efb3ab66d07875b51f723fed5594bcb477ed025
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 30b1d60676331bf5e2bbbb046c747477be9d3338
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-network-security-groups-using-the-azure-cli-20"></a><span data-ttu-id="6e2eb-103">Como criar grupos de segurança de rede usando a CLI 2.0 do Azure</span><span class="sxs-lookup"><span data-stu-id="6e2eb-103">Create network security groups using the Azure CLI 2.0</span></span>
+# <a name="create-network-security-groups-using-hello-azure-cli-20"></a><span data-ttu-id="f0301-103">Criar grupos de segurança usando hello Azure CLI 2.0 de rede</span><span class="sxs-lookup"><span data-stu-id="f0301-103">Create network security groups using hello Azure CLI 2.0</span></span>
 
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
-## <a name="cli-versions-to-complete-the-task"></a><span data-ttu-id="6e2eb-104">Versões da CLI para concluir a tarefa</span><span class="sxs-lookup"><span data-stu-id="6e2eb-104">CLI versions to complete the task</span></span> 
+## <a name="cli-versions-toocomplete-hello-task"></a><span data-ttu-id="f0301-104">Tarefa de saudação do CLI versões toocomplete</span><span class="sxs-lookup"><span data-stu-id="f0301-104">CLI versions toocomplete hello task</span></span> 
 
-<span data-ttu-id="6e2eb-105">Você pode concluir a tarefa usando uma das seguintes versões da CLI:</span><span class="sxs-lookup"><span data-stu-id="6e2eb-105">You can complete the task using one of the following CLI versions:</span></span> 
+<span data-ttu-id="f0301-105">Você pode concluir a tarefa hello usando uma saudação versões da CLI a seguir:</span><span class="sxs-lookup"><span data-stu-id="f0301-105">You can complete hello task using one of hello following CLI versions:</span></span> 
 
-- <span data-ttu-id="6e2eb-106">[CLI do Azure 1.0](virtual-networks-create-nsg-cli-nodejs.md) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos</span><span class="sxs-lookup"><span data-stu-id="6e2eb-106">[Azure CLI 1.0](virtual-networks-create-nsg-cli-nodejs.md) – our CLI for the classic and resource management deployment models</span></span> 
-- <span data-ttu-id="6e2eb-107">[CLI do Azure 2.0](#Create-the-nsg-for-the-front-end-subnet) – nossa CLI da próxima geração para o modelo de implantação do resource manager (este artigo)</span><span class="sxs-lookup"><span data-stu-id="6e2eb-107">[Azure CLI 2.0](#Create-the-nsg-for-the-front-end-subnet) - our next generation CLI for the resource management deployment model (this article)</span></span>
+- <span data-ttu-id="f0301-106">[1.0 de CLI do Azure](virtual-networks-create-nsg-cli-nodejs.md) – nosso CLI para modelos de implantação de gerenciamento de recursos e clássico de Olá</span><span class="sxs-lookup"><span data-stu-id="f0301-106">[Azure CLI 1.0](virtual-networks-create-nsg-cli-nodejs.md) – our CLI for hello classic and resource management deployment models</span></span> 
+- <span data-ttu-id="f0301-107">[2.0 do CLI do Azure](#Create-the-nsg-for-the-front-end-subnet) -nossa próxima geração CLI para modelo de implantação de gerenciamento de recursos de saudação (Este artigo)</span><span class="sxs-lookup"><span data-stu-id="f0301-107">[Azure CLI 2.0](#Create-the-nsg-for-the-front-end-subnet) - our next generation CLI for hello resource management deployment model (this article)</span></span>
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-<span data-ttu-id="6e2eb-108">Os comandos da CLI 2.0 do Azure de exemplo a seguir esperam um ambiente simples, já criado com base no cenário anterior.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-108">The sample Azure CLI 2.0 commands following expect a simple environment already created based on the scenario preceding.</span></span> 
+<span data-ttu-id="f0301-108">exemplo Hello Azure CLI 2.0 comandos a seguir espera um ambiente simples já criado com base no cenário de saudação anterior.</span><span class="sxs-lookup"><span data-stu-id="f0301-108">hello sample Azure CLI 2.0 commands following expect a simple environment already created based on hello scenario preceding.</span></span> 
 
-## <a name="create-the-nsg-for-the-frontend-subnet"></a><span data-ttu-id="6e2eb-109">Como criar o NSG para a `FrontEnd` sub-rede</span><span class="sxs-lookup"><span data-stu-id="6e2eb-109">Create the NSG for the `FrontEnd` subnet</span></span>
+## <a name="create-hello-nsg-for-hello-frontend-subnet"></a><span data-ttu-id="f0301-109">Criar hello NSG para Olá `FrontEnd` sub-rede</span><span class="sxs-lookup"><span data-stu-id="f0301-109">Create hello NSG for hello `FrontEnd` subnet</span></span>
 
-<span data-ttu-id="6e2eb-110">Siga as etapas abaixo para criar um NSG chamado *NSG-FrontEnd* com base no cenário anterior.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-110">To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow the steps following.</span></span>
+<span data-ttu-id="f0301-110">toocreate um NSG denominado *NSG-front-end* com base no cenário de saudação anterior, execute o seguinte de etapas de saudação.</span><span class="sxs-lookup"><span data-stu-id="f0301-110">toocreate an NSG named *NSG-FrontEnd* based on hello scenario preceding, follow hello steps following.</span></span>
 
-1. <span data-ttu-id="6e2eb-111">Caso ainda não tenha feito isso, instale e configure a versão mais recente da [CLI do Azure 2.0](/cli/azure/install-az-cli2) e faça logon na conta do Azure usando [az login](/cli/azure/#login).</span><span class="sxs-lookup"><span data-stu-id="6e2eb-111">If you haven't yet, install and configure the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login).</span></span> 
+1. <span data-ttu-id="f0301-111">Se você ainda não tiver ainda, instalar e configurar hello mais recente [2.0 do CLI do Azure](/cli/azure/install-az-cli2) e fazer logon na conta do Azure usando o tooan [logon az](/cli/azure/#login).</span><span class="sxs-lookup"><span data-stu-id="f0301-111">If you haven't yet, install and configure hello latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in tooan Azure account using [az login](/cli/azure/#login).</span></span> 
 
-2. <span data-ttu-id="6e2eb-112">Crie um NSG usando o comando [az network nsg create](/cli/azure/network/nsg#create).</span><span class="sxs-lookup"><span data-stu-id="6e2eb-112">Create an NSG using the [az network nsg create](/cli/azure/network/nsg#create) command.</span></span> 
+2. <span data-ttu-id="f0301-112">Criar um NSG usando Olá [criar az rede nsg](/cli/azure/network/nsg#create) comando.</span><span class="sxs-lookup"><span data-stu-id="f0301-112">Create an NSG using hello [az network nsg create](/cli/azure/network/nsg#create) command.</span></span> 
 
     ```azurecli
     az network nsg create \
@@ -54,13 +54,13 @@ ms.lasthandoff: 07/11/2017
     --location centralus 
     ```
 
-    <span data-ttu-id="6e2eb-113">Parâmetros:</span><span class="sxs-lookup"><span data-stu-id="6e2eb-113">Parameters:</span></span>
+    <span data-ttu-id="f0301-113">Parâmetros:</span><span class="sxs-lookup"><span data-stu-id="f0301-113">Parameters:</span></span>
    
-   * <span data-ttu-id="6e2eb-114">`--resource-group`: nome do grupo de recursos em que o NSG será criado.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-114">`--resource-group`: Name of the resource group where the NSG is created.</span></span> <span data-ttu-id="6e2eb-115">Para o nosso cenário, *TestRG*.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-115">For our scenario, *TestRG*.</span></span>
-   * <span data-ttu-id="6e2eb-116">`--location`: região do Azure onde o novo NSG é criado.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-116">`--location`: Azure region where the new NSG is created.</span></span> <span data-ttu-id="6e2eb-117">Para o nosso cenário, *westus*.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-117">For our scenario, *westus*.</span></span>
-   * <span data-ttu-id="6e2eb-118">`--name`: nome para o novo NSG.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-118">`--name`: Name for the new NSG.</span></span> <span data-ttu-id="6e2eb-119">Para o nosso cenário, *NSG-FrontEnd*.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-119">For our scenario, *NSG-FrontEnd*.</span></span>
+   * <span data-ttu-id="f0301-114">`--resource-group`: Nome do grupo de recursos de saudação onde Olá NSG é criado.</span><span class="sxs-lookup"><span data-stu-id="f0301-114">`--resource-group`: Name of hello resource group where hello NSG is created.</span></span> <span data-ttu-id="f0301-115">Para o nosso cenário, *TestRG*.</span><span class="sxs-lookup"><span data-stu-id="f0301-115">For our scenario, *TestRG*.</span></span>
+   * <span data-ttu-id="f0301-116">`--location`: Região do azure onde hello novo NSG é criado.</span><span class="sxs-lookup"><span data-stu-id="f0301-116">`--location`: Azure region where hello new NSG is created.</span></span> <span data-ttu-id="f0301-117">Para o nosso cenário, *westus*.</span><span class="sxs-lookup"><span data-stu-id="f0301-117">For our scenario, *westus*.</span></span>
+   * <span data-ttu-id="f0301-118">`--name`: Nome Olá novo NSG.</span><span class="sxs-lookup"><span data-stu-id="f0301-118">`--name`: Name for hello new NSG.</span></span> <span data-ttu-id="f0301-119">Para o nosso cenário, *NSG-FrontEnd*.</span><span class="sxs-lookup"><span data-stu-id="f0301-119">For our scenario, *NSG-FrontEnd*.</span></span>
 
-    <span data-ttu-id="6e2eb-120">A saída esperada é uma grande quantidade de informações, incluindo uma lista de todas as regras padrão.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-120">The expected output is quite a bit of information including a list of all the default rules.</span></span> <span data-ttu-id="6e2eb-121">O exemplo a seguir mostra as regras padrão usando um filtro de consulta JMESPATH com o formato de saída `table`:</span><span class="sxs-lookup"><span data-stu-id="6e2eb-121">The following example shows the default rules using a JMESPATH query filter with the `table` output format:</span></span>
+    <span data-ttu-id="f0301-120">Olá esperado a saída é uma grande quantidade de informações, incluindo uma lista de todas as regras padrão de saudação.</span><span class="sxs-lookup"><span data-stu-id="f0301-120">hello expected output is quite a bit of information including a list of all hello default rules.</span></span> <span data-ttu-id="f0301-121">Olá, exemplo a seguir mostra regras de padrão de saudação com um filtro de consulta JMESPATH Olá `table` formato de saída:</span><span class="sxs-lookup"><span data-stu-id="f0301-121">hello following example shows hello default rules using a JMESPATH query filter with hello `table` output format:</span></span>
 
     ```azurecli
     az network nsg show \
@@ -70,23 +70,23 @@ ms.lasthandoff: 07/11/2017
     -o table
     ```
    
-   <span data-ttu-id="6e2eb-122">Saída:</span><span class="sxs-lookup"><span data-stu-id="6e2eb-122">Output:</span></span>
+   <span data-ttu-id="f0301-122">Saída:</span><span class="sxs-lookup"><span data-stu-id="f0301-122">Output:</span></span>
 
         Access    Desc                                                    DestPortRange    Direction      Priority
         
         Allow     Allow inbound traffic from all VMs in VNET              *                Inbound           65000
         Allow     Allow inbound traffic from azure load balancer          *                Inbound           65001
         Deny      Deny all inbound traffic                                *                Inbound           65500
-        Allow     Allow outbound traffic from all VMs to all VMs in VNET  *                Outbound          65000
-        Allow     Allow outbound traffic from all VMs to Internet         *                Outbound          65001
+        Allow     Allow outbound traffic from all VMs tooall VMs in VNET  *                Outbound          65000
+        Allow     Allow outbound traffic from all VMs tooInternet         *                Outbound          65001
         Deny      Deny all outbound traffic                               *                Outbound          65500
 
 
 
-3. <span data-ttu-id="6e2eb-123">Execute o comando [az network nsg rule create](/cli/azure/network/nsg/rule#create) para criar uma regra que permite o acesso à porta 3389 (RDP) a partir da Internet.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-123">Create a rule that allows access to port 3389 (RDP) from the Internet with the [az network nsg rule create](/cli/azure/network/nsg/rule#create) command.</span></span>
+3. <span data-ttu-id="f0301-123">Criar uma regra que permita acesso tooport 3389 (RDP) da saudação da Internet com hello [criar regra de nsg rede az](/cli/azure/network/nsg/rule#create) comando.</span><span class="sxs-lookup"><span data-stu-id="f0301-123">Create a rule that allows access tooport 3389 (RDP) from hello Internet with hello [az network nsg rule create](/cli/azure/network/nsg/rule#create) command.</span></span>
 
     > [!NOTE]
-    > <span data-ttu-id="6e2eb-124">Dependendo do shell que você está usando, talvez seja necessário modificar o caractere `*` nos argumentos a seguir para evitar a expansão do argumento antes da execução.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-124">Depending on the shell you are using, you might need to modify the `*` character in the arguments following so as not to expand the argument before execution.</span></span>
+    > <span data-ttu-id="f0301-124">Dependendo de você estiver usando o shell de hello, talvez seja necessário toomodify Olá `*` caracteres nos argumentos Olá após assim como não tooexpand de argumento Olá antes da execução.</span><span class="sxs-lookup"><span data-stu-id="f0301-124">Depending on hello shell you are using, you might need toomodify hello `*` character in hello arguments following so as not tooexpand hello argument before execution.</span></span>
    
     ```azurecli
     az network nsg rule create \
@@ -103,7 +103,7 @@ ms.lasthandoff: 07/11/2017
     --destination-port-range 3389
     ```
    
-    <span data-ttu-id="6e2eb-125">Saída esperada:</span><span class="sxs-lookup"><span data-stu-id="6e2eb-125">Expected output:</span></span>
+    <span data-ttu-id="f0301-125">Saída esperada:</span><span class="sxs-lookup"><span data-stu-id="f0301-125">Expected output:</span></span>
    
     ```json
     {
@@ -124,23 +124,23 @@ ms.lasthandoff: 07/11/2017
     }
     ```
 
-    <span data-ttu-id="6e2eb-126">Parâmetros:</span><span class="sxs-lookup"><span data-stu-id="6e2eb-126">Parameters:</span></span>
+    <span data-ttu-id="f0301-126">Parâmetros:</span><span class="sxs-lookup"><span data-stu-id="f0301-126">Parameters:</span></span>
 
-    * <span data-ttu-id="6e2eb-127">`--resource-group testrg`: o grupo de recursos para usar.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-127">`--resource-group testrg`: The resource group to use.</span></span> <span data-ttu-id="6e2eb-128">Observe que ele diferencia maiúsculas de minúsculas.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-128">Note that it is case-insensitive.</span></span>
-    * <span data-ttu-id="6e2eb-129">`--nsg-name NSG-FrontEnd`: nome do NSG no qual a regra será criada.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-129">`--nsg-name NSG-FrontEnd`: Name of the NSG in which the rule is created.</span></span>
-    * <span data-ttu-id="6e2eb-130">`--name rdp-rule`: nome para a nova regra.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-130">`--name rdp-rule`: Name for the new rule.</span></span>
-    * <span data-ttu-id="6e2eb-131">`--access Allow`: nível de acesso para a regra (Negar ou Permitir).</span><span class="sxs-lookup"><span data-stu-id="6e2eb-131">`--access Allow`: Access level for the rule (Deny or Allow).</span></span>
-    * <span data-ttu-id="6e2eb-132">`--protocol Tcp`:protocolo (Tcp, Udp ou *).</span><span class="sxs-lookup"><span data-stu-id="6e2eb-132">`--protocol Tcp`: Protocol (Tcp, Udp, or *).</span></span>
-    * <span data-ttu-id="6e2eb-133">`--direction Inbound`: direção da conexão (Entrada ou Saída).</span><span class="sxs-lookup"><span data-stu-id="6e2eb-133">`--direction Inbound`: Direction of the connection (Inbound or Outbound).</span></span>
-    * <span data-ttu-id="6e2eb-134">`--priority 100`: prioridade da regra.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-134">`--priority 100`: Priority for the rule.</span></span>
-    * <span data-ttu-id="6e2eb-135">`--source-address-prefix Internet`: prefixo do endereço de origem no CIDR ou uso de rótulos padrão.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-135">`--source-address-prefix Internet`: Source address prefix in CIDR or using default tags.</span></span>
-    * <span data-ttu-id="6e2eb-136">`--source-port-range "*"`: porta de origem ou intervalo de porta.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-136">`--source-port-range "*"`: Source port or port range.</span></span> <span data-ttu-id="6e2eb-137">Porta que abriu a conexão.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-137">Port that opened the connection.</span></span>
-    * <span data-ttu-id="6e2eb-138">`--destination-address-prefix "*"`: prefixo do endereço de destino no CIDR ou uso de rótulos padrão.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-138">`--destination-address-prefix "*"`: Destination address prefix in CIDR or using default tags.</span></span>
-    * <span data-ttu-id="6e2eb-139">`--destination-port-range 3389`: porta de destino ou intervalo de porta.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-139">`--destination-port-range 3389`: Destination port or port range.</span></span> <span data-ttu-id="6e2eb-140">Porta que recebe a solicitação de conexão.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-140">Port that receives the connection request.</span></span>
+    * <span data-ttu-id="f0301-127">`--resource-group testrg`: Olá toouse do grupo de recursos.</span><span class="sxs-lookup"><span data-stu-id="f0301-127">`--resource-group testrg`: hello resource group toouse.</span></span> <span data-ttu-id="f0301-128">Observe que ele diferencia maiúsculas de minúsculas.</span><span class="sxs-lookup"><span data-stu-id="f0301-128">Note that it is case-insensitive.</span></span>
+    * <span data-ttu-id="f0301-129">`--nsg-name NSG-FrontEnd`: Nome do NSG Olá no qual Olá regra é criada.</span><span class="sxs-lookup"><span data-stu-id="f0301-129">`--nsg-name NSG-FrontEnd`: Name of hello NSG in which hello rule is created.</span></span>
+    * <span data-ttu-id="f0301-130">`--name rdp-rule`: O nome para a nova regra de saudação.</span><span class="sxs-lookup"><span data-stu-id="f0301-130">`--name rdp-rule`: Name for hello new rule.</span></span>
+    * <span data-ttu-id="f0301-131">`--access Allow`: Nível de acesso para regra de saudação (Deny ou permitir).</span><span class="sxs-lookup"><span data-stu-id="f0301-131">`--access Allow`: Access level for hello rule (Deny or Allow).</span></span>
+    * <span data-ttu-id="f0301-132">`--protocol Tcp`:protocolo (Tcp, Udp ou *).</span><span class="sxs-lookup"><span data-stu-id="f0301-132">`--protocol Tcp`: Protocol (Tcp, Udp, or *).</span></span>
+    * <span data-ttu-id="f0301-133">`--direction Inbound`: Direção da conexão de saudação (entrada ou saída).</span><span class="sxs-lookup"><span data-stu-id="f0301-133">`--direction Inbound`: Direction of hello connection (Inbound or Outbound).</span></span>
+    * <span data-ttu-id="f0301-134">`--priority 100`: Prioridade para a regra de saudação.</span><span class="sxs-lookup"><span data-stu-id="f0301-134">`--priority 100`: Priority for hello rule.</span></span>
+    * <span data-ttu-id="f0301-135">`--source-address-prefix Internet`: prefixo do endereço de origem no CIDR ou uso de rótulos padrão.</span><span class="sxs-lookup"><span data-stu-id="f0301-135">`--source-address-prefix Internet`: Source address prefix in CIDR or using default tags.</span></span>
+    * <span data-ttu-id="f0301-136">`--source-port-range "*"`: porta de origem ou intervalo de porta.</span><span class="sxs-lookup"><span data-stu-id="f0301-136">`--source-port-range "*"`: Source port or port range.</span></span> <span data-ttu-id="f0301-137">Porta aberta conexão hello.</span><span class="sxs-lookup"><span data-stu-id="f0301-137">Port that opened hello connection.</span></span>
+    * <span data-ttu-id="f0301-138">`--destination-address-prefix "*"`: prefixo do endereço de destino no CIDR ou uso de rótulos padrão.</span><span class="sxs-lookup"><span data-stu-id="f0301-138">`--destination-address-prefix "*"`: Destination address prefix in CIDR or using default tags.</span></span>
+    * <span data-ttu-id="f0301-139">`--destination-port-range 3389`: porta de destino ou intervalo de porta.</span><span class="sxs-lookup"><span data-stu-id="f0301-139">`--destination-port-range 3389`: Destination port or port range.</span></span> <span data-ttu-id="f0301-140">Porta que recebe a solicitação de conexão de saudação.</span><span class="sxs-lookup"><span data-stu-id="f0301-140">Port that receives hello connection request.</span></span>
 
 
 
-4. <span data-ttu-id="6e2eb-141">Execute o comando **az network nsg rule create** para criar uma regra que permite o acesso à porta 80 (HTTP) a partir da Internet.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-141">Create a rule that allows access to port 80 (HTTP) from the Internet **az network nsg rule create** command.</span></span>
+4. <span data-ttu-id="f0301-141">Criar uma regra que permita acesso tooport 80 (HTTP) do hello Internet **criar regra de nsg rede az** comando.</span><span class="sxs-lookup"><span data-stu-id="f0301-141">Create a rule that allows access tooport 80 (HTTP) from hello Internet **az network nsg rule create** command.</span></span>
    
     ```azurecli
     az network nsg rule create \
@@ -157,7 +157,7 @@ ms.lasthandoff: 07/11/2017
     --destination-port-range 80
     ```
    
-    <span data-ttu-id="6e2eb-142">Saída esperada:</span><span class="sxs-lookup"><span data-stu-id="6e2eb-142">Expected putput:</span></span>
+    <span data-ttu-id="f0301-142">Saída esperada:</span><span class="sxs-lookup"><span data-stu-id="f0301-142">Expected putput:</span></span>
    
     ```json
     {
@@ -178,7 +178,7 @@ ms.lasthandoff: 07/11/2017
     }
     ```
 
-5. <span data-ttu-id="6e2eb-143">Associe o NSG à sub-rede do **FrontEnd** rede com o comando [az network vnet subnet update](/cli/azure/network/vnet/subnet#update).</span><span class="sxs-lookup"><span data-stu-id="6e2eb-143">Bind the NSG to the **FrontEnd** subnet with the [az network vnet subnet update](/cli/azure/network/vnet/subnet#update) command.</span></span>
+5. <span data-ttu-id="f0301-143">Associar Olá NSG toohello **front-end** sub-rede com hello [atualização de sub-rede da rede virtual de rede az](/cli/azure/network/vnet/subnet#update) comando.</span><span class="sxs-lookup"><span data-stu-id="f0301-143">Bind hello NSG toohello **FrontEnd** subnet with hello [az network vnet subnet update](/cli/azure/network/vnet/subnet#update) command.</span></span>
         
     ```azurecli
     az network vnet subnet update \
@@ -188,7 +188,7 @@ ms.lasthandoff: 07/11/2017
     --network-security-group NSG-FrontEnd
     ```
    
-    <span data-ttu-id="6e2eb-144">Saída esperada:</span><span class="sxs-lookup"><span data-stu-id="6e2eb-144">Expected output:</span></span>
+    <span data-ttu-id="f0301-144">Saída esperada:</span><span class="sxs-lookup"><span data-stu-id="f0301-144">Expected output:</span></span>
    
     ```json
     {
@@ -231,10 +231,10 @@ ms.lasthandoff: 07/11/2017
     }
     ```
 
-## <a name="create-the-nsg-for-the-backend-subnet"></a><span data-ttu-id="6e2eb-145">Como criar o NSG para a `BackEnd` sub-rede</span><span class="sxs-lookup"><span data-stu-id="6e2eb-145">Create the NSG for the `BackEnd` subnet</span></span>
-<span data-ttu-id="6e2eb-146">Siga as etapas abaixo para criar um NSG chamado *NSG-BackEnd* com base no cenário anterior.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-146">To create an NSG named *NSG-BackEnd* based on the scenario preceding, follow the steps following.</span></span>
+## <a name="create-hello-nsg-for-hello-backend-subnet"></a><span data-ttu-id="f0301-145">Criar hello NSG para Olá `BackEnd` sub-rede</span><span class="sxs-lookup"><span data-stu-id="f0301-145">Create hello NSG for hello `BackEnd` subnet</span></span>
+<span data-ttu-id="f0301-146">toocreate um NSG denominado *back-end NSG* com base no cenário de saudação anterior, execute o seguinte de etapas de saudação.</span><span class="sxs-lookup"><span data-stu-id="f0301-146">toocreate an NSG named *NSG-BackEnd* based on hello scenario preceding, follow hello steps following.</span></span>
 
-1. <span data-ttu-id="6e2eb-147">Crie o NSG `NSG-BackEnd` com **az network nsg create**.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-147">Create the `NSG-BackEnd` NSG with **az network nsg create**.</span></span>
+1. <span data-ttu-id="f0301-147">Criar hello `NSG-BackEnd` NSG com **criar az rede nsg**.</span><span class="sxs-lookup"><span data-stu-id="f0301-147">Create hello `NSG-BackEnd` NSG with **az network nsg create**.</span></span>
    
     ```azurecli
     az network nsg create \
@@ -243,9 +243,9 @@ ms.lasthandoff: 07/11/2017
     --location centralus
     ```
    
-    <span data-ttu-id="6e2eb-148">Como na etapa 2 anterior, a saída esperada é muito grande, incluindo regras padrão.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-148">As in step 2, preceding, the expected output is quite large, including default rules.</span></span>
+    <span data-ttu-id="f0301-148">Como na etapa 2, anterior, Olá esperado saída é muito grande, incluindo as regras padrão.</span><span class="sxs-lookup"><span data-stu-id="f0301-148">As in step 2, preceding, hello expected output is quite large, including default rules.</span></span>
    
-2. <span data-ttu-id="6e2eb-149">Execute o comando **az network nsg rule create** para criar uma regra que permite o acesso à porta 1433 (SQL) a partir da sub-rede `FrontEnd`.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-149">Create a rule that allows access to port 1433 (SQL) from the `FrontEnd` subnet with the **az network nsg rule create** command.</span></span>
+2. <span data-ttu-id="f0301-149">Criar uma regra que permita acesso tooport 1433 (SQL) do hello `FrontEnd` sub-rede com hello **criar regra de nsg rede az** comando.</span><span class="sxs-lookup"><span data-stu-id="f0301-149">Create a rule that allows access tooport 1433 (SQL) from hello `FrontEnd` subnet with hello **az network nsg rule create** command.</span></span>
    
     ```azurecli
     az network nsg rule create \
@@ -262,7 +262,7 @@ ms.lasthandoff: 07/11/2017
     --destination-port-range 1433
     ```
    
-    <span data-ttu-id="6e2eb-150">Saída esperada:</span><span class="sxs-lookup"><span data-stu-id="6e2eb-150">Expected output:</span></span>
+    <span data-ttu-id="f0301-150">Saída esperada:</span><span class="sxs-lookup"><span data-stu-id="f0301-150">Expected output:</span></span>
 
     ```json  
     {
@@ -283,7 +283,7 @@ ms.lasthandoff: 07/11/2017
     }
     ```
 
-3. <span data-ttu-id="6e2eb-151">Execute o comando **az network nsg rule create** para criar uma regra que recusa o acesso à Internet.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-151">Create a rule that denies access to the Internet using the **az network nsg rule create** command.</span></span>
+3. <span data-ttu-id="f0301-151">Criar uma regra que nega acesso toohello à Internet usando Olá **criar regra de nsg rede az** comando.</span><span class="sxs-lookup"><span data-stu-id="f0301-151">Create a rule that denies access toohello Internet using hello **az network nsg rule create** command.</span></span>
    
     ```azurecli
     az network nsg rule create \
@@ -300,7 +300,7 @@ ms.lasthandoff: 07/11/2017
     --destination-port-range "*"
     ```
    
-    <span data-ttu-id="6e2eb-152">Saída esperada:</span><span class="sxs-lookup"><span data-stu-id="6e2eb-152">Expected putput:</span></span>
+    <span data-ttu-id="f0301-152">Saída esperada:</span><span class="sxs-lookup"><span data-stu-id="f0301-152">Expected putput:</span></span>
    
     ```json
     {
@@ -321,7 +321,7 @@ ms.lasthandoff: 07/11/2017
     }
     ```
 
-4. <span data-ttu-id="6e2eb-153">Associe o NSG à sub-rede `BackEnd` usando o comando **az network vnet subnet set**.</span><span class="sxs-lookup"><span data-stu-id="6e2eb-153">Bind the NSG to the `BackEnd` subnet using the **az network vnet subnet set** command.</span></span>
+4. <span data-ttu-id="f0301-153">Associar Olá NSG toohello `BackEnd` sub-rede usando Olá **conjunto de sub-rede de rede virtual de rede az** comando.</span><span class="sxs-lookup"><span data-stu-id="f0301-153">Bind hello NSG toohello `BackEnd` subnet using hello **az network vnet subnet set** command.</span></span>
    
     ```azurecli
     az network vnet subnet update \
@@ -331,7 +331,7 @@ ms.lasthandoff: 07/11/2017
     --network-security-group NSG-BackEnd
     ```
    
-    <span data-ttu-id="6e2eb-154">Saída esperada:</span><span class="sxs-lookup"><span data-stu-id="6e2eb-154">Expected output:</span></span>
+    <span data-ttu-id="f0301-154">Saída esperada:</span><span class="sxs-lookup"><span data-stu-id="f0301-154">Expected output:</span></span>
    
     ```json
     {
