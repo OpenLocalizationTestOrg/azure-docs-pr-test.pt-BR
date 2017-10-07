@@ -1,5 +1,5 @@
 ---
-title: "Configurando a Junção do Azure AD para seus usuários | Microsoft Docs"
+title: "aaaSetting a junção do Azure AD para seus usuários | Microsoft Docs"
 description: "Explica como os administradores podem configurar a Junção do Azure AD para o diretório local e o registro de dispositivos."
 services: active-directory
 documentationcenter: 
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.openlocfilehash: c37adc2654f7e931fdda22627e4a6ece2789fd86
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 60a5aeb11292cb6057ab1065c3ab77e5981d0cdb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="setting-up-azure-ad-join-in-your-organization"></a>Configuração da Junção do Azure AD na sua organização
-Antes de configurar a Junção do Azure AD (Junção do Azure Active Directory), é necessário sincronizar seu diretório local de usuários com a nuvem ou criar manualmente as contas gerenciadas no Azure AD.
+Antes de configurar a junção do Azure Active Directory (junção do Azure AD), você precisar de sincronização de tooeither até seu diretório local da nuvem de toohello de usuários ou criar manualmente as contas gerenciadas no AD do Azure.
 
-Instruções detalhadas para sincronizar seus usuários locais com o Azure AD são fornecidas em [Integrando suas identidades locais com o Azure Active Directory](active-directory-aadconnect.md).
+Instruções detalhadas para sincronizar seu tooAzure de usuários local AD é abordado em [integrando suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-Para criar e gerenciar usuários manualmente no Azure AD, consulte [Gerenciamento de usuários no Azure AD](https://msdn.microsoft.com/library/azure/hh967609.aspx).
+toomanually criar e gerenciar os usuários no AD do Azure, consulte muito[gerenciamento de usuário no AD do Azure](https://msdn.microsoft.com/library/azure/hh967609.aspx).
 
 ## <a name="set-up-device-registration"></a>Configure o registro de dispositivos
-1. Faça logon no Portal do Azure como administrador.
-2. No painel esquerdo, selecione **Active Directory**.
-3. Na guia **Diretório** , selecione o diretório.
-4. Selecione a guia **Configurar** .
-5. Vá para a seção **Dispositivos** .
-6. Na guia **dispositivos** , defina o seguinte:  
-   * **NÚMERO MÁXIMP DE DISPOSITIVOS POR USUÁRIO**: selecione o número máximo de dispositivos que um usuário pode ter no Azure AD.  Se um usuário atingir esta cota, ele não poderá adicionar mais dispositivos até que um ou mais dos seus dispositivos existentes sejam removidos.
-   * **EXIGIR MULTI-FACTOR AUTH PARA UNIR DISPOSITIVOS**: defina se os usuários devem precisar fornecer um segundo fator de autenticação para unir seu dispositivo ao Azure AD. Para saber mais sobre a Autenticação Multifator do Azure, confira [Introdução à Autenticação Multifator do Azure na nuvem](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
-   * **USUÁRIOS PODEM UNIR DISPOSITIVOS AO AZURE AD**: selecione os usuários e grupos que têm permissão para unir dispositivos ao Azure AD.
-   * **ADMINISTRADORES ADICIONAIS EM DISPOSITIVOS UNIDOS AO AZURE**: com o Azure AD Premium ou a EMS (Enterprise Mobility Suite), você pode escolher quais usuários recebem direitos de administrador local no dispositivo. Os administradores globais e os proprietários do dispositivo recebem direitos de administrador local por padrão.
+1. Faça logon no toohello portal do Azure como administrador.
+2. No painel esquerdo do hello, selecione **do Active Directory**.
+3. Em Olá **diretório** , selecione seu diretório.
+4. Selecione Olá **configurar** guia.
+5. Vá toohello **dispositivos** seção.
+6. Em Olá **dispositivos** guia, defina Olá seguinte:  
+   * **MÁXIMO número de dispositivos por usuário**: selecione Olá o número máximo de dispositivos que um usuário pode ter no AD do Azure.  Se um usuário atingir essa cota, eles não estarão dispositivos adicionais capaz de tooadd até que um ou mais dos seus dispositivos existentes são removidos.
+   * **EXIGIR autenticação MULTIFATOR tooJOIN dispositivos**: definir se os usuários são necessária tooprovide uma autenticação de segundo fator toojoin tooAzure seu dispositivo AD. Para obter mais informações sobre o Azure multi-Factor Authentication, consulte [guia de Introdução ao Azure multi-Factor Authentication na nuvem Olá](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+   * **Os usuários podem dispositivos de junção do AZURE AD**: selecione Olá usuários e grupos são permitidos toojoin dispositivos tooAzure AD.
+   * **DISPOSITIVOS que ingressaram no AD do AZURE ON de administradores adicionais**: com o Azure AD Premium ou Olá Enterprise Mobility Suite (EMS), você pode escolher quais usuários são concedidos direitos de administrador local toohello dispositivo. Os administradores globais e os proprietários do dispositivo recebem direitos de administrador local por padrão.
 
 <center>![Configure o registro de dispositivos](./media/active-directory-azureadjoin/active-directory-aadjoin-configure-devices.png) </center>
 
-Após você configurar a Junção do Azure AD para seus usuários, eles podem se conectar ao Azure AD por meio de seus dispositivos pessoais ou corporativos.
+Depois de configurar junção do Azure AD para seus usuários, eles podem se conectar dispositivos pessoais ou tooAzure AD por meio de sua empresa.
 
-A seguir estão os três cenários que você pode usar para habilitar seus usuários para configurarem a Junção do Azure AD:
+A seguir estão os três cenários de saudação você pode usar tooenable tooset seus usuários a junção do Azure AD:
 
-* Os usuários unem um dispositivo da empresa diretamente ao Azure AD.
-* Os usuários unem um dispositivo de empresa ao domínio no Active Directory local e o estendem para o Azure AD.
-* Os usuários adicionam contas corporativas e de estudante ao Windows em um dispositivo pessoal
+* Os usuários se associar a um dispositivo da empresa diretamente tooAzure AD.
+* Usuários toohello de dispositivo de uma empresa de associação de domínio do Active Directory local e estende Olá dispositivo tooAzure AD.
+* Adicionarem usuários ou contas de estudante tooWindows em um dispositivo pessoal
 
 ## <a name="additional-information"></a>Informações adicionais
-* [Windows 10 para a empresa: maneiras de usar dispositivos para o trabalho](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-user-upgrade.md)
+* [Windows 10 para a empresa Olá: dispositivos de toouse maneiras de trabalho](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Estendendo nuvem dispositivos de tooWindows 10 de recursos por meio de junção do Active Directory do Azure](active-directory-azureadjoin-user-upgrade.md)
 * [Saiba mais sobre cenários de uso da Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Conecte-se a dispositivos que ingressaram no domínio tooAzure AD para experiências do Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 

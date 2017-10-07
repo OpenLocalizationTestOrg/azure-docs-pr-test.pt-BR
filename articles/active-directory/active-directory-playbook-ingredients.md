@@ -1,6 +1,6 @@
 ---
-title: Ingredientes da cartilha do PoC do Azure Active Directory | Microsoft Docs
-description: "Explorar e implementar rapidamente os cenários de gerenciamento de identidades e acesso"
+title: "aaaAzure Active Directory PoC guia estratégico ingredientes | Microsoft Docs"
+description: "Explorar e implementar rapidamente os cenários de Identidade e Gerenciamento de Acesso"
 services: active-directory
 keywords: azure active directory, cartilha, prova de conceito, PoC
 documentationcenter: 
@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/12/2017
 ms.author: dstefan
-ms.openlocfilehash: d2a0fe280f143d390f5e4ba40e0ebe92d8a4a837
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0a7f5cd659b9d62ac86e3c27e5727294d481f4a2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-ingredients"></a>Ingredientes do guia estratégico de prova de conceito do Azure Active Directory 
 
 ## <a name="theme"></a>Tema
-O Azure AD fornece soluções de identidade e de acesso em várias áreas da empresa. Classificamos os cenários nas seguintes áreas: 
+AD do Azure fornece soluções de identidade e acesso de várias áreas da empresa hello. Classificamos cenários Olá Olá áreas a seguir: 
 
 * [Muitos aplicativos, uma identidade](active-directory-playbook-implementation.md#theme---lots-of-apps-one-identity) 
 * [Aumentar sua segurança](active-directory-playbook-implementation.md#theme---increase-your-security) 
 * [Dimensionar com autoatendimento](active-directory-playbook-implementation.md#theme---scale-with-self-service) 
 
-Definir um tema para estruturar o PoC ajuda a concentrar os esforços que ressoam com metas de negócios, que, geralmente, são os gatilhos de interesse em uma prova de conceito em primeiro lugar. 
+Definir um tema tooframe Olá PoC ajuda esforços de saudação toofocus que reflete os desejos com as metas de negócios, que são muitas vezes, os gatilhos de Olá de interesse de saudação em uma verificação de conceito em primeiro lugar de saudação. 
 
 ## <a name="environment"></a>Ambiente
 
-É importante determinar os detalhes do ambiente em que você fornecerá o PoC. O ideal será você criar com base nele depois que o PoC for concluído. O ambiente de destino é fundamental e você deve encontrar o equilíbrio certo entre torná-lo o mais real possível e a sobrecarga de restrições ou considerações adicionais. Os ambientes típicos para PoCs são:
-* **Produção:** os cenários serão implementados em seu ambiente em tempo real e já implantaram os serviços do Microsoft Cloud (AD de produção, Office 365, solução SSO/locatário do Azure AD). 
-* **Ambiente UAT (Teste de Aceitação do Usuário)/de desenvolvimento:** você tem uma infraestrutura de teste (AD paralelo e eventualmente a solução SSO/locatário do Azure AD) que tem dados de teste que se assemelham à produção. Normalmente, o ambiente de teste é compartilhado em vários projetos na empresa.
+É toodetermine importante detalhes de saudação do ambiente Olá onde você fornecerá Olá PoC. Idealmente, você pode criar após ele depois Olá que POC é concluída. ambiente de destino Olá é crucial, e você deve encontrar o equilíbrio correto de saudação entre tornar a ele como real possível e sobrecarga de saudação de restrições ou considerações adicionais. saudação de ambientes típicos para PoCs é:
+* **Produção:** cenários Olá serão implementados em seu ambiente em tempo real e já implantado os serviços do Microsoft Cloud (produção AD, Office 365, solução SSO/locatário do AD do Azure). 
+* **Ambiente UAT (Teste de Aceitação do Usuário)/de desenvolvimento:** você tem uma infraestrutura de teste (AD paralelo e eventualmente a solução SSO/locatário do Azure AD) que tem dados de teste que se assemelham à produção. Normalmente, o ambiente de teste Olá é compartilhado entre vários projetos na empresa hello.
 
-A maioria dos cenários deste guia são aditivos por natureza. Como resultado, eles podem ser implantados no locatário de produção sem afetar os usuários fora do PoC. Ao longo deste documento, mencionaremos quais cenários teriam efeito em todo o locatário. Nesses casos, talvez convenha considerar um ambiente de não produção. 
+A maioria dos cenários deste guia são aditivos por natureza. Como resultado, ele podem ser implantados em locatário de produção de hello sem afetar os usuários fora da saudação PoC. Ao longo deste documento, mencionaremos quais cenários teriam efeito em todo o locatário. Nesses casos, convém tooconsider um ambiente de não produção. 
 
 
 ## <a name="target-users"></a>Usuários de destino
 
-É importante determinar o conjunto de destino de usuários que exercerão os cenários, principalmente quando o ambiente é de produção ou de teste. As categorias de usuários de destino do PoC são:
-* **Usuários piloto:** usuários reais no ambiente que usarão a solução com a conta que eles usam para suas funções de trabalho diário
-* **Usuários de teste:** contas de teste criadas no ambiente 
+É importante toodetermine Olá destino conjunto de usuários que usará cenários hello, especialmente quando o ambiente de saudação for produção ou teste. Olá categorias de usuários de destino para PoC são:
+* **Os usuários do piloto:** funções de trabalho de usuários reais no ambiente de saudação que vai usar solução Olá com conta Olá usam para seu tooday dia
+* **Usuários de teste:** criadas no ambiente de saudação de contas de teste 
 
 A maioria dos cenários neste guia pode ser exercida por usuários piloto. Ao longo deste documento, mencionaremos considerações do usuário de destino, se necessário.
 

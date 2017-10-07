@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory B2C: Referência: Como personalizar a IU de um percurso do usuário com políticas personalizadas | Microsoft Docs"
+title: "B2C de diretório ativo do Azure: Referência: personalizar a interface do usuário de uma viagem de usuário com as políticas personalizadas de saudação | Microsoft Docs"
 description: "Um tópico sobre as políticas personalizadas do Azure Active Directory B2C"
 services: active-directory-b2c
 documentationcenter: 
@@ -14,39 +14,39 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
-ms.openlocfilehash: 68f40aa638a687398512278a0b77d1ba392859cf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 11f2a7575b95a186399d83266850fe44d650371b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalize a IU de um percurso do usuário com políticas personalizadas
+# <a name="customize-hello-ui-of-a-user-journey-with-custom-policies"></a>Personalizar a interface do usuário de uma viagem de usuário com as políticas personalizadas de saudação
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 > [!NOTE]
-> Este artigo é uma descrição avançada de como funciona a personalização da IU e como habilitar com políticas personalizadas B2C, usando o Identity Experience Framework
+> Este artigo é uma descrição avançada de como funciona a personalização da interface do usuário e como tooenable com as políticas personalizadas B2C, usando Olá do Framework de experiência de identidade
 
 
-Uma experiência perfeita para o usuário é a chave para qualquer solução para negócios para consumidor. Quando mencionamos experiência perfeita para o usuário, queremos dizer uma experiência no dispositivo ou navegador, onde o percurso do usuário no nosso serviço não pode ser diferenciado do serviço do cliente que ele está usando.
+Uma experiência perfeita para o usuário é a chave para qualquer solução para negócios para consumidor. Com a experiência do usuário perfeita, queremos dizer uma experiência no dispositivo ou navegador, onde jornada de um usuário por meio de nosso serviço não pode ser diferenciada do hello atendimento ao cliente que estão usando.
 
-## <a name="understand-the-cors-way-for-ui-customization"></a>Introdução ao método CORS para personalização da IU
+## <a name="understand-hello-cors-way-for-ui-customization"></a>Compreender a maneira CORS Olá para personalização da interface do usuário
 
-O Azure AD B2C permite que você personalize a aparência da experiência do usuário (UX) em várias páginas que podem ser potencialmente atendidas e exibidas pelo Azure AD B2C por meio de suas políticas personalizadas.
+B2C do Azure AD permite que você toocustomize Olá aparência e funcionalidade de experiência do usuário (UX) Olá várias páginas que podem ser potencialmente atendidas e exibidas pelo Azure AD B2C por meio de suas políticas personalizadas.
 
-Para essa finalidade, o Azure AD B2C executa o código no navegador do cliente e usa a abordagem moderna e padrão do [Compartilhamento de recursos entre origens (CORS)](http://www.w3.org/TR/cors/) para carregar conteúdo personalizado de uma URL particular, que você especifica em uma política personalizada para apontar para os modelos de HTML5/CSS. O CORS é um mecanismo que permite o uso recursos restritos, como fontes, em uma página da web solicitada em outro domínio fora do domínio do qual o recurso foi originado.
+Para essa finalidade, o Azure AD B2C executa o código no navegador do cliente e usa Olá abordagem moderna e padrão [compartilhamento de recursos entre origens (CORS)](http://www.w3.org/TR/cors/) conteúdo personalizado do tooload de uma URL específica que você especificar em uma política personalizada modelos de HTML5/CSS de tooyour toopoint. CORS é um mecanismo que permite que os recursos restritos, como fontes, em um toobe de página da web solicitada de outro domínio fora Olá domínio de origem do recurso de saudação.
 
-Em comparação com a maneira tradicional antiga, onde as páginas de modelo pertencentes à solução onde você forneceu textos e imagens limitados, onde o controle limitado de layout e aparência oferecidos prejudicam uma experiência perfeita, o método CORS dá suporte às HTML5 e CSS e permitem que você:
+Em comparação com o antigo modo tradicional toohello, onde as páginas de modelo pertencentes a solução Olá onde fornecido limitada de texto e imagens, onde controle limitado de layout e aparência era oferecido toomore à esquerda que dificuldades tooachieve uma experiência perfeita, Olá CORS modo compatível com HTML5 e CSS e permitem que você:
 
-- Hospede o conteúdo e injete a solução dos seus controles usando o script no lado do cliente.
+- Hospedar conteúdo hello e solução hello injeta seus controles usando script do lado do cliente.
 - Tenha controle total sobre cada pixel de layout e aparência.
 
 Você pode fornecer quantas páginas de conteúdo quiser ao criar arquivos de HTML5/CSS conforme a conveniência.
 
 > [!NOTE]
-> Por motivos de segurança, bloqueamos a personalização do uso do JavaScript no momento. Para desbloquear o JavaScript, é necessário usar um nome de domínio personalizado para seu locatário Azure AD B2C.
+> Por motivos de segurança, uso de saudação do JavaScript está bloqueado no momento para personalização. toounblock JavaScript, o uso de um nome de domínio personalizado para seu locatário do Azure AD B2C é necessária.
 
-Em cada um de seus modelos de HTML5/CSS, você deve fornecer um elemento *âncora*, que corresponde ao elemento `<div id=”api”>` necessário no HTML ou na página de conteúdo, como ilustram daqui em diante. O Azure AD B2C requer que todas as páginas de conteúdo tenham essa divisão específica.
+Em cada um dos seus modelos de HTML5/CSS, você deve fornecer um *âncora* elemento, que corresponde a toohello necessária `<div id=”api”>` elemento Olá HTML ou hello página de conteúdo como ilustram daqui por diante. O Azure AD B2C requer que todas as páginas de conteúdo tenham essa divisão específica.
 
 ```
 <!DOCTYPE html>
@@ -60,11 +60,11 @@ Em cada um de seus modelos de HTML5/CSS, você deve fornecer um elemento *âncor
 </html>
 ```
 
-O conteúdo relacionado ao Azure AD B2C para a página será injetado nessa divisão, enquanto o restante da página fica sob o seu controle. O código JavaScript do Azure AD B2C extrai seu conteúdo e injeta o HTML dentro desse elemento de divisão específico. O Azure AD B2C injeta os seguintes controles conforme a conveniência: controle de seletor de conta, controles de logon, controles de vários fatores (atualmente baseados em telefone) e controles de coleta de atributo de conta. O Azure AD B2C garante que todos os controles HTML5 estejam acessíveis e em conformidade, que todos os controles possam ser totalmente estilizados e que a versão daquele controle não seja regredida.
+Conteúdo relacionado AD B2C do Azure para a página de saudação será injetada neste div, enquanto o restante de saudação da página de saudação é sua toocontrol. código JavaScript de saudação do Azure AD B2C extrai seu conteúdo e injeta o HTML nesse elemento div específico. B2C do Azure AD injeta Olá seguintes controles conforme apropriado: controle de seletor, controles de logon, multi-factor (atualmente baseado em telefone) controles e controles de coleção de atributo de conta. B2C do AD do Azure garante que todos os controles de saudação HTML5 acessível e não compatíveis, todos os controles de saudação podem ser totalmente com o estilo e uma versão de controle será diminua.
 
-O conteúdo mesclado, por fim, é exibido como o documento dinâmico para o consumidor.
+Olá conteúdo mesclado é eventualmente exibido como consumidor de tooyour documento dinâmico Olá.
 
-Para garantir que as funções acima funcionem corretamente, faça o seguinte:
+tooensure de saudação acima funciona conforme o esperado, você deve:
 
 - Certifique-se de que seu conteúdo esteja em conformidade com HTML5 e acessível
 - Verifique se que o servidor de conteúdo está habilitado para CORS.
@@ -72,74 +72,74 @@ Para garantir que as funções acima funcionem corretamente, faça o seguinte:
 - Use URLS absolutas como https://yourdomain/content para todos os links e conteúdo CSS.
 
 > [!TIP]
-> Para verificar se o site que você está hospedando o conteúdo possui CORS habilitado e testar solicitações CORS, use o site http://test-cors.org/. Graças a esse site, você pode simplesmente enviar a solicitação CORS para um servidor remoto (para testar se há suporte para CORS), ou enviar a solicitação CORS para um servidor de teste (para explorar alguns recursos do CORS).
+> tooverify que Olá site que você estiver hospedando o conteúdo em tiver CORS habilitado e solicitações CORS de teste, você pode usar o hello site http://test-cors.org/. Site de toothis Obrigado, você pode simplesmente enviar Olá CORS solicitação tooa ao servidor remoto (tootest se houver suporte para CORS) ou enviar o servidor de teste do hello CORS solicitação tooa (tooexplore determinados recursos de CORS).
 
 > [!TIP]
-> O site http://enable-cors.org/ também apresenta mais recursos úteis no CORS.
+> Olá site http://enable-cors.org/ também constitui uma mais de recursos úteis sobre o CORS.
 
-Graças a essa abordagem baseada em CORS, os usuários finais terão experiências consistentes entre seu aplicativo e as páginas atendidas pelo Azure AD B2C.
+Graças toothis abordagem baseada em CORS, os usuários finais de saudação terá experiências consistentes entre seu aplicativo e páginas de saudação servidas pelo Azure AD B2C.
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Como pré-requisito, você precisa criar uma conta de armazenamento. Você precisará de uma assinatura do Azure para criar uma conta de Armazenamento de Blobs do Azure. Você pode se inscrever para uma avaliação gratuita no [site do Azure](https://azure.microsoft.com/en-us/pricing/free-trial/).
+Como pré-requisito, você precisa toocreate uma conta de armazenamento. Você precisará de uma assinatura do Azure de toocreate uma conta de armazenamento de BLOBs do Azure. Você pode inscrever uma avaliação gratuita em Olá [site do Azure](https://azure.microsoft.com/en-us/pricing/free-trial/).
 
-1. Abra uma sessão de navegação e navegue até o [portal do Azure](https://portal.azure.com).
+1. Abra uma sessão de navegação e navegue toohello [portal do Azure](https://portal.azure.com).
 2. Entre com suas credenciais administrativas.
 3. Clique em **Novo** > **Dados + armazenamento** > **Conta de armazenamento**.  Uma folha **Criar conta de armazenamento** abre.
-4. No **nome**, forneça um nome para a conta de armazenamento, por exemplo, *contoso369b2c*. Esse valor será referenciado mais tarde como *storageAccountName*.
-5. Escolha as seleções apropriadas para o tipo de preços, o grupo de recursos e a assinatura. Verifique se a opção **Fixar no Quadro Inicial** está marcada. Clique em **Criar**.
-6. Volte para o quadro inicial e clique na conta de armazenamento que você acabou de criar.
-7. Na seção **serviços**, clique em **Blobs**. A **folha do serviço Blob** abre.
-8. Clique em **+ contêiner**.
-9. No **nome**, forneça um nome para o contêiner, por exemplo, *b2c*. Esse valor será posteriormente referenciado como *containerName*.
-9. Selecione **Blob** como o **Tipo de acesso**. Clique em **Criar**.
-10. O contêiner que você criou aparecerá na lista da **folha de serviço Blob**.
-11. Feche a folha **Blobs** .
-12. Na **folha da conta de armazenamento**, clique o ícone **Chave**. Uma **folha chaves de acesso** abre.  
-13. Anote o valor de **key1**. Esse valor será referenciado mais tarde como *key1*.
+4. Em **nome**, forneça um nome para a conta de armazenamento hello, por exemplo, *contoso369b2c*. Esse valor será posteriormente mencionado como muito*storageAccountName*.
+5. Escolha as seleções apropriadas Olá Olá tipo de preço, grupo de recursos de saudação e assinatura hello. Certifique-se de que você tenha Olá **tooStartboard Pin** opção marcada. Clique em **Criar**.
+6. Voltar toohello quadro inicial e clique na conta de armazenamento Olá que você acabou de criar.
+7. Em Olá **serviços** seção, clique em **Blobs**. A **folha do serviço Blob** abre.
+8. Clique em **+ Contêiner**.
+9. Em **nome**, forneça um nome para o contêiner de hello, por exemplo, *b2c*. Esse valor será posteriormente chamado tooas *containerName*.
+9. Selecione **Blob** como Olá **acessar tipo**. Clique em **Criar**.
+10. contêiner de saudação que você criou aparecerá na lista de saudação em Olá **folha do serviço Blob**.
+11. Olá fechar **Blobs** folha.
+12. Em Olá **folha da conta de armazenamento**, clique em Olá **chave** ícone. Uma **folha chaves de acesso** abre.  
+13. Anote o valor de saudação do **key1**. Esse valor será referenciado mais tarde como *key1*.
 
-## <a name="downloading-the-helper-tool"></a>Como baixar a ferramenta auxiliar
+## <a name="downloading-hello-helper-tool"></a>Baixar a ferramenta auxiliar do hello
 
-1.  Baixe a ferramenta auxiliar do [GitHub](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip).
-2.  Salve o arquivo *B2C-AzureBlobStorage-Client-master.zip* no seu computador local.
-3.  Extraia o conteúdo do arquivo B2C-AzureBlobStorage-Client-master.zip no seu disco local, por exemplo, na pasta **UI-Customization-Pack**. Isso criará uma pasta *B2C-AzureBlobStorage-Client-master*.
-4.  Abra a pasta e extraia o conteúdo do arquivo *B2CAzureStorageClient.zip* nela.
+1.  Baixar a ferramenta de auxiliar de saudação do [GitHub](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip).
+2.  Salvar Olá *B2C AzureBlobStorage-cliente master.zip* arquivo em seu computador local.
+3.  Extrair o conteúdo de saudação do arquivo hello B2C AzureBlobStorage-cliente master.zip em seu disco local, por exemplo, sob Olá **pacote de personalização da interface do usuário** pasta. Isso criará uma pasta *B2C-AzureBlobStorage-Client-master*.
+4.  Abra essa pasta e extrair o conteúdo de saudação do arquivo hello *B2CAzureStorageClient.zip* dentro dele.
 
-## <a name="upload-the-ui-customization-pack-sample-files"></a>Carregue os arquivos de exemplo do UI-Customization-Pack
+## <a name="upload-hello-ui-customization-pack-sample-files"></a>Carregar arquivos de exemplo de pacote de personalização de IU Olá
 
-1.  Usando o Windows Explorer, navegue até a pasta *B2C-AzureBlobStorage-Client-master* localizado na pasta *UI-Customization-Pack* criada na seção anterior.
-2.  Execute o arquivo *B2CAzureStorageClient.exe*. Esse programa simplesmente carregará todos os arquivos no diretório que você especifica para sua conta de armazenamento e habilita o acesso CORS para esses arquivos.
-3.  Quando solicitado, especifique: um.  O nome da sua conta de armazenamento *storageAccountName*, por exemplo, *contoso369b2c*.
-    b.  A chave de acesso primária de seu armazenamento de BLOBs do Azure, *key1*, por exemplo, *contoso369b2c*.
-    c.  O nome do seu contêiner de armazenamento de blobs de armazenamento, *containerName*, por exemplo, *b2c*.
-    d.  O caminho dos arquivos de exemplo *Pacote Starter*, por exemplo *..\B2CTemplates\wingtiptoys*.
+1.  Usando o Windows Explorer, navegue pasta toohello *B2C AzureBlobStorage-cliente mestre* localizado sob Olá *pacote de personalização da interface do usuário* pasta criada na seção anterior hello.
+2.  Executar Olá *B2CAzureStorageClient.exe* arquivo. Esse programa simplesmente carregará todos os arquivos Olá Olá diretório que você especifica a conta de armazenamento tooyour e habilita o acesso CORS para os arquivos.
+3.  Quando solicitado, especifique: um.  nome de saudação da sua conta de armazenamento, *storageAccountName*, por exemplo *contoso369b2c*.
+    b.  chave de acesso primária de saudação do seu armazenamento de BLOBs do azure, *key1*, por exemplo *contoso369b2c*.
+    c.  nome de saudação do seu contêiner de armazenamento de blob de armazenamento, *containerName*, por exemplo *b2c*.
+    d.  caminho de saudação do hello *pacote de inicializador* exemplos de arquivos, por exemplo *... \B2CTemplates\wingtiptoys*.
 
-Se você seguiu as etapas acima, os HTML5 e arquivos CSS do *UI-Customization-Pack* para a empresa fictícia **wingtiptoys** apontará para a sua conta de armazenamento.  Para verificar se o conteúdo foi carregado corretamente, abra a folha de contêineres relacionados no portal do Azure. Como alternativa, você pode verificar se o conteúdo foi carregado corretamente, para isso, acesse a página de um navegador. Para obter mais informações, confira [Azure Active Directory B2C: uma ferramenta auxiliar usada para demonstrar o recurso de personalização da interface de usuário (IU) da página](active-directory-b2c-reference-ui-customization-helper-tool.md).
+Se você seguiu as etapas de saudação acima, Olá arquivos HTML5 e CSS do hello *pacote de personalização da interface do usuário* para a empresa fictícia Olá **wingtiptoys** agora estar apontando tooyour conta de armazenamento.  Você pode verificar que o conteúdo de saudação foi carregado corretamente abrindo a folha de contêineres relacionados Olá no hello portal do Azure. Como alternativa, você pode verificar que o conteúdo de saudação foi carregado corretamente, acessando a página de saudação de um navegador. Para obter mais informações, consulte [do Azure Active Directory B2C: uma ferramenta de auxiliar usada recurso personalização de interface de usuário do toodemonstrate Olá página](active-directory-b2c-reference-ui-customization-helper-tool.md).
 
-## <a name="ensure-the-storage-account-has-cors-enabled"></a>Certifique-se de que a conta de armazenamento tenha o CORS habilitado
+## <a name="ensure-hello-storage-account-has-cors-enabled"></a>Certifique-se a conta de armazenamento de saudação tem CORS habilitado
 
-O CORS (compartilhamento de recursos entre origens) deve estar habilitado no seu ponto de extremidade para que o Azure AD B2C Premium carregue o seu conteúdo. Isso ocorre porque seu conteúdo é hospedado em um domínio diferente do domínio do qual o Azure AD B2C Premium fornece a página.
+CORS (Cross-Origin Resource Sharing) deve ser habilitado em seu ponto de extremidade para tooload Premium do Azure AD B2C seu conteúdo. Isso ocorre porque o conteúdo é hospedado em um domínio diferente do domínio Olá B2C do Azure AD Premium estarão servindo da página hello.
 
-Para verificar se o armazenamento que está hospedando o conteúdo tem CORS habilitado, prossiga com as etapas a seguir:
+tooverify armazenamento Olá estiver hospedando o conteúdo em tem CORS habilitado, prossiga com hello etapas a seguir:
 
-1. Abra uma sessão de navegação e navegue até a página *unified.html* usando a URL completa do seu local na sua conta de armazenamento `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Por exemplo, https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
-2. Navegue até http://test-cors.org. Este site permite que você verifique se a página que você está usando tem CORS habilitado.  
+1. Abra uma sessão de navegação e navegue página toohello *unified.html* usando a URL completa do seu local em sua conta de armazenamento, Olá `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Por exemplo, https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
+2. Navegue toohttp://test-cors.org. Este site permite que você tooverify que Olá página que você está usando tem CORS habilitado.  
 <!--
 ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
 -->
 
-3. Na **URL remota**, insira a URL completa para o seu conteúdo unified.html e clique em **Enviar solicitação**.
-4. Verifique se a saída da seção **Resultados** contém *XHR status: 200*. Isso indica que o CORS está habilitado.
+3. Em **URL remota**, insira a URL completa Olá para o seu conteúdo unified.html e clique em **enviar solicitação**.
+4. Verifique se essa saída Olá Olá **resultados** seção contém *status XHR: 200*. Isso indica que o CORS está habilitado.
 <!--
 ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
 -->
-Agora, a conta de armazenamento deve conter um contêiner de blobs denominado *b2c* na nossa ilustração, que contém os seguintes modelos wingtiptoys do *Pacote Starter*.
+conta de armazenamento Olá agora deve conter um contêiner de blob denominado *b2c* na nossa ilustração contém Olá seguir wingtiptoys modelos de saudação *pacote de inicializador*.
 
 <!--
 ![Correctly configured storage account](../../articles/active-directory-b2c/media/active-directory-b2c-reference-customize-ui-custom/storage-account-final.png)
 -->
 
-A tabela a seguir descreve a finalidade das páginas do HTML5 acima.
+Olá tabela a seguir descreve finalidade Olá Olá acima das páginas do HTML5.
 
 | Modelo do HTML5 | Descrição |
 |----------------|-------------|
@@ -149,26 +149,26 @@ A tabela a seguir descreve a finalidade das páginas do HTML5 acima.
 | *unified.html* | Esta página pode ser usada como modelo para uma página de inscrição ou entrada unificada. |
 | *updateprofile.html* | Esta página pode ser usada como modelo para uma página de atualização de perfil. |
 
-## <a name="add-a-link-to-your-html5css-templates-to-your-user-journey"></a>Adicione um link aos modelos de HTML5/CSS para o seu percurso do usuário
+## <a name="add-a-link-tooyour-html5css-templates-tooyour-user-journey"></a>Adicionar uma viagem de usuário do link tooyour HTML5/CSS modelos tooyour
 
-Você pode adicionar um link para os modelos de HTML5/CSS ao seu percurso do usuário ao editar diretamente uma política personalizada.
+Você pode adicionar uma viagem de usuário do link tooyour HTML5/CSS modelos tooyour editando uma política personalizada diretamente.
 
-Os modelos de HTML5/CSS personalizados usados no seu percurso do usuário devem ser especificados em uma lista de definições de conteúdo que podem ser usados nos percursos do usuário. Para essa finalidade, um elemento XML opcional *<ContentDefinitions>* deve ser declarado na seção *<BuildingBlocks>* do arquivo XML de política personalizada.
+Olá personalizado HTML5/CSS modelos toouse em sua jornada de usuário têm toobe especificado em uma lista de definições de conteúdo que pode ser usado nas Jornadas de usuário. Para essa finalidade, um recurso opcional  *<ContentDefinitions>*  elemento XML deve ser declarado em Olá  *<BuildingBlocks>*  seção do arquivo XML política personalizada.
 
-A tabela a seguir descreve o conjunto de ids de definição de conteúdo reconhecido pelo mecanismo de experiência de identidade de Azure AD B2C e o tipo de páginas relacionadas a eles.
+Olá, tabela a seguir descreve Olá conjunto de ids de definição de conteúdo reconhecido pelo mecanismo de experiência de identidade Olá B2C do Azure AD e o tipo de saudação de páginas que relaciona toothem.
 
 | Id de definição de conteúdo | Descrição |
 |-----------------------|-------------|
 | *api.error* | **Página de erro**. Essa página é exibida quando uma exceção ou um erro é encontrado. |
-| *api.idpselections* | **Página de seleção de provedor de identidade**. Esta página contém uma lista de provedores de identidade que o usuário pode escolher durante a inscrição. Esses são os provedores de identidade empresarial ou provedores de identidade social, como Facebook e Google+, ou contas locais (baseadas em endereço de email ou nome de usuário). |
-| *api.idpselections.signup* | **Seleção de provedor de identidade para inscrição**. Esta página contém uma lista de provedores de identidade que o usuário pode escolher durante a inscrição. Esses são os provedores de identidade empresarial ou provedores de identidade social, como Facebook e Google+, ou contas locais (baseadas em endereço de email ou nome de usuário). |
-| *api.localaccountpasswordreset* | **Página de esquecimento de senha**. Esta página contém um formulário que o usuário precisa preencher para iniciar sua redefinição de senha.  |
-| *api.localaccountsignin* | **Página de entrada da conta local**. Esta página contém um formulário de inscrição que o usuário deve preencher ao entrar usando uma conta local baseada em endereço de email ou nome de usuário. O formulário pode conter uma caixa de entrada de texto e caixa de entrada de senha. |
-| *api.localaccountsignup* | **Página de inscrição da conta local**. Esta página contém um formulário de inscrição que o usuário deve preencher ao inscrever-se usando uma conta local baseada em endereço de email ou nome de usuário. O formulário pode conter diferentes controles de entrada como caixa de entrada de texto, caixa de entrada de senha, botão de opção, caixas de lista suspensa de seleção única e caixas de seleção múltipla. |
+| *api.idpselections* | **Página de seleção de provedor de identidade**. Esta página contém uma lista de provedores que Olá o usuário podem escolher durante o logon de identidade. Esses são os provedores de identidade empresarial ou provedores de identidade social, como Facebook e Google+, ou contas locais (baseadas em endereço de email ou nome de usuário). |
+| *api.idpselections.signup* | **Seleção de provedor de identidade para inscrição**. Esta página contém uma lista de provedores que Olá o usuário podem escolher durante a inscrição de identidade. Esses são os provedores de identidade empresarial ou provedores de identidade social, como Facebook e Google+, ou contas locais (baseadas em endereço de email ou nome de usuário). |
+| *api.localaccountpasswordreset* | **Página de esquecimento de senha**. Esta página contém um formulário que o usuário Olá tem tooinitiate toofill redefinir sua senha.  |
+| *api.localaccountsignin* | **Página de entrada da conta local**. Esta página contém um formulário de entrada que o usuário Olá tem toofill em quando entrar com uma conta local com base em um endereço de email ou um nome de usuário. formulário de saudação pode conter uma caixa de entrada de texto e a caixa de entrada de senha. |
+| *api.localaccountsignup* | **Página de inscrição da conta local**. Esta página contém um formulário de inscrição que o usuário Olá tem toofill em ao se inscrever para uma conta local com base em um endereço de email ou um nome de usuário. formulário de saudação pode conter controles de entrada diferentes, como a caixa de entrada de texto, caixa de entrada de senha, botão de opção, caixas de lista suspensa de seleção única e selecionar várias caixas de seleção. |
 | *api.phonefactor* | **Página de autenticação multifator**. Nesta página, os usuários pode verificar seus números de telefone (usando mensagem de texto ou por voz) durante a inscrição ou entrada. |
-| *api.selfasserted* | **Página de inscrição de conta social**. Esta página contém um formulário de inscrição que deve ser preenchida pelo usuário quando o mesmo se inscreve usando uma conta existente de um provedor de identidade social, como o Facebook ou Google+. Esta página é semelhante à página de inscrição de conta social acima, exceto os campos de entrada de senha. |
-| *api.selfasserted.profileupdate* | **Página de atualização de perfil**. Esta página contém um formulário que o usuário pode usar para atualizar seu perfil. Esta página é semelhante à página de inscrição de conta social acima, exceto os campos de entrada de senha. |
+| *api.selfasserted* | **Página de inscrição de conta social**. Esta página contém um formulário de inscrição que Olá possui toofill ao inscrever-se usando uma existente de conta de um provedor de identidade de redes sociais, como Facebook ou Google +. Esta página é semelhante toohello acima da página de inscrição de conta social com exceção de saudação de campos de entrada de senha hello. |
+| *api.selfasserted.profileupdate* | **Página de atualização de perfil**. Esta página contém um formulário que o usuário Olá pode usar tooupdate seu perfil. Esta página é semelhante toohello acima da página de inscrição de conta social com exceção de saudação de campos de entrada de senha hello. |
 | *api.signuporsignin* | **Página de inscrição ou entrada unificada**.  Esta página controla tanto a inscrição quanto a entrada de usuários que podem usar provedores de identidade empresarial ou provedores de identidade social, como Facebook, Google+ ou contas locais.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Referência: Aprenda como as políticas personalizadas trabalham com o Identity Experience Framework no B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)
+[Referência: Entender as políticas personalizadas como funcionam com saudação do Framework de experiência de identidade em B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)

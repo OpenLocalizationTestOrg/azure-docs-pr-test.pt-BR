@@ -1,6 +1,6 @@
 ---
-title: "Próximas etapas para o gerenciamento de acesso usando grupos | Microsoft Docs"
-description: "Método avançado para gerenciamento dos grupos de segurança e como usar esses grupos para gerenciar o acesso a um recurso."
+title: aaaNext as etapas para usar grupos de gerenciamento de acesso | Microsoft Docs
+description: "Avançado como-para gerenciar grupos de segurança e como toouse esses grupos toomanage acesso tooa de recursos."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -15,37 +15,37 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 82fbeb379e90add09f7c569111053f6e9b1bc9c5
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 4fd55f893290fac3551a130f29bd12709cf551e6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="managing-owners-for-a-group"></a>Gerenciando proprietários de um grupo
-Após um proprietário de recurso ter o acesso a um grupo do Azure AD atribuído, a associação do grupo é gerenciada pelo proprietário do grupo. O proprietário do recurso delega efetivamente ao proprietário do grupo a permissão para atribuir usuários ao seu recurso.
+Depois de atribuir um proprietário do recurso tem o grupo de AD do Azure do acesso tooa recursos tooan, associação de saudação do grupo de saudação é gerenciada pelo proprietário do grupo de saudação. proprietário do recurso Olá delega efetivamente Olá permissão tooassign usuários toohello toohello proprietário do recurso de grupo de saudação.
 
 > [!IMPORTANT]
-> A Microsoft recomenda que você gerencie o Azure AD usando o [Centro de administração do AD do Azure](https://aad.portal.azure.com) no portal do Azure em vez de usar o portal clássico do Azure mencionado neste artigo. 
+> A Microsoft recomenda que você gerencie o AD do Azure usando Olá [Centro de administração do AD do Azure](https://aad.portal.azure.com) em Olá portal do Azure em vez de usar Olá portal clássico do Azure mencionado neste artigo. 
 
 ## <a name="assigning-group-ownership"></a>Atribuindo a propriedade do grupo
-**Para adicionar um proprietário a um grupo**
+**tooadd um grupo de tooa do proprietário**
 
-1. No [portal clássico do Azure](https://manage.windowsazure.com), selecione **Active Directory**e abra o diretório da sua organização.
-2. Selecione a guia **Grupos** e, em seguida, abra o grupo ao qual você deseja adicionar os proprietários.
+1. Em Olá [portal clássico do Azure](https://manage.windowsazure.com), selecione **do Active Directory**e, em seguida, abra o diretório da sua organização.
+2. Selecione Olá **grupos** guia e grupo hello, em seguida, abra que você deseja que os proprietários de tooadd.
 3. Selecione **Adicionar Proprietários**.
-4. Na página **Adicionar proprietários**, selecione o usuário que deseja adicionar como o proprietário deste grupo e verifique se esse nome é adicionado ao painel **Selecionado**.
+4. Em Olá **adicionar proprietários** página, o usuário selecione Olá que você deseja tooadd como proprietário Olá desse grupo e verifique se esse nome está adicionado toohello **selecionados** painel.
 
-**Para remover um proprietário de um grupo**
+**tooremove um proprietário de um grupo**
 
-1. No [portal clássico do Azure](https://manage.windowsazure.com), selecione **Active Directory**e abra o diretório da sua organização.
-2. Selecione a guia **Grupos** e, em seguida, abra o grupo do qual deseja remover um proprietário.
-3. Selecione a guia **Proprietários** .
-4. Selecione o proprietário que você deseja remover deste grupo e, em seguida, selecione **Remover**.
+1. Em Olá [portal clássico do Azure](https://manage.windowsazure.com), selecione **do Active Directory**e, em seguida, abra o diretório da sua organização.
+2. Selecione Olá **grupos** guia e, em seguida, abra hello grupo que você deseja tooremove um proprietário.
+3. Selecione Olá **proprietários** guia.
+4. Proprietário Olá selecione que você deseja tooremove deste grupo e, em seguida, selecione **remover**.
 
 ## <a name="additional-information"></a>Informações adicionais
 Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
-* [Gerenciamento de acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
+* [Gerenciando acesso tooresources com grupos do Active Directory do Azure](active-directory-manage-groups.md)
 * [Cmdlets do Azure Active Directory para definir configurações de grupo](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 * [O que é o Active Directory do Azure?](active-directory-whatis.md)

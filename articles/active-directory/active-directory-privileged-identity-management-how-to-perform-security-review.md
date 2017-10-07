@@ -1,6 +1,6 @@
 ---
-title: "Como executar uma revisão de acesso | Microsoft Docs"
-description: "Saiba como executar uma revisão com o aplicativo Azure Privileged Identity Management."
+title: "aaaHow tooperform uma revisão de acesso | Microsoft Docs"
+description: "Saiba como tooperform uma revisão com hello aplicativo Privileged Identity Management do Azure."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,38 +15,38 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: a98ed60221eeba1d9c92df846aeae2deafb8ae60
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 301a5e9f97b68fedfbf4954e0bd7dadb7f0fc510
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-perform-an-access-review-in-azure-ad-privileged-identity-management"></a>Como executar uma análise de acesso no Azure AD Privileged Identity Management
-O Azure Active Directory (AD) Privileged Identity Management simplifica a forma como as empresas gerenciam o acesso privilegiado a recursos no Azure AD e em outros Microsoft Online Services, como o Office 365 ou o Microsoft Intune.  
+# <a name="how-tooperform-an-access-review-in-azure-ad-privileged-identity-management"></a>Como tooperform um acesso examinar no Azure AD Privileged Identity Management
+Active Directory (AD) Privileged Identity Management do Azure simplifica como as empresas gerenciam o acesso privilegiado tooresources no AD do Azure e outros Microsoft online services como Office 365 ou Microsoft Intune.  
 
-Se você for atribuído a uma função administrativa, o administrador de função com privilégios de sua organização poderá solicitar que você confirme regularmente que ainda precisa da função para seu trabalho. Você pode receber um email que inclui um link ou pode acessar diretamente o [portal do Azure](https://portal.azure.com). Siga as etapas neste artigo para executar a autorrevisão das suas funções atribuídas.
+Se você receber a função administrativa tooan, com privilégios de função administrador de sua organização pode solicitar que você tooregularly confirmar que você ainda precisa essa função para seu trabalho. Você poderá receber um email que inclui um link ou vá reta toohello [portal do Azure](https://portal.azure.com). Siga as etapas de saudação este tooperform artigo automaticamente examine atribuídas funções de.
 
-Se você for um administrador com privilégios de função interessado em revisões de acesso, obtenha mais detalhes em [Como iniciar uma revisão de acesso](active-directory-privileged-identity-management-how-to-start-security-review.md).
+Se você for um administrador com privilégios de função interessado em análises de acesso, obtenha mais detalhes em [como toostart um acesso examine](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
-## <a name="add-the-privileged-identity-management-application"></a>Adicionar o aplicativo Privileged Identity Management
-Você pode usar o aplicativo Azure AD PIM (Privileged Identity Management) no [portal do Azure](https://portal.azure.com/) para executar a revisão.  Se você não tiver o aplicativo Azure AD Privileged Identity Management em seu portal, siga estas etapas para começar.
+## <a name="add-hello-privileged-identity-management-application"></a>Adicionar aplicativo do hello Privileged Identity Management
+Você pode usar o aplicativo de gerenciamento de identidade com privilégios (PIM) de saudação do AD do Azure no hello [portal do Azure](https://portal.azure.com/) tooperform sua análise.  Se você não tiver o aplicativo do Azure AD Privileged Identity Management hello em seu portal, siga essas tooget etapas iniciado.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
-2. Selecione seu nome de usuário no canto superior direito do portal do Azure e selecione o diretório em que você vai operar.
-3. Selecione **Mais serviços** e use a caixa de texto Filtrar para procurar **Azure AD Privileged Identity Management**.
-4. Marque **Fixar no painel** e então clique em **Criar**. O aplicativo Privileged Identity Management será aberto.
+1. Entrar toohello [portal do Azure](https://portal.azure.com/).
+2. Selecione seu nome de usuário no canto superior direito de saudação do hello portal do Azure e diretório hello selecione onde você irá operar.
+3. Selecione **mais serviços** e usar Olá toosearch de caixa de texto de filtro para **do Azure AD Privileged Identity Management**.
+4. Verificar **Pin toodashboard** e, em seguida, clique em **criar**. Olá aplicativo Privileged Identity Management será aberto.
 
 ## <a name="approve-or-deny-access"></a>Aprovar ou negar acesso
-Ao aprovar ou negar o acesso, você está apenas dizendo ao revisor se ainda usa essa função ou não. Escolha **Aprovar** se você quiser manter a função ou **Negar** se não precisar mais do acesso. Seu status não mudará imediatamente até que o revisor aplique os resultados.
-Siga estas etapas para localizar e concluir a análise de acesso:
+Quando você aprova ou nega o acesso, você está apenas dizendo revisor Olá se você usar essa função ou não. Escolha **aprovar** se você quiser toostay na função hello, ou **Deny** se você não precisa Olá a acesso mais. Seu status não será alterado imediatamente, até que o revisor Olá aplica resultados hello.
+Siga essas etapas toofind e concluir a avaliação do acesso hello:
 
-1. No aplicativo PIM, selecione **Examinar o acesso com privilégios**. Se você tiver quaisquer análises de acesso pendentes, elas aparecerão na folha de análises do Acesso do Azure AD.
-2. Selecione a análise que deseja concluir.
-3. A menos que tenha criado a análise, você aparece como o único usuário na análise. Selecione a marca de seleção ao lado de seu nome.
-4. Escolha **Aprovar** ou **Negar**. Talvez seja necessário incluir um motivo para a sua decisão na caixa de texto **Fornecer um motivo** .  
-5. Feche a folha **Funções de análise do AD do Azure** .
+1. No aplicativo PIM do hello, selecione **acesso privilegiado de revisão**. Se você tiver quaisquer revisões acesso pendente, eles aparecem no hello que acesso do AD do Azure analisa folha.
+2. Selecione a revisão Olá deseja toocomplete.
+3. A menos que você criou revisão Olá, aparecem como Olá apenas usuário revisão hello. Selecione nome do próximo tooyour Olá marca de seleção.
+4. Escolha **Aprovar** ou **Negar**. Talvez seja necessário um motivo para a sua decisão de saudação do tooinclude **fornecer um motivo** caixa de texto.  
+5. Olá fechar **funções de análise do Azure AD** folha.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+<!--Every topic should have next steps and links toohello next logical set of content tookeep hello customer engaged-->
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

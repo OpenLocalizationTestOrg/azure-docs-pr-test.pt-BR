@@ -1,6 +1,6 @@
 ---
-title: "Latências de relatórios do Azure Active Directory | Microsoft Docs"
-description: "Saiba quanto tempo leva para que os eventos de relatório sejam exibidos no seu portal do Azure"
+title: "latências de relatório de Active Directory aaaAzure | Microsoft Docs"
+description: "Saiba mais sobre a quantidade de saudação de tempo que leva para relatar eventos tooshow backup no portal do Azure"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,27 +15,27 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 93cb0baeab8f13f81257ed1bd32ed08561c54b72
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: eee959331262ba59b313dd038cb54699dbef48a4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latências de relatórios do Azure Active Directory
 
-Com o [relatório](active-directory-preview-explainer.md) no Azure Active Directory, você obtém todas as informações necessárias para determinar como seu ambiente está se comportando. A quantidade de tempo que leva para que os dados de relatório sejam exibidos no portal do Azure também é conhecida como latência. 
+Com [reporting](active-directory-preview-explainer.md) em Olá Active Directory do Azure, você obter todas as informações de saudação necessário toodetermine como seu ambiente está fazendo. quantidade de saudação de tempo que leva para tooshow de dados para cima em Olá portal do Azure também é conhecido como latência de relatório. 
 
-Este tópico lista as informações de latência para todas as categorias de relatórios no portal do Azure. 
+Este tópico lista informações de latência de saudação para Olá todas as categorias de relatório no hello portal do Azure. 
 
 
 ## <a name="activity-reports"></a>Relatórios de atividades
 
 Há duas áreas de relatórios de atividade:
 
-- **Atividades de entrada** – informações sobre o uso de aplicativos gerenciados e de atividades de entrada do usuário
+- **Atividades de entrada** – informações sobre o uso de saudação de aplicativos gerenciados e atividades de entrada do usuário
 - **Logs de auditoria** - informações de auditoria sobre o gerenciamento de usuários e de grupos, os aplicativos gerenciados e as atividades de diretório
 
-A tabela a seguir lista as informações de latência para relatórios de atividade.
+Olá a tabela a seguir lista as informações de latência de saudação para relatórios de atividade.
 
 | Relatório | Mínimo | Média | Máximo |
 | :-- | --- | --- | --- |
@@ -43,17 +43,17 @@ A tabela a seguir lista as informações de latência para relatórios de ativid
 | Entradas               | 15 minutos  | 15 minutos | 2 horas*   |
 
 >[!NOTE]
-> Para alguns dados de atividade de entrada provenientes de aplicativos do Office herdados, pode levar até 8 horas para que os dados de relatório sejam exibidos. 
+> Para alguns dados de atividade de entradas provenientes de aplicativos do office herdado, pode levar horas too8 Olá comunicando tooshow de dados. 
 
 
 ## <a name="security-reports"></a>Relatórios de segurança
 
 Há duas áreas de relatórios de segurança:
 
-- **Entradas arriscadas** - uma entrada arriscada é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário. 
+- **Entradas arriscadas** -uma entrada arriscado é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é proprietário legítimo Olá uma conta de usuário. 
 - **Usuários sinalizados para riscos** - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. 
 
-A tabela a seguir lista as informações de latência para relatórios de segurança.
+Olá a tabela a seguir lista as informações de latência de saudação para relatórios de segurança.
 
 | Relatório | Mínimo | Média | Máximo |
 | :-- | --- | --- | --- |
@@ -62,16 +62,16 @@ A tabela a seguir lista as informações de latência para relatórios de segura
 
 ## <a name="risk-events"></a>Eventos de risco
 
-O Azure Active Directory usa algoritmos de aprendizado de máquina e heurística adaptáveis para detectar ações suspeitas relacionadas às contas do usuário. Cada ação suspeita detectada é armazenada em um registro chamado evento de risco.
+Active Directory do Azure usa algoritmos e heurística toodetect suspeitas ações relacionadas tooyour contas de usuário de aprendizado de máquina adaptável. Cada ação suspeita detectada é armazenada em um registro chamado evento de risco.
 
-A tabela a seguir lista as informações de latência para eventos de risco.
+Olá a tabela a seguir lista as informações de latência de saudação para eventos de risco.
 
 | Relatório | Mínimo | Média | Máximo |
 | :-- | --- | --- | --- |
 | Entradas de endereços IP anônimos |5 minutos |15 minutos |2 horas |
 | Entradas de locais desconhecidos |5 minutos |15 minutos |2 horas |
 | Usuários com credenciais vazadas |2 horas |4 horas |8 horas |
-| Viagem impossível a locais atípicos |5 minutos |1 hora |8 horas  |
+| Viagem impossível tooatypical locais |5 minutos |1 hora |8 horas  |
 | Entradas de dispositivos infectados |2 horas |4 horas |8 horas  |
 | Entradas de endereços IP com atividade suspeita |2 horas |4 horas |8 horas  |
 
@@ -79,14 +79,14 @@ A tabela a seguir lista as informações de latência para eventos de risco.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você quiser saber mais sobre os relatórios de atividade no portal do Azure, consulte:
+Se você quiser tooknow mais sobre relatórios de atividades de Olá Olá portal do Azure, consulte:
 
-- [Relatórios de atividades de entrada no portal do Azure Active Directory](active-directory-reporting-activity-sign-ins.md)
-- [Audit activity reports in the Azure Active Directory portal (Relatórios de atividades de auditoria no portal do Azure Active Directory)](active-directory-reporting-activity-audit-logs.md)
+- [Relatórios de atividade de entrada no portal do Azure Active Directory Olá](active-directory-reporting-activity-sign-ins.md)
+- [Relatórios de atividade no portal do Azure Active Directory Olá de auditoria](active-directory-reporting-activity-audit-logs.md)
 
-Se você quiser saber mais sobre os relatórios de segurança no portal do Azure, consulte:
+Se você quiser tooknow mais sobre relatórios de segurança de Olá Olá portal do Azure, consulte:
 
-- [Relatório de segurança de usuários em risco no portal do Azure Active Directory](active-directory-reporting-security-user-at-risk.md)
-- [Relatório de entradas de risco no portal do Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md)
+- [Usuários no relatório de riscos de segurança no portal do Azure Active Directory Olá](active-directory-reporting-security-user-at-risk.md)
+- [Relatório de entradas arriscados no portal do Azure Active Directory Olá](active-directory-reporting-security-risky-sign-ins.md)
 
-Se você quiser saber mais sobre eventos de risco, consulte [Eventos de risco do Azure Active Directory](active-directory-reporting-risk-events.md).
+Se você quiser tooknow mais informações sobre eventos de risco, consulte [eventos de risco do Active Directory do Azure](active-directory-reporting-risk-events.md).

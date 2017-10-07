@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory ao Predictix Price Reporting | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Predictix Price Reporting."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Predictix preço Reporting."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,190 +14,190 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 62280b205f2fd691e8c75134585172b995377311
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: c2ba85f613f5a71de72278a0d1916c135b835b60
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Tutorial: integração do Azure Active Directory ao Predictix Price Reporting
 
-Neste tutorial, você aprenderá como integrar o Predictix Price Reporting ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como toointegrate Predictix preço Reporting com o Azure Active Directory (AD do Azure).
 
-a integração do Predictix Price Reporting com o Azure AD oferece os seguintes benefícios:
+Integrar Predictix preço Reporting com o Azure AD oferece Olá benefícios a seguir:
 
-- No Azure AD, é possível controlar quem tem acesso ao Predictix Price Reporting.
-- Você pode permitir que seus usuários façam logon automaticamente no Predictix Price Reporting usando logon único com suas contas do Azure AD.
-- Você pode gerenciar suas contas em um único local central – o portal do Azure.
+- Você pode controlar no AD do Azure que tenha acesso tooPredictix preço Reporting.
+- Você pode habilitar seu usuários tooautomatically get conectado tooPredictix preço Reporting (logon único) com suas contas do AD do Azure.
+- Você pode gerenciar suas contas em um local central - Olá portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do AD do Azure ao Predictix Price Reporting, você precisará dos seguintes itens:
+tooconfigure integração do AD do Azure com Predictix preço Reporting, você precisa Olá itens a seguir:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura do Predictix Price Reporting habilitada para logon único
 
 > [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
 
-1. Adicionando Predictix Price Reporting da galeria
+1. Adicionando Predictix preço relatórios da Galeria de saudação
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-predictix-price-reporting-from-the-gallery"></a>Adicionando Predictix Price Reporting da galeria
-Para configurar a integração do Predictix Price Reporting ao Azure AD, você precisa adicionar o Predictix Price Reporting da galeria à sua lista de aplicativos SaaS gerenciados.
+## <a name="adding-predictix-price-reporting-from-hello-gallery"></a>Adicionando Predictix preço relatórios da Galeria de saudação
+integração de saudação tooconfigure do Predictix preço Reporting no Azure AD, é necessário tooadd Predictix Reporting de preço da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
 
-**Para adicionar o Predictix Price Reporting da galeria, realize as seguintes etapas:**
+**tooadd Predictix preço relatórios da Galeria hello, execute Olá etapas a seguir:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
 
-    ![O botão Azure Active Directory][1]
+    ![botão de Active Directory do Azure Olá][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
 
-    ![A folha Aplicativos empresariais][2]
+    ![folha de aplicativos de empresa Olá][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
 
-    ![O botão Novo aplicativo][3]
+    ![Novo botão de aplicativo Hello][3]
 
-4. Na caixa de pesquisa, digite **Predictix Price Reporting**, selecione **Predictix Price Reporting** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa hello, digite **Predictix preço Reporting**, selecione **Predictix preço Reporting** no painel de resultados e clique em **adicionar** botão aplicativo hello de tooadd.
 
-    ![Price Reporting na lista de resultados](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_addfromgallery.png)
+    ![Preço de Predictix relatórios na lista de resultados de saudação](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
 Nesta seção, você configurará e testará o logon único do Azure AD com o Predictix Price Reporting, com base em uma usuária de teste chamada "Brenda Fernandes".
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Predictix Price Reporting é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Predictix Price Reporting.
+Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá nos relatórios de preço Predictix é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação nos relatórios de preço Predictix precisa toobe estabelecida.
 
-No Predictix Price Reporting, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+Nos relatórios de preço Predictix, atribuir o valor de saudação do hello **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
 
-Para configurar e testar o logon único do Azure AD com o Predictix Price Reporting, conclua os seguintes blocos de construção:
+tooconfigure e teste de logon único do AD do Azure com Predictix preço Reporting, é necessário Olá toocomplete blocos de construção a seguir:
 
-1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Predictix Price Reporting](#create-a-predictix-price-reporting-test-user)** – para ter um equivalente de Brenda Fernandes no Predictix Price Reporting vinculado à representação do usuário no Azure AD.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#create-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
+3. **[Criar um usuário de teste Predictix preço Reporting](#create-a-predictix-price-reporting-test-user)**  -toohave um equivalente do Britta Simon em Predictix preço relatórios que é vinculado toohello AD do Azure representação do usuário.
+4. **[Atribuir um usuário de teste de saudação do AD do Azure](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
+5. **[Testar o logon único](#test-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e configura o logon único em seu aplicativo Predictix Price Reporting.
+Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo Predictix preço Reporting.
 
-**Para configurar o logon único do Azure AD com o Predictix Price Reporting, execute as seguintes etapas:**
+**tooconfigure logon único do AD do Azure com o relatório de preço Predictix, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, na página de integração do aplicativo **Predictix Price Reporting**, clique em **Logon único**.
+1. Em Olá portal do Azure, Olá **Predictix preço Reporting** página de integração de aplicativos, clique em **o logon único**.
 
     ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
  
     ![Caixa de diálogo Logon único](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_samlbase.png)
 
-3. Na seção **Domínio e URLs do Predictix Price Reporting**, execute as seguintes etapas:
+3. Em Olá **Predictix preço Reporting domínio e URLs** , execute Olá etapas a seguir:
 
     ![Informações de logon único de Domínio e URLs do Predictix Price Reporting](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname-pricing>.predictix.com/sso/request`
+    a. Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<companyname-pricing>.predictix.com/sso/request`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+    b. Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:
     | |
     |--|
     | `https://<companyname-pricing>.predictix.com` |
     | `https://<companyname-pricing>.dev.predictix.com` |
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte ao cliente do Predictix Price Reporting](http://www.infor.com/company/customer-center/) para obter esses valores. 
+    > Esses valores não são reais. Atualizar esses valores com hello real URL de logon e o identificador. Entre em contato com [equipe de suporte do cliente de relatório de preço de Predictix](http://www.infor.com/company/customer-center/) tooget esses valores. 
  
-4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+4. Em Olá **o certificado de autenticação SAML** seção, clique em **certificado (Base64)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.
 
-    ![O link de download do Certificado](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_certificate.png) 
+    ![link de download de certificado Olá](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_certificate.png) 
 
 5. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Predictix Price Reporting**, clique em **Configurar Predictix Price Reporting** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+6. Em Olá **Predictix preço de configuração do Reporting** seção, clique em **Configurar relatório de preço Predictix** tooopen **configurar o logon** janela. Saudação de cópia **URL de logout, ID de entidade de SAML e Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**
 
     ![Configuração do Predictix Price Reporting](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_configure.png) 
 
-7. Para configurar o logon único no lado do **Predictix Price Reporting**, é necessário enviar o **Certificado (Base64)** baixado, a **URL de Saída, a ID da Entidade SAML e a URL do Serviço de Logon Único do SAML** para a [equipe de suporte do Predictix Price Reporting](http://www.infor.com/company/customer-center/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+7. tooconfigure logon único no **Predictix preço Reporting** lado, você precisa toosend Olá baixado **certificado (Base64)**, **URL de logout, ID de entidade de SAML e logon único SAML URL do serviço** muito[Predictix preço Reporting a equipe de suporte](http://www.infor.com/company/customer-center/). Eles definidos Olá de toohave essa configuração conexão SSO do SAML definido corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
 
    ![Criar um usuário de teste do Azure AD][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
 
-1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
+1. No hello portal do Azure, no painel esquerdo do hello, clique em Olá **Active Directory do Azure** botão.
 
-    ![O botão Azure Active Directory](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_01.png)
+    ![botão de Active Directory do Azure Olá](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_01.png)
 
-2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos**e, em seguida, clique em **todos os usuários**.
 
-    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_02.png)
+    ![Olá "Usuários e grupos" e "Todos os usuários" links](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_02.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação do hello **todos os usuários** caixa de diálogo.
 
-    ![O botão Adicionar](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_03.png)
+    ![botão Adicionar de saudação](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_03.png)
 
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+4. Em Olá **usuário** caixa de diálogo caixa, execute Olá etapas a seguir:
 
-    ![A caixa de diálogo Usuário](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_04.png)
+    ![caixa de diálogo de usuário Olá](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_04.png)
 
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
+    a. Em Olá **nome** , digite **BrittaSimon**.
 
-    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
+    b. Em Olá **nome de usuário** caixa tipo hello endereço de email do usuário Britta Simon.
 
-    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+    c. Selecione Olá **Mostrar senha** caixa de seleção e anote o valor de saudação que é exibido no hello **senha** caixa.
 
     d. Clique em **Criar**.
  
 ### <a name="create-a-predictix-price-reporting-test-user"></a>Criar um usuário de teste do Predictix Price Reporting
 
-Nesta seção, você criará um usuário chamado Britta Simon no Predictix Price Reporting. Trabalhe com a [equipe de suporte do Predictix Price Reporting](http://www.infor.com/company/customer-center/) para adicionar os usuários à plataforma Predictix Price Reporting.
+Nesta seção, você criará um usuário chamado Britta Simon no Predictix Price Reporting. Trabalhar com [Predictix preço Reporting a equipe de suporte](http://www.infor.com/company/customer-center/) tooadd usuários de saudação na plataforma de relatórios de preço Predictix hello.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
 
-Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao Predictix Price Reporting.
+Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooPredictix preço Reporting.
 
-![Atribuir a função de usuário][200] 
+![Atribuir função de usuário Olá][200] 
 
-**Para atribuir Brenda Fernandes ao Predictix Price Reporting, execute as seguintes etapas:**
+**tooassign tooPredictix Britta Simon preço Reporting, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Predictix Price Reporting**.
+2. Na lista de aplicativos hello, selecione **Predictix preço Reporting**.
 
-    ![O link do Predictix Price Reporting na lista de Aplicativos](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_app.png)  
+    ![link de Predictix preço Reporting Olá na lista de aplicativos Olá](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_app.png)  
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
 
-    ![O link “Usuários e grupos”][202]
+    ![link de "Usuários e grupos" Hello][202]
 
 4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
-    ![O painel Adicionar Atribuição][203]
+    ![Painel de atribuição adicionar Olá][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -205,13 +205,13 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
 
-Quando você clica no bloco Predictix Price Reporting no Painel de Acesso, deve ser conectado automaticamente ao seu aplicativo Predictix Price Reporting.
+Quando você clica em Olá Predictix preço Reporting lado a lado no painel de acesso de saudação, você deve obter automaticamente assinado em tooyour Predictix preço Reporting aplicativo.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

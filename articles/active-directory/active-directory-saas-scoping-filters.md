@@ -1,6 +1,6 @@
 ---
-title: Provisionar aplicativos com filtros de escopo | Microsoft Docs
-description: "Saiba como usar filtros de escopo para impedir que objetos em aplicativos, que dão suporte a provisionamento automatizado de usuários, sejam provisionados, caso um objeto não satisfaça suas necessidades de negócios."
+title: aplicativos aaaProvisioning com filtros de escopo | Microsoft Docs
+description: "Saiba como os filtros de escopo toouse tooprevent objetos em aplicativos que dão suporte ao provisionamento automatizado de usuários, na verdade, está sendo provisionado se um objeto não atender às suas necessidades de negócios."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,51 +14,51 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 109635052e2ded33831b050eb12d50745944091b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f0299390dc3fdb70aa9d271e835069a08827d635
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicativo com base em atributo com filtros de escopo
-O objetivo desta seção é explicar como usar filtros de escopo para definir regras baseadas em atributo que determinam quais usuários serão provisionados ao aplicativo.
+Olá objetivo desta seção é tooexplain como toouse escopo filtra toodefine com base em atributo regras que determinam quais usuários são provisionados toohello aplicativo.
 
 ## <a name="clauses-and-scope-groups"></a>Cláusulas e grupos de escopo
 ![Filtro de Escopo][1] 
 
-Filtros de escopo são definidos por um ou mais **grupos de escopo** e cada um deles contém uma ou mais **cláusulas**. Para ver as cláusulas de determinado grupo de escopo, expanda-o clicando na seta à esquerda do nome do grupo.
+Filtros de escopo são definidos por um ou mais **grupos de escopo** e cada um deles contém uma ou mais **cláusulas**. cláusulas de saudação toosee para um grupo de escopo específico, expandi-lo clicando em Olá seta à esquerda da toohello saudação do nome do grupo.
 
-Uma **cláusula** determina quais usuários têm permissão para passar pelo filtro de escopo, avaliando os atributos de cada usuário. Por exemplo, pode haver uma cláusula que requer que o atributo de “estado” de um usuário seja igual a Nova York, somente os usuários de Nova York serão provisionados no aplicativo.
+Um **cláusula** determina quais usuários podem toopass por meio de saudação filtro de escopo, avaliando os atributos de cada usuário. Por exemplo, você pode ter uma cláusula que requer que 'estado' atributo igual Nova York um usuário, para que somente os usuários de Nova York serão provisionados no aplicativo hello.
 
 ![Nome do grupo de escopo][2] 
 
-Cada **grupo de escopo** começa com uma **cláusula** obrigatória, conforme mostrado na captura de tela acima. Essa cláusula simplesmente informa que o usuário deve primeiro ser atribuído ao aplicativo antes de ser avaliado por seus filtros de escopo. Essa cláusula não pode ser excluída nem modificada.
+Cada **grupo de escopo** inicia com um obrigatório **cláusula**, conforme mostrado na captura de tela de saudação acima. Essa cláusula declara que o usuário Olá deve ser atribuído primeiro aplicativo toohello antes de ser avaliado pelos filtros de escopo. Essa cláusula não pode ser excluída nem modificada.
 
-Você pode adicionar novas cláusulas ou novos grupos de escopo, pressionando o botão adequado. Você pode dar um nome a cada grupo de escopo editando sua propriedade **Nome do Grupo de Escopo** .
+Você pode adicionar novas cláusulas ou novos grupos de escopo, pressionando o botão adequado hello. Você pode dar um nome a cada grupo de escopo editando sua propriedade **Nome do Grupo de Escopo** .
 
 ## <a name="how-scoping-filters-are-evaluated"></a>Como os filtros de escopo são avaliados
-Durante o provisionamento, testamos cada usuário atribuído em relação a seus filtros de escopo para determinar se esse usuário merece acesso ao aplicativo. Você pode pensar em cada cláusula como sendo um teste que o usuário deve passar para evitar ser filtrado. 
+Durante o provisionamento, podemos testar cada usuário atribuído em relação a seu escopo toodetermine de filtros, se esse usuário merece acesso toohello aplicativo. Você pode pensar em cada cláusula como sendo um teste que deve ser passado para Olá usuário tooavoid ser filtrado. 
 
-Se houver vários grupos de escopo definidos, cada usuário deverá passar em pelo menos um deles para acessar o aplicativo. Em cada grupo de escopo, no entanto, o usuário deve passar por cada cláusula a fim de passar naquele grupo de escopo específico. 
+Se você tiver vários grupos de escopo definidos, cada usuário deve passar pelo menos um deles tooaccess aplicativo hello. Em cada grupo de escopo, no entanto, Olá usuário deve passar cada cláusula toopass desse grupo de escopo específico. 
 
-Em outras palavras, você pode pensar nos grupos de escopo como sendo agrupados por OR e pode considerar as cláusulas dentro deles como sendo agrupadas por AND. Por exemplo, considere o filtro de escopo abaixo:
+Em outras palavras, você pode pensar como os grupos sendo OR juntos, e você pode pensar em cláusulas de saudação dentro deles como sendo AND juntos. Por exemplo, considere Olá abaixo do filtro de escopo:
 
 ![Nome do grupo de escopo][3]  
 
-De acordo com esse filtro de escopo, os usuários devem atender aos seguintes critérios para serem provisionados:
+De acordo com toothis filtro de escopo, os usuários devem atender a seguir Olá critérios, toobe provisionado:
 
-1. Eles devem ser atribuídos ao aplicativo.
-2. Eles devem trabalhar no departamento de engenharia
+1. Eles devem ser atribuídos toohello aplicativo.
+2. Eles devem trabalhar no departamento de engenharia Olá
 3. Eles devem trabalhar em São Francisco ou no Canadá.
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-* [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS](active-directory-saas-app-provisioning.md)
+* [Automatizar o provisionamento de usuário e desprovisionamento tooSaaS aplicativos](active-directory-saas-app-provisioning.md)
 * [Personalizando os mapeamentos de atributos para provisionamento de usuários](active-directory-saas-customizing-attribute-mappings.md)
 * [Escrevendo expressões para mapeamentos de atributo](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Notificações de provisionamento de conta](active-directory-saas-account-provisioning-notifications.md)
-* [Usando o SCIM para habilitar o provisionamento automático de usuários e grupos do Active Directory do Azure para aplicativos](active-directory-scim-provisioning.md)
-* [Lista de tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md)
+* [Usando SCIM o provisionamento automático tooenable de usuários e grupos do Active Directory do Azure tooapplications](active-directory-scim-provisioning.md)
+* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS](active-directory-saas-tutorial-list.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-scoping-filters/ic782811.png

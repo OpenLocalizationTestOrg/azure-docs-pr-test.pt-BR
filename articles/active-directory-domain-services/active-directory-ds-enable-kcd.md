@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: f36f16a7bb00ace9fd5164eb38ba77f015f22f5c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d32547c8018dd1f99c992e95a01d2711d460a261
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Configurar a KCD (delegação Restrita de Kerberos) em um domínio gerenciado
-Muitos aplicativos precisam acessar recursos no contexto do usuário. O Active Directory oferece suporte a um mecanismo chamado delegação de Kerberos, que permite que esse caso de uso. Além disso, você pode restringir a delegação para que somente recursos específicos possam ser acessados no contexto do usuário. Os domínios gerenciados do Azure AD Domain Services são diferentes dos domínios tradicionais do Active Directory, pois estão bloqueados com mais segurança.
+Muitos aplicativos precisam de recursos de tooaccess no contexto de saudação do usuário de saudação. O Active Directory oferece suporte a um mecanismo chamado delegação de Kerberos, que permite que esse caso de uso. Além disso, você pode restringir a delegação para que somente os recursos específicos podem ser acessados no contexto de saudação do usuário de saudação. Os domínios gerenciados do Azure AD Domain Services são diferentes dos domínios tradicionais do Active Directory, pois estão bloqueados com mais segurança.
 
-Este artigo mostra como configurar a delegação restrita de kerberos em um domínio gerenciado do Azure AD Domain Services.
+Este artigo mostra como o kerberos tooconfigure restrita delegação em um domínio gerenciado do serviços de domínio do AD do Azure.
 
 ## <a name="kerberos-constrained-delegation-kcd"></a>KCD (delegação restrita de Kerberos)
-A delegação de Kerberos permite que uma conta represente outra entidade de segurança (como um usuário) para acessar recursos. Considere um aplicativo Web que acessa uma API da Web de back-end no contexto de um usuário. Neste exemplo, o aplicativo Web (em execução no contexto de uma conta de serviço ou uma conta de computador/máquina) representa o usuário ao acessar o recurso (API da Web de back-end). A delegação Kerberos não é segura, pois não restringir os recursos que podem ser acessados pela conta de representação no contexto do usuário.
+Delegação Kerberos permite que uma conta tooimpersonate outro recursos de tooaccess principal (como um usuário) de segurança. Considere um aplicativo web que acessa uma API da web de back-end no contexto de saudação do usuário. Neste exemplo, hello aplicativo web (em execução no contexto de saudação de uma conta de serviço ou uma conta de computador ou da máquina) representa Olá usuário ao acessar o recurso de saudação (back-end da web API). A delegação Kerberos é insegura, pois não restringir Olá Olá recursos representando a conta pode acessar no contexto de saudação do usuário de saudação.
 
-A KCD (Delegação restrita de Kerberos) restringe os serviços/recursos aos quais o servidor especificado pode agir em nome de um usuário. A KCD tradicional exige privilégios de administrador de domínio para configurar uma conta de domínio para um serviço, e restringe a conta em um domínio único.
+Delegação restringido de Kerberos (KCD) restringe Olá serviços/recursos toowhich Olá determinado servidor pode agir em nome de saudação de um usuário. Tradicional KCD exige tooconfigure de privilégios de administrador de domínio uma conta de domínio para um serviço e restringe o domínio único do hello conta tooa.
 
-A KCD tradicional também tem alguns problemas associados. Em sistemas operacionais mais antigos, nos quais o administrador de domínio configurava o serviço, o administrador do serviço não tinha uma maneira útil de saber quais serviços front-end eram delegados aos serviços de recursos eles possuíam. E qualquer serviço front-end que pudesse ser delegado a um serviço de recurso representava um possível ponto de ataque. Se um servidor que hospedava um serviço front-end fosse comprometido, e tivesse sido configurado para delegar aos serviços de recursos, os serviços de recurso também poderiam ser comprometidos.
+A KCD tradicional também tem alguns problemas associados. Em sistemas operacionais anteriores em que o administrador de domínio Olá configurado serviço hello, o administrador de serviços de saudação não tinha nenhum tooknow de maneira útil quais serviços front-end delegado toohello serviços de recurso que eles tinham. E qualquer serviço front-end que pudesse ser delegado tooa serviço de recurso representava um ponto de ataque potencial. Se um servidor que hospedasse um serviço front-end fosse comprometido, e ele foi configurado toodelegate tooresource services, serviços de recurso de saudação também poderiam ser comprometidos.
 
 > [!NOTE]
 > Em um domínio gerenciado do Azure AD Domain Services, você não tem privilégios de administrador de domínio. Portanto, **não é possível configurar uma KCD tradicional em um domínio gerenciado**. Use o KCD baseado em recursos conforme descrito neste artigo. Esse mecanismo também é mais seguro.
@@ -38,12 +38,12 @@ A KCD tradicional também tem alguns problemas associados. Em sistemas operacion
 >
 
 ## <a name="resource-based-kerberos-constrained-delegation"></a>Delegação restrita de kerberos baseada em recursos
-No Windows Server 2012 R2 e no Windows Server 2012, a capacidade de configurar a delegação restrita para o serviço foi transferida do administrador de domínio para o administrador de serviço. Dessa forma, o administrador do serviço de back-end pode permitir ou negar os serviços front-end. Esse modelo é conhecido como **delegação restrita de kerberos baseada em recursos**.
+No Windows Server 2012 R2 e Windows Server 2012, a delegação Olá capacidade tooconfigure restringido para o serviço de saudação foi transferida do administrador de serviço toohello do administrador de domínio hello. Dessa forma, o administrador do serviço de back-end Olá pode permitir ou negar serviços front-end. Esse modelo é conhecido como **delegação restrita de kerberos baseada em recursos**.
 
-A KCD Com base em recursos é configurado usando o PowerShell. Use os cmdlets Set-ADComputer ou Set-ADUser, dependendo se a conta de representação é uma conta de computador ou uma conta de serviço/conta de usuário.
+A KCD Com base em recursos é configurado usando o PowerShell. Você usa Olá Set-ADComputer ou os cmdlets Set-ADUser, dependendo se o hello representando a conta é uma conta de computador ou uma conta de serviço/conta de usuário.
 
 ### <a name="configure-resource-based-kcd-for-a-computer-account-on-a-managed-domain"></a>Configurar a KCD baseada em recursos para uma conta de computador em um domínio gerenciado
-Vamos supor que você tenha um aplicativo Web em execução no computador 'contoso100-webapp.contoso100.com'. Ele precisa acessar o recurso (uma API da Web em execução no 'contoso100-api.contoso100.com') no contexto de usuários do domínio. Veja como você pode configurar a KCD baseada em recursos para esse cenário.
+Suponha que você tenha um aplicativo web em execução no computador de saudação ' contoso100-webapp.contoso100.com'. Precisa de recursos de saudação tooaccess (uma API da web em execução no ' contoso100-api.contoso100.com') no contexto de saudação de usuários do domínio. Veja como você pode configurar a KCD baseada em recursos para esse cenário.
 
 ```
 $ImpersonatingAccount = Get-ADComputer -Identity contoso100-webapp.contoso100.com
@@ -51,7 +51,7 @@ Set-ADComputer contoso100-api.contoso100.com -PrincipalsAllowedToDelegateToAccou
 ```
 
 ### <a name="configure-resource-based-kcd-for-a-user-account-on-a-managed-domain"></a>Configurar a KCD baseada em recursos para uma conta de usuário em um domínio gerenciado
-Vamos supor que você tenha um aplicativo web em execução como uma conta de serviço 'appsvc' e ele precisa acessar o recurso (uma API da Web em execução como uma conta de serviço - 'backendsvc') no contexto de usuários do domínio. Veja como você pode configurar a KCD baseada em recursos para esse cenário.
+Suponha que você tiver um aplicativo web em execução como uma conta de serviço 'appsvc' e ele precisa de recurso de saudação tooaccess (uma API da web em execução como uma conta de serviço - 'backendsvc') no contexto de saudação de usuários do domínio. Veja como você pode configurar a KCD baseada em recursos para esse cenário.
 
 ```
 $ImpersonatingAccount = Get-ADUser -Identity appsvc

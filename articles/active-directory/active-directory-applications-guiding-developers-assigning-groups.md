@@ -1,6 +1,6 @@
 ---
-title: Atribuir grupos aos aplicativos do Azure AD | Microsoft Docs
-description: "Como implementar a atribuição de grupos para aplicativos do Azure."
+title: aaaAssign grupos de aplicativos tooAzure AD | Microsoft Docs
+description: "Como tooimplement agrupar atribuição para aplicativos do Azure."
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -16,26 +16,26 @@ ms.date: 05/07/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 robots: noindex
-ms.openlocfilehash: e0b0b87a454db96747f024e81882fe83d62fdbe2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 086619df09c13bf259afc3128d45ed804b99e519
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="assign-azure-active-directory-groups-to-an-application"></a>Atribuir grupos do Azure Active Directory a um aplicativo
-Antes de atribuir usuários e grupos a um aplicativo, você precisa exigir a atribuição de usuários. Para saber como exigir a atribuição de usuário, consulte o artigo [Exigindo Atribuição de Usuário](active-directory-applications-guiding-developers-requiring-user-assignment.md) .
+# <a name="assign-azure-active-directory-groups-tooan-application"></a>Atribuir grupos do Active Directory do Azure tooan aplicativo
+Antes de atribuir usuários e aplicativos de tooan de grupos, você deve requerer atribuição de usuário. toolearn como toorequire atribuição do usuário, consulte Olá [necessidade de atribuição do usuário](active-directory-applications-guiding-developers-requiring-user-assignment.md) artigo.
 
-Este artigo pressupõe que você já tenha criado grupos no Active Directory que está usando para este aplicativo.
+Este artigo pressupõe que você já tiver criado grupos no active directory de saudação que você está usando para este aplicativo.
 
-## <a name="assigning-groups-to-an-application"></a>Atribuindo grupos a um aplicativo
-1. Faça logon no Portal do Azure com uma conta de administrador.
-2. Clique no item **Todos os Itens** no menu principal.
-3. Escolha o diretório que você está usando para o aplicativo.
-4. Clique na guia **APLICATIVOS** .
-5. Selecione o aplicativo na lista de aplicativos associada ao diretório.
-6. Clique na guia **USUÁRIOS E GRUPOS** .
-7. Filtre a lista de grupos no Active Directory usando a lista suspensa **Grupos** .
-8. Selecione o grupo.
+## <a name="assigning-groups-tooan-application"></a>Atribuir grupos tooan aplicativo
+1. Faça logon em toohello portal do Azure com uma conta de administrador.
+2. Clique em Olá **todos os itens** item no menu principal da saudação.
+3. Escolha o diretório de saudação que você está usando para o aplicativo hello.
+4. Clique em Olá **aplicativos** guia.
+5. Selecione o aplicativo hello na lista de saudação de aplicativos associados a esse diretório.
+6. Clique em Olá **usuários e grupos** guia.
+7. Lista de grupos no active directory usando Olá Olá do filtro para **grupos** lista suspensa.
+8. Selecione o grupo de saudação.
 9. Clique em **ATRIBUIR**.
 10. Clique em **sim** quando solicitado.
 

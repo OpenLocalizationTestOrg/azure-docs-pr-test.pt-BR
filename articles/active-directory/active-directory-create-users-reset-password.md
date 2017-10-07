@@ -1,5 +1,5 @@
 ---
-title: "Redefinir a senha de um usuário no Azure Active Directory | Microsoft Docs"
+title: "senha de saudação aaaReset para um usuário no Active Directory do Azure | Microsoft Docs"
 description: "Explica como um administrador deve redefinir a senha de usuários em um Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -15,32 +15,32 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: deec642a240cb6f088210748b0ef3a3636a88405
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8ed7643d9ad375b1e46bac8f5aa610b03fccf3fc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="reset-a-password-for-a-user-in-the-azure-classic-portal"></a>Redefinir uma senha para um usuário no Portal Clássico do Azure
+# <a name="reset-a-password-for-a-user-in-hello-azure-classic-portal"></a>Redefinir uma senha de um usuário no hello portal clássico do Azure
 > [!div class="op_single_selector"]
 > * [Portal do Azure](active-directory-users-reset-password-azure-portal.md)
 > * [Portal clássico do Azure](active-directory-create-users-reset-password.md)
 >
 >
 
-O Azure Active Directory (Azure AD) simplifica o processo de redefinição de senha do um usuário, caso ele se esqueça e fique bloqueado, ou enquanto realiza a manutenção da segurança de rotina. 
+Azure Active Directory (AD do Azure) simplifica o processo de saudação de redefinição de senha de um usuário se esquecer e estão bloqueados fora ou ao executar a manutenção de rotina de segurança. 
 
 > [!IMPORTANT]
-> A Microsoft recomenda que você gerencie o Azure AD usando o [Centro de administração do AD do Azure](https://aad.portal.azure.com) no portal do Azure em vez de usar o portal clássico do Azure mencionado neste artigo. Para como redefinir uma senha de usuário no centro de administração do Azure AD, consulte [Redefinir a senha para um usuário no Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
+> A Microsoft recomenda que você gerencie o AD do Azure usando Olá [Centro de administração do AD do Azure](https://aad.portal.azure.com) em Olá portal do Azure em vez de usar Olá portal clássico do Azure mencionado neste artigo. Para como tooreset uma senha de usuário no Centro de administração de saudação do AD do Azure, consulte [Olá redefinição da senha de um usuário no Active Directory do Azure](active-directory-users-reset-password-azure-portal.md).
 
 1. Abra seu diretório.
-2. Selecione a guia **Usuários** e o nome de exibição do usuário que deseja alterar.
-3. Na barra de comandos, selecione **Redefinir Senha**.
-4. Na caixa de diálogo de redefinição de senha, clique em **Redefinir**.
-5. Selecione a marca de seleção para concluir a redefinição da senha.
+2. Selecione Olá **usuários** guia e nome para exibição, em seguida, selecione Olá do hello usuário a ser toochange.
+3. Na barra de comandos hello, selecione **Redefinir senha**.
+4. No diálogo de senha de redefinição de saudação, clique em **redefinir**.
+5. Selecione toofinish de marca de seleção Olá Redefinir senha hello.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Adicionar novos usuários ao Azure Active Directory](active-directory-create-users.md)
+* [Adicionar novo tooAzure de usuários do Active Directory](active-directory-create-users.md)
 * [Administrando o Azure AD](active-directory-administer.md)
 * [Gerenciar senhas no Azure AD](active-directory-manage-passwords.md)
 * [Gerenciar grupos no Azure AD](active-directory-manage-groups.md)

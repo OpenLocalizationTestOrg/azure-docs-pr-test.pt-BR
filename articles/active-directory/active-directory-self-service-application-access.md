@@ -1,6 +1,6 @@
 ---
-title: Acesso a aplicativo de autoatendimento e gerenciamento delegado com o Azure Active Directory| Microsoft Docs
-description: Este artigo descreve como habilitar acesso a aplicativo de autoatendimento e gerenciamento delegado com o Active Directory do Azure.
+title: "acesso de aplicativo de serviço aaaSelf e gerenciamento delegado com o Active Directory do Azure | Microsoft Docs"
+description: Este artigo descreve como acessar o aplicativo de autoatendimento tooenable e gerenciamento de delegado com o Active Directory do Azure.
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -16,90 +16,90 @@ ms.date: 07/26/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 7872d5229cdc053bfb9dc8ddba01785b0f8e5a9a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 90bec3bd71796f22a782929b028db0d18c3aa1c3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Acesso a aplicativos de autoatendimento e gerenciamento delegado com o Active Directory do Azure
-A habilitação de recursos de autoatendimento para usuários finais é um cenário comum para TI empresarial. Muitos usuários, muitos aplicativos e a pessoa mais bem informada para tomar decisões de concessão de acesso podem não ser o administrador do diretório. Geralmente, a melhor pessoa a decidir quem pode acessar um aplicativo é um líder de equipe ou outro administrador delegado. No entanto, é o usuário que usa o aplicativo e o usuário sabe o que precisa para fazer seu trabalho.
+A habilitação de recursos de autoatendimento para usuários finais é um cenário comum para TI empresarial. Muitos usuários, muitos aplicativos e Olá pessoa acesso de toomake best-informed concedem decisões não podem ser o administrador do diretório hello. Geralmente Olá melhor pessoa toodecide quem pode acessar um aplicativo é um líder ou outro administrador delegado. No entanto, é Olá usuário usa o aplicativo hello e Olá sabe o que precisam toodo capaz de toobe seu trabalho.
 
 > [!IMPORTANT]
-> A Microsoft recomenda que você gerencie o Azure AD usando o [Centro de administração do AD do Azure](https://aad.portal.azure.com) no portal do Azure em vez de usar o portal clássico do Azure mencionado neste artigo. 
+> A Microsoft recomenda que você gerencie o AD do Azure usando Olá [Centro de administração do AD do Azure](https://aad.portal.azure.com) em Olá portal do Azure em vez de usar Olá portal clássico do Azure mencionado neste artigo. 
 
 O acesso ao aplicativo de autoatendimento é um recurso de licenciamento P1 e P2 do [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/) que permite aos administradores do diretório:
 
-* Permitir que os usuários solicitem acesso a aplicativos, usando um bloco "Obter mais aplicativos" no [Painel de Acesso do Azure AD](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
+* Habilitar o acesso do usuários toorequest tooapplications usando um "obter mais aplicativos" lado a lado no hello [painel de acesso do AD do Azure](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
 * Definir para quais aplicativos os usuários podem solicitar acesso
-* Definir se uma aprovação é ou não necessária para os usuários atribuírem acesso próprio a um aplicativo
-* Definir quem deve aprovar as solicitações e gerenciar o acesso a cada aplicativo
+* Definir se uma aprovação é necessária para os usuários toobe poderá tooself-atribuir acesso tooan aplicativo
+* Conjunto de quem deve aprovar solicitações de saudação e gerenciar o acesso para cada aplicativo
 
-Atualmente, essa funcionalidade tem suporte para todos os aplicativos pré-integrados e personalizados que oferecem suporte a logon único federado ou com base em senha na [Galeria de aplicativos do Active Directory do Azure](https://azure.microsoft.com/marketplace/active-directory/all/), incluindo aplicativos como Salesforce, Dropbox, Google e muito mais.
+Atualmente esse recurso tem suporte para todos os aplicativos pré-integrados e personalizados que oferecem suporte a federados ou com base em senha de logon único no hello [Galeria de aplicativos do Active Directory do Azure](https://azure.microsoft.com/marketplace/active-directory/all/), incluindo aplicativos como o Salesforce, Dropbox, Google Apps e muito mais.
 Este artigo descreve como:
 
 * Configurar acesso de aplicativo de autoatendimento para usuários finais, incluindo a configuração de um fluxo de trabalho de aprovação opcional 
-* Delegar gerenciamento de acesso a aplicativos específicos às pessoas mais apropriados na organização e habilitá-las a usar o painel de acesso do AD do Azure para aprovar solicitações de acesso, atribuir diretamente o acesso a usuários selecionados ou, (opcionalmente), definir credenciais para acesso ao aplicativo quando o logon único baseado em senha estiver configurado
+* Delegar o gerenciamento de acesso para as pessoas mais apropriados de toohello aplicativos específicos na sua organização e habilitá-las em solicitações de acesso tooapprove do painel de acesso de Olá AD do Azure toouse, atribuir acesso diretamente tooselected usuários ou definir (opcionalmente) credenciais para acesso a aplicativos quando é configurado com base em senha de logon único
 
 ## <a name="configuring-self-service-application-access"></a>Configurando acesso ao aplicativo de autoatendimento
-Para habilitar o acesso do aplicativo de autoatendimento e configurar quais aplicativos podem ser adicionados ou solicitados pelos usuários finais, siga estas instruções.
+acesso de aplicativo de autoatendimento tooenable e configurado os aplicativos que podem ser adicionados ou solicitados pelos usuários finais, siga estas instruções.
 
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com/).
+1. O logon no hello [portal clássico do Azure](https://manage.windowsazure.com/).
 
-2.   Na seção **Active Directory**, selecione o diretório e, em seguida, selecione a guia **Aplicativos**. 
+2.   Em Olá **do Active Directory** seção, selecione seu diretório, em seguida Olá **aplicativos** guia. 
 
-3. Selecione o botão **Adicionar** e use a opção da galeria para selecionar e adicionar um aplicativo.
+3. Selecione Olá **adicionar** botão, usar Olá Galeria opção tooselect e adicionar um aplicativo.
 
-4. Depois que seu aplicativo tiver sido adicionado, você obterá a página Início Rápido do aplicativo. Clique em **Configurar logon único**, selecione o modo de logon desejado e salve a configuração. 
+4. Depois que seu aplicativo tiver sido adicionado, você obterá a página de início rápido de aplicativo hello. Clique em **configurar logon único**, selecione Olá desejado único modo de logon e salvar a configuração de saudação. 
 
-5. Em seguida, selecione a guia **Configurar**. Para permitir que os usuários solicitem acesso a esse aplicativo no painel de acesso do AD do Azure, defina **Permitir acesso ao aplicativo de autoatendimento** como **Sim**.
+5. Em seguida, selecione Olá **configurar** guia tooenable usuários toorequest acesso toothis aplicativo de painel de acesso de saudação do AD do Azure, defina **permitir o acesso do aplicativo de autoatendimento** muito**Sim**.
   
   ![][1]
 
-6. Para configurar opcionalmente um fluxo de trabalho de aprovação para solicitações de acesso, defina **Exigir aprovação antes de conceder acesso** como **Sim**. Em seguida, um ou mais aprovadores podem ser selecionados, usando o botão **Aprovadores** .
+6. toooptionally configurar um fluxo de trabalho de aprovação para solicitações de acesso, definir **exigir aprovação antes de conceder acesso** muito**Sim**. E um ou mais aprovadores podem ser selecionados Olá **aprovadores** botão.
 
-  O aprovador pode ser qualquer usuário na organização, com uma conta do AD do Azure e ser responsável por provisionamento de conta, licenciamento ou qualquer outro processo de negócios que sua organização exigir antes de conceder acesso a um aplicativo. O aprovador pode até mesmo ser o proprietário do grupo de um ou mais grupos de conta compartilhados e pode atribuir usuários a um desses grupos para fornecer acesso por meio de uma conta compartilhada. 
+  Um aprovador pode ser qualquer usuário na organização Olá com uma conta do AD do Azure e pode ser responsável pela conta de provisionamento, licenciamento, ou qualquer outro processo de negócios exige que sua organização antes de conceder acesso tooan aplicativo. aprovador Olá pode até mesmo ser proprietário do grupo de saudação de um ou mais grupos conta compartilhados e pode atribuir Olá usuários tooone desses toogive grupos a eles acesso por meio de uma conta compartilhada. 
 
-  Se nenhuma aprovação for necessária, os usuários receberão instantaneamente o aplicativo adicionado ao seu painel de acesso do Azure AD. Se o aplicativo tiver sido definido para [provisionamento automático de usuário](active-directory-saas-app-provisioning.md), ou configurado como [modo SSO de senha "gerenciada pelo usuário"](active-directory-appssoaccess-whatis.md#password-based-single-sign-on), o usuário já deve ter uma conta e saber a senha.
+  Se nenhuma aprovação for necessária, o usuários obtém instantaneamente painel de acesso do hello aplicativo tootheir adicionado do AD do Azure. Se o aplicativo hello configurado para [provisionamento de usuário automático](active-directory-saas-app-provisioning.md), ou foi configurado [modo SSO de senha "gerenciada pelo usuário"](active-directory-appssoaccess-whatis.md#password-based-single-sign-on), usuário Olá já deve ter um usuário de conta e saber a senha de saudação.
 
-7. Se o aplicativo foi configurado para usar logon único baseado em senha, estará disponível uma opção para permitir que o aprovador defina credenciais SSO em nome de cada usuário. Para obter mais informações, consulte a seção a em [gerenciamento de acesso delegado](#delegated-application-access-management).
+7. Se o aplicativo hello tiver sido configurado toouse com base em senha de logon único, em seguida, uma opção para permitir o aprovador Olá credenciais de SSO Olá tooset em nome de cada usuário também está disponível. Para obter mais informações, consulte a seção Olá em [gerenciamento de acesso delegado](#delegated-application-access-management).
 
-8. Por fim, o **Grupo de usuários autoatribuídos** mostra o nome do grupo usado para armazenar os usuários que receberam acesso ou foram atribuídos ao aplicativo. O aprovador do acesso torna-se o proprietário deste grupo. Se o nome do grupo mostrado não existir, ele será criado automaticamente. Opcionalmente, o nome do grupo pode ser definido como o nome de um grupo existente.
+8. Por fim, Olá **grupo para usuários Self-Assigned** mostra Olá nome do grupo de saudação que é usado toostore Olá que os usuários tenham sido concedidos ou acesso toohello aplicativo atribuídos. aprovador de acesso de saudação se torna o proprietário de saudação desse grupo. Se o nome do grupo de saudação mostrado não existir, ele será criado automaticamente. Opcionalmente o nome do grupo de saudação pode ser definido toohello nome de um grupo existente.
 
-9. Para salvar a configuração, clique em **Salvar** na parte inferior da tela. Agora os usuários podem solicitar acesso a este aplicativo do painel de acesso.
+9. configuração de saudação toosave, clique em **salvar** na parte inferior da saudação da tela hello. Agora os usuários podem toorequest acesso toothis aplicativo de painel de acesso de saudação.
 
-10. Para testar a experiência do usuário final, entre no painel de acesso do Azure AD de sua organização em https://myapps.microsoft.com, preferencialmente usando uma conta diferente que não seja a de um aprovador de aplicativo. 
+10. experiência do usuário final tootry Olá, entrar no painel de acesso do AD do Azure da sua organização no https://myapps.microsoft.com, preferencialmente usando uma conta diferente que não seja um aprovador de aplicativo. 
 
-11. Na guia **Aplicativos** clique no bloco **Obter mais aplicativos**. Esse bloco exibe uma galeria de todos os aplicativos habilitados para acesso a aplicativos de autoatendimento no diretório, com a capacidade de pesquisar e filtrar por categoria de aplicativo à esquerda. 
+11. Em Olá **aplicativos** , clique em Olá **obter mais aplicativos** lado a lado. Este bloco exibe uma galeria de todos os aplicativos de saudação que foram habilitados para acesso ao aplicativo de autoatendimento no diretório hello, com hello capacidade toosearch e filtrar por categoria de aplicativo hello esquerda. 
 
-12. Clicar em um aplicativo inicia o processo de solicitação. Se nenhum processo de aprovação for necessário, o aplicativo será adicionado imediatamente na guia **Aplicativos** , após uma curta confirmação. Se a aprovação for necessária, você verá uma caixa de diálogo indicando isso e um email será enviado aos aprovadores. Você precisa entrar no painel de acesso como não aprovador para ver o processo de solicitação.
+12. Clicar em um aplicativo inicia o processo de solicitação de saudação. Se nenhum processo de aprovação é necessário, o aplicativo hello será adicionado imediatamente em Olá **aplicativos** guia após um curto confirmação. Se for necessária uma aprovação, você verá uma caixa de diálogo indicando isso e aprovadores toohello é enviado um email. Você deve entrar em Olá o painel de acesso como um aprovador não toosee esse processo de solicitação.
 
-13. O email direciona o aprovador para entrar no painel de acesso do Azure AD e aprovar a solicitação. Depois que a solicitação for aprovada (e quaisquer processos especiais que você definir forem executados pelo aprovador), o usuário verá o aplicativo na guia **Aplicativos** em que ele poderá entrar.
+13. email Olá direciona Olá aprovador toosign no painel de acesso do AD do Azure hello e aprovar a solicitação de saudação. Depois de saudação solicitação for aprovada (e quaisquer processos especiais que você definir foram executados pelo aprovador Olá), o hello usuário vê aplicativo hello aparecem em seus **aplicativos** guia em que ele podem entrar.
 
 ## <a name="delegated-application-access-management"></a>Gerenciamento de acesso delegado ao aplicativo
-Um aprovador de acesso ao aplicativo pode ser qualquer usuário em sua organização que seja a pessoa mais apropriada para aprovar ou negar acesso ao aplicativo em questão. Este usuário pode ser responsável pela conta de provisionamento, licenciamento, ou qualquer outro processo de negócios que sua organização exige, antes de conceder acesso a um aplicativo.
+Um aprovador de acesso do aplicativo pode ser qualquer usuário em sua organização que é hello mais apropriado pessoa tooapprove ou negar acesso toohello aplicativo em questão. Este usuário pode ser responsável pela conta de provisionamento, licenciamento, ou qualquer outro processo de negócios exige que sua organização antes de conceder acesso tooan aplicativo.
 
-Ao configurar o acesso do aplicativo de autoatendimento descrito acima, qualquer aplicativo atribuído aprovadores vê um bloco adicional **Gerenciar aplicativos** no painel de acesso do Azure AD, que mostra para quais aplicativos eles são administrador de acesso. Clicar em um aplicativo mostra uma tela com várias opções.
+Ao configurar o acesso do aplicativo de autoatendimento descrito acima, qualquer aplicativo atribuído aprovadores consulte adicional **gerenciar aplicativos** lado a lado no painel de acesso de saudação do AD do Azure, que mostra quais são os aplicativos administrador de acesso Olá para. Clicar em um aplicativo mostra uma tela com várias opções.
 
 ![][2]
 
 ### <a name="approve-requests"></a>Aprovar solicitações
-O bloco **Aprovar Solicitações** permite que os aprovadores vejam aprovações pendentes específicas do aplicativo e redireciona para a guia Aprovações em que as solicitações podem ser confirmadas ou negadas. O aprovador também recebe emails automáticos sempre que uma solicitação é criada, instruindo-o sobre o que fazer.
+Olá **aprovar solicitações** lado a lado permite que os aprovadores toosee pendentes aprovações toothat específico aplicativo e guia de aprovações toohello redirecionamentos onde Olá solicita podem ser confirmado ou negado. aprovador Olá também receberá emails automatizados sempre que uma solicitação é criada que instrui o toodo.
 
 ### <a name="add-users"></a>Adicionar Usuários
-O bloco **Adicionar Usuários** permite que os aprovadores concedam diretamente aos usuários selecionados acesso ao aplicativo. Ao clicar nesse bloco, o aprovador vê que uma caixa de diálogo permite exibir e pesquisar usuários em seu diretório. Adicionar um usuário faz com que o aplicativo seja mostrado nos painéis de acesso do AD do Azure desse usuário ou no Office 365. Se qualquer processo de provisionamento manual do usuário for necessário no aplicativo antes que o usuário possa entrar, o aprovador deverá executar esse processo antes de atribuir acesso.  
+Olá **adicionar usuários** lado a lado permite que os aprovadores toodirectly grant selecionado aos usuários acesso toohello aplicativo. Ao clicar nesse bloco, o aprovador Olá vê uma caixa de diálogo permite que eles tooview e pesquisa por usuários em seu diretório. Adicionando um usuário resulta no aplicativo hello sendo mostrado em painéis de acesso desses usuários do AD do Azure ou Office 365. Se qualquer processo de provisionamento manual do usuário é necessária no aplicativo hello antes que o usuário de saudação é capaz de toosign em, aprovador Olá deve executar esse processo antes de atribuir acesso.  
 
 ### <a name="manage-users"></a>Gerenciar Usuários
-O bloco **Gerenciar Usuários** permite aos aprovadores atualizar ou remover diretamente os usuários que têm acesso ao aplicativo. 
+Olá **gerenciar usuários** lado a lado permite aprovadores toodirectly atualizar ou remover os usuários que têm acesso toohello aplicativo. 
 
 ### <a name="configure-password-sso-credentials-if-applicable"></a>Configurar credenciais de SSO de senha (se aplicável)
-O bloco **Configurar** só será mostrado se o aplicativo foi configurado pelo administrador de TI para usar logon único baseado em senha, e o administrador garantiu ao aprovador a capacidade de definir credenciais SSO de senha, conforme descrito anteriormente. Quando selecionado, são apresentadas várias opções ao aprovador sobre como as credenciais são propagadas aos usuários atribuídos:
+Olá **configurar** lado a lado é mostrada apenas se configurado pelo Olá IT administrador toouse baseada em senha logon único no aplicativo hello e administrador Olá concedidas aprovador Olá credenciais de SSO de senha do hello capacidade tooset conforme descrito anteriormente. Quando selecionado, Olá aprovador é apresentado com várias opções para como credenciais de saudação são propagadas tooassigned usuários:
 
 ![][3]
 
-* **Os usuários entram com suas próprias senhas** – neste modo, os usuários atribuídos sabem que seus nomes de usuário e senhas são para o aplicativo e são solicitados a inseri-los no primeiro acesso ao aplicativo. Esse cenário corresponde ao SSO de senha em que os [usuários gerenciam credenciais](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
-* **Os usuários entram automaticamente usando contas separadas que eu gerencio** – neste modo, os usuários atribuídos não precisam inserir nem saber suas credenciais específicas do aplicativo ao entrar no aplicativo. Em vez disso, o aprovador define as credenciais para cada usuário depois de atribuir acesso usando o bloco **Adicionar Usuário** . Quando o usuário clica no aplicativo no seu painel de acesso ou no Office 365, ele é conectado automaticamente usando as credenciais definidas pelo aprovador. Esse cenário também corresponde ao SSO de senha, em que os [administradores gerenciam credenciais](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
-* **Os usuários entram automaticamente usando uma única conta que eu gerencio** - um caso especial, este caso é apropriado quando for necessário conceder acesso a todos os usuários atribuídos utilizando uma conta compartilhada. O caso de uso mais comum para esse recurso são os aplicativos de mídia social, em que uma organização tem uma única conta "corporativa" e vários usuários precisam fazer atualizações nessa conta. Esse cenário também corresponde ao SSO de senha, em que os [administradores gerenciam credenciais](active-directory-appssoaccess-whatis.md#password-based-single-sign-on). No entanto, depois de selecionar essa opção, o aprovador deverá inserir o nome de usuário e a senha para a conta compartilhada única. Depois de concluído, todos os usuários atribuídos são conectados usando essa conta ao clicar no aplicativo nos painéis de acesso do AD do Azure ou no Office 365.
+* **Usuários entrar com suas próprias senhas** – nesse modo, os usuários de saudação atribuído sabem o que seus nomes de usuário e senhas são para o aplicativo hello e são solicitada tooentê-los em seu primeiro aplicativo de entrada toohello. Olá cenário corresponde caso SSO de senha toohello onde hello [usuários gerenciam credenciais](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
+* **Os usuários sejam desconectados automaticamente usando contas separadas que gerenciar** – neste modo, os usuários de Olá atribuído não são necessária tooenter ou conhecer suas credenciais específicas do aplicativo ao entrar no aplicativo hello. Em vez disso, o aprovador Olá define credenciais Olá para cada usuário depois de atribuir acesso usando Olá **adicionar usuário** lado a lado. Quando o usuário Olá clica no aplicativo hello no seu painel de acesso ou o Office 365, que sejam desconectados automaticamente usando as credenciais de saudação definidas pelo aprovador hello. Olá cenário corresponde caso SSO de senha toohello onde hello [administradores gerenciam as credenciais](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
+* **Os usuários sejam desconectados automaticamente usando uma única conta que gerenciar** -um caso especial, nesse caso é toouse apropriada quando todos os usuários atribuídos precisarem toobe acesso usando uma única conta compartilhada. caso de uso mais comum Olá para esse recurso é com aplicativos de mídia social, onde uma organização tem uma conta única "company" e vários usuários precisam toomake atualizações toothat conta. Olá cenário também corresponde caso SSO de senha toohello onde hello [administradores gerenciam as credenciais](active-directory-appssoaccess-whatis.md#password-based-single-sign-on). No entanto, depois de selecionar essa opção, aprovador Olá será solicitada tooenter Olá usuário e a senha conta compartilhada única de saudação. Depois de concluído, todos os usuários atribuídos são conectados usando essa conta ao clicar em um aplicativo hello em seus painéis de acesso do AD do Azure ou Office 365.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)

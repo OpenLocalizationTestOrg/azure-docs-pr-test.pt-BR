@@ -1,5 +1,5 @@
 ---
-title: "Configurar o LDAP Seguro (LDAPS) nos Serviços de Domínio do Azure AD |Microsoft Docs"
+title: "aaaConfigure seguro LDAP (LDAPS) nos serviços de domínio do AD do Azure | Microsoft Docs"
 description: "Configurar o LDAP Seguro (LDAPS) para um domínio gerenciado dos Serviços de Domínio do Azure AD"
 services: active-directory-ds
 documentationcenter: 
@@ -14,99 +14,99 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: maheshu
-ms.openlocfilehash: 3b19f078b0d6dc3e02d951014056406fd1b099a8
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8781285cd02d690788056b985b017efd7e4d6b3f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurar o LDAPS (LDAP Seguro) para um domínio gerenciado do Azure AD Domain Services
 
 ## <a name="before-you-begin"></a>Antes de começar
-Não deixe de concluir a [Tarefa 2 – exportar o certificado de LDAP seguro para um arquivo .PFX](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md).
+Certifique-se de que você acabou de [tarefa 2 - Olá exportação tooa de certificado segura LDAP. Arquivo PFX](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md).
 
-Escolha se deseja usar a experiência de versão prévia do portal do Azure ou o portal clássico do Azure para concluir esta tarefa.
+Escolha se toouse Olá visualização experiência do portal do Azure ou Olá toocomplete de portal clássico do Azure essa tarefa.
 > [!div class="op_single_selector"]
-> * **Portal do Azure (Versão prévia)**: [habilitar o LDAP seguro usando o portal do Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
-> * **Portal clássico do Azure**: [habilitar o LDAP seguro usando o portal do Azure clássico](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
+> * **Portal do Azure (visualização)**: [habilitar secure LDAP usando Olá portal do Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+> * **Portal clássico do Azure**: [habilitar seguro usando o portal do Azure clássico de saudação do LDAP](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
 >
 >
 
 
-## <a name="task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal-preview"></a>Tarefa 3 – habilitar o LDAP seguro para o domínio gerenciado usando o portal do Azure (Versão prévia)
-Execute as seguintes etapas de configuração para habilitar o LDAP seguro:
+## <a name="task-3---enable-secure-ldap-for-hello-managed-domain-using-hello-azure-portal-preview"></a>Tarefa 3 - habilitar LDAP seguro para Olá domínio gerenciado usando Olá portal do Azure (visualização)
+tooenable LDAP seguro, execute Olá etapas de configuração a seguir:
 
-1. Navegue até o **[Portal do Azure](https://portal.azure.com)**.
+1. Navegue toohello  **[portal do Azure](https://portal.azure.com)**.
 
-2. Pesquise por “domain services” na caixa de pesquisa **Pesquisar recursos**. Selecione **Azure AD Domain Services** nos resultados da pesquisa. A folha **Azure AD Domain Services** lista seu domínio gerenciado.
+2. Procure "serviços de domínio' hello **pesquisar recursos** caixa de pesquisa. Selecione **serviços de domínio do AD do Azure** Olá resultados de pesquisa. Olá **serviços de domínio do AD do Azure** folha lista o domínio gerenciado.
 
     ![Localize o domínio gerenciado que está sendo provisionado](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 
-2. Clique no nome do domínio gerenciado (por exemplo, "contoso100.com") para ver mais detalhes sobre ele.
+2. Clique o nome de saudação do hello gerenciado toosee de domínio (por exemplo, ' contoso100.com') mais detalhes sobre o domínio de saudação.
 
     ![Domain Services – estado de provisionamento](./media/getting-started/domain-services-provisioning-state.png)
 
-3. Clique em **LDAP Seguro** no painel de navegação.
+3. Clique em **LDAP seguro** no painel de navegação de saudação.
 
     ![Domain Services – folha LDAP Seguro](./media/active-directory-domain-services-admin-guide/secure-ldap-blade.png)
 
-4. Por padrão, o acesso LDAP seguro ao seu domínio gerenciado fica desabilitado. Posicione a tecla de alternância **LDAP Seguro** em **Habilitar**.
+4. Por padrão, o domínio seguro do LDAP acesso tooyour gerenciado está desabilitado. Ativar/desativar **LDAP seguro** muito**habilitar**.
 
     ![Habilitar o LDAP seguro](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
-5. Por padrão, o acesso LDAP seguro ao seu domínio gerenciado pela Internet fica desabilitado. Posicione a tecla de alternância **Permitir acesso LDAP seguro na Internet** em **Habilitar**, se desejar. 
+5. Por padrão, o tooyour de acesso LDAP seguro gerenciados domínio pela Olá que Internet está desabilitado. Ativar/desativar **Olá de permissões de acesso LDAP seguro através da internet** muito**habilitar**, se desejado. 
 
-6. Clique no ícone de pasta após **Arquivo .PFX com certificado LDAP seguro**. Especifique o caminho para o arquivo PFX com o certificado para acesso LDAP seguro ao domínio gerenciado.
+6. Clique em seguinte de ícone de pasta Olá **. O arquivo PFX com certificado LDAP seguro**. Especifica arquivo PFX do hello caminho toohello com certificado Olá para seguro LDAP acesso toohello domínio gerenciado.
 
-7. Especifique a **Senha para descriptografar o arquivo PFX**. Insira a mesma senha que você usou ao exportar o certificado para o arquivo PFX.
+7. Especifique a saudação **toodecrypt de senha. Arquivo PFX**. Fornecer Olá mesma senha usada ao exportar o arquivo PFX do hello certificado toohello.
 
-8. Quando tiver terminado, clique no botão **Salvar**.
+8. Quando terminar, clique em Olá **salvar** botão.
 
-9. Você verá uma notificação informando que o LDAP seguro está sendo configurado para o domínio gerenciado. Até que essa operação seja concluída, você não poderá modificar outras configurações do domínio.
+9. Você verá uma notificação informando que LDAP seguro está sendo configurado para o domínio gerenciado hello. Até que essa operação for concluída, você não pode modificar outras configurações para o domínio de saudação.
 
-    ![Configurando LDAP seguro para o domínio gerenciado](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configuring.png)
+    ![Configurar o LDAP seguro para o domínio gerenciado Olá](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configuring.png)
 
 > [!NOTE]
-> Demora cerca de 10 a 15 minutos para habilitar o LDAP seguro para seu domínio gerenciado. Se o certificado LDAP seguro fornecido não corresponder aos critérios necessários, LDAP seguro não estará habilitado para o diretório e você verá uma falha. Por exemplo, o nome de domínio está incorreto, o certificado expirou ou expirará em breve. Nesse caso, tente novamente com um certificado válido.
+> Leva aproximadamente 10 minutos too15 tooenable LDAP seguro para seu domínio gerenciado. Se Olá fornecida seguro de certificados LDAP não coincide com hello necessário critérios, LDAP seguro não está habilitado para seu diretório e você verá uma falha. Por exemplo, nome de domínio hello está incorreta, certificado Olá já expirou ou expirará em breve. Nesse caso, tente novamente com um certificado válido.
 >
 >
 
 <br>
 
-## <a name="task-4---configure-dns-to-access-the-managed-domain-from-the-internet"></a>Tarefa 4 – configurar o DNS para acessar o domínio gerenciado pela Internet
+## <a name="task-4---configure-dns-tooaccess-hello-managed-domain-from-hello-internet"></a>Tarefa 4 - configurar DNS tooaccess Olá domínio gerenciado de saudação à internet
 > [!NOTE]
-> **Tarefa opcional** – Ignore esta tarefa de configuração se você não pretende acessar o domínio gerenciado usando LDAPS pela Internet.
+> **Tarefas opcionais** - se você não planeja tooaccess Olá domínio usando LDAPS Olá da internet, para ignorar esta tarefa de configuração.
 >
 >
 
-Antes de iniciar esta tarefa, verifique se você concluiu as etapas descritas na [Tarefa 3](#task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal-preview).
+Antes de começar essa tarefa, certifique-se de concluir Olá etapas descritas em [tarefa 3](#task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal-preview).
 
-Depois que você habilitar o acesso LDAP seguro pela Internet para seu domínio gerenciado, será necessário atualizar o DNS para que os computadores cliente possam localizar esse domínio gerenciado. No final da tarefa 3, um endereço IP externo é exibido na folha **Propriedades**, em **ENDEREÇO IP EXTERNO PARA ACESSO LDAPS**.
+Depois que você tiver habilitado o acesso LDAP seguro através da internet de Olá para seu domínio gerenciado, você precisa tooupdate DNS para que os computadores cliente possam encontrar este domínio gerenciado. Final de saudação de tarefa 3, um endereço IP externo é exibido na Olá **propriedades** folha em **endereço de IP externo para acesso de LDAPS**.
 
-Configure seu provedor DNS externo para que o nome DNS do domínio gerenciado (por exemplo, 'ldaps.contoso100.com') aponte para esse endereço IP externo. Em nosso exemplo, precisaremos criar a entrada DNS a seguir:
+Configure seu provedor DNS externo para que o nome DNS Olá de saudação gerenciado endereço IP externo de pontos toothis domínio (por exemplo, ' ldaps.contoso100.com'). Em nosso exemplo, precisamos Olá toocreate entrada DNS a seguir:
 
     ldaps.contoso100.com  -> 52.165.38.113
 
-Isso é tudo - agora você está pronto para se conectar ao domínio gerenciado usando LDAP seguro pela Internet.
+É isso – agora você está pronto tooconnect toohello gerenciado Olá de domínio usando o LDAP seguro através da internet.
 
 > [!WARNING]
-> Lembre-se de que os computadores cliente devem confiar no emissor do certificado LDAPS para poderem se conectar com êxito ao domínio gerenciado usando LDAPS. Se estiver usando uma autoridade de certificação confiável publicamente, você não precisará fazer nada, pois os computadores cliente confiarão nesses emissores de certificado. Se estiver usando um certificado autoassinado, instale a parte pública do certificado autoassinado no repositório de certificados confiáveis no computador cliente.
+> Lembre-se de que os computadores cliente devem confiar emissor Olá Olá LDAPS certificado toobe capaz de tooconnect com êxito toohello gerenciados usando LDAPS do domínio. Se você estiver usando uma autoridade de certificação publicamente confiável, você não é necessário toodo qualquer coisa desde que essas emissores de certificado de confiança de computadores cliente. Se você estiver usando um certificado autoassinado, instale a parte pública de saudação do certificado autoassinado Olá no hello repositório de certificados confiáveis no computador do cliente de saudação.
 >
 >
 
 
-## <a name="task-5---lock-down-ldaps-access-to-your-managed-domain-over-the-internet"></a>Tarefa 5 – bloquear o acesso LDAPS ao domínio gerenciado pela Internet
+## <a name="task-5---lock-down-ldaps-access-tooyour-managed-domain-over-hello-internet"></a>Tarefa 5 - bloqueio LDAPS acesso tooyour gerenciado Olá de domínio através da internet
 > [!NOTE]
-> **Tarefa opcional** – ignore esta tarefa de configuração se você não tiver habilitado o acesso LDAPS ao domínio gerenciado pela Internet.
+> **Tarefas opcionais** - se você não tiver habilitado o LDAPS domínio gerenciado do acesso toohello Olá da internet, para ignorar esta tarefa de configuração.
 >
 >
 
-Antes de iniciar esta tarefa, verifique se você concluiu as etapas descritas na [Tarefa 3](#task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal-preview).
+Antes de começar essa tarefa, certifique-se de concluir Olá etapas descritas em [tarefa 3](#task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal-preview).
 
-Expor seu domínio gerenciado para acesso LDAPS pela Internet representa uma ameaça à segurança. O domínio gerenciado é acessível pela Internet na porta usada para LDAP seguro (ou seja, a porta 636). Portanto, você pode optar por restringir o acesso ao domínio gerenciado a endereços IP conhecidos específicos. Para segurança aprimorada, crie um NSG (grupo de segurança de rede) e associe-o à sub-rede na qual você habilitou o Azure AD Domain Services.
+Expondo o domínio gerenciado para acesso LDAPS sobre Olá internet representa uma ameaça à segurança. Olá domínio gerenciado é acessível a partir do hello internet na porta Olá usada para LDAP seguro (ou seja, porta 636). Portanto, você pode escolher toorestrict acesso toohello gerenciado domínio toospecific conhecido endereços IP. Para maior segurança, crie um grupo de segurança de rede (NSG) e associá-lo a sub-rede Olá onde você habilitou os serviços de domínio do AD do Azure.
 
-A tabela a seguir ilustra um exemplo de NSG que você pode configurar para bloquear o acesso LDAP seguro pela Internet. O NSG contém um conjunto de regras que permitem o acesso LDAPS de entrada pela porta TCP 636 somente de um conjunto especificado de endereços IP. A regra “DenyAll” padrão se aplica a todos os outros tráfegos de entrada da Internet. A regra de NSG para permitir o acesso LDAPS pela Internet de endereços IP especificados tem prioridade mais alta que a regra de NSG DenyAll.
+Olá, tabela a seguir ilustra um exemplo NSG que você pode configurar, toolock para acesso LDAP seguro através de saudação à internet. Olá NSG contém um conjunto de regras que permitam o acesso LDAPS entrada pela porta TCP 636 somente de um conjunto especificado de endereços IP. Olá padrão 'DenyAll' regra se aplica tooall outro tráfego de entrada de saudação à internet. Olá NSG regra tooallow LDAPS o acesso por Olá internet de endereços IP especificados tem uma prioridade mais alta que Olá regra DenyAll NSG.
 
-![Exemplo de NSG para acesso LDAPS seguro pela Internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
+![Acesso ao exemplo NSG toosecure LDAPS por Olá da internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
 **Mais informações** - [Grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
 

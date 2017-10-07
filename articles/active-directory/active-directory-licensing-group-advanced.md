@@ -1,5 +1,5 @@
 ---
-title: "Cenários adicionais de licenciamento baseado em grupo do Azure Active Directory | Microsoft Docs"
+title: "aaaAzure do Active Directory cenários adicionais de licenciamento baseado em grupo | Microsoft Docs"
 description: "Mais cenários de licenciamento baseado em grupo do Azure Active Directory"
 services: active-directory
 keywords: Licenciamento do AD do Azure
@@ -16,38 +16,38 @@ ms.workload: identity
 ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 55e2e095138842f8e2d31a4f79ffb22b81d18dba
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 782b7c9aa1c062a55c1241d69af673466f7a849c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Cenários, limitações e problemas conhecidos com o uso de grupos para gerenciar o licenciamento no Azure Active Directory
+# <a name="scenarios-limitations-and-known-issues-using-groups-toomanage-licensing-in-azure-active-directory"></a>Cenários, as limitações e problemas conhecidos com o licenciamento de toomanage grupos no Active Directory do Azure
 
-Use as informações e exemplos a seguir para obter uma compreensão mais avançada do licenciamento baseado em grupo do Azure AD (Azure Active Directory).
+Use Olá toogain uma compreensão mais avançada de licenciamento do Azure Active Directory (AD do Azure) baseado em grupo de informações e exemplos a seguir.
 
 ## <a name="usage-location"></a>Local de uso
 
-Alguns serviços da Microsoft não estão disponíveis em todos os locais. Para que uma licença possa ser atribuída a um usuário, o administrador precisa especificar a propriedade **Local de uso** para o usuário. No [portal do Azure](https://portal.azure.com), especifique em **Usuário** &gt; **Perfil** &gt; **Configurações**.
+Alguns serviços da Microsoft não estão disponíveis em todos os locais. Usuário tooa possa ser atribuídos uma licença, o administrador de saudação tem Olá toospecify **local de uso** propriedade no usuário hello. Em [Olá portal do Azure](https://portal.azure.com), você pode especificar em **usuário** &gt; **perfil** &gt; **configurações**.
 
-Para a atribuição de licenças de grupo, qualquer usuário sem um local de uso especificado herdará o local do diretório. Se você tiver usuários em localizações diferentes, reflita isso corretamente nos objetos de usuário antes de adicionar usuários a grupos com licenças.
+Para atribuição de grupo de licença, todos os usuários sem um local de uso especificado herdará o local de saudação do diretório de saudação. Se você tiver usuários em vários locais, verifique se tooreflect corretamente nos objetos do usuário antes de adicionar usuários toogroups com licenças.
 
 > [!NOTE]
-> A atribuição de licença de grupo nunca modificará um valor existente de localização de uso em um usuário. Recomendamos sempre definir a localização de uso como parte do fluxo de criação do usuário no Azure AD (por exemplo, por meio da configuração do AAD Connect) – isso garantirá que o resultado da atribuição de licença sempre seja correto e que os usuários não recebam serviços em localizações que não são permitidas.
+> A atribuição de licença de grupo nunca modificará um valor existente de localização de uso em um usuário. Recomendamos que você sempre defina local de uso como parte de seu fluxo de criação de usuário no AD do Azure (por exemplo, por meio de configuração do AAD Connect) - que garantirá o resultado de saudação da atribuição de licença sempre está correto e os usuários não recebem serviços em locais que não são permitido.
 
 ## <a name="use-group-based-licensing-with-dynamic-groups"></a>Usar o licenciamento baseado em grupo com grupos dinâmicos
 
-Você pode usar o licenciamento baseado em grupo com qualquer grupo de segurança, o que significa que ele pode ser combinado a grupos dinâmicos do Azure AD. Os grupos dinâmicos executam regras em relação a atributos de objeto de usuário para adicionar e remover usuários automaticamente dos grupos.
+Você pode usar o licenciamento baseado em grupo com qualquer grupo de segurança, o que significa que ele pode ser combinado a grupos dinâmicos do Azure AD. Grupos dinâmicos executados regras em tooautomatically de atributos de objeto de usuário adicionar e remover usuários dos grupos.
 
-Por exemplo, você pode criar um grupo dinâmico para um conjunto de produtos que você deseja atribuir aos usuários. Cada grupo é populado por uma regra com a adição de usuários por seus atributos e a cada grupo são atribuídas as licenças que você deseja que ele receba. Você pode atribuir o atributo local e sincronizá-lo com o Azure AD ou pode gerenciar o atributo diretamente na nuvem.
+Por exemplo, você pode criar um grupo dinâmico do mesmo conjunto de produtos que você deseja tooassign toousers. Cada grupo é preenchido por uma regra de adição de usuários por seus atributos, e cada grupo é licenças Olá atribuído quando você quer tooreceive. Você pode atribuir Olá atributo local e sincronizá-lo com o Azure AD, ou você pode gerenciar o atributo Olá diretamente na nuvem de saudação.
 
-As licenças são atribuídas ao usuário logo depois que ele é adicionado ao grupo. Quando o atributo é alterado, o usuário deixa os grupos e as licenças são removidas.
+Licenças são atribuídas toohello usuário logo após serem adicionados toohello grupo. Quando o atributo de saudação é alterado, usuário Olá deixa grupos Olá e licenças de saudação são removidas.
 
 ### <a name="example"></a>Exemplo
 
-Considere um exemplo de solução de gerenciamento de identidade local que decide quais usuários devem ter acesso aos serviços Web da Microsoft. Usa **extensionAttribute1** para armazenar um valor de cadeia de caracteres que representa as licenças que o usuário deve ter. O Azure AD Connect é sincronizado com o Azure AD.
+Considere o exemplo hello de uma solução de gerenciamento de identidade local que decide quais usuários terão acesso tooMicrosoft web services. Ele usa **extensionAttribute1** toostore representando licenças Olá Olá usuário deve ter de valor de uma cadeia de caracteres. O Azure AD Connect é sincronizado com o Azure AD.
 
-Os usuários podem precisar de uma licença, mas não da outra ou talvez precisem de ambas. Este é um exemplo no qual você está distribuindo licenças do Office 365 Enterprise E5 e do EMS (Enterprise Mobility + Security) para os usuários em grupos:
+Os usuários podem precisar de uma licença, mas não da outra ou talvez precisem de ambas. Aqui está um exemplo, no qual você está distribuindo o Office 365 Enterprise E5 e mobilidade corporativa + segurança (EMS) toousers em grupos de licenças:
 
 #### <a name="office-365-enterprise-e5-base-services"></a>Office 365 Enterprise E5: serviços de base
 
@@ -57,112 +57,112 @@ Os usuários podem precisar de uma licença, mas não da outra ou talvez precise
 
 ![Captura de tela de usuários licenciados do Enterprise Mobility + Security](media/active-directory-licensing-group-advanced/o365-e5-licensed-users.png)
 
-Neste exemplo, modifique um usuário e defina seu extensionAttribute1 com o valor `EMS;E5_baseservices;`, se desejar que o usuário tenha ambas as licenças. Você pode fazer essa modificação local. Depois que a alteração é sincronizada com a nuvem, o usuário é adicionado automaticamente a ambos os grupos, e as licenças são atribuídas.
+Neste exemplo, modificar um usuário e definir seu valor de toohello extensionAttribute1 de `EMS;E5_baseservices;` se você quiser Olá usuário toohave ambas as licenças. Você pode fazer essa modificação local. Depois de saudação alterar sincronizado com a nuvem hello, Olá é adicionado automaticamente grupos tooboth e licenças são atribuídas.
 
-![Captura de tela mostrando como definir extensionAttribute1 do usuário](media/active-directory-licensing-group-advanced/user-set-extensionAttribute1.png)
+![Captura de tela mostrando como tooset Olá extensionAttribute1 do usuário](media/active-directory-licensing-group-advanced/user-set-extensionAttribute1.png)
 
 > [!WARNING]
-> Tenha cuidado ao modificar uma regra de associação de um grupo existente. Quando uma regra for alterada, a associação do grupo será reavaliada e os usuários que não correspondem mais à nova regra serão removidos (os usuários que ainda correspondem à nova regra não serão afetados durante esse processo). Esses usuários terão suas licenças removidas durante o processo, o que poderá resultar na perda de serviços ou, em alguns casos, na perda de dados.
+> Tenha cuidado ao modificar uma regra de associação de um grupo existente. Quando uma regra é alterada, associação de saudação do grupo hello serão reavaliada e os usuários que não correspondem Olá novo regra será removida (usuários que correspondam a nova regra de saudação ainda não serão afetados durante esse processo). Esses usuários terão suas licenças removidas durante processo de saudação que pode resultar na perda de serviço ou, em alguns casos, perda de dados.
 
-> Se você tiver um grupo dinâmico grande do qual depende para a atribuição de licença, considere a possibilidade de validar as alterações principais em um grupo de teste menor antes de aplicá-las ao grupo principal.
+> Se você tiver um grande grupo dinâmico que dependem para atribuição de licença, considere a possibilidade de validar alterações principais em um grupo menor de teste antes de aplicá-las grupo principal toohello.
 
 ## <a name="multiple-groups-and-multiple-licenses"></a>Vários grupos e várias licenças
 
-Um usuário pode ser membro de vários grupos com licenças. Estas são algumas coisas que você deve considerar:
+Um usuário pode ser membro de vários grupos com licenças. Aqui estão algumas coisas tooconsider:
 
-- Várias licenças para o mesmo produto podem se sobrepor e resultam na aplicação de todos os serviços habilitados ao usuário. O exemplo a seguir mostra dois grupos de licenciamento: *serviços de base E3* contém os serviços de base para implantar em primeiro lugar, para todos os usuários. E *serviços estendidos E3* contém serviços adicionais (Sway e Planejador) para implantação apenas para alguns usuários. Neste exemplo, o usuário foi adicionado aos dois grupos:
+- Várias licenças para Olá mesmo produto pode sobrepor e geram todos habilitados serviços sendo aplicado toohello usuário. Olá, exemplo a seguir mostra dois grupos de licenciamento: *serviços base E3* contém Olá foundation services toodeploy primeiro tooall usuários. E *E3 estendidos serviços* contém serviços adicionais (Sway e planejador) toodeploy somente toosome os usuários. Neste exemplo, o usuário Olá foi adicionado tooboth grupos:
 
   ![Captura de tela de serviços habilitados](media/active-directory-licensing-group-advanced/view-enabled-services.png)
 
-  Como resultado, o usuário tem sete dos 12 serviços no produto habilitados, enquanto usa apenas uma licença para esse produto.
+  Como resultado, Olá usuário tem 7 dos serviços de 12 Olá produto Olá habilitado, ao mesmo tempo usando apenas uma licença para este produto.
 
-- A seleção da licença *E3* mostra mais detalhes, incluindo informações sobre quais grupos causaram a habilitação de quais serviços para o usuário.
+- Olá selecionando *E3* licença mostra mais detalhes, incluindo informações sobre quais grupos causou que toobe serviços habilitado para o usuário hello.
 
   ![Captura de tela de serviços habilitados por grupo](media/active-directory-licensing-group-advanced/view-enabled-service-by-group.png)
 
 ## <a name="direct-licenses-coexist-with-group-licenses"></a>As licenças diretas coexistem com as licenças de grupo
 
-Quando um usuário herda uma licença de um grupo, não é possível remover nem modificar essa atribuição de licença nas propriedades do usuário diretamente. As alterações devem ser feitas no grupo e, depois, propagadas para todos os usuários.
+Quando um usuário herda uma licença de um grupo, você não pode remover ou modificar essa atribuição de licença em Propriedades de saudação do usuário diretamente. As alterações devem ser feitas no grupo de saudação e, em seguida, propagadas tooall usuários.
 
-No entanto, é possível, atribuir a mesma licença do produto diretamente ao usuário, além da licença herdada. Habilite serviços adicionais no produto apenas para um usuário, sem afetar outros usuários.
+É possível, no entanto, tooassign Olá mesmo licença de produto diretamente toohello usuário, na inclusão toohello herdada de licença. Você pode habilitar serviços adicionais do produto de saudação apenas para um usuário, sem afetar outros usuários.
 
-Licenças atribuídas diretamente podem ser removidas e não afetam as licenças herdadas. Considere o usuário que herda uma licença do Office 365 Enterprise E3 de um grupo.
+Licenças atribuídas diretamente podem ser removidas e não afetam as licenças herdadas. Considere a possibilidade de usuário de saudação que herda de uma licença do Office 365 Enterprise E3 de um grupo.
 
-1. Inicialmente, o usuário herda a licença apenas do grupo *Serviços básicos E3*, o que habilita quatro planos de serviço, conforme mostrado:
+1. Inicialmente, o usuário Olá herda licença Olá somente de Olá *serviços básicos E3* grupo, o que permite que os quatro planos de serviço, conforme mostrado:
 
   ![Captura de tela de serviços habilitados para grupo E3](media/active-directory-licensing-group-advanced/e3-group-enabled-services.png)
 
-2. Selecione **Atribuir** para atribuir uma licença E3 diretamente ao usuário. Nesse caso, você desabilitará todos os planos de serviço, exceto o Yammer Enterprise:
+2. Você pode selecionar **atribuir** toodirectly atribuir um usuário de toohello de licença E3. Nesse caso, você vai toodisable serviço todos os planos exceto Enterprise Yammer:
 
-  ![Captura de tela de como atribuir uma licença diretamente a um usuário](media/active-directory-licensing-group-advanced/assign-license-to-user.png)
+  ![Captura de tela de como tooassign uma licença de usuário de tooa diretamente](media/active-directory-licensing-group-advanced/assign-license-to-user.png)
 
-3. Como resultado, o usuário ainda usa apenas uma licença do produto E3. Porém, a atribuição direta habilita o serviço do Yammer Enterprise somente para esse usuário. Veja quais serviços são habilitados pela associação a um grupo em comparação com a atribuição direta:
+3. Como resultado, o usuário Olá ainda usa apenas uma licença de produto do hello E3. Mas atribuição direta Olá permite Olá serviço Yammer Enterprise somente para esse usuário. Você pode ver quais serviços estão habilitados por membros do grupo Olá versus atribuição direta hello:
 
   ![Captura de tela de atribuição herdada versus direta](media/active-directory-licensing-group-advanced/direct-vs-inherited-assignment.png)
 
-4. Quando você usa a atribuição direta, são permitidas as seguintes operações:
+4. Quando você usar a atribuição direta, Olá operações a seguir é permitida:
 
-  - O Yammer Enterprise pode ser desativado diretamente no objeto do usuário. A alternância **Ativar/Desativar** na ilustração está habilitada nesse serviço, ao contrário das outras alternâncias de serviço. Como o serviço está habilitado diretamente no usuário, ele pode ser modificado.
-  - Outros serviços também podem ser habilitados como parte da licença atribuída diretamente.
-  - O botão **Remover** pode ser usado para remover a licença direta do usuário. Veja que agora o usuário tem apenas a licença de grupo herdada e somente os serviços originais permanecem habilitados:
+  - Yammer que Enterprise pode ser desativado no objeto de usuário Olá diretamente. Olá **ativar/desativar** alternância na ilustração Olá foi habilitada para esse serviço, como contrário toohello outros alternâncias de serviço. Porque o serviço hello está habilitado diretamente no usuário hello, ele pode ser modificado.
+  - Serviços adicionais podem ser habilitados, assim como parte da saudação atribuído diretamente a licença.
+  - Olá **remover** botão pode ser usado tooremove Olá direto licença usuário hello. Você pode ver que usuário Olá agora somente tem licença de grupo herdadas hello e permanecem habilitados, somente os serviços original de saudação:
 
-    ![Captura de tela mostrando como remover a atribuição direta](media/active-directory-licensing-group-advanced/remove-direct-license.png)
+    ![Captura de tela mostrando como tooremove direto atribuição](media/active-directory-licensing-group-advanced/remove-direct-license.png)
 
-## <a name="managing-new-services-added-to-products"></a>Gerenciando novos serviços adicionados a produtos
-Quando a Microsoft adicionar um novo serviço a um produto, ele será habilitado por padrão em todos os grupos aos quais você atribuiu a licença do produto. Os usuários no locatário que estão inscritos em notificações sobre alterações do produto receberão emails antecipadamente, notificando sobre as próximas adições de serviço.
+## <a name="managing-new-services-added-tooproducts"></a>Gerenciar novos serviços adicionado tooproducts
+Quando a Microsoft adiciona um novo produto tooa serviço, ele será habilitado por padrão em todos os toowhich grupos atribuídos a licença de produto hello. Os usuários em seu locatário que estão inscritos toonotifications sobre alterações do produto receberá emails antecipadamente, notificando sobre adições de serviço futuros hello.
 
-Como administrador, você pode examinar todos os grupos afetados pela alteração e tomar uma ação, como desabilitar o novo serviço em cada grupo. Por exemplo, se você criou grupos que direcionam apenas serviços específicos para implantação, reveja esses grupos e verifique se os serviços recém-adicionados estão desabilitados.
+Como administrador, você pode revisar todos os grupos afetados pela alteração hello e tome uma ação, como desabilitar o novo serviço de saudação em cada grupo. Por exemplo, se você criou grupos que direcionam apenas serviços específicos para implantação, reveja esses grupos e verifique se os serviços recém-adicionados estão desabilitados.
 
 Este é um exemplo da aparência desse processo:
 
-1. Originalmente, você atribuiu o produto *Office 365 Enterprise E5* a vários grupos. Um desses grupos, chamado *O365 E5 – somente Exchange* foi criado para habilitar apenas o serviço *Exchange Online (Plano 2)* para seus membros.
+1. Originalmente, você atribuiu Olá *Office 365 Enterprise E5* grupos de tooseveral do produto. Um desses grupos, chamados *O365 E5 - Exchange somente* foi Olá somente projetado tooenable *Exchange Online (planejar 2)* serviço para seus membros.
 
-2. Você recebeu uma notificação da Microsoft informando que o produto E5 será estendido com um novo serviço – o *Microsoft Stream*. Quando o serviço estiver disponível no locatário, você poderá fazer o seguinte:
+2. Você recebeu uma notificação da Microsoft que Olá E5 produto será estendido com um novo serviço - *Microsoft Stream*. Quando o serviço de saudação fica disponível em seu locatário, você pode fazer a seguir hello:
 
-3. Acesse a folha [**Azure Active Directory > Licenças > Todos os produtos**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products), selecione *Office 365 Enterprise E5* e, em seguida, selecione **Grupos Licenciados** para exibir uma lista de todos os grupos com o produto.
+3. Vá toohello [ **Active Directory do Azure > licenças > todos os produtos** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) folha e selecione *Office 365 Enterprise E5*, em seguida, selecione **grupos licenciado**  tooview uma lista de todos os grupos com o produto.
 
-4. Clique no grupo que você deseja examinar (nesse caso, *O365 E5 – somente Exchange*). Isso abrirá a guia **Licenças**. Se você clicar na licença do E5, uma folha listando todos os serviços habilitados será aberta.
+4. Clique no grupo de saudação desejado tooreview (nesse caso, *O365 E5 - Exchange somente*). Isso abrirá o hello **licenças** guia. Clicar na licença de E5 Olá abrirá uma folha listando todos os serviços habilitados.
 > [!NOTE]
-> O serviço *Microsoft Stream* foi automaticamente adicionado e habilitado nesse grupo, além do serviço *Exchange Online*:
+> Olá *Microsoft Stream* serviço foi automaticamente adicionado e habilitado neste grupo, na inclusão toohello *Exchange Online* serviço:
 
-  ![Captura de tela do novo serviço adicionado a uma licença de grupo](media/active-directory-licensing-group-advanced/manage-new-services.png)
+  ![Captura de tela de serviço novo adicionado tooa licença de grupo](media/active-directory-licensing-group-advanced/manage-new-services.png)
 
-5. Se você desejar desabilitar o novo serviço nesse grupo, clique na alternância **Ativar/Desativar** ao lado do serviço e clique no botão **Salvar** para confirmar a alteração. O Azure AD agora processará todos os usuários no grupo para aplicar a alteração; todos os novos usuários adicionados ao grupo não terão o serviço *Microsoft Stream* habilitado.
+5. Toodisable Olá novo serviço nesse grupo, clique em Olá **ativar/desativar** alternar próximo serviço toohello e clique em Olá **salvar** botão de alteração de saudação tooconfirm. O AD do Azure agora processará todos os usuários na alteração de saudação do hello grupo tooapply; todos os novos usuários adicionados toohello grupo não terá Olá *Microsoft Stream* serviço habilitado.
 
   > [!NOTE]
-  > Os usuários ainda podem ter o serviço habilitado por meio de alguma outra atribuição de licença (outro grupo do qual são membros ou uma atribuição de licença direta).
+  > Os usuários ainda podem ter serviço Olá habilitado por meio de alguns outros atribuição de licença (outro grupo que são membros ou uma atribuição de licença direto).
 
-6. Se necessário, realize as mesmas etapas para outros grupos com esse produto atribuído.
+6. Se necessário, execute Olá atribuídas mesmas etapas para outros grupos com este produto.
 
-## <a name="use-powershell-to-see-who-has-inherited-and-direct-licenses"></a>Usar o PowerShell para ver quem tem licenças herdadas e diretas
-Use um script do PowerShell para verificar se os usuários têm uma licença atribuída diretamente ou herdada de um grupo.
+## <a name="use-powershell-toosee-who-has-inherited-and-direct-licenses"></a>Use toosee PowerShell que foi herdada e direcionar licenças
+Se os usuários tiverem uma licença atribuída diretamente ou herdada de um grupo, você pode usar um toocheck de script do PowerShell.
 
-1. Execute o cmdlet `connect-msolservice` para autenticar e conectar-se ao locatário.
+1. Executar Olá `connect-msolservice` tooauthenticate de cmdlet e conecte-se tooyour locatário.
 
-2. `Get-MsolAccountSku` pode ser usado para descobrir todas as licenças de produto provisionadas no locatário.
+2. `Get-MsolAccountSku`pode ser usado toodiscover todas as licenças de produto provisionado no locatário hello.
 
-  ![Captura de tela do cmdlet Get-Msolaccountsku](media/active-directory-licensing-group-advanced/get-msolaccountsku-cmdlet.png)
+  ![Captura de tela do cmdlet Get-Msolaccountsku de saudação](media/active-directory-licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
-3. Use o valor *AccountSkuId* para a licença de seu interesse com [este script do PowerShell](./active-directory-licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). Isso produzirá uma lista de usuários que têm essa licença, com as informações sobre como a licença é atribuída.
+3. Saudação de uso *AccountSkuId* valor licença Olá lhe interessam com [este script do PowerShell](./active-directory-licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). Isso produzirá uma lista de usuários que têm esta licença com informações de saudação sobre como licença Olá é atribuída.
 
-## <a name="use-audit-logs-to-monitor-group-based-licensing-activity"></a>Usar os Logs de auditoria para monitorar as atividades de licenciamento baseado em grupo
+## <a name="use-audit-logs-toomonitor-group-based-licensing-activity"></a>Atividade de licenciamento baseado em grupo toomonitor os logs de auditoria de uso
 
-Use os [logs de auditoria do Azure AD](./active-directory-reporting-activity-audit-logs.md#audit-logs) para ver todas as atividades relacionadas ao licenciamento baseado em grupo, incluindo:
+Você pode usar [logs de auditoria do AD do Azure](./active-directory-reporting-activity-audit-logs.md#audit-logs) toosee todas as atividades relacionadas a toogroup licenciamento baseado, incluindo:
 - quem alterou licenças em grupos
-- quando o sistema iniciou o processamento de uma alteração de licença de grupo e quando isso foi concluído
-- quais alterações de licença foram feitas em um usuário como resultado de uma atribuição de licença de grupo.
+- Quando o sistema Olá iniciou o processamento de uma alteração de licença do grupo, e quando concluído
+- as alterações de licença foram feitas tooa usuário como resultado de uma atribuição de grupo de licenças.
 
 >[!NOTE]
-> Os logs de auditoria estão disponíveis na maioria das folhas na seção Azure Active Directory do portal. Dependendo de onde você acessá-los, os filtros podem ser pré-aplicados para mostrar apenas as atividades relevantes para o contexto da folha. Se você não estiver vendo os resultados esperados, examine [as opções de filtragem](./active-directory-reporting-activity-audit-logs.md#filtering-audit-logs) ou acesse os logs de auditoria não filtrados em [**Azure Active Directory > Atividade > Logs de auditoria**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit).
+> Logs de auditoria estão disponíveis na maioria dos blades em Olá seção do Active Directory do Azure do portal de saudação. Dependendo de onde você acessá-los, os filtros podem ser tooonly previamente aplicadas Mostrar atividade toohello relevantes contexto folha hello. Se você não estiver vendo resultados Olá esperado, examine [Olá opções de filtragem](./active-directory-reporting-activity-audit-logs.md#filtering-audit-logs) ou acessar logs de auditoria Olá filtrada em [ **Active Directory do Azure > atividade > logs de auditoria** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit).
 
 ### <a name="find-out-who-modified-a-group-license"></a>Descobrir quem modificou uma licença de grupo
 
-1. Defina o filtro **Atividade** como *Definir licença de grupo* e clique em **Aplicar**.
-2. Os resultados incluem todos os casos de licenças que estão sendo definidas ou modificadas em grupos.
+1. Saudação de conjunto **atividade** filtrar muito*conjunto grupo licença* e clique em **aplicar**.
+2. resultados da saudação incluem todos os casos de licenças que estão sendo definidas ou modificadas em grupos.
 >[!TIP]
-> Você também pode digitar o nome do grupo no filtro *Destino* para definir o escopo dos resultados.
+> Você também pode digitar o nome de saudação do grupo de saudação em Olá *destino* filtrar tooscope Olá resultados.
 
-3. Clique em um item da exibição de lista para ver os detalhes do que foi alterado. Em *Propriedades Modificadas*, valores antigos e novos para a atribuição de licença são listados.
+3. Clique em um item Olá lista Exibir toosee Olá detalhes do que foi alterado. Em *propriedades modificadas* valores novos e antigos para atribuição de licença de saudação são listados.
 
 Este é um exemplo de alterações recentes de licença de grupo, com detalhes:
 
@@ -170,15 +170,15 @@ Este é um exemplo de alterações recentes de licença de grupo, com detalhes:
 
 ### <a name="find-out-when-group-changes-started-and-finished-processing"></a>Descobrir quando as alterações de grupo iniciaram e concluíram o processamento
 
-Quando uma licença for alterada em um grupo, o Azure AD começará a aplicar as alterações a todos os usuários.
+Quando uma licença é alterado em um grupo, AD do Azure começará a aplicar alterações que Olá tooall os usuários.
 
-1. Para ver quando os grupos iniciaram o processamento, defina o filtro **Atividade** como *Começar a aplicar a licença baseada em grupo aos usuários*. Observe que o ator da operação é o *Licenciamento Baseado em Grupo do Microsoft Azure AD* – uma conta do sistema usada para executar todas as alterações de licença de grupo.
+1. toosee quando grupos iniciou o processamento, defina Olá **atividade** filtrar muito*começar a aplicar toousers de licença de grupo com base em*. Observe que ator Olá para operação de saudação é *AD do Microsoft Azure licenciamento baseado em grupo* -conta de um sistema que é usado tooexecute todas as alterações do grupo de licença.
 >[!TIP]
-> Clique em um item da lista para ver o campo *Propriedades Modificadas* – ele mostra as alterações de licença selecionadas para processamento. Isso é útil se você fez várias alterações em um grupo e não tem certeza de qual delas foi processada.
+> Clique em um item de saudação do hello lista toosee *propriedades modificadas* field - mostra as alterações de licença Olá foram escolhidas para processamento. Isso é útil se você fez várias alterações tooa grupo e não tiver certeza que foi processado.
 
-2. Da mesma forma, para ver quando os grupos concluíram o processamento, use o valor de filtro *Concluir a aplicação de licença baseada em grupo aos usuários*.
+2. Da mesma forma, toosee quando grupos de conclusão do processamento, use Olá filtro valor *concluir a aplicação toousers de licença de grupo com base em*.
 >[!TIP]
-> Nesse caso, o campo *Propriedades Modificadas* contém um resumo dos resultados – isso é útil para verificar rapidamente se o processamento resultou em erros. Resultado de exemplo:
+> Nesse caso, Olá *propriedades modificadas* campo contém um resumo dos resultados de saudação - isso é útil tooquickly seleção se processamento resultou em erros. Resultado de exemplo:
 > ```
 Modified Properties
 ...
@@ -187,42 +187,42 @@ Old Value : []
 New Value : [Users successfully assigned licenses: 6, Users for whom license assignment failed: 0.];
 > ```
 
-3. Para ver o log completo de como um grupo foi processado, incluindo todas as alterações do usuário, defina os seguintes filtros:
+3. toosee Olá registro completo como um grupo foi processado, incluindo todas as alterações do usuário, defina Olá filtros a seguir:
   - **Iniciado Por (Ator)**: “Licenciamento Baseado em Grupo do Microsoft Azure AD”
   - **Intervalo de Datas** (opcional): intervalo personalizado para quando você sabe que um grupo específico iniciou e concluiu o processamento
 
-Essa saída de exemplo mostra o início do processamento, todas as alterações do usuário resultantes e a conclusão do processamento.
+Neste exemplo de saída mostra início de saudação do processamento, resultante de todas as alterações do usuário e saudação de conclusão do processamento de.
 
 ![Captura de tela de alterações de licença de grupo](media/active-directory-licensing-group-advanced/audit-group-processing-log.png)
 
 >[!TIP]
-> Se você clicar nos itens relacionados a *Alterar licença de usuário*, os detalhes das alterações de licença aplicadas a cada usuário individual serão mostrados.
+> Clicar em itens relacionados muito*licença de usuário de alteração* mostrará detalhes de licença alterações aplicadas tooeach individuais de usuário.
 
 ## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
 
-Se você usa o licenciamento baseado em grupo, convém se familiarizar com a lista de limitações e problemas conhecidos a seguir.
+Se você usar o licenciamento baseado em grupo, é uma boa ideia toofamiliarize por conta própria com hello lista de limitações e problemas conhecidos a seguir.
 
-- No momento, o licenciamento baseado em grupo não dá suporte a grupos que contêm outros grupos (grupos aninhados). Se você aplicar uma licença a um grupo aninhado, somente os membros imediatos de primeiro nível do grupo terão as licenças aplicadas.
+- No momento, o licenciamento baseado em grupo não dá suporte a grupos que contêm outros grupos (grupos aninhados). Se você aplicar um grupo aninhado de tooa de licença, somente membros de primeiro nível imediata do usuário de saudação do grupo de Olá tem licenças de saudação aplicadas.
 
-- O recurso pode ser usado apenas com grupos de segurança. Atualmente, não há suporte para os grupos do Office e você não poderá usá-los no processo de atribuição de licença.
+- recurso de saudação só pode ser usado com grupos de segurança. Grupos do Office não têm suporte no momento e não será capaz de toouse-los no processo de atribuição de licença hello.
 
-- No momento, o [Portal de Administração do Office 365](https://portal.office.com ) não oferece suporte ao licenciamento baseado em grupo. Se um usuário herdar uma licença de um grupo, essa licença aparecerá no portal de administração do Office como uma licença de usuário comum. Se você tentar modificar essa licença ou tentar remover a licença, o portal retornará uma mensagem de erro. Licenças herdadas de grupos não podem ser modificadas diretamente em um usuário.
+- Olá [portal de administração do Office 365](https://portal.office.com ) não oferece suporte para licenciamento baseado em grupo. Se um usuário herda uma licença de um grupo, esta licença aparece no portal de administração do Office de hello como uma licença de usuário normal. Se você tentar toomodify de licença ou tente licença de saudação tooremove, portal Olá retorna uma mensagem de erro. Licenças herdadas de grupos não podem ser modificadas diretamente em um usuário.
 
-- Quando um usuário é removido de um grupo e perde a licença, os planos de serviço dessa licença (por exemplo, SharePoint Online) são definidos como um estado **Suspenso**. Os planos de serviço não são definidos com um estado final desabilitado. Essa precaução pode evitar a remoção acidental de dados do usuário, caso um administrador cometa um erro no gerenciamento de associação a um grupo.
+- Quando um usuário é removido de um grupo e perde licença hello, planos de serviço de saudação de licença (por exemplo, SharePoint Online) são definidos tooa **suspenso** estado. Olá planos de serviço não estão definidos tooa final, estado de desabilitado. Essa precaução pode evitar a remoção acidental de dados do usuário, caso um administrador cometa um erro no gerenciamento de associação a um grupo.
 
-- Quando as licenças são atribuídas ou modificadas para um grupo grande (por exemplo, 100.000 usuários), isso pode afetar o desempenho. Especificamente, o volume de alterações geradas pela automação do Azure AD pode afetar negativamente o desempenho da sincronização de diretório entre o Azure AD e sistemas locais.
+- Quando as licenças são atribuídas ou modificadas para um grupo grande (por exemplo, 100.000 usuários), isso pode afetar o desempenho. Especificamente, volume Olá alterações gerados por automação do Azure AD pode afetar negativamente o desempenho de saudação da sincronização de diretório entre o AD do Azure e sistemas locais.
 
-- A automação de gerenciamento de licença não reage automaticamente a todos os tipos de alteração no ambiente. Por exemplo, você pode ficar sem licenças, colocando alguns usuários em um estado de erro. Para liberar a contagem de estações disponíveis, você pode remover algumas licenças atribuídas diretamente de outros usuários. No entanto, o sistema não reage automaticamente a essa alteração e corrige os usuários nesse estado de erro.
+- Automação de gerenciamento de licença não reage automaticamente tooall tipos de alterações no ambiente de saudação. Por exemplo, você pode executou fora de licenças, fazendo com que alguns usuários toobe em um estado de erro. toofree se a contagem de estações disponíveis hello, você pode remover alguns licenças atribuídas diretamente de outros usuários. No entanto, sistema Olá automaticamente reagir toothis alteração e corrija os usuários em que estado de erro.
 
-  Como solução alternativa para esses tipos de limitações, acesse a folha **Grupo** no Azure AD e clique em **Reprocessar**. Esse comando processa todos os usuários nesse grupo e resolve os estados de erro, se possível.
+  Como tipos de toothese uma solução alternativa de limitações, você pode ir toohello **grupo** folha no AD do Azure e clique em **reprocessar**. Este comando processa todos os usuários nesse grupo e resolve os estados de erro hello, se possível.
 
-- O licenciamento baseado em grupo não registra erros quando uma licença não pôde ser atribuída a um usuário devido a uma configuração de endereço proxy duplicado no Exchange Online; esses usuários são ignorados durante a atribuição de licença. Para obter mais informações sobre como identificar e resolver esse problema, consulte [esta seção](./active-directory-licensing-group-problem-resolution-azure-portal.md#license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online).
+- Licenciamento baseado em grupo não registra erros quando uma licença não pôde ser atribuída a usuário tooa devido a configuração de endereço proxy duplicado tooa no Exchange Online; Esses usuários são ignorados durante a atribuição de licença. Para obter mais informações sobre como tooidentify e resolver esse problema, consulte [nesta seção](./active-directory-licensing-group-problem-resolution-azure-portal.md#license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre outros cenários de gerenciamento de licenças por meio de licenciamento baseado em grupo, confira:
+toolearn mais sobre outros cenários de gerenciamento de licenças por meio de licenciamento baseado em grupo, consulte:
 
 * [O que é o licenciamento baseado em grupo no Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
-* [Atribuição de licenças a um grupo no Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
+* [Atribuir licenças tooa grupo no Active Directory do Azure](active-directory-licensing-group-assignment-azure-portal.md)
 * [Identificar e resolver problemas de licença para um grupo no Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
-* [Como migrar usuários individuais licenciados para licenciamento baseado em grupo no Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
+* [Como indivíduo toomigrate licenciado usuários licenciamento no Azure Active Directory com base em toogroup](active-directory-licensing-group-migration-azure-portal.md)

@@ -1,6 +1,6 @@
 ---
-title: "Autenticação baseada em certificado do Azure Active Directory no iOS | Microsoft Docs"
-description: "Saiba mais sobre os cenários com suporte e os requisitos para configuração de autenticação baseada em certificado em soluções com dispositivos iOS"
+title: "autenticação baseada em certificado do Active Directory da aaaAzure no iOS | Microsoft Docs"
+description: "Saiba mais sobre cenários de saudação com suporte e requisitos de saudação para configurar a autenticação baseada em certificado em soluções com dispositivos iOS"
 services: active-directory
 author: MarkusVi
 documentationcenter: na
@@ -14,22 +14,22 @@ ms.workload: identity
 ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: c781f3f054fad5c5092fed5058c932fd4e97cf35
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4486ff5239c2897b3bc187053f31d74807430301
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticação baseada em certificado do Azure Active Directory no iOS
 
-A CBA (autenticação baseada em certificado) permite que você seja autenticado pelo Azure Active Directory com um certificado de cliente em um dispositivo Windows, Android ou iOS ao conectar sua conta do Exchange Online a: 
+Autenticação baseada em certificado (CBA) permite que você toobe autenticado pelo Active Directory do Azure com um certificado de cliente em um dispositivo Windows, Android ou iOS ao conectar-se a sua conta do Exchange online para: 
 
 * Aplicativos móveis do Office, como Microsoft Outlook e Microsoft Word   
 * Clientes do EAS (Exchange ActiveSync) 
 
-Configurar esse recurso elimina a necessidade de digitar uma combinação de nome de usuário e senha em determinados emails e aplicativos do Microsoft Office no seu dispositivo móvel. 
+Configurar esse recurso elimina a necessidade de saudação tooenter um nome de usuário e combinação de senha em determinados email e aplicativos do Microsoft Office em seu dispositivo móvel. 
 
-Este tópico fornece os requisitos e os cenários com suporte para configurar a CBA em um dispositivo iOS(Android) para usuários de locatários nos planos do Office 365 Enterprise, Business, Education, US Government, China e Germany.
+Este tópico fornece requisitos hello e cenários Olá com suporte para configurar CBA em um dispositivo de iOS(Android) para usuários de locatários no Office 365 Enterprise, Business, educação, China, governo dos EUA e Alemanha planos.
 
 Esse recurso está disponível na visualização em planos do governo federal e para defesa governamental dos EUA do Office 365.
 
@@ -53,40 +53,40 @@ Esse recurso está disponível na visualização em planos do governo federal e 
 
 ## <a name="requirements"></a>Requisitos 
 
-A versão do sistema operacional do dispositivo deve ser iOS 9 e superior 
+Olá versão de SO do dispositivo deve ser iOS 9 e versões posteriores 
 
 Um servidor de federação deve ser configurado.  
 
 É necessário um Microsoft Authenticator para aplicativos do Office em iOS.  
 
-Para que o Azure Active Directory revogue um certificado do cliente, o token ADFS deve ter as seguintes declarações:  
+Para toorevoke um certificado de cliente do Active Directory do Azure, o token do AD FS Olá deve ter Olá declarações a seguir:  
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`  
-  (O número de série do certificado do cliente) 
+  (Olá o número de série do certificado de cliente Olá) 
 * `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`  
-  (A cadeia de caracteres para o emissor do certificado do cliente) 
+  (cadeia de caracteres Olá para o emissor de saudação do certificado de cliente Olá) 
 
-O Azure Active Directory adiciona essas declarações ao token de atualização se elas estiverem disponíveis no token ADFS (ou qualquer outro token SAML). Quando o token de atualização precisa ser validado, essas informações são usadas para verificar a revogação. 
+Active Directory do Azure adiciona o token de atualização de toohello essas declarações se eles estão disponíveis no token do AD FS hello (ou qualquer outro token SAML). Quando o token de atualização Olá precisa toobe validado, essas informações são usadas toocheck Olá revogação. 
 
-Como prática recomendada, você deve atualizar as páginas de erro do ADFS com o seguinte:
+Como prática recomendada, você deve atualizar páginas de erro do ADFS Olá com os seguintes hello:
 
-* O requisito para instalar o Microsoft Authenticator no iOS
-* Instruções sobre como obter um certificado de usuário. 
+* requisito de saudação para instalar Olá Microsoft Authenticator no iOS
+* Instruções sobre como tooget um certificado de usuário. 
 
-Para obter mais detalhes, confira [Personalizando as páginas de entrada do AD FS](https://technet.microsoft.com/library/dn280950.aspx).
+Para obter mais detalhes, consulte [Personalizando páginas Olá AD FS Sign-in](https://technet.microsoft.com/library/dn280950.aspx).
 
-Alguns aplicativos do Office (com autenticação moderna habilitada) enviam '*prompt=login*' ao Azure AD na solicitação. Por padrão, o Azure AD converte isso na solicitação ao ADFS para '*wauth=usernamepassworduri*' (solicita que o ADFS faça a autenticação U/P) e '*wfresh=0*' (solicita que o ADFS ignore o estado do SSO e faça uma nova autenticação). Se você quiser habilitar a autenticação baseada em certificado para esses aplicativos, precisará modificar o comportamento padrão do Azure AD. Basta definir o '*PromptLoginBehavior*' em suas configurações de domínio federado como '*Disabled*'. Você pode usar o cmdlet [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) para executar essa tarefa:
+Alguns aplicativos do Office (com autenticação moderna habilitado) enviar '*prompt = logon*' tooAzure AD em sua solicitação. Por padrão, o AD do Azure converte isso em Olá solicitação tooADFS muito '*wauth = usernamepassworduri*' (solicita autenticação do ADFS toodo U/P) e '*wfresh = 0*' (solicita o estado do ADFS tooignore SSO e fazer uma autenticação nova) . Se você quiser que a autenticação baseada em certificado tooenable para esses aplicativos, você precisa comportamento do toomodify saudação padrão do AD do Azure. Apenas o conjunto de saudação '*PromptLoginBehavior*' nas configurações do domínio federado muito '*desabilitado*'. Você pode usar o hello [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) tooperform cmdlet essa tarefa:
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
   
 
 ## <a name="exchange-activesync-clients-support"></a>Suporte aos clientes do Exchange ActiveSync
-No iOS 9 ou posterior, há suporte para o cliente de email do iOS nativo. Para todos os outros aplicativos do Exchange ActiveSync, para determinar se há suporte para esse recurso, contate o desenvolvedor do aplicativo.  
+No iOS 9 ou posterior, há suporte para o cliente de email do iOS nativo hello. Para todos os outros aplicativos do Exchange ActiveSync, toodetermine se há suporte para esse recurso, entre em contato com o desenvolvedor do aplicativo.  
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você quiser configurar a autenticação baseada em certificado em seu ambiente, confira [Get started with certificate-based authentication on Android](active-directory-certificate-based-authentication-get-started.md) (Introdução à autenticação baseada em certificado no Android) para obter instruções.
+Se você quiser tooconfigure a autenticação baseada em certificado em seu ambiente, consulte [Introdução à autenticação baseada em certificado no Android](active-directory-certificate-based-authentication-get-started.md) para obter instruções.
 
 
 <!--Image references-->

@@ -1,6 +1,6 @@
 ---
-title: "Solução de problemas com o registro automático de computadores ingressados no domínio do Azure AD para clientes de nível inferior do Windows | Microsoft Docs"
-description: "Solução de problemas com o registro automático de computadores ingressados no domínio do Azure AD para clientes de nível inferior do Windows."
+title: "aaaTroubleshooting Olá o registro automático de domínio do AD do Azure em computadores ingressados para clientes de nível inferior do Windows | Microsoft Docs"
+description: "Solucionando problemas de registro automático de saudação do domínio do AD do Azure em computadores ingressados para clientes de nível inferior do Windows."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a7c8ef4c59c53c21258f0c61963d8f994a3946ba
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 84fe666576f13de09d1eaa5692517d45a4dbeebe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="troubleshooting-auto-registration-of-domain-joined-computers-to-azure-ad-for-windows-down-level-clients"></a>Solução de problemas com o registro automático de computadores ingressados no domínio do Azure AD para clientes de nível inferior do Windows 
+# <a name="troubleshooting-auto-registration-of-domain-joined-computers-tooazure-ad-for-windows-down-level-clients"></a>Solucionando problemas de registro automático de domínio Unido computadores tooAzure AD para clientes de nível inferior do Windows 
 
-Este tópico é aplicável apenas aos seguintes clientes: 
+Este tópico é aplicável toohello somente os clientes a seguir: 
 
 - Windows 7 
 - Windows 8.1 
@@ -31,38 +31,38 @@ Este tópico é aplicável apenas aos seguintes clientes:
 - Windows Server 2012 R2 
  
 
-Para o Windows 10 ou o Windows Server 2016, confira [Solução de problemas do registro automático de computadores ingressados no domínio para o Azure AD – Windows 10 e Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md).
+Para Windows 10 ou Windows Server 2016, consulte [Solucionando problemas de registro automático de domínio Unido computadores tooAzure AD – Windows 10 e Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md).
 
-Este tópico pressupõe que você tenha configurado o registro automático de dispositivos ingressados no domínio conforme descrito em [Como configurar o registro automático de dispositivos ingressados no domínio do Windows com o Azure Active Directory](active-directory-device-registration-get-started.md).
+Este tópico pressupõe que você tenha configurado o registro automático de dispositivos que ingressaram no domínio conforme descrito em descrito em [como tooconfigure o registro automático do Windows ingressado no domínio dispositivos com o Active Directory do Azure](active-directory-device-registration-get-started.md).
  
-Este tópico fornece orientação para solução de possíveis problemas.  
-Para ter resultados bem-sucedidos, fique atento ao seguinte: 
+Este tópico fornece orientação sobre como tooresolve possíveis problemas de solução de problemas.  
+Toonote algumas coisas para resultados bem-sucedida: 
 
-- O registro desses clientes no Azure AD ocorre por dispositivo/usuário. Por exemplo: se jdoe e jharnett efetuarem logon no dispositivo, um registro separado (DeviceID) será criado para cada um desses usuários na guia Informações do USUÁRIO.  
+- O registro desses clientes no Azure AD ocorre por dispositivo/usuário. Por exemplo: se jdoe e jharnett logon toothis dispositivo, um registro separado (DeviceID) é criado para cada um desses usuários na guia de informações de usuário de saudação.  
 
-- O registro desses clientes prontos para uso é configurado para ser tentado durante o logon ou durante um bloqueio/desbloqueio, e pode haver atraso de cinco minutos desde o disparo por meio de uma tarefa do Agendador de Tarefas. 
+- O registro desses clientes fora da caixa de saudação é tootry configurado no logon ou Bloquear/desbloquear e pode haver atraso de 5 minutos, isso é disparado usando uma tarefa do Agendador de tarefas. 
 
-- Uma reinstalação do sistema operacional, ou um cancelamento manual do registro seguido por um novo registro, pode criar um novo registro no Azure AD e resultará em várias entradas na guia Informações do USUÁRIO no Portal do Azure. 
+- Uma reinstalação do sistema operacional de saudação ou cancelar o registro manual e registrar novamente pode criar um novo registro no AD do Azure e resultará em várias entradas na guia de informações de usuário Olá no hello portal do Azure. 
 
 
-## <a name="step-1-retrieve-the-registration-status"></a>Etapa 1: Recuperar o status do registro 
+## <a name="step-1-retrieve-hello-registration-status"></a>Etapa 1: Recuperar o status de registro de saudação 
 
-**ara verificar o status do registro:**  
+**status do registro Olá tooverify:**  
 
-1. Abra o prompt de comando como administrador 
+1. Olá abrir o prompt de comando como administrador 
 
 2. Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`
 
-Esse comando exibe uma caixa de diálogo que fornece mais detalhes sobre o status do ingresso.
+Este comando exibe uma caixa de diálogo que fornece mais detalhes sobre o status de associação de saudação.
 
 ![Workplace Join para Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/01.png)
 
 
-## <a name="step-2-evaluate-the-registration-status"></a>Etapa 2: Avaliar o status do registro 
+## <a name="step-2-evaluate-hello-registration-status"></a>Etapa 2: Avaliar o status de registro de saudação 
 
-Se o ingresso não tiver sido bem-sucedido, a caixa de diálogo fornecerá detalhes sobre o problema.
+Se a associação de saudação não foi bem-sucedida, caixa de diálogo de saudação fornece com detalhes sobre o problema de saudação que ocorreu.
 
-**As tarefas mais comuns são:**
+**Olá os problemas mais comuns são:**
 
 - Um AD FS ou Azure AD configurado incorretamente
 
@@ -76,26 +76,26 @@ Se o ingresso não tiver sido bem-sucedido, a caixa de diálogo fornecerá detal
 
     ![Workplace Join para Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/04.png)
 
-- O serviço não está respondendo 
+- saudação de serviço não está respondendo 
 
     ![Workplace Join para Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/05.png)
 
-Também é possível encontrar informações de status no log de eventos em **Log de Aplicativos e Serviços\Microsoft-Workplace Join**.
+Você também pode encontrar informações de status de Olá no log de eventos de saudação em **aplicativos e serviços Log\Microsoft-ingresso**.
   
-**As causas mais comuns para um registro com falha são:** 
+**causas mais comuns de saudação para registro com falha são:** 
 
-- O computador não está na rede interna da organização, ou está em uma VPN sem uma conexão com um controlador de domínio do AD local.
+- O computador não estiver no rede interna da organização hello ou uma VPN sem conexão tooan local controlador de domínio do AD.
 
-- Você está conectado ao computador com uma conta de computador local. 
+- Você está conectado no computador tooyour com uma conta de computador local. 
 
 - Problemas de configuração do serviço: 
 
-  - O servidor de Federação foi configurado para oferecer suporte a **WIAORMULTIAUTHN**. 
+  - Olá servidor de Federação foi configurado toosupport **WIAORMULTIAUTHN**. 
 
-  - Não há nenhum objeto de Ponto de Conexão de Serviço que aponta para o seu nome de domínio verificado no Azure AD na floresta do AD à qual o computador pertence.
+  - Não há nenhum objeto de ponto de Conexão de serviço que aponta para o nome de domínio verificado tooyour no AD do Azure na floresta Olá AD qual pertence o computador de saudação.
 
-  - Um usuário atingiu o limite de dispositivos. Consulte a Introdução ao registro de dispositivos do Azure Active Directory.
+  - Um usuário atingiu o limite de saudação de dispositivos. Consulte a Introdução ao registro de dispositivos do Azure Active Directory.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais, veja [Perguntas frequentes sobre o registro de dispositivo automático](active-directory-device-registration-faq.md) 
+Para obter mais informações, consulte Olá [perguntas frequentes sobre o registro de dispositivo automático](active-directory-device-registration-faq.md) 

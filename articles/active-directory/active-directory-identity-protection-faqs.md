@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes do Azure Active Directory Identity Protection | Microsoft Docs
+title: "perguntas Frequentes do Active Directory identidade proteção de aaaAzure | Microsoft Docs"
 description: Perguntas frequentes sobre o Azure AD Identity Protection
 services: active-directory
 documentationcenter: 
@@ -14,33 +14,33 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 781f868c87cea3cd790d89c61e26eecf352babea
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6a053ce02bf7a248a284f482f20f96a312f1c204
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Perguntas frequentes do Azure Active Directory Identity Protection
 
 
 ## <a name="why-do-some-risk-events-have-closed-system-status"></a>Por que alguns eventos de risco têm o status de "(Sistema) fechado"?
 
-**R:** esses são eventos que o Azure Active Directory Identity Protection e posteriormente fechou porque não eram mais considerados de risco. Esses eventos não contam para o nível de risco do usuário. 
+**R:** eventos do Azure Active Directory Identity Protection detectados e posteriormente fechada porque eventos Olá não foram considerados arriscados. Esses eventos não são considerados de nível de risco do usuário hello. 
 
 ---
 
-## <a name="do-i-need-to-be-a-global-admin-to-use-identity-protection-in-the-azure-portal"></a>É necessário ser um administrador global para usar o Identity Protection no portal do Azure?
-**R:** **Não**. Você pode ser um leitor de segurança, um Administrador de Segurança ou um Administrador Global para usar o Identity Protection.
+## <a name="do-i-need-toobe-a-global-admin-toouse-identity-protection-in-hello-azure-portal"></a>É necessário toobe toouse um administrador global Identity Protection em Olá portal do Azure?
+**R:** **Não**. Você pode ser um leitor de segurança, um administrador de segurança ou um Administrador Global de toouse proteção de identidade.
 
 ---
 
 ## <a name="how-do-i-get-identity-protection"></a>Como posso obter o Identity Protection?
-**A:** Consulte [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md) para obter uma resposta para essa pergunta.
+**R:** consulte [guia de Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md) para uma pergunta de toothis de resposta.
 
 ---
 
 ## <a name="what-happens-when-your-azure-active-directory-premium-2-trial-expires"></a>O que acontece quando sua avaliação do Azure Active Directory Premium 2 expira?
 
-**R:** se sua edição de avaliação do Azure Active Directory Premium 2 tiver expirado em sua edição do Azure Active Directory Gratuito, Basic ou Premium 1 e você tinha o Identity Protection habilitado, você ainda terá acesso a ele mesmo que não esteja em conformidade com o licenciamento.
+**R:** se a edição de avaliação do Azure Active Directory Premium 2 expirou na sua edição do Azure Active Directory gratuito, Basic ou Premium 1 e tinha Identity Protection habilitado, você ainda terá acesso tooit mesmo que não estão em conformidade com licenciamento.
 
 ---

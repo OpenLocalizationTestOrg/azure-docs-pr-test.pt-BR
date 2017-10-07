@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao Azure AD Privileged Identity Management | Microsoft Docs"
-description: Saiba como gerenciar identidades privilegiadas com o aplicativo Azure Active Directory Privileged Identity Management no portal do Azure.
+title: "aaaGet de Introdução ao Azure AD Privileged Identity Management | Microsoft Docs"
+description: Saiba como toomanage privilegiado identidades de aplicativo do Azure Active Directory Privileged Identity Management hello no portal do Azure.
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,40 +15,40 @@ ms.workload: identity
 ms.date: 02/27/2017
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017
-ms.openlocfilehash: 17cdff033cc3dbb199d11c3b8ac1acbc92499877
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: a89205023a8dbcc3649fa732735ca927e64736ce
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="start-using-azure-ad-privileged-identity-management"></a>Começar a usar o Azure AD Privileged Identity Management
-Com o Privileged Identity Management do Azure Active Directory (AD), você pode gerenciar, controlar e monitorar o acesso em sua organização. Esse escopo inclui o acesso a recursos no Azure AD e outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.
+Com o Privileged Identity Management do Azure Active Directory (AD), você pode gerenciar, controlar e monitorar o acesso em sua organização. Esse escopo inclui tooresources de acesso no AD do Azure e outros Microsoft online services como Office 365 ou Microsoft Intune.
 
-Este artigo lhe mostra como adicionar o aplicativo do Azure AD PIM o painel do portal do Azure.
+Este artigo mostra como tooadd Olá tooyour de aplicativo do Azure AD PIM painel do portal do Azure.
 
-## <a name="add-the-privileged-identity-management-application"></a>Adicionar o aplicativo Privileged Identity Management
-Antes de usar o Azure AD Privileged Identity Management, você precisa adicionar o aplicativo ao painel do portal do Azure.
+## <a name="add-hello-privileged-identity-management-application"></a>Adicionar aplicativo do hello Privileged Identity Management
+Antes de usar o Azure AD Privileged Identity Management, você precisa tooadd Olá aplicativo tooyour painel do portal do Azure.
 
-1. Entre no [portal do Azure](https://portal.azure.com/) como um administrador global do seu diretório.
-2. Se sua organização tiver mais de um diretório, selecione seu nome de usuário no canto superior direito do portal do Azure. Selecione o diretório onde você deseja usar o PIM.
-3. Selecione **Mais serviços** e use a caixa de texto Filtrar para procurar **Azure AD Privileged Identity Management**.
-4. Marque **Fixar no painel** e então clique em **Criar**. O aplicativo Privileged Identity Management é aberto.
+1. Entrar toohello [portal do Azure](https://portal.azure.com/) como um administrador global do seu diretório.
+2. Se sua organização tiver mais de um diretório, selecione seu nome de usuário no canto superior direito de saudação do hello portal do Azure. Selecione o diretório de saudação onde você deseja toouse PIM.
+3. Selecione **mais serviços** e usar Olá toosearch de caixa de texto de filtro para **do Azure AD Privileged Identity Management**.
+4. Verificar **Pin toodashboard** e, em seguida, clique em **criar**. Olá aplicativo Privileged Identity Management é aberto.
 
-Se você for a primeira pessoa a usar o Azure AD Privileged Identity Management em seu diretório, receberá automaticamente as funções **Administrador de segurança** e **Administrador com privilégios de função** no diretório. Somente os administradores com privilégios de função podem gerenciar atribuições de função de usuários. Além disso, você pode optar por executar o [assistente de segurança.](active-directory-privileged-identity-management-security-wizard.md) que orienta você durante a experiência inicial de detecção e atribuição.
+Se você estiver hello primeira pessoa toouse Azure AD Privileged Identity Management em seu diretório, são atribuídos automaticamente Olá **administrador de segurança** e **administrador com privilégios de função** funções no diretório de saudação. Somente os administradores com privilégios de função podem gerenciar atribuições de função de usuários. Além disso, você pode escolher Olá toorun [Assistente de segurança.](active-directory-privileged-identity-management-security-wizard.md) que orienta você na experiência inicial de detecção e atribuição de saudação.
 
-## <a name="navigate-to-your-tasks"></a>Navegue até as tarefas
-Depois que o Azure AD Privileged Identity Management estiver configurado, você verá a folha de navegação sempre que abrir o aplicativo. Use essa folha para realizar suas tarefas de gerenciamento de identidade.
+## <a name="navigate-tooyour-tasks"></a>Navegue tooyour tarefas
+Depois de configurar o Azure AD Privileged Identity Management, você verá blade de navegação Olá sempre que você abrir o aplicativo hello. Use esta folha tooaccomplish suas tarefas de gerenciamento de identidade.
 
 ![Tarefas de nível superior para o PIM - captura de tela](./media/active-directory-privileged-identity-management-getting-started/PIM_Tasks_New.png)
 
-* **Minhas Funções** leva à lista de funções atribuídas a você. Essa seção é onde você ativará as funções para as quais está qualificado.
+* **Meu funções** leva você tooa lista de funções atribuídas tooyou. Essa seção é onde você ativará as funções para as quais está qualificado.
 * **Aprovar Solicitações (Versão prévia)** exibe uma lista de solicitações de ativação de usuários pendentes no seu diretório. [Saiba mais.](./privileged-identity-management/azure-ad-pim-approval-workflow.md)
-* **Solicitações Pendentes (Versão prévia)** exibe todas as solicitações atuais feitas a serem ativadas.
-* **Examinar Acesso** leva você a qualquer revisão de acesso pendente que tenha de ser concluída, esteja você examinando o acesso para si mesmo ou para outra pessoa.
-* As **Funções de Diretório do Azure AD** localizadas na seção ‘Gerenciar’ é o painel onde os administradores de função com privilégios gerenciam atribuições de função, alteram configurações de ativação de função, iniciam revisões de acesso e muito mais. As opções desse painel estão desabilitadas para todos que não forem administradores de função com privilégios.
+* **(Visualização) de solicitações pendentes** exibe qualquer tooactivate de toohave feita solicitações atuais.
+* **Analise o acesso** leva você tooany pendentes acesso analisa o que você precisa toocomplete, se você revisar o acesso para você ou outra pessoa.
+* **Funções de diretório do AD do Azure** localizado sob Olá seção 'Gerenciar' é o painel de saudação do atribuições de função com privilégios de função administradores toomanage, alterar as configurações de ativação de função, análises de acesso de início e muito mais. Opções de saudação nesse painel são desabilitadas para qualquer pessoa que não for um administrador com privilégios de função.
 
 ## <a name="next-steps"></a>Próximas etapas
-A [visão geral do Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md) inclui mais detalhes sobre como você pode gerenciar o acesso administrativo em sua organização.
+Olá [visão geral do Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md) inclui mais detalhes sobre como você pode gerenciar o acesso administrativo em sua organização.
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

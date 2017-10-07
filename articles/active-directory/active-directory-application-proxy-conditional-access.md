@@ -1,6 +1,6 @@
 ---
-title: Acesso condicional a aplicativos no local - Azure AD | Microsoft Docs
-description: "Aborda como configurar o acesso condicional para os aplicativos que você publica para serem acessados remotamente usando o Proxy de Aplicativo do AD do Azure."
+title: aplicativos de prem tooon acesso aaaConditional - AD do Azure | Microsoft Docs
+description: "Aborda como tooset o acesso condicional para aplicativos você publica toobe acessado remotamente usando o Proxy de aplicativo do Azure AD."
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -15,54 +15,54 @@ ms.date: 07/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.openlocfilehash: 463946256f9e335fa6d98fc904835e5c3dc2725e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7bed25dd4ba17941e77d8c4b2b9ba4edcf0cf597
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="working-with-conditional-access-in-azure-ad-application-proxy"></a>Trabalhando com acesso condicional no Proxy de Aplicativo do AD do Azure
 
 >[!NOTE]
->Este artigo se aplica ao Portal Clássico do Azure, que está sendo desativado. Recomendamos que você use o [Portal do Azure](https://portal.azure.com). No Portal do Azure, os aplicativos do Proxy de Aplicativo têm os mesmos recursos de acesso condicional que qualquer outro aplicativo de SaaS. Para saber mais sobre o acesso condicional, consulte [Introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+>Este artigo se aplica a toohello portal clássico do Azure, que está sendo desativado. Recomendamos que você use Olá [portal do Azure](https://portal.azure.com). Olá portal do Azure, o Proxy de aplicativo que os aplicativos tenham Olá mesmos recursos de acesso condicional como qualquer outro aplicativo SaaS. toolearn mais sobre o acesso condicional, consulte [Introdução ao acesso condicional no Active Directory do Azure](active-directory-conditional-access-azure-portal-get-started.md).
 
-Você pode configurar regras de acesso para conceder acesso condicional a aplicativos publicados usando o Proxy de Aplicativo. Isso permite a você:
+Você pode configurar o acesso regras toogrant acesso condicional tooapplications publicados usando o Proxy de aplicativo. Isso permite a você:
 
 * Exigir a autenticação multifator por aplicativo
 * Exigir a autenticação multifator somente quando os usuários não estiverem no trabalho
-* Impedir que os usuários acessem o aplicativo quando eles não estiverem no trabalho
+* Impedir que usuários de acessar o aplicativo hello quando eles não estão no trabalho
 
-Essas regras podem ser aplicadas a todos os usuários e grupos ou apenas a usuários e grupos específicos. Por padrão, a regra se aplica a todos os usuários que têm acesso ao aplicativo. No entanto, a regra também pode ser restrita a usuários que sejam membros de grupos de segurança especificados.  
+Essas regras podem ser aplicadas tooall usuários e grupos ou somente toospecific usuários e grupos. Por padrão a regra de saudação se aplica a usuários de tooall que têm acesso toohello aplicativo. No entanto regra Olá também pode ser restrito toousers que são membros de grupos de segurança especificados.  
 
-Regras de acesso são avaliadas quando um usuário acessa um aplicativo federado que usa OAuth 2.0, OpenID Connect, SAML ou WS-Federation. Além disso, as regras de acesso são avaliadas com OAuth 2.0 e o OpenID Connect quando um token de atualização é usado para adquirir um token de acesso.
+Regras de acesso são avaliadas quando um usuário acessa um aplicativo federado que usa OAuth 2.0, OpenID Connect, SAML ou WS-Federation. Além disso, as regras de acesso são avaliadas com OAuth 2.0 e OpenID Connect quando um token de atualização é tooacquire usado um token de acesso.
 
 ## <a name="conditional-access-prerequisites"></a>Pré-requisitos de acesso condicional
-* Assinatura no Active Directory Premium do Azure
+* Assinatura tooAzure Active Directory Premium
 * Um locatário do Active Directory do Azure federado ou gerenciado
 * Os locatários federados exigem que a autenticação multifator (MFA) esteja habilitado  
     ![Configurar regras de acesso - exigir autenticação multifator](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
 
 ## <a name="configure-per-application-multi-factor-authentication"></a>Configure a autenticação multifator por aplicativo
-1. Entre como administrador no portal clássico do Azure.
-2. Vá para o Active Directory e selecione o diretório no qual você deseja habilitar o Proxy de aplicativo.
-3. Clique em **Aplicativos** e role para baixo até a seção **Regras de Acesso**. A seção de regras de acesso será mostrada apenas para aplicativos publicados usando o Proxy de Aplicativo que usem autenticação federada.
-4. Habilitar a regra selecionando **Habilitar Regras de Acesso** para **Ativado**.
-5. Especifique os usuários e grupos para os quais as regras se aplicam. Use o botão **Adicionar Grupo** para selecionar um ou mais grupos aos quais a regra de acesso se aplica. Essa caixa de diálogo também pode ser usada para remover os grupos selecionados.  Quando as regras são selecionadas para serem aplicadas aos grupos, as regras de acesso só são impostas para os usuários que pertençam a um dos grupos de segurança especificados.  
+1. Entrar como um administrador no hello portal clássico do Azure.
+2. Vá tooActive diretório e selecione Olá diretório no qual você deseja tooenable Proxy de aplicativo.
+3. Clique em **aplicativos** e role para baixo toohello **regras de acesso** seção. seção de regras de acesso de saudação aparece somente para aplicativos publicados usando o Proxy de aplicativo que usam a autenticação federada.
+4. Habilitar regra Olá selecionando **habilitar regras de acesso** muito**em**.
+5. Especifique Olá usuários e grupos toowhom Olá regras se aplicam. Saudação de uso **adicionar grupo** botão tooselect um ou mais grupos toowhich Olá acesso regra se aplica. Essa caixa de diálogo também pode ser usado tooremove selecionada de grupos.  Quando as regras de saudação toogroups tooapply selecionado, as regras de acesso de Olá são aplicadas apenas para usuários que pertencem a tooone de saudação especificada grupos de segurança.  
 
-   * Para excluir explicitamente grupos de segurança da regra, marque **Exceto** e especifique um ou mais grupos. Os usuários que são membros de um grupo na lista Exceto não são solicitados a realizar a autenticação multifator.  
-   * Se um usuário tiver sido configurado usando o recurso de autenticação multifator por usuário, essa configuração terá precedência sobre as regras de autenticação multifator do aplicativo. Isso significa que, para um usuário que foi configurado por uma autenticação multifator por usuário, é necessário executar a autenticação multifator, mesmo que eles tenham sido isentos das regras de autenticação multifator do aplicativo. Saiba mais sobre a [autenticação multifator e as configurações por usuário](../multi-factor-authentication/multi-factor-authentication.md).
-6. Selecione a regra de acesso que você deseja definir:
+   * Verificar tooexplicitly excluir grupos de segurança da regra de saudação **exceto** e especifique um ou mais grupos. Os usuários que são membros de um grupo em Olá exceto lista não são necessários tooperform a autenticação multifator.  
+   * Se um usuário tiver sido configurado usando o recurso de autenticação multifator por usuário hello, essa configuração prevalece sobre Olá regras de autenticação multifator do aplicativo. Um usuário que foi configurado para a autenticação multifator por usuário é necessária tooperform a autenticação multifator, mesmo se ele tiver sido isentado das regras de autenticação multifator do aplicativo hello. Saiba mais sobre a [autenticação multifator e as configurações por usuário](../multi-factor-authentication/multi-factor-authentication.md).
+6. Selecione a regra de acesso de saudação desejado tooset:
 
-   * **Requer autenticação multifator**: os usuários aos quais se aplicam as regras de acesso devem concluir a autenticação multifator antes de acessar o aplicativo ao qual a regra se aplica.
-   * **Requer autenticação multifator quando não está no trabalho**: os usuários que tentarem acessar o aplicativo a partir de um endereço IP confiável não precisarão realizar a autenticação multifator. Os intervalos de endereços IP confiáveis podem ser configurados na página de configurações de autenticação multifator.
-   * **Bloquear o acesso quando não estiver no trabalho**: Os usuários que tentarem acessar o aplicativo de fora da rede corporativa não poderão acessar o aplicativo.
+   * **Exigir autenticação multifator**: usuários aplicam regras de acesso toowhom são toocomplete necessária a autenticação multifator antes de acessar Olá aplicativo toowhich Olá regra se aplica.
+   * **Exigir autenticação multifator quando não estiver no trabalho**: usuários tentando tooaccess aplicativo hello um endereço IP confiável não será necessário tooperform a autenticação multifator. Olá confiável intervalos de endereços IP podem ser configurados na página de configurações de autenticação multifator hello.
+   * **Bloquear o acesso quando não estiver no trabalho**: usuários tentando tooaccess Olá aplicativo fora da rede corporativa não será capaz de tooaccess aplicativo de hello.
 
 ## <a name="configuring-mfa-for-federation-services"></a>Configurar a MFA para serviços de federação
-Para locatários federados, a MFA (Autenticação Multifator) pode ser executada pelo Active Directory do Azure ou pelo servidor AD FS local. Por padrão, a MFA ocorre em qualquer página hospedada pelo Active Directory do Azure. Para configurar a MFA local, execute o Windows PowerShell e use a propriedade –SupportsMFA para definir o módulo do AD do Azure.
+Para locatários federados, autenticação multifator (MFA) pode ser executada pelo Active Directory do Azure ou por saudação do servidor AD FS local. Por padrão, a MFA ocorre em qualquer página hospedada pelo Active Directory do Azure. tooconfigure MFA local, execute o Windows PowerShell e use hello – SupportsMFA propriedade tooset Olá módulo AD do Azure.
 
-O exemplo a seguir mostra como habilitar a MFA local usando o [cmdlet Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) no locatário contoso.com: `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
+Olá, exemplo a seguir mostra como tooenable local MFA usando Olá [cmdlet Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) no locatário do hello contoso.com:`Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
 
-Além de definir esse sinalizador, a instância do AD FS do locatário federado deve ser configurada para realizar a autenticação multifator. Siga as instruções para [implantar a Autenticação Multifator do Microsoft Azure local](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
+Em adição toosetting esse sinalizador, Olá locatário federado do AD FS instância deve ser configurado tooperform a autenticação multifator. Siga as instruções de saudação de [Implantando o Microsoft Azure multi-factor authentication local](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
 
 ## <a name="see-also"></a>Consulte também
 * [Trabalho com aplicativos com reconhecimento de declaração](active-directory-application-proxy-claims-aware-apps.md)
@@ -70,4 +70,4 @@ Além de definir esse sinalizador, a instância do AD FS do locatário federado 
 * [Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)
 * [Publicar aplicativos usando seu próprio nome de domínio](active-directory-application-proxy-custom-domains.md)
 
-Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](http://blogs.technet.com/b/applicationproxyblog/)
+Para Olá últimas notícias e atualizações, confira Olá [blog de Proxy de aplicativo](http://blogs.technet.com/b/applicationproxyblog/)

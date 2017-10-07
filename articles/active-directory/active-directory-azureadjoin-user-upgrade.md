@@ -1,6 +1,6 @@
 ---
-title: Configurar um dispositivo Windows 10 com o Azure AD de Settings| Microsoft Docs
-description: "Explica como os usuários podem unir-se ao Azure AD por meio do menu Configurações."
+title: "aaaSet um dispositivo Windows 10 com o Azure AD de configurações | Microsoft Docs"
+description: "Explica como os usuários podem ingressar tooAzure AD por meio do menu de configurações de saudação."
 services: active-directory
 documentationcenter: 
 author: femila
@@ -15,35 +15,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.openlocfilehash: 5a3963f16b471ad1ca8681b22a1a027935400465
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d6485228338db571cc01f913c99fbba49e0bb74a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="set-up-a-windows-10-device-with-azure-ad-from-settings"></a>Configurar um dispositivo Windows 10 com o Azure AD nas Configurações
-Se já estiver usando o Windows 7 ou Windows 8 e o computador ou dispositivo tiver sido atualizado para o Windows 10, você poderá uni-lo ao Azure AD (Azure Active Directory) por meio do menu Configurações.
+Se você já estiver usar o Windows 7 ou Windows 8 e seu computador ou dispositivo foi atualizado tooWindows 10, você pode ingressar em tooAzure do Active Directory (AD do Azure) por meio do menu de configurações de saudação.
 
-## <a name="to-join-to-azure-ad-from-the-settings-menu"></a>Para realizar a junção ao Azure AD no menu Configurações
-1. No menu **Iniciar**, clique no botão **Configurações**.
+## <a name="toojoin-tooazure-ad-from-hello-settings-menu"></a>toojoin tooAzure AD no menu de configurações de saudação
+1. De saudação **iniciar** menu, clique em Olá **configurações** botão.
 2. Em **Configurações**, escolha    **Sistema**->**Sobre**->**Ingressar no Azure AD**.
    
    <center>
-   ![Ingressar no Azure AD no menu Configurações](./media/active-directory-azureadjoin/active-directory-azureadjoin-settings.png) </center>
-3. Clique em **Continuar** na janela de mensagem da Junção do Azure AD.
+   ![Ingressar no menu de configurações de saudação do AD do Azure](./media/active-directory-azureadjoin/active-directory-azureadjoin-settings.png)</center>
+3. Clique em **continuar** na janela de mensagem de junção do Azure AD hello.
    
    <center>
    ![Janela de mensagem de ingresso no Azure AD](./media/active-directory-azureadjoin/active-directory-azureadjoin-message.png) </center>
-4. Forneça suas credenciais de entrada. Esta experiência de entrada incluirá todas as etapas necessárias concluir a autenticação. Se você fizer parte de um locatário federado, seu administrador fornecerá uma experiência de federação hospedado pela sua organização.
+4. Forneça suas credenciais de entrada. Essa experiência de logon incluirá todas as etapas de saudação toocomplete necessária autenticação. Se você fizer parte de um locatário federado, o administrador fornecerá experiência de Federação Olá que é hospedada pela sua organização.
    <center>
    ![Fornecer suas credenciais de entrada](./media/active-directory-azureadjoin/active-directory-azureadjoin-sign-in.png) </center>
-5. Se a sua organização tiver configurado a Azure Multi-Factor Authentication para unir-se ao Azure AD, forneça o segundo fator para continuar.
-6. Clique em **Aceitar** na tela **Permitir que este dispositivo seja gerenciado**.
-7. Você deverá ver a mensagem "O dispositivo agora faz parte de sua organização no Azure AD".
+5. Se sua organização tiver configurado o Azure multi-Factor Authentication para ingresso tooAzure AD, forneça o segundo fator Olá antes de continuar.
+6. Clique em **aceitar** em Olá **permitir esta toobe dispositivo gerenciado** tela.
+7. Você deve ver a mensagem de saudação "o dispositivo agora está unido tooyour organização no AD do Azure".
 
 ## <a name="additional-information"></a>Informações adicionais
 * [Saiba mais sobre cenários de uso da Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Conecte-se a dispositivos que ingressaram no domínio tooAzure AD para experiências do Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 * [Autenticando identidades sem senhas com o Microsoft Passport](active-directory-azureadjoin-passport.md)
 

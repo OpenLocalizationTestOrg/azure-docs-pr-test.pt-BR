@@ -1,6 +1,6 @@
 ---
-title: "Documentação do Azure Active Directory B2C - Tutoriais, Referência de API | Microsoft Docs"
-description: "Aprenda a implantar o gerenciamento de identidade de consumidor abrangente na nuvem. A documentação mostra como proteger aplicativos Web e móveis voltados ao consumidor."
+title: "aaaAzure B2C documentação do Active Directory - tutoriais, referência de API | Microsoft Docs"
+description: "Saiba como o gerenciamento de identidades de consumidor abrangente toodeploy em hello nuvem. Documentação mostra como tooprotect voltado ao consumidor aplicativos web e móveis."
 services: active-directory-b2c
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 2bb7fe165fc88df62a2b12ccf666da0a7965d43b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f9f6939d4d5bbe49533cad037a9085ce3da63155
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="active-directory-b2c-documentation"></a>Documentação do Active Directory B2C
 
-Aprenda a gerenciar e configurar o gerenciamento de identidade de consumidor abrangente na nuvem com o Active Directory B2C. Tutoriais, referências e outras documentações mostram como proteger os aplicativos Web e móveis voltados ao consumidor com o logon seguro.
+Saiba como tooset e gerenciar gerenciamento de identidade abrangente do consumidor na nuvem Olá com B2C do Active Directory. Tutoriais, referências e outras documentações mostram como tooprotect voltado ao consumidor aplicativos web e móveis com secure entrar.
 
 <ul class="panelContent cardsFTitle">
     <li>

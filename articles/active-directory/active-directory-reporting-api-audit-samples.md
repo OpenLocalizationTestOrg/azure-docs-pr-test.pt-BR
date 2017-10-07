@@ -1,6 +1,6 @@
 ---
-title: "Exemplos de API de auditoria de relatórios do Azure Active Directory | Microsoft Docs"
-description: "Como começar a usar a API de relatório do Active Directory do Azure"
+title: exemplos de API de auditoria de aaaAzure do Active Directory reporting | Microsoft Docs
+description: Como tooget iniciada com hello Azure Reporting API do Active Directory
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,30 +15,30 @@ ms.workload: identity
 ms.date: 08/02/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6e3e127fbdc228ff0535be64fe4a4a696731a897
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 6ada8a7184d7baacaba5ba9c1b9130653b1cf7fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-reporting-audit-api-samples"></a>Exemplos de API de auditoria de relatórios do Azure Active Directory
-Este tópico faz parte de uma coleção de tópicos sobre a API de relatório do Azure Active Directory.  
-Os relatórios do Azure AD fornecem uma API que permite a você acessar dados de auditoria usando código ou ferramentas relacionadas.
-O escopo deste tópico é fornecer um exemplo de código para a **API de auditoria**.
+Este tópico faz parte de uma coleção de tópicos sobre Olá Active Directory do Azure API de relatório.  
+Relatórios de AD do Azure fornece uma API que permite que você tooaccess dados de auditoria usando o código ou ferramentas relacionadas.
+Olá, escopo deste tópico é tooprovide com exemplo de código para hello **audit API**.
 
 Consulte:
 
 * [Logs de auditoria](active-directory-reporting-azure-portal.md#activity-reports) para obter mais informações conceituais
-* [Introdução à API de relatório do Azure Active Directory](active-directory-reporting-api-getting-started.md) para saber mais sobre a API de relatório.
+* [Introdução à saudação do Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md) para obter mais informações sobre Olá API de relatório.
 
 Para dúvidas, problemas ou comentários, entre em contato com a [Ajuda de relatório do AAD](mailto:aadreportinghelp@microsoft.com).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de usar os exemplos deste tópico, você precisará atender os [pré-requisitos para acessar a API de relatório do Azure AD](active-directory-reporting-api-prerequisites.md).  
+Antes de você pode usar os exemplos de saudação neste tópico, é necessário Olá toocomplete [pré-requisitos tooaccess Olá AD do Azure reporting API](active-directory-reporting-api-prerequisites.md).  
 
 ## <a name="known-issue"></a>Problema conhecido
-A Autenticação de aplicativo não funcionará se o seu locatário estiver na região da UE. Use a Autenticação do usuário para acessar a API de auditoria a fim de solucionar esse problema até que possamos corrigir o problema. 
+Autenticação do aplicativo não funcionará se o seu locatário estiver na região da Europa de saudação. Use autenticação de usuário para acessar Olá API de auditoria para solucionar esse problema até que podemos corrigir o problema de saudação. 
 
 ## <a name="powershell-script"></a>Script do PowerShell
     # This script will require registration of a Web Application in Azure Active Directory (see https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)
@@ -49,14 +49,14 @@ A Autenticação de aplicativo não funcionará se o seu locatário estiver na r
     $loginURL       = "https://login.microsoftonline.com"     # AAD Instance; for example https://login.microsoftonline.com
     $tenantdomain   = "your-tenant-domain.onmicrosoft.com"    # AAD Tenant; for example, contoso.onmicrosoft.com
     $resource       = "https://graph.windows.net"             # Azure AD Graph API resource URI
-    $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' to decrement minutes, for example
+    $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' toodecrement minutes, for example
     Write-Output "Searching for events starting $7daysago"
 
     # Create HTTP header, get an OAuth2 access token based on client id, secret and tenant domain
     $body       = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
     $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
 
-    # Parse audit report items, save output to file(s): auditX.json, where X = 0 thru n for number of nextLink pages
+    # Parse audit report items, save output toofile(s): auditX.json, where X = 0 thru n for number of nextLink pages
     if ($oauth.access_token -ne $null) {   
         $i=0
         $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
@@ -64,15 +64,15 @@ A Autenticação de aplicativo não funcionará se o seu locatário estiver na r
 
         # loop through each query page (1 through n)
         Do{
-            # display each event on the console window
+            # display each event on hello console window
             Write-Output "Fetching data using Uri: $url"
             $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
             foreach ($event in ($myReport.Content | ConvertFrom-Json).value) {
                 Write-Output ($event | ConvertTo-Json)
             }
 
-            # save the query page to an output file
-            Write-Output "Save the output to a file audit$i.json"
+            # save hello query page tooan output file
+            Write-Output "Save hello output tooa file audit$i.json"
             $myReport.Content | Out-File -FilePath audit$i.json -Force
             $url = ($myReport.Content | ConvertFrom-Json).'@odata.nextLink'
             $i = $i+1
@@ -81,14 +81,14 @@ A Autenticação de aplicativo não funcionará se o seu locatário estiver na r
         Write-Host "ERROR: No Access Token"
         }
 
-    Write-Host "Press any key to continue ..."
+    Write-Host "Press any key toocontinue ..."
     $x = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 
 
-### <a name="executing-the-powershell-script"></a>Execução do script do PowerShell
-Quando você terminar de editar o script, execute-o e verifique se os dados esperados do relatório Logs de auditoria são retornados.
+### <a name="executing-hello-powershell-script"></a>Executar script do PowerShell Olá
+Uma vez você terminar de editar o script hello, executá-lo e verifique se que esse Olá esperado de dados de relatório de logs de auditoria de saudação são retornados.
 
-O script retorna a saída do relatório de auditoria no formato JSON. Ele também cria um arquivo `audit.json` com a mesma saída. Você pode experimentar ao modificar o script para retornar dados de outros relatórios, além de comentar os formatos de saída de que você não precisa.
+script Hello retorna a saída do relatório de auditoria Olá no formato JSON. Ele também cria um `audit.json` arquivo com hello mesma saída. Você pode experimentar, modificando Olá script tooreturn dados de outros relatórios e comente Olá formatos de saída não é necessário.
 
 ## <a name="bash-script"></a>Script Bash
     #!/bin/bash
@@ -121,7 +121,7 @@ O script retorna a saída do relatório de auditoria no formato JSON. Ele també
 ## <a name="python-script"></a>Script Python
     # Author: Michael McLaughlin (michmcla@microsoft.com)
     # Date: January 20, 2016
-    # This requires the Python Requests module: http://docs.python-requests.org
+    # This requires hello Python Requests module: http://docs.python-requests.org
 
     import requests
     import datetime
@@ -147,7 +147,7 @@ O script retorna a saída do relatório de auditoria no formato JSON. Ele també
         print "ERROR: Couldn't get access token"
         sys.exit(1)
 
-    # Use the access token to make the API request
+    # Use hello access token toomake hello API request
     yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
 
     header_params = {'Authorization': token_type + ' ' + access_token}
@@ -164,7 +164,7 @@ O script retorna a saída do relatório de auditoria no formato JSON. Ele també
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Você gostaria de personalizar os exemplos deste tópico? Confira os [Referência da API de auditoria do Azure Active Directory](active-directory-reporting-api-audit-reference.md). 
-* Se você quiser uma visão geral de como usar a API de relatório do Azure Active Directory, confira [Introdução à API de relatório do Azure Active Directory](active-directory-reporting-api-getting-started.md).
-* Se você quiser saber mais sobre os relatórios do Azure Active Directory, confira o [Guia de relatórios do Azure Active Directory](active-directory-reporting-guide.md).  
+* Você gostaria que toocustomize exemplos Olá neste tópico? Check-out Olá [auditoria do Active Directory do Azure referência da API](active-directory-reporting-api-audit-reference.md). 
+* Se você quiser uma visão geral completa do uso de toosee Olá do Active Directory do Azure API de relatório, consulte [guia de Introdução ao Olá do Active Directory do Azure API de relatório](active-directory-reporting-api-getting-started.md).
+* Se você quiser toofind mais informações sobre os relatórios do Active Directory do Azure, consulte Olá [do Azure Active Directory Reporting guia](active-directory-reporting-guide.md).  
 

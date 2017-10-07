@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory com o Neota Logic Studio | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Neota Logic Studio."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Neota lógica Studio."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,69 +13,69 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 99018277392cab44a6b579ad45b4611739a803d8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a479ee49618de8275132dbc2c21a8ef723d92d02
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>Tutorial: Integração do Azure Active Directory com o Neota Logic Studio
 
-Neste tutorial, você aprenderá a integrar o Neota Logic Studio ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como toointegrate Neota lógica Studio com o Azure Active Directory (AD do Azure).
 
-A integração do Neota Logic Studio ao Azure AD oferece os seguintes benefícios:
+Integrando Neota lógica Studio com o AD do Azure fornece Olá benefícios a seguir:
 
-- No Azure AD, você pode controlar quem tem acesso ao Neota Logic Studio
-- Você pode permitir que seus usuários façam logon automaticamente no Neota Logic Studio (Logon único) com as respectivas contas do Azure AD
-- Você pode gerenciar suas contas em um única localização: o Portal do Azure
+- Você pode controlar no AD do Azure que tenha acesso tooNeota Studio lógica
+- Você pode habilitar seu usuários tooautomatically get conectado tooNeota Studio lógica (logon único) com suas contas do AD do Azure
+- Você pode gerenciar suas contas em um local central - Olá portal do Azure
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte. [O que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte. [O que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao Neota Logic Studio, você precisará dos seguintes itens:
+tooconfigure integração do AD do Azure com Neota lógica Studio, você precisa Olá itens a seguir:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura do Neota Logic Studio habilitada para logon único
 
 > [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
 
-1. Adicionar o Neota Logic Studio da galeria
+1. Adicionando Neota lógica Studio da Galeria de saudação
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-neota-logic-studio-from-the-gallery"></a>Adicionar o Neota Logic Studio da galeria
+## <a name="adding-neota-logic-studio-from-hello-gallery"></a>Adicionando Neota lógica Studio da Galeria de saudação
 
-Para configurar a integração do Neota Logic Studio ao Azure AD, você precisa adicionar o do Neota Logic Studio da galeria à sua lista de aplicativos SaaS gerenciados.
+integração de saudação tooconfigure do Studio de lógica de Neota no AD do Azure, você precisa tooadd Neota lógica Studio na lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
 
-**Para adicionar o Neota Logic Studio da galeria, execute as etapas a seguir:**
+**tooadd Neota lógica Studio da Galeria hello, execute Olá etapas a seguir:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
 
     ![Aplicativos][3]
 
-4. Na caixa de pesquisa, digite **Neota Logic Studio**.
+4. Na caixa de pesquisa hello, digite **Neota lógica Studio**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-neotalogicstudio-tutorial/tutorial_neotalogicstudio_search.png)
 
-5. No painel de resultados, selecione **Neota Logic Studio** e clique no botão **Adicionar** para adicionar o aplicativo.
+5. No painel de resultados de saudação, selecione **Neota lógica Studio**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-neotalogicstudio-tutorial/tutorial_neotalogicstudio_addfromgallery.png)
 
@@ -83,108 +83,108 @@ Para configurar a integração do Neota Logic Studio ao Azure AD, você precisa 
 
 Nesta seção, você configurará e testará o logon único do Azure AD com o Neota Logic Studio, com base em um usuário de teste chamado "Brenda Fernandes".
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Neota Logic Studio é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Neota Logic Studio.
+Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no Studio de lógica de Neota é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no Studio de lógica de Neota precisa toobe estabelecida.
 
-Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** ao Azure AD como sendo o valor de **Nome de usuário** no Neota Logic Studio.
+Essa relação de link é estabelecida pela atribuição de valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** no Studio de lógica de Neota.
 
-Para configurar e testar o logon único do Azure AD com o Neota Logic Studio, você precisa concluir os seguintes blocos de construção:
+tooconfigure e teste de logon único do AD do Azure com Neota lógica Studio, você precisa Olá toocomplete blocos de construção a seguir:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criar um usuário de teste do Neota Logic Studio](#creating-a-neota-logic-studio-test-user)** – para ter um equivalente de Brenda Fernandes no Neota Logic Studio que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
+3. **[Criar um usuário de teste Neota lógica Studio](#creating-a-neota-logic-studio-test-user)**  -toohave um equivalente do Britta Simon no Studio de lógica de Neota é toohello vinculado do Azure AD representação do usuário.
+4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
+5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único em seu aplicativo Neota Logic Studio.
+Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo Neota lógica Studio.
 
-**Para configurar o logon único do Azure AD com o Neota Logic Studio, execute as seguintes etapas:**
+**tooconfigure logon único do AD do Azure com Neota lógica Studio, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, na página de integração de aplicativos do **Neota Logic Studio**, clique em **Logon único**.
+1. Em Olá portal do Azure, Olá **Neota lógica Studio** página de integração de aplicativos, clique em **o logon único**.
 
     ![Configurar Logon Único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
  
     ![Configurar Logon Único](./media/active-directory-saas-neotalogicstudio-tutorial/tutorial_neotalogicstudio_samlbase.png)
 
-3. Na seção **URLs e Domínio do Neota Logic Studio**, execute as seguintes etapas:
+3. Em Olá **Neota lógica Studio domínio e URLs** , execute Olá etapas a seguir:
 
     ![Configurar Logon Único](./media/active-directory-saas-neotalogicstudio-tutorial/tutorial_neotalogicstudio_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<sub domain>.neotalogic.com/a/<sub application>`
+    a. Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<sub domain>.neotalogic.com/a/<sub application>`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<sub domain>.neotalogic.com/wb`
+    b. Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<sub domain>.neotalogic.com/wb`
 
     > [!NOTE] 
-    > Esses não são os valores reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Aqui, sugerimos que você use o valor exclusivo de cadeia de caracteres no Identificador. Contate a [equipe de suporte ao Cliente do Neota Logic Studio](https://www.neotalogic.com/contact-us/) para obter esses valores. 
+    > Esses valores não são Olá real. Atualizar esses valores com hello real & identificador de URL de logon. Aqui, é recomendável você toouse Olá valor exclusivo de cadeia de caracteres em identificador de saudação. Entre em contato com [equipe de suporte do cliente do Studio lógica Neota](https://www.neotalogic.com/contact-us/) tooget esses valores. 
  
-4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+4. Em Olá **o certificado de autenticação SAML** seção, clique em **Metadata XML** e, em seguida, salve o arquivo de metadados de saudação em seu computador.
 
-    ![Configurar o logon único](./media/active-directory-saas-neotalogicstudio-tutorial/tutorial_neotalogicstudio_certificate.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-neotalogicstudio-tutorial/tutorial_neotalogicstudio_certificate.png) 
 
 5. Clique no botão **Salvar** .
 
     ![Configurar Logon Único](./media/active-directory-saas-neotalogicstudio-tutorial/tutorial_general_400.png)
 
-6. Para que o SSO seja configurado para o aplicativo, entre em contato com a [equipe de suporte do Neota Logic Studio](https://www.neotalogic.com/contact-us/) e forneça a eles o arquivo **XML de metadados** baixado.
+6. tooget SSO configurado para o seu aplicativo, entre em contato com [suporte Neota lógica Studio](https://www.neotalogic.com/contact-us/) da equipe e fornecê-los com baixado **Metadata XML** arquivo.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
 
 ![Criar um usuário do AD do Azure][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
 
-1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-neotalogicstudio-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-neotalogicstudio-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-neotalogicstudio-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-neotalogicstudio-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
 
-    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-neota-logic-studio-test-user"></a>Criar um usuário de teste do Neota Logic Studio
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no Neota Logic Studio. Trabalhe com a [equipe de suporte do cliente do Neota Logic Studio](https://www.neotalogic.com/contact-us/) para adicionar os usuários na plataforma do Neota Logic Studio. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você criará um usuário chamado Brenda Fernandes no Neota Logic Studio. trabalhar com [a equipe de suporte Neota lógica Studio cliente](https://www.neotalogic.com/contact-us/) para adicionar usuários de saudação na plataforma de Neota lógica Studio hello. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
 
-Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Neota Logic Studio.
+Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooNeota Studio lógica.
 
 ![Atribuir usuário][200] 
 
-**Para atribuir Brenda Fernandes ao Neota Logic Studio, execute as seguintes etapas:**
+**tooassign Britta Simon tooNeota Studio lógica, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, escolha **Neota Logic Studio**.
+2. Na lista de aplicativos hello, selecione **Neota lógica Studio**.
 
     ![Configurar Logon Único](./media/active-directory-saas-neotalogicstudio-tutorial/tutorial_neotalogicstudio_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -192,7 +192,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -200,15 +200,15 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
 
-Clique no bloco Neota Logic Studio no Painel de Acesso e você será redirecionado para a página de logon Organização. Após fazer logon com êxito, você entrará no aplicativo Neota Logic Studio. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Clique em bloco de Neota lógica Studio Olá Olá painel de acesso, será redirecionado tooOrganization logon na página. Após o logon bem-sucedido, você será conectado tooyour aplicativo Neota lógica Studio. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586). 
+Para obter mais informações sobre Olá painel de acesso, consulte [Introdução ao painel de acesso](https://msdn.microsoft.com/library/dn308586). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

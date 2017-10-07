@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory Domain Services: Criar o grupo de administradores de controladores de domínio do Azure AD | Microsoft Docs"
-description: "Habilitar o Azure Active Directory Domain Services usando o portal clássico do Azure"
+title: "Serviços do Azure Active Directory domínio: Criar o grupo de administradores do controlador de domínio de saudação do AD do Azure | Microsoft Docs"
+description: "Habilitar o Azure Active Directory Domain Services usando Olá portal clássico do Azure"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -14,53 +14,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: maheshu
-ms.openlocfilehash: 5ed0125e05928cf0f6d9941e099b433ecb46e6e2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d629ab9632ef6a45b549630999ff9a122d60c040
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="enable-azure-active-directory-domain-services-using-the-azure-classic-portal"></a>Habilitar o Azure Active Directory Domain Services usando o portal clássico do Azure
-Este artigo descreve e explica em detalhes as tarefas de configuração necessárias para habilitar o Azure AD DS (Azure Active Directory Domain Services) para seu locatário do Azure AD (Azure Active Directory).
+# <a name="enable-azure-active-directory-domain-services-using-hello-azure-classic-portal"></a>Habilitar o Azure Active Directory Domain Services usando Olá portal clássico do Azure
+Este artigo descreve e orienta durante as tarefas de configuração de saudação que são necessárias para você tooenable do Azure Active Directory serviços de domínio (Azure AD DS) para seu locatário do Azure Active Directory (AD do Azure).
 
 > [!NOTE]
-> [**Teste a experiência do novo portal do Azure (Versão prévia)**](active-directory-ds-getting-started.md). 
+> [**Tente a nova experiência do portal (visualização) do Azure Olá em vez disso,**](active-directory-ds-getting-started.md). 
 >
 
-## <a name="task-1-create-the-azure-ad-dc-administrators-group"></a>Tarefa 1: Criar o grupo de administradores de controladores de domínio do Azure AD
-A primeira tarefa é criar um grupo administrativo em seu locatário do Azure AD. Este grupo administrativo especial é chamado *AAD DC Administrators*. Os membros desse grupo recebem permissões administrativas nos computadores ingressados no domínio ao domínio gerenciado pelo Azure Active Directory Domain Services. Em computadores ingressados no domínio, esse grupo é adicionado ao grupo de administradores. Além disso, os membros desse grupo também poderão usar a Área de Trabalho Remota para se conectar remotamente a computadores ingressados no domínio.  
+## <a name="task-1-create-hello-azure-ad-dc-administrators-group"></a>Tarefa 1: criar o grupo de administradores do controlador de domínio de saudação do AD do Azure
+Olá primeira tarefa é toocreate um grupo administrativo em seu locatário do AD do Azure. Este grupo administrativo especial é chamado *AAD DC Administrators*. Os membros deste grupo recebem permissões administrativas nos computadores que ingressaram no domínio toohello gerenciado do Azure Active Directory Domain Services domínio. Em computadores que ingressaram no domínio, esse grupo é adicionado toohello grupo de administradores. Além disso, os membros desse grupo podem usar a área de trabalho remota tooconnect remotamente toodomain-computadores que ingressaram no.  
 
 > [!NOTE]
-> Você não tem permissões de Administrador de Domínio nem de Administrador Enterprise no domínio gerenciado criado com o Azure Active Directory Domain Services. Em domínios gerenciados, essas permissões são reservadas pelo serviço e não são disponibilizadas aos usuários dentro do locatário. No entanto, você poderá usar o grupo administrativo especial criado nesta tarefa de configuração para executar algumas operações privilegiadas. Essas operações incluem ingressar os computadores no domínio, pertencer ao grupo de administração em computadores ingressados no domínio e configurar a Política de Grupo.
+> Você não tem permissões de administrador de domínio ou administrador corporativo no hello domínio gerenciado que você criou usando o Azure Active Directory Domain Services. Em domínios gerenciados, essas permissões são reservadas pelo serviço hello em não ficam disponíveis toousers dentro do locatário hello. No entanto, você pode usar o grupo administrativo especial Olá criado no tooperform de tarefa configuração algumas operações privilegiadas. Essas operações incluem ingressar em domínio toohello dos computadores que pertencem a grupo de administração de toohello em computadores que ingressaram no domínio e configurar política de grupo.
 >
 
-Nessa tarefa de configuração, você cria o grupo administrativo e adicionará um ou mais usuários em seu diretório ao grupo. Para criar o grupo administrativo para o Azure Active Directory Domain Services, faça o seguinte:
+Esta tarefa de configuração, criar grupo administrativo hello e adicionar um ou mais usuários no grupo de toohello de diretório. grupo administrativo do toocreate Olá para o Azure Active Directory Domain Services, Olá a seguir:
 
-1. Acesse o [portal clássico do Azure](https://manage.windowsazure.com).
-2. No painel esquerdo, selecione o botão **Active Directory**.
-3. Selecione o locatário do Azure AD (diretório) para o qual você deseja habilitar o Azure Active Directory Domain Services. Você pode criar apenas um domínio para cada diretório do Azure AD.
+1. Vá toohello [portal clássico do Azure](https://manage.windowsazure.com).
+2. No painel esquerdo do hello, selecione Olá **do Active Directory** botão.
+3. Selecione o locatário de AD do Azure hello (diretório) para o qual você deseja que o Azure tooenable serviços de domínio Active Directory. Você pode criar apenas um domínio para cada diretório do Azure AD.
 
     ![Selecionar um diretório do Azure AD](./media/active-directory-domain-services-getting-started/select-aad-directory.png)
-4. Na página **Diretório de visualização**, clique na guia **Grupos**.
-5. Para adicionar um grupo ao seu locatário do Azure AD, no painel de tarefas na parte inferior da página, clique em **Adicionar Grupo**.
+4. Em Olá **directory visualização** , clique em Olá **grupos** guia.
+5. clique de um locatário de grupo tooyour AD do Azure, no painel de tarefas de saudação na parte inferior da saudação da janela de saudação tooadd **adicionar grupo**.
 
-    ![O botão Adicionar Grupo](./media/active-directory-domain-services-getting-started/add-group-button.png)
-6. Na caixa de diálogo **Adicionar Grupo**, crie um grupo chamado **Administradores de controladores de domínio do AAD** e, em seguida, defina **Tipo do Grupo** como **Segurança**.
+    ![botão Adicionar grupo de saudação](./media/active-directory-domain-services-getting-started/add-group-button.png)
+6. Em Olá **adicionar grupo** caixa de diálogo caixa, crie um grupo chamado **AAD DC administradores**e, em seguida, defina **tipo de grupo** muito**segurança**.
 
    > [!WARNING]
-   > Para habilitar o acesso no domínio gerenciado pelo Azure Active Directory Domain Services, crie um grupo com esse mesmo nome.
+   > acesso de tooenable em seu domínio gerenciado do Azure Active Directory Domain Services, crie um grupo com esse nome exato.
    >
    >
 
-    ![A caixa de diálogo Adicionar Grupo](./media/active-directory-domain-services-getting-started/create-admin-group.png)
-7. Na caixa **Descrição**, insira uma descrição que permite que outras pessoas entendam que esse grupo concede permissões administrativas no Azure Active Directory Domain Services.
-8. Depois de criar o grupo, clique no nome do grupo para exibir suas propriedades.
-9. Para adicionar usuários como membros do grupo, na parte inferior da janela, clique no botão **Adicionar Membros**.
+    ![caixa de diálogo Adicionar grupo Olá](./media/active-directory-domain-services-getting-started/create-admin-group.png)
+7. Em Olá **descrição** , digite uma descrição que permite que outras pessoas toounderstand neste grupo concede permissões administrativas no Azure Active Directory Domain Services.
+8. Depois de criar o grupo de hello, clique em tooview de nome de grupo Olá suas propriedades.
+9. tooadd usuários como membros do grupo de hello, na parte inferior da saudação da janela de saudação, clique em Olá **adicionar membros** botão.
 
     ![Botão Adicionar membros do grupo](./media/active-directory-domain-services-getting-started/add-group-members-button.png)
-10. Na caixa de diálogo **Adicionar membros**, selecione os usuários que devem ser membros desse grupo e, em seguida, clique no ícone de marca de seleção no canto inferior direito.
+10. Em Olá **adicionar membros** caixa de diálogo, os usuários de saudação select que devem ser membros desse grupo e clique no ícone de marca de seleção de saudação em hello inferior direito.
 
-    ![Adicionar usuários ao grupo de administradores](./media/active-directory-domain-services-getting-started/add-group-members.png)
+    ![Adicionar grupo de usuários do tooadministrators](./media/active-directory-domain-services-getting-started/add-group-members.png)
 
 
 ## <a name="next-step"></a>Próxima etapa
